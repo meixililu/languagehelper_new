@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/MaterialDesign/build/intermediates/res/merged/androidTest/debug/layout/text.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/MaterialDesign/build/intermediates/bundles/debug/res/layout/text.xml"
+    },
+    {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/MaterialDesign/build/intermediates/res/merged/androidTest/debug/layout/snackbar.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/MaterialDesign/build/intermediates/bundles/debug/res/layout/snackbar.xml"
+    },
+    {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/MaterialDesign/build/intermediates/res/merged/androidTest/debug/layout/dialog.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/MaterialDesign/build/intermediates/bundles/debug/res/layout/dialog.xml"
+    },
+    {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/MaterialDesign/build/intermediates/res/merged/androidTest/debug/layout/color_selector.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/MaterialDesign/build/intermediates/bundles/debug/res/layout/color_selector.xml"
+    },
+    {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/MaterialDesign/build/intermediates/res/merged/androidTest/debug/layout/number_indicator_spinner.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/MaterialDesign/build/intermediates/bundles/debug/res/layout/number_indicator_spinner.xml"
+    },
+    {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/MaterialDesign/build/intermediates/res/merged/androidTest/debug/layout/progress_dialog.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/MaterialDesign/build/intermediates/bundles/debug/res/layout/progress_dialog.xml"
+    }
+]

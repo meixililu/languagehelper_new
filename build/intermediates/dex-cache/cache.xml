@@ -1,0 +1,896 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-24.2.1_689afe7c6de828e70cce64e17a80fc40b4b4762b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_f9b8e525770602dce8ed185ac1d24223a4f77300.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-24.2.1_85bd6e7157cc931daee28f3b05fc46d8e4dc3ed6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.7.0/9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4/glide-3.7.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/glide-3.7.0_f0977800c01ba9d42ebd8e699402a19c5e7aea52.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/.gradle/caches/modules-2/files-2.1/cn.leancloud.android/fastjson/1.1.39-leancloud/94d4ebd4acdaf01d7445435382eea2d2d38e7534/fastjson-1.1.39-leancloud.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="94d4ebd4acdaf01d7445435382eea2d2d38e7534">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/fastjson-1.1.39-leancloud_57928d91c76e5239ddae7329f9516526b2fc39b8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.2.1_f9b7e6d66cac360883cec58381c961c0e495b57f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_d47d49b3c960eaeb2d0bd7c33f7e366a1fea8448.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.jakewharton/butterknife/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="a07818a1ecabdb149998823429cce555af4b9cba">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.jakewharton-butterknife-8.4.0_da8e65e47f89e16cb474147e22429a30833cd49f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/0.14.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="c77602d43223db798b1ca56cf307ab0ee3c0e63f">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fresco-0.14.1_4c23e7223f15034eefce3719eb32089d7f84b588.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/libs/android-query-full.0.26.7.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="4055bed8ed6f6aa573fa3e7d979c66101c48e182">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/android-query-full.0.26.7_cf07f2bbc7787ad8e22d35497e430c245759dbab.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-24.2.1_dc3f90a05ad0fbf87650f22a38c86f5f7cfdd6a5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/tv.danmaku.ijk.media/ijkplayer-armv7a/0.6.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="883eb9c3bde63636505e42fc6cad790f4739b0d3">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/tv.danmaku.ijk.media-ijkplayer-armv7a-0.6.0_daeb72c3958a97582a1037b96f29848df4e8df94.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_0ee4b4fd1f94c31064a1068c98e85c85ab388aec.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/.gradle/caches/modules-2/files-2.1/cn.leancloud.android/avoscloud-statistics/v3.14.6/58301263473e4fb1cb3e64f6e03082694b4cffa0/avoscloud-statistics-v3.14.6.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="58301263473e4fb1cb3e64f6e03082694b4cffa0">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/avoscloud-statistics-v3.14.6_8c80c662f4e866a1fb3375a4b10b0e5302700e03.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/.gradle/caches/modules-2/files-2.1/cn.leancloud.android/fastjson/1.1.39-leancloud/94d4ebd4acdaf01d7445435382eea2d2d38e7534/fastjson-1.1.39-leancloud.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="94d4ebd4acdaf01d7445435382eea2d2d38e7534">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/fastjson-1.1.39-leancloud_57928d91c76e5239ddae7329f9516526b2fc39b8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.facebook.fresco/animated-base/0.14.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="4586985d8e3ab9baaaa0f7a7d5a1b46bec20816f">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-animated-base-0.14.1_9a71a753683510b7741eaf94d17118630dc42548.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/.gradle/caches/modules-2/files-2.1/cn.leancloud.android/avoscloud-sdk/v3.14.6/f8696e37fcfcb42aa970ab8692752cdf81ea16/avoscloud-sdk-v3.14.6.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="00f8696e37fcfcb42aa970ab8692752cdf81ea16">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/avoscloud-sdk-v3.14.6_3a9373a9b77979e301bca48beb11af0d1bc7f1fe.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.balysv/material-ripple/1.0.2/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="c733e9d1b065d940a08f2fca0ff920dfc08d94cc">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.balysv-material-ripple-1.0.2_e415199c1698c526994ef908c5c0d75af43b1879.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/libs/contx.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="dda6705c1af057d4eafe8d86c9b2c1ea7d4c6b9e">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/contx_634d7750d4023ecdb71d00032b4c6340e4365e63.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/.gradle/caches/modules-2/files-2.1/org.jsoup/jsoup/1.9.2/5e3bda828a80c7a21dfbe2308d1755759c2fd7b4/jsoup-1.9.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="5e3bda828a80c7a21dfbe2308d1755759c2fd7b4">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/jsoup-1.9.2_30a0b0cd41bed9f06922b031a9ede31bbce53bc1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/0.14.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="8795af3e130206443f2d5ed45f1b26067aff70dc">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-0.14.1_890c03688dde68d644970a84be8eecefa1687fa9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-24.2.1_9c457c079a7fbb7825d711f4963e17157485f8fb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/libs/Msc.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="994d12017bc2c9ba570180cde5500689d134e6e6">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/Msc_147708a490d7c9cc4de566523ae1297290eb792b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/.gradle/caches/modules-2/files-2.1/org.greenrobot/greendao/2.2.1/1aa64feab6440fff9a7fcfb1db1e6151d36d1254/greendao-2.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="1aa64feab6440fff9a7fcfb1db1e6151d36d1254">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/greendao-2.2.1_42498c25cf5d62f7b658975c5c23618377d1a102.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/support-annotations-24.2.1_e0961b0adfcfa4c002c327d78cf2bd4da0542af2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/languagehelper/MaterialDesign/unspecified/jars/libs/nineoldandroids-2.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="f086e018e187da53a1432c188023c86d1fa3ff73">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/nineoldandroids-2.4.0_407b5d9018f5e6301feccae00be1b05e8d1560cd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_d47d49b3c960eaeb2d0bd7c33f7e366a1fea8448.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_f9b8e525770602dce8ed185ac1d24223a4f77300.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/libs/Msc.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="994d12017bc2c9ba570180cde5500689d134e6e6">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/Msc_147708a490d7c9cc4de566523ae1297290eb792b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_63f33282df5c9cfd0656b33106da7d81215fce57.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.4.0/ea392375cf9ff59234a82e7928a204215ccc98cd/butterknife-annotations-8.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="ea392375cf9ff59234a82e7928a204215ccc98cd">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/butterknife-annotations-8.4.0_5d3ee6cd39e62906510475538df255947f69452e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/0.14.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="c77602d43223db798b1ca56cf307ab0ee3c0e63f">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fresco-0.14.1_4c23e7223f15034eefce3719eb32089d7f84b588.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/0.14.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e5bf70f3683146e4875c006624543cb0a13eac91">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fbcore-0.14.1_0b5fd5b407fb155029834a213aa862f3c95c34fc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.7.0/9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4/glide-3.7.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/glide-3.7.0_f0977800c01ba9d42ebd8e699402a19c5e7aea52.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/tv.danmaku.ijk.media/ijkplayer-x86/0.6.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="5ee6f3750abc2947b67bfbdf2061e26b0def1735">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/tv.danmaku.ijk.media-ijkplayer-x86-0.6.0_ce7851b7df5f7c47490bd048e9d1e67ec3552466.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/tv.danmaku.ijk.media/ijkplayer-java/0.6.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="a13789ec9e884e49740bb970550fabcb340466c1">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/tv.danmaku.ijk.media-ijkplayer-java-0.6.0_b5a55f5216cde69e96cecac62fe49d7761599128.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.2.1_f9b7e6d66cac360883cec58381c961c0e495b57f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/0.14.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="cf5e2940501f8f7b9175df6491cebb84f5690f14">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-drawee-0.14.1_cd2b33a75882ae70364ed94333eb7e0c5187ff33.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/libs/Sunflower.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="474e804b4375431961fbf7bb7454614fc3bda6bd">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/Sunflower_69336fa150fd215377c3b3b7dd96858ddd130044.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-24.2.1_dc3f90a05ad0fbf87650f22a38c86f5f7cfdd6a5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/.gradle/caches/modules-2/files-2.1/cn.leancloud.android/avoscloud-statistics/v3.14.6/58301263473e4fb1cb3e64f6e03082694b4cffa0/avoscloud-statistics-v3.14.6.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="58301263473e4fb1cb3e64f6e03082694b4cffa0">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/avoscloud-statistics-v3.14.6_8c80c662f4e866a1fb3375a4b10b0e5302700e03.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_c5d179dce78dba38dc001608ade516f1849a157b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/0.14.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e5bf70f3683146e4875c006624543cb0a13eac91">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fbcore-0.14.1_0b5fd5b407fb155029834a213aa862f3c95c34fc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.facebook.fresco/animated-gif/0.14.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="33d3c017a51ad5721e1d6c6be82239ab73e5458b">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-animated-gif-0.14.1_f5cbba91759fad322eddf404a0f20fb2de0905f4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_0ee4b4fd1f94c31064a1068c98e85c85ab388aec.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/tv.danmaku.ijk.media/ijkplayer-arm64/0.6.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d6a0998f61ebb488e6a3198fa20c851a137cd9b3">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/tv.danmaku.ijk.media-ijkplayer-arm64-0.6.0_64baf386ab1ebdfd19c0866e9c947681bea6fea9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.android.support-design-24.2.1_0e90962eb164fed6cdb7469e4ec1f30697ce1349.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/libs/Ad_Android_SDK.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="5b4a1b321c1d6eb0f6340d2a468861f271644fcf">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/Ad_Android_SDK_019d8db65a75135862e1938a25c08107e49faf39.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/.gradle/caches/modules-2/files-2.1/org.jsoup/jsoup/1.9.2/5e3bda828a80c7a21dfbe2308d1755759c2fd7b4/jsoup-1.9.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="5e3bda828a80c7a21dfbe2308d1755759c2fd7b4">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/jsoup-1.9.2_30a0b0cd41bed9f06922b031a9ede31bbce53bc1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.2.1_ab4b77c4c53c1deead38187e05a5e6e39b5305f7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.4.0/ea392375cf9ff59234a82e7928a204215ccc98cd/butterknife-annotations-8.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="ea392375cf9ff59234a82e7928a204215ccc98cd">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/butterknife-annotations-8.4.0_5d3ee6cd39e62906510475538df255947f69452e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-24.2.1_689afe7c6de828e70cce64e17a80fc40b4b4762b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/support-annotations-24.2.1_e0961b0adfcfa4c002c327d78cf2bd4da0542af2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/languagehelper/MaterialDesign/unspecified/jars/libs/nineoldandroids-2.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="f086e018e187da53a1432c188023c86d1fa3ff73">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/nineoldandroids-2.4.0_407b5d9018f5e6301feccae00be1b05e8d1560cd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.2.1_03d133312d54024dcb99efc3ce093bb02171392b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_a5d52cb01112ec85cce86dcd4fc53da74ab0984a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/0.14.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b881010e06dc39be15b7465cd16492eedbab246f">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-base-0.14.1_206edfef1ce5d81af024e7f25b5b293822691440.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/libs/Ad_Android_SDK.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="5b4a1b321c1d6eb0f6340d2a468861f271644fcf">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/Ad_Android_SDK_019d8db65a75135862e1938a25c08107e49faf39.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/fm.jiecao/jiecaovideoplayer/4.6.5/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="a8450511d59a21b64eae291f973b96767e7d5e6a">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/fm.jiecao-jiecaovideoplayer-4.6.5_d6ebb2c9619eaf3aa97d5b89504258497b09ca8e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_63f33282df5c9cfd0656b33106da7d81215fce57.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/tv.danmaku.ijk.media/ijkplayer-x86/0.6.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="5ee6f3750abc2947b67bfbdf2061e26b0def1735">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/tv.danmaku.ijk.media-ijkplayer-x86-0.6.0_ce7851b7df5f7c47490bd048e9d1e67ec3552466.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.facebook.fresco/animated-gif/0.14.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="33d3c017a51ad5721e1d6c6be82239ab73e5458b">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-animated-gif-0.14.1_f5cbba91759fad322eddf404a0f20fb2de0905f4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/.gradle/caches/modules-2/files-2.1/cn.leancloud.android/okio/1.6.0-leancloud/7086c00a30a6de0ee3b963ec2c3702d37f1de11d/okio-1.6.0-leancloud.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7086c00a30a6de0ee3b963ec2c3702d37f1de11d">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/okio-1.6.0-leancloud_80c155ab348d9aac1a1413368578b72ddd2f8380.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_5b301709bcc656c55b5b580bc8a1cb25821e6e38.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/tv.danmaku.ijk.media/ijkplayer-arm64/0.6.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d6a0998f61ebb488e6a3198fa20c851a137cd9b3">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/tv.danmaku.ijk.media-ijkplayer-arm64-0.6.0_64baf386ab1ebdfd19c0866e9c947681bea6fea9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_9cf5948689915dd80aa5e29b80e53e4aa4425479.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.android.support-design-24.2.1_0e90962eb164fed6cdb7469e4ec1f30697ce1349.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/0.14.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="cf5e2940501f8f7b9175df6491cebb84f5690f14">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-drawee-0.14.1_cd2b33a75882ae70364ed94333eb7e0c5187ff33.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/.gradle/caches/modules-2/files-2.1/cn.leancloud.android/okhttp/2.6.0-leancloud/7d1a8dbbc128e91cf41ab6eafaa741ab2a6ff930/okhttp-2.6.0-leancloud.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7d1a8dbbc128e91cf41ab6eafaa741ab2a6ff930">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/okhttp-2.6.0-leancloud_49c7729b4bd356be2039cd0e58e385fe60bb8719.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_c5d179dce78dba38dc001608ade516f1849a157b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/tv.danmaku.ijk.media/ijkplayer-x86_64/0.6.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="0562efaffe940ea2da9383096ddea9281585c052">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/tv.danmaku.ijk.media-ijkplayer-x86_64-0.6.0_527b3d9fa21b4b2c8889248fef6f1133ad24e36c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_a5d52cb01112ec85cce86dcd4fc53da74ab0984a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/libs/Sunflower.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="474e804b4375431961fbf7bb7454614fc3bda6bd">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/Sunflower_69336fa150fd215377c3b3b7dd96858ddd130044.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.7/751f548c85fa49f330cecbb1875893f971b33c4e/gson-2.7.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/gson-2.7_5ac9068591566849b86c64927922906c6ed74b9f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_c3c8c0fe92f62fb660d77b85256957dc9d23470a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/.gradle/caches/modules-2/files-2.1/cn.leancloud.android/okio/1.6.0-leancloud/7086c00a30a6de0ee3b963ec2c3702d37f1de11d/okio-1.6.0-leancloud.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7086c00a30a6de0ee3b963ec2c3702d37f1de11d">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/okio-1.6.0-leancloud_80c155ab348d9aac1a1413368578b72ddd2f8380.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.jakewharton/butterknife/8.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="a07818a1ecabdb149998823429cce555af4b9cba">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.jakewharton-butterknife-8.4.0_da8e65e47f89e16cb474147e22429a30833cd49f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.2.1_ab4b77c4c53c1deead38187e05a5e6e39b5305f7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/languagehelper/MaterialDesign/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="1a0643d802d1a00df5c92be6fa11c81138c1feb0">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/languagehelper-MaterialDesign-unspecified_c84b055b9a002ccfb870f8006152aec2345a7f95.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.2.1_03d133312d54024dcb99efc3ce093bb02171392b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/0.14.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b881010e06dc39be15b7465cd16492eedbab246f">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-base-0.14.1_206edfef1ce5d81af024e7f25b5b293822691440.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/tv.danmaku.ijk.media/ijkplayer-armv7a/0.6.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="883eb9c3bde63636505e42fc6cad790f4739b0d3">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/tv.danmaku.ijk.media-ijkplayer-armv7a-0.6.0_daeb72c3958a97582a1037b96f29848df4e8df94.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-24.2.1_85bd6e7157cc931daee28f3b05fc46d8e4dc3ed6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_9cf5948689915dd80aa5e29b80e53e4aa4425479.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_5b301709bcc656c55b5b580bc8a1cb25821e6e38.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/tv.danmaku.ijk.media/ijkplayer-java/0.6.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="a13789ec9e884e49740bb970550fabcb340466c1">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/tv.danmaku.ijk.media-ijkplayer-java-0.6.0_b5a55f5216cde69e96cecac62fe49d7761599128.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/libs/contx.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="dda6705c1af057d4eafe8d86c9b2c1ea7d4c6b9e">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/contx_634d7750d4023ecdb71d00032b4c6340e4365e63.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.facebook.fresco/animated-base/0.14.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="4586985d8e3ab9baaaa0f7a7d5a1b46bec20816f">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-animated-base-0.14.1_9a71a753683510b7741eaf94d17118630dc42548.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/.gradle/caches/modules-2/files-2.1/cn.leancloud.android/okhttp/2.6.0-leancloud/7d1a8dbbc128e91cf41ab6eafaa741ab2a6ff930/okhttp-2.6.0-leancloud.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7d1a8dbbc128e91cf41ab6eafaa741ab2a6ff930">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/okhttp-2.6.0-leancloud_49c7729b4bd356be2039cd0e58e385fe60bb8719.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/.gradle/caches/modules-2/files-2.1/org.greenrobot/greendao/2.2.1/1aa64feab6440fff9a7fcfb1db1e6151d36d1254/greendao-2.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="1aa64feab6440fff9a7fcfb1db1e6151d36d1254">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/greendao-2.2.1_42498c25cf5d62f7b658975c5c23618377d1a102.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/.gradle/caches/modules-2/files-2.1/cn.leancloud.android/avoscloud-sdk/v3.14.6/f8696e37fcfcb42aa970ab8692752cdf81ea16/avoscloud-sdk-v3.14.6.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="00f8696e37fcfcb42aa970ab8692752cdf81ea16">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/avoscloud-sdk-v3.14.6_3a9373a9b77979e301bca48beb11af0d1bc7f1fe.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.balysv/material-ripple/1.0.2/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="c733e9d1b065d940a08f2fca0ff920dfc08d94cc">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.balysv-material-ripple-1.0.2_e415199c1698c526994ef908c5c0d75af43b1879.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/libs/android-query-full.0.26.7.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="4055bed8ed6f6aa573fa3e7d979c66101c48e182">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/android-query-full.0.26.7_cf07f2bbc7787ad8e22d35497e430c245759dbab.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_c3c8c0fe92f62fb660d77b85256957dc9d23470a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/0.14.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="8795af3e130206443f2d5ed45f1b26067aff70dc">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-0.14.1_890c03688dde68d644970a84be8eecefa1687fa9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/fm.jiecao/jiecaovideoplayer/4.6.5/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="a8450511d59a21b64eae291f973b96767e7d5e6a">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/fm.jiecao-jiecaovideoplayer-4.6.5_d6ebb2c9619eaf3aa97d5b89504258497b09ca8e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-24.2.1_9c457c079a7fbb7825d711f4963e17157485f8fb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/tv.danmaku.ijk.media/ijkplayer-x86_64/0.6.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="0562efaffe940ea2da9383096ddea9281585c052">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/tv.danmaku.ijk.media-ijkplayer-x86_64-0.6.0_527b3d9fa21b4b2c8889248fef6f1133ad24e36c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/luli/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.7/751f548c85fa49f330cecbb1875893f971b33c4e/gson-2.7.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/pre-dexed/debug/gson-2.7_5ac9068591566849b86c64927922906c6ed74b9f.jar" />
+    </item>
+
+</items>

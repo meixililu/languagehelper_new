@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/black"
+    android:orientation="vertical" >
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_awesome_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize" >
+
+        <com.gc.materialdesign.views.ProgressBarCircularIndeterminate
+            android:id="@+id/progressBarCircularIndetermininate"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_gravity="right"
+            android:background="@color/white"
+            android:visibility="gone" />
+    </android.support.v7.widget.Toolbar>
+
+
+    <ImageView
+        android:id="@+id/imageview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/my_awesome_toolbar"
+        android:layout_marginTop="@dimen/padding_7"
+        android:scaleType="fitCenter"
+        />
+
+    <com.gc.materialdesign.views.ButtonFloat
+	    xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/buttonfloat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="@dimen/padding_10"
+        android:layout_marginBottom="@dimen/padding_margin"
+        android:background="@color/load_blue"
+        materialdesign:animate="true"
+        materialdesign:rippleSpeed="95"
+        materialdesign:iconDrawable="@drawable/ic_share_white_24dp"
+         />
+</RelativeLayout>

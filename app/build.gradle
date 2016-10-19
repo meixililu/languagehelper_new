@@ -1,0 +1,52 @@
+apply plugin: 'com.android.application'
+//apply plugin: 'android-apt'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.3"
+
+    defaultConfig {
+        applicationId "com.messi.languagehelper"
+        minSdkVersion 14
+        targetSdkVersion 24
+        versionCode 24
+        versionName "3.3"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
+
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:design:24.2.1'
+    compile 'com.android.support:support-v4:24.2.1'
+    compile 'com.android.support:recyclerview-v7:24.2.1'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'org.greenrobot:greendao:2.2.1'
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'org.jsoup:jsoup:1.9.2'
+    compile 'cn.leancloud.android:avoscloud-sdk:v3.+'
+    compile 'cn.leancloud.android:avoscloud-statistics:v3.+'
+    compile project(path: ':MaterialDesign')
+    compile 'fm.jiecao:jiecaovideoplayer:4.6.5'
+    compile 'com.facebook.fresco:fresco:0.14.1'
+    compile 'com.facebook.fresco:animated-gif:0.14.1'
+    compile 'com.balysv:material-ripple:1.0.2'
+}
