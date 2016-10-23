@@ -1,4 +1,7 @@
-#Wed Oct 19 14:40:28 CST 2016
-base.0=/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
+#Sun Oct 23 11:32:10 CST 2016
+base.0=/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_f49e6be107dc3aa06188ef310e2786f315db976a
+renamed.1=classes2.dex
 renamed.0=classes.dex
-file.0=/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex
+file.1=/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_aff194217444c205e8e391cff07f2d1fd6211344/classes.dex
+base.1=/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_aff194217444c205e8e391cff07f2d1fd6211344
+file.0=/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_f49e6be107dc3aa06188ef310e2786f315db976a/classes.dex

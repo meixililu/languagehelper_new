@@ -110,7 +110,6 @@ public class CompositionActivity extends BaseActivity implements FragmentProgres
 		pageAdapter = new CompositionAdapter(getSupportFragmentManager(),this,avObjects);
 		viewpager.setAdapter(pageAdapter);
 		viewpager.setOffscreenPageLimit(5);
-		tablayout.setTabsFromPagerAdapter(pageAdapter);
 		tablayout.setupWithViewPager(viewpager);
 	}
 	

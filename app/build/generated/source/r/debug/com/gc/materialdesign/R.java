@@ -17,26 +17,26 @@ public final class R {
 		public static final int snackbar_show_animation = 0x7f050026;
 	}
 	public static final class attr {
-		public static final int animate = 0x7f0100ce;
-		public static final int check = 0x7f0100c9;
-		public static final int checkBoxSize = 0x7f0100ca;
-		public static final int clickAfterRipple = 0x7f0100d0;
-		public static final int iconDrawable = 0x7f0100cc;
-		public static final int iconSize = 0x7f0100cd;
-		public static final int max = 0x7f0100c4;
-		public static final int min = 0x7f0100c5;
-		public static final int progress = 0x7f0100c7;
-		public static final int ringWidth = 0x7f0100c8;
-		public static final int rippleBorderRadius = 0x7f0100cf;
-		public static final int rippleColorMD = 0x7f0100c1;
-		public static final int rippleSpeed = 0x7f0100c2;
-		public static final int showNumberIndicator = 0x7f0100c3;
-		public static final int thumbSize = 0x7f0100cb;
-		public static final int value = 0x7f0100c6;
+		public static final int animate = 0x7f0100f3;
+		public static final int check = 0x7f0100ee;
+		public static final int checkBoxSize = 0x7f0100ef;
+		public static final int clickAfterRipple = 0x7f0100f5;
+		public static final int iconDrawable = 0x7f0100f1;
+		public static final int iconSize = 0x7f0100f2;
+		public static final int max = 0x7f0100e9;
+		public static final int min = 0x7f0100ea;
+		public static final int progress = 0x7f0100ec;
+		public static final int ringWidth = 0x7f0100ed;
+		public static final int rippleBorderRadius = 0x7f0100f4;
+		public static final int rippleColorMD = 0x7f0100e6;
+		public static final int rippleSpeed = 0x7f0100e7;
+		public static final int showNumberIndicator = 0x7f0100e8;
+		public static final int thumbSize = 0x7f0100f0;
+		public static final int value = 0x7f0100eb;
 	}
 	public static final class color {
-		public static final int green = 0x7f0c003b;
-		public static final int thumbColor = 0x7f0c00bb;
+		public static final int green = 0x7f0c003c;
+		public static final int thumbColor = 0x7f0c00bd;
 	}
 	public static final class drawable {
 		public static final int background_button = 0x7f020053;
@@ -48,49 +48,49 @@ public final class R {
 		public static final int background_progress = 0x7f020059;
 		public static final int background_switch_ball_uncheck = 0x7f02005a;
 		public static final int background_transparent = 0x7f02005c;
-		public static final int dialog_background = 0x7f020077;
-		public static final int float_button1_shadowp = 0x7f02007f;
-		public static final int float_button_shadow1 = 0x7f020080;
-		public static final int ic_launcher = 0x7f020090;
-		public static final int ic_reloj_max = 0x7f020099;
-		public static final int shadow_down = 0x7f0200dd;
-		public static final int shadow_right = 0x7f0200de;
-		public static final int sprite_check = 0x7f0200e8;
+		public static final int dialog_background = 0x7f020078;
+		public static final int float_button1_shadowp = 0x7f020080;
+		public static final int float_button_shadow1 = 0x7f020081;
+		public static final int ic_launcher = 0x7f020091;
+		public static final int ic_reloj_max = 0x7f02009a;
+		public static final int shadow_down = 0x7f0200e8;
+		public static final int shadow_right = 0x7f0200e9;
+		public static final int sprite_check = 0x7f0200f3;
 	}
 	public static final class id {
-		public static final int blue = 0x7f0d0098;
-		public static final int button_accept = 0x7f0d00bb;
-		public static final int button_cancel = 0x7f0d00ba;
-		public static final int buttonflat = 0x7f0d0176;
-		public static final int contentDialog = 0x7f0d00b7;
-		public static final int contentSelector = 0x7f0d0094;
-		public static final int dialog_rootView = 0x7f0d00b6;
-		public static final int green = 0x7f0d0097;
-		public static final int message = 0x7f0d00b9;
-		public static final int message_scrollView = 0x7f0d00b8;
-		public static final int number_indicator_spinner_content = 0x7f0d0136;
-		public static final int progressBarCircularIndetermininate = 0x7f0d0082;
-		public static final int red = 0x7f0d0096;
-		public static final int rootSelector = 0x7f0d0093;
-		public static final int shape_bacground = 0x7f0d019c;
-		public static final int snackbar = 0x7f0d0175;
-		public static final int text = 0x7f0d010b;
-		public static final int title = 0x7f0d004e;
-		public static final int viewColor = 0x7f0d0095;
+		public static final int blue = 0x7f0d00a0;
+		public static final int button_accept = 0x7f0d00c7;
+		public static final int button_cancel = 0x7f0d00c6;
+		public static final int buttonflat = 0x7f0d018f;
+		public static final int contentDialog = 0x7f0d00c3;
+		public static final int contentSelector = 0x7f0d009c;
+		public static final int dialog_rootView = 0x7f0d00c2;
+		public static final int green = 0x7f0d009f;
+		public static final int message = 0x7f0d00c5;
+		public static final int message_scrollView = 0x7f0d00c4;
+		public static final int number_indicator_spinner_content = 0x7f0d014f;
+		public static final int progressBarCircularIndetermininate = 0x7f0d0088;
+		public static final int red = 0x7f0d009e;
+		public static final int rootSelector = 0x7f0d009b;
+		public static final int shape_bacground = 0x7f0d01b5;
+		public static final int snackbar = 0x7f0d018e;
+		public static final int text = 0x7f0d0118;
+		public static final int title = 0x7f0d0054;
+		public static final int viewColor = 0x7f0d009d;
 	}
 	public static final class layout {
 		public static final int color_selector = 0x7f040026;
-		public static final int dialog = 0x7f04003a;
-		public static final int number_indicator_spinner = 0x7f040068;
-		public static final int progress_dialog = 0x7f040070;
-		public static final int snackbar = 0x7f04007d;
-		public static final int text = 0x7f04008a;
+		public static final int dialog = 0x7f04003b;
+		public static final int number_indicator_spinner = 0x7f040071;
+		public static final int progress_dialog = 0x7f040079;
+		public static final int snackbar = 0x7f040086;
+		public static final int text = 0x7f040093;
 	}
 	public static final class string {
 		public static final int app_name = 0x7f070020;
 	}
 	public static final class styleable {
-		public static final int[] CustomAttributes = { 0x7f0100c1, 0x7f0100c2, 0x7f0100c3, 0x7f0100c4, 0x7f0100c5, 0x7f0100c6, 0x7f0100c7, 0x7f0100c8, 0x7f0100c9, 0x7f0100ca, 0x7f0100cb, 0x7f0100cc, 0x7f0100cd, 0x7f0100ce, 0x7f0100cf, 0x7f0100d0 };
+		public static final int[] CustomAttributes = { 0x7f0100e6, 0x7f0100e7, 0x7f0100e8, 0x7f0100e9, 0x7f0100ea, 0x7f0100eb, 0x7f0100ec, 0x7f0100ed, 0x7f0100ee, 0x7f0100ef, 0x7f0100f0, 0x7f0100f1, 0x7f0100f2, 0x7f0100f3, 0x7f0100f4, 0x7f0100f5 };
 		public static final int CustomAttributes_animate = 13;
 		public static final int CustomAttributes_check = 8;
 		public static final int CustomAttributes_checkBoxSize = 9;

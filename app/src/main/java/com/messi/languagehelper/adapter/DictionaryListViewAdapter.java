@@ -114,6 +114,10 @@ public class DictionaryListViewAdapter extends BaseAdapter {
 			convertView = mInflater.inflate(R.layout.listview_item_dictionary,
 					null);
 			holder = new ViewHolder();
+			holder.cover_result = (FrameLayout) convertView
+					.findViewById(R.id.record_question_cover);
+			holder.cover_question = (FrameLayout) convertView
+					.findViewById(R.id.record_answer_cover);
 			holder.word_split = (LinearLayout) convertView
 					.findViewById(R.id.word_split);
 			holder.txt_result = (TextView) convertView
@@ -124,15 +128,17 @@ public class DictionaryListViewAdapter extends BaseAdapter {
 					.findViewById(R.id.dic_split);
 			holder.voice_play = (ImageButton) convertView
 					.findViewById(R.id.voice_play);
+			holder.collected_cb = (CheckBox) convertView
+					.findViewById(R.id.collected_cb);
 			holder.voice_play_layout = (FrameLayout) convertView
 					.findViewById(R.id.voice_play_layout);
-			holder.delete_btn = (ImageButton) convertView
+			holder.delete_btn = (FrameLayout) convertView
 					.findViewById(R.id.delete_btn);
-			holder.copy_btn = (ImageButton) convertView
+			holder.copy_btn = (FrameLayout) convertView
 					.findViewById(R.id.copy_btn);
-			holder.collected_btn = (ImageButton) convertView
+			holder.collected_btn = (FrameLayout) convertView
 					.findViewById(R.id.collected_btn);
-			holder.weixi_btn = (ImageButton) convertView
+			holder.weixi_btn = (FrameLayout) convertView
 					.findViewById(R.id.weixi_btn);
 			holder.play_content_btn_progressbar = (ProgressBar) convertView
 					.findViewById(R.id.play_content_btn_progressbar);
@@ -150,10 +156,10 @@ public class DictionaryListViewAdapter extends BaseAdapter {
 			MyOnClickListener mQuestionOnClickListener = new MyOnClickListener(
 					mBean, animationDrawable, holder.voice_play,
 					holder.play_content_btn_progressbar, false);
-			if(mBean.getIscollected().equals("0")){
-				holder.collected_btn.setBackgroundResource(R.drawable.uncollected);
-			}else{
-				holder.collected_btn.setBackgroundResource(R.drawable.collect_d);
+			if (mBean.getIscollected().equals("0")) {
+				holder.collected_cb.setChecked(false);
+			} else {
+				holder.collected_cb.setChecked(true);
 			}
 			holder.play_content_btn_progressbar.setVisibility(View.GONE);
 			holder.voice_play.setVisibility(View.VISIBLE);
@@ -161,8 +167,8 @@ public class DictionaryListViewAdapter extends BaseAdapter {
 			holder.txt_result.setText(mBean.getResult());
 			
 			holder.voice_play_layout.setOnClickListener(mResultClickListener);
-			holder.txt_result.setOnClickListener(mResultClickListener);
-			holder.txt_question.setOnClickListener(mQuestionOnClickListener);
+			holder.cover_result.setOnClickListener(mResultClickListener);
+			holder.cover_question.setOnClickListener(mQuestionOnClickListener);
 			if(TextUtils.isEmpty(mBean.getBackup3())){
 				holder.word_split.setVisibility(View.GONE);
 			}else{
@@ -171,14 +177,14 @@ public class DictionaryListViewAdapter extends BaseAdapter {
 						holder.dic_split, mBean.getBackup3());
 			}
 			
-			holder.txt_result.setOnLongClickListener(new OnLongClickListener() {
+			holder.cover_result.setOnLongClickListener(new OnLongClickListener() {
 				@Override
 				public boolean onLongClick(View v) {
 					copy(mBean.getWord_name() + "\n" + mBean.getResult());
 					return true;
 				}
 			});
-			holder.txt_question.setOnLongClickListener(new OnLongClickListener() {
+			holder.cover_question.setOnLongClickListener(new OnLongClickListener() {
 				@Override
 				public boolean onLongClick(View v) {
 					copy(mBean.getWord_name());
@@ -232,12 +238,15 @@ public class DictionaryListViewAdapter extends BaseAdapter {
 		TextView txt_result;
 		TextView txt_question;
 		TextView dic_split;
-		ImageButton delete_btn;
-		ImageButton copy_btn;
-		ImageButton collected_btn;
-		ImageButton weixi_btn;
+		FrameLayout cover_question;
+		FrameLayout cover_result;
+		FrameLayout delete_btn;
+		FrameLayout copy_btn;
+		FrameLayout collected_btn;
+		FrameLayout weixi_btn;
 		LinearLayout word_split;
 		ImageButton voice_play;
+		CheckBox collected_cb;
 		FrameLayout voice_play_layout;
 		ProgressBar play_content_btn_progressbar;
 	}
@@ -353,6 +362,7 @@ public class DictionaryListViewAdapter extends BaseAdapter {
 				}
 				resetStatus();
 				if(isPlay){
+//					ShowView.showIndexPageGuide(context, KeyUtil.IsHasShowClickText);
 					String path = SDCardUtil.getDownloadPath(SDCardUtil.sdPath);
 					if (TextUtils.isEmpty(mBean.getResultVoiceId()) || TextUtils.isEmpty(mBean.getQuestionVoiceId())) {
 						mBean.setQuestionVoiceId(System.currentTimeMillis() + "");
@@ -455,9 +465,10 @@ public class DictionaryListViewAdapter extends BaseAdapter {
 						mMyThread.setDataUri(filepath);
 						mThread = AudioTrackUtil.startMyThread(mMyThread);
 					}
-					if (v.getId() == R.id.record_question) {
+					LogUtil.DefalutLog("Backup2---end:"+mBean.getBackup2());
+					if (v.getId() == R.id.record_question_cover) {
 						AVAnalytics.onEvent(context, "tab2_play_question_btn");
-					} else if (v.getId() == R.id.record_answer) {
+					} else if (v.getId() == R.id.record_answer_cover) {
 						AVAnalytics.onEvent(context, "tab2_play_result_btn");
 					} else if (v.getId() == R.id.voice_play_layout) {
 						AVAnalytics.onEvent(context, "tab2_play_voice_btn");

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fillViewport="true" >
@@ -14,21 +13,14 @@
         android:padding="@dimen/padding_7"
         android:weightSum="10" >
 
-        <com.balysv.materialripple.MaterialRippleLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:mrl_rippleOverlay="true"
-            app:mrl_rippleColor="@color/background_tab_pressed"
-            app:mrl_rippleAlpha="0.2"
-            app:mrl_rippleDelayClick="false"
-            app:mrl_rippleHover="true"
-            app:mrl_rippleDuration="250">
         <FrameLayout
             android:id="@+id/study_daily_sentence"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@color/none_alpha"
+            android:foreground="@drawable/framelayout_selector"
             >
+
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/daily_sentence_item_img"
                 android:layout_width="match_parent"
@@ -83,27 +75,23 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/ic_play_circle_outline_white_48dp" />
         </FrameLayout>
-        </com.balysv.materialripple.MaterialRippleLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
 
-            <com.balysv.materialripple.MaterialRippleLayout
+            <FrameLayout
+                android:id="@+id/symbol_study_cover"
                 android:layout_width="0dp"
                 android:layout_height="90dp"
                 android:layout_marginTop="@dimen/padding_7"
                 android:layout_marginRight="3dp"
                 android:layout_weight="1"
-                app:mrl_rippleOverlay="true"
-                app:mrl_rippleColor="@color/background_tab_pressed"
-                app:mrl_rippleAlpha="0.2"
-                app:mrl_rippleDelayClick="false"
-                app:mrl_rippleHover="true"
-                app:mrl_rippleDuration="250">
+                android:foreground="@drawable/framelayout_selector"
+                android:orientation="vertical" >
+
                 <TextView
-                    android:id="@+id/symbol_study_cover"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:background="@color/white"
@@ -111,7 +99,7 @@
                     android:text="@string/title_symbol"
                     android:textColor="@color/text_black1"
                     android:textSize="@dimen/big" />
-            </com.balysv.materialripple.MaterialRippleLayout>
+            </FrameLayout>
 
             <FrameLayout
                 android:id="@+id/word_study_cover"
@@ -201,7 +189,7 @@
                     android:layout_height="fill_parent"
                     android:background="@color/white"
                     android:gravity="center"
-                    android:text="@string/title_Practice"
+                    android:text="@string/spoken_english_practice"
                     android:textColor="@color/text_black1"
                     android:textSize="@dimen/big" />
 
@@ -222,7 +210,7 @@
                     android:layout_height="fill_parent"
                     android:background="@color/white"
                     android:gravity="center"
-                    android:text="@string/spoken_english_practice"
+                    android:text="@string/title_Practice"
                     android:textColor="@color/text_black1"
                     android:textSize="@dimen/big" />
             </FrameLayout>

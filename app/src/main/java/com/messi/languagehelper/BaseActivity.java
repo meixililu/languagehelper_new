@@ -5,11 +5,8 @@ import com.gc.materialdesign.views.ProgressBarCircularIndeterminate;
 import com.messi.languagehelper.util.AudioTrackUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.ScreenUtil;
-import com.nineoldandroids.animation.ObjectAnimator;
-import com.nineoldandroids.view.ViewHelper;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
@@ -22,8 +19,6 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.DecelerateInterpolator;
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -39,7 +34,7 @@ public class BaseActivity extends AppCompatActivity {
 	}
 
 	protected void TransparentStatusbar() {
-		if (VERSION.SDK_INT >= VERSION_CODES.KITKAT) {
+		if (VERSION.SDK_INT >= VERSION_CODES.KITKAT && VERSION.SDK_INT <= VERSION_CODES.LOLLIPOP) {
 			//透明状态栏
 			getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 		}
@@ -58,12 +53,12 @@ public class BaseActivity extends AppCompatActivity {
 			if (toolbar != null) {
 				setSupportActionBar(toolbar);
 				getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-				if (VERSION.SDK_INT >= VERSION_CODES.KITKAT) {
+				if (VERSION.SDK_INT >= VERSION_CODES.KITKAT && VERSION.SDK_INT <= VERSION_CODES.LOLLIPOP) {
 					toolbar.setPadding(0, ScreenUtil.dip2px(this, 10), 0, 0);
 				}
 			}
 			String title = getIntent().getStringExtra(KeyUtil.ActionbarTitle);
-			setTitle(title);
+			setActionBarTitle(title);
 		}
 	}
 
@@ -73,10 +68,14 @@ public class BaseActivity extends AppCompatActivity {
 		}
 	}
 
-	protected void setTitle(String title) {
-		if (!TextUtils.isEmpty(title)) {
+	protected void setActionBarTitle(String title) {
+		if (!TextUtils.isEmpty(title) && getSupportActionBar() != null) {
 			getSupportActionBar().setTitle(title);
 		}
+	}
+
+	public void setCollTitle(String title){
+		BaseActivity.this.setTitle(title);
 	}
 
 	protected void toActivity(Class mClass, Bundle bundle) {
@@ -175,58 +174,4 @@ public class BaseActivity extends AppCompatActivity {
 		return super.onKeyDown(keyCode, event);
 	}
 
-	protected boolean toolbarIsShown() {
-		return ViewHelper.getTranslationY(toolbar) == 0;
-	}
-
-	protected boolean toolbarIsHidden() {
-		return ViewHelper.getTranslationY(toolbar) == -toolbar.getHeight();
-	}
-
-	protected void hideViews() {
-		ObjectAnimator animY = ObjectAnimator.ofFloat(toolbar, "y", -toolbar.getHeight());
-		animY.setInterpolator(new AccelerateInterpolator(2));
-		animY.start();
-	}
-
-	protected void showViews() {
-		ObjectAnimator animY = ObjectAnimator.ofFloat(toolbar, "y", 0);
-		animY.setInterpolator(new DecelerateInterpolator(2));
-		animY.start();
-	}
-
-	protected void showToolbar() {
-//        moveToolbar(0);
-	}
-
-	protected void hideToolbar() {
-//		moveToolbar(-toolbar.getHeight());
-	}
-
-	private void moveToolbar(float toTranslationY) {
-//        ValueAnimator animator = ValueAnimator.ofFloat(ViewHelper.getTranslationY(toolbar), toTranslationY).setDuration(200);
-//        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-//            @Override
-//            public void onAnimationUpdate(ValueAnimator animation) {
-//                float translationY = (Float) animation.getAnimatedValue();
-//                ViewHelper.setTranslationY(toolbar, translationY);
-//                ViewHelper.setTranslationY((View) mScrollable, translationY);
-//                FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) ((View) mScrollable).getLayoutParams();
-//                lp.height = (int) -translationY + getScreenHeight() - lp.topMargin;
-//                ((View) mScrollable).requestLayout();
-//            }
-//        });
-//        animator.start();
-	}
-
-	@Override
-	public void onStart() {
-		super.onStart();
-	}
-
-	@Override
-	public void onStop() {
-		super.onStop();
-
-	}
 }

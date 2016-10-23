@@ -92,29 +92,37 @@ public class DictionaryRecyclerviewAdapter extends RecyclerView.Adapter<Recycler
 	}
 	
 	public static class ItemViewHolder extends RecyclerView.ViewHolder {
-		
+
 		public TextView record_question;
 		public TextView record_answer;
-		public ImageButton delete_btn;
-		public ImageButton copy_btn;
-		public ImageButton collected_btn;
-		public ImageButton weixi_btn;
+		public FrameLayout record_answer_cover;
+		public FrameLayout record_to_practice;
+		public FrameLayout record_question_cover;
+		public FrameLayout delete_btn;
+		public FrameLayout copy_btn;
+		public FrameLayout collected_btn;
+		public FrameLayout weixi_btn;
 		public ImageButton voice_play;
+		public CheckBox collected_cb;
 		public FrameLayout voice_play_layout;
 		public ProgressBar play_content_btn_progressbar;
-		
-        public ItemViewHolder(View convertView) {
-            super(convertView);
+
+		public ItemViewHolder(View convertView) {
+			super(convertView);
+			record_question_cover = (FrameLayout) convertView.findViewById(R.id.record_question_cover);
+			record_answer_cover = (FrameLayout) convertView.findViewById(R.id.record_answer_cover);
+			record_to_practice = (FrameLayout) convertView.findViewById(R.id.record_to_practice);
 			record_question = (TextView) convertView.findViewById(R.id.record_question);
 			record_answer = (TextView) convertView.findViewById(R.id.record_answer);
 			voice_play = (ImageButton) convertView.findViewById(R.id.voice_play);
+			collected_cb = (CheckBox) convertView.findViewById(R.id.collected_cb);
 			voice_play_layout = (FrameLayout) convertView.findViewById(R.id.voice_play_layout);
-			delete_btn = (ImageButton) convertView.findViewById(R.id.delete_btn);
-			copy_btn = (ImageButton) convertView.findViewById(R.id.copy_btn);
-			collected_btn = (ImageButton) convertView.findViewById(R.id.collected_btn);
-			weixi_btn = (ImageButton) convertView.findViewById(R.id.weixi_btn);
+			delete_btn = (FrameLayout) convertView.findViewById(R.id.delete_btn);
+			copy_btn = (FrameLayout) convertView.findViewById(R.id.copy_btn);
+			collected_btn = (FrameLayout) convertView.findViewById(R.id.collected_btn);
+			weixi_btn = (FrameLayout) convertView.findViewById(R.id.weixi_btn);
 			play_content_btn_progressbar = (ProgressBar) convertView.findViewById(R.id.play_content_btn_progressbar);
-        }
+		}
     }
 	
 	public static class RecyclerHeaderViewHolder extends RecyclerView.ViewHolder {
@@ -189,17 +197,17 @@ public class DictionaryRecyclerviewAdapter extends RecyclerView.Adapter<Recycler
 				AnimationDrawable animationDrawable = (AnimationDrawable) holder.voice_play.getBackground();
 				MyOnClickListener mResultClickListener = new MyOnClickListener(mBean,animationDrawable, holder.voice_play,holder.play_content_btn_progressbar, true);
 				MyOnClickListener mQuestionOnClickListener = new MyOnClickListener(mBean, animationDrawable, holder.voice_play,holder.play_content_btn_progressbar, false);
-				if(mBean.getIscollected().equals("0")){
-					holder.collected_btn.setBackgroundResource(R.drawable.uncollected);
-				}else{
-					holder.collected_btn.setBackgroundResource(R.drawable.collect_d);
+				if (mBean.getIscollected().equals("0")) {
+					holder.collected_cb.setChecked(false);
+				} else {
+					holder.collected_cb.setChecked(true);
 				}
 				holder.record_answer.setText(mBean.getWord_name());
 				holder.record_question.setText(mBean.getResult());
 				holder.voice_play_layout.setOnClickListener(mResultClickListener);
-				holder.record_question.setOnClickListener(mResultClickListener);
-				holder.record_answer.setOnClickListener(mQuestionOnClickListener);
-				
+				holder.record_question_cover.setOnClickListener(mResultClickListener);
+				holder.record_answer_cover.setOnClickListener(mQuestionOnClickListener);
+
 				holder.delete_btn.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {
@@ -458,11 +466,11 @@ public class DictionaryRecyclerviewAdapter extends RecyclerView.Adapter<Recycler
 						mMyThread.setDataUri(filepath);
 						mThread = AudioTrackUtil.startMyThread(mMyThread);
 					}
-					if (v.getId() == R.id.record_question) {
+					if(v.getId() == R.id.record_question_cover){
 						AVAnalytics.onEvent(context, "favor_dic_play_question");
-					} else if (v.getId() == R.id.record_answer) {
+					}else if(v.getId() == R.id.record_answer_cover){
 						AVAnalytics.onEvent(context, "favor_dic_play_result");
-					} else if (v.getId() == R.id.voice_play_layout) {
+					}else if(v.getId() == R.id.voice_play_layout){
 						AVAnalytics.onEvent(context, "favor_dic_play_voice");
 					}
 				}

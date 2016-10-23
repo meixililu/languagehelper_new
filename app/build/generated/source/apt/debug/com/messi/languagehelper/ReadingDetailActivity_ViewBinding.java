@@ -3,6 +3,7 @@ package com.messi.languagehelper;
 
 import android.support.annotation.CallSuper;
 import android.support.annotation.UiThread;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.NestedScrollView;
 import android.view.View;
@@ -20,13 +21,14 @@ import java.lang.Override;
 public class ReadingDetailActivity_ViewBinding<T extends ReadingDetailActivity> implements Unbinder {
   protected T target;
 
-  private View view2131558561;
+  private View view2131558571;
 
   @UiThread
   public ReadingDetailActivity_ViewBinding(final T target, View source) {
     this.target = target;
 
     View view;
+    target.toolbar_layout = Utils.findRequiredViewAsType(source, R.id.toolbar_layout, "field 'toolbar_layout'", CollapsingToolbarLayout.class);
     target.title = Utils.findRequiredViewAsType(source, R.id.title, "field 'title'", TextView.class);
     target.content = Utils.findRequiredViewAsType(source, R.id.content, "field 'content'", TextView.class);
     target.xx_ad_layout = Utils.findRequiredViewAsType(source, R.id.xx_ad_layout, "field 'xx_ad_layout'", RelativeLayout.class);
@@ -34,7 +36,7 @@ public class ReadingDetailActivity_ViewBinding<T extends ReadingDetailActivity> 
     target.scrollview = Utils.findRequiredViewAsType(source, R.id.scrollview, "field 'scrollview'", NestedScrollView.class);
     view = Utils.findRequiredView(source, R.id.play_btn, "field 'fab' and method 'onClick'");
     target.fab = Utils.castView(view, R.id.play_btn, "field 'fab'", FloatingActionButton.class);
-    view2131558561 = view;
+    view2131558571 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -51,6 +53,7 @@ public class ReadingDetailActivity_ViewBinding<T extends ReadingDetailActivity> 
     T target = this.target;
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
 
+    target.toolbar_layout = null;
     target.title = null;
     target.content = null;
     target.xx_ad_layout = null;
@@ -60,8 +63,8 @@ public class ReadingDetailActivity_ViewBinding<T extends ReadingDetailActivity> 
     target.pimgview = null;
     target.videoplayer = null;
 
-    view2131558561.setOnClickListener(null);
-    view2131558561 = null;
+    view2131558571.setOnClickListener(null);
+    view2131558571 = null;
 
     this.target = null;
   }

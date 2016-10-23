@@ -58,7 +58,7 @@ public class WordStudyDetailTestActivity extends BaseActivity implements OnClick
 		class_id = getIntent().getStringExtra(KeyUtil.ClassId);
 		course_id = getIntent().getIntExtra(KeyUtil.CourseId, 1);
 		course_num = getIntent().getIntExtra(KeyUtil.CourseNum, 0);
-		setTitle(class_name + course_id +"单元");
+		setActionBarTitle(class_name + course_id +"单元");
 		if(!TextUtils.isEmpty(class_id)){
 			audioPath = SDCardUtil.WordStudyPath + class_id + SDCardUtil.Delimiter + String.valueOf(course_id) + SDCardUtil.Delimiter;
 		}else{
@@ -145,7 +145,7 @@ public class WordStudyDetailTestActivity extends BaseActivity implements OnClick
 		case R.id.previous_btn:
 			if(course_id > 1){
 				course_id--;
-				setTitle(class_name + course_id +"单元");
+				setActionBarTitle(class_name + course_id +"单元");
 				new QueryTask().execute();
 			}else{
 				ToastUtil.diaplayMesShort(WordStudyDetailTestActivity.this, "已经是第一单元了");
@@ -154,7 +154,7 @@ public class WordStudyDetailTestActivity extends BaseActivity implements OnClick
 		case R.id.next_btn:
 			if(course_id < course_num){
 				course_id++;
-				setTitle(class_name + course_id +"单元");
+				setActionBarTitle(class_name + course_id +"单元");
 				new QueryTask().execute();
 			}else{
 				ToastUtil.diaplayMesShort(WordStudyDetailTestActivity.this, "已经是最后一单元了");

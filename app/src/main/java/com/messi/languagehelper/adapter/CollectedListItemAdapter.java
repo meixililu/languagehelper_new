@@ -111,17 +111,20 @@ public class CollectedListItemAdapter extends BaseAdapter {
 		if (convertView == null) {
 			convertView = mInflater.inflate(R.layout.listview_item_recent_used, null);
 			holder = new ViewHolder();
-			holder.record_to_practice = (TextView) convertView.findViewById(R.id.record_to_practice);
+			holder.record_question_cover = (FrameLayout) convertView.findViewById(R.id.record_question_cover);
+			holder.record_answer_cover = (FrameLayout) convertView.findViewById(R.id.record_answer_cover);
+			holder.record_to_practice = (FrameLayout) convertView.findViewById(R.id.record_to_practice);
 			holder.record_question = (TextView) convertView.findViewById(R.id.record_question);
 			holder.record_answer = (TextView) convertView.findViewById(R.id.record_answer);
 			holder.unread_dot_answer = (ImageView) convertView.findViewById(R.id.unread_dot_answer);
 			holder.unread_dot_question = (ImageView) convertView.findViewById(R.id.unread_dot_question);
 			holder.voice_play = (ImageButton) convertView.findViewById(R.id.voice_play);
+			holder.collected_cb = (CheckBox) convertView.findViewById(R.id.collected_cb);
 			holder.voice_play_layout = (FrameLayout) convertView.findViewById(R.id.voice_play_layout);
-			holder.delete_btn = (ImageButton) convertView.findViewById(R.id.delete_btn);
-			holder.copy_btn = (ImageButton) convertView.findViewById(R.id.copy_btn);
-			holder.collected_btn = (ImageButton) convertView.findViewById(R.id.collected_btn);
-			holder.weixi_btn = (ImageButton) convertView.findViewById(R.id.weixi_btn);
+			holder.delete_btn = (FrameLayout) convertView.findViewById(R.id.delete_btn);
+			holder.copy_btn = (FrameLayout) convertView.findViewById(R.id.copy_btn);
+			holder.collected_btn = (FrameLayout) convertView.findViewById(R.id.collected_btn);
+			holder.weixi_btn = (FrameLayout) convertView.findViewById(R.id.weixi_btn);
 			holder.play_content_btn_progressbar = (ProgressBar) convertView.findViewById(R.id.play_content_btn_progressbar);
 			convertView.setTag(holder);
 		} else {
@@ -134,9 +137,9 @@ public class CollectedListItemAdapter extends BaseAdapter {
 		MyOnClickListener mQuestionOnClickListener = new MyOnClickListener(mBean,animationDrawable,holder.voice_play,
 				holder.play_content_btn_progressbar,false,position);
 		if(mBean.getIscollected().equals("0")){
-			holder.collected_btn.setBackgroundResource(R.drawable.uncollected);
+			holder.collected_cb.setChecked(false);
 		}else{
-			holder.collected_btn.setBackgroundResource(R.drawable.collect_d);
+			holder.collected_cb.setChecked(true);
 		}
 		if(position == 0){
 			if(!mSharedPreferences.getBoolean(KeyUtil.IsShowAnswerUnread, false)){
@@ -156,18 +159,18 @@ public class CollectedListItemAdapter extends BaseAdapter {
 		holder.record_question.setText(mBean.getChinese());
 		holder.record_answer.setText(mBean.getEnglish());
 		
-		holder.record_question.setOnClickListener(mQuestionOnClickListener);
-		holder.record_answer.setOnClickListener(mMyOnClickListener);
+		holder.record_question_cover.setOnClickListener(mQuestionOnClickListener);
+		holder.record_answer_cover.setOnClickListener(mMyOnClickListener);
 		holder.voice_play_layout.setOnClickListener(mMyOnClickListener);
 		
-		holder.record_answer.setOnLongClickListener(new OnLongClickListener() {
+		holder.record_answer_cover.setOnLongClickListener(new OnLongClickListener() {
 			@Override
 			public boolean onLongClick(View v) {
 				copy(mBean.getEnglish());
 				return true;
 			}
 		});
-		holder.record_question.setOnLongClickListener(new OnLongClickListener() {
+		holder.record_question_cover.setOnLongClickListener(new OnLongClickListener() {
 			@Override
 			public boolean onLongClick(View v) {
 				copy(mBean.getChinese());
@@ -225,14 +228,17 @@ public class CollectedListItemAdapter extends BaseAdapter {
 	static class ViewHolder {
 		TextView record_question;
 		TextView record_answer;
-		TextView record_to_practice;
-		ImageButton delete_btn;
-		ImageButton copy_btn;
-		ImageButton collected_btn;
-		ImageButton weixi_btn;
+		FrameLayout record_answer_cover;
+		FrameLayout record_to_practice;
+		FrameLayout record_question_cover;
+		FrameLayout delete_btn;
+		FrameLayout copy_btn;
+		FrameLayout collected_btn;
+		FrameLayout weixi_btn;
 		ImageButton voice_play;
 		ImageView unread_dot_answer;
 		ImageView unread_dot_question;
+		CheckBox collected_cb;
 		FrameLayout voice_play_layout;
 		ProgressBar play_content_btn_progressbar;
 	}
@@ -446,9 +452,9 @@ public class CollectedListItemAdapter extends BaseAdapter {
 						mThread = AudioTrackUtil.startMyThread(mMyThread);
 						LogUtil.DefalutLog("mThread--start:"+mThread.getId());
 					}
-					if(v.getId() == R.id.record_question){
+					if(v.getId() == R.id.record_question_cover){
 						AVAnalytics.onEvent(context, "tab1_play_question", "首页翻译页面列表播放内容", 1);
-					}else if(v.getId() == R.id.record_answer){
+					}else if(v.getId() == R.id.record_answer_cover){
 						AVAnalytics.onEvent(context, "tab1_play_result", "首页翻译页面列表播放结果", 1);
 					}else if(v.getId() == R.id.voice_play_layout){
 						AVAnalytics.onEvent(context, "tab1_play_voice_btn", "首页翻译页面列表播放按钮", 1);
@@ -475,6 +481,6 @@ public class CollectedListItemAdapter extends BaseAdapter {
 	 * @param toastString
 	 */
 	private void showToast(String toastString) {
-		ToastUtil.diaplayMesShort(context, toastString);
+		ToastUtil.diaplayMesLong(context,toastString);
 	}
 }

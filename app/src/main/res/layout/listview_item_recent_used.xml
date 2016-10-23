@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/list_item_bg_white"
@@ -17,20 +16,12 @@
 	        android:layout_weight="1"
 	        android:orientation="vertical"
 	        >
-
-		    <FrameLayout
+		    <FrameLayout 
+		        android:id="@+id/record_question_cover"
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
+		        android:foreground="@drawable/framelayout_selector"
 		        >
-				<com.balysv.materialripple.MaterialRippleLayout
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					app:mrl_rippleOverlay="true"
-					app:mrl_rippleColor="@color/background_tab_pressed"
-					app:mrl_rippleAlpha="0.2"
-					app:mrl_rippleDelayClick="false"
-					app:mrl_rippleHover="true"
-					app:mrl_rippleDuration="350">
 			    <TextView
 			        android:id="@+id/record_question"
 			        android:layout_width="fill_parent"
@@ -40,8 +31,7 @@
 			        android:paddingBottom="1dp"
 					android:textColor="@color/text_black"
 			        android:textSize="@dimen/bigger" />
-				</com.balysv.materialripple.MaterialRippleLayout>
-			    <ImageView
+			    <ImageView 
 			        android:id="@+id/unread_dot_question"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
@@ -52,20 +42,13 @@
 			        android:visibility="gone"
 			        />
 		    </FrameLayout>
-
+		
 		    <FrameLayout 
+		        android:id="@+id/record_answer_cover"
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
+		        android:foreground="@drawable/framelayout_selector"
 		        >
-				<com.balysv.materialripple.MaterialRippleLayout
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					app:mrl_rippleOverlay="true"
-					app:mrl_rippleColor="@color/background_tab_pressed"
-					app:mrl_rippleAlpha="0.2"
-					app:mrl_rippleDelayClick="false"
-					app:mrl_rippleHover="true"
-					app:mrl_rippleDuration="350">
 			    <TextView
 			        android:id="@+id/record_answer"
 			        android:layout_width="fill_parent"
@@ -76,7 +59,6 @@
 			        android:text=""
 			        android:textColor="@color/text_black"
 			        android:textSize="@dimen/bigger" />
-				</com.balysv.materialripple.MaterialRippleLayout>
 			    <ImageView 
 			        android:id="@+id/unread_dot_answer"
 			        android:layout_width="wrap_content"
@@ -101,18 +83,13 @@
 		        android:layout_width="1px"
 		        android:layout_height="fill_parent"
 		        android:background="@color/line_color_gray" />
-			<com.balysv.materialripple.MaterialRippleLayout
-				android:layout_width="35dp"
-				android:layout_height="match_parent"
-				app:mrl_rippleOverlay="true"
-				app:mrl_rippleColor="@color/background_tab_pressed"
-				app:mrl_rippleAlpha="0.2"
-				app:mrl_rippleDelayClick="false"
-				app:mrl_rippleHover="true"
-				app:mrl_rippleDuration="350">
-
+            <FrameLayout 
+		        android:id="@+id/record_to_practice"
+		        android:layout_width="35dp"
+		        android:layout_height="fill_parent"
+		        android:foreground="@drawable/framelayout_selector"
+		        >
 			    <TextView
-		        	android:id="@+id/record_to_practice"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
 			        android:gravity="center"
@@ -121,7 +98,7 @@
 			        android:textColor="@color/text_grey"
 			        android:textSize="@dimen/big" 
 			        />
-		    </com.balysv.materialripple.MaterialRippleLayout>
+		    </FrameLayout>
         </LinearLayout>
         
     </LinearLayout>
@@ -140,102 +117,25 @@
         android:layout_marginRight="1px"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
-
-		<com.balysv.materialripple.MaterialRippleLayout
-			android:layout_width="0dp"
-			android:layout_height="match_parent"
-            android:layout_weight="1"
+	    
+        <FrameLayout
+            android:id="@+id/weixi_btn"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
             android:paddingTop="@dimen/padding_margin"
             android:paddingBottom="@dimen/padding_margin"
-			app:mrl_rippleOverlay="true"
-			app:mrl_rippleColor="@color/background_tab_pressed"
-			app:mrl_rippleAlpha="0.2"
-			app:mrl_rippleDelayClick="false"
-			app:mrl_rippleHover="true"
-			app:mrl_rippleDuration="350">
+            android:layout_weight="1"
+            android:foreground="@drawable/framelayout_selector"
+            >
+
             <ImageButton
-            	android:id="@+id/weixi_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@drawable/icon_weixin"/>
-        </com.balysv.materialripple.MaterialRippleLayout>
-
-        <ImageView
-            android:layout_width="1px"
-            android:layout_height="fill_parent"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            android:background="@color/line_color_blue" />
-
-		<com.balysv.materialripple.MaterialRippleLayout
-			android:layout_width="0dp"
-			android:layout_height="match_parent"
-			android:layout_weight="1"
-			app:mrl_rippleOverlay="true"
-			app:mrl_rippleColor="@color/background_tab_pressed"
-			app:mrl_rippleAlpha="0.2"
-			app:mrl_rippleDelayClick="false"
-			app:mrl_rippleHover="true"
-			app:mrl_rippleDuration="350">
-            <ImageButton
-                android:id="@+id/collected_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                />
-        </com.balysv.materialripple.MaterialRippleLayout>
-
-        <ImageView
-            android:layout_width="1px"
-            android:layout_height="fill_parent"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            android:background="@color/line_color_blue" />
-
-		<com.balysv.materialripple.MaterialRippleLayout
-			android:layout_width="0dp"
-			android:layout_height="match_parent"
-			android:layout_weight="1"
-			app:mrl_rippleOverlay="true"
-			app:mrl_rippleColor="@color/background_tab_pressed"
-			app:mrl_rippleAlpha="0.2"
-			app:mrl_rippleDelayClick="false"
-			app:mrl_rippleHover="true"
-			app:mrl_rippleDuration="350">
-            <ImageButton
-            	android:id="@+id/delete_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/delete"/>
-        </com.balysv.materialripple.MaterialRippleLayout>
-
-        <ImageView
-            android:layout_width="1px"
-            android:layout_height="fill_parent"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            android:background="@color/line_color_blue" />
-
-		<com.balysv.materialripple.MaterialRippleLayout
-			android:layout_width="0dp"
-			android:layout_height="match_parent"
-			android:layout_weight="1"
-			app:mrl_rippleOverlay="true"
-			app:mrl_rippleColor="@color/background_tab_pressed"
-			app:mrl_rippleAlpha="0.2"
-			app:mrl_rippleDelayClick="false"
-			app:mrl_rippleHover="true"
-			app:mrl_rippleDuration="350">
-            <ImageButton
-            	android:id="@+id/copy_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/icon_copy_d"/>
-        </com.balysv.materialripple.MaterialRippleLayout>
-
+                android:background="@drawable/icon_weixin"
+                android:clickable="false" />
+        </FrameLayout>
+        
         <ImageView
             android:layout_width="1px"
             android:layout_height="fill_parent"
@@ -244,12 +144,86 @@
             android:background="@color/line_color_blue" />
 
         <FrameLayout
+            android:id="@+id/collected_btn"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:foreground="@drawable/framelayout_selector"
+            >
+
+            <CheckBox
+                android:id="@+id/collected_cb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:enabled="false"
+                android:focusable="false"
+                android:button="@null"
+                android:background="@drawable/collected_uncollected_selector"
+                android:clickable="false" />
+        </FrameLayout>
+        
+        <ImageView
+            android:layout_width="1px"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="@color/line_color_blue" />
+        
+        <FrameLayout
+            android:id="@+id/delete_btn"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:foreground="@drawable/framelayout_selector"
+            >
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/delete"
+                android:clickable="false" />
+        </FrameLayout>
+        
+        <ImageView
+            android:layout_width="1px"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="@color/line_color_blue" />
+
+        <FrameLayout
+            android:id="@+id/copy_btn"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:foreground="@drawable/framelayout_selector"
+            >
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/icon_copy_d"
+                android:clickable="false" />
+        </FrameLayout>
+
+        <ImageView
+            android:layout_width="1px"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="@color/line_color_blue" />
+        
+        <FrameLayout
             android:id="@+id/voice_play_layout"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:foreground="@drawable/framelayout_selector"
             >
+
             <ImageButton
                 android:id="@+id/voice_play"
                 android:layout_width="wrap_content"

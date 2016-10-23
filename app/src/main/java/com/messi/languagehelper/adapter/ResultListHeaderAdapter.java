@@ -41,7 +41,6 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -72,33 +71,35 @@ public class ResultListHeaderAdapter extends RecyclerView.Adapter<RecyclerView.V
 	}
 	
 	public static class ItemViewHolder extends RecyclerView.ViewHolder {
-
+		
 		public TextView record_question;
 		public TextView record_answer;
-		public TextView record_to_practice;
-		public ImageButton delete_btn;
-		public ImageButton copy_btn;
-		public ImageButton collected_btn;
-		public ImageButton weixi_btn;
+		public FrameLayout record_answer_cover;
+		public FrameLayout record_to_practice;
+		public FrameLayout record_question_cover;
+		public FrameLayout delete_btn;
+		public FrameLayout copy_btn;
+		public FrameLayout collected_btn;
+		public FrameLayout weixi_btn;
 		public ImageButton voice_play;
-		public ImageView unread_dot_answer;
-		public ImageView unread_dot_question;
+		public CheckBox collected_cb;
 		public FrameLayout voice_play_layout;
 		public ProgressBar play_content_btn_progressbar;
 		
         public ItemViewHolder(View convertView) {
             super(convertView);
-			record_to_practice = (TextView) convertView.findViewById(R.id.record_to_practice);
+            record_question_cover = (FrameLayout) convertView.findViewById(R.id.record_question_cover);
+			record_answer_cover = (FrameLayout) convertView.findViewById(R.id.record_answer_cover);
+			record_to_practice = (FrameLayout) convertView.findViewById(R.id.record_to_practice);
 			record_question = (TextView) convertView.findViewById(R.id.record_question);
 			record_answer = (TextView) convertView.findViewById(R.id.record_answer);
-			unread_dot_answer = (ImageView) convertView.findViewById(R.id.unread_dot_answer);
-			unread_dot_question = (ImageView) convertView.findViewById(R.id.unread_dot_question);
 			voice_play = (ImageButton) convertView.findViewById(R.id.voice_play);
+			collected_cb = (CheckBox) convertView.findViewById(R.id.collected_cb);
 			voice_play_layout = (FrameLayout) convertView.findViewById(R.id.voice_play_layout);
-			delete_btn = (ImageButton) convertView.findViewById(R.id.delete_btn);
-			copy_btn = (ImageButton) convertView.findViewById(R.id.copy_btn);
-			collected_btn = (ImageButton) convertView.findViewById(R.id.collected_btn);
-			weixi_btn = (ImageButton) convertView.findViewById(R.id.weixi_btn);
+			delete_btn = (FrameLayout) convertView.findViewById(R.id.delete_btn);
+			copy_btn = (FrameLayout) convertView.findViewById(R.id.copy_btn);
+			collected_btn = (FrameLayout) convertView.findViewById(R.id.collected_btn);
+			weixi_btn = (FrameLayout) convertView.findViewById(R.id.weixi_btn);
 			play_content_btn_progressbar = (ProgressBar) convertView.findViewById(R.id.play_content_btn_progressbar);
         }
     }
@@ -174,15 +175,15 @@ public class ResultListHeaderAdapter extends RecyclerView.Adapter<RecyclerView.V
 			MyOnClickListener mMyOnClickListener = new MyOnClickListener(mBean,animationDrawable,holder.voice_play,holder.play_content_btn_progressbar,true);
 			MyOnClickListener mQuestionOnClickListener = new MyOnClickListener(mBean,animationDrawable,holder.voice_play,holder.play_content_btn_progressbar,false);
 			if(mBean.getIscollected().equals("0")){
-				holder.collected_btn.setBackgroundResource(R.drawable.uncollected);
+				holder.collected_cb.setChecked(false);
 			}else{
-				holder.collected_btn.setBackgroundResource(R.drawable.collect_d);
+				holder.collected_cb.setChecked(true);
 			}
 			holder.record_question.setText(mBean.getChinese());
 			holder.record_answer.setText(mBean.getEnglish());
 			
-			holder.record_question.setOnClickListener(mQuestionOnClickListener);
-			holder.record_answer.setOnClickListener(mMyOnClickListener);
+			holder.record_question_cover.setOnClickListener(mQuestionOnClickListener);
+			holder.record_answer_cover.setOnClickListener(mMyOnClickListener);
 			holder.voice_play_layout.setOnClickListener(mMyOnClickListener);
 			
 			holder.delete_btn.setOnClickListener(new OnClickListener() {
@@ -422,9 +423,9 @@ public class ResultListHeaderAdapter extends RecyclerView.Adapter<RecyclerView.V
 			}else{
 				playLocalPcm(filepath,animationDrawable);
 			}
-			if(v.getId() == R.id.record_question){
+			if(v.getId() == R.id.record_question_cover){
 				AVAnalytics.onEvent(context, "favor_tran_play_question");
-			}else if(v.getId() == R.id.record_answer){
+			}else if(v.getId() == R.id.record_answer_cover){
 				AVAnalytics.onEvent(context, "favor_tran_play_result");
 			}else if(v.getId() == R.id.voice_play_layout){
 				AVAnalytics.onEvent(context, "favor_tran_play_voice");
@@ -461,7 +462,9 @@ public class ResultListHeaderAdapter extends RecyclerView.Adapter<RecyclerView.V
 	 * @param toastString
 	 */
 	private void showToast(String toastString) {
-		ToastUtil.diaplayMesShort(context, toastString);
+		if(!TextUtils.isEmpty(toastString)){
+			Toast.makeText(context, toastString, 0).show();
+		}
 	}
 
 }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
@@ -180,18 +179,14 @@
             </FrameLayout>
 
 
-            <com.balysv.materialripple.MaterialRippleLayout
+            <FrameLayout
+                android:id="@+id/voice_btn_cover"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="@dimen/padding_10"
-                app:mrl_rippleOverlay="true"
-                app:mrl_rippleColor="#585858"
-                app:mrl_rippleAlpha="0.2"
-                app:mrl_rippleDelayClick="false"
-                app:mrl_rippleHover="true"
-                app:mrl_rippleDuration="350">
+                android:foreground="@drawable/framelayout_selector"
+                android:layout_margin="@dimen/padding_10">
                 <TextView
                     android:id="@+id/voice_btn"
                     android:layout_width="match_parent"
@@ -203,7 +198,7 @@
                     android:textSize="@dimen/big"
                     android:text="Start"
                     />
-            </com.balysv.materialripple.MaterialRippleLayout>
+            </FrameLayout>
 
         </RelativeLayout>
     </LinearLayout>

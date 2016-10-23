@@ -6,6 +6,9 @@ import android.support.annotation.UiThread;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
@@ -19,12 +22,21 @@ public class PracticeActivity_ViewBinding<T extends PracticeActivity> implements
   public PracticeActivity_ViewBinding(T target, View source) {
     this.target = target;
 
+    target.voice_btn_cover = Utils.findRequiredViewAsType(source, R.id.voice_btn_cover, "field 'voice_btn_cover'", FrameLayout.class);
     target.voice_btn = Utils.findRequiredViewAsType(source, R.id.voice_btn, "field 'voice_btn'", TextView.class);
     target.record_question_cover = Utils.findRequiredViewAsType(source, R.id.record_question_cover, "field 'record_question_cover'", FrameLayout.class);
     target.record_answer_cover = Utils.findRequiredViewAsType(source, R.id.record_answer_cover, "field 'record_answer_cover'", FrameLayout.class);
     target.practice_page_exchange = Utils.findRequiredViewAsType(source, R.id.practice_page_exchange, "field 'practice_page_exchange'", FrameLayout.class);
     target.voice_play_answer = Utils.findRequiredViewAsType(source, R.id.voice_play_answer, "field 'voice_play_answer'", ImageButton.class);
     target.voice_play_question = Utils.findRequiredViewAsType(source, R.id.voice_play_question, "field 'voice_play_question'", ImageButton.class);
+    target.record_answer = Utils.findRequiredViewAsType(source, R.id.record_answer, "field 'record_answer'", TextView.class);
+    target.record_question = Utils.findRequiredViewAsType(source, R.id.record_question, "field 'record_question'", TextView.class);
+    target.recent_used_lv = Utils.findRequiredViewAsType(source, R.id.recent_used_lv, "field 'recent_used_lv'", ListView.class);
+    target.practice_prompt = Utils.findRequiredViewAsType(source, R.id.practice_prompt, "field 'practice_prompt'", TextView.class);
+    target.record_anim_img = Utils.findRequiredViewAsType(source, R.id.record_anim_img, "field 'record_anim_img'", ImageView.class);
+    target.record_layout = Utils.findRequiredViewAsType(source, R.id.record_layout, "field 'record_layout'", LinearLayout.class);
+    target.record_animation_text = Utils.findRequiredViewAsType(source, R.id.record_animation_text, "field 'record_animation_text'", TextView.class);
+    target.record_animation_layout = Utils.findRequiredViewAsType(source, R.id.record_animation_layout, "field 'record_animation_layout'", LinearLayout.class);
   }
 
   @Override
@@ -33,12 +45,21 @@ public class PracticeActivity_ViewBinding<T extends PracticeActivity> implements
     T target = this.target;
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
 
+    target.voice_btn_cover = null;
     target.voice_btn = null;
     target.record_question_cover = null;
     target.record_answer_cover = null;
     target.practice_page_exchange = null;
     target.voice_play_answer = null;
     target.voice_play_question = null;
+    target.record_answer = null;
+    target.record_question = null;
+    target.recent_used_lv = null;
+    target.practice_prompt = null;
+    target.record_anim_img = null;
+    target.record_layout = null;
+    target.record_animation_text = null;
+    target.record_animation_layout = null;
 
     this.target = null;
   }

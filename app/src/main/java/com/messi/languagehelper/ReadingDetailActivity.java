@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.NestedScrollView;
 import android.text.TextUtils;
@@ -19,7 +20,6 @@ import android.view.View.OnClickListener;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVFile;
@@ -57,6 +57,8 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 
 public class ReadingDetailActivity extends BaseActivity {
 
+    @BindView(R.id.toolbar_layout)
+    CollapsingToolbarLayout toolbar_layout;
     @BindView(R.id.title)
     TextView title;
     @BindView(R.id.content)
@@ -114,10 +116,11 @@ public class ReadingDetailActivity extends BaseActivity {
         if (mAVObject == null) {
             finish();
         }
+        toolbar_layout.setTitle(mAVObject.getString(AVOUtil.Reading.title));
+        title.setText(mAVObject.getString(AVOUtil.Reading.title));
     }
 
     private void initViews() {
-        setTitle("  ");
         mSharedPreferences = this.getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
         mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
         mMyThread = new MyThread(mHandler);
@@ -125,7 +128,6 @@ public class ReadingDetailActivity extends BaseActivity {
 
     private void setData() {
         scrollview.scrollTo(0, 0);
-        title.setText(mAVObject.getString(AVOUtil.Reading.title));
         TextHandlerUtil.handlerText(this, mProgressbar, content, mAVObject.getString(AVOUtil.Reading.content));
         if(mAVObject.getString(AVOUtil.Reading.type).equals("video")){
             videoplayer.setVisibility(View.VISIBLE);

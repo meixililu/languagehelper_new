@@ -1,11 +1,11 @@
 [
     {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/abc_fade_out.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/anim/abc_fade_out.xml"
-    },
-    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/slide_out_to_top.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/anim/slide_out_to_top.xml"
+    },
+    {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/abc_fade_out.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/anim/abc_fade_out.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/slide_out_to_bottom.xml",
@@ -13,7 +13,7 @@
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/abc_fade_in.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/anim/abc_fade_in.xml"
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/anim/abc_fade_in.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/fade_out.xml",
@@ -29,15 +29,15 @@
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/design_fab_in.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/anim/design_fab_in.xml"
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/design/25.0.0/res/anim/design_fab_in.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/design_snackbar_in.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/anim/design_snackbar_in.xml"
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/design/25.0.0/res/anim/design_snackbar_in.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/abc_shrink_fade_out_from_bottom.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/anim/abc_shrink_fade_out_from_bottom.xml"
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/anim/abc_shrink_fade_out_from_bottom.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/list_layout_controller.xml",
@@ -45,7 +45,7 @@
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/abc_slide_in_top.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/anim/abc_slide_in_top.xml"
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/anim/abc_slide_in_top.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/dialog_main_show_amination.xml",
@@ -53,11 +53,11 @@
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/abc_slide_out_bottom.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/anim/abc_slide_out_bottom.xml"
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/anim/abc_slide_out_bottom.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/design_fab_out.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/anim/design_fab_out.xml"
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/design/25.0.0/res/anim/design_fab_out.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/quit_fullscreen.xml",
@@ -65,7 +65,7 @@
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/abc_slide_in_bottom.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/anim/abc_slide_in_bottom.xml"
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/anim/abc_slide_in_bottom.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/zoomout.xml",
@@ -73,7 +73,7 @@
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/abc_slide_out_top.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/anim/abc_slide_out_top.xml"
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/anim/abc_slide_out_top.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/start_fullscreen.xml",
@@ -97,15 +97,15 @@
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/design_bottom_sheet_slide_in.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/anim/design_bottom_sheet_slide_in.xml"
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/design/25.0.0/res/anim/design_bottom_sheet_slide_in.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/design_snackbar_out.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/anim/design_snackbar_out.xml"
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/design/25.0.0/res/anim/design_snackbar_out.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/design_bottom_sheet_slide_out.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/anim/design_bottom_sheet_slide_out.xml"
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/design/25.0.0/res/anim/design_bottom_sheet_slide_out.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/slide_left_out.xml",
@@ -117,23 +117,23 @@
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/abc_grow_fade_in_from_bottom.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/anim/abc_grow_fade_in_from_bottom.xml"
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/anim/abc_grow_fade_in_from_bottom.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/abc_popup_exit.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/anim/abc_popup_exit.xml"
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/anim/abc_popup_exit.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/dialog_root_hide_amin.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/languagehelper/MaterialDesign/unspecified/res/anim/dialog_root_hide_amin.xml"
     },
     {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/slide_right_in.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/anim/slide_right_in.xml"
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/abc_popup_enter.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/anim/abc_popup_enter.xml"
     },
     {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/abc_popup_enter.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/anim/abc_popup_enter.xml"
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/slide_right_in.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/anim/slide_right_in.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/anim/dialog_root_show_amin.xml",

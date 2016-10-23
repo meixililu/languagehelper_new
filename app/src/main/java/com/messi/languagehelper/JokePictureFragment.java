@@ -73,19 +73,8 @@ public class JokePictureFragment extends BaseFragment implements OnClickListener
             @Override  
             public void onScrollStateChanged(AbsListView view, int scrollState) { 
                 if (scrollState == OnScrollListener.SCROLL_STATE_IDLE && lastItemIndex == mAdapter.getCount() - 1) {  
-//                	LogUtil.DefalutLog(logContent);
                 	requestData();
                 }
-//				switch(scrollState){
-//					case AbsListView.OnScrollListener.SCROLL_STATE_IDLE://空闲状态
-//						Glide.with(getContext()).resumeRequests();
-//						break;
-//					case AbsListView.OnScrollListener.SCROLL_STATE_FLING://滚动状态
-//						Glide.with(getContext()).pauseRequests();
-//						break;
-//					case AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL://触摸后滚动
-//						break;
-//				}
 			}
             @Override  
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {  

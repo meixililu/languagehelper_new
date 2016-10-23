@@ -50,8 +50,10 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class PracticeActivity extends BaseActivity implements View.OnClickListener {
+public class PracticeActivity extends BaseActivity implements OnClickListener {
 
+    @BindView(R.id.voice_btn_cover)
+    FrameLayout voice_btn_cover;
     @BindView(R.id.voice_btn)
     TextView voice_btn;
     @BindView(R.id.record_question_cover)
@@ -64,10 +66,23 @@ public class PracticeActivity extends BaseActivity implements View.OnClickListen
     ImageButton voice_play_answer;
     @BindView(R.id.voice_play_question)
     ImageButton voice_play_question;
-    private TextView record_question, record_answer, practice_prompt, record_animation_text;
-    private ListView recent_used_lv;
-    private ImageView record_anim_img;
-    private LinearLayout record_layout, record_animation_layout;
+
+    @BindView(R.id.record_answer)
+    TextView record_answer;
+    @BindView(R.id.record_question)
+    TextView record_question;
+    @BindView(R.id.recent_used_lv)
+    ListView recent_used_lv;
+    @BindView(R.id.practice_prompt)
+    TextView practice_prompt;
+    @BindView(R.id.record_anim_img)
+    ImageView record_anim_img;
+    @BindView(R.id.record_layout)
+    LinearLayout record_layout;
+    @BindView(R.id.record_animation_text)
+    TextView record_animation_text;
+    @BindView(R.id.record_animation_layout)
+    LinearLayout record_animation_layout;
 
     private record mBean;
     private MyOnClickListener mAnswerOnClickListener, mQuestionOnClickListener;
@@ -107,16 +122,6 @@ public class PracticeActivity extends BaseActivity implements View.OnClickListen
         mSharedPreferences = Settings.getSharedPreferences(this);
         mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
         recognizer = SpeechRecognizer.createRecognizer(this, null);
-
-        practice_prompt = (TextView) findViewById(R.id.practice_prompt);
-        record_answer = (TextView) findViewById(R.id.record_answer);
-        record_question = (TextView) findViewById(R.id.record_question);
-
-        record_anim_img = (ImageView) findViewById(R.id.record_anim_img);
-        record_layout = (LinearLayout) findViewById(R.id.record_layout);
-        record_animation_layout = (LinearLayout) findViewById(R.id.record_animation_layout);
-        record_animation_text = (TextView) findViewById(R.id.record_animation_text);
-        recent_used_lv = (ListView) findViewById(R.id.recent_used_lv);
         recent_used_lv.setAdapter(adapter);
 
         record_question.setText(mBean.getChinese());
@@ -128,7 +133,7 @@ public class PracticeActivity extends BaseActivity implements View.OnClickListen
 
         record_question_cover.setOnClickListener(mQuestionOnClickListener);
         record_answer_cover.setOnClickListener(mAnswerOnClickListener);
-        voice_btn.setOnClickListener(this);
+        voice_btn_cover.setOnClickListener(this);
         practice_page_exchange.setOnClickListener(this);
 
     }
@@ -146,7 +151,7 @@ public class PracticeActivity extends BaseActivity implements View.OnClickListen
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.voice_btn:
+            case R.id.voice_btn_cover:
                 showIatDialog();
                 AVAnalytics.onEvent(PracticeActivity.this, "practice_pg_speak_btn");
                 break;

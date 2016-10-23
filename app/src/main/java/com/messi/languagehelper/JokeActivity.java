@@ -31,7 +31,6 @@ public class JokeActivity extends BaseActivity implements FragmentProgressbarLis
 		pageAdapter = new JokePageAdapter(getSupportFragmentManager(),this);
 		viewpager.setAdapter(pageAdapter);
 		viewpager.setOffscreenPageLimit(3);
-		tablayout.setTabsFromPagerAdapter(pageAdapter);
 		tablayout.setupWithViewPager(viewpager);
 	}
 

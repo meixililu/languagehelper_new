@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="14"
-        android:targetSdkVersion="24" />
+        android:targetSdkVersion="25" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -32,7 +32,7 @@
         android:name="android.hardware.camera"
         android:required="true" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
-`1`
+    `1`
     <application
         name="com.messi.languagehelper.BaseApplication"
         android:name="com.android.tools.fd.runtime.BootstrapApplication"
@@ -102,7 +102,7 @@
             android:name="com.messi.languagehelper.WordTypeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.messi.languagehelper.SpokenEnglishActivity"
+            android:name="com.messi.languagehelper.JichuxiulianAndKouyulianxiActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.WordStudyActivity"
@@ -168,7 +168,7 @@
             android:name="com.messi.languagehelper.StudyDialogListActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.messi.languagehelper.PracticeCategoryActivity"
+            android:name="com.messi.languagehelper.JichuxiulianFragment"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.QRCodeShareActivity"

@@ -25,7 +25,7 @@ public class StudyDialogCategoryActivity extends BaseActivity implements OnClick
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.study_category_activity);
+		setContentView(R.layout.invest_list_activity);
 		initSwipeRefresh();
 		initViews();
 		new QueryTask().execute();

@@ -27,7 +27,7 @@ public class AboutActivity extends BaseActivity{
 	}
 
 	private void init() {
-		getSupportActionBar().setTitle(getResources().getString(R.string.title_about));
+		setActionBarTitle(getResources().getString(R.string.title_about));
 		app_version.setText(getVersion());
 	}
 

@@ -8,6 +8,6 @@ package tv.danmaku.ijk.media.player;
 
 public final class R {
 	public static final class string {
-		public static final int ijkplayer_dummy = 0x7f0700f0;
+		public static final int ijkplayer_dummy = 0x7f0700f1;
 	}
 }

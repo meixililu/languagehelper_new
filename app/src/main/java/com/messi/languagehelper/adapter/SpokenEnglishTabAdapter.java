@@ -1,5 +1,6 @@
 package com.messi.languagehelper.adapter;
 
+import com.messi.languagehelper.JichuxiulianFragment;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.ReadingFragment;
 import com.messi.languagehelper.SpokenEnglishPractiseFragment;
@@ -17,17 +18,17 @@ public class SpokenEnglishTabAdapter extends FragmentPagerAdapter {
     public SpokenEnglishTabAdapter(FragmentManager fm,Context mContext) {
         super(fm);
         CONTENT = new String[] { 
-        		mContext.getResources().getString(R.string.spoken_english_practice),
-        		mContext.getResources().getString(R.string.title_spoken_english_study)
+        		mContext.getResources().getString(R.string.title_Practice),
+        		mContext.getResources().getString(R.string.spoken_english_reading)
         };
     }
 
     @Override
     public Fragment getItem(int position) {
         if( position == 0 ){
-        	return new SpokenEnglishPractiseFragment();
+        	return JichuxiulianFragment.getInstance();
         }else if( position == 1 ){
-        	return ReadingFragment.newInstance(AVOUtil.Category.spoken_english, null);
+        	return SpokenEnglishPractiseFragment.getInstance();
         }
         return null;
     }

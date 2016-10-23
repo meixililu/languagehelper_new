@@ -6,8 +6,6 @@ import java.util.List;
 
 import com.alibaba.fastjson.JSON;
 import com.avos.avoscloud.AVAnalytics;
-import com.balysv.materialripple.MaterialRippleLayout;
-import com.gc.materialdesign.views.ButtonRectangle;
 import com.iflytek.cloud.RecognizerListener;
 import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechError;
@@ -68,7 +66,7 @@ import android.widget.TextView;
 public class DictionaryFragment extends Fragment implements OnClickListener,DictionaryTranslateListener {
 
 	private EditText input_et;
-	private TextView submit_btn;
+	private FrameLayout submit_btn_cover;
 	private FrameLayout photo_tran_btn;
 	private FrameLayout clear_btn_layout;
 	private RelativeLayout dic_split_layout;
@@ -146,7 +144,7 @@ public class DictionaryFragment extends Fragment implements OnClickListener,Dict
 	}
 
 	private void init() {
-		mInflater = LayoutInflater.from(getActivity());
+		mInflater = LayoutInflater.from(mActivity);
 		mSharedPreferences = mActivity.getSharedPreferences(mActivity.getPackageName(), Activity.MODE_PRIVATE);
 		
 		mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(mActivity, null);
@@ -159,7 +157,7 @@ public class DictionaryFragment extends Fragment implements OnClickListener,Dict
 		
 		recent_used_lv = (ListView) view.findViewById(R.id.recent_used_lv);
 		input_et = (EditText) view.findViewById(R.id.input_et);
-		submit_btn = (TextView) view.findViewById(R.id.submit_btn);
+		submit_btn_cover = (FrameLayout) view.findViewById(R.id.submit_btn_cover);
 		photo_tran_btn = (FrameLayout) view.findViewById(R.id.photo_tran_btn);
 		cb_speak_language_ch = (RadioButton) view.findViewById(R.id.cb_speak_language_ch);
 		cb_speak_language_en = (RadioButton) view.findViewById(R.id.cb_speak_language_en);
@@ -177,7 +175,7 @@ public class DictionaryFragment extends Fragment implements OnClickListener,Dict
 		AutoClearInputAfterFinish = mSharedPreferences.getBoolean(KeyUtil.AutoClearInputAfterFinish, true);
 		initLanguage();
 		photo_tran_btn.setOnClickListener(this);
-		submit_btn.setOnClickListener(this);
+		submit_btn_cover.setOnClickListener(this);
 		cb_speak_language_ch.setOnClickListener(this);
 		cb_speak_language_en.setOnClickListener(this);
 		speak_round_layout.setOnClickListener(this);
@@ -218,7 +216,7 @@ public class DictionaryFragment extends Fragment implements OnClickListener,Dict
 	
 	@Override
 	public void onClick(View v) {
-		if (v.getId() == R.id.submit_btn) {
+		if (v.getId() == R.id.submit_btn_cover) {
 			hideIME();
 			submit();
 			AVAnalytics.onEvent(mActivity, "tab2_submit_btn");
@@ -444,7 +442,7 @@ public class DictionaryFragment extends Fragment implements OnClickListener,Dict
 	 */
 	private void RequestTranslateApiTask(){
 		loadding();
-		submit_btn.setEnabled(false);
+		submit_btn_cover.setEnabled(false);
 		TranslateUtil.Translate_init(mActivity, mHandler);
 	}
 	
@@ -461,14 +459,21 @@ public class DictionaryFragment extends Fragment implements OnClickListener,Dict
 	};
 	
 	private void setData(){
-		if(AutoClearInputAfterFinish){
-			input_et.setText("");
-		}
 		mDictionaryBean = (Dictionary) BaseApplication.dataMap.get(KeyUtil.DataMapKey);
 		BaseApplication.dataMap.clear();
 		beans.add(0,mDictionaryBean);
 		mAdapter.notifyDataSetChanged();
 		recent_used_lv.setSelection(0);
+		autoClearAndautoPlay();
+	}
+
+	public void autoClearAndautoPlay(){
+		if(AutoClearInputAfterFinish){
+			input_et.setText("");
+		}
+		if(mSharedPreferences.getBoolean(KeyUtil.AutoPlayResult, false)){
+			new AutoPlayWaitTask().execute();
+		}
 	}
 	
 	class AutoPlayWaitTask extends AsyncTask<Void, Void, Void>{
@@ -489,13 +494,18 @@ public class DictionaryFragment extends Fragment implements OnClickListener,Dict
 	
 	private void onFinishRequest(){
 		finishLoadding();
-		submit_btn.setEnabled(true);
+		submit_btn_cover.setEnabled(true);
 	}
 	
 	private void autoPlay(){
 		View mView = recent_used_lv.getChildAt(0);
-		FrameLayout record_answer_cover = (FrameLayout) mView.findViewById(R.id.record_question_cover); 
-		record_answer_cover.callOnClick();
+		final FrameLayout record_answer_cover = (FrameLayout) mView.findViewById(R.id.record_question_cover);
+		record_answer_cover.post(new Runnable() {
+			@Override
+			public void run() {
+				record_answer_cover.performClick();
+			}
+		});
 	}
 
 	/**toast message
@@ -600,7 +610,7 @@ public class DictionaryFragment extends Fragment implements OnClickListener,Dict
 	 */
 	private void hideIME(){
 		final InputMethodManager imm = (InputMethodManager)mActivity.getSystemService(Activity.INPUT_METHOD_SERVICE);       
-		imm.hideSoftInputFromWindow(submit_btn.getWindowToken(), 0); 
+		imm.hideSoftInputFromWindow(submit_btn_cover.getWindowToken(), 0);
 	}
 	
 	/**

@@ -28,14 +28,14 @@ public class InvestListActivity extends BaseActivity implements OnClickListener{
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.study_category_activity);
+		setContentView(R.layout.invest_list_activity);
 		initSwipeRefresh();
 		initViews();
 		new QueryTask().execute();
 	}
 	
 	private void initViews(){
-		getSupportActionBar().setTitle(getResources().getString(R.string.invest_activity_title));
+		setActionBarTitle(this.getResources().getString(R.string.invest_activity_title));
 		avObjects = new ArrayList<AVObject>();
 		category_lv = (ListView) findViewById(R.id.studycategory_lv);
 		View headerView = LayoutInflater.from(this).inflate(R.layout.xunfei_ysad_item, null);

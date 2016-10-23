@@ -26,7 +26,7 @@
             android:shadowRadius="0.3"
             android:textColor="@color/text_black"
             android:textSize="@dimen/title" />
-        
+
         <TextView
             android:id="@+id/des"
             android:layout_width="fill_parent"

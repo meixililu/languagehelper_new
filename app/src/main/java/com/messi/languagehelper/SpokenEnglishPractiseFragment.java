@@ -27,6 +27,11 @@ public class SpokenEnglishPractiseFragment extends BaseFragment{
 	private EvaluationTypeAdapter mAdapter;
 	private List<AVObject> avObjects;
 	private XFYSAD mXFYSAD;
+
+	public static SpokenEnglishPractiseFragment getInstance(){
+		SpokenEnglishPractiseFragment fragment = new SpokenEnglishPractiseFragment();
+		return fragment;
+	}
 	
 	@Override
 	public void onAttach(Activity activity) {
