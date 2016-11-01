@@ -8,11 +8,10 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@color/contentbg"
+        android:background="@color/white"
         android:orientation="vertical" >
 
         <android.support.v7.widget.Toolbar
-            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/my_awesome_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,9 +31,6 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
             android:background="@drawable/list_item_bg_white"
             android:orientation="vertical" >
 
@@ -68,18 +64,21 @@
 
                     <ImageButton
                         android:id="@+id/voice_play_answer"
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
-                        android:layout_gravity="center_vertical|right"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="bottom|right"
+                        android:layout_marginRight="@dimen/padding_5"
                         android:background="@drawable/voice_play"
                         android:clickable="false" />
                 </LinearLayout>
             </FrameLayout>
 
-            <RelativeLayout
+            <FrameLayout
+                android:id="@+id/show_zh_img"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
-
+                android:layout_height="wrap_content"
+                android:foreground="@drawable/framelayout_selector"
+                >
                 <TextView
                     android:id="@+id/record_question"
                     android:layout_width="match_parent"
@@ -90,16 +89,13 @@
                     android:paddingTop="7dp"
                     android:textColor="@color/text_grey"
                     android:textSize="@dimen/big" />
-
                 <ImageButton
-                    android:id="@+id/show_zh_img"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="bottom|right"
                     android:layout_marginRight="@dimen/padding_5"
                     android:background="@drawable/ic_visibility_grey600_36dp" />
-            </RelativeLayout>
+            </FrameLayout>
         </LinearLayout>
 
         <RelativeLayout
@@ -109,102 +105,96 @@
             android:orientation="vertical" >
 
             <LinearLayout
-                android:id="@+id/layout_bottom"
-                android:layout_width="fill_parent"
+                android:id="@+id/bottom"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:background="@color/none"
-                android:gravity="center_vertical"
-                android:orientation="horizontal" >
-
-                <com.gc.materialdesign.views.ButtonRectangle
-                    android:id="@+id/voice_btn"
-                    android:layout_width="0dp"
-                    android:layout_height="60dp"
-                    android:layout_weight="1"
+                android:layout_margin="@dimen/padding_margin"
+                android:orientation="horizontal"
+                >
+                <FrameLayout
+                    android:id="@+id/previous_btn"
+                    android:layout_width="50dp"
+                    android:layout_height="45dp"
                     android:background="@color/load_blue"
-                    android:clickable="false"
-                    android:gravity="center"
-                    android:text="Start"
-                    android:textSize="@dimen/title"
-                    materialdesign:rippleSpeed="90" />
+                    android:foreground="@drawable/framelayout_selector"
+                    >
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_skip_previous"
+                        />
+                </FrameLayout>
+                <FrameLayout
+                    android:id="@+id/start_btn_cover"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:foreground="@drawable/framelayout_selector"
+                    >
+                    <TextView
+                        android:id="@+id/start_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@color/load_blue"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/big"
+                        android:text="Start"
+                        />
+                </FrameLayout>
+                <FrameLayout
+                    android:id="@+id/next_btn"
+                    android:layout_width="50dp"
+                    android:layout_height="45dp"
+                    android:background="@color/load_blue"
+                    android:foreground="@drawable/framelayout_selector"
+                    >
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_skip_next"
+                        />
+                </FrameLayout>
             </LinearLayout>
 
             <FrameLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_above="@id/layout_bottom"
-                android:layout_marginLeft="@dimen/padding_7"
-                android:layout_marginRight="@dimen/padding_7"
+                android:layout_above="@id/bottom"
                 android:background="@color/white" >
 
-                <ListView
+                <android.support.v7.widget.RecyclerView
                     android:id="@+id/user_result_lv"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:background="@color/none"
-                    android:cacheColorHint="@color/none"
-                    android:divider="@color/none"
-                    android:dividerHeight="3dp"
-                    android:fadingEdge="none"
-                    android:listSelector="@color/none"
-                    android:scrollbars="none" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|right"
-                    android:layout_marginBottom="25dp"
-                    android:layout_marginRight="15dp"
-                    android:orientation="vertical" >
-
-                    <com.gc.materialdesign.views.ButtonFloat
-                        android:id="@+id/buttonFloat"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/padding_7"
-                        android:background="#1E88E5"
-                        materialdesign:iconDrawable="@drawable/ic_volume_up_white_36dp"
-                        materialdesign:rippleSpeed="98" />
-
-                    <com.gc.materialdesign.views.ButtonFloat
-                        android:id="@+id/previous_btn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="#1E88E5"
-                        materialdesign:iconDrawable="@drawable/ic_skip_previous_white_36dp"
-                        materialdesign:rippleSpeed="98" />
-
-                    <com.gc.materialdesign.views.ButtonFloat
-                        android:id="@+id/next_btn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/padding_7"
-                        android:background="#1E88E5"
-                        materialdesign:iconDrawable="@drawable/ic_skip_next_white_36dp"
-                        materialdesign:rippleSpeed="98" />
-                </LinearLayout>
+                    />
 
                 <FrameLayout
                     android:id="@+id/auto_play_cover"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:padding="@dimen/padding_10"
                     android:layout_gravity="bottom"
                     android:foreground="@drawable/framelayout_selector" >
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
                         android:background="@color/white"
                         android:gravity="center_vertical"
                         android:orientation="horizontal" >
 
                         <com.gc.materialdesign.views.CheckBox
                             android:id="@+id/auto_play_cb"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
                             android:background="#1E88E5" />
 
                         <TextView
@@ -214,7 +204,7 @@
                             android:gravity="left"
                             android:text="@string/auto_play_after_read"
                             android:textColor="@color/text_grey"
-                            android:textSize="@dimen/big" />
+                            android:textSize="@dimen/smaller_l" />
                     </LinearLayout>
                 </FrameLayout>
             </FrameLayout>

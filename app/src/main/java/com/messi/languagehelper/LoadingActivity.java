@@ -17,20 +17,23 @@ import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.ShortCut;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
 public class LoadingActivity extends Activity implements OnClickListener{
-	
+
 	private SharedPreferences mSharedPreferences;
 	private ImageView forward_img;
 	private IFLYFullScreenAd fullScreenAd;
@@ -51,7 +54,7 @@ public class LoadingActivity extends Activity implements OnClickListener{
 			e.printStackTrace();
 		}
 	}
-	
+
 	private void initGlide(){
     	Glide.get(this).register(GlideUrl.class, InputStream.class, 
     	        new OkHttpUrlLoader.Factory(LanguagehelperHttpClient.initClient(this))); 

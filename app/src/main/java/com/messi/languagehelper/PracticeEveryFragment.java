@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -95,6 +96,7 @@ public class PracticeEveryFragment extends BaseFragment implements OnClickListen
 	private void initItem(){
 		for(int i=0; i<pageSize; i++){
 			View itemView = minflater.inflate(R.layout.practice_every_item, null, false);
+			FrameLayout cover = (FrameLayout)itemView.findViewById(R.id.cover);
 			TextView titleTv = (TextView)itemView.findViewById(R.id.title_tv);
 			SpannableStringBuilder title = new SpannableStringBuilder();
 			if(yb != null){
@@ -107,8 +109,7 @@ public class PracticeEveryFragment extends BaseFragment implements OnClickListen
 				title.append(SpannableStringUtil.setTextSize(getActivity(), cn[i], R.dimen.bigest));
 			}
 			titleTv.setText(title);
-			ButtonFloat buttonFloat = (ButtonFloat)itemView.findViewById(R.id.buttonFloat);
-			buttonFloat.setOnClickListener(new OnClickListener() {
+			cover.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
 					playVideo(currentIndex);
@@ -118,7 +119,7 @@ public class PracticeEveryFragment extends BaseFragment implements OnClickListen
 		}
 		ViewPagerAdapter myPagerAdapter = new ViewPagerAdapter(mViews);
 		viewpager.setAdapter(myPagerAdapter);
-		viewpager.setOnPageChangeListener(new MyOnPageChangeListener());
+		viewpager.addOnPageChangeListener(new MyOnPageChangeListener());
 	}
 	
 	@Override

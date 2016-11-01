@@ -124,6 +124,14 @@ public class KeyUtil {
 
 	public static final String CHDicWord = "CHDicWord";
 
+	public static final String IsNeedDelete = "IsNeedDelete";
+
+	public static final String DicTitle = "DicTitle";
+
+	public static final String DicContent = "DicContent";
+
+	public static final String PermissionShowTimes = "PermissionShowTimes";
+
 	
 	
 	

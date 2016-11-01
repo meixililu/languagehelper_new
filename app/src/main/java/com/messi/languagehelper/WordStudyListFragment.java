@@ -5,6 +5,9 @@ import java.util.List;
 
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
+import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
+import com.messi.languagehelper.adapter.RcSymbolListAdapter;
+import com.messi.languagehelper.adapter.RcWordListAdapter;
 import com.messi.languagehelper.adapter.WordStudyListAdapter;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.ADUtil;
@@ -15,6 +18,7 @@ import com.messi.languagehelper.util.SaveData;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.TimeUtil;
 import com.messi.languagehelper.util.XFYSAD;
+import com.messi.languagehelper.views.DividerGridItemDecoration;
 import com.messi.languagehelper.views.GridViewWithHeaderAndFooter;
 
 import android.app.Activity;
@@ -22,14 +26,17 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 public class WordStudyListFragment extends BaseFragment{
 
-	private GridViewWithHeaderAndFooter category_lv;
-	private WordStudyListAdapter mAdapter;
+	private static final int NUMBER_OF_COLUMNS = 2;
+	private RecyclerView category_lv;
+	private RcWordListAdapter mAdapter;
 	private List<AVObject> avObjects;
 	private XFYSAD mXFYSAD;
 	private SharedPreferences spf;
@@ -49,27 +56,25 @@ public class WordStudyListFragment extends BaseFragment{
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.word_study_list_fragment, container, false);
 		initSwipeRefresh(view);
-		initViews(inflater,view);
+		initViews(view);
 		initData();
 		return view;
 	}
 	
-	private void initViews(LayoutInflater inflater,View view){
-		spf = Settings.getSharedPreferences(getActivity());
+	private void initViews(View view){
+		spf = Settings.getSharedPreferences(getContext());
 		avObjects = new ArrayList<AVObject>();
-		category_lv = (GridViewWithHeaderAndFooter) view.findViewById(R.id.studycategory_lv);
-		mAdapter = new WordStudyListAdapter(getActivity(), avObjects);
-		View headerView = inflater.inflate(R.layout.xunfei_ysad_item, null);
-		category_lv.addHeaderView(headerView);
+		category_lv = (RecyclerView) view.findViewById(R.id.listview);
+		mXFYSAD = new XFYSAD(getContext(), ADUtil.SecondaryPage);
+		mAdapter = new RcWordListAdapter(mXFYSAD);
+		category_lv.setHasFixedSize(true);
+		GridLayoutManager layoutManager = new GridLayoutManager(getContext(), NUMBER_OF_COLUMNS);
+		HeaderSpanSizeLookup headerSpanSizeLookup = new HeaderSpanSizeLookup(mAdapter, layoutManager);
+		layoutManager.setSpanSizeLookup(headerSpanSizeLookup);
+		category_lv.setLayoutManager(layoutManager);
+		category_lv.addItemDecoration(new DividerGridItemDecoration(1));
+		mAdapter.setHeader(new Object());
 		category_lv.setAdapter(mAdapter);
-		mXFYSAD = new XFYSAD(getActivity(), headerView, ADUtil.SecondaryPage);
-		mXFYSAD.showAD();
-		new Handler().postDelayed(new Runnable() {
-			@Override
-			public void run() {
-				mAdapter.notifyDataSetChanged();
-			}
-		}, 800);
 	}
 	
 	private void initData(){
@@ -89,6 +94,7 @@ public class WordStudyListFragment extends BaseFragment{
 					for(String str : listStr){
 						avObjects.add(AVObject.parseAVObject(str));
 					}
+					mAdapter.setItems(avObjects);
 					mAdapter.notifyDataSetChanged();
 				}
 			}
@@ -164,6 +170,7 @@ public class WordStudyListFragment extends BaseFragment{
 			super.onPostExecute(result);
 			hideProgressbar();
 			onSwipeRefreshLayoutFinish();
+			mAdapter.setItems(avObjects);
 			mAdapter.notifyDataSetChanged();
 		}
 	}

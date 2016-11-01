@@ -17,7 +17,9 @@ import com.iflytek.cloud.SpeechRecognizer;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.adapter.PracticePageListItemAdapter;
+import com.messi.languagehelper.adapter.RcPractiseListAdapter;
 import com.messi.languagehelper.bean.UserSpeakBean;
+import com.messi.languagehelper.impl.PractisePlayUserPcmListener;
 import com.messi.languagehelper.task.MyThread;
 import com.messi.languagehelper.task.PublicTask;
 import com.messi.languagehelper.task.PublicTask.PublicTaskListener;
@@ -34,11 +36,14 @@ import com.messi.languagehelper.util.XFUtil;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.Animator.AnimatorListener;
 import com.nineoldandroids.animation.ObjectAnimator;
+import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -51,25 +56,27 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class EvaluationDetailActivity extends BaseActivity implements OnClickListener {
+public class EvaluationDetailActivity extends BaseActivity implements OnClickListener, PractisePlayUserPcmListener {
 
 	private FrameLayout evaluation_en_cover;
 	private FrameLayout auto_play_cover;
+	private FrameLayout show_zh_img;
 	private CheckBox auto_play_cb;
-	private ImageButton voice_play_answer,show_zh_img;
+	private ImageButton voice_play_answer;
 	private TextView evaluation_zh_tv,evaluation_en_tv,record_animation_text;
-	private ListView user_result_lv;
+	private RecyclerView user_result_lv;
 	private ImageView record_anim_img;
-	private ButtonFloat buttonFloat,previous_btn,next_btn;
+	private FrameLayout previous_btn,next_btn;
 	private LinearLayout record_layout,record_animation_layout;
-	private ButtonRectangle voice_btn;
-	
+	private TextView start_btn;
+	private FrameLayout start_btn_cover;
+
 	private MyOnClickListener mEvaluationOnClickListener;
 	private SpeechSynthesizer mSpeechSynthesizer;
 	private SharedPreferences mSharedPreferences;
 	private SpeechRecognizer recognizer;
 	private ArrayList<UserSpeakBean> mUserSpeakBeanList;
-	private PracticePageListItemAdapter adapter;
+	private RcPractiseListAdapter adapter;
 	
 	private boolean isNewIn = true;
 	private boolean isFollow;
@@ -104,7 +111,7 @@ public class EvaluationDetailActivity extends BaseActivity implements OnClickLis
 		mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this,null);
 		recognizer = SpeechRecognizer.createRecognizer(this,null);
 		mUserSpeakBeanList = new ArrayList<UserSpeakBean>();
-		adapter = new PracticePageListItemAdapter(this, mUserSpeakBeanList);
+		adapter = new RcPractiseListAdapter(this);
 		XFUtil.setSpeakLanguage(this,mSharedPreferences,XFUtil.VoiceEngineEN);
 	}
 	
@@ -112,30 +119,36 @@ public class EvaluationDetailActivity extends BaseActivity implements OnClickLis
 		evaluation_en_cover = (FrameLayout) findViewById(R.id.record_answer_cover);
 		auto_play_cover = (FrameLayout) findViewById(R.id.auto_play_cover);
 		auto_play_cb = (CheckBox) findViewById(R.id.auto_play_cb);
-		user_result_lv = (ListView) findViewById(R.id.user_result_lv);
+		user_result_lv = (RecyclerView) findViewById(R.id.user_result_lv);
 		evaluation_en_tv = (TextView) findViewById(R.id.record_answer);
 		evaluation_zh_tv = (TextView) findViewById(R.id.record_question);
 		voice_play_answer = (ImageButton) findViewById(R.id.voice_play_answer);
-		show_zh_img = (ImageButton) findViewById(R.id.show_zh_img);
-		voice_btn = (ButtonRectangle) findViewById(R.id.voice_btn);
+		show_zh_img = (FrameLayout) findViewById(R.id.show_zh_img);
+		start_btn_cover = (FrameLayout) findViewById(R.id.start_btn_cover);
+		start_btn = (TextView) findViewById(R.id.start_btn);
 		record_anim_img = (ImageView) findViewById(R.id.record_anim_img);
-		buttonFloat = (ButtonFloat) findViewById(R.id.buttonFloat);
-		previous_btn = (ButtonFloat) findViewById(R.id.previous_btn);
-		next_btn = (ButtonFloat) findViewById(R.id.next_btn);
+		previous_btn = (FrameLayout) findViewById(R.id.previous_btn);
+		next_btn = (FrameLayout) findViewById(R.id.next_btn);
 		record_layout = (LinearLayout) findViewById(R.id.record_layout);
 		record_animation_layout = (LinearLayout) findViewById(R.id.record_animation_layout);
 		record_animation_text = (TextView) findViewById(R.id.record_animation_text);
-		
+
+		user_result_lv.setLayoutManager(new LinearLayoutManager(this));
+		user_result_lv.addItemDecoration(
+				new HorizontalDividerItemDecoration.Builder(this)
+						.colorResId(R.color.text_tint)
+						.sizeResId(R.dimen.list_divider_size)
+						.marginResId(R.dimen.padding_margin, R.dimen.padding_margin)
+						.build());
+		adapter.setItems(mUserSpeakBeanList);
 		user_result_lv.setAdapter(adapter);
-		buttonFloat.setEnabled(false);
 		previous_btn.setEnabled(true);
 		next_btn.setEnabled(true);
 		auto_play_cover.setOnClickListener(this);
 		previous_btn.setOnClickListener(this);
 		next_btn.setOnClickListener(this);
-		voice_btn.setOnClickListener(this);
+		start_btn_cover.setOnClickListener(this);
 		show_zh_img.setOnClickListener(this);
-		buttonFloat.setOnClickListener(this);
 		setDatas();
 	}
 	
@@ -159,40 +172,43 @@ public class EvaluationDetailActivity extends BaseActivity implements OnClickLis
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) { 
-		case R.id.voice_btn:
+		case R.id.start_btn_cover:
 			showIatDialog();
-			AVAnalytics.onEvent(EvaluationDetailActivity.this, "evaluationdetail_pg_speak_btn");
-			break;
-		case R.id.buttonFloat:
-			playUserPcm();
-			AVAnalytics.onEvent(EvaluationDetailActivity.this, "evaluationdetail_pg_play_userpcm_btn");
 			break;
 		case R.id.auto_play_cover:
 			auto_play_cb.setChecked(!auto_play_cb.isCheck());
 			AVAnalytics.onEvent(EvaluationDetailActivity.this, "evaluationdetail_pg_autoplay_btn");
 			break;
 		case R.id.previous_btn:
-			if(positin > 0){
-				positin--;
-				setDatas();
-			}else{
-				ToastUtil.diaplayMesShort(EvaluationDetailActivity.this, "已经是第一个了");
-			}
-			AVAnalytics.onEvent(EvaluationDetailActivity.this, "evaluationdetail_pg_previous_btn");
+			previousItem();
 			break;
 		case R.id.next_btn:
-			if(positin < avObjects.size()-1){
-				positin++;
-				setDatas();
-			}else{
-				ToastUtil.diaplayMesShort(EvaluationDetailActivity.this, "已经是最后一个了");
-			}
-			AVAnalytics.onEvent(EvaluationDetailActivity.this, "evaluationdetail_pg_next_btn");
+			nextItem();
 			break;
 		case R.id.show_zh_img:
 			showZH();
 			break;
 		}
+	}
+
+	private void previousItem(){
+		if(positin > 0){
+			positin--;
+			setDatas();
+		}else{
+			ToastUtil.diaplayMesShort(EvaluationDetailActivity.this, "已经是第一个了");
+		}
+		AVAnalytics.onEvent(EvaluationDetailActivity.this, "evaluationdetail_pg_previous_btn");
+	}
+
+	private void nextItem(){
+		if(positin < avObjects.size()-1){
+			positin++;
+			setDatas();
+		}else{
+			ToastUtil.diaplayMesShort(EvaluationDetailActivity.this, "已经是最后一个了");
+		}
+		AVAnalytics.onEvent(EvaluationDetailActivity.this, "evaluationdetail_pg_next_btn");
 	}
 	
 	private void showZH(){
@@ -228,7 +244,6 @@ public class EvaluationDetailActivity extends BaseActivity implements OnClickLis
 	 * 显示转写对话框.
 	 */
 	public void showIatDialog() {
-		buttonFloat.setEnabled(false);
 		if(recognizer != null){
 			if(!recognizer.isListening()){
 				if(isNewIn){
@@ -238,7 +253,7 @@ public class EvaluationDetailActivity extends BaseActivity implements OnClickLis
 					mEvaluationOnClickListener.onClick(voice_play_answer);
 				}else{
 					record_layout.setVisibility(View.VISIBLE);
-					voice_btn.setText(this.getResources().getString(R.string.finish));
+					start_btn.setText(this.getResources().getString(R.string.finish));
 					String path = SDCardUtil.getDownloadPath(SDCardUtil.UserPracticePath);
 					userPcmPath = path + "/userpractice.pcm";
 					recognizer.setParameter(SpeechConstant.ASR_AUDIO_PATH, userPcmPath);
@@ -249,6 +264,7 @@ public class EvaluationDetailActivity extends BaseActivity implements OnClickLis
 				finishRecord();
 			}
 		}
+		AVAnalytics.onEvent(EvaluationDetailActivity.this, "evaluationdetail_pg_speak_btn");
 	}
 	
 	/**
@@ -261,7 +277,7 @@ public class EvaluationDetailActivity extends BaseActivity implements OnClickLis
 		isNewIn = true;
 		record_layout.setVisibility(View.GONE);
 		record_anim_img.setBackgroundResource(R.drawable.speak_voice_1);
-		voice_btn.setText("Start");
+		start_btn.setText("Start");
 	}
 	
 	private void onfinishPlay(){
@@ -323,7 +339,7 @@ public class EvaluationDetailActivity extends BaseActivity implements OnClickLis
 					}
 				}
 			}
-		}, 800);
+		}, 1000);
 	}
 	
 	private void showNext(){
@@ -348,7 +364,7 @@ public class EvaluationDetailActivity extends BaseActivity implements OnClickLis
 		@Override
 		public void onAnimationEnd(Animator animation) {
 			onClick(next_btn);
-			onClick(voice_btn);
+			onClick(start_btn_cover);
 		}
 		@Override
 		public void onAnimationCancel(Animator animation) {
@@ -370,7 +386,6 @@ public class EvaluationDetailActivity extends BaseActivity implements OnClickLis
 				adapter.notifyDataSetChanged();
 				animationReward(bean.getScoreInt());
 				sbResult.setLength(0);
-				buttonFloat.setEnabled(true);
 				mMyThread = AudioTrackUtil.getMyThread(userPcmPath);
 				playNext();
 			}
@@ -455,7 +470,13 @@ public class EvaluationDetailActivity extends BaseActivity implements OnClickLis
 		public void onAnimationCancel(Animator animation) {
 		}
 	};
-	
+
+	@Override
+	public void playOrStop() {
+		playUserPcm();
+		AVAnalytics.onEvent(EvaluationDetailActivity.this, "evaluationdetail_pg_play_userpcm_btn");
+	}
+
 	public class MyOnClickListener implements OnClickListener {
 		
 		private String ev_content;
@@ -554,17 +575,17 @@ public class EvaluationDetailActivity extends BaseActivity implements OnClickLis
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.evaluation_detail_menu, menu);
+//		getMenuInflater().inflate(R.menu.evaluation_detail_menu, menu);
 		return true;
 	}
 	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.action_info:  
-			showXunFeiDialog();
-			break;
-		}
+//		switch (item.getItemId()) {
+//		case R.id.action_info:
+//			showXunFeiDialog();
+//			break;
+//		}
        return super.onOptionsItemSelected(item);
 	}
 	

@@ -18,7 +18,7 @@ public class ReadingAndNewsActivity extends BaseActivity implements FragmentProg
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.reading_and_news_activity);
+		setContentView(R.layout.joke_activity);
 		initViews();
 	}
 	

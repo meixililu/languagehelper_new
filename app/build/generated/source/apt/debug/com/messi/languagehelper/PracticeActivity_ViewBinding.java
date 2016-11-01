@@ -3,12 +3,12 @@ package com.messi.languagehelper;
 
 import android.support.annotation.CallSuper;
 import android.support.annotation.UiThread;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
@@ -26,12 +26,11 @@ public class PracticeActivity_ViewBinding<T extends PracticeActivity> implements
     target.voice_btn = Utils.findRequiredViewAsType(source, R.id.voice_btn, "field 'voice_btn'", TextView.class);
     target.record_question_cover = Utils.findRequiredViewAsType(source, R.id.record_question_cover, "field 'record_question_cover'", FrameLayout.class);
     target.record_answer_cover = Utils.findRequiredViewAsType(source, R.id.record_answer_cover, "field 'record_answer_cover'", FrameLayout.class);
-    target.practice_page_exchange = Utils.findRequiredViewAsType(source, R.id.practice_page_exchange, "field 'practice_page_exchange'", FrameLayout.class);
     target.voice_play_answer = Utils.findRequiredViewAsType(source, R.id.voice_play_answer, "field 'voice_play_answer'", ImageButton.class);
     target.voice_play_question = Utils.findRequiredViewAsType(source, R.id.voice_play_question, "field 'voice_play_question'", ImageButton.class);
     target.record_answer = Utils.findRequiredViewAsType(source, R.id.record_answer, "field 'record_answer'", TextView.class);
     target.record_question = Utils.findRequiredViewAsType(source, R.id.record_question, "field 'record_question'", TextView.class);
-    target.recent_used_lv = Utils.findRequiredViewAsType(source, R.id.recent_used_lv, "field 'recent_used_lv'", ListView.class);
+    target.recent_used_lv = Utils.findRequiredViewAsType(source, R.id.recent_used_lv, "field 'recent_used_lv'", RecyclerView.class);
     target.practice_prompt = Utils.findRequiredViewAsType(source, R.id.practice_prompt, "field 'practice_prompt'", TextView.class);
     target.record_anim_img = Utils.findRequiredViewAsType(source, R.id.record_anim_img, "field 'record_anim_img'", ImageView.class);
     target.record_layout = Utils.findRequiredViewAsType(source, R.id.record_layout, "field 'record_layout'", LinearLayout.class);
@@ -49,7 +48,6 @@ public class PracticeActivity_ViewBinding<T extends PracticeActivity> implements
     target.voice_btn = null;
     target.record_question_cover = null;
     target.record_answer_cover = null;
-    target.practice_page_exchange = null;
     target.voice_play_answer = null;
     target.voice_play_question = null;
     target.record_answer = null;

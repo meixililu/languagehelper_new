@@ -8,12 +8,12 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_dialog_material_background.xml"
     },
     {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/collected_uncollected_selector.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable/collected_uncollected_selector.xml"
-    },
-    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/checkbox_language_right_selector.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable/checkbox_language_right_selector.xml"
+    },
+    {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/collected_uncollected_selector.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable/collected_uncollected_selector.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/design_bottom_navigation_item_background.xml",
@@ -32,16 +32,16 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/fm.jiecao/jiecaovideoplayer/4.6.5/res/drawable/jc_seek_thumb_normal.xml"
     },
     {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/tc_black_to_white_selector.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable/tc_black_to_white_selector.xml"
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_dark.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_list_selector_holo_dark.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/abc_tab_indicator_material.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_tab_indicator_material.xml"
     },
     {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_dark.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_list_selector_holo_dark.xml"
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/tc_black_to_white_selector.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable/tc_black_to_white_selector.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_track_material.xml",
@@ -72,12 +72,12 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable/bg_btn_blue_s.xml"
     },
     {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/jc_seek_thumb_pressed.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/fm.jiecao/jiecaovideoplayer/4.6.5/res/drawable/jc_seek_thumb_pressed.xml"
-    },
-    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/round_light_green_bgl.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable/round_light_green_bgl.xml"
+    },
+    {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/jc_seek_thumb_pressed.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/fm.jiecao/jiecaovideoplayer/4.6.5/res/drawable/jc_seek_thumb_pressed.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/abc_ic_menu_overflow_material.xml",
@@ -172,12 +172,12 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/fm.jiecao/jiecaovideoplayer/4.6.5/res/drawable/jc_volume_progress_bg.xml"
     },
     {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/content_bg_xml.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable/content_bg_xml.xml"
-    },
-    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/background_button.9.png",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/languagehelper/MaterialDesign/unspecified/res/drawable/background_button.9.png"
+    },
+    {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/content_bg_xml.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable/content_bg_xml.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/design_fab_background.xml",

@@ -63,6 +63,9 @@
         <!-- 讯飞广告sdk -->
 
         <activity
+            android:name=".DictionaryFullscreenActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".BrainTwistsActivity"
             android:screenOrientation="portrait" />
         <activity

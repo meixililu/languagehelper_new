@@ -5,74 +5,39 @@
     density="xxhdpi"
     format="8"
     plugin-version="2.2.2"
-    timestamp="26280564670961"
+    timestamp="32735777831042"
     token="4501248045731096870"
-    verifier="COMPATIBLE" >
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="4545" />
+        duration="0" />
     <task
         name="instant-run-dex"
-        duration="604" />
+        duration="0" />
     <task
         name="instant-run-transform"
-        duration="262" />
+        duration="0" />
     <task
         name="verifier"
-        duration="16" />
-
-    <artifact
-        location="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/reload-dex/debug/classes.dex"
-        type="RELOAD_DEX" />
+        duration="0" />
 
     <build
-        timestamp="25087908747816"
+        timestamp="31356373304301"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/Users/luli/AndroidStudioProjects/languagehelper/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="26042830085022"
+        timestamp="32494924495865"
         verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/instant-run-resources/resources-debug.ir.ap_"
-            type="RESOURCES" />
-        <artifact
-            location="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7/classes.dex"
-            type="DEX" />
-        <artifact
-            location="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex"
-            type="DEX" />
-        <artifact
-            location="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex"
-            type="DEX" />
-        <artifact
-            location="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/10/constraint-layout-solver-1.0.0-beta1_32756e7d4c9c2326a20ff42a636f717756d40b4a/classes.dex"
-            type="DEX" />
-        <artifact
-            location="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support.constraint-constraint-layout-1.0.0-beta1_3549dc82268a8256be97ba7226a7e96573e74628/classes.dex"
-            type="DEX" />
-        <artifact
-            location="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_3/classes.dex"
-            type="DEX" />
-        <artifact
-            location="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_6/classes.dex"
-            type="DEX" />
-        <artifact
-            location="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_0/classes.dex"
-            type="DEX" />
         <artifact
             location="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_1/classes.dex"
             type="DEX" />
     </build>
     <build
-        timestamp="26280564670961"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/reload-dex/debug/classes.dex"
-            type="RELOAD_DEX" />
-    </build>
+        timestamp="32735777831042"
+        verifier="COLD_SWAP_REQUESTED" />
 
 </instant-run>

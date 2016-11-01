@@ -8,6 +8,10 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/ic_volume_up_white_36dp.png"
     },
     {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_skip_next.png",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/ic_skip_next.png"
+    },
+    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/small_icon_my_custom_people.png",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/small_icon_my_custom_people.png"
     },
@@ -94,6 +98,10 @@
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_stop_white_48dp.png",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/ic_stop_white_48dp.png"
+    },
+    {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_setting.png",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/ic_setting.png"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/play_btn_1.png",
@@ -184,12 +192,12 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/qrcode.png"
     },
     {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_stop_circle_outline_white_48dp.png",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/ic_stop_circle_outline_white_48dp.png"
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_swap.png",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/ic_swap.png"
     },
     {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_settings_applications_white_24dp.png",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/ic_settings_applications_white_24dp.png"
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_stop_circle_outline_white_48dp.png",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/ic_stop_circle_outline_white_48dp.png"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/expand.png",
@@ -206,6 +214,10 @@
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_tab_content_pressed.png",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/ic_tab_content_pressed.png"
+    },
+    {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_fullscreen.png",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/ic_fullscreen.png"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/speak_voice_3.png",
@@ -278,6 +290,10 @@
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/baidu.png",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/baidu.png"
+    },
+    {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_skip_previous.png",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/ic_skip_previous.png"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_grade_white_24dp.png",

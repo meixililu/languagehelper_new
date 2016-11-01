@@ -20,6 +20,7 @@
             android:minHeight="75dp"
             android:layout_weight="1"
             android:orientation="vertical"
+			android:background="@color/white"
             >
             <TextView
                 android:id="@+id/title"
@@ -27,6 +28,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:maxLines="3"
+				android:background="@color/white"
                 android:textColor="@color/text_dark"
                 android:textSize="@dimen/bigger" />
             
@@ -36,11 +38,14 @@
                 android:layout_gravity="bottom"
                 android:gravity="bottom"
                 android:orientation="horizontal"
+				android:background="@color/white"
                 >
                 <TextView
 	                android:id="@+id/source_name"
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
+					android:background="@color/white"
+					android:maxLines="1"
 	                android:gravity="left"
 	                android:textColor="@color/text_grey1"
 	                android:textSize="@dimen/small" />
@@ -48,6 +53,8 @@
 	                android:id="@+id/type_name"
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
+					android:maxLines="1"
+					android:background="@color/white"
 	                android:layout_marginLeft="@dimen/padding_20"
 	                android:gravity="left"
 	                android:textColor="@color/text_grey1"
@@ -60,6 +67,7 @@
             android:id="@+id/list_item_img_parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+			android:background="@color/white"
             android:layout_gravity="top"
             android:layout_marginLeft="@dimen/padding_5"
             android:orientation="vertical" >

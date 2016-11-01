@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,7 +15,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVAnalytics;
@@ -24,10 +25,11 @@ import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechRecognizer;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
-import com.messi.languagehelper.adapter.PracticePageListItemAdapter;
+import com.messi.languagehelper.adapter.RcPractiseListAdapter;
 import com.messi.languagehelper.bean.UserSpeakBean;
 import com.messi.languagehelper.dao.record;
 import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.impl.PractisePlayUserPcmListener;
 import com.messi.languagehelper.task.MyThread;
 import com.messi.languagehelper.task.PublicTask;
 import com.messi.languagehelper.task.PublicTask.PublicTaskListener;
@@ -44,13 +46,14 @@ import com.messi.languagehelper.util.XFUtil;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.Animator.AnimatorListener;
 import com.nineoldandroids.animation.ObjectAnimator;
+import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class PracticeActivity extends BaseActivity implements OnClickListener {
+public class PracticeActivity extends BaseActivity implements OnClickListener, PractisePlayUserPcmListener {
 
     @BindView(R.id.voice_btn_cover)
     FrameLayout voice_btn_cover;
@@ -60,8 +63,6 @@ public class PracticeActivity extends BaseActivity implements OnClickListener {
     FrameLayout record_question_cover;
     @BindView(R.id.record_answer_cover)
     FrameLayout record_answer_cover;
-    @BindView(R.id.practice_page_exchange)
-    FrameLayout practice_page_exchange;
     @BindView(R.id.voice_play_answer)
     ImageButton voice_play_answer;
     @BindView(R.id.voice_play_question)
@@ -72,7 +73,7 @@ public class PracticeActivity extends BaseActivity implements OnClickListener {
     @BindView(R.id.record_question)
     TextView record_question;
     @BindView(R.id.recent_used_lv)
-    ListView recent_used_lv;
+    RecyclerView recent_used_lv;
     @BindView(R.id.practice_prompt)
     TextView practice_prompt;
     @BindView(R.id.record_anim_img)
@@ -90,7 +91,7 @@ public class PracticeActivity extends BaseActivity implements OnClickListener {
     private SpeechRecognizer recognizer;
     private SharedPreferences mSharedPreferences;
     private ArrayList<UserSpeakBean> mUserSpeakBeanList;
-    private PracticePageListItemAdapter adapter;
+    private RcPractiseListAdapter adapter;
     private boolean isEnglish;
     private boolean isExchange;
     private boolean isNewIn = true;
@@ -100,6 +101,7 @@ public class PracticeActivity extends BaseActivity implements OnClickListener {
     private MyThread mMyThread;
     private Thread mThread;
     private String userPcmPath;
+    private boolean isNeedDelete;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -112,16 +114,26 @@ public class PracticeActivity extends BaseActivity implements OnClickListener {
 
     private void initData() {
         mBean = (record) BaseApplication.dataMap.get(KeyUtil.DialogBeanKey);
+        isNeedDelete = getIntent().getBooleanExtra(KeyUtil.IsNeedDelete,false);
         isEnglish = StringUtils.isEnglish(mBean.getEnglish());
         mUserSpeakBeanList = new ArrayList<UserSpeakBean>();
-        adapter = new PracticePageListItemAdapter(this, mUserSpeakBeanList);
+        adapter = new RcPractiseListAdapter(this);
     }
 
     private void initView() {
-        getSupportActionBar().setTitle(getResources().getString(R.string.title_TranslatePractice));
+//        getSupportActionBar().setTitle(getResources().getString(R.string.title_TranslatePractice));
+        getSupportActionBar().setTitle("");
         mSharedPreferences = Settings.getSharedPreferences(this);
         mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
         recognizer = SpeechRecognizer.createRecognizer(this, null);
+        recent_used_lv.setLayoutManager(new LinearLayoutManager(this));
+        recent_used_lv.addItemDecoration(
+                new HorizontalDividerItemDecoration.Builder(this)
+                        .colorResId(R.color.text_tint)
+                        .sizeResId(R.dimen.list_divider_size)
+                        .marginResId(R.dimen.padding_margin, R.dimen.padding_margin)
+                        .build());
+        adapter.setItems(mUserSpeakBeanList);
         recent_used_lv.setAdapter(adapter);
 
         record_question.setText(mBean.getChinese());
@@ -134,8 +146,6 @@ public class PracticeActivity extends BaseActivity implements OnClickListener {
         record_question_cover.setOnClickListener(mQuestionOnClickListener);
         record_answer_cover.setOnClickListener(mAnswerOnClickListener);
         voice_btn_cover.setOnClickListener(this);
-        practice_page_exchange.setOnClickListener(this);
-
     }
 
     private void initSpeakLanguage() {
@@ -155,16 +165,117 @@ public class PracticeActivity extends BaseActivity implements OnClickListener {
                 showIatDialog();
                 AVAnalytics.onEvent(PracticeActivity.this, "practice_pg_speak_btn");
                 break;
-            case R.id.buttonFloat:
-                playUserPcm();
-                break;
-            case R.id.practice_page_exchange:
-                exchangeContentAndResult();
-                AVAnalytics.onEvent(PracticeActivity.this, "practice_pg_exchange_btn");
-                break;
             default:
                 break;
         }
+    }
+
+    private AnimatorListener mAnimatorListenerReward = new AnimatorListener() {
+        @Override
+        public void onAnimationStart(Animator animation) {
+        }
+
+        @Override
+        public void onAnimationRepeat(Animator animation) {
+        }
+
+        @Override
+        public void onAnimationEnd(Animator animation) {
+            record_animation_layout.setVisibility(View.GONE);
+        }
+
+        @Override
+        public void onAnimationCancel(Animator animation) {
+        }
+    };
+    RecognizerListener recognizerListener = new RecognizerListener() {
+
+        @Override
+        public void onBeginOfSpeech() {
+            LogUtil.DefalutLog("onBeginOfSpeech");
+        }
+
+        @Override
+        public void onError(SpeechError err) {
+            LogUtil.DefalutLog("onError:" + err.getErrorDescription());
+            finishRecord();
+            hideProgressbar();
+            ToastUtil.diaplayMesShort(PracticeActivity.this, err.getErrorDescription());
+        }
+
+        @Override
+        public void onEndOfSpeech() {
+            LogUtil.DefalutLog("onEndOfSpeech");
+            finishRecord();
+            showProgressbar();
+        }
+
+        @Override
+        public void onResult(RecognizerResult results, boolean isLast) {
+            LogUtil.DefalutLog("onResult---getResultString:" + results.getResultString());
+            String text = JsonParser.parseIatResult(results.getResultString());
+            sbResult.append(text);
+            if (isLast) {
+                LogUtil.DefalutLog("isLast-------onResult:" + sbResult.toString());
+                hideProgressbar();
+                finishRecord();
+                UserSpeakBean bean = ScoreUtil.score(PracticeActivity.this, sbResult.toString(), record_answer.getText().toString());
+                mUserSpeakBeanList.add(0, bean);
+                adapter.notifyDataSetChanged();
+                animationReward(bean.getScoreInt());
+                sbResult.setLength(0);
+                mMyThread = AudioTrackUtil.getMyThread(userPcmPath);
+            }
+        }
+
+        @Override
+        public void onEvent(int arg0, int arg1, int arg2, Bundle arg3) {
+
+        }
+
+        @Override
+        public void onVolumeChanged(int volume, byte[] arg1) {
+            if (volume < 4) {
+                record_anim_img.setBackgroundResource(R.drawable.speak_voice_1);
+            } else if (volume < 8) {
+                record_anim_img.setBackgroundResource(R.drawable.speak_voice_2);
+            } else if (volume < 12) {
+                record_anim_img.setBackgroundResource(R.drawable.speak_voice_3);
+            } else if (volume < 16) {
+                record_anim_img.setBackgroundResource(R.drawable.speak_voice_4);
+            } else if (volume < 20) {
+                record_anim_img.setBackgroundResource(R.drawable.speak_voice_5);
+            } else if (volume < 24) {
+                record_anim_img.setBackgroundResource(R.drawable.speak_voice_6);
+            } else if (volume < 31) {
+                record_anim_img.setBackgroundResource(R.drawable.speak_voice_7);
+            }
+        }
+    };
+    private AnimatorListener mAnimatorListener = new AnimatorListener() {
+        @Override
+        public void onAnimationStart(Animator animation) {
+        }
+
+        @Override
+        public void onAnimationRepeat(Animator animation) {
+        }
+
+        @Override
+        public void onAnimationEnd(Animator animation) {
+            record_animation_layout.setVisibility(View.GONE);
+            showIatDialog();
+        }
+
+        @Override
+        public void onAnimationCancel(Animator animation) {
+        }
+    };
+
+
+    @Override
+    public void playOrStop() {
+        playUserPcm();
     }
 
     private void playUserPcm() {
@@ -277,25 +388,6 @@ public class PracticeActivity extends BaseActivity implements OnClickListener {
         mObjectAnimator.setDuration(1500).start();
     }
 
-    private AnimatorListener mAnimatorListenerReward = new AnimatorListener() {
-        @Override
-        public void onAnimationStart(Animator animation) {
-        }
-
-        @Override
-        public void onAnimationRepeat(Animator animation) {
-        }
-
-        @Override
-        public void onAnimationEnd(Animator animation) {
-            record_animation_layout.setVisibility(View.GONE);
-        }
-
-        @Override
-        public void onAnimationCancel(Animator animation) {
-        }
-    };
-
     private void animation() {
         ObjectAnimator mObjectAnimator = ObjectAnimator.ofFloat(record_animation_layout, "scaleX", 1f, 1.3f);
         mObjectAnimator.addListener(mAnimatorListener);
@@ -306,90 +398,87 @@ public class PracticeActivity extends BaseActivity implements OnClickListener {
         mObjectAnimator2.setDuration(800).start();
     }
 
-    private AnimatorListener mAnimatorListener = new AnimatorListener() {
-        @Override
-        public void onAnimationStart(Animator animation) {
-        }
-
-        @Override
-        public void onAnimationRepeat(Animator animation) {
-        }
-
-        @Override
-        public void onAnimationEnd(Animator animation) {
-            record_animation_layout.setVisibility(View.GONE);
-            showIatDialog();
-        }
-
-        @Override
-        public void onAnimationCancel(Animator animation) {
-        }
-    };
-
-    RecognizerListener recognizerListener = new RecognizerListener() {
-
-        @Override
-        public void onBeginOfSpeech() {
-            LogUtil.DefalutLog("onBeginOfSpeech");
-        }
-
-        @Override
-        public void onError(SpeechError err) {
-            LogUtil.DefalutLog("onError:" + err.getErrorDescription());
-            finishRecord();
-            hideProgressbar();
-            ToastUtil.diaplayMesShort(PracticeActivity.this, err.getErrorDescription());
-        }
-
-        @Override
-        public void onEndOfSpeech() {
-            LogUtil.DefalutLog("onEndOfSpeech");
-            finishRecord();
-            showProgressbar();
-        }
-
-        @Override
-        public void onResult(RecognizerResult results, boolean isLast) {
-            LogUtil.DefalutLog("onResult---getResultString:" + results.getResultString());
-            String text = JsonParser.parseIatResult(results.getResultString());
-            sbResult.append(text);
-            if (isLast) {
-                LogUtil.DefalutLog("isLast-------onResult:" + sbResult.toString());
-                hideProgressbar();
-                finishRecord();
-                UserSpeakBean bean = ScoreUtil.score(PracticeActivity.this, sbResult.toString(), record_answer.getText().toString());
-                mUserSpeakBeanList.add(0, bean);
-                adapter.notifyDataSetChanged();
-                animationReward(bean.getScoreInt());
-                sbResult.setLength(0);
-                mMyThread = AudioTrackUtil.getMyThread(userPcmPath);
+    private void playLocalPcm(final String path, final AnimationDrawable animationDrawable) {
+        PublicTask mPublicTask = new PublicTask(PracticeActivity.this);
+        mPublicTask.setmPublicTaskListener(new PublicTaskListener() {
+            @Override
+            public void onPreExecute() {
+                if (!animationDrawable.isRunning()) {
+                    animationDrawable.setOneShot(false);
+                    animationDrawable.start();
+                }
             }
-        }
 
-        @Override
-        public void onEvent(int arg0, int arg1, int arg2, Bundle arg3) {
-
-        }
-
-        @Override
-        public void onVolumeChanged(int volume, byte[] arg1) {
-            if (volume < 4) {
-                record_anim_img.setBackgroundResource(R.drawable.speak_voice_1);
-            } else if (volume < 8) {
-                record_anim_img.setBackgroundResource(R.drawable.speak_voice_2);
-            } else if (volume < 12) {
-                record_anim_img.setBackgroundResource(R.drawable.speak_voice_3);
-            } else if (volume < 16) {
-                record_anim_img.setBackgroundResource(R.drawable.speak_voice_4);
-            } else if (volume < 20) {
-                record_anim_img.setBackgroundResource(R.drawable.speak_voice_5);
-            } else if (volume < 24) {
-                record_anim_img.setBackgroundResource(R.drawable.speak_voice_6);
-            } else if (volume < 31) {
-                record_anim_img.setBackgroundResource(R.drawable.speak_voice_7);
+            @Override
+            public Object doInBackground() {
+                AudioTrackUtil.createAudioTrack(path);
+                return null;
             }
+
+            @Override
+            public void onFinish(Object resutl) {
+                animationDrawable.setOneShot(true);
+                animationDrawable.stop();
+                animationDrawable.selectDrawable(0);
+                onfinishPlay();
+            }
+        });
+        mPublicTask.execute();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.settings, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_swap:
+                exchangeContentAndResult();
+                AVAnalytics.onEvent(PracticeActivity.this, "practice_pg_exchange_btn");
+                break;
+            case R.id.action_settings:
+                toSettingActivity();
+                AVAnalytics.onEvent(this, "practice_pg_to_setting_page");
+                break;
         }
-    };
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void toSettingActivity() {
+        Intent intent = new Intent(this, SettingActivity.class);
+        startActivity(intent);
+    }
+
+    private void resetVoicePlayButton() {
+        resetVoiceAnimation(voice_play_answer);
+        resetVoiceAnimation(voice_play_question);
+    }
+
+    private void resetVoiceAnimation(View voice_play) {
+        AnimationDrawable animationDrawable = (AnimationDrawable) voice_play.getBackground();
+        animationDrawable.setOneShot(true);
+        animationDrawable.stop();
+        animationDrawable.selectDrawable(0);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mSpeechSynthesizer != null) {
+            mSpeechSynthesizer.destroy();
+            mSpeechSynthesizer = null;
+        }
+        if (recognizer != null) {
+            recognizer.destroy();
+            recognizer = null;
+        }
+        if(isNeedDelete){
+            DataBaseUtil.getInstance().dele(mBean);
+        }
+    }
 
     public class MyOnClickListener implements OnClickListener {
 
@@ -398,14 +487,14 @@ public class PracticeActivity extends BaseActivity implements OnClickListener {
         private AnimationDrawable animationDrawable;
         private boolean isPlayResult;
 
-        public void setPlayResult(boolean isPlayResult) {
-            this.isPlayResult = isPlayResult;
-        }
-
         private MyOnClickListener(record bean, ImageButton voice_play, boolean isPlayResult) {
             this.mBean = bean;
             this.voice_play = voice_play;
             this.animationDrawable = (AnimationDrawable) voice_play.getBackground();
+            this.isPlayResult = isPlayResult;
+        }
+
+        public void setPlayResult(boolean isPlayResult) {
             this.isPlayResult = isPlayResult;
         }
 
@@ -493,81 +582,6 @@ public class PracticeActivity extends BaseActivity implements OnClickListener {
             } else if (v.getId() == R.id.record_answer_cover) {
                 AVAnalytics.onEvent(PracticeActivity.this, "practice_pg_play_result_btn", "口语练习页播放结果", 1);
             }
-        }
-    }
-
-    private void playLocalPcm(final String path, final AnimationDrawable animationDrawable) {
-        PublicTask mPublicTask = new PublicTask(PracticeActivity.this);
-        mPublicTask.setmPublicTaskListener(new PublicTaskListener() {
-            @Override
-            public void onPreExecute() {
-                if (!animationDrawable.isRunning()) {
-                    animationDrawable.setOneShot(false);
-                    animationDrawable.start();
-                }
-            }
-
-            @Override
-            public Object doInBackground() {
-                AudioTrackUtil.createAudioTrack(path);
-                return null;
-            }
-
-            @Override
-            public void onFinish(Object resutl) {
-                animationDrawable.setOneShot(true);
-                animationDrawable.stop();
-                animationDrawable.selectDrawable(0);
-                onfinishPlay();
-            }
-        });
-        mPublicTask.execute();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.settings, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                toSettingActivity();
-                AVAnalytics.onEvent(this, "practice_pg_to_setting_page");
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void toSettingActivity() {
-        Intent intent = new Intent(this, SettingActivity.class);
-        startActivity(intent);
-    }
-
-    private void resetVoicePlayButton() {
-        resetVoiceAnimation(voice_play_answer);
-        resetVoiceAnimation(voice_play_question);
-    }
-
-    private void resetVoiceAnimation(View voice_play) {
-        AnimationDrawable animationDrawable = (AnimationDrawable) voice_play.getBackground();
-        animationDrawable.setOneShot(true);
-        animationDrawable.stop();
-        animationDrawable.selectDrawable(0);
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (mSpeechSynthesizer != null) {
-            mSpeechSynthesizer.destroy();
-            mSpeechSynthesizer = null;
-        }
-        if (recognizer != null) {
-            recognizer.destroy();
-            recognizer = null;
         }
     }
 }

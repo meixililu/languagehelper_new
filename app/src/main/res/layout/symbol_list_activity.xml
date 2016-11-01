@@ -28,18 +28,10 @@
         android:layout_height="0dp"
         android:layout_weight="1" 
         >
-	<com.messi.languagehelper.views.GridViewWithHeaderAndFooter
-	        android:id="@+id/studycategory_lv"
-	        android:layout_width="match_parent"
-	        android:layout_height="match_parent"
-	        android:background="@color/none"
-	        android:verticalSpacing="1px"
-	        android:horizontalSpacing="1px"
-	        android:cacheColorHint="@color/none"
-	        android:numColumns="3"
-	        android:scrollbars="none"
-	        android:stretchMode="columnWidth"  
-	    	android:gravity="center"  
-	        />
+		<android.support.v7.widget.RecyclerView
+			android:id="@+id/listview"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			/>
 	</android.support.v4.widget.SwipeRefreshLayout>
 </LinearLayout>

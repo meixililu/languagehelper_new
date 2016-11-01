@@ -5,12 +5,13 @@
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:fitsSystemWindows="true">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="195dp"
         android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.AppBarOverlay">
 
@@ -40,10 +41,13 @@
             <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:textColor="@color/white"
-                android:layout_margin="@dimen/padding_10"
+                android:layout_marginLeft="@dimen/padding_10"
+                android:layout_marginRight="@dimen/padding_10"
+                android:paddingTop="92dp"
                 android:textSize="@dimen/bigest"
+                android:gravity="top"
                 android:layout_gravity="bottom"
                 app:layout_collapseMode="parallax"
                 app:layout_collapseParallaxMultiplier="0.7"/>
@@ -100,6 +104,7 @@
                 android:id="@+id/xx_ad_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/white"
                 android:layout_marginTop="@dimen/padding_15"
                 android:layout_marginBottom="@dimen/padding_15"
                 android:layout_marginLeft="@dimen/padding_10"

@@ -12,8 +12,11 @@ import com.iflytek.cloud.SpeechRecognizer;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.adapter.PracticePageListItemAdapter;
+import com.messi.languagehelper.adapter.RcPractiseListAdapter;
 import com.messi.languagehelper.bean.UserSpeakBean;
 import com.messi.languagehelper.impl.PracticeProgressListener;
+import com.messi.languagehelper.impl.PractisePlayUserPcmListener;
+import com.messi.languagehelper.task.MyThread;
 import com.messi.languagehelper.task.PublicTask;
 import com.messi.languagehelper.task.PublicTask.PublicTaskListener;
 import com.messi.languagehelper.util.AnimationUtil;
@@ -28,10 +31,14 @@ import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.Animator.AnimatorListener;
+import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -43,13 +50,13 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class PracticeReadAfterMeFragment extends BaseFragment implements OnClickListener {
+public class PracticeReadAfterMeFragment extends BaseFragment implements OnClickListener, PractisePlayUserPcmListener {
 
 	private FrameLayout record_answer_cover,repeat_time_minus_cover,repeat_time_plus_cover;
 	private ImageButton voice_play_answer;
 	private TextView record_question,record_answer,practice_prompt,record_animation_text;
 	private TextView repeat_time,repeat_time_minus,repeat_time_plus;
-	private ListView recent_used_lv;
+	private RecyclerView recent_used_lv;
 	private ImageView record_anim_img;
 	private ButtonRectangle voice_btn;
 	private LinearLayout record_layout,record_animation_layout;
@@ -59,7 +66,7 @@ public class PracticeReadAfterMeFragment extends BaseFragment implements OnClick
 	private SpeechRecognizer recognizer;
 	private SharedPreferences mSharedPreferences;
 	private ArrayList<UserSpeakBean> mUserSpeakBeanList;
-	private PracticePageListItemAdapter adapter;
+	private RcPractiseListAdapter adapter;
 	private boolean isNewIn = true;
 	private boolean isFollow;
 	
@@ -71,6 +78,9 @@ public class PracticeReadAfterMeFragment extends BaseFragment implements OnClick
 	private int times;
 	private PracticeProgressListener mPracticeProgress;
 	private StringBuilder sbResult = new StringBuilder();
+	private MyThread mMyThread;
+	private Thread mThread;
+	private String userPcmPath;
 	
 	public static PracticeReadAfterMeFragment newInstace(String content, PracticeProgressListener mPracticeProgress, String videoPath,
 			SharedPreferences mSharedPreferences,SpeechSynthesizer mSpeechSynthesizer){
@@ -109,7 +119,7 @@ public class PracticeReadAfterMeFragment extends BaseFragment implements OnClick
 	
 	private void initData(){
 		mUserSpeakBeanList = new ArrayList<UserSpeakBean>();
-		adapter = new PracticePageListItemAdapter(getActivity(), mUserSpeakBeanList);
+		adapter = new RcPractiseListAdapter(this);
 	}
 
 	private void initView() {
@@ -133,7 +143,15 @@ public class PracticeReadAfterMeFragment extends BaseFragment implements OnClick
 		record_layout = (LinearLayout) getView().findViewById(R.id.record_layout);
 		record_animation_layout = (LinearLayout) getView().findViewById(R.id.record_animation_layout);
 		record_animation_text = (TextView) getView().findViewById(R.id.record_animation_text);
-		recent_used_lv = (ListView) getView().findViewById(R.id.recent_used_lv);
+		recent_used_lv = (RecyclerView) getView().findViewById(R.id.recent_used_lv);
+		recent_used_lv.setLayoutManager(new LinearLayoutManager(getContext()));
+		recent_used_lv.addItemDecoration(
+				new HorizontalDividerItemDecoration.Builder(getContext())
+						.colorResId(R.color.text_tint)
+						.sizeResId(R.dimen.list_divider_size)
+						.marginResId(R.dimen.padding_margin, R.dimen.padding_margin)
+						.build());
+		adapter.setItems(mUserSpeakBeanList);
 		recent_used_lv.setAdapter(adapter);
 		
 		setPracticeContent();
@@ -215,6 +233,9 @@ public class PracticeReadAfterMeFragment extends BaseFragment implements OnClick
 				}else{
 					record_layout.setVisibility(View.VISIBLE);
 					voice_btn.setText(getActivity().getResources().getString(R.string.finish));
+					String path = SDCardUtil.getDownloadPath(SDCardUtil.UserPracticePath);
+					userPcmPath = path + "/userpractice.pcm";
+					recognizer.setParameter(SpeechConstant.ASR_AUDIO_PATH, userPcmPath);
 					XFUtil.showSpeechRecognizer(getActivity(),mSharedPreferences,recognizer,recognizerListener);
 				}
 			}
@@ -354,6 +375,7 @@ public class PracticeReadAfterMeFragment extends BaseFragment implements OnClick
 				animationReward(bean.getScoreInt());
 				isEnoughTimes();
 				sbResult.setLength(0);
+				mMyThread = AudioTrackUtil.getMyThread(userPcmPath);
 			}
 		}
 
@@ -382,7 +404,27 @@ public class PracticeReadAfterMeFragment extends BaseFragment implements OnClick
 		}
 
 	};
-	
+
+	@Override
+	public void playOrStop() {
+		playUserPcm();
+	}
+
+	private void playUserPcm() {
+		if (!TextUtils.isEmpty(userPcmPath)) {
+			if (mMyThread != null) {
+				if (mMyThread.isPlaying) {
+					AudioTrackUtil.stopPlayPcm(mThread);
+				} else {
+					mThread = AudioTrackUtil.startMyThread(mMyThread);
+				}
+			} else {
+				mMyThread = AudioTrackUtil.getMyThread(userPcmPath);
+				mThread = AudioTrackUtil.startMyThread(mMyThread);
+			}
+		}
+	}
+
 	public class MyOnClickListener implements OnClickListener {
 		
 		private String content;

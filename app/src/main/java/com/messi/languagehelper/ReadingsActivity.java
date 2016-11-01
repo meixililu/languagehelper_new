@@ -10,6 +10,7 @@ import com.iflytek.voiceads.AdKeys;
 import com.iflytek.voiceads.IFLYNativeAd;
 import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
+import com.messi.languagehelper.adapter.RcReadingListAdapter;
 import com.messi.languagehelper.adapter.ReadingListAdapter;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
@@ -19,9 +20,14 @@ import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.ScreenUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.ToastUtil;
+import com.messi.languagehelper.views.DividerItemDecoration;
+import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,22 +38,23 @@ import android.widget.ListView;
 
 public class ReadingsActivity extends BaseActivity implements OnClickListener{
 
-	private ListView listview;
-	private ReadingListAdapter mAdapter;
+	private RecyclerView listview;
+	private RcReadingListAdapter mAdapter;
 	private List<AVObject> avObjects;
-	private View footerview;
 	private int skip = 0;
 	private int maxRandom;
 	private String category;
 	private String type;
 	private IFLYNativeAd nativeAd;
+	private boolean loading;
+	private boolean hasMore = true;
+	private LinearLayoutManager mLinearLayoutManager;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.reading_activity);
 		initViews();
-		initFooterview();
 		new QueryTask().execute();
 		getMaxPageNumberBackground();
 	}
@@ -55,44 +62,47 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 	private void initViews(){
 		category = getIntent().getStringExtra(KeyUtil.Category);
 		type = getIntent().getStringExtra(KeyUtil.NewsType);
-		LogUtil.DefalutLog("category:"+category);
 		avObjects = new ArrayList<AVObject>();
-		listview = (ListView) findViewById(R.id.listview);
 		initSwipeRefresh();
-		mAdapter = new ReadingListAdapter(this, avObjects);
-		setListOnScrollListener();
-	}
-
-	private void initFooterview(){
-		footerview = LayoutInflater.from(this).inflate(R.layout.footerview, null, false);
-		listview.addFooterView(footerview);
-		listview.setAdapter(mAdapter);
+		listview = (RecyclerView) findViewById(R.id.listview);
+		mAdapter = new RcReadingListAdapter(avObjects);
+		mAdapter.setFooter(new Object());
 		hideFooterview();
+		mLinearLayoutManager = new LinearLayoutManager(this);
+		listview.setLayoutManager(mLinearLayoutManager);
+		listview.addItemDecoration(
+				new HorizontalDividerItemDecoration.Builder(this)
+						.colorResId(R.color.text_tint)
+						.sizeResId(R.dimen.list_divider_size)
+						.marginResId(R.dimen.padding_margin, R.dimen.padding_margin)
+						.build());
+		listview.setAdapter(mAdapter);
+		setListOnScrollListener();
 	}
 
 	private void random(){
 		skip = (int) Math.round(Math.random()*maxRandom);
-		LogUtil.DefalutLog("skip:"+skip);
 	}
 
 	public void setListOnScrollListener(){
-		listview.setOnScrollListener(new OnScrollListener() {
-            private int lastItemIndex;//当前ListView中最后一个Item的索引
-            @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState) {
-                if (scrollState == OnScrollListener.SCROLL_STATE_IDLE && lastItemIndex == mAdapter.getCount() - 1) {
-                	new QueryTask().execute();
-                }
-            }
-            @Override
-            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                lastItemIndex = firstVisibleItem + visibleItemCount - 2;
-                isADInList(view,firstVisibleItem,visibleItemCount);
-            }
-        });
+		listview.addOnScrollListener(new RecyclerView.OnScrollListener() {
+			@Override
+			public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+				super.onScrolled(recyclerView, dx, dy);
+				int visible  = mLinearLayoutManager.getChildCount();
+				int total = mLinearLayoutManager.getItemCount();
+				int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
+				isADInList(recyclerView,firstVisibleItem,visible);
+				if(!loading && hasMore){
+					if ((visible + firstVisibleItem) >= total){
+						new QueryTask().execute();
+					}
+				}
+			}
+		});
 	}
 
-	private void isADInList(AbsListView view,int first, int vCount){
+	private void isADInList(RecyclerView view,int first, int vCount){
 		if(avObjects.size() > 3){
 			for(int i=first;i< (first+vCount);i++){
 				if(i < avObjects.size()){
@@ -109,14 +119,12 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 		}
 	}
 
-	private void showFooterview(){
-		footerview.setVisibility(View.VISIBLE);
-		footerview.setPadding(0, ScreenUtil.dip2px(this, 15), 0, ScreenUtil.dip2px(this, 15));
+	private void hideFooterview(){
+		mAdapter.hideFooter();
 	}
 
-	private void hideFooterview(){
-		footerview.setVisibility(View.GONE);
-		footerview.setPadding(0, - (footerview.getHeight()+80), 0, 0);
+	private void showFooterview(){
+		mAdapter.showFooter();
 	}
 
 	@Override
@@ -124,6 +132,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 		hideFooterview();
 		random();
 		avObjects.clear();
+		mAdapter.setItems(avObjects);
 		mAdapter.notifyDataSetChanged();
 		new QueryTask().execute();
 	}
@@ -134,6 +143,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 		protected void onPreExecute() {
 			super.onPreExecute();
 			showProgressbar();
+			loading = true;
 		}
 
 		@Override
@@ -169,6 +179,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 				}else{
 					loadAD();
 					avObjects.addAll(avObject);
+					mAdapter.setItems(avObjects);
 					mAdapter.notifyDataSetChanged();
 					skip += Settings.page_size;
 					showFooterview();
@@ -176,6 +187,10 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 			}else{
 				ToastUtil.diaplayMesShort(ReadingsActivity.this, "加载失败，下拉可刷新");
 			}
+			if(skip == maxRandom){
+				hasMore = false;
+			}
+			loading = false;
 		}
 	}
 
@@ -183,12 +198,10 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 		nativeAd = new IFLYNativeAd(this, ADUtil.XXLAD, new IFLYNativeListener() {
 			@Override
 			public void onConfirm() {
-
 			}
 
 			@Override
 			public void onCancel() {
-
 			}
 
 			@Override
@@ -206,9 +219,8 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 					if(index < 0){
 						index = 0;
 					}
-					LogUtil.DefalutLog("index:"+index);
 					avObjects.add(index,mAVObject);
-					mAdapter.notifyDataSetChanged();
+					mAdapter.notifyItemInserted(index);
 				}
 			}
 		});
@@ -234,7 +246,6 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 					}
 					maxRandom = query.count();
 					maxRandom /= Settings.page_size;
-					LogUtil.DefalutLog("maxRandom:"+maxRandom);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

@@ -193,7 +193,7 @@ public class DictionaryRecyclerviewAdapter extends RecyclerView.Adapter<Recycler
 				if(isShowHeader){
 					itemposition = position-1;
 				}
-				final Dictionary mBean = beans.get(position);
+				final Dictionary mBean = beans.get(itemposition);
 				AnimationDrawable animationDrawable = (AnimationDrawable) holder.voice_play.getBackground();
 				MyOnClickListener mResultClickListener = new MyOnClickListener(mBean,animationDrawable, holder.voice_play,holder.play_content_btn_progressbar, true);
 				MyOnClickListener mQuestionOnClickListener = new MyOnClickListener(mBean, animationDrawable, holder.voice_play,holder.play_content_btn_progressbar, false);
@@ -208,6 +208,20 @@ public class DictionaryRecyclerviewAdapter extends RecyclerView.Adapter<Recycler
 				holder.record_question_cover.setOnClickListener(mResultClickListener);
 				holder.record_answer_cover.setOnClickListener(mQuestionOnClickListener);
 
+				holder.record_answer.setOnLongClickListener(new View.OnLongClickListener() {
+					@Override
+					public boolean onLongClick(View v) {
+						copy(mBean.getWord_name() + "\n" + mBean.getResult());
+						return true;
+					}
+				});
+				holder.record_question.setOnLongClickListener(new View.OnLongClickListener() {
+					@Override
+					public boolean onLongClick(View v) {
+						copy(mBean.getWord_name());
+						return true;
+					}
+				});
 				holder.delete_btn.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {
@@ -478,34 +492,6 @@ public class DictionaryRecyclerviewAdapter extends RecyclerView.Adapter<Recycler
 				e.printStackTrace();
 			}
 		}
-	}
-
-	private void playLocalPcm(final String path,
-			final AnimationDrawable animationDrawable) {
-		PublicTask mPublicTask = new PublicTask(context);
-		mPublicTask.setmPublicTaskListener(new PublicTaskListener() {
-			@Override
-			public void onPreExecute() {
-				if (!animationDrawable.isRunning()) {
-					animationDrawable.setOneShot(false);
-					animationDrawable.start();
-				}
-			}
-
-			@Override
-			public Object doInBackground() {
-				AudioTrackUtil.createAudioTrack(path);
-				return null;
-			}
-
-			@Override
-			public void onFinish(Object resutl) {
-				animationDrawable.setOneShot(true);
-				animationDrawable.stop();
-				animationDrawable.selectDrawable(0);
-			}
-		});
-		mPublicTask.execute();
 	}
 
 	public void stopPlay(){

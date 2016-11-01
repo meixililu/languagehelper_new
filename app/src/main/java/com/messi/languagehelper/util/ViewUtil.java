@@ -128,6 +128,7 @@ public class ViewUtil {
 	
 	public static View getListFooterView(Context mContext){
 		View mView = new View(mContext);
+		mView.setBackgroundResource(R.color.white);
 		LayoutParams mparam = new LayoutParams(LayoutParams.MATCH_PARENT, ScreenUtil.dip2px(mContext, 70));
 		mView.setLayoutParams(mparam);
 		return mView;

@@ -1,14 +1,25 @@
 package com.messi.languagehelper;
 
-import java.util.ArrayList;
-import java.util.List;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVFile;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.gc.materialdesign.widgets.Dialog;
-import com.messi.languagehelper.adapter.SymbolListAdapter;
+import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
+import com.messi.languagehelper.adapter.RcSymbolListAdapter;
 import com.messi.languagehelper.dao.SymbolListDao;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.util.ADUtil;
@@ -19,29 +30,21 @@ import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFYSAD;
-import com.messi.languagehelper.views.GridViewWithHeaderAndFooter;
+import com.messi.languagehelper.views.DividerGridItemDecoration;
 
-import android.content.SharedPreferences;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnClickListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SymbolListActivity extends BaseActivity {
 
-	private GridViewWithHeaderAndFooter category_lv;
-	private SymbolListAdapter mAdapter;
+	private static final int NUMBER_OF_COLUMNS = 3;
+	private RecyclerView category_lv;
+	private RcSymbolListAdapter mAdapter;
 	private List<SymbolListDao> mSymbolListDao;
 	private XFYSAD mXFYSAD;
 	private int downloadCount;
 	private SharedPreferences sharedPreferences;
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -54,21 +57,18 @@ public class SymbolListActivity extends BaseActivity {
 	private void initViews(){
 		getSupportActionBar().setTitle(getResources().getString(R.string.symbolStudy));
 		sharedPreferences = Settings.getSharedPreferences(this);
+		mXFYSAD = new XFYSAD(SymbolListActivity.this, ADUtil.SecondaryPage);
 		mSymbolListDao = new ArrayList<SymbolListDao>();
-		category_lv = (GridViewWithHeaderAndFooter) findViewById(R.id.studycategory_lv);
-		View headerView = LayoutInflater.from(this).inflate(R.layout.xunfei_ysad_item, null);
-		category_lv.addHeaderView(headerView);
-		mAdapter = new SymbolListAdapter(this, mSymbolListDao);
+		category_lv = (RecyclerView) findViewById(R.id.listview);
+		category_lv.setHasFixedSize(true);
+		mAdapter = new RcSymbolListAdapter(mSymbolListDao,mXFYSAD);
+		GridLayoutManager layoutManager = new GridLayoutManager(this, NUMBER_OF_COLUMNS);
+		HeaderSpanSizeLookup headerSpanSizeLookup = new HeaderSpanSizeLookup(mAdapter, layoutManager);
+		layoutManager.setSpanSizeLookup(headerSpanSizeLookup);
+		category_lv.setLayoutManager(layoutManager);
+		category_lv.addItemDecoration(new DividerGridItemDecoration(1));
+		mAdapter.setHeader(new Object());
 		category_lv.setAdapter(mAdapter);
-		
-		mXFYSAD = new XFYSAD(this, headerView, ADUtil.SecondaryPage);
-		mXFYSAD.showAD();
-		new Handler().postDelayed(new Runnable() {
-			@Override
-			public void run() {
-				mAdapter.notifyDataSetChanged();
-			}
-		}, 1000);
 	}
 	
 	@Override
@@ -94,7 +94,6 @@ public class SymbolListActivity extends BaseActivity {
 					DataBaseUtil.getInstance().clearSymbolList();
 					Settings.saveSharedPreferences(sharedPreferences,KeyUtil.UpdateSymbolList,"");
 				}
-
 				mSymbolListDao.clear();
 				if(localSize == 0){
 					AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.SymbolDetail.SymbolDetail);
@@ -122,6 +121,7 @@ public class SymbolListActivity extends BaseActivity {
 			super.onPostExecute(result);
 			hideProgressbar();
 			onSwipeRefreshLayoutFinish();
+			mAdapter.setItems(mSymbolListDao);
 			mAdapter.notifyDataSetChanged();
 		}
 	}

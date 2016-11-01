@@ -70,6 +70,9 @@
         <!-- 讯飞广告sdk -->
 
         <activity
+            android:name="com.messi.languagehelper.DictionaryFullscreenActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.messi.languagehelper.BrainTwistsActivity"
             android:screenOrientation="portrait" />
         <activity

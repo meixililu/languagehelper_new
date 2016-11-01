@@ -3,76 +3,6 @@
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
     <attr format="boolean" name="isLightTheme"/>
-    <attr format="integer" name="layout_constraintBaseline_creator"/>
-    <attr format="reference|enum" name="layout_constraintBaseline_toBaselineOf">
-        <enum name="parent" value="0"/>
-    </attr>
-    <attr format="integer" name="layout_constraintBottom_creator"/>
-    <attr format="reference|enum" name="layout_constraintBottom_toBottomOf">
-        <enum name="parent" value="0"/>
-    </attr>
-    <attr format="reference|enum" name="layout_constraintBottom_toTopOf">
-        <enum name="parent" value="0"/>
-    </attr>
-    <attr format="string" name="layout_constraintDimensionRatio"/>
-    <attr format="reference|enum" name="layout_constraintEnd_toEndOf">
-        <enum name="parent" value="0"/>
-    </attr>
-    <attr format="reference|enum" name="layout_constraintEnd_toStartOf">
-        <enum name="parent" value="0"/>
-    </attr>
-    <attr format="dimension" name="layout_constraintGuide_begin"/>
-    <attr format="dimension" name="layout_constraintGuide_end"/>
-    <attr format="float" name="layout_constraintGuide_percent"/>
-    <attr format="float" name="layout_constraintHorizontal_bias"/>
-    <attr format="enum" name="layout_constraintHorizontal_chainStyle">
-        <enum name="spread" value="0"/>
-        <enum name="spread_inside" value="1"/>
-        <enum name="packed" value="2"/>
-    </attr>
-    <attr format="float" name="layout_constraintHorizontal_weight"/>
-    <attr format="integer" name="layout_constraintLeft_creator"/>
-    <attr format="reference|enum" name="layout_constraintLeft_toLeftOf">
-        <enum name="parent" value="0"/>
-    </attr>
-    <attr format="reference|enum" name="layout_constraintLeft_toRightOf">
-        <enum name="parent" value="0"/>
-    </attr>
-    <attr format="integer" name="layout_constraintRight_creator"/>
-    <attr format="reference|enum" name="layout_constraintRight_toLeftOf">
-        <enum name="parent" value="0"/>
-    </attr>
-    <attr format="reference|enum" name="layout_constraintRight_toRightOf">
-        <enum name="parent" value="0"/>
-    </attr>
-    <attr format="reference|enum" name="layout_constraintStart_toEndOf">
-        <enum name="parent" value="0"/>
-    </attr>
-    <attr format="reference|enum" name="layout_constraintStart_toStartOf">
-        <enum name="parent" value="0"/>
-    </attr>
-    <attr format="integer" name="layout_constraintTop_creator"/>
-    <attr format="reference|enum" name="layout_constraintTop_toBottomOf">
-        <enum name="parent" value="0"/>
-    </attr>
-    <attr format="reference|enum" name="layout_constraintTop_toTopOf">
-        <enum name="parent" value="0"/>
-    </attr>
-    <attr format="float" name="layout_constraintVertical_bias"/>
-    <attr format="enum" name="layout_constraintVertical_chainStyle">
-        <enum name="spread" value="0"/>
-        <enum name="spread_inside" value="1"/>
-        <enum name="packed" value="2"/>
-    </attr>
-    <attr format="float" name="layout_constraintVertical_weight"/>
-    <attr format="dimension" name="layout_editor_absoluteX"/>
-    <attr format="dimension" name="layout_editor_absoluteY"/>
-    <attr format="dimension" name="layout_goneMarginBottom"/>
-    <attr format="dimension" name="layout_goneMarginEnd"/>
-    <attr format="dimension" name="layout_goneMarginLeft"/>
-    <attr format="dimension" name="layout_goneMarginRight"/>
-    <attr format="dimension" name="layout_goneMarginStart"/>
-    <attr format="dimension" name="layout_goneMarginTop"/>
     <attr format="string" name="title"/>
     <bool name="abc_action_bar_embed_tabs">true</bool>
     <bool name="abc_allow_stacked_button_bar">true</bool>
@@ -386,7 +316,6 @@
             
             <flag name="end" value="0x00800005"/>
         </attr><attr format="boolean" name="titleEnabled"/><attr name="title"/></declare-styleable>
-    <declare-styleable name="CollapsingToolbarLayoutExtension"><attr format="integer" name="maxLines"/></declare-styleable>
     <declare-styleable name="CollapsingToolbarLayout_Layout"><attr name="layout_collapseMode">
             
             <enum name="none" value="0"/>
@@ -408,8 +337,6 @@
             
             <enum name="screen" value="15"/>
         </attr></declare-styleable>
-    <declare-styleable name="ConstraintLayout_Layout"><attr name="android:orientation"/><attr name="layout_constraintGuide_begin"/><attr name="layout_constraintGuide_end"/><attr name="layout_constraintGuide_percent"/><attr name="layout_constraintLeft_toLeftOf"/><attr name="layout_constraintLeft_toRightOf"/><attr name="layout_constraintRight_toLeftOf"/><attr name="layout_constraintRight_toRightOf"/><attr name="layout_constraintTop_toTopOf"/><attr name="layout_constraintTop_toBottomOf"/><attr name="layout_constraintBottom_toTopOf"/><attr name="layout_constraintBottom_toBottomOf"/><attr name="layout_constraintBaseline_toBaselineOf"/><attr name="layout_constraintStart_toEndOf"/><attr name="layout_constraintStart_toStartOf"/><attr name="layout_constraintEnd_toStartOf"/><attr name="layout_constraintEnd_toEndOf"/><attr name="layout_goneMarginLeft"/><attr name="layout_goneMarginTop"/><attr name="layout_goneMarginRight"/><attr name="layout_goneMarginBottom"/><attr name="layout_goneMarginStart"/><attr name="layout_goneMarginEnd"/><attr name="layout_constraintHorizontal_bias"/><attr name="layout_constraintVertical_bias"/><attr name="layout_constraintLeft_creator"/><attr name="layout_constraintTop_creator"/><attr name="layout_constraintRight_creator"/><attr name="layout_constraintBottom_creator"/><attr name="layout_constraintBaseline_creator"/><attr name="layout_constraintDimensionRatio"/><attr name="layout_constraintHorizontal_weight"/><attr name="layout_constraintVertical_weight"/><attr name="layout_constraintHorizontal_chainStyle"/><attr name="layout_constraintVertical_chainStyle"/><attr name="layout_editor_absoluteX"/><attr name="layout_editor_absoluteY"/></declare-styleable>
-    <declare-styleable name="ConstraintSet"><attr name="android:orientation"/><attr name="android:id"/><attr name="android:visibility"/><attr name="android:layout_width"/><attr name="android:layout_height"/><attr name="android:layout_marginStart"/><attr name="android:layout_marginBottom"/><attr name="android:layout_marginTop"/><attr name="android:layout_marginEnd"/><attr name="android:layout_marginLeft"/><attr name="android:layout_marginRight"/><attr name="layout_constraintGuide_begin"/><attr name="layout_constraintGuide_end"/><attr name="layout_constraintGuide_percent"/><attr name="layout_constraintLeft_toLeftOf"/><attr name="layout_constraintLeft_toRightOf"/><attr name="layout_constraintRight_toLeftOf"/><attr name="layout_constraintRight_toRightOf"/><attr name="layout_constraintTop_toTopOf"/><attr name="layout_constraintTop_toBottomOf"/><attr name="layout_constraintBottom_toTopOf"/><attr name="layout_constraintBottom_toBottomOf"/><attr name="layout_constraintBaseline_toBaselineOf"/><attr name="layout_constraintStart_toEndOf"/><attr name="layout_constraintStart_toStartOf"/><attr name="layout_constraintEnd_toStartOf"/><attr name="layout_constraintEnd_toEndOf"/><attr name="layout_goneMarginLeft"/><attr name="layout_goneMarginTop"/><attr name="layout_goneMarginRight"/><attr name="layout_goneMarginBottom"/><attr name="layout_goneMarginStart"/><attr name="layout_goneMarginEnd"/><attr name="layout_constraintHorizontal_bias"/><attr name="layout_constraintVertical_bias"/><attr name="layout_constraintLeft_creator"/><attr name="layout_constraintTop_creator"/><attr name="layout_constraintRight_creator"/><attr name="layout_constraintBottom_creator"/><attr name="layout_constraintBaseline_creator"/><attr name="layout_constraintDimensionRatio"/><attr name="layout_constraintHorizontal_weight"/><attr name="layout_constraintVertical_weight"/><attr name="layout_constraintHorizontal_chainStyle"/><attr name="layout_constraintVertical_chainStyle"/><attr name="layout_editor_absoluteX"/><attr name="layout_editor_absoluteY"/></declare-styleable>
     <declare-styleable name="CoordinatorLayout"><attr format="reference" name="keylines"/><attr format="reference" name="statusBarBackground"/></declare-styleable>
     <declare-styleable name="CoordinatorLayout_Layout"><attr name="android:layout_gravity"/><attr format="string" name="layout_behavior"/><attr format="reference" name="layout_anchor"/><attr format="integer" name="layout_keyline"/><attr name="layout_anchorGravity">
             
@@ -487,7 +414,6 @@
     <declare-styleable name="FloatingActionButton_Behavior_Layout"><attr format="boolean" name="behavior_autoHide"/></declare-styleable>
     <declare-styleable name="ForegroundLinearLayout"><attr name="android:foreground"/><attr name="android:foregroundGravity"/><attr format="boolean" name="foregroundInsidePadding"/></declare-styleable>
     <declare-styleable name="GenericDraweeHierarchy"><attr format="integer" name="fadeDuration"/><attr format="float" name="viewAspectRatio"/><attr format="reference" name="placeholderImage"/><attr name="placeholderImageScaleType"><enum name="none" value="-1"/><enum name="fitXY" value="0"/><enum name="fitStart" value="1"/><enum name="fitCenter" value="2"/><enum name="fitEnd" value="3"/><enum name="center" value="4"/><enum name="centerInside" value="5"/><enum name="centerCrop" value="6"/><enum name="focusCrop" value="7"/></attr><attr format="reference" name="retryImage"/><attr name="retryImageScaleType"><enum name="none" value="-1"/><enum name="fitXY" value="0"/><enum name="fitStart" value="1"/><enum name="fitCenter" value="2"/><enum name="fitEnd" value="3"/><enum name="center" value="4"/><enum name="centerInside" value="5"/><enum name="centerCrop" value="6"/><enum name="focusCrop" value="7"/></attr><attr format="reference" name="failureImage"/><attr name="failureImageScaleType"><enum name="none" value="-1"/><enum name="fitXY" value="0"/><enum name="fitStart" value="1"/><enum name="fitCenter" value="2"/><enum name="fitEnd" value="3"/><enum name="center" value="4"/><enum name="centerInside" value="5"/><enum name="centerCrop" value="6"/><enum name="focusCrop" value="7"/></attr><attr format="reference" name="progressBarImage"/><attr name="progressBarImageScaleType"><enum name="none" value="-1"/><enum name="fitXY" value="0"/><enum name="fitStart" value="1"/><enum name="fitCenter" value="2"/><enum name="fitEnd" value="3"/><enum name="center" value="4"/><enum name="centerInside" value="5"/><enum name="centerCrop" value="6"/><enum name="focusCrop" value="7"/></attr><attr format="integer" name="progressBarAutoRotateInterval"/><attr name="actualImageScaleType"><enum name="none" value="-1"/><enum name="fitXY" value="0"/><enum name="fitStart" value="1"/><enum name="fitCenter" value="2"/><enum name="fitEnd" value="3"/><enum name="center" value="4"/><enum name="centerInside" value="5"/><enum name="centerCrop" value="6"/><enum name="focusCrop" value="7"/></attr><attr format="reference" name="backgroundImage"/><attr format="reference" name="overlayImage"/><attr format="reference" name="pressedStateOverlayImage"/><attr format="boolean" name="roundAsCircle"/><attr format="dimension" name="roundedCornerRadius"/><attr format="boolean" name="roundTopLeft"/><attr format="boolean" name="roundTopRight"/><attr format="boolean" name="roundBottomRight"/><attr format="boolean" name="roundBottomLeft"/><attr format="color" name="roundWithOverlayColor"/><attr format="dimension" name="roundingBorderWidth"/><attr format="color" name="roundingBorderColor"/><attr format="dimension" name="roundingBorderPadding"/></declare-styleable>
-    <declare-styleable name="LinearConstraintLayout"><attr name="android:orientation"/></declare-styleable>
     <declare-styleable name="LinearLayoutCompat"><attr name="android:orientation"/><attr name="android:gravity"/><attr name="android:baselineAligned"/><attr name="android:baselineAlignedChildIndex"/><attr name="android:weightSum"/><attr format="boolean" name="measureWithLargestChild"/><attr name="divider"/><attr name="showDividers">
             <flag name="none" value="0"/>
             <flag name="beginning" value="1"/>
@@ -723,6 +649,7 @@
     <dimen name="item_touch_helper_swipe_escape_velocity">120dp</dimen>
     <dimen name="jc_progress_dialog_margin_top">80dp</dimen>
     <dimen name="jc_volume_dialog_margin_left">24dp</dimen>
+    <dimen name="list_divider_size">1px</dimen>
     <dimen name="list_icon_size">19dp</dimen>
     <dimen name="list_item_icon">21dp</dimen>
     <dimen name="middle">14sp</dimen>
@@ -1038,7 +965,6 @@
     <string name="word_study_detail_menu">听选</string>
     <string name="your_turn">到你啦</string>
     <string name="yuedu_ad_prompt">专注随身阅读30年! http://api.openspeech.cn/cmread/NTBhYTEyMTM=</string>
-    <style name="ActionBar.Title" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"/>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
@@ -2524,7 +2450,6 @@
         <item name="rippleColor">?attr/colorControlHighlight</item>
         <item name="borderWidth">@dimen/design_fab_border_width</item>
     </style>
-    <style name="Widget.Design.MultilineCollapsingToolbar" parent="@style/Widget.Design.CollapsingToolbar"/>
     <style name="Widget.Design.NavigationView" parent="">
         <item name="elevation">@dimen/design_navigation_elevation</item>
         <item name="android:background">?android:attr/windowBackground</item>

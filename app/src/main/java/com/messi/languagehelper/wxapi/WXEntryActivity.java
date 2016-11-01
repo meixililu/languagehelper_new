@@ -17,19 +17,24 @@ import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.TranslateUtil;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 public class WXEntryActivity extends BaseActivity implements OnClickListener,FragmentProgressbarListener {
@@ -51,12 +56,13 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 			setContentView(R.layout.content_frame);
 			initDatas();
 			initViews();
+			Settings.verifyStoragePermissions(this,Settings.PERMISSIONS_STORAGE);
 //			checkUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 //	private void checkUpdate(){
 //		BDAutoUpdateSDK.cpUpdateCheck(this, new MyCPCheckUpdateCallback());
 //	}

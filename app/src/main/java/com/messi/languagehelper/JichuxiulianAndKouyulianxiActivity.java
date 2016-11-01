@@ -28,7 +28,6 @@ public class JichuxiulianAndKouyulianxiActivity extends BaseActivity implements 
 		pageAdapter = new SpokenEnglishTabAdapter(getSupportFragmentManager(),this);
 		viewpager.setAdapter(pageAdapter);
 		viewpager.setOffscreenPageLimit(2);
-		tablayout.setTabsFromPagerAdapter(pageAdapter);
 		tablayout.setupWithViewPager(viewpager);
 	}
 	

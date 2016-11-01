@@ -31,10 +31,20 @@ public class LeisureFragment extends BaseFragment implements OnClickListener {
     FrameLayout yueduLayout;
     @BindView(R.id.twists_layout)
     FrameLayout twistsLayout;
-    private View view;
-    private FrameLayout cailing_layout, invest_layout, game_layout, baidu_layout;
-    private FrameLayout news_layout, app_layout;
-    private RelativeLayout xx_ad_layout;
+    @BindView(R.id.xx_ad_layout)
+    RelativeLayout xx_ad_layout;
+    @BindView(R.id.cailing_layout)
+    FrameLayout cailing_layout;
+    @BindView(R.id.baidu_layout)
+    FrameLayout baidu_layout;
+    @BindView(R.id.app_layout)
+    FrameLayout app_layout;
+    @BindView(R.id.news_layout)
+    FrameLayout news_layout;
+    @BindView(R.id.game_layout)
+    FrameLayout game_layout;
+    @BindView(R.id.invest_layout)
+    FrameLayout invest_layout;
     public static LeisureFragment mMainFragment;
     private SharedPreferences mSharedPreferences;
     private XFYSAD mXFYSAD;
@@ -49,7 +59,7 @@ public class LeisureFragment extends BaseFragment implements OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.leisure_fragment, null);
+        View view = inflater.inflate(R.layout.leisure_fragment, null);
         ButterKnife.bind(this, view);
         initViews();
         return view;
@@ -57,19 +67,6 @@ public class LeisureFragment extends BaseFragment implements OnClickListener {
 
     private void initViews() {
         mSharedPreferences = getActivity().getSharedPreferences(getActivity().getPackageName(), Context.MODE_PRIVATE);
-        cailing_layout = (FrameLayout) view.findViewById(R.id.cailing_layout);
-        baidu_layout = (FrameLayout) view.findViewById(R.id.baidu_layout);
-        app_layout = (FrameLayout) view.findViewById(R.id.app_layout);
-        game_layout = (FrameLayout) view.findViewById(R.id.game_layout);
-        invest_layout = (FrameLayout) view.findViewById(R.id.invest_layout);
-        news_layout = (FrameLayout) view.findViewById(R.id.news_layout);
-        xx_ad_layout = (RelativeLayout) view.findViewById(R.id.xx_ad_layout);
-        mXFYSAD = new XFYSAD(getActivity(), xx_ad_layout, ADUtil.XiuxianYSNRLAd);
-        mXFYSAD.setStopPlay(true);
-        mXFYSAD.showAD();
-        if (misVisibleToUser) {
-            mXFYSAD.startPlayImg();
-        }
         cailing_layout.setOnClickListener(this);
         invest_layout.setOnClickListener(this);
         baidu_layout.setOnClickListener(this);
@@ -77,6 +74,12 @@ public class LeisureFragment extends BaseFragment implements OnClickListener {
         game_layout.setOnClickListener(this);
         news_layout.setOnClickListener(this);
         yueduLayout.setOnClickListener(this);
+        mXFYSAD = new XFYSAD(getActivity(), xx_ad_layout, ADUtil.XiuxianYSNRLAd);
+        mXFYSAD.setStopPlay(true);
+        mXFYSAD.showAD();
+        if (misVisibleToUser) {
+            mXFYSAD.startPlayImg();
+        }
     }
 
     @Override

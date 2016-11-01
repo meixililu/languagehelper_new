@@ -13,6 +13,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,7 +35,7 @@ public class PracticeWriteFragment extends BaseFragment implements OnClickListen
 	private TextView questionTv,translate_result;
 	private ImageView translate_result_img;
 	private ButtonRectangle check_btn;
-	private ButtonFloatSmall mButtonFloatSmall;
+	private FrameLayout tranlate_content;
 	private PracticeProgressListener mPracticeProgress;
 	private EditText translate_input;
 	private int resultPosition;
@@ -89,13 +90,13 @@ public class PracticeWriteFragment extends BaseFragment implements OnClickListen
 		translate_result_img = (ImageView)view.findViewById(R.id.translate_result_img);
 		translate_input = (EditText)view.findViewById(R.id.translate_input);
 		check_btn = (ButtonRectangle)view.findViewById(R.id.check_btn);
-		mButtonFloatSmall = (ButtonFloatSmall)view.findViewById(R.id.buttonFloat);
+		tranlate_content = (FrameLayout)view.findViewById(R.id.tranlate_content);
 		check_btn.setEnabled(false);
 		setIndex();
 		setContent();
 		check_btn.setOnClickListener(this);
 		translate_result_img.setOnClickListener(this);
-		mButtonFloatSmall.setOnClickListener(this);
+		tranlate_content.setOnClickListener(this);
 		
 		translate_input.addTextChangedListener(new TextWatcher() {
 			@Override
@@ -133,7 +134,7 @@ public class PracticeWriteFragment extends BaseFragment implements OnClickListen
 		case R.id.translate_result_img:
 			setResult();
 			break;
-		case R.id.buttonFloat:
+		case R.id.tranlate_content:
 			playVideo(resultPosition);
 			break;
 		}

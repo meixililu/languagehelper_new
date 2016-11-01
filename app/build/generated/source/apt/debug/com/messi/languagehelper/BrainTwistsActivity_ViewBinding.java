@@ -4,6 +4,7 @@ package com.messi.languagehelper;
 import android.support.annotation.CallSuper;
 import android.support.annotation.UiThread;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
@@ -14,7 +15,7 @@ import java.lang.Override;
 public class BrainTwistsActivity_ViewBinding<T extends BrainTwistsActivity> implements Unbinder {
   protected T target;
 
-  private View view2131558540;
+  private View view2131558537;
 
   @UiThread
   public BrainTwistsActivity_ViewBinding(final T target, View source) {
@@ -22,9 +23,10 @@ public class BrainTwistsActivity_ViewBinding<T extends BrainTwistsActivity> impl
 
     View view;
     target.question = Utils.findRequiredViewAsType(source, R.id.question, "field 'question'", TextView.class);
-    view = Utils.findRequiredView(source, R.id.answer, "field 'answer' and method 'onClick'");
-    target.answer = Utils.castView(view, R.id.answer, "field 'answer'", TextView.class);
-    view2131558540 = view;
+    target.answer = Utils.findRequiredViewAsType(source, R.id.answer, "field 'answer'", TextView.class);
+    view = Utils.findRequiredView(source, R.id.answer_cover, "field 'answerCover' and method 'onClick'");
+    target.answerCover = Utils.castView(view, R.id.answer_cover, "field 'answerCover'", FrameLayout.class);
+    view2131558537 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -41,9 +43,10 @@ public class BrainTwistsActivity_ViewBinding<T extends BrainTwistsActivity> impl
 
     target.question = null;
     target.answer = null;
+    target.answerCover = null;
 
-    view2131558540.setOnClickListener(null);
-    view2131558540 = null;
+    view2131558537.setOnClickListener(null);
+    view2131558537 = null;
 
     this.target = null;
   }

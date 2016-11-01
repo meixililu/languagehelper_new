@@ -14,7 +14,7 @@ import java.lang.Override;
 public class AboutActivity_ViewBinding<T extends AboutActivity> implements Unbinder {
   protected T target;
 
-  private View view2131558527;
+  private View view2131558523;
 
   @UiThread
   public AboutActivity_ViewBinding(final T target, View source) {
@@ -23,7 +23,7 @@ public class AboutActivity_ViewBinding<T extends AboutActivity> implements Unbin
     View view;
     view = Utils.findRequiredView(source, R.id.email_layout, "field 'email_layout' and method 'onClick'");
     target.email_layout = Utils.castView(view, R.id.email_layout, "field 'email_layout'", TextView.class);
-    view2131558527 = view;
+    view2131558523 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -42,8 +42,8 @@ public class AboutActivity_ViewBinding<T extends AboutActivity> implements Unbin
     target.email_layout = null;
     target.app_version = null;
 
-    view2131558527.setOnClickListener(null);
-    view2131558527 = null;
+    view2131558523.setOnClickListener(null);
+    view2131558523 = null;
 
     this.target = null;
   }

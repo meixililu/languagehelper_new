@@ -70,6 +70,25 @@ public class XFYSAD {
 		auto_view_pager.setAdapter(vpAdapter);
         auto_view_pager.setOnPageChangeListener(new MyOnPageChangeListener());
 	}
+
+	public XFYSAD(Context mContext,String adId){
+		this.mContext = mContext;
+		this.adId = adId;
+		mInflater = LayoutInflater.from(mContext);
+		mHandler = new Handler();
+		lastLoadAdTime = System.currentTimeMillis();
+		views = new ArrayList<View>();
+	}
+
+	public void setParentView(View parentView){
+		this.parentView = parentView;
+		auto_view_pager = (WrapContentHeightViewPager)parentView.findViewById(R.id.auto_view_pager);
+		viewpager_dot_layout = (LinearLayout)parentView.findViewById(R.id.viewpager_dot_layout);
+		parentView.setVisibility(View.GONE);
+		vpAdapter = new ViewPagerAdapter(views);
+		auto_view_pager.setAdapter(vpAdapter);
+		auto_view_pager.setOnPageChangeListener(new MyOnPageChangeListener());
+	}
 	
 	private Runnable mRunnable = new Runnable() {
 		@Override

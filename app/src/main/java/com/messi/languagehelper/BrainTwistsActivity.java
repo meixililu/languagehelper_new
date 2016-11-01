@@ -1,11 +1,10 @@
 package com.messi.languagehelper;
 
 import android.os.Bundle;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
-import com.avos.avoscloud.okhttp.HttpUrl;
-import com.messi.languagehelper.dao.TXNewsResult;
 import com.messi.languagehelper.dao.TwistaItem;
 import com.messi.languagehelper.dao.TwistaResult;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
@@ -24,6 +23,8 @@ public class BrainTwistsActivity extends BaseActivity {
     TextView question;
     @BindView(R.id.answer)
     TextView answer;
+    @BindView(R.id.answer_cover)
+    FrameLayout answerCover;
     private TwistaItem mTwistaItem;
 
     @Override
@@ -50,13 +51,13 @@ public class BrainTwistsActivity extends BaseActivity {
                     if (JsonParser.isJson(responseString)) {
                         TwistaResult mRoot = JSON.parseObject(responseString, TwistaResult.class);
                         if (mRoot.getCode() == 200) {
-                            if(mRoot.getNewslist() != null && mRoot.getNewslist().size() > 0){
+                            if (mRoot.getNewslist() != null && mRoot.getNewslist().size() > 0) {
                                 mTwistaItem = mRoot.getNewslist().get(0);
                                 question.setText(mTwistaItem.getQuest());
                                 answer.setText("轻触看答案");
                             }
 
-                        }else {
+                        } else {
                             ToastUtil.diaplayMesShort(BrainTwistsActivity.this, mRoot.getMsg());
                         }
                     }
@@ -78,13 +79,15 @@ public class BrainTwistsActivity extends BaseActivity {
         });
     }
 
-    @OnClick(R.id.answer)
+    @OnClick(R.id.answer_cover)
     public void onClick() {
-        if(!mTwistaItem.isShowResult()){
-            answer.setText(mTwistaItem.getResult()+"\n\n\n"+"(轻触更新下一条)");
-            mTwistaItem.setShowResult(true);
-        }else {
-            requestData();
+        if(mTwistaItem != null){
+            if (!mTwistaItem.isShowResult()) {
+                answer.setText(mTwistaItem.getResult() + "\n\n\n" + "(轻触更新下一条)");
+                mTwistaItem.setShowResult(true);
+            } else {
+                requestData();
+            }
         }
     }
 }

@@ -50,9 +50,9 @@
 
                         <ImageButton
                             android:id="@+id/voice_play_answer"
-                            android:layout_width="36dp"
-                            android:layout_height="36dp"
-                            android:layout_gravity="center_vertical|right"
+							android:layout_width="20dp"
+							android:layout_height="20dp"
+							android:layout_gravity="bottom|right"
                             android:background="@drawable/voice_play"
                             android:clickable="false" />
                     </LinearLayout>
@@ -140,17 +140,12 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent" >
 
-                <ListView
-                    android:id="@+id/recent_used_lv"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:background="@color/none"
-                    android:cacheColorHint="@color/none"
-                    android:divider="@color/none"
-                    android:dividerHeight="3dp"
-                    android:fadingEdge="none"
-                    android:listSelector="@color/none"
-                    android:scrollbars="none" />
+				<android.support.v7.widget.RecyclerView
+					android:id="@+id/recent_used_lv"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:background="@color/none"
+					/>
 
                 <TextView
                     android:id="@+id/practice_prompt"

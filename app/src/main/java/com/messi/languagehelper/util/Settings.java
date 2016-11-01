@@ -1,24 +1,35 @@
 package com.messi.languagehelper.util;
 
 import com.avos.avoscloud.AVAnalytics;
+import com.gc.materialdesign.widgets.Dialog;
 import com.messi.languagehelper.ImgShareActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.dialog.PopDialog;
 import com.messi.languagehelper.dialog.PopDialog.PopViewItemOnclickListener;
 
+import android.Manifest;
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.os.Build;
+import android.support.v4.BuildConfig;
+import android.support.v4.app.ActivityCompat;
 import android.text.ClipboardManager;
 import android.view.View;
 
+import static android.support.v4.app.ActivityCompat.shouldShowRequestPermissionRationale;
+
 public class Settings {
+
+	private static final int RequestCode = 1;
 
 	/**baidu translate api**/
 	public static String baiduTranslateUrl = "http://api.fanyi.baidu.com/api/trans/vip/translate";
@@ -102,7 +113,7 @@ public class Settings {
 	public static final String showapi_appid = "11619";	
 	public static final String showapi_secret = "f27574671ec14eb4a97faacb2eee3ef2";	
 	
-	public static final int page_size = 12;	
+	public static final int page_size = 12;
 	public static final String baidu_appid = "20151111000005006";	
 	public static final String baidu_secretkey = "91mGcsmdvX9HAaE8tXoI";	
 	public static final String client_id = "vCV6TTGRTI5QrckdYSKHQIhq";	
@@ -111,6 +122,14 @@ public class Settings {
 	public static String q = "";	
 	public static String role = "vimary";	
 	public static final int offset = 100;
+
+	public static String[] PERMISSIONS_STORAGE = {
+			Manifest.permission.READ_EXTERNAL_STORAGE,
+			Manifest.permission.WRITE_EXTERNAL_STORAGE
+	};
+	public static String[] PERMISSIONS_RECORD_AUDIO = {
+			Manifest.permission.RECORD_AUDIO
+	};
 	
 	/**is today already do something
 	 * @param mSharedPreferences
@@ -250,9 +269,9 @@ public class Settings {
 		//获取wifi服务  
         WifiManager wifiManager = (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);  
         //判断wifi是否开启  
-        if (!wifiManager.isWifiEnabled()) {  
-        	wifiManager.setWifiEnabled(true);    
-        }  
+//        if (!wifiManager.isWifiEnabled()) {
+//        	wifiManager.setWifiEnabled(true);
+//        }
         WifiInfo wifiInfo = wifiManager.getConnectionInfo();       
         int ipAddress = wifiInfo.getIpAddress();   
         return intToIp(ipAddress);   
@@ -278,12 +297,12 @@ public class Settings {
 			@Override
 			public void onSecondClick(View v) {
 				toShareImageActivity(context,dstString);
-				AVAnalytics.onEvent(context, "tab1_share_result_for_img_btn");
+				AVAnalytics.onEvent(context, "share_img_btn");
 			}
 			@Override
 			public void onFirstClick(View v) {
 				toShareTextActivity(context,dstString);
-				AVAnalytics.onEvent(context, "tab1_share_result_for_text_btn");
+				AVAnalytics.onEvent(context, "share_text_btn");
 			}
 		});
 		mPopDialog.show();
@@ -303,6 +322,128 @@ public class Settings {
 		intent.putExtra(KeyUtil.ShareContentKey, dstString);
 		context.startActivity(intent); 
 	}
+
+	public static void verifyStoragePermissions(final Activity activity,final String[] permissions) {
+		try{
+			int permissionShowTimes = getSharedPreferences(activity).getInt(permissions[0],0);
+			// Check if we have write permission
+			int permission = ActivityCompat.checkSelfPermission(activity, permissions[0]);
+			LogUtil.DefalutLog("verifyStoragePermissions---permission:"+permission);
+			if (permission != PackageManager.PERMISSION_GRANTED) {
+				if(shouldShowRequestPermissionRationale(activity,permissions[0])){
+					Dialog dialog = new Dialog(activity, "友情提示", "软件需要SD卡和话筒的访问权限才能正常运行");
+					dialog.addAcceptButton("好的");
+					dialog.setOnAcceptButtonClickListener(new View.OnClickListener() {
+						@Override
+						public void onClick(View v) {
+							ActivityCompat.requestPermissions(
+									activity,
+									permissions,
+									RequestCode
+							);
+						}
+					});
+					dialog.show();
+				}else {
+					ActivityCompat.requestPermissions(
+							activity,
+							permissions,
+							RequestCode
+					);
+					if(permissionShowTimes < 4){
+						Dialog dialog = new Dialog(activity, "友情提示", "软件需要去权限管理中心授权才能正常运行");
+						dialog.addAcceptButton("去授权");
+						dialog.setOnAcceptButtonClickListener(new View.OnClickListener() {
+							@Override
+							public void onClick(View v) {
+								startPermissionManager(activity);
+							}
+						});
+						dialog.show();
+					}else if(permissionShowTimes < 8){
+						Dialog dialog = new Dialog(activity, "友情提示", "由于软件未能获取相关权限，无法正常运行，您可能需要卸载软件重新下载安装，安装之后需要允许软件使用话筒和读写sd卡权限申请。");
+						dialog.addAcceptButton("好的");
+						dialog.addCancelButton("稍后");
+						dialog.setOnAcceptButtonClickListener(new View.OnClickListener() {
+							@Override
+							public void onClick(View v) {
+								uninstall(activity);
+							}
+						});
+						dialog.show();
+					}
+					permissionShowTimes++;
+					saveSharedPreferences(getSharedPreferences(activity),permissions[0],permissionShowTimes);
+				}
+			}
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+	}
+
+	public static void uninstall(Context mContext){
+		Intent intent = new Intent();
+		intent.setAction(Intent.ACTION_VIEW);
+		intent.setData(Uri.parse("market://details?id=com.messi.languagehelper"));
+		mContext.startActivity(intent);
+	}
 	
-	
+	public static void startPermissionManager(Context mContext){
+		gotoMiuiPermission(mContext);
+	}
+
+	/**
+	 * 跳转到miui的权限管理页面
+	 */
+	public static void gotoMiuiPermission(Context mContext) {
+		Intent i = new Intent("miui.intent.action.APP_PERM_EDITOR");
+		ComponentName componentName = new ComponentName("com.miui.securitycenter", "com.miui.permcenter.permissions.AppPermissionsEditorActivity");
+		i.setComponent(componentName);
+		i.putExtra("extra_pkgname", mContext.getPackageName());
+		try {
+			mContext.startActivity(i);
+		} catch (Exception e) {
+			e.printStackTrace();
+			gotoMeizuPermission(mContext);
+		}
+	}
+
+	public static void gotoMeizuPermission(Context mContext) {
+		Intent intent = new Intent("com.meizu.safe.security.SHOW_APPSEC");
+		intent.addCategory(Intent.CATEGORY_DEFAULT);
+		intent.putExtra("packageName", BuildConfig.APPLICATION_ID);
+		try {
+			mContext.startActivity(intent);
+		} catch (Exception e) {
+			e.printStackTrace();
+			gotoHuaweiPermission(mContext);
+		}
+	}
+
+	public static void gotoHuaweiPermission(Context mContext) {
+		try {
+			Intent intent = new Intent();
+			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			ComponentName comp = new ComponentName("com.huawei.systemmanager", "com.huawei.permissionmanager.ui.MainActivity");//华为权限管理
+			intent.setComponent(comp);
+			mContext.startActivity(intent);
+		} catch (Exception e) {
+			e.printStackTrace();
+			mContext.startActivity(getAppDetailSettingIntent(mContext));
+		}
+	}
+
+	public static Intent getAppDetailSettingIntent(Context mContext) {
+		Intent localIntent = new Intent();
+		localIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		if (Build.VERSION.SDK_INT >= 9) {
+			localIntent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
+			localIntent.setData(Uri.fromParts("package", mContext.getPackageName(), null));
+		} else if (Build.VERSION.SDK_INT <= 8) {
+			localIntent.setAction(Intent.ACTION_VIEW);
+			localIntent.setClassName("com.android.settings", "com.android.settings.InstalledAppDetails");
+			localIntent.putExtra("com.android.settings.ApplicationPkgName", mContext.getPackageName());
+		}
+		return localIntent;
+	}
 }

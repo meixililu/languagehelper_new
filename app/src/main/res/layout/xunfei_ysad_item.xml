@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/xx_ad_layout"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:layout_marginBottom="@dimen/padding_7"
-            android:layout_marginLeft="@dimen/padding_7"
-            android:layout_marginRight="@dimen/padding_7" >
+        android:id="@+id/xx_ad_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        >
 
             <com.messi.languagehelper.views.WrapContentHeightViewPager
                 android:id="@+id/auto_view_pager"
