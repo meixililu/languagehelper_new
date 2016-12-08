@@ -16,6 +16,16 @@ public class WechatJXResult {
 
 	private NativeADDataRef mNativeADDataRef;
 
+	private boolean isHasShowAD;
+
+	public boolean isHasShowAD() {
+		return isHasShowAD;
+	}
+
+	public void setHasShowAD(boolean hasShowAD) {
+		isHasShowAD = hasShowAD;
+	}
+
 	public String getCtime() {
 		return ctime;
 	}

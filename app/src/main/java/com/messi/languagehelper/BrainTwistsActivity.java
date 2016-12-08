@@ -32,6 +32,7 @@ public class BrainTwistsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.brain_twists_activity);
         ButterKnife.bind(this);
+        setStatusbarColor(R.color.sky_blue);
         initSwipeRefresh();
         getSupportActionBar().setTitle(getResources().getString(R.string.leisuer_twists));
         requestData();

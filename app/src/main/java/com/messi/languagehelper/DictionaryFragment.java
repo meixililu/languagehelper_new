@@ -86,7 +86,7 @@ public class DictionaryFragment extends Fragment implements OnClickListener, Dic
     private View view;
     private FragmentProgressbarListener mProgressbarListener;
     private boolean AutoClearInputAfterFinish;
-    private Context mActivity;
+    private Activity mActivity;
     private String mCurrentPhotoPath;
     private Handler mHandler = new Handler() {
         @Override
@@ -159,7 +159,7 @@ public class DictionaryFragment extends Fragment implements OnClickListener, Dic
 
     };
 
-    public static DictionaryFragment getInstance(Bundle bundle, Context mActivity) {
+    public static DictionaryFragment getInstance(Bundle bundle, Activity mActivity) {
         if (mMainFragment == null) {
             mMainFragment = new DictionaryFragment();
             mMainFragment.bundle = bundle;
@@ -168,13 +168,14 @@ public class DictionaryFragment extends Fragment implements OnClickListener, Dic
         return mMainFragment;
     }
 
-    public void setmActivity(Context mActivity) {
+    public void setmActivity(Activity mActivity) {
         this.mActivity = mActivity;
     }
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
+        mActivity = activity;
         try {
             mProgressbarListener = (FragmentProgressbarListener) activity;
         } catch (ClassCastException e) {
@@ -203,7 +204,7 @@ public class DictionaryFragment extends Fragment implements OnClickListener, Dic
         recognizer = SpeechRecognizer.createRecognizer(mActivity, null);
         beans = new ArrayList<Dictionary>();
         beans.addAll(DataBaseUtil.getInstance().getDataListDictionary(0, Settings.offset));
-        mAdapter = new RcDictionaryListAdapter(getActivity(), mSpeechSynthesizer, mSharedPreferences, beans,
+        mAdapter = new RcDictionaryListAdapter(mActivity, mSpeechSynthesizer, mSharedPreferences, beans,
                 mProgressbarListener, this);
 
         recent_used_lv = (RecyclerView) view.findViewById(R.id.recent_used_lv);
@@ -414,7 +415,7 @@ public class DictionaryFragment extends Fragment implements OnClickListener, Dic
      * 显示转写对话框.
      */
     public void showIatDialog() {
-        Settings.verifyStoragePermissions(getActivity(),Settings.PERMISSIONS_RECORD_AUDIO);
+        Settings.verifyStoragePermissions(mActivity,Settings.PERMISSIONS_RECORD_AUDIO);
         dic_split_layout.setVisibility(View.GONE);
         if (!recognizer.isListening()) {
             record_layout.setVisibility(View.VISIBLE);
@@ -648,7 +649,7 @@ public class DictionaryFragment extends Fragment implements OnClickListener, Dic
 //	public void sendBaiduOCR(){
 //		try {
 //			loadding();
-//			LanguagehelperHttpClient.postBaiduOCR(CameraUtil.createTempFile(), new UICallback(getActivity()){
+//			LanguagehelperHttpClient.postBaiduOCR(CameraUtil.createTempFile(), new UICallback(mActivity){
 //				@Override
 //				public void onResponsed(String responseString){
 //					finishLoadding();

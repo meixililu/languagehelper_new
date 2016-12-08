@@ -1,5 +1,6 @@
 package com.messi.languagehelper.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,9 +17,9 @@ public class MainPageAdapter extends FragmentPagerAdapter {
 
 	public static String[] CONTENT;
 	private Bundle bundle;
-	private Context mContext;
+	private Activity mContext;
 
-    public MainPageAdapter(FragmentManager fm,Bundle bundle,Context mContext) {
+    public MainPageAdapter(FragmentManager fm,Bundle bundle,Activity mContext) {
         super(fm);
         this.mContext = mContext;
         this.bundle = bundle;

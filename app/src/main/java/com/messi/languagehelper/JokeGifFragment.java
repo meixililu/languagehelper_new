@@ -14,7 +14,6 @@ import com.alibaba.fastjson.JSON;
 import com.avos.avoscloud.okhttp.FormEncodingBuilder;
 import com.avos.avoscloud.okhttp.RequestBody;
 import com.messi.languagehelper.adapter.JokeGifAdapter;
-import com.messi.languagehelper.adapter.JokePictureListAdapter;
 import com.messi.languagehelper.dao.JokeBody;
 import com.messi.languagehelper.dao.JokeContent;
 import com.messi.languagehelper.dao.JokeRoot;

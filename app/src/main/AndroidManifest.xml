@@ -63,6 +63,9 @@
         <!-- 讯飞广告sdk -->
 
         <activity
+            android:name=".YiZhanDaoDiActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".DictionaryFullscreenActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -143,13 +146,13 @@
             android:name=".InvestmentActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".EvaluationDetailActivity"
+            android:name=".SpokenEnglishDetailActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".EvaluationCategoryListActivity"
+            android:name=".SpokenEnglishCategorySecondaryActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".EvaluationCategoryActivity"
+            android:name=".SpokenEndlishCategoryActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".DialogPracticeActivity"

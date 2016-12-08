@@ -7,12 +7,12 @@
     android:foreground="@drawable/framelayout_selector"
     android:orientation="vertical"
     >
-
-
         <TextView
             android:id="@+id/name"
             android:layout_width="fill_parent"
-            android:layout_height="110dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp"
             android:gravity="center"
             android:shadowColor="@color/gray"
             android:shadowDx="0.2"

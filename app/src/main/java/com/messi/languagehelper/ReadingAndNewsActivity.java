@@ -30,7 +30,6 @@ public class ReadingAndNewsActivity extends BaseActivity implements FragmentProg
 		pageAdapter = new ReadingAndNewsAdapter(getSupportFragmentManager(),this);
 		viewpager.setAdapter(pageAdapter);
 		viewpager.setOffscreenPageLimit(9);
-		tablayout.setTabsFromPagerAdapter(pageAdapter);
 		tablayout.setupWithViewPager(viewpager);
 	}
 

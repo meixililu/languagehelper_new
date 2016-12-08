@@ -48,6 +48,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 	private IFLYNativeAd nativeAd;
 	private boolean loading;
 	private boolean hasMore = true;
+	private AVObject mADObject;
 	private LinearLayoutManager mLinearLayoutManager;
 
 	@Override
@@ -55,6 +56,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.reading_activity);
 		initViews();
+		loadAD();
 		new QueryTask().execute();
 		getMaxPageNumberBackground();
 	}
@@ -66,6 +68,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 		initSwipeRefresh();
 		listview = (RecyclerView) findViewById(R.id.listview);
 		mAdapter = new RcReadingListAdapter(avObjects);
+		mAdapter.setItems(avObjects);
 		mAdapter.setFooter(new Object());
 		hideFooterview();
 		mLinearLayoutManager = new LinearLayoutManager(this);
@@ -95,6 +98,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 				isADInList(recyclerView,firstVisibleItem,visible);
 				if(!loading && hasMore){
 					if ((visible + firstVisibleItem) >= total){
+						loadAD();
 						new QueryTask().execute();
 					}
 				}
@@ -129,6 +133,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 
 	@Override
 	public void onSwipeRefreshLayoutRefresh() {
+		loadAD();
 		hideFooterview();
 		random();
 		avObjects.clear();
@@ -160,8 +165,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 			query.skip(skip);
 			query.limit(Settings.page_size);
 			try {
-				List<AVObject> avObject  = query.find();
-				return avObject;
+				return query.find();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -170,6 +174,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 
 		@Override
 		protected void onPostExecute(List<AVObject> avObject) {
+			loading = false;
 			hideProgressbar();
 			onSwipeRefreshLayoutFinish();
 			if(avObject != null){
@@ -177,10 +182,10 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 					ToastUtil.diaplayMesShort(ReadingsActivity.this, "没有了！");
 					hideFooterview();
 				}else{
-					loadAD();
 					avObjects.addAll(avObject);
-					mAdapter.setItems(avObjects);
-					mAdapter.notifyDataSetChanged();
+					if(addAD()){
+						mAdapter.notifyDataSetChanged();
+					}
 					skip += Settings.page_size;
 					showFooterview();
 				}
@@ -190,7 +195,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 			if(skip == maxRandom){
 				hasMore = false;
 			}
-			loading = false;
+
 		}
 	}
 
@@ -212,20 +217,32 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 			public void onADLoaded(List<NativeADDataRef> adList) {
 				if(adList != null && adList.size() > 0){
 					NativeADDataRef nad = adList.get(0);
-					AVObject mAVObject = new AVObject();
-					mAVObject.put(KeyUtil.ADKey, nad);
-					mAVObject.put(KeyUtil.ADIsShowKey, false);
-					int index = avObjects.size() - Settings.page_size + NumberUtil.randomNumberRange(2, 4);
-					if(index < 0){
-						index = 0;
+					mADObject = new AVObject();
+					mADObject.put(KeyUtil.ADKey, nad);
+					mADObject.put(KeyUtil.ADIsShowKey, false);
+					if(!loading){
+						addAD();
 					}
-					avObjects.add(index,mAVObject);
-					mAdapter.notifyItemInserted(index);
 				}
 			}
 		});
 		nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
 		nativeAd.loadAd(1);
+	}
+
+	private boolean addAD(){
+		if(mADObject != null && avObjects != null && avObjects.size() > 0){
+			int index = avObjects.size() - Settings.page_size + NumberUtil.randomNumberRange(2, 4);
+			if(index < 0){
+				index = 0;
+			}
+			avObjects.add(index,mADObject);
+			mAdapter.notifyDataSetChanged();
+			mADObject = null;
+			return false;
+		}else{
+			return true;
+		}
 	}
 
 	@Override

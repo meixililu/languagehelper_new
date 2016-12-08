@@ -183,6 +183,8 @@
                         android:layout_width="0dp"
                         android:layout_height="45dp"
                         android:layout_weight="1"
+                        android:layout_marginLeft="65dp"
+                        android:layout_marginBottom="1dp"
                         android:background="@drawable/checkbox_language_right_selector"
                         android:button="@null"
                         android:checked="true"
@@ -195,6 +197,8 @@
                         android:layout_width="0dp"
                         android:layout_height="45dp"
                         android:layout_weight="1"
+                        android:layout_marginRight="65dp"
+                        android:layout_marginBottom="1dp"
                         android:background="@drawable/checkbox_language_right_selector"
                         android:button="@null"
                         android:gravity="center"
@@ -210,9 +214,9 @@
 
                     <LinearLayout
                         android:id="@+id/speak_round_layout"
-                        android:layout_width="72dp"
-                        android:layout_height="72dp"
-                        android:layout_marginBottom="-3dp"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginBottom="-5dp"
                         android:background="@drawable/round_gray_bgl"
                         android:gravity="center"
                         android:orientation="horizontal" >

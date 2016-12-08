@@ -22,6 +22,7 @@ public class SDCardUtil {
 	public static final String PracticePath = "/zyhy/audio/practice/en/";
 	public static final String StudyDialogPath = "/zyhy/audio/study/dialog/";
 	public static final String EvaluationPath = "/zyhy/audio/study/evaluation/tts";
+	public static final String SpokenEnglishPath = "/zyhy/audio/study/evaluation/";
 	public static final String EvaluationUserPath = "/zyhy/audio/study/evaluation/user/";
 	public static final String DailySentencePath = "/zyhy/audio/study/dailysentence/mp3/";
 	public static final String ReadingPath = "/zyhy/audio/study/reading/mp3/";

@@ -149,7 +149,6 @@ public class ReadingDetailActivity extends BaseActivity {
         }
         mXFYSAD = new XFYSAD(this, xx_ad_layout, ADUtil.NewsDetail);
         mXFYSAD.setDirectExPosure(false);
-        mXFYSAD.setAddCount(1);
         mXFYSAD.showAD();
         scrollview.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
             @Override

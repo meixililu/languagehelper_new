@@ -24,6 +24,7 @@ public class ChineseDictionaryActivity extends BaseActivity implements FragmentP
         super.onCreate(savedInstanceState);
         setContentView(R.layout.zh_dic_activity);
         ButterKnife.bind(this);
+        setStatusbarColor(R.color.style6_color1);
         getSupportActionBar().setTitle(getResources().getString(R.string.leisuer_two));
         mAdapter = new ChineseDictionaryAdapter(this.getSupportFragmentManager(), this);
         viewPager.setAdapter(mAdapter);

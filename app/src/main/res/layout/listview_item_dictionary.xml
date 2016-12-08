@@ -27,10 +27,11 @@
                 android:textSize="@dimen/bigger" />
             <ImageView
                 android:id="@+id/fullscreen_img"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:paddingLeft="@dimen/padding_5"
                 android:transitionName="shareTitle"
-                android:layout_marginRight="@dimen/padding_5"
+                android:layout_marginRight="@dimen/padding_10"
                 android:layout_gravity="center_vertical|right"
                 android:src="@drawable/ic_fullscreen"
                 />
@@ -104,8 +105,8 @@
             android:foreground="@drawable/framelayout_selector" >
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/list_item_icon"
+                android:layout_height="@dimen/list_item_icon"
                 android:layout_gravity="center"
                 android:background="@drawable/icon_weixin"
                 android:clickable="false" />
@@ -127,8 +128,8 @@
 
             <CheckBox
                 android:id="@+id/collected_cb"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/list_item_icon"
+                android:layout_height="@dimen/list_item_icon"
                 android:layout_gravity="center"
                 android:background="@drawable/collected_uncollected_selector"
                 android:button="@null"
@@ -152,8 +153,8 @@
             android:foreground="@drawable/framelayout_selector" >
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/list_item_icon"
+                android:layout_height="@dimen/list_item_icon"
                 android:layout_gravity="center"
                 android:background="@drawable/delete"
                 android:clickable="false" />
@@ -174,8 +175,8 @@
             android:foreground="@drawable/framelayout_selector" >
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/list_item_icon"
+                android:layout_height="@dimen/list_item_icon"
                 android:layout_gravity="center"
                 android:background="@drawable/icon_copy_d"
                 android:clickable="false" />
@@ -197,8 +198,8 @@
 
             <ImageButton
                 android:id="@+id/voice_play"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/list_item_icon"
+                android:layout_height="@dimen/list_item_icon"
                 android:layout_gravity="center"
                 android:background="@drawable/voice_play"
                 android:clickable="false" />

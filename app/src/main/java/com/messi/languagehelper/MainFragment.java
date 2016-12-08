@@ -89,7 +89,7 @@ public class MainFragment extends Fragment implements OnClickListener {
     private boolean AutoClearInputAfterFinish;
 
     private String mCurrentPhotoPath;
-    private Context mActivity;
+    private Activity mActivity;
     RecognizerListener recognizerListener = new RecognizerListener() {
 
         @Override
@@ -150,7 +150,7 @@ public class MainFragment extends Fragment implements OnClickListener {
 
     };
 
-    public static MainFragment getInstance(Bundle bundle, Context mActivity) {
+    public static MainFragment getInstance(Bundle bundle, Activity mActivity) {
         if (mMainFragment == null) {
             mMainFragment = new MainFragment();
             mMainFragment.bundle = bundle;
@@ -159,13 +159,14 @@ public class MainFragment extends Fragment implements OnClickListener {
         return mMainFragment;
     }
 
-    public void setmActivity(Context mActivity) {
+    public void setmActivity(Activity mActivity) {
         this.mActivity = mActivity;
     }
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
+        mActivity = activity;
         try {
             mProgressbarListener = (FragmentProgressbarListener) activity;
         } catch (ClassCastException e) {
@@ -182,7 +183,7 @@ public class MainFragment extends Fragment implements OnClickListener {
     }
 
     private void init() {
-        mInflater = LayoutInflater.from(getActivity());
+        mInflater = LayoutInflater.from(mActivity);
         mSharedPreferences = mActivity.getSharedPreferences(mActivity.getPackageName(), Activity.MODE_PRIVATE);
         mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(mActivity, null);
         recognizer = SpeechRecognizer.createRecognizer(mActivity, null);
@@ -211,7 +212,7 @@ public class MainFragment extends Fragment implements OnClickListener {
         }
         mAdapter = new RcTranslateListAdapter(mSpeechSynthesizer, mSharedPreferences,beans);
         recent_used_lv.setHasFixedSize(true);
-        recent_used_lv.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recent_used_lv.setLayoutManager(new LinearLayoutManager(mActivity));
         recent_used_lv.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.abc_list_divider_mtrl_alpha)));
         mAdapter.setItems(beans);
         mAdapter.setFooter(new Object());
@@ -356,7 +357,7 @@ public class MainFragment extends Fragment implements OnClickListener {
     private void RequestJinShanNewAsyncTask() {
         loadding();
         submit_btn_cover.setEnabled(false);
-        LanguagehelperHttpClient.postIcibaNew(new UICallback(getActivity()) {
+        LanguagehelperHttpClient.postIcibaNew(new UICallback(mActivity) {
             @Override
             public void onResponsed(String mResult) {
                 try {
@@ -449,7 +450,7 @@ public class MainFragment extends Fragment implements OnClickListener {
     private void RequestJinShanAsyncTask() {
         loadding();
         submit_btn_cover.setEnabled(false);
-        LanguagehelperHttpClient.postIciba(new UICallback(getActivity()) {
+        LanguagehelperHttpClient.postIciba(new UICallback(mActivity) {
             @Override
             public void onResponsed(String mResult) {
                 try {
@@ -551,7 +552,7 @@ public class MainFragment extends Fragment implements OnClickListener {
     private void RequestAsyncTask() {
         loadding();
         submit_btn_cover.setEnabled(false);
-        LanguagehelperHttpClient.postBaidu(new UICallback(getActivity()) {
+        LanguagehelperHttpClient.postBaidu(new UICallback(mActivity) {
             @Override
             public void onFailured() {
                 showToast(mActivity.getResources().getString(R.string.network_error));
@@ -606,7 +607,7 @@ public class MainFragment extends Fragment implements OnClickListener {
      * 显示转写对话框.
      */
     public void showIatDialog() {
-        Settings.verifyStoragePermissions(getActivity(),Settings.PERMISSIONS_RECORD_AUDIO);
+        Settings.verifyStoragePermissions(mActivity,Settings.PERMISSIONS_RECORD_AUDIO);
         if (!recognizer.isListening()) {
             record_layout.setVisibility(View.VISIBLE);
             input_et.setText("");
@@ -825,7 +826,7 @@ public class MainFragment extends Fragment implements OnClickListener {
 //	public void sendBaiduOCR(){
 //		try {
 //			loadding();
-//			LanguagehelperHttpClient.postBaiduOCR(CameraUtil.createTempFile(), new UICallback(getActivity()){
+//			LanguagehelperHttpClient.postBaiduOCR(CameraUtil.createTempFile(), new UICallback(mActivity){
 //				@Override
 //				public void onResponsed(String responseString){
 //					if (!TextUtils.isEmpty(responseString)) {

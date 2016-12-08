@@ -50,10 +50,9 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 	private String code;
 	private int maxRandom;
 	private IFLYNativeAd nativeAd;
-	private boolean misVisibleToUser;
-	private boolean isHasLoadOnce;
 	private boolean loading;
 	private boolean hasMore = true;
+	private AVObject mADObject;
 	private LinearLayoutManager mLinearLayoutManager;
 
 	public static Fragment newInstance(String category, String code){
@@ -70,6 +69,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 	@Override
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		LogUtil.DefalutLog("onCreate");
 		Bundle mBundle = getArguments();
 		this.category = mBundle.getString("category");
 		this.code = mBundle.getString("code");
@@ -78,29 +78,28 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
+		LogUtil.DefalutLog("onAttach");
 		try {
 			mProgressbarListener = (FragmentProgressbarListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString() + " must implement FragmentProgressbarListener");
         }
 	}
-	
+
 	@Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        LogUtil.DefalutLog("setUserVisibleHint:"+isVisibleToUser);
-        misVisibleToUser = isVisibleToUser;
-        if(!isHasLoadOnce && isVisibleToUser){
-        	isHasLoadOnce = true;
-        	new QueryTask().execute();
-        }
+	public void loadDataOnStart() {
+		super.loadDataOnStart();
+		loadAD();
+		new QueryTask().execute();
+		getMaxPageNumberBackground();
 	}
-	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		super.onCreateView(inflater, container, savedInstanceState);
+		LogUtil.DefalutLog("onCreateView:"+category);
 		View view = inflater.inflate(R.layout.composition_fragment, container, false);
 		initViews(view);
-		getMaxPageNumberBackground();
 		return view;
 	}
 	
@@ -109,6 +108,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 		listview = (RecyclerView) view.findViewById(R.id.listview);
 		initSwipeRefresh(view);
 		mAdapter = new RcReadingListAdapter(avObjects);
+		mAdapter.setItems(avObjects);
 		mAdapter.setFooter(new Object());
 		hideFooterview();
 		mLinearLayoutManager = new LinearLayoutManager(getContext());
@@ -139,6 +139,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 				isADInList(recyclerView,firstVisibleItem,visible);
 				if(!loading && hasMore){
 					if ((visible + firstVisibleItem) >= total){
+						loadAD();
 						new QueryTask().execute();
 					}
 				}
@@ -173,6 +174,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 	
 	@Override
 	public void onSwipeRefreshLayoutRefresh() {
+		loadAD();
 		hideFooterview();
 		random();
 		avObjects.clear();
@@ -186,6 +188,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
+			loading = true;
 			showProgressbar();
 		}
 		
@@ -215,6 +218,8 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 
 		@Override
 		protected void onPostExecute(List<AVObject> avObject) {
+			LogUtil.DefalutLog("onPostExecute---");
+			loading = false;
 			hideProgressbar();
 			onSwipeRefreshLayoutFinish();
 			if(avObject != null){
@@ -223,10 +228,10 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 					hideFooterview();
 				}else{
 					if(avObjects != null && mAdapter != null){
-						loadAD();
 						avObjects.addAll(avObject);
-						mAdapter.setItems(avObjects);
-						mAdapter.notifyDataSetChanged();
+						if(addAD()){
+							mAdapter.notifyDataSetChanged();
+						}
 						skip += Settings.page_size;
 						showFooterview();
 					}
@@ -235,12 +240,11 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 			if(skip == maxRandom){
 				hasMore = false;
 			}
-			loading = false;
 		}
 	}
 	
 	private void loadAD(){
-		nativeAd = new IFLYNativeAd(getActivity(), ADUtil.XXLAD, new IFLYNativeListener() {
+		nativeAd = new IFLYNativeAd(getContext(), ADUtil.XXLAD, new IFLYNativeListener() {
 			@Override
 			public void onConfirm() {
 			}
@@ -253,22 +257,35 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 			}
 			@Override
 			public void onADLoaded(List<NativeADDataRef> adList) {
+				LogUtil.DefalutLog("onADLoaded---");
 				if(adList != null && adList.size() > 0){
 					NativeADDataRef nad = adList.get(0);
-					AVObject mAVObject = new AVObject();
-					mAVObject.put(KeyUtil.ADKey, nad);
-					mAVObject.put(KeyUtil.ADIsShowKey, false);
-					int index = avObjects.size() - Settings.page_size + NumberUtil.randomNumberRange(2, 4);
-					if(index < 0){
-						index = 0;
+					mADObject = new AVObject();
+					mADObject.put(KeyUtil.ADKey, nad);
+					mADObject.put(KeyUtil.ADIsShowKey, false);
+					if(!loading){
+						addAD();
 					}
-					avObjects.add(index,mAVObject);
-					mAdapter.notifyItemInserted(index);
 				}
 			}
 		});
 		nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
 		nativeAd.loadAd(1);
+	}
+
+	private boolean addAD(){
+		if(mADObject != null && avObjects != null && avObjects.size() > 0){
+			int index = avObjects.size() - Settings.page_size + NumberUtil.randomNumberRange(2, 4);
+			if(index < 0){
+				index = 0;
+			}
+			avObjects.add(index,mADObject);
+			mAdapter.notifyDataSetChanged();
+			mADObject = null;
+			return false;
+		}else{
+			return true;
+		}
 	}
 	
 	@Override

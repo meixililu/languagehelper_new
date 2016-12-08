@@ -1,5 +1,7 @@
 package com.messi.languagehelper.dao;
 
+import com.iflytek.voiceads.NativeADDataRef;
+
 public class JokeContent {
 	private String ct;
 
@@ -10,6 +12,27 @@ public class JokeContent {
 	private String text;
 
 	private int type;
+
+	private NativeADDataRef mNativeADDataRef;
+
+	private boolean isHasShowAD;
+
+	public boolean isHasShowAD() {
+		return isHasShowAD;
+	}
+
+	public void setHasShowAD(boolean hasShowAD) {
+		isHasShowAD = hasShowAD;
+	}
+
+	public NativeADDataRef getmNativeADDataRef() {
+		return mNativeADDataRef;
+	}
+
+	public void setmNativeADDataRef(NativeADDataRef mNativeADDataRef) {
+		this.mNativeADDataRef = mNativeADDataRef;
+	}
+
 
 	public String getText() {
 		return text;

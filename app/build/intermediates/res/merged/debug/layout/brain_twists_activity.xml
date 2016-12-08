@@ -10,7 +10,7 @@
 	    android:layout_height="wrap_content"
 	    android:layout_width="match_parent"
 	    android:minHeight="?attr/actionBarSize"
-	    android:background="#4FC3F7" />
+	    android:background="@color/sky_blue" />
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/mswiperefreshlayout"
@@ -37,7 +37,7 @@
                 android:paddingTop="20dp"
                 android:paddingRight="@dimen/padding_10"
                 android:paddingLeft="@dimen/padding_10"
-                android:background="#4FC3F7"
+                android:background="@color/sky_blue"
                 android:layout_weight="5"
                 android:textSize="@dimen/bigest" />
 

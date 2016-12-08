@@ -152,15 +152,6 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 		int index = mSharedPreferences.getInt(KeyUtil.LastTimeSelectTab, 0);
 		viewPager.setCurrentItem(index);
 	}
-
-	@Override
-	public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
-	}
-
-	@Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-    }
 	
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -1,5 +1,7 @@
 package com.messi.languagehelper.dao;
 
+import com.iflytek.voiceads.NativeADDataRef;
+
 public class BDJContent {
 	private String create_time;
 
@@ -40,6 +42,26 @@ public class BDJContent {
 	private String weixin_url;
 
 	private String width;
+
+	private NativeADDataRef mNativeADDataRef;
+
+	private boolean isHasShowAD;
+
+	public boolean isHasShowAD() {
+		return isHasShowAD;
+	}
+
+	public void setHasShowAD(boolean hasShowAD) {
+		isHasShowAD = hasShowAD;
+	}
+
+	public NativeADDataRef getmNativeADDataRef() {
+		return mNativeADDataRef;
+	}
+
+	public void setmNativeADDataRef(NativeADDataRef mNativeADDataRef) {
+		this.mNativeADDataRef = mNativeADDataRef;
+	}
 
 	public String getVideo_uri() {
 		return video_uri;

@@ -23,6 +23,7 @@ public class ADUtil {
 	public static final String XiuxianBanner = "8067D0538A5CC32E32550CCC816A23D2";
 	public static final String XiuxianYSNRLAd = "A6505AA06C919195709A1194CB632879";
 	public static final String MRYJYSNRLAd = "ED72385915DAC4C681891487523EBE87";
+	public static final String KaiPingYSAD = "F707B4276F3977F1F28BF110A8A20A74";
 
 	public static final String NewsDetail = "345E72CB69CE01B8B0F55F855863F82A";
 	public static final String SecondaryPage = "7AF25604C9C9826781DF4B7B04949B0F";
@@ -31,8 +32,8 @@ public class ADUtil {
 	public static final String VideoAD = "165D1FE5D5D872794849A23BDC430B8C";
 	
 	public static final boolean IsShowAdImmediately = false;
-	public static final int adCount = 2;
-	public static final int adInterval = 6000;
+	public static final int adCount = 1;
+	public static final int adInterval = 4500;
 	
 	// initQuanPingAD  initChaPingAD    initBannerAD    initKaiPingAD
 	

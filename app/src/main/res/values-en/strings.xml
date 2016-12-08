@@ -64,6 +64,8 @@
     <string name="input_translate_hint">please translate</string>
     <string name="search">Search</string>
     <string name="translate">Translate</string>
+    <string name="start">Start</string>
+    <string name="listen">Listen</string>
     <string name="finish">Finish</string>
     <string name="exit_program">Press again to exit the program</string>
     <string name="loadmore">loading...</string>
@@ -104,7 +106,9 @@
     <string name="invite_friends">Very good,invite some friends</string>
     <string name="auto_clear_after_translate">Auto Clear After Translate</string>
     <string name="clear_success">Clear Success</string>
-    <string name="auto_play_after_read">Auto Play Next After Readed</string>
+    <string name="sentence">Sentence</string>
+    <string name="continuity">Continuity</string>
+    <string name="conversation">Conversation</string>
 
     <string name="feedback">Feedback</string>
     <string name="preference_key_tts_music">tts_music</string>
@@ -176,11 +180,11 @@
 	<string name="leisuer_reading">Readings</string>
 	<string name="leisuer_reading_subtitle">Do some Reading</string>
 	<string name="leisuer_twists">Brain twists</string>
+	<string name="leisuer_yizhandaodi">Q-A</string>
+    <string name="leisuer_yizhandaodi_des">Question and Answer</string>
 	<string name="leisuer_twists_subtitle">Chinese brain twists</string>
     <string name="leisuer_duanzi">Joke</string>
     <string name="leisuer_duanzi_subtitle">Make a funny</string>
-    <string name="leisuer_game">Game</string>
-    <string name="leisuer_game_subtitle">Independent game collections</string>
     <string name="leisuer_gyt">Relax</string>
     <string name="leisuer_gyt_subtitle">Have fun</string>
     <string name="leisuer_invest">Investor</string>

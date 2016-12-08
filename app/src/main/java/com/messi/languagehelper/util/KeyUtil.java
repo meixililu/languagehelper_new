@@ -132,6 +132,12 @@ public class KeyUtil {
 
 	public static final String PermissionShowTimes = "PermissionShowTimes";
 
+	public static final String ReadModelType = "ReadModelType";
+
+	public static final String PracticeItemIndex = "PracticeItemIndex";
+
+	public static final String UserSpeakBean = "UserSpeakBean";
+
 	
 	
 	

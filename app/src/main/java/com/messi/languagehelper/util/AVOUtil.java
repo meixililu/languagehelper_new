@@ -199,7 +199,7 @@ public class AVOUtil {
 		
 		public final static String ECLCode = "ECLCode";
 		
-		public final static String EDType = "EDType";
+		public final static String mp3 = "mp3";
 		
 		public final static String EDIsValid = "EDIsValid";
 		

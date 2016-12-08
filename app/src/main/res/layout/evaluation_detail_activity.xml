@@ -3,7 +3,9 @@
     xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@color/white"
+    >
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -40,13 +42,8 @@
                 android:layout_height="wrap_content"
                 android:foreground="@drawable/framelayout_selector" >
 
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
-
                     <TextView
-                        android:id="@+id/record_answer"
+                        android:id="@+id/evaluation_en_tv"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
@@ -54,10 +51,6 @@
                         android:paddingBottom="8dp"
                         android:paddingLeft="15dp"
                         android:paddingTop="12dp"
-                        android:shadowColor="@color/green"
-                        android:shadowDx="0.5"
-                        android:shadowDy="0.5"
-                        android:shadowRadius="0.5"
                         android:text=""
                         android:textColor="@color/green"
                         android:textSize="@dimen/bigest" />
@@ -70,7 +63,6 @@
                         android:layout_marginRight="@dimen/padding_5"
                         android:background="@drawable/voice_play"
                         android:clickable="false" />
-                </LinearLayout>
             </FrameLayout>
 
             <FrameLayout
@@ -80,21 +72,21 @@
                 android:foreground="@drawable/framelayout_selector"
                 >
                 <TextView
-                    android:id="@+id/record_question"
+                    android:id="@+id/evaluation_zh_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:paddingBottom="10dp"
                     android:paddingLeft="15dp"
-                    android:paddingTop="7dp"
+                    android:paddingTop="10dp"
                     android:textColor="@color/text_grey"
                     android:textSize="@dimen/big" />
-                <ImageButton
+                <ImageView
                     android:layout_width="18dp"
                     android:layout_height="18dp"
                     android:layout_gravity="bottom|right"
                     android:layout_marginRight="@dimen/padding_5"
-                    android:background="@drawable/ic_visibility_grey600_36dp" />
+                    android:src="@drawable/ic_visibility_grey600_36dp" />
             </FrameLayout>
         </LinearLayout>
 
@@ -110,7 +102,6 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="@dimen/padding_margin"
                 android:orientation="horizontal"
                 >
                 <FrameLayout
@@ -162,52 +153,162 @@
                 </FrameLayout>
             </LinearLayout>
 
-            <FrameLayout
+            <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="2dp"
                 android:layout_above="@id/bottom"
-                android:background="@color/white" >
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/user_result_lv"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/none"
-                    />
-
+                android:background="@drawable/list_item_bg_white"
+                >
                 <FrameLayout
-                    android:id="@+id/auto_play_cover"
+                    android:id="@+id/user_speak_cover"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:padding="@dimen/padding_10"
-                    android:layout_gravity="bottom"
-                    android:foreground="@drawable/framelayout_selector" >
-
+                    android:layout_alignParentTop="true"
+                    android:foreground="@drawable/framelayout_selector"
+                    android:orientation="horizontal">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/white"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal" >
-
-                        <com.gc.materialdesign.views.CheckBox
-                            android:id="@+id/auto_play_cb"
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            android:background="#1E88E5" />
-
+                        android:orientation="horizontal">
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:id="@+id/user_speak_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
                             android:gravity="left"
-                            android:text="@string/auto_play_after_read"
-                            android:textColor="@color/text_grey"
-                            android:textSize="@dimen/smaller_l" />
+                            android:layout_gravity="center_vertical"
+                            android:paddingTop="15dp"
+                            android:paddingBottom="15dp"
+                            android:paddingLeft="@dimen/padding_10"
+                            android:text=""
+                            android:textColor="@color/text_black"
+                            android:textSize="@dimen/biggerx" />
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            >
+                            <TextView
+                                android:id="@+id/user_speak_score"
+                                android:layout_width="45dp"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:shadowColor="@color/green"
+                                android:text="100"
+                                android:textSize="@dimen/middle" />
+                            <ImageView
+                                android:id="@+id/user_voice_play_img"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="bottom|right"
+                                android:background="@drawable/voice_play"
+                                android:visibility="gone"/>
+                        </FrameLayout>
                     </LinearLayout>
                 </FrameLayout>
-            </FrameLayout>
+
+                <LinearLayout
+                    android:id="@+id/speak_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:background="@color/text_tint1"
+                    android:layout_alignParentBottom="true"
+                    android:weightSum="3"
+                    android:orientation="horizontal" >
+
+                    <FrameLayout
+                        android:id="@+id/sentence_cover"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:layout_weight="1"
+                        android:foreground="@drawable/framelayout_selector" >
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:orientation="horizontal"
+                            >
+                            <RadioButton
+                                android:id="@+id/sentence_cb"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:clickable="false"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="7dp"
+                                android:gravity="left|center_vertical"
+                                android:text="@string/sentence"
+                                android:textColor="@color/text_grey"
+                                android:textSize="@dimen/small" />
+                        </LinearLayout>
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/continuity_cover"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:layout_weight="1"
+                        android:foreground="@drawable/framelayout_selector" >
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left|center_vertical"
+                            android:orientation="horizontal"
+                            >
+                            <RadioButton
+                                android:id="@+id/continuity_cb"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:clickable="false"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="7dp"
+                                android:gravity="left"
+                                android:text="@string/continuity"
+                                android:textColor="@color/text_grey"
+                                android:textSize="@dimen/small" />
+                        </LinearLayout>
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/conversation_cover"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:layout_weight="1"
+                        android:foreground="@drawable/framelayout_selector" >
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:orientation="horizontal"
+                            >
+                            <RadioButton
+                                android:id="@+id/conversation_cb"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:clickable="false" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="7dp"
+                                android:gravity="left|center_vertical"
+                                android:text="@string/conversation"
+                                android:textColor="@color/text_grey"
+                                android:textSize="@dimen/small" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+
+            </RelativeLayout>
         </RelativeLayout>
     </LinearLayout>
 

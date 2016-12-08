@@ -158,11 +158,9 @@ public class LeisureFragment extends BaseFragment implements OnClickListener {
     }
 
     private void toGameCenterActivity() {
-        Intent intent = new Intent(getActivity(), WebViewActivity.class);
-        intent.putExtra(KeyUtil.URL, Settings.GameUrl);
-        intent.putExtra(KeyUtil.ActionbarTitle, getActivity().getResources().getString(R.string.leisuer_game));
+        Intent intent = new Intent(getActivity(), YiZhanDaoDiActivity.class);
         getActivity().startActivity(intent);
-        AVAnalytics.onEvent(getActivity(), "leisure_pg_togamepg_btn");
+        AVAnalytics.onEvent(getActivity(), "leisure_pg_toyizhandaodi_btn");
     }
 
     private void toCailingActivity() {

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:id="@+id/layout_cover"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
@@ -22,6 +23,19 @@
 		android:layout_marginTop="@dimen/padding_margin"
         android:gravity="left"
         android:textColor="@color/text_black"
-        android:textSize="@dimen/bigger" />
+        android:textSize="@dimen/bigger"
+        android:visibility="gone"
+        />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/list_item_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        fresco:placeholderImageScaleType="fitCenter"
+        fresco:actualImageScaleType="fitCenter"
+        fresco:placeholderImage="@color/text_tint"
+        fresco:viewAspectRatio="1.33"
+        android:visibility="gone"
+        />
     
 </LinearLayout>

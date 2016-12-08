@@ -36,10 +36,6 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/dialog_b.jpg"
     },
     {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/loadding_bg.jpg",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/loadding_bg.jpg"
-    },
-    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/notification_bg_low_pressed.9.png",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable-hdpi-v4/notification_bg_low_pressed.9.png"
     },

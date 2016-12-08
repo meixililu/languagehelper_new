@@ -49,11 +49,11 @@ public class XFYSAD {
 	private String adId;
 	private int retryTime;
 	private boolean isStopPlay;
-	private int addCount = ADUtil.adCount;
 	private long lastLoadAdTime;
 	private boolean isStartPlay;
 	private boolean isDirectExPosure = true;
-	
+	private boolean isFinishPlay = false;
+
 	public XFYSAD(Context mContext,View parentView,String adId){
 		this.mContext = mContext;
 		this.parentView = parentView;
@@ -104,13 +104,18 @@ public class XFYSAD {
 			Index++;
 			if(Index >= adList.size()){
 				Index = 0;
+				isFinishPlay = true;
+				canclePlayImg();
+			}else {
+				if(!isFinishPlay){
+					auto_view_pager.setCurrentItem(Index);
+				}
 			}
-			auto_view_pager.setCurrentItem(Index);
 		}
 	}
 	
 	public void startPlayImg(){
-		if(!isStartPlay){
+		if(ADUtil.adCount > 1 && !isStartPlay && !isFinishPlay){
 			isStartPlay = true;
 			if(mHandler != null){
 				if(adList != null && adList.size() > 1){
@@ -125,15 +130,16 @@ public class XFYSAD {
 				mHandler.postDelayed(mRunnable, ADUtil.adInterval);
 				if(System.currentTimeMillis() - lastLoadAdTime > 1000*35){
 					isStopPlay = true;
+					isFinishPlay = false;
 					lastLoadAdTime = System.currentTimeMillis();
 					showAD();
 				}
 			}
 		}
 	}
-	
+
 	public void canclePlayImg(){
-		if(mHandler != null){
+		if(ADUtil.adCount > 1 && mHandler != null){
 			isStartPlay = false;
 			mHandler.removeCallbacks(mRunnable);
 			LogUtil.DefalutLog("---cancle changeAd---");
@@ -180,7 +186,7 @@ public class XFYSAD {
 			}
 		});
 		nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
-		nativeAd.loadAd(addCount);
+		nativeAd.loadAd(ADUtil.adCount);
 	}
 	
 	private void setAdData() throws Exception{
@@ -262,14 +268,6 @@ public class XFYSAD {
 
 	public void setStopPlay(boolean isStopPlay) {
 		this.isStopPlay = isStopPlay;
-	}
-
-	public int getAddCount() {
-		return addCount;
-	}
-
-	public void setAddCount(int addCount) {
-		this.addCount = addCount;
 	}
 
 	public void setDirectExPosure(boolean directExPosure) {

@@ -40,11 +40,11 @@
                 android:layout_height="wrap_content"
                 android:text="VoiceAds广告"
                 android:textColor="@color/white"
-                android:textSize="@dimen/smaller_l"
+                android:textSize="@dimen/smaller"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
-                android:paddingBottom="3dp"
-                android:paddingLeft="3dp"
+                android:paddingBottom="1dp"
+                android:paddingLeft="1dp"
                 />
         </RelativeLayout>
 
@@ -288,10 +288,9 @@
             android:layout_marginLeft="@dimen/padding_7"
             android:layout_marginRight="@dimen/padding_7"
             android:layout_marginTop="@dimen/padding_7"
-            android:background="#81C784"
+            android:background="@color/light_green"
             android:foreground="@drawable/framelayout_selector"
             android:orientation="vertical"
-            android:visibility="gone"
             >
 
             <LinearLayout
@@ -308,7 +307,7 @@
                     android:shadowDx="0.3"
                     android:shadowDy="0.3"
                     android:shadowRadius="0.3"
-                    android:text="@string/leisuer_game"
+                    android:text="@string/leisuer_yizhandaodi"
                     android:textColor="@color/white"
                     android:textSize="@dimen/bigger" />
 
@@ -316,7 +315,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/leisuer_game_subtitle"
+                    android:text="@string/leisuer_yizhandaodi_des"
                     android:textColor="@color/white"
                     android:textSize="@dimen/small" />
             </LinearLayout>

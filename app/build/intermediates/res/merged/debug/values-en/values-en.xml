@@ -16,7 +16,6 @@
     <string name="author">Author：Lilu</string>
     <string name="auto_clear">Clear Records Except Favorites When Exit</string>
     <string name="auto_clear_after_translate">Auto Clear After Translate</string>
-    <string name="auto_play_after_read">Auto Play Next After Readed</string>
     <string name="auto_play_after_translate">Auto Play After Translate</string>
     <string name="background_color">Background Color</string>
     <string name="cailing_ad_prompt">三块钱你买不了吃亏，买不了上当，只需三块钱，就能让电话另一头的TA拥有一次美好而有爱的等待，而不是平凡并且枯燥的嘟。。。嘟。。。嘟。。。还等什么呢，赶紧操作起来，为TA设置一段好玩又有新意的铃声吧! http://api.openspeech.cn/kyls/NTBhYTEyMTM=</string>
@@ -31,6 +30,8 @@
     <string name="click_where_unknow">click where unknow:</string>
     <string name="close">Close</string>
     <string name="collect">favorite</string>
+    <string name="continuity">Continuity</string>
+    <string name="conversation">Conversation</string>
     <string name="copy">Copy</string>
     <string name="copy_success">copy success</string>
     <string name="dailysentence">Daily Sentence</string>
@@ -82,8 +83,6 @@
     <string name="learn_english">Learn Chinese\nPerseverance\nAccumulation </string>
     <string name="leisuer_duanzi">Joke</string>
     <string name="leisuer_duanzi_subtitle">Make a funny</string>
-    <string name="leisuer_game">Game</string>
-    <string name="leisuer_game_subtitle">Independent game collections</string>
     <string name="leisuer_gyt">Relax</string>
     <string name="leisuer_gyt_subtitle">Have fun</string>
     <string name="leisuer_invest">Investor</string>
@@ -96,6 +95,9 @@
     <string name="leisuer_twists_subtitle">Chinese brain twists</string>
     <string name="leisuer_two">Dictionarys</string>
     <string name="leisuer_two_subtitle">Xinhua Dictionary and Dictionary of Idioms</string>
+    <string name="leisuer_yizhandaodi">Q-A</string>
+    <string name="leisuer_yizhandaodi_des">Question and Answer</string>
+    <string name="listen">Listen</string>
     <string name="loadmore">loading...</string>
     <string name="menu_settings">Play Speed</string>
     <string name="menu_share">DIY Share</string>
@@ -142,6 +144,7 @@
     <string name="recent_use_footer_prompt_content">\tHere only save 100 record，you also can collect which you like.
 	    And we are trying to improve the translate result and the software,thank you.</string>
     <string name="search">Search</string>
+    <string name="sentence">Sentence</string>
     <string name="server_error">Server Error,Retry Later Please!</string>
     <string name="share">Share</string>
     <string name="share_buddy">Share to buddy</string>
@@ -155,6 +158,7 @@
     <string name="speak_prompt">请根据您说的语言点击中文或者英文！</string>
     <string name="spoken_english_practice">Practice</string>
     <string name="spoken_english_reading">Learn</string>
+    <string name="start">Start</string>
     <string name="symbolStudy">Symbol Study</string>
     <string name="take_photo">TakePhoto</string>
     <string name="textclickguidedialog_content">Click the content and result also will play the speech,You can change the speech speed in Settings.</string>

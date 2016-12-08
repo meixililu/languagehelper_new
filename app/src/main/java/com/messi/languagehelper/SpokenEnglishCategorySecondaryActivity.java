@@ -1,0 +1,633 @@
+package com.messi.languagehelper;
+
+import android.content.SharedPreferences;
+import android.graphics.drawable.AnimationDrawable;
+import android.media.MediaPlayer;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Handler;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.TextView;
+
+import com.avos.avoscloud.AVAnalytics;
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVQuery;
+import com.iflytek.cloud.RecognizerListener;
+import com.iflytek.cloud.RecognizerResult;
+import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechError;
+import com.iflytek.cloud.SpeechRecognizer;
+import com.iflytek.cloud.SpeechSynthesizer;
+import com.iflytek.cloud.SynthesizerListener;
+import com.messi.languagehelper.adapter.RcSpokenEndlishCategorySecondaryAdapter;
+import com.messi.languagehelper.bean.UserSpeakBean;
+import com.messi.languagehelper.impl.SpokenEnglishPlayListener;
+import com.messi.languagehelper.task.MyThread;
+import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.AudioTrackUtil;
+import com.messi.languagehelper.util.DownLoadUtil;
+import com.messi.languagehelper.util.JsonParser;
+import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.SDCardUtil;
+import com.messi.languagehelper.util.ScoreUtil;
+import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.ToastUtil;
+import com.messi.languagehelper.util.XFUtil;
+import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import rx.Observable;
+import rx.Observer;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
+
+public class SpokenEnglishCategorySecondaryActivity extends BaseActivity implements View.OnClickListener, SpokenEnglishPlayListener {
+
+    @BindView(R.id.listview)
+    RecyclerView studylist_lv;
+    @BindView(R.id.sentence_cb)
+    RadioButton sentence_cb;
+    @BindView(R.id.sentence_cover)
+    FrameLayout sentence_cover;
+    @BindView(R.id.continuity_cb)
+    RadioButton continuity_cb;
+    @BindView(R.id.continuity_cover)
+    FrameLayout continuity_cover;
+    @BindView(R.id.conversation_cb)
+    RadioButton conversation_cb;
+    @BindView(R.id.conversation_cover)
+    FrameLayout conversation_cover;
+    @BindView(R.id.speak_type)
+    LinearLayout speak_type;
+    @BindView(R.id.previous_btn)
+    FrameLayout previous_btn;
+    @BindView(R.id.start_btn)
+    TextView start_btn;
+    @BindView(R.id.start_btn_cover)
+    FrameLayout start_btn_cover;
+    @BindView(R.id.next_btn)
+    FrameLayout next_btn;
+    @BindView(R.id.record_anim_img)
+    ImageView record_anim_img;
+    @BindView(R.id.record_layout)
+    LinearLayout record_layout;
+    @BindView(R.id.voice_img)
+    ImageButton voice_img;
+
+    @BindView(R.id.conversation_layout)
+    LinearLayout conversationLayout;
+    @BindView(R.id.speaker_content)
+    TextView speakerContent;
+    @BindView(R.id.user_content)
+    TextView userContent;
+    private RcSpokenEndlishCategorySecondaryAdapter mAdapter;
+    private List<AVObject> avObjects;
+    private String ECCode;
+    private int position;
+    private boolean isNewIn = true;
+    private boolean isFollow;
+    private StringBuilder sbResult = new StringBuilder();
+    private String userPcmPath;
+
+    private SpeechSynthesizer mSpeechSynthesizer;
+    private SharedPreferences mSharedPreferences;
+    private SpeechRecognizer recognizer;
+    private MediaPlayer mPlayer;
+    private AnimationDrawable animationDrawable;
+    private Thread mThread;
+    private MyThread mMyThread;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.spoken_english_category_secondary_activity);
+        ButterKnife.bind(this);
+        initViews();
+        getDataTask();
+
+    }
+
+    private void initViews() {
+        setStatusbarColor(R.color.white_alph);
+        mSharedPreferences = Settings.getSharedPreferences(this);
+        mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
+        recognizer = SpeechRecognizer.createRecognizer(this, null);
+        mPlayer = new MediaPlayer();
+        mMyThread = new MyThread();
+        XFUtil.setSpeakLanguage(this, mSharedPreferences, XFUtil.VoiceEngineEN);
+        avObjects = new ArrayList<AVObject>();
+        ECCode = getIntent().getStringExtra(AVOUtil.EvaluationCategory.ECCode);
+        studylist_lv = (RecyclerView) findViewById(R.id.listview);
+        mAdapter = new RcSpokenEndlishCategorySecondaryAdapter(avObjects, this);
+        mAdapter.setItems(avObjects);
+        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this);
+        studylist_lv.setLayoutManager(mLinearLayoutManager);
+        studylist_lv.addItemDecoration(
+                new HorizontalDividerItemDecoration.Builder(this)
+                        .colorResId(R.color.text_tint)
+                        .sizeResId(R.dimen.list_divider_size)
+                        .marginResId(R.dimen.padding_margin, R.dimen.padding_margin)
+                        .build());
+        studylist_lv.setAdapter(mAdapter);
+
+        selectedFlowType(mSharedPreferences.getInt(KeyUtil.ReadModelType, 0), false);
+        sentence_cover.setOnClickListener(this);
+        continuity_cover.setOnClickListener(this);
+        conversation_cover.setOnClickListener(this);
+        previous_btn.setOnClickListener(this);
+        conversationLayout.setOnClickListener(this);
+        next_btn.setOnClickListener(this);
+        start_btn_cover.setOnClickListener(this);
+        animationDrawable = (AnimationDrawable) voice_img.getBackground();
+    }
+
+    private void startVoiceImgAnimation() {
+        voice_img.setVisibility(View.VISIBLE);
+        record_layout.setVisibility(View.GONE);
+        if (!animationDrawable.isRunning()) {
+            animationDrawable.setOneShot(false);
+            animationDrawable.start();
+        }
+    }
+
+    private void stopVoiceImgAnimation() {
+        animationDrawable.setOneShot(true);
+        animationDrawable.stop();
+        animationDrawable.selectDrawable(0);
+        voice_img.setVisibility(View.GONE);
+        record_layout.setVisibility(View.VISIBLE);
+    }
+
+    private void selectedFlowType(int selectedNum, boolean isReset) {
+        sentence_cb.setChecked(false);
+        continuity_cb.setChecked(false);
+        conversation_cb.setChecked(false);
+        if (selectedNum == 0) {
+            conversationLayout.setVisibility(View.GONE);
+            sentence_cb.setChecked(true);
+        } else if (selectedNum == 1) {
+            conversationLayout.setVisibility(View.GONE);
+            continuity_cb.setChecked(true);
+        } else if (selectedNum == 2) {
+            conversationLayout.setVisibility(View.VISIBLE);
+            conversation_cb.setChecked(true);
+        }
+        Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.ReadModelType, selectedNum);
+    }
+
+    private void previousItem() {
+        if (conversation_cb.isChecked() && position > 1) {
+            position -= 2;
+            setDatas();
+        } else if (!conversation_cb.isChecked() && position > 0) {
+            position--;
+            setDatas();
+        } else {
+            ToastUtil.diaplayMesShort(SpokenEnglishCategorySecondaryActivity.this, "到头了");
+        }
+        AVAnalytics.onEvent(SpokenEnglishCategorySecondaryActivity.this, "evaluationdetail_pg_previous_btn");
+    }
+
+    private void nextItem() {
+        if (conversation_cb.isChecked() && position < avObjects.size() - 2) {
+            position += 2;
+            setDatas();
+        } else if (!conversation_cb.isChecked() && position < avObjects.size() - 1) {
+            position++;
+            setDatas();
+        } else {
+            ToastUtil.diaplayMesShort(SpokenEnglishCategorySecondaryActivity.this, "木有了");
+        }
+        AVAnalytics.onEvent(SpokenEnglishCategorySecondaryActivity.this, "evaluationdetail_pg_next_btn");
+    }
+
+    private void setDatas() {
+        if (conversation_cb.isChecked()) {
+            setConversationContent();
+        } else {
+            playOrStop(position);
+            studylist_lv.scrollToPosition(position);
+        }
+    }
+
+    private void setConversationContent() {
+        if(avObjects.size() > 0){
+            speakerContent.setText(getEnglishContent(avObjects.get(position)));
+            if((position+1) < avObjects.size()){
+                userContent.setText(getEnglishContent(avObjects.get(position+1)));
+            }
+        }
+    }
+
+    public void showIatDialog() {
+        try {
+            if (recognizer != null) {
+                if (!recognizer.isListening()) {
+                    if (isNewIn) {
+                        isNewIn = false;
+                        isFollow = true;
+                        start_btn.setText("");
+                        startVoiceImgAnimation();
+                        AVObject mBean = avObjects.get(position);
+                        mBean.put(KeyUtil.UserSpeakBean, new UserSpeakBean());
+                        mAdapter.notifyDataSetChanged();
+                        playItem(mBean);
+                    } else {
+                        stopVoiceImgAnimation();
+                        start_btn.setText("");
+//                        String path = SDCardUtil.getDownloadPath(SDCardUtil.UserPracticePath);
+//                        userPcmPath = path + "/userpractice.pcm";
+//                        recognizer.setParameter(SpeechConstant.ASR_AUDIO_PATH, userPcmPath);
+                        XFUtil.showSpeechRecognizer(this, mSharedPreferences, recognizer, recognizerListener);
+                    }
+                } else {
+                    showProgressbar();
+                    finishRecord();
+                }
+            }
+            AVAnalytics.onEvent(SpokenEnglishCategorySecondaryActivity.this, "evaluationdetail_pg_speak_btn");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * finish record
+     */
+    private void finishRecord() {
+        if (recognizer != null) {
+            if (recognizer.isListening()) {
+                recognizer.stopListening();
+            }
+            isNewIn = true;
+            isFollow = false;
+            record_layout.setVisibility(View.GONE);
+            record_anim_img.setBackgroundResource(R.drawable.speak_voice_1);
+            start_btn.setText(this.getResources().getString(R.string.start));
+        }
+    }
+
+    private void onfinishPlay() {
+        if (isFollow) {
+            isFollow = false;
+            showIatDialog();
+        }
+    }
+
+    private void getDataTask() {
+        showProgressbar();
+        Observable.create(new Observable.OnSubscribe<String>() {
+            @Override
+            public void call(Subscriber<? super String> subscriber) {
+                queryData();
+                subscriber.onCompleted();
+            }
+        })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onCompleted() {
+                        onQueryDataFinish();
+                        setConversationContent();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        onQueryDataFinish();
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                    }
+                });
+    }
+
+    private void queryData() {
+        AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.EvaluationDetail.EvaluationDetail);
+        query.whereEqualTo(AVOUtil.EvaluationDetail.ECCode, ECCode);
+        query.whereEqualTo(AVOUtil.EvaluationDetail.EDIsValid, "1");
+        query.orderByAscending(AVOUtil.EvaluationDetail.ECLCode);
+        try {
+            List<AVObject> avObject = query.find();
+            if (avObject != null && avObject.size() > 0) {
+                for (int i = 0; i < avObject.size(); i++) {
+                    if (i == 0) {
+                        avObject.get(i).put(KeyUtil.PracticeItemIndex, "1");
+                    } else {
+                        avObject.get(i).put(KeyUtil.PracticeItemIndex, "0");
+                    }
+                }
+                avObjects.addAll(avObject);
+            }
+        } catch (AVException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void onQueryDataFinish() {
+        hideProgressbar();
+        onSwipeRefreshLayoutFinish();
+        mAdapter.notifyDataSetChanged();
+    }
+
+    private void resetData() {
+        for (AVObject item : avObjects) {
+            if (item.get(KeyUtil.PracticeItemIndex).equals("1")) {
+                item.put(KeyUtil.PracticeItemIndex, "0");
+            }
+        }
+    }
+
+    private void setSelected(int index) {
+        position = index;
+        resetData();
+        avObjects.get(index).put(KeyUtil.PracticeItemIndex, "1");
+        mAdapter.notifyDataSetChanged();
+    }
+
+    private String getEnglishContent(AVObject avObject) {
+        String temp = avObject.getString(AVOUtil.EvaluationDetail.EDContent);
+        String[] str = temp.split("#");
+        if (str.length > 1) {
+            return temp.split("#")[0];
+        } else {
+            return temp;
+        }
+    }
+
+    @Override
+    public void playOrStop(int index) {
+        setSelected(index);
+        playItem(avObjects.get(index));
+        AVAnalytics.onEvent(SpokenEnglishCategorySecondaryActivity.this, "evaluationdetail_pg_play_result");
+    }
+
+    public void playItem(AVObject avObject) {
+        if (avObject.get(AVOUtil.EvaluationDetail.mp3) != null) {
+            playMp3((String) avObject.get(AVOUtil.EvaluationDetail.mp3),
+                    SDCardUtil.SpokenEnglishPath, (avObject.getString(AVOUtil.EvaluationDetail.EDCode) + ".mp3"));
+        } else {
+            String path = SDCardUtil.getDownloadPath(SDCardUtil.EvaluationPath);
+            String filepath = path + avObject.getString(AVOUtil.EvaluationDetail.EDCode) + ".pcm";
+            mSpeechSynthesizer.setParameter(SpeechConstant.TTS_AUDIO_PATH, filepath);
+            if (!AudioTrackUtil.isFileExists(filepath)) {
+                showProgressbar();
+                XFUtil.showSpeechSynthesizer(SpokenEnglishCategorySecondaryActivity.this, mSharedPreferences,
+                        mSpeechSynthesizer, getEnglishContent(avObject), XFUtil.SpeakerEn,
+                        new SynthesizerListener() {
+                            @Override
+                            public void onSpeakResumed() {
+                            }
+
+                            @Override
+                            public void onSpeakProgress(int arg0, int arg1, int arg2) {
+                            }
+
+                            @Override
+                            public void onSpeakPaused() {
+                            }
+
+                            @Override
+                            public void onSpeakBegin() {
+                                hideProgressbar();
+                            }
+
+                            @Override
+                            public void onCompleted(SpeechError arg0) {
+                                if (arg0 != null) {
+                                    ToastUtil.diaplayMesShort(SpokenEnglishCategorySecondaryActivity.this, arg0.getErrorDescription());
+                                }
+                                onfinishPlay();
+                            }
+
+                            @Override
+                            public void onBufferProgress(int arg0, int arg1, int arg2, String arg3) {
+                            }
+
+                            @Override
+                            public void onEvent(int arg0, int arg1, int arg2, Bundle arg3) {
+                            }
+                        });
+            } else {
+                playLocalPcm(filepath);
+            }
+        }
+    }
+
+    private void playMp3(final String url, final String path, final String fileName) {
+        Observable.create(new Observable.OnSubscribe<String>() {
+            @Override
+            public void call(Subscriber<? super String> subscriber) {
+                String fullName = SDCardUtil.getDownloadPath(path) + fileName;
+                if (!AudioTrackUtil.isFileExists(fullName)) {
+                    subscriber.onNext("showProgressbar");
+                    DownLoadUtil.downloadFile(SpokenEnglishCategorySecondaryActivity.this, url, path, fileName);
+                    subscriber.onNext("hideProgressbar");
+                }
+                playMp3(fullName, subscriber);
+            }
+        })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onCompleted() {
+                        onfinishPlay();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                        if (s.equals("showProgressbar")) {
+                            showProgressbar();
+                        }
+                        if (s.equals("hideProgressbar")) {
+                            hideProgressbar();
+                        }
+                    }
+                });
+    }
+
+    private void playLocalPcm(final String path) {
+        Observable.create(new Observable.OnSubscribe<String>() {
+            @Override
+            public void call(Subscriber<? super String> subscriber) {
+                AudioTrackUtil.createAudioTrack(path);
+                subscriber.onCompleted();
+            }
+        })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onCompleted() {
+                        onfinishPlay();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                    }
+                });
+    }
+
+    private void playMp3(String uriPath, final Subscriber<? super String> subscriber) {
+        try {
+            mPlayer.reset();
+            LogUtil.DefalutLog("uriPath:" + uriPath);
+            Uri uri = Uri.parse(uriPath);
+            mPlayer.setDataSource(this, uri);
+            mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    subscriber.onCompleted();
+                }
+            });
+            mPlayer.prepare();
+            mPlayer.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    RecognizerListener recognizerListener = new RecognizerListener() {
+
+        @Override
+        public void onResult(RecognizerResult results, boolean isLast) {
+            String text = JsonParser.parseIatResult(results.getResultString());
+            sbResult.append(text);
+            if (isLast) {
+                LogUtil.DefalutLog("isLast---onResult:" + sbResult.toString());
+                hideProgressbar();
+                finishRecord();
+                if(!conversation_cb.isChecked()){
+                    AVObject mSpeakItem = avObjects.get(position);
+                    UserSpeakBean bean = ScoreUtil.score(SpokenEnglishCategorySecondaryActivity.this, sbResult.toString(), getEnglishContent(mSpeakItem), 0);
+                    mSpeakItem.put(KeyUtil.UserSpeakBean, bean);
+                    mAdapter.notifyDataSetChanged();
+                }
+                sbResult.setLength(0);
+                playNext();
+//                mMyThread = AudioTrackUtil.getMyThread(userPcmPath);
+            }
+        }
+
+        @Override
+        public void onError(SpeechError error) {
+            LogUtil.DefalutLog("onError:" + error.getErrorDescription());
+            finishRecord();
+            hideProgressbar();
+            ToastUtil.diaplayMesShort(SpokenEnglishCategorySecondaryActivity.this, error.getErrorDescription());
+        }
+
+        @Override
+        public void onBeginOfSpeech() {
+            LogUtil.DefalutLog("evaluator begin");
+        }
+
+        @Override
+        public void onEndOfSpeech() {
+            LogUtil.DefalutLog("evaluator end");
+            finishRecord();
+            showProgressbar();
+        }
+
+        @Override
+        public void onEvent(int arg0, int arg1, int arg2, Bundle arg3) {
+
+        }
+
+        @Override
+        public void onVolumeChanged(int volume, byte[] arg1) {
+            if (volume < 4) {
+                record_anim_img.setBackgroundResource(R.drawable.speak_voice_1);
+            } else if (volume < 8) {
+                record_anim_img.setBackgroundResource(R.drawable.speak_voice_2);
+            } else if (volume < 12) {
+                record_anim_img.setBackgroundResource(R.drawable.speak_voice_3);
+            } else if (volume < 16) {
+                record_anim_img.setBackgroundResource(R.drawable.speak_voice_4);
+            } else if (volume < 20) {
+                record_anim_img.setBackgroundResource(R.drawable.speak_voice_5);
+            } else if (volume < 24) {
+                record_anim_img.setBackgroundResource(R.drawable.speak_voice_6);
+            } else if (volume < 31) {
+                record_anim_img.setBackgroundResource(R.drawable.speak_voice_7);
+            }
+        }
+    };
+
+    private void playNext() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (continuity_cb.isChecked()) {
+                    if (position < avObjects.size() - 1) {
+                        showNext();
+                    } else {
+                        ToastUtil.diaplayMesShort(SpokenEnglishCategorySecondaryActivity.this, "很好，本节已完成！");
+                    }
+                } else if (conversation_cb.isChecked()) {
+                    if (position < avObjects.size() - 2) {
+                        showNext();
+                    } else {
+                        ToastUtil.diaplayMesShort(SpokenEnglishCategorySecondaryActivity.this, "很好，本节已完成！");
+                    }
+                }
+            }
+        }, 1000);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.start_btn_cover:
+                showIatDialog();
+                break;
+            case R.id.sentence_cover:
+                selectedFlowType(0, false);
+                AVAnalytics.onEvent(SpokenEnglishCategorySecondaryActivity.this, "evaluationdetail_pg_sentence_btn");
+                break;
+            case R.id.continuity_cover:
+                selectedFlowType(1, false);
+                AVAnalytics.onEvent(SpokenEnglishCategorySecondaryActivity.this, "evaluationdetail_pg_continuity_btn");
+                break;
+            case R.id.conversation_cover:
+                selectedFlowType(2, true);
+                AVAnalytics.onEvent(SpokenEnglishCategorySecondaryActivity.this, "evaluationdetail_pg_conversation_btn");
+                break;
+            case R.id.previous_btn:
+                previousItem();
+                break;
+            case R.id.next_btn:
+                nextItem();
+                break;
+        }
+    }
+
+    private void showNext() {
+        onClick(next_btn);
+        onClick(start_btn_cover);
+    }
+}

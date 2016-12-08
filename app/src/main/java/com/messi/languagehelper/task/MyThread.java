@@ -15,6 +15,8 @@ public class MyThread implements Runnable {
 	public boolean isPlaying;
 	private Object object = new Object();
 
+	public MyThread() {}
+
 	public MyThread(Handler handler) {
 		this.mHandler = handler;
 	}

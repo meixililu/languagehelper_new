@@ -148,6 +148,10 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/ic_pause_circle_outline_grey600_36dp.png"
     },
     {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/play_btn_white_d.png",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/play_btn_white_d.png"
+    },
+    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_skip_previous_white_36dp.png",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/ic_skip_previous_white_36dp.png"
     },
@@ -208,8 +212,16 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/custom_tab_indicator_selected.9.png"
     },
     {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_practise.png",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/ic_practise.png"
+    },
+    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_ab_overflow_compat.png",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/ic_ab_overflow_compat.png"
+    },
+    {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/play_btn_white_1.png",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/play_btn_white_1.png"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_tab_content_pressed.png",
@@ -242,6 +254,10 @@
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_menu_white_24dp.png",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/ic_menu_white_24dp.png"
+    },
+    {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/play_btn_white_2.png",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/play_btn_white_2.png"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/unread_dot.png",

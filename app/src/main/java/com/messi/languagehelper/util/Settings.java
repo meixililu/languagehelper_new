@@ -80,8 +80,6 @@ public class Settings {
 	
 	public static final String CaiLingUrl = "http://api.openspeech.cn/kyls/NTBhYTEyMTM=";
 
-	public static final String GameUrl = "http://h5.huosu.com/zhongyinghuyi/";
-	
 	public static final String ChDicSearchUrl = "http://v.juhe.cn/xhzd/query";
 
 	public static final String ChDicBushouUrl = "http://v.juhe.cn/xhzd/bushou";
@@ -100,6 +98,8 @@ public class Settings {
 
 	/** BrainTwists **/
 	public static final String TXBrainTwistsApi = "http://api.tianapi.com/txapi/naowan/?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
+
+	public static final String TXYiZhanDaoDiApi = "http://api.tianapi.com/txapi/wenda/?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
 
 	public static final String TXNewsApi = "http://api.tianapi.com/";
 
@@ -325,7 +325,6 @@ public class Settings {
 
 	public static void verifyStoragePermissions(final Activity activity,final String[] permissions) {
 		try{
-			int permissionShowTimes = getSharedPreferences(activity).getInt(permissions[0],0);
 			// Check if we have write permission
 			int permission = ActivityCompat.checkSelfPermission(activity, permissions[0]);
 			LogUtil.DefalutLog("verifyStoragePermissions---permission:"+permission);
@@ -350,30 +349,6 @@ public class Settings {
 							permissions,
 							RequestCode
 					);
-					if(permissionShowTimes < 4){
-						Dialog dialog = new Dialog(activity, "友情提示", "软件需要去权限管理中心授权才能正常运行");
-						dialog.addAcceptButton("去授权");
-						dialog.setOnAcceptButtonClickListener(new View.OnClickListener() {
-							@Override
-							public void onClick(View v) {
-								startPermissionManager(activity);
-							}
-						});
-						dialog.show();
-					}else if(permissionShowTimes < 8){
-						Dialog dialog = new Dialog(activity, "友情提示", "由于软件未能获取相关权限，无法正常运行，您可能需要卸载软件重新下载安装，安装之后需要允许软件使用话筒和读写sd卡权限申请。");
-						dialog.addAcceptButton("好的");
-						dialog.addCancelButton("稍后");
-						dialog.setOnAcceptButtonClickListener(new View.OnClickListener() {
-							@Override
-							public void onClick(View v) {
-								uninstall(activity);
-							}
-						});
-						dialog.show();
-					}
-					permissionShowTimes++;
-					saveSharedPreferences(getSharedPreferences(activity),permissions[0],permissionShowTimes);
 				}
 			}
 		}catch (Exception e){

@@ -144,6 +144,10 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/practice_write_fragment.xml"
     },
     {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/spoken_english_listview_item.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/spoken_english_listview_item.xml"
+    },
+    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/app_recommend_list_activity.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/app_recommend_list_activity.xml"
     },
@@ -248,6 +252,10 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/dialog_first_fragment.xml"
     },
     {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/yizhaondaodi_activity.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/yizhaondaodi_activity.xml"
+    },
+    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/abc_screen_content_include.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/layout/abc_screen_content_include.xml"
     },
@@ -274,10 +282,6 @@
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/abc_action_mode_bar.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/layout/abc_action_mode_bar.xml"
-    },
-    {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/evaluation_list_activity.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/evaluation_list_activity.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/composition_detail_activity.xml",
@@ -402,6 +406,10 @@
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/fragment_ch_dictionary.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/fragment_ch_dictionary.xml"
+    },
+    {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/joke_picture_fragment.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/joke_picture_fragment.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/symbol_study_activity.xml",
@@ -544,6 +552,10 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/app_recommend_detail_list_item.xml"
     },
     {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/spoken_english_category_secondary_activity.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/spoken_english_category_secondary_activity.xml"
+    },
+    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/layout/abc_activity_chooser_view.xml"
     },
@@ -562,10 +574,6 @@
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/notification_template_lines_media.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/layout/notification_template_lines_media.xml"
-    },
-    {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/evaluation_category_activity.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/evaluation_category_activity.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/reading_activity.xml",
@@ -646,5 +654,9 @@
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/notification_media_action.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/layout/notification_media_action.xml"
+    },
+    {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/spoken_englis_category_activity.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/spoken_englis_category_activity.xml"
     }
 ]

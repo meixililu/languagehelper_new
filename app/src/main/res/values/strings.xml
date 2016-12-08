@@ -68,9 +68,13 @@
     <string name="auto_clear">每次退出应用自动清除非收藏记录</string>
     <string name="search">查 询</string>
     <string name="translate">翻 译</string>
+    <string name="start">开始</string>
+    <string name="listen">听</string>
     <string name="finish">完毕</string>
     <string name="exit_program">再按一次退出应用</string>
-    <string name="auto_play_after_read">跟读完成自动播放下一句</string>
+    <string name="sentence">单句跟读</string>
+    <string name="continuity">连续跟读</string>
+    <string name="conversation">对话模式</string>
     <string name="loadmore">正在加载...</string>
 
     <string name="share_dialog_text_1">文字</string>
@@ -132,7 +136,7 @@
     <string name="errcode_deny">发送被拒绝</string>
     <string name="errcode_unknown">发送返回</string>
     <string name="chinese">普通话</string>
-    <string name="english">英语</string>
+    <string name="english">英    语</string>
     <string name="collect">收藏</string>
     <string name="wechat">微信</string>
     <string name="speak">说</string>
@@ -190,13 +194,13 @@
     <string name="leisuer_reading">新闻阅读</string>
     <string name="leisuer_reading_subtitle">新闻头条，微信精选</string>
     <string name="leisuer_twists">脑筋急转弯</string>
+    <string name="leisuer_yizhandaodi">一站到底</string>
+    <string name="leisuer_yizhandaodi_des">知识问答等你来战</string>
     <string name="leisuer_twists_subtitle">放松一下你的大脑</string>
     <string name="leisuer_invest">投资人列表</string>
     <string name="leisuer_invest_subtitle">提意见就是对软件投资</string>
 
     <string name="website_attention">提示：国外网站的打开速度稍微慢点</string>
-    <string name="leisuer_game">轻游戏中心</string>
-    <string name="leisuer_game_subtitle">大家都爱玩的小游戏</string>
     <string name="leisuer_gyt">轻松一刻</string>
     <string name="leisuer_gyt_subtitle">累了就到这里放松一下</string>
     <string name="leisuer_duanzi">笑话段子</string>

@@ -69,6 +69,9 @@
         <!-- 讯飞广告sdk -->
 
         <activity
+            android:name="com.messi.languagehelper.YiZhanDaoDiActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.messi.languagehelper.DictionaryFullscreenActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -149,13 +152,13 @@
             android:name="com.messi.languagehelper.InvestmentActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.messi.languagehelper.EvaluationDetailActivity"
+            android:name="com.messi.languagehelper.SpokenEnglishDetailActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.messi.languagehelper.EvaluationCategoryListActivity"
+            android:name="com.messi.languagehelper.SpokenEnglishCategorySecondaryActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.messi.languagehelper.EvaluationCategoryActivity"
+            android:name="com.messi.languagehelper.SpokenEndlishCategoryActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.DialogPracticeActivity"

@@ -18,6 +18,7 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 
 public class BaseActivity extends AppCompatActivity {
@@ -37,6 +38,12 @@ public class BaseActivity extends AppCompatActivity {
 		if (VERSION.SDK_INT >= VERSION_CODES.KITKAT && VERSION.SDK_INT <= VERSION_CODES.LOLLIPOP) {
 			//透明状态栏
 			getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+		}
+	}
+
+	protected void setStatusbarColor(int color){
+		if (VERSION.SDK_INT >= 21) {
+			getWindow().setStatusBarColor(this.getResources().getColor(color));
 		}
 	}
 
