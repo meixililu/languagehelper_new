@@ -6,13 +6,13 @@
     android:background="@color/white"
     android:foreground="@drawable/framelayout_selector"
     android:orientation="vertical"
-    android:paddingBottom="25dp"
-    android:paddingTop="25dp" >
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp" >
 
     <LinearLayout 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="30dp"
+        android:paddingLeft="25dp"
         android:gravity="left"
         android:orientation="vertical"
         >
@@ -22,10 +22,6 @@
 	        android:layout_height="wrap_content"
 	        android:layout_marginBottom="@dimen/padding_margin"
 	        android:gravity="left"
-	        android:shadowColor="@color/text_black"
-	        android:shadowDx="0.1"
-	        android:shadowDy="0.1"
-	        android:shadowRadius="0.1"
 	        android:textColor="@color/text_black"
 	        android:textSize="@dimen/bigest" />
         <TextView
@@ -34,7 +30,7 @@
 	        android:layout_height="wrap_content"
 	        android:gravity="left"
 	        android:textColor="@color/text_grey"
-	        android:textSize="@dimen/bigger" />
+	        android:textSize="@dimen/big" />
     </LinearLayout>
 
 </FrameLayout>

@@ -15,7 +15,7 @@ import java.lang.Override;
 public class BrainTwistsActivity_ViewBinding<T extends BrainTwistsActivity> implements Unbinder {
   protected T target;
 
-  private View view2131558537;
+  private View view2131558555;
 
   @UiThread
   public BrainTwistsActivity_ViewBinding(final T target, View source) {
@@ -26,7 +26,7 @@ public class BrainTwistsActivity_ViewBinding<T extends BrainTwistsActivity> impl
     target.answer = Utils.findRequiredViewAsType(source, R.id.answer, "field 'answer'", TextView.class);
     view = Utils.findRequiredView(source, R.id.answer_cover, "field 'answerCover' and method 'onClick'");
     target.answerCover = Utils.castView(view, R.id.answer_cover, "field 'answerCover'", FrameLayout.class);
-    view2131558537 = view;
+    view2131558555 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -45,8 +45,8 @@ public class BrainTwistsActivity_ViewBinding<T extends BrainTwistsActivity> impl
     target.answer = null;
     target.answerCover = null;
 
-    view2131558537.setOnClickListener(null);
-    view2131558537 = null;
+    view2131558555.setOnClickListener(null);
+    view2131558555 = null;
 
     this.target = null;
   }

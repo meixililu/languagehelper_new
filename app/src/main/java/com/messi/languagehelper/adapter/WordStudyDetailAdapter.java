@@ -7,13 +7,11 @@ import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.WordStudyDetailActivity;
+import com.messi.languagehelper.WordStudyDanCiRenZhiActivity;
 import com.messi.languagehelper.dao.WordDetailListItem;
-import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.task.MyThread;
 import com.messi.languagehelper.util.AudioTrackUtil;
 import com.messi.languagehelper.util.DownLoadUtil;
-import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
@@ -37,7 +35,7 @@ import android.widget.TextView;
 public class WordStudyDetailAdapter extends BaseAdapter {
 
 	private LayoutInflater mInflater;
-	private WordStudyDetailActivity context;
+	private WordStudyDanCiRenZhiActivity context;
 	private List<WordDetailListItem> avObjects;
 	private ListView category_lv;
 	private MediaPlayer mPlayer;
@@ -52,8 +50,8 @@ public class WordStudyDetailAdapter extends BaseAdapter {
 	private Thread mThread;
 	private MyThread mMyThread;
 	
-	public WordStudyDetailAdapter(WordStudyDetailActivity mContext,SharedPreferences mSharedPreferences,
-			SpeechSynthesizer mSpeechSynthesizer, ListView category_lv,List<WordDetailListItem> avObjects, String audioPath, MediaPlayer mPlayer) {
+	public WordStudyDetailAdapter(WordStudyDanCiRenZhiActivity mContext, SharedPreferences mSharedPreferences,
+								  SpeechSynthesizer mSpeechSynthesizer, ListView category_lv, List<WordDetailListItem> avObjects, String audioPath, MediaPlayer mPlayer) {
 		context = mContext;
 		this.mInflater = LayoutInflater.from(mContext);
 		this.avObjects = avObjects;

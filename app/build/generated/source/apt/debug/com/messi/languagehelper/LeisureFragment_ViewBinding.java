@@ -15,7 +15,7 @@ import java.lang.Override;
 public class LeisureFragment_ViewBinding<T extends LeisureFragment> implements Unbinder {
   protected T target;
 
-  private View view2131558693;
+  private View view2131558711;
 
   @UiThread
   public LeisureFragment_ViewBinding(final T target, View source) {
@@ -25,7 +25,7 @@ public class LeisureFragment_ViewBinding<T extends LeisureFragment> implements U
     target.yueduLayout = Utils.findRequiredViewAsType(source, R.id.yuedu_layout, "field 'yueduLayout'", FrameLayout.class);
     view = Utils.findRequiredView(source, R.id.twists_layout, "field 'twistsLayout' and method 'onClick'");
     target.twistsLayout = Utils.castView(view, R.id.twists_layout, "field 'twistsLayout'", FrameLayout.class);
-    view2131558693 = view;
+    view2131558711 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -57,8 +57,8 @@ public class LeisureFragment_ViewBinding<T extends LeisureFragment> implements U
     target.game_layout = null;
     target.invest_layout = null;
 
-    view2131558693.setOnClickListener(null);
-    view2131558693 = null;
+    view2131558711.setOnClickListener(null);
+    view2131558711 = null;
 
     this.target = null;
   }

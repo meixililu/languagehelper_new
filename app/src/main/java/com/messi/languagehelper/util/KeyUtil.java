@@ -138,6 +138,8 @@ public class KeyUtil {
 
 	public static final String UserSpeakBean = "UserSpeakBean";
 
+	public static final String WordStudyUnit = "WordStudyUnit";
+
 	
 	
 	

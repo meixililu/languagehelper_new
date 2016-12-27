@@ -21,6 +21,8 @@
     <string name="cailing_ad_prompt">三块钱你买不了吃亏，买不了上当，只需三块钱，就能让电话另一头的TA拥有一次美好而有爱的等待，而不是平凡并且枯燥的嘟。。。嘟。。。嘟。。。还等什么呢，赶紧操作起来，为TA设置一段好玩又有新意的铃声吧! http://api.openspeech.cn/kyls/NTBhYTEyMTM=</string>
     <string name="ch_dic_input_hint">please input chinese</string>
     <string name="chinese">Chinese</string>
+    <string name="ciyixuanci">词义选词</string>
+    <string name="ciyixuanci_des">根据中文意思选单词</string>
     <string name="clear_all_except_favorite">Clear Records Except Favorites</string>
     <string name="clear_all_record">Clear All Records</string>
     <string name="clear_success">Clear Success</string>
@@ -35,6 +37,12 @@
     <string name="copy">Copy</string>
     <string name="copy_success">copy success</string>
     <string name="dailysentence">Daily Sentence</string>
+    <string name="danciceshi">单词选义</string>
+    <string name="danciceshi_des">根据单词选中文意思</string>
+    <string name="dancirenzhi">Word Study</string>
+    <string name="dancirenzhi_des">Learn all the word of this unit</string>
+    <string name="dancitingxuan">读音选词</string>
+    <string name="dancitingxuan_des">根据单词读音选择正确的单词</string>
     <string name="dele_success">delete success</string>
     <string name="designer">Designer：Liqianxia</string>
     <string name="download">Try it</string>
@@ -52,6 +60,7 @@
     <string name="fifth_normal">normal:50</string>
     <string name="fighting">To All User</string>
     <string name="finish">Finish</string>
+    <string name="finish_test">Finish</string>
     <string name="follow_teacher">Follow Teacher</string>
     <string name="font_color">Font Color</string>
     <string name="font_size">Font Size</string>
@@ -102,6 +111,7 @@
     <string name="menu_settings">Play Speed</string>
     <string name="menu_share">DIY Share</string>
     <string name="network_error">Network Error,Retry Later Please!</string>
+    <string name="next_unit">Next Unit</string>
     <string name="offline_download">Download Mp3</string>
     <string name="photo_album">PhotoAlbum</string>
     <string name="play_speed_text">play speed：</string>
@@ -199,6 +209,7 @@
     <string name="title_word_vocabulary">Vocabulary</string>
     <string name="translate">Translate</string>
     <string name="translate_content">Translate This Sentence</string>
+    <string name="try_again">Try again</string>
     <string formatted="false" name="tts_toast_format">当前合成进度为%d%%，播放进度为%d%%</string>
     <string name="webview_reload">Tap To Reload</string>
     <string name="wechat">wechat</string>

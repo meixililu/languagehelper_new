@@ -102,6 +102,28 @@ public class NumberUtil {
 		if(isSort) sort(result);
 		return result;
 	}
+
+	/**
+	 * 不可重复
+	 */
+	public static List<Integer> getRanbomNumberContantExceptAndNotRepeat(int max, int init, int size, int except) {
+		List<Integer> result = new ArrayList<Integer>();
+		List<Integer> list = new ArrayList<Integer>();
+		Random r = new Random();
+		for (int i = init, temSize = max + init; i < temSize; i++) {
+			if(except != i){
+				list.add(i);
+			}
+		}
+		for (int j = 0; result.size() < size; j++) {
+			int index = r.nextInt(list.size());
+			result.add(list.get(index));
+			list.remove(index);
+		}
+		result.add(except);
+		Collections.shuffle(result);
+		return result;
+	}
 	
 	/**
 	 * 不可重复

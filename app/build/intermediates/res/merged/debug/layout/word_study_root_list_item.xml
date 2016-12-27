@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:id="@+id/layout_cover"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
@@ -15,10 +16,15 @@
         android:layout_marginRight="@dimen/padding_10"
         android:orientation="vertical" >
 
-        <com.messi.languagehelper.views.ProportionalImageView
+        <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/list_item_img"
             android:layout_width="match_parent"
-            android:layout_height="200dp" />
+            android:layout_height="wrap_content"
+            fresco:viewAspectRatio="2"
+            fresco:placeholderImageScaleType="fitCenter"
+            fresco:actualImageScaleType="focusCrop"
+            fresco:placeholderImage="@color/text_tint"
+            />
 
         <LinearLayout
             android:id="@+id/list_item_bg"

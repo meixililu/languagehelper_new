@@ -1,13 +1,26 @@
 package com.messi.languagehelper.dao;
 
-public class WordListItem {
+import java.io.Serializable;
+
+public class WordListItem implements Serializable {
+
 	private String class_id;
 
 	private int course_num;
 
+	private int course_id = 1;
+
 	private String title;
 
 	private String word_num;
+
+	public int getCourse_id() {
+		return course_id;
+	}
+
+	public void setCourse_id(int course_id) {
+		this.course_id = course_id;
+	}
 
 	public String getClass_id() {
 		return class_id;

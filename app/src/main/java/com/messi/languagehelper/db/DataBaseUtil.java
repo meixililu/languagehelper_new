@@ -211,9 +211,17 @@ public class DataBaseUtil {
 	
 	public List<EveryDaySentence> getDailySentenceList(int limit){
 		QueryBuilder<EveryDaySentence> qb = mEveryDaySentenceDao.queryBuilder();
-		qb.orderDesc(EveryDaySentenceDao.Properties.Id);
+		qb.orderDesc(EveryDaySentenceDao.Properties.Dateline);
 		qb.limit(limit);
 		return qb.list();
+	}
+
+	public void saveEveryDaySentenceList(List<EveryDaySentence> beans){
+		for (EveryDaySentence item : beans){
+			if(!isExist(item.getCid())){
+				insert(item);
+			}
+		}
 	}
 	/**Daily Sentence CURD**/
 	

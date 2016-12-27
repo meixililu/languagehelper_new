@@ -18,17 +18,17 @@ public class SpokenEnglishTabAdapter extends FragmentPagerAdapter {
     public SpokenEnglishTabAdapter(FragmentManager fm,Context mContext) {
         super(fm);
         CONTENT = new String[] { 
-        		mContext.getResources().getString(R.string.title_Practice),
-        		mContext.getResources().getString(R.string.spoken_english_reading)
+        		mContext.getResources().getString(R.string.spoken_english_reading),
+        		mContext.getResources().getString(R.string.title_Practice)
         };
     }
 
     @Override
     public Fragment getItem(int position) {
         if( position == 0 ){
-        	return JichuxiulianFragment.getInstance();
-        }else if( position == 1 ){
         	return SpokenEnglishPractiseFragment.getInstance();
+        }else if( position == 1 ){
+        	return JichuxiulianFragment.getInstance();
         }
         return null;
     }

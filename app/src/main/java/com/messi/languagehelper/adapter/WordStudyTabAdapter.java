@@ -2,7 +2,7 @@ package com.messi.languagehelper.adapter;
 
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.ReadingFragment;
-import com.messi.languagehelper.WordStudyListFragment;
+import com.messi.languagehelper.WordStudyFirstFragment;
 import com.messi.languagehelper.util.AVOUtil;
 
 import android.content.Context;
@@ -25,7 +25,7 @@ public class WordStudyTabAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if( position == 0 ){
-        	return new WordStudyListFragment();
+        	return new WordStudyFirstFragment();
         }else if( position == 1 ){
         	return ReadingFragment.newInstance(AVOUtil.Category.word, null);
         }

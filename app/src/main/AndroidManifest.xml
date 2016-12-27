@@ -63,6 +63,15 @@
         <!-- 讯飞广告sdk -->
 
         <activity
+            android:name=".WordStudyCiYiXuanCiActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WordStudyDanCiCeShiActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WordStudyFourthActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".YiZhanDaoDiActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -90,7 +99,7 @@
             android:name=".ExaminationActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".WordStudyDetailTestActivity"
+            android:name=".WordStudyDuYinXuanCiActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ReadingJuheActivity"
@@ -98,7 +107,7 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".WordTypeActivity"
+            android:name=".WordStudySecondActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".JichuxiulianAndKouyulianxiActivity"
@@ -119,13 +128,10 @@
             android:name=".JokeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".WordStudyDetailActivity"
+            android:name=".WordStudyDanCiRenZhiActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".WordStudyUintListActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".WordBookListActivity"
+            android:name=".WordStudyThirdActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".PhotosTranslateActivity"

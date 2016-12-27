@@ -74,6 +74,18 @@
     <string name="share_dialog_text_2">Image(recommend)</string>
     <string name="take_photo">TakePhoto</string>
     <string name="photo_album">PhotoAlbum</string>
+
+    <string name="next_unit">Next Unit</string>
+    <string name="dancirenzhi">Word Study</string>
+    <string name="dancirenzhi_des">Learn all the word of this unit</string>
+    <string name="dancitingxuan">读音选词</string>
+    <string name="dancitingxuan_des">根据单词读音选择正确的单词</string>
+    <string name="danciceshi">单词选义</string>
+    <string name="danciceshi_des">根据单词选中文意思</string>
+    <string name="ciyixuanci">词义选词</string>
+    <string name="ciyixuanci_des">根据中文意思选单词</string>
+    <string name="try_again">Try again</string>
+    <string name="finish_test">Finish</string>
     
     <string name="speak_english">please tap mic to speak english</string>
     <string name="speak_chinese">please tap mic to speak chinese</string>

@@ -488,4 +488,20 @@ public class AVOUtil {
 		
 	}
 
+	public static class DailySentence {
+
+		public final static String DailySentence = "DailySentence";
+
+		public final static String content = "content";
+
+		public final static String note = "note";
+
+		public final static String tts = "tts";
+
+		public final static String picture2 = "picture2";
+
+		public final static String dateline = "dateline";
+
+	}
+
 }

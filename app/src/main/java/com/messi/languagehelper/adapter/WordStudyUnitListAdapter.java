@@ -1,12 +1,10 @@
 package com.messi.languagehelper.adapter;
 
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.WordStudyDetailActivity;
 import com.messi.languagehelper.dao.WordListItem;
-import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.impl.AdapterListener;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -19,11 +17,13 @@ public class WordStudyUnitListAdapter extends BaseAdapter {
 	private LayoutInflater mInflater;
 	private Context context;
 	private WordListItem avObjects;
+	private AdapterListener mlistener;
 	
-	public WordStudyUnitListAdapter(Context mContext, WordListItem avObjects) {
+	public WordStudyUnitListAdapter(Context mContext, WordListItem avObjects, AdapterListener mlistener) {
 		context = mContext;
 		this.mInflater = LayoutInflater.from(mContext);
 		this.avObjects = avObjects;
+		this.mlistener = mlistener;
 	}
 
 	public int getCount() {
@@ -54,7 +54,9 @@ public class WordStudyUnitListAdapter extends BaseAdapter {
 		holder.cover.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				onItemClick(getItem(position));
+				if(mlistener != null){
+					mlistener.OnItemClick(null,position);
+				}
 			}
 		});
 		return convertView;
@@ -64,15 +66,4 @@ public class WordStudyUnitListAdapter extends BaseAdapter {
 		View cover;
 		TextView name;
 	}
-
-	private void onItemClick(String course_id){
-		Intent intent = new Intent(context,WordStudyDetailActivity.class);
-		intent.putExtra(KeyUtil.ClassName, avObjects.getTitle());
-		intent.putExtra(KeyUtil.CourseId, Integer.parseInt(course_id));
-		intent.putExtra(KeyUtil.CourseNum, avObjects.getCourse_num());
-		intent.putExtra(KeyUtil.ClassId, avObjects.getClass_id());
-		context.startActivity(intent);
-	}
-	
-
 }

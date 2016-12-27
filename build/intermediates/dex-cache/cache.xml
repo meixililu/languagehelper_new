@@ -21,6 +21,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/luli/.gradle/caches/modules-2/files-2.1/cn.leancloud.android/avoscloud-sdk/v3.15.5/1242814ec351aee02f4dfc0fd95eb9785da147e7/avoscloud-sdk-v3.15.5.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="1242814ec351aee02f4dfc0fd95eb9785da147e7">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/10/avoscloud-sdk-v3.15.5_faf45da38af1ba47995d007b41536b7e8411a646/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -102,6 +111,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="8a372c4191f80489770a231f7be4820b204b886a">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-cardview-v7-25.0.0_6f7e0d169b3e793b6ef71c753ba88751d0289864/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/luli/.gradle/caches/modules-2/files-2.1/cn.leancloud.android/okio/1.6.0-leancloud/7086c00a30a6de0ee3b963ec2c3702d37f1de11d/okio-1.6.0-leancloud.jar"
         jumboMode="true"
         optimize="true"
@@ -133,7 +151,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="d37964cfe3078d059aed1467858e44a86f69c93a">
+        sha1="e5c901a8bbcf06058e31c95be0ebff2d51864294">
         <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_aff194217444c205e8e391cff07f2d1fd6211344/classes.dex" />
     </item>
     <item
@@ -180,15 +198,6 @@
         revision="24.0.3"
         sha1="94d4ebd4acdaf01d7445435382eea2d2d38e7534">
         <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/10/fastjson-1.1.39-leancloud_57928d91c76e5239ddae7329f9516526b2fc39b8/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/luli/.gradle/caches/modules-2/files-2.1/cn.leancloud.android/avoscloud-statistics/v3.14.4/cb3d19426ff08f42d27ea72e6a836468e40c9dcf/avoscloud-statistics-v3.14.4.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="cb3d19426ff08f42d27ea72e6a836468e40c9dcf">
-        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/10/avoscloud-statistics-v3.14.4_bd446854cf3f4269e92f53e5e943b54920d09578/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -282,12 +291,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/luli/.gradle/caches/modules-2/files-2.1/cn.leancloud.android/avoscloud-sdk/v3.14.4/956ddd9b6d98ff5235326c2993f5caa796eee68c/avoscloud-sdk-v3.14.4.jar"
+        jar="/Users/luli/.gradle/caches/modules-2/files-2.1/cn.leancloud.android/avoscloud-statistics/v3.15.5/c1d308f5a5aa5a23c29c09171a1aa1fd657da9c9/avoscloud-statistics-v3.15.5.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="956ddd9b6d98ff5235326c2993f5caa796eee68c">
-        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/10/avoscloud-sdk-v3.14.4_b76f9a7b20d33d694318841f066551cf5cba65e4/classes.dex" />
+        sha1="c1d308f5a5aa5a23c29c09171a1aa1fd657da9c9">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/10/avoscloud-statistics-v3.15.5_2bc5b3bb8f0a4d1e88605daf83969377eabf0280/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.andkulikov/transitionseverywhere/1.7.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="24a746ed49aea913f5f009715c49e01a8d758e3f">
+        <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.andkulikov-transitionseverywhere-1.7.0_3dba6a381f228517bc3411f2f67413e578763034/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -403,7 +421,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="665fd14fd711e2305ee507730667dbe164e43806">
+        sha1="b36f82ca0ba22d4e99edac9b22eee1dc84b7e663">
         <dex dex="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_f49e6be107dc3aa06188ef310e2786f315db976a/classes.dex" />
     </item>
     <item

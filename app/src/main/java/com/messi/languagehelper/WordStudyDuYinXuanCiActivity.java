@@ -10,6 +10,7 @@ import com.iflytek.cloud.SpeechSynthesizer;
 import com.messi.languagehelper.adapter.WordStudyDetailTestAdapter;
 import com.messi.languagehelper.dao.WordDetailListItem;
 import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.ChangeDataTypeUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.ToastUtil;
@@ -24,12 +25,17 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.GridView;
 
-public class WordStudyDetailTestActivity extends BaseActivity implements OnClickListener {
+import rx.Observable;
+import rx.Observer;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
+
+public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnClickListener {
 
 	private GridView category_lv;
 	private WordStudyDetailTestAdapter mAdapter;
-	private List<WordDetailListItem> itemList;
-	private ButtonFloat playbtn,previous_btn,next_btn;
+	private ButtonFloat playbtn;
 	private String class_name;
 	private String class_id;
 	private int course_id;
@@ -46,94 +52,108 @@ public class WordStudyDetailTestActivity extends BaseActivity implements OnClick
 		setContentView(R.layout.word_study_detail_test_activity);
 		initSwipeRefresh();
 		initViews();
-		new QueryTask().execute();
+		getDataTask();
+	}
+
+	private void checkData(){
+		if(WordStudyFourthActivity.itemList == null){
+			WordStudyFourthActivity.itemList = new ArrayList<WordDetailListItem>();
+		}
 	}
 	
 	private void initViews(){
+		setActionBarTitle(this.getResources().getString(R.string.dancitingxuan));
 		mSharedPreferences = this.getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
 		mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
 		mPlayer = new MediaPlayer();
-		
 		class_name = getIntent().getStringExtra(KeyUtil.ClassName);
 		class_id = getIntent().getStringExtra(KeyUtil.ClassId);
 		course_id = getIntent().getIntExtra(KeyUtil.CourseId, 1);
 		course_num = getIntent().getIntExtra(KeyUtil.CourseNum, 0);
-		setActionBarTitle(class_name + course_id +"单元");
 		if(!TextUtils.isEmpty(class_id)){
 			audioPath = SDCardUtil.WordStudyPath + class_id + SDCardUtil.Delimiter + String.valueOf(course_id) + SDCardUtil.Delimiter;
 		}else{
 			finish();
 		}
 		playbtn = (ButtonFloat) findViewById(R.id.playbtn);
-		previous_btn = (ButtonFloat) findViewById(R.id.previous_btn);
-		next_btn = (ButtonFloat) findViewById(R.id.next_btn);
-		itemList = new ArrayList<WordDetailListItem>();
 		category_lv = (GridView) findViewById(R.id.studycategory_lv);
+		checkData();
 		mAdapter = new WordStudyDetailTestAdapter(this, mSharedPreferences, mSpeechSynthesizer,
-				itemList, audioPath, mPlayer);
+				WordStudyFourthActivity.itemList, audioPath, mPlayer);
 		category_lv.setAdapter(mAdapter);
 		
 		playbtn.setOnClickListener(this);
-		previous_btn.setOnClickListener(this);
-		next_btn.setOnClickListener(this);
 	}
 	
 	@Override
 	public void onSwipeRefreshLayoutRefresh() {
 		super.onSwipeRefreshLayoutRefresh();
-		new QueryTask().execute();
+		getDataTask();
 	}
-	
-	private class QueryTask extends AsyncTask<Void, Void, Void> {
 
-		@Override
-		protected void onPreExecute() {
-			super.onPreExecute();
+	private void getDataTask() {
+		if(WordStudyFourthActivity.itemList == null || WordStudyFourthActivity.itemList.size() == 0){
 			showProgressbar();
-		}
-		
-		@Override
-		protected Void doInBackground(Void... params) {
-			try {
-				AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.WordStudyDetail.WordStudyDetail);
-				query.whereEqualTo(AVOUtil.WordStudyDetail.class_id, class_id);
-				query.whereEqualTo(AVOUtil.WordStudyDetail.course, course_id);
-				query.orderByAscending(AVOUtil.WordStudyDetail.item_id);
-				List<AVObject> avObjects  = query.find();
-				if(avObjects != null){
-					itemList.clear();
-					for(AVObject mAVObject : avObjects){
-						itemList.add( changeData(mAVObject) );
-					}
+			Observable.create(new Observable.OnSubscribe<String>() {
+				@Override
+				public void call(Subscriber<? super String> subscriber) {
+					loadData();
+					subscriber.onCompleted();
 				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return null;
-		}
+			})
+			.subscribeOn(Schedulers.io())
+			.observeOn(AndroidSchedulers.mainThread())
+			.subscribe(new Observer<String>() {
+				@Override
+				public void onCompleted() {
+					onFinishLoadData();
+				}
 
-		@Override
-		protected void onPostExecute(Void result) {
-			super.onPostExecute(result);
-			hideProgressbar();
-			onSwipeRefreshLayoutFinish();
-			mAdapter.notifyDataSetChanged();
-			mAdapter.getPlayOrder();
-			category_lv.setSelection(0);
+				@Override
+				public void onError(Throwable e) {
+				}
+
+				@Override
+				public void onNext(String s) {
+				}
+			});
+		}else {
+			clearPlaySign();
+			onFinishLoadData();
 		}
 	}
-	
-	private WordDetailListItem changeData(AVObject mAVObject){
-		WordDetailListItem mType = new WordDetailListItem();
-		mType.setClass_id(mAVObject.getString(AVOUtil.WordStudyDetail.class_id));
-		mType.setClass_title(mAVObject.getString(AVOUtil.WordStudyDetail.class_title));
-		mType.setCourse(mAVObject.getInt(AVOUtil.WordStudyDetail.course));
-		mType.setDesc(mAVObject.getString(AVOUtil.WordStudyDetail.desc));
-		mType.setItem_id(mAVObject.getString(AVOUtil.WordStudyDetail.item_id));
-		mType.setName(mAVObject.getString(AVOUtil.WordStudyDetail.name));
-		mType.setSound(mAVObject.getString(AVOUtil.WordStudyDetail.sound));
-		mType.setSymbol(mAVObject.getString(AVOUtil.WordStudyDetail.symbol));
-		return mType;
+
+	private void clearPlaySign(){
+		for(WordDetailListItem mAVObject : WordStudyFourthActivity.itemList){
+			mAVObject.setBackup1("");
+		}
+	}
+
+	private void loadData(){
+		try {
+			AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.WordStudyDetail.WordStudyDetail);
+			query.whereEqualTo(AVOUtil.WordStudyDetail.class_id, class_id);
+			query.whereEqualTo(AVOUtil.WordStudyDetail.course, course_id);
+			query.orderByAscending(AVOUtil.WordStudyDetail.item_id);
+			List<AVObject> avObjects  = query.find();
+			if(avObjects != null){
+				WordStudyFourthActivity.itemList.clear();
+				for(AVObject mAVObject : avObjects){
+					WordStudyFourthActivity.itemList.add( ChangeDataTypeUtil.changeData(mAVObject) );
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	private void onFinishLoadData(){
+		hideProgressbar();
+		onSwipeRefreshLayoutFinish();
+		mAdapter.notifyDataSetChanged();
+		mAdapter.getPlayOrder();
+		category_lv.setSelection(0);
 	}
 
 	@Override
@@ -141,24 +161,6 @@ public class WordStudyDetailTestActivity extends BaseActivity implements OnClick
 		switch (v.getId()) { 
 		case R.id.playbtn:
 			playSound();
-			break;
-		case R.id.previous_btn:
-			if(course_id > 1){
-				course_id--;
-				setActionBarTitle(class_name + course_id +"单元");
-				new QueryTask().execute();
-			}else{
-				ToastUtil.diaplayMesShort(WordStudyDetailTestActivity.this, "已经是第一单元了");
-			}
-			break;
-		case R.id.next_btn:
-			if(course_id < course_num){
-				course_id++;
-				setActionBarTitle(class_name + course_id +"单元");
-				new QueryTask().execute();
-			}else{
-				ToastUtil.diaplayMesShort(WordStudyDetailTestActivity.this, "已经是最后一单元了");
-			}
 			break;
 		}
 	}
@@ -182,11 +184,12 @@ public class WordStudyDetailTestActivity extends BaseActivity implements OnClick
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		if (mPlayer != null) {   
-			mPlayer.stop();  
-			mPlayer.release();   
-			mPlayer = null;   
-        } 
+		WordStudyFourthActivity.clearSign();
+		if (mPlayer != null) {
+			mPlayer.stop();
+			mPlayer.release();
+			mPlayer = null;
+        }
 		if(mSpeechSynthesizer != null){
 			mSpeechSynthesizer.stopSpeaking();
 			mSpeechSynthesizer = null;

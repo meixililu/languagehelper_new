@@ -7,7 +7,7 @@ import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.WordStudyDetailTestActivity;
+import com.messi.languagehelper.WordStudyDuYinXuanCiActivity;
 import com.messi.languagehelper.dao.WordDetailListItem;
 import com.messi.languagehelper.task.MyThread;
 import com.messi.languagehelper.util.AudioTrackUtil;
@@ -35,7 +35,7 @@ import android.widget.TextView;
 public class WordStudyDetailTestAdapter extends BaseAdapter {
 
 	private LayoutInflater mInflater;
-	private WordStudyDetailTestActivity context;
+	private WordStudyDuYinXuanCiActivity context;
 	private List<WordDetailListItem> avObjects;
 	private MediaPlayer mPlayer;
 	private String audioPath;
@@ -49,8 +49,8 @@ public class WordStudyDetailTestAdapter extends BaseAdapter {
 	private MyThread mMyThread;
 	private List<Integer> randomPlayIndex;
 	
-	public WordStudyDetailTestAdapter(WordStudyDetailTestActivity mContext,SharedPreferences mSharedPreferences,
-			SpeechSynthesizer mSpeechSynthesizer,List<WordDetailListItem> avObjects, String audioPath, MediaPlayer mPlayer) {
+	public WordStudyDetailTestAdapter(WordStudyDuYinXuanCiActivity mContext, SharedPreferences mSharedPreferences,
+									  SpeechSynthesizer mSpeechSynthesizer, List<WordDetailListItem> avObjects, String audioPath, MediaPlayer mPlayer) {
 		context = mContext;
 		this.mInflater = LayoutInflater.from(mContext);
 		this.avObjects = avObjects;
@@ -101,12 +101,15 @@ public class WordStudyDetailTestAdapter extends BaseAdapter {
 		holder.cover.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				if(position == randomPlayIndex.get(autoPlayIndex)){
-					clearPlaySign();
-					mAVObject.setBackup1("play");
-					autoPlayIndex++;
+				if(randomPlayIndex != null && autoPlayIndex < randomPlayIndex.size()){
+					if(position == randomPlayIndex.get(autoPlayIndex)){
+						clearPlaySign();
+						mAVObject.setBackup1("play");
+						autoPlayIndex++;
+					}
+					notifyDataSetChanged();
 				}
-				notifyDataSetChanged();
+
 			}
 		});
 		return convertView;
@@ -175,7 +178,7 @@ public class WordStudyDetailTestAdapter extends BaseAdapter {
 				playItem(mAVObject);
 			}else{
 				isPlayNext = false;
-				ToastUtil.diaplayMesShort(context, "播放完毕");
+				ToastUtil.diaplayMesShort(context, "闯关成功");
 				context.stopPlay();
 			}
 		}

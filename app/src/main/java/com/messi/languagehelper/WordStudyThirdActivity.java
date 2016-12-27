@@ -14,7 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ListView;
 
-public class WordBookListActivity extends BaseActivity {
+public class WordStudyThirdActivity extends BaseActivity {
 
 	private ListView category_lv;
 	private WordBookListAdapter mAdapter;

@@ -87,8 +87,10 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/builds" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dependency-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.andkulikov/transitionseverywhere/1.7.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.0.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/cardview-v7/25.0.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/design/25.0.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.0.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.0/jars" />
@@ -145,12 +147,14 @@
     <orderEntry type="library" exported="" name="support-fragment-25.0.0" level="project" />
     <orderEntry type="library" exported="" name="Ad_Android_SDK" level="project" />
     <orderEntry type="library" exported="" name="support-core-ui-25.0.0" level="project" />
+    <orderEntry type="library" exported="" name="cardview-v7-25.0.0" level="project" />
     <orderEntry type="library" exported="" name="support-core-utils-25.0.0" level="project" />
     <orderEntry type="library" exported="" name="fbcore-0.14.1" level="project" />
     <orderEntry type="library" exported="" name="okhttp-2.6.0-leancloud" level="project" />
     <orderEntry type="library" exported="" name="contx" level="project" />
     <orderEntry type="library" exported="" name="imagepipeline-0.14.1" level="project" />
-    <orderEntry type="library" exported="" name="avoscloud-sdk-v3.15.3" level="project" />
+    <orderEntry type="library" exported="" name="transitionseverywhere-1.7.0" level="project" />
+    <orderEntry type="library" exported="" name="avoscloud-sdk-v3.15.4" level="project" />
     <orderEntry type="library" exported="" name="transition-25.0.0" level="project" />
     <orderEntry type="library" exported="" name="okio-1.6.0-leancloud" level="project" />
     <orderEntry type="library" exported="" name="animated-vector-drawable-25.0.0" level="project" />
@@ -172,8 +176,8 @@
     <orderEntry type="library" exported="" name="Msc" level="project" />
     <orderEntry type="library" exported="" name="headerrecyclerview-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-25.0.0" level="project" />
+    <orderEntry type="library" exported="" name="avoscloud-statistics-v3.15.4" level="project" />
     <orderEntry type="library" exported="" name="jiecaovideoplayer-4.6.5" level="project" />
-    <orderEntry type="library" exported="" name="avoscloud-statistics-v3.15.3" level="project" />
     <orderEntry type="library" exported="" name="rxjava-1.1.6" level="project" />
     <orderEntry type="library" exported="" name="gson-2.7" level="project" />
     <orderEntry type="library" exported="" name="rxandroid-1.2.1" level="project" />

@@ -96,24 +96,14 @@ public class EnglishWebsiteRecommendActivity extends BaseActivity implements OnC
 	@Override
 	public void onResume() {
 		super.onResume();
-		if(mXFYSAD != null){
-    		mXFYSAD.startPlayImg();
-    	}
 	}
 	
 	@Override
 	public void onPause() {
 		super.onPause();
-		if(mXFYSAD != null){
-    		mXFYSAD.canclePlayImg();
-    	}
 	}
 	
 	public void onDestroy() {
 		super.onDestroy();
-		if(mXFYSAD != null){
-    		mXFYSAD.canclePlayImg();
-    		mXFYSAD = null;
-    	}
 	}
 }

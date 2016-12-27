@@ -14,12 +14,14 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.cloud.RecognizerListener;
 import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechConstant;
@@ -89,11 +91,15 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
     ImageButton voice_img;
 
     @BindView(R.id.conversation_layout)
-    LinearLayout conversationLayout;
+    RelativeLayout conversationLayout;
     @BindView(R.id.speaker_content)
     TextView speakerContent;
     @BindView(R.id.user_content)
     TextView userContent;
+    @BindView(R.id.speaker_img)
+    SimpleDraweeView speakerImg;
+    @BindView(R.id.user_img)
+    TextView userImg;
     private RcSpokenEndlishCategorySecondaryAdapter mAdapter;
     private List<AVObject> avObjects;
     private String ECCode;
@@ -110,6 +116,7 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
     private AnimationDrawable animationDrawable;
     private Thread mThread;
     private MyThread mMyThread;
+    private boolean userFirst;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -179,14 +186,34 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
         if (selectedNum == 0) {
             conversationLayout.setVisibility(View.GONE);
             sentence_cb.setChecked(true);
+            setSelected(position);
         } else if (selectedNum == 1) {
             conversationLayout.setVisibility(View.GONE);
             continuity_cb.setChecked(true);
+            setSelected(position);
         } else if (selectedNum == 2) {
             conversationLayout.setVisibility(View.VISIBLE);
             conversation_cb.setChecked(true);
+            userFirst = false;
+            position = 0;
+            setConversationContent();
+            changeConversationLayout(false);
         }
         Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.ReadModelType, selectedNum);
+    }
+
+    private void changeConversationLayout(boolean isUserTurn) {
+        if (isUserTurn) {
+            userContent.setVisibility(View.VISIBLE);
+            speakerContent.setVisibility(View.GONE);
+            userImg.setVisibility(View.VISIBLE);
+            speakerImg.setVisibility(View.GONE);
+        } else {
+            speakerContent.setVisibility(View.VISIBLE);
+            userContent.setVisibility(View.GONE);
+            speakerImg.setVisibility(View.VISIBLE);
+            userImg.setVisibility(View.GONE);
+        }
     }
 
     private void previousItem() {
@@ -210,7 +237,12 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
             position++;
             setDatas();
         } else {
-            ToastUtil.diaplayMesShort(SpokenEnglishCategorySecondaryActivity.this, "木有了");
+            if(conversation_cb.isChecked()){
+                userContent.setText("");
+                speakerContent.setText("");
+            }else {
+                ToastUtil.diaplayMesShort(SpokenEnglishCategorySecondaryActivity.this, "木有了");
+            }
         }
         AVAnalytics.onEvent(SpokenEnglishCategorySecondaryActivity.this, "evaluationdetail_pg_next_btn");
     }
@@ -225,10 +257,21 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
     }
 
     private void setConversationContent() {
-        if(avObjects.size() > 0){
-            speakerContent.setText(getEnglishContent(avObjects.get(position)));
-            if((position+1) < avObjects.size()){
-                userContent.setText(getEnglishContent(avObjects.get(position+1)));
+        if (avObjects.size() > 0) {
+            if (!userFirst) {
+                speakerContent.setText(getEnglishContent(avObjects.get(position)));
+                if ((position + 1) < avObjects.size()) {
+                    userContent.setText(getEnglishContent(avObjects.get(position + 1)));
+                } else {
+                    userContent.setText("");
+                }
+            } else {
+                userContent.setText(getEnglishContent(avObjects.get(position)));
+                if ((position + 1) < avObjects.size()) {
+                    speakerContent.setText(getEnglishContent(avObjects.get(position + 1)));
+                } else {
+                    speakerContent.setText("");
+                }
             }
         }
     }
@@ -237,22 +280,25 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
         try {
             if (recognizer != null) {
                 if (!recognizer.isListening()) {
-                    if (isNewIn) {
-                        isNewIn = false;
-                        isFollow = true;
-                        start_btn.setText("");
-                        startVoiceImgAnimation();
-                        AVObject mBean = avObjects.get(position);
-                        mBean.put(KeyUtil.UserSpeakBean, new UserSpeakBean());
-                        mAdapter.notifyDataSetChanged();
-                        playItem(mBean);
+                    if (conversation_cb.isChecked()) {
+                        if (userFirst) {
+                            changeConversationLayout(true);
+                            startToRecord();
+                        } else {
+                            if (isNewIn) {
+                                changeConversationLayout(false);
+                                startToPlaySpeaker(position);
+                            } else {
+                                changeConversationLayout(true);
+                                startToRecord();
+                            }
+                        }
                     } else {
-                        stopVoiceImgAnimation();
-                        start_btn.setText("");
-//                        String path = SDCardUtil.getDownloadPath(SDCardUtil.UserPracticePath);
-//                        userPcmPath = path + "/userpractice.pcm";
-//                        recognizer.setParameter(SpeechConstant.ASR_AUDIO_PATH, userPcmPath);
-                        XFUtil.showSpeechRecognizer(this, mSharedPreferences, recognizer, recognizerListener);
+                        if (isNewIn) {
+                            startToPlaySpeaker(position);
+                        } else {
+                            startToRecord();
+                        }
                     }
                 } else {
                     showProgressbar();
@@ -263,6 +309,26 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void startToPlaySpeaker(int index) {
+        isNewIn = false;
+        isFollow = true;
+        start_btn.setText("");
+        startVoiceImgAnimation();
+        AVObject mBean = avObjects.get(index);
+        mBean.put(KeyUtil.UserSpeakBean, new UserSpeakBean());
+        mAdapter.notifyDataSetChanged();
+        playItem(mBean);
+    }
+
+    private void startToRecord() {
+        stopVoiceImgAnimation();
+        start_btn.setText("");
+        XFUtil.showSpeechRecognizer(this, mSharedPreferences, recognizer, recognizerListener);
+//        String path = SDCardUtil.getDownloadPath(SDCardUtil.UserPracticePath);
+//        userPcmPath = path + "/userpractice.pcm";
+//        recognizer.setParameter(SpeechConstant.ASR_AUDIO_PATH, userPcmPath);
     }
 
     /**
@@ -284,7 +350,19 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
     private void onfinishPlay() {
         if (isFollow) {
             isFollow = false;
-            showIatDialog();
+            if(userFirst && conversation_cb.isChecked()){
+                if(position < avObjects.size()-2){
+                    showNext();
+                }else {
+                    stopVoiceImgAnimation();
+                    finishRecord();
+                    ToastUtil.diaplayMesShort(SpokenEnglishCategorySecondaryActivity.this, "很好，本节已完成！");
+                }
+            }else if(!userFirst && conversation_cb.isChecked() && position == avObjects.size()-1){
+                changeRoles();
+            } else {
+                showIatDialog();
+            }
         }
     }
 
@@ -354,10 +432,12 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
     }
 
     private void setSelected(int index) {
-        position = index;
-        resetData();
-        avObjects.get(index).put(KeyUtil.PracticeItemIndex, "1");
-        mAdapter.notifyDataSetChanged();
+        if(avObjects.size() > position){
+            position = index;
+            resetData();
+            avObjects.get(index).put(KeyUtil.PracticeItemIndex, "1");
+            mAdapter.notifyDataSetChanged();
+        }
     }
 
     private String getEnglishContent(AVObject avObject) {
@@ -521,7 +601,7 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
                 LogUtil.DefalutLog("isLast---onResult:" + sbResult.toString());
                 hideProgressbar();
                 finishRecord();
-                if(!conversation_cb.isChecked()){
+                if (!conversation_cb.isChecked()) {
                     AVObject mSpeakItem = avObjects.get(position);
                     UserSpeakBean bean = ScoreUtil.score(SpokenEnglishCategorySecondaryActivity.this, sbResult.toString(), getEnglishContent(mSpeakItem), 0);
                     mSpeakItem.put(KeyUtil.UserSpeakBean, bean);
@@ -590,13 +670,36 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
                     }
                 } else if (conversation_cb.isChecked()) {
                     if (position < avObjects.size() - 2) {
-                        showNext();
+                        if(userFirst){
+                            changeConversationLayout(false);
+                            startToPlaySpeaker(position+1);
+                        }else {
+                            showNext();
+                        }
                     } else {
-                        ToastUtil.diaplayMesShort(SpokenEnglishCategorySecondaryActivity.this, "很好，本节已完成！");
+                        if(userFirst && position < avObjects.size() - 1){
+                            changeConversationLayout(false);
+                            startToPlaySpeaker(position+1);
+                        }else if (!userFirst) {
+                            changeRoles();
+                        } else {
+                            ToastUtil.diaplayMesShort(SpokenEnglishCategorySecondaryActivity.this, "很好，本节已完成！");
+                        }
+
                     }
                 }
             }
-        }, 1000);
+        }, 800);
+    }
+
+    private void changeRoles(){
+        stopVoiceImgAnimation();
+        finishRecord();
+        userFirst = true;
+        position = 0;
+        changeConversationLayout(true);
+        setDatas();
+        ToastUtil.diaplayMesLong(SpokenEnglishCategorySecondaryActivity.this, "交换角色");
     }
 
     @Override

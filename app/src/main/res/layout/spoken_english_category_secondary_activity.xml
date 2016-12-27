@@ -217,7 +217,7 @@
             android:fitsSystemWindows="true"
             />
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/conversation_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -230,7 +230,9 @@
                 android:id="@+id/speaker_img"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_gravity="left"
+                android:layout_marginTop="30dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
                 android:adjustViewBounds="true"
                 fresco:placeholderImageScaleType="fitCenter"
                 fresco:actualImageScaleType="fitCenter"
@@ -240,35 +242,39 @@
             <TextView
                 android:id="@+id/speaker_content"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/speaker_img"
                 android:gravity="left"
-                android:layout_weight="1"
                 android:paddingTop="@dimen/padding_15"
                 android:textSize="@dimen/bigest"
                 android:textColor="@color/text_grey"
                 />
-            <com.facebook.drawee.view.SimpleDraweeView
+            <TextView
                 android:id="@+id/user_img"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_gravity="right"
-                android:adjustViewBounds="true"
-                fresco:placeholderImageScaleType="fitCenter"
-                fresco:actualImageScaleType="fitCenter"
-                fresco:placeholderImage="@mipmap/ic_launcher"
-                fresco:roundAsCircle="true"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:textSize="@dimen/big"
+                android:textStyle="bold"
+                android:background="@drawable/round_green500_bg"
+                android:text="You"
                 />
             <TextView
                 android:id="@+id/user_content"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/user_img"
                 android:gravity="right"
                 android:paddingTop="@dimen/padding_15"
                 android:textSize="@dimen/title"
                 android:textColor="@color/material_color_light_blue"
                 />
-        </LinearLayout>
+        </RelativeLayout>
 
         <com.gc.materialdesign.views.ProgressBarCircularIndeterminate
             android:id="@+id/progressBarCircularIndetermininate"

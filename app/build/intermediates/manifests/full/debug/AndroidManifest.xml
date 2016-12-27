@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.messi.languagehelper"
-    android:versionCode="25"
-    android:versionName="3.4" >
+    android:versionCode="26"
+    android:versionName="3.5" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -69,6 +69,15 @@
         <!-- 讯飞广告sdk -->
 
         <activity
+            android:name="com.messi.languagehelper.WordStudyCiYiXuanCiActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.messi.languagehelper.WordStudyDanCiCeShiActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.messi.languagehelper.WordStudyFourthActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.messi.languagehelper.YiZhanDaoDiActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -96,7 +105,7 @@
             android:name="com.messi.languagehelper.ExaminationActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.messi.languagehelper.WordStudyDetailTestActivity"
+            android:name="com.messi.languagehelper.WordStudyDuYinXuanCiActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.ReadingJuheActivity"
@@ -104,7 +113,7 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.messi.languagehelper.WordTypeActivity"
+            android:name="com.messi.languagehelper.WordStudySecondActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.JichuxiulianAndKouyulianxiActivity"
@@ -125,13 +134,10 @@
             android:name="com.messi.languagehelper.JokeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.messi.languagehelper.WordStudyDetailActivity"
+            android:name="com.messi.languagehelper.WordStudyDanCiRenZhiActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.messi.languagehelper.WordStudyUintListActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.messi.languagehelper.WordBookListActivity"
+            android:name="com.messi.languagehelper.WordStudyThirdActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.PhotosTranslateActivity"

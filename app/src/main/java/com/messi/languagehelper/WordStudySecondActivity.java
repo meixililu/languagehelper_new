@@ -6,7 +6,7 @@ import java.util.List;
 import com.avos.avoscloud.AVFile;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
-import com.messi.languagehelper.adapter.WordStudyTypeAdapter;
+import com.messi.languagehelper.adapter.WordStudySecondAdapter;
 import com.messi.languagehelper.dao.WordListType;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
@@ -16,10 +16,10 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.ListView;
 
-public class WordTypeActivity extends BaseActivity {
+public class WordStudySecondActivity extends BaseActivity {
 
 	private ListView category_lv;
-	private WordStudyTypeAdapter mAdapter;
+	private WordStudySecondAdapter mAdapter;
 	private List<WordListType> mWordTypeList;
 	private String category_id;
 	
@@ -32,12 +32,11 @@ public class WordTypeActivity extends BaseActivity {
 	}
 	
 	private void initViews(){
-		getSupportActionBar().setTitle(getResources().getString(R.string.title_word_study));
 		category_id = getIntent().getStringExtra(KeyUtil.Category);
 		if(!TextUtils.isEmpty(category_id)){
 			mWordTypeList = new ArrayList<WordListType>();
 			category_lv = (ListView) findViewById(R.id.studycategory_lv);
-			mAdapter = new WordStudyTypeAdapter(this, mWordTypeList);
+			mAdapter = new WordStudySecondAdapter(this, mWordTypeList);
 			category_lv.setAdapter(mAdapter);
 			new QueryTask().execute();
 		}else{
