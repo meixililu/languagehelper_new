@@ -101,7 +101,7 @@ public class ReadingDetailActivity extends BaseActivity {
 
     private void guide() {
         if (!mSharedPreferences.getBoolean(KeyUtil.isReadingDetailGuideShow, false)) {
-            Dialog dialog = new Dialog(this, "哪里不会点哪里", "遇到不懂的单词只需点击一下即可查询词意。");
+            Dialog dialog = new Dialog(this, "友情提示", "点击英文单词即可查询词意");
             dialog.addAcceptButton("OK");
             dialog.show();
             Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.isReadingDetailGuideShow, true);
@@ -116,8 +116,6 @@ public class ReadingDetailActivity extends BaseActivity {
         if (mAVObject == null) {
             finish();
         }
-        toolbar_layout.setTitle(mAVObject.getString(AVOUtil.Reading.title));
-        title.setText(mAVObject.getString(AVOUtil.Reading.title));
     }
 
     private void initViews() {
@@ -127,9 +125,14 @@ public class ReadingDetailActivity extends BaseActivity {
     }
 
     private void setData() {
+        videoplayer.setVisibility(View.GONE);
+        pimgview.setVisibility(View.GONE);
+        toolbar_layout.setTitle(mAVObject.getString(AVOUtil.Reading.title));
+        title.setText(mAVObject.getString(AVOUtil.Reading.title));
         scrollview.scrollTo(0, 0);
         TextHandlerUtil.handlerText(this, mProgressbar, content, mAVObject.getString(AVOUtil.Reading.content));
-        if(mAVObject.getString(AVOUtil.Reading.type).equals("video")){
+        if(!TextUtils.isEmpty(mAVObject.getString(AVOUtil.Reading.type)) &&
+                mAVObject.getString(AVOUtil.Reading.type).equals("video")){
             videoplayer.setVisibility(View.VISIBLE);
             videoplayer.setUp(mAVObject.getString(AVOUtil.Reading.media_url),JCVideoPlayerStandard.SCREEN_LAYOUT_LIST,"");
             if (!TextUtils.isEmpty(mAVObject.getString(AVOUtil.Reading.img_url))) {

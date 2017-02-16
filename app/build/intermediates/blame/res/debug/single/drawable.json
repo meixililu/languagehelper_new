@@ -8,10 +8,6 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_dialog_material_background.xml"
     },
     {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/language_btn_bg_s.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable/language_btn_bg_s.xml"
-    },
-    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/checkbox_language_right_selector.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable/checkbox_language_right_selector.xml"
     },
@@ -48,16 +44,20 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable/tc_black_to_white_selector.xml"
     },
     {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/txt_color_darkgray_white_selector.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable/txt_color_darkgray_white_selector.xml"
-    },
-    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_track_material.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_seekbar_track_material.xml"
     },
     {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/txt_color_darkgray_white_selector.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable/txt_color_darkgray_white_selector.xml"
+    },
+    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/btn_color_gray_green_selector.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable/btn_color_gray_green_selector.xml"
+    },
+    {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/framelayout_selector_gray.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable/framelayout_selector_gray.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/jc_dialog_progress.xml",
@@ -242,10 +242,6 @@
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/abc_text_cursor_material.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_text_cursor_material.xml"
-    },
-    {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/language_btn_bg_n.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable/language_btn_bg_n.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_light.xml",

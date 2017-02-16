@@ -32,7 +32,7 @@ public class Settings {
 	private static final int RequestCode = 1;
 
 	/**baidu translate api**/
-	public static String baiduTranslateUrl = "http://api.fanyi.baidu.com/api/trans/vip/translate";
+	public static String baiduTranslateUrl = "https://fanyi-api.baidu.com/api/trans/vip/translate";
 	
 	/**baidu dictionary api**/
 	public static String baiduDictionaryUrl = "http://openapi.baidu.com/public/2.0/translate/dict/simple";

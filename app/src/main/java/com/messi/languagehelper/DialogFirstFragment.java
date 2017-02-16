@@ -147,7 +147,6 @@ public class DialogFirstFragment extends BaseFragment implements OnClickListener
 	}
 	
 	private void initSpeakLanguage(){
-		XFUtil.setSpeakLanguage(getActivity(),mSharedPreferences,XFUtil.VoiceEngineEN);
 		practice_prompt.setText(getActivity().getResources().getString(R.string.practice_prompt_english));
 	}
 
@@ -197,7 +196,8 @@ public class DialogFirstFragment extends BaseFragment implements OnClickListener
 				}else{
 					record_layout.setVisibility(View.VISIBLE);
 					voice_btn.setText(getActivity().getResources().getString(R.string.finish));
-					XFUtil.showSpeechRecognizer(getActivity(),mSharedPreferences,recognizer,recognizerListener);
+					XFUtil.showSpeechRecognizer(getActivity(),mSharedPreferences,recognizer,
+							recognizerListener, XFUtil.VoiceEngineMD);
 				}
 			}
 		}else{

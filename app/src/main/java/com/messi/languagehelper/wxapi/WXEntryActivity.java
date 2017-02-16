@@ -5,7 +5,6 @@ import com.avos.avoscloud.AVAnalytics;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechUtility;
 import com.messi.languagehelper.BaseActivity;
-import com.messi.languagehelper.CollectedActivity;
 import com.messi.languagehelper.MoreActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.WebViewFragment;
@@ -17,24 +16,17 @@ import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.TranslateUtil;
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.WindowManager;
 import android.widget.Toast;
 
 public class WXEntryActivity extends BaseActivity implements OnClickListener,FragmentProgressbarListener {
@@ -62,8 +54,101 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 			e.printStackTrace();
 		}
 	}
+	
+	private void initDatas(){
+		bundle = getIntent().getExtras();
+		SpeechUtility.createUtility(this, SpeechConstant.APPID + "=" +getString(R.string.app_id));
+	}
+	
+	private void initViews(){
+		mSharedPreferences = getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
+		if (toolbar != null) {
+			getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+			getSupportActionBar().setTitle("");
+		}
+        
+		viewPager = (ViewPager) findViewById(R.id.pager);
+		tablayout = (TabLayout) findViewById(R.id.tablayout);
+		mAdapter = new MainPageAdapter(this.getSupportFragmentManager(),bundle,this);
+		viewPager.setAdapter(mAdapter);
+		viewPager.setOffscreenPageLimit(4);
+		tablayout.setupWithViewPager(viewPager);
+		
+        setLastTimeSelectTab();
+	}
+	
+	private void setLastTimeSelectTab(){
+		int index = mSharedPreferences.getInt(KeyUtil.LastTimeSelectTab, 0);
+		viewPager.setCurrentItem(index);
+	}
+	
+	@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.action_more:
+			toMoreActivity();
+			break;
+		}
+       return true;
+	}
+	
+	private void toMoreActivity(){
+		Intent intent = new Intent(this, MoreActivity.class); 
+		startActivity(intent); 
+		AVAnalytics.onEvent(this, "index_pg_to_morepg");
+	}
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		switch (keyCode) {
+		case KeyEvent.KEYCODE_MENU:
+			 toMoreActivity();
+			 return true;
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+	
+	@Override
+	public void onBackPressed() {
+    	if ((System.currentTimeMillis() - exitTime) > 2000) {
+			Toast.makeText(getApplicationContext(), this.getResources().getString(R.string.exit_program), Toast.LENGTH_SHORT).show();
+			exitTime = System.currentTimeMillis();
+		} else {
+			finish();
+		}
+	}
+	
+	@Override
+	public void onClick(View v) {
+	}
+	
+	private void saveSelectTab(){
+		int index = viewPager.getCurrentItem();
+		LogUtil.DefalutLog("WXEntryActivity---onDestroy---saveSelectTab---index:"+index);
+		Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.LastTimeSelectTab,index);
+	}
+	
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		saveSelectTab();
+		WebViewFragment.mMainFragment = null;
+		TranslateUtil.saveTranslateApiOrder(mSharedPreferences);
+		if(mSharedPreferences.getBoolean(KeyUtil.AutoClearDic, false)){
+			DataBaseUtil.getInstance().clearExceptFavoriteDic();
+		}
+		if(mSharedPreferences.getBoolean(KeyUtil.AutoClearTran, false)){
+			DataBaseUtil.getInstance().clearExceptFavoriteTran();
+		}
+	}
 
-//	private void checkUpdate(){
+	//	private void checkUpdate(){
 //		BDAutoUpdateSDK.cpUpdateCheck(this, new MyCPCheckUpdateCallback());
 //	}
 //
@@ -126,104 +211,6 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 //		}
 //
 //	}
-	
-	private void initDatas(){
-		bundle = getIntent().getExtras();
-		SpeechUtility.createUtility(this, SpeechConstant.APPID + "=" +getString(R.string.app_id));
-	}
-	
-	private void initViews(){
-		mSharedPreferences = getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
-		if (toolbar != null) {
-			getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-		}
-        
-		viewPager = (ViewPager) findViewById(R.id.pager);
-		tablayout = (TabLayout) findViewById(R.id.tablayout);
-		mAdapter = new MainPageAdapter(this.getSupportFragmentManager(),bundle,this);
-		viewPager.setAdapter(mAdapter);
-		viewPager.setOffscreenPageLimit(4);
-		tablayout.setupWithViewPager(viewPager);
-		
-        setLastTimeSelectTab();
-	}
-	
-	private void setLastTimeSelectTab(){
-		int index = mSharedPreferences.getInt(KeyUtil.LastTimeSelectTab, 0);
-		viewPager.setCurrentItem(index);
-	}
-	
-	@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.action_more:
-			toMoreActivity();
-			break;
-		case R.id.action_collected:
-			toCollectedActivity();
-			break;
-		}
-       return true;
-	}
-	
-	private void toCollectedActivity(){
-		Intent intent = new Intent(this, CollectedActivity.class); 
-		startActivity(intent); 
-		AVAnalytics.onEvent(this, "index_pg_to_collectedpg");
-	}
-	
-	private void toMoreActivity(){
-		Intent intent = new Intent(this, MoreActivity.class); 
-		startActivity(intent); 
-		AVAnalytics.onEvent(this, "index_pg_to_morepg");
-	}
-	
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		switch (keyCode) {
-		case KeyEvent.KEYCODE_MENU:
-			 toMoreActivity();
-			 return true;
-		}
-		return super.onKeyDown(keyCode, event);
-	}
-	
-	@Override
-	public void onBackPressed() {
-    	if ((System.currentTimeMillis() - exitTime) > 2000) {
-			Toast.makeText(getApplicationContext(), this.getResources().getString(R.string.exit_program), Toast.LENGTH_SHORT).show();
-			exitTime = System.currentTimeMillis();
-		} else {
-			finish();
-		}
-	}
-	
-	@Override
-	public void onClick(View v) {
-	}
-	
-	private void saveSelectTab(){
-		int index = viewPager.getCurrentItem();
-		LogUtil.DefalutLog("WXEntryActivity---onDestroy---saveSelectTab---index:"+index);
-		Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.LastTimeSelectTab,index);
-	}
-	
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-		saveSelectTab();
-		WebViewFragment.mMainFragment = null;
-		boolean AutoClear = mSharedPreferences.getBoolean(KeyUtil.AutoClear, false);
-		TranslateUtil.saveTranslateApiOrder(mSharedPreferences);
-		if(AutoClear){
-			DataBaseUtil.getInstance().clearExceptFavorite();
-		}
-	}
+
 
 }

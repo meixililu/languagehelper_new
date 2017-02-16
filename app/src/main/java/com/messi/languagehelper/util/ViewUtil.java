@@ -18,12 +18,15 @@ import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
+
 public class ViewUtil {
 	
 	public static ImageView getLine(Context context){
 		ImageView mImageView = new ImageView(context);
 		mImageView.setBackgroundColor(context.getResources().getColor(R.color.lightgrey));
-		ViewGroup.LayoutParams mParams = new ViewGroup.LayoutParams(LayoutParams.MATCH_PARENT,1);
+		ViewGroup.LayoutParams mParams = new ViewGroup.LayoutParams(MATCH_PARENT,1);
 		mImageView.setLayoutParams(mParams);
 		return mImageView;
 	}
@@ -36,7 +39,7 @@ public class ViewUtil {
 	
 	public static ProportionalImageView getAutoWidthImage(Context mContext){
 		ProportionalImageView img = new ProportionalImageView(mContext);
-		ViewGroup.LayoutParams mParams = new ViewGroup.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
+		ViewGroup.LayoutParams mParams = new ViewGroup.LayoutParams(MATCH_PARENT, MATCH_PARENT);
 		img.setLayoutParams(mParams);
 		return img;
 	}
@@ -129,7 +132,7 @@ public class ViewUtil {
 	public static View getListFooterView(Context mContext){
 		View mView = new View(mContext);
 		mView.setBackgroundResource(R.color.white);
-		LayoutParams mparam = new LayoutParams(LayoutParams.MATCH_PARENT, ScreenUtil.dip2px(mContext, 70));
+		LayoutParams mparam = new LayoutParams(MATCH_PARENT, ScreenUtil.dip2px(mContext, 50));
 		mView.setLayoutParams(mparam);
 		return mView;
 	}

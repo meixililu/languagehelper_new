@@ -75,9 +75,6 @@
             android:name=".YiZhanDaoDiActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".DictionaryFullscreenActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".BrainTwistsActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -206,13 +203,7 @@
             android:name=".DailySentenceActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CollectedActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".AboutActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".SettingActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".HelpActivity"
@@ -228,6 +219,7 @@
             android:name=".wxapi.WXEntryActivity"
             android:exported="true"
             android:launchMode="singleTask"
+            android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait" />
     </application>
 

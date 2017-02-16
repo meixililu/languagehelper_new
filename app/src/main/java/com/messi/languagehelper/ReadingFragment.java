@@ -44,7 +44,6 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 	private RecyclerView listview;
 	private RcReadingListAdapter mAdapter;
 	private List<AVObject> avObjects;
-	private View footerview;
 	private int skip = 0;
 	private String category;
 	private String code;
@@ -150,7 +149,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 	private void isADInList(RecyclerView view,int first, int vCount){
 		if(avObjects.size() > 3){
 			for(int i=first;i< (first+vCount);i++){
-				if(i < avObjects.size()){
+				if(i < avObjects.size() && i > 0){
 					AVObject mAVObject = avObjects.get(i);
 					if(mAVObject != null && mAVObject.get(KeyUtil.ADKey) != null){
 						if(!(Boolean) mAVObject.get(KeyUtil.ADIsShowKey) && misVisibleToUser){
@@ -178,7 +177,6 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 		hideFooterview();
 		random();
 		avObjects.clear();
-		mAdapter.setItems(avObjects);
 		mAdapter.notifyDataSetChanged();
 		new QueryTask().execute();
 	}
@@ -208,8 +206,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 			query.skip(skip);
 			query.limit(Settings.page_size);
 			try {
-				List<AVObject> avObject  = query.find();
-				return avObject;
+				return query.find();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

@@ -9,6 +9,7 @@
     <string name="title_share_preview">Preview</string>
     <string name="title_TranslatePractice">Practice</string>
     <string name="title_Practice">Practice</string>
+    <string name="title_practice_word">Word Practice</string>
     <string name="title_listening">Listening</string>
     <string name="title_symbol">Symbol Study</string>
     <string name="title_word_study">Word Study</string>
@@ -86,6 +87,10 @@
     <string name="ciyixuanci_des">根据中文意思选单词</string>
     <string name="try_again">Try again</string>
     <string name="finish_test">Finish</string>
+
+    <string name="dic_tab_juhai">Sentences</string>
+    <string name="dic_tab_cidian">Dictionary</string>
+    <string name="dic_tab_shoucang">Collected</string>
     
     <string name="speak_english">please tap mic to speak english</string>
     <string name="speak_chinese">please tap mic to speak chinese</string>
@@ -129,6 +134,7 @@
     <string name="preference_dialog_title_tts_music">select background music</string>
     <string name="tts_toast_format" formatted="false">当前合成进度为%d%%，播放进度为%d%%</string>
     <string name="click_and_speak">Tap to speak</string>
+    <string name="click_and_finish">Tap to finish</string>
     <string name="dele_success">delete success</string>
     <string name="copy_success">copy success</string>
     <string name="share">Share</string>
@@ -142,8 +148,8 @@
 	<string name="errcode_cancel">cancel</string>
 	<string name="errcode_deny">deny</string>
 	<string name="errcode_unknown">unknown</string>
-	<string name="chinese">Chinese</string>
-	<string name="english">English</string>
+	<string name="chinese">Zh</string>
+	<string name="english">En</string>
 	<string name="collect">favorite</string>
 	<string name="wechat">wechat</string>
 	<string name="speak_prompt">请根据您说的语言点击中文或者英文！</string>

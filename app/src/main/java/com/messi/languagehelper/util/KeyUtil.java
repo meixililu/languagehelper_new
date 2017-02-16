@@ -23,9 +23,7 @@ public class KeyUtil {
 	public static final String IsShowAnswerUnread = "IsShowAnswerUnread";
 	
 	public static final String IsShowQuestionUnread = "IsShowQuestionUnread";
-	
-	public static final String IsShowSettingNewAdd = "IsShowSettingNewAdd";
-	
+
 	public static final String UpdateSymbolList = "UpdateSymbolList1";
 
 	public static final String URL = "urlkey";
@@ -44,12 +42,14 @@ public class KeyUtil {
 	
 	public static final String AutoPlayResult = "AutoPlayResult";
 	
-	public static final String AutoClearInputAfterFinish = "AutoClearInputAfterFinish";
+//	public static final String AutoClearInputAfterFinish = "AutoClearInputAfterFinish";
 
 	public static final String AutoPlayUnreadDot = "AutoPlayUnreadDot";
 	
-	public static final String AutoClear = "AutoClear";
-	
+	public static final String AutoClearTran = "AutoClearTran";
+
+	public static final String AutoClearDic = "AutoClearDic";
+
 	public static final String IsHasShowBaiduMessage = "IsHasShowBaiduMessage";
 
 	public static final String IsHasShowClickText = "IsHasShowClickText";
@@ -63,7 +63,9 @@ public class KeyUtil {
 	public static final String IndexKey = "IndexKey";
 	
 	public static final String UserSelectLanguage = "UserSelectLanguage";
-	
+
+	public static final String TranUserSelectLanguage = "TranUserSelectLanguage";
+
 	public static final String IsReedPullDownRefresh = "IsReedPullDownRefresh";
 	
 	public static final String IsCanShowAD_Loading = "IsCanShowAD_Loading";
@@ -139,6 +141,13 @@ public class KeyUtil {
 	public static final String UserSpeakBean = "UserSpeakBean";
 
 	public static final String WordStudyUnit = "WordStudyUnit";
+
+	public static final String IsShowTranKeybordLayout = "IsShowTranKeybordLayout";
+
+	public static final String IsShowDicKeyboardLayout = "IsShowDicKeyboardLayout";
+
+	public static final String DicUserSelectLanguage = "DicUserSelectLanguage";
+
 
 	
 	

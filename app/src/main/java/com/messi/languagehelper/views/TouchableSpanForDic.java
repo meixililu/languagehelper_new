@@ -29,9 +29,9 @@ public class TouchableSpanForDic extends ClickableSpan {// extend ClickableSpan
 
 	public void onClick(View tv) {
 		LogUtil.DefalutLog(word);
-		if(mDictionaryTranslateListener != null){
-			mDictionaryTranslateListener.translate(sentence, word);
-		}
+//		if(mDictionaryTranslateListener != null){
+//			mDictionaryTranslateListener.translate(sentence, word);
+//		}
 	}
 
 	public void updateDrawState(TextPaint ds) {

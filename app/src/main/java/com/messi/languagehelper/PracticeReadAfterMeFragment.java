@@ -164,7 +164,6 @@ public class PracticeReadAfterMeFragment extends BaseFragment implements OnClick
 	}
 	
 	private void initSpeakLanguage(){
-		XFUtil.setSpeakLanguage(getActivity(),mSharedPreferences,XFUtil.VoiceEngineEN);
 		practice_prompt.setText(getActivity().getResources().getString(R.string.practice_prompt_english));
 	}
 	
@@ -236,7 +235,8 @@ public class PracticeReadAfterMeFragment extends BaseFragment implements OnClick
 					String path = SDCardUtil.getDownloadPath(SDCardUtil.UserPracticePath);
 					userPcmPath = path + "/userpractice.pcm";
 					recognizer.setParameter(SpeechConstant.ASR_AUDIO_PATH, userPcmPath);
-					XFUtil.showSpeechRecognizer(getActivity(),mSharedPreferences,recognizer,recognizerListener);
+					XFUtil.showSpeechRecognizer(getActivity(),mSharedPreferences,recognizer,
+							recognizerListener, XFUtil.VoiceEngineEN);
 				}
 			}
 		}else{

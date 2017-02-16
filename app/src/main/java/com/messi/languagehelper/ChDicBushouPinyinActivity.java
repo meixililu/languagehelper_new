@@ -1,32 +1,21 @@
 package com.messi.languagehelper;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.GridView;
 
 import com.alibaba.fastjson.JSON;
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.okhttp.FormEncodingBuilder;
 import com.avos.avoscloud.okhttp.RequestBody;
 import com.messi.languagehelper.adapter.ChDicBushouPinyinAdapter;
-import com.messi.languagehelper.adapter.SymbolListAdapter;
 import com.messi.languagehelper.dao.ChDicBSPYDao;
 import com.messi.languagehelper.dao.ChDicBushouPinyinDao;
-import com.messi.languagehelper.dao.SymbolListDao;
-import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
-import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.ToastUtil;
-import com.messi.languagehelper.views.GridViewWithHeaderAndFooter;
 
 import java.util.ArrayList;
 import java.util.List;

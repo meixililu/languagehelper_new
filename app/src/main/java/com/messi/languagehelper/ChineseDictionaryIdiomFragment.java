@@ -261,7 +261,8 @@ public class ChineseDictionaryIdiomFragment extends Fragment implements OnClickL
             voice_btn.setBackgroundColor(getActivity().getResources().getColor(R.color.none));
             voice_btn.setText(getActivity().getResources().getString(R.string.finish));
             speak_round_layout.setBackgroundResource(R.drawable.round_light_green_bgl);
-            XFUtil.showSpeechRecognizer(getActivity(), mSharedPreferences, recognizer, recognizerListener);
+            XFUtil.showSpeechRecognizer(getActivity(), mSharedPreferences, recognizer,
+                    recognizerListener, XFUtil.VoiceEngineMD);
         } else {
             finishRecord();
             recognizer.stopListening();

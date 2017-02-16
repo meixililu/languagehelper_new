@@ -109,7 +109,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 	private void isADInList(RecyclerView view,int first, int vCount){
 		if(avObjects.size() > 3){
 			for(int i=first;i< (first+vCount);i++){
-				if(i < avObjects.size()){
+				if(i < avObjects.size() && i > 0){
 					AVObject mAVObject = avObjects.get(i);
 					if(mAVObject != null && mAVObject.get(KeyUtil.ADKey) != null){
 						if(!(Boolean) mAVObject.get(KeyUtil.ADIsShowKey)){

@@ -345,7 +345,6 @@ public class DictionaryRecyclerviewAdapter extends RecyclerView.Adapter<Recycler
 			clickItemPosition = clickItemPosition+1;
 		}
 		notifyItemRemoved(clickItemPosition);
-		DictionaryFragment.isRefresh = true;
 		DataBaseUtil.getInstance().update(mBean);
 	}
 

@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/contentbg"
+    android:orientation="vertical"
+    android:weightSum="10">
+
+    <FrameLayout
+        android:id="@+id/study_daily_sentence"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/none_alpha"
+        android:foreground="@drawable/framelayout_selector">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/daily_sentence_item_img"
+            fresco:actualImageScaleType="focusCrop"
+            fresco:placeholderImage="@color/text_tint"
+            fresco:placeholderImageScaleType="fitCenter"
+            fresco:viewAspectRatio="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:id="@+id/daily_sentence_list_item_middle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/none_alpha"
+            android:orientation="vertical"
+            android:paddingTop="50dp" />
+
+        <TextView
+            android:id="@+id/dailysentence_txt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/padding_10"
+            android:layout_marginLeft="@dimen/padding_7"
+            android:layout_marginRight="@dimen/padding_7"
+            android:gravity="left|bottom"
+            android:shadowColor="@color/white"
+            android:shadowDx="0.4"
+            android:shadowDy="0.4"
+            android:shadowRadius="0.4"
+            android:textColor="@color/white"
+            android:textSize="@dimen/biggerx" />
+
+        <ImageView
+            android:id="@+id/play_img"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="right|top"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/ic_play_circle_outline_white_48dp" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1px"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/symbol_study_cover"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="1px"
+            android:layout_weight="1"
+            android:foreground="@drawable/framelayout_selector"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/title_symbol"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/big" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/word_study_cover"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="1px"
+            android:layout_weight="1"
+            android:foreground="@drawable/framelayout_selector"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/title_word_study"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/big" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/study_listening_layout"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="1px"
+            android:layout_weight="1"
+            android:foreground="@drawable/framelayout_selector"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/title_listening"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/big" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/news_layout"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:foreground="@drawable/framelayout_selector"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/reading"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/big" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1px"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/study_spoken_english"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="1px"
+            android:layout_weight="1"
+            android:foreground="@drawable/framelayout_selector"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/spoken_english_practice"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/big" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/study_test"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="1px"
+            android:layout_weight="1"
+            android:foreground="@drawable/framelayout_selector"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/title_Practice"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/big" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/en_examination_layout"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="1px"
+            android:layout_weight="1"
+            android:foreground="@drawable/framelayout_selector"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/examination"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/big" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/study_composition"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:foreground="@drawable/framelayout_selector"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/title_composition"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/big" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1px"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/juhe_layout"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="1px"
+            android:layout_weight="1"
+            android:foreground="@drawable/framelayout_selector"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/title_juhe"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/big" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/jokes_layout"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="1px"
+            android:layout_weight="1"
+            android:foreground="@drawable/framelayout_selector"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/title_english_video"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/big" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/story_layout"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="1px"
+            android:layout_weight="1"
+            android:foreground="@drawable/framelayout_selector"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/title_english_story"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/big" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/instagram_layout"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:foreground="@drawable/framelayout_selector"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/foreign_website"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/big" />
+        </FrameLayout>
+
+
+    </LinearLayout>
+</LinearLayout>
+

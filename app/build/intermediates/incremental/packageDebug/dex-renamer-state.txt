@@ -1,4 +1,4 @@
-#Tue Dec 27 16:41:36 CST 2016
+#Thu Feb 16 13:48:12 CST 2017
 base.0=/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_f49e6be107dc3aa06188ef310e2786f315db976a
 renamed.1=classes2.dex
 renamed.0=classes.dex

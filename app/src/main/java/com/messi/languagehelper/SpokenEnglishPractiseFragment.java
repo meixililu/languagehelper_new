@@ -19,6 +19,8 @@ import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFYSAD;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
@@ -33,7 +35,11 @@ public class SpokenEnglishPractiseFragment extends BaseFragment {
     private RcSpokenEndlishPracticeTypeListAdapter mAdapter;
     private List<AVObject> avObjects;
     private XFYSAD mXFYSAD;
-    private boolean isHasLoadOnce;
+    private int skip = 0;
+    private boolean loading;
+    private boolean hasMore = true;
+    private GridLayoutManager layoutManager;
+
 
     public static SpokenEnglishPractiseFragment getInstance() {
         SpokenEnglishPractiseFragment fragment = new SpokenEnglishPractiseFragment();
@@ -52,6 +58,7 @@ public class SpokenEnglishPractiseFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        super.onCreateView(inflater,container,savedInstanceState);
         View view = inflater.inflate(R.layout.spoken_english_practice_fragment, container, false);
         initSwipeRefresh(view);
         initViews(view);
@@ -64,49 +71,71 @@ public class SpokenEnglishPractiseFragment extends BaseFragment {
         mXFYSAD = new XFYSAD(getActivity(), ADUtil.SecondaryPage);
         mAdapter = new RcSpokenEndlishPracticeTypeListAdapter(mXFYSAD);
         mAdapter.setItems(avObjects);
-        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), NUMBER_OF_COLUMNS);
+        mAdapter.setHeader(new Object());
+        mAdapter.setFooter(new Object());
+        hideFooterview();
+        layoutManager = new GridLayoutManager(getContext(), NUMBER_OF_COLUMNS);
         HeaderSpanSizeLookup headerSpanSizeLookup = new HeaderSpanSizeLookup(mAdapter, layoutManager);
         layoutManager.setSpanSizeLookup(headerSpanSizeLookup);
         category_lv.setLayoutManager(layoutManager);
         category_lv.addItemDecoration(new DividerGridItemDecoration(1));
         category_lv.setAdapter(mAdapter);
+        setListOnScrollListener();
+    }
+
+    public void setListOnScrollListener(){
+        category_lv.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                int visible  = layoutManager.getChildCount();
+                int total = layoutManager.getItemCount();
+                int firstVisibleItem = layoutManager.findFirstCompletelyVisibleItemPosition();
+                LogUtil.DefalutLog("visible:"+visible+"---total:"+total+"---firstVisibleItem:"+firstVisibleItem);
+                if(!loading && hasMore){
+                    if ((visible + firstVisibleItem) >= total){
+                        new QueryTask().execute();
+                    }
+                }
+            }
+        });
     }
 
     @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        if(!isHasLoadOnce && isVisibleToUser){
-            isHasLoadOnce = true;
-            new QueryTask().execute();
-        }
+    public void loadDataOnStart() {
+        super.loadDataOnStart();
+        skip = 0;
+        new QueryTask().execute();
     }
 
     @Override
     public void onSwipeRefreshLayoutRefresh() {
         super.onSwipeRefreshLayoutRefresh();
+        hideFooterview();
+        skip = 0;
+        avObjects.clear();
+        mAdapter.notifyDataSetChanged();
         new QueryTask().execute();
     }
 
-    private class QueryTask extends AsyncTask<Void, Void, Void> {
+    private class QueryTask extends AsyncTask<Void, Void,  List<AVObject>> {
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            loading = true;
             showProgressbar();
-            LogUtil.DefalutLog("spokenenglish");
         }
 
         @Override
-        protected Void doInBackground(Void... params) {
+        protected List<AVObject> doInBackground(Void... params) {
             AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.EvaluationType.EvaluationType);
             query.whereEqualTo(AVOUtil.EvaluationType.ETIsValid, "1");
             query.orderByAscending(AVOUtil.EvaluationType.ETOrder);
+            query.skip(skip);
+            query.limit(20);
             try {
-                List<AVObject> avObject = query.find();
-                if (avObject != null) {
-                    avObjects.clear();
-                    avObjects.addAll(avObject);
-                }
+                return query.find();
             } catch (AVException e) {
                 e.printStackTrace();
             }
@@ -114,15 +143,34 @@ public class SpokenEnglishPractiseFragment extends BaseFragment {
         }
 
         @Override
-        protected void onPostExecute(Void result) {
-            super.onPostExecute(result);
+        protected void onPostExecute(List<AVObject> avObject) {
+            super.onPostExecute(avObject);
+            loading = false;
             hideProgressbar();
             onSwipeRefreshLayoutFinish();
-            if(mAdapter.getHeader() == null){
-                mAdapter.setHeader(new Object());
+            if(avObject != null){
+                if(avObject.size() == 0){
+                    ToastUtil.diaplayMesShort(getContext(), "没有了！");
+                    hasMore = false;
+                    hideFooterview();
+                }else{
+                    if(avObjects != null && mAdapter != null){
+                        avObjects.addAll(avObject);
+                        skip += 20;
+                        showFooterview();
+                    }
+                }
             }
             mAdapter.notifyDataSetChanged();
         }
 
+    }
+
+    private void hideFooterview(){
+        mAdapter.hideFooter();
+    }
+
+    private void showFooterview(){
+        mAdapter.showFooter();
     }
 }

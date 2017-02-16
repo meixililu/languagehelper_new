@@ -150,10 +150,8 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
 
     private void initSpeakLanguage() {
         if (isEnglish) {
-            XFUtil.setSpeakLanguage(this, mSharedPreferences, XFUtil.VoiceEngineEN);
             practice_prompt.setText(this.getResources().getString(R.string.practice_prompt_english));
         } else {
-            XFUtil.setSpeakLanguage(this, mSharedPreferences, XFUtil.VoiceEngineCH);
             practice_prompt.setText(this.getResources().getString(R.string.practice_prompt_chinese));
         }
     }
@@ -329,7 +327,13 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
                     String path = SDCardUtil.getDownloadPath(SDCardUtil.UserPracticePath);
                     userPcmPath = path + "/userpractice.pcm";
                     recognizer.setParameter(SpeechConstant.ASR_AUDIO_PATH, userPcmPath);
-                    XFUtil.showSpeechRecognizer(this, mSharedPreferences, recognizer, recognizerListener);
+                    if (isEnglish) {
+                        XFUtil.showSpeechRecognizer(this, mSharedPreferences, recognizer,
+                                recognizerListener, XFUtil.VoiceEngineEN);
+                    }else {
+                        XFUtil.showSpeechRecognizer(this, mSharedPreferences, recognizer,
+                                recognizerListener, XFUtil.VoiceEngineMD);
+                    }
                 }
             } else {
                 showProgressbar();
@@ -439,17 +443,8 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
                 exchangeContentAndResult();
                 AVAnalytics.onEvent(PracticeActivity.this, "practice_pg_exchange_btn");
                 break;
-            case R.id.action_settings:
-                toSettingActivity();
-                AVAnalytics.onEvent(this, "practice_pg_to_setting_page");
-                break;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    private void toSettingActivity() {
-        Intent intent = new Intent(this, SettingActivity.class);
-        startActivity(intent);
     }
 
     private void resetVoicePlayButton() {

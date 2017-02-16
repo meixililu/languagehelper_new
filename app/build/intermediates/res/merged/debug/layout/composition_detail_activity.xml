@@ -67,6 +67,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
+            android:focusable="true"
+            android:focusableInTouchMode="false"
             android:orientation="vertical" >
 
             <com.facebook.drawee.view.SimpleDraweeView
@@ -99,6 +101,8 @@
                 android:paddingBottom="@dimen/padding_15"
                 android:background="@color/white"
                 android:textColor="@color/text_black"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                 android:textSize="@dimen/biggerx" />
 
             <RelativeLayout
@@ -151,8 +155,8 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/play_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_gravity="bottom|right"
         android:src="@drawable/ic_play_arrow_white_48dp"
         android:clickable="true"

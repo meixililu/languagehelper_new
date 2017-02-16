@@ -1,383 +1,298 @@
 package com.messi.languagehelper;
 
-import java.util.List;
-
-import com.avos.avoscloud.AVAnalytics;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.messi.languagehelper.dao.EveryDaySentence;
-import com.messi.languagehelper.db.DataBaseUtil;
-import com.messi.languagehelper.http.LanguagehelperHttpClient;
-import com.messi.languagehelper.http.UICallback;
-import com.messi.languagehelper.impl.FragmentProgressbarListener;
-import com.messi.languagehelper.util.AVOUtil;
-import com.messi.languagehelper.util.DownLoadUtil;
-import com.messi.languagehelper.util.JsonParser;
-import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.NumberUtil;
-import com.messi.languagehelper.util.SDCardUtil;
-import com.messi.languagehelper.util.Settings;
-import com.messi.languagehelper.util.TimeUtil;
-
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.media.MediaPlayer;
-import android.media.MediaPlayer.OnCompletionListener;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-public class StudyFragment extends Fragment implements OnClickListener{
+import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVQuery;
+import com.iflytek.voiceads.AdError;
+import com.iflytek.voiceads.AdKeys;
+import com.iflytek.voiceads.IFLYNativeAd;
+import com.iflytek.voiceads.IFLYNativeListener;
+import com.iflytek.voiceads.NativeADDataRef;
+import com.messi.languagehelper.adapter.RcReadingListAdapter;
+import com.messi.languagehelper.adapter.RcStudyListAdapter;
+import com.messi.languagehelper.impl.FragmentProgressbarListener;
+import com.messi.languagehelper.util.ADUtil;
+import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NumberUtil;
+import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.ToastUtil;
+import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
-	private View view;
-	private FrameLayout study_daily_sentence,study_spoken_english,study_composition,study_test;
-	private FrameLayout symbol_study_cover,story_layout,jokes_layout,juhe_layout,study_listening_layout;
-	private FrameLayout word_study_cover;
-	private FrameLayout en_examination_layout;
-	private TextView dailysentence_txt;
-	private SimpleDraweeView daily_sentence_item_img;
-	private ImageView play_img;
-	private FrameLayout instagram_layout,news_layout;
-	public static StudyFragment mMainFragment;
-	private SharedPreferences mSharedPreferences;
-	private EveryDaySentence mEveryDaySentence;
-	private FragmentProgressbarListener mProgressbarListener;
-	private MediaPlayer mPlayer;
-	private String fileFullName;
-	private boolean isInitMedia;
-	
-	public static StudyFragment getInstance(){
-		if(mMainFragment == null){
-			mMainFragment = new StudyFragment();
-		}
-		return mMainFragment;
-	}
-	
-	@Override
-	public void onAttach(Activity activity) {
-		super.onAttach(activity);
-		try {
-			mProgressbarListener = (FragmentProgressbarListener) activity;
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import rx.Observable;
+import rx.Observer;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
+
+public class StudyFragment extends BaseFragment implements OnClickListener {
+
+    @BindView(R.id.listview)
+    RecyclerView listview;
+    private RcStudyListAdapter mAdapter;
+    private List<AVObject> avObjects;
+    private List<AVObject> tempList;
+    private int skip = 0;
+    private int maxRandom;
+    private IFLYNativeAd nativeAd;
+    private boolean loading;
+    private boolean hasMore;
+    private AVObject mADObject;
+    private LinearLayoutManager mLinearLayoutManager;
+
+    public static StudyFragment getInstance() {
+        return new StudyFragment();
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            mProgressbarListener = (FragmentProgressbarListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString() + " must implement FragmentProgressbarListener");
         }
-	}
-	
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		view = inflater.inflate(R.layout.study_fragment, null);
-		initViews();
-		getDailySentence();
-		isLoadDailySentence();
-		return view;
-	}
-	
-	private void initViews(){
-		mPlayer = new MediaPlayer();
-		mSharedPreferences = getActivity().getSharedPreferences(getActivity().getPackageName(), Context.MODE_PRIVATE);
-		study_daily_sentence = (FrameLayout)view.findViewById(R.id.study_daily_sentence);
-		study_spoken_english = (FrameLayout)view.findViewById(R.id.study_spoken_english);
-		instagram_layout = (FrameLayout)view.findViewById(R.id.instagram_layout);
-		news_layout = (FrameLayout)view.findViewById(R.id.news_layout);
-		en_examination_layout = (FrameLayout)view.findViewById(R.id.en_examination_layout);
-		study_composition = (FrameLayout)view.findViewById(R.id.study_composition);
-		study_test = (FrameLayout)view.findViewById(R.id.study_test);
-		symbol_study_cover = (FrameLayout)view.findViewById(R.id.symbol_study_cover);
-		word_study_cover = (FrameLayout)view.findViewById(R.id.word_study_cover);
-		story_layout = (FrameLayout)view.findViewById(R.id.story_layout);
-		jokes_layout = (FrameLayout)view.findViewById(R.id.jokes_layout);
-		juhe_layout = (FrameLayout)view.findViewById(R.id.juhe_layout);
-		study_listening_layout = (FrameLayout)view.findViewById(R.id.study_listening_layout);
-		
-		dailysentence_txt = (TextView)view.findViewById(R.id.dailysentence_txt);
-		daily_sentence_item_img = (SimpleDraweeView)view.findViewById(R.id.daily_sentence_item_img);
-		play_img = (ImageView)view.findViewById(R.id.play_img);
-		
-		study_daily_sentence.setOnClickListener(this);
-		study_spoken_english.setOnClickListener(this);
-		instagram_layout.setOnClickListener(this);
-		study_composition.setOnClickListener(this);
-		study_test.setOnClickListener(this);
-		symbol_study_cover.setOnClickListener(this);
-		word_study_cover.setOnClickListener(this);
-		news_layout.setOnClickListener(this);
-		story_layout.setOnClickListener(this);
-		jokes_layout.setOnClickListener(this);
-		juhe_layout.setOnClickListener(this);
-		study_listening_layout.setOnClickListener(this);
-		en_examination_layout.setOnClickListener(this);
-		play_img.setOnClickListener(this);
-	}
-	
-	private void getDailySentence(){
-		List<EveryDaySentence> mList = DataBaseUtil.getInstance().getDailySentenceList(1);
- 		if(mList != null){
-			if(mList.size() > 0){
-				mEveryDaySentence = mList.get(0);
-			}
-		}
-		setSentence();
-		LogUtil.DefalutLog("StudyFragment-getDailySentence()");
-	}
-	
-	private void isLoadDailySentence(){
-		String todayStr = TimeUtil.getTimeDateLong(System.currentTimeMillis());
-		long cid = NumberUtil.StringToLong(todayStr);
-		boolean isExist = DataBaseUtil.getInstance().isExist(cid);
-		if(!isExist){
-			requestDailysentence();
-		}
-		LogUtil.DefalutLog("StudyFragment-isLoadDailySentence()");
-	}
-	
-	private void requestDailysentence(){
-		LogUtil.DefalutLog("StudyFragment-requestDailysentence()");
-		LanguagehelperHttpClient.get(Settings.DailySentenceUrl, new UICallback(getActivity()){
-			public void onResponsed(String responseString) {
-				if(JsonParser.isJson(responseString)){
-					mEveryDaySentence = JsonParser.parseEveryDaySentence(responseString);
-					setSentence();
-				}
-			}
-		});
-	}
-	
-	private void setSentence(){
-		LogUtil.DefalutLog("StudyFragment-setSentence()");
-		if(mEveryDaySentence != null){
-			dailysentence_txt.setText(mEveryDaySentence.getContent());
-			daily_sentence_item_img.setImageURI(Uri.parse(mEveryDaySentence.getPicture2()));
-		}
-	}
+    }
 
-	@Override
-	public void onClick(View v) {
-		switch(v.getId()){
-		case R.id.symbol_study_cover:
-			toSymbolListActivity();
-			AVAnalytics.onEvent(getActivity(), "tab3_to_symbol");
-			break;
-		case R.id.word_study_cover:
-			toWordStudyListActivity();
-			AVAnalytics.onEvent(getActivity(), "tab3_to_wordstudy");
-			break;
-		case R.id.study_daily_sentence:
-			toDailySentenceActivity();
-			AVAnalytics.onEvent(getActivity(), "tab3_to_dailysentence");
-			break;
-		case R.id.study_spoken_english:
-			toReadingActivity(getActivity().getResources().getString(R.string.title_spoken_english_study),
-					AVOUtil.Category.spoken_english);
-			AVAnalytics.onEvent(getActivity(), "tab3_study_spokenenglish_basic");
-			break;
-		case R.id.study_composition:
-			toStudyCompositionActivity();
-			AVAnalytics.onEvent(getActivity(), "tab3_to_composition");
-			break;
-		case R.id.study_test:
-			toEvaluationActivity();
-			AVAnalytics.onEvent(getActivity(), "tab3_to_evaluation");
-			break;
-		case R.id.instagram_layout:
-			toEnglishWebsiteRecommendActivity();
-			AVAnalytics.onEvent(getActivity(), "tab3_to_websiterecommend");
-			break;
-		case R.id.story_layout:
-			toReadingActivity(getActivity().getResources().getString(R.string.title_english_story),
-					AVOUtil.Category.story);
-			AVAnalytics.onEvent(getActivity(), "tab3_to_story");
-			break;
-		case R.id.news_layout:
-			toReadingActivity(getActivity().getResources().getString(R.string.reading),
-					AVOUtil.Category.shuangyu_reading);
-			AVAnalytics.onEvent(getActivity(), "tab3_to_reading");
-			break;
-		case R.id.jokes_layout:
-			toReadingActivity(getActivity().getResources().getString(R.string.title_english_video),
-					"","video");
-			AVAnalytics.onEvent(getActivity(), "tab3_to_videos");
-			break;
-		case R.id.study_listening_layout:
-			toReadingActivity(getActivity().getResources().getString(R.string.title_listening),
-					AVOUtil.Category.listening);
-			AVAnalytics.onEvent(getActivity(), "tab3_to_listening");
-			break;
-		case R.id.juhe_layout:
-			toReadingJuheActivity(getActivity().getResources().getString(R.string.title_juhe));
-			AVAnalytics.onEvent(getActivity(), "tab3_to_juhenews");
-			break;
-		case R.id.en_examination_layout:
-			toExaminationActivity(getActivity().getResources().getString(R.string.examination));
-			AVAnalytics.onEvent(getActivity(), "tab3_to_examination");
-			break;
-		case R.id.play_img:
-			if(mEveryDaySentence != null){
-				int pos = mEveryDaySentence.getTts().lastIndexOf(SDCardUtil.Delimiter) + 1;
-				String fileName = mEveryDaySentence.getTts().substring(pos, mEveryDaySentence.getTts().length());
-				fileFullName = SDCardUtil.getDownloadPath(SDCardUtil.DailySentencePath) + fileName;
-				LogUtil.DefalutLog("fileName:"+fileName+"---fileFullName:"+fileFullName);
-				if(SDCardUtil.isFileExist(fileFullName)){
-					playMp3(fileFullName);
-					LogUtil.DefalutLog("FileExist");
-				}else{
-					LogUtil.DefalutLog("FileNotExist");
-					loadding();
-					DownLoadUtil.downloadFile(getContext(), mEveryDaySentence.getTts(), SDCardUtil.DailySentencePath, fileName, mHandler);
-				}
-			}
-			AVAnalytics.onEvent(getActivity(), "tab3_play_daily_sentence");
-			break;
-		default:
-			break;
-		}
-	}
-	
-	private Handler mHandler = new Handler(){
-		@Override
-		public void handleMessage(Message msg) {
-			if(msg.what == 1){
-				finishLoadding();
-				playMp3(fileFullName);
-			}else if(msg.what == 2){
-				finishLoadding();
-			}
-		}
-	};
-	
-	private void playMp3(String uriPath){
-		try {
-			if(mEveryDaySentence != null && !isInitMedia){
-				isInitMedia = true;
-				play_img.setBackgroundResource(R.drawable.ic_pause_circle_outline_white_48dp);
-				Uri uri = Uri.parse(uriPath);
-				mPlayer.setDataSource(getActivity(), uri);
-				mPlayer.setOnCompletionListener(new OnCompletionListener() {
-					@Override
-					public void onCompletion(MediaPlayer mp) {
-						play_img.setBackgroundResource(R.drawable.ic_play_circle_outline_white_48dp);
-					}
-				});
-				mPlayer.prepare();
-				mPlayer.start();
-			}else{
-				if(mPlayer.isPlaying()){
-					play_img.setBackgroundResource(R.drawable.ic_play_circle_outline_white_48dp);
-					mPlayer.pause();
-				}else{
-					play_img.setBackgroundResource(R.drawable.ic_pause_circle_outline_white_48dp);
-					mPlayer.start();
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} 
-	}
-	
-	private void toReadingActivity(String title,String category){
-		Intent intent = new Intent(getActivity(),ReadingsActivity.class);
-		intent.putExtra(KeyUtil.ActionbarTitle, title);
-		intent.putExtra(KeyUtil.Category, category);
-		getActivity().startActivity(intent);
-	}
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        super.onCreateView(inflater,container,savedInstanceState);
+        View view = inflater.inflate(R.layout.study_fragment, null);
+        ButterKnife.bind(this, view);
+        initViews(view);
+        return view;
+    }
 
-	private void toReadingActivity(String title,String category,String type){
-		Intent intent = new Intent(getActivity(),ReadingsActivity.class);
-		intent.putExtra(KeyUtil.ActionbarTitle, title);
-		intent.putExtra(KeyUtil.Category, category);
-		intent.putExtra(KeyUtil.NewsType, type);
-		getActivity().startActivity(intent);
-	}
-	
-	private void toReadingJuheActivity(String title){
-		Intent intent = new Intent(getActivity(),ReadingJuheActivity.class);
-		intent.putExtra(KeyUtil.ActionbarTitle, title);
-		getActivity().startActivity(intent);
-	}
-	
-	private void toExaminationActivity(String title){
-		Intent intent = new Intent(getActivity(),ExaminationActivity.class);
-		intent.putExtra(KeyUtil.ActionbarTitle, title);
-		getActivity().startActivity(intent);
-	}
-	
-	private void toEnglishWebsiteRecommendActivity(){
-		Intent intent = new Intent(getActivity(),EnglishWebsiteRecommendActivity.class);
-		getActivity().startActivity(intent);
-	}
-	
-	private void toSymbolListActivity(){
-		Intent intent = new Intent(getActivity(),SymbolListActivity.class);
-		startActivity(intent);
-	}
-	
-	private void toWordStudyListActivity(){
-		Intent intent = new Intent(getActivity(),WordStudyActivity.class);
-		startActivity(intent);
-	}
-	
-	private void toDailySentenceActivity(){
-		Intent intent = new Intent(getActivity(),DailySentenceActivity.class);
-		startActivity(intent);
-	}
-	
-	private void toStudyCompositionActivity(){
-		Intent intent = new Intent(getActivity(),CompositionActivity.class);
-		startActivity(intent);
-	}
-	
-	private void toEvaluationActivity(){
-		Intent intent = new Intent(getActivity(),JichuxiulianAndKouyulianxiActivity.class);
-		startActivity(intent);
-	}
-	
-	@Override
-	public void onPause() {
-		super.onPause();
-		if (mPlayer != null) {
-			if(mPlayer.isPlaying()){
-				play_img.setBackgroundResource(R.drawable.ic_play_circle_outline_white_48dp);
-				mPlayer.pause();  
-			}
-		}   
-	}
-	
-	@Override
-	public void onDestroy() {
-		super.onDestroy();
-		if (mPlayer != null) {   
-			mPlayer.stop();  
-			mPlayer.release();   
-			mPlayer = null;   
-        }   
-	}
-	
-	/**
-	 * 通过接口回调activity执行进度条显示控制
-	 */
-	public void loadding(){
-		if(mProgressbarListener != null){
-			mProgressbarListener.showProgressbar();
-		}
-	}
-	
-	/**
-	 * 通过接口回调activity执行进度条显示控制
-	 */
-	public void finishLoadding(){
-		if(mProgressbarListener != null){
-			mProgressbarListener.hideProgressbar();
-		}
-	}
-	
+    private void initViews(View view) {
+        avObjects = new ArrayList<AVObject>();
+        skip = 0;
+        initSwipeRefresh(view);
+        mAdapter = new RcStudyListAdapter(avObjects,mProgressbarListener,getActivity());
+        mAdapter.setItems(avObjects);
+        mAdapter.setFooter(new Object());
+        mAdapter.setHeader(new Object());
+        hideFooterview();
+        mLinearLayoutManager = new LinearLayoutManager(getContext());
+        listview.setLayoutManager(mLinearLayoutManager);
+        listview.addItemDecoration(
+                new HorizontalDividerItemDecoration.Builder(getContext())
+                        .colorResId(R.color.text_tint)
+                        .sizeResId(R.dimen.list_divider_size)
+                        .marginResId(R.dimen.padding_margin, R.dimen.padding_margin)
+                        .build());
+        listview.setAdapter(mAdapter);
+        setListOnScrollListener();
+    }
+
+    private void random() {
+        skip = (int) Math.round(Math.random() * maxRandom);
+        LogUtil.DefalutLog("skip:" + skip);
+    }
+
+    public void setListOnScrollListener() {
+        listview.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                int visible = mLinearLayoutManager.getChildCount();
+                int total = mLinearLayoutManager.getItemCount();
+                int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
+                isADInList(recyclerView, firstVisibleItem, visible);
+                if (!loading && hasMore) {
+                    if ((visible + firstVisibleItem) >= total) {
+                        loadAD();
+                        QueryTask();
+                        LogUtil.DefalutLog("StudyFragment-setListOnScrollListener-QueryTask");
+                    }
+                }
+            }
+        });
+    }
+
+    private void isADInList(RecyclerView view, int first, int vCount) {
+        if (avObjects.size() > 3) {
+            for (int i = first; i < (first + vCount); i++) {
+                if (i < avObjects.size() && i > 0) {
+                    AVObject mAVObject = avObjects.get(i);
+                    if (mAVObject != null && mAVObject.get(KeyUtil.ADKey) != null) {
+                        if (!(Boolean) mAVObject.get(KeyUtil.ADIsShowKey) && misVisibleToUser) {
+                            NativeADDataRef mNativeADDataRef = (NativeADDataRef) mAVObject.get(KeyUtil.ADKey);
+                            mNativeADDataRef.onExposured(view.getChildAt(i % vCount));
+                            mAVObject.put(KeyUtil.ADIsShowKey, true);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
+    public void loadDataOnStart() {
+        super.loadDataOnStart();
+        skip = 0;
+        loadAD();
+        QueryTask();
+        LogUtil.DefalutLog("StudyFragment-loadDataOnStart-QueryTask");
+        getMaxPageNumberBackground();
+    }
+
+    @Override
+    public void onSwipeRefreshLayoutRefresh() {
+        loadAD();
+        hideFooterview();
+        random();
+        avObjects.clear();
+        mAdapter.notifyDataSetChanged();
+        QueryTask();
+        LogUtil.DefalutLog("StudyFragment-onSwipeRefreshLayoutRefresh-QueryTask");
+    }
+
+    private void QueryTask() {
+        loading = true;
+        showProgressbar();
+        Observable.create(new Observable.OnSubscribe<String>() {
+            @Override
+            public void call(Subscriber<? super String> subscriber) {
+                getNetworkData();
+                subscriber.onCompleted();
+            }
+        })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onCompleted() {
+                        onFinishLoadData();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                    }
+                });
+    }
+
+    private void getNetworkData() {
+        AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.Reading.Reading);
+        query.addDescendingOrder(AVOUtil.Reading.publish_time);
+        query.skip(skip);
+        query.limit(Settings.page_size);
+        try {
+            tempList = query.find();
+            LogUtil.DefalutLog("skip:" + skip);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void onFinishLoadData() {
+        loading = false;
+        hasMore = true;
+        hideProgressbar();
+        onSwipeRefreshLayoutFinish();
+        if (tempList != null) {
+            if (tempList.size() == 0) {
+                ToastUtil.diaplayMesShort(getContext(), "没有了！");
+                hideFooterview();
+                hasMore = false;
+            } else {
+                if (avObjects != null && mAdapter != null) {
+                    avObjects.addAll(tempList);
+                    if (addAD()) {
+                        mAdapter.notifyDataSetChanged();
+                    }
+                    skip += Settings.page_size;
+                    showFooterview();
+                }
+            }
+        }
+    }
+
+    private void loadAD() {
+        nativeAd = new IFLYNativeAd(getContext(), ADUtil.XXLAD, new IFLYNativeListener() {
+            @Override
+            public void onConfirm() {
+            }
+
+            @Override
+            public void onCancel() {
+            }
+
+            @Override
+            public void onAdFailed(AdError arg0) {
+                LogUtil.DefalutLog("onAdFailed---" + arg0.getErrorCode() + "---" + arg0.getErrorDescription());
+            }
+
+            @Override
+            public void onADLoaded(List<NativeADDataRef> adList) {
+                LogUtil.DefalutLog("onADLoaded---");
+                if (adList != null && adList.size() > 0) {
+                    NativeADDataRef nad = adList.get(0);
+                    mADObject = new AVObject();
+                    mADObject.put(KeyUtil.ADKey, nad);
+                    mADObject.put(KeyUtil.ADIsShowKey, false);
+                    if (!loading) {
+                        addAD();
+                    }
+                }
+            }
+        });
+        nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
+        nativeAd.loadAd(1);
+    }
+
+    private boolean addAD() {
+        if (mADObject != null && avObjects != null && avObjects.size() > 0) {
+            int index = avObjects.size() - Settings.page_size + NumberUtil.randomNumberRange(2, 4);
+            if (index < 0) {
+                index = 0;
+            }
+            avObjects.add(index, mADObject);
+            mAdapter.notifyDataSetChanged();
+            mADObject = null;
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+    }
+
+    private void getMaxPageNumberBackground() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                maxRandom = (int)((Math.random()*800));
+            }
+        }).start();
+    }
+
+    private void hideFooterview() {
+        mAdapter.hideFooter();
+    }
+
+    private void showFooterview() {
+        mAdapter.showFooter();
+    }
+
+
 }

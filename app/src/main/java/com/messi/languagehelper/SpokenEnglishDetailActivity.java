@@ -150,7 +150,6 @@ public class SpokenEnglishDetailActivity extends BaseActivity implements OnClick
         mSharedPreferences = Settings.getSharedPreferences(this);
         mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
         recognizer = SpeechRecognizer.createRecognizer(this, null);
-        XFUtil.setSpeakLanguage(this, mSharedPreferences, XFUtil.VoiceEngineEN);
     }
 
     private void initView() {
@@ -329,7 +328,8 @@ public class SpokenEnglishDetailActivity extends BaseActivity implements OnClick
                         String path = SDCardUtil.getDownloadPath(SDCardUtil.UserPracticePath);
                         userPcmPath = path + "/userpractice.pcm";
                         recognizer.setParameter(SpeechConstant.ASR_AUDIO_PATH, userPcmPath);
-                        XFUtil.showSpeechRecognizer(this, mSharedPreferences, recognizer, recognizerListener);
+                        XFUtil.showSpeechRecognizer(this, mSharedPreferences, recognizer,
+                                recognizerListener, XFUtil.VoiceEngineEN);
                     }
                 } else {
                     showProgressbar();

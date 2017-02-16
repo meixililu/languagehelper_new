@@ -69,6 +69,12 @@ public class BaseFragment extends Fragment {
 			mSwipeRefreshLayout.setRefreshing(false);
 		}
 	}
+
+	public void onSwipeRefreshLayoutStart(){
+		if(mSwipeRefreshLayout != null){
+			mSwipeRefreshLayout.setRefreshing(true);
+		}
+	}
 	
 	public void onSwipeRefreshLayoutRefresh(){
 	}

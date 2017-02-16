@@ -21,8 +21,9 @@ public class XFUtil {
 	public static final String SpeakerEn = "vimary";
 	public static final String SpeakerZh = "xiaoqi";//vixy xiaoqi  xiaoyan
 	
-	public static final String VoiceEngineCH = "zh_cn";
+	private static final String VoiceEngineZH = "zh_cn";
 	public static final String VoiceEngineEN = "en_us";
+	public static final String VoiceEngineMD = "mandarin";
 	public static final String VoiceEngineHK = "cantonese";
 	
 	public static final String PlayResultOnline = "PlayResultOnline";
@@ -37,10 +38,22 @@ public class XFUtil {
 //	粤语：
 //	domain=iat,language=zh_cn,accent=cantonese
 //	这个需要你自己设置，合成使用tts_audio_path设置，识别转写使用asr_audio_path
+
+	public static String getVoiceEngineText(String voiceEngine){
+		if(voiceEngine.equals(VoiceEngineMD)){
+			return "中";
+		}else if(voiceEngine.equals(VoiceEngineEN)){
+			return "En";
+		}else if(voiceEngine.equals(VoiceEngineHK)){
+			return "粤";
+		}else {
+			return "中";
+		}
+	}
 	
 	/**语音转写**/
 	public static void showSpeechRecognizer(Context mContext,SharedPreferences mSharedPreferences,
-			SpeechRecognizer iatRecognizer,RecognizerListener recognizerListener) {
+			SpeechRecognizer iatRecognizer,RecognizerListener recognizerListener, String voiceEngine) {
 		if (null == iatRecognizer) {
 			iatRecognizer = SpeechRecognizer.createRecognizer(mContext,null);
 		}
@@ -48,22 +61,23 @@ public class XFUtil {
 		String domain = mSharedPreferences.getString(
 				mContext.getString(R.string.preference_key_iat_engine),
 				mContext.getString(R.string.preference_default_iat_engine));
-		String language = mSharedPreferences.getString(
-				mContext.getString(R.string.preference_key_recognizer),
-				mContext.getString(R.string.preference_default_recognizer));
-		String accent = mSharedPreferences.getString(
-				mContext.getString(R.string.preference_key_accent),
-				mContext.getString(R.string.preference_default_accent));
+		if(voiceEngine.equals(VoiceEngineMD)){
+			iatRecognizer.setParameter(SpeechConstant.LANGUAGE, VoiceEngineZH);
+			iatRecognizer.setParameter(SpeechConstant.ACCENT, VoiceEngineMD);
+		}else if(voiceEngine.equals(VoiceEngineHK)){
+			iatRecognizer.setParameter(SpeechConstant.LANGUAGE, VoiceEngineZH);
+			iatRecognizer.setParameter(SpeechConstant.ACCENT, VoiceEngineHK);
+		}else if(voiceEngine.equals(VoiceEngineEN)){
+			iatRecognizer.setParameter(SpeechConstant.LANGUAGE, VoiceEngineEN);
+			iatRecognizer.setParameter(SpeechConstant.ACCENT, "");
+		}
 		//清空Grammar_ID，防止识别后进行听写时Grammar_ID的干扰
 		iatRecognizer.setParameter(SpeechConstant.CLOUD_GRAMMAR, null);
 		iatRecognizer.setParameter(SpeechConstant.DOMAIN, domain);
-		iatRecognizer.setParameter(SpeechConstant.LANGUAGE, language);
-		iatRecognizer.setParameter(SpeechConstant.ACCENT, accent);
 		//设置采样率参数，支持8K和16K 
 		String rate = mSharedPreferences.getString(
 				mContext.getString(R.string.preference_key_iat_rate),
 				mContext.getString(R.string.preference_default_iat_rate));
-		LogUtil.DefalutLog("language:"+language+"---"+"accent:"+accent);
 		if(rate.equals("rate8k")){
 			iatRecognizer.setParameter(SpeechConstant.SAMPLE_RATE, "8000");
 		}else {
@@ -81,7 +95,7 @@ public class XFUtil {
 		LogUtil.DefalutLog("role:"+Settings.role+"--source:"+source);
 		StringUtils.setSpeaker(source);
 		mSpeechSynthesizer.setParameter(SpeechConstant.VOICE_NAME, Settings.role);
-		mSpeechSynthesizer.setParameter(SpeechConstant.SPEED, String.valueOf(MainFragment.speed));
+		mSpeechSynthesizer.setParameter(SpeechConstant.SPEED, String.valueOf( mSharedPreferences.getInt("tts_speed", 50) ));
 		mSpeechSynthesizer.setParameter(SpeechConstant.VOLUME, "100");
 		mSpeechSynthesizer.setParameter(SpeechConstant.ENGINE_TYPE, "cloud");//离线 local
 		mSpeechSynthesizer.startSpeaking(source, mSynthesizerListener);
@@ -95,28 +109,10 @@ public class XFUtil {
 			mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(mContext,null);
 		}
 		mSpeechSynthesizer.setParameter(SpeechConstant.VOICE_NAME, speaker);
-		mSpeechSynthesizer.setParameter(SpeechConstant.SPEED, String.valueOf(MainFragment.speed));
+		mSpeechSynthesizer.setParameter(SpeechConstant.SPEED, String.valueOf( mSharedPreferences.getInt("tts_speed", 50) ));
 		mSpeechSynthesizer.setParameter(SpeechConstant.VOLUME, "100");
 		mSpeechSynthesizer.setParameter(SpeechConstant.ENGINE_TYPE, "cloud");//离线 local
 		mSpeechSynthesizer.startSpeaking(source, mSynthesizerListener);
-	}
-	
-	/**set speaker
-	 * @param language
-	 */
-	public static void setSpeakLanguage(Context mContext,SharedPreferences mSharedPreferences,String language){
-		Editor mEditor = mSharedPreferences.edit();
-		if(language.equals(VoiceEngineCH)){
-			mEditor.putString(mContext.getString(R.string.preference_key_recognizer),XFUtil.VoiceEngineCH);
-			mEditor.putString(mContext.getString(R.string.preference_key_accent),"mandarin");
-		}else if(language.equals(VoiceEngineHK)){
-			mEditor.putString(mContext.getString(R.string.preference_key_recognizer), XFUtil.VoiceEngineCH);
-			mEditor.putString(mContext.getString(R.string.preference_key_accent), "cantonese");
-		}else if(language.equals(VoiceEngineEN)){
-			mEditor.putString(mContext.getString(R.string.preference_key_recognizer),XFUtil.VoiceEngineEN);
-			mEditor.putString(mContext.getString(R.string.preference_key_accent), "");
-		}
-		mEditor.commit();
 	}
 	
 	public static void playVideoInBackground(Context mContext, SpeechSynthesizer mSpeechSynthesizer,SharedPreferences mSharedPreferences,

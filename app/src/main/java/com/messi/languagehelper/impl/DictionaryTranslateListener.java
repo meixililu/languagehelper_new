@@ -1,6 +1,8 @@
 package com.messi.languagehelper.impl;
 
+import com.messi.languagehelper.dao.Dictionary;
+
 public interface DictionaryTranslateListener {
 
-	public void translate(String sentence, String word);
+	public void showItem(Dictionary word);
 }

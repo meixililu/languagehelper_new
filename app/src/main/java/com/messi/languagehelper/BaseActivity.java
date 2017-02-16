@@ -4,8 +4,11 @@ import com.avos.avoscloud.AVAnalytics;
 import com.gc.materialdesign.views.ProgressBarCircularIndeterminate;
 import com.messi.languagehelper.util.AudioTrackUtil;
 import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.ScreenUtil;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Intent;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
@@ -68,6 +71,18 @@ public class BaseActivity extends AppCompatActivity {
 			setActionBarTitle(title);
 		}
 	}
+
+//	protected void startClipboardListener(){
+//		final ClipboardManager cm = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+//		cm.addPrimaryClipChangedListener(new ClipboardManager.OnPrimaryClipChangedListener() {
+//			@Override
+//			public void onPrimaryClipChanged() {
+//				ClipData data = cm.getPrimaryClip();
+//				ClipData.Item item = data.getItemAt(0);
+//				LogUtil.DefalutLog("clipboard:"+item.getText().toString());
+//			}
+//		});
+//	}
 
 	protected void setToolbarBackground(int color) {
 		if (toolbar != null) {

@@ -30,7 +30,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Message;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.AbsoluteSizeSpan;
 import android.view.TextureView;
 
 public class TranslateUtil {
@@ -479,7 +483,12 @@ public class TranslateUtil {
 		Elements translates = doc.select("div.qdef > ul > li");
 		if(translates != null && translates.size() > 0){
 			for(Element li : translates){
-				addContent(li,sb);
+				String content = li.text().trim();
+				if(content.contains("网络")){
+					content = content.replace("网络","网络：");
+				}
+				sb.append(content);
+				sb.append("\n");
 			}
 		}
 		Element fusu = doc.select("div.qdef > div.hd_div1 > div.hd_if").first();

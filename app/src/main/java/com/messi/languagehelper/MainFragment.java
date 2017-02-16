@@ -1,35 +1,45 @@
 package com.messi.languagehelper;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.AppCompatEditText;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
-import android.widget.EditText;
+import android.widget.CheckBox;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.avos.avoscloud.AVAnalytics;
+import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVQuery;
 import com.iflytek.cloud.RecognizerListener;
 import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechRecognizer;
 import com.iflytek.cloud.SpeechSynthesizer;
+import com.iflytek.voiceads.AdError;
+import com.iflytek.voiceads.AdKeys;
+import com.iflytek.voiceads.IFLYNativeAd;
+import com.iflytek.voiceads.IFLYNativeListener;
+import com.iflytek.voiceads.NativeADDataRef;
+import com.messi.languagehelper.adapter.RcReadingListAdapter;
 import com.messi.languagehelper.adapter.RcTranslateListAdapter;
 import com.messi.languagehelper.dao.Iciba;
 import com.messi.languagehelper.dao.IcibaNew;
@@ -38,58 +48,105 @@ import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
+import com.messi.languagehelper.util.ADUtil;
+import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NumberUtil;
+import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
 import com.messi.languagehelper.views.DividerItemDecoration;
+import com.orhanobut.dialogplus.DialogPlus;
+import com.orhanobut.dialogplus.ViewHolder;
+import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import rx.Observable;
+import rx.Observer;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 public class MainFragment extends Fragment implements OnClickListener {
 
     public static int speed;
-    public static boolean isSpeakYueyuNeedUpdate;
-    public static boolean isRefresh;
     public static MainFragment mMainFragment;
-    private EditText input_et;
-    private FrameLayout submit_btn_cover;
-    private FrameLayout photo_tran_btn;
-    private FrameLayout clear_btn_layout;
-    private Button voice_btn;
-    private LinearLayout speak_round_layout;
-    private RadioButton cb_speak_language_ch, cb_speak_language_en;
-    private RecyclerView recent_used_lv;
-    /**
-     * record
-     **/
-    private LinearLayout record_layout;
-    private ImageView record_anim_img;
+    @BindView(R.id.recent_used_lv)
+    RecyclerView recent_used_lv;
+    @BindView(R.id.input_type_btn)
+    ImageView input_type_btn;
+
+    @BindView(R.id.mic_layout)
+    LinearLayout mic_layout;
+    @BindView(R.id.input_et)
+    AppCompatEditText input_et;
+    @BindView(R.id.clear_btn_layout)
+    FrameLayout clear_btn_layout;
+    @BindView(R.id.submit_btn)
+    TextView submit_btn;
+    @BindView(R.id.submit_btn_cover)
+    CardView submit_btn_cover;
+    @BindView(R.id.keybord_layout)
+    LinearLayout keybord_layout;
+    @BindView(R.id.input_type_layout)
+    LinearLayout input_type_layout;
+    @BindView(R.id.more_tools_layout)
+    LinearLayout more_tools_layout;
+    @BindView(R.id.voice_btn)
+    TextView voice_btn;
+    @BindView(R.id.record_anim_img)
+    ImageView record_anim_img;
+    @BindView(R.id.record_layout)
+    LinearLayout record_layout;
+    @BindView(R.id.voice_btn_cover)
+    CardView voice_btn_cover;
+    @BindView(R.id.input_layout)
+    LinearLayout input_layout;
+    @BindView(R.id.speak_language_tv)
+    TextView speakLanguageTv;
+    @BindView(R.id.speak_language_layout)
+    LinearLayout speakLanguageLayout;
+    @BindView(R.id.more_tools_layout_mic)
+    LinearLayout more_tools_layout_mic;
+    @BindView(R.id.action_setting)
+    CardView actionSetting;
+    @BindView(R.id.action_collected)
+    CardView actionCollected;
+    @BindView(R.id.action_layout)
+    LinearLayout actionLayout;
+    @BindView(R.id.bottom_layout)
+    CardView bottomLayout;
+    @BindView(R.id.action_col_all)
+    ImageView action_col_all;
+
+    //translate
     private record currentDialogBean;
-    private LayoutInflater mInflater;
     private RcTranslateListAdapter mAdapter;
     private List<record> beans;
     private String dstString = "";
-    private Animation fade_in, fade_out;
     // 识别对象
     private SpeechRecognizer recognizer;
     // 缓存，保存当前的引擎参数到下一次启动应用程序使用.
     private SharedPreferences mSharedPreferences;
     //合成对象.
     private SpeechSynthesizer mSpeechSynthesizer;
-    private boolean isSpeakYueyu;
     private Bundle bundle;
-    private View view;
     private FragmentProgressbarListener mProgressbarListener;
-    private boolean AutoClearInputAfterFinish;
 
+    private boolean isShowCollected = true;
     private String mCurrentPhotoPath;
     private Activity mActivity;
+
     RecognizerListener recognizerListener = new RecognizerListener() {
 
         @Override
@@ -176,58 +233,70 @@ public class MainFragment extends Fragment implements OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_translate, null);
-        LogUtil.DefalutLog("MainFragment-onCreateView");
+        View view = inflater.inflate(R.layout.fragment_translate, null);
+        ButterKnife.bind(this, view);
         init();
         return view;
     }
 
     private void init() {
-        mInflater = LayoutInflater.from(mActivity);
         mSharedPreferences = mActivity.getSharedPreferences(mActivity.getPackageName(), Activity.MODE_PRIVATE);
         mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(mActivity, null);
         recognizer = SpeechRecognizer.createRecognizer(mActivity, null);
 
-        recent_used_lv = (RecyclerView) view.findViewById(R.id.recent_used_lv);
-        input_et = (EditText) view.findViewById(R.id.input_et);
-        submit_btn_cover = (FrameLayout) view.findViewById(R.id.submit_btn_cover);
-        photo_tran_btn = (FrameLayout) view.findViewById(R.id.photo_tran_btn);
-        cb_speak_language_ch = (RadioButton) view.findViewById(R.id.cb_speak_language_ch);
-        cb_speak_language_en = (RadioButton) view.findViewById(R.id.cb_speak_language_en);
-        speak_round_layout = (LinearLayout) view.findViewById(R.id.speak_round_layout);
-        clear_btn_layout = (FrameLayout) view.findViewById(R.id.clear_btn_layout);
-        record_layout = (LinearLayout) view.findViewById(R.id.record_layout);
-        record_anim_img = (ImageView) view.findViewById(R.id.record_anim_img);
-        fade_in = AnimationUtils.loadAnimation(mActivity, R.anim.fade_in);
-        fade_out = AnimationUtils.loadAnimation(mActivity, R.anim.fade_out);
-        voice_btn = (Button) view.findViewById(R.id.voice_btn);
-
         beans = new ArrayList<record>();
         beans.addAll(DataBaseUtil.getInstance().getDataListRecord(0, Settings.offset));
-        AutoClearInputAfterFinish = mSharedPreferences.getBoolean(KeyUtil.AutoClearInputAfterFinish, true);
         boolean IsHasShowBaiduMessage = mSharedPreferences.getBoolean(KeyUtil.IsHasShowBaiduMessage, false);
         if (!IsHasShowBaiduMessage) {
             initSample();
             Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.IsHasShowBaiduMessage, true);
         }
-        mAdapter = new RcTranslateListAdapter(mSpeechSynthesizer, mSharedPreferences,beans);
+        mAdapter = new RcTranslateListAdapter(mSpeechSynthesizer, mSharedPreferences, beans);
         recent_used_lv.setHasFixedSize(true);
         recent_used_lv.setLayoutManager(new LinearLayoutManager(mActivity));
         recent_used_lv.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.abc_list_divider_mtrl_alpha)));
         mAdapter.setItems(beans);
-        mAdapter.setFooter(new Object());
         recent_used_lv.setAdapter(mAdapter);
 
-        initLanguage();
-        photo_tran_btn.setOnClickListener(this);
+        setSpeakLanguageTv();
         submit_btn_cover.setOnClickListener(this);
-        cb_speak_language_ch.setOnClickListener(this);
-        cb_speak_language_en.setOnClickListener(this);
-        speak_round_layout.setOnClickListener(this);
+        speakLanguageLayout.setOnClickListener(this);
+        voice_btn_cover.setOnClickListener(this);
         clear_btn_layout.setOnClickListener(this);
+        input_layout.setOnClickListener(this);
+        input_type_layout.setOnClickListener(this);
+        more_tools_layout.setOnClickListener(this);
+        more_tools_layout_mic.setOnClickListener(this);
+        actionLayout.setOnClickListener(this);
+        actionSetting.setOnClickListener(this);
+        actionCollected.setOnClickListener(this);
 
-        getAccent();
         speed = mSharedPreferences.getInt(getString(R.string.preference_key_tts_speed), 50);
+        if (mSharedPreferences.getBoolean(KeyUtil.IsShowTranKeybordLayout, false)) {
+            showKeybordLayout();
+        } else {
+            showMicLayout();
+        }
+        input_et.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (charSequence.length() > 0) {
+                    submit_btn_cover.setVisibility(View.VISIBLE);
+                    more_tools_layout.setVisibility(View.GONE);
+                } else {
+                    more_tools_layout.setVisibility(View.VISIBLE);
+                    submit_btn_cover.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
     }
 
     private void initSample() {
@@ -236,119 +305,82 @@ public class MainFragment extends Fragment implements OnClickListener {
         beans.add(0, sampleBean);
     }
 
-    private void initLanguage() {
-        if (mSharedPreferences != null) {
-            String selectedLanguage = getSpeakLanguage();
-            if (selectedLanguage.equals(XFUtil.VoiceEngineCH)) {
-                XFUtil.setSpeakLanguage(mActivity, mSharedPreferences, XFUtil.VoiceEngineCH);
-                cb_speak_language_ch.setChecked(true);
-                cb_speak_language_en.setChecked(false);
-            } else {
-                XFUtil.setSpeakLanguage(mActivity, mSharedPreferences, XFUtil.VoiceEngineEN);
-                cb_speak_language_ch.setChecked(false);
-                cb_speak_language_en.setChecked(true);
-            }
-        }
-    }
-
-    private void resetLanguage() {
-        if (mSharedPreferences != null && cb_speak_language_ch != null) {
-            if (cb_speak_language_ch.isChecked()) {
-                XFUtil.setSpeakLanguage(mActivity, mSharedPreferences, XFUtil.VoiceEngineCH);
-            } else {
-                XFUtil.setSpeakLanguage(mActivity, mSharedPreferences, XFUtil.VoiceEngineEN);
-            }
-            AutoClearInputAfterFinish = mSharedPreferences.getBoolean(KeyUtil.AutoClearInputAfterFinish, true);
-        }
-    }
-
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.submit_btn_cover) {
-            hideIME();
             submit();
             AVAnalytics.onEvent(mActivity, "tab1_submit_btn");
         } else if (v.getId() == R.id.photo_tran_btn) {
 //			photoSelectDialog();
-        } else if (v.getId() == R.id.speak_round_layout) {
+        } else if (v.getId() == R.id.voice_btn_cover) {
             showIatDialog();
             AVAnalytics.onEvent(mActivity, "tab1_speak_btn");
         } else if (v.getId() == R.id.clear_btn_layout) {
             input_et.setText("");
             AVAnalytics.onEvent(mActivity, "tab1_clear_btn");
-        } else if (v.getId() == R.id.cb_speak_language_ch) {
-            cb_speak_language_en.setChecked(false);
-            XFUtil.setSpeakLanguage(mActivity, mSharedPreferences, XFUtil.VoiceEngineCH);
-            if (isSpeakYueyu) {
-                ToastUtil.diaplayMesShort(mActivity, mActivity.getResources().getString(R.string.speak_chinese));
+        } else if (v.getId() == R.id.speak_language_layout) {
+            changeSpeakLanguage();
+        } else if (v.getId() == R.id.input_type_layout) {
+            changeInputType();
+        } else if (v.getId() == R.id.more_tools_layout || v.getId() == R.id.more_tools_layout_mic) {
+            if (actionLayout.isShown()) {
+                actionLayout.setVisibility(View.GONE);
             } else {
-                ToastUtil.diaplayMesShort(mActivity, mActivity.getResources().getString(R.string.speak_chinese));
+                actionLayout.setVisibility(View.VISIBLE);
             }
-            AVAnalytics.onEvent(mActivity, "tab1_zh_sbtn");
-        } else if (v.getId() == R.id.cb_speak_language_en) {
-            cb_speak_language_ch.setChecked(false);
-            XFUtil.setSpeakLanguage(mActivity, mSharedPreferences, XFUtil.VoiceEngineEN);
+        } else if (v.getId() == R.id.action_setting) {
+            actionLayout.setVisibility(View.GONE);
+            showMoreTools();
+        } else if (v.getId() == R.id.action_collected) {
+            actionLayout.setVisibility(View.GONE);
+            if (isShowCollected) {
+                action_col_all.setImageResource(R.drawable.ic_uncollected_grey);
+            } else {
+                action_col_all.setImageResource(R.drawable.ic_collected_grey);
+            }
+            getCollectedDataTask();
+        }
+    }
+
+    private void changeSpeakLanguage() {
+        if (mSharedPreferences.getString(KeyUtil.TranUserSelectLanguage, XFUtil.VoiceEngineMD).equals(XFUtil.VoiceEngineMD)) {
+            Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.TranUserSelectLanguage, XFUtil.VoiceEngineEN);
             ToastUtil.diaplayMesShort(mActivity, mActivity.getResources().getString(R.string.speak_english));
-            AVAnalytics.onEvent(mActivity, "tab1_en_sbtn");
-        }
-    }
-
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        LogUtil.DefalutLog("MainFragment-setUserVisibleHint");
-        if (isVisibleToUser) {
-            if (isRefresh) {
-                isRefresh = false;
-                new WaitTask().execute();
-            }
-            resetLanguage();
-        }
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        LogUtil.DefalutLog("MainFragment-onResume");
-        if (isSpeakYueyuNeedUpdate) {
-            getAccent();
-            if (cb_speak_language_ch.isChecked()) {
-                XFUtil.setSpeakLanguage(mActivity, mSharedPreferences, XFUtil.VoiceEngineCH);
-            }
-            isSpeakYueyuNeedUpdate = false;
-        }
-        setUserVisibleHint(true);
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        LogUtil.DefalutLog("MainFragment-onPause");
-        if (mSharedPreferences != null && cb_speak_language_ch != null) {
-            if (cb_speak_language_ch.isChecked()) {
-                Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.UserSelectLanguage, XFUtil.VoiceEngineCH);
-            } else {
-                Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.UserSelectLanguage, XFUtil.VoiceEngineEN);
-            }
-        }
-    }
-
-    private void getAccent() {
-        isSpeakYueyu = mSharedPreferences.getBoolean(KeyUtil.SpeakPutonghuaORYueyu, false);
-        if (isSpeakYueyu) {
-            cb_speak_language_ch.setText("粤语");
         } else {
-            cb_speak_language_ch.setText(mActivity.getResources().getString(R.string.chinese));
+            Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.TranUserSelectLanguage, XFUtil.VoiceEngineMD);
+            ToastUtil.diaplayMesShort(mActivity, mActivity.getResources().getString(R.string.speak_chinese));
+        }
+        setSpeakLanguageTv();
+        AVAnalytics.onEvent(mActivity, "tab1_lan_sbtn");
+    }
+
+    private void setSpeakLanguageTv() {
+        speakLanguageTv.setText(XFUtil.getVoiceEngineText(mSharedPreferences.getString(KeyUtil.TranUserSelectLanguage, XFUtil.VoiceEngineMD)));
+    }
+
+    private void changeInputType() {
+        if (keybord_layout.isShown()) {
+            showMicLayout();
+            Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.IsShowTranKeybordLayout, false);
+            hideIME();
+        } else {
+            showKeybordLayout();
+            Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.IsShowTranKeybordLayout, true);
+            showIME();
+            input_et.requestFocus();
         }
     }
 
-    /**
-     * get defalut speaker
-     *
-     * @return
-     */
-    private String getSpeakLanguage() {
-        return mSharedPreferences.getString(KeyUtil.UserSelectLanguage, XFUtil.VoiceEngineCH);
+    private void showKeybordLayout() {
+        input_type_btn.setImageDrawable(mActivity.getResources().getDrawable(R.drawable.ic_mic));
+        keybord_layout.setVisibility(View.VISIBLE);
+        mic_layout.setVisibility(View.GONE);
+    }
+
+    private void showMicLayout() {
+        input_type_btn.setImageDrawable(mActivity.getResources().getDrawable(R.drawable.ic_keybord_btn));
+        keybord_layout.setVisibility(View.GONE);
+        mic_layout.setVisibility(View.VISIBLE);
     }
 
     /**
@@ -525,11 +557,9 @@ public class MainFragment extends Fragment implements OnClickListener {
     }
 
     public void autoClearAndautoPlay() {
-        if (AutoClearInputAfterFinish) {
-            input_et.setText("");
-        }
+        input_et.setText("");
         if (mSharedPreferences.getBoolean(KeyUtil.AutoPlayResult, false)) {
-            new AutoPlayWaitTask().execute();
+            AutoPlayWaitTask();
         }
     }
 
@@ -607,14 +637,13 @@ public class MainFragment extends Fragment implements OnClickListener {
      * 显示转写对话框.
      */
     public void showIatDialog() {
-        Settings.verifyStoragePermissions(mActivity,Settings.PERMISSIONS_RECORD_AUDIO);
+        Settings.verifyStoragePermissions(mActivity, Settings.PERMISSIONS_RECORD_AUDIO);
         if (!recognizer.isListening()) {
             record_layout.setVisibility(View.VISIBLE);
             input_et.setText("");
-            voice_btn.setBackgroundColor(mActivity.getResources().getColor(R.color.none));
-            voice_btn.setText(mActivity.getResources().getString(R.string.finish));
-            speak_round_layout.setBackgroundResource(R.drawable.round_light_blue_bgl);
-            XFUtil.showSpeechRecognizer(mActivity, mSharedPreferences, recognizer, recognizerListener);
+            voice_btn.setText(mActivity.getResources().getText(R.string.click_and_finish));
+            XFUtil.showSpeechRecognizer(mActivity, mSharedPreferences, recognizer, recognizerListener,
+                    mSharedPreferences.getString(KeyUtil.TranUserSelectLanguage, XFUtil.VoiceEngineMD));
         } else {
             finishRecord();
             recognizer.stopListening();
@@ -628,9 +657,7 @@ public class MainFragment extends Fragment implements OnClickListener {
     private void finishRecord() {
         record_layout.setVisibility(View.GONE);
         record_anim_img.setBackgroundResource(R.drawable.speak_voice_1);
-        voice_btn.setText("");
-        voice_btn.setBackgroundResource(R.drawable.ic_voice_padded_normal);
-        speak_round_layout.setBackgroundResource(R.drawable.round_gray_bgl);
+        voice_btn.setText(mActivity.getResources().getText(R.string.click_and_speak));
     }
 
     /**
@@ -701,51 +728,168 @@ public class MainFragment extends Fragment implements OnClickListener {
         LogUtil.DefalutLog("MainFragment-onDestroy");
     }
 
-    class WaitTask extends AsyncTask<Void, Void, Void> {
-        @Override
-        protected void onPreExecute() {
-            loadding();
-        }
-
-        @Override
-        protected Void doInBackground(Void... params) {
-            try {
+    private void getCollectedDataTask() {
+        loadding();
+        Observable.create(new Observable.OnSubscribe<String>() {
+            @Override
+            public void call(Subscriber<? super String> subscriber) {
                 beans.clear();
-                beans.addAll(DataBaseUtil.getInstance().getDataListRecord(0, Settings.offset));
-            } catch (Exception e) {
-                e.printStackTrace();
+                if(isShowCollected){
+                    isShowCollected = false;
+                    beans.addAll(DataBaseUtil.getInstance().getDataListCollected(0, Settings.offset));
+                }else {
+                    isShowCollected = true;
+                    beans.addAll(DataBaseUtil.getInstance().getDataListRecord(0, Settings.offset));
+                }
+                subscriber.onCompleted();
             }
-            return null;
-        }
+        })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onCompleted() {
+                        finishLoadding();
+                        mAdapter.notifyDataSetChanged();
+                    }
 
-        @Override
-        protected void onPostExecute(Void result) {
-            finishLoadding();
-            mAdapter.notifyDataSetChanged();
-        }
+                    @Override
+                    public void onError(Throwable e) {
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                    }
+                });
     }
 
-    class AutoPlayWaitTask extends AsyncTask<Void, Void, Void> {
-        @Override
-        protected Void doInBackground(Void... params) {
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+    private void AutoPlayWaitTask() {
+        Observable.create(new Observable.OnSubscribe<String>() {
+            @Override
+            public void call(Subscriber<? super String> subscriber) {
+                subscriber.onCompleted();
             }
-            return null;
-        }
+        })
+                .delay(100, TimeUnit.MILLISECONDS)//延迟发送
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onCompleted() {
+                        autoPlay();
+                    }
 
-        @Override
-        protected void onPostExecute(Void result) {
-            autoPlay();
-        }
+                    @Override
+                    public void onError(Throwable e) {
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                    }
+                });
+    }
+
+    //more tools
+    private void showMoreTools() {
+        hideIME();
+        final DialogPlus dialog = DialogPlus.newDialog(mActivity)
+                .setContentHolder(new ViewHolder(R.layout.tran_more_tools_layout))
+                .setCancelable(true)
+                .setGravity(Gravity.BOTTOM)
+                .setContentHeight(ViewGroup.LayoutParams.WRAP_CONTENT)
+//                .setContentHeight(900)
+                .setOverlayBackgroundResource(android.R.color.transparent)
+                .create();
+        initMoreToolsView(dialog.getHolderView(), dialog);
+        dialog.show();
+    }
+
+    private void initMoreToolsView(View view, final DialogPlus dialog) {
+        final TextView seekbar_text = (TextView) view.findViewById(R.id.seekbar_text);
+        SeekBar seekbar = (SeekBar) view.findViewById(R.id.seekbar);
+        FrameLayout auto_play = (FrameLayout) view.findViewById(R.id.setting_auto_play);
+        final CheckBox auto_play_cb = (CheckBox) view.findViewById(R.id.setting_auto_play_cb);
+        FrameLayout auto_clear = (FrameLayout) view.findViewById(R.id.setting_auto_clear);
+        final CheckBox auto_clear_cb = (CheckBox) view.findViewById(R.id.setting_auto_clear_cb);
+        FrameLayout clear_all = (FrameLayout) view.findViewById(R.id.setting_clear_all);
+
+        seekbar_text.setText(this.getResources().getString(R.string.play_speed_text) + speed);
+        seekbar.setProgress(speed);
+        boolean autoPlay = mSharedPreferences.getBoolean(KeyUtil.AutoPlayResult, false);
+        boolean AutoClear = mSharedPreferences.getBoolean(KeyUtil.AutoClearTran, false);
+        auto_play_cb.setChecked(autoPlay);
+        auto_clear_cb.setChecked(AutoClear);
+
+        seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
+                speed = progress;
+                seekbar_text.setText(mActivity.getResources().getString(R.string.play_speed_text) + speed);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                Settings.saveSharedPreferences(mSharedPreferences,
+                        getString(R.string.preference_key_tts_speed),
+                        speed);
+                AVAnalytics.onEvent(mActivity, "tran_tools_change_speed");
+            }
+        });
+
+        auto_play.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                auto_play_cb.setChecked(!auto_play_cb.isChecked());
+                Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.AutoPlayResult, auto_play_cb.isChecked());
+                AVAnalytics.onEvent(mActivity, "tran_tools_auto_play");
+            }
+        });
+        auto_play_cb.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.AutoPlayResult, auto_play_cb.isChecked());
+                AVAnalytics.onEvent(mActivity, "tran_tools_auto_play");
+            }
+        });
+
+        auto_clear.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                auto_clear_cb.setChecked(!auto_clear_cb.isChecked());
+                Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.AutoClearTran, auto_clear_cb.isChecked());
+                AVAnalytics.onEvent(mActivity, "tran_tools_auto_clear");
+            }
+        });
+        auto_clear_cb.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.AutoClearTran, auto_clear_cb.isChecked());
+                AVAnalytics.onEvent(mActivity, "tran_tools_auto_clear");
+            }
+        });
+
+        clear_all.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DataBaseUtil.getInstance().clearAllTran();
+                SDCardUtil.deleteOldFile();
+                dialog.dismiss();
+                beans.clear();
+                mAdapter.notifyDataSetChanged();
+                ToastUtil.diaplayMesShort(mActivity, mActivity.getResources().getString(R.string.clear_success));
+                AVAnalytics.onEvent(mActivity, "setting_pg_clear_all");
+            }
+        });
     }
 
 //	private void photoSelectDialog(){
 //		String[] titles = {getResources().getString(R.string.take_photo),getResources().getString(R.string.photo_album)};
 //		PopDialog mPhonoSelectDialog = new PopDialog(getContext(),titles);
-//		mPhonoSelectDialog.setListener(new PopViewItemOnclickListener() {
+//		mPhonoSelectDialog.setListener(new PopViewItemOnclAutoClearInputAfterFinishickListener() {
 //			@Override
 //			public void onSecondClick(View v) {
 //				getImageFromAlbum();

@@ -154,8 +154,11 @@ public class DataBaseUtil {
 		mDictionaryDao.delete(bean);
 	}
 	
-	public void clearExceptFavorite() {
+	public void clearExceptFavoriteTran() {
 		clearTranslateExceptFavorite();
+	}
+
+	public void clearExceptFavoriteDic() {
 		clearDictionaryExceptFavorite();
 	}
 
@@ -175,8 +178,11 @@ public class DataBaseUtil {
 		bd.executeDeleteWithoutDetachingEntities();
 	}
 	
-	public void clearAll() {
+	public void clearAllTran() {
 		clearAllTranslate();
+	}
+
+	public void clearAllDic() {
 		clearAllDictionary();
 	}
 	

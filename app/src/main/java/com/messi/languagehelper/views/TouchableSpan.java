@@ -81,7 +81,6 @@ public class TouchableSpan extends ClickableSpan {// extend ClickableSpan
 	private void setData(){
 		Dictionary bean = (Dictionary) BaseApplication.dataMap.get(KeyUtil.DataMapKey);
 		BaseApplication.dataMap.clear();
-		DictionaryFragment.isRefresh = true;
 		TranslateResultDialog dialog = new TranslateResultDialog(context, bean);
 		dialog.setCancelable(true);
 		dialog.setCanceledOnTouchOutside(true);

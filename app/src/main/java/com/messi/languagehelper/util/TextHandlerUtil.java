@@ -10,6 +10,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.text.SpannableString;
 import android.text.Spanned;
+import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.widget.TextView;
 
@@ -17,6 +18,10 @@ public class TextHandlerUtil {
 
 	public static void handlerText(Context context, ProgressBarCircularIndeterminate mProgressbar,
 			TextView contentTv, String text) {
+		if(TextUtils.isEmpty(text)){
+			contentTv.setText(text);
+			return;
+		}
 		SpannableString ss = new SpannableString(text);
 		boolean isIn = false;
 		boolean isFinish = false;

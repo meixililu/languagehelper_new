@@ -135,7 +135,6 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
         recognizer = SpeechRecognizer.createRecognizer(this, null);
         mPlayer = new MediaPlayer();
         mMyThread = new MyThread();
-        XFUtil.setSpeakLanguage(this, mSharedPreferences, XFUtil.VoiceEngineEN);
         avObjects = new ArrayList<AVObject>();
         ECCode = getIntent().getStringExtra(AVOUtil.EvaluationCategory.ECCode);
         studylist_lv = (RecyclerView) findViewById(R.id.listview);
@@ -325,7 +324,8 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
     private void startToRecord() {
         stopVoiceImgAnimation();
         start_btn.setText("");
-        XFUtil.showSpeechRecognizer(this, mSharedPreferences, recognizer, recognizerListener);
+        XFUtil.showSpeechRecognizer(this, mSharedPreferences, recognizer,
+                recognizerListener, XFUtil.VoiceEngineEN);
 //        String path = SDCardUtil.getDownloadPath(SDCardUtil.UserPracticePath);
 //        userPcmPath = path + "/userpractice.pcm";
 //        recognizer.setParameter(SpeechConstant.ASR_AUDIO_PATH, userPcmPath);
