@@ -1,37 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="armeabi-v7a,armeabi"
+    abi="arm64-v8a,armeabi-v7a,armeabi"
     api-level="23"
     density="xxhdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="43622308380722"
+    timestamp="131637559048649"
     token="4501248045731096870"
-    verifier="FULL_BUILD_REQUESTED" >
+    verifier="METHOD_DELETED" >
 
     <task
         name="javac"
-        duration="7527" />
+        duration="4896" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="4312" />
+        duration="39" />
     <task
         name="verifier"
-        duration="557" />
+        duration="3" />
 
     <artifact
-        location="/Users/luli/AndroidStudioProjects/languagehelper/app/build/outputs/apk/app-debug.apk"
-        type="MAIN" />
+        location="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex"
+        type="DEX" />
+    <artifact
+        location="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_0/classes.dex"
+        type="DEX" />
+    <artifact
+        location="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_6/classes.dex"
+        type="DEX" />
 
     <build
-        timestamp="43622308380722"
+        timestamp="129410558550607"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/Users/luli/AndroidStudioProjects/languagehelper/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
+    </build>
+    <build
+        timestamp="130236037404926"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_1/classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="131637559048649"
+        verifier="METHOD_DELETED" >
+        <artifact
+            location="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_0/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_6/classes.dex"
+            type="DEX" />
     </build>
 
 </instant-run>

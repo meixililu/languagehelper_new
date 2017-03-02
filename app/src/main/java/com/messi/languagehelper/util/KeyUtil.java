@@ -61,8 +61,6 @@ public class KeyUtil {
 	public static final String LevelKey = "LevelKey";
 	
 	public static final String IndexKey = "IndexKey";
-	
-	public static final String UserSelectLanguage = "UserSelectLanguage";
 
 	public static final String TranUserSelectLanguage = "TranUserSelectLanguage";
 
@@ -147,6 +145,8 @@ public class KeyUtil {
 	public static final String IsShowDicKeyboardLayout = "IsShowDicKeyboardLayout";
 
 	public static final String DicUserSelectLanguage = "DicUserSelectLanguage";
+
+	public static final String IsUseOldStyle = "IsUseOldStyle";
 
 
 	

@@ -9,7 +9,10 @@ import com.messi.languagehelper.MoreActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.WebViewFragment;
 import com.messi.languagehelper.adapter.MainPageAdapter;
+import com.messi.languagehelper.dao.DaoMaster;
+import com.messi.languagehelper.dao.DaoSession;
 import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.db.LHContract;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -17,6 +20,7 @@ import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.TranslateUtil;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -29,8 +33,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 
+import java.util.HashMap;
+
 public class WXEntryActivity extends BaseActivity implements OnClickListener,FragmentProgressbarListener {
 
+	public static HashMap<String, Object> dataMap = new HashMap<String, Object>();
 	private TabLayout tablayout;
 	private ViewPager viewPager;
 	private MainPageAdapter mAdapter;
@@ -39,13 +46,19 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 	private Bundle bundle;
 	private boolean isRespondWX;
 	public static int currentIndex = 0;
+	public static WXEntryActivity mInstance;
 	private SharedPreferences mSharedPreferences;
+
+	private static DaoMaster daoMaster;
+	private static DaoSession daoSession;
+
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		try {
 			setContentView(R.layout.content_frame);
+			mInstance = this;
 			initDatas();
 			initViews();
 			Settings.verifyStoragePermissions(this,Settings.PERMISSIONS_STORAGE);
@@ -69,7 +82,7 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
         
 		viewPager = (ViewPager) findViewById(R.id.pager);
 		tablayout = (TabLayout) findViewById(R.id.tablayout);
-		mAdapter = new MainPageAdapter(this.getSupportFragmentManager(),bundle,this);
+		mAdapter = new MainPageAdapter(this.getSupportFragmentManager(),bundle,this,mSharedPreferences);
 		viewPager.setAdapter(mAdapter);
 		viewPager.setOffscreenPageLimit(4);
 		tablayout.setupWithViewPager(viewPager);
@@ -139,6 +152,7 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 		super.onDestroy();
 		saveSelectTab();
 		WebViewFragment.mMainFragment = null;
+		mInstance = null;
 		TranslateUtil.saveTranslateApiOrder(mSharedPreferences);
 		if(mSharedPreferences.getBoolean(KeyUtil.AutoClearDic, false)){
 			DataBaseUtil.getInstance().clearExceptFavoriteDic();

@@ -1,7 +1,6 @@
 package com.messi.languagehelper;
 
 import com.avos.avoscloud.AVAnalytics;
-import com.gc.materialdesign.views.ProgressBarDetermininate;
 import com.iflytek.voiceads.AdError;
 import com.iflytek.voiceads.IFLYAdListener;
 import com.iflytek.voiceads.IFLYInterstitialAd;
@@ -26,12 +25,13 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
 public class WebViewActivity extends BaseActivity{
 	
-	private ProgressBarDetermininate progressdeterminate;
+	private ProgressBar progressdeterminate;
 	private SwipeRefreshLayout mSwipeRefreshLayout;
 	private WebView mWebView;
 	private TextView tap_to_reload;
@@ -69,7 +69,7 @@ public class WebViewActivity extends BaseActivity{
 	
 	private void initViews(){
 		mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
-		progressdeterminate = (ProgressBarDetermininate) findViewById(R.id.progressdeterminate);
+		progressdeterminate = (ProgressBar) findViewById(R.id.progressdeterminate);
 		mWebView = (WebView) findViewById(R.id.refreshable_webview);
 		tap_to_reload = (TextView) findViewById(R.id.tap_to_reload);
 		setScrollable(mSwipeRefreshLayout);

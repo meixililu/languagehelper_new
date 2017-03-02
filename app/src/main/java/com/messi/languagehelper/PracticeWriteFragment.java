@@ -17,8 +17,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.gc.materialdesign.views.ButtonFloatSmall;
-import com.gc.materialdesign.views.ButtonRectangle;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.messi.languagehelper.bean.UserSpeakBean;
 import com.messi.languagehelper.impl.PracticeProgressListener;
@@ -34,7 +32,8 @@ public class PracticeWriteFragment extends BaseFragment implements OnClickListen
 	private String content;
 	private TextView questionTv,translate_result;
 	private ImageView translate_result_img;
-	private ButtonRectangle check_btn;
+	private FrameLayout check_btn_cover;
+	private TextView check_btn;
 	private FrameLayout tranlate_content;
 	private PracticeProgressListener mPracticeProgress;
 	private EditText translate_input;
@@ -89,12 +88,13 @@ public class PracticeWriteFragment extends BaseFragment implements OnClickListen
 		translate_result = (TextView)view.findViewById(R.id.translate_result);
 		translate_result_img = (ImageView)view.findViewById(R.id.translate_result_img);
 		translate_input = (EditText)view.findViewById(R.id.translate_input);
-		check_btn = (ButtonRectangle)view.findViewById(R.id.check_btn);
+		check_btn_cover = (FrameLayout) view.findViewById(R.id.check_btn_cover);
+		check_btn = (TextView) view.findViewById(R.id.check_btn);
 		tranlate_content = (FrameLayout)view.findViewById(R.id.tranlate_content);
-		check_btn.setEnabled(false);
+		check_btn_cover.setEnabled(false);
 		setIndex();
 		setContent();
-		check_btn.setOnClickListener(this);
+		check_btn_cover.setOnClickListener(this);
 		translate_result_img.setOnClickListener(this);
 		tranlate_content.setOnClickListener(this);
 		
@@ -107,7 +107,7 @@ public class PracticeWriteFragment extends BaseFragment implements OnClickListen
 			}
 			@Override
 			public void afterTextChanged(Editable s) {
-				check_btn.setEnabled(true);
+				check_btn_cover.setEnabled(true);
 				check_btn.setText("检查");
 				isCheck = true;
 			}
@@ -125,7 +125,7 @@ public class PracticeWriteFragment extends BaseFragment implements OnClickListen
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()){
-		case R.id.check_btn:
+		case R.id.check_btn_cover:
 			submit();
 			break;
 		case R.id.select_answer1:
@@ -148,7 +148,7 @@ public class PracticeWriteFragment extends BaseFragment implements OnClickListen
 				index++;
 				setIndex();
 				setContent();
-				check_btn.setEnabled(false);
+				check_btn_cover.setEnabled(false);
 				translate_input.setText("");
 				translate_result.setText("");
 			}else{

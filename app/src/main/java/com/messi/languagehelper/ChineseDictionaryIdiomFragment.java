@@ -21,13 +21,11 @@ import com.alibaba.fastjson.JSON;
 import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.okhttp.FormEncodingBuilder;
 import com.avos.avoscloud.okhttp.RequestBody;
-import com.gc.materialdesign.views.ButtonRectangle;
 import com.iflytek.cloud.RecognizerListener;
 import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechRecognizer;
 import com.iflytek.cloud.SpeechSynthesizer;
-import com.messi.languagehelper.dao.ChDicDao;
 import com.messi.languagehelper.dao.ChDicIdiomDao;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
@@ -42,8 +40,8 @@ import com.messi.languagehelper.util.XFUtil;
 public class ChineseDictionaryIdiomFragment extends Fragment implements OnClickListener {
 
     private EditText input_et;
-    private ButtonRectangle submit_btn;
-    private FrameLayout photo_tran_btn,copy_btn,share_btn;
+    private FrameLayout submit_btn;
+    private FrameLayout photo_tran_btn, copy_btn, share_btn;
     private FrameLayout clear_btn_layout;
     private Button voice_btn;
     private LinearLayout speak_round_layout;
@@ -155,7 +153,7 @@ public class ChineseDictionaryIdiomFragment extends Fragment implements OnClickL
 
         result_tv = (TextView) view.findViewById(R.id.result_tv);
         input_et = (EditText) view.findViewById(R.id.input_et);
-        submit_btn = (ButtonRectangle) view.findViewById(R.id.submit_btn);
+        submit_btn = (FrameLayout) view.findViewById(R.id.submit_btn);
         photo_tran_btn = (FrameLayout) view.findViewById(R.id.photo_tran_btn);
         copy_btn = (FrameLayout) view.findViewById(R.id.copy_btn);
         share_btn = (FrameLayout) view.findViewById(R.id.share_btn);
@@ -192,15 +190,15 @@ public class ChineseDictionaryIdiomFragment extends Fragment implements OnClickL
         }
     }
 
-    private void copy(){
-        if(mRoot != null && mRoot.getError_code() == 0){
-            ShareUtil.copy(getContext(),mRoot.getResult().getResultForShow(word));
+    private void copy() {
+        if (mRoot != null && mRoot.getError_code() == 0) {
+            ShareUtil.copy(getContext(), mRoot.getResult().getResultForShow(word));
         }
     }
 
-    private void share(){
-        if(mRoot != null && mRoot.getError_code() == 0){
-            ShareUtil.shareText(getContext(),mRoot.getResult().getResultForShow(word));
+    private void share() {
+        if (mRoot != null && mRoot.getError_code() == 0) {
+            ShareUtil.shareText(getContext(), mRoot.getResult().getResultForShow(word));
         }
     }
 
@@ -221,7 +219,7 @@ public class ChineseDictionaryIdiomFragment extends Fragment implements OnClickL
                 .add("key", "443f7ea4af260c917b0f248172458a69")
                 .add("word", word)
                 .build();
-        LanguagehelperHttpClient.post(Settings.ChDicIdiomSearchUrl, formBody, new UICallback(getActivity()){
+        LanguagehelperHttpClient.post(Settings.ChDicIdiomSearchUrl, formBody, new UICallback(getActivity()) {
             @Override
             public void onFailured() {
                 ToastUtil.diaplayMesShort(getActivity(), getActivity().getResources().getString(R.string.network_error));
@@ -235,12 +233,12 @@ public class ChineseDictionaryIdiomFragment extends Fragment implements OnClickL
             @Override
             public void onResponsed(String responseString) {
                 if (!TextUtils.isEmpty(responseString)) {
-                    LogUtil.DefalutLog("responseString:"+responseString);
+                    LogUtil.DefalutLog("responseString:" + responseString);
                     mRoot = JSON.parseObject(responseString, ChDicIdiomDao.class);
-                    if(mRoot != null && mRoot.getError_code() == 0){
+                    if (mRoot != null && mRoot.getError_code() == 0) {
                         mRoot.getResult().setResult();
                         result_tv.setText(mRoot.getResult().getResultForShow(word));
-                    }else{
+                    } else {
                         ToastUtil.diaplayMesShort(getActivity(), mRoot.getReason());
                     }
                 } else {

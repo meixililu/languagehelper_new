@@ -50,6 +50,7 @@ public class ChDicBushouPinyinListActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chdic_bushoupinyin_list_activity);
         ButterKnife.bind(this);
+        setStatusbarColor(R.color.style6_color1);
         initSwipeRefresh();
         initViews();
         RequestAsyncTask();

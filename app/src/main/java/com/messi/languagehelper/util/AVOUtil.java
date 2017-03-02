@@ -421,7 +421,9 @@ public class AVOUtil {
 		public final static String img_type = "img_type";
 		
 		public final static String source_name = "source_name";
-		
+
+		public final static String source_url = "source_url";
+
 		public final static String img = "img";
 		
 		public final static String type = "type";
@@ -429,7 +431,9 @@ public class AVOUtil {
 		public final static String media_url = "media_url";
 		
 		public final static String category = "category";
-		
+
+		public final static String content_type = "content_type";
+
 	}
 	
 	public static class Category {

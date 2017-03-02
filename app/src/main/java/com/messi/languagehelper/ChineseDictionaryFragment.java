@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -23,8 +22,6 @@ import com.alibaba.fastjson.JSON;
 import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.okhttp.FormEncodingBuilder;
 import com.avos.avoscloud.okhttp.RequestBody;
-import com.gc.materialdesign.views.ButtonFlat;
-import com.gc.materialdesign.views.ButtonRectangle;
 import com.iflytek.cloud.RecognizerListener;
 import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechError;
@@ -48,11 +45,11 @@ import butterknife.ButterKnife;
 public class ChineseDictionaryFragment extends Fragment implements OnClickListener {
 
     @BindView(R.id.btn_bushou)
-    ButtonFlat btnBushou;
+    TextView btnBushou;
     @BindView(R.id.btn_pinyin)
-    ButtonFlat btnPinyin;
+    TextView btnPinyin;
     private EditText input_et;
-    private ButtonRectangle submit_btn;
+    private FrameLayout submit_btn;
     private FrameLayout photo_tran_btn, copy_btn, share_btn;
     private FrameLayout clear_btn_layout;
     private Button voice_btn;
@@ -166,7 +163,7 @@ public class ChineseDictionaryFragment extends Fragment implements OnClickListen
 
         result_tv = (TextView) view.findViewById(R.id.result_tv);
         input_et = (EditText) view.findViewById(R.id.input_et);
-        submit_btn = (ButtonRectangle) view.findViewById(R.id.submit_btn);
+        submit_btn = (FrameLayout) view.findViewById(R.id.submit_btn);
         photo_tran_btn = (FrameLayout) view.findViewById(R.id.photo_tran_btn);
         copy_btn = (FrameLayout) view.findViewById(R.id.copy_btn);
         share_btn = (FrameLayout) view.findViewById(R.id.share_btn);

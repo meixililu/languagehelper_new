@@ -7,6 +7,7 @@ import com.messi.languagehelper.dao.WordListItem;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.XFYSAD;
+import com.messi.languagehelper.wxapi.WXEntryActivity;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -30,8 +31,8 @@ public class WordStudyThirdActivity extends BaseActivity {
 	}
 	
 	private void initViews(){
-		child_list = (List<WordListItem>) BaseApplication.dataMap.get(KeyUtil.DataMapKey);
-		BaseApplication.dataMap.clear();
+		child_list = (List<WordListItem>) WXEntryActivity.dataMap.get(KeyUtil.DataMapKey);
+		WXEntryActivity.dataMap.clear();
 		if(child_list != null){
 			category_lv = (ListView) findViewById(R.id.studycategory_lv);
 			View headerView = LayoutInflater.from(this).inflate(R.layout.xunfei_ysad_item, null);

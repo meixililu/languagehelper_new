@@ -20,10 +20,6 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/joke_text_list_item.xml"
     },
     {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/color_selector.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/languagehelper/MaterialDesign/unspecified/res/layout/color_selector.xml"
-    },
-    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/abc_search_dropdown_item_icons_2line.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/layout/abc_search_dropdown_item_icons_2line.xml"
     },
@@ -42,10 +38,6 @@
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/layout/support_simple_spinner_dropdown_item.xml"
-    },
-    {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/dialog.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/languagehelper/MaterialDesign/unspecified/res/layout/dialog.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",
@@ -140,10 +132,6 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/layout/notification_template_media_custom.xml"
     },
     {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/number_indicator_spinner.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/languagehelper/MaterialDesign/unspecified/res/layout/number_indicator_spinner.xml"
-    },
-    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/joke_budejie_fragment.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/joke_budejie_fragment.xml"
     },
@@ -156,20 +144,12 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/spoken_english_listview_item.xml"
     },
     {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/app_recommend_list_activity.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/app_recommend_list_activity.xml"
-    },
-    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/investment_list_activity.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/investment_list_activity.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/word_study_list_fragment.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/word_study_list_fragment.xml"
-    },
-    {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/progress_dialog.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/languagehelper/MaterialDesign/unspecified/res/layout/progress_dialog.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/select_dialog_item_material.xml",
@@ -268,6 +248,10 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/dialog_first_fragment.xml"
     },
     {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/fragment_translate_old.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/fragment_translate_old.xml"
+    },
+    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/yizhaondaodi_activity.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/yizhaondaodi_activity.xml"
     },
@@ -320,10 +304,6 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/menu_frame.xml"
     },
     {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/snackbar.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/languagehelper/MaterialDesign/unspecified/res/layout/snackbar.xml"
-    },
-    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/abc_action_menu_layout.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/layout/abc_action_menu_layout.xml"
     },
@@ -342,10 +322,6 @@
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/study_fragment_header.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/study_fragment_header.xml"
-    },
-    {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/app_recommend_list_item.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/app_recommend_list_item.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/chdic_bushoupinyin_activity.xml",
@@ -408,12 +384,12 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/english_website_recommend_activity.xml"
     },
     {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/abc_dialog_title_material.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/layout/abc_dialog_title_material.xml"
-    },
-    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/fragment_dictionary.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/fragment_dictionary.xml"
+    },
+    {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/abc_dialog_title_material.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/layout/abc_dialog_title_material.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/word_study_ciyixuanci_list_item.xml",
@@ -544,10 +520,6 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/layout/abc_list_menu_item_radio.xml"
     },
     {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/text.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/languagehelper/MaterialDesign/unspecified/res/layout/text.xml"
-    },
-    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/notification_template_media.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/layout/notification_template_media.xml"
     },
@@ -602,10 +574,6 @@
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/jc_layout_base.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/fm.jiecao/jiecaovideoplayer/4.6.5/res/layout/jc_layout_base.xml"
-    },
-    {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/app_recommend_detail_list_item.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/app_recommend_detail_list_item.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/spoken_english_category_secondary_activity.xml",

@@ -320,18 +320,24 @@
                 </FrameLayout>
             </LinearLayout>
 
-            <com.gc.materialdesign.views.ButtonRectangle
-                xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
+            <FrameLayout
                 android:id="@+id/share_btn_cover"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:background="@color/load_blue"
-                android:gravity="center"
-                android:text="@string/share"
-                android:textColor="@color/white"
-                android:textSize="@dimen/big"
-                materialdesign:rippleSpeed="90" >
-            </com.gc.materialdesign.views.ButtonRectangle>
+                android:layout_height="wrap_content"
+                android:foreground="@drawable/framelayout_selector"
+                android:layout_margin="@dimen/padding_5">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp"
+                    android:background="@color/load_blue"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/big"
+                    android:text="@string/share"
+                    />
+            </FrameLayout>
+
         </LinearLayout>
     </ScrollView>
 

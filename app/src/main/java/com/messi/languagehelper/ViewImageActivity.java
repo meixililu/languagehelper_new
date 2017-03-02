@@ -4,7 +4,6 @@ import java.io.File;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.GlideBitmapDrawable;
-import com.gc.materialdesign.views.ButtonFloat;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SDCardUtil;
@@ -15,6 +14,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -22,7 +22,7 @@ import android.widget.ImageView;
 public class ViewImageActivity extends BaseActivity implements OnClickListener {
 
 	private ImageView imageview;
-	private ButtonFloat mButtonFloat;
+	private FloatingActionButton mButtonFloat;
 	private String imgUrl;
 	
 	@Override
@@ -40,7 +40,7 @@ public class ViewImageActivity extends BaseActivity implements OnClickListener {
 	private void init() {
 		imgUrl = getIntent().getStringExtra(KeyUtil.BigImgUrl);
 		imageview = (ImageView) findViewById(R.id.imageview);
-		mButtonFloat = (ButtonFloat) findViewById(R.id.buttonfloat);
+		mButtonFloat = (FloatingActionButton) findViewById(R.id.buttonfloat);
 		imageview.setOnClickListener(this);
 		mButtonFloat.setOnClickListener(this);
 	}

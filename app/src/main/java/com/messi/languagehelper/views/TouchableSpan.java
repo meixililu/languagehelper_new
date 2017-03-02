@@ -1,7 +1,6 @@
 package com.messi.languagehelper.views;
 
-import com.gc.materialdesign.views.ProgressBarCircularIndeterminate;
-import com.messi.languagehelper.BaseApplication;
+import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.messi.languagehelper.DictionaryFragment;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.dao.Dictionary;
@@ -19,15 +18,16 @@ import android.os.Message;
 import android.text.TextPaint;
 import android.text.style.ClickableSpan;
 import android.view.View;
+import android.widget.ProgressBar;
 
 public class TouchableSpan extends ClickableSpan {// extend ClickableSpan
 
 	private String word;
 	private Context context;
-	private ProgressBarCircularIndeterminate mProgressbar;
+	private ProgressBar mProgressbar;
 	private FragmentProgressbarListener mProgressbarListener;
 
-	public TouchableSpan(Context context, ProgressBarCircularIndeterminate mProgressbar, String string) {
+	public TouchableSpan(Context context, ProgressBar mProgressbar, String string) {
 		super();
 		word = string;
 		this.mProgressbar = mProgressbar;
@@ -79,8 +79,8 @@ public class TouchableSpan extends ClickableSpan {// extend ClickableSpan
 	}
 	
 	private void setData(){
-		Dictionary bean = (Dictionary) BaseApplication.dataMap.get(KeyUtil.DataMapKey);
-		BaseApplication.dataMap.clear();
+		Dictionary bean = (Dictionary) WXEntryActivity.dataMap.get(KeyUtil.DataMapKey);
+		WXEntryActivity.dataMap.clear();
 		TranslateResultDialog dialog = new TranslateResultDialog(context, bean);
 		dialog.setCancelable(true);
 		dialog.setCanceledOnTouchOutside(true);

@@ -41,7 +41,7 @@ public class ShortCut {
 			String str2 = mContext.getString(R.string.app_name);
 			localIntent2.putExtra("android.intent.extra.shortcut.NAME", str2);
 			Intent.ShortcutIconResource localShortcutIconResource = Intent.ShortcutIconResource
-					.fromContext(mContext.getApplicationContext(), R.drawable.ic_launcher);
+					.fromContext(mContext.getApplicationContext(), R.mipmap.ic_launcher);
 			localIntent2.putExtra("android.intent.extra.shortcut.ICON_RESOURCE",
 					localShortcutIconResource);
 			localIntent2.setAction("com.android.launcher.action.INSTALL_SHORTCUT");

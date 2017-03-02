@@ -1,7 +1,6 @@
 package com.messi.languagehelper.util;
 
 import com.avos.avoscloud.AVAnalytics;
-import com.gc.materialdesign.widgets.Dialog;
 import com.messi.languagehelper.ImgShareActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.dialog.PopDialog;
@@ -11,6 +10,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -22,6 +22,7 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.support.v4.BuildConfig;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
 import android.text.ClipboardManager;
 import android.view.View;
 
@@ -95,6 +96,8 @@ public class Settings {
 	public static final String WechatJXUrl = "http://api.tianapi.com/wxnew/?key=18f7f9dbd7dfcd8ab45efdcfbc33826d&rand=1&num=15&page=";
 
 	public static final String ToutiaoNewsUrl = "http://v.juhe.cn/toutiao/index";
+
+	public static final String SougoUrl = "http://weixin.sogou.com/weixinwap?ie=utf8&s_from=input&type=2&t=1488020521571&pg=webSearchList&_sug_=y&_sug_type_=&query=%E8%8B%B1%E8%AF%AD";
 
 	/** BrainTwists **/
 	public static final String TXBrainTwistsApi = "http://api.tianapi.com/txapi/naowan/?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
@@ -330,11 +333,12 @@ public class Settings {
 			LogUtil.DefalutLog("verifyStoragePermissions---permission:"+permission);
 			if (permission != PackageManager.PERMISSION_GRANTED) {
 				if(shouldShowRequestPermissionRationale(activity,permissions[0])){
-					Dialog dialog = new Dialog(activity, "友情提示", "软件需要SD卡和话筒的访问权限才能正常运行");
-					dialog.addAcceptButton("好的");
-					dialog.setOnAcceptButtonClickListener(new View.OnClickListener() {
+					AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+					builder.setTitle("温馨提示");
+					builder.setMessage("软件需要SD卡和话筒的访问权限才能正常运行。");
+					builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 						@Override
-						public void onClick(View v) {
+						public void onClick(DialogInterface dialog, int which) {
 							ActivityCompat.requestPermissions(
 									activity,
 									permissions,
@@ -342,6 +346,7 @@ public class Settings {
 							);
 						}
 					});
+					AlertDialog dialog = builder.create();
 					dialog.show();
 				}else {
 					ActivityCompat.requestPermissions(

@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
@@ -53,6 +52,7 @@ import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.TranslateUtil;
 import com.messi.languagehelper.util.XFUtil;
 import com.messi.languagehelper.views.DividerItemDecoration;
+import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
 
@@ -406,8 +406,8 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
     }
 
     private void setData() {
-        mDictionaryBean = (Dictionary) BaseApplication.dataMap.get(KeyUtil.DataMapKey);
-        BaseApplication.dataMap.clear();
+        mDictionaryBean = (Dictionary) WXEntryActivity.dataMap.get(KeyUtil.DataMapKey);
+        WXEntryActivity.dataMap.clear();
         setBean();
     }
 

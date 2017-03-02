@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
@@ -62,17 +60,25 @@
 	                    android:src="@drawable/ic_photo_camera_grey600_24dp"
 	                    />
                 </FrameLayout>
-                <com.gc.materialdesign.views.ButtonRectangle
+                <FrameLayout
                     android:id="@+id/submit_btn"
                     android:layout_width="match_parent"
-                    android:layout_height="52dp"
+                    android:layout_height="wrap_content"
                     android:layout_below="@id/input_et"
-                    android:background="@color/style6_color1"
-                    android:gravity="center"
-                    android:text="@string/search"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/big"
-                    materialdesign:rippleSpeed="95" />
+                    android:foreground="@drawable/framelayout_selector"
+                    android:layout_margin="@dimen/padding_5">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="47dp"
+                        android:background="@color/style6_color1"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/big"
+                        android:text="@string/search"
+                        />
+                </FrameLayout>
+
                 <FrameLayout
                     android:id="@+id/clear_btn_layout"
                     android:layout_width="wrap_content"
@@ -155,24 +161,28 @@
                 </RelativeLayout>
             </ScrollView>
 
-            <com.gc.materialdesign.views.ButtonFlat
+            <TextView
                 android:id="@+id/btn_bushou"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/style6_color1"
+                android:background="@color/none"
+                android:textColor="@color/style6_color1"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/padding_15"
                 android:layout_marginBottom="70dp"
                 android:text="部首" />
 
-            <com.gc.materialdesign.views.ButtonFlat
+            <TextView
                 android:id="@+id/btn_pinyin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/style6_color1"
-                android:layout_above="@+id/btn_bushou"
+                android:background="@color/none"
+                android:textColor="@color/style6_color1"
+                android:layout_above="@id/btn_bushou"
                 android:layout_alignParentRight="true"
-                android:layout_marginBottom="@dimen/padding_10"
+                android:layout_marginBottom="@dimen/padding_20"
+                android:layout_marginRight="@dimen/padding_15"
                 android:text="拼音" />
 
 

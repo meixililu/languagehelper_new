@@ -98,5 +98,6 @@
     <orderEntry type="jdk" jdkName="Android API 21 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="nineoldandroids-2.4.0" level="project" />
+    <orderEntry type="library" exported="" name="_Users_luli_Library_Android_sdk_platforms_android_21_android_jar-android-21" level="project" />
   </component>
 </module>

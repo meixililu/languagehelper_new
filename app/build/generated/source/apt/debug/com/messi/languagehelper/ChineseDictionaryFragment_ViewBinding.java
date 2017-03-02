@@ -4,9 +4,9 @@ package com.messi.languagehelper;
 import android.support.annotation.CallSuper;
 import android.support.annotation.UiThread;
 import android.view.View;
+import android.widget.TextView;
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
-import com.gc.materialdesign.views.ButtonFlat;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 
@@ -17,8 +17,8 @@ public class ChineseDictionaryFragment_ViewBinding<T extends ChineseDictionaryFr
   public ChineseDictionaryFragment_ViewBinding(T target, View source) {
     this.target = target;
 
-    target.btnBushou = Utils.findRequiredViewAsType(source, R.id.btn_bushou, "field 'btnBushou'", ButtonFlat.class);
-    target.btnPinyin = Utils.findRequiredViewAsType(source, R.id.btn_pinyin, "field 'btnPinyin'", ButtonFlat.class);
+    target.btnBushou = Utils.findRequiredViewAsType(source, R.id.btn_bushou, "field 'btnBushou'", TextView.class);
+    target.btnPinyin = Utils.findRequiredViewAsType(source, R.id.btn_pinyin, "field 'btnPinyin'", TextView.class);
   }
 
   @Override

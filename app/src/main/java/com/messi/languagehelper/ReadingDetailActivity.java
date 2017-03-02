@@ -11,6 +11,7 @@ import android.os.Message;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.NestedScrollView;
+import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -26,7 +27,6 @@ import com.avos.avoscloud.AVFile;
 import com.avos.avoscloud.AVObject;
 import com.bumptech.glide.Glide;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.gc.materialdesign.widgets.Dialog;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechSynthesizer;
@@ -46,6 +46,7 @@ import com.messi.languagehelper.util.TextHandlerUtil;
 import com.messi.languagehelper.util.ViewUtil;
 import com.messi.languagehelper.util.XFUtil;
 import com.messi.languagehelper.util.XFYSAD;
+import com.messi.languagehelper.wxapi.WXEntryActivity;
 
 import java.util.List;
 
@@ -87,85 +88,6 @@ public class ReadingDetailActivity extends BaseActivity {
     private MediaPlayer mPlayer;
     private String fileFullName;
     private XFYSAD mXFYSAD;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.composition_detail_activity);
-        ButterKnife.bind(this);
-        initData();
-        initViews();
-        setData();
-        guide();
-    }
-
-    private void guide() {
-        if (!mSharedPreferences.getBoolean(KeyUtil.isReadingDetailGuideShow, false)) {
-            Dialog dialog = new Dialog(this, "友情提示", "点击英文单词即可查询词意");
-            dialog.addAcceptButton("OK");
-            dialog.show();
-            Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.isReadingDetailGuideShow, true);
-        }
-    }
-
-    private void initData() {
-        mAVObjects = (List<AVObject>) BaseApplication.dataMap.get(KeyUtil.DataMapKey);
-        index = getIntent().getIntExtra(KeyUtil.IndexKey, 0);
-        mAVObject = mAVObjects.get(index);
-        BaseApplication.dataMap.clear();
-        if (mAVObject == null) {
-            finish();
-        }
-    }
-
-    private void initViews() {
-        mSharedPreferences = this.getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
-        mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
-        mMyThread = new MyThread(mHandler);
-    }
-
-    private void setData() {
-        videoplayer.setVisibility(View.GONE);
-        pimgview.setVisibility(View.GONE);
-        toolbar_layout.setTitle(mAVObject.getString(AVOUtil.Reading.title));
-        title.setText(mAVObject.getString(AVOUtil.Reading.title));
-        scrollview.scrollTo(0, 0);
-        TextHandlerUtil.handlerText(this, mProgressbar, content, mAVObject.getString(AVOUtil.Reading.content));
-        if(!TextUtils.isEmpty(mAVObject.getString(AVOUtil.Reading.type)) &&
-                mAVObject.getString(AVOUtil.Reading.type).equals("video")){
-            videoplayer.setVisibility(View.VISIBLE);
-            videoplayer.setUp(mAVObject.getString(AVOUtil.Reading.media_url),JCVideoPlayerStandard.SCREEN_LAYOUT_LIST,"");
-            if (!TextUtils.isEmpty(mAVObject.getString(AVOUtil.Reading.img_url))) {
-                Glide.with(this)
-                        .load(mAVObject.getString(AVOUtil.Reading.img_url))
-                        .into(videoplayer.thumbImageView);
-            }
-        }else if (!TextUtils.isEmpty(mAVObject.getString(AVOUtil.Reading.img_url))) {
-            pimgview.setVisibility(View.VISIBLE);
-            pimgview.setImageURI(Uri.parse(mAVObject.getString(AVOUtil.Reading.img_url)));
-        }
-        int[] random = NumberUtil.getRandomNumberLimit(mAVObjects.size(), 0, 5, index);
-        next_composition.removeAllViews();
-        for (int i : random) {
-            next_composition.addView(ViewUtil.getLine(this));
-            next_composition.addView(getView(mAVObjects.get(i)));
-        }
-        mXFYSAD = new XFYSAD(this, xx_ad_layout, ADUtil.NewsDetail);
-        mXFYSAD.setDirectExPosure(false);
-        mXFYSAD.showAD();
-        scrollview.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
-            @Override
-            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                if(xx_ad_layout.isShown()){
-                    if(XFYSAD.isInScreen(ReadingDetailActivity.this,xx_ad_layout)){
-                        LogUtil.DefalutLog("onScrollChange---isInScreen");
-                        mXFYSAD.ExposureAD();
-                    }
-                }
-            }
-        });
-    }
-
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -184,6 +106,87 @@ public class ReadingDetailActivity extends BaseActivity {
             }
         }
     };
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.composition_detail_activity);
+        ButterKnife.bind(this);
+        initData();
+        initViews();
+        setData();
+        guide();
+    }
+
+    private void guide() {
+        if (!mSharedPreferences.getBoolean(KeyUtil.isReadingDetailGuideShow, false)) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("温馨提示");
+            builder.setMessage("点击英文单词即可查询词意。");
+            builder.setPositiveButton("确认", null);
+            AlertDialog dialog = builder.create();
+            dialog.show();
+            Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.isReadingDetailGuideShow, true);
+        }
+    }
+
+    private void initData() {
+        mAVObjects = (List<AVObject>) WXEntryActivity.dataMap.get(KeyUtil.DataMapKey);
+        index = getIntent().getIntExtra(KeyUtil.IndexKey, 0);
+        mAVObject = mAVObjects.get(index);
+        WXEntryActivity.dataMap.clear();
+        if (mAVObject == null) {
+            finish();
+        }
+    }
+
+    private void initViews() {
+        mSharedPreferences = this.getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
+        mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
+        mMyThread = new MyThread(mHandler);
+    }
+
+    private void setData() {
+        videoplayer.setVisibility(View.GONE);
+        pimgview.setVisibility(View.GONE);
+        toolbar_layout.setTitle(mAVObject.getString(AVOUtil.Reading.title));
+        title.setText(mAVObject.getString(AVOUtil.Reading.title));
+        scrollview.scrollTo(0, 0);
+        TextHandlerUtil.handlerText(this, mProgressbar, content, mAVObject.getString(AVOUtil.Reading.content));
+        if (!TextUtils.isEmpty(mAVObject.getString(AVOUtil.Reading.type)) &&
+                mAVObject.getString(AVOUtil.Reading.type).equals("video")) {
+            videoplayer.setVisibility(View.VISIBLE);
+            videoplayer.setUp(mAVObject.getString(AVOUtil.Reading.media_url), JCVideoPlayerStandard.SCREEN_LAYOUT_LIST, "");
+            if (!TextUtils.isEmpty(mAVObject.getString(AVOUtil.Reading.img_url))) {
+                Glide.with(this)
+                        .load(mAVObject.getString(AVOUtil.Reading.img_url))
+                        .into(videoplayer.thumbImageView);
+            }
+        } else if (!TextUtils.isEmpty(mAVObject.getString(AVOUtil.Reading.img_url))) {
+            pimgview.setVisibility(View.VISIBLE);
+            pimgview.setImageURI(Uri.parse(mAVObject.getString(AVOUtil.Reading.img_url)));
+        }
+        int[] random = NumberUtil.getRandomNumberLimit(mAVObjects.size(), 0, 5, index);
+        next_composition.removeAllViews();
+        for (int i : random) {
+            next_composition.addView(ViewUtil.getLine(this));
+            next_composition.addView(getView(mAVObjects.get(i)));
+        }
+        mXFYSAD = new XFYSAD(this, xx_ad_layout, ADUtil.NewsDetail);
+        mXFYSAD.setDirectExPosure(false);
+        mXFYSAD.showAD();
+        scrollview.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                if (xx_ad_layout.isShown()) {
+                    if (XFYSAD.isInScreen(ReadingDetailActivity.this, xx_ad_layout)) {
+                        LogUtil.DefalutLog("onScrollChange---isInScreen");
+                        mXFYSAD.ExposureAD();
+                    }
+                }
+            }
+        });
+    }
 
     private void playContent() {
         String type = mAVObject.getString(AVOUtil.Reading.type);

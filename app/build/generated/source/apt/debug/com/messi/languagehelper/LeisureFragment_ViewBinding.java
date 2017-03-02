@@ -15,7 +15,7 @@ import java.lang.Override;
 public class LeisureFragment_ViewBinding<T extends LeisureFragment> implements Unbinder {
   protected T target;
 
-  private View view2131558736;
+  private View view2131558724;
 
   @UiThread
   public LeisureFragment_ViewBinding(final T target, View source) {
@@ -25,7 +25,7 @@ public class LeisureFragment_ViewBinding<T extends LeisureFragment> implements U
     target.yueduLayout = Utils.findRequiredViewAsType(source, R.id.yuedu_layout, "field 'yueduLayout'", FrameLayout.class);
     view = Utils.findRequiredView(source, R.id.twists_layout, "field 'twistsLayout' and method 'onClick'");
     target.twistsLayout = Utils.castView(view, R.id.twists_layout, "field 'twistsLayout'", FrameLayout.class);
-    view2131558736 = view;
+    view2131558724 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -39,6 +39,7 @@ public class LeisureFragment_ViewBinding<T extends LeisureFragment> implements U
     target.news_layout = Utils.findRequiredViewAsType(source, R.id.news_layout, "field 'news_layout'", FrameLayout.class);
     target.game_layout = Utils.findRequiredViewAsType(source, R.id.game_layout, "field 'game_layout'", FrameLayout.class);
     target.invest_layout = Utils.findRequiredViewAsType(source, R.id.invest_layout, "field 'invest_layout'", FrameLayout.class);
+    target.sougou_layout = Utils.findRequiredViewAsType(source, R.id.sougou_layout, "field 'sougou_layout'", FrameLayout.class);
   }
 
   @Override
@@ -56,9 +57,10 @@ public class LeisureFragment_ViewBinding<T extends LeisureFragment> implements U
     target.news_layout = null;
     target.game_layout = null;
     target.invest_layout = null;
+    target.sougou_layout = null;
 
-    view2131558736.setOnClickListener(null);
-    view2131558736 = null;
+    view2131558724.setOnClickListener(null);
+    view2131558724 = null;
 
     this.target = null;
   }

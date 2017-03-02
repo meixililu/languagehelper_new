@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="white_alph_dark">#ddFFFFFF</color>
     <color name="white_alph">#ddFFFFFF</color>
+    <color name="white_alph_unselect">#66FFFFFF</color>
     <color name="black">#FF000000</color>
     <color name="red">#FFDE0000</color>
     <color name="dullred">#bc4c4c</color>

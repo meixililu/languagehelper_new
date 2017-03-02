@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/white"
@@ -47,31 +46,40 @@
         </LinearLayout>
     </LinearLayout>
 
-    <com.gc.materialdesign.views.ButtonRectangle 
-		        android:id="@+id/share_btn_cover"
-		        android:layout_width="fill_parent"
-		        android:layout_height="52dp"
-		        android:gravity="center"
-		    	android:text="@string/share"
-		    	android:textColor="@color/white"
-		        android:textSize="@dimen/bigest"
-		        android:background="@color/green"
-		        android:layout_marginLeft="@dimen/padding_5"
-		        android:layout_marginRight="@dimen/padding_5"
-		        materialdesign:rippleSpeed="90"
-		        />
-    <com.gc.materialdesign.views.ButtonRectangle 
-		        android:id="@+id/check_btn"
-		        android:layout_width="fill_parent"
-		        android:layout_height="52dp"
-		        android:gravity="center"
-		    	android:text="@string/practice_finish"
-		    	android:textColor="@color/white"
-		        android:textSize="@dimen/bigest"
-		        android:background="@color/green"
-		        android:layout_marginLeft="@dimen/padding_5"
-		        android:layout_marginRight="@dimen/padding_5"
-		        materialdesign:rippleSpeed="90"
-		        />
+	<FrameLayout
+		android:id="@+id/share_btn_cover"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:foreground="@drawable/framelayout_selector"
+		android:layout_margin="@dimen/padding_5">
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="47dp"
+			android:background="@color/green"
+			android:textColor="@color/white"
+			android:gravity="center"
+			android:textStyle="bold"
+			android:textSize="@dimen/big"
+			android:text="@string/share"
+			/>
+	</FrameLayout>
+
+	<FrameLayout
+		android:id="@+id/check_btn"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:foreground="@drawable/framelayout_selector"
+		android:layout_margin="@dimen/padding_5">
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="47dp"
+			android:background="@color/green"
+			android:textColor="@color/white"
+			android:gravity="center"
+			android:textStyle="bold"
+			android:textSize="@dimen/big"
+			android:text="@string/practice_finish"
+			/>
+	</FrameLayout>
     
 </LinearLayout>

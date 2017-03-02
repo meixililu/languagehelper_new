@@ -1,6 +1,5 @@
 package com.messi.languagehelper;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
@@ -43,6 +42,7 @@ import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.StringUtils;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
+import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.Animator.AnimatorListener;
 import com.nineoldandroids.animation.ObjectAnimator;
@@ -102,72 +102,6 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
     private Thread mThread;
     private String userPcmPath;
     private boolean isNeedDelete;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.practice_activity);
-        ButterKnife.bind(this);
-        initData();
-        initView();
-    }
-
-    private void initData() {
-        mBean = (record) BaseApplication.dataMap.get(KeyUtil.DialogBeanKey);
-        isNeedDelete = getIntent().getBooleanExtra(KeyUtil.IsNeedDelete,false);
-        isEnglish = StringUtils.isEnglish(mBean.getEnglish());
-        mUserSpeakBeanList = new ArrayList<UserSpeakBean>();
-        adapter = new RcPractiseListAdapter(this);
-    }
-
-    private void initView() {
-//        getSupportActionBar().setTitle(getResources().getString(R.string.title_TranslatePractice));
-        getSupportActionBar().setTitle("");
-        mSharedPreferences = Settings.getSharedPreferences(this);
-        mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
-        recognizer = SpeechRecognizer.createRecognizer(this, null);
-        recent_used_lv.setLayoutManager(new LinearLayoutManager(this));
-        recent_used_lv.addItemDecoration(
-                new HorizontalDividerItemDecoration.Builder(this)
-                        .colorResId(R.color.text_tint)
-                        .sizeResId(R.dimen.list_divider_size)
-                        .marginResId(R.dimen.padding_margin, R.dimen.padding_margin)
-                        .build());
-        adapter.setItems(mUserSpeakBeanList);
-        recent_used_lv.setAdapter(adapter);
-
-        record_question.setText(mBean.getChinese());
-        record_answer.setText(mBean.getEnglish());
-
-        initSpeakLanguage();
-        mAnswerOnClickListener = new MyOnClickListener(mBean, voice_play_answer, true);
-        mQuestionOnClickListener = new MyOnClickListener(mBean, voice_play_question, false);
-
-        record_question_cover.setOnClickListener(mQuestionOnClickListener);
-        record_answer_cover.setOnClickListener(mAnswerOnClickListener);
-        voice_btn_cover.setOnClickListener(this);
-    }
-
-    private void initSpeakLanguage() {
-        if (isEnglish) {
-            practice_prompt.setText(this.getResources().getString(R.string.practice_prompt_english));
-        } else {
-            practice_prompt.setText(this.getResources().getString(R.string.practice_prompt_chinese));
-        }
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.voice_btn_cover:
-                showIatDialog();
-                AVAnalytics.onEvent(PracticeActivity.this, "practice_pg_speak_btn");
-                break;
-            default:
-                break;
-        }
-    }
-
     private AnimatorListener mAnimatorListenerReward = new AnimatorListener() {
         @Override
         public void onAnimationStart(Animator animation) {
@@ -270,6 +204,70 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
         }
     };
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.practice_activity);
+        ButterKnife.bind(this);
+        initData();
+        initView();
+    }
+
+    private void initData() {
+        mBean = (record) WXEntryActivity.dataMap.get(KeyUtil.DialogBeanKey);
+        isNeedDelete = getIntent().getBooleanExtra(KeyUtil.IsNeedDelete, false);
+        isEnglish = StringUtils.isEnglish(mBean.getEnglish());
+        mUserSpeakBeanList = new ArrayList<UserSpeakBean>();
+        adapter = new RcPractiseListAdapter(this);
+    }
+
+    private void initView() {
+//        getSupportActionBar().setTitle(getResources().getString(R.string.title_TranslatePractice));
+        getSupportActionBar().setTitle("");
+        mSharedPreferences = Settings.getSharedPreferences(this);
+        mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
+        recognizer = SpeechRecognizer.createRecognizer(this, null);
+        recent_used_lv.setLayoutManager(new LinearLayoutManager(this));
+        recent_used_lv.addItemDecoration(
+                new HorizontalDividerItemDecoration.Builder(this)
+                        .colorResId(R.color.text_tint)
+                        .sizeResId(R.dimen.list_divider_size)
+                        .marginResId(R.dimen.padding_margin, R.dimen.padding_margin)
+                        .build());
+        adapter.setItems(mUserSpeakBeanList);
+        recent_used_lv.setAdapter(adapter);
+
+        record_question.setText(mBean.getChinese());
+        record_answer.setText(mBean.getEnglish());
+
+        initSpeakLanguage();
+        mAnswerOnClickListener = new MyOnClickListener(mBean, voice_play_answer, true);
+        mQuestionOnClickListener = new MyOnClickListener(mBean, voice_play_question, false);
+
+        record_question_cover.setOnClickListener(mQuestionOnClickListener);
+        record_answer_cover.setOnClickListener(mAnswerOnClickListener);
+        voice_btn_cover.setOnClickListener(this);
+    }
+
+    private void initSpeakLanguage() {
+        if (isEnglish) {
+            practice_prompt.setText(this.getResources().getString(R.string.practice_prompt_english));
+        } else {
+            practice_prompt.setText(this.getResources().getString(R.string.practice_prompt_chinese));
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.voice_btn_cover:
+                showIatDialog();
+                AVAnalytics.onEvent(PracticeActivity.this, "practice_pg_speak_btn");
+                break;
+            default:
+                break;
+        }
+    }
 
     @Override
     public void playOrStop() {
@@ -330,7 +328,7 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
                     if (isEnglish) {
                         XFUtil.showSpeechRecognizer(this, mSharedPreferences, recognizer,
                                 recognizerListener, XFUtil.VoiceEngineEN);
-                    }else {
+                    } else {
                         XFUtil.showSpeechRecognizer(this, mSharedPreferences, recognizer,
                                 recognizerListener, XFUtil.VoiceEngineMD);
                     }
@@ -470,7 +468,7 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
             recognizer.destroy();
             recognizer = null;
         }
-        if(isNeedDelete){
+        if (isNeedDelete) {
             DataBaseUtil.getInstance().dele(mBean);
         }
     }

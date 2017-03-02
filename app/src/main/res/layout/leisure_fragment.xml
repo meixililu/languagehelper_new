@@ -126,6 +126,45 @@
         </FrameLayout>
 
         <FrameLayout
+            android:id="@+id/sougou_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="75dp"
+            android:layout_marginLeft="@dimen/padding_7"
+            android:layout_marginRight="@dimen/padding_7"
+            android:layout_marginTop="@dimen/padding_7"
+            android:background="@color/style6_color1"
+            android:foreground="@drawable/framelayout_selector"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:shadowColor="@color/white"
+                    android:shadowDx="0.3"
+                    android:shadowDy="0.3"
+                    android:shadowRadius="0.3"
+                    android:text="@string/leisuer_sougou_wechat"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/bigger" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/leisuer_sougou_wechat_subtitle"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/small" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <FrameLayout
             android:id="@+id/yuedu_layout"
             android:layout_width="fill_parent"
             android:layout_height="75dp"

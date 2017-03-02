@@ -6,6 +6,7 @@
         android:minSdkVersion="8"
         android:targetSdkVersion="19" />
 
+    <!--suppress AndroidDomInspection, AndroidDomInspection, AndroidDomInspection -->
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
         android:functionalTest="false"

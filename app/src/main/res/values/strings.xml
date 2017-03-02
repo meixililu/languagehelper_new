@@ -27,6 +27,7 @@
     <string name="title_leisure">休闲</string>
     <string name="title_instagram">图片分享社区</string>
     <string name="title_cailing">酷炫彩铃</string>
+    <string name="title_sougo_wechat">微信英语</string>
     <string name="title_reading">阅读基地</string>
     <string name="title_website">不错的学习网站</string>
     <string name="title_favorite">我的收藏</string>
@@ -210,6 +211,8 @@
     <string name="foreign_website_subtitle">喜欢进步的看这里</string>
     <string name="leisuer_one">酷炫彩铃</string>
     <string name="leisuer_one_subtitle">听听音乐放松一下</string>
+    <string name="leisuer_sougou_wechat">微信英语</string>
+    <string name="leisuer_sougou_wechat_subtitle">微信公众号英语资料集合</string>
     <string name="leisuer_reading">新闻阅读</string>
     <string name="leisuer_reading_subtitle">新闻头条，微信精选</string>
     <string name="leisuer_twists">脑筋急转弯</string>

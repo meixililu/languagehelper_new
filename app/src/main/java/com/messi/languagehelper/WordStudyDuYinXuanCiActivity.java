@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
-import com.gc.materialdesign.views.ButtonFloat;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.messi.languagehelper.adapter.WordStudyDetailTestAdapter;
 import com.messi.languagehelper.dao.WordDetailListItem;
@@ -20,6 +19,7 @@ import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -35,7 +35,7 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnClic
 
 	private GridView category_lv;
 	private WordStudyDetailTestAdapter mAdapter;
-	private ButtonFloat playbtn;
+	private FloatingActionButton playbtn;
 	private String class_name;
 	private String class_id;
 	private int course_id;
@@ -75,7 +75,7 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnClic
 		}else{
 			finish();
 		}
-		playbtn = (ButtonFloat) findViewById(R.id.playbtn);
+		playbtn = (FloatingActionButton) findViewById(R.id.playbtn);
 		category_lv = (GridView) findViewById(R.id.studycategory_lv);
 		checkData();
 		mAdapter = new WordStudyDetailTestAdapter(this, mSharedPreferences, mSpeechSynthesizer,
@@ -167,10 +167,10 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnClic
 	
 	private void playSound(){
 		if(mAdapter.isPlaying()){
-			playbtn.setDrawableIcon(this.getResources().getDrawable(R.drawable.ic_stop_white_48dp));
+			playbtn.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_stop_white_48dp));
 			mAdapter.onPlayBtnClick();
 		}else{
-			playbtn.setDrawableIcon(this.getResources().getDrawable(R.drawable.ic_play_arrow_white_48dp));
+			playbtn.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_play_arrow_white_48dp));
 		}
 	}
 	
@@ -178,7 +178,7 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnClic
 		if (mPlayer != null) {   
 			mPlayer.stop();  
         } 
-		playbtn.setDrawableIcon(this.getResources().getDrawable(R.drawable.ic_play_arrow_white_48dp));
+		playbtn.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_play_arrow_white_48dp));
 	}
 	
 	@Override

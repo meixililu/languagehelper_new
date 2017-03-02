@@ -45,6 +45,8 @@ public class LeisureFragment extends BaseFragment implements OnClickListener {
     FrameLayout game_layout;
     @BindView(R.id.invest_layout)
     FrameLayout invest_layout;
+    @BindView(R.id.sougou_layout)
+    FrameLayout sougou_layout;
     public static LeisureFragment mMainFragment;
     private SharedPreferences mSharedPreferences;
     private XFYSAD mXFYSAD;
@@ -74,6 +76,7 @@ public class LeisureFragment extends BaseFragment implements OnClickListener {
         game_layout.setOnClickListener(this);
         news_layout.setOnClickListener(this);
         yueduLayout.setOnClickListener(this);
+        sougou_layout.setOnClickListener(this);
         mXFYSAD = new XFYSAD(getActivity(), xx_ad_layout, ADUtil.XiuxianYSNRLAd);
         mXFYSAD.setStopPlay(true);
         mXFYSAD.showAD();
@@ -126,6 +129,8 @@ public class LeisureFragment extends BaseFragment implements OnClickListener {
             toCailingActivity();
         } else if (v.getId() == R.id.yuedu_layout) {
             toYueduActivity();
+        } else if (v.getId() == R.id.sougou_layout) {
+            toSougoActivity();
         } else if (v.getId() == R.id.app_layout) {
             toChineseDictionaryActivity();
         } else if (v.getId() == R.id.invest_layout) {
@@ -169,6 +174,14 @@ public class LeisureFragment extends BaseFragment implements OnClickListener {
         intent.putExtra(KeyUtil.ActionbarTitle, getActivity().getResources().getString(R.string.title_cailing));
         getActivity().startActivity(intent);
         AVAnalytics.onEvent(getActivity(), "leisure_pg_tocailingpg_btn");
+    }
+
+    private void toSougoActivity() {
+        Intent intent = new Intent(getActivity(), WebViewActivity.class);
+        intent.putExtra(KeyUtil.URL, Settings.SougoUrl);
+        intent.putExtra(KeyUtil.ActionbarTitle, getActivity().getResources().getString(R.string.title_sougo_wechat));
+        getActivity().startActivity(intent);
+        AVAnalytics.onEvent(getActivity(), "leisure_pg_sougo_btn");
     }
 
     private void toYueduActivity() {

@@ -7,11 +7,10 @@
     android:orientation="horizontal"
      >
 
-    <com.gc.materialdesign.views.ProgressBarCircularIndeterminate
+    <ProgressBar style="@style/CircularProgressBlue"
         android:id="@+id/collected_progressbar_m"
         android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:background="@color/text_grey1" />
+        android:layout_height="20dp" />
 
     <TextView
         android:id="@+id/aboat_1"

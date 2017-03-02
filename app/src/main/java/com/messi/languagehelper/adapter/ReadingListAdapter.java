@@ -7,7 +7,7 @@ import com.avos.avoscloud.AVObject;
 import com.bumptech.glide.Glide;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.NativeADDataRef;
-import com.messi.languagehelper.BaseApplication;
+import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.ReadingDetailActivity;
 import com.messi.languagehelper.util.AVOUtil;
@@ -114,7 +114,7 @@ public class ReadingListAdapter extends BaseAdapter {
 	}
 	
 	private void toDetailActivity(int position){
-		BaseApplication.dataMap.put(KeyUtil.DataMapKey, avObjects);
+		WXEntryActivity.dataMap.put(KeyUtil.DataMapKey, avObjects);
 		Intent intent = new Intent(context,ReadingDetailActivity.class);
 		intent.putExtra(KeyUtil.IndexKey, position);
 		context.startActivity(intent);

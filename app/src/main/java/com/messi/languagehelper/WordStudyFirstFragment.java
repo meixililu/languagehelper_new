@@ -27,6 +27,7 @@ import com.messi.languagehelper.util.SaveData;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.XFYSAD;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
+import com.messi.languagehelper.wxapi.WXEntryActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -90,7 +91,7 @@ public class WordStudyFirstFragment extends BaseFragment {
     }
 
     private void onItemClick() {
-        BaseApplication.dataMap.put(KeyUtil.DataMapKey, wordListItem);
+        WXEntryActivity.dataMap.put(KeyUtil.DataMapKey, wordListItem);
         Intent intent = new Intent(getContext(), WordStudyFourthActivity.class);
         intent.putExtra(KeyUtil.ActionbarTitle, wordListItem.getTitle());
         getActivity().startActivity(intent);

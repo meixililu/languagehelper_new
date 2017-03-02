@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/contentbg" >
@@ -11,12 +10,20 @@
         android:orientation="vertical" >
 
         <android.support.v7.widget.Toolbar
-            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/my_awesome_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize" />
+
+        <ProgressBar
+            android:id="@+id/progressdeterminate"
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            style="@style/HorizontalProgressGreen"
+            android:background="@color/green_500"
+            android:visibility="gone"
+            android:max="100" />
 
         <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/swipe_container"
@@ -30,14 +37,6 @@
                 android:layout_height="fill_parent" />
         </android.support.v4.widget.SwipeRefreshLayout>
     </LinearLayout>
-
-    <com.gc.materialdesign.views.ProgressBarDetermininate
-        android:id="@+id/progressdeterminate"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/green"
-        android:visibility="gone"
-        materialdesign:max="100" />
 
     <TextView
         android:id="@+id/tap_to_reload"

@@ -147,7 +147,6 @@ public class TranslateResultDialog extends Dialog implements DicHelperListener {
 		Display display = windowManager.getDefaultDisplay();
 		WindowManager.LayoutParams lp = this.getWindow().getAttributes();
 		lp.width = display.getWidth() - ScreenUtil.dip2px(context, 10); //设置宽度
-		lp.height = display.getHeight() - ScreenUtil.dip2px(context, 10); //设置宽度
 		this.getWindow().setAttributes(lp);
 	}
 	

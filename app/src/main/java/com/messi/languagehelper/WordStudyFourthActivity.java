@@ -16,6 +16,7 @@ import com.messi.languagehelper.impl.AdapterListener;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.SaveData;
 import com.messi.languagehelper.util.ToastUtil;
+import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.transitionseverywhere.TransitionManager;
 
 import java.util.List;
@@ -62,8 +63,8 @@ public class WordStudyFourthActivity extends BaseActivity implements AdapterList
     }
 
     private void init() {
-        avObjects = (WordListItem) BaseApplication.dataMap.get(KeyUtil.DataMapKey);
-        BaseApplication.dataMap.clear();
+        avObjects = (WordListItem) WXEntryActivity.dataMap.get(KeyUtil.DataMapKey);
+        WXEntryActivity.dataMap.clear();
         class_name = avObjects.getTitle();
         class_id = avObjects.getClass_id();
         course_id = avObjects.getCourse_id();

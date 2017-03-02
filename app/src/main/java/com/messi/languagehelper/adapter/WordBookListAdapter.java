@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.messi.languagehelper.BaseApplication;
+import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.WordStudyFourthActivity;
 import com.messi.languagehelper.dao.WordListItem;
@@ -65,7 +65,7 @@ public class WordBookListAdapter extends BaseAdapter {
     }
 
     private void onItemClick(WordListItem mAVObject) {
-        BaseApplication.dataMap.put(KeyUtil.DataMapKey, mAVObject);
+        WXEntryActivity.dataMap.put(KeyUtil.DataMapKey, mAVObject);
         Intent intent = new Intent(context, WordStudyFourthActivity.class);
         intent.putExtra(KeyUtil.ActionbarTitle, mAVObject.getTitle());
         context.startActivity(intent);
