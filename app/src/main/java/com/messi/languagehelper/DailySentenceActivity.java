@@ -1,7 +1,6 @@
 package com.messi.languagehelper;
 
 import android.media.MediaPlayer;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -26,11 +25,13 @@ import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 import java.util.ArrayList;
 import java.util.List;
 
-import rx.Observable;
-import rx.Observer;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class DailySentenceActivity extends BaseActivity implements OnClickListener {
 
@@ -112,37 +113,42 @@ public class DailySentenceActivity extends BaseActivity implements OnClickListen
 
     private void getDataTask() {
         showProgressbar();
-        Observable.create(new Observable.OnSubscribe<String>() {
+        Observable.create(new ObservableOnSubscribe<String>() {
             @Override
-            public void call(Subscriber<? super String> subscriber) {
+            public void subscribe(ObservableEmitter<String> e) throws Exception {
                 getLocalData();
-                subscriber.onCompleted();
+                e.onComplete();
             }
         })
-        .subscribeOn(Schedulers.io())
-        .observeOn(AndroidSchedulers.mainThread())
-        .subscribe(new Observer<String>() {
-            @Override
-            public void onCompleted() {
-                hideProgressbar();
-                mAdapter.notifyDataSetChanged();
-            }
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                    }
 
-            @Override
-            public void onError(Throwable e) {
-            }
+                    @Override
+                    public void onNext(String s) {
+                    }
 
-            @Override
-            public void onNext(String s) {
-            }
-        });
+                    @Override
+                    public void onError(Throwable e) {
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        hideProgressbar();
+                        mAdapter.notifyDataSetChanged();
+                    }
+                });
+
     }
 
-    private void getLocalData(){
+    private void getLocalData() {
         List<EveryDaySentence> list = DataBaseUtil.getInstance().getDailySentenceList(Settings.offset);
-        if(list != null && list.size() < 20){
+        if (list != null && list.size() < 20) {
             List<EveryDaySentence> sentences = getServiceData();
-            if(sentences != null && sentences.size() > 0){
+            if (sentences != null && sentences.size() > 0) {
                 list.addAll(sentences);
             }
         }
@@ -150,15 +156,15 @@ public class DailySentenceActivity extends BaseActivity implements OnClickListen
         beans.addAll(list);
     }
 
-    private List<EveryDaySentence> getServiceData(){
+    private List<EveryDaySentence> getServiceData() {
         AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.DailySentence.DailySentence);
         query.orderByDescending(AVOUtil.DailySentence.dateline);
         query.limit(30);
         try {
             List<AVObject> sentences = query.find();
-            if(sentences != null && sentences.size() > 0){
+            if (sentences != null && sentences.size() > 0) {
                 List<EveryDaySentence> list = new ArrayList<EveryDaySentence>();
-                for(AVObject bean : sentences){
+                for (AVObject bean : sentences) {
                     list.add(changeData(bean));
                 }
                 DataBaseUtil.getInstance().saveEveryDaySentenceList(list);
@@ -170,7 +176,7 @@ public class DailySentenceActivity extends BaseActivity implements OnClickListen
         return null;
     }
 
-    private EveryDaySentence changeData(AVObject mAVObject){
+    private EveryDaySentence changeData(AVObject mAVObject) {
         EveryDaySentence bean = new EveryDaySentence();
         bean.setContent(mAVObject.getString(AVOUtil.DailySentence.content));
         bean.setNote(mAVObject.getString(AVOUtil.DailySentence.note));

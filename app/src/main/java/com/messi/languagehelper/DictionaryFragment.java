@@ -61,11 +61,13 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import rx.Observable;
-import rx.Observer;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class DictionaryFragment extends Fragment implements OnClickListener,
         DictionaryTranslateListener, DicHelperListener {
@@ -413,7 +415,7 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
 
     private void setBean() {
         isShowRecentList(false);
-        cidianResultLayout.scrollTo(0,0);
+        cidianResultLayout.scrollTo(0, 0);
         DictionaryHelper.addDicContent(mActivity, dicResultLayout, mDictionaryBean, this);
         input_et.setText("");
     }
@@ -518,9 +520,9 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
 
     private void getCollectedDataTask() {
         loadding();
-        Observable.create(new Observable.OnSubscribe<String>() {
+        Observable.create(new ObservableOnSubscribe<String>() {
             @Override
-            public void call(Subscriber<? super String> subscriber) {
+            public void subscribe(ObservableEmitter<String> e) throws Exception {
                 beans.clear();
                 if (isShowCollected) {
                     isShowCollected = false;
@@ -529,16 +531,18 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
                     isShowCollected = true;
                     beans.addAll(DataBaseUtil.getInstance().getDataListDictionary(0, Settings.offset));
                 }
-                subscriber.onCompleted();
+                e.onComplete();
             }
         })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<String>() {
                     @Override
-                    public void onCompleted() {
-                        finishLoadding();
-                        mAdapter.notifyDataSetChanged();
+                    public void onSubscribe(Disposable d) {
+                    }
+
+                    @Override
+                    public void onNext(String s) {
                     }
 
                     @Override
@@ -546,27 +550,30 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
                     }
 
                     @Override
-                    public void onNext(String s) {
+                    public void onComplete() {
+                        finishLoadding();
+                        mAdapter.notifyDataSetChanged();
                     }
                 });
+
     }
 
     @Override
-    public void playPcm(Dictionary mObject,boolean isPlayResult,String result) {
-        playResult(mObject,isPlayResult,result);
+    public void playPcm(Dictionary mObject, boolean isPlayResult, String result) {
+        playResult(mObject, isPlayResult, result);
     }
 
-    private void playResult(final Dictionary mBean,boolean isPlayResult,String result){
+    private void playResult(final Dictionary mBean, boolean isPlayResult, String result) {
         String filepath = "";
         String speakContent = "";
         String path = SDCardUtil.getDownloadPath(SDCardUtil.sdPath);
-        if(isPlayResult){
+        if (isPlayResult) {
             if (TextUtils.isEmpty(mBean.getResultVoiceId())) {
                 mBean.setResultVoiceId(System.currentTimeMillis() + 5 + "");
             }
             filepath = path + mBean.getResultVoiceId() + ".pcm";
             speakContent = result;
-        }else {
+        } else {
             if (TextUtils.isEmpty(mBean.getQuestionVoiceId())) {
                 mBean.setQuestionVoiceId(System.currentTimeMillis() + "");
             }
@@ -594,6 +601,7 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
                         public void onSpeakBegin() {
                             finishLoadding();
                         }
+
                         @Override
                         public void onCompleted(SpeechError arg0) {
                             LogUtil.DefalutLog("---onCompleted");
@@ -602,9 +610,11 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
                             }
                             DataBaseUtil.getInstance().update(mBean);
                         }
+
                         @Override
                         public void onBufferProgress(int arg0, int arg1, int arg2, String arg3) {
                         }
+
                         @Override
                         public void onEvent(int arg0, int arg1, int arg2, Bundle arg3) {
                         }

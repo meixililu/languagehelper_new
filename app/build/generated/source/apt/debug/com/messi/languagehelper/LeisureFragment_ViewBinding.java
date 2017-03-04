@@ -12,20 +12,20 @@ import butterknife.internal.Utils;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 
-public class LeisureFragment_ViewBinding<T extends LeisureFragment> implements Unbinder {
-  protected T target;
+public class LeisureFragment_ViewBinding implements Unbinder {
+  private LeisureFragment target;
 
-  private View view2131558724;
+  private View view2131558715;
 
   @UiThread
-  public LeisureFragment_ViewBinding(final T target, View source) {
+  public LeisureFragment_ViewBinding(final LeisureFragment target, View source) {
     this.target = target;
 
     View view;
     target.yueduLayout = Utils.findRequiredViewAsType(source, R.id.yuedu_layout, "field 'yueduLayout'", FrameLayout.class);
     view = Utils.findRequiredView(source, R.id.twists_layout, "field 'twistsLayout' and method 'onClick'");
     target.twistsLayout = Utils.castView(view, R.id.twists_layout, "field 'twistsLayout'", FrameLayout.class);
-    view2131558724 = view;
+    view2131558715 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -45,8 +45,9 @@ public class LeisureFragment_ViewBinding<T extends LeisureFragment> implements U
   @Override
   @CallSuper
   public void unbind() {
-    T target = this.target;
+    LeisureFragment target = this.target;
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
+    this.target = null;
 
     target.yueduLayout = null;
     target.twistsLayout = null;
@@ -59,9 +60,7 @@ public class LeisureFragment_ViewBinding<T extends LeisureFragment> implements U
     target.invest_layout = null;
     target.sougou_layout = null;
 
-    view2131558724.setOnClickListener(null);
-    view2131558724 = null;
-
-    this.target = null;
+    view2131558715.setOnClickListener(null);
+    view2131558715 = null;
   }
 }

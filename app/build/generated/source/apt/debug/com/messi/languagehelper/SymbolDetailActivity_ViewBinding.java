@@ -15,11 +15,16 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 
-public class SymbolDetailActivity_ViewBinding<T extends SymbolDetailActivity> implements Unbinder {
-  protected T target;
+public class SymbolDetailActivity_ViewBinding implements Unbinder {
+  private SymbolDetailActivity target;
 
   @UiThread
-  public SymbolDetailActivity_ViewBinding(T target, View source) {
+  public SymbolDetailActivity_ViewBinding(SymbolDetailActivity target) {
+    this(target, target.getWindow().getDecorView());
+  }
+
+  @UiThread
+  public SymbolDetailActivity_ViewBinding(SymbolDetailActivity target, View source) {
     this.target = target;
 
     target.videoplayer = Utils.findRequiredViewAsType(source, R.id.videoplayer, "field 'videoplayer'", JCVideoPlayerStandard.class);
@@ -38,8 +43,9 @@ public class SymbolDetailActivity_ViewBinding<T extends SymbolDetailActivity> im
   @Override
   @CallSuper
   public void unbind() {
-    T target = this.target;
+    SymbolDetailActivity target = this.target;
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
+    this.target = null;
 
     target.videoplayer = null;
     target.symbol_en = null;
@@ -52,7 +58,5 @@ public class SymbolDetailActivity_ViewBinding<T extends SymbolDetailActivity> im
     target.symbol_info = null;
     target.content = null;
     target.error_txt = null;
-
-    this.target = null;
   }
 }

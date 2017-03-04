@@ -18,13 +18,18 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 
-public class ReadingDetailActivity_ViewBinding<T extends ReadingDetailActivity> implements Unbinder {
-  protected T target;
+public class ReadingDetailActivity_ViewBinding implements Unbinder {
+  private ReadingDetailActivity target;
 
-  private View view2131558570;
+  private View view2131558569;
 
   @UiThread
-  public ReadingDetailActivity_ViewBinding(final T target, View source) {
+  public ReadingDetailActivity_ViewBinding(ReadingDetailActivity target) {
+    this(target, target.getWindow().getDecorView());
+  }
+
+  @UiThread
+  public ReadingDetailActivity_ViewBinding(final ReadingDetailActivity target, View source) {
     this.target = target;
 
     View view;
@@ -36,7 +41,7 @@ public class ReadingDetailActivity_ViewBinding<T extends ReadingDetailActivity> 
     target.scrollview = Utils.findRequiredViewAsType(source, R.id.scrollview, "field 'scrollview'", NestedScrollView.class);
     view = Utils.findRequiredView(source, R.id.play_btn, "field 'fab' and method 'onClick'");
     target.fab = Utils.castView(view, R.id.play_btn, "field 'fab'", FloatingActionButton.class);
-    view2131558570 = view;
+    view2131558569 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -50,8 +55,9 @@ public class ReadingDetailActivity_ViewBinding<T extends ReadingDetailActivity> 
   @Override
   @CallSuper
   public void unbind() {
-    T target = this.target;
+    ReadingDetailActivity target = this.target;
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
+    this.target = null;
 
     target.toolbar_layout = null;
     target.title = null;
@@ -63,9 +69,7 @@ public class ReadingDetailActivity_ViewBinding<T extends ReadingDetailActivity> 
     target.pimgview = null;
     target.videoplayer = null;
 
-    view2131558570.setOnClickListener(null);
-    view2131558570 = null;
-
-    this.target = null;
+    view2131558569.setOnClickListener(null);
+    view2131558569 = null;
   }
 }

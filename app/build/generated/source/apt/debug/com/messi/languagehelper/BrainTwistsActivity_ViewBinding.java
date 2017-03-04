@@ -12,13 +12,18 @@ import butterknife.internal.Utils;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 
-public class BrainTwistsActivity_ViewBinding<T extends BrainTwistsActivity> implements Unbinder {
-  protected T target;
+public class BrainTwistsActivity_ViewBinding implements Unbinder {
+  private BrainTwistsActivity target;
 
-  private View view2131558548;
+  private View view2131558547;
 
   @UiThread
-  public BrainTwistsActivity_ViewBinding(final T target, View source) {
+  public BrainTwistsActivity_ViewBinding(BrainTwistsActivity target) {
+    this(target, target.getWindow().getDecorView());
+  }
+
+  @UiThread
+  public BrainTwistsActivity_ViewBinding(final BrainTwistsActivity target, View source) {
     this.target = target;
 
     View view;
@@ -26,7 +31,7 @@ public class BrainTwistsActivity_ViewBinding<T extends BrainTwistsActivity> impl
     target.answer = Utils.findRequiredViewAsType(source, R.id.answer, "field 'answer'", TextView.class);
     view = Utils.findRequiredView(source, R.id.answer_cover, "field 'answerCover' and method 'onClick'");
     target.answerCover = Utils.castView(view, R.id.answer_cover, "field 'answerCover'", FrameLayout.class);
-    view2131558548 = view;
+    view2131558547 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -38,16 +43,15 @@ public class BrainTwistsActivity_ViewBinding<T extends BrainTwistsActivity> impl
   @Override
   @CallSuper
   public void unbind() {
-    T target = this.target;
+    BrainTwistsActivity target = this.target;
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
+    this.target = null;
 
     target.question = null;
     target.answer = null;
     target.answerCover = null;
 
-    view2131558548.setOnClickListener(null);
-    view2131558548 = null;
-
-    this.target = null;
+    view2131558547.setOnClickListener(null);
+    view2131558547 = null;
   }
 }

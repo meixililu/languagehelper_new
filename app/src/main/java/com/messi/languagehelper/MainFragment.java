@@ -71,11 +71,13 @@ import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import rx.Observable;
-import rx.Observer;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class MainFragment extends Fragment implements OnClickListener {
 
@@ -730,9 +732,9 @@ public class MainFragment extends Fragment implements OnClickListener {
 
     private void getCollectedDataTask() {
         loadding();
-        Observable.create(new Observable.OnSubscribe<String>() {
+        Observable.create(new ObservableOnSubscribe<String>() {
             @Override
-            public void call(Subscriber<? super String> subscriber) {
+            public void subscribe(ObservableEmitter<String> e) throws Exception {
                 beans.clear();
                 if(isShowCollected){
                     isShowCollected = false;
@@ -741,50 +743,48 @@ public class MainFragment extends Fragment implements OnClickListener {
                     isShowCollected = true;
                     beans.addAll(DataBaseUtil.getInstance().getDataListRecord(0, Settings.offset));
                 }
-                subscriber.onCompleted();
+                e.onComplete();
             }
         })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<String>() {
                     @Override
-                    public void onCompleted() {
-                        finishLoadding();
-                        mAdapter.notifyDataSetChanged();
+                    public void onSubscribe(Disposable d) {
                     }
-
-                    @Override
-                    public void onError(Throwable e) {
-                    }
-
                     @Override
                     public void onNext(String s) {
                     }
+                    @Override
+                    public void onError(Throwable e) {
+                    }
+                    @Override
+                    public void onComplete() {
+                        finishLoadding();
+                        mAdapter.notifyDataSetChanged();
+                    }
                 });
+
     }
 
     private void AutoPlayWaitTask() {
-        Observable.create(new Observable.OnSubscribe<String>() {
-            @Override
-            public void call(Subscriber<? super String> subscriber) {
-                subscriber.onCompleted();
-            }
-        })
+        Observable.just("1")
                 .delay(100, TimeUnit.MILLISECONDS)//延迟发送
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<String>() {
                     @Override
-                    public void onCompleted() {
-                        autoPlay();
+                    public void onSubscribe(Disposable d) {
                     }
-
+                    @Override
+                    public void onNext(String s) {
+                    }
                     @Override
                     public void onError(Throwable e) {
                     }
-
                     @Override
-                    public void onNext(String s) {
+                    public void onComplete() {
+                        autoPlay();
                     }
                 });
     }

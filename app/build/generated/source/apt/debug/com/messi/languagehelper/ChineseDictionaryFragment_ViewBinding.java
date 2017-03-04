@@ -10,11 +10,11 @@ import butterknife.internal.Utils;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 
-public class ChineseDictionaryFragment_ViewBinding<T extends ChineseDictionaryFragment> implements Unbinder {
-  protected T target;
+public class ChineseDictionaryFragment_ViewBinding implements Unbinder {
+  private ChineseDictionaryFragment target;
 
   @UiThread
-  public ChineseDictionaryFragment_ViewBinding(T target, View source) {
+  public ChineseDictionaryFragment_ViewBinding(ChineseDictionaryFragment target, View source) {
     this.target = target;
 
     target.btnBushou = Utils.findRequiredViewAsType(source, R.id.btn_bushou, "field 'btnBushou'", TextView.class);
@@ -24,12 +24,11 @@ public class ChineseDictionaryFragment_ViewBinding<T extends ChineseDictionaryFr
   @Override
   @CallSuper
   public void unbind() {
-    T target = this.target;
+    ChineseDictionaryFragment target = this.target;
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
+    this.target = null;
 
     target.btnBushou = null;
     target.btnPinyin = null;
-
-    this.target = null;
   }
 }

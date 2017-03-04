@@ -13,11 +13,12 @@ import com.messi.languagehelper.R;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 
-public class ChDicBushouPinyinListAdapter$ViewHolder_ViewBinding<T extends ChDicBushouPinyinListAdapter.ViewHolder> implements Unbinder {
-  protected T target;
+public class ChDicBushouPinyinListAdapter$ViewHolder_ViewBinding implements Unbinder {
+  private ChDicBushouPinyinListAdapter.ViewHolder target;
 
   @UiThread
-  public ChDicBushouPinyinListAdapter$ViewHolder_ViewBinding(T target, View source) {
+  public ChDicBushouPinyinListAdapter$ViewHolder_ViewBinding(ChDicBushouPinyinListAdapter.ViewHolder target,
+      View source) {
     this.target = target;
 
     target.textJijie = Utils.findRequiredViewAsType(source, R.id.text_jijie, "field 'textJijie'", TextView.class);
@@ -31,8 +32,9 @@ public class ChDicBushouPinyinListAdapter$ViewHolder_ViewBinding<T extends ChDic
   @Override
   @CallSuper
   public void unbind() {
-    T target = this.target;
+    ChDicBushouPinyinListAdapter.ViewHolder target = this.target;
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
+    this.target = null;
 
     target.textJijie = null;
     target.textXiangjie = null;
@@ -40,7 +42,5 @@ public class ChDicBushouPinyinListAdapter$ViewHolder_ViewBinding<T extends ChDic
     target.copyCover = null;
     target.fullscreenImg = null;
     target.fullscreenCover = null;
-
-    this.target = null;
   }
 }

@@ -51,11 +51,13 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import rx.Observable;
-import rx.Observer;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class SpokenEnglishCategorySecondaryActivity extends BaseActivity implements View.OnClickListener, SpokenEnglishPlayListener {
 
@@ -368,31 +370,32 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
 
     private void getDataTask() {
         showProgressbar();
-        Observable.create(new Observable.OnSubscribe<String>() {
+        Observable.create(new ObservableOnSubscribe<String>() {
             @Override
-            public void call(Subscriber<? super String> subscriber) {
+            public void subscribe(ObservableEmitter<String> e) throws Exception {
                 queryData();
-                subscriber.onCompleted();
+                e.onComplete();
             }
         })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<String>() {
                     @Override
-                    public void onCompleted() {
-                        onQueryDataFinish();
-                        setConversationContent();
+                    public void onSubscribe(Disposable d) {
                     }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        onQueryDataFinish();
-                    }
-
                     @Override
                     public void onNext(String s) {
                     }
+                    @Override
+                    public void onError(Throwable e) {
+                    }
+                    @Override
+                    public void onComplete() {
+                        onQueryDataFinish();
+                        setConversationContent();
+                    }
                 });
+
     }
 
     private void queryData() {
@@ -510,30 +513,24 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
     }
 
     private void playMp3(final String url, final String path, final String fileName) {
-        Observable.create(new Observable.OnSubscribe<String>() {
+        Observable.create(new ObservableOnSubscribe<String>() {
             @Override
-            public void call(Subscriber<? super String> subscriber) {
+            public void subscribe(ObservableEmitter<String> e) throws Exception {
                 String fullName = SDCardUtil.getDownloadPath(path) + fileName;
                 if (!AudioTrackUtil.isFileExists(fullName)) {
-                    subscriber.onNext("showProgressbar");
+                    e.onNext("showProgressbar");
                     DownLoadUtil.downloadFile(SpokenEnglishCategorySecondaryActivity.this, url, path, fileName);
-                    subscriber.onNext("hideProgressbar");
+                    e.onNext("hideProgressbar");
                 }
-                playMp3(fullName, subscriber);
+                playMp3(fullName, e);
             }
         })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<String>() {
                     @Override
-                    public void onCompleted() {
-                        onfinishPlay();
+                    public void onSubscribe(Disposable d) {
                     }
-
-                    @Override
-                    public void onError(Throwable e) {
-                    }
-
                     @Override
                     public void onNext(String s) {
                         if (s.equals("showProgressbar")) {
@@ -543,36 +540,45 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
                             hideProgressbar();
                         }
                     }
+                    @Override
+                    public void onError(Throwable e) {
+                    }
+                    @Override
+                    public void onComplete() {
+                        onfinishPlay();
+                    }
                 });
+
     }
 
     private void playLocalPcm(final String path) {
-        Observable.create(new Observable.OnSubscribe<String>() {
+        Observable.create(new ObservableOnSubscribe<String>() {
             @Override
-            public void call(Subscriber<? super String> subscriber) {
+            public void subscribe(ObservableEmitter<String> e) throws Exception {
                 AudioTrackUtil.createAudioTrack(path);
-                subscriber.onCompleted();
+                e.onComplete();
             }
         })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<String>() {
                     @Override
-                    public void onCompleted() {
-                        onfinishPlay();
+                    public void onSubscribe(Disposable d) {
                     }
-
+                    @Override
+                    public void onNext(String s) {
+                    }
                     @Override
                     public void onError(Throwable e) {
                     }
-
                     @Override
-                    public void onNext(String s) {
+                    public void onComplete() {
+                        onfinishPlay();
                     }
                 });
     }
 
-    private void playMp3(String uriPath, final Subscriber<? super String> subscriber) {
+    private void playMp3(String uriPath, final ObservableEmitter<String> subscriber) {
         try {
             mPlayer.reset();
             LogUtil.DefalutLog("uriPath:" + uriPath);
@@ -581,7 +587,7 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
             mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mp) {
-                    subscriber.onCompleted();
+                    subscriber.onComplete();
                 }
             });
             mPlayer.prepare();

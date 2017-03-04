@@ -11,19 +11,24 @@ import butterknife.internal.Utils;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 
-public class AboutActivity_ViewBinding<T extends AboutActivity> implements Unbinder {
-  protected T target;
+public class AboutActivity_ViewBinding implements Unbinder {
+  private AboutActivity target;
 
-  private View view2131558541;
+  private View view2131558540;
 
   @UiThread
-  public AboutActivity_ViewBinding(final T target, View source) {
+  public AboutActivity_ViewBinding(AboutActivity target) {
+    this(target, target.getWindow().getDecorView());
+  }
+
+  @UiThread
+  public AboutActivity_ViewBinding(final AboutActivity target, View source) {
     this.target = target;
 
     View view;
     view = Utils.findRequiredView(source, R.id.email_layout, "field 'email_layout' and method 'onClick'");
     target.email_layout = Utils.castView(view, R.id.email_layout, "field 'email_layout'", TextView.class);
-    view2131558541 = view;
+    view2131558540 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -36,15 +41,14 @@ public class AboutActivity_ViewBinding<T extends AboutActivity> implements Unbin
   @Override
   @CallSuper
   public void unbind() {
-    T target = this.target;
+    AboutActivity target = this.target;
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
+    this.target = null;
 
     target.email_layout = null;
     target.app_version = null;
 
-    view2131558541.setOnClickListener(null);
-    view2131558541 = null;
-
-    this.target = null;
+    view2131558540.setOnClickListener(null);
+    view2131558540 = null;
   }
 }

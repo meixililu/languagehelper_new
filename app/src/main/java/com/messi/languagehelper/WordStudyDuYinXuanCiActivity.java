@@ -25,11 +25,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.GridView;
 
-import rx.Observable;
-import rx.Observer;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnClickListener {
 
@@ -94,29 +96,30 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnClic
 	private void getDataTask() {
 		if(WordStudyFourthActivity.itemList == null || WordStudyFourthActivity.itemList.size() == 0){
 			showProgressbar();
-			Observable.create(new Observable.OnSubscribe<String>() {
+			Observable.create(new ObservableOnSubscribe<String>() {
 				@Override
-				public void call(Subscriber<? super String> subscriber) {
+				public void subscribe(ObservableEmitter<String> e) throws Exception {
 					loadData();
-					subscriber.onCompleted();
+					e.onComplete();
 				}
 			})
-			.subscribeOn(Schedulers.io())
-			.observeOn(AndroidSchedulers.mainThread())
-			.subscribe(new Observer<String>() {
-				@Override
-				public void onCompleted() {
-					onFinishLoadData();
-				}
-
-				@Override
-				public void onError(Throwable e) {
-				}
-
-				@Override
-				public void onNext(String s) {
-				}
-			});
+					.subscribeOn(Schedulers.io())
+					.observeOn(AndroidSchedulers.mainThread())
+					.subscribe(new Observer<String>() {
+						@Override
+						public void onSubscribe(Disposable d) {
+						}
+						@Override
+						public void onNext(String s) {
+						}
+						@Override
+						public void onError(Throwable e) {
+						}
+						@Override
+						public void onComplete() {
+							onFinishLoadData();
+						}
+					});
 		}else {
 			clearPlaySign();
 			onFinishLoadData();

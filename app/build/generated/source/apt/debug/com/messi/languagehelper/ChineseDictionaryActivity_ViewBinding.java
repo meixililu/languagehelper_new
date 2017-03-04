@@ -11,11 +11,16 @@ import butterknife.internal.Utils;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 
-public class ChineseDictionaryActivity_ViewBinding<T extends ChineseDictionaryActivity> implements Unbinder {
-  protected T target;
+public class ChineseDictionaryActivity_ViewBinding implements Unbinder {
+  private ChineseDictionaryActivity target;
 
   @UiThread
-  public ChineseDictionaryActivity_ViewBinding(T target, View source) {
+  public ChineseDictionaryActivity_ViewBinding(ChineseDictionaryActivity target) {
+    this(target, target.getWindow().getDecorView());
+  }
+
+  @UiThread
+  public ChineseDictionaryActivity_ViewBinding(ChineseDictionaryActivity target, View source) {
     this.target = target;
 
     target.tablayout = Utils.findRequiredViewAsType(source, R.id.tablayout, "field 'tablayout'", TabLayout.class);
@@ -25,12 +30,11 @@ public class ChineseDictionaryActivity_ViewBinding<T extends ChineseDictionaryAc
   @Override
   @CallSuper
   public void unbind() {
-    T target = this.target;
+    ChineseDictionaryActivity target = this.target;
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
+    this.target = null;
 
     target.tablayout = null;
     target.viewPager = null;
-
-    this.target = null;
   }
 }

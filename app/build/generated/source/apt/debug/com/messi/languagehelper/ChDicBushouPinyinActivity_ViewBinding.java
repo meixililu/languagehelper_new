@@ -10,11 +10,16 @@ import butterknife.internal.Utils;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 
-public class ChDicBushouPinyinActivity_ViewBinding<T extends ChDicBushouPinyinActivity> implements Unbinder {
-  protected T target;
+public class ChDicBushouPinyinActivity_ViewBinding implements Unbinder {
+  private ChDicBushouPinyinActivity target;
 
   @UiThread
-  public ChDicBushouPinyinActivity_ViewBinding(T target, View source) {
+  public ChDicBushouPinyinActivity_ViewBinding(ChDicBushouPinyinActivity target) {
+    this(target, target.getWindow().getDecorView());
+  }
+
+  @UiThread
+  public ChDicBushouPinyinActivity_ViewBinding(ChDicBushouPinyinActivity target, View source) {
     this.target = target;
 
     target.studycategoryLv = Utils.findRequiredViewAsType(source, R.id.studycategory_lv, "field 'studycategoryLv'", GridView.class);
@@ -23,11 +28,10 @@ public class ChDicBushouPinyinActivity_ViewBinding<T extends ChDicBushouPinyinAc
   @Override
   @CallSuper
   public void unbind() {
-    T target = this.target;
+    ChDicBushouPinyinActivity target = this.target;
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
+    this.target = null;
 
     target.studycategoryLv = null;
-
-    this.target = null;
   }
 }

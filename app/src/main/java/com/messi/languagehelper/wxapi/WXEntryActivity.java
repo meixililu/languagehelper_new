@@ -49,10 +49,6 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 	public static WXEntryActivity mInstance;
 	private SharedPreferences mSharedPreferences;
 
-	private static DaoMaster daoMaster;
-	private static DaoSession daoSession;
-
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

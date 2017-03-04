@@ -16,10 +16,6 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-xxhdpi/ic_photo_camera_grey600_24dp.png"
     },
     {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_swap_grey.png",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-xxhdpi/ic_swap_grey.png"
-    },
-    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_skip_next.png",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-xxhdpi/ic_skip_next.png"
     },
@@ -112,20 +108,8 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-xxhdpi/ic_pause_circle_outline_grey600_36dp.png"
     },
     {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-xxhdpi/icon_exchange.png",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-xxhdpi/icon_exchange.png"
-    },
-    {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-xxhdpi/baidu_icon.png",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-xxhdpi/baidu_icon.png"
-    },
-    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_clear_gray.png",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-xxhdpi/ic_clear_gray.png"
-    },
-    {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_thumb_up_grey600_24dp.png",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-xxhdpi/ic_thumb_up_grey600_24dp.png"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_mic.png",
@@ -176,10 +160,6 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-xxhdpi/uncollected.png"
     },
     {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_mic_btn.png",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-xxhdpi/ic_mic_btn.png"
-    },
-    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_visibility_grey600_36dp.png",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-xxhdpi/ic_visibility_grey600_36dp.png"
     },
@@ -198,10 +178,6 @@
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_get_app_white_36dp.png",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-xxhdpi/ic_get_app_white_36dp.png"
-    },
-    {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_menu_white_24dp.png",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-xxhdpi/ic_menu_white_24dp.png"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-xxhdpi/collect_d.png",

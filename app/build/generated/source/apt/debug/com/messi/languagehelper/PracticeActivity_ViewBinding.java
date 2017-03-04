@@ -15,11 +15,16 @@ import butterknife.internal.Utils;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 
-public class PracticeActivity_ViewBinding<T extends PracticeActivity> implements Unbinder {
-  protected T target;
+public class PracticeActivity_ViewBinding implements Unbinder {
+  private PracticeActivity target;
 
   @UiThread
-  public PracticeActivity_ViewBinding(T target, View source) {
+  public PracticeActivity_ViewBinding(PracticeActivity target) {
+    this(target, target.getWindow().getDecorView());
+  }
+
+  @UiThread
+  public PracticeActivity_ViewBinding(PracticeActivity target, View source) {
     this.target = target;
 
     target.voice_btn_cover = Utils.findRequiredViewAsType(source, R.id.voice_btn_cover, "field 'voice_btn_cover'", FrameLayout.class);
@@ -41,8 +46,9 @@ public class PracticeActivity_ViewBinding<T extends PracticeActivity> implements
   @Override
   @CallSuper
   public void unbind() {
-    T target = this.target;
+    PracticeActivity target = this.target;
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
+    this.target = null;
 
     target.voice_btn_cover = null;
     target.voice_btn = null;
@@ -58,7 +64,5 @@ public class PracticeActivity_ViewBinding<T extends PracticeActivity> implements
     target.record_layout = null;
     target.record_animation_text = null;
     target.record_animation_layout = null;
-
-    this.target = null;
   }
 }
