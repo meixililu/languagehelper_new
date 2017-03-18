@@ -51,6 +51,7 @@
     <string name="dic_tab_shoucang">Collected</string>
     <string name="download">Try it</string>
     <string name="english">En</string>
+    <string name="english_essay">English Essay</string>
     <string name="errcode_cancel">cancel</string>
     <string name="errcode_deny">deny</string>
     <string name="errcode_success">success</string>
@@ -58,7 +59,6 @@
     <string name="evaluation_prompt">About Evaluation</string>
     <string name="examination">Examination</string>
     <string name="exit_program">Press again to exit the program</string>
-    <string name="favorite_cancle">collect cancle</string>
     <string name="favorite_success">collect success</string>
     <string name="feedback">Feedback</string>
     <string name="fifth_normal">normal:50</string>
@@ -159,6 +159,7 @@
     <string name="recent_use_footer_prompt">Prompt</string>
     <string name="recent_use_footer_prompt_content">\tHere only save 100 record，you also can collect which you like.
 	    And we are trying to improve the translate result and the software,thank you.</string>
+    <string name="restart_success">Reboot App</string>
     <string name="search">Search</string>
     <string name="sentence">Sentence</string>
     <string name="server_error">Server Error,Retry Later Please!</string>
@@ -175,6 +176,9 @@
     <string name="spoken_english_practice">Practice</string>
     <string name="spoken_english_reading">Learn</string>
     <string name="start">Start</string>
+    <string name="style_classic">Classic</string>
+    <string name="style_minimalist">Minimalist</string>
+    <string name="style_select">Select Style</string>
     <string name="symbolStudy">Symbol Study</string>
     <string name="take_photo">TakePhoto</string>
     <string name="textclickguidedialog_content">Click the content and result also will play the speech,You can change the speech speed in Settings.</string>
@@ -190,14 +194,14 @@
     <string name="title_dictionary">Dictionary</string>
     <string name="title_dictionary_idiom">Dictionary of Idiom</string>
     <string name="title_duanzi">Joke</string>
-    <string name="title_duanzi_gif">Gif</string>
+    <string name="title_duanzi_gif">Vidoe</string>
     <string name="title_duanzi_img">Picture</string>
-    <string name="title_duanzi_word">Text</string>
+    <string name="title_duanzi_mm">Beauty</string>
     <string name="title_english_jokes">Jokes</string>
     <string name="title_english_story">Story</string>
     <string name="title_english_video">Videos</string>
     <string name="title_favorite">Favorite</string>
-    <string name="title_help">Help</string>
+    <string name="title_help">Style</string>
     <string name="title_hotel">Hotel</string>
     <string name="title_instagram">Instagram</string>
     <string name="title_juhe">Synthesize</string>

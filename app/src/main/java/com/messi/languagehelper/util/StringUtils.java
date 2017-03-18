@@ -1,7 +1,22 @@
 package com.messi.languagehelper.util;
 
+import android.text.Html;
+import android.text.Spanned;
+
 public class StringUtils {
-	
+
+	@SuppressWarnings("deprecation")
+	public static Spanned fromHtml(String html){
+		html = html.replace("&lt;br&gt;","\n");
+		Spanned result;
+		if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+			result = Html.fromHtml(html,Html.FROM_HTML_MODE_LEGACY);
+		} else {
+			result = Html.fromHtml(html);
+		}
+		return result;
+	}
+
 	public static void setSpeakerByLan(String lan) {
 		if(lan.equals("en")){
 			Settings.role = XFUtil.SpeakerEn;
@@ -11,8 +26,8 @@ public class StringUtils {
 	}
 	
 	public static void setSpeaker(String content) {
-		Settings.role = XFUtil.SpeakerZh;
 		LogUtil.DefalutLog(content+"---"+isEnglish(content));
+		Settings.role = XFUtil.SpeakerZh;
 		if (isEnglish(content)) {
 			Settings.role = XFUtil.SpeakerEn;
 		}

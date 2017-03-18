@@ -1,7 +1,6 @@
 package com.messi.languagehelper.adapter;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,6 +8,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.messi.languagehelper.DictionaryFragment;
+import com.messi.languagehelper.DictionaryFragmentOld;
 import com.messi.languagehelper.LeisureFragment;
 import com.messi.languagehelper.MainFragment;
 import com.messi.languagehelper.MainFragmentOld;
@@ -22,6 +22,7 @@ public class MainPageAdapter extends FragmentPagerAdapter {
 	private Bundle bundle;
 	private Activity mContext;
 	private SharedPreferences mSharedPreferences;
+    private StudyFragment mfragment;
 
     public MainPageAdapter(FragmentManager fm,Bundle bundle,Activity mContext,SharedPreferences mSharedPreferences) {
         super(fm);
@@ -45,17 +46,24 @@ public class MainPageAdapter extends FragmentPagerAdapter {
         	    return MainFragment.getInstance(bundle,mContext);
             }
         }else if( position == 1 ){
-            if(mSharedPreferences.getBoolean(KeyUtil.IsUseOldStyle,false)){
-                return DictionaryFragment.getInstance(bundle,mContext);
+            if(mSharedPreferences.getBoolean(KeyUtil.IsUseOldStyle,true)){
+                return DictionaryFragmentOld.getInstance(bundle,mContext);
             }else {
                 return DictionaryFragment.getInstance(bundle,mContext);
             }
         }else if( position == 2 ){
-        	return StudyFragment.getInstance();
+            mfragment = StudyFragment.getInstance();
+        	return mfragment;
         }else if( position == 3 ){
         	return LeisureFragment.getInstance();
         }
         return null;
+    }
+
+    public void onTabReselected(int index){
+        if(mfragment != null){
+            mfragment.onTabReselected(index);
+        }
     }
 
     @Override

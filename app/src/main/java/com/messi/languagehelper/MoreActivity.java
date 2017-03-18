@@ -31,6 +31,10 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
     FrameLayout invite_layout;
     @BindView(R.id.qrcode_layout)
     FrameLayout qrcode_layout;
+    @BindView(R.id.setting_layout)
+    FrameLayout setting_layout;
+    @BindView(R.id.collected_layout)
+    FrameLayout collected_layout;
     private SharedPreferences mSharedPreferences;
 
     @Override
@@ -50,12 +54,22 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
         about_layout.setOnClickListener(this);
         invite_layout.setOnClickListener(this);
         qrcode_layout.setOnClickListener(this);
+        setting_layout.setOnClickListener(this);
+        collected_layout.setOnClickListener(this);
     }
 
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.setting_layout:
+                toActivity(SettingActivity.class, null);
+                AVAnalytics.onEvent(MoreActivity.this, "more_pg_tosettingpg_btn");
+                break;
+            case R.id.collected_layout:
+                toActivity(CollectedActivity.class, null);
+                AVAnalytics.onEvent(this, "index_pg_to_collectedpg");
+                break;
             case R.id.costom_share_layout:
                 toActivity(ImgShareActivity.class, null);
                 break;

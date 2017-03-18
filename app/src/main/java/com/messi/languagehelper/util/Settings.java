@@ -106,13 +106,18 @@ public class Settings {
 
 	public static final String TXNewsApi = "http://api.tianapi.com/";
 
+	public static final String EssayApi = "http://route.showapi.com/1211-1";
+
 	public static final String TXNewsApiEnd = "?key=18f7f9dbd7dfcd8ab45efdcfbc33826d&num=15&page=";
 
 	/**广阅通**/
 	public static final String GuangyuetongUrl = "http://p.contx.cn/v1/access?id=f9136944-bc17-4cb1-9b14-ece9de91b39d&uid=#uid#&ud=#ud#";
 
+	//应用静态常量：
+	public static boolean isMainFragmentNeedRefresh;
+	public static boolean isDictionaryFragmentNeedRefresh;
+
 	public static final String Email = "meixililulu@163.com";
-	
 	public static final String showapi_appid = "11619";	
 	public static final String showapi_secret = "f27574671ec14eb4a97faacb2eee3ef2";	
 	
@@ -176,8 +181,7 @@ public class Settings {
 	
 	/**
 	 * 保存配置信息
-	 * 
-	 * @param context
+	 *
 	 * @param value
 	 * @param key
 	 */
@@ -191,7 +195,6 @@ public class Settings {
 	/**
 	 * 保存配置信息
 	 * 
-	 * @param context
 	 * @param value
 	 * @param key
 	 */
@@ -201,11 +204,23 @@ public class Settings {
 		editor.putBoolean(key, value);
 		editor.commit();
 	}
+
+	/**
+	 * 保存配置信息
+	 *
+	 * @param value
+	 * @param key
+	 */
+	public static void saveSharedPreferences(String key, boolean value) {
+		LogUtil.DefalutLog("key-value:" + key + "-" + value);
+		Editor editor = PlayUtil.getSP().edit();
+		editor.putBoolean(key, value);
+		editor.commit();
+	}
 	
 	/**
 	 * 保存配置信息
 	 * 
-	 * @param context
 	 * @param value
 	 * @param key
 	 */
@@ -219,7 +234,6 @@ public class Settings {
 	/**
 	 * 保存配置信息
 	 * 
-	 * @param context
 	 * @param value
 	 * @param key
 	 */

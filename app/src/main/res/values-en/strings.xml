@@ -20,7 +20,7 @@
     <string name="title_english_story">Story</string>
     <string name="title_sougo_wechat">Wechat English</string>
     <string name="title_juhe">Synthesize</string>
-    <string name="title_help">Help</string>
+    <string name="title_help">Style</string>
     <string name="title_more">More</string>
     <string name="title_translate">Translate</string>
     <string name="title_dictionary">Dictionary</string>
@@ -40,9 +40,9 @@
     <string name="word_study_detail_menu">Listen</string>
     <string name="offline_download">Download Mp3</string>
     <string name="title_duanzi">Joke</string>
-    <string name="title_duanzi_word">Text</string>
+    <string name="title_duanzi_mm">Beauty</string>
     <string name="title_duanzi_img">Picture</string>
-    <string name="title_duanzi_gif">Gif</string>
+    <string name="title_duanzi_gif">Vidoe</string>
     <string name="title_composition">Composition</string>
     <string name="copy">Copy</string>
     <string name="background_color">Background Color</string>
@@ -141,8 +141,7 @@
     <string name="share">Share</string>
     <string name="share_buddy">Share to buddy</string>
     <string name="favorite_success">collect success</string>
-    <string name="favorite_cancle">collect cancle</string>
-    
+
     <string name="click_where_unknow">click where unknow:</string>
     <string name="close">Close</string>
     <string name="errcode_success">success</string>
@@ -182,6 +181,7 @@
 
     <string name="input_et_hint_dictionary">Please input Chinese or English word</string>
 	<string name="dailysentence">Daily Sentence</string>
+    <string name="english_essay">English Essay</string>
 	<string name="spoken_english_practice">Practice</string>
 	<string name="spoken_english_reading">Learn</string>
 	<string name="symbolStudy">Symbol Study</string>
@@ -252,4 +252,8 @@
 	<string name="follow_teacher">Follow Teacher</string>
 	<string name="server_error">Server Error,Retry Later Please!</string>
 	<string name="network_error">Network Error,Retry Later Please!</string>
+    <string name="style_select">Select Style</string>
+    <string name="style_classic">Classic</string>
+    <string name="style_minimalist">Minimalist</string>
+    <string name="restart_success">Reboot App</string>
 </resources>

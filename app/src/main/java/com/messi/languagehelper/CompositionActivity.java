@@ -21,6 +21,8 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+
 public class CompositionActivity extends BaseActivity implements FragmentProgressbarListener{
 
 	private TabLayout tablayout;
@@ -111,6 +113,20 @@ public class CompositionActivity extends BaseActivity implements FragmentProgres
 		viewpager.setAdapter(pageAdapter);
 		viewpager.setOffscreenPageLimit(5);
 		tablayout.setupWithViewPager(viewpager);
+	}
+
+	@Override
+	public void onBackPressed() {
+		if (JCVideoPlayer.backPress()) {
+			return;
+		}
+		super.onBackPressed();
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		JCVideoPlayer.releaseAllVideos();
 	}
 	
 	@Override

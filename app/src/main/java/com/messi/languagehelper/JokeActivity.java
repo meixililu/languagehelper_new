@@ -32,6 +32,20 @@ public class JokeActivity extends BaseActivity implements FragmentProgressbarLis
         viewpager.setAdapter(pageAdapter);
         viewpager.setOffscreenPageLimit(3);
         tablayout.setupWithViewPager(viewpager);
+        tablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+            }
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                if(pageAdapter != null){
+                    pageAdapter.onTabReselected(tab.getPosition());
+                }
+            }
+        });
     }
 
     @Override
@@ -45,5 +59,11 @@ public class JokeActivity extends BaseActivity implements FragmentProgressbarLis
             return;
         }
         super.onBackPressed();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JCVideoPlayer.releaseAllVideos();
     }
 }

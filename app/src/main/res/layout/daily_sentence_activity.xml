@@ -1,33 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@color/contentbg"
-    android:orientation="vertical" >
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mswiperefreshlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/my_awesome_toolbar"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/listview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize" >
-        <ProgressBar style="@style/CircularProgressWhite"
-	                android:id="@+id/progressBarCircularIndetermininate"
-	                android:layout_width="28dp"
-	                android:layout_height="28dp"
-            		android:layout_gravity="right"
-            		android:visibility="gone" />
-	    
-	    </android.support.v7.widget.Toolbar>
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:paddingTop="4dp" />
+</android.support.v4.widget.SwipeRefreshLayout>
 
-	<android.support.v7.widget.RecyclerView
-		android:id="@+id/listview"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:paddingLeft="4dp"
-		android:paddingRight="4dp"
-		android:paddingTop="4dp"
-		android:background="@color/white"
-		/>
-
-</LinearLayout>

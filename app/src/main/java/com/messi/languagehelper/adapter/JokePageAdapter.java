@@ -1,9 +1,6 @@
 package com.messi.languagehelper.adapter;
 
-import com.messi.languagehelper.JokeBuDeJieFragment;
-import com.messi.languagehelper.JokeGifFragment;
-import com.messi.languagehelper.JokePictureFragment;
-import com.messi.languagehelper.JokeTextFragment;
+import com.messi.languagehelper.JokeFragment;
 import com.messi.languagehelper.R;
 
 import android.content.Context;
@@ -14,30 +11,59 @@ import android.support.v4.app.FragmentPagerAdapter;
 public class JokePageAdapter extends FragmentPagerAdapter {
 
 	public static String[] CONTENT;
-	
+    private JokeFragment mJokeFragment0;
+    private JokeFragment mJokeFragment1;
+    private JokeFragment mJokeFragment2;
+    private JokeFragment mJokeFragment3;
+
     public JokePageAdapter(FragmentManager fm,Context mContext) {
         super(fm);
         CONTENT = new String[] { 
+        		mContext.getResources().getString(R.string.leisuer_duanzi),
         		mContext.getResources().getString(R.string.title_duanzi_img),
-        		mContext.getResources().getString(R.string.title_duanzi),
-//        		mContext.getResources().getString(R.string.title_duanzi_gif),
-        		mContext.getResources().getString(R.string.title_duanzi_word)
+        		mContext.getResources().getString(R.string.title_duanzi_gif),
+        		mContext.getResources().getString(R.string.title_duanzi_mm)
         };
     }
 
+//    category 101 搞笑; 102 段子; 103 美女;
     @Override
     public Fragment getItem(int position) {
         if( position == 0 ){
-        	return new JokePictureFragment();
+            mJokeFragment0 = JokeFragment.newInstance("");
+            return mJokeFragment0;
         }else if( position == 1 ){
-        	return new JokeBuDeJieFragment();
+            mJokeFragment1 = JokeFragment.newInstance("img");
+            return mJokeFragment1;
         }else if( position == 2 ){
-            return new JokeTextFragment();
-//        	return new JokeGifFragment();
+            mJokeFragment2 = JokeFragment.newInstance("video");
+            return mJokeFragment2;
         }else if( position == 3 ){
-            return new JokeTextFragment();
+            mJokeFragment3 = JokeFragment.newInstance("103");
+            return mJokeFragment3;
         }
         return null;
+    }
+
+    public void onTabReselected(int index){
+        if(index == 0){
+            if(mJokeFragment0 != null){
+                mJokeFragment0.onTabReselected(index);
+            }
+        }else if(index == 1){
+            if(mJokeFragment1 != null){
+                mJokeFragment1.onTabReselected(index);
+            }
+        }else if(index == 2){
+            if(mJokeFragment2 != null){
+                mJokeFragment2.onTabReselected(index);
+            }
+        }else if(index == 3){
+            if(mJokeFragment3 != null){
+                mJokeFragment3.onTabReselected(index);
+            }
+        }
+
     }
 
     @Override

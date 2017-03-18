@@ -1,16 +1,11 @@
 package com.messi.languagehelper.adapter;
 
 import android.app.Activity;
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.messi.languagehelper.JokeBuDeJieFragment;
-import com.messi.languagehelper.JokePictureFragment;
-import com.messi.languagehelper.JokeTextFragment;
 import com.messi.languagehelper.NewsFragment;
-import com.messi.languagehelper.R;
 import com.messi.languagehelper.ToutiaoNewsFragment;
 import com.messi.languagehelper.WechatJXFragment;
 

@@ -36,6 +36,8 @@ import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.ListView;
 
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+
 public class ReadingsActivity extends BaseActivity implements OnClickListener{
 
 	private RecyclerView listview;
@@ -243,6 +245,20 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 		}else{
 			return true;
 		}
+	}
+
+	@Override
+	public void onBackPressed() {
+		if (JCVideoPlayer.backPress()) {
+			return;
+		}
+		super.onBackPressed();
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		JCVideoPlayer.releaseAllVideos();
 	}
 
 	@Override

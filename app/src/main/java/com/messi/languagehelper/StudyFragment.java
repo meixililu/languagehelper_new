@@ -16,7 +16,6 @@ import com.iflytek.voiceads.AdKeys;
 import com.iflytek.voiceads.IFLYNativeAd;
 import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
-import com.messi.languagehelper.adapter.RcReadingListAdapter;
 import com.messi.languagehelper.adapter.RcStudyListAdapter;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.ADUtil;
@@ -33,6 +32,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -140,6 +140,20 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
                 }
             }
         }
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if(!isVisibleToUser){
+            JCVideoPlayer.releaseAllVideos();
+        }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        JCVideoPlayer.releaseAllVideos();
     }
 
     @Override
@@ -298,5 +312,9 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
         mAdapter.showFooter();
     }
 
-
+    public void onTabReselected(int index) {
+        if(index == 2){
+            listview.scrollToPosition(0);
+        }
+    }
 }

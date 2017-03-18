@@ -3,24 +3,22 @@ package com.messi.languagehelper.wxapi;
 
 import com.avos.avoscloud.AVAnalytics;
 import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SpeechUtility;
 import com.messi.languagehelper.BaseActivity;
 import com.messi.languagehelper.MoreActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.WebViewFragment;
 import com.messi.languagehelper.adapter.MainPageAdapter;
-import com.messi.languagehelper.dao.DaoMaster;
-import com.messi.languagehelper.dao.DaoSession;
 import com.messi.languagehelper.db.DataBaseUtil;
-import com.messi.languagehelper.db.LHContract;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.TranslateUtil;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -35,6 +33,8 @@ import android.widget.Toast;
 
 import java.util.HashMap;
 
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+
 public class WXEntryActivity extends BaseActivity implements OnClickListener,FragmentProgressbarListener {
 
 	public static HashMap<String, Object> dataMap = new HashMap<String, Object>();
@@ -45,9 +45,9 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 	private long exitTime = 0;
 	private Bundle bundle;
 	private boolean isRespondWX;
-	public static int currentIndex = 0;
 	public static WXEntryActivity mInstance;
 	private SharedPreferences mSharedPreferences;
+	private SpeechSynthesizer mSpeechSynthesizer;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -55,7 +55,6 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 		try {
 			setContentView(R.layout.content_frame);
 			mInstance = this;
-			initDatas();
 			initViews();
 			Settings.verifyStoragePermissions(this,Settings.PERMISSIONS_STORAGE);
 //			checkUpdate();
@@ -63,25 +62,39 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 			e.printStackTrace();
 		}
 	}
-	
-	private void initDatas(){
+
+	private void initViews(){
 		bundle = getIntent().getExtras();
 		SpeechUtility.createUtility(this, SpeechConstant.APPID + "=" +getString(R.string.app_id));
-	}
-	
-	private void initViews(){
-		mSharedPreferences = getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
 		if (toolbar != null) {
 			getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 			getSupportActionBar().setTitle("");
 		}
-        
+		mSharedPreferences = getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
+		mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
+		PlayUtil.initData(this,mSpeechSynthesizer,mSharedPreferences);
+
 		viewPager = (ViewPager) findViewById(R.id.pager);
 		tablayout = (TabLayout) findViewById(R.id.tablayout);
-		mAdapter = new MainPageAdapter(this.getSupportFragmentManager(),bundle,this,mSharedPreferences);
+		mAdapter = new MainPageAdapter(this.getSupportFragmentManager(),bundle,this,
+				mSharedPreferences);
 		viewPager.setAdapter(mAdapter);
 		viewPager.setOffscreenPageLimit(4);
 		tablayout.setupWithViewPager(viewPager);
+		tablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+			@Override
+			public void onTabSelected(TabLayout.Tab tab) {
+			}
+			@Override
+			public void onTabUnselected(TabLayout.Tab tab) {
+			}
+			@Override
+			public void onTabReselected(TabLayout.Tab tab) {
+				if(mAdapter != null){
+					mAdapter.onTabReselected(tab.getPosition());
+				}
+			}
+		});
 		
         setLastTimeSelectTab();
 	}
@@ -125,6 +138,9 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 	
 	@Override
 	public void onBackPressed() {
+		if (JCVideoPlayer.backPress()) {
+			return;
+		}
     	if ((System.currentTimeMillis() - exitTime) > 2000) {
 			Toast.makeText(getApplicationContext(), this.getResources().getString(R.string.exit_program), Toast.LENGTH_SHORT).show();
 			exitTime = System.currentTimeMillis();
@@ -156,6 +172,14 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 		if(mSharedPreferences.getBoolean(KeyUtil.AutoClearTran, false)){
 			DataBaseUtil.getInstance().clearExceptFavoriteTran();
 		}
+		JCVideoPlayer.releaseAllVideos();
+		PlayUtil.onDestroy();
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		JCVideoPlayer.releaseAllVideos();
 	}
 
 	//	private void checkUpdate(){

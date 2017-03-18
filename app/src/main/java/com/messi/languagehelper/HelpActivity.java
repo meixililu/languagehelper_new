@@ -1,34 +1,74 @@
 package com.messi.languagehelper;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.View.OnClickListener;
+import android.widget.RelativeLayout;
 
-public class HelpActivity extends BaseActivity implements OnClickListener {
+import com.avos.avoscloud.AVAnalytics;
+import com.iflytek.cloud.Setting;
+import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.ToastUtil;
+import com.messi.languagehelper.wxapi.WXEntryActivity;
 
-	
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.help);
-		init();
-	}
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-	private void init() {
-		toolbar = (Toolbar) findViewById(R.id.my_awesome_toolbar);
-		if (toolbar != null) {
-			setSupportActionBar(toolbar);
-			getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-			getSupportActionBar().setTitle(getResources().getString(R.string.title_help));
-		}
-	}
+public class HelpActivity extends BaseActivity {
 
-	@Override
-	public void onClick(View v) {
-		switch (v.getId()) {
-		default:
-			break;
-		}
-	}
+
+    @BindView(R.id.style_one)
+    RelativeLayout styleOne;
+    @BindView(R.id.style_two)
+    RelativeLayout styleTwo;
+    private SharedPreferences mSharedPreferences;
+    private boolean isFirstLoad;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.help);
+        ButterKnife.bind(this);
+        init();
+    }
+
+    private void init() {
+        mSharedPreferences = Settings.getSharedPreferences(this);
+        isFirstLoad = getIntent().getBooleanExtra(KeyUtil.IsFirstLoadStylePage,false);
+    }
+
+
+    @OnClick({R.id.style_one, R.id.style_two})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            //classic
+            case R.id.style_one:
+                Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.IsUseOldStyle, true);
+                AVAnalytics.onEvent(this, "style_select_classic");
+                toNext();
+                break;
+            //minimalist
+            case R.id.style_two:
+                Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.IsUseOldStyle, false);
+                AVAnalytics.onEvent(this, "style_select_minimalist");
+                toNext();
+                break;
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        toNext();
+    }
+
+    private void toNext(){
+        if(isFirstLoad){
+            toActivity(WXEntryActivity.class, null);
+        }else {
+            ToastUtil.diaplayMesShort(this,this.getString(R.string.restart_success));
+        }
+        finish();
+    }
 }

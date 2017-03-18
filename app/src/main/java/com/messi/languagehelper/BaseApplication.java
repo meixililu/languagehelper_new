@@ -2,6 +2,7 @@ package com.messi.languagehelper;
 
 import java.util.HashMap;
 
+import com.androidquery.util.Progress;
 import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVOSCloud;
 import com.facebook.drawee.backends.pipeline.Fresco;
@@ -12,6 +13,7 @@ import com.messi.languagehelper.db.LHContract;
 
 import android.app.Application;
 import android.content.Context;
+import android.os.Process;
 
 public class BaseApplication extends Application {
 
@@ -25,13 +27,15 @@ public class BaseApplication extends Application {
         super.onCreate();
         if(mInstance == null)  mInstance = this;
         initAVOS();
-        Fresco.initialize(this);
+
     }
 
     private void initAVOS(){
         new Thread(new Runnable() {
             @Override
             public void run() {
+                Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND);
+                Fresco.initialize(BaseApplication.this);
                 AVOSCloud.initialize(mInstance, "3fg5ql3r45i3apx2is4j9on5q5rf6kapxce51t5bc0ffw2y4", "twhlgs6nvdt7z7sfaw76ujbmaw7l12gb8v6sdyjw1nzk9b1a");
                 AVAnalytics.enableCrashReport(mInstance, true);
             }

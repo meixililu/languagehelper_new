@@ -41,21 +41,13 @@ public class KeyUtil {
 	public static final String ReadRepeatTime = "ReadRepeatTime";
 	
 	public static final String AutoPlayResult = "AutoPlayResult";
-	
-//	public static final String AutoClearInputAfterFinish = "AutoClearInputAfterFinish";
 
-	public static final String AutoPlayUnreadDot = "AutoPlayUnreadDot";
-	
 	public static final String AutoClearTran = "AutoClearTran";
 
 	public static final String AutoClearDic = "AutoClearDic";
 
 	public static final String IsHasShowBaiduMessage = "IsHasShowBaiduMessage";
 
-	public static final String IsHasShowClickText = "IsHasShowClickText";
-
-	public static final String SpeakPutonghuaORYueyu = "SpeakPutonghuaORYueyu";
-	
 	public static final String PracticeContentKey = "PracticeContentKey";
 	
 	public static final String LevelKey = "LevelKey";
@@ -147,6 +139,8 @@ public class KeyUtil {
 	public static final String DicUserSelectLanguage = "DicUserSelectLanguage";
 
 	public static final String IsUseOldStyle = "IsUseOldStyle";
+
+	public static final String IsFirstLoadStylePage = "IsFirstLoadStylePage";
 
 
 	

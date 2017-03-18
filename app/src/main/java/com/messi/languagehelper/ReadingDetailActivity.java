@@ -162,9 +162,13 @@ public class ReadingDetailActivity extends BaseActivity {
                         .load(mAVObject.getString(AVOUtil.Reading.img_url))
                         .into(videoplayer.thumbImageView);
             }
+            fab.setVisibility(View.GONE);
         } else if (!TextUtils.isEmpty(mAVObject.getString(AVOUtil.Reading.img_url))) {
             pimgview.setVisibility(View.VISIBLE);
             pimgview.setImageURI(Uri.parse(mAVObject.getString(AVOUtil.Reading.img_url)));
+        }
+        if(mAVObject.getString(AVOUtil.Reading.type).equals("text")){
+            fab.setVisibility(View.GONE);
         }
         int[] random = NumberUtil.getRandomNumberLimit(mAVObjects.size(), 0, 5, index);
         next_composition.removeAllViews();
@@ -204,7 +208,7 @@ public class ReadingDetailActivity extends BaseActivity {
             int pos = downLoadUrl.lastIndexOf(SDCardUtil.Delimiter) + 1;
             String fileName = downLoadUrl.substring(pos, downLoadUrl.length());
             String rootUrl = SDCardUtil.ReadingPath +
-                    mAVObject.getString(AVOUtil.Reading.objectId) + SDCardUtil.Delimiter;
+                    mAVObject.getObjectId() + SDCardUtil.Delimiter;
             fileFullName = SDCardUtil.getDownloadPath(rootUrl) + fileName;
             LogUtil.DefalutLog("fileName:" + fileName + "---fileFullName:" + fileFullName);
             if (SDCardUtil.isFileExist(fileFullName)) {

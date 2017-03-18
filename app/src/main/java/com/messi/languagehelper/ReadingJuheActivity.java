@@ -21,6 +21,8 @@ import android.os.PersistableBundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+
 public class ReadingJuheActivity extends BaseActivity implements FragmentProgressbarListener{
 
 	private TabLayout tablayout;
@@ -110,6 +112,20 @@ public class ReadingJuheActivity extends BaseActivity implements FragmentProgres
 		viewpager.setAdapter(pageAdapter);
 		viewpager.setOffscreenPageLimit(7);
 		tablayout.setupWithViewPager(viewpager);
+	}
+
+	@Override
+	public void onBackPressed() {
+		if (JCVideoPlayer.backPress()) {
+			return;
+		}
+		super.onBackPressed();
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		JCVideoPlayer.releaseAllVideos();
 	}
 	
 	@Override

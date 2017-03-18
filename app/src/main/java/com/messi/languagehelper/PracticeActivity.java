@@ -510,12 +510,12 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
                 mBean.setQuestionAudioPath(filepath);
                 speakContent = mBean.getChinese();
             }
-            if (mBean.getSpeak_speed() != MainFragment.speed) {
+            if (mBean.getSpeak_speed() != mSharedPreferences.getInt(getString(R.string.preference_key_tts_speed), 50)) {
                 String filep1 = path + mBean.getResultVoiceId() + ".pcm";
                 String filep2 = path + mBean.getQuestionVoiceId() + ".pcm";
                 AudioTrackUtil.deleteFile(filep1);
                 AudioTrackUtil.deleteFile(filep2);
-                mBean.setSpeak_speed(MainFragment.speed);
+                mBean.setSpeak_speed(mSharedPreferences.getInt(getString(R.string.preference_key_tts_speed), 50));
             }
             mSpeechSynthesizer.setParameter(SpeechConstant.TTS_AUDIO_PATH, filepath);
             if (!AudioTrackUtil.isFileExists(filepath)) {

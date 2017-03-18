@@ -7,7 +7,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Display;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -26,8 +28,12 @@ import com.messi.languagehelper.util.DictionaryHelper;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.ScreenUtil;
 import com.messi.languagehelper.util.XFUtil;
+import com.orhanobut.dialogplus.DialogPlus;
+import com.orhanobut.dialogplus.OnBackPressListener;
+import com.orhanobut.dialogplus.OnDismissListener;
+import com.orhanobut.dialogplus.ViewHolder;
 
-public class TranslateResultDialog extends Dialog implements DicHelperListener {
+public class TranslateResultDialog implements DicHelperListener {
 	
 	private Context context;
 	private Dictionary bean;
@@ -35,47 +41,56 @@ public class TranslateResultDialog extends Dialog implements DicHelperListener {
 	private SharedPreferences mSharedPreferences;
 	private Thread mThread;
 	private MyThread mMyThread;
-
-	public TranslateResultDialog(Context context, int theme) {
-	    super(context, theme);
-	    this.context = context;
-	}
+	private DialogPlus dialog;
 
 	public TranslateResultDialog(Context context) {
-	    super(context);
 	    this.context = context;
 	}
 
 	/**
 	 * 更改TextView的提示内容
 	 * @param context
-	 * @param theme
-	 * @param tempText
 	 */
 	public TranslateResultDialog(Context context, Dictionary bean) {
-		super(context, R.style.mydialog);
 		this.context = context;
 		this.bean = bean;
 		mSharedPreferences = context.getSharedPreferences(context.getPackageName(), Activity.MODE_PRIVATE);
 		mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(context, null);
 	}
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-	    super.onCreate(savedInstanceState);
-	    setContentView(R.layout.dialog_translate_result);
-	    setFullScreen();
+	public void createDialog() {
+		dialog = DialogPlus.newDialog(context)
+				.setContentHolder(new ViewHolder(R.layout.dialog_translate_result))
+				.setCancelable(true)
+				.setGravity(Gravity.BOTTOM)
+				.setContentHeight(ViewGroup.LayoutParams.WRAP_CONTENT)
+				.setOverlayBackgroundResource(android.R.color.transparent)
+				.setOnDismissListener(new OnDismissListener() {
+					@Override
+					public void onDismiss(DialogPlus dialog) {
+						if(mSpeechSynthesizer != null && mSpeechSynthesizer.isSpeaking()){
+							mSpeechSynthesizer.stopSpeaking();
+							mSpeechSynthesizer = null;
+						}
+					}
+				})
+				.create();
+		View view = dialog.getHolderView();
 		mMyThread = new MyThread();
-	    FrameLayout close_layout = (FrameLayout) findViewById(R.id.close_layout);
-		LinearLayout dic_result_layout = (LinearLayout) findViewById(R.id.dic_result_layout);
+	    FrameLayout close_layout = (FrameLayout) view.findViewById(R.id.close_layout);
+		LinearLayout dic_result_layout = (LinearLayout) view.findViewById(R.id.dic_result_layout);
 
-		DictionaryHelper.addDicContent(context, dic_result_layout, bean, this);
+		DictionaryHelper.addDicContentForDialog(context, dic_result_layout, bean, this);
 	    close_layout.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				TranslateResultDialog.this.dismiss();
+				dialog.dismiss();
 			}
 		});
+	}
+
+	public void show(){
+		dialog.show();
 	}
 
 	@Override
@@ -139,23 +154,6 @@ public class TranslateResultDialog extends Dialog implements DicHelperListener {
 				mThread = AudioTrackUtil.startMyThread(mMyThread);
 			}
 
-		}
-	}
-	
-	private void setFullScreen(){
-		WindowManager windowManager = this.getWindow().getWindowManager();
-		Display display = windowManager.getDefaultDisplay();
-		WindowManager.LayoutParams lp = this.getWindow().getAttributes();
-		lp.width = display.getWidth() - ScreenUtil.dip2px(context, 10); //设置宽度
-		this.getWindow().setAttributes(lp);
-	}
-	
-	@Override
-	protected void onStop() {
-		super.onStop();
-		if(mSpeechSynthesizer.isSpeaking()){
-			mSpeechSynthesizer.stopSpeaking();
-			mSpeechSynthesizer = null;
 		}
 	}
 

@@ -82,8 +82,7 @@ public class TouchableSpan extends ClickableSpan {// extend ClickableSpan
 		Dictionary bean = (Dictionary) WXEntryActivity.dataMap.get(KeyUtil.DataMapKey);
 		WXEntryActivity.dataMap.clear();
 		TranslateResultDialog dialog = new TranslateResultDialog(context, bean);
-		dialog.setCancelable(true);
-		dialog.setCanceledOnTouchOutside(true);
+		dialog.createDialog();
 		dialog.show();
 	}
 	

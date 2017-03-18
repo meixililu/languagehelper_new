@@ -60,9 +60,14 @@ public class MyAudioTrack {
 	
 	
 	public void release(){
-		if (mAudioTrack != null){
-			mAudioTrack.stop();				       	
-			mAudioTrack.release();
+		try {
+			if (mAudioTrack != null){
+                mAudioTrack.stop();
+                mAudioTrack.release();
+                mAudioTrack = null;
+            }
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
 		}
 	}
 	

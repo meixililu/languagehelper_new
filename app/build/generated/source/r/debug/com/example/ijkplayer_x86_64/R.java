@@ -8,6 +8,6 @@ package com.example.ijkplayer_x86_64;
 
 public final class R {
 	public static final class string {
-		public static final int app_name = 0x7f070020;
+		public static final int app_name = 0x7f080020;
 	}
 }

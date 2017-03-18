@@ -35,7 +35,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".LoadingActivity">
+            android:name=".LoadingActivity"
+            android:theme="@style/AppTheme.Launcher"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -61,7 +63,7 @@
             android:name="com.iflytek.voiceads.request.IFLYBrowser"
             android:screenOrientation="portrait" />
         <!-- 讯飞广告sdk -->
-
+        
         <activity
             android:name=".WordStudyCiYiXuanCiActivity"
             android:screenOrientation="portrait" />
@@ -111,6 +113,12 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".WordStudyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CollectedActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SettingActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ReadingDetailActivity"
@@ -194,7 +202,7 @@
             android:name=".EnglishWebsiteRecommendActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".DailySentenceActivity"
+            android:name=".DailySentenceAndEssayActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".AboutActivity"

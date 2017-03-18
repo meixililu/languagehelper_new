@@ -4,16 +4,49 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     >
-    <TextView
-        android:id="@+id/dic_item"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:gravity="left"
-        android:lineSpacingExtra="9dp"
-        android:padding="7dp"
-        android:textColor="@color/text_black"
-        android:textSize="@dimen/big" />
+        android:orientation="vertical"
+        >
+        <FrameLayout
+            android:id="@+id/record_question_cover"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:foreground="@drawable/framelayout_selector"
+            >
+            <TextView
+                android:id="@+id/record_question"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/bigger" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/record_answer_cover"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:foreground="@drawable/framelayout_selector"
+            >
+            <TextView
+                android:id="@+id/record_answer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="left"
+                android:lineSpacingExtra="9dp"
+                android:paddingLeft="7dp"
+                android:paddingRight="7dp"
+                android:paddingBottom="7dp"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/big" />
+        </FrameLayout>
+    </LinearLayout>
+
     <ImageView
         android:layout_width="fill_parent"
         android:layout_height="1px"
@@ -99,6 +132,30 @@
             android:layout_marginBottom="4dp"
             android:layout_marginTop="4dp"
             android:background="@color/line_color_blue" />
+
+        <FrameLayout
+            android:id="@+id/voice_play_layout"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:foreground="@drawable/framelayout_selector"
+            >
+            <ImageButton
+                android:id="@+id/voice_play"
+                android:layout_width="@dimen/list_item_icon"
+                android:layout_height="@dimen/list_item_icon"
+                android:layout_gravity="center"
+                android:background="@drawable/voice_play"
+                android:clickable="false" />
+
+            <ProgressBar
+                android:id="@+id/play_content_btn_progressbar"
+                android:layout_width="@dimen/list_item_icon"
+                android:layout_height="@dimen/list_item_icon"
+                style="@style/CircularProgressBlue"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+        </FrameLayout>
     </LinearLayout>
     <ImageView
         android:layout_width="fill_parent"

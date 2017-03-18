@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.messi.languagehelper.BaseApplication;
 import com.messi.languagehelper.MainFragment;
+import com.messi.languagehelper.R;
 import com.messi.languagehelper.dao.DaoSession;
 import com.messi.languagehelper.dao.Dictionary;
 import com.messi.languagehelper.dao.DictionaryDao;
@@ -21,6 +22,7 @@ import com.messi.languagehelper.dao.record;
 import com.messi.languagehelper.dao.recordDao;
 import com.messi.languagehelper.dao.recordDao.Properties;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.Settings;
 
 import java.util.List;
 
@@ -64,7 +66,7 @@ public class DataBaseUtil {
     public long insert(Dictionary bean) {
         bean.setIscollected("0");
         bean.setVisit_times(0);
-        bean.setSpeak_speed(MainFragment.speed);
+        bean.setSpeak_speed(Settings.getSharedPreferences(appContext).getInt(appContext.getString(R.string.preference_key_tts_speed), 50));
         bean.setQuestionVoiceId(System.currentTimeMillis() + "");
         return mDictionaryDao.insert(bean);
     }
@@ -102,7 +104,7 @@ public class DataBaseUtil {
     public long insert(record bean) {
         bean.setIscollected("0");
         bean.setVisit_times(0);
-        bean.setSpeak_speed(MainFragment.speed);
+        bean.setSpeak_speed(Settings.getSharedPreferences(appContext).getInt(appContext.getString(R.string.preference_key_tts_speed), 50));
         bean.setQuestionVoiceId(System.currentTimeMillis() + "");
         bean.setResultVoiceId(System.currentTimeMillis() - 5 + "");
         return recordDao.insert(bean);

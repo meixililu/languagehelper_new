@@ -10,9 +10,10 @@ import com.messi.languagehelper.util.MyAudioTrack;
 public class MyThread implements Runnable {
 
 	public static final int EVENT_PLAY_OVER = 0x100;
-	byte[] data;
-	Handler mHandler;
-	public boolean isPlaying;
+	public static boolean isPlaying;
+	private byte[] data;
+	private Handler mHandler;
+	public MyAudioTrack myAudioTrack;
 	private Object object = new Object();
 
 	public MyThread() {}
@@ -30,30 +31,36 @@ public class MyThread implements Runnable {
 		mHandler = handler;
 	}
 
+	public void setDataUri(String path){
+		byte[] data = AudioTrackUtil.getBytes(path);
+		setData(data);
+		isPlaying = true;
+	}
+
 	public void run() {
 		synchronized (object) {
 			if (data == null || data.length == 0) {
 				return;
 			}
-			isPlaying = true;
-			// MyAudioTrack: 锟斤拷AudioTrack锟斤拷锟叫简单凤拷装锟斤拷锟斤拷
-			MyAudioTrack myAudioTrack = new MyAudioTrack(8000,
+			myAudioTrack = new MyAudioTrack(8000,
 					AudioFormat.CHANNEL_OUT_STEREO,
 					AudioFormat.ENCODING_PCM_16BIT);
 			myAudioTrack.init();
 			int playSize = myAudioTrack.getPrimePlaySize();
 			int index = 0;
 			int offset = 0;
-			while (true) {
+			while (!Thread.currentThread().isInterrupted() && isPlaying) {
 				try {
-					Thread.sleep(0);
+//					Thread.sleep(0);
 					offset = index * playSize;
 					if (offset >= data.length) {
+						isPlaying = false;
 						break;
 					}
 					myAudioTrack.playAudioTrack(data, offset, playSize);
 				} catch (Exception e) {
 					e.printStackTrace();
+					isPlaying = false;
 					break;
 				}
 				index++;
@@ -63,7 +70,6 @@ public class MyThread implements Runnable {
 				Message msg = Message.obtain(mHandler, EVENT_PLAY_OVER);
 				mHandler.sendMessage(msg);
 			}
-			isPlaying = false;
 		}
 	}
 
@@ -79,13 +85,10 @@ public class MyThread implements Runnable {
 		return isPlaying;
 	}
 
-	public void setPlaying(boolean isPlaying) {
-		this.isPlaying = isPlaying;
+	public void stopPlaying(){
+		isPlaying = false;
+		myAudioTrack.release();
 	}
-	
-	public void setDataUri(String path){
-		byte[] data = AudioTrackUtil.getBytes(path);
-		setData(data);
-	}
+
 
 }

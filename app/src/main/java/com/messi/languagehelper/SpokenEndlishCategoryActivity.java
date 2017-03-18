@@ -66,10 +66,8 @@ public class SpokenEndlishCategoryActivity extends BaseActivity {
                 int visible = mLinearLayoutManager.getChildCount();
                 int total = mLinearLayoutManager.getItemCount();
                 int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
-//				isADInList(recyclerView,firstVisibleItem,visible);
                 if (!loading && hasMore) {
                     if ((visible + firstVisibleItem) >= total) {
-//						loadAD();
                         new QueryTask().execute();
                     }
                 }

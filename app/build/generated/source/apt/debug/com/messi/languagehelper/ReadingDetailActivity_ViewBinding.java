@@ -21,7 +21,7 @@ import java.lang.Override;
 public class ReadingDetailActivity_ViewBinding implements Unbinder {
   private ReadingDetailActivity target;
 
-  private View view2131558569;
+  private View view2131624114;
 
   @UiThread
   public ReadingDetailActivity_ViewBinding(ReadingDetailActivity target) {
@@ -41,7 +41,7 @@ public class ReadingDetailActivity_ViewBinding implements Unbinder {
     target.scrollview = Utils.findRequiredViewAsType(source, R.id.scrollview, "field 'scrollview'", NestedScrollView.class);
     view = Utils.findRequiredView(source, R.id.play_btn, "field 'fab' and method 'onClick'");
     target.fab = Utils.castView(view, R.id.play_btn, "field 'fab'", FloatingActionButton.class);
-    view2131558569 = view;
+    view2131624114 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -69,7 +69,7 @@ public class ReadingDetailActivity_ViewBinding implements Unbinder {
     target.pimgview = null;
     target.videoplayer = null;
 
-    view2131558569.setOnClickListener(null);
-    view2131558569 = null;
+    view2131624114.setOnClickListener(null);
+    view2131624114 = null;
   }
 }

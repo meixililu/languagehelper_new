@@ -46,6 +46,7 @@ import com.messi.languagehelper.util.DictionaryHelper;
 import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.ToastUtil;
@@ -133,9 +134,6 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
     private List<Dictionary> beans;
     // 识别对象
     private SpeechRecognizer recognizer;
-    private SharedPreferences mSharedPreferences;
-    //合成对象.
-    private SpeechSynthesizer mSpeechSynthesizer;
     private Bundle bundle;
     private FragmentProgressbarListener mProgressbarListener;
     private Activity mActivity;
@@ -239,12 +237,6 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        LogUtil.DefalutLog("MainFragment-onCreate");
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         LogUtil.DefalutLog("MainFragment-onCreateView");
         View view = inflater.inflate(R.layout.fragment_dictionary, null);
@@ -254,8 +246,6 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
     }
 
     private void init() {
-        mSharedPreferences = mActivity.getSharedPreferences(mActivity.getPackageName(), Activity.MODE_PRIVATE);
-        mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(mActivity, null);
         recognizer = SpeechRecognizer.createRecognizer(mActivity, null);
         beans = new ArrayList<Dictionary>();
         beans.addAll(DataBaseUtil.getInstance().getDataListDictionary(0, Settings.offset));
@@ -282,7 +272,7 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
 
         setSpeakLanguageTv();
         isShowRecentList(true);
-        if (mSharedPreferences.getBoolean(KeyUtil.IsShowDicKeyboardLayout, false)) {
+        if (PlayUtil.getSP().getBoolean(KeyUtil.IsShowDicKeyboardLayout, false)) {
             showKeybordLayout();
         } else {
             showMicLayout();
@@ -309,6 +299,27 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
         });
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        refresh();
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        LogUtil.DefalutLog("MainFragment-setUserVisibleHint");
+        if (isVisibleToUser) {
+            refresh();
+        }
+    }
+
+    private void refresh(){
+        if (Settings.isDictionaryFragmentNeedRefresh) {
+            Settings.isDictionaryFragmentNeedRefresh = false;
+            reloadData();
+        }
+    }
 
     @Override
     public void onClick(View v) {
@@ -359,11 +370,11 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
     private void changeInputType() {
         if (keybord_layout.isShown()) {
             showMicLayout();
-            Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.IsShowDicKeyboardLayout, false);
+            Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.IsShowDicKeyboardLayout, false);
             hideIME();
         } else {
             showKeybordLayout();
-            Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.IsShowDicKeyboardLayout, true);
+            Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.IsShowDicKeyboardLayout, true);
             showIME();
             input_et.requestFocus();
         }
@@ -382,11 +393,11 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
     }
 
     private void changeSpeakLanguage() {
-        if (mSharedPreferences.getString(KeyUtil.DicUserSelectLanguage, XFUtil.VoiceEngineMD).equals(XFUtil.VoiceEngineMD)) {
-            Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.DicUserSelectLanguage, XFUtil.VoiceEngineEN);
+        if (PlayUtil.getSP().getString(KeyUtil.DicUserSelectLanguage, XFUtil.VoiceEngineMD).equals(XFUtil.VoiceEngineMD)) {
+            Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.DicUserSelectLanguage, XFUtil.VoiceEngineEN);
             ToastUtil.diaplayMesShort(mActivity, mActivity.getResources().getString(R.string.speak_english));
         } else {
-            Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.DicUserSelectLanguage, XFUtil.VoiceEngineMD);
+            Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.DicUserSelectLanguage, XFUtil.VoiceEngineMD);
             ToastUtil.diaplayMesShort(mActivity, mActivity.getResources().getString(R.string.speak_chinese));
         }
         setSpeakLanguageTv();
@@ -394,7 +405,7 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
     }
 
     private void setSpeakLanguageTv() {
-        speakLanguageTv.setText(XFUtil.getVoiceEngineText(mSharedPreferences.getString(KeyUtil.DicUserSelectLanguage, XFUtil.VoiceEngineMD)));
+        speakLanguageTv.setText(XFUtil.getVoiceEngineText(PlayUtil.getSP().getString(KeyUtil.DicUserSelectLanguage, XFUtil.VoiceEngineMD)));
     }
 
     /**
@@ -443,8 +454,8 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
             record_layout.setVisibility(View.VISIBLE);
             input_et.setText("");
             voice_btn.setText(mActivity.getResources().getText(R.string.click_and_finish));
-            XFUtil.showSpeechRecognizer(mActivity, mSharedPreferences, recognizer, recognizerListener,
-                    mSharedPreferences.getString(KeyUtil.DicUserSelectLanguage, XFUtil.VoiceEngineMD));
+            XFUtil.showSpeechRecognizer(mActivity, PlayUtil.getSP(), recognizer, recognizerListener,
+                    PlayUtil.getSP().getString(KeyUtil.DicUserSelectLanguage, XFUtil.VoiceEngineMD));
         } else {
             finishRecord();
             recognizer.stopListening();
@@ -558,6 +569,40 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
 
     }
 
+    private void reloadData() {
+        loadding();
+        Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(ObservableEmitter<String> e) throws Exception {
+                beans.clear();
+                beans.addAll(DataBaseUtil.getInstance().getDataListDictionary(0, Settings.offset));
+                e.onComplete();
+            }
+        })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        finishLoadding();
+                        mAdapter.notifyDataSetChanged();
+                    }
+                });
+
+    }
+
     @Override
     public void playPcm(Dictionary mObject, boolean isPlayResult, String result) {
         playResult(mObject, isPlayResult, result);
@@ -580,63 +625,45 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
             filepath = path + mBean.getQuestionVoiceId() + ".pcm";
             speakContent = mBean.getWord_name();
         }
-        mSpeechSynthesizer.setParameter(SpeechConstant.TTS_AUDIO_PATH, filepath);
-        if (!AudioTrackUtil.isFileExists(filepath)) {
-            loadding();
-            XFUtil.showSpeechSynthesizer(mActivity, mSharedPreferences, mSpeechSynthesizer, speakContent,
-                    new SynthesizerListener() {
-                        @Override
-                        public void onSpeakResumed() {
-                        }
+        PlayUtil.play(filepath, speakContent, null,
+                new SynthesizerListener() {
+                    @Override
+                    public void onSpeakResumed() {
+                    }
 
-                        @Override
-                        public void onSpeakProgress(int arg0, int arg1, int arg2) {
-                        }
+                    @Override
+                    public void onSpeakProgress(int arg0, int arg1, int arg2) {
+                    }
 
-                        @Override
-                        public void onSpeakPaused() {
-                        }
+                    @Override
+                    public void onSpeakPaused() {
+                    }
 
-                        @Override
-                        public void onSpeakBegin() {
-                            finishLoadding();
-                        }
+                    @Override
+                    public void onSpeakBegin() {
+                        finishLoadding();
+                    }
 
-                        @Override
-                        public void onCompleted(SpeechError arg0) {
-                            LogUtil.DefalutLog("---onCompleted");
-                            if (arg0 != null) {
-                                ToastUtil.diaplayMesShort(mActivity, arg0.getErrorDescription());
-                            }
-                            DataBaseUtil.getInstance().update(mBean);
+                    @Override
+                    public void onCompleted(SpeechError arg0) {
+                        LogUtil.DefalutLog("---onCompleted");
+                        if (arg0 != null) {
+                            ToastUtil.diaplayMesShort(mActivity, arg0.getErrorDescription());
                         }
+                        DataBaseUtil.getInstance().update(mBean);
+                    }
 
-                        @Override
-                        public void onBufferProgress(int arg0, int arg1, int arg2, String arg3) {
+                    @Override
+                    public void onBufferProgress(int arg0, int arg1, int arg2, String arg3) {
+                        if(arg0 < 10) {
+                            loadding();
                         }
+                    }
 
-                        @Override
-                        public void onEvent(int arg0, int arg1, int arg2, Bundle arg3) {
-                        }
-                    });
-        } else {
-            mMyThread.setDataUri(filepath);
-            mThread = AudioTrackUtil.startMyThread(mMyThread);
-        }
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (mSpeechSynthesizer != null) {
-            mSpeechSynthesizer.stopSpeaking();
-            mSpeechSynthesizer = null;
-        }
-        if (recognizer != null) {
-            recognizer.stopListening();
-            recognizer = null;
-        }
-        LogUtil.DefalutLog("MainFragment-onDestroy");
+                    @Override
+                    public void onEvent(int arg0, int arg1, int arg2, Bundle arg3) {
+                    }
+                });
     }
 
     //more tools
@@ -658,21 +685,21 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
         final CheckBox auto_clear_cb = (CheckBox) view.findViewById(R.id.setting_auto_clear_cb);
         FrameLayout clear_all = (FrameLayout) view.findViewById(R.id.setting_clear_all);
 
-        boolean AutoClear = mSharedPreferences.getBoolean(KeyUtil.AutoClearDic, false);
+        boolean AutoClear = PlayUtil.getSP().getBoolean(KeyUtil.AutoClearDic, false);
         auto_clear_cb.setChecked(AutoClear);
 
         auto_clear.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 auto_clear_cb.setChecked(!auto_clear_cb.isChecked());
-                Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.AutoClearDic, auto_clear_cb.isChecked());
+                Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.AutoClearDic, auto_clear_cb.isChecked());
                 AVAnalytics.onEvent(mActivity, "dic_tools_auto_clear");
             }
         });
         auto_clear_cb.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.AutoClearDic, auto_clear_cb.isChecked());
+                Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.AutoClearDic, auto_clear_cb.isChecked());
                 AVAnalytics.onEvent(mActivity, "dic_tools_auto_clear");
             }
         });
@@ -690,6 +717,16 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
             }
         });
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (recognizer != null) {
+            recognizer.stopListening();
+            recognizer = null;
+        }
+    }
+
 //	private void photoSelectDialog(){
 //		String[] titles = {getResources().getString(R.string.take_photo),getResources().getString(R.string.photo_album)};
 //		PopDialog mPhonoSelectDialog = new PopDialog(getContext(),titles);

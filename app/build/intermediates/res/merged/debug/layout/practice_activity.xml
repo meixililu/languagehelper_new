@@ -19,8 +19,8 @@
 	    android:background="?attr/colorPrimary" >
 	    <ProgressBar style="@style/CircularProgressWhite"
 	                android:id="@+id/progressBarCircularIndetermininate"
-	                android:layout_width="28dp"
-	                android:layout_height="28dp"
+	                android:layout_width="24dp"
+	                android:layout_height="24dp"
             		android:layout_gravity="right"
             		android:visibility="gone" />
    </android.support.v7.widget.Toolbar>

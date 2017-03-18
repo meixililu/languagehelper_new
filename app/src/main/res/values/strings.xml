@@ -19,7 +19,7 @@
     <string name="title_english_video">视频</string>
     <string name="title_english_story">故事</string>
     <string name="title_juhe">综合</string>
-    <string name="title_help">使用帮助</string>
+    <string name="title_style">样式选择</string>
     <string name="title_more">更多</string>
     <string name="title_translate">翻译</string>
     <string name="title_dictionary">词典</string>
@@ -37,9 +37,9 @@
     <string name="title_comments">吐槽评价</string>
     <string name="title_apps">发现APP</string>
     <string name="title_duanzi">段子笑话</string>
-    <string name="title_duanzi_word">文本笑话</string>
+    <string name="title_duanzi_mm">福利</string>
     <string name="title_duanzi_img">图片笑话</string>
-    <string name="title_duanzi_gif">动态搞笑</string>
+    <string name="title_duanzi_gif">短视频</string>
     <string name="title_composition">作文</string>
     <string name="title_ch_dictionary">新华字典</string>
     <string name="title_dictionary_idiom">成语词典</string>
@@ -66,7 +66,6 @@
     <string name="ch_dic_idiom_input_hint">请输入需要查询的成语</string>
     <string name="input_translate_hint">请翻译</string>
     <string name="auto_play_after_translate">翻译后自动播放</string>
-    <string name="auto_clear_after_translate">翻译完成后自动清空输入框内容</string>
     <string name="auto_clear">退出应用删除非收藏记录</string>
     <string name="search">查询</string>
     <string name="translate">翻译</string>
@@ -121,7 +120,7 @@
     <string name="play_speed_text">播放语速调节：</string>
     <string name="fifth_normal">50为正常速度</string>
     <string name="i_speak_cantonese">我说粤语</string>
-    <string name="clear_all_except_favorite">我的收藏</string>
+    <string name="clear_all_except_favorite">删除非收藏记录</string>
     <string name="clear_all_record">删除所有记录</string>
     <string name="invite_friends">还不错，告诉小伙伴</string>
     <string name="invite_friends_qrcode">二维码  扫一扫</string>
@@ -190,6 +189,7 @@
     <string name="invest_list_prompt">小伙伴快到碗里来，这个软件是我投资的！ http://lilu168.sinaapp.com/list.html</string>
 
     <string name="dailysentence">每日一句</string>
+    <string name="english_essay">励志语录</string>
     <string name="symbolStudy">48个音标快速学</string>
     <string name="ChDicBushouList">汉字部首列表</string>
     <string name="ChDicPinyinList">汉字拼音列表</string>
@@ -272,6 +272,10 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_main_test">MainActivityTest</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="style_select">选择您喜欢的界面风格</string>
+    <string name="style_classic">经典</string>
+    <string name="style_minimalist">极简</string>
+    <string name="restart_success">重启应用之后生效！</string>
 
 
 </resources>

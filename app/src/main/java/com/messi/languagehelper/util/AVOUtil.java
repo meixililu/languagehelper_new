@@ -401,9 +401,7 @@ public class AVOUtil {
 	public static class Reading {
 		
 		public final static String Reading = "Reading";
-		
-		public final static String objectId = "objectId";
-		
+
 		public final static String type_id = "type_id";
 		
 		public final static String type_name = "type_name";
@@ -505,6 +503,29 @@ public class AVOUtil {
 		public final static String picture2 = "picture2";
 
 		public final static String dateline = "dateline";
+
+	}
+
+	public static class Joke {
+//		category 101 搞笑; 102 段子; 103 美女;
+//		type 1 img; 2 none; 3 gif; 4 video; 5 text; 6 url；
+		public final static String Joke = "Joke";
+
+		public final static String category = "category";
+
+		public final static String type = "type";
+
+		public final static String text = "text";
+
+		public final static String ratio = "ratio";
+
+		public final static String video_url = "video_url";
+
+		public final static String img = "img";
+
+		public final static String createdAt = "createdAt";
+
+		public final static String source_url = "source_url";
 
 	}
 

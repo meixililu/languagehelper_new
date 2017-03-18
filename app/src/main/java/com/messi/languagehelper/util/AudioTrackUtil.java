@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import android.content.Context;
 import android.media.AudioFormat;
@@ -17,6 +18,14 @@ import android.view.KeyEvent;
 
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.messi.languagehelper.task.MyThread;
+
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class AudioTrackUtil {
 	
@@ -31,6 +40,16 @@ public class AudioTrackUtil {
 			LogUtil.DefalutLog("mThread---stop:"+mThread.getId());
 			mThread.interrupt();
     		mThread = null;
+		}
+	}
+
+	public static void stopPlayPcm(Thread mThread,MyThread mMyThread){
+		if(mMyThread != null){
+			mMyThread.stopPlaying();
+		}
+		if(mThread != null){
+			mThread.interrupt();
+			mThread = null;
 		}
 	}
 	
