@@ -297,7 +297,18 @@ public class JokeFragment extends BaseFragment implements OnClickListener {
                 try {
                     AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.Joke.Joke);
                     if(!TextUtils.isEmpty(category)){
-                        query.whereEqualTo(AVOUtil.Joke.category, category);
+                        if(category.equals("img")){
+                            query.whereNotEqualTo(AVOUtil.Joke.category,"103");
+                            query.whereEqualTo(AVOUtil.Joke.type, "1");
+                            query.whereEqualTo(AVOUtil.Joke.type, "3");
+                        }else if(category.equals("video")){
+                            query.whereNotEqualTo(AVOUtil.Joke.category,"103");
+                            query.whereEqualTo(AVOUtil.Joke.type, "4");
+                        }else if(category.equals("103")){
+                            query.whereEqualTo(AVOUtil.Joke.category,"103");
+                        }
+                    }else {
+                        query.whereNotEqualTo(AVOUtil.Joke.category,"103");
                     }
                     maxRandom =  query.count() / Settings.page_size;
                     LogUtil.DefalutLog("category:"+category+"---maxRandom:"+maxRandom);

@@ -144,7 +144,7 @@
     <orderEntry type="library" exported="" name="contx" level="project" />
     <orderEntry type="library" exported="" name="reactive-streams-1.0.0" level="project" />
     <orderEntry type="library" exported="" name="transitionseverywhere-1.7.0" level="project" />
-    <orderEntry type="library" exported="" name="avoscloud-sdk-v3.16" level="project" />
+    <orderEntry type="library" exported="" name="avoscloud-statistics-v3.16.2" level="project" />
     <orderEntry type="library" exported="" name="imagepipeline-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="okio-1.6.0-leancloud" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-25.2.0" level="project" />
@@ -163,12 +163,12 @@
     <orderEntry type="library" exported="" name="rxjava-2.0.6" level="project" />
     <orderEntry type="library" exported="" name="ijkplayer-x86_64-0.6.0" level="project" />
     <orderEntry type="library" exported="" name="glide-3.7.0" level="project" />
-    <orderEntry type="library" exported="" name="avoscloud-statistics-v3.16" level="project" />
     <orderEntry type="library" exported="" name="Msc" level="project" />
     <orderEntry type="library" exported="" name="headerrecyclerview-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="butterknife-annotations-8.5.1" level="project" />
     <orderEntry type="library" exported="" name="jiecaovideoplayer-4.6.5" level="project" />
     <orderEntry type="library" exported="" name="animated-base-1.1.0" level="project" />
+    <orderEntry type="library" exported="" name="avoscloud-sdk-v3.16.2" level="project" />
     <orderEntry type="library" exported="" name="greendao-2.2.1" level="project" />
     <orderEntry type="library" exported="" name="animated-gif-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="support-v4-25.2.0" level="project" />

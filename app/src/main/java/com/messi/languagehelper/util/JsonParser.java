@@ -489,7 +489,11 @@ public class JsonParser {
 	
 	public static boolean isJson(String value) { 
 		try {
-			new JSONObject(value);
+			if (TextUtils.isEmpty(value)) {
+				return false;
+			}else {
+				new JSONObject(value);
+			}
 		} catch (Exception e) {
 			return false;
 		}

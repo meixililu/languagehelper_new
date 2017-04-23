@@ -159,6 +159,7 @@
     <string name="recent_use_footer_prompt">Prompt</string>
     <string name="recent_use_footer_prompt_content">\tHere only save 100 record，you also can collect which you like.
 	    And we are trying to improve the translate result and the software,thank you.</string>
+    <string name="recognize_error">Recognize error,Retry Please！</string>
     <string name="restart_success">Reboot App</string>
     <string name="search">Search</string>
     <string name="sentence">Sentence</string>
@@ -218,6 +219,7 @@
     <string name="title_symbol">Symbol Study</string>
     <string name="title_translate">Translate</string>
     <string name="title_word_study">Word Study</string>
+    <string name="title_word_study_summary">Word Summary</string>
     <string name="title_word_vocabulary">Vocabulary</string>
     <string name="translate">Translate</string>
     <string name="translate_content">Translate This Sentence</string>

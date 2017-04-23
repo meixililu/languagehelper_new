@@ -4,44 +4,65 @@ import java.util.List;
 
 public class BaiduOcrRoot {
 
-	private String errNum;
+	private int error_code;
 
-	private List<RetData> retData;
+	private String error_msg;
 
-	private String querySign;
+	private int direction;
 
-	private String errMsg;
+	private long log_id;
 
-	public void setErrNum(String errNum) {
-		this.errNum = errNum;
+	private List<BDORCItem> words_result;
+
+	private int words_result_num;
+
+	public List<BDORCItem> getWords_result() {
+		return words_result;
 	}
 
-	public String getErrNum() {
-		return this.errNum;
+	public void setWords_result(List<BDORCItem> words_result) {
+		this.words_result = words_result;
 	}
 
-	public void setRetData(List<RetData> retData) {
-		this.retData = retData;
+	public int getError_code() {
+		return error_code;
 	}
 
-	public List<RetData> getRetData() {
-		return this.retData;
+	public void setError_code(int error_code) {
+		this.error_code = error_code;
 	}
 
-	public void setQuerySign(String querySign) {
-		this.querySign = querySign;
+	public String getError_msg() {
+		return error_msg;
 	}
 
-	public String getQuerySign() {
-		return this.querySign;
+	public void setError_msg(String error_msg) {
+		this.error_msg = error_msg;
 	}
 
-	public void setErrMsg(String errMsg) {
-		this.errMsg = errMsg;
+	public int getDirection() {
+		return direction;
 	}
 
-	public String getErrMsg() {
-		return this.errMsg;
+	public void setDirection(int direction) {
+		this.direction = direction;
 	}
+
+	public long getLog_id() {
+		return log_id;
+	}
+
+	public void setLog_id(long log_id) {
+		this.log_id = log_id;
+	}
+
+	public int getWords_result_num() {
+		return words_result_num;
+	}
+
+	public void setWords_result_num(int words_result_num) {
+		this.words_result_num = words_result_num;
+	}
+
 
 }

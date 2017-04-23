@@ -9,6 +9,7 @@ import android.text.TextUtils;
 
 import cn.contentx.MD5;
 
+import com.alibaba.fastjson.JSON;
 import com.avos.avoscloud.okhttp.Cache;
 import com.avos.avoscloud.okhttp.Callback;
 import com.avos.avoscloud.okhttp.FormEncodingBuilder;
@@ -20,10 +21,17 @@ import com.avos.avoscloud.okhttp.OkHttpClient;
 import com.avos.avoscloud.okhttp.Request;
 import com.avos.avoscloud.okhttp.RequestBody;
 import com.avos.avoscloud.okhttp.Response;
+import com.messi.languagehelper.MainFragmentOld;
+import com.messi.languagehelper.dao.BaiduAccessToken;
 import com.messi.languagehelper.inteface.ProgressListener;
 import com.messi.languagehelper.util.CameraUtil;
+import com.messi.languagehelper.util.JsonParser;
+import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.StringUtils;
+import com.messi.languagehelper.wxapi.WXEntryActivity;
 
 public class LanguagehelperHttpClient {
 	
@@ -151,27 +159,55 @@ public class LanguagehelperHttpClient {
 		}
 	}
 
+	public static void getBaiduAccessstoken(Callback mCallback) {
+		RequestBody formBody  = new FormEncodingBuilder()
+				.add("grant_type", "client_credentials")
+				.add("client_id", "GNBFfzUk2F9fzS109aTIiIDG")
+				.add("client_secret", "6cuMEl0DPCQfeBhaiEvQq6koNFBHzw3C")
+				.build();
+		post(Settings.BaiduAccessToken,  formBody , mCallback);
+	}
+
 	public static void postBaiduOCR(String path, Callback mCallback) {
 		try {
-			RequestBody mRequestBody = RequestBody.create( MEDIA_TYPE_JPG, CameraUtil.getFile(path) );
-			RequestBody formBody = new MultipartBuilder()
-				.type(MultipartBuilder.FORM)
-				.addFormDataPart("fromdevice", "android")
-				.addFormDataPart("clientip", "10.10.10.0")
-				.addFormDataPart("detecttype", "LocateRecognize")
-				.addFormDataPart("languagetype", "CHN_ENG")
-				.addFormDataPart("imagetype", "2")
-				.addFormDataPart("image", "picture.jpg", mRequestBody)
-				.build();
+			getBaiduAccessToken();
+			MainFragmentOld.base64 = CameraUtil.encodeBase64File(path);
+			LogUtil.DefalutLog(MainFragmentOld.base64);
+			RequestBody formBody = new FormEncodingBuilder()
+					.add("image", MainFragmentOld.base64)
+					.build();
 			Request request = new Request.Builder()
-				.url(Settings.BaiduOCRUrl)
-				.header("apikey", "bb3e54f1ade6307919e47bd1eccc3dde")
+				.url(Settings.BaiduOCRUrl+"?access_token="+PlayUtil.getSP().getString(KeyUtil.BaiduAccessToken,""))
+				.header("Content-Type", "application/x-www-form-urlencoded")
 				.post(formBody)
 				.build();
 			client.newCall(request).enqueue(mCallback);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	public static void getBaiduAccessToken(){
+		LanguagehelperHttpClient.getBaiduAccessstoken(new UICallback(WXEntryActivity.mInstance){
+			@Override
+			public void onFailured() {
+			}
+			@Override
+			public void onFinished() {
+			}
+			@Override
+			public void onResponsed(String responseString) {
+				LogUtil.DefalutLog("BaiduAccessstoken:"+responseString);
+				if(JsonParser.isJson(responseString)){
+					BaiduAccessToken mBaiduAccessToken = JSON.parseObject(responseString, BaiduAccessToken.class);
+					if(mBaiduAccessToken != null){
+						Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.BaiduAccessToken, mBaiduAccessToken.getAccess_token());
+						Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.BaiduAccessTokenExpires, mBaiduAccessToken.getExpires_in());
+						Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.BaiduAccessTokenCreateAt, System.currentTimeMillis());
+					}
+				}
+			}
+		});
 	}
 	
 	public static OkHttpClient addProgressResponseListener(final ProgressListener progressListener){

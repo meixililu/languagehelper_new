@@ -342,6 +342,44 @@ public class AVOUtil {
 		public final static String order = "order";
 		
 	}
+
+	public static class HJWordStudyCategory {
+
+		public final static String HJWordStudyCategory = "HJWordStudyCategory";
+
+		public final static String category = "category";
+
+		public final static String name = "name";
+
+		public final static String ltype = "ltype";
+
+		public final static String list_type = "list_type";
+
+		public final static String isValid = "isValid";
+
+		public final static String order = "order";
+
+		public final static String type_code = "type_code";
+
+	}
+
+	public static class HJWordStudyCList {
+
+		public final static String HJWordStudyCList = "HJWordStudyCList";
+
+		public final static String category = "category";
+
+		public final static String title = "title";
+
+		public final static String word = "word";
+
+		public final static String type = "type";
+
+		public final static String word_des = "word_des";
+
+		public final static String createdAt = "createdAt";
+
+	}
 	
 	public static class WordStudyType {
 		

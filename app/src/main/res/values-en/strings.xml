@@ -13,6 +13,7 @@
     <string name="title_listening">Listening</string>
     <string name="title_symbol">Symbol Study</string>
     <string name="title_word_study">Word Study</string>
+    <string name="title_word_study_summary">Word Summary</string>
     <string name="title_word_vocabulary">Vocabulary</string>
     <string name="title_spoken_english_study">Study</string>
     <string name="title_english_jokes">Jokes</string>
@@ -251,6 +252,7 @@
 	
 	<string name="follow_teacher">Follow Teacher</string>
 	<string name="server_error">Server Error,Retry Later Please!</string>
+    <string name="recognize_error">Recognize error,Retry Please！</string>
 	<string name="network_error">Network Error,Retry Later Please!</string>
     <string name="style_select">Select Style</string>
     <string name="style_classic">Classic</string>

@@ -65,6 +65,9 @@
         <!-- 讯飞广告sdk -->
         
         <activity
+            android:name=".WordStudySummaryListActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".WordStudyCiYiXuanCiActivity"
             android:screenOrientation="portrait" />
         <activity

@@ -3,6 +3,7 @@ package com.messi.languagehelper.adapter;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.ReadingFragment;
 import com.messi.languagehelper.WordStudyFirstFragment;
+import com.messi.languagehelper.WordStudySummaryFragment;
 import com.messi.languagehelper.util.AVOUtil;
 
 import android.content.Context;
@@ -18,6 +19,7 @@ public class WordStudyTabAdapter extends FragmentPagerAdapter {
         super(fm);
         CONTENT = new String[] { 
         		mContext.getResources().getString(R.string.title_word_study),
+        		mContext.getResources().getString(R.string.title_word_study_summary),
         		mContext.getResources().getString(R.string.title_word_vocabulary)
         };
     }
@@ -27,7 +29,9 @@ public class WordStudyTabAdapter extends FragmentPagerAdapter {
         if( position == 0 ){
         	return new WordStudyFirstFragment();
         }else if( position == 1 ){
-        	return ReadingFragment.newInstance(AVOUtil.Category.word, null);
+        	return new WordStudySummaryFragment();
+        }else if( position == 2 ){
+            return ReadingFragment.newInstance(AVOUtil.Category.word, null);
         }
         return null;
     }

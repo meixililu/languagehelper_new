@@ -158,6 +158,7 @@ public class SpokenEnglishPractiseFragment extends BaseFragment {
                         avObjects.addAll(avObject);
                         skip += 20;
                         showFooterview();
+                        hasMore = true;
                     }
                 }
             }

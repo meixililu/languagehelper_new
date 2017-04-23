@@ -97,7 +97,9 @@ public class KeyUtil {
 	public static final String SaveLastTime_ReadingJuheActivity = "SaveLastTime_ReadingJuheActivity";
 	
 	public static final String SaveLastTime_WordStudyCategoryList = "SaveLastTime_WordStudyCategoryList";
-	
+
+	public static final String SaveLastTime_WordStudySummaryList = "SaveLastTime_WordStudySummaryList";
+
 	public static final String SaveLastTime_ExaminationType = "SaveLastTime_ExaminationType";
 	
 	public static final String TranslateApiOrder = "TranslateApiOrders1";
@@ -132,6 +134,8 @@ public class KeyUtil {
 
 	public static final String WordStudyUnit = "WordStudyUnit";
 
+	public static final String WordSummaryStudyUnit = "WordSummaryStudyUnit";
+
 	public static final String IsShowTranKeybordLayout = "IsShowTranKeybordLayout";
 
 	public static final String IsShowDicKeyboardLayout = "IsShowDicKeyboardLayout";
@@ -141,6 +145,16 @@ public class KeyUtil {
 	public static final String IsUseOldStyle = "IsUseOldStyle";
 
 	public static final String IsFirstLoadStylePage = "IsFirstLoadStylePage";
+
+	public static final String BaiduAccessToken = "BaiduAccessToken";
+
+	public static final String BaiduAccessTokenExpires = "BaiduAccessTokenExpires";
+
+	public static final String BaiduAccessTokenCreateAt = "BaiduAccessTokenCreateAt";
+
+	public static final String WordStudySummaryCategoryList = "WordStudySummaryCategoryList";
+
+	public static final String list_type = "list_type";
 
 
 	
