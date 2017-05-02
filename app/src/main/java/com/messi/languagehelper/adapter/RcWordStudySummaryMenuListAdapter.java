@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import com.avos.avoscloud.AVObject;
 import com.karumi.headerrecyclerview.HeaderRecyclerViewAdapter;
 import com.messi.languagehelper.R;
+import com.messi.languagehelper.WordStudySummaryListActivity;
 
 /**
  * Created by luli on 10/23/16.
@@ -15,11 +16,17 @@ import com.messi.languagehelper.R;
 
 public class RcWordStudySummaryMenuListAdapter extends HeaderRecyclerViewAdapter<RecyclerView.ViewHolder, Object, AVObject, Object> {
 
+    private WordStudySummaryListActivity mWordStudySummaryListActivity;
+
+    public RcWordStudySummaryMenuListAdapter(WordStudySummaryListActivity mWordStudySummaryListActivity){
+        this.mWordStudySummaryListActivity = mWordStudySummaryListActivity;
+    }
+
     @Override
     protected RecyclerView.ViewHolder onCreateItemViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = getLayoutInflater(parent);
         View characterView = inflater.inflate(R.layout.word_study_summary_list_item, parent, false);
-        return new RcWordStudySummaryMenuListItemViewHolder(characterView);
+        return new RcWordStudySummaryMenuListItemViewHolder(characterView,mWordStudySummaryListActivity);
     }
 
     @Override

@@ -71,7 +71,7 @@ public class WordStudySummaryListActivity extends BaseActivity {
 
         mAVObjectList = new ArrayList<AVObject>();
         mAVObjectMenuList = new ArrayList<AVObject>();
-        mMenuAdapter = new RcWordStudySummaryMenuListAdapter();
+        mMenuAdapter = new RcWordStudySummaryMenuListAdapter(this);
         mMenuAdapter.setItems(mAVObjectMenuList);
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this);
         menulistview.setLayoutManager(mLinearLayoutManager);
@@ -166,7 +166,7 @@ public class WordStudySummaryListActivity extends BaseActivity {
         AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.HJWordStudyCList.HJWordStudyCList);
         query.whereEqualTo(AVOUtil.HJWordStudyCList.category,category);
         query.orderByAscending(AVOUtil.HJWordStudyCList.createdAt);
-        if(!TextUtils.isEmpty(type)){
+        if(!TextUtils.isEmpty(type) && !type.equals("1111")){
             query.whereEqualTo(AVOUtil.HJWordStudyCList.type,type);
         }
         query.skip(skip);
@@ -203,6 +203,12 @@ public class WordStudySummaryListActivity extends BaseActivity {
         } catch (AVException e) {
             e.printStackTrace();
         }
+    }
+
+    public void getDataByType(String type_code){
+        type = type_code;
+        skip = 0;
+        getDataTask();
     }
 
     private void hideFooterview(){

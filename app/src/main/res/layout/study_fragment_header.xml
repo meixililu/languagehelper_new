@@ -19,7 +19,7 @@
             fresco:actualImageScaleType="focusCrop"
             fresco:placeholderImage="@color/text_tint"
             fresco:placeholderImageScaleType="fitCenter"
-            fresco:viewAspectRatio="2"
+            fresco:viewAspectRatio="2.2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -66,7 +66,7 @@
         <FrameLayout
             android:id="@+id/symbol_study_cover"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/study_menu_item_height"
             android:layout_marginRight="1px"
             android:layout_weight="1"
             android:foreground="@drawable/framelayout_selector"
@@ -85,7 +85,7 @@
         <FrameLayout
             android:id="@+id/word_study_cover"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/study_menu_item_height"
             android:layout_marginRight="1px"
             android:layout_weight="1"
             android:foreground="@drawable/framelayout_selector"
@@ -104,7 +104,7 @@
         <FrameLayout
             android:id="@+id/study_listening_layout"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/study_menu_item_height"
             android:layout_marginRight="1px"
             android:layout_weight="1"
             android:foreground="@drawable/framelayout_selector"
@@ -123,7 +123,7 @@
         <FrameLayout
             android:id="@+id/news_layout"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/study_menu_item_height"
             android:layout_weight="1"
             android:foreground="@drawable/framelayout_selector"
             android:orientation="vertical">
@@ -148,7 +148,7 @@
         <FrameLayout
             android:id="@+id/study_spoken_english"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/study_menu_item_height"
             android:layout_marginRight="1px"
             android:layout_weight="1"
             android:foreground="@drawable/framelayout_selector"
@@ -168,7 +168,7 @@
         <FrameLayout
             android:id="@+id/study_test"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/study_menu_item_height"
             android:layout_marginRight="1px"
             android:layout_weight="1"
             android:foreground="@drawable/framelayout_selector"
@@ -187,7 +187,7 @@
         <FrameLayout
             android:id="@+id/en_examination_layout"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/study_menu_item_height"
             android:layout_marginRight="1px"
             android:layout_weight="1"
             android:foreground="@drawable/framelayout_selector"
@@ -206,7 +206,7 @@
         <FrameLayout
             android:id="@+id/study_composition"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/study_menu_item_height"
             android:layout_weight="1"
             android:foreground="@drawable/framelayout_selector"
             android:orientation="vertical">
@@ -231,7 +231,7 @@
         <FrameLayout
             android:id="@+id/juhe_layout"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/study_menu_item_height"
             android:layout_marginRight="1px"
             android:layout_weight="1"
             android:foreground="@drawable/framelayout_selector"
@@ -250,7 +250,7 @@
         <FrameLayout
             android:id="@+id/jokes_layout"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/study_menu_item_height"
             android:layout_marginRight="1px"
             android:layout_weight="1"
             android:foreground="@drawable/framelayout_selector"
@@ -269,7 +269,7 @@
         <FrameLayout
             android:id="@+id/story_layout"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/study_menu_item_height"
             android:layout_marginRight="1px"
             android:layout_weight="1"
             android:foreground="@drawable/framelayout_selector"
@@ -288,7 +288,7 @@
         <FrameLayout
             android:id="@+id/instagram_layout"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/study_menu_item_height"
             android:layout_weight="1"
             android:foreground="@drawable/framelayout_selector"
             android:orientation="vertical">

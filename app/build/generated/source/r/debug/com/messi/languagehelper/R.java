@@ -3395,9 +3395,10 @@ containing a value of this type.
         public static final int small=0x7f0900a9;
         public static final int smaller=0x7f0900aa;
         public static final int smaller_l=0x7f0900ab;
-        public static final int tabs_heigh=0x7f0900ac;
-        public static final int text_margin=0x7f0900ad;
-        public static final int title=0x7f0900ae;
+        public static final int study_menu_item_height=0x7f0900ac;
+        public static final int tabs_heigh=0x7f0900ad;
+        public static final int text_margin=0x7f0900ae;
+        public static final int title=0x7f0900af;
     }
     public static final class drawable {
         public static final int abc_ab_share_pack_mtrl_alpha=0x7f020000;
@@ -4327,14 +4328,15 @@ containing a value of this type.
         public static final int word_study_list_fragment=0x7f0400a1;
         public static final int word_study_root_list_item=0x7f0400a2;
         public static final int word_study_summary_activity=0x7f0400a3;
-        public static final int word_study_summary_list_item=0x7f0400a4;
-        public static final int word_study_third_list_item=0x7f0400a5;
-        public static final int word_study_uint_list_activity=0x7f0400a6;
-        public static final int word_study_unit_list_item=0x7f0400a7;
-        public static final int word_type_activity=0x7f0400a8;
-        public static final int xunfei_ysad_item=0x7f0400a9;
-        public static final int yizhaondaodi_activity=0x7f0400aa;
-        public static final int zh_dic_activity=0x7f0400ab;
+        public static final int word_study_summary_detail_activity=0x7f0400a4;
+        public static final int word_study_summary_list_item=0x7f0400a5;
+        public static final int word_study_third_list_item=0x7f0400a6;
+        public static final int word_study_uint_list_activity=0x7f0400a7;
+        public static final int word_study_unit_list_item=0x7f0400a8;
+        public static final int word_type_activity=0x7f0400a9;
+        public static final int xunfei_ysad_item=0x7f0400aa;
+        public static final int yizhaondaodi_activity=0x7f0400ab;
+        public static final int zh_dic_activity=0x7f0400ac;
     }
     public static final class menu {
         public static final int composition=0x7f0f0000;

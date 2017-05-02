@@ -221,15 +221,8 @@ public class LoadingActivity extends AppCompatActivity implements OnClickListene
 
     private void toNextPage() {
         try {
-            if(mSharedPreferences.getBoolean(KeyUtil.IsFirstLoadStylePage, true)){
-                Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.IsFirstLoadStylePage, false);
-                Intent intent = new Intent(LoadingActivity.this, HelpActivity.class);
-                intent.putExtra(KeyUtil.IsFirstLoadStylePage,true);
-                startActivity(intent);
-            }else {
-                Intent intent = new Intent(LoadingActivity.this, WXEntryActivity.class);
-                startActivity(intent);
-            }
+            Intent intent = new Intent(LoadingActivity.this, WXEntryActivity.class);
+            startActivity(intent);
             finish();
         } catch (Exception e) {
             e.printStackTrace();

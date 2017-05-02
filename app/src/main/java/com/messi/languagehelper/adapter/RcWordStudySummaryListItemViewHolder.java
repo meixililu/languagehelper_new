@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.avos.avoscloud.AVObject;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.SymbolDetailActivity;
+import com.messi.languagehelper.WordStudySummaryDetailActivity;
 import com.messi.languagehelper.dao.SymbolListDao;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
@@ -44,10 +45,10 @@ public class RcWordStudySummaryListItemViewHolder extends RecyclerView.ViewHolde
     }
 
     private void onItemClick(AVObject mAVObject){
-//        WXEntryActivity.dataMap.put(KeyUtil.DataMapKey, mAVObject);
-//        Intent intent = new Intent(context,SymbolDetailActivity.class);
-//        intent.putExtra(KeyUtil.ActionbarTitle, mAVObject.getString(AVOUtil.HJWordStudyCList.title));
-//        context.startActivity(intent);
+        WXEntryActivity.dataMap.put(KeyUtil.DataMapKey, mAVObject);
+        Intent intent = new Intent(context,WordStudySummaryDetailActivity.class);
+        intent.putExtra(KeyUtil.ActionbarTitle, mAVObject.getString(AVOUtil.HJWordStudyCList.title));
+        context.startActivity(intent);
     }
 
 }

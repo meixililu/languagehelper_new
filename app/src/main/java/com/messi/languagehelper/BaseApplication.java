@@ -2,7 +2,6 @@ package com.messi.languagehelper;
 
 import java.util.HashMap;
 
-import com.androidquery.util.Progress;
 import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVOSCloud;
 import com.facebook.drawee.backends.pipeline.Fresco;

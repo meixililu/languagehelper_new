@@ -14,6 +14,8 @@
     <dimen name="smaller">8sp</dimen>
     <dimen name="action_size">36sp</dimen>
 
+    <dimen name="study_menu_item_height">53dp</dimen>
+
     <dimen name="tabs_heigh">34dp</dimen>
 
     <dimen name="slidingmenu_offset">150dp</dimen>

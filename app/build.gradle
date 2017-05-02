@@ -40,7 +40,6 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
     compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'org.greenrobot:greendao:2.2.1'
     compile 'com.google.code.gson:gson:2.8.0'
     compile 'org.jsoup:jsoup:1.10.2'
     compile 'cn.leancloud.android:avoscloud-sdk:v3.+'
@@ -54,4 +53,7 @@ dependencies {
     compile 'io.reactivex.rxjava2:rxjava:2.0.6'
     compile 'com.orhanobut:dialogplus:1.11@aar'
     compile "com.andkulikov:transitionseverywhere:1.7.0"
+    compile 'org.greenrobot:greendao:2.2.1'
+
+
 }
