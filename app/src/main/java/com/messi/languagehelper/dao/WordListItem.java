@@ -1,8 +1,8 @@
 package com.messi.languagehelper.dao;
 
-import java.io.Serializable;
+public class WordListItem {
 
-public class WordListItem implements Serializable {
+	private Long id;
 
 	private String class_id;
 

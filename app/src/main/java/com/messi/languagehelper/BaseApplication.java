@@ -6,7 +6,6 @@ import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVOSCloud;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.messi.languagehelper.dao.DaoMaster;
-import com.messi.languagehelper.dao.DaoMaster.OpenHelper;
 import com.messi.languagehelper.dao.DaoSession;
 import com.messi.languagehelper.db.LHContract;
 
@@ -48,7 +47,7 @@ public class BaseApplication extends Application {
      */
     public static DaoMaster getDaoMaster(Context context) {
         if (daoMaster == null) {
-            OpenHelper helper = new DaoMaster.DevOpenHelper(context,LHContract.DATABASE_NAME, null);
+            DaoMaster.OpenHelper helper = new DaoMaster.DevOpenHelper(context,LHContract.DATABASE_NAME, null);
             daoMaster = new DaoMaster(helper.getWritableDatabase());
         }
         return daoMaster;

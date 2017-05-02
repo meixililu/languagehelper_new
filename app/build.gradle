@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion 25
@@ -53,7 +54,10 @@ dependencies {
     compile 'io.reactivex.rxjava2:rxjava:2.0.6'
     compile 'com.orhanobut:dialogplus:1.11@aar'
     compile "com.andkulikov:transitionseverywhere:1.7.0"
-    compile 'org.greenrobot:greendao:2.2.1'
+    compile 'org.greenrobot:greendao:3.2.2'
 
+}
 
+greendao {
+    schemaVersion 4
 }

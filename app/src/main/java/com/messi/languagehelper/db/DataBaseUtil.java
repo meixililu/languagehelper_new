@@ -3,7 +3,6 @@ package com.messi.languagehelper.db;
 import android.content.Context;
 
 import com.messi.languagehelper.BaseApplication;
-import com.messi.languagehelper.MainFragment;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.dao.DaoSession;
 import com.messi.languagehelper.dao.Dictionary;
@@ -24,17 +23,17 @@ import com.messi.languagehelper.dao.recordDao.Properties;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Settings;
 
-import java.util.List;
+import org.greenrobot.greendao.query.DeleteQuery;
+import org.greenrobot.greendao.query.QueryBuilder;
 
-import de.greenrobot.dao.query.DeleteQuery;
-import de.greenrobot.dao.query.QueryBuilder;
+import java.util.List;
 
 public class DataBaseUtil {
 
     private static DataBaseUtil instance;
     private static Context appContext;
     private DaoSession mDaoSession;
-    private recordDao recordDao;
+    private recordDao mrecordDao;
     private EveryDaySentenceDao mEveryDaySentenceDao;
     private DictionaryDao mDictionaryDao;
     private MeansDao MmeansDao;
@@ -52,7 +51,7 @@ public class DataBaseUtil {
                 appContext = BaseApplication.mInstance;
             }
             instance.mDaoSession = BaseApplication.getDaoSession(appContext);
-            instance.recordDao = instance.mDaoSession.getRecordDao();
+            instance.mrecordDao = instance.mDaoSession.getRecordDao();
             instance.mDictionaryDao = instance.mDaoSession.getDictionaryDao();
             instance.mEveryDaySentenceDao = instance.mDaoSession.getEveryDaySentenceDao();
             instance.mPartsDao = instance.mDaoSession.getPartsDao();
@@ -107,12 +106,12 @@ public class DataBaseUtil {
         bean.setSpeak_speed(Settings.getSharedPreferences(appContext).getInt(appContext.getString(R.string.preference_key_tts_speed), 50));
         bean.setQuestionVoiceId(System.currentTimeMillis() + "");
         bean.setResultVoiceId(System.currentTimeMillis() - 5 + "");
-        return recordDao.insert(bean);
+        return mrecordDao.insert(bean);
     }
 
 
     public void update(record bean) {
-        recordDao.update(bean);
+        mrecordDao.update(bean);
     }
 
     public void update(Dictionary bean) {
@@ -120,7 +119,7 @@ public class DataBaseUtil {
     }
 
     public List<record> getDataListRecord(int offset, int maxResult) {
-        QueryBuilder<record> qb = recordDao.queryBuilder();
+        QueryBuilder<record> qb = mrecordDao.queryBuilder();
         qb.orderDesc(Properties.Id);
         qb.limit(maxResult);
         return qb.list();
@@ -134,7 +133,7 @@ public class DataBaseUtil {
     }
 
     public List<record> getDataListCollected(int offset, int maxResult) {
-        QueryBuilder<record> qb = recordDao.queryBuilder();
+        QueryBuilder<record> qb = mrecordDao.queryBuilder();
         qb.where(Properties.Iscollected.eq("1"));
         qb.orderDesc(Properties.Id);
         qb.limit(maxResult);
@@ -150,7 +149,7 @@ public class DataBaseUtil {
     }
 
     public void dele(record bean) {
-        recordDao.delete(bean);
+        mrecordDao.delete(bean);
     }
 
     public void dele(Dictionary bean) {
@@ -170,7 +169,7 @@ public class DataBaseUtil {
     }
 
     public void clearTranslateExceptFavorite() {
-        QueryBuilder<record> qb = recordDao.queryBuilder();
+        QueryBuilder<record> qb = mrecordDao.queryBuilder();
         DeleteQuery<record> bd = qb.where(Properties.Iscollected.eq("0")).buildDelete();
         bd.executeDeleteWithoutDetachingEntities();
     }
@@ -190,7 +189,7 @@ public class DataBaseUtil {
     }
 
     public void clearAllTranslate() {
-        recordDao.deleteAll();
+        mrecordDao.deleteAll();
     }
 
     public void clearAllDictionary() {
@@ -198,7 +197,7 @@ public class DataBaseUtil {
     }
 
     public long getRecordCount() {
-        return recordDao.count();
+        return mrecordDao.count();
     }
 
     public long getDictionaryCount() {
