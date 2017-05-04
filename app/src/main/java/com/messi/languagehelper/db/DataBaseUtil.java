@@ -1,6 +1,7 @@
 package com.messi.languagehelper.db;
 
 import android.content.Context;
+import android.text.TextUtils;
 
 import com.messi.languagehelper.BaseApplication;
 import com.messi.languagehelper.R;
@@ -13,6 +14,8 @@ import com.messi.languagehelper.dao.Means;
 import com.messi.languagehelper.dao.MeansDao;
 import com.messi.languagehelper.dao.Parts;
 import com.messi.languagehelper.dao.PartsDao;
+import com.messi.languagehelper.dao.Reading;
+import com.messi.languagehelper.dao.ReadingDao;
 import com.messi.languagehelper.dao.SymbolListDao;
 import com.messi.languagehelper.dao.SymbolListDaoDao;
 import com.messi.languagehelper.dao.Tag;
@@ -39,6 +42,7 @@ public class DataBaseUtil {
     private MeansDao MmeansDao;
     private PartsDao mPartsDao;
     private TagDao mTagDao;
+    private ReadingDao mReadingDao;
     private SymbolListDaoDao mSymbolListDaoDao;
 
     public DataBaseUtil() {
@@ -58,6 +62,7 @@ public class DataBaseUtil {
             instance.MmeansDao = instance.mDaoSession.getMeansDao();
             instance.mTagDao = instance.mDaoSession.getTagDao();
             instance.mSymbolListDaoDao = instance.mDaoSession.getSymbolListDaoDao();
+            instance.mReadingDao = instance.mDaoSession.getReadingDao();
         }
         return instance;
     }
@@ -235,4 +240,55 @@ public class DataBaseUtil {
     }
     /**Daily Sentence CURD**/
 
+    /** readings curd**/
+    public long insert(Reading item){
+        return mReadingDao.insert(item);
+    }
+
+    public void update(Reading item){
+        List<Reading> datas = isDataExit(item);
+        if (datas.size() > 0) {
+            mReadingDao.update(item);
+        }
+    }
+
+    public List<Reading> getReadingList(int limit, String category, String type, String code) {
+        QueryBuilder<Reading> qb = mReadingDao.queryBuilder();
+        if(!TextUtils.isEmpty(category)){
+            qb.where(ReadingDao.Properties.Category.eq(category));
+        }
+        if(!TextUtils.isEmpty(type)){
+            qb.where(ReadingDao.Properties.Type.eq(type));
+        }
+        if(!TextUtils.isEmpty(code)){
+            if(!code.equals("1000")){
+                qb.where(ReadingDao.Properties.Type_id.eq(code));
+            }
+        }
+        qb.orderDesc(ReadingDao.Properties.Publish_time);
+        qb.limit(limit);
+        return qb.list();
+    }
+
+    public void saveOrGetStatus(Reading bean){
+        List<Reading> datas = isDataExit(bean);
+        if (datas.size() > 0) {
+            Reading localData = datas.get(0);
+            bean.setStatus(localData.getStatus());
+            bean.setIsCollected(localData.getIsCollected());
+            bean.setIsReadLater(localData.getIsReadLater());
+            bean.setId(localData.getId());
+        }else {
+            insert(bean);
+        }
+    }
+
+    public List<Reading> isDataExit(Reading bean){
+        return mReadingDao
+                .queryBuilder()
+                .where(ReadingDao.Properties.Object_id.eq(bean.getObject_id()))
+                .list();
+    }
+
+    /** readings curd**/
 }

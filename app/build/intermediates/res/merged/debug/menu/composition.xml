@@ -10,10 +10,10 @@
         app:showAsAction="always"
         android:showAsAction="always"/>
     <item
-        android:id="@+id/action_copy"
+        android:id="@+id/action_collected"
         android:orderInCategory="100"
-        android:title="@string/copy"
-        android:icon="@drawable/ic_content_copy_white_24dp"
+        android:title="@string/collect"
+        android:icon="@drawable/ic_uncollected_white"
         app:showAsAction="always"
         android:showAsAction="always"
         />

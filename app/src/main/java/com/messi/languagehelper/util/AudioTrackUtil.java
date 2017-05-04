@@ -44,12 +44,16 @@ public class AudioTrackUtil {
 	}
 
 	public static void stopPlayPcm(Thread mThread,MyThread mMyThread){
-		if(mMyThread != null){
-			mMyThread.stopPlaying();
-		}
-		if(mThread != null){
-			mThread.interrupt();
-			mThread = null;
+		try{
+			if(mMyThread != null){
+				mMyThread.stopPlaying();
+			}
+			if(mThread != null){
+				mThread.interrupt();
+				mThread = null;
+			}
+		}catch (Exception e){
+			e.printStackTrace();
 		}
 	}
 	

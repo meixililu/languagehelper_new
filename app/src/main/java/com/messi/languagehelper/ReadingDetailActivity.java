@@ -2,6 +2,7 @@ package com.messi.languagehelper;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.net.Uri;
@@ -32,6 +33,8 @@ import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
 import com.iflytek.voiceads.NativeADDataRef;
+import com.messi.languagehelper.dao.Reading;
+import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.task.MyThread;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
@@ -78,8 +81,8 @@ public class ReadingDetailActivity extends BaseActivity {
     JCVideoPlayerStandard videoplayer;
 
 
-    private AVObject mAVObject;
-    private List<AVObject> mAVObjects;
+    private Reading mAVObject;
+    private List<Reading> mAVObjects;
     private SpeechSynthesizer mSpeechSynthesizer;
     private SharedPreferences mSharedPreferences;
     private Thread mThread;
@@ -95,9 +98,8 @@ public class ReadingDetailActivity extends BaseActivity {
             if (msg.what == 1) {
                 playMp3(fileFullName);
             } else if (msg.what == 3) {
-                mAVObject.put(AVOUtil.Reading.media_url, "");
+                mAVObject.setMedia_url("");
                 playContent();
-                mAVObject.saveInBackground();
             } else {
                 fab.setImageResource(R.drawable.ic_play_arrow_white_48dp);
             }
@@ -131,7 +133,7 @@ public class ReadingDetailActivity extends BaseActivity {
     }
 
     private void initData() {
-        mAVObjects = (List<AVObject>) WXEntryActivity.dataMap.get(KeyUtil.DataMapKey);
+        mAVObjects = (List<Reading>) WXEntryActivity.dataMap.get(KeyUtil.DataMapKey);
         index = getIntent().getIntExtra(KeyUtil.IndexKey, 0);
         mAVObject = mAVObjects.get(index);
         WXEntryActivity.dataMap.clear();
@@ -149,25 +151,25 @@ public class ReadingDetailActivity extends BaseActivity {
     private void setData() {
         videoplayer.setVisibility(View.GONE);
         pimgview.setVisibility(View.GONE);
-        toolbar_layout.setTitle(mAVObject.getString(AVOUtil.Reading.title));
-        title.setText(mAVObject.getString(AVOUtil.Reading.title));
+        toolbar_layout.setTitle(mAVObject.getTitle());
+        title.setText(mAVObject.getTitle());
         scrollview.scrollTo(0, 0);
-        TextHandlerUtil.handlerText(this, mProgressbar, content, mAVObject.getString(AVOUtil.Reading.content));
-        if (!TextUtils.isEmpty(mAVObject.getString(AVOUtil.Reading.type)) &&
-                mAVObject.getString(AVOUtil.Reading.type).equals("video")) {
+        TextHandlerUtil.handlerText(this, mProgressbar, content, mAVObject.getContent());
+        if (!TextUtils.isEmpty(mAVObject.getType()) &&
+                mAVObject.getType().equals("video")) {
             videoplayer.setVisibility(View.VISIBLE);
-            videoplayer.setUp(mAVObject.getString(AVOUtil.Reading.media_url), JCVideoPlayerStandard.SCREEN_LAYOUT_LIST, "");
-            if (!TextUtils.isEmpty(mAVObject.getString(AVOUtil.Reading.img_url))) {
+            videoplayer.setUp(mAVObject.getMedia_url(), JCVideoPlayerStandard.SCREEN_LAYOUT_LIST, "");
+            if (!TextUtils.isEmpty(mAVObject.getImg_url())) {
                 Glide.with(this)
-                        .load(mAVObject.getString(AVOUtil.Reading.img_url))
+                        .load(mAVObject.getImg_url())
                         .into(videoplayer.thumbImageView);
             }
             fab.setVisibility(View.GONE);
-        } else if (!TextUtils.isEmpty(mAVObject.getString(AVOUtil.Reading.img_url))) {
+        } else if (!TextUtils.isEmpty(mAVObject.getImg_url())) {
             pimgview.setVisibility(View.VISIBLE);
-            pimgview.setImageURI(Uri.parse(mAVObject.getString(AVOUtil.Reading.img_url)));
+            pimgview.setImageURI(Uri.parse(mAVObject.getImg_url()));
         }
-        if(mAVObject.getString(AVOUtil.Reading.type).equals("text")){
+        if(mAVObject.getType().equals("text")){
             fab.setVisibility(View.GONE);
         }
         int[] random = NumberUtil.getRandomNumberLimit(mAVObjects.size(), 0, 5, index);
@@ -190,11 +192,15 @@ public class ReadingDetailActivity extends BaseActivity {
                 }
             }
         });
+        if(TextUtils.isEmpty(mAVObject.getStatus())){
+            mAVObject.setStatus("1");
+            DataBaseUtil.getInstance().update(mAVObject);
+        }
     }
 
     private void playContent() {
-        String type = mAVObject.getString(AVOUtil.Reading.type);
-        if (type.equals("mp3") && !TextUtils.isEmpty(mAVObject.getString(AVOUtil.Reading.media_url))) {
+        String type = mAVObject.getType();
+        if (type.equals("mp3") && !TextUtils.isEmpty(mAVObject.getMedia_url())) {
             playByMp3();
         } else {
             playByPcm();
@@ -204,11 +210,11 @@ public class ReadingDetailActivity extends BaseActivity {
     private void playByMp3() {
         if (mAVObject != null) {
             fab.setImageResource(R.drawable.ic_stop_white_48dp);
-            String downLoadUrl = mAVObject.getString(AVOUtil.Reading.media_url);
+            String downLoadUrl = mAVObject.getMedia_url();
             int pos = downLoadUrl.lastIndexOf(SDCardUtil.Delimiter) + 1;
             String fileName = downLoadUrl.substring(pos, downLoadUrl.length());
             String rootUrl = SDCardUtil.ReadingPath +
-                    mAVObject.getObjectId() + SDCardUtil.Delimiter;
+                    mAVObject.getObject_id() + SDCardUtil.Delimiter;
             fileFullName = SDCardUtil.getDownloadPath(rootUrl) + fileName;
             LogUtil.DefalutLog("fileName:" + fileName + "---fileFullName:" + fileFullName);
             if (SDCardUtil.isFileExist(fileFullName)) {
@@ -254,12 +260,12 @@ public class ReadingDetailActivity extends BaseActivity {
     private void playByPcm() {
         fab.setImageResource(R.drawable.ic_stop_white_48dp);
         String filepath = SDCardUtil.getDownloadPath(SDCardUtil.CompositionPath) +
-                String.valueOf(mAVObject.getNumber(AVOUtil.Reading.item_id)) + ".pcm";
+                mAVObject.getObject_id() + ".pcm";
         if (!AudioTrackUtil.isFileExists(filepath)) {
             showProgressbar();
             mSpeechSynthesizer.setParameter(SpeechConstant.TTS_AUDIO_PATH, filepath);
             XFUtil.showSpeechSynthesizer(this, mSharedPreferences, mSpeechSynthesizer,
-                    mAVObject.getString(AVOUtil.Reading.content), XFUtil.SpeakerEn,
+                    mAVObject.getContent(), XFUtil.SpeakerEn,
                     new SynthesizerListener() {
                         @Override
                         public void onSpeakResumed() {
@@ -305,24 +311,46 @@ public class ReadingDetailActivity extends BaseActivity {
     }
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        if(menu.size() > 1){
+            setMenuIcon(menu.getItem(1));
+        }
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
         switch (item.getItemId()) {
             case R.id.action_share:
                 copyOrshare(0);
                 break;
-            case R.id.action_copy:
-                copyOrshare(1);
+            case R.id.action_collected:
+                if(TextUtils.isEmpty(mAVObject.getIsCollected())){
+                    mAVObject.setIsCollected("1");
+                }else {
+                    mAVObject.setIsCollected("");
+                }
+                setMenuIcon(item);
+                DataBaseUtil.getInstance().update(mAVObject);
                 break;
         }
         return true;
     }
 
+    private void setMenuIcon(MenuItem item){
+        if(TextUtils.isEmpty(mAVObject.getIsCollected())){
+            item.setIcon(this.getResources().getDrawable(R.drawable.ic_uncollected_white));
+        }else{
+            item.setIcon(this.getResources().getDrawable(R.drawable.ic_collected_white));
+        }
+    }
+
     private void copyOrshare(int i) {
         StringBuilder sb = new StringBuilder();
-        sb.append(mAVObject.getString(AVOUtil.Reading.title));
+        sb.append(mAVObject.getTitle());
         sb.append("\n");
-        sb.append(mAVObject.getString(AVOUtil.Reading.content));
+        sb.append(mAVObject.getContent());
         if (i == 0) {
             Settings.share(this, sb.toString());
         } else {
@@ -352,7 +380,7 @@ public class ReadingDetailActivity extends BaseActivity {
         return isPlaying;
     }
 
-    public View getView(final AVObject mObject) {
+    public View getView(final Reading mObject) {
         View convertView = LayoutInflater.from(this).inflate(R.layout.composition_list_item, null);
         FrameLayout layout_cover = (FrameLayout) convertView.findViewById(R.id.layout_cover);
         LinearLayout list_item_img_parent = (LinearLayout) convertView.findViewById(R.id.list_item_img_parent);
@@ -361,17 +389,13 @@ public class ReadingDetailActivity extends BaseActivity {
         TextView type_name = (TextView) convertView.findViewById(R.id.type_name);
         SimpleDraweeView list_item_img = (SimpleDraweeView) convertView.findViewById(R.id.list_item_img);
 
-        final NativeADDataRef mNativeADDataRef = (NativeADDataRef) mObject.get(KeyUtil.ADKey);
-        if (mNativeADDataRef == null) {
-            title.setText(mObject.getString(AVOUtil.Reading.title));
-            source_name.setText(mObject.getString(AVOUtil.Reading.source_name));
-            type_name.setText(mObject.getString(AVOUtil.Reading.type_name));
+        if (!mObject.isAd()) {
+            title.setText(mObject.getTitle());
+            source_name.setText(mObject.getSource_name());
+            type_name.setText(mObject.getType_name());
             String img_url = "";
-            if (mObject.getString(AVOUtil.Reading.img_type).equals("url")) {
-                img_url = mObject.getString(AVOUtil.Reading.img_url);
-            } else {
-                AVFile mAVFile = mObject.getAVFile(AVOUtil.Reading.img);
-                img_url = mAVFile.getUrl();
+            if (mObject.getImg_type().equals("url")) {
+                img_url = mObject.getImg_url();
             }
             if (!TextUtils.isEmpty(img_url)) {
                 list_item_img_parent.setVisibility(View.VISIBLE);
@@ -390,6 +414,7 @@ public class ReadingDetailActivity extends BaseActivity {
                 }
             });
         } else {
+            final NativeADDataRef mNativeADDataRef = mObject.getmNativeADDataRef();
             title.setText(mNativeADDataRef.getSubTitle());
             type_name.setText(mNativeADDataRef.getTitle());
             source_name.setText("VoiceAds广告");

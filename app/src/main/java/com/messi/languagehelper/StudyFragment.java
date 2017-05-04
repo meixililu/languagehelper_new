@@ -17,6 +17,8 @@ import com.iflytek.voiceads.IFLYNativeAd;
 import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.adapter.RcStudyListAdapter;
+import com.messi.languagehelper.dao.Reading;
+import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
@@ -46,14 +48,14 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
     @BindView(R.id.listview)
     RecyclerView listview;
     private RcStudyListAdapter mAdapter;
-    private List<AVObject> avObjects;
+    private List<Reading> avObjects;
     private List<AVObject> tempList;
     private int skip = 0;
     private int maxRandom;
     private IFLYNativeAd nativeAd;
     private boolean loading;
     private boolean hasMore;
-    private AVObject mADObject;
+    private Reading mADObject;
     private LinearLayoutManager mLinearLayoutManager;
 
     public static StudyFragment getInstance() {
@@ -80,7 +82,8 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
     }
 
     private void initViews(View view) {
-        avObjects = new ArrayList<AVObject>();
+        avObjects = new ArrayList<Reading>();
+        avObjects.addAll(DataBaseUtil.getInstance().getReadingList(Settings.page_size,"","",""));
         skip = 0;
         initSwipeRefresh(view);
         mAdapter = new RcStudyListAdapter(avObjects,mProgressbarListener,getActivity());
@@ -129,12 +132,12 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
         if (avObjects.size() > 3) {
             for (int i = first; i < (first + vCount); i++) {
                 if (i < avObjects.size() && i > 0) {
-                    AVObject mAVObject = avObjects.get(i);
-                    if (mAVObject != null && mAVObject.get(KeyUtil.ADKey) != null) {
-                        if (!(Boolean) mAVObject.get(KeyUtil.ADIsShowKey) && misVisibleToUser) {
-                            NativeADDataRef mNativeADDataRef = (NativeADDataRef) mAVObject.get(KeyUtil.ADKey);
-                            mNativeADDataRef.onExposured(view.getChildAt(i % vCount));
-                            mAVObject.put(KeyUtil.ADIsShowKey, true);
+                    Reading mAVObject = avObjects.get(i);
+                    if(mAVObject != null && mAVObject.isAd()){
+                        if(!mAVObject.isAdShow()){
+                            NativeADDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
+                            mNativeADDataRef.onExposured(view.getChildAt(i%vCount));
+                            mAVObject.setAdShow(true);
                         }
                     }
                 }
@@ -147,6 +150,14 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
         super.setUserVisibleHint(isVisibleToUser);
         if(!isVisibleToUser){
             JCVideoPlayer.releaseAllVideos();
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(mAdapter != null){
+            mAdapter.notifyDataSetChanged();
         }
     }
 
@@ -232,7 +243,10 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
                 hasMore = false;
             } else {
                 if (avObjects != null && mAdapter != null) {
-                    avObjects.addAll(tempList);
+                    if(skip == 0){
+                        avObjects.clear();
+                    }
+                    changeData(tempList);
                     if (addAD()) {
                         mAdapter.notifyDataSetChanged();
                     }
@@ -263,10 +277,10 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
                 LogUtil.DefalutLog("onADLoaded---");
                 if (adList != null && adList.size() > 0) {
                     NativeADDataRef nad = adList.get(0);
-                    mADObject = new AVObject();
-                    mADObject.put(KeyUtil.ADKey, nad);
-                    mADObject.put(KeyUtil.ADIsShowKey, false);
-                    if (!loading) {
+                    mADObject = new Reading();
+                    mADObject.setmNativeADDataRef(nad);
+                    mADObject.setAd(true);
+                    if(!loading){
                         addAD();
                     }
                 }
@@ -315,6 +329,29 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
     public void onTabReselected(int index) {
         if(index == 2){
             listview.scrollToPosition(0);
+        }
+    }
+
+    private void changeData(List<AVObject> avObjectlist){
+        for (AVObject item : avObjectlist) {
+            Reading mReading = new Reading();
+            mReading.setObject_id(item.getObjectId());
+            mReading.setCategory(item.getString(AVOUtil.Reading.category));
+            mReading.setContent(item.getString(AVOUtil.Reading.content));
+            mReading.setType_id(item.getString(AVOUtil.Reading.type_id));
+            mReading.setType_name(item.getString(AVOUtil.Reading.type_name));
+            mReading.setTitle(item.getString(AVOUtil.Reading.title));
+            mReading.setItem_id(item.getString(AVOUtil.Reading.item_id));
+            mReading.setImg_url(item.getString(AVOUtil.Reading.img_url));
+            mReading.setPublish_time(item.getString(AVOUtil.Reading.publish_time));
+            mReading.setImg_type(item.getString(AVOUtil.Reading.img_type));
+            mReading.setSource_name(item.getString(AVOUtil.Reading.source_name));
+            mReading.setSource_url(item.getString(AVOUtil.Reading.source_url));
+            mReading.setType(item.getString(AVOUtil.Reading.type));
+            mReading.setMedia_url(item.getString(AVOUtil.Reading.media_url));
+            mReading.setContent_type(item.getString(AVOUtil.Reading.content_type));
+            DataBaseUtil.getInstance().saveOrGetStatus(mReading);
+            avObjects.add(mReading);
         }
     }
 }

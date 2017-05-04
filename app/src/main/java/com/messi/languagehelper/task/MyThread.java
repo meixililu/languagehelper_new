@@ -87,7 +87,9 @@ public class MyThread implements Runnable {
 
 	public void stopPlaying(){
 		isPlaying = false;
-		myAudioTrack.release();
+		if(myAudioTrack != null){
+			myAudioTrack.release();
+		}
 	}
 
 
