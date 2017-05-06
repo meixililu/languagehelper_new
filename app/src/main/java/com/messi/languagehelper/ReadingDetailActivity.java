@@ -1,13 +1,15 @@
 package com.messi.languagehelper;
 
 import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
-import android.media.MediaPlayer;
-import android.media.MediaPlayer.OnCompletionListener;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.IBinder;
 import android.os.Message;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -24,21 +26,14 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVFile;
-import com.avos.avoscloud.AVObject;
 import com.bumptech.glide.Glide;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.iflytek.cloud.SpeechConstant;
-import com.iflytek.cloud.SpeechError;
-import com.iflytek.cloud.SpeechSynthesizer;
-import com.iflytek.cloud.SynthesizerListener;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.task.MyThread;
 import com.messi.languagehelper.util.ADUtil;
-import com.messi.languagehelper.util.AVOUtil;
-import com.messi.languagehelper.util.AudioTrackUtil;
 import com.messi.languagehelper.util.DownLoadUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -47,17 +42,15 @@ import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.TextHandlerUtil;
 import com.messi.languagehelper.util.ViewUtil;
-import com.messi.languagehelper.util.XFUtil;
 import com.messi.languagehelper.util.XFYSAD;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
-
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
+import com.messi.languagehelper.service.PlayerService.MusicBinder;
 
 public class ReadingDetailActivity extends BaseActivity {
 
@@ -80,23 +73,18 @@ public class ReadingDetailActivity extends BaseActivity {
     @BindView(R.id.videoplayer)
     JCVideoPlayerStandard videoplayer;
 
-
     private Reading mAVObject;
     private List<Reading> mAVObjects;
-    private SpeechSynthesizer mSpeechSynthesizer;
     private SharedPreferences mSharedPreferences;
-    private Thread mThread;
-    private MyThread mMyThread;
     private int index;
-    private MediaPlayer mPlayer;
-    private String fileFullName;
     private XFYSAD mXFYSAD;
+
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             hideProgressbar();
             if (msg.what == 1) {
-                playMp3(fileFullName);
+                playMp3();
             } else if (msg.what == 3) {
                 mAVObject.setMedia_url("");
                 playContent();
@@ -115,24 +103,12 @@ public class ReadingDetailActivity extends BaseActivity {
         setContentView(R.layout.composition_detail_activity);
         ButterKnife.bind(this);
         initData();
-        initViews();
         setData();
         guide();
     }
 
-    private void guide() {
-        if (!mSharedPreferences.getBoolean(KeyUtil.isReadingDetailGuideShow, false)) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("温馨提示");
-            builder.setMessage("点击英文单词即可查询词意。");
-            builder.setPositiveButton("确认", null);
-            AlertDialog dialog = builder.create();
-            dialog.show();
-            Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.isReadingDetailGuideShow, true);
-        }
-    }
-
     private void initData() {
+        mSharedPreferences = this.getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
         mAVObjects = (List<Reading>) WXEntryActivity.dataMap.get(KeyUtil.DataMapKey);
         index = getIntent().getIntExtra(KeyUtil.IndexKey, 0);
         mAVObject = mAVObjects.get(index);
@@ -140,12 +116,6 @@ public class ReadingDetailActivity extends BaseActivity {
         if (mAVObject == null) {
             finish();
         }
-    }
-
-    private void initViews() {
-        mSharedPreferences = this.getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
-        mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
-        mMyThread = new MyThread(mHandler);
     }
 
     private void setData() {
@@ -169,6 +139,12 @@ public class ReadingDetailActivity extends BaseActivity {
             pimgview.setVisibility(View.VISIBLE);
             pimgview.setImageURI(Uri.parse(mAVObject.getImg_url()));
         }
+        if(WXEntryActivity.musicSrv.isSameMp3(mAVObject)){
+            if(WXEntryActivity.musicSrv.PlayerStatus == 1) {
+                fab.setImageResource(R.drawable.ic_stop_white_48dp);
+            }
+        }
+
         if(mAVObject.getType().equals("text")){
             fab.setVisibility(View.GONE);
         }
@@ -202,23 +178,20 @@ public class ReadingDetailActivity extends BaseActivity {
         String type = mAVObject.getType();
         if (type.equals("mp3") && !TextUtils.isEmpty(mAVObject.getMedia_url())) {
             playByMp3();
-        } else {
-            playByPcm();
         }
     }
 
     private void playByMp3() {
         if (mAVObject != null) {
-            fab.setImageResource(R.drawable.ic_stop_white_48dp);
             String downLoadUrl = mAVObject.getMedia_url();
             int pos = downLoadUrl.lastIndexOf(SDCardUtil.Delimiter) + 1;
             String fileName = downLoadUrl.substring(pos, downLoadUrl.length());
             String rootUrl = SDCardUtil.ReadingPath +
                     mAVObject.getObject_id() + SDCardUtil.Delimiter;
-            fileFullName = SDCardUtil.getDownloadPath(rootUrl) + fileName;
+            String fileFullName = SDCardUtil.getDownloadPath(rootUrl) + fileName;
             LogUtil.DefalutLog("fileName:" + fileName + "---fileFullName:" + fileFullName);
             if (SDCardUtil.isFileExist(fileFullName)) {
-                playMp3(fileFullName);
+                playMp3();
                 LogUtil.DefalutLog("FileExist");
             } else {
                 LogUtil.DefalutLog("FileNotExist");
@@ -228,80 +201,8 @@ public class ReadingDetailActivity extends BaseActivity {
         }
     }
 
-    private void playMp3(String uriPath) {
-        try {
-            if (mPlayer == null) {
-                mPlayer = new MediaPlayer();
-                fab.setImageResource(R.drawable.ic_stop_white_48dp);
-                Uri uri = Uri.parse(uriPath);
-                mPlayer.setDataSource(this, uri);
-                mPlayer.setOnCompletionListener(new OnCompletionListener() {
-                    @Override
-                    public void onCompletion(MediaPlayer mp) {
-                        fab.setImageResource(R.drawable.ic_play_arrow_white_48dp);
-                    }
-                });
-                mPlayer.prepare();
-                mPlayer.start();
-            } else {
-                if (mPlayer.isPlaying()) {
-                    fab.setImageResource(R.drawable.ic_play_arrow_white_48dp);
-                    mPlayer.pause();
-                } else {
-                    fab.setImageResource(R.drawable.ic_stop_white_48dp);
-                    mPlayer.start();
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void playByPcm() {
-        fab.setImageResource(R.drawable.ic_stop_white_48dp);
-        String filepath = SDCardUtil.getDownloadPath(SDCardUtil.CompositionPath) +
-                mAVObject.getObject_id() + ".pcm";
-        if (!AudioTrackUtil.isFileExists(filepath)) {
-            showProgressbar();
-            mSpeechSynthesizer.setParameter(SpeechConstant.TTS_AUDIO_PATH, filepath);
-            XFUtil.showSpeechSynthesizer(this, mSharedPreferences, mSpeechSynthesizer,
-                    mAVObject.getContent(), XFUtil.SpeakerEn,
-                    new SynthesizerListener() {
-                        @Override
-                        public void onSpeakResumed() {
-                        }
-
-                        @Override
-                        public void onSpeakProgress(int arg0, int arg1, int arg2) {
-                        }
-
-                        @Override
-                        public void onSpeakPaused() {
-                        }
-
-                        @Override
-                        public void onSpeakBegin() {
-                            hideProgressbar();
-                        }
-
-                        @Override
-                        public void onCompleted(SpeechError arg0) {
-                            hideProgressbar();
-                            fab.setImageResource(R.drawable.ic_play_arrow_white_48dp);
-                        }
-
-                        @Override
-                        public void onBufferProgress(int arg0, int arg1, int arg2, String arg3) {
-                        }
-
-                        @Override
-                        public void onEvent(int arg0, int arg1, int arg2, Bundle arg3) {
-                        }
-                    });
-        } else {
-            mMyThread.setDataUri(filepath);
-            mThread = AudioTrackUtil.startMyThread(mMyThread);
-        }
+    private void playMp3() {
+        WXEntryActivity.musicSrv.initAndPlay(mAVObject);
     }
 
     @Override
@@ -360,24 +261,27 @@ public class ReadingDetailActivity extends BaseActivity {
 
     @OnClick(R.id.play_btn)
     public void onClick() {
-        if (!isPlaying()) {
-            playContent();
-        } else {
-            fab.setImageResource(R.drawable.ic_play_arrow_white_48dp);
+        if (WXEntryActivity.musicSrv != null) {
+            if(WXEntryActivity.musicSrv.PlayerStatus == 0){
+                fab.setImageResource(R.drawable.ic_stop_white_48dp);
+                playContent();
+            } else if(WXEntryActivity.musicSrv.PlayerStatus == 1){
+                if(WXEntryActivity.musicSrv.isSameMp3(mAVObject)){
+                    fab.setImageResource(R.drawable.ic_play_arrow_white_48dp);
+                    WXEntryActivity.musicSrv.pause();
+                }else {
+                    fab.setImageResource(R.drawable.ic_stop_white_48dp);
+                    playContent();
+                }
+            }else if(WXEntryActivity.musicSrv.PlayerStatus == 2){
+                fab.setImageResource(R.drawable.ic_stop_white_48dp);
+                if(WXEntryActivity.musicSrv.isSameMp3(mAVObject)){
+                    WXEntryActivity.musicSrv.restart();
+                }else {
+                    playContent();
+                }
+            }
         }
-    }
-
-    private boolean isPlaying() {
-        boolean isPlaying = false;
-        if (mSpeechSynthesizer.isSpeaking()) {
-            mSpeechSynthesizer.stopSpeaking();
-            isPlaying = true;
-        }
-        if (mMyThread.isPlaying) {
-            AudioTrackUtil.stopPlayPcm(mThread);
-            isPlaying = true;
-        }
-        return isPlaying;
     }
 
     public View getView(final Reading mObject) {
@@ -444,17 +348,15 @@ public class ReadingDetailActivity extends BaseActivity {
         JCVideoPlayer.releaseAllVideos();
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        AudioTrackUtil.stopPlayOnline(mSpeechSynthesizer);
-        AudioTrackUtil.stopPlayPcm(mThread);
-        if (mPlayer != null) {
-            if (mPlayer.isPlaying()) {
-                mPlayer.stop();
-            }
-            mPlayer.release();
-            mPlayer = null;
+    private void guide() {
+        if (!mSharedPreferences.getBoolean(KeyUtil.isReadingDetailGuideShow, false)) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("温馨提示");
+            builder.setMessage("点击英文单词即可查询词意。");
+            builder.setPositiveButton("确认", null);
+            AlertDialog dialog = builder.create();
+            dialog.show();
+            Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.isReadingDetailGuideShow, true);
         }
     }
 

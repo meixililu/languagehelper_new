@@ -70,6 +70,17 @@
             android:screenOrientation="portrait" />
         <!-- 讯飞广告sdk -->
 
+        <service
+            android:name="com.messi.languagehelper.service.PlayerService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.messi.languagehelper.music.start" />
+                <action android:name="com.messi.languagehelper.music.pause" />
+                <action android:name="com.messi.languagehelper.music.next" />
+                <action android:name="com.messi.languagehelper.music.previous" />
+            </intent-filter>
+        </service>
+
         <activity
             android:name="com.messi.languagehelper.WordStudySummaryDetailActivity"
             android:screenOrientation="portrait" />

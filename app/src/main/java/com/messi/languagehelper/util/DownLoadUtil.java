@@ -6,6 +6,7 @@ import android.os.Message;
 import android.text.TextUtils;
 
 import com.avos.avoscloud.okhttp.Response;
+import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.dao.SymbolListDao;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 
@@ -158,6 +159,14 @@ public class DownLoadUtil {
                 }
             }
         }).start();
+    }
+
+    public static String getLocalFilePath(Reading mAVObject){
+        String downLoadUrl = mAVObject.getMedia_url();
+        int pos = downLoadUrl.lastIndexOf(SDCardUtil.Delimiter) + 1;
+        String fileName = downLoadUrl.substring(pos, downLoadUrl.length());
+        String rootUrl = SDCardUtil.ReadingPath + mAVObject.getObject_id() + SDCardUtil.Delimiter;
+        return SDCardUtil.getDownloadPath(rootUrl) + fileName;
     }
 
 }

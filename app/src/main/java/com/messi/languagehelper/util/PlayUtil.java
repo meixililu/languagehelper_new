@@ -50,7 +50,7 @@ public class PlayUtil {
 
     public static void play(String nfilepath,String nSpeakContent,AnimationDrawable nDrawable,
                             SynthesizerListener nSynthesizerListener){
-        LogUtil.DefalutLog("PlayUtil-isPlaying:"+isPlaying);
+        LogUtil.DefalutLog("PlayUtil-PlayerStatus:"+isPlaying);
         if(!isPlaying){
             filepath = nfilepath;
             speakContent = nSpeakContent+".";
