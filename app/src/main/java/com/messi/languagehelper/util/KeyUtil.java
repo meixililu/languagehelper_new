@@ -156,6 +156,8 @@ public class KeyUtil {
 
 	public static final String list_type = "list_type";
 
+	public static final String MusicAction = "MusicAction";
+
 
 	
 	

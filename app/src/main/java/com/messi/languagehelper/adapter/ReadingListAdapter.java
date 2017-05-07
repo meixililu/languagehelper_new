@@ -57,7 +57,7 @@ public class ReadingListAdapter extends BaseAdapter {
 			convertView = mInflater.inflate(R.layout.composition_list_item, null);
 			holder = new ViewHolder();
 			holder.layout_cover = (FrameLayout) convertView.findViewById(R.id.layout_cover);
-			holder.list_item_img_parent = (LinearLayout) convertView.findViewById(R.id.list_item_img_parent);
+			holder.list_item_img_parent = (FrameLayout) convertView.findViewById(R.id.list_item_img_parent);
 			holder.title = (TextView) convertView.findViewById(R.id.title);
 			holder.type_name = (TextView) convertView.findViewById(R.id.type_name);
 			holder.source_name = (TextView) convertView.findViewById(R.id.source_name);
@@ -125,7 +125,7 @@ public class ReadingListAdapter extends BaseAdapter {
 		TextView title;
 		TextView type_name;
 		TextView source_name;
-		LinearLayout list_item_img_parent;
+		FrameLayout list_item_img_parent;
 		SimpleDraweeView list_item_img;
 	}
 

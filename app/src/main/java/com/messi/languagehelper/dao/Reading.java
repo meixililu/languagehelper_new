@@ -48,11 +48,31 @@ public class Reading {
     private String backup4;
     private String backup5;
     @Transient
+    private int img_color;
+    @Transient
+    private boolean isPlaying;
+    @Transient
     private boolean isAd;
     @Transient
     private boolean isAdShow;
     @Transient
     private NativeADDataRef mNativeADDataRef;
+
+    public int getImg_color() {
+        return img_color;
+    }
+
+    public void setImg_color(int img_color) {
+        this.img_color = img_color;
+    }
+
+    public boolean isPlaying() {
+        return isPlaying;
+    }
+
+    public void setPlaying(boolean playing) {
+        isPlaying = playing;
+    }
 
     public String getObject_id() {
         return object_id;

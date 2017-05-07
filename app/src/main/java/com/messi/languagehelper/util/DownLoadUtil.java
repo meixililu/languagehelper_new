@@ -31,6 +31,7 @@ public class DownLoadUtil {
                             if (mHandler != null) {
                                 msg.what = 1;
                                 mHandler.sendMessage(msg);
+                                LogUtil.DefalutLog("send Handler:"+msg.what);
                             }
                         } else if (mResponse.code() == 404) {
                             if (mHandler != null) {

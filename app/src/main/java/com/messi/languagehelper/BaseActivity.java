@@ -1,6 +1,9 @@
 package com.messi.languagehelper;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
@@ -22,10 +25,25 @@ import com.messi.languagehelper.util.ScreenUtil;
 
 public class BaseActivity extends AppCompatActivity {
 
+    public static final String UpdateMusicUIToStop = "com.messi.languagehelper.updateuito.stop";
     public Toolbar toolbar;
     public ProgressBar mProgressbar;
     public SwipeRefreshLayout mSwipeRefreshLayout;
     private View mScrollable;
+
+    BroadcastReceiver activityReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if(intent != null){
+                String action = intent.getAction();
+                if(!TextUtils.isEmpty(action)){
+                    if(UpdateMusicUIToStop.equals(action)){
+                        updateUI(intent.getStringExtra(KeyUtil.MusicAction));
+                    }
+                }
+            }
+        }
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,6 +56,16 @@ public class BaseActivity extends AppCompatActivity {
             //透明状态栏
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
+    }
+
+    public void registerBroadcast(){
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(UpdateMusicUIToStop);
+        registerReceiver(activityReceiver, intentFilter);
+    }
+
+    public void unregisterBroadcast(){
+        unregisterReceiver(activityReceiver);
     }
 
     protected void setStatusbarColor(int color) {
@@ -67,6 +95,8 @@ public class BaseActivity extends AppCompatActivity {
             setActionBarTitle(title);
         }
     }
+
+    public void updateUI(String music_action){}
 
 //	protected void startClipboardListener(){
 //		final ClipboardManager cm = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);

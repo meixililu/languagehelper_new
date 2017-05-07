@@ -321,6 +321,7 @@ public class JokeFragment extends BaseFragment implements OnClickListener {
 
     public void onTabReselected(int index) {
         listview.scrollToPosition(0);
+        onSwipeRefreshLayoutRefresh();
     }
 
 }

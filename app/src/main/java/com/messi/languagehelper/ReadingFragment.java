@@ -15,6 +15,7 @@ import com.messi.languagehelper.adapter.ReadingListAdapter;
 import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
+import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
@@ -70,7 +71,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 	@Override
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		LogUtil.DefalutLog("onCreate");
+		registerBroadcast();
 		Bundle mBundle = getArguments();
 		this.category = mBundle.getString("category");
 		this.code = mBundle.getString("code");
@@ -230,7 +231,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 						if(skip == 0){
 							avObjects.clear();
 						}
-						changeData(avObject);
+						StudyFragment.changeData(avObject,avObjects);
 						if(addAD()){
 							mAdapter.notifyDataSetChanged();
 						}
@@ -291,6 +292,17 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 	}
 
 	@Override
+	public void updateUI(String music_action) {
+		if(music_action.equals(PlayerService.action_loading)){
+			showProgressbar();
+		}else if(music_action.equals(PlayerService.action_finish_loading)){
+			hideProgressbar();
+		}else {
+			mAdapter.notifyDataSetChanged();
+		}
+	}
+
+	@Override
 	public void onResume() {
 		super.onResume();
 		if(mAdapter != null){
@@ -325,27 +337,9 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 		}).start();
 	}
 
-	private void changeData(List<AVObject> avObjectlist){
-		for (AVObject item : avObjectlist) {
-			Reading mReading = new Reading();
-			mReading.setObject_id(item.getObjectId());
-			mReading.setCategory(item.getString(AVOUtil.Reading.category));
-			mReading.setContent(item.getString(AVOUtil.Reading.content));
-			mReading.setType_id(item.getString(AVOUtil.Reading.type_id));
-			mReading.setType_name(item.getString(AVOUtil.Reading.type_name));
-			mReading.setTitle(item.getString(AVOUtil.Reading.title));
-			mReading.setItem_id(item.getString(AVOUtil.Reading.item_id));
-			mReading.setImg_url(item.getString(AVOUtil.Reading.img_url));
-			mReading.setPublish_time(item.getString(AVOUtil.Reading.publish_time));
-			mReading.setImg_type(item.getString(AVOUtil.Reading.img_type));
-			mReading.setSource_name(item.getString(AVOUtil.Reading.source_name));
-			mReading.setSource_url(item.getString(AVOUtil.Reading.source_url));
-			mReading.setType(item.getString(AVOUtil.Reading.type));
-			mReading.setMedia_url(item.getString(AVOUtil.Reading.media_url));
-			mReading.setContent_type(item.getString(AVOUtil.Reading.content_type));
-			DataBaseUtil.getInstance().saveOrGetStatus(mReading);
-			avObjects.add(mReading);
-		}
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		unregisterBroadcast();
 	}
-	
 }

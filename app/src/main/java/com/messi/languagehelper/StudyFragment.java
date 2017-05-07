@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -20,8 +21,10 @@ import com.messi.languagehelper.adapter.RcStudyListAdapter;
 import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
+import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.ColorUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
@@ -66,6 +69,7 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
+            registerBroadcast();
             mProgressbarListener = (FragmentProgressbarListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString() + " must implement FragmentProgressbarListener");
@@ -146,6 +150,17 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
     }
 
     @Override
+    public void updateUI(String music_action) {
+        if(music_action.equals(PlayerService.action_loading)){
+            showProgressbar();
+        }else if(music_action.equals(PlayerService.action_finish_loading)){
+            hideProgressbar();
+        }else {
+            mAdapter.notifyDataSetChanged();
+        }
+    }
+
+    @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         if(!isVisibleToUser){
@@ -165,6 +180,7 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
     public void onDestroyView() {
         super.onDestroyView();
         JCVideoPlayer.releaseAllVideos();
+        unregisterBroadcast();
     }
 
     @Override
@@ -246,7 +262,7 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
                     if(skip == 0){
                         avObjects.clear();
                     }
-                    changeData(tempList);
+                    changeData(tempList,avObjects);
                     if (addAD()) {
                         mAdapter.notifyDataSetChanged();
                     }
@@ -328,11 +344,12 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
 
     public void onTabReselected(int index) {
         if(index == 2){
-            listview.scrollToPosition(0);
+            listview.scrollTo(0,0);
+            onSwipeRefreshLayoutRefresh();
         }
     }
 
-    private void changeData(List<AVObject> avObjectlist){
+    public static void changeData(List<AVObject> avObjectlist, List<Reading> avObjects){
         for (AVObject item : avObjectlist) {
             Reading mReading = new Reading();
             mReading.setObject_id(item.getObjectId());

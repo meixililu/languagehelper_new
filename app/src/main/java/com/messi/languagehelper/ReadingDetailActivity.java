@@ -79,28 +79,11 @@ public class ReadingDetailActivity extends BaseActivity {
     private int index;
     private XFYSAD mXFYSAD;
 
-    private Handler mHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            hideProgressbar();
-            if (msg.what == 1) {
-                playMp3();
-            } else if (msg.what == 3) {
-                mAVObject.setMedia_url("");
-                playContent();
-            } else {
-                fab.setImageResource(R.drawable.ic_play_arrow_white_48dp);
-            }
-            if (msg.what == MyThread.EVENT_PLAY_OVER) {
-                fab.setImageResource(R.drawable.ic_play_arrow_white_48dp);
-            }
-        }
-    };
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.composition_detail_activity);
+        registerBroadcast();
         ButterKnife.bind(this);
         initData();
         setData();
@@ -141,7 +124,7 @@ public class ReadingDetailActivity extends BaseActivity {
         }
         if(WXEntryActivity.musicSrv.isSameMp3(mAVObject)){
             if(WXEntryActivity.musicSrv.PlayerStatus == 1) {
-                fab.setImageResource(R.drawable.ic_stop_white_48dp);
+                fab.setImageResource(R.drawable.ic_pause_white);
             }
         }
 
@@ -172,37 +155,6 @@ public class ReadingDetailActivity extends BaseActivity {
             mAVObject.setStatus("1");
             DataBaseUtil.getInstance().update(mAVObject);
         }
-    }
-
-    private void playContent() {
-        String type = mAVObject.getType();
-        if (type.equals("mp3") && !TextUtils.isEmpty(mAVObject.getMedia_url())) {
-            playByMp3();
-        }
-    }
-
-    private void playByMp3() {
-        if (mAVObject != null) {
-            String downLoadUrl = mAVObject.getMedia_url();
-            int pos = downLoadUrl.lastIndexOf(SDCardUtil.Delimiter) + 1;
-            String fileName = downLoadUrl.substring(pos, downLoadUrl.length());
-            String rootUrl = SDCardUtil.ReadingPath +
-                    mAVObject.getObject_id() + SDCardUtil.Delimiter;
-            String fileFullName = SDCardUtil.getDownloadPath(rootUrl) + fileName;
-            LogUtil.DefalutLog("fileName:" + fileName + "---fileFullName:" + fileFullName);
-            if (SDCardUtil.isFileExist(fileFullName)) {
-                playMp3();
-                LogUtil.DefalutLog("FileExist");
-            } else {
-                LogUtil.DefalutLog("FileNotExist");
-                showProgressbar();
-                DownLoadUtil.downloadFile(this, downLoadUrl, rootUrl, fileName, mHandler);
-            }
-        }
-    }
-
-    private void playMp3() {
-        WXEntryActivity.musicSrv.initAndPlay(mAVObject);
     }
 
     @Override
@@ -262,32 +214,30 @@ public class ReadingDetailActivity extends BaseActivity {
     @OnClick(R.id.play_btn)
     public void onClick() {
         if (WXEntryActivity.musicSrv != null) {
-            if(WXEntryActivity.musicSrv.PlayerStatus == 0){
-                fab.setImageResource(R.drawable.ic_stop_white_48dp);
-                playContent();
-            } else if(WXEntryActivity.musicSrv.PlayerStatus == 1){
-                if(WXEntryActivity.musicSrv.isSameMp3(mAVObject)){
-                    fab.setImageResource(R.drawable.ic_play_arrow_white_48dp);
-                    WXEntryActivity.musicSrv.pause();
-                }else {
-                    fab.setImageResource(R.drawable.ic_stop_white_48dp);
-                    playContent();
-                }
-            }else if(WXEntryActivity.musicSrv.PlayerStatus == 2){
-                fab.setImageResource(R.drawable.ic_stop_white_48dp);
-                if(WXEntryActivity.musicSrv.isSameMp3(mAVObject)){
-                    WXEntryActivity.musicSrv.restart();
-                }else {
-                    playContent();
-                }
+            WXEntryActivity.musicSrv.initAndPlay(mAVObject);
+        }
+    }
+
+    @Override
+    public void updateUI(String music_action) {
+        if(WXEntryActivity.musicSrv.isSameMp3(mAVObject)){
+            if(music_action.equals(PlayerService.action_start)){
+                fab.setImageResource(R.drawable.ic_play_arrow_white_48dp);
+            }else if (music_action.equals(PlayerService.action_pause)) {
+                fab.setImageResource(R.drawable.ic_pause_white);
             }
+        }
+        if(music_action.equals(PlayerService.action_loading)){
+            showProgressbar();
+        }else if(music_action.equals(PlayerService.action_finish_loading)){
+            hideProgressbar();
         }
     }
 
     public View getView(final Reading mObject) {
         View convertView = LayoutInflater.from(this).inflate(R.layout.composition_list_item, null);
         FrameLayout layout_cover = (FrameLayout) convertView.findViewById(R.id.layout_cover);
-        LinearLayout list_item_img_parent = (LinearLayout) convertView.findViewById(R.id.list_item_img_parent);
+        FrameLayout list_item_img_parent = (FrameLayout) convertView.findViewById(R.id.list_item_img_parent);
         TextView title = (TextView) convertView.findViewById(R.id.title);
         TextView source_name = (TextView) convertView.findViewById(R.id.source_name);
         TextView type_name = (TextView) convertView.findViewById(R.id.type_name);
@@ -346,6 +296,12 @@ public class ReadingDetailActivity extends BaseActivity {
     protected void onPause() {
         super.onPause();
         JCVideoPlayer.releaseAllVideos();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterBroadcast();
     }
 
     private void guide() {
