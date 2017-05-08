@@ -131,11 +131,13 @@ public class ReadingDetailActivity extends BaseActivity {
         if(mAVObject.getType().equals("text")){
             fab.setVisibility(View.GONE);
         }
-        int[] random = NumberUtil.getRandomNumberLimit(mAVObjects.size(), 0, 5, index);
         next_composition.removeAllViews();
-        for (int i : random) {
-            next_composition.addView(ViewUtil.getLine(this));
-            next_composition.addView(getView(mAVObjects.get(i)));
+        if(mAVObjects.size() > 5){
+            int[] random = NumberUtil.getRandomNumberLimit(mAVObjects.size(), 0, 5, index);
+            for (int i : random) {
+                next_composition.addView(ViewUtil.getLine(this));
+                next_composition.addView(getView(mAVObjects.get(i)));
+            }
         }
         mXFYSAD = new XFYSAD(this, xx_ad_layout, ADUtil.NewsDetail);
         mXFYSAD.setDirectExPosure(false);
@@ -145,7 +147,6 @@ public class ReadingDetailActivity extends BaseActivity {
             public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
                 if (xx_ad_layout.isShown()) {
                     if (XFYSAD.isInScreen(ReadingDetailActivity.this, xx_ad_layout)) {
-                        LogUtil.DefalutLog("onScrollChange---isInScreen");
                         mXFYSAD.ExposureAD();
                     }
                 }
@@ -181,8 +182,12 @@ public class ReadingDetailActivity extends BaseActivity {
             case R.id.action_collected:
                 if(TextUtils.isEmpty(mAVObject.getIsCollected())){
                     mAVObject.setIsCollected("1");
+                    mAVObject.setCollected_time(System.currentTimeMillis());
                 }else {
                     mAVObject.setIsCollected("");
+                    mAVObject.setCollected_time(0);
+                    Intent intent = new Intent();
+                    setResult(RESULT_OK, intent);
                 }
                 setMenuIcon(item);
                 DataBaseUtil.getInstance().update(mAVObject);

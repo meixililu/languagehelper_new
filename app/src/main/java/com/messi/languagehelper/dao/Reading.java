@@ -37,7 +37,9 @@ public class Reading {
     private String object_id;
     private String status;
     private String isCollected;
+    private long collected_time;
     private String isReadLater;
+    private long read_later_time;
     private int like;
     private int unlike;
     private int comments;
@@ -57,6 +59,22 @@ public class Reading {
     private boolean isAdShow;
     @Transient
     private NativeADDataRef mNativeADDataRef;
+
+    public long getRead_later_time() {
+        return read_later_time;
+    }
+
+    public void setRead_later_time(long read_later_time) {
+        this.read_later_time = read_later_time;
+    }
+
+    public long getCollected_time() {
+        return collected_time;
+    }
+
+    public void setCollected_time(long collected_time) {
+        this.collected_time = collected_time;
+    }
 
     public int getImg_color() {
         return img_color;
@@ -114,15 +132,16 @@ public class Reading {
         this.mNativeADDataRef = mNativeADDataRef;
     }
 
-    @Generated(hash = 1851268749)
+    @Generated(hash = 1661892937)
     public Reading(Long id, String title, String source_url, String content,
             String media_url, String source_name, String publish_time,
             String type_name, String item_id, String img_type, String img_url,
             String type, String category, String type_id, String level,
             String content_type, String img_urls, String object_id, String status,
-            String isCollected, String isReadLater, int like, int unlike,
-            int comments, int readed, String backup1, String backup2,
-            String backup3, String backup4, String backup5) {
+            String isCollected, long collected_time, String isReadLater,
+            long read_later_time, int like, int unlike, int comments, int readed,
+            String backup1, String backup2, String backup3, String backup4,
+            String backup5) {
         this.id = id;
         this.title = title;
         this.source_url = source_url;
@@ -143,7 +162,9 @@ public class Reading {
         this.object_id = object_id;
         this.status = status;
         this.isCollected = isCollected;
+        this.collected_time = collected_time;
         this.isReadLater = isReadLater;
+        this.read_later_time = read_later_time;
         this.like = like;
         this.unlike = unlike;
         this.comments = comments;

@@ -270,6 +270,15 @@ public class DataBaseUtil {
         return qb.list();
     }
 
+    public List<Reading> getReadingCollectedList(int page,int page_size) {
+        QueryBuilder<Reading> qb = mReadingDao.queryBuilder();
+        qb.where(ReadingDao.Properties.IsCollected.eq("1"));
+        qb.offset(page * page_size);
+        qb.limit(page_size);
+        qb.orderDesc(ReadingDao.Properties.Collected_time);
+        return qb.list();
+    }
+
     public void saveOrGetStatus(Reading bean){
         List<Reading> datas = isDataExit(bean);
         if (datas.size() > 0) {

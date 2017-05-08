@@ -22,9 +22,11 @@
     <string name="title_juhe">综合</string>
     <string name="title_style">样式选择</string>
     <string name="title_more">更多</string>
+    <string name="title_article_collected">文章</string>
     <string name="title_translate">翻译</string>
     <string name="title_dictionary">词典</string>
-    <string name="title_study">学习</string>
+    <string name="title_study_category">学习</string>
+    <string name="title_study">悦读</string>
     <string name="title_leisure">休闲</string>
     <string name="title_instagram">图片分享社区</string>
     <string name="title_cailing">酷炫彩铃</string>

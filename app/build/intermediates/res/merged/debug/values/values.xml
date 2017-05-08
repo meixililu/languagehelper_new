@@ -1078,6 +1078,7 @@
     <string name="title_about">关于我们</string>
     <string name="title_activity_main_test">MainActivityTest</string>
     <string name="title_apps">发现APP</string>
+    <string name="title_article_collected">文章</string>
     <string name="title_cailing">酷炫彩铃</string>
     <string name="title_ch_dictionary">新华字典</string>
     <string name="title_comments">吐槽评价</string>
@@ -1105,7 +1106,8 @@
     <string name="title_share_preview">分享预览</string>
     <string name="title_sougo_wechat">微信英语</string>
     <string name="title_spoken_english_study">口语学习</string>
-    <string name="title_study">学习</string>
+    <string name="title_study">悦读</string>
+    <string name="title_study_category">学习</string>
     <string name="title_style">样式选择</string>
     <string name="title_symbol">音标</string>
     <string name="title_translate">翻译</string>

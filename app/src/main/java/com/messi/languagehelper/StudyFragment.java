@@ -343,10 +343,8 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
     }
 
     public void onTabReselected(int index) {
-        if(index == 2){
-            listview.scrollTo(0,0);
-            onSwipeRefreshLayoutRefresh();
-        }
+        listview.scrollTo(0,0);
+        onSwipeRefreshLayoutRefresh();
     }
 
     public static void changeData(List<AVObject> avObjectlist, List<Reading> avObjects){
@@ -358,9 +356,9 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
             mReading.setType_id(item.getString(AVOUtil.Reading.type_id));
             mReading.setType_name(item.getString(AVOUtil.Reading.type_name));
             mReading.setTitle(item.getString(AVOUtil.Reading.title));
-            mReading.setItem_id(item.getString(AVOUtil.Reading.item_id));
+            mReading.setItem_id(String.valueOf(item.getNumber(AVOUtil.Reading.item_id)));
             mReading.setImg_url(item.getString(AVOUtil.Reading.img_url));
-            mReading.setPublish_time(item.getString(AVOUtil.Reading.publish_time));
+            mReading.setPublish_time(String.valueOf(item.getDate(AVOUtil.Reading.publish_time).getTime()));
             mReading.setImg_type(item.getString(AVOUtil.Reading.img_type));
             mReading.setSource_name(item.getString(AVOUtil.Reading.source_name));
             mReading.setSource_url(item.getString(AVOUtil.Reading.source_url));

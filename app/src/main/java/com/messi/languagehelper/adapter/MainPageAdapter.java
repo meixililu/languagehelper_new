@@ -13,6 +13,7 @@ import com.messi.languagehelper.LeisureFragment;
 import com.messi.languagehelper.MainFragment;
 import com.messi.languagehelper.MainFragmentOld;
 import com.messi.languagehelper.R;
+import com.messi.languagehelper.StudyCategoryFragment;
 import com.messi.languagehelper.StudyFragment;
 import com.messi.languagehelper.util.KeyUtil;
 
@@ -32,6 +33,7 @@ public class MainPageAdapter extends FragmentPagerAdapter {
         CONTENT = new String[] {
         		mContext.getResources().getString(R.string.title_translate),
         		mContext.getResources().getString(R.string.title_dictionary),
+        		mContext.getResources().getString(R.string.title_study_category),
         		mContext.getResources().getString(R.string.title_study),
         		mContext.getResources().getString(R.string.title_leisure)
         };
@@ -52,9 +54,11 @@ public class MainPageAdapter extends FragmentPagerAdapter {
                 return DictionaryFragment.getInstance(bundle,mContext);
             }
         }else if( position == 2 ){
+        	return StudyCategoryFragment.getInstance();
+        }else if( position == 3 ){
             mfragment = StudyFragment.getInstance();
         	return mfragment;
-        }else if( position == 3 ){
+        }else if( position == 4 ){
         	return LeisureFragment.getInstance();
         }
         return null;

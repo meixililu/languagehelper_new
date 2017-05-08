@@ -216,6 +216,7 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 		if(playIntent != null){
 			stopService(playIntent);
 		}
+//		PlayerService.lastSongId = "";
 		musicSrv = null;
 	}
 

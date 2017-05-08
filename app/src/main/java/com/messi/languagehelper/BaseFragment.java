@@ -124,4 +124,12 @@ public class BaseFragment extends Fragment {
 		}
 	}
 
+	protected void toActivity(Class mClass, Bundle bundle) {
+		Intent intent = new Intent(getContext(), mClass);
+		if (bundle != null) {
+			intent.putExtra(KeyUtil.BundleKey, bundle);
+		}
+		startActivity(intent);
+	}
+
 }

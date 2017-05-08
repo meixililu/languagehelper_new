@@ -188,6 +188,7 @@
     <string name="title_TranslatePractice">Practice</string>
     <string name="title_about">About</string>
     <string name="title_apps">Find Apps</string>
+    <string name="title_article_collected">Article</string>
     <string name="title_cailing">Ring</string>
     <string name="title_ch_dictionary">Chinese Dictionary</string>
     <string name="title_comments">Comments</string>
@@ -215,7 +216,8 @@
     <string name="title_share_preview">Preview</string>
     <string name="title_sougo_wechat">Wechat English</string>
     <string name="title_spoken_english_study">Study</string>
-    <string name="title_study">Study</string>
+    <string name="title_study">Read</string>
+    <string name="title_study_category">Study</string>
     <string name="title_symbol">Symbol Study</string>
     <string name="title_translate">Translate</string>
     <string name="title_word_study">Word Study</string>

@@ -61,7 +61,9 @@ public class KeyUtil {
 	public static final String IsCanShowAD_Loading = "IsCanShowAD_Loading";
 	
 	public static final String LastTimeSelectTab = "LastTimeSelectTab";
-	
+
+	public static final String LastTimeCollectedActivitySelectTab = "LastTimeCollectedActivitySelectTab";
+
 	public static final String BigImgUrl = "BigImgUrl";
 	
 	public static final String ResultTypeDictionary = "ResultTypeDictionary";

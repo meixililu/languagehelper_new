@@ -23,10 +23,12 @@
     <string name="title_juhe">Synthesize</string>
     <string name="title_help">Style</string>
     <string name="title_more">More</string>
+    <string name="title_article_collected">Article</string>
     <string name="title_translate">Translate</string>
     <string name="title_dictionary">Dictionary</string>
     <string name="title_instagram">Instagram</string>
-    <string name="title_study">Study</string>
+    <string name="title_study_category">Study</string>
+    <string name="title_study">Read</string>
     <string name="title_leisure">Recreation</string>
     <string name="title_cailing">Ring</string>
     <string name="title_reading">Reading</string>
