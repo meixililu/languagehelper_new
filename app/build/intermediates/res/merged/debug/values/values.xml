@@ -787,7 +787,7 @@
     <dimen name="small">12sp</dimen>
     <dimen name="smaller">8sp</dimen>
     <dimen name="smaller_l">10sp</dimen>
-    <dimen name="study_menu_item_height">52dp</dimen>
+    <dimen name="study_menu_item_height">48dp</dimen>
     <dimen name="tabs_heigh">34dp</dimen>
     <dimen name="text_margin">16dp</dimen>
     <dimen name="title">24sp</dimen>
@@ -976,6 +976,8 @@
     <string name="leisuer_one_subtitle">听听音乐放松一下</string>
     <string name="leisuer_reading">新闻阅读</string>
     <string name="leisuer_reading_subtitle">新闻头条，微信精选</string>
+    <string name="leisuer_shenhuifu">神回复</string>
+    <string name="leisuer_shenhuifu_des">神一样的评论</string>
     <string name="leisuer_sougou_wechat">微信英语</string>
     <string name="leisuer_sougou_wechat_subtitle">微信公众号英语资料集合</string>
     <string name="leisuer_twists">脑筋急转弯</string>
@@ -1111,6 +1113,7 @@
     <string name="title_style">样式选择</string>
     <string name="title_symbol">音标</string>
     <string name="title_translate">翻译</string>
+    <string name="title_update_title">新版来袭:</string>
     <string name="title_website">不错的学习网站</string>
     <string name="title_word_study">单词</string>
     <string name="title_word_study_summary">词汇大全</string>
@@ -1119,6 +1122,8 @@
     <string name="translate_content">翻译此句子</string>
     <string name="try_again">再来一次</string>
     <string formatted="false" name="tts_toast_format">当前合成进度为%d%%，播放进度为%d%%</string>
+    <string name="updage_later">稍后</string>
+    <string name="updage_now">更新</string>
     <string name="website_attention">提示：国外网站的打开速度稍微慢点</string>
     <string name="webview_reload">加载失败，轻触屏幕刷新!</string>
     <string name="wechat">微信</string>

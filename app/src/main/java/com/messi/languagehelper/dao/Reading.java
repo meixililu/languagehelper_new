@@ -49,7 +49,6 @@ public class Reading {
     private String backup3;
     private String backup4;
     private String backup5;
-    @Transient
     private int img_color;
     @Transient
     private boolean isPlaying;
@@ -132,7 +131,7 @@ public class Reading {
         this.mNativeADDataRef = mNativeADDataRef;
     }
 
-    @Generated(hash = 1661892937)
+    @Generated(hash = 2133973491)
     public Reading(Long id, String title, String source_url, String content,
             String media_url, String source_name, String publish_time,
             String type_name, String item_id, String img_type, String img_url,
@@ -141,7 +140,7 @@ public class Reading {
             String isCollected, long collected_time, String isReadLater,
             long read_later_time, int like, int unlike, int comments, int readed,
             String backup1, String backup2, String backup3, String backup4,
-            String backup5) {
+            String backup5, int img_color) {
         this.id = id;
         this.title = title;
         this.source_url = source_url;
@@ -174,6 +173,7 @@ public class Reading {
         this.backup3 = backup3;
         this.backup4 = backup4;
         this.backup5 = backup5;
+        this.img_color = img_color;
     }
 
     @Generated(hash = 1633136157)

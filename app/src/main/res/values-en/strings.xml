@@ -33,6 +33,7 @@
     <string name="title_cailing">Ring</string>
     <string name="title_reading">Reading</string>
     <string name="title_hotel">Hotel</string>
+    <string name="title_update_title">Updage Info:</string>
     <string name="title_favorite">Favorite</string>
     <string name="title_settings">Settings</string>
     <string name="title_comments">Comments</string>
@@ -74,7 +75,9 @@
     <string name="finish">Finish</string>
     <string name="exit_program">Press again to exit the program</string>
     <string name="loadmore">loading...</string>
-    
+    <string name="updage_later">later</string>
+    <string name="updage_now">update</string>
+
     <string name="share_dialog_text_1">Text</string>
     <string name="share_dialog_text_2">Image(recommend)</string>
     <string name="take_photo">TakePhoto</string>
@@ -204,6 +207,8 @@
 	<string name="leisuer_reading">Readings</string>
 	<string name="leisuer_reading_subtitle">Do some Reading</string>
 	<string name="leisuer_twists">Brain twists</string>
+	<string name="leisuer_shenhuifu">GodReply</string>
+    <string name="leisuer_henhuifu_des">amazing reply</string>
 	<string name="leisuer_yizhandaodi">Q-A</string>
     <string name="leisuer_yizhandaodi_des">Question and Answer</string>
 	<string name="leisuer_twists_subtitle">Chinese brain twists</string>

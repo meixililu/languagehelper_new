@@ -1,15 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/mswiperefreshlayout"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="fill_parent"
-    android:background="@color/contentbg" >
+    android:layout_height="match_parent"
+    android:background="@color/contentbg"
+    android:orientation="vertical"
+    >
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/listview"
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tablayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/study_menu_item_height"
         android:background="@color/white"
-        />
+        android:visibility="gone"
+        app:tabSelectedTextColor="@color/text_black"
+        app:tabTextColor="@color/text_grey"
+        app:tabIndicatorColor="@color/text_grey" />
 
-</android.support.v4.widget.SwipeRefreshLayout>
+    <View
+        android:id="@+id/tablayout_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:visibility="gone"
+        android:background="@color/line_color_gray"/>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/mswiperefreshlayout"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/contentbg" >
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</LinearLayout>
+
+

@@ -243,15 +243,16 @@
         </FrameLayout>
 
         <FrameLayout
-            android:id="@+id/app_layout"
+            android:id="@+id/game_layout"
             android:layout_width="fill_parent"
             android:layout_height="75dp"
             android:layout_marginLeft="@dimen/padding_7"
             android:layout_marginRight="@dimen/padding_7"
             android:layout_marginTop="@dimen/padding_7"
-            android:background="@color/style6_color1"
+            android:background="@color/light_green"
             android:foreground="@drawable/framelayout_selector"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            >
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -267,7 +268,7 @@
                     android:shadowDx="0.3"
                     android:shadowDy="0.3"
                     android:shadowRadius="0.3"
-                    android:text="@string/leisuer_two"
+                    android:text="@string/leisuer_yizhandaodi"
                     android:textColor="@color/white"
                     android:textSize="@dimen/bigger" />
 
@@ -275,7 +276,47 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/leisuer_two_subtitle"
+                    android:text="@string/leisuer_yizhandaodi_des"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/small" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/shenhuifu_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="75dp"
+            android:layout_marginLeft="@dimen/padding_7"
+            android:layout_marginRight="@dimen/padding_7"
+            android:layout_marginTop="@dimen/padding_7"
+            android:background="@color/style5_color5"
+            android:foreground="@drawable/framelayout_selector"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:shadowColor="@color/white"
+                    android:shadowDx="0.3"
+                    android:shadowDy="0.3"
+                    android:shadowRadius="0.3"
+                    android:text="@string/leisuer_shenhuifu"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/bigger" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/leisuer_shenhuifu_des"
                     android:textColor="@color/white"
                     android:textSize="@dimen/small" />
             </LinearLayout>
@@ -321,16 +362,15 @@
         </FrameLayout>
 
         <FrameLayout
-            android:id="@+id/game_layout"
+            android:id="@+id/app_layout"
             android:layout_width="fill_parent"
             android:layout_height="75dp"
             android:layout_marginLeft="@dimen/padding_7"
             android:layout_marginRight="@dimen/padding_7"
             android:layout_marginTop="@dimen/padding_7"
-            android:background="@color/light_green"
+            android:background="@color/style6_color1"
             android:foreground="@drawable/framelayout_selector"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical" >
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -346,7 +386,7 @@
                     android:shadowDx="0.3"
                     android:shadowDy="0.3"
                     android:shadowRadius="0.3"
-                    android:text="@string/leisuer_yizhandaodi"
+                    android:text="@string/leisuer_two"
                     android:textColor="@color/white"
                     android:textSize="@dimen/bigger" />
 
@@ -354,7 +394,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/leisuer_yizhandaodi_des"
+                    android:text="@string/leisuer_two_subtitle"
                     android:textColor="@color/white"
                     android:textSize="@dimen/small" />
             </LinearLayout>

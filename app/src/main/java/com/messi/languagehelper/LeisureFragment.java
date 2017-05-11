@@ -48,7 +48,8 @@ public class LeisureFragment extends BaseFragment implements OnClickListener {
     @BindView(R.id.sougou_layout)
     FrameLayout sougou_layout;
     public static LeisureFragment mMainFragment;
-    private SharedPreferences mSharedPreferences;
+    @BindView(R.id.shenhuifu_layout)
+    FrameLayout shenhuifuLayout;
     private XFYSAD mXFYSAD;
     private boolean misVisibleToUser;
 
@@ -68,7 +69,6 @@ public class LeisureFragment extends BaseFragment implements OnClickListener {
     }
 
     private void initViews() {
-        mSharedPreferences = getActivity().getSharedPreferences(getActivity().getPackageName(), Context.MODE_PRIVATE);
         cailing_layout.setOnClickListener(this);
         invest_layout.setOnClickListener(this);
         baidu_layout.setOnClickListener(this);
@@ -77,6 +77,7 @@ public class LeisureFragment extends BaseFragment implements OnClickListener {
         news_layout.setOnClickListener(this);
         yueduLayout.setOnClickListener(this);
         sougou_layout.setOnClickListener(this);
+        shenhuifuLayout.setOnClickListener(this);
         mXFYSAD = new XFYSAD(getActivity(), xx_ad_layout, ADUtil.XiuxianYSNRLAd);
         mXFYSAD.setStopPlay(true);
         mXFYSAD.showAD();
@@ -142,29 +143,34 @@ public class LeisureFragment extends BaseFragment implements OnClickListener {
         } else if (v.getId() == R.id.news_layout) {
             ContExManager.initWithAPPId(getActivity(), "f9136944-bc17-4cb1-9b14-ece9de91b39d", "w1461Eub");
             GytUtil.showHtml(getActivity(), getActivity().getResources().getString(R.string.leisuer_gyt));
+        } else if (v.getId() == R.id.shenhuifu_layout) {
+            toGodReplyActivity();
         }
     }
 
     @OnClick(R.id.twists_layout)
     public void onClick() {
-        Intent intent = new Intent(getContext(), BrainTwistsActivity.class);
-        startActivity(intent);
+        toActivity(BrainTwistsActivity.class, null);
+        AVAnalytics.onEvent(getActivity(), "leisure_pg_to_braintwists");
     }
 
     private void toJokeActivity() {
-        Intent intent = new Intent(getActivity(), JokeActivity.class);
-        getActivity().startActivity(intent);
+        toActivity(JokeActivity.class, null);
+        AVAnalytics.onEvent(getActivity(), "leisure_pg_to_joke_page");
+    }
+
+    private void toGodReplyActivity() {
+        toActivity(GodReplyActivity.class, null);
+        AVAnalytics.onEvent(getActivity(), "leisure_pg_to_joke_page");
     }
 
     private void toInvestorListActivity() {
-        Intent intent = new Intent(getActivity(), InvestListActivity.class);
-        getActivity().startActivity(intent);
+        toActivity(InvestListActivity.class, null);
         AVAnalytics.onEvent(getActivity(), "leisure_pg_toinvestpg_btn");
     }
 
     private void toGameCenterActivity() {
-        Intent intent = new Intent(getActivity(), YiZhanDaoDiActivity.class);
-        getActivity().startActivity(intent);
+        toActivity(YiZhanDaoDiActivity.class, null);
         AVAnalytics.onEvent(getActivity(), "leisure_pg_toyizhandaodi_btn");
     }
 
@@ -181,19 +187,17 @@ public class LeisureFragment extends BaseFragment implements OnClickListener {
         intent.putExtra(KeyUtil.URL, Settings.SougoUrl);
         intent.putExtra(KeyUtil.ActionbarTitle, getActivity().getResources().getString(R.string.title_sougo_wechat));
         getActivity().startActivity(intent);
-        AVAnalytics.onEvent(getActivity(), "leisure_pg_sougo_btn");
+        AVAnalytics.onEvent(getActivity(), "leisure_pg_sougo_wechat");
     }
 
     private void toYueduActivity() {
-        Intent intent = new Intent(getActivity(), ReadingAndNewsActivity.class);
-        getActivity().startActivity(intent);
-        AVAnalytics.onEvent(getActivity(), "leisure_pg_toyuedupg_btn");
+        toActivity(ReadingAndNewsActivity.class, null);
+        AVAnalytics.onEvent(getActivity(), "leisure_pg_to_news_page");
     }
 
     private void toChineseDictionaryActivity() {
-        Intent intent = new Intent(getActivity(), ChineseDictionaryActivity.class);
-        getActivity().startActivity(intent);
-        AVAnalytics.onEvent(getActivity(), "leisure_pg_toapprecommendpg_btn");
+        toActivity(ChineseDictionaryActivity.class, null);
+        AVAnalytics.onEvent(getActivity(), "leisure_pg_chinese_dic");
     }
 
     @Override
@@ -206,4 +210,8 @@ public class LeisureFragment extends BaseFragment implements OnClickListener {
     }
 
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
 }

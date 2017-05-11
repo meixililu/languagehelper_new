@@ -17,7 +17,6 @@ public class ColorUtil {
 	public static int getRadomColor(){
 		int size = styleColor1.length;
 		int position = (int)(Math.random() * size);
-		LogUtil.DefalutLog("position:"+position);
 		return styleColor1[position];
 	}
 	

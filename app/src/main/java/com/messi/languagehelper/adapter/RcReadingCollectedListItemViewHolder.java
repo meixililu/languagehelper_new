@@ -81,7 +81,11 @@ public class RcReadingCollectedListItemViewHolder extends RecyclerView.ViewHolde
                 if(!TextUtils.isEmpty(mAVObject.getImg_url())){
                     list_item_img.setImageURI(Uri.parse(mAVObject.getImg_url()));
                 }else{
-                    list_item_img.setImageResource(R.color.style3_color1);
+                    if(mAVObject.getImg_color() > 0){
+                        list_item_img.setImageResource(mAVObject.getImg_color());
+                    }else {
+                        list_item_img.setImageResource(R.color.style6_color2);
+                    }
                 }
                 if (!TextUtils.isEmpty(mAVObject.getMedia_url())) {
                     music_play_img.setVisibility(View.VISIBLE);
@@ -99,6 +103,7 @@ public class RcReadingCollectedListItemViewHolder extends RecyclerView.ViewHolde
 
                 } else {
                     music_play_img.setVisibility(View.GONE);
+                    list_item_img.setVisibility(View.GONE);
                 }
                 list_item_img_parent.setClickable(true);
                 list_item_img_parent.setOnClickListener(new View.OnClickListener() {

@@ -98,12 +98,14 @@
     <string name="leisuer_duanzi_subtitle">Make a funny</string>
     <string name="leisuer_gyt">Relax</string>
     <string name="leisuer_gyt_subtitle">Have fun</string>
+    <string name="leisuer_henhuifu_des">amazing reply</string>
     <string name="leisuer_invest">Investor</string>
     <string name="leisuer_invest_subtitle">Invest your idea</string>
     <string name="leisuer_one">Ringback Music</string>
     <string name="leisuer_one_subtitle">Listen to the music</string>
     <string name="leisuer_reading">Readings</string>
     <string name="leisuer_reading_subtitle">Do some Reading</string>
+    <string name="leisuer_shenhuifu">GodReply</string>
     <string name="leisuer_sougou_wechat">Wechat English</string>
     <string name="leisuer_sougou_wechat_subtitle">All the Wechat English</string>
     <string name="leisuer_twists">Brain twists</string>
@@ -220,6 +222,7 @@
     <string name="title_study_category">Study</string>
     <string name="title_symbol">Symbol Study</string>
     <string name="title_translate">Translate</string>
+    <string name="title_update_title">Updage Info:</string>
     <string name="title_word_study">Word Study</string>
     <string name="title_word_study_summary">Word Summary</string>
     <string name="title_word_vocabulary">Vocabulary</string>
@@ -227,6 +230,8 @@
     <string name="translate_content">Translate This Sentence</string>
     <string name="try_again">Try again</string>
     <string formatted="false" name="tts_toast_format">当前合成进度为%d%%，播放进度为%d%%</string>
+    <string name="updage_later">later</string>
+    <string name="updage_now">update</string>
     <string name="webview_reload">Tap To Reload</string>
     <string name="wechat">wechat</string>
     <string name="word_study_detail_menu">Listen</string>

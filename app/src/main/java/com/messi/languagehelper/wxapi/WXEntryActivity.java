@@ -2,6 +2,11 @@ package com.messi.languagehelper.wxapi;
 
 
 import com.avos.avoscloud.AVAnalytics;
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVFile;
+import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVQuery;
+import com.avos.avoscloud.FindCallback;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SpeechUtility;
@@ -13,13 +18,20 @@ import com.messi.languagehelper.adapter.MainPageAdapter;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
+import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.AppDownloadUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.PlayUtil;
+import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.TranslateUtil;
+import com.orhanobut.dialogplus.DialogPlus;
+import com.orhanobut.dialogplus.OnDismissListener;
+import com.orhanobut.dialogplus.ViewHolder;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -29,14 +41,20 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.HashMap;
+import java.util.List;
 
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 
@@ -56,6 +74,7 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 
 	public static PlayerService musicSrv;
 	private Intent playIntent;
+	private DialogPlus dialog;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -65,7 +84,7 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 			mInstance = this;
 			initViews();
 			Settings.verifyStoragePermissions(this,Settings.PERMISSIONS_STORAGE);
-//			checkUpdate();
+			checkUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -216,75 +235,72 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 		if(playIntent != null){
 			stopService(playIntent);
 		}
-//		PlayerService.lastSongId = "";
 		musicSrv = null;
 	}
 
+	private void checkUpdate(){
+		AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.UpdateInfo.UpdateInfo);
+		query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "zyhy");
+		query.whereEqualTo(AVOUtil.UpdateInfo.IsValid, "1");
+		query.findInBackground(new FindCallback<AVObject>() {
+			public void done(List<AVObject> avObjects, AVException e) {
+				if (avObjects != null && avObjects.size() > 0) {
+					AVObject mAVObject = avObjects.get(0);
+					showUpdateDialog(mAVObject);
+				}
+			}
+		});
+	}
 
+	private void showUpdateDialog(final AVObject mAVObject){
+		int newVersionCode = mAVObject.getInt(AVOUtil.UpdateInfo.VersionCode);
+		int oldVersionCode = Settings.getVersion(WXEntryActivity.this);
+		if(newVersionCode > oldVersionCode){
+			String updateInfo = mAVObject.getString(AVOUtil.UpdateInfo.AppUpdateInfo);
+			String downloadType = mAVObject.getString(AVOUtil.UpdateInfo.DownloadType);
+			String apkUrl = "";
+			if(downloadType.equals("apk")){
+				AVFile avFile = mAVObject.getAVFile(AVOUtil.UpdateInfo.Apk);
+				apkUrl = avFile.getUrl();
+			}else{
+				apkUrl = mAVObject.getString(AVOUtil.UpdateInfo.APPUrl);
+			}
+			final String downloadUrl = apkUrl;
+			LogUtil.DefalutLog("apkUrl:"+apkUrl);
 
-	//	private void checkUpdate(){
-//		BDAutoUpdateSDK.cpUpdateCheck(this, new MyCPCheckUpdateCallback());
-//	}
-//
-//	private class MyCPCheckUpdateCallback implements CPCheckUpdateCallback {
-//
-//		@Override
-//		public void onCheckUpdateCallback(AppUpdateInfo info, AppUpdateInfoForInstall infoForInstall) {
-//			if(info != null || infoForInstall != null){
-//				showUpdateDialog(info, infoForInstall);
-//			}
-//		}
-//	}
-//
-//	private void showUpdateDialog(final AppUpdateInfo info, final AppUpdateInfoForInstall infoForInstall){
-//		String updateInfo = "有更丰富的内容，更快的速度，更好的体验，快快更新吧！";
-//		if(info != null){
-//			updateInfo = info.getAppChangeLog();
-//		}else if(infoForInstall != null){
-//			updateInfo = infoForInstall.getAppChangeLog();
-//		}
-//		if(updateInfo.contains("<br>")){
-//			updateInfo = updateInfo.replace("<br>", "\n");
-//		}
-//		Dialog dialog = new Dialog(WXEntryActivity.this, "更新啦,更新啦!", updateInfo);
-//		dialog.addAcceptButton("好的");
-//		dialog.addCancelButton("稍后");
-//		dialog.setOnAcceptButtonClickListener(new OnClickListener() {
-//			@Override
-//			public void onClick(View v) {
-//				if(infoForInstall != null && !TextUtils.isEmpty(infoForInstall.getInstallPath())) {
-//					BDAutoUpdateSDK.cpUpdateInstall(getApplicationContext(), infoForInstall.getInstallPath());
-//				}else if(info != null) {
-//					BDAutoUpdateSDK.cpUpdateDownload(WXEntryActivity.this, info, new UpdateDownloadCallback());
-//				}
-//			}
-//		});
-//		dialog.show();
-//	}
-//
-//	private class UpdateDownloadCallback implements CPUpdateDownloadCallback {
-//
-//		@Override
-//		public void onDownloadComplete(String apkPath) {
-//			BDAutoUpdateSDK.cpUpdateInstall(getApplicationContext(), apkPath);
-//		}
-//		@Override
-//		public void onStart() {
-//		}
-//
-//		@Override
-//		public void onPercent(int percent, long rcvLen, long fileSize) {
-//		}
-//
-//		@Override
-//		public void onFail(Throwable error, String content) {
-//		}
-//
-//		@Override
-//		public void onStop() {
-//		}
-//
-//	}
+			dialog = DialogPlus.newDialog(this)
+					.setContentHolder(new ViewHolder(R.layout.dialog_update_info))
+					.setCancelable(false)
+					.setGravity(Gravity.BOTTOM)
+					.setContentHeight(ViewGroup.LayoutParams.WRAP_CONTENT)
+					.setOverlayBackgroundResource(R.color.none_alpha)
+					.create();
+			View view = dialog.getHolderView();
+			TextView updage_info = (TextView) view.findViewById(R.id.updage_info);
+			TextView cancel_btn = (TextView) view.findViewById(R.id.cancel_btn);
+			TextView update_btn = (TextView) view.findViewById(R.id.update_btn);
 
+			updage_info.setText(updateInfo);
+			cancel_btn.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					dialog.dismiss();
+				}
+			});
+			update_btn.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					dialog.dismiss();
+					new AppDownloadUtil(WXEntryActivity.this,
+							downloadUrl,
+							mAVObject.getString(AVOUtil.UpdateInfo.AppName),
+							mAVObject.getObjectId(),
+							SDCardUtil.apkUpdatePath
+					).DownloadFile();
+				}
+			});
+			dialog.show();
+		}
+	}
 
 }

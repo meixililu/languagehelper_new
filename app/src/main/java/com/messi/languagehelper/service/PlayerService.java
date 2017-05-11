@@ -98,7 +98,7 @@ public class PlayerService extends Service implements
         }else {
             if(PlayerStatus == 1){
                 pause();
-            }else if(PlayerStatus == 2){
+            }else if(PlayerStatus == 2 || PlayerStatus == 0){
                 restart();
             }
         }

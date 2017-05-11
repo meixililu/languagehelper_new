@@ -106,6 +106,8 @@ public class Settings {
 	/** BrainTwists **/
 	public static final String TXBrainTwistsApi = "http://api.tianapi.com/txapi/naowan/?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
 
+	public static final String TXGodreplyApi = "https://api.tianapi.com/txapi/godreply/?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
+
 	public static final String TXYiZhanDaoDiApi = "http://api.tianapi.com/txapi/wenda/?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
 
 	public static final String TXNewsApi = "http://api.tianapi.com/";

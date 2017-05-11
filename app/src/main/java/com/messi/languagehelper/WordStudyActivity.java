@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+
 public class WordStudyActivity extends BaseActivity implements FragmentProgressbarListener{
 
 	private TabLayout tablayout;
@@ -31,10 +33,25 @@ public class WordStudyActivity extends BaseActivity implements FragmentProgressb
 		tablayout.setTabsFromPagerAdapter(pageAdapter);
 		tablayout.setupWithViewPager(viewpager);
 	}
+
+	@Override
+	public void onBackPressed() {
+		if (JCVideoPlayer.backPress()) {
+			return;
+		}
+		super.onBackPressed();
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		JCVideoPlayer.releaseAllVideos();
+	}
 	
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
+
 	}
 	
 }

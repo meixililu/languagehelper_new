@@ -2,6 +2,7 @@ package com.messi.languagehelper;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -19,13 +20,13 @@ import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.adapter.RcStudyListAdapter;
 import com.messi.languagehelper.dao.Reading;
+import com.messi.languagehelper.dao.ReadingCategory;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
+import com.messi.languagehelper.impl.TablayoutOnSelectedListener;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
-import com.messi.languagehelper.util.ColorUtil;
-import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Settings;
@@ -46,10 +47,14 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class StudyFragment extends BaseFragment implements OnClickListener {
+public class StudyFragment extends BaseFragment implements OnClickListener, TablayoutOnSelectedListener {
 
     @BindView(R.id.listview)
     RecyclerView listview;
+    @BindView(R.id.tablayout)
+    TabLayout tablayout;
+    @BindView(R.id.tablayout_line)
+    View tablayoutLine;
     private RcStudyListAdapter mAdapter;
     private List<Reading> avObjects;
     private List<AVObject> tempList;
@@ -59,7 +64,10 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
     private boolean loading;
     private boolean hasMore;
     private Reading mADObject;
+    private String category;
     private LinearLayoutManager mLinearLayoutManager;
+    private List<ReadingCategory> categories;
+    private boolean isNeedClear;
 
     public static StudyFragment getInstance() {
         return new StudyFragment();
@@ -78,7 +86,7 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.onCreateView(inflater,container,savedInstanceState);
+        super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.study_fragment, null);
         ButterKnife.bind(this, view);
         initViews(view);
@@ -87,10 +95,10 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
 
     private void initViews(View view) {
         avObjects = new ArrayList<Reading>();
-        avObjects.addAll(DataBaseUtil.getInstance().getReadingList(Settings.page_size,"","",""));
+        avObjects.addAll(DataBaseUtil.getInstance().getReadingList(Settings.page_size, "", "", ""));
         skip = 0;
         initSwipeRefresh(view);
-        mAdapter = new RcStudyListAdapter(avObjects,mProgressbarListener,getActivity());
+        mAdapter = new RcStudyListAdapter(avObjects, mProgressbarListener, getActivity(), this);
         mAdapter.setItems(avObjects);
         mAdapter.setFooter(new Object());
         mAdapter.setHeader(new Object());
@@ -105,6 +113,31 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
                         .build());
         listview.setAdapter(mAdapter);
         setListOnScrollListener();
+        categories = getTabItem();
+        initTablayout();
+        getMaxPageNumberBackground();
+    }
+
+    private void initTablayout() {
+        for (ReadingCategory item : categories) {
+            tablayout.addTab(tablayout.newTab().setText(item.getName()));
+        }
+        tablayout.getTabAt(0).select();
+        tablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                onTabSelectedListener(categories.get(tab.getPosition()));
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                onTabReselectedListener(categories.get(tab.getPosition()));
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
+        });
     }
 
     private void random() {
@@ -128,6 +161,15 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
                         LogUtil.DefalutLog("StudyFragment-setListOnScrollListener-QueryTask");
                     }
                 }
+                if (mAdapter.getTabLayout() != null) {
+                    if (mAdapter.getTabLayout().isShown()) {
+                        tablayoutLine.setVisibility(View.GONE);
+                        tablayout.setVisibility(View.GONE);
+                    } else {
+                        tablayoutLine.setVisibility(View.VISIBLE);
+                        tablayout.setVisibility(View.VISIBLE);
+                    }
+                }
             }
         });
     }
@@ -137,10 +179,10 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
             for (int i = first; i < (first + vCount); i++) {
                 if (i < avObjects.size() && i > 0) {
                     Reading mAVObject = avObjects.get(i);
-                    if(mAVObject != null && mAVObject.isAd()){
-                        if(!mAVObject.isAdShow()){
+                    if (mAVObject != null && mAVObject.isAd()) {
+                        if (!mAVObject.isAdShow()) {
                             NativeADDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
-                            mNativeADDataRef.onExposured(view.getChildAt(i%vCount));
+                            mNativeADDataRef.onExposured(view.getChildAt(i % vCount));
                             mAVObject.setAdShow(true);
                         }
                     }
@@ -151,11 +193,11 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
 
     @Override
     public void updateUI(String music_action) {
-        if(music_action.equals(PlayerService.action_loading)){
+        if (music_action.equals(PlayerService.action_loading)) {
             showProgressbar();
-        }else if(music_action.equals(PlayerService.action_finish_loading)){
+        } else if (music_action.equals(PlayerService.action_finish_loading)) {
             hideProgressbar();
-        }else {
+        } else {
             mAdapter.notifyDataSetChanged();
         }
     }
@@ -163,7 +205,7 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        if(!isVisibleToUser){
+        if (!isVisibleToUser) {
             JCVideoPlayer.releaseAllVideos();
         }
     }
@@ -171,7 +213,7 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
     @Override
     public void onResume() {
         super.onResume();
-        if(mAdapter != null){
+        if (mAdapter != null) {
             mAdapter.notifyDataSetChanged();
         }
     }
@@ -189,19 +231,19 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
         skip = 0;
         loadAD();
         QueryTask();
-        LogUtil.DefalutLog("StudyFragment-loadDataOnStart-QueryTask");
-        getMaxPageNumberBackground();
     }
 
     @Override
     public void onSwipeRefreshLayoutRefresh() {
+        isNeedClear = true;
+        random();
+        refresh();
+    }
+
+    private void refresh() {
         loadAD();
         hideFooterview();
-        random();
-        avObjects.clear();
-        mAdapter.notifyDataSetChanged();
         QueryTask();
-        LogUtil.DefalutLog("StudyFragment-onSwipeRefreshLayoutRefresh-QueryTask");
     }
 
     private void QueryTask() {
@@ -220,12 +262,15 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
                     @Override
                     public void onSubscribe(Disposable d) {
                     }
+
                     @Override
                     public void onNext(String s) {
                     }
+
                     @Override
                     public void onError(Throwable e) {
                     }
+
                     @Override
                     public void onComplete() {
                         onFinishLoadData();
@@ -236,6 +281,9 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
 
     private void getNetworkData() {
         AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.Reading.Reading);
+        if (!TextUtils.isEmpty(category)) {
+            query.whereEqualTo(AVOUtil.Reading.category, category);
+        }
         query.addDescendingOrder(AVOUtil.Reading.publish_time);
         query.skip(skip);
         query.limit(Settings.page_size);
@@ -259,10 +307,14 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
                 hasMore = false;
             } else {
                 if (avObjects != null && mAdapter != null) {
-                    if(skip == 0){
+                    if (skip == 0) {
                         avObjects.clear();
                     }
-                    changeData(tempList,avObjects);
+                    if (isNeedClear) {
+                        avObjects.clear();
+                        isNeedClear = false;
+                    }
+                    changeData(tempList, avObjects);
                     if (addAD()) {
                         mAdapter.notifyDataSetChanged();
                     }
@@ -296,7 +348,7 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
                     mADObject = new Reading();
                     mADObject.setmNativeADDataRef(nad);
                     mADObject.setAd(true);
-                    if(!loading){
+                    if (!loading) {
                         addAD();
                     }
                 }
@@ -322,16 +374,25 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
     }
 
     @Override
+    public void onTabSelectedListener(ReadingCategory mReadingCategory) {
+        listview.scrollToPosition(1);
+        category = mReadingCategory.getCategory();
+        skip = 0;
+        refresh();
+    }
+
+    @Override
+    public void onTabReselectedListener(ReadingCategory mReadingCategory) {
+        listview.scrollToPosition(1);
+        onSwipeRefreshLayoutRefresh();
+    }
+
+    @Override
     public void onClick(View v) {
     }
 
     private void getMaxPageNumberBackground() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                maxRandom = (int)((Math.random()*800));
-            }
-        }).start();
+        maxRandom = (int) ((Math.random() * 1200));
     }
 
     private void hideFooterview() {
@@ -343,11 +404,11 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
     }
 
     public void onTabReselected(int index) {
-        listview.scrollTo(0,0);
+        listview.scrollTo(0, 0);
         onSwipeRefreshLayoutRefresh();
     }
 
-    public static void changeData(List<AVObject> avObjectlist, List<Reading> avObjects){
+    public static void changeData(List<AVObject> avObjectlist, List<Reading> avObjects) {
         for (AVObject item : avObjectlist) {
             Reading mReading = new Reading();
             mReading.setObject_id(item.getObjectId());
@@ -368,5 +429,19 @@ public class StudyFragment extends BaseFragment implements OnClickListener {
             DataBaseUtil.getInstance().saveOrGetStatus(mReading);
             avObjects.add(mReading);
         }
+    }
+
+    public static List<ReadingCategory> getTabItem() {
+        List<ReadingCategory> readingCategories = new ArrayList<ReadingCategory>();
+        readingCategories.add(new ReadingCategory("推荐", ""));
+        readingCategories.add(new ReadingCategory("阅读", "shuangyu_reading"));
+        readingCategories.add(new ReadingCategory("听力", "listening"));
+        readingCategories.add(new ReadingCategory("词汇", "word"));
+        readingCategories.add(new ReadingCategory("口语", "spoken_english"));
+        readingCategories.add(new ReadingCategory("作文", "composition"));
+        readingCategories.add(new ReadingCategory("考试", "examination"));
+        readingCategories.add(new ReadingCategory("故事", "story"));
+        readingCategories.add(new ReadingCategory("笑话", "jokes"));
+        return readingCategories;
     }
 }

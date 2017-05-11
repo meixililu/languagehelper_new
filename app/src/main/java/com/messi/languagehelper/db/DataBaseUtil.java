@@ -23,6 +23,7 @@ import com.messi.languagehelper.dao.TagDao;
 import com.messi.languagehelper.dao.record;
 import com.messi.languagehelper.dao.recordDao;
 import com.messi.languagehelper.dao.recordDao.Properties;
+import com.messi.languagehelper.util.ColorUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Settings;
 
@@ -286,8 +287,10 @@ public class DataBaseUtil {
             bean.setStatus(localData.getStatus());
             bean.setIsCollected(localData.getIsCollected());
             bean.setIsReadLater(localData.getIsReadLater());
+            bean.setImg_color(localData.getImg_color());
             bean.setId(localData.getId());
         }else {
+            bean.setImg_color(ColorUtil.getRadomColor());
             insert(bean);
         }
     }

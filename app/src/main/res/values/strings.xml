@@ -35,6 +35,7 @@
     <string name="title_website">不错的学习网站</string>
     <string name="title_favorite">我的收藏</string>
     <string name="title_hotel">订酒店</string>
+    <string name="title_update_title">新版来袭:</string>
     <string name="title_dialog_select">选择场景</string>
     <string name="title_settings">应用设置</string>
     <string name="title_comments">吐槽评价</string>
@@ -58,6 +59,8 @@
     <string name="font_style_center">居中</string>
     <string name="font_style_bold">粗体</string>
     <string name="font_style_italic">斜体</string>
+    <string name="updage_later">稍后</string>
+    <string name="updage_now">更新</string>
 
     <string name="menu_share">DIY分享</string>
     <string name="menu_settings">语速调节</string>
@@ -221,6 +224,8 @@
     <string name="leisuer_twists">脑筋急转弯</string>
     <string name="leisuer_yizhandaodi">一站到底</string>
     <string name="leisuer_yizhandaodi_des">知识问答等你来战</string>
+    <string name="leisuer_shenhuifu">神回复</string>
+    <string name="leisuer_shenhuifu_des">神一样的评论</string>
     <string name="leisuer_twists_subtitle">放松一下你的大脑</string>
     <string name="leisuer_invest">投资人列表</string>
     <string name="leisuer_invest_subtitle">提意见就是对软件投资</string>
