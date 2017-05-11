@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/black">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
 
-    <RelativeLayout
+    <FrameLayout
         android:id="@+id/surface_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center">
+        android:layout_height="match_parent">
 
-    </RelativeLayout>
+    </FrameLayout>
 
     <LinearLayout
         android:id="@+id/layout_bottom"
@@ -27,10 +26,10 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:text="00:00"
-            android:textColor="#ffffff"/>
+            android:textColor="#ffffff" />
 
         <SeekBar
-            android:id="@+id/progress"
+            android:id="@+id/bottom_seek_progress"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -41,8 +40,8 @@
             android:minHeight="4dp"
             android:paddingBottom="8dp"
             android:paddingTop="8dp"
-            android:progressDrawable="@drawable/jc_seek_progress"
-            android:thumb="@drawable/jc_seek_thumb"/>
+            android:progressDrawable="@drawable/jc_bottom_seek_progress"
+            android:thumb="@drawable/jc_bottom_seek_thumb" />
 
         <TextView
             android:id="@+id/total"
@@ -50,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="16dp"
             android:text="00:00"
-            android:textColor="#ffffff"/>
+            android:textColor="#ffffff" />
 
         <ImageView
             android:id="@+id/fullscreen"
@@ -58,7 +57,7 @@
             android:layout_height="fill_parent"
             android:paddingRight="16dp"
             android:scaleType="center"
-            android:src="@drawable/jc_enlarge"/>
+            android:src="@drawable/jc_enlarge" />
     </LinearLayout>
 
     <LinearLayout
@@ -73,12 +72,12 @@
 
     <ProgressBar
         android:id="@+id/loading"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:indeterminateDrawable="@drawable/jc_loading"
-        android:visibility="invisible"/>
+        android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/start"
@@ -87,6 +86,6 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_gravity="center_vertical"
-        android:src="@drawable/jc_click_play_selector"/>
+        android:src="@drawable/jc_click_play_selector" />
 
 </RelativeLayout>

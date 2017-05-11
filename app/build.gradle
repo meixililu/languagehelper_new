@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.messi.languagehelper"
-        minSdkVersion 14
+        minSdkVersion 16
         targetSdkVersion 25
         versionCode 28
         versionName "3.7"
@@ -33,11 +33,11 @@ dependencies {
     //contx.jar 是广阅通的，不需要时可删除
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:25.2.0'
-    compile 'com.android.support:design:25.2.0'
-    compile 'com.android.support:support-v4:25.2.0'
-    compile 'com.android.support:recyclerview-v7:25.2.0'
-    compile 'com.android.support:cardview-v7:25.2.0'
+    compile 'com.android.support:appcompat-v7:25.3.0'
+    compile 'com.android.support:design:25.3.0'
+    compile 'com.android.support:support-v4:25.3.0'
+    compile 'com.android.support:recyclerview-v7:25.3.0'
+    compile 'com.android.support:cardview-v7:25.3.0'
     compile 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
     compile 'com.github.bumptech.glide:glide:3.7.0'
@@ -45,7 +45,7 @@ dependencies {
     compile 'org.jsoup:jsoup:1.10.2'
     compile 'cn.leancloud.android:avoscloud-sdk:v3.+'
     compile 'cn.leancloud.android:avoscloud-statistics:v3.+'
-    compile 'fm.jiecao:jiecaovideoplayer:4.6.5'
+    compile 'fm.jiecao:jiecaovideoplayer:5.5.4'
     compile 'com.facebook.fresco:fresco:1.3.0'
     compile 'com.facebook.fresco:animated-gif:1.3.0'
     compile 'com.karumi:headerrecyclerview:1.1.0'
