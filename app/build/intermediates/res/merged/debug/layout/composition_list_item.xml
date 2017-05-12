@@ -91,8 +91,8 @@
 
 			<ImageView
 				android:id="@+id/music_play_img"
-				android:layout_width="45dp"
-				android:layout_height="45dp"
+				android:layout_width="38dp"
+				android:layout_height="38dp"
 				android:layout_gravity="center"
 				android:src="@drawable/jc_click_play_selector"
 				android:visibility="gone" />
