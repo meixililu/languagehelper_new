@@ -391,14 +391,7 @@ public class DictionaryRecyclerviewAdapter extends RecyclerView.Adapter<Recycler
 					if (isPlayResult) {
 						filepath = path + mBean.getResultVoiceId() + ".pcm";
 						mBean.setResultAudioPath(filepath);
-						if (mBean.getType().equals(KeyUtil.ResultTypeDictionary)) {
-							if (TextUtils.isEmpty(mBean.getBackup1())) {
-								DictionaryUtil.getResultSetData(mBean);
-							}
-							speakContent = mBean.getBackup1();
-						} else {
-							speakContent = mBean.getResult();
-						}
+						speakContent = mBean.getResult();
 						Settings.role = XFUtil.SpeakerEn;
 					} else {
 						filepath = path + mBean.getQuestionVoiceId() + ".pcm";

@@ -38,8 +38,8 @@ public class SQLiteOpenHelper extends OpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        MigrationHelper.migrate(db, DictionaryDao.class, EveryDaySentenceDao.class, MeansDao.class,
-                PartsDao.class, ReadingDao.class, recordDao.class,
+        MigrationHelper.migrate(db, EveryDaySentenceDao.class, MeansDao.class,
+                DictionaryDao.class, PartsDao.class, ReadingDao.class, recordDao.class,
                 SymbolListDaoDao.class, WordDetailListItemDao.class);
     }
 }

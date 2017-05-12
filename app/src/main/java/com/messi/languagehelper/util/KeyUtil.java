@@ -65,11 +65,9 @@ public class KeyUtil {
 	public static final String LastTimeCollectedActivitySelectTab = "LastTimeCollectedActivitySelectTab";
 
 	public static final String BigImgUrl = "BigImgUrl";
-	
-	public static final String ResultTypeDictionary = "ResultTypeDictionary";
-	
+
 	public static final String ResultTypeShowapi = "ResultTypeShowapi";
-	
+
 	public static final String ResultTypeTranslate = "ResultTypeTranslate";
 	
 	public static final String StudyDialogAction = "StudyDialogAction";

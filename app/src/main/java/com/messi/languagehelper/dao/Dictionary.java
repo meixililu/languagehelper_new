@@ -34,16 +34,7 @@ public class Dictionary {
     private String backup4;
     private String backup5;
 
-    @ToMany(referencedJoinProperty = "dictionaryId")
-    private List<Parts> partList;
-    /** Used to resolve relations */
-    @Generated(hash = 2040040024)
-    private transient DaoSession daoSession;
-    /** Used for active entity operations. */
-    @Generated(hash = 965981863)
-    private transient DictionaryDao myDao;
-
-    @Generated(hash = 863251322)
+@Generated(hash = 863251322)
     public Dictionary(Long id, String word_name, String result, String to, String from,
             String ph_am, String ph_en, String ph_zh, String type, String questionVoiceId,
             String questionAudioPath, String resultVoiceId, String resultAudioPath,
@@ -248,77 +239,6 @@ public class Dictionary {
 
     public void setBackup5(String backup5) {
         this.backup5 = backup5;
-    }
-
-    /**
-     * To-many relationship, resolved on first access (and after reset).
-     * Changes to to-many relations are not persisted, make changes to the target entity.
-     */
-    @Generated(hash = 940927618)
-    public List<Parts> getPartList() {
-        if (partList == null) {
-            final DaoSession daoSession = this.daoSession;
-            if (daoSession == null) {
-                throw new DaoException("Entity is detached from DAO context");
-            }
-            PartsDao targetDao = daoSession.getPartsDao();
-            List<Parts> partListNew = targetDao._queryDictionary_PartList(id);
-            synchronized (this) {
-                if (partList == null) {
-                    partList = partListNew;
-                }
-            }
-        }
-        return partList;
-    }
-
-    /** Resets a to-many relationship, making the next get call to query for a fresh result. */
-    @Generated(hash = 141659070)
-    public synchronized void resetPartList() {
-        partList = null;
-    }
-
-    /**
-     * Convenient call for {@link org.greenrobot.greendao.AbstractDao#delete(Object)}.
-     * Entity must attached to an entity context.
-     */
-    @Generated(hash = 128553479)
-    public void delete() {
-        if (myDao == null) {
-            throw new DaoException("Entity is detached from DAO context");
-        }
-        myDao.delete(this);
-    }
-
-    /**
-     * Convenient call for {@link org.greenrobot.greendao.AbstractDao#refresh(Object)}.
-     * Entity must attached to an entity context.
-     */
-    @Generated(hash = 1942392019)
-    public void refresh() {
-        if (myDao == null) {
-            throw new DaoException("Entity is detached from DAO context");
-        }
-        myDao.refresh(this);
-    }
-
-    /**
-     * Convenient call for {@link org.greenrobot.greendao.AbstractDao#update(Object)}.
-     * Entity must attached to an entity context.
-     */
-    @Generated(hash = 713229351)
-    public void update() {
-        if (myDao == null) {
-            throw new DaoException("Entity is detached from DAO context");
-        }
-        myDao.update(this);
-    }
-
-    /** called by internal mechanisms, do not call yourself. */
-    @Generated(hash = 1544509509)
-    public void __setDaoSession(DaoSession daoSession) {
-        this.daoSession = daoSession;
-        myDao = daoSession != null ? daoSession.getDictionaryDao() : null;
     }
 
 }
