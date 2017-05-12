@@ -3,14 +3,13 @@ package com.messi.languagehelper;
 import java.util.List;
 
 import com.messi.languagehelper.adapter.WordBookListAdapter;
-import com.messi.languagehelper.dao.WordListItem;
+import com.messi.languagehelper.bean.WordListItem;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.XFYSAD;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ListView;

@@ -7,7 +7,7 @@ import com.avos.avoscloud.AVFile;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.messi.languagehelper.adapter.WordStudySecondAdapter;
-import com.messi.languagehelper.dao.WordListType;
+import com.messi.languagehelper.bean.WordListType;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 

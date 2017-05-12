@@ -7,18 +7,13 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Environment;
 import android.util.Base64;
 
-import com.messi.languagehelper.dao.BDORCItem;
-import com.messi.languagehelper.dao.BaiduOcrRoot;
+import com.messi.languagehelper.bean.BDORCItem;
+import com.messi.languagehelper.bean.BaiduOcrRoot;
 
 public class CameraUtil {
 

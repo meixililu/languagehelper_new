@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.messi.languagehelper.adapter.WordStudyUnitListAdapter;
 import com.messi.languagehelper.dao.WordDetailListItem;
-import com.messi.languagehelper.dao.WordListItem;
+import com.messi.languagehelper.bean.WordListItem;
 import com.messi.languagehelper.impl.AdapterListener;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.SaveData;

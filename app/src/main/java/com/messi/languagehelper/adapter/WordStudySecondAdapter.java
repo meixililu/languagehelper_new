@@ -6,7 +6,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.WordStudyThirdActivity;
-import com.messi.languagehelper.dao.WordListType;
+import com.messi.languagehelper.bean.WordListType;
 import com.messi.languagehelper.util.KeyUtil;
 
 import android.content.Context;

@@ -1,7 +1,7 @@
 package com.messi.languagehelper.adapter;
 
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.dao.WordListItem;
+import com.messi.languagehelper.bean.WordListItem;
 import com.messi.languagehelper.impl.AdapterListener;
 
 import android.content.Context;

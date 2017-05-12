@@ -1,7 +1,5 @@
 package com.messi.languagehelper.bean;
 
-import com.messi.languagehelper.dao.BaseBean;
-
 public class UserSpeakBean implements BaseBean {
 	
 	private String id;

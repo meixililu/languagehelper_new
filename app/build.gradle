@@ -55,9 +55,10 @@ dependencies {
     compile 'com.orhanobut:dialogplus:1.11@aar'
     compile "com.andkulikov:transitionseverywhere:1.7.0"
     compile 'org.greenrobot:greendao:3.2.2'
+    compile 'com.github.yuweiguocn:GreenDaoUpgradeHelper:v1.3.0'
 
 }
 
 greendao {
-    schemaVersion 4
+    schemaVersion 5
 }

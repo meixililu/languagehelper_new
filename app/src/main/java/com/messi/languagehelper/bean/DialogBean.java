@@ -1,7 +1,5 @@
 package com.messi.languagehelper.bean;
 
-import com.messi.languagehelper.dao.BaseBean;
-
 public class DialogBean implements BaseBean {
 	
 	private String id;

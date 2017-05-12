@@ -5,8 +5,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
-import com.messi.languagehelper.dao.TwistaItem;
-import com.messi.languagehelper.dao.TwistaResult;
+import com.messi.languagehelper.bean.TwistaItem;
+import com.messi.languagehelper.bean.TwistaResult;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.util.ADUtil;

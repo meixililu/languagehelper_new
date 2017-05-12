@@ -21,8 +21,8 @@ import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.messi.languagehelper.bean.StackTransalte;
 import com.messi.languagehelper.bean.TranslateApiBean;
 import com.messi.languagehelper.dao.Dictionary;
-import com.messi.languagehelper.dao.DictionaryRootJuhe;
-import com.messi.languagehelper.dao.Root;
+import com.messi.languagehelper.bean.DictionaryRootJuhe;
+import com.messi.languagehelper.bean.Root;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 
@@ -30,12 +30,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Message;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.Spanned;
 import android.text.TextUtils;
-import android.text.style.AbsoluteSizeSpan;
-import android.view.TextureView;
 
 public class TranslateUtil {
 	

@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.WordStudyFourthActivity;
-import com.messi.languagehelper.dao.WordListItem;
+import com.messi.languagehelper.bean.WordListItem;
 import com.messi.languagehelper.util.KeyUtil;
 
 import java.util.List;

@@ -1,7 +1,6 @@
 package com.messi.languagehelper.impl;
 
-import com.messi.languagehelper.dao.Dictionary;
-import com.messi.languagehelper.dao.ReadingCategory;
+import com.messi.languagehelper.bean.ReadingCategory;
 
 /**
  * Created by luli on 10/26/16.

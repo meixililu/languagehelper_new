@@ -8,8 +8,8 @@ import com.alibaba.fastjson.JSON;
 import com.avos.avoscloud.okhttp.FormEncodingBuilder;
 import com.avos.avoscloud.okhttp.RequestBody;
 import com.messi.languagehelper.adapter.ChDicBushouPinyinAdapter;
-import com.messi.languagehelper.dao.ChDicBSPYDao;
-import com.messi.languagehelper.dao.ChDicBushouPinyinDao;
+import com.messi.languagehelper.bean.ChDicBSPY;
+import com.messi.languagehelper.bean.ChDicBushouPinyin;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.util.KeyUtil;
@@ -31,9 +31,9 @@ public class ChDicBushouPinyinActivity extends BaseActivity {
     public static final String pinyin = "pinyin";
     private String type;//bushou,pinyin
     private String url;
-    private ChDicBSPYDao mRoot;
+    private ChDicBSPY mRoot;
     private ChDicBushouPinyinAdapter mAdapter;
-    private List<ChDicBushouPinyinDao> mList;
+    private List<ChDicBushouPinyin> mList;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,7 +58,7 @@ public class ChDicBushouPinyinActivity extends BaseActivity {
             getSupportActionBar().setTitle(getResources().getString(R.string.ChDicPinyinList));
             url = Settings.ChDicPinyinUrl;
         }
-        mList = new ArrayList<ChDicBushouPinyinDao>();
+        mList = new ArrayList<ChDicBushouPinyin>();
         mAdapter = new ChDicBushouPinyinAdapter(this, mList, type);
         studycategoryLv.setAdapter(mAdapter);
     }
@@ -91,7 +91,7 @@ public class ChDicBushouPinyinActivity extends BaseActivity {
             public void onResponsed(String responseString) {
                 if (!TextUtils.isEmpty(responseString)) {
                     LogUtil.DefalutLog("responseString:"+responseString);
-                    mRoot = JSON.parseObject(responseString, ChDicBSPYDao.class);
+                    mRoot = JSON.parseObject(responseString, ChDicBSPY.class);
                     if(mRoot != null && mRoot.getError_code() == 0){
                         mList.clear();
                         mList.addAll(mRoot.getResult());

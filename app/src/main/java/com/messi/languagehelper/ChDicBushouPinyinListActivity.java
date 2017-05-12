@@ -5,18 +5,14 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AbsListView;
-import android.widget.GridView;
 import android.widget.ListView;
 
 import com.alibaba.fastjson.JSON;
 import com.avos.avoscloud.okhttp.FormEncodingBuilder;
 import com.avos.avoscloud.okhttp.RequestBody;
-import com.messi.languagehelper.adapter.ChDicBushouPinyinAdapter;
 import com.messi.languagehelper.adapter.ChDicBushouPinyinListAdapter;
-import com.messi.languagehelper.dao.ChDicBSPYDao;
-import com.messi.languagehelper.dao.ChDicBSPYDetailResultDao;
-import com.messi.languagehelper.dao.ChDicBushouPinyinDao;
-import com.messi.languagehelper.dao.ChDicBushouPinyinDetailDao;
+import com.messi.languagehelper.bean.ChDicBSPYDetailResult;
+import com.messi.languagehelper.bean.ChDicBushouPinyinDetail;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.util.KeyUtil;
@@ -38,9 +34,9 @@ public class ChDicBushouPinyinListActivity extends BaseActivity {
     private View footerview;
     private String type;//bushou,pinyin
     private String url;
-    private ChDicBSPYDetailResultDao mRoot;
+    private ChDicBSPYDetailResult mRoot;
     private ChDicBushouPinyinListAdapter mAdapter;
-    private List<ChDicBushouPinyinDetailDao> mList;
+    private List<ChDicBushouPinyinDetail> mList;
     private int page = 1;
     private String pageszie = "10";
     private String word;
@@ -68,7 +64,7 @@ public class ChDicBushouPinyinListActivity extends BaseActivity {
         } else {
             url = Settings.ChDicPinyinListUrl;
         }
-        mList = new ArrayList<ChDicBushouPinyinDetailDao>();
+        mList = new ArrayList<ChDicBushouPinyinDetail>();
         mAdapter = new ChDicBushouPinyinListAdapter(this, mList, type);
         initFooterview();
         studycategoryLv.setAdapter(mAdapter);
@@ -152,7 +148,7 @@ public class ChDicBushouPinyinListActivity extends BaseActivity {
             public void onResponsed(String responseString) {
                 if (!TextUtils.isEmpty(responseString)) {
                     LogUtil.DefalutLog("responseString:"+responseString);
-                    mRoot = JSON.parseObject(responseString, ChDicBSPYDetailResultDao.class);
+                    mRoot = JSON.parseObject(responseString, ChDicBSPYDetailResult.class);
                     if(mRoot != null && mRoot.getError_code() == 0){
                         if(page == 1){
                             mList.clear();

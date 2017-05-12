@@ -17,7 +17,7 @@ import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.adapter.RcWordSummaryListAdapter;
-import com.messi.languagehelper.dao.WordListItem;
+import com.messi.languagehelper.bean.WordListItem;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
@@ -29,7 +29,6 @@ import com.messi.languagehelper.util.XFYSAD;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
 
-import java.security.Key;
 import java.util.ArrayList;
 import java.util.List;
 

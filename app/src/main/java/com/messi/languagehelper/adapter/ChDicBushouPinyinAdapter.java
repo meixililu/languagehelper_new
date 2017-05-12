@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.messi.languagehelper.ChDicBushouPinyinActivity;
 import com.messi.languagehelper.ChDicBushouPinyinListActivity;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.dao.ChDicBushouPinyinDao;
+import com.messi.languagehelper.bean.ChDicBushouPinyin;
 import com.messi.languagehelper.util.KeyUtil;
 
 import java.util.List;
@@ -21,10 +21,10 @@ public class ChDicBushouPinyinAdapter extends BaseAdapter {
 
     private LayoutInflater mInflater;
     private Context context;
-    private List<ChDicBushouPinyinDao> mList;
+    private List<ChDicBushouPinyin> mList;
     private String type;
 
-    public ChDicBushouPinyinAdapter(Context mContext, List<ChDicBushouPinyinDao> mList, String type) {
+    public ChDicBushouPinyinAdapter(Context mContext, List<ChDicBushouPinyin> mList, String type) {
         context = mContext;
         this.mInflater = LayoutInflater.from(mContext);
         this.mList = mList;
@@ -55,7 +55,7 @@ public class ChDicBushouPinyinAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        final ChDicBushouPinyinDao mAVObject = mList.get(position);
+        final ChDicBushouPinyin mAVObject = mList.get(position);
         if (type.equals(ChDicBushouPinyinActivity.bushou)) {
             holder.name.setText(mAVObject.getBushou());
         } else {
@@ -70,7 +70,7 @@ public class ChDicBushouPinyinAdapter extends BaseAdapter {
         return convertView;
     }
 
-    private void onItemClick(ChDicBushouPinyinDao mAVObject) {
+    private void onItemClick(ChDicBushouPinyin mAVObject) {
         Intent intent = new Intent(context, ChDicBushouPinyinListActivity.class);
         intent.putExtra(KeyUtil.CHDicType, type);
         if (type.equals(ChDicBushouPinyinActivity.bushou)) {

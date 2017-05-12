@@ -20,7 +20,7 @@ import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.adapter.RcStudyListAdapter;
 import com.messi.languagehelper.dao.Reading;
-import com.messi.languagehelper.dao.ReadingCategory;
+import com.messi.languagehelper.bean.ReadingCategory;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.impl.TablayoutOnSelectedListener;

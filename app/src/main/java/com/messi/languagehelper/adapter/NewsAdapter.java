@@ -10,14 +10,13 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.WebViewActivity;
-import com.messi.languagehelper.dao.TXNewsItem;
+import com.messi.languagehelper.bean.TXNewsItem;
 import com.messi.languagehelper.util.KeyUtil;
 
 import java.util.List;

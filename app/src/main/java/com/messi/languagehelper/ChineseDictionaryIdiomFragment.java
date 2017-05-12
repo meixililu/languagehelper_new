@@ -26,7 +26,7 @@ import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechRecognizer;
 import com.iflytek.cloud.SpeechSynthesizer;
-import com.messi.languagehelper.dao.ChDicIdiomDao;
+import com.messi.languagehelper.bean.ChDicIdiom;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
@@ -48,7 +48,7 @@ public class ChineseDictionaryIdiomFragment extends Fragment implements OnClickL
     private TextView result_tv;
     private View view;
     private String word;
-    private ChDicIdiomDao mRoot;
+    private ChDicIdiom mRoot;
     /**
      * record
      **/
@@ -234,7 +234,7 @@ public class ChineseDictionaryIdiomFragment extends Fragment implements OnClickL
             public void onResponsed(String responseString) {
                 if (!TextUtils.isEmpty(responseString)) {
                     LogUtil.DefalutLog("responseString:" + responseString);
-                    mRoot = JSON.parseObject(responseString, ChDicIdiomDao.class);
+                    mRoot = JSON.parseObject(responseString, ChDicIdiom.class);
                     if (mRoot != null && mRoot.getError_code() == 0) {
                         mRoot.getResult().setResult();
                         result_tv.setText(mRoot.getResult().getResultForShow(word));

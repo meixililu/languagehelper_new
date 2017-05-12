@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.dao.ChDicBushouPinyinDetailDao;
+import com.messi.languagehelper.bean.ChDicBushouPinyinDetail;
 import com.messi.languagehelper.util.Settings;
 
 import java.util.List;
@@ -22,10 +22,10 @@ public class ChDicBushouPinyinListAdapter extends BaseAdapter {
 
     private LayoutInflater mInflater;
     private Context context;
-    private List<ChDicBushouPinyinDetailDao> mList;
+    private List<ChDicBushouPinyinDetail> mList;
     private String type;
 
-    public ChDicBushouPinyinListAdapter(Context mContext, List<ChDicBushouPinyinDetailDao> mList, String type) {
+    public ChDicBushouPinyinListAdapter(Context mContext, List<ChDicBushouPinyinDetail> mList, String type) {
         context = mContext;
         this.mInflater = LayoutInflater.from(mContext);
         this.mList = mList;
@@ -54,7 +54,7 @@ public class ChDicBushouPinyinListAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        final ChDicBushouPinyinDetailDao mAVObject = mList.get(position);
+        final ChDicBushouPinyinDetail mAVObject = mList.get(position);
         holder.textJijie.setText(mAVObject.getJijieResult());
         holder.textXiangjie.setText(mAVObject.getXiangjieResult());
         if (mAVObject.isShowXiangjie()) {
