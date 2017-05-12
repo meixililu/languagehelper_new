@@ -1,7 +1,6 @@
 package com.messi.languagehelper.util;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
@@ -10,8 +9,6 @@ import com.messi.languagehelper.bean.DictionaryDataJuhe;
 import com.messi.languagehelper.bean.DictionaryResultJuhe;
 import com.messi.languagehelper.bean.DictionaryRootJuhe;
 import com.messi.languagehelper.dao.EveryDaySentence;
-import com.messi.languagehelper.dao.Means;
-import com.messi.languagehelper.dao.Parts;
 import com.messi.languagehelper.bean.Root;
 import com.messi.languagehelper.bean.Showapi_res_body;
 import com.messi.languagehelper.bean.Web;

@@ -1,12 +1,6 @@
 package com.messi.languagehelper.util;
 
-import java.util.List;
-
-import android.text.TextUtils;
-
 import com.messi.languagehelper.dao.Dictionary;
-import com.messi.languagehelper.dao.Means;
-import com.messi.languagehelper.dao.Parts;
 
 public class DictionaryUtil {
 	

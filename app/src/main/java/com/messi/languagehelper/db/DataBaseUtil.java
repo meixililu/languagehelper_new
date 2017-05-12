@@ -10,16 +10,10 @@ import com.messi.languagehelper.dao.Dictionary;
 import com.messi.languagehelper.dao.DictionaryDao;
 import com.messi.languagehelper.dao.EveryDaySentence;
 import com.messi.languagehelper.dao.EveryDaySentenceDao;
-import com.messi.languagehelper.dao.Means;
-import com.messi.languagehelper.dao.MeansDao;
-import com.messi.languagehelper.dao.Parts;
-import com.messi.languagehelper.dao.PartsDao;
 import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.dao.ReadingDao;
 import com.messi.languagehelper.dao.SymbolListDao;
 import com.messi.languagehelper.dao.SymbolListDaoDao;
-import com.messi.languagehelper.dao.Tag;
-import com.messi.languagehelper.dao.TagDao;
 import com.messi.languagehelper.dao.record;
 import com.messi.languagehelper.dao.recordDao;
 import com.messi.languagehelper.dao.recordDao.Properties;
@@ -40,9 +34,6 @@ public class DataBaseUtil {
     private recordDao mrecordDao;
     private EveryDaySentenceDao mEveryDaySentenceDao;
     private DictionaryDao mDictionaryDao;
-    private MeansDao MmeansDao;
-    private PartsDao mPartsDao;
-    private TagDao mTagDao;
     private ReadingDao mReadingDao;
     private SymbolListDaoDao mSymbolListDaoDao;
 
@@ -59,9 +50,6 @@ public class DataBaseUtil {
             instance.mrecordDao = instance.mDaoSession.getRecordDao();
             instance.mDictionaryDao = instance.mDaoSession.getDictionaryDao();
             instance.mEveryDaySentenceDao = instance.mDaoSession.getEveryDaySentenceDao();
-            instance.mPartsDao = instance.mDaoSession.getPartsDao();
-            instance.MmeansDao = instance.mDaoSession.getMeansDao();
-            instance.mTagDao = instance.mDaoSession.getTagDao();
             instance.mSymbolListDaoDao = instance.mDaoSession.getSymbolListDaoDao();
             instance.mReadingDao = instance.mDaoSession.getReadingDao();
         }
@@ -74,18 +62,6 @@ public class DataBaseUtil {
         bean.setSpeak_speed(Settings.getSharedPreferences(appContext).getInt(appContext.getString(R.string.preference_key_tts_speed), 50));
         bean.setQuestionVoiceId(System.currentTimeMillis() + "");
         return mDictionaryDao.insert(bean);
-    }
-
-    public long insert(Parts bean) {
-        return mPartsDao.insert(bean);
-    }
-
-    public long insert(Tag bean) {
-        return mTagDao.insert(bean);
-    }
-
-    public long insert(Means bean) {
-        return MmeansDao.insert(bean);
     }
 
     public void insert(List<SymbolListDao> beans) {
