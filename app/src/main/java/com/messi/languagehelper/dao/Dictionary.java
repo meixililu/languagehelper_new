@@ -5,18 +5,19 @@ import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.ToMany;
 
+import java.io.Serializable;
 import java.util.List;
 import org.greenrobot.greendao.DaoException;
+import org.greenrobot.greendao.annotation.Transient;
 
 @Entity
 public class Dictionary {
-
     @Id(autoincrement = true)
     private Long id;
     private String word_name;
     private String result;  /**for item display**/
-    private String to;
-    private String from;
+    private String to_lan;
+    private String from_lan;
     private String ph_am;
     private String ph_en;
     private String ph_zh;
@@ -34,34 +35,35 @@ public class Dictionary {
     private String backup4;
     private String backup5;
 
-@Generated(hash = 863251322)
-    public Dictionary(Long id, String word_name, String result, String to, String from,
-            String ph_am, String ph_en, String ph_zh, String type, String questionVoiceId,
-            String questionAudioPath, String resultVoiceId, String resultAudioPath,
-            String iscollected, Integer visit_times, Integer speak_speed, String backup1,
-            String backup2, String backup3, String backup4, String backup5) {
-        this.id = id;
-        this.word_name = word_name;
-        this.result = result;
-        this.to = to;
-        this.from = from;
-        this.ph_am = ph_am;
-        this.ph_en = ph_en;
-        this.ph_zh = ph_zh;
-        this.type = type;
-        this.questionVoiceId = questionVoiceId;
-        this.questionAudioPath = questionAudioPath;
-        this.resultVoiceId = resultVoiceId;
-        this.resultAudioPath = resultAudioPath;
-        this.iscollected = iscollected;
-        this.visit_times = visit_times;
-        this.speak_speed = speak_speed;
-        this.backup1 = backup1;
-        this.backup2 = backup2;
-        this.backup3 = backup3;
-        this.backup4 = backup4;
-        this.backup5 = backup5;
-    }
+@Generated(hash = 1369582682)
+public Dictionary(Long id, String word_name, String result, String to_lan,
+        String from_lan, String ph_am, String ph_en, String ph_zh, String type,
+        String questionVoiceId, String questionAudioPath, String resultVoiceId,
+        String resultAudioPath, String iscollected, Integer visit_times,
+        Integer speak_speed, String backup1, String backup2, String backup3,
+        String backup4, String backup5) {
+    this.id = id;
+    this.word_name = word_name;
+    this.result = result;
+    this.to_lan = to_lan;
+    this.from_lan = from_lan;
+    this.ph_am = ph_am;
+    this.ph_en = ph_en;
+    this.ph_zh = ph_zh;
+    this.type = type;
+    this.questionVoiceId = questionVoiceId;
+    this.questionAudioPath = questionAudioPath;
+    this.resultVoiceId = resultVoiceId;
+    this.resultAudioPath = resultAudioPath;
+    this.iscollected = iscollected;
+    this.visit_times = visit_times;
+    this.speak_speed = speak_speed;
+    this.backup1 = backup1;
+    this.backup2 = backup2;
+    this.backup3 = backup3;
+    this.backup4 = backup4;
+    this.backup5 = backup5;
+}
 
     @Generated(hash = 487998537)
     public Dictionary() {
@@ -81,12 +83,6 @@ public class Dictionary {
 
     public void setWord_name(String word_name) {
         this.word_name = word_name;
-        if(from.equals("en")){
-        	String[] words = word_name.split(" ");
-        	if(words.length > 1){
-        		backup3 = word_name;
-        	}
-        }
     }
 
     public String getResult() {
@@ -97,20 +93,32 @@ public class Dictionary {
         this.result = result;
     }
 
-    public String getTo() {
-        return to;
+    public String getTo_lan() {
+        return to_lan;
     }
 
-    public void setTo(String to) {
-        this.to = to;
+    public void setTo_lan(String to_lan) {
+        this.to_lan = to_lan;
+    }
+
+    public void setTo(String to_lan) {
+        this.to_lan = to_lan;
+    }
+
+    public String getFrom_lan() {
+        return from_lan;
+    }
+
+    public void setFrom_lan(String from_lan) {
+        this.from_lan = from_lan;
     }
 
     public String getFrom() {
-        return from;
+        return from_lan;
     }
 
     public void setFrom(String from) {
-        this.from = from;
+        this.from_lan = from;
     }
 
     public String getPh_am() {
