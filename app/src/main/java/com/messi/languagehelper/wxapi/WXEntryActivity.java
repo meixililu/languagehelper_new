@@ -238,6 +238,7 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 		if(playIntent != null){
 			stopService(playIntent);
 		}
+		unbindService(musicConnection);
 		musicSrv = null;
 	}
 
