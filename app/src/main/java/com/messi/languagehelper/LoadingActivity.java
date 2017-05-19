@@ -77,7 +77,6 @@ public class LoadingActivity extends AppCompatActivity implements OnClickListene
             @Override
             public void run() {
                 addToShowAdTimes();
-                ShortCut.addShortcut(LoadingActivity.this, mSharedPreferences);
                 Glide.get(LoadingActivity.this).register(GlideUrl.class, InputStream.class,
                         new OkHttpUrlLoader.Factory(LanguagehelperHttpClient.initClient(LoadingActivity.this)));
             }
@@ -207,12 +206,6 @@ public class LoadingActivity extends AppCompatActivity implements OnClickListene
         }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        LogUtil.DefalutLog("LoadingActivity---onActivityResult");
-    }
-
     private void addToShowAdTimes() {
         int IsCanShowAD = mSharedPreferences.getInt(KeyUtil.IsCanShowAD_Loading, 0);
         IsCanShowAD++;
@@ -220,13 +213,9 @@ public class LoadingActivity extends AppCompatActivity implements OnClickListene
     }
 
     private void toNextPage() {
-        try {
-            Intent intent = new Intent(LoadingActivity.this, WXEntryActivity.class);
-            startActivity(intent);
-            finish();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Intent intent = new Intent(LoadingActivity.this, WXEntryActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private void cancleRunable() {
@@ -257,14 +246,4 @@ public class LoadingActivity extends AppCompatActivity implements OnClickListene
         AVAnalytics.onPause(this);
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        LogUtil.DefalutLog("LoadingActivity---onDestroy---destroyAd");
-    }
 }

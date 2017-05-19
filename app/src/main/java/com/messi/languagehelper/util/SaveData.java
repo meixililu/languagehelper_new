@@ -9,8 +9,22 @@ import java.io.ObjectOutputStream;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
+
+import com.google.gson.Gson;
 
 public class SaveData {
+
+    public static void saveDataAsJson(Context mContext,String name,String json){
+        SharedPreferences sp = Settings.getSharedPreferences(mContext);
+        Settings.saveSharedPreferences(sp, name, json);
+    }
+
+    public static <T> T getDataFonJson(Context mContext,String name,Class<T> classname){
+        SharedPreferences sp = Settings.getSharedPreferences(mContext);
+        String json = sp.getString(name,"");
+        return new Gson().fromJson(json,classname);
+    }
 
 	/**
 	* @function 将一个对象保存到本地 

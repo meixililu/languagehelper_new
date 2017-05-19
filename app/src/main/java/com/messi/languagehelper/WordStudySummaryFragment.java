@@ -36,14 +36,9 @@ public class WordStudySummaryFragment extends BaseFragment {
 
     private static final int NUMBER_OF_COLUMNS = 2;
     private RecyclerView category_lv;
-    private TextView last_study_unit;
-    private FrameLayout last_study_unit_layout;
     private RcWordSummaryListAdapter mAdapter;
     private List<AVObject> avObjects;
     private XFYSAD mXFYSAD;
-    private SharedPreferences spf;
-    private boolean isNeedSaveData;
-    private WordListItem wordListItem;
 
     @Override
     public void onAttach(Activity activity) {
@@ -61,17 +56,13 @@ public class WordStudySummaryFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.word_study_list_fragment, container, false);
         initSwipeRefresh(view);
         initViews(view);
-        initData();
-        setLast_study_unit();
+        new QueryTask().execute();
         return view;
     }
 
     private void initViews(View view) {
-        spf = Settings.getSharedPreferences(getContext());
         avObjects = new ArrayList<AVObject>();
         category_lv = (RecyclerView) view.findViewById(R.id.listview);
-        last_study_unit = (TextView) view.findViewById(R.id.last_study_unit);
-        last_study_unit_layout = (FrameLayout) view.findViewById(R.id.last_study_unit_layout);
         mXFYSAD = new XFYSAD(getContext(), ADUtil.SecondaryPage);
         mAdapter = new RcWordSummaryListAdapter(mXFYSAD);
         category_lv.setHasFixedSize(true);
@@ -81,67 +72,8 @@ public class WordStudySummaryFragment extends BaseFragment {
         category_lv.setLayoutManager(layoutManager);
         category_lv.addItemDecoration(new DividerGridItemDecoration(1));
         mAdapter.setHeader(new Object());
+        mAdapter.setItems(avObjects);
         category_lv.setAdapter(mAdapter);
-
-        last_study_unit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onItemClick();
-            }
-        });
-    }
-
-    private void onItemClick() {
-        WXEntryActivity.dataMap.put(KeyUtil.DataMapKey, wordListItem);
-        Intent intent = new Intent(getContext(), WordStudyFourthActivity.class);
-        intent.putExtra(KeyUtil.ActionbarTitle, wordListItem.getTitle());
-        getActivity().startActivity(intent);
-    }
-
-    private void initData() {
-        try {
-            long lastTimeSave = spf.getLong(KeyUtil.SaveLastTime_WordStudySummaryList, 0);
-            if (System.currentTimeMillis() - lastTimeSave > 1000 * 60 * 60 * 24 * 10) {
-                SaveData.deleteObject(getActivity(), KeyUtil.WordStudySummaryCategoryList);
-                LogUtil.DefalutLog("deleteObject   WordStudySummaryCategoryList");
-                new QueryTask().execute();
-            } else {
-                List<String> listStr = (ArrayList<String>) SaveData.getObject(getActivity(), KeyUtil.WordStudySummaryCategoryList);
-                if (listStr == null || listStr.size() == 0) {
-                    LogUtil.DefalutLog("avObjects is null");
-                    new QueryTask().execute();
-                } else {
-                    LogUtil.DefalutLog("avObjects is not null");
-                    for (String str : listStr) {
-                        avObjects.add(AVObject.parseAVObject(str));
-                    }
-                    mAdapter.setItems(avObjects);
-                    mAdapter.notifyDataSetChanged();
-                }
-            }
-        } catch (Exception e) {
-            new QueryTask().execute();
-            e.printStackTrace();
-        }
-    }
-
-    private void setLast_study_unit() {
-        wordListItem = (WordListItem) SaveData.getObject(getContext(), KeyUtil.WordSummaryStudyUnit);
-        if (wordListItem != null) {
-            last_study_unit.setText("上次学习至：" + wordListItem.getTitle() + "第" + wordListItem.getCourse_id() + "单元");
-            last_study_unit_layout.setVisibility(View.VISIBLE);
-        } else {
-            last_study_unit_layout.setVisibility(View.GONE);
-        }
-        LogUtil.DefalutLog("setLast_study_unit:" + wordListItem);
-    }
-
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        if (isVisibleToUser && getActivity() != null) {
-            setLast_study_unit();
-        }
     }
 
     @Override
@@ -152,18 +84,7 @@ public class WordStudySummaryFragment extends BaseFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (avObjects != null && isNeedSaveData) {
-            List<String> listStr = new ArrayList<String>();
-            for (AVObject item : avObjects) {
-                listStr.add(item.toString());
-            }
-            SaveData.saveObject(getActivity(), KeyUtil.WordStudySummaryCategoryList, listStr);
-            Settings.saveSharedPreferences(spf, KeyUtil.SaveLastTime_WordStudySummaryList,
-                    System.currentTimeMillis());
-            LogUtil.DefalutLog("saveObject   WordStudySummaryCategoryList");
-        }
         if (mXFYSAD != null) {
-            mXFYSAD.canclePlayImg();
             mXFYSAD = null;
         }
     }
@@ -187,7 +108,6 @@ public class WordStudySummaryFragment extends BaseFragment {
                 if (avObjects != null) {
                     avObjects.clear();
                     avObjects.addAll(mAVObjects);
-                    isNeedSaveData = true;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -200,7 +120,6 @@ public class WordStudySummaryFragment extends BaseFragment {
             super.onPostExecute(result);
             hideProgressbar();
             onSwipeRefreshLayoutFinish();
-            mAdapter.setItems(avObjects);
             mAdapter.notifyDataSetChanged();
         }
     }

@@ -224,7 +224,9 @@
     <string name="title_translate">Translate</string>
     <string name="title_update_title">Updage Info:</string>
     <string name="title_word_study">Word Study</string>
+    <string name="title_word_study_change_plan">Choose Word Book</string>
     <string name="title_word_study_summary">Word Summary</string>
+    <string name="title_word_study_vocabulary">Vocabulary</string>
     <string name="title_word_vocabulary">Vocabulary</string>
     <string name="translate">Translate</string>
     <string name="translate_content">Translate This Sentence</string>

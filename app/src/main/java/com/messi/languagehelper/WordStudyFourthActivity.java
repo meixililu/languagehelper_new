@@ -9,11 +9,13 @@ import android.widget.GridView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.messi.languagehelper.adapter.WordStudyUnitListAdapter;
 import com.messi.languagehelper.dao.WordDetailListItem;
 import com.messi.languagehelper.bean.WordListItem;
 import com.messi.languagehelper.impl.AdapterListener;
 import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SaveData;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
@@ -63,8 +65,7 @@ public class WordStudyFourthActivity extends BaseActivity implements AdapterList
     }
 
     private void init() {
-        avObjects = (WordListItem) WXEntryActivity.dataMap.get(KeyUtil.DataMapKey);
-        WXEntryActivity.dataMap.clear();
+        avObjects = SaveData.getDataFonJson(this, KeyUtil.WordStudyUnit, WordListItem.class);
         class_name = avObjects.getTitle();
         class_id = avObjects.getClass_id();
         course_id = avObjects.getCourse_id();
@@ -77,6 +78,7 @@ public class WordStudyFourthActivity extends BaseActivity implements AdapterList
 
     private void setUint() {
         setActionBarTitle(class_name + "第" + course_id + "单元");
+        saveCourseId();
     }
 
     @OnClick({R.id.renzhi_layout, R.id.duyinxuanci_layout, R.id.previous_unit_layout,
@@ -160,11 +162,14 @@ public class WordStudyFourthActivity extends BaseActivity implements AdapterList
         clearData();
     }
 
+    private void saveCourseId(){
+        avObjects.setCourse_id(course_id);
+        SaveData.saveDataAsJson(this, KeyUtil.WordStudyUnit, new Gson().toJson(avObjects));
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        avObjects.setCourse_id(course_id);
-        SaveData.saveObject(this, KeyUtil.WordStudyUnit, avObjects);
         clearData();
     }
 

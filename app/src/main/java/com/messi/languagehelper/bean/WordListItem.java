@@ -1,6 +1,10 @@
 package com.messi.languagehelper.bean;
 
-public class WordListItem {
+import java.io.Serializable;
+
+public class WordListItem implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private Long id;
 

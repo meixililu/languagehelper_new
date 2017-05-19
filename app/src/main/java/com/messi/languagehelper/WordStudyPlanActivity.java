@@ -1,92 +1,58 @@
 package com.messi.languagehelper;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.adapter.RcWordListAdapter;
-import com.messi.languagehelper.bean.WordListItem;
-import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
-import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.SaveData;
-import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.XFYSAD;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class WordStudyFirstFragment extends BaseFragment {
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+public class WordStudyPlanActivity extends BaseActivity {
 
     private static final int NUMBER_OF_COLUMNS = 2;
-    private RecyclerView category_lv;
+    @BindView(R.id.listview)
+    RecyclerView listview;
     private RcWordListAdapter mAdapter;
     private List<AVObject> avObjects;
     private XFYSAD mXFYSAD;
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        try {
-            mProgressbarListener = (FragmentProgressbarListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString() + " must implement FragmentProgressbarListener");
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.word_study_list_fragment, container, false);
-        initSwipeRefresh(view);
-        initViews(view);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.word_study_plan_activity);
+        ButterKnife.bind(this);
+        initSwipeRefresh();
+        initViews();
         new QueryTask().execute();
-        return view;
     }
 
-    private void initViews(View view) {
+    private void initViews() {
+        getSupportActionBar().setTitle(getResources().getString(R.string.title_word_study_change_plan));
         avObjects = new ArrayList<AVObject>();
-        category_lv = (RecyclerView) view.findViewById(R.id.listview);
-        mXFYSAD = new XFYSAD(getContext(), ADUtil.SecondaryPage);
-        mAdapter = new RcWordListAdapter(mXFYSAD);
-        category_lv.setHasFixedSize(true);
-        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), NUMBER_OF_COLUMNS);
+        mXFYSAD = new XFYSAD(this, ADUtil.SecondaryPage);
+        mAdapter = new RcWordListAdapter(mXFYSAD,"study_plan");
+        listview.setHasFixedSize(true);
+        GridLayoutManager layoutManager = new GridLayoutManager(this, NUMBER_OF_COLUMNS);
         HeaderSpanSizeLookup headerSpanSizeLookup = new HeaderSpanSizeLookup(mAdapter, layoutManager);
         layoutManager.setSpanSizeLookup(headerSpanSizeLookup);
-        category_lv.setLayoutManager(layoutManager);
-        category_lv.addItemDecoration(new DividerGridItemDecoration(1));
+        listview.setLayoutManager(layoutManager);
+        listview.addItemDecoration(new DividerGridItemDecoration(1));
         mAdapter.setHeader(new Object());
         mAdapter.setItems(avObjects);
-        category_lv.setAdapter(mAdapter);
-    }
-
-    @Override
-    public void onSwipeRefreshLayoutRefresh() {
-        new QueryTask().execute();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (mXFYSAD != null) {
-            mXFYSAD.canclePlayImg();
-            mXFYSAD = null;
-        }
+        listview.setAdapter(mAdapter);
     }
 
     private class QueryTask extends AsyncTask<Void, Void, Void> {
@@ -120,6 +86,20 @@ public class WordStudyFirstFragment extends BaseFragment {
             hideProgressbar();
             onSwipeRefreshLayoutFinish();
             mAdapter.notifyDataSetChanged();
+        }
+    }
+
+    @Override
+    public void onSwipeRefreshLayoutRefresh() {
+        new QueryTask().execute();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mXFYSAD != null) {
+            mXFYSAD.canclePlayImg();
+            mXFYSAD = null;
         }
     }
 

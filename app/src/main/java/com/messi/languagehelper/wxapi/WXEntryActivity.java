@@ -7,6 +7,7 @@ import com.avos.avoscloud.AVFile;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
+import com.avos.avoscloud.okhttp.internal.framed.FrameReader;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SpeechUtility;
@@ -15,6 +16,7 @@ import com.messi.languagehelper.MoreActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.WebViewFragment;
 import com.messi.languagehelper.adapter.MainPageAdapter;
+import com.messi.languagehelper.adapter.NewsAdapter;
 import com.messi.languagehelper.dao.Dictionary;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
@@ -40,6 +42,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -87,7 +90,7 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 			mInstance = this;
 			initViews();
 			Settings.verifyStoragePermissions(this,Settings.PERMISSIONS_STORAGE);
-			checkUpdate();
+			runCheckUpdateTask();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -203,11 +206,11 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 			finish();
 		}
 	}
-	
+
 	@Override
 	public void onClick(View v) {
 	}
-	
+
 	private void saveSelectTab(){
 		int index = viewPager.getCurrentItem();
 		LogUtil.DefalutLog("WXEntryActivity---onDestroy---saveSelectTab---index:"+index);
@@ -240,6 +243,15 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 		}
 		unbindService(musicConnection);
 		musicSrv = null;
+	}
+
+	private void runCheckUpdateTask(){
+		new Handler().postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				checkUpdate();
+			}
+		},5*1000);
 	}
 
 	private void checkUpdate(){

@@ -24,11 +24,13 @@ public class WordStudySecondAdapter extends BaseAdapter {
 	private LayoutInflater mInflater;
 	private Context context;
 	private List<WordListType> avObjects;
+	private String play_sign;
 	
-	public WordStudySecondAdapter(Context mContext, List<WordListType> avObjects) {
+	public WordStudySecondAdapter(Context mContext, List<WordListType> avObjects,String play_sign) {
 		context = mContext;
 		this.mInflater = LayoutInflater.from(mContext);
 		this.avObjects = avObjects;
+		this.play_sign = play_sign;
 	}
 
 	public int getCount() {
@@ -87,6 +89,9 @@ public class WordStudySecondAdapter extends BaseAdapter {
 	private void onItemClick(WordListType mAVObject){
 		WXEntryActivity.dataMap.put(KeyUtil.DataMapKey, mAVObject.getItemList());
 		Intent intent = new Intent(context,WordStudyThirdActivity.class);
+		if(!TextUtils.isEmpty(play_sign)){
+			intent.putExtra(KeyUtil.WordStudyPlan, play_sign);
+		}
 		intent.putExtra(KeyUtil.ActionbarTitle, mAVObject.getTitle());
 		context.startActivity(intent);
 	}

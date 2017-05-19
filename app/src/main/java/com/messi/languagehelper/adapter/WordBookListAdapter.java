@@ -2,18 +2,34 @@ package com.messi.languagehelper.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.avos.avoscloud.AVFile;
+import com.avos.avoscloud.AVObject;
+import com.google.gson.Gson;
+import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.AppDownloadUtil;
+import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NumberUtil;
+import com.messi.languagehelper.util.SDCardUtil;
+import com.messi.languagehelper.util.SaveData;
+import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.WordStudyFourthActivity;
 import com.messi.languagehelper.bean.WordListItem;
 import com.messi.languagehelper.util.KeyUtil;
+import com.orhanobut.dialogplus.DialogPlus;
+import com.orhanobut.dialogplus.ViewHolder;
 
 import java.util.List;
 
@@ -22,11 +38,14 @@ public class WordBookListAdapter extends BaseAdapter {
     private LayoutInflater mInflater;
     private Context context;
     private List<WordListItem> avObjects;
+    private String play_sign;
+    private DialogPlus dialog;
 
-    public WordBookListAdapter(Context mContext, List<WordListItem> avObjects) {
+    public WordBookListAdapter(Context mContext, List<WordListItem> avObjects,String play_sign) {
         context = mContext;
         this.mInflater = LayoutInflater.from(mContext);
         this.avObjects = avObjects;
+        this.play_sign = play_sign;
     }
 
     public int getCount() {
@@ -65,9 +84,52 @@ public class WordBookListAdapter extends BaseAdapter {
     }
 
     private void onItemClick(WordListItem mAVObject) {
-        WXEntryActivity.dataMap.put(KeyUtil.DataMapKey, mAVObject);
-        Intent intent = new Intent(context, WordStudyFourthActivity.class);
-        intent.putExtra(KeyUtil.ActionbarTitle, mAVObject.getTitle());
+        if(TextUtils.isEmpty(play_sign)){
+            WXEntryActivity.dataMap.put(KeyUtil.DataMapKey, mAVObject);
+            Intent intent = new Intent(context, WordStudyFourthActivity.class);
+            intent.putExtra(KeyUtil.ActionbarTitle, mAVObject.getTitle());
+            context.startActivity(intent);
+        }else {
+            showConfirmDialog(mAVObject);
+        }
+    }
+
+    private void showConfirmDialog(final WordListItem mAVObject){
+        dialog = DialogPlus.newDialog(context)
+                .setContentHolder(new com.orhanobut.dialogplus.ViewHolder(R.layout.dialog_word_study_book_confirm))
+                .setCancelable(true)
+                .setGravity(Gravity.CENTER)
+                .setContentHeight(ViewGroup.LayoutParams.WRAP_CONTENT)
+                .setOverlayBackgroundResource(R.color.none_alpha)
+                .create();
+        View view = dialog.getHolderView();
+        ImageView dialog_close = (ImageView) view.findViewById(R.id.dialog_close);
+        TextView dialog_title = (TextView) view.findViewById(R.id.dialog_title);
+        TextView dialog_content = (TextView) view.findViewById(R.id.dialog_content);
+        FrameLayout sure_btn = (FrameLayout) view.findViewById(R.id.sure_btn);
+
+        dialog_close.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        dialog_title.setText(mAVObject.getTitle());
+        dialog_content.setText("20个/关  " + mAVObject.getWord_num() + "个  "
+                + "共" + (NumberUtil.StringToInt(mAVObject.getWord_num()) / 20) + "关");
+        sure_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setWordBook(mAVObject);
+            }
+        });
+        dialog.show();
+    }
+
+    private void setWordBook(WordListItem mAVObject){
+        SaveData.saveDataAsJson(context, KeyUtil.WordStudyUnit, new Gson().toJson(mAVObject));
+        Intent intent = new Intent(context, WXEntryActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         context.startActivity(intent);
     }
 

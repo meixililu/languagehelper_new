@@ -14,6 +14,7 @@
     <string name="title_symbol">Symbol Study</string>
     <string name="title_word_study">Word Study</string>
     <string name="title_word_study_summary">Word Summary</string>
+    <string name="title_word_study_vocabulary">Vocabulary</string>
     <string name="title_word_vocabulary">Vocabulary</string>
     <string name="title_spoken_english_study">Study</string>
     <string name="title_english_jokes">Jokes</string>
@@ -40,6 +41,7 @@
     <string name="title_apps">Find Apps</string>
     <string name="title_ch_dictionary">Chinese Dictionary</string>
     <string name="title_dictionary_idiom">Dictionary of Idiom</string>
+    <string name="title_word_study_change_plan">Choose Word Book</string>
     <string name="evaluation_prompt">About Evaluation</string>
     <string name="word_study_detail_menu">Listen</string>
     <string name="offline_download">Download Mp3</string>

@@ -95,10 +95,6 @@ public class KeyUtil {
 	public static final String SaveLastTime_CompositionActivity = "SaveLastTime_CompositionActivity";
 	
 	public static final String SaveLastTime_ReadingJuheActivity = "SaveLastTime_ReadingJuheActivity";
-	
-	public static final String SaveLastTime_WordStudyCategoryList = "SaveLastTime_WordStudyCategoryList";
-
-	public static final String SaveLastTime_WordStudySummaryList = "SaveLastTime_WordStudySummaryList";
 
 	public static final String SaveLastTime_ExaminationType = "SaveLastTime_ExaminationType";
 	
@@ -152,11 +148,11 @@ public class KeyUtil {
 
 	public static final String BaiduAccessTokenCreateAt = "BaiduAccessTokenCreateAt";
 
-	public static final String WordStudySummaryCategoryList = "WordStudySummaryCategoryList";
-
 	public static final String list_type = "list_type";
 
 	public static final String MusicAction = "MusicAction";
+
+	public static final String WordStudyPlan = "WordStudyPlan";
 
 
 	

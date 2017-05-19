@@ -30,7 +30,8 @@ public class ADUtil {
 
 	public static final String XXLAD = "4A1AA609B79E04759A00E75CA6C2CAAE";
 	public static final String VideoAD = "165D1FE5D5D872794849A23BDC430B8C";
-	
+	public static final String SanTuYiWen = "C69B39C7D8D20854DA5E8DF03E5049A0";
+
 	public static final boolean IsShowAdImmediately = false;
 	public static final int adCount = 1;
 	public static final int adInterval = 4500;

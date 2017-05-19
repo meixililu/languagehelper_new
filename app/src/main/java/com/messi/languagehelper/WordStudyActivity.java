@@ -23,7 +23,7 @@ public class WordStudyActivity extends BaseActivity implements FragmentProgressb
 	}
 	
 	private void initViews(){
-		getSupportActionBar().setTitle(getResources().getString(R.string.title_word_study));
+		getSupportActionBar().setTitle(getResources().getString(R.string.title_word_study_summary));
 		tablayout = (TabLayout) findViewById(R.id.tablayout);
 		viewpager = (ViewPager) findViewById(R.id.viewpager);
 		

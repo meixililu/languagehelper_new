@@ -19,8 +19,7 @@ public class WordStudyTabAdapter extends FragmentPagerAdapter {
         super(fm);
         CONTENT = new String[] { 
         		mContext.getResources().getString(R.string.title_word_study),
-        		mContext.getResources().getString(R.string.title_word_study_summary),
-        		mContext.getResources().getString(R.string.title_word_vocabulary)
+        		mContext.getResources().getString(R.string.title_word_study_vocabulary)
         };
     }
 
@@ -30,8 +29,6 @@ public class WordStudyTabAdapter extends FragmentPagerAdapter {
         	return new WordStudyFirstFragment();
         }else if( position == 1 ){
         	return new WordStudySummaryFragment();
-        }else if( position == 2 ){
-            return ReadingFragment.newInstance(AVOUtil.Category.word, null);
         }
         return null;
     }

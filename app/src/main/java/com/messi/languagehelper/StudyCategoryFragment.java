@@ -7,12 +7,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.avos.avoscloud.AVAnalytics;
+import com.github.lzyzsd.circleprogress.ArcProgress;
+import com.messi.languagehelper.bean.WordListItem;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.SaveData;
+import com.messi.languagehelper.wxapi.WXEntryActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,8 +30,6 @@ public class StudyCategoryFragment extends BaseFragment {
 
     @BindView(R.id.symbol_study_cover)
     FrameLayout symbolStudyCover;
-    @BindView(R.id.word_study_cover)
-    FrameLayout wordStudyCover;
     @BindView(R.id.study_listening_layout)
     FrameLayout studyListeningLayout;
     @BindView(R.id.news_layout)
@@ -47,6 +52,22 @@ public class StudyCategoryFragment extends BaseFragment {
     FrameLayout instagramLayout;
     @BindView(R.id.collected_layout)
     FrameLayout collectedLayout;
+    @BindView(R.id.word_study_change_plan)
+    FrameLayout wordStudyChangePlan;
+    @BindView(R.id.arc_progress)
+    ArcProgress arcProgress;
+    @BindView(R.id.word_study_plan)
+    RelativeLayout wordStudyPlan;
+    @BindView(R.id.word_study_view_all)
+    FrameLayout wordStudyViewAll;
+    @BindView(R.id.word_study_daily)
+    FrameLayout wordStudyDaily;
+    @BindView(R.id.word_study_new_word)
+    FrameLayout wordStudyNewWord;
+    @BindView(R.id.word_study_book_name)
+    TextView wordStudyBookName;
+
+    private WordListItem wordListItem;
 
     public static StudyCategoryFragment getInstance() {
         return new StudyCategoryFragment();
@@ -68,12 +89,8 @@ public class StudyCategoryFragment extends BaseFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.study_category_fragment, null);
         ButterKnife.bind(this, view);
-        initViews();
+        setBookName();
         return view;
-    }
-
-    private void initViews() {
-
     }
 
     @Override
@@ -82,31 +99,55 @@ public class StudyCategoryFragment extends BaseFragment {
             showProgressbar();
         } else if (music_action.equals(PlayerService.action_finish_loading)) {
             hideProgressbar();
-        } else {
-            //
+        }
+    }
+
+    private void setBookName(){
+        wordListItem =  SaveData.getDataFonJson(getContext(), KeyUtil.WordStudyUnit, WordListItem.class);
+        if(wordListItem != null && wordStudyBookName != null){
+            wordStudyBookName.setText(wordListItem.getTitle());
+            arcProgress.setMax(wordListItem.getCourse_num());
+            arcProgress.setProgress(wordListItem.getCourse_id());
+            LogUtil.DefalutLog("wordListItem:"+wordListItem.getCourse_id());
         }
     }
 
     @Override
-    public void loadDataOnStart() {
-        super.loadDataOnStart();
-
+    public void onResume() {
+        super.onResume();
+        LogUtil.DefalutLog("onResume");
+        setBookName();
     }
 
-    @OnClick({R.id.symbol_study_cover, R.id.word_study_cover, R.id.study_listening_layout,
+    @OnClick({R.id.word_study_view_all, R.id.word_study_daily, R.id.symbol_study_cover,
+            R.id.study_listening_layout, R.id.word_study_change_plan,
+            R.id.word_study_plan,
             R.id.news_layout, R.id.study_spoken_english, R.id.study_test,
             R.id.en_examination_layout, R.id.study_composition, R.id.juhe_layout,
             R.id.jokes_layout, R.id.story_layout, R.id.instagram_layout,
             R.id.collected_layout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.word_study_view_all:
+                toActivity(WordStudyActivity.class, null);
+                AVAnalytics.onEvent(getContext(), "tab3_to_wordstudy_view_all");
+                break;
+            case R.id.word_study_daily:
+                toReadingActivity(getContext().getResources().getString(R.string.title_word_vocabulary),
+                        AVOUtil.Category.word);
+                AVAnalytics.onEvent(getContext(), "tab3_to_wordstudy_daily");
+                break;
+            case R.id.word_study_change_plan:
+                toActivity(WordStudyPlanActivity.class, null);
+                AVAnalytics.onEvent(getContext(), "tab3_to_wordstudy_daily");
+                break;
+            case R.id.word_study_plan:
+                toWordStudyDetailActivity();
+                AVAnalytics.onEvent(getContext(), "tab3_to_wordstudy_daily");
+                break;
             case R.id.symbol_study_cover:
                 toActivity(SymbolListActivity.class, null);
                 AVAnalytics.onEvent(getContext(), "tab3_to_symbol");
-                break;
-            case R.id.word_study_cover:
-                toActivity(WordStudyActivity.class, null);
-                AVAnalytics.onEvent(getContext(), "tab3_to_wordstudy");
                 break;
             case R.id.study_listening_layout:
                 toReadingActivity(getContext().getResources().getString(R.string.title_listening),
@@ -156,6 +197,16 @@ public class StudyCategoryFragment extends BaseFragment {
                 toActivity(CollectedActivity.class, null);
                 AVAnalytics.onEvent(getContext(), "index_pg_to_collectedpg");
                 break;
+        }
+    }
+
+    private void toWordStudyDetailActivity(){
+        if(wordListItem != null){
+            Intent intent = new Intent(getContext(), WordStudyFourthActivity.class);
+            intent.putExtra(KeyUtil.ActionbarTitle, wordListItem.getTitle());
+            getActivity().startActivity(intent);
+        }else {
+            toActivity(WordStudyPlanActivity.class, null);
         }
     }
 

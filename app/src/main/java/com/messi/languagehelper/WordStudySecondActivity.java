@@ -22,6 +22,7 @@ public class WordStudySecondActivity extends BaseActivity {
 	private WordStudySecondAdapter mAdapter;
 	private List<WordListType> mWordTypeList;
 	private String category_id;
+	private String play_sign;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -33,10 +34,11 @@ public class WordStudySecondActivity extends BaseActivity {
 	
 	private void initViews(){
 		category_id = getIntent().getStringExtra(KeyUtil.Category);
+		play_sign = getIntent().getStringExtra(KeyUtil.WordStudyPlan);
 		if(!TextUtils.isEmpty(category_id)){
 			mWordTypeList = new ArrayList<WordListType>();
 			category_lv = (ListView) findViewById(R.id.studycategory_lv);
-			mAdapter = new WordStudySecondAdapter(this, mWordTypeList);
+			mAdapter = new WordStudySecondAdapter(this, mWordTypeList,play_sign);
 			category_lv.setAdapter(mAdapter);
 			new QueryTask().execute();
 		}else{
