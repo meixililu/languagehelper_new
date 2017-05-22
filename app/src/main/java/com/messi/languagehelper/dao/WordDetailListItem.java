@@ -3,6 +3,7 @@ package com.messi.languagehelper.dao;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Generated;
+import org.greenrobot.greendao.annotation.Transient;
 
 
 @Entity
@@ -26,6 +27,12 @@ public class WordDetailListItem {
     private String backup1;
     private String backup2;
     private String backup3;
+    @Transient
+    private int select_time;
+
+    public void setSelect_Time(){
+        select_time++;
+    }
 
     @Generated(hash = 279956360)
     public WordDetailListItem(Long id, String item_id, String class_id,
@@ -54,6 +61,14 @@ public class WordDetailListItem {
 
     @Generated(hash = 1218086553)
     public WordDetailListItem() {
+    }
+
+    public int getSelect_time() {
+        return select_time;
+    }
+
+    public void setSelect_time(int select_time) {
+        this.select_time = select_time;
     }
 
     public Long getId() {

@@ -57,8 +57,8 @@ public class WordStudyDanCiRenZhiActivity extends BaseActivity implements OnClic
     }
 
     private void checkData() {
-        if (WordStudyFourthActivity.itemList == null) {
-            WordStudyFourthActivity.itemList = new ArrayList<WordDetailListItem>();
+        if (WordStudyPlanDetailActivity.itemList == null) {
+            WordStudyPlanDetailActivity.itemList = new ArrayList<WordDetailListItem>();
         }
     }
 
@@ -81,7 +81,7 @@ public class WordStudyDanCiRenZhiActivity extends BaseActivity implements OnClic
         category_lv = (ListView) findViewById(R.id.studycategory_lv);
         checkData();
         mAdapter = new WordStudyDetailAdapter(this, mSharedPreferences, mSpeechSynthesizer, category_lv,
-                WordStudyFourthActivity.itemList, audioPath, mPlayer);
+                WordStudyPlanDetailActivity.itemList, audioPath, mPlayer);
         category_lv.setAdapter(mAdapter);
 
         playbtn.setOnClickListener(this);
@@ -94,7 +94,7 @@ public class WordStudyDanCiRenZhiActivity extends BaseActivity implements OnClic
     }
 
     private void getDataTask() {
-        if (WordStudyFourthActivity.itemList == null || WordStudyFourthActivity.itemList.size() == 0) {
+        if (WordStudyPlanDetailActivity.itemList == null || WordStudyPlanDetailActivity.itemList.size() == 0) {
             showProgressbar();
             Observable.create(new ObservableOnSubscribe<String>() {
                 @Override
@@ -127,7 +127,7 @@ public class WordStudyDanCiRenZhiActivity extends BaseActivity implements OnClic
     }
 
     private void clearPlaySign() {
-        for (WordDetailListItem mAVObject : WordStudyFourthActivity.itemList) {
+        for (WordDetailListItem mAVObject : WordStudyPlanDetailActivity.itemList) {
             mAVObject.setBackup1("");
         }
     }
@@ -140,9 +140,9 @@ public class WordStudyDanCiRenZhiActivity extends BaseActivity implements OnClic
             query.orderByAscending(AVOUtil.WordStudyDetail.item_id);
             List<AVObject> avObjects = query.find();
             if (avObjects != null) {
-                WordStudyFourthActivity.itemList.clear();
+                WordStudyPlanDetailActivity.itemList.clear();
                 for (AVObject mAVObject : avObjects) {
-                    WordStudyFourthActivity.itemList.add(ChangeDataTypeUtil.changeData(mAVObject));
+                    WordStudyPlanDetailActivity.itemList.add(ChangeDataTypeUtil.changeData(mAVObject));
                 }
             }
         } catch (Exception e) {
@@ -186,7 +186,7 @@ public class WordStudyDanCiRenZhiActivity extends BaseActivity implements OnClic
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        WordStudyFourthActivity.clearSign();
+        WordStudyPlanDetailActivity.clearSign();
         if (mPlayer != null) {
             mPlayer.stop();
             mPlayer.release();

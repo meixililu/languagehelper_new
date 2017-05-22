@@ -19,7 +19,6 @@ import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SaveData;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -202,7 +201,7 @@ public class StudyCategoryFragment extends BaseFragment {
 
     private void toWordStudyDetailActivity(){
         if(wordListItem != null){
-            Intent intent = new Intent(getContext(), WordStudyFourthActivity.class);
+            Intent intent = new Intent(getContext(), WordStudyPlanDetailActivity.class);
             intent.putExtra(KeyUtil.ActionbarTitle, wordListItem.getTitle());
             getActivity().startActivity(intent);
         }else {

@@ -1,22 +1,6 @@
 package com.messi.languagehelper.adapter;
 
-import java.util.List;
-
-import com.iflytek.cloud.SpeechConstant;
-import com.iflytek.cloud.SpeechError;
-import com.iflytek.cloud.SpeechSynthesizer;
-import com.iflytek.cloud.SynthesizerListener;
-import com.messi.languagehelper.R;
-import com.messi.languagehelper.WordStudyDuYinXuanCiActivity;
-import com.messi.languagehelper.dao.WordDetailListItem;
-import com.messi.languagehelper.task.MyThread;
-import com.messi.languagehelper.util.AudioTrackUtil;
-import com.messi.languagehelper.util.DownLoadUtil;
-import com.messi.languagehelper.util.NumberUtil;
-import com.messi.languagehelper.util.SDCardUtil;
-import com.messi.languagehelper.util.ToastUtil;
-import com.messi.languagehelper.util.XFUtil;
-
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
@@ -30,40 +14,58 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
-public class WordStudyDetailTestAdapter extends BaseAdapter {
+import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechError;
+import com.iflytek.cloud.SpeechSynthesizer;
+import com.iflytek.cloud.SynthesizerListener;
+import com.messi.languagehelper.R;
+import com.messi.languagehelper.WordStudyDanCiRenZhiActivity;
+import com.messi.languagehelper.dao.WordDetailListItem;
+import com.messi.languagehelper.task.MyThread;
+import com.messi.languagehelper.util.AudioTrackUtil;
+import com.messi.languagehelper.util.DownLoadUtil;
+import com.messi.languagehelper.util.SDCardUtil;
+import com.messi.languagehelper.util.ToastUtil;
+import com.messi.languagehelper.util.XFUtil;
+
+import java.util.List;
+
+public class WordStudyViewAllAdapter extends BaseAdapter {
 
 	private LayoutInflater mInflater;
-	private WordStudyDuYinXuanCiActivity context;
+	private Context context;
 	private List<WordDetailListItem> avObjects;
+	private ListView category_lv;
 	private MediaPlayer mPlayer;
 	private String audioPath;
 	private String fullName;
 	private boolean isPlayNext;
 	private int autoPlayIndex;
-	
+	private int loopTime;
+
 	private SpeechSynthesizer mSpeechSynthesizer;
 	private SharedPreferences mSharedPreferences;
 	private Thread mThread;
 	private MyThread mMyThread;
-	private List<Integer> randomPlayIndex;
-	
-	public WordStudyDetailTestAdapter(WordStudyDuYinXuanCiActivity mContext, SharedPreferences mSharedPreferences,
-									  SpeechSynthesizer mSpeechSynthesizer, List<WordDetailListItem> avObjects, String audioPath, MediaPlayer mPlayer) {
+
+	public WordStudyViewAllAdapter(Context mContext, SharedPreferences mSharedPreferences,
+								   SpeechSynthesizer mSpeechSynthesizer, ListView category_lv,
+								   List<WordDetailListItem> avObjects,MediaPlayer mPlayer) {
 		context = mContext;
 		this.mInflater = LayoutInflater.from(mContext);
 		this.avObjects = avObjects;
+		this.category_lv = category_lv;
 		this.mPlayer = mPlayer;
-		this.audioPath = audioPath;
 		this.mSharedPreferences = mSharedPreferences;
 		this.mSpeechSynthesizer = mSpeechSynthesizer;
 		mMyThread = new MyThread(mHandler);
 	}
-	
-	public void getPlayOrder(){
-		randomPlayIndex = NumberUtil.getNumberOrderNotRepeat(avObjects.size()-1, 0);
-		autoPlayIndex = 0;
+
+	public void setAudioPath(String path){
+		this.audioPath = path;
 	}
 
 	public int getCount() {
@@ -82,7 +84,7 @@ public class WordStudyDetailTestAdapter extends BaseAdapter {
 	public View getView(final int position, View convertView, ViewGroup parent) {
 		final ViewHolder holder;
 		if (convertView == null) {
-			convertView = mInflater.inflate(R.layout.word_study_detail_test_item, null);
+			convertView = mInflater.inflate(R.layout.word_study_detail_item, null);
 			holder = new ViewHolder();
 			holder.cover = (View) convertView.findViewById(R.id.layout_cover);
 			holder.name = (TextView) convertView.findViewById(R.id.name);
@@ -94,22 +96,15 @@ public class WordStudyDetailTestAdapter extends BaseAdapter {
 		final WordDetailListItem mAVObject = avObjects.get(position);
 		holder.name.setText( mAVObject.getName() );
 		if(!TextUtils.isEmpty(mAVObject.getBackup1())){
-			holder.des.setText(mAVObject.getDesc());
+			holder.des.setText( mAVObject.getSymbol() +"\n" + mAVObject.getDesc());
 		}else{
 			holder.des.setText("");
 		}
 		holder.cover.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				if(randomPlayIndex != null && autoPlayIndex < randomPlayIndex.size()){
-					if(position == randomPlayIndex.get(autoPlayIndex)){
-						clearPlaySign();
-						mAVObject.setBackup1("play");
-						autoPlayIndex++;
-					}
-					notifyDataSetChanged();
-				}
-
+				isPlayNext = false;
+				playItem(mAVObject);
 			}
 		});
 		return convertView;
@@ -122,6 +117,9 @@ public class WordStudyDetailTestAdapter extends BaseAdapter {
 	}
 
 	private void playItem(WordDetailListItem mAVObject){
+		clearPlaySign();
+		mAVObject.setBackup1("play");
+		notifyDataSetChanged();
 		if(TextUtils.isEmpty(mAVObject.getSound()) ||  mAVObject.getSound().equals("http://app1.showapi.com/en_word")){
 			playWithSpeechSynthesizer(mAVObject);
 		}else{
@@ -170,17 +168,17 @@ public class WordStudyDetailTestAdapter extends BaseAdapter {
 		}
 	}
 	
-	public void onPlayBtnClick(){
-		if(randomPlayIndex.size() > 0){
-			if(autoPlayIndex < avObjects.size()){
-				isPlayNext = true;
-				WordDetailListItem mAVObject = avObjects.get(randomPlayIndex.get(autoPlayIndex));
-				playItem(mAVObject);
-			}else{
-				isPlayNext = false;
-				ToastUtil.diaplayMesShort(context, "闯关成功");
-				context.stopPlay();
-			}
+	public void onPlayBtnClick(int index){
+		if(index < avObjects.size()){
+			autoPlayIndex = index;
+			isPlayNext = true;
+			WordDetailListItem mAVObject = avObjects.get(index);
+			playItem(mAVObject);
+			category_lv.setSelection(index);
+		}else{
+			isPlayNext = false;
+			ToastUtil.diaplayMesShort(context, "播放完毕");
+			mPlayer.stop();
 		}
 	}
 	
@@ -218,7 +216,12 @@ public class WordStudyDetailTestAdapter extends BaseAdapter {
 	
 	private void replay(){
 		if(isPlayNext){
-			onPlayBtnClick();
+			loopTime ++;
+			if(loopTime > 2){
+				autoPlayIndex++;
+				loopTime = 0;
+			}
+			onPlayBtnClick(autoPlayIndex);
 		}
 	}
 	

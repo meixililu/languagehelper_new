@@ -13,23 +13,15 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVFile;
-import com.avos.avoscloud.AVObject;
 import com.google.gson.Gson;
-import com.messi.languagehelper.util.AVOUtil;
-import com.messi.languagehelper.util.AppDownloadUtil;
-import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.WordStudyViewAllActivity;
 import com.messi.languagehelper.util.NumberUtil;
-import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.SaveData;
-import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.WordStudyFourthActivity;
 import com.messi.languagehelper.bean.WordListItem;
 import com.messi.languagehelper.util.KeyUtil;
 import com.orhanobut.dialogplus.DialogPlus;
-import com.orhanobut.dialogplus.ViewHolder;
 
 import java.util.List;
 
@@ -86,7 +78,7 @@ public class WordBookListAdapter extends BaseAdapter {
     private void onItemClick(WordListItem mAVObject) {
         if(TextUtils.isEmpty(play_sign)){
             WXEntryActivity.dataMap.put(KeyUtil.DataMapKey, mAVObject);
-            Intent intent = new Intent(context, WordStudyFourthActivity.class);
+            Intent intent = new Intent(context, WordStudyViewAllActivity.class);
             intent.putExtra(KeyUtil.ActionbarTitle, mAVObject.getTitle());
             context.startActivity(intent);
         }else {
@@ -120,6 +112,7 @@ public class WordBookListAdapter extends BaseAdapter {
         sure_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dialog.dismiss();
                 setWordBook(mAVObject);
             }
         });

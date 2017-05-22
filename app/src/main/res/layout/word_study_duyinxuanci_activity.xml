@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_awesome_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize" >
+        <ProgressBar style="@style/CircularProgressWhite"
+            android:id="@+id/progressBarCircularIndetermininate"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="right"
+            android:visibility="gone" />
+        </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/word_play_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/load_blue"
+        android:gravity="center"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/word_play_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:src="@drawable/ic_play_arrow_white_48dp"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/selection_1_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foreground="@drawable/framelayout_selector">
+
+        <TextView
+            android:id="@+id/selection_1"
+            android:layout_width="match_parent"
+            android:layout_height="76dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:paddingLeft="@dimen/padding_10"
+            android:textColor="@color/text_black1"
+            android:textSize="@dimen/biggerx" />
+    </FrameLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line_color_gray" />
+
+    <FrameLayout
+        android:id="@+id/selection_2_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foreground="@drawable/framelayout_selector">
+
+        <TextView
+            android:id="@+id/selection_2"
+            android:layout_width="match_parent"
+            android:layout_height="76dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:paddingLeft="@dimen/padding_10"
+            android:textColor="@color/text_black1"
+            android:textSize="@dimen/biggerx" />
+    </FrameLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line_color_gray" />
+
+    <FrameLayout
+        android:id="@+id/selection_3_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foreground="@drawable/framelayout_selector">
+
+        <TextView
+            android:id="@+id/selection_3"
+            android:layout_width="match_parent"
+            android:layout_height="76dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:paddingLeft="@dimen/padding_10"
+            android:textColor="@color/text_black1"
+            android:textSize="@dimen/biggerx" />
+    </FrameLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line_color_gray" />
+
+    <FrameLayout
+        android:id="@+id/selection_4_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foreground="@drawable/framelayout_selector">
+
+        <TextView
+            android:id="@+id/selection_4"
+            android:layout_width="match_parent"
+            android:layout_height="76dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:paddingLeft="@dimen/padding_10"
+            android:textColor="@color/text_black1"
+            android:textSize="@dimen/biggerx" />
+    </FrameLayout>
+
+
+</LinearLayout>

@@ -47,7 +47,7 @@
             android:textColor="@color/green_500"
             android:gravity="center"
             android:textSize="@dimen/bigger"
-            android:text="确定"
+            android:text="@string/title_sure"
             />
     </FrameLayout>
 </LinearLayout>

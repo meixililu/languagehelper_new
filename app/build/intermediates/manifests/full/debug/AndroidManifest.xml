@@ -35,7 +35,7 @@
 
     <meta-data
         android:name="android.support.VERSION"
-        android:value="25.3.0" />
+        android:value="25.3.1" />
 
     <application
         android:name="com.messi.languagehelper.BaseApplication"
@@ -86,6 +86,9 @@
         </service>
 
         <activity
+            android:name="com.messi.languagehelper.WordStudyViewAllActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.messi.languagehelper.WordStudyPlanActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -104,10 +107,10 @@
             android:name="com.messi.languagehelper.WordStudyCiYiXuanCiActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.messi.languagehelper.WordStudyDanCiCeShiActivity"
+            android:name="com.messi.languagehelper.WordStudyDanCiXuanYiActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.messi.languagehelper.WordStudyFourthActivity"
+            android:name="com.messi.languagehelper.WordStudyPlanDetailActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.YiZhanDaoDiActivity"
