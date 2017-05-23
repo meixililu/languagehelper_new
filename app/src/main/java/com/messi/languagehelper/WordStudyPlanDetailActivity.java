@@ -3,14 +3,20 @@ package com.messi.languagehelper;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.GridView;
 
+import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.google.gson.Gson;
-import com.messi.languagehelper.dao.WordDetailListItem;
+import com.messi.languagehelper.adapter.WordStudyUnitListAdapter;
 import com.messi.languagehelper.bean.WordListItem;
+import com.messi.languagehelper.dao.WordDetailListItem;
+import com.messi.languagehelper.impl.AdapterListener;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.ChangeDataTypeUtil;
 import com.messi.languagehelper.util.KeyUtil;
@@ -30,7 +36,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class WordStudyPlanDetailActivity extends BaseActivity {
+public class WordStudyPlanDetailActivity extends BaseActivity  implements AdapterListener {
 
     @BindView(R.id.renzhi_layout)
     FrameLayout renzhiLayout;
@@ -40,12 +46,15 @@ public class WordStudyPlanDetailActivity extends BaseActivity {
     CardView danciceshiLayout;
     @BindView(R.id.ciyixuanci_layout)
     CardView ciyixuanciLayout;
+    @BindView(R.id.unit_list)
+    GridView unitList;
     private String class_name;
     private String class_id;
     private int course_id;
     private int course_num;
     private boolean isShowAllUnit;
     private WordListItem avObjects;
+    private WordStudyUnitListAdapter mUnitAdapter;
     public static List<WordDetailListItem> itemList;
 
     @Override
@@ -65,14 +74,11 @@ public class WordStudyPlanDetailActivity extends BaseActivity {
         course_id = avObjects.getCourse_id();
         course_num = avObjects.getCourse_num();
         setActionBarTitle(class_name + "第" + course_id + "单元");
+        mUnitAdapter = new WordStudyUnitListAdapter(this, avObjects, this);
+        unitList.setAdapter(mUnitAdapter);
     }
 
-    private void saveCourseId(){
-        avObjects.setCourse_id(course_id);
-        SaveData.saveDataAsJson(this, KeyUtil.WordStudyUnit, new Gson().toJson(avObjects));
-    }
-
-    @OnClick({R.id.renzhi_layout, R.id.duyinxuanci_layout,R.id.danciceshi_layout, R.id.ciyixuanci_layout})
+    @OnClick({R.id.renzhi_layout, R.id.duyinxuanci_layout, R.id.danciceshi_layout, R.id.ciyixuanci_layout})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.renzhi_layout:
@@ -127,35 +133,35 @@ public class WordStudyPlanDetailActivity extends BaseActivity {
     }
 
     private void getDataTask() {
-        if (itemList.size() == 0) {
-            showProgressbar();
-            Observable.create(new ObservableOnSubscribe<String>() {
-                @Override
-                public void subscribe(ObservableEmitter<String> e) throws Exception {
-                    loadData();
-                    e.onComplete();
-                }
-            })
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(new Observer<String>() {
-                        @Override
-                        public void onSubscribe(Disposable d) {
-                        }
-                        @Override
-                        public void onNext(String s) {
-                        }
-                        @Override
-                        public void onError(Throwable e) {
-                        }
-                        @Override
-                        public void onComplete() {
-                            onFinishLoadData();
-                        }
-                    });
-        } else {
-            clearSign();
-        }
+        showProgressbar();
+        Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(ObservableEmitter<String> e) throws Exception {
+                loadData();
+                e.onComplete();
+            }
+        })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        onFinishLoadData();
+                    }
+                });
+
     }
 
     private void loadData() {
@@ -182,6 +188,31 @@ public class WordStudyPlanDetailActivity extends BaseActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.word_study_plan_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_all:
+                unitList.setVisibility(View.VISIBLE);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(unitList.isShown()){
+            unitList.setVisibility(View.GONE);
+        }else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         clearData();
@@ -202,4 +233,17 @@ public class WordStudyPlanDetailActivity extends BaseActivity {
         }
     }
 
+    @Override
+    public void OnItemClick(Object mObject, int index) {
+        unitList.setVisibility(View.GONE);
+        course_id = index + 1;
+        setActionBarTitle(class_name + "第" + course_id + "单元");
+        saveCourseId();
+        getDataTask();
+    }
+
+    private void saveCourseId() {
+        avObjects.setCourse_id(course_id);
+        SaveData.saveDataAsJson(this, KeyUtil.WordStudyUnit, new Gson().toJson(avObjects));
+    }
 }

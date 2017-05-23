@@ -1,7 +1,11 @@
 package com.messi.languagehelper;
 
+import android.media.AudioAttributes;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -89,6 +93,9 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity {
     private int index;
     private int position;
     private int playTimes;
+    private SoundPool ourSounds;
+    private int answer_right;
+    private int answer_wrong;
 
     private Handler mHandler = new Handler() {
         @Override
@@ -107,16 +114,19 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity {
         setContentView(R.layout.word_study_duyinxuanci_activity);
         ButterKnife.bind(this);
         initViews();
+        initializeSoundPool();
         setData();
     }
 
     private void playDelay() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                playSound();
-            }
-        }, 700);
+        if(mPlayer != null){
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    playSound();
+                }
+            }, 700);
+        }
     }
 
     private void initViews() {
@@ -169,6 +179,23 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity {
             }
             playDelay();
         }
+    }
+
+    private void initializeSoundPool() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            AudioAttributes audioAttributes = new AudioAttributes.Builder()
+                    .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                    .setUsage(AudioAttributes.USAGE_GAME)
+                    .build();
+            ourSounds = new SoundPool.Builder()
+                    .setMaxStreams(5)
+                    .setAudioAttributes(audioAttributes)
+                    .build();
+        } else {
+            ourSounds = new SoundPool(5, AudioManager.STREAM_MUSIC, 1);
+        }
+        answer_right = ourSounds.load(this, R.raw.answer_right, 1);
+        answer_wrong = ourSounds.load(this, R.raw.answer_wrong, 1);
     }
 
     private void replay() {
@@ -318,9 +345,11 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity {
         String text = tv.getText().toString();
         if (index < WordStudyPlanDetailActivity.itemList.size()) {
             if (!WordStudyPlanDetailActivity.itemList.get(position).getName().equals(text)) {
+                playSoundPool(false);
                 WordStudyPlanDetailActivity.itemList.get(position).setSelect_Time();
                 tv.setTextColor(getResources().getColor(R.color.material_color_red));
             } else {
+                playSoundPool(true);
                 tv.setTextColor(getResources().getColor(R.color.material_color_green));
                 tv.setText(text + "\n" + WordStudyPlanDetailActivity.itemList.get(position).getDesc());
                 new Handler().postDelayed(new Runnable() {
@@ -337,6 +366,14 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity {
                     }
                 }, 1200);
             }
+        }
+    }
+
+    private void playSoundPool(boolean isRight) {
+        if(isRight){
+            ourSounds.play(answer_right, 1, 1, 1, 0, 1);
+        }else {
+            ourSounds.play(answer_wrong, 1, 1, 1, 0, 1);
         }
     }
 

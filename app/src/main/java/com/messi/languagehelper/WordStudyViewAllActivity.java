@@ -164,7 +164,6 @@ public class WordStudyViewAllActivity extends BaseActivity implements AdapterLis
         }else {
             super.onBackPressed();
         }
-
     }
 
     private void getDataTask() {
