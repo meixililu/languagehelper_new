@@ -197,7 +197,7 @@ public class WordStudyPlanDetailActivity extends BaseActivity {
     public static void clearSign() {
         if (itemList != null && itemList.size() > 0) {
             for (WordDetailListItem mAVObject : itemList) {
-                mAVObject.setBackup1("");
+                mAVObject.setSelect_time(0);
             }
         }
     }

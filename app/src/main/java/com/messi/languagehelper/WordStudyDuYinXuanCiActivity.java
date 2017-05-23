@@ -5,15 +5,20 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SynthesizerListener;
+import com.messi.languagehelper.adapter.RcWordStudyCiYiXuanCiAdapter;
 import com.messi.languagehelper.dao.WordDetailListItem;
 import com.messi.languagehelper.task.MyThread;
 import com.messi.languagehelper.util.DownLoadUtil;
@@ -22,7 +27,9 @@ import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.ToastUtil;
+import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -51,6 +58,22 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity {
     TextView selection4;
     @BindView(R.id.selection_4_layout)
     FrameLayout selection4Layout;
+    @BindView(R.id.word_test_layout)
+    LinearLayout wordTestLayout;
+    @BindView(R.id.score)
+    TextView score;
+    @BindView(R.id.listview)
+    RecyclerView listview;
+    @BindView(R.id.try_again_layout)
+    FrameLayout tryAgainLayout;
+    @BindView(R.id.finish_test_layout)
+    FrameLayout finishTestLayout;
+    @BindView(R.id.result_layout)
+    LinearLayout resultLayout;
+    @BindView(R.id.progressBarCircularIndetermininate)
+    ProgressBar progressBarCircularIndetermininate;
+    @BindView(R.id.my_awesome_toolbar)
+    Toolbar myAwesomeToolbar;
     private String class_name;
     private String class_id;
     private int course_id;
@@ -59,10 +82,14 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity {
     private String audioPath;
     private String fullName;
 
+    private RcWordStudyCiYiXuanCiAdapter adapter;
+    private List<WordDetailListItem> resultList;
+
     private List<Integer> randomPlayIndex;
     private int index;
     private int position;
     private int playTimes;
+
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -89,7 +116,7 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity {
             public void run() {
                 playSound();
             }
-        }, 800);
+        }, 700);
     }
 
     private void initViews() {
@@ -102,11 +129,29 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity {
         if (!TextUtils.isEmpty(class_id)) {
             audioPath = SDCardUtil.WordStudyPath + class_id + SDCardUtil.Delimiter + String.valueOf(course_id) + SDCardUtil.Delimiter;
         }
+        resultList = new ArrayList<WordDetailListItem>();
+        adapter = new RcWordStudyCiYiXuanCiAdapter();
+        adapter.setItems(resultList);
+        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this);
+        listview.setLayoutManager(mLinearLayoutManager);
+        listview.addItemDecoration(
+                new HorizontalDividerItemDecoration.Builder(this)
+                        .colorResId(R.color.text_tint)
+                        .sizeResId(R.dimen.list_divider_size)
+                        .marginResId(R.dimen.padding_margin, R.dimen.padding_margin)
+                        .build());
+        listview.setAdapter(adapter);
+        initOrder();
+    }
+
+    private void initOrder(){
         randomPlayIndex = NumberUtil.getNumberOrderNotRepeat(WordStudyPlanDetailActivity.itemList.size() - 1, 0);
         index = 0;
     }
 
     private void setData() {
+        wordTestLayout.setVisibility(View.VISIBLE);
+        resultLayout.setVisibility(View.GONE);
         if (index < randomPlayIndex.size()) {
             setActionBarTitle(this.getResources().getString(R.string.dancitingxuan) + "(" + (index + 1) + "/" + WordStudyPlanDetailActivity.itemList.size() + ")");
             position = randomPlayIndex.get(index);
@@ -130,7 +175,7 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity {
         playTimes++;
         if (playTimes < 2) {
             playSound();
-        }else {
+        } else {
             playTimes = 0;
             wordPlayImg.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_play_arrow_white_48dp));
         }
@@ -234,7 +279,9 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity {
         wordPlayImg.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_play_arrow_white_48dp));
     }
 
-    @OnClick({R.id.word_play_layout, R.id.selection_1_layout, R.id.selection_2_layout, R.id.selection_3_layout, R.id.selection_4_layout})
+    @OnClick({R.id.word_play_layout, R.id.selection_1_layout, R.id.selection_2_layout,
+            R.id.selection_3_layout, R.id.selection_4_layout,
+            R.id.try_again_layout, R.id.finish_test_layout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.word_play_layout:
@@ -252,7 +299,19 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity {
             case R.id.selection_4_layout:
                 checkResultThenGoNext(selection4);
                 break;
+            case R.id.try_again_layout:
+                tryAgain();
+                break;
+            case R.id.finish_test_layout:
+                finish();
+                break;
         }
+    }
+
+    private void tryAgain(){
+        initOrder();
+        WordStudyPlanDetailActivity.clearSign();
+        setData();
     }
 
     private void checkResultThenGoNext(TextView tv) {
@@ -261,21 +320,49 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity {
             if (!WordStudyPlanDetailActivity.itemList.get(position).getName().equals(text)) {
                 WordStudyPlanDetailActivity.itemList.get(position).setSelect_Time();
                 tv.setTextColor(getResources().getColor(R.color.material_color_red));
-            }else {
+            } else {
                 tv.setTextColor(getResources().getColor(R.color.material_color_green));
                 tv.setText(text + "\n" + WordStudyPlanDetailActivity.itemList.get(position).getDesc());
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        index++;
-                        setData();
+                        if(index == WordStudyPlanDetailActivity.itemList.size() - 1){
+                            wordTestLayout.setVisibility(View.GONE);
+                            resultLayout.setVisibility(View.VISIBLE);
+                            countScoreAndShowResult();
+                        }else {
+                            index++;
+                            setData();
+                        }
                     }
-                },1500);
+                }, 1200);
             }
-        } else {
-//            resultLayout.setVisibility(View.VISIBLE);
-//            countScoreAndShowResult();
         }
+    }
+
+    private void countScoreAndShowResult() {
+        setActionBarTitle(this.getResources().getString(R.string.word_test_result));
+        double wrongCount = 0;
+        resultList.clear();
+        for (WordDetailListItem item : WordStudyPlanDetailActivity.itemList) {
+            if (item.getSelect_time() > 0) {
+                wrongCount++;
+                resultList.add(item);
+            }
+        }
+        for (WordDetailListItem item : WordStudyPlanDetailActivity.itemList) {
+            if (item.getSelect_time() == 0) {
+                resultList.add(item);
+            }
+        }
+        int scoreInt = (int) ((WordStudyPlanDetailActivity.itemList.size() - wrongCount) / WordStudyPlanDetailActivity.itemList.size() * 100);
+        score.setText(String.valueOf(scoreInt) + "分");
+        if (scoreInt > 59) {
+            score.setTextColor(this.getResources().getColor(R.color.green));
+        } else {
+            score.setTextColor(this.getResources().getColor(R.color.red));
+        }
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -289,4 +376,5 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity {
         }
         PlayUtil.stopPlay();
     }
+
 }

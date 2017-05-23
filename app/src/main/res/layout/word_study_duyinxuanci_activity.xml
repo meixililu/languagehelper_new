@@ -21,103 +21,187 @@
         </android.support.v7.widget.Toolbar>
 
     <LinearLayout
-        android:id="@+id/word_play_layout"
+        android:id="@+id/word_test_layout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/load_blue"
-        android:gravity="center"
-        android:orientation="vertical">
-        <ImageView
-            android:id="@+id/word_play_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:id="@+id/word_play_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/load_blue"
             android:gravity="center"
-            android:src="@drawable/ic_play_arrow_white_48dp"/>
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/word_play_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:src="@drawable/ic_play_arrow_white_48dp"/>
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/selection_1_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:foreground="@drawable/framelayout_selector">
+
+            <TextView
+                android:id="@+id/selection_1"
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:paddingLeft="@dimen/padding_10"
+                android:textColor="@color/text_black1"
+                android:textSize="@dimen/biggerx" />
+        </FrameLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/line_color_gray" />
+
+        <FrameLayout
+            android:id="@+id/selection_2_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:foreground="@drawable/framelayout_selector">
+
+            <TextView
+                android:id="@+id/selection_2"
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:paddingLeft="@dimen/padding_10"
+                android:textColor="@color/text_black1"
+                android:textSize="@dimen/biggerx" />
+        </FrameLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/line_color_gray" />
+
+        <FrameLayout
+            android:id="@+id/selection_3_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:foreground="@drawable/framelayout_selector">
+
+            <TextView
+                android:id="@+id/selection_3"
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:paddingLeft="@dimen/padding_10"
+                android:textColor="@color/text_black1"
+                android:textSize="@dimen/biggerx" />
+        </FrameLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/line_color_gray" />
+
+        <FrameLayout
+            android:id="@+id/selection_4_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:foreground="@drawable/framelayout_selector">
+
+            <TextView
+                android:id="@+id/selection_4"
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:paddingLeft="@dimen/padding_10"
+                android:textColor="@color/text_black1"
+                android:textSize="@dimen/biggerx" />
+        </FrameLayout>
     </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/selection_1_layout"
+    <LinearLayout
+        android:id="@+id/result_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:foreground="@drawable/framelayout_selector">
-
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:orientation="vertical">
         <TextView
-            android:id="@+id/selection_1"
+            android:id="@+id/score"
             android:layout_width="match_parent"
-            android:layout_height="76dp"
-            android:background="@color/white"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/padding_20"
+            android:paddingBottom="@dimen/padding_20"
             android:gravity="center"
-            android:paddingLeft="@dimen/padding_10"
-            android:textColor="@color/text_black1"
-            android:textSize="@dimen/biggerx" />
-    </FrameLayout>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/line_color_gray" />
-
-    <FrameLayout
-        android:id="@+id/selection_2_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:foreground="@drawable/framelayout_selector">
-
-        <TextView
-            android:id="@+id/selection_2"
+            android:textSize="32sp"
+            android:textColor="@color/white"
+            android:background="@color/load_blue"
+            />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/listview"
             android:layout_width="match_parent"
-            android:layout_height="76dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:background="@color/white"
-            android:gravity="center"
-            android:paddingLeft="@dimen/padding_10"
-            android:textColor="@color/text_black1"
-            android:textSize="@dimen/biggerx" />
-    </FrameLayout>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/line_color_gray" />
-
-    <FrameLayout
-        android:id="@+id/selection_3_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:foreground="@drawable/framelayout_selector">
-
-        <TextView
-            android:id="@+id/selection_3"
+            />
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="76dp"
-            android:background="@color/white"
-            android:gravity="center"
-            android:paddingLeft="@dimen/padding_10"
-            android:textColor="@color/text_black1"
-            android:textSize="@dimen/biggerx" />
-    </FrameLayout>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/line_color_gray" />
-
-    <FrameLayout
-        android:id="@+id/selection_4_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:foreground="@drawable/framelayout_selector">
-
-        <TextView
-            android:id="@+id/selection_4"
-            android:layout_width="match_parent"
-            android:layout_height="76dp"
-            android:background="@color/white"
-            android:gravity="center"
-            android:paddingLeft="@dimen/padding_10"
-            android:textColor="@color/text_black1"
-            android:textSize="@dimen/biggerx" />
-    </FrameLayout>
-
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/text_tint2"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:padding="@dimen/padding_5"
+            >
+            <FrameLayout
+                android:id="@+id/try_again_layout"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="3dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:foreground="@drawable/framelayout_selector"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="@color/white"
+                    android:textColor="@color/text_grey"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/big"
+                    android:text="@string/try_again"
+                    />
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/finish_test_layout"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:foreground="@drawable/framelayout_selector"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="@color/white"
+                    android:textColor="@color/text_grey"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/big"
+                    android:text="@string/finish_test"
+                    />
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>
