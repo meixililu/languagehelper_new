@@ -154,6 +154,10 @@ public class KeyUtil {
 
 	public static final String WordStudyPlan = "WordStudyPlan";
 
+	public static final String IsWordStudyPlaySound = "IsWordStudyPlaySound";
+
+	public static final String IsWordStudySpellPlaySound = "IsWordStudySpellPlaySound";
+
 
 	
 	

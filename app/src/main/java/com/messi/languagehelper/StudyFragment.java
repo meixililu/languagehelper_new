@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
@@ -29,6 +31,7 @@ import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
+import com.messi.languagehelper.util.ScreenUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
@@ -53,8 +56,6 @@ public class StudyFragment extends BaseFragment implements OnClickListener, Tabl
     RecyclerView listview;
     @BindView(R.id.tablayout)
     TabLayout tablayout;
-    @BindView(R.id.tablayout_line)
-    View tablayoutLine;
     private RcStudyListAdapter mAdapter;
     private List<Reading> avObjects;
     private List<AVObject> tempList;
@@ -98,7 +99,7 @@ public class StudyFragment extends BaseFragment implements OnClickListener, Tabl
         avObjects.addAll(DataBaseUtil.getInstance().getReadingList(Settings.page_size, "", "", ""));
         skip = 0;
         initSwipeRefresh(view);
-        mAdapter = new RcStudyListAdapter(avObjects, mProgressbarListener, getActivity(), this);
+        mAdapter = new RcStudyListAdapter(avObjects, mProgressbarListener, getActivity());
         mAdapter.setItems(avObjects);
         mAdapter.setFooter(new Object());
         mAdapter.setHeader(new Object());
@@ -159,15 +160,6 @@ public class StudyFragment extends BaseFragment implements OnClickListener, Tabl
                         loadAD();
                         QueryTask();
                         LogUtil.DefalutLog("StudyFragment-setListOnScrollListener-QueryTask");
-                    }
-                }
-                if (mAdapter.getTabLayout() != null) {
-                    if (mAdapter.getTabLayout().isShown()) {
-                        tablayoutLine.setVisibility(View.GONE);
-                        tablayout.setVisibility(View.GONE);
-                    } else {
-                        tablayoutLine.setVisibility(View.VISIBLE);
-                        tablayout.setVisibility(View.VISIBLE);
                     }
                 }
             }
@@ -404,7 +396,7 @@ public class StudyFragment extends BaseFragment implements OnClickListener, Tabl
     }
 
     public void onTabReselected(int index) {
-        listview.scrollTo(0, 0);
+        listview.scrollToPosition(0);
         onSwipeRefreshLayoutRefresh();
     }
 

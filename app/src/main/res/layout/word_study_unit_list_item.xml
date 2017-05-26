@@ -14,10 +14,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:shadowColor="@color/text_black"
-        android:shadowDx="0.1"
-        android:shadowDy="0.1"
-        android:shadowRadius="0.1"
         android:textColor="@color/text_black"
         android:textSize="@dimen/bigger" />
 

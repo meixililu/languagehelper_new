@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.GridView;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.google.gson.Gson;
@@ -36,7 +35,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class WordStudyPlanDetailActivity extends BaseActivity  implements AdapterListener {
+public class WordStudyPlanDetailActivity extends BaseActivity implements AdapterListener {
 
     @BindView(R.id.renzhi_layout)
     FrameLayout renzhiLayout;
@@ -48,6 +47,10 @@ public class WordStudyPlanDetailActivity extends BaseActivity  implements Adapte
     CardView ciyixuanciLayout;
     @BindView(R.id.unit_list)
     GridView unitList;
+    @BindView(R.id.dancisuji_layout)
+    CardView dancisujiLayout;
+    @BindView(R.id.pinxie_layout)
+    CardView pinxieLayout;
     private String class_name;
     private String class_id;
     private int course_id;
@@ -78,57 +81,37 @@ public class WordStudyPlanDetailActivity extends BaseActivity  implements Adapte
         unitList.setAdapter(mUnitAdapter);
     }
 
-    @OnClick({R.id.renzhi_layout, R.id.duyinxuanci_layout, R.id.danciceshi_layout, R.id.ciyixuanci_layout})
+    @OnClick({R.id.renzhi_layout, R.id.duyinxuanci_layout, R.id.danciceshi_layout, R.id.ciyixuanci_layout,
+            R.id.dancisuji_layout, R.id.pinxie_layout})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.renzhi_layout:
-                toDancirenzhi();
+                ToAvtivity(WordStudyDanCiRenZhiActivity.class);
                 break;
             case R.id.duyinxuanci_layout:
-                toDuyinxuanciActivity();
+                ToAvtivity(WordStudyDuYinXuanCiActivity.class);
                 break;
             case R.id.danciceshi_layout:
-                toDanciceshiActivity();
+                ToAvtivity(WordStudyDanCiXuanYiActivity.class);
                 break;
             case R.id.ciyixuanci_layout:
-                toCiYiXuanCiActivity();
+                ToAvtivity(WordStudyCiYiXuanCiActivity.class);
+                break;
+            case R.id.dancisuji_layout:
+                ToAvtivity(WordStudyDuYinSuJiActivity.class);
+                break;
+            case R.id.pinxie_layout:
+                ToAvtivity(WordStudyDanCiPinXieActivity.class);
                 break;
         }
     }
 
-    private void toDancirenzhi() {
-        Intent intent = new Intent(this, WordStudyDanCiRenZhiActivity.class);
+    private void ToAvtivity(Class toClass) {
+        Intent intent = new Intent(this, toClass);
         intent.putExtra(KeyUtil.ClassName, class_name);
         intent.putExtra(KeyUtil.CourseId, course_id);
         intent.putExtra(KeyUtil.CourseNum, course_num);
         intent.putExtra(KeyUtil.ClassId, class_id);
-        startActivity(intent);
-    }
-
-    private void toDuyinxuanciActivity() {
-        Intent intent = new Intent(this, WordStudyDuYinXuanCiActivity.class);
-        intent.putExtra(KeyUtil.ClassName, class_name);
-        intent.putExtra(KeyUtil.ClassId, class_id);
-        intent.putExtra(KeyUtil.CourseId, course_id);
-        intent.putExtra(KeyUtil.CourseNum, course_num);
-        startActivity(intent);
-    }
-
-    private void toDanciceshiActivity() {
-        Intent intent = new Intent(this, WordStudyDanCiXuanYiActivity.class);
-        intent.putExtra(KeyUtil.ClassName, class_name);
-        intent.putExtra(KeyUtil.ClassId, class_id);
-        intent.putExtra(KeyUtil.CourseId, course_id);
-        intent.putExtra(KeyUtil.CourseNum, course_num);
-        startActivity(intent);
-    }
-
-    private void toCiYiXuanCiActivity() {
-        Intent intent = new Intent(this, WordStudyCiYiXuanCiActivity.class);
-        intent.putExtra(KeyUtil.ClassName, class_name);
-        intent.putExtra(KeyUtil.ClassId, class_id);
-        intent.putExtra(KeyUtil.CourseId, course_id);
-        intent.putExtra(KeyUtil.CourseNum, course_num);
         startActivity(intent);
     }
 
@@ -205,9 +188,9 @@ public class WordStudyPlanDetailActivity extends BaseActivity  implements Adapte
 
     @Override
     public void onBackPressed() {
-        if(unitList.isShown()){
+        if (unitList.isShown()) {
             unitList.setVisibility(View.GONE);
-        }else {
+        } else {
             super.onBackPressed();
         }
     }
@@ -246,4 +229,5 @@ public class WordStudyPlanDetailActivity extends BaseActivity  implements Adapte
         avObjects.setCourse_id(course_id);
         SaveData.saveDataAsJson(this, KeyUtil.WordStudyUnit, new Gson().toJson(avObjects));
     }
+
 }

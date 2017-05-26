@@ -81,6 +81,8 @@
     <string name="loadmore">loading...</string>
     <string name="updage_later">later</string>
     <string name="updage_now">update</string>
+    <string name="prompt">Prompt</string>
+    <string name="retry">Retry</string>
 
     <string name="share_dialog_text_1">Text</string>
     <string name="share_dialog_text_2">Image(recommend)</string>
@@ -90,13 +92,17 @@
     <string name="next_unit">Next Unit</string>
     <string name="dancirenzhi">Word Study</string>
     <string name="dancirenzhi_des">Learn all the word of this unit</string>
+    <string name="dancisuji">Listen</string>
+    <string name="dancisuji_des">Listen and Remember</string>
     <string name="dancitingxuan">Choose Word</string>
     <string name="word_test_result">Result</string>
-    <string name="dancitingxuan_des">根据单词读音选择正确的单词</string>
-    <string name="danciceshi">单词选义</string>
-    <string name="danciceshi_des">根据单词选中文意思</string>
+    <string name="dancitingxuan_des">Choose word by pronunciation</string>
+    <string name="danciceshi">Choose Word Mean</string>
+    <string name="danciceshi_des">Choose meaning by word</string>
+    <string name="pinxie">Spell</string>
+    <string name="pinxie_des">Word Spelling</string>
     <string name="ciyixuanci">Choose Word</string>
-    <string name="ciyixuanci_des">根据中文意思选单词</string>
+    <string name="ciyixuanci_des">Choose word by meaning</string>
     <string name="try_again">Try again</string>
     <string name="finish_test">Finish</string>
 

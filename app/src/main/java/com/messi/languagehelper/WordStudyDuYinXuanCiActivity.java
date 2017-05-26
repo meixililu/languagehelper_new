@@ -24,6 +24,7 @@ import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.adapter.RcWordStudyCiYiXuanCiAdapter;
 import com.messi.languagehelper.dao.WordDetailListItem;
+import com.messi.languagehelper.impl.OnFinishListener;
 import com.messi.languagehelper.task.MyThread;
 import com.messi.languagehelper.util.DownLoadUtil;
 import com.messi.languagehelper.util.KeyUtil;
@@ -40,7 +41,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class WordStudyDuYinXuanCiActivity extends BaseActivity {
+public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnFinishListener {
 
     @BindView(R.id.word_play_img)
     ImageView wordPlayImg;
@@ -85,6 +86,7 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity {
     private MediaPlayer mPlayer;
     private String audioPath;
     private String fullName;
+    private int playTimes;
 
     private RcWordStudyCiYiXuanCiAdapter adapter;
     private List<WordDetailListItem> resultList;
@@ -92,7 +94,6 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity {
     private List<Integer> randomPlayIndex;
     private int index;
     private int position;
-    private int playTimes;
     private SoundPool ourSounds;
     private int answer_right;
     private int answer_wrong;
@@ -102,8 +103,6 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity {
         public void handleMessage(Message msg) {
             if (msg.what == 1) {
                 playMp3();
-            } else if (msg.what == MyThread.EVENT_PLAY_OVER) {
-                replay();
             }
         }
     };
@@ -116,17 +115,6 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity {
         initViews();
         initializeSoundPool();
         setData();
-    }
-
-    private void playDelay() {
-        if(mPlayer != null){
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    playSound();
-                }
-            }, 700);
-        }
     }
 
     private void initViews() {
@@ -151,6 +139,7 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity {
                         .marginResId(R.dimen.padding_margin, R.dimen.padding_margin)
                         .build());
         listview.setAdapter(adapter);
+        PlayUtil.setOnFinishListener(this);
         initOrder();
     }
 
@@ -181,6 +170,17 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity {
         }
     }
 
+    private void playDelay() {
+        if(mPlayer != null){
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    playSound();
+                }
+            }, 500);
+        }
+    }
+
     private void initializeSoundPool() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             AudioAttributes audioAttributes = new AudioAttributes.Builder()
@@ -204,16 +204,16 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity {
             playSound();
         } else {
             playTimes = 0;
-            wordPlayImg.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_play_arrow_white_48dp));
+            wordPlayImg.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_play_white));
         }
     }
 
     private void playSound() {
         if (isPlaying()) {
-            wordPlayImg.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_play_arrow_white_48dp));
+            wordPlayImg.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_play_white));
             stopPlay();
         } else {
-            wordPlayImg.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_stop_white_48dp));
+            wordPlayImg.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_pause_white));
             playItem(WordStudyPlanDetailActivity.itemList.get(position));
         }
     }
@@ -284,7 +284,8 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity {
                             ToastUtil.diaplayMesShort(WordStudyDuYinXuanCiActivity.this,
                                     arg0.getErrorDescription());
                         }
-                        PlayUtil.onFinishPlay();
+                        stopPlay();
+                        replay();
                     }
 
                     @Override
@@ -303,7 +304,7 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity {
             mPlayer.reset();
         }
         PlayUtil.stopPlay();
-        wordPlayImg.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_play_arrow_white_48dp));
+        wordPlayImg.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_play_white));
     }
 
     @OnClick({R.id.word_play_layout, R.id.selection_1_layout, R.id.selection_2_layout,
@@ -364,7 +365,7 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity {
                             setData();
                         }
                     }
-                }, 1200);
+                }, 1000);
             }
         }
     }
@@ -412,6 +413,11 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity {
             mPlayer = null;
         }
         PlayUtil.stopPlay();
+        PlayUtil.clearFinishListener();
     }
 
+    @Override
+    public void OnFinish() {
+        replay();
+    }
 }

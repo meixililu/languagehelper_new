@@ -74,6 +74,12 @@
             </intent-filter>
         </service>
         <activity
+            android:name=".WordStudyDanCiPinXieActivity"
+            android:screenOrientation="portrait" />
+         <activity
+            android:name=".WordStudyDuYinSuJiActivity"
+            android:screenOrientation="portrait" />
+         <activity
             android:name=".WordStudyViewAllActivity"
             android:screenOrientation="portrait" />
         <activity

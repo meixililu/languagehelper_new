@@ -13,6 +13,7 @@ import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.impl.OnFinishListener;
 import com.messi.languagehelper.task.MyThread;
 
 /**
@@ -32,6 +33,7 @@ public class PlayUtil {
     public static String speakContent;
     public static boolean isPlaying;
     public static AnimationDrawable currentAnimationDrawable;
+    public static OnFinishListener mOnFinishListener;
 
     public static void initData(Context nContext,SpeechSynthesizer nSpeechSynthesizer,
                                 SharedPreferences nSharedPreferences){
@@ -116,6 +118,9 @@ public class PlayUtil {
                 currentAnimationDrawable.selectDrawable(0);
             }
             currentAnimationDrawable = null;
+            if(mOnFinishListener != null){
+                mOnFinishListener.OnFinish();
+            }
         } catch (Exception e) {
             currentAnimationDrawable = null;
             e.printStackTrace();
@@ -137,6 +142,14 @@ public class PlayUtil {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void setOnFinishListener(OnFinishListener mListener){
+        mOnFinishListener = mListener;
+    }
+
+    public static void clearFinishListener(){
+        mOnFinishListener = null;
     }
 
     public static SharedPreferences getSP() {

@@ -169,10 +169,10 @@ public class WordStudyDanCiRenZhiActivity extends BaseActivity implements OnClic
 
     private void playSound() {
         if (mAdapter.isPlaying()) {
-            playbtn.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_stop_white_48dp));
+            playbtn.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_pause_white));
             mAdapter.onPlayBtnClick(index);
         } else {
-            playbtn.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_play_arrow_white_48dp));
+            playbtn.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_play_white));
         }
     }
 
@@ -180,7 +180,7 @@ public class WordStudyDanCiRenZhiActivity extends BaseActivity implements OnClic
         if (mPlayer != null) {
             mPlayer.stop();
         }
-        playbtn.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_play_arrow_white_48dp));
+        playbtn.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_play_white));
     }
 
     @Override

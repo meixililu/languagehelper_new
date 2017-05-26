@@ -64,6 +64,8 @@
     <string name="font_style_italic">斜体</string>
     <string name="updage_later">稍后</string>
     <string name="updage_now">更新</string>
+    <string name="prompt">提示</string>
+    <string name="retry">重填</string>
 
     <string name="menu_share">DIY分享</string>
     <string name="menu_settings">语速调节</string>
@@ -95,14 +97,18 @@
 
     <string name="next_unit">下一单元</string>
     <string name="dancirenzhi">单词认知</string>
-    <string name="dancirenzhi_des">学习本单元所有单词，对单词建立初步认识</string>
+    <string name="dancirenzhi_des">学习本单元所有单词</string>
+    <string name="dancisuji">听音速记</string>
+    <string name="dancisuji_des">听读音记单词</string>
     <string name="dancitingxuan">读音选词</string>
     <string name="word_test_result">测试结果</string>
-    <string name="dancitingxuan_des">根据单词读音选择正确的单词</string>
+    <string name="dancitingxuan_des">根据读音选单词</string>
     <string name="danciceshi">单词选义</string>
-    <string name="danciceshi_des">根据单词选中文意思</string>
+    <string name="danciceshi_des">根据单词选词义</string>
     <string name="ciyixuanci">词义选词</string>
-    <string name="ciyixuanci_des">根据中文意思选单词</string>
+    <string name="ciyixuanci_des">根据词义选单词</string>
+    <string name="pinxie">拼写练习</string>
+    <string name="pinxie_des">根据提示拼写单词</string>
     <string name="try_again">再来一次</string>
     <string name="finish_test">打完收工</string>
 

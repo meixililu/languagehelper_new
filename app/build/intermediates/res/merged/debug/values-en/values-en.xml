@@ -22,7 +22,7 @@
     <string name="ch_dic_input_hint">please input chinese</string>
     <string name="chinese">Zh</string>
     <string name="ciyixuanci">Choose Word</string>
-    <string name="ciyixuanci_des">根据中文意思选单词</string>
+    <string name="ciyixuanci_des">Choose word by meaning</string>
     <string name="clear_all_except_favorite">Clear Records Except Favorites</string>
     <string name="clear_all_record">Clear All Records</string>
     <string name="clear_success">Clear Success</string>
@@ -38,12 +38,14 @@
     <string name="copy">Copy</string>
     <string name="copy_success">copy success</string>
     <string name="dailysentence">Daily Sentence</string>
-    <string name="danciceshi">单词选义</string>
-    <string name="danciceshi_des">根据单词选中文意思</string>
+    <string name="danciceshi">Choose Word Mean</string>
+    <string name="danciceshi_des">Choose meaning by word</string>
     <string name="dancirenzhi">Word Study</string>
     <string name="dancirenzhi_des">Learn all the word of this unit</string>
+    <string name="dancisuji">Listen</string>
+    <string name="dancisuji_des">Listen and Remember</string>
     <string name="dancitingxuan">Choose Word</string>
-    <string name="dancitingxuan_des">根据单词读音选择正确的单词</string>
+    <string name="dancitingxuan_des">Choose word by pronunciation</string>
     <string name="dele_success">delete success</string>
     <string name="designer">Designer：Liqianxia</string>
     <string name="dic_tab_cidian">Dictionary</string>
@@ -122,6 +124,8 @@
     <string name="next_unit">Next Unit</string>
     <string name="offline_download">Download Mp3</string>
     <string name="photo_album">PhotoAlbum</string>
+    <string name="pinxie">Spell</string>
+    <string name="pinxie_des">Word Spelling</string>
     <string name="play_speed_text">play speed：</string>
     <string name="practice_check">Check</string>
     <string name="practice_congratulation">太棒了，闯关完成!\n\n妈妈再也不用担心我的学习了！</string>
@@ -157,12 +161,14 @@
     <string name="preference_title_iat_rate">录音采样率</string>
     <string name="preference_title_tts_music">background music</string>
     <string name="primary_lever">Part Two</string>
+    <string name="prompt">Prompt</string>
     <string name="reading">Reading</string>
     <string name="recent_use_footer_prompt">Prompt</string>
     <string name="recent_use_footer_prompt_content">\tHere only save 100 record，you also can collect which you like.
 	    And we are trying to improve the translate result and the software,thank you.</string>
     <string name="recognize_error">Recognize error,Retry Please！</string>
     <string name="restart_success">Reboot App</string>
+    <string name="retry">Retry</string>
     <string name="search">Search</string>
     <string name="sentence">Sentence</string>
     <string name="server_error">Server Error,Retry Later Please!</string>
