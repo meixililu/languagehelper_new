@@ -107,7 +107,6 @@ public class StudyCategoryFragment extends BaseFragment {
             wordStudyBookName.setText(wordListItem.getTitle());
             arcProgress.setMax(wordListItem.getCourse_num());
             arcProgress.setProgress(wordListItem.getCourse_id());
-            LogUtil.DefalutLog("wordListItem:"+wordListItem.getCourse_id());
         }
     }
 
@@ -119,6 +118,7 @@ public class StudyCategoryFragment extends BaseFragment {
     }
 
     @OnClick({R.id.word_study_view_all, R.id.word_study_daily, R.id.symbol_study_cover,
+            R.id.word_study_new_word,
             R.id.study_listening_layout, R.id.word_study_change_plan,
             R.id.word_study_plan,
             R.id.news_layout, R.id.study_spoken_english, R.id.study_test,
@@ -138,6 +138,10 @@ public class StudyCategoryFragment extends BaseFragment {
                 break;
             case R.id.word_study_change_plan:
                 toActivity(WordStudyPlanActivity.class, null);
+                AVAnalytics.onEvent(getContext(), "tab3_to_wordstudy_daily");
+                break;
+            case R.id.word_study_new_word:
+                toActivity(WordStudyNewWordActivity.class, null);
                 AVAnalytics.onEvent(getContext(), "tab3_to_wordstudy_daily");
                 break;
             case R.id.word_study_plan:

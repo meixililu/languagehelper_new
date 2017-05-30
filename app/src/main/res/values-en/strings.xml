@@ -105,6 +105,8 @@
     <string name="ciyixuanci_des">Choose word by meaning</string>
     <string name="try_again">Try again</string>
     <string name="finish_test">Finish</string>
+    <string name="fight_success">Success</string>
+    <string name="fight_fail">Fail</string>
 
     <string name="dic_tab_juhai">Sentences</string>
     <string name="dic_tab_cidian">Dictionary</string>

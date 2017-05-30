@@ -24,8 +24,8 @@ import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.adapter.RcWordStudyCiYiXuanCiAdapter;
 import com.messi.languagehelper.dao.WordDetailListItem;
+import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.impl.OnFinishListener;
-import com.messi.languagehelper.task.MyThread;
 import com.messi.languagehelper.util.DownLoadUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.NumberUtil;
@@ -84,7 +84,6 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnFini
     private int course_id;
     private int course_num;
     private MediaPlayer mPlayer;
-    private String audioPath;
     private String fullName;
     private int playTimes;
 
@@ -124,9 +123,6 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnFini
         class_id = getIntent().getStringExtra(KeyUtil.ClassId);
         course_id = getIntent().getIntExtra(KeyUtil.CourseId, 1);
         course_num = getIntent().getIntExtra(KeyUtil.CourseNum, 0);
-        if (!TextUtils.isEmpty(class_id)) {
-            audioPath = SDCardUtil.WordStudyPath + class_id + SDCardUtil.Delimiter + String.valueOf(course_id) + SDCardUtil.Delimiter;
-        }
         resultList = new ArrayList<WordDetailListItem>();
         adapter = new RcWordStudyCiYiXuanCiAdapter();
         adapter.setItems(resultList);
@@ -209,12 +205,16 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnFini
     }
 
     private void playSound() {
-        if (isPlaying()) {
-            wordPlayImg.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_play_white));
-            stopPlay();
-        } else {
-            wordPlayImg.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_pause_white));
-            playItem(WordStudyPlanDetailActivity.itemList.get(position));
+        try {
+            if (isPlaying()) {
+                wordPlayImg.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_play_white));
+                stopPlay();
+            } else {
+                wordPlayImg.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_pause_white));
+                playItem(WordStudyPlanDetailActivity.itemList.get(position));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -223,13 +223,19 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnFini
             playWithSpeechSynthesizer(mAVObject);
         } else {
             String mp3Name = mAVObject.getSound().substring(mAVObject.getSound().lastIndexOf("/") + 1);
-            fullName = SDCardUtil.getDownloadPath(audioPath) + mp3Name;
+            fullName = SDCardUtil.getDownloadPath(getAudioPath(mAVObject)) + mp3Name;
             if (!SDCardUtil.isFileExist(fullName)) {
-                DownLoadUtil.downloadFile(this, mAVObject.getSound(), audioPath, mp3Name, mHandler);
+                DownLoadUtil.downloadFile(this, mAVObject.getSound(), getAudioPath(mAVObject), mp3Name, mHandler);
             } else {
                 playMp3();
             }
         }
+    }
+
+    private String getAudioPath(WordDetailListItem mAVObject){
+        return SDCardUtil.WordStudyPath + mAVObject.getClass_id() + SDCardUtil.Delimiter +
+                    String.valueOf(mAVObject.getCourse()) + SDCardUtil.Delimiter;
+
     }
 
     public void playMp3() {
@@ -253,12 +259,12 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnFini
         }
     }
 
-    private boolean isPlaying() {
+    private boolean isPlaying() throws Exception{
         return mPlayer.isPlaying() || PlayUtil.isPlaying;
     }
 
     private void playWithSpeechSynthesizer(WordDetailListItem mAVObject) {
-        String filepath = SDCardUtil.getDownloadPath(audioPath) + mAVObject.getItem_id() + ".pcm";
+        String filepath = SDCardUtil.getDownloadPath(getAudioPath(mAVObject)) + mAVObject.getItem_id() + ".pcm";
         PlayUtil.play(filepath, mAVObject.getName(), null,
                 new SynthesizerListener() {
                     @Override
@@ -388,6 +394,7 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnFini
                 resultList.add(item);
             }
         }
+        DataBaseUtil.getInstance().saveList(resultList,true);
         for (WordDetailListItem item : WordStudyPlanDetailActivity.itemList) {
             if (item.getSelect_time() == 0) {
                 resultList.add(item);
@@ -410,7 +417,6 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnFini
         if (mPlayer != null) {
             mPlayer.stop();
             mPlayer.release();
-            mPlayer = null;
         }
         PlayUtil.stopPlay();
         PlayUtil.clearFinishListener();

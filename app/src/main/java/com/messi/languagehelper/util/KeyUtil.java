@@ -158,6 +158,8 @@ public class KeyUtil {
 
 	public static final String IsWordStudySpellPlaySound = "IsWordStudySpellPlaySound";
 
+	public static final String isNewWordStudy = "isNewWordStudy";
+
 
 	
 	

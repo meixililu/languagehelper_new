@@ -62,7 +62,7 @@
                 android:layout_marginBottom="@dimen/padding_5"
                 android:background="@color/white"
                 custom:arc_angle="270"
-                custom:arc_progress="10"
+                custom:arc_progress="0"
                 custom:arc_stroke_width="10sp"
                 custom:arc_unfinished_color="@color/text_grey1"
                 custom:arc_finished_color="@color/load_blue"
@@ -141,7 +141,7 @@
                     android:layout_height="fill_parent"
                     android:background="@color/white"
                     android:gravity="center"
-                    android:text="生词本"
+                    android:text="生词错词"
                     android:textColor="@color/text_black"
                     android:textSize="@dimen/middle" />
             </FrameLayout>

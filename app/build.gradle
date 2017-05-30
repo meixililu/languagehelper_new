@@ -58,6 +58,7 @@ dependencies {
     compile 'org.greenrobot:greendao:3.2.2'
     compile 'com.github.yuweiguocn:GreenDaoUpgradeHelper:v1.3.0'
     compile 'com.github.lzyzsd:circleprogress:1.2.1'
+    compile 'com.daimajia.numberprogressbar:library:1.4@aar'
 }
 
 greendao {

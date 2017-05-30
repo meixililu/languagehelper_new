@@ -15,6 +15,7 @@ import com.google.gson.Gson;
 import com.messi.languagehelper.adapter.WordStudyUnitListAdapter;
 import com.messi.languagehelper.bean.WordListItem;
 import com.messi.languagehelper.dao.WordDetailListItem;
+import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.impl.AdapterListener;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.ChangeDataTypeUtil;
@@ -37,6 +38,8 @@ import io.reactivex.schedulers.Schedulers;
 
 public class WordStudyPlanDetailActivity extends BaseActivity implements AdapterListener {
 
+    @BindView(R.id.bottom)
+    CardView bottom;
     @BindView(R.id.renzhi_layout)
     FrameLayout renzhiLayout;
     @BindView(R.id.duyinxuanci_layout)
@@ -82,7 +85,7 @@ public class WordStudyPlanDetailActivity extends BaseActivity implements Adapter
     }
 
     @OnClick({R.id.renzhi_layout, R.id.duyinxuanci_layout, R.id.danciceshi_layout, R.id.ciyixuanci_layout,
-            R.id.dancisuji_layout, R.id.pinxie_layout})
+            R.id.dancisuji_layout, R.id.pinxie_layout, R.id.bottom})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.renzhi_layout:
@@ -102,6 +105,9 @@ public class WordStudyPlanDetailActivity extends BaseActivity implements Adapter
                 break;
             case R.id.pinxie_layout:
                 ToAvtivity(WordStudyDanCiPinXieActivity.class);
+                break;
+            case R.id.bottom:
+                ToAvtivity(WordStudyFightActivity.class);
                 break;
         }
     }
@@ -149,17 +155,24 @@ public class WordStudyPlanDetailActivity extends BaseActivity implements Adapter
 
     private void loadData() {
         try {
-            AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.WordStudyDetail.WordStudyDetail);
-            query.whereEqualTo(AVOUtil.WordStudyDetail.class_id, class_id);
-            query.whereEqualTo(AVOUtil.WordStudyDetail.course, course_id);
-            query.orderByAscending(AVOUtil.WordStudyDetail.item_id);
-            List<AVObject> avObjects = query.find();
-            if (avObjects != null) {
-                itemList.clear();
-                for (AVObject mAVObject : avObjects) {
-                    itemList.add(ChangeDataTypeUtil.changeData(mAVObject));
+            itemList.clear();
+            List<WordDetailListItem> items = DataBaseUtil.getInstance().getList(class_id,course_id);
+            if(items.size() > 0){
+                itemList.addAll(items);
+            }else {
+                AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.WordStudyDetail.WordStudyDetail);
+                query.whereEqualTo(AVOUtil.WordStudyDetail.class_id, class_id);
+                query.whereEqualTo(AVOUtil.WordStudyDetail.course, course_id);
+                query.orderByAscending(AVOUtil.WordStudyDetail.item_id);
+                List<AVObject> avObjects = query.find();
+                if (avObjects != null) {
+                    for (AVObject mAVObject : avObjects) {
+                        itemList.add(ChangeDataTypeUtil.changeData(mAVObject));
+                    }
                 }
+                DataBaseUtil.getInstance().saveList(itemList,false);
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }

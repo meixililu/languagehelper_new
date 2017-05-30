@@ -41,7 +41,6 @@ public class WordStudyDanCiRenZhiActivity extends BaseActivity implements OnClic
     private int course_id;
     private int course_num;
     private MediaPlayer mPlayer;
-    private String audioPath;
     private int index;
 
     private SpeechSynthesizer mSpeechSynthesizer;
@@ -72,16 +71,11 @@ public class WordStudyDanCiRenZhiActivity extends BaseActivity implements OnClic
         class_id = getIntent().getStringExtra(KeyUtil.ClassId);
         course_id = getIntent().getIntExtra(KeyUtil.CourseId, 1);
         course_num = getIntent().getIntExtra(KeyUtil.CourseNum, 0);
-        if (!TextUtils.isEmpty(class_id)) {
-            audioPath = SDCardUtil.WordStudyPath + class_id + SDCardUtil.Delimiter + String.valueOf(course_id) + SDCardUtil.Delimiter;
-        } else {
-            finish();
-        }
         playbtn = (FloatingActionButton) findViewById(R.id.playbtn);
         category_lv = (ListView) findViewById(R.id.studycategory_lv);
         checkData();
         mAdapter = new WordStudyDetailAdapter(this, mSharedPreferences, mSpeechSynthesizer, category_lv,
-                WordStudyPlanDetailActivity.itemList, audioPath, mPlayer);
+                WordStudyPlanDetailActivity.itemList, mPlayer);
         category_lv.setAdapter(mAdapter);
 
         playbtn.setOnClickListener(this);
@@ -190,7 +184,6 @@ public class WordStudyDanCiRenZhiActivity extends BaseActivity implements OnClic
         if (mPlayer != null) {
             mPlayer.stop();
             mPlayer.release();
-            mPlayer = null;
         }
         if (mSpeechSynthesizer != null) {
             mSpeechSynthesizer.stopSpeaking();

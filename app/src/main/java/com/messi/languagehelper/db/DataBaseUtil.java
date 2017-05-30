@@ -14,6 +14,8 @@ import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.dao.ReadingDao;
 import com.messi.languagehelper.dao.SymbolListDao;
 import com.messi.languagehelper.dao.SymbolListDaoDao;
+import com.messi.languagehelper.dao.WordDetailListItem;
+import com.messi.languagehelper.dao.WordDetailListItemDao;
 import com.messi.languagehelper.dao.record;
 import com.messi.languagehelper.dao.recordDao;
 import com.messi.languagehelper.dao.recordDao.Properties;
@@ -36,6 +38,7 @@ public class DataBaseUtil {
     private DictionaryDao mDictionaryDao;
     private ReadingDao mReadingDao;
     private SymbolListDaoDao mSymbolListDaoDao;
+    private WordDetailListItemDao mWordDetailListItemDao;
 
     public DataBaseUtil() {
     }
@@ -52,6 +55,7 @@ public class DataBaseUtil {
             instance.mEveryDaySentenceDao = instance.mDaoSession.getEveryDaySentenceDao();
             instance.mSymbolListDaoDao = instance.mDaoSession.getSymbolListDaoDao();
             instance.mReadingDao = instance.mDaoSession.getReadingDao();
+            instance.mWordDetailListItemDao = instance.mDaoSession.getWordDetailListItemDao();
         }
         return instance;
     }
@@ -276,6 +280,76 @@ public class DataBaseUtil {
                 .where(ReadingDao.Properties.Object_id.eq(bean.getObject_id()))
                 .list();
     }
-
     /** readings curd**/
+
+    /** word study **/
+    public void saveList(List<WordDetailListItem> beans, boolean isNewWord){
+        for(WordDetailListItem bean : beans){
+            saveOrUpdate(bean,isNewWord);
+        }
+    }
+
+    public void saveOrUpdate(WordDetailListItem bean, boolean isNewWord){
+        List<WordDetailListItem> items = isDataExit(bean);
+        if(items.size() > 0){
+            if(isNewWord){
+                WordDetailListItem item = items.get(0);
+                item.setNew_words("1");
+                mWordDetailListItemDao.update(item);
+            }
+        }else {
+            if(isNewWord){
+                bean.setNew_words("1");
+            }
+            insertData(bean);
+        }
+    }
+
+    public List<WordDetailListItem> isDataExit(WordDetailListItem bean){
+        return mWordDetailListItemDao
+                .queryBuilder()
+                .where(WordDetailListItemDao.Properties.Class_id.eq(bean.getClass_id()))
+                .where(WordDetailListItemDao.Properties.Name.eq(bean.getName()))
+                .list();
+    }
+
+    public long insertData(WordDetailListItem bean){
+        return mWordDetailListItemDao.insert(bean);
+    }
+
+    public List<WordDetailListItem> getNewWordList(int page, int page_size){
+        return mWordDetailListItemDao
+                .queryBuilder()
+                .where(WordDetailListItemDao.Properties.New_words.eq("1"))
+                .offset(page * page_size)
+                .limit(page_size)
+                .list();
+    }
+
+    public List<WordDetailListItem> getList(String class_id,int course_id){
+        return mWordDetailListItemDao
+                .queryBuilder()
+                .where(WordDetailListItemDao.Properties.Class_id.eq(class_id))
+                .where(WordDetailListItemDao.Properties.Course.eq(course_id))
+                .list();
+    }
+
+    public int countWordDetailListItem(){
+        return mWordDetailListItemDao
+                .queryBuilder()
+                .list()
+                .size();
+    }
+
+    public void deleteList(List<WordDetailListItem> beans){
+        for(WordDetailListItem bean : beans){
+            delete(bean);
+        }
+    }
+
+    public void delete(WordDetailListItem bean){
+        mWordDetailListItemDao.delete(bean);
+    }
+
+    /** word study **/
 }

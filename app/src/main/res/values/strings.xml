@@ -111,6 +111,8 @@
     <string name="pinxie_des">根据提示拼写单词</string>
     <string name="try_again">再来一次</string>
     <string name="finish_test">打完收工</string>
+    <string name="fight_success">闯关成功</string>
+    <string name="fight_fail">闯关失败</string>
 
     <string name="speak_english">请点击按钮说英语</string>
     <string name="speak_chinese">请点击按钮说普通话</string>

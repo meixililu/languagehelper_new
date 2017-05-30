@@ -1,11 +1,7 @@
 package com.messi.languagehelper;
 
-import android.media.AudioAttributes;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.media.SoundPool;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -57,12 +53,13 @@ public class WordStudyDuYinSuJiActivity extends BaseActivity implements OnFinish
     FrameLayout finishTestLayout;
     @BindView(R.id.result_layout)
     LinearLayout resultLayout;
+    @BindView(R.id.word_symbol)
+    TextView wordSymbol;
     private String class_name;
     private String class_id;
     private int course_id;
     private int course_num;
     private MediaPlayer mPlayer;
-    private String audioPath;
     private String fullName;
     private int playTimes;
 
@@ -101,9 +98,6 @@ public class WordStudyDuYinSuJiActivity extends BaseActivity implements OnFinish
         class_id = getIntent().getStringExtra(KeyUtil.ClassId);
         course_id = getIntent().getIntExtra(KeyUtil.CourseId, 1);
         course_num = getIntent().getIntExtra(KeyUtil.CourseNum, 0);
-        if (!TextUtils.isEmpty(class_id)) {
-            audioPath = SDCardUtil.WordStudyPath + class_id + SDCardUtil.Delimiter + String.valueOf(course_id) + SDCardUtil.Delimiter;
-        }
         resultList = new ArrayList<WordDetailListItem>();
         adapter = new RcWordStudyCiYiXuanCiAdapter();
         adapter.setItems(resultList);
@@ -136,8 +130,9 @@ public class WordStudyDuYinSuJiActivity extends BaseActivity implements OnFinish
         }
     }
 
-    private void clearWord(){
+    private void clearWord() {
         wordName.setText("");
+        wordSymbol.setText("");
         wordMean.setText("");
     }
 
@@ -163,33 +158,41 @@ public class WordStudyDuYinSuJiActivity extends BaseActivity implements OnFinish
     }
 
     private void playSound() {
-        if(isPlaying){
+        if (isPlaying) {
             wordPlayImg.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_pause_white));
             playItem(WordStudyPlanDetailActivity.itemList.get(position));
         }
     }
 
     private void playItem(WordDetailListItem mAVObject) {
-        if(playTimes == 1){
+        if (playTimes == 1) {
             wordName.setText(mAVObject.getName());
+            wordSymbol.setText(mAVObject.getSymbol());
             wordMean.setText("");
-        }else if(playTimes == 2){
+        } else if (playTimes == 2) {
             wordName.setText(mAVObject.getName());
+            wordSymbol.setText(mAVObject.getSymbol());
             wordMean.setText(mAVObject.getDesc());
-        }else {
+        } else {
             clearWord();
         }
         if (TextUtils.isEmpty(mAVObject.getSound()) || mAVObject.getSound().equals("http://app1.showapi.com/en_word")) {
             playWithSpeechSynthesizer(mAVObject);
         } else {
             String mp3Name = mAVObject.getSound().substring(mAVObject.getSound().lastIndexOf("/") + 1);
-            fullName = SDCardUtil.getDownloadPath(audioPath) + mp3Name;
+            fullName = SDCardUtil.getDownloadPath(getAudioPath(mAVObject)) + mp3Name;
             if (!SDCardUtil.isFileExist(fullName)) {
-                DownLoadUtil.downloadFile(this, mAVObject.getSound(), audioPath, mp3Name, mHandler);
+                DownLoadUtil.downloadFile(this, mAVObject.getSound(), getAudioPath(mAVObject), mp3Name, mHandler);
             } else {
                 playMp3();
             }
         }
+    }
+
+    private String getAudioPath(WordDetailListItem mAVObject){
+        return SDCardUtil.WordStudyPath + mAVObject.getClass_id() + SDCardUtil.Delimiter +
+                String.valueOf(mAVObject.getCourse()) + SDCardUtil.Delimiter;
+
     }
 
     public void playMp3() {
@@ -218,7 +221,7 @@ public class WordStudyDuYinSuJiActivity extends BaseActivity implements OnFinish
     }
 
     private void playWithSpeechSynthesizer(WordDetailListItem mAVObject) {
-        String filepath = SDCardUtil.getDownloadPath(audioPath) + mAVObject.getItem_id() + ".pcm";
+        String filepath = SDCardUtil.getDownloadPath(getAudioPath(mAVObject)) + mAVObject.getItem_id() + ".pcm";
         PlayUtil.play(filepath, mAVObject.getName(), null,
                 new SynthesizerListener() {
                     @Override
@@ -272,9 +275,9 @@ public class WordStudyDuYinSuJiActivity extends BaseActivity implements OnFinish
         switch (view.getId()) {
             case R.id.word_suji_layout:
                 isPlaying = !isPlaying;
-                if(!isPlaying){
+                if (!isPlaying) {
                     stopPlay();
-                }else {
+                } else {
                     playSound();
                 }
                 break;
@@ -328,7 +331,6 @@ public class WordStudyDuYinSuJiActivity extends BaseActivity implements OnFinish
         if (mPlayer != null) {
             mPlayer.stop();
             mPlayer.release();
-            mPlayer = null;
         }
         PlayUtil.stopPlay();
         PlayUtil.clearFinishListener();

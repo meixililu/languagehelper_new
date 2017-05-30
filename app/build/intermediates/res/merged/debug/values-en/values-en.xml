@@ -64,6 +64,8 @@
     <string name="favorite_success">collect success</string>
     <string name="feedback">Feedback</string>
     <string name="fifth_normal">normal:50</string>
+    <string name="fight_fail">Fail</string>
+    <string name="fight_success">Success</string>
     <string name="fighting">To All User</string>
     <string name="finish">Finish</string>
     <string name="finish_test">Finish</string>

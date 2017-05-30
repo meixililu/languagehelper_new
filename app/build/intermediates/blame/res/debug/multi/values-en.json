@@ -764,32 +764,46 @@
                     "startLine": 66,
                     "startColumn": 4,
                     "startOffset": 3998,
-                    "endColumn": 48,
-                    "endOffset": 4042
+                    "endColumn": 43,
+                    "endOffset": 4037
                 },
                 "from": {
-                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
+                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml",
+                    "position": {
+                        "startLine": 108,
+                        "startColumn": 4,
+                        "startOffset": 5647,
+                        "endColumn": 43,
+                        "endOffset": 5686
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 67,
                     "startColumn": 4,
-                    "startOffset": 4047,
-                    "endColumn": 41,
-                    "endOffset": 4084
+                    "startOffset": 4042,
+                    "endColumn": 49,
+                    "endOffset": 4087
                 },
                 "from": {
-                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
+                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml",
+                    "position": {
+                        "startLine": 107,
+                        "startColumn": 4,
+                        "startOffset": 5597,
+                        "endColumn": 49,
+                        "endOffset": 5642
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 68,
                     "startColumn": 4,
-                    "startOffset": 4089,
-                    "endColumn": 46,
-                    "endOffset": 4131
+                    "startOffset": 4092,
+                    "endColumn": 48,
+                    "endOffset": 4136
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -799,9 +813,9 @@
                 "to": {
                     "startLine": 69,
                     "startColumn": 4,
-                    "startOffset": 4136,
-                    "endColumn": 57,
-                    "endOffset": 4189
+                    "startOffset": 4141,
+                    "endColumn": 41,
+                    "endOffset": 4178
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -811,9 +825,9 @@
                 "to": {
                     "startLine": 70,
                     "startColumn": 4,
-                    "startOffset": 4194,
-                    "endColumn": 49,
-                    "endOffset": 4239
+                    "startOffset": 4183,
+                    "endColumn": 46,
+                    "endOffset": 4225
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -823,9 +837,9 @@
                 "to": {
                     "startLine": 71,
                     "startColumn": 4,
-                    "startOffset": 4244,
-                    "endColumn": 47,
-                    "endOffset": 4287
+                    "startOffset": 4230,
+                    "endColumn": 57,
+                    "endOffset": 4283
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -835,9 +849,9 @@
                 "to": {
                     "startLine": 72,
                     "startColumn": 4,
-                    "startOffset": 4292,
+                    "startOffset": 4288,
                     "endColumn": 49,
-                    "endOffset": 4337
+                    "endOffset": 4333
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -847,9 +861,9 @@
                 "to": {
                     "startLine": 73,
                     "startColumn": 4,
-                    "startOffset": 4342,
-                    "endColumn": 48,
-                    "endOffset": 4386
+                    "startOffset": 4338,
+                    "endColumn": 47,
+                    "endOffset": 4381
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -859,9 +873,9 @@
                 "to": {
                     "startLine": 74,
                     "startColumn": 4,
-                    "startOffset": 4391,
-                    "endColumn": 52,
-                    "endOffset": 4439
+                    "startOffset": 4386,
+                    "endColumn": 49,
+                    "endOffset": 4431
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -871,9 +885,9 @@
                 "to": {
                     "startLine": 75,
                     "startColumn": 4,
-                    "startOffset": 4444,
-                    "endColumn": 52,
-                    "endOffset": 4492
+                    "startOffset": 4436,
+                    "endColumn": 48,
+                    "endOffset": 4480
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -883,9 +897,9 @@
                 "to": {
                     "startLine": 76,
                     "startColumn": 4,
-                    "startOffset": 4497,
-                    "endColumn": 48,
-                    "endOffset": 4541
+                    "startOffset": 4485,
+                    "endColumn": 52,
+                    "endOffset": 4533
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -895,9 +909,9 @@
                 "to": {
                     "startLine": 77,
                     "startColumn": 4,
-                    "startOffset": 4546,
-                    "endColumn": 50,
-                    "endOffset": 4592
+                    "startOffset": 4538,
+                    "endColumn": 52,
+                    "endOffset": 4586
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -907,9 +921,9 @@
                 "to": {
                     "startLine": 78,
                     "startColumn": 4,
-                    "startOffset": 4597,
-                    "endColumn": 60,
-                    "endOffset": 4653
+                    "startOffset": 4591,
+                    "endColumn": 48,
+                    "endOffset": 4635
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -919,9 +933,9 @@
                 "to": {
                     "startLine": 79,
                     "startColumn": 4,
-                    "startOffset": 4658,
-                    "endColumn": 64,
-                    "endOffset": 4718
+                    "startOffset": 4640,
+                    "endColumn": 50,
+                    "endOffset": 4686
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -931,9 +945,9 @@
                 "to": {
                     "startLine": 80,
                     "startColumn": 4,
-                    "startOffset": 4723,
-                    "endColumn": 70,
-                    "endOffset": 4789
+                    "startOffset": 4691,
+                    "endColumn": 60,
+                    "endOffset": 4747
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -943,9 +957,9 @@
                 "to": {
                     "startLine": 81,
                     "startColumn": 4,
-                    "startOffset": 4794,
-                    "endColumn": 61,
-                    "endOffset": 4851
+                    "startOffset": 4752,
+                    "endColumn": 64,
+                    "endOffset": 4812
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -955,34 +969,34 @@
                 "to": {
                     "startLine": 82,
                     "startColumn": 4,
-                    "startOffset": 4856,
-                    "endLine": 85,
+                    "startOffset": 4817,
+                    "endColumn": 70,
+                    "endOffset": 4883
+                },
+                "from": {
+                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 83,
+                    "startColumn": 4,
+                    "startOffset": 4888,
+                    "endColumn": 61,
+                    "endOffset": 4945
+                },
+                "from": {
+                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 84,
+                    "startColumn": 4,
+                    "startOffset": 4950,
+                    "endLine": 87,
                     "endColumn": 56,
-                    "endOffset": 5142
-                },
-                "from": {
-                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
-                }
-            },
-            {
-                "to": {
-                    "startLine": 86,
-                    "startColumn": 4,
-                    "startOffset": 5147,
-                    "endColumn": 68,
-                    "endOffset": 5211
-                },
-                "from": {
-                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
-                }
-            },
-            {
-                "to": {
-                    "startLine": 87,
-                    "startColumn": 4,
-                    "startOffset": 5216,
-                    "endColumn": 95,
-                    "endOffset": 5307
+                    "endOffset": 5236
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -992,9 +1006,9 @@
                 "to": {
                     "startLine": 88,
                     "startColumn": 4,
-                    "startOffset": 5312,
-                    "endColumn": 61,
-                    "endOffset": 5369
+                    "startOffset": 5241,
+                    "endColumn": 68,
+                    "endOffset": 5305
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1004,9 +1018,9 @@
                 "to": {
                     "startLine": 89,
                     "startColumn": 4,
-                    "startOffset": 5374,
-                    "endColumn": 73,
-                    "endOffset": 5443
+                    "startOffset": 5310,
+                    "endColumn": 95,
+                    "endOffset": 5401
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1016,9 +1030,9 @@
                 "to": {
                     "startLine": 90,
                     "startColumn": 4,
-                    "startOffset": 5448,
-                    "endColumn": 89,
-                    "endOffset": 5533
+                    "startOffset": 5406,
+                    "endColumn": 61,
+                    "endOffset": 5463
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1028,9 +1042,9 @@
                 "to": {
                     "startLine": 91,
                     "startColumn": 4,
-                    "startOffset": 5538,
-                    "endColumn": 65,
-                    "endOffset": 5599
+                    "startOffset": 5468,
+                    "endColumn": 73,
+                    "endOffset": 5537
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1040,9 +1054,9 @@
                 "to": {
                     "startLine": 92,
                     "startColumn": 4,
-                    "startOffset": 5604,
-                    "endColumn": 57,
-                    "endOffset": 5657
+                    "startOffset": 5542,
+                    "endColumn": 89,
+                    "endOffset": 5627
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1052,9 +1066,9 @@
                 "to": {
                     "startLine": 93,
                     "startColumn": 4,
-                    "startOffset": 5662,
-                    "endColumn": 49,
-                    "endOffset": 5707
+                    "startOffset": 5632,
+                    "endColumn": 65,
+                    "endOffset": 5693
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1064,9 +1078,9 @@
                 "to": {
                     "startLine": 94,
                     "startColumn": 4,
-                    "startOffset": 5712,
-                    "endColumn": 59,
-                    "endOffset": 5767
+                    "startOffset": 5698,
+                    "endColumn": 57,
+                    "endOffset": 5751
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1076,9 +1090,9 @@
                 "to": {
                     "startLine": 95,
                     "startColumn": 4,
-                    "startOffset": 5772,
-                    "endColumn": 72,
-                    "endOffset": 5840
+                    "startOffset": 5756,
+                    "endColumn": 49,
+                    "endOffset": 5801
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1088,9 +1102,9 @@
                 "to": {
                     "startLine": 96,
                     "startColumn": 4,
-                    "startOffset": 5845,
-                    "endColumn": 124,
-                    "endOffset": 5965
+                    "startOffset": 5806,
+                    "endColumn": 59,
+                    "endOffset": 5861
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1100,9 +1114,9 @@
                 "to": {
                     "startLine": 97,
                     "startColumn": 4,
-                    "startOffset": 5970,
-                    "endColumn": 84,
-                    "endOffset": 6050
+                    "startOffset": 5866,
+                    "endColumn": 72,
+                    "endOffset": 5934
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1112,9 +1126,9 @@
                 "to": {
                     "startLine": 98,
                     "startColumn": 4,
-                    "startOffset": 6055,
-                    "endColumn": 47,
-                    "endOffset": 6098
+                    "startOffset": 5939,
+                    "endColumn": 124,
+                    "endOffset": 6059
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1124,9 +1138,9 @@
                 "to": {
                     "startLine": 99,
                     "startColumn": 4,
-                    "startOffset": 6103,
-                    "endColumn": 64,
-                    "endOffset": 6163
+                    "startOffset": 6064,
+                    "endColumn": 84,
+                    "endOffset": 6144
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1136,9 +1150,9 @@
                 "to": {
                     "startLine": 100,
                     "startColumn": 4,
-                    "startOffset": 6168,
-                    "endColumn": 45,
-                    "endOffset": 6209
+                    "startOffset": 6149,
+                    "endColumn": 47,
+                    "endOffset": 6192
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1148,9 +1162,9 @@
                 "to": {
                     "startLine": 101,
                     "startColumn": 4,
-                    "startOffset": 6214,
-                    "endColumn": 57,
-                    "endOffset": 6267
+                    "startOffset": 6197,
+                    "endColumn": 64,
+                    "endOffset": 6257
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1160,9 +1174,9 @@
                 "to": {
                     "startLine": 102,
                     "startColumn": 4,
-                    "startOffset": 6272,
-                    "endColumn": 62,
-                    "endOffset": 6330
+                    "startOffset": 6262,
+                    "endColumn": 45,
+                    "endOffset": 6303
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1172,9 +1186,9 @@
                 "to": {
                     "startLine": 103,
                     "startColumn": 4,
-                    "startOffset": 6335,
-                    "endColumn": 51,
-                    "endOffset": 6382
+                    "startOffset": 6308,
+                    "endColumn": 57,
+                    "endOffset": 6361
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1184,9 +1198,9 @@
                 "to": {
                     "startLine": 104,
                     "startColumn": 4,
-                    "startOffset": 6387,
-                    "endColumn": 68,
-                    "endOffset": 6451
+                    "startOffset": 6366,
+                    "endColumn": 62,
+                    "endOffset": 6424
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1196,9 +1210,9 @@
                 "to": {
                     "startLine": 105,
                     "startColumn": 4,
-                    "startOffset": 6456,
-                    "endColumn": 54,
-                    "endOffset": 6506
+                    "startOffset": 6429,
+                    "endColumn": 51,
+                    "endOffset": 6476
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1208,9 +1222,9 @@
                 "to": {
                     "startLine": 106,
                     "startColumn": 4,
-                    "startOffset": 6511,
+                    "startOffset": 6481,
                     "endColumn": 68,
-                    "endOffset": 6575
+                    "endOffset": 6545
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1220,9 +1234,9 @@
                 "to": {
                     "startLine": 107,
                     "startColumn": 4,
-                    "startOffset": 6580,
-                    "endColumn": 52,
-                    "endOffset": 6628
+                    "startOffset": 6550,
+                    "endColumn": 54,
+                    "endOffset": 6600
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1232,9 +1246,9 @@
                 "to": {
                     "startLine": 108,
                     "startColumn": 4,
-                    "startOffset": 6633,
+                    "startOffset": 6605,
                     "endColumn": 68,
-                    "endOffset": 6697
+                    "endOffset": 6669
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1244,9 +1258,9 @@
                 "to": {
                     "startLine": 109,
                     "startColumn": 4,
-                    "startOffset": 6702,
-                    "endColumn": 54,
-                    "endOffset": 6752
+                    "startOffset": 6674,
+                    "endColumn": 52,
+                    "endOffset": 6722
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1256,9 +1270,9 @@
                 "to": {
                     "startLine": 110,
                     "startColumn": 4,
-                    "startOffset": 6757,
-                    "endColumn": 64,
-                    "endOffset": 6817
+                    "startOffset": 6727,
+                    "endColumn": 68,
+                    "endOffset": 6791
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1268,9 +1282,9 @@
                 "to": {
                     "startLine": 111,
                     "startColumn": 4,
-                    "startOffset": 6822,
-                    "endColumn": 81,
-                    "endOffset": 6899
+                    "startOffset": 6796,
+                    "endColumn": 54,
+                    "endOffset": 6846
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1280,9 +1294,9 @@
                 "to": {
                     "startLine": 112,
                     "startColumn": 4,
-                    "startOffset": 6904,
-                    "endColumn": 55,
-                    "endOffset": 6955
+                    "startOffset": 6851,
+                    "endColumn": 64,
+                    "endOffset": 6911
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1292,9 +1306,9 @@
                 "to": {
                     "startLine": 113,
                     "startColumn": 4,
-                    "startOffset": 6960,
-                    "endColumn": 72,
-                    "endOffset": 7028
+                    "startOffset": 6916,
+                    "endColumn": 81,
+                    "endOffset": 6993
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1304,9 +1318,9 @@
                 "to": {
                     "startLine": 114,
                     "startColumn": 4,
-                    "startOffset": 7033,
-                    "endColumn": 51,
-                    "endOffset": 7080
+                    "startOffset": 6998,
+                    "endColumn": 55,
+                    "endOffset": 7049
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1316,9 +1330,9 @@
                 "to": {
                     "startLine": 115,
                     "startColumn": 4,
-                    "startOffset": 7085,
-                    "endColumn": 91,
-                    "endOffset": 7172
+                    "startOffset": 7054,
+                    "endColumn": 72,
+                    "endOffset": 7122
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1328,9 +1342,9 @@
                 "to": {
                     "startLine": 116,
                     "startColumn": 4,
-                    "startOffset": 7177,
+                    "startOffset": 7127,
                     "endColumn": 51,
-                    "endOffset": 7224
+                    "endOffset": 7174
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1340,9 +1354,9 @@
                 "to": {
                     "startLine": 117,
                     "startColumn": 4,
-                    "startOffset": 7229,
-                    "endColumn": 71,
-                    "endOffset": 7296
+                    "startOffset": 7179,
+                    "endColumn": 91,
+                    "endOffset": 7266
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1352,9 +1366,9 @@
                 "to": {
                     "startLine": 118,
                     "startColumn": 4,
-                    "startOffset": 7301,
-                    "endColumn": 41,
-                    "endOffset": 7338
+                    "startOffset": 7271,
+                    "endColumn": 51,
+                    "endOffset": 7318
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1364,9 +1378,9 @@
                 "to": {
                     "startLine": 119,
                     "startColumn": 4,
-                    "startOffset": 7343,
-                    "endColumn": 47,
-                    "endOffset": 7386
+                    "startOffset": 7323,
+                    "endColumn": 71,
+                    "endOffset": 7390
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1376,9 +1390,9 @@
                 "to": {
                     "startLine": 120,
                     "startColumn": 4,
-                    "startOffset": 7391,
-                    "endColumn": 52,
-                    "endOffset": 7439
+                    "startOffset": 7395,
+                    "endColumn": 41,
+                    "endOffset": 7432
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1388,9 +1402,9 @@
                 "to": {
                     "startLine": 121,
                     "startColumn": 4,
-                    "startOffset": 7444,
-                    "endColumn": 48,
-                    "endOffset": 7488
+                    "startOffset": 7437,
+                    "endColumn": 47,
+                    "endOffset": 7480
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1400,9 +1414,9 @@
                 "to": {
                     "startLine": 122,
                     "startColumn": 4,
-                    "startOffset": 7493,
-                    "endColumn": 75,
-                    "endOffset": 7564
+                    "startOffset": 7485,
+                    "endColumn": 52,
+                    "endOffset": 7533
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1412,9 +1426,9 @@
                 "to": {
                     "startLine": 123,
                     "startColumn": 4,
-                    "startOffset": 7569,
-                    "endColumn": 47,
-                    "endOffset": 7612
+                    "startOffset": 7538,
+                    "endColumn": 48,
+                    "endOffset": 7582
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1424,9 +1438,9 @@
                 "to": {
                     "startLine": 124,
                     "startColumn": 4,
-                    "startOffset": 7617,
-                    "endColumn": 57,
-                    "endOffset": 7670
+                    "startOffset": 7587,
+                    "endColumn": 75,
+                    "endOffset": 7658
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1436,9 +1450,9 @@
                 "to": {
                     "startLine": 125,
                     "startColumn": 4,
-                    "startOffset": 7675,
-                    "endColumn": 50,
-                    "endOffset": 7721
+                    "startOffset": 7663,
+                    "endColumn": 47,
+                    "endOffset": 7706
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1448,9 +1462,9 @@
                 "to": {
                     "startLine": 126,
                     "startColumn": 4,
-                    "startOffset": 7726,
-                    "endColumn": 40,
-                    "endOffset": 7762
+                    "startOffset": 7711,
+                    "endColumn": 57,
+                    "endOffset": 7764
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1460,8 +1474,8 @@
                 "to": {
                     "startLine": 127,
                     "startColumn": 4,
-                    "startOffset": 7767,
-                    "endColumn": 52,
+                    "startOffset": 7769,
+                    "endColumn": 50,
                     "endOffset": 7815
                 },
                 "from": {
@@ -1473,8 +1487,8 @@
                     "startLine": 128,
                     "startColumn": 4,
                     "startOffset": 7820,
-                    "endColumn": 55,
-                    "endOffset": 7871
+                    "endColumn": 40,
+                    "endOffset": 7856
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1484,9 +1498,9 @@
                 "to": {
                     "startLine": 129,
                     "startColumn": 4,
-                    "startOffset": 7876,
-                    "endColumn": 48,
-                    "endOffset": 7920
+                    "startOffset": 7861,
+                    "endColumn": 52,
+                    "endOffset": 7909
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1496,9 +1510,9 @@
                 "to": {
                     "startLine": 130,
                     "startColumn": 4,
-                    "startOffset": 7925,
-                    "endColumn": 79,
-                    "endOffset": 8000
+                    "startOffset": 7914,
+                    "endColumn": 55,
+                    "endOffset": 7965
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1508,9 +1522,9 @@
                 "to": {
                     "startLine": 131,
                     "startColumn": 4,
-                    "startOffset": 8005,
-                    "endColumn": 57,
-                    "endOffset": 8058
+                    "startOffset": 7970,
+                    "endColumn": 48,
+                    "endOffset": 8014
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1520,9 +1534,9 @@
                 "to": {
                     "startLine": 132,
                     "startColumn": 4,
-                    "startOffset": 8063,
-                    "endColumn": 60,
-                    "endOffset": 8119
+                    "startOffset": 8019,
+                    "endColumn": 79,
+                    "endOffset": 8094
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1532,9 +1546,9 @@
                 "to": {
                     "startLine": 133,
                     "startColumn": 4,
-                    "startOffset": 8124,
-                    "endColumn": 56,
-                    "endOffset": 8176
+                    "startOffset": 8099,
+                    "endColumn": 57,
+                    "endOffset": 8152
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1544,9 +1558,9 @@
                 "to": {
                     "startLine": 134,
                     "startColumn": 4,
-                    "startOffset": 8181,
-                    "endColumn": 56,
-                    "endOffset": 8233
+                    "startOffset": 8157,
+                    "endColumn": 60,
+                    "endOffset": 8213
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1556,9 +1570,9 @@
                 "to": {
                     "startLine": 135,
                     "startColumn": 4,
-                    "startOffset": 8238,
-                    "endColumn": 50,
-                    "endOffset": 8284
+                    "startOffset": 8218,
+                    "endColumn": 56,
+                    "endOffset": 8270
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1568,9 +1582,9 @@
                 "to": {
                     "startLine": 136,
                     "startColumn": 4,
-                    "startOffset": 8289,
-                    "endColumn": 46,
-                    "endOffset": 8331
+                    "startOffset": 8275,
+                    "endColumn": 56,
+                    "endOffset": 8327
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1580,9 +1594,9 @@
                 "to": {
                     "startLine": 137,
                     "startColumn": 4,
-                    "startOffset": 8336,
-                    "endColumn": 58,
-                    "endOffset": 8390
+                    "startOffset": 8332,
+                    "endColumn": 50,
+                    "endOffset": 8378
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1592,9 +1606,9 @@
                 "to": {
                     "startLine": 138,
                     "startColumn": 4,
-                    "startOffset": 8395,
-                    "endColumn": 80,
-                    "endOffset": 8471
+                    "startOffset": 8383,
+                    "endColumn": 46,
+                    "endOffset": 8425
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1604,9 +1618,9 @@
                 "to": {
                     "startLine": 139,
                     "startColumn": 4,
-                    "startOffset": 8476,
-                    "endColumn": 80,
-                    "endOffset": 8552
+                    "startOffset": 8430,
+                    "endColumn": 58,
+                    "endOffset": 8484
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1616,9 +1630,9 @@
                 "to": {
                     "startLine": 140,
                     "startColumn": 4,
-                    "startOffset": 8557,
-                    "endColumn": 73,
-                    "endOffset": 8626
+                    "startOffset": 8489,
+                    "endColumn": 80,
+                    "endOffset": 8565
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1628,9 +1642,9 @@
                 "to": {
                     "startLine": 141,
                     "startColumn": 4,
-                    "startOffset": 8631,
-                    "endColumn": 78,
-                    "endOffset": 8705
+                    "startOffset": 8570,
+                    "endColumn": 80,
+                    "endOffset": 8646
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1640,9 +1654,9 @@
                 "to": {
                     "startLine": 142,
                     "startColumn": 4,
-                    "startOffset": 8710,
-                    "endColumn": 83,
-                    "endOffset": 8789
+                    "startOffset": 8651,
+                    "endColumn": 73,
+                    "endOffset": 8720
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1652,9 +1666,9 @@
                 "to": {
                     "startLine": 143,
                     "startColumn": 4,
-                    "startOffset": 8794,
-                    "endColumn": 85,
-                    "endOffset": 8875
+                    "startOffset": 8725,
+                    "endColumn": 78,
+                    "endOffset": 8799
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1664,9 +1678,9 @@
                 "to": {
                     "startLine": 144,
                     "startColumn": 4,
-                    "startOffset": 8880,
-                    "endColumn": 74,
-                    "endOffset": 8950
+                    "startOffset": 8804,
+                    "endColumn": 83,
+                    "endOffset": 8883
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1676,9 +1690,9 @@
                 "to": {
                     "startLine": 145,
                     "startColumn": 4,
-                    "startOffset": 8955,
-                    "endColumn": 69,
-                    "endOffset": 9020
+                    "startOffset": 8888,
+                    "endColumn": 85,
+                    "endOffset": 8969
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1688,9 +1702,9 @@
                 "to": {
                     "startLine": 146,
                     "startColumn": 4,
-                    "startOffset": 9025,
-                    "endColumn": 48,
-                    "endOffset": 9069
+                    "startOffset": 8974,
+                    "endColumn": 74,
+                    "endOffset": 9044
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1700,9 +1714,9 @@
                 "to": {
                     "startLine": 147,
                     "startColumn": 4,
-                    "startOffset": 9074,
-                    "endColumn": 62,
-                    "endOffset": 9132
+                    "startOffset": 9049,
+                    "endColumn": 69,
+                    "endOffset": 9114
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1712,9 +1726,9 @@
                 "to": {
                     "startLine": 148,
                     "startColumn": 4,
-                    "startOffset": 9137,
-                    "endColumn": 61,
-                    "endOffset": 9194
+                    "startOffset": 9119,
+                    "endColumn": 48,
+                    "endOffset": 9163
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1724,9 +1738,9 @@
                 "to": {
                     "startLine": 149,
                     "startColumn": 4,
-                    "startOffset": 9199,
-                    "endColumn": 67,
-                    "endOffset": 9262
+                    "startOffset": 9168,
+                    "endColumn": 62,
+                    "endOffset": 9226
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1736,9 +1750,9 @@
                 "to": {
                     "startLine": 150,
                     "startColumn": 4,
-                    "startOffset": 9267,
-                    "endColumn": 63,
-                    "endOffset": 9326
+                    "startOffset": 9231,
+                    "endColumn": 61,
+                    "endOffset": 9288
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1748,9 +1762,9 @@
                 "to": {
                     "startLine": 151,
                     "startColumn": 4,
-                    "startOffset": 9331,
-                    "endColumn": 63,
-                    "endOffset": 9390
+                    "startOffset": 9293,
+                    "endColumn": 67,
+                    "endOffset": 9356
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1760,9 +1774,9 @@
                 "to": {
                     "startLine": 152,
                     "startColumn": 4,
-                    "startOffset": 9395,
-                    "endColumn": 58,
-                    "endOffset": 9449
+                    "startOffset": 9361,
+                    "endColumn": 63,
+                    "endOffset": 9420
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1772,9 +1786,9 @@
                 "to": {
                     "startLine": 153,
                     "startColumn": 4,
-                    "startOffset": 9454,
-                    "endColumn": 85,
-                    "endOffset": 9535
+                    "startOffset": 9425,
+                    "endColumn": 63,
+                    "endOffset": 9484
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1784,9 +1798,9 @@
                 "to": {
                     "startLine": 154,
                     "startColumn": 4,
-                    "startOffset": 9540,
-                    "endColumn": 56,
-                    "endOffset": 9592
+                    "startOffset": 9489,
+                    "endColumn": 58,
+                    "endOffset": 9543
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1796,9 +1810,9 @@
                 "to": {
                     "startLine": 155,
                     "startColumn": 4,
-                    "startOffset": 9597,
-                    "endColumn": 64,
-                    "endOffset": 9657
+                    "startOffset": 9548,
+                    "endColumn": 85,
+                    "endOffset": 9629
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1808,9 +1822,9 @@
                 "to": {
                     "startLine": 156,
                     "startColumn": 4,
-                    "startOffset": 9662,
-                    "endColumn": 60,
-                    "endOffset": 9718
+                    "startOffset": 9634,
+                    "endColumn": 56,
+                    "endOffset": 9686
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1820,9 +1834,9 @@
                 "to": {
                     "startLine": 157,
                     "startColumn": 4,
-                    "startOffset": 9723,
+                    "startOffset": 9691,
                     "endColumn": 64,
-                    "endOffset": 9783
+                    "endOffset": 9751
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1832,9 +1846,9 @@
                 "to": {
                     "startLine": 158,
                     "startColumn": 4,
-                    "startOffset": 9788,
-                    "endColumn": 62,
-                    "endOffset": 9846
+                    "startOffset": 9756,
+                    "endColumn": 60,
+                    "endOffset": 9812
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1844,9 +1858,9 @@
                 "to": {
                     "startLine": 159,
                     "startColumn": 4,
-                    "startOffset": 9851,
-                    "endColumn": 62,
-                    "endOffset": 9909
+                    "startOffset": 9817,
+                    "endColumn": 64,
+                    "endOffset": 9877
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1856,9 +1870,9 @@
                 "to": {
                     "startLine": 160,
                     "startColumn": 4,
-                    "startOffset": 9914,
-                    "endColumn": 59,
-                    "endOffset": 9969
+                    "startOffset": 9882,
+                    "endColumn": 62,
+                    "endOffset": 9940
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1868,9 +1882,9 @@
                 "to": {
                     "startLine": 161,
                     "startColumn": 4,
-                    "startOffset": 9974,
-                    "endColumn": 71,
-                    "endOffset": 10041
+                    "startOffset": 9945,
+                    "endColumn": 62,
+                    "endOffset": 10003
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1880,9 +1894,9 @@
                 "to": {
                     "startLine": 162,
                     "startColumn": 4,
-                    "startOffset": 10046,
-                    "endColumn": 50,
-                    "endOffset": 10092
+                    "startOffset": 10008,
+                    "endColumn": 59,
+                    "endOffset": 10063
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1892,9 +1906,9 @@
                 "to": {
                     "startLine": 163,
                     "startColumn": 4,
-                    "startOffset": 10097,
-                    "endColumn": 41,
-                    "endOffset": 10134
+                    "startOffset": 10068,
+                    "endColumn": 71,
+                    "endOffset": 10135
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1904,9 +1918,9 @@
                 "to": {
                     "startLine": 164,
                     "startColumn": 4,
-                    "startOffset": 10139,
-                    "endColumn": 43,
-                    "endOffset": 10178
+                    "startOffset": 10140,
+                    "endColumn": 50,
+                    "endOffset": 10186
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1916,9 +1930,9 @@
                 "to": {
                     "startLine": 165,
                     "startColumn": 4,
-                    "startOffset": 10183,
-                    "endColumn": 59,
-                    "endOffset": 10238
+                    "startOffset": 10191,
+                    "endColumn": 41,
+                    "endOffset": 10228
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1928,10 +1942,21 @@
                 "to": {
                     "startLine": 166,
                     "startColumn": 4,
-                    "startOffset": 10243,
-                    "endLine": 167,
-                    "endColumn": 91,
-                    "endOffset": 10447
+                    "startOffset": 10233,
+                    "endColumn": 43,
+                    "endOffset": 10272
+                },
+                "from": {
+                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 167,
+                    "startColumn": 4,
+                    "startOffset": 10277,
+                    "endColumn": 59,
+                    "endOffset": 10332
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1941,21 +1966,10 @@
                 "to": {
                     "startLine": 168,
                     "startColumn": 4,
-                    "startOffset": 10452,
-                    "endColumn": 73,
-                    "endOffset": 10521
-                },
-                "from": {
-                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
-                }
-            },
-            {
-                "to": {
-                    "startLine": 169,
-                    "startColumn": 4,
-                    "startOffset": 10526,
-                    "endColumn": 54,
-                    "endOffset": 10576
+                    "startOffset": 10337,
+                    "endLine": 169,
+                    "endColumn": 91,
+                    "endOffset": 10541
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1965,28 +1979,21 @@
                 "to": {
                     "startLine": 170,
                     "startColumn": 4,
-                    "startOffset": 10581,
-                    "endColumn": 39,
-                    "endOffset": 10616
+                    "startOffset": 10546,
+                    "endColumn": 73,
+                    "endOffset": 10615
                 },
                 "from": {
-                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml",
-                    "position": {
-                        "startLine": 84,
-                        "startColumn": 4,
-                        "startOffset": 4446,
-                        "endColumn": 39,
-                        "endOffset": 4481
-                    }
+                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
                 }
             },
             {
                 "to": {
                     "startLine": 171,
                     "startColumn": 4,
-                    "startOffset": 10621,
-                    "endColumn": 41,
-                    "endOffset": 10658
+                    "startOffset": 10620,
+                    "endColumn": 54,
+                    "endOffset": 10670
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -1996,9 +2003,9 @@
                 "to": {
                     "startLine": 172,
                     "startColumn": 4,
-                    "startOffset": 10663,
-                    "endColumn": 45,
-                    "endOffset": 10704
+                    "startOffset": 10675,
+                    "endColumn": 39,
+                    "endOffset": 10710
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2008,9 +2015,9 @@
                 "to": {
                     "startLine": 173,
                     "startColumn": 4,
-                    "startOffset": 10709,
-                    "endColumn": 73,
-                    "endOffset": 10778
+                    "startOffset": 10715,
+                    "endColumn": 41,
+                    "endOffset": 10752
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2020,9 +2027,9 @@
                 "to": {
                     "startLine": 174,
                     "startColumn": 4,
-                    "startOffset": 10783,
-                    "endColumn": 39,
-                    "endOffset": 10818
+                    "startOffset": 10757,
+                    "endColumn": 45,
+                    "endOffset": 10798
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2032,9 +2039,9 @@
                 "to": {
                     "startLine": 175,
                     "startColumn": 4,
-                    "startOffset": 10823,
-                    "endColumn": 54,
-                    "endOffset": 10873
+                    "startOffset": 10803,
+                    "endColumn": 73,
+                    "endOffset": 10872
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2044,9 +2051,9 @@
                 "to": {
                     "startLine": 176,
                     "startColumn": 4,
-                    "startOffset": 10878,
-                    "endColumn": 52,
-                    "endOffset": 10926
+                    "startOffset": 10877,
+                    "endColumn": 39,
+                    "endOffset": 10912
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2056,9 +2063,9 @@
                 "to": {
                     "startLine": 177,
                     "startColumn": 4,
-                    "startOffset": 10931,
-                    "endColumn": 64,
-                    "endOffset": 10991
+                    "startOffset": 10917,
+                    "endColumn": 54,
+                    "endOffset": 10967
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2068,9 +2075,9 @@
                 "to": {
                     "startLine": 178,
                     "startColumn": 4,
-                    "startOffset": 10996,
-                    "endColumn": 66,
-                    "endOffset": 11058
+                    "startOffset": 10972,
+                    "endColumn": 52,
+                    "endOffset": 11020
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2080,9 +2087,9 @@
                 "to": {
                     "startLine": 179,
                     "startColumn": 4,
-                    "startOffset": 11063,
-                    "endColumn": 56,
-                    "endOffset": 11115
+                    "startOffset": 11025,
+                    "endColumn": 64,
+                    "endOffset": 11085
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2092,9 +2099,9 @@
                 "to": {
                     "startLine": 180,
                     "startColumn": 4,
-                    "startOffset": 11120,
-                    "endColumn": 46,
-                    "endOffset": 11162
+                    "startOffset": 11090,
+                    "endColumn": 66,
+                    "endOffset": 11152
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2104,9 +2111,9 @@
                 "to": {
                     "startLine": 181,
                     "startColumn": 4,
-                    "startOffset": 11167,
-                    "endColumn": 73,
-                    "endOffset": 11236
+                    "startOffset": 11157,
+                    "endColumn": 56,
+                    "endOffset": 11209
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2116,9 +2123,9 @@
                 "to": {
                     "startLine": 182,
                     "startColumn": 4,
-                    "startOffset": 11241,
-                    "endColumn": 73,
-                    "endOffset": 11310
+                    "startOffset": 11214,
+                    "endColumn": 46,
+                    "endOffset": 11256
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2128,9 +2135,9 @@
                 "to": {
                     "startLine": 183,
                     "startColumn": 4,
-                    "startOffset": 11315,
-                    "endColumn": 58,
-                    "endOffset": 11369
+                    "startOffset": 11261,
+                    "endColumn": 73,
+                    "endOffset": 11330
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2140,9 +2147,9 @@
                 "to": {
                     "startLine": 184,
                     "startColumn": 4,
-                    "startOffset": 11374,
-                    "endColumn": 60,
-                    "endOffset": 11430
+                    "startOffset": 11335,
+                    "endColumn": 73,
+                    "endOffset": 11404
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2152,9 +2159,9 @@
                 "to": {
                     "startLine": 185,
                     "startColumn": 4,
-                    "startOffset": 11435,
-                    "endColumn": 56,
-                    "endOffset": 11487
+                    "startOffset": 11409,
+                    "endColumn": 58,
+                    "endOffset": 11463
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2164,9 +2171,9 @@
                 "to": {
                     "startLine": 186,
                     "startColumn": 4,
-                    "startOffset": 11492,
-                    "endColumn": 39,
-                    "endOffset": 11527
+                    "startOffset": 11468,
+                    "endColumn": 60,
+                    "endOffset": 11524
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2176,9 +2183,9 @@
                 "to": {
                     "startLine": 187,
                     "startColumn": 4,
-                    "startOffset": 11532,
-                    "endColumn": 49,
-                    "endOffset": 11577
+                    "startOffset": 11529,
+                    "endColumn": 56,
+                    "endOffset": 11581
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2188,9 +2195,9 @@
                 "to": {
                     "startLine": 188,
                     "startColumn": 4,
-                    "startOffset": 11582,
-                    "endColumn": 55,
-                    "endOffset": 11633
+                    "startOffset": 11586,
+                    "endColumn": 39,
+                    "endOffset": 11621
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2200,9 +2207,9 @@
                 "to": {
                     "startLine": 189,
                     "startColumn": 4,
-                    "startOffset": 11638,
-                    "endColumn": 53,
-                    "endOffset": 11687
+                    "startOffset": 11626,
+                    "endColumn": 49,
+                    "endOffset": 11671
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2212,9 +2219,9 @@
                 "to": {
                     "startLine": 190,
                     "startColumn": 4,
-                    "startOffset": 11692,
-                    "endColumn": 52,
-                    "endOffset": 11740
+                    "startOffset": 11676,
+                    "endColumn": 55,
+                    "endOffset": 11727
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2224,9 +2231,9 @@
                 "to": {
                     "startLine": 191,
                     "startColumn": 4,
-                    "startOffset": 11745,
-                    "endColumn": 48,
-                    "endOffset": 11789
+                    "startOffset": 11732,
+                    "endColumn": 53,
+                    "endOffset": 11781
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2236,9 +2243,9 @@
                 "to": {
                     "startLine": 192,
                     "startColumn": 4,
-                    "startOffset": 11794,
-                    "endColumn": 156,
-                    "endOffset": 11946
+                    "startOffset": 11786,
+                    "endColumn": 52,
+                    "endOffset": 11834
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2248,9 +2255,9 @@
                 "to": {
                     "startLine": 193,
                     "startColumn": 4,
-                    "startOffset": 11951,
-                    "endColumn": 71,
-                    "endOffset": 12018
+                    "startOffset": 11839,
+                    "endColumn": 48,
+                    "endOffset": 11883
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2260,9 +2267,9 @@
                 "to": {
                     "startLine": 194,
                     "startColumn": 4,
-                    "startOffset": 12023,
-                    "endColumn": 51,
-                    "endOffset": 12070
+                    "startOffset": 11888,
+                    "endColumn": 156,
+                    "endOffset": 12040
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2272,9 +2279,9 @@
                 "to": {
                     "startLine": 195,
                     "startColumn": 4,
-                    "startOffset": 12075,
-                    "endColumn": 60,
-                    "endOffset": 12131
+                    "startOffset": 12045,
+                    "endColumn": 71,
+                    "endOffset": 12112
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2284,9 +2291,9 @@
                 "to": {
                     "startLine": 196,
                     "startColumn": 4,
-                    "startOffset": 12136,
-                    "endColumn": 45,
-                    "endOffset": 12177
+                    "startOffset": 12117,
+                    "endColumn": 51,
+                    "endOffset": 12164
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2296,9 +2303,9 @@
                 "to": {
                     "startLine": 197,
                     "startColumn": 4,
-                    "startOffset": 12182,
-                    "endColumn": 54,
-                    "endOffset": 12232
+                    "startOffset": 12169,
+                    "endColumn": 60,
+                    "endOffset": 12225
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2308,9 +2315,9 @@
                 "to": {
                     "startLine": 198,
                     "startColumn": 4,
-                    "startOffset": 12237,
-                    "endColumn": 48,
-                    "endOffset": 12281
+                    "startOffset": 12230,
+                    "endColumn": 45,
+                    "endOffset": 12271
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2320,9 +2327,9 @@
                 "to": {
                     "startLine": 199,
                     "startColumn": 4,
-                    "startOffset": 12286,
-                    "endColumn": 59,
-                    "endOffset": 12341
+                    "startOffset": 12276,
+                    "endColumn": 54,
+                    "endOffset": 12326
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2332,9 +2339,9 @@
                 "to": {
                     "startLine": 200,
                     "startColumn": 4,
-                    "startOffset": 12346,
-                    "endColumn": 46,
-                    "endOffset": 12388
+                    "startOffset": 12331,
+                    "endColumn": 48,
+                    "endOffset": 12375
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2344,9 +2351,9 @@
                 "to": {
                     "startLine": 201,
                     "startColumn": 4,
-                    "startOffset": 12393,
-                    "endColumn": 66,
-                    "endOffset": 12455
+                    "startOffset": 12380,
+                    "endColumn": 59,
+                    "endOffset": 12435
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2356,9 +2363,9 @@
                 "to": {
                     "startLine": 202,
                     "startColumn": 4,
-                    "startOffset": 12460,
-                    "endColumn": 51,
-                    "endOffset": 12507
+                    "startOffset": 12440,
+                    "endColumn": 46,
+                    "endOffset": 12482
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2368,9 +2375,9 @@
                 "to": {
                     "startLine": 203,
                     "startColumn": 4,
-                    "startOffset": 12512,
-                    "endColumn": 57,
-                    "endOffset": 12565
+                    "startOffset": 12487,
+                    "endColumn": 66,
+                    "endOffset": 12549
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2380,9 +2387,9 @@
                 "to": {
                     "startLine": 204,
                     "startColumn": 4,
-                    "startOffset": 12570,
-                    "endColumn": 55,
-                    "endOffset": 12621
+                    "startOffset": 12554,
+                    "endColumn": 51,
+                    "endOffset": 12601
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2392,9 +2399,9 @@
                 "to": {
                     "startLine": 205,
                     "startColumn": 4,
-                    "startOffset": 12626,
-                    "endColumn": 70,
-                    "endOffset": 12692
+                    "startOffset": 12606,
+                    "endColumn": 57,
+                    "endOffset": 12659
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2404,9 +2411,9 @@
                 "to": {
                     "startLine": 206,
                     "startColumn": 4,
-                    "startOffset": 12697,
-                    "endColumn": 45,
-                    "endOffset": 12738
+                    "startOffset": 12664,
+                    "endColumn": 55,
+                    "endOffset": 12715
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2416,9 +2423,9 @@
                 "to": {
                     "startLine": 207,
                     "startColumn": 4,
-                    "startOffset": 12743,
-                    "endColumn": 50,
-                    "endOffset": 12789
+                    "startOffset": 12720,
+                    "endColumn": 70,
+                    "endOffset": 12786
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2428,9 +2435,9 @@
                 "to": {
                     "startLine": 208,
                     "startColumn": 4,
-                    "startOffset": 12794,
-                    "endColumn": 52,
-                    "endOffset": 12842
+                    "startOffset": 12791,
+                    "endColumn": 45,
+                    "endOffset": 12832
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2440,9 +2447,9 @@
                 "to": {
                     "startLine": 209,
                     "startColumn": 4,
-                    "startOffset": 12847,
+                    "startOffset": 12837,
                     "endColumn": 50,
-                    "endOffset": 12893
+                    "endOffset": 12883
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2452,9 +2459,9 @@
                 "to": {
                     "startLine": 210,
                     "startColumn": 4,
-                    "startOffset": 12898,
-                    "endColumn": 53,
-                    "endOffset": 12947
+                    "startOffset": 12888,
+                    "endColumn": 52,
+                    "endOffset": 12936
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2464,9 +2471,9 @@
                 "to": {
                     "startLine": 211,
                     "startColumn": 4,
-                    "startOffset": 12952,
-                    "endColumn": 53,
-                    "endOffset": 13001
+                    "startOffset": 12941,
+                    "endColumn": 50,
+                    "endOffset": 12987
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2476,9 +2483,9 @@
                 "to": {
                     "startLine": 212,
                     "startColumn": 4,
-                    "startOffset": 13006,
-                    "endColumn": 54,
-                    "endOffset": 13056
+                    "startOffset": 12992,
+                    "endColumn": 53,
+                    "endOffset": 13041
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2488,9 +2495,9 @@
                 "to": {
                     "startLine": 213,
                     "startColumn": 4,
-                    "startOffset": 13061,
-                    "endColumn": 51,
-                    "endOffset": 13108
+                    "startOffset": 13046,
+                    "endColumn": 53,
+                    "endOffset": 13095
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2500,9 +2507,9 @@
                 "to": {
                     "startLine": 214,
                     "startColumn": 4,
-                    "startOffset": 13113,
-                    "endColumn": 44,
-                    "endOffset": 13153
+                    "startOffset": 13100,
+                    "endColumn": 54,
+                    "endOffset": 13150
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2512,9 +2519,9 @@
                 "to": {
                     "startLine": 215,
                     "startColumn": 4,
-                    "startOffset": 13158,
-                    "endColumn": 45,
-                    "endOffset": 13199
+                    "startOffset": 13155,
+                    "endColumn": 51,
+                    "endOffset": 13202
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2524,9 +2531,9 @@
                 "to": {
                     "startLine": 216,
                     "startColumn": 4,
-                    "startOffset": 13204,
-                    "endColumn": 53,
-                    "endOffset": 13253
+                    "startOffset": 13207,
+                    "endColumn": 44,
+                    "endOffset": 13247
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2536,9 +2543,9 @@
                 "to": {
                     "startLine": 217,
                     "startColumn": 4,
-                    "startOffset": 13258,
-                    "endColumn": 49,
-                    "endOffset": 13303
+                    "startOffset": 13252,
+                    "endColumn": 45,
+                    "endOffset": 13293
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2548,9 +2555,9 @@
                 "to": {
                     "startLine": 218,
                     "startColumn": 4,
-                    "startOffset": 13308,
-                    "endColumn": 52,
-                    "endOffset": 13356
+                    "startOffset": 13298,
+                    "endColumn": 53,
+                    "endOffset": 13347
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2560,9 +2567,9 @@
                 "to": {
                     "startLine": 219,
                     "startColumn": 4,
-                    "startOffset": 13361,
-                    "endColumn": 53,
-                    "endOffset": 13410
+                    "startOffset": 13352,
+                    "endColumn": 49,
+                    "endOffset": 13397
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2572,9 +2579,9 @@
                 "to": {
                     "startLine": 220,
                     "startColumn": 4,
-                    "startOffset": 13415,
-                    "endColumn": 43,
-                    "endOffset": 13454
+                    "startOffset": 13402,
+                    "endColumn": 52,
+                    "endOffset": 13450
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2584,9 +2591,9 @@
                 "to": {
                     "startLine": 221,
                     "startColumn": 4,
-                    "startOffset": 13459,
-                    "endColumn": 61,
-                    "endOffset": 13516
+                    "startOffset": 13455,
+                    "endColumn": 53,
+                    "endOffset": 13504
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2596,9 +2603,9 @@
                 "to": {
                     "startLine": 222,
                     "startColumn": 4,
-                    "startOffset": 13521,
-                    "endColumn": 49,
-                    "endOffset": 13566
+                    "startOffset": 13509,
+                    "endColumn": 43,
+                    "endOffset": 13548
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2608,9 +2615,9 @@
                 "to": {
                     "startLine": 223,
                     "startColumn": 4,
-                    "startOffset": 13571,
-                    "endColumn": 51,
-                    "endOffset": 13618
+                    "startOffset": 13553,
+                    "endColumn": 61,
+                    "endOffset": 13610
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2620,9 +2627,9 @@
                 "to": {
                     "startLine": 224,
                     "startColumn": 4,
-                    "startOffset": 13623,
-                    "endColumn": 55,
-                    "endOffset": 13674
+                    "startOffset": 13615,
+                    "endColumn": 49,
+                    "endOffset": 13660
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2632,9 +2639,9 @@
                 "to": {
                     "startLine": 225,
                     "startColumn": 4,
-                    "startOffset": 13679,
-                    "endColumn": 61,
-                    "endOffset": 13736
+                    "startOffset": 13665,
+                    "endColumn": 51,
+                    "endOffset": 13712
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2644,9 +2651,9 @@
                 "to": {
                     "startLine": 226,
                     "startColumn": 4,
-                    "startOffset": 13741,
-                    "endColumn": 60,
-                    "endOffset": 13797
+                    "startOffset": 13717,
+                    "endColumn": 55,
+                    "endOffset": 13768
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2656,9 +2663,9 @@
                 "to": {
                     "startLine": 227,
                     "startColumn": 4,
-                    "startOffset": 13802,
-                    "endColumn": 44,
-                    "endOffset": 13842
+                    "startOffset": 13773,
+                    "endColumn": 61,
+                    "endOffset": 13830
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2668,9 +2675,9 @@
                 "to": {
                     "startLine": 228,
                     "startColumn": 4,
-                    "startOffset": 13847,
-                    "endColumn": 54,
-                    "endOffset": 13897
+                    "startOffset": 13835,
+                    "endColumn": 60,
+                    "endOffset": 13891
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2680,9 +2687,9 @@
                 "to": {
                     "startLine": 229,
                     "startColumn": 4,
-                    "startOffset": 13902,
-                    "endColumn": 43,
-                    "endOffset": 13941
+                    "startOffset": 13896,
+                    "endColumn": 44,
+                    "endOffset": 13936
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2692,9 +2699,9 @@
                 "to": {
                     "startLine": 230,
                     "startColumn": 4,
-                    "startOffset": 13946,
-                    "endColumn": 53,
-                    "endOffset": 13995
+                    "startOffset": 13941,
+                    "endColumn": 54,
+                    "endOffset": 13991
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2704,9 +2711,9 @@
                 "to": {
                     "startLine": 231,
                     "startColumn": 4,
-                    "startOffset": 14000,
-                    "endColumn": 53,
-                    "endOffset": 14049
+                    "startOffset": 13996,
+                    "endColumn": 43,
+                    "endOffset": 14035
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2716,9 +2723,9 @@
                 "to": {
                     "startLine": 232,
                     "startColumn": 4,
-                    "startOffset": 14054,
-                    "endColumn": 59,
-                    "endOffset": 14109
+                    "startOffset": 14040,
+                    "endColumn": 53,
+                    "endOffset": 14089
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2728,9 +2735,9 @@
                 "to": {
                     "startLine": 233,
                     "startColumn": 4,
-                    "startOffset": 14114,
-                    "endColumn": 55,
-                    "endOffset": 14165
+                    "startOffset": 14094,
+                    "endColumn": 53,
+                    "endOffset": 14143
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2740,9 +2747,9 @@
                 "to": {
                     "startLine": 234,
                     "startColumn": 4,
-                    "startOffset": 14170,
-                    "endColumn": 73,
-                    "endOffset": 14239
+                    "startOffset": 14148,
+                    "endColumn": 59,
+                    "endOffset": 14203
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2752,9 +2759,9 @@
                 "to": {
                     "startLine": 235,
                     "startColumn": 4,
-                    "startOffset": 14244,
-                    "endColumn": 65,
-                    "endOffset": 14305
+                    "startOffset": 14208,
+                    "endColumn": 55,
+                    "endOffset": 14259
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2764,9 +2771,9 @@
                 "to": {
                     "startLine": 236,
                     "startColumn": 4,
-                    "startOffset": 14310,
-                    "endColumn": 66,
-                    "endOffset": 14372
+                    "startOffset": 14264,
+                    "endColumn": 73,
+                    "endOffset": 14333
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2776,9 +2783,9 @@
                 "to": {
                     "startLine": 237,
                     "startColumn": 4,
-                    "startOffset": 14377,
-                    "endColumn": 60,
-                    "endOffset": 14433
+                    "startOffset": 14338,
+                    "endColumn": 65,
+                    "endOffset": 14399
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2788,9 +2795,9 @@
                 "to": {
                     "startLine": 238,
                     "startColumn": 4,
-                    "startOffset": 14438,
-                    "endColumn": 47,
-                    "endOffset": 14481
+                    "startOffset": 14404,
+                    "endColumn": 66,
+                    "endOffset": 14466
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2800,9 +2807,9 @@
                 "to": {
                     "startLine": 239,
                     "startColumn": 4,
-                    "startOffset": 14486,
-                    "endColumn": 69,
-                    "endOffset": 14551
+                    "startOffset": 14471,
+                    "endColumn": 60,
+                    "endOffset": 14527
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2812,9 +2819,9 @@
                 "to": {
                     "startLine": 240,
                     "startColumn": 4,
-                    "startOffset": 14556,
+                    "startOffset": 14532,
                     "endColumn": 47,
-                    "endOffset": 14599
+                    "endOffset": 14575
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2824,9 +2831,9 @@
                 "to": {
                     "startLine": 241,
                     "startColumn": 4,
-                    "startOffset": 14604,
-                    "endColumn": 84,
-                    "endOffset": 14684
+                    "startOffset": 14580,
+                    "endColumn": 69,
+                    "endOffset": 14645
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2836,9 +2843,9 @@
                 "to": {
                     "startLine": 242,
                     "startColumn": 4,
-                    "startOffset": 14689,
-                    "endColumn": 46,
-                    "endOffset": 14731
+                    "startOffset": 14650,
+                    "endColumn": 47,
+                    "endOffset": 14693
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2848,9 +2855,9 @@
                 "to": {
                     "startLine": 243,
                     "startColumn": 4,
-                    "startOffset": 14736,
-                    "endColumn": 45,
-                    "endOffset": 14777
+                    "startOffset": 14698,
+                    "endColumn": 84,
+                    "endOffset": 14778
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2860,9 +2867,9 @@
                 "to": {
                     "startLine": 244,
                     "startColumn": 4,
-                    "startOffset": 14782,
-                    "endColumn": 56,
-                    "endOffset": 14834
+                    "startOffset": 14783,
+                    "endColumn": 46,
+                    "endOffset": 14825
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2872,9 +2879,9 @@
                 "to": {
                     "startLine": 245,
                     "startColumn": 4,
-                    "startOffset": 14839,
-                    "endColumn": 41,
-                    "endOffset": 14876
+                    "startOffset": 14830,
+                    "endColumn": 45,
+                    "endOffset": 14871
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2884,9 +2891,9 @@
                 "to": {
                     "startLine": 246,
                     "startColumn": 4,
-                    "startOffset": 14881,
-                    "endColumn": 57,
-                    "endOffset": 14934
+                    "startOffset": 14876,
+                    "endColumn": 56,
+                    "endOffset": 14928
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2896,9 +2903,9 @@
                 "to": {
                     "startLine": 247,
                     "startColumn": 4,
-                    "startOffset": 14939,
-                    "endColumn": 51,
-                    "endOffset": 14986
+                    "startOffset": 14933,
+                    "endColumn": 41,
+                    "endOffset": 14970
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2908,9 +2915,9 @@
                 "to": {
                     "startLine": 248,
                     "startColumn": 4,
-                    "startOffset": 14991,
-                    "endColumn": 47,
-                    "endOffset": 15034
+                    "startOffset": 14975,
+                    "endColumn": 57,
+                    "endOffset": 15028
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -2920,9 +2927,33 @@
                 "to": {
                     "startLine": 249,
                     "startColumn": 4,
-                    "startOffset": 15039,
+                    "startOffset": 15033,
+                    "endColumn": 51,
+                    "endOffset": 15080
+                },
+                "from": {
+                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 250,
+                    "startColumn": 4,
+                    "startOffset": 15085,
+                    "endColumn": 47,
+                    "endOffset": 15128
+                },
+                "from": {
+                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 251,
+                    "startColumn": 4,
+                    "startOffset": 15133,
                     "endColumn": 99,
-                    "endOffset": 15134
+                    "endOffset": 15228
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"

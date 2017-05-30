@@ -39,7 +39,6 @@ public class WordStudyDetailAdapter extends BaseAdapter {
 	private List<WordDetailListItem> avObjects;
 	private ListView category_lv;
 	private MediaPlayer mPlayer;
-	private String audioPath;
 	private String fullName;
 	private boolean isPlayNext;
 	private int autoPlayIndex;
@@ -51,13 +50,13 @@ public class WordStudyDetailAdapter extends BaseAdapter {
 	private MyThread mMyThread;
 	
 	public WordStudyDetailAdapter(WordStudyDanCiRenZhiActivity mContext, SharedPreferences mSharedPreferences,
-								  SpeechSynthesizer mSpeechSynthesizer, ListView category_lv, List<WordDetailListItem> avObjects, String audioPath, MediaPlayer mPlayer) {
+								  SpeechSynthesizer mSpeechSynthesizer, ListView category_lv,
+								  List<WordDetailListItem> avObjects, MediaPlayer mPlayer) {
 		context = mContext;
 		this.mInflater = LayoutInflater.from(mContext);
 		this.avObjects = avObjects;
 		this.category_lv = category_lv;
 		this.mPlayer = mPlayer;
-		this.audioPath = audioPath;
 		this.mSharedPreferences = mSharedPreferences;
 		this.mSpeechSynthesizer = mSpeechSynthesizer;
 		mMyThread = new MyThread(mHandler);
@@ -119,17 +118,23 @@ public class WordStudyDetailAdapter extends BaseAdapter {
 			playWithSpeechSynthesizer(mAVObject);
 		}else{
 			String mp3Name = mAVObject.getSound().substring(mAVObject.getSound().lastIndexOf("/")+1);
-			fullName = SDCardUtil.getDownloadPath(audioPath) + mp3Name;
+			fullName = SDCardUtil.getDownloadPath(getAudioPath(mAVObject)) + mp3Name;
 			if(!SDCardUtil.isFileExist(fullName)){
-				DownLoadUtil.downloadFile(context, mAVObject.getSound(), audioPath, mp3Name, mHandler);
+				DownLoadUtil.downloadFile(context, mAVObject.getSound(), getAudioPath(mAVObject), mp3Name, mHandler);
 			}else{
 				playMp3();
 			}
 		}
 	}
+
+	private String getAudioPath(WordDetailListItem mAVObject){
+		return SDCardUtil.WordStudyPath + mAVObject.getClass_id() + SDCardUtil.Delimiter +
+				String.valueOf(mAVObject.getCourse()) + SDCardUtil.Delimiter;
+
+	}
 	
 	private void playWithSpeechSynthesizer(WordDetailListItem mAVObject){
-		String filepath = SDCardUtil.getDownloadPath(audioPath) + mAVObject.getItem_id() + ".pcm";
+		String filepath = SDCardUtil.getDownloadPath(getAudioPath(mAVObject)) + mAVObject.getItem_id() + ".pcm";
 		if(!AudioTrackUtil.isFileExists(filepath)){
 			mSpeechSynthesizer.setParameter(SpeechConstant.TTS_AUDIO_PATH, filepath);
 			XFUtil.showSpeechSynthesizer(context,mSharedPreferences,mSpeechSynthesizer,mAVObject.getName(),

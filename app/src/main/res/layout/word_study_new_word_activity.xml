@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/transitions_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/contentbg"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_awesome_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize" >
+        <ProgressBar style="@style/CircularProgressWhite"
+            android:id="@+id/progressBarCircularIndetermininate"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="right"
+            android:visibility="gone" />
+        </android.support.v7.widget.Toolbar>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="0dp"
+        app:elevation="3dp"
+        android:foreground="@drawable/framelayout_selector"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/load_blue"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="@dimen/bigger"
+            android:text="开始闯关"
+            />
+    </android.support.v7.widget.CardView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/my_awesome_toolbar"
+        android:layout_above="@id/bottom"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/contentbg"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_10"
+            >
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/renzhi_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="@dimen/padding_10"
+                    app:cardBackgroundColor="@color/white"
+                    android:foreground="@drawable/framelayout_selector"
+                    app:cardCornerRadius="@dimen/padding_5"
+                    app:elevation="1dp"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:text="@string/dancirenzhi"
+                            android:textColor="@color/text_black"
+                            android:textSize="@dimen/bigger" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:layout_marginTop="@dimen/padding_5"
+                            android:text="@string/dancirenzhi_des"
+                            android:textColor="@color/text_grey"
+                            android:textSize="@dimen/small" />
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/dancisuji_layout"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginBottom="@dimen/padding_10"
+                app:cardBackgroundColor="@color/white"
+                android:foreground="@drawable/framelayout_selector"
+                app:cardCornerRadius="@dimen/padding_5"
+                app:elevation="1dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:text="@string/dancisuji"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/bigger" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/padding_5"
+                        android:text="@string/dancisuji_des"
+                        android:textColor="@color/text_grey"
+                        android:textSize="@dimen/small" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/danciceshi_layout"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                app:cardBackgroundColor="@color/white"
+                android:layout_marginBottom="@dimen/padding_10"
+                android:foreground="@drawable/framelayout_selector"
+                app:cardCornerRadius="@dimen/padding_5"
+                app:elevation="1dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:text="@string/danciceshi"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/bigger" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/padding_5"
+                        android:text="@string/danciceshi_des"
+                        android:textColor="@color/text_grey"
+                        android:textSize="@dimen/small" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/duyinxuanci_layout"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginBottom="@dimen/padding_10"
+                app:cardBackgroundColor="@color/white"
+                android:foreground="@drawable/framelayout_selector"
+                app:cardCornerRadius="@dimen/padding_5"
+                app:elevation="1dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:text="@string/dancitingxuan"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/bigger" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/padding_5"
+                        android:text="@string/dancitingxuan_des"
+                        android:textColor="@color/text_grey"
+                        android:textSize="@dimen/small" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/ciyixuanci_layout"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                app:cardBackgroundColor="@color/white"
+                android:layout_marginBottom="@dimen/padding_10"
+                android:foreground="@drawable/framelayout_selector"
+                app:cardCornerRadius="@dimen/padding_5"
+                app:elevation="1dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:text="@string/ciyixuanci"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/bigger" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/padding_5"
+                        android:text="@string/ciyixuanci_des"
+                        android:textColor="@color/text_grey"
+                        android:textSize="@dimen/small" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/pinxie_layout"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                app:cardBackgroundColor="@color/white"
+                android:layout_marginBottom="@dimen/padding_10"
+                android:foreground="@drawable/framelayout_selector"
+                app:cardCornerRadius="@dimen/padding_5"
+                app:elevation="1dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:text="@string/pinxie"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/bigger" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/padding_5"
+                        android:text="@string/pinxie_des"
+                        android:textColor="@color/text_grey"
+                        android:textSize="@dimen/small" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
