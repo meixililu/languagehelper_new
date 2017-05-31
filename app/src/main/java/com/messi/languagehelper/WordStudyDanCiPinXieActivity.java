@@ -93,6 +93,7 @@ public class WordStudyDanCiPinXieActivity extends BaseActivity implements OnFini
     private MediaPlayer mPlayer;
     private String fullName;
     private int playTimes;
+    private int totalSum;
     private StringBuilder sb;
     private SharedPreferences sharedPreferences;
     private WordStudySpellAdapter mWordStudySpellAdapter;
@@ -119,7 +120,8 @@ public class WordStudyDanCiPinXieActivity extends BaseActivity implements OnFini
     }
 
     public void getTestOrder() {
-        randomPlayIndex = NumberUtil.getNumberOrderNotRepeat(WordStudyPlanDetailActivity.itemList.size() - 1, 0);
+        totalSum = WordStudyPlanDetailActivity.itemList.size();
+        randomPlayIndex = NumberUtil.getNumberOrderNotRepeat(totalSum - 1, 0);
         index = 0;
     }
 
@@ -162,7 +164,7 @@ public class WordStudyDanCiPinXieActivity extends BaseActivity implements OnFini
     private void setData(boolean isPlaySound) {
         wordName.setTextColor(getResources().getColor(R.color.white));
         resultLayout.setVisibility(View.GONE);
-        setActionBarTitle(this.getResources().getString(R.string.pinxie) + "(" + (index + 1) + "/" + WordStudyPlanDetailActivity.itemList.size() + ")");
+        setActionBarTitle(this.getResources().getString(R.string.pinxie) + "(" + (index + 1) + "/" + totalSum + ")");
         if (index < randomPlayIndex.size()) {
             position = randomPlayIndex.get(index);
             sb.setLength(0);
@@ -413,7 +415,7 @@ public class WordStudyDanCiPinXieActivity extends BaseActivity implements OnFini
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        if (index == WordStudyPlanDetailActivity.itemList.size() - 1) {
+                        if (index == totalSum - 1) {
                             resultLayout.setVisibility(View.VISIBLE);
                             countScoreAndShowResult();
                         } else {
@@ -442,7 +444,7 @@ public class WordStudyDanCiPinXieActivity extends BaseActivity implements OnFini
                 resultList.add(item);
             }
         }
-        int scoreInt = (int) ((WordStudyPlanDetailActivity.itemList.size() - wrongCount) / WordStudyPlanDetailActivity.itemList.size() * 100);
+        int scoreInt = (int) ((totalSum - wrongCount) / totalSum * 100);
         score.setText(String.valueOf(scoreInt) + "分");
         if (scoreInt > 59) {
             score.setTextColor(this.getResources().getColor(R.color.green));

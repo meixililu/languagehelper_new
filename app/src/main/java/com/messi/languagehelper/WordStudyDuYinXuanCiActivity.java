@@ -26,6 +26,7 @@ import com.messi.languagehelper.adapter.RcWordStudyCiYiXuanCiAdapter;
 import com.messi.languagehelper.dao.WordDetailListItem;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.impl.OnFinishListener;
+import com.messi.languagehelper.util.ChangeDataTypeUtil;
 import com.messi.languagehelper.util.DownLoadUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.NumberUtil;
@@ -96,6 +97,7 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnFini
     private SoundPool ourSounds;
     private int answer_right;
     private int answer_wrong;
+    private int totalSum;
 
     private Handler mHandler = new Handler() {
         @Override
@@ -111,13 +113,14 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnFini
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_study_duyinxuanci_activity);
         ButterKnife.bind(this);
+        initOrder();
         initViews();
         initializeSoundPool();
         setData();
     }
 
     private void initViews() {
-        setActionBarTitle(this.getResources().getString(R.string.dancitingxuan) + "(" + (index + 1) + "/" + WordStudyPlanDetailActivity.itemList.size() + ")");
+        setActionBarTitle(this.getResources().getString(R.string.dancitingxuan) + "(" + (index + 1) + "/" + totalSum + ")");
         mPlayer = new MediaPlayer();
         class_name = getIntent().getStringExtra(KeyUtil.ClassName);
         class_id = getIntent().getStringExtra(KeyUtil.ClassId);
@@ -136,11 +139,11 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnFini
                         .build());
         listview.setAdapter(adapter);
         PlayUtil.setOnFinishListener(this);
-        initOrder();
     }
 
     private void initOrder(){
-        randomPlayIndex = NumberUtil.getNumberOrderNotRepeat(WordStudyPlanDetailActivity.itemList.size() - 1, 0);
+        totalSum = WordStudyPlanDetailActivity.itemList.size();
+        randomPlayIndex = NumberUtil.getNumberOrderNotRepeat(totalSum - 1, 0);
         index = 0;
     }
 
@@ -148,15 +151,32 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnFini
         wordTestLayout.setVisibility(View.VISIBLE);
         resultLayout.setVisibility(View.GONE);
         if (index < randomPlayIndex.size()) {
-            setActionBarTitle(this.getResources().getString(R.string.dancitingxuan) + "(" + (index + 1) + "/" + WordStudyPlanDetailActivity.itemList.size() + ")");
+            setActionBarTitle(this.getResources().getString(R.string.dancitingxuan) + "(" + (index + 1) + "/" + totalSum + ")");
             position = randomPlayIndex.get(index);
-            List<Integer> tv_list = NumberUtil.getRanbomNumberContantExceptAndNotRepeat(WordStudyPlanDetailActivity.itemList.size(),
+            List<Integer> tv_list = NumberUtil.getRanbomNumberContantExceptAndNotRepeat(
+                    totalSum < 4 ? 10 : totalSum,
                     0, 3, position);
             if (tv_list.size() == 4) {
-                selection1.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(0)).getName());
-                selection2.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(1)).getName());
-                selection3.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(2)).getName());
-                selection4.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(3)).getName());
+                if(totalSum > tv_list.get(0)){
+                    selection1.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(0)).getName());
+                }else {
+                    selection1.setText(DataBaseUtil.getInstance().getBench().getName());
+                }
+                if(totalSum > tv_list.get(1)){
+                    selection2.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(1)).getName());
+                }else {
+                    selection2.setText(DataBaseUtil.getInstance().getBench().getName());
+                }
+                if(totalSum > tv_list.get(2)){
+                    selection3.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(2)).getName());
+                }else {
+                    selection3.setText(DataBaseUtil.getInstance().getBench().getName());
+                }
+                if(totalSum > tv_list.get(3)){
+                    selection4.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(3)).getName());
+                }else {
+                    selection4.setText(DataBaseUtil.getInstance().getBench().getName());
+                }
                 selection1.setTextColor(getResources().getColor(R.color.text_black1));
                 selection2.setTextColor(getResources().getColor(R.color.text_black1));
                 selection3.setTextColor(getResources().getColor(R.color.text_black1));
@@ -362,7 +382,7 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnFini
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        if(index == WordStudyPlanDetailActivity.itemList.size() - 1){
+                        if(index == totalSum - 1){
                             wordTestLayout.setVisibility(View.GONE);
                             resultLayout.setVisibility(View.VISIBLE);
                             countScoreAndShowResult();
@@ -400,7 +420,7 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnFini
                 resultList.add(item);
             }
         }
-        int scoreInt = (int) ((WordStudyPlanDetailActivity.itemList.size() - wrongCount) / WordStudyPlanDetailActivity.itemList.size() * 100);
+        int scoreInt = (int) ((totalSum - wrongCount) / totalSum * 100);
         score.setText(String.valueOf(scoreInt) + "分");
         if (scoreInt > 59) {
             score.setTextColor(this.getResources().getColor(R.color.green));

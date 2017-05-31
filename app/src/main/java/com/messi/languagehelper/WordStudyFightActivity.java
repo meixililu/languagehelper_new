@@ -33,6 +33,7 @@ import com.messi.languagehelper.bean.WordListItem;
 import com.messi.languagehelper.dao.WordDetailListItem;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.impl.OnFinishListener;
+import com.messi.languagehelper.util.ChangeDataTypeUtil;
 import com.messi.languagehelper.util.DownLoadUtil;
 import com.messi.languagehelper.util.KaiPinAdUIModel;
 import com.messi.languagehelper.util.KeyUtil;
@@ -115,7 +116,7 @@ public class WordStudyFightActivity extends BaseActivity implements OnFinishList
     private int playTimes;
     private SharedPreferences sharedPreferences;
     private boolean isNewWordStudy;
-
+    private int totalSum;
     private KaiPinAdUIModel mKaiPinAdUIModel;
 
     private Handler mHandler = new Handler() {
@@ -142,9 +143,10 @@ public class WordStudyFightActivity extends BaseActivity implements OnFinishList
     }
 
     public void getTestOrder() {
+        totalSum = WordStudyPlanDetailActivity.itemList.size();
         randomPlayIndex = new ArrayList<Integer>();
-        randomPlayIndex.addAll(NumberUtil.getNumberOrderNotRepeat(WordStudyPlanDetailActivity.itemList.size() - 1, 0));
-        randomPlayIndex.addAll(NumberUtil.getNumberOrderNotRepeat(WordStudyPlanDetailActivity.itemList.size() - 1, 0));
+        randomPlayIndex.addAll(NumberUtil.getNumberOrderNotRepeat(totalSum - 1, 0));
+        randomPlayIndex.addAll(NumberUtil.getNumberOrderNotRepeat(totalSum - 1, 0));
         index = 0;
     }
 
@@ -188,26 +190,59 @@ public class WordStudyFightActivity extends BaseActivity implements OnFinishList
         resultLayout.setVisibility(View.GONE);
         if (index < randomPlayIndex.size()) {
             position = randomPlayIndex.get(index);
-            List<Integer> tv_list = NumberUtil.getRanbomNumberContantExceptAndNotRepeat(WordStudyPlanDetailActivity.itemList.size(),
+            List<Integer> tv_list = NumberUtil.getRanbomNumberContantExceptAndNotRepeat(
+                    totalSum < 4 ? 10 : totalSum,
                     0, 3, position);
             if (tv_list.size() == 4) {
                 if (index < WordStudyPlanDetailActivity.itemList.size()) {
                     wordTv.setText(WordStudyPlanDetailActivity.itemList.get(position).getName());
-                    selection1.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(0)).getDesc());
-                    selection2.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(1)).getDesc());
-                    selection3.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(2)).getDesc());
-                    selection4.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(3)).getDesc());
+                    if(totalSum > tv_list.get(0)){
+                        selection1.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(0)).getDesc());
+                    }else {
+                        selection1.setText(DataBaseUtil.getInstance().getBench().getDesc());
+                    }
+                    if(totalSum > tv_list.get(1)){
+                        selection2.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(1)).getDesc());
+                    }else {
+                        selection2.setText(DataBaseUtil.getInstance().getBench().getDesc());
+                    }
+                    if(totalSum > tv_list.get(2)){
+                        selection3.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(2)).getDesc());
+                    }else {
+                        selection3.setText(DataBaseUtil.getInstance().getBench().getDesc());
+                    }
+                    if(totalSum > tv_list.get(3)){
+                        selection4.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(3)).getDesc());
+                    }else {
+                        selection4.setText(DataBaseUtil.getInstance().getBench().getDesc());
+                    }
                 } else {
-                    wordTv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+                    wordTv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
                     selection1.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
                     selection2.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
                     selection3.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
                     selection4.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
                     wordTv.setText(WordStudyPlanDetailActivity.itemList.get(position).getDesc());
-                    selection1.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(0)).getName());
-                    selection2.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(1)).getName());
-                    selection3.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(2)).getName());
-                    selection4.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(3)).getName());
+                    if(totalSum > tv_list.get(0)){
+                        selection1.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(0)).getName());
+                    }else {
+                        selection1.setText(DataBaseUtil.getInstance().getBench().getName());
+                    }
+                    if(totalSum > tv_list.get(1)){
+                        selection2.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(1)).getName());
+                    }else {
+                        selection2.setText(DataBaseUtil.getInstance().getBench().getName());
+                    }
+                    if(totalSum > tv_list.get(2)){
+                        selection3.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(2)).getName());
+                    }else {
+                        selection3.setText(DataBaseUtil.getInstance().getBench().getName());
+                    }
+                    if(totalSum > tv_list.get(3)){
+                        selection4.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(3)).getName());
+                    }else {
+                        selection4.setText(DataBaseUtil.getInstance().getBench().getName());
+                    }
                 }
             }
         }
@@ -407,7 +442,7 @@ public class WordStudyFightActivity extends BaseActivity implements OnFinishList
         double wrongCount = 0;
         resultList.clear();
         for (WordDetailListItem item : WordStudyPlanDetailActivity.itemList) {
-            if (item.getSelect_time() > 0) {
+            if (item.getSelect_time() > 0 ) {
                 wrongCount++;
                 resultList.add(item);
             }
@@ -418,7 +453,7 @@ public class WordStudyFightActivity extends BaseActivity implements OnFinishList
                 resultList.add(item);
             }
         }
-        int scoreInt = (int) ((WordStudyPlanDetailActivity.itemList.size() - wrongCount) / WordStudyPlanDetailActivity.itemList.size() * 100);
+        int scoreInt = (int) ((totalSum - wrongCount) / totalSum * 100);
         score.setText(String.valueOf(scoreInt) + "分");
         if (scoreInt > 59) {
             saveCourseId();

@@ -27,6 +27,7 @@ import org.greenrobot.greendao.query.DeleteQuery;
 import org.greenrobot.greendao.query.QueryBuilder;
 
 import java.util.List;
+import java.util.Random;
 
 public class DataBaseUtil {
 
@@ -332,6 +333,17 @@ public class DataBaseUtil {
                 .where(WordDetailListItemDao.Properties.Class_id.eq(class_id))
                 .where(WordDetailListItemDao.Properties.Course.eq(course_id))
                 .list();
+    }
+
+    public WordDetailListItem getBench(){
+        int count = countWordDetailListItem();
+        int randomPage = new Random().nextInt(count);
+        return mWordDetailListItemDao
+                .queryBuilder()
+                .offset(randomPage)
+                .limit(1)
+                .list()
+                .get(0);
     }
 
     public int countWordDetailListItem(){

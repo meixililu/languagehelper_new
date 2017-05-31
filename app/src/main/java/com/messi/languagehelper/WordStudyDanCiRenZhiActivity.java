@@ -50,15 +50,7 @@ public class WordStudyDanCiRenZhiActivity extends BaseActivity implements OnClic
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_study_detail_activity);
-        initSwipeRefresh();
         initViews();
-        getDataTask();
-    }
-
-    private void checkData() {
-        if (WordStudyPlanDetailActivity.itemList == null) {
-            WordStudyPlanDetailActivity.itemList = new ArrayList<WordDetailListItem>();
-        }
     }
 
     private void initViews() {
@@ -73,83 +65,10 @@ public class WordStudyDanCiRenZhiActivity extends BaseActivity implements OnClic
         course_num = getIntent().getIntExtra(KeyUtil.CourseNum, 0);
         playbtn = (FloatingActionButton) findViewById(R.id.playbtn);
         category_lv = (ListView) findViewById(R.id.studycategory_lv);
-        checkData();
         mAdapter = new WordStudyDetailAdapter(this, mSharedPreferences, mSpeechSynthesizer, category_lv,
                 WordStudyPlanDetailActivity.itemList, mPlayer);
         category_lv.setAdapter(mAdapter);
-
         playbtn.setOnClickListener(this);
-    }
-
-    @Override
-    public void onSwipeRefreshLayoutRefresh() {
-        super.onSwipeRefreshLayoutRefresh();
-        getDataTask();
-    }
-
-    private void getDataTask() {
-        if (WordStudyPlanDetailActivity.itemList == null || WordStudyPlanDetailActivity.itemList.size() == 0) {
-            showProgressbar();
-            Observable.create(new ObservableOnSubscribe<String>() {
-                @Override
-                public void subscribe(ObservableEmitter<String> e) throws Exception {
-                    loadData();
-                    e.onComplete();
-                }
-            })
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(new Observer<String>() {
-                        @Override
-                        public void onSubscribe(Disposable d) {
-                        }
-                        @Override
-                        public void onNext(String s) {
-                        }
-                        @Override
-                        public void onError(Throwable e) {
-                        }
-                        @Override
-                        public void onComplete() {
-                            onFinishLoadData();
-                        }
-                    });
-        } else {
-            clearPlaySign();
-            onFinishLoadData();
-        }
-    }
-
-    private void clearPlaySign() {
-        for (WordDetailListItem mAVObject : WordStudyPlanDetailActivity.itemList) {
-            mAVObject.setBackup1("");
-        }
-    }
-
-    private void loadData() {
-        try {
-            AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.WordStudyDetail.WordStudyDetail);
-            query.whereEqualTo(AVOUtil.WordStudyDetail.class_id, class_id);
-            query.whereEqualTo(AVOUtil.WordStudyDetail.course, course_id);
-            query.orderByAscending(AVOUtil.WordStudyDetail.item_id);
-            List<AVObject> avObjects = query.find();
-            if (avObjects != null) {
-                WordStudyPlanDetailActivity.itemList.clear();
-                for (AVObject mAVObject : avObjects) {
-                    WordStudyPlanDetailActivity.itemList.add(ChangeDataTypeUtil.changeData(mAVObject));
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    private void onFinishLoadData() {
-        hideProgressbar();
-        onSwipeRefreshLayoutFinish();
-        mAdapter.notifyDataSetChanged();
-        category_lv.setSelection(0);
     }
 
     @Override
