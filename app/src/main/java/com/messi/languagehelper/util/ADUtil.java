@@ -12,6 +12,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.widget.LinearLayout;
 
+import java.util.Random;
+
 
 public class ADUtil {
 	
@@ -113,6 +115,14 @@ public class ADUtil {
 			SharedPreferences mSharedPreferences = Settings.getSharedPreferences(mContext);
 			int times = mSharedPreferences.getInt(KeyUtil.IsCanShowAD_Loading, 0);
 			return times > 1;
+		}
+	}
+
+	public static String randomAd(){
+		if(new Random().nextInt(2) > 0){
+			return ADUtil.XXLAD;
+		}else {
+			return ADUtil.SanTuYiWen;
 		}
 	}
 	

@@ -478,7 +478,7 @@ public class WordStudyFightActivity extends BaseActivity implements OnFinishList
         }else {
             List<WordDetailListItem> list = new ArrayList<WordDetailListItem>();
             for(WordDetailListItem item : WordStudyPlanDetailActivity.itemList){
-                if(item.getSelect_time() > 0){
+                if(item.getSelect_time() == 0){
                     list.add(item);
                 }
                 DataBaseUtil.getInstance().deleteList(list);

@@ -2,6 +2,7 @@ package com.messi.languagehelper;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
@@ -247,7 +248,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 	}
 	
 	private void loadAD(){
-		nativeAd = new IFLYNativeAd(getContext(), ADUtil.XXLAD, new IFLYNativeListener() {
+		nativeAd = new IFLYNativeAd(getContext(), ADUtil.randomAd(), new IFLYNativeListener() {
 			@Override
 			public void onConfirm() {
 			}

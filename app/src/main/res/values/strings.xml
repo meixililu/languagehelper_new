@@ -76,7 +76,8 @@
     <string name="ch_dic_input_hint">请输入一个需要查询的文字</string>
     <string name="ch_dic_idiom_input_hint">请输入需要查询的成语</string>
     <string name="input_translate_hint">请翻译</string>
-    <string name="auto_play_after_translate">翻译后自动播放</string>
+    <string name="auto_clear_after_translate">翻译完成后自动清空输入框</string>
+    <string name="auto_play_after_translate">自动播放翻译结果</string>
     <string name="auto_clear">退出应用删除非收藏记录</string>
     <string name="search">查询</string>
     <string name="translate">翻译</string>

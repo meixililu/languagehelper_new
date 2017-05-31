@@ -428,7 +428,9 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
         isShowRecentList(false);
         cidianResultLayout.scrollTo(0, 0);
         DictionaryHelper.addDicContent(mActivity, dicResultLayout, mDictionaryBean, this);
-        input_et.setText("");
+        if(PlayUtil.getSP().getBoolean(KeyUtil.AutoClearInput, true)){
+            input_et.setText("");
+        }
     }
 
     private void onFinishRequest() {

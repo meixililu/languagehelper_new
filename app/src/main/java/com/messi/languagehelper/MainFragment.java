@@ -560,7 +560,9 @@ public class MainFragment extends Fragment implements OnClickListener {
     }
 
     public void autoClearAndautoPlay() {
-        input_et.setText("");
+        if(PlayUtil.getSP().getBoolean(KeyUtil.AutoClearInput, true)){
+            input_et.setText("");
+        }
         if (PlayUtil.getSP().getBoolean(KeyUtil.AutoPlayResult, false)) {
             AutoPlayWaitTask();
         }

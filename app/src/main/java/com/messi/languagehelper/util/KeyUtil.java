@@ -42,6 +42,8 @@ public class KeyUtil {
 	
 	public static final String AutoPlayResult = "AutoPlayResult";
 
+	public static final String AutoClearInput = "AutoClearInput";
+
 	public static final String AutoClearTran = "AutoClearTran";
 
 	public static final String AutoClearDic = "AutoClearDic";

@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/contentbg"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_awesome_toolbar"
@@ -17,13 +17,13 @@
         android:layout_height="fill_parent"
         android:background="@color/contentbg"
         android:fillViewport="true"
-        android:scrollbars="none" >
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="@color/contentbg"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -31,7 +31,7 @@
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="10dp"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/seekbar_text"
@@ -71,14 +71,14 @@
                 android:id="@+id/setting_auto_play"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:foreground="@drawable/framelayout_selector" >
+                android:foreground="@drawable/framelayout_selector">
 
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
                     android:layout_marginTop="20dp"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="0dp"
@@ -107,12 +107,53 @@
                 android:background="@color/lightgrey" />
 
             <FrameLayout
+                android:id="@+id/setting_auto_clear"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:foreground="@drawable/framelayout_selector">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="@string/auto_clear_after_translate"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/big" />
+
+                    <CheckBox
+                        android:id="@+id/setting_auto_clear_cb"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="15dp"
+                        android:clickable="false"
+                        android:focusable="false" />
+                </LinearLayout>
+
+            </FrameLayout>
+
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/lightgrey" />
+
+
+            <FrameLayout
                 android:id="@+id/setting_clear_all_except_favorite"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:foreground="@drawable/framelayout_selector"
                 android:paddingBottom="20dp"
-                android:paddingTop="20dp" >
+                android:paddingTop="20dp">
 
                 <TextView
                     android:layout_width="fill_parent"
@@ -135,7 +176,7 @@
                 android:layout_height="wrap_content"
                 android:foreground="@drawable/framelayout_selector"
                 android:paddingBottom="20dp"
-                android:paddingTop="20dp" >
+                android:paddingTop="20dp">
 
                 <TextView
                     android:layout_width="fill_parent"

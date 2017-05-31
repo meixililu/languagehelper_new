@@ -346,6 +346,14 @@ public class DataBaseUtil {
                 .get(0);
     }
 
+    public int countNewWordNumber(){
+        return mWordDetailListItemDao
+                .queryBuilder()
+                .where(WordDetailListItemDao.Properties.New_words.eq("1"))
+                .list()
+                .size();
+    }
+
     public int countWordDetailListItem(){
         return mWordDetailListItemDao
                 .queryBuilder()

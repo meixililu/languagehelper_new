@@ -53,9 +53,9 @@ public class WordStudyNewWordActivity extends BaseActivity {
     }
 
     private void init() {
-        int total = DataBaseUtil.getInstance().countWordDetailListItem();
+        int total = DataBaseUtil.getInstance().countNewWordNumber();
         if(total == 0){
-            ToastUtil.diaplayMesLong(this,"没有需要挑战等生词");
+            ToastUtil.diaplayMesLong(this,"没有需要挑战的生词");
             finish();
         }
         int pageNum = total / pagesize;

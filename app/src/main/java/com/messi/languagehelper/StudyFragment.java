@@ -38,6 +38,7 @@ import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -318,7 +319,7 @@ public class StudyFragment extends BaseFragment implements OnClickListener, Tabl
     }
 
     private void loadAD() {
-        nativeAd = new IFLYNativeAd(getContext(), ADUtil.XXLAD, new IFLYNativeListener() {
+        nativeAd = new IFLYNativeAd(getContext(), ADUtil.randomAd(), new IFLYNativeListener() {
             @Override
             public void onConfirm() {
             }
