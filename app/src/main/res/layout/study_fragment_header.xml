@@ -17,7 +17,7 @@
             android:id="@+id/daily_sentence_item_img"
             fresco:actualImageScaleType="focusCrop"
             fresco:placeholderImage="@color/text_tint"
-            fresco:placeholderImageScaleType="fitCenter"
+            fresco:placeholderImageScaleType="focusCrop"
             fresco:viewAspectRatio="2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -39,10 +39,6 @@
             android:layout_marginLeft="@dimen/padding_7"
             android:layout_marginRight="@dimen/padding_7"
             android:gravity="left|bottom"
-            android:shadowColor="@color/white"
-            android:shadowDx="0.4"
-            android:shadowDy="0.4"
-            android:shadowRadius="0.4"
             android:textColor="@color/white"
             android:textSize="@dimen/biggerx" />
 

@@ -180,33 +180,6 @@
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/study_listening_layout"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/study_menu_item_height"
-                android:layout_marginRight="1px"
-                android:layout_weight="1"
-                android:foreground="@drawable/framelayout_selector"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:text="@string/title_listening"
-                    android:textColor="@color/text_black"
-                    android:textSize="@dimen/big" />
-            </FrameLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="1px"
-            android:orientation="horizontal">
-
-            <FrameLayout
                 android:id="@+id/study_test"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/study_menu_item_height"
@@ -243,13 +216,12 @@
                     android:textSize="@dimen/big" />
             </FrameLayout>
 
-
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/padding_10"
+            android:layout_marginBottom="1px"
             android:orientation="horizontal">
 
             <FrameLayout
@@ -275,8 +247,8 @@
                 android:id="@+id/collected_layout"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/study_menu_item_height"
-                android:layout_marginRight="1px"
                 android:layout_weight="1"
+                android:layout_marginRight="1px"
                 android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
@@ -309,20 +281,49 @@
             </FrameLayout>
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_10"
+            android:layout_marginBottom="@dimen/padding_10"
+            android:orientation="horizontal">
+            <FrameLayout
+                android:id="@+id/study_listening_layout"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/study_menu_item_height"
+                android:layout_weight="1"
+                android:foreground="@drawable/framelayout_selector"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="@string/title_listening"
+                    android:textColor="@color/text_black"
+                    android:textSize="@dimen/big" />
+            </FrameLayout>
+        </LinearLayout>
+
         <FrameLayout
             android:id="@+id/ad_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/padding_10"
             android:background="@color/white"
-            android:visibility="gone"
-            >
+            android:foreground="@drawable/framelayout_selector"
+            android:visibility="gone">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_10"
+                android:layout_marginLeft="@dimen/padding_10"
+                android:layout_marginRight="@dimen/padding_10"
+                android:layout_marginBottom="@dimen/padding_5"
                 android:background="@color/white"
-                android:orientation="vertical"
-                android:layout_margin="@dimen/padding_10"
-                >
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/title"
@@ -345,33 +346,36 @@
                     <com.facebook.drawee.view.SimpleDraweeView
                         android:id="@+id/imgs_1"
                         android:layout_width="0dp"
-                        android:layout_height="90dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginRight="@dimen/padding_5"
                         android:layout_weight="1"
                         fresco:actualImageScaleType="focusCrop"
                         fresco:placeholderImage="@color/text_tint"
-                        fresco:placeholderImageScaleType="fitCenter" />
+                        fresco:placeholderImageScaleType="fitCenter"
+                        fresco:viewAspectRatio="1.5" />
 
                     <com.facebook.drawee.view.SimpleDraweeView
                         android:id="@+id/imgs_2"
                         android:layout_width="0dp"
-                        android:layout_height="90dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/padding_5"
                         android:layout_marginRight="@dimen/padding_5"
                         android:layout_weight="1"
                         fresco:actualImageScaleType="focusCrop"
                         fresco:placeholderImage="@color/text_tint"
-                        fresco:placeholderImageScaleType="fitCenter" />
+                        fresco:placeholderImageScaleType="fitCenter"
+                        fresco:viewAspectRatio="1.5" />
 
                     <com.facebook.drawee.view.SimpleDraweeView
                         android:id="@+id/imgs_3"
                         android:layout_width="0dp"
-                        android:layout_height="90dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/padding_5"
                         android:layout_weight="1"
                         fresco:actualImageScaleType="focusCrop"
                         fresco:placeholderImage="@color/text_tint"
-                        fresco:placeholderImageScaleType="fitCenter" />
+                        fresco:placeholderImageScaleType="fitCenter"
+                        fresco:viewAspectRatio="1.5" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -404,6 +408,42 @@
                         android:textSize="@dimen/small" />
 
                 </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/essay_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:background="@color/white"
+            android:foreground="@drawable/framelayout_selector"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/padding_15"
+                android:paddingBottom="@dimen/padding_5"
+                android:paddingLeft="@dimen/padding_10"
+                android:paddingRight="@dimen/padding_10"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/essay_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:textColor="@color/text_black"
+                    android:textSize="@dimen/bigger"
+                    />
+                <TextView
+                    android:id="@+id/essay_prompt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_5"
+                    android:gravity="right"
+                    android:textColor="@color/text_tint"
+                    android:textSize="@dimen/small"
+                    />
             </LinearLayout>
         </FrameLayout>
 

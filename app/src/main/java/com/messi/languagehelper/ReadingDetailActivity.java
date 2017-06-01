@@ -273,18 +273,22 @@ public class ReadingDetailActivity extends BaseActivity {
                 }
             });
         } else {
-            final NativeADDataRef mNativeADDataRef = mObject.getmNativeADDataRef();
-            title.setText(mNativeADDataRef.getSubTitle());
-            type_name.setText(mNativeADDataRef.getTitle());
-            source_name.setText("VoiceAds广告");
-            list_item_img.setImageURI(Uri.parse(mNativeADDataRef.getImage()));
-            mNativeADDataRef.onExposured(layout_cover);
-            layout_cover.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    mNativeADDataRef.onClicked(v);
-                }
-            });
+            try {
+                final NativeADDataRef mNativeADDataRef = mObject.getmNativeADDataRef();
+                title.setText(mNativeADDataRef.getSubTitle());
+                type_name.setText(mNativeADDataRef.getTitle());
+                source_name.setText("VoiceAds广告");
+                list_item_img.setImageURI(Uri.parse(mNativeADDataRef.getImage()));
+                mNativeADDataRef.onExposured(layout_cover);
+                layout_cover.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mNativeADDataRef.onClicked(v);
+                    }
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         return convertView;
     }

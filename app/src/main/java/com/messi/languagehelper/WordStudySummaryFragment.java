@@ -55,14 +55,19 @@ public class WordStudySummaryFragment extends BaseFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.word_study_list_fragment, container, false);
         initSwipeRefresh(view);
-        initViews(view);
-        new QueryTask().execute();
         return view;
     }
 
-    private void initViews(View view) {
+    @Override
+    public void loadDataOnStart() {
+        super.loadDataOnStart();
+        initViews();
+        new QueryTask().execute();
+    }
+
+    private void initViews() {
         avObjects = new ArrayList<AVObject>();
-        category_lv = (RecyclerView) view.findViewById(R.id.listview);
+        category_lv = (RecyclerView) getView().findViewById(R.id.listview);
         mXFYSAD = new XFYSAD(getContext(), ADUtil.SecondaryPage);
         mAdapter = new RcWordSummaryListAdapter(mXFYSAD);
         category_lv.setHasFixedSize(true);

@@ -52,9 +52,10 @@
 				<com.facebook.drawee.view.SimpleDraweeView
 					android:id="@+id/imgs_1"
 					android:layout_width="0dp"
-					android:layout_height="90dp"
+					android:layout_height="wrap_content"
 					android:layout_weight="1"
 					android:layout_marginRight="@dimen/padding_5"
+					fresco:viewAspectRatio="1.5"
 					fresco:placeholderImageScaleType="fitCenter"
 					fresco:actualImageScaleType="focusCrop"
 					fresco:placeholderImage="@color/text_tint"
@@ -62,8 +63,9 @@
 				<com.facebook.drawee.view.SimpleDraweeView
 					android:id="@+id/imgs_2"
 					android:layout_width="0dp"
-					android:layout_height="90dp"
+					android:layout_height="wrap_content"
 					android:layout_weight="1"
+					fresco:viewAspectRatio="1.5"
 					android:layout_marginLeft="@dimen/padding_5"
 					android:layout_marginRight="@dimen/padding_5"
 					fresco:placeholderImageScaleType="fitCenter"
@@ -73,8 +75,9 @@
 				<com.facebook.drawee.view.SimpleDraweeView
 					android:id="@+id/imgs_3"
 					android:layout_width="0dp"
-					android:layout_height="90dp"
+					android:layout_height="wrap_content"
 					android:layout_weight="1"
+					fresco:viewAspectRatio="1.5"
 					android:layout_marginLeft="@dimen/padding_5"
 					fresco:placeholderImageScaleType="fitCenter"
 					fresco:actualImageScaleType="focusCrop"
@@ -125,7 +128,7 @@
 			<com.facebook.drawee.view.SimpleDraweeView
 				android:id="@+id/list_item_img"
 				android:layout_width="105dp"
-				android:layout_height="80dp"
+				android:layout_height="78dp"
 				fresco:placeholderImageScaleType="fitCenter"
 				fresco:actualImageScaleType="focusCrop"
 				fresco:placeholderImage="@color/text_tint"

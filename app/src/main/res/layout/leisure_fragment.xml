@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fillViewport="true" >
@@ -16,30 +17,26 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:visibility="gone"
+            android:background="@color/white"
             android:layout_marginBottom="@dimen/padding_7"
             android:layout_marginLeft="@dimen/padding_7"
             android:layout_marginRight="@dimen/padding_7" >
 
-            <com.messi.languagehelper.views.WrapContentHeightViewPager
-                android:id="@+id/auto_view_pager"
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/ad_img"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white" />
-
-            <LinearLayout
-                android:id="@+id/viewpager_dot_layout"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:gravity="bottom|right"
-                android:orientation="horizontal"
-                android:padding="5dp" />
+                fresco:viewAspectRatio="1.77"
+                fresco:actualImageScaleType="focusCrop"
+                fresco:placeholderImage="@color/text_tint"
+                fresco:placeholderImageScaleType="fitCenter" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="VoiceAds广告"
                 android:textColor="@color/white"
+                android:background="@color/none_alpha"
                 android:textSize="@dimen/smaller"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"

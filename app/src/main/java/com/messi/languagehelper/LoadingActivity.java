@@ -133,7 +133,8 @@ public class LoadingActivity extends AppCompatActivity implements OnClickListene
             final NativeADDataRef mNativeADDataRef = lst.get(0);
             if(mNativeADDataRef != null){
                 ad_img.setImageURI(mNativeADDataRef.getImage());
-                mNativeADDataRef.onExposured(ad_img);
+                boolean loadingExposure = mNativeADDataRef.onExposured(ad_img);
+                LogUtil.DefalutLog("loadingExposure："+loadingExposure);
                 ad_img.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View view) {

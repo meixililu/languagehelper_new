@@ -1,9 +1,8 @@
 package com.messi.languagehelper;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -12,21 +11,27 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
 import com.avos.avoscloud.AVAnalytics;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.iflytek.voiceads.AdError;
+import com.iflytek.voiceads.AdKeys;
+import com.iflytek.voiceads.IFLYNativeAd;
+import com.iflytek.voiceads.IFLYNativeListener;
+import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.GytUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Settings;
-import com.messi.languagehelper.util.XFYSAD;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.contentx.ContExManager;
 
-public class LeisureFragment extends BaseFragment implements OnClickListener {
+public class LeisureFragment extends BaseFragment {
 
-    public static final long IntervalTime = 1000 * 20;
     @BindView(R.id.yuedu_layout)
     FrameLayout yueduLayout;
     @BindView(R.id.twists_layout)
@@ -47,111 +52,138 @@ public class LeisureFragment extends BaseFragment implements OnClickListener {
     FrameLayout invest_layout;
     @BindView(R.id.sougou_layout)
     FrameLayout sougou_layout;
-    public static LeisureFragment mMainFragment;
     @BindView(R.id.shenhuifu_layout)
     FrameLayout shenhuifuLayout;
-    private XFYSAD mXFYSAD;
-    private boolean misVisibleToUser;
+    @BindView(R.id.ad_img)
+    SimpleDraweeView adImg;
+    public LeisureFragment mMainFragment;
+    private long lastTimeLoadAd;
+    private NativeADDataRef mNativeADDataRef;
+    private long lastLoadAd;
+    private boolean exposure;
 
     public static LeisureFragment getInstance() {
-        if (mMainFragment == null) {
-            mMainFragment = new LeisureFragment();
-        }
-        return mMainFragment;
+        return new LeisureFragment();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        super.onCreateView(inflater,container,savedInstanceState);
         View view = inflater.inflate(R.layout.leisure_fragment, null);
         ButterKnife.bind(this, view);
-        initViews();
+        loadAD();
         return view;
-    }
-
-    private void initViews() {
-        cailing_layout.setOnClickListener(this);
-        invest_layout.setOnClickListener(this);
-        baidu_layout.setOnClickListener(this);
-        app_layout.setOnClickListener(this);
-        game_layout.setOnClickListener(this);
-        news_layout.setOnClickListener(this);
-        yueduLayout.setOnClickListener(this);
-        sougou_layout.setOnClickListener(this);
-        shenhuifuLayout.setOnClickListener(this);
-        mXFYSAD = new XFYSAD(getActivity(), xx_ad_layout, ADUtil.XiuxianYSNRLAd);
-        mXFYSAD.setStopPlay(true);
-        mXFYSAD.showAD();
-        if (misVisibleToUser) {
-            mXFYSAD.startPlayImg();
-        }
     }
 
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        LogUtil.DefalutLog("LeisureFragment---setUserVisibleHint:" + isVisibleToUser);
-        misVisibleToUser = isVisibleToUser;
-        if (isVisibleToUser) {
-            if (mXFYSAD != null) {
-                mXFYSAD.startPlayImg();
-            }
-        } else {
-            if (mXFYSAD != null) {
-                mXFYSAD.canclePlayImg();
-            }
+        LogUtil.DefalutLog("LeisureFragment-setUserVisibleHint:"+isVisibleToUser);
+        if(isVisibleToUser){
+            exposedAd();
         }
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (misVisibleToUser) {
-            LogUtil.DefalutLog("LeisureFragment---onResume");
-            if (mXFYSAD != null) {
-                mXFYSAD.startPlayImg();
+    private void loadAD() {
+        LogUtil.DefalutLog("loadAD---leisure---xiu xian da tu");
+        IFLYNativeAd nativeAd = new IFLYNativeAd(getContext(), ADUtil.XiuxianYSNRLAd, new IFLYNativeListener() {
+            @Override
+            public void onConfirm() {
             }
-        }
-    }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        if (misVisibleToUser) {
-            LogUtil.DefalutLog("LeisureFragment---onPause");
-            if (mXFYSAD != null) {
-                mXFYSAD.canclePlayImg();
+            @Override
+            public void onCancel() {
             }
+
+            @Override
+            public void onAdFailed(AdError arg0) {
+                LogUtil.DefalutLog("onAdFailed---" + arg0.getErrorCode() + "---" + arg0.getErrorDescription());
+            }
+
+            @Override
+            public void onADLoaded(List<NativeADDataRef> adList) {
+                LogUtil.DefalutLog("onADLoaded---");
+                if (adList != null && adList.size() > 0) {
+                    mNativeADDataRef = adList.get(0);
+                    setAd();
+                }
+            }
+        });
+        nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
+        nativeAd.loadAd(1);
+    }
+
+    private void setAd() {
+        lastLoadAd = System.currentTimeMillis();
+        xx_ad_layout.setVisibility(View.VISIBLE);
+        adImg.setImageURI(mNativeADDataRef.getImage());
+        if(misVisibleToUser){
+            exposure = mNativeADDataRef.onExposured(xx_ad_layout);
+            LogUtil.DefalutLog("setAd-exposure:"+exposure);
         }
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.cailing_layout) {
-            toCailingActivity();
-        } else if (v.getId() == R.id.yuedu_layout) {
-            toYueduActivity();
-        } else if (v.getId() == R.id.sougou_layout) {
-            toSougoActivity();
-        } else if (v.getId() == R.id.app_layout) {
-            toChineseDictionaryActivity();
-        } else if (v.getId() == R.id.invest_layout) {
-            toInvestorListActivity();
-        } else if (v.getId() == R.id.game_layout) {
-            toGameCenterActivity();
-        } else if (v.getId() == R.id.baidu_layout) {
-            toJokeActivity();
-        } else if (v.getId() == R.id.news_layout) {
-            ContExManager.initWithAPPId(getActivity(), "f9136944-bc17-4cb1-9b14-ece9de91b39d", "w1461Eub");
-            GytUtil.showHtml(getActivity(), getActivity().getResources().getString(R.string.leisuer_gyt));
-        } else if (v.getId() == R.id.shenhuifu_layout) {
-            toGodReplyActivity();
-        }
+    private void exposedAd() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if(!exposure && mNativeADDataRef != null){
+                    exposure = mNativeADDataRef.onExposured(xx_ad_layout);
+                    LogUtil.DefalutLog("exposedAd-exposure:"+exposure);
+                }else {
+                    if(misVisibleToUser && lastLoadAd > 0){
+                        if(System.currentTimeMillis() - lastLoadAd > 45000){
+                            loadAD();
+                        }
+                    }
+                }
+            }
+        },500);
+
     }
 
-    @OnClick(R.id.twists_layout)
-    public void onClick() {
-        toActivity(BrainTwistsActivity.class, null);
-        AVAnalytics.onEvent(getActivity(), "leisure_pg_to_braintwists");
+    @OnClick({R.id.xx_ad_layout, R.id.cailing_layout, R.id.baidu_layout, R.id.sougou_layout, R.id.yuedu_layout, R.id.twists_layout, R.id.game_layout, R.id.shenhuifu_layout, R.id.news_layout, R.id.app_layout, R.id.invest_layout})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.xx_ad_layout:
+                if(mNativeADDataRef != null){
+                    boolean onClicked = mNativeADDataRef.onClicked(view);
+                    LogUtil.DefalutLog("onClicked:"+onClicked);
+                }
+                break;
+            case R.id.cailing_layout:
+                toCailingActivity();
+                break;
+            case R.id.baidu_layout:
+                toJokeActivity();
+                break;
+            case R.id.sougou_layout:
+                toSougoActivity();
+                break;
+            case R.id.yuedu_layout:
+                toYueduActivity();
+                break;
+            case R.id.twists_layout:
+                toActivity(BrainTwistsActivity.class, null);
+                AVAnalytics.onEvent(getActivity(), "leisure_pg_to_braintwists");
+                break;
+            case R.id.game_layout:
+                toGameCenterActivity();
+                break;
+            case R.id.shenhuifu_layout:
+                toGodReplyActivity();
+                break;
+            case R.id.news_layout:
+                ContExManager.initWithAPPId(getActivity(), "f9136944-bc17-4cb1-9b14-ece9de91b39d", "w1461Eub");
+                GytUtil.showHtml(getActivity(), getActivity().getResources().getString(R.string.leisuer_gyt));
+                break;
+            case R.id.app_layout:
+                toChineseDictionaryActivity();
+                break;
+            case R.id.invest_layout:
+                toInvestorListActivity();
+                break;
+        }
     }
 
     private void toJokeActivity() {
@@ -200,18 +232,4 @@ public class LeisureFragment extends BaseFragment implements OnClickListener {
         AVAnalytics.onEvent(getActivity(), "leisure_pg_chinese_dic");
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (mXFYSAD != null) {
-            mXFYSAD.canclePlayImg();
-            mXFYSAD = null;
-        }
-    }
-
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-    }
 }

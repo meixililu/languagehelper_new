@@ -9,38 +9,140 @@ import android.widget.RelativeLayout;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
+import com.facebook.drawee.view.SimpleDraweeView;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 
 public class LeisureFragment_ViewBinding implements Unbinder {
   private LeisureFragment target;
 
+  private View view2131624273;
+
   private View view2131624274;
+
+  private View view2131624112;
+
+  private View view2131624270;
+
+  private View view2131624271;
+
+  private View view2131624278;
+
+  private View view2131624277;
+
+  private View view2131624275;
+
+  private View view2131624279;
+
+  private View view2131624272;
+
+  private View view2131624276;
 
   @UiThread
   public LeisureFragment_ViewBinding(final LeisureFragment target, View source) {
     this.target = target;
 
     View view;
-    target.yueduLayout = Utils.findRequiredViewAsType(source, R.id.yuedu_layout, "field 'yueduLayout'", FrameLayout.class);
-    view = Utils.findRequiredView(source, R.id.twists_layout, "field 'twistsLayout' and method 'onClick'");
+    view = Utils.findRequiredView(source, R.id.yuedu_layout, "field 'yueduLayout' and method 'onViewClicked'");
+    target.yueduLayout = Utils.castView(view, R.id.yuedu_layout, "field 'yueduLayout'", FrameLayout.class);
+    view2131624273 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onViewClicked(p0);
+      }
+    });
+    view = Utils.findRequiredView(source, R.id.twists_layout, "field 'twistsLayout' and method 'onViewClicked'");
     target.twistsLayout = Utils.castView(view, R.id.twists_layout, "field 'twistsLayout'", FrameLayout.class);
     view2131624274 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
-        target.onClick();
+        target.onViewClicked(p0);
       }
     });
-    target.xx_ad_layout = Utils.findRequiredViewAsType(source, R.id.xx_ad_layout, "field 'xx_ad_layout'", RelativeLayout.class);
-    target.cailing_layout = Utils.findRequiredViewAsType(source, R.id.cailing_layout, "field 'cailing_layout'", FrameLayout.class);
-    target.baidu_layout = Utils.findRequiredViewAsType(source, R.id.baidu_layout, "field 'baidu_layout'", FrameLayout.class);
-    target.app_layout = Utils.findRequiredViewAsType(source, R.id.app_layout, "field 'app_layout'", FrameLayout.class);
-    target.news_layout = Utils.findRequiredViewAsType(source, R.id.news_layout, "field 'news_layout'", FrameLayout.class);
-    target.game_layout = Utils.findRequiredViewAsType(source, R.id.game_layout, "field 'game_layout'", FrameLayout.class);
-    target.invest_layout = Utils.findRequiredViewAsType(source, R.id.invest_layout, "field 'invest_layout'", FrameLayout.class);
-    target.sougou_layout = Utils.findRequiredViewAsType(source, R.id.sougou_layout, "field 'sougou_layout'", FrameLayout.class);
-    target.shenhuifuLayout = Utils.findRequiredViewAsType(source, R.id.shenhuifu_layout, "field 'shenhuifuLayout'", FrameLayout.class);
+    view = Utils.findRequiredView(source, R.id.xx_ad_layout, "field 'xx_ad_layout' and method 'onViewClicked'");
+    target.xx_ad_layout = Utils.castView(view, R.id.xx_ad_layout, "field 'xx_ad_layout'", RelativeLayout.class);
+    view2131624112 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onViewClicked(p0);
+      }
+    });
+    view = Utils.findRequiredView(source, R.id.cailing_layout, "field 'cailing_layout' and method 'onViewClicked'");
+    target.cailing_layout = Utils.castView(view, R.id.cailing_layout, "field 'cailing_layout'", FrameLayout.class);
+    view2131624270 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onViewClicked(p0);
+      }
+    });
+    view = Utils.findRequiredView(source, R.id.baidu_layout, "field 'baidu_layout' and method 'onViewClicked'");
+    target.baidu_layout = Utils.castView(view, R.id.baidu_layout, "field 'baidu_layout'", FrameLayout.class);
+    view2131624271 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onViewClicked(p0);
+      }
+    });
+    view = Utils.findRequiredView(source, R.id.app_layout, "field 'app_layout' and method 'onViewClicked'");
+    target.app_layout = Utils.castView(view, R.id.app_layout, "field 'app_layout'", FrameLayout.class);
+    view2131624278 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onViewClicked(p0);
+      }
+    });
+    view = Utils.findRequiredView(source, R.id.news_layout, "field 'news_layout' and method 'onViewClicked'");
+    target.news_layout = Utils.castView(view, R.id.news_layout, "field 'news_layout'", FrameLayout.class);
+    view2131624277 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onViewClicked(p0);
+      }
+    });
+    view = Utils.findRequiredView(source, R.id.game_layout, "field 'game_layout' and method 'onViewClicked'");
+    target.game_layout = Utils.castView(view, R.id.game_layout, "field 'game_layout'", FrameLayout.class);
+    view2131624275 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onViewClicked(p0);
+      }
+    });
+    view = Utils.findRequiredView(source, R.id.invest_layout, "field 'invest_layout' and method 'onViewClicked'");
+    target.invest_layout = Utils.castView(view, R.id.invest_layout, "field 'invest_layout'", FrameLayout.class);
+    view2131624279 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onViewClicked(p0);
+      }
+    });
+    view = Utils.findRequiredView(source, R.id.sougou_layout, "field 'sougou_layout' and method 'onViewClicked'");
+    target.sougou_layout = Utils.castView(view, R.id.sougou_layout, "field 'sougou_layout'", FrameLayout.class);
+    view2131624272 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onViewClicked(p0);
+      }
+    });
+    view = Utils.findRequiredView(source, R.id.shenhuifu_layout, "field 'shenhuifuLayout' and method 'onViewClicked'");
+    target.shenhuifuLayout = Utils.castView(view, R.id.shenhuifu_layout, "field 'shenhuifuLayout'", FrameLayout.class);
+    view2131624276 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onViewClicked(p0);
+      }
+    });
+    target.adImg = Utils.findRequiredViewAsType(source, R.id.ad_img, "field 'adImg'", SimpleDraweeView.class);
   }
 
   @Override
@@ -61,8 +163,29 @@ public class LeisureFragment_ViewBinding implements Unbinder {
     target.invest_layout = null;
     target.sougou_layout = null;
     target.shenhuifuLayout = null;
+    target.adImg = null;
 
+    view2131624273.setOnClickListener(null);
+    view2131624273 = null;
     view2131624274.setOnClickListener(null);
     view2131624274 = null;
+    view2131624112.setOnClickListener(null);
+    view2131624112 = null;
+    view2131624270.setOnClickListener(null);
+    view2131624270 = null;
+    view2131624271.setOnClickListener(null);
+    view2131624271 = null;
+    view2131624278.setOnClickListener(null);
+    view2131624278 = null;
+    view2131624277.setOnClickListener(null);
+    view2131624277 = null;
+    view2131624275.setOnClickListener(null);
+    view2131624275 = null;
+    view2131624279.setOnClickListener(null);
+    view2131624279 = null;
+    view2131624272.setOnClickListener(null);
+    view2131624272 = null;
+    view2131624276.setOnClickListener(null);
+    view2131624276 = null;
   }
 }

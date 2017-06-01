@@ -74,6 +74,9 @@
             </intent-filter>
         </service>
         <activity
+            android:name=".ListenActivity"
+            android:screenOrientation="portrait" />
+         <activity
             android:name=".WordStudyNewWordActivity"
             android:screenOrientation="portrait" />
          <activity
@@ -93,9 +96,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".GodReplyActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".HomeListenActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".WordStudySummaryDetailActivity"
