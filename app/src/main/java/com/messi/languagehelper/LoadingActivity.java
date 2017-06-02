@@ -139,7 +139,8 @@ public class LoadingActivity extends AppCompatActivity implements OnClickListene
                     @Override
                     public void onClick(View view) {
                         onClickAd();
-                        mNativeADDataRef.onClicked(view);
+                        boolean onClicked = mNativeADDataRef.onClicked(view);
+                        LogUtil.DefalutLog("onClicked:"+onClicked);
                     }
                 });
                 ad_source.setText(mNativeADDataRef.getAdSourceMark()+"广告");

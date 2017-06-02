@@ -136,8 +136,9 @@ public class ToutiaoNewsFragment extends BaseFragment implements OnClickListener
                         if (mAVObject != null && mAVObject.getmNativeADDataRef() != null) {
                             if (!mAVObject.isHasShowAD()) {
                                 NativeADDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
-                                mNativeADDataRef.onExposured(view.getChildAt(i % vCount));
-                                mAVObject.setHasShowAD(true);
+                                boolean isShow = mNativeADDataRef.onExposured(view.getChildAt(i % vCount));
+                                LogUtil.DefalutLog("onExposured:"+isShow);
+                                mAVObject.setHasShowAD(isShow);
                             }
                         }
                     }

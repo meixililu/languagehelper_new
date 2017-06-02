@@ -21,6 +21,7 @@ import com.messi.languagehelper.WebViewActivity;
 import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
 
 import java.util.List;
@@ -146,7 +147,8 @@ public class RcReadingCollectedListItemViewHolder extends RecyclerView.ViewHolde
                 layout_cover.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        mNativeADDataRef.onClicked(v);
+                        boolean onClicked = mNativeADDataRef.onClicked(v);
+                        LogUtil.DefalutLog("onClicked:"+onClicked);
                     }
                 });
             }

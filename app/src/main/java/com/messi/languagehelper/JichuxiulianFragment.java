@@ -49,25 +49,22 @@ public class JichuxiulianFragment extends BaseFragment implements OnClickListene
 	}
 
 	@Override
-	public void setUserVisibleHint(boolean isVisibleToUser) {
-		super.setUserVisibleHint(isVisibleToUser);
-		if(!isHasLoadOnce && isVisibleToUser){
-			isHasLoadOnce = true;
-			new QueryTask().execute();
-		}
+	public void loadDataOnStart() {
+		super.loadDataOnStart();
+		initViews();
+		new QueryTask().execute();
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.study_category_activity, container, false);
 		initSwipeRefresh(view);
-		initViews(view);
 		return view;
 	}
 	
-	private void initViews(View view){
+	private void initViews(){
 		avObjects = new ArrayList<AVObject>();
-		category_lv = (RecyclerView) view.findViewById(R.id.studycategory_lv);
+		category_lv = (RecyclerView) getView().findViewById(R.id.studycategory_lv);
 		mXFYSAD = new XFYSAD(getContext(), ADUtil.SecondaryPage);
 		mAdapter = new RcJichuxiulianListAdapter(mXFYSAD);
 		LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getContext());
@@ -122,31 +119,6 @@ public class JichuxiulianFragment extends BaseFragment implements OnClickListene
 			mAdapter.setItems(avObjects);
 			mAdapter.notifyDataSetChanged();
 		}
-	}
-	
-	@Override
-	public void onDestroy() {
-		super.onDestroy();
-		if(mXFYSAD != null){
-    		mXFYSAD.canclePlayImg();
-    		mXFYSAD = null;
-    	}
-	}
-	
-	@Override
-	public void onResume() {
-		super.onResume();
-		if(mXFYSAD != null){
-    		mXFYSAD.startPlayImg();
-    	}
-	}
-	
-	@Override
-	public void onPause() {
-		super.onPause();
-		if(mXFYSAD != null){
-    		mXFYSAD.canclePlayImg();
-    	}
 	}
 
 	@Override

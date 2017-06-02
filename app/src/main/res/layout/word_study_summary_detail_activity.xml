@@ -96,28 +96,23 @@
                 android:layout_marginRight="@dimen/padding_10"
                 android:visibility="gone" >
 
-                <com.messi.languagehelper.views.WrapContentHeightViewPager
-                    android:id="@+id/auto_view_pager"
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/ad_img"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white" />
-
-                <LinearLayout
-                    android:id="@+id/viewpager_dot_layout"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:gravity="bottom|right"
-                    android:orientation="horizontal"
-                    android:padding="5dp" />
+                    fresco:actualImageScaleType="focusCrop"
+                    fresco:placeholderImage="@color/text_tint"
+                    fresco:placeholderImageScaleType="fitCenter"
+                    fresco:viewAspectRatio="1.77" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentLeft="true"
-                    android:paddingBottom="3dp"
-                    android:paddingLeft="3dp"
+                    android:background="@color/none_alpha"
+                    android:paddingBottom="1dp"
+                    android:paddingLeft="1dp"
                     android:text="VoiceAds广告"
                     android:textColor="@color/white"
                     android:textSize="@dimen/smaller_l" />

@@ -94,13 +94,4 @@ public class WordStudyPlanActivity extends BaseActivity {
         new QueryTask().execute();
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (mXFYSAD != null) {
-            mXFYSAD.canclePlayImg();
-            mXFYSAD = null;
-        }
-    }
-
 }

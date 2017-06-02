@@ -112,6 +112,10 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-mdpi/ic_help_grey600_24dp.png"
     },
     {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-mdpi/ic_skip_next_white.png",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-mdpi/ic_skip_next_white.png"
+    },
+    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-mdpi/ic_fullscreen_exit_grey600_24dp.png",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-mdpi/ic_fullscreen_exit_grey600_24dp.png"
     },
@@ -128,16 +132,8 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-mdpi/ic_stop_circle_outline_white_48dp.png"
     },
     {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-mdpi/ic_skip_previous_white_36dp.png",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-mdpi/ic_skip_previous_white_36dp.png"
-    },
-    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-mdpi/ic_share_white_24dp.png",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-mdpi/ic_share_white_24dp.png"
-    },
-    {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-mdpi/ic_skip_next_white_36dp.png",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-mdpi/ic_skip_next_white_36dp.png"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-mdpi/ic_arror_forward.png",
@@ -170,6 +166,10 @@
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-mdpi/ic_forward_white_48dp.png",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-mdpi/ic_forward_white_48dp.png"
+    },
+    {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-mdpi/ic_skip_previous_white.png",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-mdpi/ic_skip_previous_white.png"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-mdpi/ic_grade_white_36dp.png",

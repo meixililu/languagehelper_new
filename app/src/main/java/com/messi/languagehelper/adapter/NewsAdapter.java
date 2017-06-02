@@ -18,6 +18,7 @@ import com.messi.languagehelper.R;
 import com.messi.languagehelper.WebViewActivity;
 import com.messi.languagehelper.bean.TXNewsItem;
 import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.LogUtil;
 
 import java.util.List;
 
@@ -97,7 +98,8 @@ public class NewsAdapter extends BaseAdapter {
 			holder.layout_cover.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					mNativeADDataRef.onClicked(v);
+					boolean onClicked = mNativeADDataRef.onClicked(v);
+					LogUtil.DefalutLog("onClicked:"+onClicked);
 				}
 			});
 		}

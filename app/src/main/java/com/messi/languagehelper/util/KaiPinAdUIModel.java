@@ -85,7 +85,8 @@ public class KaiPinAdUIModel {
                 ad_img.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        mNativeADDataRef.onClicked(view);
+                        boolean onClicked = mNativeADDataRef.onClicked(view);
+                        LogUtil.DefalutLog("onClicked:"+onClicked);
                     }
                 });
                 ad_source.setText(mNativeADDataRef.getAdSourceMark()+"广告");

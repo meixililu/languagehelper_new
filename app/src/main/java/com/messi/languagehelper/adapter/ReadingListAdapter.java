@@ -7,6 +7,7 @@ import com.avos.avoscloud.AVObject;
 import com.bumptech.glide.Glide;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.NativeADDataRef;
+import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.ReadingDetailActivity;
@@ -106,7 +107,8 @@ public class ReadingListAdapter extends BaseAdapter {
 			holder.layout_cover.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					mNativeADDataRef.onClicked(v);
+					boolean onClicked = mNativeADDataRef.onClicked(v);
+					LogUtil.DefalutLog("onClicked:"+onClicked);
 				}
 			});
 		}

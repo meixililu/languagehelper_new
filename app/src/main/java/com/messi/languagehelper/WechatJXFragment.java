@@ -23,6 +23,7 @@ import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.JsonParser;
+import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Settings;
@@ -126,8 +127,9 @@ public class WechatJXFragment extends BaseFragment implements OnClickListener {
                         if (mAVObject != null && mAVObject.getmNativeADDataRef() != null) {
                             if (!mAVObject.isHasShowAD()) {
                                 NativeADDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
-                                mNativeADDataRef.onExposured(view.getChildAt(i % vCount));
-                                mAVObject.setHasShowAD(true);
+                                boolean isExposure = mNativeADDataRef.onExposured(view.getChildAt(i % vCount));
+                                LogUtil.DefalutLog("isExposure:"+isExposure);
+                                mAVObject.setHasShowAD(isExposure);
                             }
                         }
                     }

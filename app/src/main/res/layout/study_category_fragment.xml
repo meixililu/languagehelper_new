@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/contentbg"
@@ -159,6 +160,29 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="1px"
             android:orientation="horizontal">
+            <FrameLayout
+                android:id="@+id/study_listening_layout"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/study_menu_item_height"
+                android:layout_weight="1"
+                android:foreground="@drawable/framelayout_selector"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="@string/title_listening"
+                    android:textColor="@color/text_black"
+                    android:textSize="@dimen/big" />
+            </FrameLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1px"
+            android:orientation="horizontal">
 
             <FrameLayout
                 android:id="@+id/symbol_study_cover"
@@ -221,7 +245,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="1px"
+            android:layout_marginBottom="@dimen/padding_10"
             android:orientation="horizontal">
 
             <FrameLayout
@@ -281,30 +305,7 @@
             </FrameLayout>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_10"
-            android:layout_marginBottom="@dimen/padding_10"
-            android:orientation="horizontal">
-            <FrameLayout
-                android:id="@+id/study_listening_layout"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/study_menu_item_height"
-                android:layout_weight="1"
-                android:foreground="@drawable/framelayout_selector"
-                android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:text="@string/title_listening"
-                    android:textColor="@color/text_black"
-                    android:textSize="@dimen/big" />
-            </FrameLayout>
-        </LinearLayout>
 
         <FrameLayout
             android:id="@+id/ad_layout"

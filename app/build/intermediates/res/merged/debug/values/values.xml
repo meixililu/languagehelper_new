@@ -128,7 +128,7 @@
     <color name="middle_btn_bg_s">#2c3e50</color>
     <color name="news_title_bg">#7986CB</color>
     <color name="none">#00000000</color>
-    <color name="none_alpha">#77000000</color>
+    <color name="none_alpha">#55000000</color>
     <color name="none_thin">#aa000000</color>
     <color name="notification_action_color_filter">#ffffffff</color>
     <color name="notification_icon_bg_color">#ff9e9e9e</color>
@@ -2500,7 +2500,7 @@
         <item name="android:paddingRight">@dimen/abc_action_bar_overflow_padding_end_material</item>
     </style>
     <style name="TabLayoutTextStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textSize">@dimen/bigger</item>
+        <item name="android:textSize">@dimen/big</item>
     </style>
     <style name="TextAppearance.AppCompat" parent="Base.TextAppearance.AppCompat"/>
     <style name="TextAppearance.AppCompat.Body1" parent="Base.TextAppearance.AppCompat.Body1"/>
@@ -2833,9 +2833,9 @@
         <item name="passwordToggleContentDescription">@string/password_toggle_content_description</item>
     </style>
     <style name="dialog" parent="@android:style/Theme.Dialog">
-        <item name="android:windowFrame">@null</item><!--边框-->
+        <item name="android:windowFrame">@null</item>
         <item name="android:windowNoTitle">true</item>
-        <item name="android:windowBackground">@color/none</item><!--背景透明-->
+        <item name="android:windowBackground">@color/none</item>
         <item name="android:windowEnterAnimation">@anim/zoomin</item>
         <item name="android:windowExitAnimation">@anim/zoomout</item>
     </style>
@@ -2864,7 +2864,7 @@
         <item name="android:windowFrame">@null</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowFullscreen">true</item>
-        <item name="android:windowBackground">@color/none</item><!--背景透明-->
+        <item name="android:windowBackground">@color/none</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowEnterAnimation">@anim/zoomin</item>
         <item name="android:windowExitAnimation">@anim/zoomout</item>

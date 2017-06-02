@@ -80,15 +80,6 @@ public class WordStudyFirstFragment extends BaseFragment {
         new QueryTask().execute();
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (mXFYSAD != null) {
-            mXFYSAD.canclePlayImg();
-            mXFYSAD = null;
-        }
-    }
-
     private class QueryTask extends AsyncTask<Void, Void, Void> {
 
         @Override

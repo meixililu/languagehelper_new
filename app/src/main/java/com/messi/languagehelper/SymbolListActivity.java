@@ -82,6 +82,7 @@ public class SymbolListActivity extends BaseActivity {
         category_lv.setLayoutManager(layoutManager);
         category_lv.addItemDecoration(new DividerGridItemDecoration(1));
         mAdapter.setHeader(new Object());
+        mAdapter.setItems(mSymbolListDao);
         category_lv.setAdapter(mAdapter);
     }
 
@@ -159,31 +160,6 @@ public class SymbolListActivity extends BaseActivity {
         dialog.show();
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (mXFYSAD != null) {
-            mXFYSAD.startPlayImg();
-        }
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        if (mXFYSAD != null) {
-            mXFYSAD.canclePlayImg();
-        }
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (mXFYSAD != null) {
-            mXFYSAD.canclePlayImg();
-            mXFYSAD = null;
-        }
-    }
-
     private class QueryTask extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -228,7 +204,6 @@ public class SymbolListActivity extends BaseActivity {
             super.onPostExecute(result);
             hideProgressbar();
             onSwipeRefreshLayoutFinish();
-            mAdapter.setItems(mSymbolListDao);
             mAdapter.notifyDataSetChanged();
         }
     }

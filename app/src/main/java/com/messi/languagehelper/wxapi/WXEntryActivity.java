@@ -112,7 +112,7 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 		mAdapter = new MainPageAdapter(this.getSupportFragmentManager(),bundle,this,
 				mSharedPreferences);
 		viewPager.setAdapter(mAdapter);
-		viewPager.setOffscreenPageLimit(4);
+		viewPager.setOffscreenPageLimit(5);
 		tablayout.setupWithViewPager(viewPager);
 		tablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 			@Override

@@ -172,10 +172,6 @@ public class DailySentenceFragment extends BaseFragment implements OnClickListen
             mPlayer.release();
             mPlayer = null;
         }
-        if (mXFYSAD != null) {
-            mXFYSAD.canclePlayImg();
-            mXFYSAD = null;
-        }
         LogUtil.DefalutLog("CollectedFragment-onDestroyView");
     }
 

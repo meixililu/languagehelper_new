@@ -283,7 +283,8 @@ public class ReadingDetailActivity extends BaseActivity {
                 layout_cover.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        mNativeADDataRef.onClicked(v);
+                        boolean onClicked = mNativeADDataRef.onClicked(v);
+                        LogUtil.DefalutLog("onClicked:"+onClicked);
                     }
                 });
             } catch (Exception e) {

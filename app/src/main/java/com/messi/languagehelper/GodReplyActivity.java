@@ -38,9 +38,7 @@ public class GodReplyActivity extends BaseActivity {
         getSupportActionBar().setTitle(getResources().getString(R.string.leisuer_shenhuifu));
         requestData();
         mXFYSAD = new XFYSAD(this, xxAdLayout, ADUtil.XiuxianYSNRLAd);
-        mXFYSAD.setStopPlay(true);
         mXFYSAD.showAD();
-        mXFYSAD.startPlayImg();
     }
 
     private void requestData() {

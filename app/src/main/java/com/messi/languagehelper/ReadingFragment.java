@@ -159,8 +159,9 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 					if(mAVObject != null && mAVObject.isAd()){
 						if(!mAVObject.isAdShow()){
 							NativeADDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
-							mNativeADDataRef.onExposured(view.getChildAt(i%vCount));
-							mAVObject.setAdShow(true);
+							boolean isExposure = mNativeADDataRef.onExposured(view.getChildAt(i%vCount));
+							LogUtil.DefalutLog("isExposure:"+isExposure);
+							mAVObject.setAdShow(isExposure);
 						}
 					}
 				}
@@ -249,6 +250,37 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 	
 	private void loadAD(){
 		nativeAd = new IFLYNativeAd(getContext(), ADUtil.randomAd(), new IFLYNativeListener() {
+			@Override
+			public void onConfirm() {
+			}
+			@Override
+			public void onCancel() {
+			}
+			@Override
+			public void onAdFailed(AdError arg0) {
+				loadADBackup();
+				LogUtil.DefalutLog("onAdFailed---"+arg0.getErrorCode()+"---"+arg0.getErrorDescription());
+			}
+			@Override
+			public void onADLoaded(List<NativeADDataRef> adList) {
+				LogUtil.DefalutLog("onADLoaded---");
+				if(adList != null && adList.size() > 0){
+					NativeADDataRef nad = adList.get(0);
+					mADObject = new Reading();
+					mADObject.setmNativeADDataRef(nad);
+					mADObject.setAd(true);
+					if(!loading){
+						addAD();
+					}
+				}
+			}
+		});
+		nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
+		nativeAd.loadAd(1);
+	}
+
+	private void loadADBackup(){
+		nativeAd = new IFLYNativeAd(getContext(), ADUtil.XXLAD, new IFLYNativeListener() {
 			@Override
 			public void onConfirm() {
 			}

@@ -53,14 +53,4 @@ public class WordStudyThirdActivity extends BaseActivity {
         onSwipeRefreshLayoutFinish();
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (mXFYSAD != null) {
-            mXFYSAD.canclePlayImg();
-            mXFYSAD = null;
-        }
-    }
-
-
 }

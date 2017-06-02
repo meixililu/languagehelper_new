@@ -407,13 +407,14 @@ public class MainFragment extends Fragment implements OnClickListener {
                         RequestAsyncTask();
                     }
                 } catch (Exception e) {
+                    RequestAsyncTask();
                     e.printStackTrace();
                 }
             }
 
             @Override
             public void onFailured() {
-                showToast(mActivity.getResources().getString(R.string.network_error));
+                RequestAsyncTask();
             }
 
             @Override

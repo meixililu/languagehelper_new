@@ -138,8 +138,9 @@ public class NewsFragment extends BaseFragment implements OnClickListener {
                         if (mAVObject != null && mAVObject.getmNativeADDataRef() != null) {
                             if (!mAVObject.isHasShowAD()) {
                                 NativeADDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
-                                mNativeADDataRef.onExposured(view.getChildAt(i % vCount));
-                                mAVObject.setHasShowAD(true);
+                                boolean isExposure = mNativeADDataRef.onExposured(view.getChildAt(i % vCount));
+                                LogUtil.DefalutLog("isExposure:" + isExposure);
+                                mAVObject.setHasShowAD(isExposure);
                             }
                         }
                     }

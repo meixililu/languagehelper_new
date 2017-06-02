@@ -31,6 +31,8 @@ import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
 
+import java.util.List;
+
 /**
  * Created by luli on 05/05/2017.
  */

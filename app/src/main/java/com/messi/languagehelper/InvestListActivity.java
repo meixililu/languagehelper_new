@@ -86,31 +86,6 @@ public class InvestListActivity extends BaseActivity implements OnClickListener{
 			mAdapter.notifyDataSetChanged();
 		}
 	}
-	
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-		if(mXFYSAD != null){
-    		mXFYSAD.canclePlayImg();
-    		mXFYSAD = null;
-    	}
-	}
-	
-	@Override
-	public void onResume() {
-		super.onResume();
-		if(mXFYSAD != null){
-    		mXFYSAD.startPlayImg();
-    	}
-	}
-	
-	@Override
-	public void onPause() {
-		super.onPause();
-		if(mXFYSAD != null){
-    		mXFYSAD.canclePlayImg();
-    	}
-	}
 
 	@Override
 	public void onClick(View v) {

@@ -1,35 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/xx_ad_layout"
-        android:layout_width="fill_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/xx_ad_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:visibility="gone">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/ad_img"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        >
+        fresco:actualImageScaleType="focusCrop"
+        fresco:placeholderImage="@color/text_tint"
+        fresco:placeholderImageScaleType="fitCenter"
+        fresco:viewAspectRatio="1.77" />
 
-            <com.messi.languagehelper.views.WrapContentHeightViewPager
-                android:id="@+id/auto_view_pager"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white" />
-
-            <LinearLayout
-                android:id="@+id/viewpager_dot_layout"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:gravity="bottom|right"
-                android:orientation="horizontal"
-                android:padding="5dp" />
-            
-            <TextView 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="VoiceAds广告"
-                android:textColor="@color/white"
-                android:textSize="@dimen/smaller"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:paddingBottom="1dp"
-                android:paddingLeft="1dp"
-                />
-        </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@color/none_alpha"
+        android:paddingBottom="1dp"
+        android:paddingLeft="1dp"
+        android:text="VoiceAds广告"
+        android:textColor="@color/white"
+        android:textSize="@dimen/smaller" />
+</RelativeLayout>

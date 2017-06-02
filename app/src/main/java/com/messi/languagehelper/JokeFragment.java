@@ -144,8 +144,9 @@ public class JokeFragment extends BaseFragment implements OnClickListener {
                     if(mAVObject != null && mAVObject.get(KeyUtil.ADKey) != null){
                         if(!(Boolean) mAVObject.get(KeyUtil.ADIsShowKey) && misVisibleToUser){
                             NativeADDataRef mNativeADDataRef = (NativeADDataRef) mAVObject.get(KeyUtil.ADKey);
-                            mNativeADDataRef.onExposured(view.getChildAt(i%vCount));
-                            mAVObject.put(KeyUtil.ADIsShowKey, true);
+                            boolean isExposure = mNativeADDataRef.onExposured(view.getChildAt(i%vCount));
+                            LogUtil.DefalutLog("isExposure:"+isExposure);
+                            mAVObject.put(KeyUtil.ADIsShowKey, isExposure);
                         }
                     }
                 }
