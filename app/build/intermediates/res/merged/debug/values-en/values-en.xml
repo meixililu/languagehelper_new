@@ -48,6 +48,8 @@
     <string name="dancitingxuan_des">Choose word by pronunciation</string>
     <string name="dele_success">delete success</string>
     <string name="designer">Designer：Liqianxia</string>
+    <string name="dic_minimalist">Minimalist</string>
+    <string name="dic_normal">Standard</string>
     <string name="dic_tab_cidian">Dictionary</string>
     <string name="dic_tab_juhai">Sentences</string>
     <string name="dic_tab_shoucang">Collected</string>
@@ -221,6 +223,7 @@
     <string name="title_leisure">Recreation</string>
     <string name="title_listening">Listening</string>
     <string name="title_more">More</string>
+    <string name="title_offline_dic">Offline Dictionary</string>
     <string name="title_practice_word">Word Practice</string>
     <string name="title_reading">Reading</string>
     <string name="title_settings">Settings</string>

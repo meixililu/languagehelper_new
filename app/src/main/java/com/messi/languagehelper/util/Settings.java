@@ -124,7 +124,10 @@ public class Settings {
 	public static boolean isDictionaryFragmentNeedRefresh;
 
 	public static final String Email = "meixililulu@163.com";
-	public static final String showapi_appid = "11619";	
+	public static final String YoudaoApiKey = "64148bac216470a0";
+	public static final String BaiduORCAK = "GNBFfzUk2F9fzS109aTIiIDG";
+	public static final String BaiduORCSK = "6cuMEl0DPCQfeBhaiEvQq6koNFBHzw3C";
+	public static final String showapi_appid = "11619";
 	public static final String showapi_secret = "f27574671ec14eb4a97faacb2eee3ef2";	
 	
 	public static final int page_size = 12;

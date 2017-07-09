@@ -1,0 +1,190 @@
+package com.messi.languagehelper.util;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.support.v4.app.Fragment;
+import android.view.View;
+
+import com.alibaba.fastjson.JSON;
+import com.messi.languagehelper.R;
+import com.messi.languagehelper.bean.BaiduOcrRoot;
+import com.messi.languagehelper.dialog.PopDialog;
+import com.messi.languagehelper.http.LanguagehelperHttpClient;
+import com.messi.languagehelper.http.UICallback;
+import com.messi.languagehelper.impl.FragmentProgressbarListener;
+import com.messi.languagehelper.impl.OrcResultListener;
+
+import java.io.File;
+import java.io.IOException;
+
+/**
+ * Created by luli on 06/07/2017.
+ */
+
+public class OrcHelper {
+
+    private int orc_api_retry_times = 2;
+    private Fragment fragment;
+    private Activity context;
+    private String mCurrentPhotoPath;
+    private OrcResultListener mOrcResultListener;
+    private FragmentProgressbarListener mProgressbarListener;
+
+    public OrcHelper(Fragment fragment,OrcResultListener mOrcResultListener,FragmentProgressbarListener mProgressbarListener){
+        this.fragment = fragment;
+        this.context = fragment.getActivity();
+        this.mOrcResultListener = mOrcResultListener;
+        this.mProgressbarListener = mProgressbarListener;
+    }
+
+    public void photoSelectDialog(){
+        orc_api_retry_times = 2;
+        String[] titles = {context.getResources().getString(R.string.take_photo),context.getResources().getString(R.string.photo_album)};
+        PopDialog mPhonoSelectDialog = new PopDialog(context,titles);
+        mPhonoSelectDialog.setListener(new PopDialog.PopViewItemOnclickListener() {
+            @Override
+            public void onSecondClick(View v) {
+                getImageFromAlbum();
+            }
+            @Override
+            public void onFirstClick(View v) {
+                getImageFromCamera();
+            }
+        });
+        mPhonoSelectDialog.show();
+    }
+
+    public void getImageFromAlbum() {
+        Intent intent = new Intent(Intent.ACTION_PICK,
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        intent.setType("image/*");//相片类型
+        fragment.startActivityForResult(intent, CameraUtil.REQUEST_CODE_PICK_IMAGE);
+    }
+
+    public void getImageFromCamera() {
+        String state = Environment.getExternalStorageState();
+        if (state.equals(Environment.MEDIA_MOUNTED)) {
+            Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            if (takePictureIntent.resolveActivity(context.getPackageManager()) != null) {
+                File photoFile = null;
+                try {
+                    photoFile = CameraUtil.createImageFile();
+                    mCurrentPhotoPath = photoFile.getAbsolutePath();
+                    LogUtil.DefalutLog("img uri:"+mCurrentPhotoPath);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+                if (photoFile != null) {
+                    takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoFile));
+                    fragment.startActivityForResult(takePictureIntent, CameraUtil.REQUEST_CODE_CAPTURE_CAMEIA);
+                }
+            } else {
+                ToastUtil.diaplayMesShort(context, "请确认已经插入SD卡");
+            }
+        }
+    }
+
+    public void doCropPhoto(Uri uri) {
+        File photoTemp = null;
+        try {
+            photoTemp = new File(CameraUtil.createTempFile());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        Intent intent = new Intent("com.android.camera.action.CROP");
+        intent.setDataAndType(uri, "image/*");
+        intent.putExtra("crop", "true");
+        intent.putExtra("scale", true);
+        intent.putExtra("return-data", false);
+        intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
+        intent.putExtra("noFaceDetection",  false);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoTemp));
+        fragment.startActivityForResult(intent, CameraUtil.PHOTO_PICKED_WITH_DATA);
+    }
+
+    public void sendBaiduOCR(){
+        try {
+            loadding();
+            LanguagehelperHttpClient.postBaiduOCR(context,CameraUtil.createTempFile(), new UICallback(context){
+                @Override
+                public void onResponsed(String responseString){
+                    if(JsonParser.isJson(responseString)){
+                        LogUtil.DefalutLog("BaiduOCR:"+responseString);
+                        BaiduOcrRoot mBaiduOcrRoot = JSON.parseObject(responseString, BaiduOcrRoot.class);
+                        if(mBaiduOcrRoot.getWords_result_num() > 0){
+                            if(mOrcResultListener!= null){
+                                mOrcResultListener.ShowResult(mBaiduOcrRoot);
+                            }
+                        }else{
+                            if(mBaiduOcrRoot.getError_code() > 90 && mBaiduOcrRoot.getError_code() < 120){
+                                Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.BaiduAccessToken, "");
+                                Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.BaiduAccessTokenExpires, (long)0);
+                                Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.BaiduAccessTokenCreateAt, (long)0);
+                                if(orc_api_retry_times > 0){
+                                    orc_api_retry_times--;
+                                    sendBaiduOCR();
+                                }
+                            }else {
+                                showToast(mBaiduOcrRoot.getError_msg());
+                            }
+                        }
+                    }else{
+                        showToast(context.getResources().getString(R.string.server_error));
+                    }
+                }
+                @Override
+                public void onFailured() {
+                    showToast(context.getResources().getString(R.string.network_error));
+                }
+                @Override
+                public void onFinished() {
+                    finishLoadding();
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == CameraUtil.REQUEST_CODE_PICK_IMAGE && resultCode == Activity.RESULT_OK) {
+            if(data != null){
+                Uri uri = data.getData();
+                if(uri != null){
+                    doCropPhoto(uri);
+                }
+            }
+        } else if (requestCode == CameraUtil.REQUEST_CODE_CAPTURE_CAMEIA && resultCode == Activity.RESULT_OK) {
+            File f = new File(mCurrentPhotoPath);
+            Uri contentUri = Uri.fromFile(f);
+            doCropPhoto(contentUri);
+        }else if (requestCode == CameraUtil.PHOTO_PICKED_WITH_DATA && resultCode == Activity.RESULT_OK) {
+            sendBaiduOCR();
+        }
+    }
+
+    private void loadding() {
+        if (mProgressbarListener != null) {
+            mProgressbarListener.showProgressbar();
+        }
+    }
+
+    /**
+     * 通过接口回调activity执行进度条显示控制
+     */
+    private void finishLoadding() {
+        if (mProgressbarListener != null) {
+            mProgressbarListener.hideProgressbar();
+        }
+    }
+
+    private void showToast(String toastString) {
+        ToastUtil.diaplayMesShort(context, toastString);
+    }
+
+}

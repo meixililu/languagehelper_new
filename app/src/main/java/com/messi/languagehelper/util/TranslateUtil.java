@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -682,6 +684,22 @@ public class TranslateUtil {
 			LogUtil.DefalutLog("saveTranslateApiOrder:"+order);
 			Settings.saveSharedPreferences(sp, KeyUtil.TranslateApiOrder, order);
 		}
+	}
+
+	public static String getHtmlContext(String html) {
+		StringBuilder sb = new StringBuilder();
+		Pattern p = Pattern.compile("<span class=\"dd\">([^</span>]*)");//匹配<title>开头，</title>结尾的文档
+		Matcher m = p.matcher(html);//开始编译
+		int count = 0;
+		while (m.find()) {
+			if (count > 0) {
+				sb.append("\n");
+			}
+			sb.append(m.group(1).trim());//获取被匹配的部分
+			count++;
+		}
+
+		return sb.toString();
 	}
 	
 }

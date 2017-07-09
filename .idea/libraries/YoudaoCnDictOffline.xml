@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="YoudaoCnDictOffline">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/YoudaoCnDictOffline.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

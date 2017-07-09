@@ -74,6 +74,9 @@
             </intent-filter>
         </service>
         <activity
+            android:name=".OfflineDicDownloadActivity"
+            android:screenOrientation="portrait" />
+         <activity
             android:name=".ListenActivity"
             android:screenOrientation="portrait" />
          <activity

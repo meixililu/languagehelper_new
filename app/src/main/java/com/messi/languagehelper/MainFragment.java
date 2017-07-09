@@ -1,6 +1,7 @@
 package com.messi.languagehelper;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatEditText;
@@ -15,6 +16,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckBox;
 import android.widget.FrameLayout;
@@ -30,6 +33,7 @@ import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechRecognizer;
 import com.messi.languagehelper.adapter.RcTranslateListAdapter;
+import com.messi.languagehelper.bean.BaiduOcrRoot;
 import com.messi.languagehelper.bean.Iciba;
 import com.messi.languagehelper.bean.IcibaNew;
 import com.messi.languagehelper.dao.record;
@@ -37,9 +41,13 @@ import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
+import com.messi.languagehelper.impl.OrcResultListener;
+import com.messi.languagehelper.util.AnimationUtil;
+import com.messi.languagehelper.util.CameraUtil;
 import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.OrcHelper;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Settings;
@@ -65,7 +73,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class MainFragment extends Fragment implements OnClickListener {
+public class MainFragment extends Fragment implements OnClickListener, OrcResultListener {
 
     public static MainFragment mMainFragment;
     @BindView(R.id.recent_used_lv)
@@ -115,6 +123,12 @@ public class MainFragment extends Fragment implements OnClickListener {
     CardView bottomLayout;
     @BindView(R.id.action_col_all)
     ImageView action_col_all;
+    @BindView(R.id.action_photo_tran_btn)
+    CardView actionPhotoTranBtn;
+    @BindView(R.id.more_tools_img_mic)
+    ImageView moreToolsImgMic;
+    @BindView(R.id.more_tools_img)
+    ImageView moreToolsImg;
 
     //translate
     private record currentDialogBean;
@@ -129,8 +143,8 @@ public class MainFragment extends Fragment implements OnClickListener {
     private FragmentProgressbarListener mProgressbarListener;
 
     private boolean isShowCollected = true;
-    private String mCurrentPhotoPath;
     private Activity mActivity;
+    private OrcHelper mOrcHelper;
 
     RecognizerListener recognizerListener = new RecognizerListener() {
 
@@ -209,7 +223,7 @@ public class MainFragment extends Fragment implements OnClickListener {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-        mActivity = activity;
+            mActivity = activity;
             mProgressbarListener = (FragmentProgressbarListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString() + " must implement FragmentProgressbarListener");
@@ -252,6 +266,7 @@ public class MainFragment extends Fragment implements OnClickListener {
         actionLayout.setOnClickListener(this);
         actionSetting.setOnClickListener(this);
         actionCollected.setOnClickListener(this);
+        actionPhotoTranBtn.setOnClickListener(this);
 
         if (PlayUtil.getSP().getBoolean(KeyUtil.IsShowTranKeybordLayout, false)) {
             showKeybordLayout();
@@ -301,7 +316,7 @@ public class MainFragment extends Fragment implements OnClickListener {
         }
     }
 
-    private void refresh(){
+    private void refresh() {
         if (Settings.isMainFragmentNeedRefresh) {
             Settings.isMainFragmentNeedRefresh = false;
             reloadData();
@@ -313,8 +328,9 @@ public class MainFragment extends Fragment implements OnClickListener {
         if (v.getId() == R.id.submit_btn_cover) {
             submit();
             AVAnalytics.onEvent(mActivity, "tab1_submit_btn");
-        } else if (v.getId() == R.id.photo_tran_btn) {
-//			photoSelectDialog();
+        } else if (v.getId() == R.id.action_photo_tran_btn) {
+            resetImg();
+            showORCDialog();
         } else if (v.getId() == R.id.voice_btn_cover) {
             showIatDialog();
             AVAnalytics.onEvent(mActivity, "tab1_speak_btn");
@@ -322,20 +338,26 @@ public class MainFragment extends Fragment implements OnClickListener {
             input_et.setText("");
             AVAnalytics.onEvent(mActivity, "tab1_clear_btn");
         } else if (v.getId() == R.id.speak_language_layout) {
+            resetImg();
             changeSpeakLanguage();
         } else if (v.getId() == R.id.input_type_layout) {
+            resetImg();
             changeInputType();
         } else if (v.getId() == R.id.more_tools_layout || v.getId() == R.id.more_tools_layout_mic) {
             if (actionLayout.isShown()) {
+                AnimationUtil.rotate(moreToolsImgMic,45,0);
+                AnimationUtil.rotate(moreToolsImg,45,0);
                 actionLayout.setVisibility(View.GONE);
             } else {
+                AnimationUtil.rotate(moreToolsImgMic,0, 45);
+                AnimationUtil.rotate(moreToolsImg,0, 45);
                 actionLayout.setVisibility(View.VISIBLE);
             }
         } else if (v.getId() == R.id.action_setting) {
-            actionLayout.setVisibility(View.GONE);
+            resetImg();
             showMoreTools();
         } else if (v.getId() == R.id.action_collected) {
-            actionLayout.setVisibility(View.GONE);
+            resetImg();
             if (isShowCollected) {
                 action_col_all.setImageResource(R.drawable.ic_uncollected_grey);
             } else {
@@ -343,6 +365,24 @@ public class MainFragment extends Fragment implements OnClickListener {
             }
             getCollectedDataTask();
         }
+    }
+
+    private void resetImg(){
+        try {
+            actionLayout.setVisibility(View.GONE);
+            AnimationUtil.rotate(moreToolsImgMic,0,0);
+            AnimationUtil.rotate(moreToolsImg,0,0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void showORCDialog() {
+        actionLayout.setVisibility(View.GONE);
+        if (mOrcHelper == null) {
+            mOrcHelper = new OrcHelper(this, this, mProgressbarListener);
+        }
+        mOrcHelper.photoSelectDialog();
     }
 
     private void changeSpeakLanguage() {
@@ -561,7 +601,7 @@ public class MainFragment extends Fragment implements OnClickListener {
     }
 
     public void autoClearAndautoPlay() {
-        if(PlayUtil.getSP().getBoolean(KeyUtil.AutoClearInput, true)){
+        if (PlayUtil.getSP().getBoolean(KeyUtil.AutoClearInput, true)) {
             input_et.setText("");
         }
         if (PlayUtil.getSP().getBoolean(KeyUtil.AutoPlayResult, false)) {
@@ -732,10 +772,10 @@ public class MainFragment extends Fragment implements OnClickListener {
             @Override
             public void subscribe(ObservableEmitter<String> e) throws Exception {
                 beans.clear();
-                if(isShowCollected){
+                if (isShowCollected) {
                     isShowCollected = false;
                     beans.addAll(DataBaseUtil.getInstance().getDataListCollected(0, Settings.offset));
-                }else {
+                } else {
                     isShowCollected = true;
                     beans.addAll(DataBaseUtil.getInstance().getDataListRecord(0, Settings.offset));
                 }
@@ -748,12 +788,15 @@ public class MainFragment extends Fragment implements OnClickListener {
                     @Override
                     public void onSubscribe(Disposable d) {
                     }
+
                     @Override
                     public void onNext(String s) {
                     }
+
                     @Override
                     public void onError(Throwable e) {
                     }
+
                     @Override
                     public void onComplete() {
                         finishLoadding();
@@ -779,12 +822,15 @@ public class MainFragment extends Fragment implements OnClickListener {
                     @Override
                     public void onSubscribe(Disposable d) {
                     }
+
                     @Override
                     public void onNext(String s) {
                     }
+
                     @Override
                     public void onError(Throwable e) {
                     }
+
                     @Override
                     public void onComplete() {
                         finishLoadding();
@@ -803,12 +849,15 @@ public class MainFragment extends Fragment implements OnClickListener {
                     @Override
                     public void onSubscribe(Disposable d) {
                     }
+
                     @Override
                     public void onNext(String s) {
                     }
+
                     @Override
                     public void onError(Throwable e) {
                     }
+
                     @Override
                     public void onComplete() {
                         autoPlay();
@@ -913,118 +962,20 @@ public class MainFragment extends Fragment implements OnClickListener {
         });
     }
 
-//	private void photoSelectDialog(){
-//		String[] titles = {getResources().getString(R.string.take_photo),getResources().getString(R.string.photo_album)};
-//		PopDialog mPhonoSelectDialog = new PopDialog(getContext(),titles);
-//		mPhonoSelectDialog.setListener(new PopViewItemOnclAutoClearInputAfterFinishickListener() {
-//			@Override
-//			public void onSecondClick(View v) {
-//				getImageFromAlbum();
-//			}
-//			@Override
-//			public void onFirstClick(View v) {
-//				getImageFromCamera();
-//			}
-//		});
-//		mPhonoSelectDialog.show();
-//	}
-//
-//	public void getImageFromAlbum() {
-//		Intent intent = new Intent(Intent.ACTION_PICK,
-//                MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-//        intent.setType("image/*");//相片类型
-//        startActivityForResult(intent, CameraUtil.REQUEST_CODE_PICK_IMAGE);
-//    }
-//
-//	public void getImageFromCamera() {
-//		String state = Environment.getExternalStorageState();
-//		if (state.equals(Environment.MEDIA_MOUNTED)) {
-//			Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//			if (takePictureIntent.resolveActivity(mActivity.getPackageManager()) != null) {
-//				File photoFile = null;
-//		        try {
-//		            photoFile = CameraUtil.createImageFile();
-//		            mCurrentPhotoPath = photoFile.getAbsolutePath();
-//		        } catch (IOException ex) {
-//		            ex.printStackTrace();
-//		        }
-//		        if (photoFile != null) {
-//		            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,Uri.fromFile(photoFile));
-//		            startActivityForResult(takePictureIntent, CameraUtil.REQUEST_CODE_CAPTURE_CAMEIA);
-//		        }
-//			} else {
-//				ToastUtil.diaplayMesShort(getContext(), "请确认已经插入SD卡");
-//			}
-//		}
-//	}
-//
-//	public void doCropPhoto(Uri uri) {
-//		File photoTemp = null;
-//        try {
-//        	photoTemp = new File(CameraUtil.createTempFile());
-//        } catch (IOException ex) {
-//            ex.printStackTrace();
-//        }
-//		Intent intent = new Intent("com.android.camera.action.CROP");
-//		intent.setDataAndType(uri, "image/*");
-//		intent.putExtra("crop", "true");
-//		intent.putExtra("scale", true);
-//		intent.putExtra("return-data", false);
-//		intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
-//		intent.putExtra("noFaceDetection",  false);
-//		intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoTemp));
-//		startActivityForResult(intent, CameraUtil.PHOTO_PICKED_WITH_DATA);
-//	}
-//
-//	 @Override
-//	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//		if (requestCode == CameraUtil.REQUEST_CODE_PICK_IMAGE && resultCode == Activity.RESULT_OK) {
-//			if(data != null){
-//				Uri uri = data.getData();
-//				if(uri != null){
-//					doCropPhoto(uri);
-//				}
-//			}
-//		} else if (requestCode == CameraUtil.REQUEST_CODE_CAPTURE_CAMEIA && resultCode == Activity.RESULT_OK) {
-//			File f = new File(mCurrentPhotoPath);
-//    	    Uri contentUri = Uri.fromFile(f);
-//    	    doCropPhoto(contentUri);
-//		}else if (requestCode == CameraUtil.PHOTO_PICKED_WITH_DATA && resultCode == Activity.RESULT_OK) {
-//			sendBaiduOCR();
-//		}
-//	}
-//
-//	public void sendBaiduOCR(){
-//		try {
-//			loadding();
-//			LanguagehelperHttpClient.postBaiduOCR(CameraUtil.createTempFile(), new UICallback(mActivity){
-//				@Override
-//				public void onResponsed(String responseString){
-//					if (!TextUtils.isEmpty(responseString)) {
-//						if(JsonParser.isJson(responseString)){
-//							BaiduOcrRoot mBaiduOcrRoot = JSON.parseObject(responseString, BaiduOcrRoot.class);
-//							if(mBaiduOcrRoot.getErrNum().equals("0")){
-//								input_et.setText("");
-//								input_et.setText(CameraUtil.getOcrResult(mBaiduOcrRoot));
-//							}else{
-//								ToastUtil.diaplayMesShort(getContext(), mBaiduOcrRoot.getErrMsg());
-//							}
-//						}else{
-//							showToast(mActivity.getResources().getString(R.string.server_error));
-//						}
-//					}
-//				}
-//				@Override
-//				public void onFailured() {
-//					showToast(mActivity.getResources().getString(R.string.network_error));
-//				}
-//				@Override
-//				public void onFinished() {
-//					finishLoadding();
-//				}
-//			});
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//	}
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        mOrcHelper.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void ShowResult(BaiduOcrRoot mBaiduOcrRoot) {
+        showKeybordLayout();
+        input_et.setText("");
+        input_et.setText(CameraUtil.getOcrResult(mBaiduOcrRoot));
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
 }

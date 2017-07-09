@@ -12,6 +12,10 @@ android {
         targetSdkVersion 25
         versionCode 29
         versionName "3.8"
+
+        ndk {
+            abiFilters "armeabi"
+        }
     }
     buildTypes {
         release {
@@ -27,10 +31,14 @@ android {
         abortOnError false
     }
 
+    dexOptions {
+        jumboMode true
+    }
 
 }
 
 dependencies {
+
     //contx.jar 是广阅通的，不需要时可删除
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
@@ -54,11 +62,16 @@ dependencies {
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     compile 'io.reactivex.rxjava2:rxjava:2.1.0'
     compile 'com.orhanobut:dialogplus:1.11@aar'
-    compile "com.andkulikov:transitionseverywhere:1.7.0"
+    compile 'com.andkulikov:transitionseverywhere:1.7.0'
     compile 'org.greenrobot:greendao:3.2.2'
     compile 'com.github.yuweiguocn:GreenDaoUpgradeHelper:v1.3.0'
     compile 'com.github.lzyzsd:circleprogress:1.2.1'
     compile 'com.daimajia.numberprogressbar:library:1.4@aar'
+    compile files('libs/YoudaoBase.jar')
+    compile files('libs/YoudaoCnDictOffline.jar')
+    compile files('libs/YoudaoLineOffline.jar')
+    compile files('libs/YoudaoTranslateOnline.jar')
+    compile files('libs/YoudaoWordOffline.jar')
 }
 
 greendao {

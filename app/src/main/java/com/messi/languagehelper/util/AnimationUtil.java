@@ -1,6 +1,8 @@
 package com.messi.languagehelper.util;
 
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
 
 import com.nineoldandroids.animation.Animator.AnimatorListener;
 import com.nineoldandroids.animation.ObjectAnimator;
@@ -48,5 +50,12 @@ public class AnimationUtil {
 		mObjectAnimator1.setDuration(duration).start();
 		ObjectAnimator mObjectAnimator2 = ObjectAnimator.ofFloat(view, "alpha", afrom, ato);
 		mObjectAnimator2.setDuration(duration).start();
+	}
+
+	public static void rotate(View view,float fromDegrees, float toDegrees){
+		Animation animation = new RotateAnimation(fromDegrees,toDegrees, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+		animation.setDuration(100);
+		animation.setFillAfter(true);
+		view.startAnimation(animation);
 	}
 }

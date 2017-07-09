@@ -7,9 +7,13 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URLEncoder;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.media.ExifInterface;
 import android.util.Base64;
 
 import com.messi.languagehelper.bean.BDORCItem;
@@ -90,14 +94,93 @@ public class CameraUtil {
 		saveBitmap(newBitmap,srcPath);
 	}
 
-	public static String encodeBase64File(String path) throws Exception {
-		LogUtil.DefalutLog("srcPath:"+path);
-		File  file = new File(path);
-		FileInputStream inputFile = new FileInputStream(file);
-		byte[] buffer = new byte[(int)file.length()];
-		inputFile.read(buffer);
-		inputFile.close();
-		return Base64.encodeToString(buffer,Base64.DEFAULT);
+	public static String encodeBase64File(File file) throws Exception {
+		return new String(Base64.encode(File2byte(file),Base64.NO_WRAP));
+	}
+
+	public static byte[] File2byte(File file)
+	{
+		byte[] buffer = null;
+		try
+		{
+			FileInputStream fis = new FileInputStream(file);
+			ByteArrayOutputStream bos = new ByteArrayOutputStream();
+			byte[] b = new byte[1024];
+			int n;
+			while ((n = fis.read(b)) != -1)
+			{
+				bos.write(b, 0, n);
+			}
+			fis.close();
+			bos.close();
+			buffer = bos.toByteArray();
+		}
+		catch (FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+		return buffer;
+	}
+
+	public static void resize(String inputPath, String outputPath, int dstWidth, int dstHeight) {
+		try {
+			BitmapFactory.Options options = new BitmapFactory.Options();
+			options.inJustDecodeBounds = true;
+			BitmapFactory.decodeFile(inputPath, options);
+			int e = options.outWidth;
+			int inHeight = options.outHeight;
+			Matrix m = new Matrix();
+			ExifInterface exif = new ExifInterface(inputPath);
+			int rotation = exif.getAttributeInt("Orientation", 1);
+			if(rotation != 0) {
+				m.preRotate((float)ExifUtil.exifToDegrees(rotation));
+			}
+
+			int maxPreviewImageSize = Math.max(dstWidth, dstHeight);
+			int size = Math.min(options.outWidth, options.outHeight);
+			size = Math.min(size, maxPreviewImageSize);
+			options = new BitmapFactory.Options();
+			options.inSampleSize = calculateInSampleSize(options, size, size);
+			options.inScaled = true;
+			options.inDensity = options.outWidth;
+			options.inTargetDensity = size * options.inSampleSize;
+			Bitmap roughBitmap = BitmapFactory.decodeFile(inputPath, options);
+			FileOutputStream out = new FileOutputStream(outputPath);
+
+			try {
+				roughBitmap.compress(Bitmap.CompressFormat.JPEG, 80, out);
+			} catch (Exception var24) {
+				var24.printStackTrace();
+			} finally {
+				try {
+					out.close();
+				} catch (Exception var23) {
+					var23.printStackTrace();
+				}
+
+			}
+		} catch (IOException var26) {
+			var26.printStackTrace();
+		}
+	}
+
+	public static int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
+		int height = options.outHeight;
+		int width = options.outWidth;
+		int inSampleSize = 1;
+		if(height > reqHeight || width > reqWidth) {
+			int halfHeight = height / 2;
+
+			for(int halfWidth = width / 2; halfHeight / inSampleSize >= reqHeight && halfWidth / inSampleSize >= reqWidth; inSampleSize *= 2) {
+				;
+			}
+		}
+
+		return inSampleSize;
 	}
 
 	public static String getImageBase64(String srcPath) {

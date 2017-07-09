@@ -279,7 +279,8 @@ public class StudyFragment extends BaseFragment implements OnClickListener, Tabl
         if (!TextUtils.isEmpty(category)) {
             query.whereEqualTo(AVOUtil.Reading.category, category);
         }
-        query.addDescendingOrder(AVOUtil.Reading.publish_time);
+//        query.addDescendingOrder(AVOUtil.Reading.publish_time);
+        query.addDescendingOrder("createdAt");
         query.skip(skip);
         query.limit(Settings.page_size);
         try {

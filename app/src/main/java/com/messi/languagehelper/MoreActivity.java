@@ -33,6 +33,10 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
     FrameLayout qrcode_layout;
     @BindView(R.id.setting_layout)
     FrameLayout setting_layout;
+    @BindView(R.id.offline_dic_layout)
+    FrameLayout offlineDicLayout;
+    @BindView(R.id.offline_dic_unread_dot)
+    ImageView offlineDicUnreadDot;
     private SharedPreferences mSharedPreferences;
 
     @Override
@@ -53,6 +57,10 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
         invite_layout.setOnClickListener(this);
         qrcode_layout.setOnClickListener(this);
         setting_layout.setOnClickListener(this);
+        offlineDicLayout.setOnClickListener(this);
+        if(!Settings.getSharedPreferences(this).getBoolean(KeyUtil.OfflineDicUnreadKey,true)){
+            offlineDicUnreadDot.setVisibility(View.GONE);
+        }
     }
 
 
@@ -65,6 +73,12 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
                 break;
             case R.id.costom_share_layout:
                 toActivity(ImgShareActivity.class, null);
+                break;
+            case R.id.offline_dic_layout:
+                toActivity(OfflineDicDownloadActivity.class, null);
+                offlineDicUnreadDot.setVisibility(View.GONE);
+                Settings.saveSharedPreferences(Settings.getSharedPreferences(this),
+                        KeyUtil.OfflineDicUnreadKey,false);
                 break;
             case R.id.comments_layout:
                 try {

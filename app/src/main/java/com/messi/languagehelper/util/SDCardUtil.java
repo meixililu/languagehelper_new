@@ -28,6 +28,7 @@ public class SDCardUtil {
 	public static final String ReadingPath = "/zyhy/audio/study/reading/mp3/";
 	public static final String apkPath = "/zyhy/apps/download/";
 	public static final String apkUpdatePath = "/zyhy/apps/update/";
+	public static final String OfflineDicPath = "/zyhy/offline/";
 	public static final String Delimiter = "/";
 	
 	/**sdcard路径
@@ -41,36 +42,22 @@ public class SDCardUtil {
 		}
 		if (SDdir != null) {
 			String path = SDdir.getPath() + sdCardPath;
-			isFileExists(path);
+			isFileExistsOrCreate(path);
 			return path;
 		} else {
-			return null;
-		}
-	}
-	
-	public static void isFileExists(String path){
-		File sdDir = new File(path);
-		if(!sdDir.exists()){
-			boolean isCreate = sdDir.mkdirs();
-			LogUtil.DefalutLog("isFileExists-isCreate:"+isCreate);
-		}
-	}
-	
-	public static String isDirExits(Context mContext,String path) throws IOException{
-		String sdcard = getDownloadPath(path);
-		if(!TextUtils.isEmpty(path)){
-			File sdDir = new File(sdcard + path);
-			if(!sdDir.exists()){
-				sdDir.mkdirs();
-			}
-			return sdcard + path;
-		}else{
 			return "";
 		}
 	}
 	
+	public static void isFileExistsOrCreate(String path){
+		File sdDir = new File(path);
+		if(!sdDir.exists()){
+			sdDir.mkdirs();
+		}
+	}
+	
 	public static String saveBitmap(Context mContext, Bitmap bitmap) throws IOException {
-		String sdcardDir = isDirExits(mContext, ImgPath);
+		String sdcardDir = getDownloadPath(ImgPath);
 		String filePath = "";
 		if(!TextUtils.isEmpty(sdcardDir)){
 			filePath = sdcardDir + "image_" + System.currentTimeMillis() + ".png";
@@ -95,7 +82,7 @@ public class SDCardUtil {
 	}
 	
 	public static String saveBitmap(Context mContext, Bitmap bitmap, String name) throws IOException {
-		String sdcardDir = isDirExits(mContext, ImgPath);
+		String sdcardDir = getDownloadPath(ImgPath);
 		String filePath = "";
 		if(!TextUtils.isEmpty(sdcardDir)){
 			filePath = sdcardDir + name;
@@ -120,7 +107,6 @@ public class SDCardUtil {
 	}
 	
 	/**删除内部存储中之前下载的文件
-	 * @param mContext
 	 */
 	public static void deleteOldFile() {
 		try {
@@ -151,6 +137,15 @@ public class SDCardUtil {
 		File file = new File(filePath);
 		return file.exists();
 	}
+
+	public static long getFileSize(String filePath) {
+		File file = new File(filePath);
+		if(file.exists()){
+			return file.length();
+		}else {
+			return 0;
+		}
+	}
 	
 	/**删除文件夹里面的单个文件
 	 * @param sPath
@@ -163,5 +158,6 @@ public class SDCardUtil {
 	        return file.delete();  
 	    }  
 	    return false;  
-	}  
+	}
+
 }

@@ -31,7 +31,7 @@
                 android:gravity="left"
                 android:hint="@string/input_et_hint_dictionary"
                 android:imeOptions="actionDone"
-                android:minLines="3"
+                android:minLines="2"
                 android:textColor="@color/text_black"
                 android:textColorHint="@color/text_grey"
                 android:textCursorDrawable="@null"
@@ -42,12 +42,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
+                android:layout_below="@id/input_et"
                 android:foreground="@drawable/framelayout_selector"
                 android:paddingLeft="10dp"
-                android:paddingTop="3dp"
+                android:paddingTop="2dp"
                 android:paddingRight="10dp"
-                android:paddingBottom="3dp"
-                android:visibility="gone"
+                android:paddingBottom="2dp"
                 >
                 <ImageView
                     android:layout_width="wrap_content"
@@ -56,10 +56,27 @@
                     />
             </FrameLayout>
             <FrameLayout
+                android:id="@+id/clear_btn_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/input_et"
+                android:layout_marginRight="3px"
+                android:clickable="true"
+                android:foreground="@drawable/framelayout_selector"
+                android:padding="3dp" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/delete"
+                    android:clickable="false" />
+            </FrameLayout>
+            <FrameLayout
                 android:id="@+id/submit_btn_cover"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/input_et"
+                android:layout_below="@id/clear_btn_layout"
                 android:foreground="@drawable/framelayout_selector"
                 >
                 <TextView
@@ -74,23 +91,6 @@
                     />
             </FrameLayout>
 
-            <FrameLayout
-                android:id="@+id/clear_btn_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_above="@id/submit_btn_cover"
-                android:layout_marginRight="3px"
-                android:clickable="true"
-                android:foreground="@drawable/framelayout_selector"
-                android:padding="3dp" >
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/delete"
-                    android:clickable="false" />
-            </FrameLayout>
         </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>
 

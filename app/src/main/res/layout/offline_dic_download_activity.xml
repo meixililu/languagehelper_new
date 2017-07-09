@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/contentbg"
+    android:orientation="vertical" >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_awesome_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize" >
+
+        <ProgressBar style="@style/CircularProgressWhite"
+            android:id="@+id/progressBarCircularIndetermininate"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_gravity="right"
+            android:visibility="gone" />
+    </android.support.v7.widget.Toolbar>
+    
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="@dimen/padding_10"
+            android:orientation="vertical" >
+            
+            <FrameLayout
+                android:id="@+id/dic_minimalist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingTop="@dimen/padding_10"
+                android:paddingBottom="@dimen/padding_10"
+                android:foreground="@drawable/framelayout_selector"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/padding_15"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dic_minimalist"
+                        android:textSize="@dimen/bigger"
+                        android:textColor="@color/text_black"
+                        />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left|bottom"
+                        android:layout_marginLeft="@dimen/padding_20"
+                        android:text="4MB"
+                        android:textSize="@dimen/small"
+                        android:textColor="@color/text_grey"
+                        />
+                    <ImageView
+                        android:id="@+id/dic_minimalist_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_download_green"
+                        />
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/dic_standard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/padding_10"
+                android:paddingTop="@dimen/padding_10"
+                android:paddingBottom="@dimen/padding_10"
+                android:foreground="@drawable/framelayout_selector"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/padding_15"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dic_normal"
+                        android:textSize="@dimen/bigger"
+                        android:textColor="@color/text_black"
+                        />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left|bottom"
+                        android:layout_marginLeft="@dimen/padding_20"
+                        android:text="26MB"
+                        android:textSize="@dimen/small"
+                        android:textColor="@color/text_grey"
+                        />
+                    <ImageView
+                        android:id="@+id/dic_standard_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_download_green"
+                        />
+                </LinearLayout>
+
+            </FrameLayout>
+            
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

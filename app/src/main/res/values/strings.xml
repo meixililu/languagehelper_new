@@ -40,6 +40,7 @@
     <string name="title_update_title">新版来袭:</string>
     <string name="title_dialog_select">选择场景</string>
     <string name="title_settings">应用设置</string>
+    <string name="title_offline_dic">离线词典</string>
     <string name="title_comments">吐槽评价</string>
     <string name="title_apps">发现APP</string>
     <string name="title_duanzi">段子笑话</string>
@@ -49,6 +50,8 @@
     <string name="title_composition">作文</string>
     <string name="title_ch_dictionary">新华字典</string>
     <string name="title_dictionary_idiom">成语词典</string>
+    <string name="dic_minimalist">精简版</string>
+    <string name="dic_normal">标准版</string>
     <string name="title_word_study_change_plan">选择词汇书</string>
     <string name="evaluation_prompt">关于口语评测</string>
     <string name="word_study_detail_menu">听选</string>

@@ -56,4 +56,16 @@ public class BaiduAccessToken {
 	public void setSession_secret(String session_secret) {
 		this.session_secret = session_secret;
 	}
+
+	@Override
+	public String toString() {
+		return "BaiduAccessToken{" +
+				"refresh_token='" + refresh_token + '\'' +
+				", expires_in=" + expires_in +
+				", scope='" + scope + '\'' +
+				", session_key='" + session_key + '\'' +
+				", access_token='" + access_token + '\'' +
+				", session_secret='" + session_secret + '\'' +
+				'}';
+	}
 }

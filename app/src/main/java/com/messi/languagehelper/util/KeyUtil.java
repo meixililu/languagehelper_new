@@ -162,6 +162,8 @@ public class KeyUtil {
 
 	public static final String isNewWordStudy = "isNewWordStudy";
 
+	public static final String OfflineDicUnreadKey = "OfflineDicUnreadKey";
+
 
 	
 	

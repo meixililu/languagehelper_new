@@ -2,6 +2,7 @@ package com.messi.languagehelper.http;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.concurrent.TimeUnit;
 
 import android.content.Context;
@@ -158,36 +159,43 @@ public class LanguagehelperHttpClient {
 		}
 	}
 
-	public static void getBaiduAccessstoken(Callback mCallback) {
-		RequestBody formBody  = new FormEncodingBuilder()
-				.add("grant_type", "client_credentials")
-				.add("client_id", "GNBFfzUk2F9fzS109aTIiIDG")
-				.add("client_secret", "6cuMEl0DPCQfeBhaiEvQq6koNFBHzw3C")
-				.build();
-		post(Settings.BaiduAccessToken,  formBody , mCallback);
-	}
-
-	public static void postBaiduOCR(String path, Callback mCallback) {
+	public static void postBaiduOCR(Context context, String path, Callback mCallback) {
 		try {
-			getBaiduAccessToken();
-			MainFragmentOld.base64 = CameraUtil.encodeBase64File(path);
-			LogUtil.DefalutLog(MainFragmentOld.base64);
-			RequestBody formBody = new FormEncodingBuilder()
-					.add("image", MainFragmentOld.base64)
-					.build();
-			Request request = new Request.Builder()
-				.url(Settings.BaiduOCRUrl+"?access_token="+PlayUtil.getSP().getString(KeyUtil.BaiduAccessToken,""))
-				.header("Content-Type", "application/x-www-form-urlencoded")
-				.post(formBody)
-				.build();
-			client.newCall(request).enqueue(mCallback);
+			String BaiduAccessToken = PlayUtil.getSP().getString(KeyUtil.BaiduAccessToken,"");
+			long BaiduAccessTokenExpires = PlayUtil.getSP().getLong(KeyUtil.BaiduAccessTokenExpires,(long)0);
+			long BaiduAccessTokenCreateAt = PlayUtil.getSP().getLong(KeyUtil.BaiduAccessTokenCreateAt,(long)0);
+			boolean isExpired = System.currentTimeMillis() - BaiduAccessTokenCreateAt > BaiduAccessTokenExpires;
+			if(!TextUtils.isEmpty(BaiduAccessToken) && !isExpired){
+				File imageFile = new File(path);
+				File tempImage = new File(context.getCacheDir(), String.valueOf(System.currentTimeMillis()));
+				CameraUtil.resize(imageFile.getAbsolutePath(), tempImage.getAbsolutePath(), 1280, 1280);
+
+				MainFragmentOld.base64 = CameraUtil.encodeBase64File(tempImage);
+				LogUtil.DefalutLog(MainFragmentOld.base64);
+				RequestBody formBody = new FormEncodingBuilder()
+						.add("image", MainFragmentOld.base64)
+						.build();
+				Request request = new Request.Builder()
+						.url(Settings.BaiduOCRUrl+"?access_token="+PlayUtil.getSP().getString(KeyUtil.BaiduAccessToken,""))
+						.header("Content-Type", "application/x-www-form-urlencoded")
+						.post(formBody)
+						.build();
+				client.newCall(request).enqueue(mCallback);
+			}else {
+				getBaiduAccessToken(context,path,mCallback);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	public static void getBaiduAccessToken(){
-		LanguagehelperHttpClient.getBaiduAccessstoken(new UICallback(WXEntryActivity.mInstance){
+	public static void getBaiduAccessToken(final Context context,final String path,final Callback mCallback){
+		RequestBody formBody  = new FormEncodingBuilder()
+				.add("grant_type", "client_credentials")
+				.add("client_id", Settings.BaiduORCAK)
+				.add("client_secret", Settings.BaiduORCSK)
+				.build();
+		post(Settings.BaiduAccessToken,  formBody ,new UICallback(WXEntryActivity.mInstance){
 			@Override
 			public void onFailured() {
 			}
@@ -196,7 +204,6 @@ public class LanguagehelperHttpClient {
 			}
 			@Override
 			public void onResponsed(String responseString) {
-				LogUtil.DefalutLog("BaiduAccessstoken:"+responseString);
 				if(JsonParser.isJson(responseString)){
 					BaiduAccessToken mBaiduAccessToken = JSON.parseObject(responseString, BaiduAccessToken.class);
 					if(mBaiduAccessToken != null){
@@ -204,6 +211,7 @@ public class LanguagehelperHttpClient {
 						Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.BaiduAccessTokenExpires, mBaiduAccessToken.getExpires_in());
 						Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.BaiduAccessTokenCreateAt, System.currentTimeMillis());
 					}
+					postBaiduOCR(context,path,mCallback);
 				}
 			}
 		});
