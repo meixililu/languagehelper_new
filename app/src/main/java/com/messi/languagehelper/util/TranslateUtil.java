@@ -27,12 +27,18 @@ import com.messi.languagehelper.bean.DictionaryRootJuhe;
 import com.messi.languagehelper.bean.Root;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
+import com.youdao.localtransengine.EnLineTranslator;
+import com.youdao.localtransengine.LanguageConvert;
+import com.youdao.sdk.ydtranslate.EnWordTranslator;
+import com.youdao.sdk.ydtranslate.Translate;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
+
+import io.reactivex.ObservableEmitter;
 
 public class TranslateUtil {
 	
@@ -208,7 +214,6 @@ public class TranslateUtil {
 					if (mResponse.isSuccessful()) {
 						String responseString = mResponse.body().string();
 						LogUtil.DefalutLog("Result---youdaoweb");
-//						LogUtil.DefalutLog("Result---youdaoweb:" + responseString);
 						if (!TextUtils.isEmpty(responseString)) {
 							Dictionary mDictionary = getParseYoudaoWebHtml(responseString);
 							if (mDictionary != null) {
@@ -700,6 +705,69 @@ public class TranslateUtil {
 		}
 
 		return sb.toString();
+	}
+
+	public static void offlineTranslate(ObservableEmitter<Translate> e){
+		Translate translate = null;
+		if(isOfflineTranslateWords()){
+			LogUtil.DefalutLog("offline-word");
+			translate = getWordTranslate(e);
+		}else {
+			LogUtil.DefalutLog("offline-sentence");
+			translate = getSentenceTranslate();
+		}
+		e.onNext(translate);
+		e.onComplete();
+	}
+
+	public static Translate getWordTranslate(ObservableEmitter<Translate> e){
+		EnWordTranslator.initDictPath(SDCardUtil.OfflineDicPath);
+		if(!EnWordTranslator.isInited()){
+			EnWordTranslator.init();
+		}
+		return EnWordTranslator.lookupNative(Settings.q);
+	}
+
+	public static Translate getSentenceTranslate(){
+		EnLineTranslator.initDictPath(SDCardUtil.OfflineDicPath);
+		return EnLineTranslator.lookup(Settings.q, LanguageConvert.AUTO);
+	}
+
+	public static boolean isOfflineTranslateWords(){
+		if (StringUtils.isEnglish(Settings.q)) {
+			if(Settings.q.split(" ").length > 2){
+				return false;
+			}else {
+				return true;
+			}
+		}else {
+			if(Settings.q.split("").length > 3){
+				return false;
+			}else {
+				return true;
+			}
+		}
+	}
+
+	public static void addSymbol(Translate translate, StringBuilder sb){
+		if(StringUtils.isEnglish(Settings.q)){
+			boolean isHasSymbol = false;
+			if (!TextUtils.isEmpty(translate.getUkPhonetic())) {
+				sb.append("英[");
+				sb.append(translate.getUkPhonetic());
+				sb.append("]    ");
+				isHasSymbol = true;
+			}
+			if (!TextUtils.isEmpty(translate.getUsPhonetic())) {
+				sb.append("美[");
+				sb.append(translate.getUsPhonetic());
+				sb.append("]");
+				isHasSymbol = true;
+			}
+			if(isHasSymbol){
+				sb.append("\n");
+			}
+		}
 	}
 	
 }

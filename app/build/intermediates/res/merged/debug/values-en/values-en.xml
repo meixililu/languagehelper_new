@@ -50,6 +50,7 @@
     <string name="designer">Designer：Liqianxia</string>
     <string name="dic_minimalist">Minimalist</string>
     <string name="dic_normal">Standard</string>
+    <string name="dic_sentence">Offline Sentence</string>
     <string name="dic_tab_cidian">Dictionary</string>
     <string name="dic_tab_juhai">Sentences</string>
     <string name="dic_tab_shoucang">Collected</string>

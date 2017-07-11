@@ -9,6 +9,7 @@ import com.avos.avoscloud.okhttp.Response;
 import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.dao.SymbolListDao;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
+import com.messi.languagehelper.inteface.ProgressListener;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -66,6 +67,24 @@ public class DownLoadUtil {
             LogUtil.DefalutLog("downloadFile---url:" + url);
             LogUtil.DefalutLog("downloadFile---localPath:" + (path+fileName));
             Response mResponse = LanguagehelperHttpClient.get(url);
+            if (mResponse != null) {
+                if (mResponse.isSuccessful()) {
+                    return saveFile(mContext, path, fileName, mResponse.body().bytes());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static boolean downloadFile(final Context mContext, final String url, final String path,
+                                       final String fileName, final ProgressListener progressListener,
+                                       String flag) {
+        try {
+            LogUtil.DefalutLog("downloadFile---url:" + url);
+            LogUtil.DefalutLog("downloadFile---localPath:" + (path+fileName));
+            Response mResponse = LanguagehelperHttpClient.get(url,progressListener);
             if (mResponse != null) {
                 if (mResponse.isSuccessful()) {
                     return saveFile(mContext, path, fileName, mResponse.body().bytes());

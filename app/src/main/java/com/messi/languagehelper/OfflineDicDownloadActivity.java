@@ -1,20 +1,18 @@
 package com.messi.languagehelper;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.telecom.Connection;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
-import com.messi.languagehelper.util.AudioTrackUtil;
+import com.daimajia.numberprogressbar.NumberProgressBar;
+import com.iflytek.cloud.thirdparty.L;
+import com.messi.languagehelper.inteface.ProgressListener;
 import com.messi.languagehelper.util.DownLoadUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.ToastUtil;
-
-import java.io.IOException;
+import com.messi.languagehelper.util.ZipUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,6 +27,11 @@ import io.reactivex.schedulers.Schedulers;
 
 public class OfflineDicDownloadActivity extends BaseActivity {
 
+    private final static String DicFileName = "localdict.datx";
+    private final static String SentenceFileName = "ce.zip";
+    private final static String minimalistUrl = "http://ac-3fg5ql3r.clouddn.com/bdf289ac24c248becf42.datx";
+    private final static String standarUrl = "http://ac-3fg5ql3r.clouddn.com/acf9b97ea30ef50f2501.datx";
+    private final static String sentenceUrl = "http://ac-3fg5ql3r.clouddn.com/a67d548bf365b3291489.zip";
     @BindView(R.id.dic_minimalist_img)
     ImageView dicMinimalistImg;
     @BindView(R.id.dic_minimalist)
@@ -37,12 +40,47 @@ public class OfflineDicDownloadActivity extends BaseActivity {
     ImageView dicStandardImg;
     @BindView(R.id.dic_standard)
     FrameLayout dicStandard;
+    @BindView(R.id.dic_sentence_img)
+    ImageView dicSentenceImg;
+    @BindView(R.id.dic_sentence)
+    FrameLayout dicSentence;
+    @BindView(R.id.number_progress_bar)
+    NumberProgressBar numberProgressBar;
 
-    private final static String DicFileName = "localdict.datx";
-    private final static String minimalistUrl = "http://ac-3fg5ql3r.clouddn.com/bdf289ac24c248becf42.datx";
-    private final static String standarUrl = "http://ac-3fg5ql3r.clouddn.com/acf9b97ea30ef50f2501.datx";
     //0 no dic, 1 minimalist, 2 standard
     private int status = 0;
+    private boolean isOfflineSentenceExist;
+    private String mOfflineDicPath;
+
+    final ProgressListener progressListener = new ProgressListener() {
+        @Override
+        public void update(long bytesRead, long contentLength, boolean done) {
+            try {
+                final int percent = (int) ((100 * bytesRead) / contentLength);
+                if (percent != 100) {
+                    OfflineDicDownloadActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            numberProgressBar.setVisibility(View.VISIBLE);
+                            numberProgressBar.setProgress(percent);
+                        }
+                    });
+                } else if (percent == 100) {
+                    if (done) {
+                        OfflineDicDownloadActivity.this.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                numberProgressBar.setProgress(100);
+                                numberProgressBar.setVisibility(View.GONE);
+                            }
+                        });
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,24 +90,29 @@ public class OfflineDicDownloadActivity extends BaseActivity {
         init();
     }
 
-    private void init(){
+    private void init() {
         getSupportActionBar().setTitle(getResources().getString(R.string.title_offline_dic));
         setImage();
     }
 
-    private void setImage(){
+    private void setImage() {
         try {
-            String mOfflineDicPath = SDCardUtil.getDownloadPath(SDCardUtil.OfflineDicPath);
-            long size = SDCardUtil.getFileSize(mOfflineDicPath+DicFileName);
-            LogUtil.DefalutLog("size:"+size);
-            if(size > 0){
-                if(size > (6*1048576)){
+            mOfflineDicPath = SDCardUtil.getDownloadPath(SDCardUtil.OfflineDicPath);
+            long size = SDCardUtil.getFileSize(mOfflineDicPath + DicFileName);
+            LogUtil.DefalutLog("size:" + size);
+            if (size > 0) {
+                if (size > (6 * 1048576)) {
                     status = 2;
                     dicStandardImg.setImageResource(R.drawable.ic_done);
-                }else {
+                    dicMinimalistImg.setImageResource(R.drawable.ic_done);
+                } else {
                     status = 1;
                     dicMinimalistImg.setImageResource(R.drawable.ic_done);
                 }
+            }
+            isOfflineSentenceExist = SDCardUtil.isFileExist(mOfflineDicPath+"c2e/");
+            if(isOfflineSentenceExist){
+                dicSentenceImg.setImageResource(R.drawable.ic_done);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -88,29 +131,50 @@ public class OfflineDicDownloadActivity extends BaseActivity {
         }
     }
 
-    private void downloadMinimalistDic(String url){
-        if(status < 1){
-            downloadFile(url);
-        }else {
-            ToastUtil.diaplayMesShort(this,"亲已经下载了离线词典");
+    @OnClick(R.id.dic_sentence)
+    public void onViewClicked() {
+        downloadSentence(sentenceUrl);
+    }
+
+    private void downloadMinimalistDic(String url) {
+        if (status < 1) {
+            downloadFile(url,DicFileName);
+        } else {
+            ToastUtil.diaplayMesShort(this, "已经下载了精简版离线词典");
         }
     }
 
-    private void downloadStandardDic(String url){
-        if(status < 2){
-            downloadFile(url);
-        }else {
-            ToastUtil.diaplayMesShort(this,"亲已经下载了离线词典");
+    private void downloadStandardDic(String url) {
+        if (status < 2) {
+            downloadFile(url,DicFileName);
+        } else {
+            ToastUtil.diaplayMesShort(this, "已经下载了标准版离线词典");
         }
     }
 
-    private void downloadFile(final String url){
+    private void downloadSentence(String url) {
+        if (!isOfflineSentenceExist) {
+            if(SDCardUtil.isFileExist(mOfflineDicPath+SentenceFileName)){
+                unzipFile();
+            }else{
+                downloadFile(url,SentenceFileName);
+            }
+        } else {
+            ToastUtil.diaplayMesShort(this, "已经下载了离线句子翻译");
+        }
+    }
+
+    private void downloadFile(final String url,final String fileName) {
         Observable.create(new ObservableOnSubscribe<String>() {
             @Override
             public void subscribe(ObservableEmitter<String> e) throws Exception {
-                e.onNext("showProgressbar");
-                DownLoadUtil.downloadFile(OfflineDicDownloadActivity.this, url, SDCardUtil.OfflineDicPath, DicFileName);
-                e.onNext("hideProgressbar");
+                DownLoadUtil.downloadFile(OfflineDicDownloadActivity.this, url, SDCardUtil.OfflineDicPath,
+                        fileName, progressListener, "");
+                if(url.equals(sentenceUrl)){
+                    e.onNext("unzip");
+                    ZipUtil.Unzip(mOfflineDicPath+SentenceFileName, mOfflineDicPath, true);
+                    e.onNext("finish");
+                }
                 e.onComplete();
             }
         })
@@ -120,14 +184,10 @@ public class OfflineDicDownloadActivity extends BaseActivity {
                     @Override
                     public void onSubscribe(Disposable d) {
                     }
+
                     @Override
                     public void onNext(String s) {
-                        if (s.equals("showProgressbar")) {
-                            showProgressbar();
-                        }
-                        if (s.equals("hideProgressbar")) {
-                            hideProgressbar();
-                        }
+                        prompt(s);
                     }
                     @Override
                     public void onError(Throwable e) {
@@ -138,4 +198,48 @@ public class OfflineDicDownloadActivity extends BaseActivity {
                     }
                 });
     }
+
+    private void prompt(String s){
+        if(s.equals("unzip")){
+            ToastUtil.diaplayMesShort(OfflineDicDownloadActivity.this,"离线包下载完成，开始解压");
+            showProgressbar();
+        }else if(s.equals("finish")){
+            ToastUtil.diaplayMesShort(OfflineDicDownloadActivity.this,"解压完成，可以使用离线翻译了");
+            hideProgressbar();
+        }
+    }
+
+    private void unzipFile() {
+        Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(ObservableEmitter<String> e) throws Exception {
+                e.onNext("unzip");
+                ZipUtil.Unzip(mOfflineDicPath+SentenceFileName, mOfflineDicPath, true);
+                e.onNext("finish");
+                e.onComplete();
+            }
+        })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                        prompt(s);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        setImage();
+                    }
+                });
+    }
+
 }

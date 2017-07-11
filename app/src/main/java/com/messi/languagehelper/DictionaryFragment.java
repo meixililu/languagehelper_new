@@ -46,10 +46,12 @@ import com.messi.languagehelper.util.DictionaryHelper;
 import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NetworkUtil;
 import com.messi.languagehelper.util.OrcHelper;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.StringUtils;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.TranslateUtil;
 import com.messi.languagehelper.util.XFUtil;
@@ -57,6 +59,7 @@ import com.messi.languagehelper.views.DividerItemDecoration;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
+import com.youdao.sdk.ydtranslate.Translate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -436,6 +439,73 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
         speakLanguageTv.setText(XFUtil.getVoiceEngineText(PlayUtil.getSP().getString(KeyUtil.DicUserSelectLanguage, XFUtil.VoiceEngineMD)));
     }
 
+    private void translateController(){
+        if(NetworkUtil.isNetworkConnected(getContext())){
+            LogUtil.DefalutLog("online");
+            RequestTranslateApiTask();
+        }else {
+            LogUtil.DefalutLog("offline");
+            translateOffline();
+        }
+    }
+
+    private void translateOffline(){
+        loadding();
+        Observable.create(new ObservableOnSubscribe<Translate>() {
+            @Override
+            public void subscribe(ObservableEmitter<Translate> e) throws Exception {
+                TranslateUtil.offlineTranslate(e);
+            }
+        })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Translate>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                    }
+                    @Override
+                    public void onNext(Translate translate) {
+                        parseOfflineData(translate);
+                    }
+                    @Override
+                    public void onError(Throwable e) {
+                        onComplete();
+                    }
+                    @Override
+                    public void onComplete() {
+                        finishLoadding();
+                    }
+                });
+    }
+
+    private void parseOfflineData(Translate translate){
+        if(translate != null){
+            if(translate.getErrorCode() == 0){
+                StringBuilder sb = new StringBuilder();
+                TranslateUtil.addSymbol(translate,sb);
+                for(String tran : translate.getTranslations()){
+                    sb.append(tran);
+                    sb.append("\n");
+                }
+                mDictionaryBean = new Dictionary();
+                boolean isEnglish = StringUtils.isEnglish(Settings.q);
+                if(isEnglish){
+                    mDictionaryBean.setFrom("en");
+                    mDictionaryBean.setTo("zh");
+                }else{
+                    mDictionaryBean.setFrom("zh");
+                    mDictionaryBean.setTo("en");
+                }
+                mDictionaryBean.setWord_name(Settings.q);
+                mDictionaryBean.setResult(sb.substring(0, sb.lastIndexOf("\n")));
+                DataBaseUtil.getInstance().insert(mDictionaryBean);
+                setBean();
+            }
+        }else{
+            showToast("没找到离线词典，请到更多页面下载！");
+        }
+    }
+
     /**
      * send translate request
      * showapi dictionary api
@@ -543,10 +613,10 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
         Settings.q = input_et.getText().toString().trim();
         if (!TextUtils.isEmpty(Settings.q)) {
             String last = Settings.q.substring(Settings.q.length() - 1);
-            if (",.?!;:'，。？！‘；：".contains(last)) {
+            if (",.!;:'，。！‘；：".contains(last)) {
                 Settings.q = Settings.q.substring(0, Settings.q.length() - 1);
             }
-            RequestTranslateApiTask();
+            translateController();
         } else {
             showToast(mActivity.getResources().getString(R.string.input_et_hint));
             finishLoadding();

@@ -50,8 +50,9 @@
     <string name="title_composition">作文</string>
     <string name="title_ch_dictionary">新华字典</string>
     <string name="title_dictionary_idiom">成语词典</string>
-    <string name="dic_minimalist">精简版</string>
-    <string name="dic_normal">标准版</string>
+    <string name="dic_minimalist">精简版词典</string>
+    <string name="dic_normal">标准版词典</string>
+    <string name="dic_sentence">离线句子翻译</string>
     <string name="title_word_study_change_plan">选择词汇书</string>
     <string name="evaluation_prompt">关于口语评测</string>
     <string name="word_study_detail_menu">听选</string>

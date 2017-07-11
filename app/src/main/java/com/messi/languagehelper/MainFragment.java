@@ -47,15 +47,19 @@ import com.messi.languagehelper.util.CameraUtil;
 import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NetworkUtil;
 import com.messi.languagehelper.util.OrcHelper;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.StringUtils;
 import com.messi.languagehelper.util.ToastUtil;
+import com.messi.languagehelper.util.TranslateUtil;
 import com.messi.languagehelper.util.XFUtil;
 import com.messi.languagehelper.views.DividerItemDecoration;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
+import com.youdao.sdk.ydtranslate.Translate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -426,6 +430,63 @@ public class MainFragment extends Fragment implements OnClickListener, OrcResult
         mic_layout.setVisibility(View.VISIBLE);
     }
 
+    private void translateController(){
+        if(NetworkUtil.isNetworkConnected(getContext())){
+            LogUtil.DefalutLog("online");
+            RequestJinShanNewAsyncTask();
+        }else {
+            LogUtil.DefalutLog("offline");
+            translateOffline();
+        }
+    }
+
+    private void translateOffline(){
+        loadding();
+        Observable.create(new ObservableOnSubscribe<Translate>() {
+            @Override
+            public void subscribe(ObservableEmitter<Translate> e) throws Exception {
+                TranslateUtil.offlineTranslate(e);
+            }
+        })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Translate>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                    }
+                    @Override
+                    public void onNext(Translate translate) {
+                        parseOfflineData(translate);
+                    }
+                    @Override
+                    public void onError(Throwable e) {
+                        onComplete();
+                    }
+                    @Override
+                    public void onComplete() {
+                        finishLoadding();
+                    }
+                });
+    }
+
+    private void parseOfflineData(Translate translate){
+        if(translate != null){
+            if(translate.getErrorCode() == 0){
+                StringBuilder sb = new StringBuilder();
+                TranslateUtil.addSymbol(translate,sb);
+                for(String tran : translate.getTranslations()){
+                    sb.append(tran);
+                    sb.append("\n");
+                }
+                currentDialogBean = new record(sb.substring(0, sb.lastIndexOf("\n")), Settings.q);
+                insertData();
+                autoClearAndautoPlay();
+            }
+        }else{
+            showToast("没找到离线词典，请到更多页面下载！");
+        }
+    }
+
     /**
      * send translate request
      */
@@ -747,10 +808,10 @@ public class MainFragment extends Fragment implements OnClickListener, OrcResult
         Settings.q = input_et.getText().toString().trim();
         if (!TextUtils.isEmpty(Settings.q)) {
             String last = Settings.q.substring(Settings.q.length() - 1);
-            if (",.?!;:'，。？！‘；：".contains(last)) {
+            if (",.!;:'，。！‘；：".contains(last)) {
                 Settings.q = Settings.q.substring(0, Settings.q.length() - 1);
             }
-            RequestJinShanNewAsyncTask();
+            translateController();
         } else {
             showToast(mActivity.getResources().getString(R.string.input_et_hint));
             finishLoadding();

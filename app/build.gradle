@@ -67,11 +67,6 @@ dependencies {
     compile 'com.github.yuweiguocn:GreenDaoUpgradeHelper:v1.3.0'
     compile 'com.github.lzyzsd:circleprogress:1.2.1'
     compile 'com.daimajia.numberprogressbar:library:1.4@aar'
-    compile files('libs/YoudaoBase.jar')
-    compile files('libs/YoudaoCnDictOffline.jar')
-    compile files('libs/YoudaoLineOffline.jar')
-    compile files('libs/YoudaoTranslateOnline.jar')
-    compile files('libs/YoudaoWordOffline.jar')
 }
 
 greendao {

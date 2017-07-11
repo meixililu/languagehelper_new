@@ -76,6 +76,20 @@ public class LanguagehelperHttpClient {
 		client.newCall(request).enqueue(mCallback);
 	}
 
+	public static Response get(String url,ProgressListener progressListener) {
+		Response mResponse = null;
+		try {
+			Request request = new Request.Builder()
+					.url(url)
+					.build();
+			OkHttpClient clone = LanguagehelperHttpClient.addProgressResponseListener(progressListener);
+			mResponse = clone.newCall(request).execute();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mResponse;
+	}
+
 	public static void get(HttpUrl mHttpUrl, String apikey, Callback mCallback) {
 		if (TextUtils.isEmpty(apikey)) {
 			Request request = new Request.Builder()
@@ -142,6 +156,7 @@ public class LanguagehelperHttpClient {
 				from = "zh-CN";
 				to = "en-US";
 			}
+			LogUtil.DefalutLog("from:"+from+"---to:"+to);
 			RequestBody formBody = new FormEncodingBuilder()
 				.add("w", Settings.q)
 				.add("", "")

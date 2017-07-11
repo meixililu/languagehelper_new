@@ -64,11 +64,7 @@ public class AppDownloadUtil {
 					mBuilder.setContentIntent (pend);
 					mNotifyManager.notify(0, mBuilder.build());
 					try {
-						Request request = new Request.Builder()
-					        .url(url)
-					        .build();
-						OkHttpClient clone = LanguagehelperHttpClient.addProgressResponseListener(progressListener);
-						Response response = clone.newCall(request).execute();
+						Response response = LanguagehelperHttpClient.get(url,progressListener);
 						if(response.isSuccessful()){
 							LogUtil.DefalutLog("---DownloadFile success");
 							DownLoadUtil.saveFile(mContext,path,appFileName,response.body().bytes());

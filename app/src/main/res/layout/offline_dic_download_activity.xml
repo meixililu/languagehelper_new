@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/contentbg"
@@ -19,7 +20,15 @@
             android:layout_gravity="right"
             android:visibility="gone" />
     </android.support.v7.widget.Toolbar>
-    
+
+    <com.daimajia.numberprogressbar.NumberProgressBar
+        android:id="@+id/number_progress_bar"
+        android:visibility="gone"
+        custom:progress_current="0"
+        custom:progress_max="100"
+        style="@style/NumberProgressBar_Passing_Green"
+        />
+
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -31,7 +40,9 @@
             android:layout_height="fill_parent"
             android:padding="@dimen/padding_10"
             android:orientation="vertical" >
-            
+
+
+
             <FrameLayout
                 android:id="@+id/dic_minimalist"
                 android:layout_width="match_parent"
@@ -116,7 +127,49 @@
                         android:src="@drawable/ic_download_green"
                         />
                 </LinearLayout>
+            </FrameLayout>
 
+            <FrameLayout
+                android:id="@+id/dic_sentence"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/padding_10"
+                android:paddingTop="@dimen/padding_10"
+                android:paddingBottom="@dimen/padding_10"
+                android:foreground="@drawable/framelayout_selector"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/padding_15"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dic_sentence"
+                        android:textSize="@dimen/bigger"
+                        android:textColor="@color/text_black"
+                        />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left|bottom"
+                        android:layout_marginLeft="@dimen/padding_20"
+                        android:text="32MB"
+                        android:textSize="@dimen/small"
+                        android:textColor="@color/text_grey"
+                        />
+                    <ImageView
+                        android:id="@+id/dic_sentence_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_download_green"
+                        />
+                </LinearLayout>
             </FrameLayout>
             
         </LinearLayout>
