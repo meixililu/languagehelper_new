@@ -468,6 +468,10 @@ public class AVOUtil {
 		
 		public final static String category = "category";
 
+		public final static String category_2 = "category_2";
+
+		public final static String level = "level";
+
 		public final static String content_type = "content_type";
 
 	}
@@ -565,6 +569,14 @@ public class AVOUtil {
 
 		public final static String source_url = "source_url";
 
+	}
+
+	public static class SubjectList{
+		public final static String SubjectList = "SubjectList";
+		public final static String category = "category";
+		public final static String name = "name";
+		public final static String level = "level";
+		public final static String order = "order";
 	}
 
 }

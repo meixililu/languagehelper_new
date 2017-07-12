@@ -70,6 +70,7 @@
     <string name="updage_now">更新</string>
     <string name="prompt">提示</string>
     <string name="retry">重填</string>
+    <string name="recommend">推荐</string>
 
     <string name="menu_share">DIY分享</string>
     <string name="menu_settings">语速调节</string>
@@ -213,7 +214,6 @@
 
     <string name="dailysentence">每日一句</string>
     <string name="english_essay">励志语录</string>
-    <string name="symbolStudy">48个音标快速学</string>
     <string name="ChDicBushouList">汉字部首列表</string>
     <string name="ChDicPinyinList">汉字拼音列表</string>
     <string name="spoken_english_reading">口语修炼</string>

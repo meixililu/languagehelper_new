@@ -37,7 +37,6 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SaveData;
 import com.messi.languagehelper.util.Settings;
-import com.messi.languagehelper.util.ToastUtil;
 
 import java.util.List;
 
@@ -199,7 +198,7 @@ public class StudyCategoryFragment extends BaseFragment {
                 AVAnalytics.onEvent(getContext(), "tab3_to_wordstudy_detail");
                 break;
             case R.id.symbol_study_cover:
-                toActivity(SymbolListActivity.class, null);
+                toActivity(SymbolActivity.class, null);
                 AVAnalytics.onEvent(getContext(), "tab3_to_symbol");
                 break;
             case R.id.study_listening_layout:

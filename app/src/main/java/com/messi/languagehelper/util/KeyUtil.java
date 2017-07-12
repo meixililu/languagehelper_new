@@ -104,6 +104,8 @@ public class KeyUtil {
 	
 	public static final String Category = "Category";
 
+	public static final String SubjectName = "SubjectName";
+
 	public static final String NewsType = "NewsType";
 
 	public static final String isReadingDetailGuideShow = "isReadingDetailGuideShow";

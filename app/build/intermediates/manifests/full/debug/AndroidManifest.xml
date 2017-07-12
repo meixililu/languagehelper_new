@@ -86,6 +86,12 @@
         </service>
 
         <activity
+            android:name="com.messi.languagehelper.ReadingsBySubjectActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.messi.languagehelper.SymbolActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.messi.languagehelper.OfflineDicDownloadActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -197,9 +203,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.MoreActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.messi.languagehelper.SymbolListActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.SymbolDetailActivity"

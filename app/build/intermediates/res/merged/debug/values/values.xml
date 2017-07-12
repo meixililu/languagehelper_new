@@ -1013,7 +1013,7 @@
     <string name="network_error">网络错误，请稍后重试</string>
     <string name="next_unit">下一单元</string>
     <string name="no_result">没有查询到结果</string>
-    <string name="no_url">No mUrl</string>
+    <string name="no_url">No url</string>
     <string name="offline_download">下载Mp3</string>
     <string name="password_toggle_content_description">Toggle password visibility</string>
     <string name="path_password_eye" translatable="false">M12,4.5C7,4.5 2.73,7.61 1,12c1.73,4.39 6,7.5 11,7.5s9.27,-3.11 11,-7.5c-1.73,-4.39 -6,-7.5 -11,-7.5zM12,17c-2.76,0 -5,-2.24 -5,-5s2.24,-5 5,-5 5,2.24 5,5 -2.24,5 -5,5zM12,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3 3,-1.34 3,-3 -1.34,-3 -3,-3z</string>
@@ -1064,6 +1064,7 @@
     <string name="recent_use_footer_prompt_content">\t此处只保存100条最近翻译记录，常用的请收藏。目前的翻译结果都不可能百分百准确，
 	    谢谢您的理解，我们会不断改进软件，为您提供更多更好的服务。</string>
     <string name="recognize_error">识别错误，请重试！</string>
+    <string name="recommend">推荐</string>
     <string name="restart_success">重启应用之后生效！</string>
     <string name="retry">重填</string>
     <string name="search">查询</string>
@@ -1089,7 +1090,6 @@
     <string name="style_classic">经典</string>
     <string name="style_minimalist">极简</string>
     <string name="style_select">选择您喜欢的界面风格</string>
-    <string name="symbolStudy">48个音标快速学</string>
     <string name="take_photo">拍照翻译</string>
     <string name="textclickguidedialog_content">直接点击翻译内容或结果即可播放语音;语音播放速度可在应用设置里调节。</string>
     <string name="textclickguidedialog_title">温馨提示</string>
@@ -2853,17 +2853,6 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowAnimationStyle">@style/jc_popup_toast_anim</item>
         <item name="android:backgroundDimEnabled">false</item>
-    </style>
-    <style name="jc_vertical_progressBar">
-        <item name="android:maxWidth">12dp</item>
-        <item name="android:indeterminateOnly">false</item>
-        <item name="android:indeterminateDrawable">
-            @android:drawable/progress_indeterminate_horizontal
-        </item>
-        <item name="android:progressDrawable">@drawable/jc_volume_progress_bg</item>
-        <item name="android:indeterminateDuration">3500</item>
-        <item name="android:indeterminateBehavior">repeat</item>
-        <item name="android:minWidth">1dp</item>
     </style>
     <style name="mydialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>

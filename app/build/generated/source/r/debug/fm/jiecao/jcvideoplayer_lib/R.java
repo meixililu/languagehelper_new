@@ -1161,7 +1161,6 @@ public final class R {
 		public static final int Widget_AppCompat_Toolbar_Button_Navigation = 0x7f0a0188;
 		public static final int jc_popup_toast_anim = 0x7f0a0193;
 		public static final int jc_style_dialog_progress = 0x7f0a0194;
-		public static final int jc_vertical_progressBar = 0x7f0a0195;
 	}
 	public static final class styleable {
 		public static final int[] ActionBar = { 0x7f010001, 0x7f010003, 0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007, 0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b, 0x7f01000c, 0x7f01000d, 0x7f01000e, 0x7f01000f, 0x7f010010, 0x7f010011, 0x7f010012, 0x7f010013, 0x7f010014, 0x7f010015, 0x7f010016, 0x7f010017, 0x7f010018, 0x7f010019, 0x7f01001a, 0x7f01001b, 0x7f01001c, 0x7f01001d, 0x7f010060 };

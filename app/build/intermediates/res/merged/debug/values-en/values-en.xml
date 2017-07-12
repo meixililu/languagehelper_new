@@ -172,6 +172,7 @@
     <string name="recent_use_footer_prompt_content">\tHere only save 100 record，you also can collect which you like.
 	    And we are trying to improve the translate result and the software,thank you.</string>
     <string name="recognize_error">Recognize error,Retry Please！</string>
+    <string name="recommend">Recommend</string>
     <string name="restart_success">Reboot App</string>
     <string name="retry">Retry</string>
     <string name="search">Search</string>
@@ -193,7 +194,6 @@
     <string name="style_classic">Classic</string>
     <string name="style_minimalist">Minimalist</string>
     <string name="style_select">Select Style</string>
-    <string name="symbolStudy">Symbol Study</string>
     <string name="take_photo">TakePhoto</string>
     <string name="textclickguidedialog_content">Click the content and result also will play the speech,You can change the speech speed in Settings.</string>
     <string name="textclickguidedialog_title">I only show once</string>

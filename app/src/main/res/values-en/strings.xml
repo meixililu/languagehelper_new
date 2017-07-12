@@ -87,6 +87,7 @@
     <string name="updage_now">update</string>
     <string name="prompt">Prompt</string>
     <string name="retry">Retry</string>
+    <string name="recommend">Recommend</string>
 
     <string name="share_dialog_text_1">Text</string>
     <string name="share_dialog_text_2">Image(recommend)</string>
@@ -207,7 +208,6 @@
     <string name="english_essay">English Essay</string>
 	<string name="spoken_english_practice">Practice</string>
 	<string name="spoken_english_reading">Learn</string>
-	<string name="symbolStudy">Symbol Study</string>
     <string name="ChDicBushouList">Chinese Radicals</string>
     <string name="ChDicPinyinList">Chinese Phonetic</string>
 	<string name="simulation_dialogue">Dialogue</string>

@@ -74,6 +74,12 @@
             </intent-filter>
         </service>
         <activity
+            android:name=".ReadingsBySubjectActivity"
+            android:screenOrientation="portrait" />
+         <activity
+            android:name=".SymbolActivity"
+            android:screenOrientation="portrait" />
+         <activity
             android:name=".OfflineDicDownloadActivity"
             android:screenOrientation="portrait" />
          <activity
@@ -185,9 +191,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".MoreActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".SymbolListActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".SymbolDetailActivity"

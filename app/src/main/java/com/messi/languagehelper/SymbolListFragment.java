@@ -1,5 +1,6 @@
 package com.messi.languagehelper;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -10,10 +11,13 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVFile;
@@ -23,6 +27,7 @@ import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.adapter.RcSymbolListAdapter;
 import com.messi.languagehelper.dao.SymbolListDao;
 import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.DownLoadUtil;
@@ -36,7 +41,7 @@ import com.messi.languagehelper.views.DividerGridItemDecoration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SymbolListActivity extends BaseActivity {
+public class SymbolListFragment extends BaseFragment {
 
     private static final int NUMBER_OF_COLUMNS = 3;
     private RecyclerView category_lv;
@@ -45,6 +50,7 @@ public class SymbolListActivity extends BaseActivity {
     private XFYSAD mXFYSAD;
     private int downloadCount;
     private SharedPreferences sharedPreferences;
+
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -52,31 +58,45 @@ public class SymbolListActivity extends BaseActivity {
                 downloadCount++;
                 LogUtil.DefalutLog("downloadCount:" + downloadCount);
                 if (downloadCount == 48) {
-                    ToastUtil.diaplayMesShort(SymbolListActivity.this, "离线完成，您可以离线学习音标了！");
+                    ToastUtil.diaplayMesShort(getContext(), "离线完成，您可以离线学习音标了！");
                     downloadCount = 0;
                 }
             }
         }
     };
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.symbol_list_activity);
-        initSwipeRefresh();
-        initViews();
-        new QueryTask().execute();
+    public static SymbolListFragment getInstance() {
+        return new SymbolListFragment();
     }
 
-    private void initViews() {
-        getSupportActionBar().setTitle(getResources().getString(R.string.symbolStudy));
-        sharedPreferences = Settings.getSharedPreferences(this);
-        mXFYSAD = new XFYSAD(SymbolListActivity.this, ADUtil.SecondaryPage);
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            mProgressbarListener = (FragmentProgressbarListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString() + " must implement FragmentProgressbarListener");
+        }
+    }
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        super.onCreateView(inflater,container,savedInstanceState);
+        View view = inflater.inflate(R.layout.symbol_list_activity, container, false);
+        setHasOptionsMenu(true);
+        initSwipeRefresh(view);
+        initViews(view);
+        new QueryTask().execute();
+        return view;
+    }
+
+    private void initViews(View view) {
+        sharedPreferences = Settings.getSharedPreferences(getContext());
+        mXFYSAD = new XFYSAD(getContext(), ADUtil.SecondaryPage);
         mSymbolListDao = new ArrayList<SymbolListDao>();
-        category_lv = (RecyclerView) findViewById(R.id.listview);
+        category_lv = (RecyclerView) view.findViewById(R.id.listview);
         category_lv.setHasFixedSize(true);
         mAdapter = new RcSymbolListAdapter(mSymbolListDao, mXFYSAD);
-        GridLayoutManager layoutManager = new GridLayoutManager(this, NUMBER_OF_COLUMNS);
+        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), NUMBER_OF_COLUMNS);
         HeaderSpanSizeLookup headerSpanSizeLookup = new HeaderSpanSizeLookup(mAdapter, layoutManager);
         layoutManager.setSpanSizeLookup(headerSpanSizeLookup);
         category_lv.setLayoutManager(layoutManager);
@@ -129,37 +149,6 @@ public class SymbolListActivity extends BaseActivity {
         return mBean;
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.symbol_detail_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_info:
-                showXunFeiDialog();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void showXunFeiDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("温馨提示");
-        builder.setMessage("下载所有音标MP3，可离线学习。");
-        builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                DownLoadUtil.downloadSymbolMp3(SymbolListActivity.this, mSymbolListDao, mHandler);
-            }
-        });
-        builder.setNegativeButton("取消", null);
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
-
     private class QueryTask extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -206,5 +195,36 @@ public class SymbolListActivity extends BaseActivity {
             onSwipeRefreshLayoutFinish();
             mAdapter.notifyDataSetChanged();
         }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.symbol_detail_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_info:
+                showXunFeiDialog();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void showXunFeiDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("温馨提示");
+        builder.setMessage("下载推荐页48个音标MP3，可离线学习。");
+        builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                DownLoadUtil.downloadSymbolMp3(getContext(), mSymbolListDao, mHandler);
+            }
+        });
+        builder.setNegativeButton("取消", null);
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }
