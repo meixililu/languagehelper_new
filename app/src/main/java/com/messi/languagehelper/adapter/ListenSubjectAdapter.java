@@ -9,24 +9,27 @@ import com.messi.languagehelper.R;
 import com.messi.languagehelper.SubjectFragment;
 import com.messi.languagehelper.SymbolListFragment;
 
-public class SymbolAdapter extends FragmentPagerAdapter {
+public class ListenSubjectAdapter extends FragmentPagerAdapter {
 
 	public static String[] CONTENT;
 
-    public SymbolAdapter(FragmentManager fm, Context mContext) {
+    public ListenSubjectAdapter(FragmentManager fm, Context mContext) {
         super(fm);
         CONTENT = new String[] { 
-        		mContext.getResources().getString(R.string.recommend),
-        		mContext.getResources().getString(R.string.title_more)
+        		mContext.getResources().getString(R.string.beginner),
+        		mContext.getResources().getString(R.string.intermediate),
+        		mContext.getResources().getString(R.string.advanced)
         };
     }
 
     @Override
     public Fragment getItem(int position) {
         if( position == 0 ){
-        	return SymbolListFragment.getInstance();
+        	return SubjectFragment.getInstance("listening","","1");
         }else if( position == 1 ){
-        	return SubjectFragment.getInstance("symbol","","");
+        	return SubjectFragment.getInstance("listening","","2");
+        }else if( position == 2 ){
+            return SubjectFragment.getInstance("listening","","3");
         }
         return null;
     }

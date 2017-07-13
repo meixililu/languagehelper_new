@@ -71,6 +71,9 @@
     <string name="prompt">提示</string>
     <string name="retry">重填</string>
     <string name="recommend">推荐</string>
+    <string name="beginner">初级</string>
+    <string name="intermediate">中级</string>
+    <string name="advanced">高级</string>
 
     <string name="menu_share">DIY分享</string>
     <string name="menu_settings">语速调节</string>

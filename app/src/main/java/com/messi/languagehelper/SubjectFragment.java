@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +14,7 @@ import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
-import com.messi.languagehelper.adapter.RcSpokenEndlishPracticeTypeListAdapter;
-import com.messi.languagehelper.adapter.RcSymbolSubjectListAdapter;
+import com.messi.languagehelper.adapter.RcSubjectListAdapter;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
@@ -26,21 +26,28 @@ import com.messi.languagehelper.views.DividerGridItemDecoration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SymbolMoreFragment extends BaseFragment {
+public class SubjectFragment extends BaseFragment {
 
     private static final int NUMBER_OF_COLUMNS = 1;
     private RecyclerView category_lv;
-    private RcSymbolSubjectListAdapter mAdapter;
+    private RcSubjectListAdapter mAdapter;
     private List<AVObject> avObjects;
     private XFYSAD mXFYSAD;
     private int skip = 0;
     private boolean loading;
     private boolean hasMore = true;
     private GridLayoutManager layoutManager;
+    private String category;
+    private String name;
+    private String level;
 
 
-    public static SymbolMoreFragment getInstance() {
-        return new SymbolMoreFragment();
+    public static SubjectFragment getInstance(String category, String name, String level) {
+        SubjectFragment fragment = new SubjectFragment();
+        fragment.category = category;
+        fragment.name = name;
+        fragment.level = level;
+        return fragment;
     }
 
     @Override
@@ -66,7 +73,7 @@ public class SymbolMoreFragment extends BaseFragment {
         avObjects = new ArrayList<AVObject>();
         category_lv = (RecyclerView) view.findViewById(R.id.studycategory_lv);
         mXFYSAD = new XFYSAD(getActivity(), ADUtil.SecondaryPage);
-        mAdapter = new RcSymbolSubjectListAdapter(mXFYSAD);
+        mAdapter = new RcSubjectListAdapter(mXFYSAD);
         mAdapter.setItems(avObjects);
         mAdapter.setHeader(new Object());
         mAdapter.setFooter(new Object());
@@ -127,7 +134,15 @@ public class SymbolMoreFragment extends BaseFragment {
         @Override
         protected List<AVObject> doInBackground(Void... params) {
             AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.SubjectList.SubjectList);
-            query.whereEqualTo(AVOUtil.SubjectList.category, "symbol");
+            if(!TextUtils.isEmpty(category)){
+                query.whereEqualTo(AVOUtil.SubjectList.category, category);
+            }
+            if(!TextUtils.isEmpty(name)){
+                query.whereEqualTo(AVOUtil.SubjectList.name, name);
+            }
+            if(!TextUtils.isEmpty(level)){
+                query.whereEqualTo(AVOUtil.SubjectList.level, level);
+            }
             query.orderByAscending(AVOUtil.SubjectList.order);
             query.skip(skip);
             query.limit(20);

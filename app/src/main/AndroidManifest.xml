@@ -83,7 +83,7 @@
             android:name=".OfflineDicDownloadActivity"
             android:screenOrientation="portrait" />
          <activity
-            android:name=".ListenActivity"
+            android:name=".ListenSubjectActivity"
             android:screenOrientation="portrait" />
          <activity
             android:name=".WordStudyNewWordActivity"

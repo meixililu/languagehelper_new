@@ -214,12 +214,12 @@ ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/Android
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:84:13-49
 	android:name
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:83:13-55
-activity#com.messi.languagehelper.ListenActivity
+activity#com.messi.languagehelper.ListenSubjectActivity
 ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:85:10-87:52
 	android:screenOrientation
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:87:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:86:13-43
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:86:13-50
 activity#com.messi.languagehelper.WordStudyNewWordActivity
 ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:88:10-90:52
 	android:screenOrientation

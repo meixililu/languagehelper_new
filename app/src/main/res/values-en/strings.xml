@@ -88,6 +88,9 @@
     <string name="prompt">Prompt</string>
     <string name="retry">Retry</string>
     <string name="recommend">Recommend</string>
+    <string name="beginner">Beginner</string>
+    <string name="intermediate">Intermediate</string>
+    <string name="advanced">Advanced</string>
 
     <string name="share_dialog_text_1">Text</string>
     <string name="share_dialog_text_2">Image(recommend)</string>

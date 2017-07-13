@@ -95,7 +95,7 @@
             android:name="com.messi.languagehelper.OfflineDicDownloadActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.messi.languagehelper.ListenActivity"
+            android:name="com.messi.languagehelper.ListenSubjectActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.WordStudyNewWordActivity"

@@ -112,16 +112,16 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/play_btn_1.png"
     },
     {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_done.png",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/ic_done.png"
+    },
+    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/edit_btn_d.png",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/edit_btn_d.png"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/email.png",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/email.png"
-    },
-    {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_done.png",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-hdpi/ic_done.png"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_help_grey600_24dp.png",

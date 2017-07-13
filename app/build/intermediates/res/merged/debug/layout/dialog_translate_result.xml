@@ -6,11 +6,14 @@
     android:background="@color/white"
     android:orientation="vertical"
     android:foreground="@drawable/framelayout_selector" >
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/lightgrey"/>
     <LinearLayout
         android:id="@+id/dic_result_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/padding_20"
         android:background="@color/white"
         android:orientation="vertical"/>
     <View

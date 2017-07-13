@@ -14,11 +14,11 @@ import com.messi.languagehelper.util.XFYSAD;
  * Created by luli on 10/23/16.
  */
 
-public class RcSymbolSubjectListAdapter extends HeaderRecyclerViewAdapter<RecyclerView.ViewHolder, Object, AVObject, Object> {
+public class RcSubjectListAdapter extends HeaderRecyclerViewAdapter<RecyclerView.ViewHolder, Object, AVObject, Object> {
 
     private XFYSAD mXFYSAD;
 
-    public RcSymbolSubjectListAdapter(XFYSAD mXFYSAD){
+    public RcSubjectListAdapter(XFYSAD mXFYSAD){
         this.mXFYSAD = mXFYSAD;
     }
 
