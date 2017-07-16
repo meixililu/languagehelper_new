@@ -15,8 +15,9 @@ import com.youdao.sdk.app.YouDaoApplication;
 import android.app.Application;
 import android.content.Context;
 import android.os.Process;
+import android.support.multidex.MultiDexApplication;
 
-public class BaseApplication extends Application {
+public class BaseApplication extends MultiDexApplication {
 
 	public static HashMap<String, Object> dataMap = new HashMap<String, Object>();
 	private static DaoMaster daoMaster;

@@ -2,6 +2,7 @@ package com.messi.languagehelper.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.inputmethodservice.Keyboard;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.View;
@@ -19,14 +20,16 @@ import com.messi.languagehelper.util.ScreenUtil;
  * Created by luli on 10/23/16.
  */
 
-public class RcSymbolSubjectListItemViewHolder extends RecyclerView.ViewHolder {
+public class RcSubjectListItemViewHolder extends RecyclerView.ViewHolder {
 
     private final View cover;
     private final TextView name;
     private Context context;
+    private String recentKey;
 
-    public RcSymbolSubjectListItemViewHolder(View convertView) {
+    public RcSubjectListItemViewHolder(View convertView,String recentKey) {
         super(convertView);
+        this.recentKey = recentKey;
         this.context = convertView.getContext();
         cover = (View) convertView.findViewById(R.id.layout_cover);
         name = (TextView) convertView.findViewById(R.id.name);
@@ -52,6 +55,7 @@ public class RcSymbolSubjectListItemViewHolder extends RecyclerView.ViewHolder {
         intent.putExtra(KeyUtil.ActionbarTitle, mAVObject.getString(AVOUtil.SubjectList.name));
         intent.putExtra(KeyUtil.SubjectName, mAVObject.getString(AVOUtil.SubjectList.name));
         intent.putExtra(KeyUtil.LevelKey, mAVObject.getString(AVOUtil.SubjectList.level));
+        intent.putExtra(KeyUtil.RecentKey, recentKey);
         context.startActivity(intent);
     }
 

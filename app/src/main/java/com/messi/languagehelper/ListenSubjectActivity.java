@@ -7,6 +7,8 @@ import android.support.v4.view.ViewPager;
 import com.messi.languagehelper.adapter.ListenSubjectAdapter;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+
 public class ListenSubjectActivity extends BaseActivity implements FragmentProgressbarListener {
 
     private TabLayout tablayout;
@@ -27,7 +29,21 @@ public class ListenSubjectActivity extends BaseActivity implements FragmentProgr
 
         pageAdapter = new ListenSubjectAdapter(getSupportFragmentManager(),this);
         viewpager.setAdapter(pageAdapter);
-        viewpager.setOffscreenPageLimit(4);
+        viewpager.setOffscreenPageLimit(5);
         tablayout.setupWithViewPager(viewpager);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (JCVideoPlayer.backPress()) {
+            return;
+        }
+        super.onBackPressed();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JCVideoPlayer.releaseAllVideos();
     }
 }

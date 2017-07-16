@@ -4,40 +4,68 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.text.TextUtils;
 
 import com.messi.languagehelper.R;
+import com.messi.languagehelper.ReadingsBySubjectFragment;
 import com.messi.languagehelper.SubjectFragment;
 import com.messi.languagehelper.SymbolListFragment;
+import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.Settings;
+
+import java.util.ArrayList;
 
 public class SymbolAdapter extends FragmentPagerAdapter {
 
-	public static String[] CONTENT;
+    private ArrayList<String> titleList = new ArrayList<String>();
+    private Context mContext;
+    private String category_2;
 
     public SymbolAdapter(FragmentManager fm, Context mContext) {
         super(fm);
-        CONTENT = new String[] { 
-        		mContext.getResources().getString(R.string.recommend),
-        		mContext.getResources().getString(R.string.title_more)
-        };
+        this.mContext = mContext;
+        category_2 = Settings.getSharedPreferences(mContext).getString(KeyUtil.RecentSymbol,"");
+        if(TextUtils.isEmpty(category_2)){
+            addTitle();
+        }else {
+            addTitle();
+            titleList.add(1,mContext.getResources().getString(R.string.recent));
+        }
+    }
+
+    private void addTitle(){
+        titleList.add(mContext.getResources().getString(R.string.recommend));
+        titleList.add(mContext.getResources().getString(R.string.title_more));
     }
 
     @Override
     public Fragment getItem(int position) {
-        if( position == 0 ){
-        	return SymbolListFragment.getInstance();
-        }else if( position == 1 ){
-        	return SubjectFragment.getInstance("symbol","","");
+        if(TextUtils.isEmpty(category_2)){
+            if( position == 0 ){
+                return SymbolListFragment.getInstance();
+            }else if( position == 1 ){
+                return SubjectFragment.getInstance("symbol",KeyUtil.RecentSymbol,"");
+            }
+        }else {
+            if( position == 0 ){
+                return SymbolListFragment.getInstance();
+            }else if( position == 1 ){
+                return ReadingsBySubjectFragment.newInstance(category_2,KeyUtil.RecentSymbol,"");
+            }else if( position == 2 ){
+                return SubjectFragment.getInstance("symbol",KeyUtil.RecentSymbol,"");
+            }
         }
+
         return null;
     }
 
     @Override
     public int getCount() {
-        return CONTENT.length;
+        return titleList.size();
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return CONTENT[position].toUpperCase();
+        return titleList.get(position).toUpperCase();
     }
 }

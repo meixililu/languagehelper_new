@@ -1063,11 +1063,13 @@
     <string name="primary_lever">第二部分</string>
     <string name="prompt">提示</string>
     <string name="reading">阅读</string>
+    <string name="recent">最近</string>
     <string name="recent_use_footer_prompt">温馨提示</string>
     <string name="recent_use_footer_prompt_content">\t此处只保存100条最近翻译记录，常用的请收藏。目前的翻译结果都不可能百分百准确，
 	    谢谢您的理解，我们会不断改进软件，为您提供更多更好的服务。</string>
     <string name="recognize_error">识别错误，请重试！</string>
     <string name="recommend">推荐</string>
+    <string name="replay">Replay</string>
     <string name="restart_success">重启应用之后生效！</string>
     <string name="retry">重填</string>
     <string name="search">查询</string>

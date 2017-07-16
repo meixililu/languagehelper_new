@@ -317,7 +317,7 @@ public class ReadingDetailActivity extends BaseActivity {
     private void guide() {
         if (!mSharedPreferences.getBoolean(KeyUtil.isReadingDetailGuideShow, false)) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.Theme_AppCompat_Light_Dialog_Alert);
-            builder.setTitle("温馨提示");
+            builder.setTitle("");
             builder.setMessage("点击英文单词即可查询词意。");
             builder.setPositiveButton("确认", null);
             AlertDialog dialog = builder.create();

@@ -109,7 +109,9 @@ public class KeyUtil {
 	public static final String NewsType = "NewsType";
 
 	public static final String isReadingDetailGuideShow = "isReadingDetailGuideShow";
-	
+
+	public static final String isAddRecentGuideShow = "isAddRecentGuideShow";
+
 	public static final String ADKey = "ADKey";
 	
 	public static final String ADIsShowKey = "ADIsShowKey";
@@ -165,6 +167,12 @@ public class KeyUtil {
 	public static final String isNewWordStudy = "isNewWordStudy";
 
 	public static final String OfflineDicUnreadKey = "OfflineDicUnreadKey";
+
+	public static final String RecentKey = "RecentKey";
+
+	public static final String RecentSymbol = "RecentSymbol";
+
+	public static final String RecentListen = "RecentListen";
 
 
 	

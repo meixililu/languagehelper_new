@@ -13,6 +13,8 @@ import com.messi.languagehelper.adapter.SymbolAdapter;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.DownLoadUtil;
 
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+
 public class SymbolActivity extends BaseActivity implements FragmentProgressbarListener{
 
 	private TabLayout tablayout;
@@ -33,7 +35,21 @@ public class SymbolActivity extends BaseActivity implements FragmentProgressbarL
 		
 		pageAdapter = new SymbolAdapter(getSupportFragmentManager(),this);
 		viewpager.setAdapter(pageAdapter);
-		viewpager.setOffscreenPageLimit(2);
+		viewpager.setOffscreenPageLimit(3);
 		tablayout.setupWithViewPager(viewpager);
+	}
+
+	@Override
+	public void onBackPressed() {
+		if (JCVideoPlayer.backPress()) {
+			return;
+		}
+		super.onBackPressed();
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		JCVideoPlayer.releaseAllVideos();
 	}
 }

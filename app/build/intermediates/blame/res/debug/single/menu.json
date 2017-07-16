@@ -8,6 +8,10 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/menu/settings.xml"
     },
     {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/menu/menu_done.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/menu/menu_done.xml"
+    },
+    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/menu/word_study_plan_menu.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/menu/word_study_plan_menu.xml"
     },

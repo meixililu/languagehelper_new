@@ -372,7 +372,7 @@
                     "endOffset": 2088
                 },
                 "from": {
-                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/fm.jiecao/jiecaovideoplayer/5.6/res/values-pt/values-pt.xml",
+                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/fm.jiecao/jiecaovideoplayer/5.7/res/values-pt/values-pt.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -387,8 +387,27 @@
                     "startLine": 22,
                     "startColumn": 4,
                     "startOffset": 2093,
+                    "endColumn": 41,
+                    "endOffset": 2130
+                },
+                "from": {
+                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/fm.jiecao/jiecaovideoplayer/5.7/res/values-pt/values-pt.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 100,
+                        "endColumn": 41,
+                        "endOffset": 137
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 2135,
                     "endColumn": 84,
-                    "endOffset": 2173
+                    "endOffset": 2215
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/values-pt/values-pt.xml",
@@ -403,11 +422,11 @@
             },
             {
                 "to": {
-                    "startLine": 23,
+                    "startLine": 24,
                     "startColumn": 4,
-                    "startOffset": 2178,
+                    "startOffset": 2220,
                     "endColumn": 100,
-                    "endOffset": 2274
+                    "endOffset": 2316
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/values-pt/values-pt.xml",
@@ -422,39 +441,20 @@
             },
             {
                 "to": {
-                    "startLine": 24,
-                    "startColumn": 4,
-                    "startOffset": 2279,
-                    "endColumn": 103,
-                    "endOffset": 2378
-                },
-                "from": {
-                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/fm.jiecao/jiecaovideoplayer/5.6/res/values-pt/values-pt.xml",
-                    "position": {
-                        "startLine": 3,
-                        "startColumn": 4,
-                        "startOffset": 100,
-                        "endColumn": 103,
-                        "endOffset": 199
-                    }
-                }
-            },
-            {
-                "to": {
                     "startLine": 25,
                     "startColumn": 4,
-                    "startOffset": 2383,
-                    "endColumn": 54,
-                    "endOffset": 2433
+                    "startOffset": 2321,
+                    "endColumn": 103,
+                    "endOffset": 2420
                 },
                 "from": {
-                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/fm.jiecao/jiecaovideoplayer/5.6/res/values-pt/values-pt.xml",
+                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/fm.jiecao/jiecaovideoplayer/5.7/res/values-pt/values-pt.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 204,
-                        "endColumn": 54,
-                        "endOffset": 254
+                        "startOffset": 142,
+                        "endColumn": 103,
+                        "endOffset": 241
                     }
                 }
             },
@@ -462,18 +462,37 @@
                 "to": {
                     "startLine": 26,
                     "startColumn": 4,
-                    "startOffset": 2438,
-                    "endColumn": 59,
-                    "endOffset": 2493
+                    "startOffset": 2425,
+                    "endColumn": 54,
+                    "endOffset": 2475
                 },
                 "from": {
-                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/fm.jiecao/jiecaovideoplayer/5.6/res/values-pt/values-pt.xml",
+                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/fm.jiecao/jiecaovideoplayer/5.7/res/values-pt/values-pt.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
-                        "startOffset": 259,
+                        "startOffset": 246,
+                        "endColumn": 54,
+                        "endOffset": 296
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 27,
+                    "startColumn": 4,
+                    "startOffset": 2480,
+                    "endColumn": 59,
+                    "endOffset": 2535
+                },
+                "from": {
+                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/fm.jiecao/jiecaovideoplayer/5.7/res/values-pt/values-pt.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 301,
                         "endColumn": 59,
-                        "endOffset": 314
+                        "endOffset": 356
                     }
                 }
             }

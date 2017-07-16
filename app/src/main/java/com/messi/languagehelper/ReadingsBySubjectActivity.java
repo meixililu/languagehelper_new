@@ -2,9 +2,12 @@ package com.messi.languagehelper;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 
@@ -33,7 +36,7 @@ import java.util.List;
 
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 
-public class ReadingsBySubjectActivity extends BaseActivity implements OnClickListener{
+public class ReadingsBySubjectActivity extends BaseActivity{
 
 	private RecyclerView listview;
 	private RcReadingListAdapter mAdapter;
@@ -41,6 +44,7 @@ public class ReadingsBySubjectActivity extends BaseActivity implements OnClickLi
 	private int skip = 0;
 	private String subjectName;
 	private String level;
+	private String recentKey;
 	private IFLYNativeAd nativeAd;
 	private boolean loading;
 	private boolean hasMore = true;
@@ -60,6 +64,7 @@ public class ReadingsBySubjectActivity extends BaseActivity implements OnClickLi
 	private void initViews(){
 		subjectName = getIntent().getStringExtra(KeyUtil.SubjectName);
 		level = getIntent().getStringExtra(KeyUtil.LevelKey);
+		recentKey = getIntent().getStringExtra(KeyUtil.RecentKey);
 		avObjects = new ArrayList<Reading>();
 		initSwipeRefresh();
 		listview = (RecyclerView) findViewById(R.id.listview);
@@ -246,6 +251,39 @@ public class ReadingsBySubjectActivity extends BaseActivity implements OnClickLi
 	}
 
 	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.menu_done, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+			case R.id.action_add:
+				saveRecentKey();
+				break;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
+	private void saveRecentKey(){
+		Settings.saveSharedPreferences(Settings.getSharedPreferences(this),
+				recentKey,
+				subjectName);
+		if (!Settings.getSharedPreferences(this).getBoolean(KeyUtil.isAddRecentGuideShow, false)) {
+			AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.Theme_AppCompat_Light_Dialog_Alert);
+			builder.setTitle("");
+			builder.setMessage("本课程已设置为最近学习目标");
+			builder.setPositiveButton("确认", null);
+			AlertDialog dialog = builder.create();
+			dialog.show();
+			Settings.saveSharedPreferences(Settings.getSharedPreferences(this), KeyUtil.isAddRecentGuideShow, true);
+		}else {
+			ToastUtil.diaplayMesShort(this,"本课程已设置为最近学习目标");
+		}
+	}
+
+	@Override
 	public void onBackPressed() {
 		if (JCVideoPlayer.backPress()) {
 			return;
@@ -265,10 +303,6 @@ public class ReadingsBySubjectActivity extends BaseActivity implements OnClickLi
 	protected void onPause() {
 		super.onPause();
 		JCVideoPlayer.releaseAllVideos();
-	}
-
-	@Override
-	public void onClick(View v) {
 	}
 
 	@Override

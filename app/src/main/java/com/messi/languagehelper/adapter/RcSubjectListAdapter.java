@@ -17,8 +17,10 @@ import com.messi.languagehelper.util.XFYSAD;
 public class RcSubjectListAdapter extends HeaderRecyclerViewAdapter<RecyclerView.ViewHolder, Object, AVObject, Object> {
 
     private XFYSAD mXFYSAD;
+    private String recentKey;
 
-    public RcSubjectListAdapter(XFYSAD mXFYSAD){
+    public RcSubjectListAdapter(XFYSAD mXFYSAD,String recentKey){
+        this.recentKey = recentKey;
         this.mXFYSAD = mXFYSAD;
     }
 
@@ -41,13 +43,13 @@ public class RcSubjectListAdapter extends HeaderRecyclerViewAdapter<RecyclerView
     protected RecyclerView.ViewHolder onCreateItemViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = getLayoutInflater(parent);
         View characterView = inflater.inflate(R.layout.studylist_item, parent, false);
-        return new RcSymbolSubjectListItemViewHolder(characterView);
+        return new RcSubjectListItemViewHolder(characterView,recentKey);
     }
 
     @Override
     protected void onBindItemViewHolder(RecyclerView.ViewHolder holder, int position) {
         AVObject mAVObject = getItem(position);
-        RcSymbolSubjectListItemViewHolder itemViewHolder = (RcSymbolSubjectListItemViewHolder)holder;
+        RcSubjectListItemViewHolder itemViewHolder = (RcSubjectListItemViewHolder)holder;
         itemViewHolder.render(mAVObject);
     }
 

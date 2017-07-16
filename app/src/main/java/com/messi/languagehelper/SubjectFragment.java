@@ -38,14 +38,14 @@ public class SubjectFragment extends BaseFragment {
     private boolean hasMore = true;
     private GridLayoutManager layoutManager;
     private String category;
-    private String name;
+    private String recentKey;
     private String level;
 
 
-    public static SubjectFragment getInstance(String category, String name, String level) {
+    public static SubjectFragment getInstance(String category, String recentKey, String level) {
         SubjectFragment fragment = new SubjectFragment();
         fragment.category = category;
-        fragment.name = name;
+        fragment.recentKey = recentKey;
         fragment.level = level;
         return fragment;
     }
@@ -73,7 +73,7 @@ public class SubjectFragment extends BaseFragment {
         avObjects = new ArrayList<AVObject>();
         category_lv = (RecyclerView) view.findViewById(R.id.studycategory_lv);
         mXFYSAD = new XFYSAD(getActivity(), ADUtil.SecondaryPage);
-        mAdapter = new RcSubjectListAdapter(mXFYSAD);
+        mAdapter = new RcSubjectListAdapter(mXFYSAD,recentKey);
         mAdapter.setItems(avObjects);
         mAdapter.setHeader(new Object());
         mAdapter.setFooter(new Object());
@@ -136,9 +136,6 @@ public class SubjectFragment extends BaseFragment {
             AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.SubjectList.SubjectList);
             if(!TextUtils.isEmpty(category)){
                 query.whereEqualTo(AVOUtil.SubjectList.category, category);
-            }
-            if(!TextUtils.isEmpty(name)){
-                query.whereEqualTo(AVOUtil.SubjectList.name, name);
             }
             if(!TextUtils.isEmpty(level)){
                 query.whereEqualTo(AVOUtil.SubjectList.level, level);

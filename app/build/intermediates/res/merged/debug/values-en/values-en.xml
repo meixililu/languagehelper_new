@@ -171,6 +171,7 @@
     <string name="primary_lever">Part Two</string>
     <string name="prompt">Prompt</string>
     <string name="reading">Reading</string>
+    <string name="recent">Recent</string>
     <string name="recent_use_footer_prompt">Prompt</string>
     <string name="recent_use_footer_prompt_content">\tHere only save 100 record，you also can collect which you like.
 	    And we are trying to improve the translate result and the software,thank you.</string>
