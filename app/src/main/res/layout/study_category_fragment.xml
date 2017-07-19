@@ -124,7 +124,7 @@
                         android:layout_height="fill_parent"
                         android:background="@color/white"
                         android:gravity="center"
-                        android:text="每日词汇"
+                        android:text="@string/title_word_vocabulary"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/middle" />
                 </FrameLayout>
@@ -202,10 +202,28 @@
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/study_test"
+                android:id="@+id/study_spoken_english"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/study_category_normal"
                 android:layout_marginRight="1px"
+                android:layout_weight="1"
+                android:foreground="@drawable/framelayout_selector"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="@string/spoken_english_practice"
+                    android:textColor="@color/text_black"
+                    android:textSize="@dimen/big" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/study_test"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/study_category_normal"
                 android:layout_weight="1"
                 android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
@@ -220,8 +238,74 @@
                     android:textSize="@dimen/big" />
             </FrameLayout>
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1px"
+            android:orientation="horizontal">
+
+
             <FrameLayout
-                android:id="@+id/study_composition"
+                android:id="@+id/en_grammar"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/study_category_normal"
+                android:layout_marginRight="1px"
+                android:layout_weight="1"
+                android:foreground="@drawable/framelayout_selector"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="@string/title_grammar"
+                    android:textColor="@color/text_black"
+                    android:textSize="@dimen/big" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/en_story_layout"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/study_category_normal"
+                android:layout_marginRight="1px"
+                android:layout_weight="1"
+                android:foreground="@drawable/framelayout_selector"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="@string/title_english_story"
+                    android:textColor="@color/text_black"
+                    android:textSize="@dimen/big" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/en_broadcast"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/study_category_normal"
+                android:layout_weight="1"
+                android:layout_marginRight="1px"
+                android:foreground="@drawable/framelayout_selector"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="@string/title_broadcast"
+                    android:textColor="@color/text_black"
+                    android:textSize="@dimen/big" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/en_business"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/study_category_normal"
                 android:layout_weight="1"
@@ -233,7 +317,7 @@
                     android:layout_height="fill_parent"
                     android:background="@color/white"
                     android:gravity="center"
-                    android:text="@string/title_composition"
+                    android:text="@string/title_business"
                     android:textColor="@color/text_black"
                     android:textSize="@dimen/big" />
             </FrameLayout>
@@ -266,6 +350,25 @@
             </FrameLayout>
 
             <FrameLayout
+                android:id="@+id/study_composition"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/study_category_normal"
+                android:layout_weight="1"
+                android:layout_marginRight="1px"
+                android:foreground="@drawable/framelayout_selector"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="@string/title_composition"
+                    android:textColor="@color/text_black"
+                    android:textSize="@dimen/big" />
+            </FrameLayout>
+
+            <FrameLayout
                 android:id="@+id/collected_layout"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/study_category_normal"
@@ -289,7 +392,6 @@
                 android:layout_width="0dp"
                 android:layout_height="@dimen/study_category_normal"
                 android:layout_weight="1"
-                android:layout_marginRight="1px"
                 android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
@@ -303,24 +405,7 @@
                     android:textSize="@dimen/big" />
             </FrameLayout>
 
-            <FrameLayout
-                android:id="@+id/empty"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/study_category_normal"
-                android:layout_weight="1"
-                android:foreground="@drawable/framelayout_selector"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:textColor="@color/text_black"
-                    android:textSize="@dimen/big" />
-            </FrameLayout>
         </LinearLayout>
-
-
 
         <FrameLayout
             android:id="@+id/ad_layout"

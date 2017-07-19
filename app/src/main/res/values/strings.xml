@@ -8,10 +8,10 @@
     <string name="title_about">关于我们</string>
     <string name="title_share_preview">分享预览</string>
     <string name="title_TranslatePractice">练习</string>
-    <string name="title_Practice">口语</string>
+    <string name="title_Practice">修炼</string>
     <string name="title_practice_word">单词修炼</string>
     <string name="title_listening">听力</string>
-    <string name="title_word_vocabulary">每日词汇</string>
+    <string name="title_word_vocabulary">词汇学习</string>
     <string name="title_spoken_english_study">口语学习</string>
     <string name="title_symbol">音标</string>
     <string name="title_word_study">单词</string>
@@ -71,6 +71,7 @@
     <string name="prompt">提示</string>
     <string name="retry">重填</string>
     <string name="recommend">推荐</string>
+    <string name="recent_study_empty">赶紧去添加最近要学习的课程吧</string>
     <string name="recent">最近</string>
     <string name="beginner">初级</string>
     <string name="intermediate">中级</string>
@@ -307,6 +308,11 @@
     <string name="style_classic">经典</string>
     <string name="style_minimalist">极简</string>
     <string name="restart_success">重启应用之后生效！</string>
+    <string name="title_grammar">语法</string>
+    <string name="title_broadcast">电台</string>
+    <string name="title_business">行业</string>
+    <string name="title_course">课程</string>
+    <string name="title_daily_word_study">每日一词</string>
 
 
 </resources>

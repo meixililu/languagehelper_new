@@ -26,10 +26,16 @@ import com.messi.languagehelper.views.DividerGridItemDecoration;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 public class SubjectFragment extends BaseFragment {
 
     private static final int NUMBER_OF_COLUMNS = 1;
-    private RecyclerView category_lv;
+    @BindView(R.id.studycategory_lv)
+    RecyclerView category_lv;
+    Unbinder unbinder;
     private RcSubjectListAdapter mAdapter;
     private List<AVObject> avObjects;
     private XFYSAD mXFYSAD;
@@ -61,43 +67,57 @@ public class SubjectFragment extends BaseFragment {
     }
 
     @Override
+    public void loadDataOnStart() {
+        super.loadDataOnStart();
+        new QueryTask().execute();
+    }
+
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.onCreateView(inflater,container,savedInstanceState);
+        super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.symbol_list_fragment, container, false);
         initSwipeRefresh(view);
-        initViews(view);
+        unbinder = ButterKnife.bind(this, view);
+        initViews();
         return view;
     }
 
-    private void initViews(View view) {
+    private void initViews() {
         avObjects = new ArrayList<AVObject>();
-        category_lv = (RecyclerView) view.findViewById(R.id.studycategory_lv);
         mXFYSAD = new XFYSAD(getActivity(), ADUtil.SecondaryPage);
-        mAdapter = new RcSubjectListAdapter(mXFYSAD,recentKey);
-        mAdapter.setItems(avObjects);
-        mAdapter.setHeader(new Object());
-        mAdapter.setFooter(new Object());
-        hideFooterview();
-        layoutManager = new GridLayoutManager(getContext(), NUMBER_OF_COLUMNS);
-        HeaderSpanSizeLookup headerSpanSizeLookup = new HeaderSpanSizeLookup(mAdapter, layoutManager);
-        layoutManager.setSpanSizeLookup(headerSpanSizeLookup);
-        category_lv.setLayoutManager(layoutManager);
-        category_lv.addItemDecoration(new DividerGridItemDecoration(1));
-        category_lv.setAdapter(mAdapter);
-        setListOnScrollListener();
     }
 
-    public void setListOnScrollListener(){
+    private void initAdapter(){
+        if(mAdapter == null){
+            mAdapter = new RcSubjectListAdapter(mXFYSAD, recentKey);
+            mAdapter.setItems(avObjects);
+            mAdapter.setHeader(new Object());
+            mAdapter.setFooter(new Object());
+            hideFooterview();
+            layoutManager = new GridLayoutManager(getContext(), NUMBER_OF_COLUMNS);
+            HeaderSpanSizeLookup headerSpanSizeLookup = new HeaderSpanSizeLookup(mAdapter, layoutManager);
+            layoutManager.setSpanSizeLookup(headerSpanSizeLookup);
+            category_lv.setLayoutManager(layoutManager);
+            category_lv.addItemDecoration(new DividerGridItemDecoration(1));
+            category_lv.setAdapter(mAdapter);
+            setListOnScrollListener();
+        }
+    }
+
+
+    public void setListOnScrollListener() {
         category_lv.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                int visible  = layoutManager.getChildCount();
+                int visible = layoutManager.getChildCount();
                 int total = layoutManager.getItemCount();
                 int firstVisibleItem = layoutManager.findFirstCompletelyVisibleItemPosition();
-                LogUtil.DefalutLog("visible:"+visible+"---total:"+total+"---firstVisibleItem:"+firstVisibleItem);
-                if(!loading && hasMore){
-                    if ((visible + firstVisibleItem) >= total){
+                LogUtil.DefalutLog("visible:" + visible + "---total:" + total + "---firstVisibleItem:" + firstVisibleItem);
+                if (!loading && hasMore && isHasLoadData) {
+                    if ((visible + firstVisibleItem) >= total) {
+                        LogUtil.DefalutLog("setListOnScrollListener");
                         new QueryTask().execute();
                     }
                 }
@@ -106,15 +126,7 @@ public class SubjectFragment extends BaseFragment {
     }
 
     @Override
-    public void loadDataOnStart() {
-        super.loadDataOnStart();
-        skip = 0;
-        new QueryTask().execute();
-    }
-
-    @Override
     public void onSwipeRefreshLayoutRefresh() {
-        super.onSwipeRefreshLayoutRefresh();
         hideFooterview();
         skip = 0;
         avObjects.clear();
@@ -122,7 +134,13 @@ public class SubjectFragment extends BaseFragment {
         new QueryTask().execute();
     }
 
-    private class QueryTask extends AsyncTask<Void, Void,  List<AVObject>> {
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
+
+    private class QueryTask extends AsyncTask<Void, Void, List<AVObject>> {
 
         @Override
         protected void onPreExecute() {
@@ -134,10 +152,10 @@ public class SubjectFragment extends BaseFragment {
         @Override
         protected List<AVObject> doInBackground(Void... params) {
             AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.SubjectList.SubjectList);
-            if(!TextUtils.isEmpty(category)){
+            if (!TextUtils.isEmpty(category)) {
                 query.whereEqualTo(AVOUtil.SubjectList.category, category);
             }
-            if(!TextUtils.isEmpty(level)){
+            if (!TextUtils.isEmpty(level)) {
                 query.whereEqualTo(AVOUtil.SubjectList.level, level);
             }
             query.orderByAscending(AVOUtil.SubjectList.order);
@@ -157,17 +175,23 @@ public class SubjectFragment extends BaseFragment {
             loading = false;
             hideProgressbar();
             onSwipeRefreshLayoutFinish();
-            if(avObject != null){
-                if(avObject.size() == 0){
+            initAdapter();
+            if (avObject != null) {
+                if (avObject.size() == 0) {
                     ToastUtil.diaplayMesShort(getContext(), "没有了！");
                     hasMore = false;
                     hideFooterview();
-                }else{
-                    if(avObjects != null && mAdapter != null){
+                } else {
+                    if (avObjects != null && mAdapter != null) {
                         avObjects.addAll(avObject);
-                        skip += 20;
-                        showFooterview();
-                        hasMore = true;
+                        if(avObject.size() == 20){
+                            skip += 20;
+                            showFooterview();
+                            hasMore = true;
+                        }else {
+                            hasMore = false;
+                            hideFooterview();
+                        }
                     }
                 }
             }
@@ -176,11 +200,11 @@ public class SubjectFragment extends BaseFragment {
 
     }
 
-    private void hideFooterview(){
+    private void hideFooterview() {
         mAdapter.hideFooter();
     }
 
-    private void showFooterview(){
+    private void showFooterview() {
         mAdapter.showFooter();
     }
 }

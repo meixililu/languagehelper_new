@@ -10,6 +10,7 @@ import com.messi.languagehelper.R;
 import com.messi.languagehelper.ReadingsBySubjectFragment;
 import com.messi.languagehelper.SubjectFragment;
 import com.messi.languagehelper.SymbolListFragment;
+import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.Settings;
 
@@ -27,6 +28,7 @@ public class SymbolAdapter extends FragmentPagerAdapter {
         category_2 = Settings.getSharedPreferences(mContext).getString(KeyUtil.RecentSymbol,"");
         if(TextUtils.isEmpty(category_2)){
             addTitle();
+            titleList.add(mContext.getResources().getString(R.string.recent));
         }else {
             addTitle();
             titleList.add(1,mContext.getResources().getString(R.string.recent));
@@ -44,7 +46,9 @@ public class SymbolAdapter extends FragmentPagerAdapter {
             if( position == 0 ){
                 return SymbolListFragment.getInstance();
             }else if( position == 1 ){
-                return SubjectFragment.getInstance("symbol",KeyUtil.RecentSymbol,"");
+                return SubjectFragment.getInstance(AVOUtil.Category.symbol,KeyUtil.RecentSymbol,"");
+            }else if( position == 2 ){
+                return ReadingsBySubjectFragment.newInstance(category_2,KeyUtil.RecentSymbol,"");
             }
         }else {
             if( position == 0 ){
@@ -52,7 +56,7 @@ public class SymbolAdapter extends FragmentPagerAdapter {
             }else if( position == 1 ){
                 return ReadingsBySubjectFragment.newInstance(category_2,KeyUtil.RecentSymbol,"");
             }else if( position == 2 ){
-                return SubjectFragment.getInstance("symbol",KeyUtil.RecentSymbol,"");
+                return SubjectFragment.getInstance(AVOUtil.Category.symbol,KeyUtil.RecentSymbol,"");
             }
         }
 

@@ -74,6 +74,9 @@
             </intent-filter>
         </service>
         <activity
+            android:name=".VocabularyStudyActivity"
+            android:screenOrientation="portrait" />
+         <activity
             android:name=".ReadingsBySubjectActivity"
             android:screenOrientation="portrait" />
          <activity

@@ -88,6 +88,7 @@
     <string name="prompt">Prompt</string>
     <string name="retry">Retry</string>
     <string name="recommend">Recommend</string>
+    <string name="recent_study_empty">Empty</string>
     <string name="recent">Recent</string>
     <string name="beginner">Beginner</string>
     <string name="intermediate">Intermediate</string>
@@ -286,4 +287,9 @@
     <string name="style_classic">Classic</string>
     <string name="style_minimalist">Minimalist</string>
     <string name="restart_success">Reboot App</string>
+    <string name="title_grammar">Grammar</string>
+    <string name="title_broadcast">Broadcast</string>
+    <string name="title_business">Business</string>
+    <string name="title_course">Course</string>
+    <string name="title_daily_word_study">Vocabulary</string>
 </resources>

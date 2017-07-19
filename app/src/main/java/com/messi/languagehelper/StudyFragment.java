@@ -38,6 +38,7 @@ import com.messi.languagehelper.util.ToastUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -279,8 +280,7 @@ public class StudyFragment extends BaseFragment implements OnClickListener, Tabl
         if (!TextUtils.isEmpty(category)) {
             query.whereEqualTo(AVOUtil.Reading.category, category);
         }
-//        query.addDescendingOrder(AVOUtil.Reading.publish_time);
-        query.addDescendingOrder("createdAt");
+        query.addDescendingOrder(AVOUtil.Reading.publish_time);
         query.skip(skip);
         query.limit(Settings.page_size);
         try {
@@ -458,6 +458,34 @@ public class StudyFragment extends BaseFragment implements OnClickListener, Tabl
             mReading.setContent_type(item.getString(AVOUtil.Reading.content_type));
             DataBaseUtil.getInstance().saveOrGetStatus(mReading);
             avObjects.add(mReading);
+        }
+    }
+
+    public static void changeData(List<AVObject> avObjectlist, List<Reading> avObjects,boolean isAddToHead) {
+
+        for (AVObject item : avObjectlist) {
+            Reading mReading = new Reading();
+            mReading.setObject_id(item.getObjectId());
+            mReading.setCategory(item.getString(AVOUtil.Reading.category));
+            mReading.setContent(item.getString(AVOUtil.Reading.content));
+            mReading.setType_id(item.getString(AVOUtil.Reading.type_id));
+            mReading.setType_name(item.getString(AVOUtil.Reading.type_name));
+            mReading.setTitle(item.getString(AVOUtil.Reading.title));
+            mReading.setItem_id(String.valueOf(item.getNumber(AVOUtil.Reading.item_id)));
+            mReading.setImg_url(item.getString(AVOUtil.Reading.img_url));
+            mReading.setPublish_time(String.valueOf(item.getDate(AVOUtil.Reading.publish_time).getTime()));
+            mReading.setImg_type(item.getString(AVOUtil.Reading.img_type));
+            mReading.setSource_name(item.getString(AVOUtil.Reading.source_name));
+            mReading.setSource_url(item.getString(AVOUtil.Reading.source_url));
+            mReading.setType(item.getString(AVOUtil.Reading.type));
+            mReading.setMedia_url(item.getString(AVOUtil.Reading.media_url));
+            mReading.setContent_type(item.getString(AVOUtil.Reading.content_type));
+            DataBaseUtil.getInstance().saveOrGetStatus(mReading);
+            if(isAddToHead){
+                avObjects.add(0,mReading);
+            }else {
+                avObjects.add(mReading);
+            }
         }
     }
 

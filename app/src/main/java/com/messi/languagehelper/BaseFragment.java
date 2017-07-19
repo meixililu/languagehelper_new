@@ -61,8 +61,8 @@ public class BaseFragment extends Fragment {
 	}
 
 	public void loadDataOnStart(){
-		LogUtil.DefalutLog("loadDataOnStart");
 		isHasLoadData = true;
+		LogUtil.DefalutLog("loadDataOnStart");
 	}
 
 	public void registerBroadcast(){

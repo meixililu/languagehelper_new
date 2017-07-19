@@ -181,8 +181,7 @@ public class StudyCategoryFragment extends BaseFragment {
                 AVAnalytics.onEvent(getContext(), "tab3_to_wordstudy_view_all");
                 break;
             case R.id.word_study_daily:
-                toReadingActivity(getContext().getResources().getString(R.string.title_word_vocabulary),
-                        AVOUtil.Category.word);
+                toActivity(VocabularyStudyActivity.class, null);
                 AVAnalytics.onEvent(getContext(), "tab3_to_wordstudy_daily");
                 break;
             case R.id.word_study_change_plan:

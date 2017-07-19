@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/mswiperefreshlayout"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="fill_parent"
-    android:background="@color/contentbg">
+    android:layout_height="match_parent"
+    >
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/mswiperefreshlayout"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/contentbg">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/listview"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <TextView
+        android:id="@+id/empty_tv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white" />
-</android.support.v4.widget.SwipeRefreshLayout>
+        android:background="@color/contentbg"
+        android:visibility="gone"
+        android:gravity="center"
+        android:textColor="@color/text_grey"
+        android:textSize="@dimen/middle"
+        android:text="@string/recent_study_empty"
+        />
+
+
+</FrameLayout>
+
+
 

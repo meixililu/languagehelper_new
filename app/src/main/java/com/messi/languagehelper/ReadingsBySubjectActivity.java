@@ -166,7 +166,6 @@ public class ReadingsBySubjectActivity extends BaseActivity{
 			if(!TextUtils.isEmpty(level)){
 				query.whereEqualTo(AVOUtil.Reading.level, level);
 			}
-//			query.addDescendingOrder(AVOUtil.Reading.publish_time);
 			query.addAscendingOrder(AVOUtil.Reading.item_id);
 			query.skip(skip);
 			query.limit(Settings.page_size);
@@ -186,6 +185,7 @@ public class ReadingsBySubjectActivity extends BaseActivity{
 			if(avObject != null){
 				if(avObject.size() == 0){
 					ToastUtil.diaplayMesShort(ReadingsBySubjectActivity.this, "没有了！");
+					hasMore = false;
 					hideFooterview();
 				}else{
 					if(skip == 0){
@@ -195,8 +195,14 @@ public class ReadingsBySubjectActivity extends BaseActivity{
 					if(addAD()){
 						mAdapter.notifyDataSetChanged();
 					}
-					skip += Settings.page_size;
-					showFooterview();
+					if(avObject.size() == Settings.page_size){
+						skip += Settings.page_size;
+						showFooterview();
+						hasMore = true;
+					}else {
+						hasMore = false;
+						hideFooterview();
+					}
 				}
 			}else{
 				ToastUtil.diaplayMesShort(ReadingsBySubjectActivity.this, "加载失败，下拉可刷新");

@@ -64,6 +64,8 @@ public class KeyUtil {
 	
 	public static final String LastTimeSelectTab = "LastTimeSelectTab";
 
+	public static final String SubjectLastTimeReadItemId = "_SubjectLastTimeReadItemId";
+
 	public static final String LastTimeCollectedActivitySelectTab = "LastTimeCollectedActivitySelectTab";
 
 	public static final String BigImgUrl = "BigImgUrl";
@@ -171,6 +173,8 @@ public class KeyUtil {
 	public static final String RecentKey = "RecentKey";
 
 	public static final String RecentSymbol = "RecentSymbol";
+
+	public static final String RecentWord = "RecentWord";
 
 	public static final String RecentListen = "RecentListen";
 

@@ -500,8 +500,12 @@ public class AVOUtil {
 		
 		public final static String examination = "examination";
 		
+		public final static String symbol = "symbol";
+
+		public final static String grammar = "grammar";
+
 		public final static String word = "word";
-		
+
 		public final static String story = "story";
 		
 	}

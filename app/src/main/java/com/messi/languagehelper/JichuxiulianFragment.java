@@ -57,6 +57,7 @@ public class JichuxiulianFragment extends BaseFragment implements OnClickListene
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		super.onCreateView(inflater,container,savedInstanceState);
 		View view = inflater.inflate(R.layout.study_category_activity, container, false);
 		initSwipeRefresh(view);
 		return view;
