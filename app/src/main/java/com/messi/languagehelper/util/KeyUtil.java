@@ -178,19 +178,31 @@ public class KeyUtil {
 
 	public static final String RecentListen = "RecentListen";
 
+	public static final String RecentSpoken = "RecentSpoken";
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public static final String RecentGrammar = "RecentGrammar";
+
+	public static final String RecentStory = "RecentStory";
+
+	public static final String RecentBroadcast = "RecentBroadcast";
+
+	public static final String RecentBusiness = "RecentBusiness";
+
+	public static final String SearchKey = "SearchKey";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

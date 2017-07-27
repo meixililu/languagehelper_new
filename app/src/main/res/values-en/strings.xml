@@ -77,6 +77,7 @@
     <string name="ch_dic_input_hint">please input chinese</string>
     <string name="input_translate_hint">please translate</string>
     <string name="search">Search</string>
+    <string name="query">Query</string>
     <string name="translate">Translate</string>
     <string name="start">Start</string>
     <string name="listen">Listen</string>
@@ -93,6 +94,7 @@
     <string name="beginner">Beginner</string>
     <string name="intermediate">Intermediate</string>
     <string name="advanced">Advanced</string>
+    <string name="new_concept">New Concept</string>
 
     <string name="share_dialog_text_1">Text</string>
     <string name="share_dialog_text_2">Image(recommend)</string>
@@ -292,4 +294,5 @@
     <string name="title_business">Business</string>
     <string name="title_course">Course</string>
     <string name="title_daily_word_study">Vocabulary</string>
+    <string name="search_hint">VOA | BBC | CNN</string>
 </resources>

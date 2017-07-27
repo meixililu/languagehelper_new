@@ -502,6 +502,10 @@ public class AVOUtil {
 		
 		public final static String symbol = "symbol";
 
+		public final static String broadcast = "broadcast";
+
+		public final static String business = "business";
+
 		public final static String grammar = "grammar";
 
 		public final static String word = "word";
@@ -580,6 +584,15 @@ public class AVOUtil {
 		public final static String category = "category";
 		public final static String name = "name";
 		public final static String level = "level";
+		public final static String code = "code";
+		public final static String order = "order";
+	}
+
+	public static class SubjectType{
+		public final static String SubjectType = "SubjectType";
+		public final static String type_code = "type_code";
+		public final static String name = "name";
+		public final static String code = "code";
 		public final static String order = "order";
 	}
 

@@ -10,6 +10,7 @@ import com.messi.languagehelper.R;
 import com.messi.languagehelper.ReadingsBySubjectFragment;
 import com.messi.languagehelper.SubjectFragment;
 import com.messi.languagehelper.SymbolListFragment;
+import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.Settings;
 
@@ -44,11 +45,11 @@ public class ListenSubjectAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         if(TextUtils.isEmpty(category_2)){
             if( position == 0 ){
-                return SubjectFragment.getInstance("listening",KeyUtil.RecentListen,"1");
+                return SubjectFragment.getInstance(AVOUtil.Category.listening,KeyUtil.RecentListen,"1");
             }else if( position == 1 ){
-                return SubjectFragment.getInstance("listening",KeyUtil.RecentListen,"2");
+                return SubjectFragment.getInstance(AVOUtil.Category.listening,KeyUtil.RecentListen,"2");
             }else if( position == 2 ){
-                return SubjectFragment.getInstance("listening",KeyUtil.RecentListen,"3");
+                return SubjectFragment.getInstance(AVOUtil.Category.listening,KeyUtil.RecentListen,"3");
             }else if( position == 3 ){
                 return ReadingsBySubjectFragment.newInstance(category_2,KeyUtil.RecentListen,"");
             }
@@ -56,11 +57,11 @@ public class ListenSubjectAdapter extends FragmentPagerAdapter {
             if( position == 0 ){
                 return ReadingsBySubjectFragment.newInstance(category_2,KeyUtil.RecentListen,"");
             }else if( position == 1 ){
-                return SubjectFragment.getInstance("listening",KeyUtil.RecentListen,"1");
+                return SubjectFragment.getInstance(AVOUtil.Category.listening,KeyUtil.RecentListen,"1");
             }else if( position == 2 ){
-                return SubjectFragment.getInstance("listening",KeyUtil.RecentListen,"2");
+                return SubjectFragment.getInstance(AVOUtil.Category.listening,KeyUtil.RecentListen,"2");
             }else if( position == 3 ){
-                return SubjectFragment.getInstance("listening",KeyUtil.RecentListen,"3");
+                return SubjectFragment.getInstance(AVOUtil.Category.listening,KeyUtil.RecentListen,"3");
             }
         }
 

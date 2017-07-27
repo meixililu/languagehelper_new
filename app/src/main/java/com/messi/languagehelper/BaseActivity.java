@@ -96,6 +96,12 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
+    protected void hideTitle(){
+        if(getSupportActionBar() != null){
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+        }
+    }
+
     public void updateUI(String music_action){}
 
 //	protected void startClipboardListener(){

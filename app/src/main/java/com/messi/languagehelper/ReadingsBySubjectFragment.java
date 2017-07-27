@@ -124,7 +124,11 @@ public class ReadingsBySubjectFragment extends BaseFragment {
                     getString(recentKey, "");
             if (!subjectName.equals(newSubject)) {
                 subjectName = newSubject;
-                onSwipeRefreshLayoutRefresh();
+                skip = 0;
+                avObjects.clear();
+                hideFooterview();
+                mAdapter.notifyDataSetChanged();
+                loadDataByType(false);
             }
         }
     }
@@ -169,9 +173,7 @@ public class ReadingsBySubjectFragment extends BaseFragment {
                 isADInList(recyclerView, firstVisibleItem, visible);
                 if (!loading && hasMore) {
                     if ((visible + firstVisibleItem) >= total) {
-                        isLookUpData = false;
-                        loadAD();
-                        new QueryTask().execute();
+                        loadDataByType(false);
                     }
                 }
             }
@@ -219,18 +221,20 @@ public class ReadingsBySubjectFragment extends BaseFragment {
     public void onSwipeRefreshLayoutRefresh() {
         emptyTv.setVisibility(View.GONE);
         if(avObjects.size() == 0) {
-            isLookUpData = false;
-            loadAD();
-            new QueryTask().execute();
+            loadDataByType(false);
         }else {
             if(hasMoreUp){
-                isLookUpData = true;
-                loadAD();
-                new QueryTask().execute();
+                loadDataByType(true);
             }else {
                 onSwipeRefreshLayoutFinish();
             }
         }
+    }
+
+    private void loadDataByType(boolean type){
+        isLookUpData = type;
+        loadAD();
+        new QueryTask().execute();
     }
 
     @Override

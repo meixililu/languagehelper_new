@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -31,7 +30,6 @@ import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.ADUtil;
-import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -45,7 +43,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class StudyCategoryFragment extends BaseFragment {
-
 
     @BindView(R.id.symbol_study_cover)
     FrameLayout symbolStudyCover;
@@ -77,14 +74,8 @@ public class StudyCategoryFragment extends BaseFragment {
     TextView wordStudyBookName;
     @BindView(R.id.title)
     TextView title;
-    @BindView(R.id.imgs_1)
-    SimpleDraweeView imgs1;
-    @BindView(R.id.imgs_2)
-    SimpleDraweeView imgs2;
-    @BindView(R.id.imgs_3)
-    SimpleDraweeView imgs3;
-    @BindView(R.id.imgs_layout)
-    LinearLayout imgsLayout;
+    @BindView(R.id.list_item_img)
+    SimpleDraweeView list_item_img;
     @BindView(R.id.source_name)
     TextView sourceName;
     @BindView(R.id.type_name)
@@ -97,6 +88,18 @@ public class StudyCategoryFragment extends BaseFragment {
     TextView essayPrompt;
     @BindView(R.id.essay_layout)
     FrameLayout essayLayout;
+    @BindView(R.id.study_spoken_english)
+    FrameLayout studySpokenEnglish;
+    @BindView(R.id.en_grammar)
+    FrameLayout enGrammar;
+    @BindView(R.id.en_story_layout)
+    FrameLayout enStoryLayout;
+    @BindView(R.id.en_broadcast)
+    FrameLayout enBroadcast;
+    @BindView(R.id.en_business)
+    FrameLayout enBusiness;
+    @BindView(R.id.search_layout)
+    FrameLayout searchLayout;
 
     private WordListItem wordListItem;
     private NativeADDataRef mNativeADDataRef;
@@ -156,8 +159,8 @@ public class StudyCategoryFragment extends BaseFragment {
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        LogUtil.DefalutLog("StudyCategoryFragment-setUserVisibleHint:"+isVisibleToUser);
-        if(isVisibleToUser){
+        LogUtil.DefalutLog("StudyCategoryFragment-setUserVisibleHint:" + isVisibleToUser);
+        if (isVisibleToUser) {
             exposedAd();
         }
     }
@@ -173,7 +176,9 @@ public class StudyCategoryFragment extends BaseFragment {
             R.id.study_listening_layout, R.id.word_study_change_plan,
             R.id.word_study_plan, R.id.study_test,
             R.id.en_examination_layout, R.id.study_composition, R.id.instagram_layout,
-            R.id.collected_layout, R.id.ad_layout,R.id.essay_layout})
+            R.id.collected_layout, R.id.ad_layout, R.id.essay_layout,
+            R.id.study_spoken_english, R.id.en_grammar, R.id.en_story_layout,
+            R.id.en_broadcast, R.id.en_business, R.id.search_layout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.word_study_view_all:
@@ -222,16 +227,16 @@ public class StudyCategoryFragment extends BaseFragment {
                 break;
             case R.id.collected_layout:
                 toActivity(CollectedActivity.class, null);
-                AVAnalytics.onEvent(getContext(), "index_pg_to_collectedpg");
+                AVAnalytics.onEvent(getContext(), "tab3_to_collected");
                 break;
             case R.id.ad_layout:
                 if (mNativeADDataRef != null) {
                     boolean onClicked = mNativeADDataRef.onClicked(view);
-                    LogUtil.DefalutLog("onClicked:"+onClicked);
+                    LogUtil.DefalutLog("onClicked:" + onClicked);
                 }
                 break;
             case R.id.essay_layout:
-                if(mEssayData != null){
+                if (mEssayData != null) {
                     if (!mEssayData.isShowResult()) {
                         essayTv.setText(mEssayData.getEnglish() + "\n" + mEssayData.getChinese());
                         essayPrompt.setText("轻触更新下一条");
@@ -240,6 +245,30 @@ public class StudyCategoryFragment extends BaseFragment {
                         requestData();
                     }
                 }
+                break;
+            case R.id.study_spoken_english:
+                toActivity(SpokenEnglishActivity.class, null);
+                AVAnalytics.onEvent(getContext(), "tab3_to_spoken_english");
+                break;
+            case R.id.en_grammar:
+                toActivity(GrammarActivity.class, null);
+                AVAnalytics.onEvent(getContext(), "tab3_to_grammar");
+                break;
+            case R.id.en_story_layout:
+                toActivity(StoryActivity.class, null);
+                AVAnalytics.onEvent(getContext(), "tab3_to_story");
+                break;
+            case R.id.en_broadcast:
+                toActivity(BroadcastActivity.class, null);
+                AVAnalytics.onEvent(getContext(), "tab3_to_broadcast");
+                break;
+            case R.id.en_business:
+                toActivity(BusinessActivity.class, null);
+                AVAnalytics.onEvent(getContext(), "tab3_to_business");
+                break;
+            case R.id.search_layout:
+                toActivity(SearchActivity.class, null);
+                AVAnalytics.onEvent(getContext(), "tab3_to_search");
                 break;
         }
     }
@@ -254,13 +283,6 @@ public class StudyCategoryFragment extends BaseFragment {
         }
     }
 
-    private void toReadingActivity(String title, String category) {
-        Intent intent = new Intent(getContext(), ReadingsActivity.class);
-        intent.putExtra(KeyUtil.ActionbarTitle, title);
-        intent.putExtra(KeyUtil.Category, category);
-        getContext().startActivity(intent);
-    }
-
     private void toExaminationActivity(String title) {
         Intent intent = new Intent(getContext(), ExaminationActivity.class);
         intent.putExtra(KeyUtil.ActionbarTitle, title);
@@ -269,17 +291,21 @@ public class StudyCategoryFragment extends BaseFragment {
 
     private void loadAD() {
         LogUtil.DefalutLog("loadAD---study---san wen yi tu");
-        IFLYNativeAd nativeAd = new IFLYNativeAd(getContext(), ADUtil.SanTuYiWen, new IFLYNativeListener() {
+//        IFLYNativeAd nativeAd = new IFLYNativeAd(getContext(), ADUtil.SanTuYiWen, new IFLYNativeListener() {
+        IFLYNativeAd nativeAd = new IFLYNativeAd(getContext(), ADUtil.XXLAD, new IFLYNativeListener() {
             @Override
             public void onConfirm() {
             }
+
             @Override
             public void onCancel() {
             }
+
             @Override
             public void onAdFailed(AdError arg0) {
                 LogUtil.DefalutLog("onAdFailed---" + arg0.getErrorCode() + "---" + arg0.getErrorDescription());
             }
+
             @Override
             public void onADLoaded(List<NativeADDataRef> adList) {
                 LogUtil.DefalutLog("onADLoaded---");
@@ -299,31 +325,28 @@ public class StudyCategoryFragment extends BaseFragment {
         title.setText(mNativeADDataRef.getTitle());
         typeName.setText(mNativeADDataRef.getSubTitle());
         sourceName.setText("VoiceAds广告");
-        if (mNativeADDataRef.getImgUrls() != null && mNativeADDataRef.getImgUrls().size() > 2) {
-            imgs1.setImageURI(mNativeADDataRef.getImgUrls().get(0));
-            imgs2.setImageURI(mNativeADDataRef.getImgUrls().get(1));
-            imgs3.setImageURI(mNativeADDataRef.getImgUrls().get(2));
-        }
+        list_item_img.setImageURI(mNativeADDataRef.getImage());
         exposure = mNativeADDataRef.onExposured(adLayout);
-        LogUtil.DefalutLog("setAd-exposure:"+exposure);
+        LogUtil.DefalutLog("setAd-exposure:" + exposure);
+
     }
 
     private void exposedAd() {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if(!exposure && mNativeADDataRef != null){
+                if (!exposure && mNativeADDataRef != null) {
                     exposure = mNativeADDataRef.onExposured(adLayout);
-                    LogUtil.DefalutLog("exposedAd-exposure:"+exposure);
-                }else {
-                    if(misVisibleToUser && lastLoadAd > 0){
-                        if(System.currentTimeMillis() - lastLoadAd > 45000){
+                    LogUtil.DefalutLog("exposedAd-exposure:" + exposure);
+                } else {
+                    if (misVisibleToUser && lastLoadAd > 0) {
+                        if (System.currentTimeMillis() - lastLoadAd > 45000) {
                             loadAD();
                         }
                     }
                 }
             }
-        },500);
+        }, 500);
 
     }
 
@@ -348,7 +371,7 @@ public class StudyCategoryFragment extends BaseFragment {
                                 essayTv.setText(mEssayData.getEnglish());
                                 essayPrompt.setText("轻触看中文");
                             }
-                        }else {
+                        } else {
                             essayLayout.setVisibility(View.GONE);
                         }
                     }
@@ -356,9 +379,11 @@ public class StudyCategoryFragment extends BaseFragment {
                     e.printStackTrace();
                 }
             }
+
             @Override
             public void onFailured() {
             }
+
             @Override
             public void onFinished() {
             }

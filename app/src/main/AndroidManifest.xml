@@ -74,6 +74,30 @@
             </intent-filter>
         </service>
         <activity
+            android:name=".SearchResultActivity"
+            android:screenOrientation="portrait" />
+         <activity
+            android:name=".SearchActivity"
+            android:screenOrientation="portrait" />
+         <activity
+            android:name=".BusinessActivity"
+            android:screenOrientation="portrait" />
+         <activity
+            android:name=".SubjectActivity"
+            android:screenOrientation="portrait" />
+         <activity
+            android:name=".BroadcastActivity"
+            android:screenOrientation="portrait" />
+         <activity
+            android:name=".StoryActivity"
+            android:screenOrientation="portrait" />
+         <activity
+            android:name=".GrammarActivity"
+            android:screenOrientation="portrait" />
+         <activity
+            android:name=".SpokenEnglishActivity"
+            android:screenOrientation="portrait" />
+         <activity
             android:name=".VocabularyStudyActivity"
             android:screenOrientation="portrait" />
          <activity

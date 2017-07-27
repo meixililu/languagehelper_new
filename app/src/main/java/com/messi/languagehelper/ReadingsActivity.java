@@ -222,7 +222,8 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 	}
 
 	private void loadAD(){
-		nativeAd = new IFLYNativeAd(this, ADUtil.randomAd(), new IFLYNativeListener() {
+//		nativeAd = new IFLYNativeAd(this, ADUtil.randomAd(), new IFLYNativeListener() {
+		nativeAd = new IFLYNativeAd(this, ADUtil.XXLAD, new IFLYNativeListener() {
 			@Override
 			public void onConfirm() {
 			}

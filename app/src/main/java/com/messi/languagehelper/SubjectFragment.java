@@ -46,6 +46,7 @@ public class SubjectFragment extends BaseFragment {
     private String category;
     private String recentKey;
     private String level;
+    private String order;
 
 
     public static SubjectFragment getInstance(String category, String recentKey, String level) {
@@ -53,6 +54,16 @@ public class SubjectFragment extends BaseFragment {
         fragment.category = category;
         fragment.recentKey = recentKey;
         fragment.level = level;
+        return fragment;
+    }
+
+    public static SubjectFragment getInstance(String category, String recentKey,
+                                              String level, String order) {
+        SubjectFragment fragment = new SubjectFragment();
+        fragment.category = category;
+        fragment.recentKey = recentKey;
+        fragment.level = level;
+        fragment.order = order;
         return fragment;
     }
 
@@ -158,7 +169,11 @@ public class SubjectFragment extends BaseFragment {
             if (!TextUtils.isEmpty(level)) {
                 query.whereEqualTo(AVOUtil.SubjectList.level, level);
             }
-            query.orderByAscending(AVOUtil.SubjectList.order);
+            if(!TextUtils.isEmpty(order)){
+                query.orderByDescending(AVOUtil.SubjectList.order);
+            }else {
+                query.orderByAscending(AVOUtil.SubjectList.order);
+            }
             query.skip(skip);
             query.limit(20);
             try {

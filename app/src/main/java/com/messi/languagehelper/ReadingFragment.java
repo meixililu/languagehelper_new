@@ -249,7 +249,8 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 	}
 	
 	private void loadAD(){
-		nativeAd = new IFLYNativeAd(getContext(), ADUtil.randomAd(), new IFLYNativeListener() {
+//		nativeAd = new IFLYNativeAd(getContext(), ADUtil.randomAd(), new IFLYNativeListener() {
+		nativeAd = new IFLYNativeAd(getContext(), ADUtil.XXLAD, new IFLYNativeListener() {
 			@Override
 			public void onConfirm() {
 			}

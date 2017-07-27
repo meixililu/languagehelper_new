@@ -17,7 +17,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="190dp"
-            android:layout_marginBottom="@dimen/padding_10"
+            android:layout_marginBottom="@dimen/padding_7"
             android:background="@color/white"
             android:orientation="vertical">
 
@@ -154,7 +154,6 @@
                 </FrameLayout>
             </LinearLayout>
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -327,7 +326,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/padding_10"
+            android:layout_marginBottom="@dimen/padding_7"
             android:orientation="horizontal">
 
             <FrameLayout
@@ -408,10 +407,44 @@
         </LinearLayout>
 
         <FrameLayout
+            android:id="@+id/search_layout"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="@dimen/padding_7"
+            android:background="@color/white"
+            android:foreground="@drawable/framelayout_selector"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/padding_15"
+                android:gravity="center_vertical"
+                android:background="@color/white"
+                >
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="@dimen/padding_margin"
+                    android:layout_marginRight="@dimen/padding_10"
+                    android:src="@drawable/ic_search"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_grey"
+                    android:textSize="@dimen/big"
+                    android:text="@string/search_hint"
+                    />
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <FrameLayout
             android:id="@+id/ad_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/padding_10"
+            android:layout_marginBottom="@dimen/padding_5"
             android:background="@color/white"
             android:foreground="@drawable/framelayout_selector"
             android:visibility="gone">
@@ -419,96 +452,66 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding_10"
-                android:layout_marginLeft="@dimen/padding_10"
-                android:layout_marginRight="@dimen/padding_10"
-                android:layout_marginBottom="@dimen/padding_5"
+                android:layout_margin="@dimen/padding_10"
                 android:background="@color/white"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/title"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:minHeight="80dp"
+                    android:orientation="vertical"
                     android:background="@color/white"
-                    android:maxLines="3"
-                    android:textColor="@color/text_dark"
-                    android:textSize="@dimen/bigger" />
-
-                <LinearLayout
-                    android:id="@+id/imgs_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/padding_7"
-                    android:layout_marginTop="@dimen/padding_7"
-                    android:orientation="horizontal">
-
-                    <com.facebook.drawee.view.SimpleDraweeView
-                        android:id="@+id/imgs_1"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="@dimen/padding_5"
-                        android:layout_weight="1"
-                        fresco:actualImageScaleType="focusCrop"
-                        fresco:placeholderImage="@color/text_tint"
-                        fresco:placeholderImageScaleType="fitCenter"
-                        fresco:viewAspectRatio="1.5" />
-
-                    <com.facebook.drawee.view.SimpleDraweeView
-                        android:id="@+id/imgs_2"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/padding_5"
-                        android:layout_marginRight="@dimen/padding_5"
-                        android:layout_weight="1"
-                        fresco:actualImageScaleType="focusCrop"
-                        fresco:placeholderImage="@color/text_tint"
-                        fresco:placeholderImageScaleType="fitCenter"
-                        fresco:viewAspectRatio="1.5" />
-
-                    <com.facebook.drawee.view.SimpleDraweeView
-                        android:id="@+id/imgs_3"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/padding_5"
-                        android:layout_weight="1"
-                        fresco:actualImageScaleType="focusCrop"
-                        fresco:placeholderImage="@color/text_tint"
-                        fresco:placeholderImageScaleType="fitCenter"
-                        fresco:viewAspectRatio="1.5" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:background="@color/white"
-                    android:gravity="bottom"
-                    android:orientation="horizontal">
-
+                    >
                     <TextView
-                        android:id="@+id/source_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/title"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
                         android:background="@color/white"
-                        android:gravity="left"
-                        android:maxLines="1"
-                        android:textColor="@color/text_grey1"
-                        android:textSize="@dimen/small" />
-
-                    <TextView
-                        android:id="@+id/type_name"
-                        android:layout_width="wrap_content"
+                        android:maxLines="3"
+                        android:textColor="@color/text_dark"
+                        android:textSize="@dimen/bigger" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/padding_20"
+                        android:layout_gravity="bottom"
                         android:background="@color/white"
-                        android:gravity="left"
-                        android:maxLines="1"
-                        android:textColor="@color/text_grey1"
-                        android:textSize="@dimen/small" />
+                        android:gravity="bottom"
+                        android:orientation="horizontal">
 
+                        <TextView
+                            android:id="@+id/source_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:gravity="left"
+                            android:maxLines="1"
+                            android:textColor="@color/text_grey1"
+                            android:textSize="@dimen/small" />
+
+                        <TextView
+                            android:id="@+id/type_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/padding_20"
+                            android:background="@color/white"
+                            android:gravity="left"
+                            android:maxLines="1"
+                            android:textColor="@color/text_grey1"
+                            android:textSize="@dimen/small" />
+
+                    </LinearLayout>
                 </LinearLayout>
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/list_item_img"
+                    android:layout_width="105dp"
+                    android:layout_height="78dp"
+                    fresco:placeholderImageScaleType="fitCenter"
+                    fresco:actualImageScaleType="focusCrop"
+                    fresco:placeholderImage="@color/text_tint"
+                    />
             </LinearLayout>
         </FrameLayout>
 
@@ -516,6 +519,7 @@
             android:id="@+id/essay_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/padding_5"
             android:visibility="gone"
             android:background="@color/white"
             android:foreground="@drawable/framelayout_selector"

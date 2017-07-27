@@ -86,6 +86,30 @@
         </service>
 
         <activity
+            android:name="com.messi.languagehelper.SearchResultActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.messi.languagehelper.SearchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.messi.languagehelper.BusinessActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.messi.languagehelper.SubjectActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.messi.languagehelper.BroadcastActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.messi.languagehelper.StoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.messi.languagehelper.GrammarActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.messi.languagehelper.SpokenEnglishActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.messi.languagehelper.VocabularyStudyActivity"
             android:screenOrientation="portrait" />
         <activity

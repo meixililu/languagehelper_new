@@ -76,6 +76,7 @@
     <string name="beginner">初级</string>
     <string name="intermediate">中级</string>
     <string name="advanced">高级</string>
+    <string name="new_concept">新概念</string>
 
     <string name="menu_share">DIY分享</string>
     <string name="menu_settings">语速调节</string>
@@ -89,7 +90,8 @@
     <string name="auto_clear_after_translate">翻译完成后自动清空输入框</string>
     <string name="auto_play_after_translate">自动播放翻译结果</string>
     <string name="auto_clear">退出应用删除非收藏记录</string>
-    <string name="search">查询</string>
+    <string name="search">搜索</string>
+    <string name="query">查询</string>
     <string name="translate">翻译</string>
     <string name="click_speak">翻译</string>
     <string name="start">开始</string>
@@ -313,6 +315,7 @@
     <string name="title_business">行业</string>
     <string name="title_course">课程</string>
     <string name="title_daily_word_study">每日一词</string>
+    <string name="search_hint">VOA | BBC | CNN | 空中英语</string>
 
 
 </resources>

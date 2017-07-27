@@ -129,6 +129,7 @@
     <string name="menu_settings">Play Speed</string>
     <string name="menu_share">DIY Share</string>
     <string name="network_error">Network Error,Retry Later Please!</string>
+    <string name="new_concept">New Concept</string>
     <string name="next_unit">Next Unit</string>
     <string name="offline_download">Download Mp3</string>
     <string name="photo_album">PhotoAlbum</string>
@@ -170,6 +171,7 @@
     <string name="preference_title_tts_music">background music</string>
     <string name="primary_lever">Part Two</string>
     <string name="prompt">Prompt</string>
+    <string name="query">Query</string>
     <string name="reading">Reading</string>
     <string name="recent">Recent</string>
     <string name="recent_study_empty">Empty</string>
@@ -181,6 +183,7 @@
     <string name="restart_success">Reboot App</string>
     <string name="retry">Retry</string>
     <string name="search">Search</string>
+    <string name="search_hint">VOA | BBC | CNN</string>
     <string name="sentence">Sentence</string>
     <string name="server_error">Server Error,Retry Later Please!</string>
     <string name="share">Share</string>

@@ -191,6 +191,11 @@
                         />
                 </LinearLayout>
             </FrameLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/contentbg"
+                />
 
             <ImageView 
                 android:layout_width="match_parent"
@@ -345,7 +350,11 @@
                         />
                 </LinearLayout>
             </FrameLayout>
-            
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/contentbg"
+                />
         </LinearLayout>
     </ScrollView>
 

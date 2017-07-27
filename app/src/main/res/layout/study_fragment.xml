@@ -12,17 +12,44 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tablayout"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:background="@color/bg_white"
-            app:tabMode="scrollable"
-            app:tabMaxWidth="56dp"
-            app:tabPadding="0dp"
-            app:tabSelectedTextColor="@color/text_black"
-            app:tabTextColor="@color/text_grey1"
-            app:tabIndicatorColor="@color/none" />
+            >
+            <FrameLayout
+                android:id="@+id/search_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:foreground="@drawable/framelayout_selector"
+                android:paddingLeft="10dp"
+                android:paddingRight="3dp"
+                android:paddingTop="3dp"
+                >
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_search"
+                    />
+            </FrameLayout>
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tablayout"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:background="@color/bg_white"
+                app:tabMode="scrollable"
+                app:tabMaxWidth="55dp"
+                app:tabPadding="0dp"
+                app:paddingEnd="0dp"
+                app:paddingStart="0dp"
+                app:tabSelectedTextColor="@color/text_black"
+                app:tabTextColor="@color/text_grey1"
+                app:tabIndicatorColor="@color/none" />
+        </LinearLayout>
 
         <View
             android:id="@+id/tablayout_line"

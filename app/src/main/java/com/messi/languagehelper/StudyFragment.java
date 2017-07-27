@@ -5,14 +5,16 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
+import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.iflytek.voiceads.AdError;
@@ -21,29 +23,26 @@ import com.iflytek.voiceads.IFLYNativeAd;
 import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.adapter.RcStudyListAdapter;
-import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.bean.ReadingCategory;
+import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.impl.TablayoutOnSelectedListener;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
-import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
-import com.messi.languagehelper.util.ScreenUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
@@ -53,12 +52,14 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class StudyFragment extends BaseFragment implements OnClickListener, TablayoutOnSelectedListener {
+public class StudyFragment extends BaseFragment implements TablayoutOnSelectedListener {
 
     @BindView(R.id.listview)
     RecyclerView listview;
     @BindView(R.id.tablayout)
     TabLayout tablayout;
+    @BindView(R.id.search_btn)
+    FrameLayout searchBtn;
     private RcStudyListAdapter mAdapter;
     private List<Reading> avObjects;
     private List<AVObject> tempList;
@@ -178,7 +179,7 @@ public class StudyFragment extends BaseFragment implements OnClickListener, Tabl
                         if (!mAVObject.isAdShow()) {
                             NativeADDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
                             boolean isExposure = mNativeADDataRef.onExposured(view.getChildAt(i % vCount));
-                            LogUtil.DefalutLog("isExposure:"+isExposure);
+                            LogUtil.DefalutLog("isExposure:" + isExposure);
                             mAVObject.setAdShow(isExposure);
                         }
                     }
@@ -322,7 +323,8 @@ public class StudyFragment extends BaseFragment implements OnClickListener, Tabl
     }
 
     private void loadAD() {
-        nativeAd = new IFLYNativeAd(getContext(), ADUtil.randomAd(), new IFLYNativeListener() {
+//        nativeAd = new IFLYNativeAd(getContext(), ADUtil.randomAd(), new IFLYNativeListener() {
+        nativeAd = new IFLYNativeAd(getContext(), ADUtil.XXLAD, new IFLYNativeListener() {
             @Override
             public void onConfirm() {
             }
@@ -417,10 +419,6 @@ public class StudyFragment extends BaseFragment implements OnClickListener, Tabl
         onSwipeRefreshLayoutRefresh();
     }
 
-    @Override
-    public void onClick(View v) {
-    }
-
     private void getMaxPageNumberBackground() {
         maxRandom = (int) ((Math.random() * 1200));
     }
@@ -461,7 +459,7 @@ public class StudyFragment extends BaseFragment implements OnClickListener, Tabl
         }
     }
 
-    public static void changeData(List<AVObject> avObjectlist, List<Reading> avObjects,boolean isAddToHead) {
+    public static void changeData(List<AVObject> avObjectlist, List<Reading> avObjects, boolean isAddToHead) {
 
         for (AVObject item : avObjectlist) {
             Reading mReading = new Reading();
@@ -481,9 +479,9 @@ public class StudyFragment extends BaseFragment implements OnClickListener, Tabl
             mReading.setMedia_url(item.getString(AVOUtil.Reading.media_url));
             mReading.setContent_type(item.getString(AVOUtil.Reading.content_type));
             DataBaseUtil.getInstance().saveOrGetStatus(mReading);
-            if(isAddToHead){
-                avObjects.add(0,mReading);
-            }else {
+            if (isAddToHead) {
+                avObjects.add(0, mReading);
+            } else {
                 avObjects.add(mReading);
             }
         }
@@ -501,5 +499,11 @@ public class StudyFragment extends BaseFragment implements OnClickListener, Tabl
         readingCategories.add(new ReadingCategory("故事", "story"));
         readingCategories.add(new ReadingCategory("笑话", "jokes"));
         return readingCategories;
+    }
+
+    @OnClick(R.id.search_btn)
+    public void onViewClicked() {
+        toActivity(SearchActivity.class,null);
+        AVAnalytics.onEvent(getContext(), "tab4_to_search");
     }
 }
