@@ -295,4 +295,5 @@
     <string name="title_course">Course</string>
     <string name="title_daily_word_study">Vocabulary</string>
     <string name="search_hint">VOA | BBC | CNN</string>
+    <string name="search_history"><![CDATA[History&Hot]]></string>
 </resources>

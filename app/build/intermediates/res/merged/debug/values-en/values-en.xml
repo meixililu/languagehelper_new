@@ -184,6 +184,7 @@
     <string name="retry">Retry</string>
     <string name="search">Search</string>
     <string name="search_hint">VOA | BBC | CNN</string>
+    <string name="search_history">History&amp;Hot</string>
     <string name="sentence">Sentence</string>
     <string name="server_error">Server Error,Retry Later Please!</string>
     <string name="share">Share</string>

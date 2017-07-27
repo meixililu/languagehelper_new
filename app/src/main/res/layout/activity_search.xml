@@ -21,7 +21,7 @@
 			<EditText
 				android:id="@+id/search_et"
 				android:layout_width="0dp"
-				android:layout_height="40dp"
+				android:layout_height="38dp"
 				android:layout_gravity="center_vertical"
 				android:layout_weight="1"
 				android:layout_margin="0dp"
@@ -57,12 +57,51 @@
     </android.support.v7.widget.Toolbar>
 
 	<LinearLayout
-		android:layout_width="fill_parent"
-		android:layout_height="fill_parent"
-		android:background="@color/contentbg"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="@color/text_grey"
 		android:orientation="vertical">
 
-
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="38dp"
+			android:gravity="center_vertical"
+			android:paddingLeft="@dimen/padding_10"
+			android:orientation="horizontal"
+			android:background="@color/contentbg"
+			>
+			<TextView
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:text="@string/search_history"
+				android:textSize="@dimen/big"
+				android:textColor="@color/text_black"
+				/>
+			<FrameLayout
+				android:id="@+id/clear_history"
+				android:layout_width="50dp"
+				android:layout_height="38dp"
+				android:foreground="@drawable/framelayout_selector"
+				>
+				<ImageView
+					android:layout_width="24dp"
+					android:layout_height="24dp"
+					android:layout_gravity="center"
+					android:src="@drawable/delete"
+					/>
+			</FrameLayout>
+		</LinearLayout>
+		<View
+			android:layout_width="match_parent"
+			android:layout_height="1dp"
+			android:background="@color/text_tint2"
+			/>
+		<android.support.v7.widget.RecyclerView
+			android:id="@+id/studycategory_lv"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="@color/contentbg"/>
 	</LinearLayout>
 
 </LinearLayout>

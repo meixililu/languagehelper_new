@@ -596,4 +596,12 @@ public class AVOUtil {
 		public final static String order = "order";
 	}
 
+	public static class SearchHot{
+		public final static String SearchHot = "SearchHot";
+		public final static String click_time = "click_time";
+		public final static String name = "name";
+		public final static String type = "type";
+		public final static String createdAt = "createdAt";
+	}
+
 }

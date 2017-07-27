@@ -190,6 +190,8 @@ public class KeyUtil {
 
 	public static final String SearchKey = "SearchKey";
 
+	public static final String SearchHistory = "SearchHistory";
+
 
 
 
