@@ -440,20 +440,48 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
         for (AVObject item : avObjectlist) {
             Reading mReading = new Reading();
             mReading.setObject_id(item.getObjectId());
-            mReading.setCategory(item.getString(AVOUtil.Reading.category));
-            mReading.setContent(item.getString(AVOUtil.Reading.content));
-            mReading.setType_id(item.getString(AVOUtil.Reading.type_id));
-            mReading.setType_name(item.getString(AVOUtil.Reading.type_name));
-            mReading.setTitle(item.getString(AVOUtil.Reading.title));
-            mReading.setItem_id(String.valueOf(item.getNumber(AVOUtil.Reading.item_id)));
-            mReading.setImg_url(item.getString(AVOUtil.Reading.img_url));
-            mReading.setPublish_time(String.valueOf(item.getDate(AVOUtil.Reading.publish_time).getTime()));
-            mReading.setImg_type(item.getString(AVOUtil.Reading.img_type));
-            mReading.setSource_name(item.getString(AVOUtil.Reading.source_name));
-            mReading.setSource_url(item.getString(AVOUtil.Reading.source_url));
-            mReading.setType(item.getString(AVOUtil.Reading.type));
-            mReading.setMedia_url(item.getString(AVOUtil.Reading.media_url));
-            mReading.setContent_type(item.getString(AVOUtil.Reading.content_type));
+            if(item.has(AVOUtil.Reading.category)){
+                mReading.setCategory(item.getString(AVOUtil.Reading.category));
+            }
+            if(item.has(AVOUtil.Reading.content)){
+                mReading.setContent(item.getString(AVOUtil.Reading.content));
+            }
+            if(item.has(AVOUtil.Reading.type_id)){
+                mReading.setType_id(item.getString(AVOUtil.Reading.type_id));
+            }
+            if(item.has(AVOUtil.Reading.type_name)){
+                mReading.setType_name(item.getString(AVOUtil.Reading.type_name));
+            }
+            if(item.has(AVOUtil.Reading.title)){
+                mReading.setTitle(item.getString(AVOUtil.Reading.title));
+            }
+            if(item.has(AVOUtil.Reading.item_id)){
+                mReading.setItem_id(String.valueOf(item.getNumber(AVOUtil.Reading.item_id)));
+            }
+            if(item.has(AVOUtil.Reading.img_url)){
+                mReading.setImg_url(item.getString(AVOUtil.Reading.img_url));
+            }
+            if(item.has(AVOUtil.Reading.publish_time)){
+                mReading.setPublish_time(String.valueOf(item.getDate(AVOUtil.Reading.publish_time).getTime()));
+            }
+            if(item.has(AVOUtil.Reading.img_type)){
+                mReading.setImg_type(item.getString(AVOUtil.Reading.img_type));
+            }
+            if(item.has(AVOUtil.Reading.source_name)){
+                mReading.setSource_name(item.getString(AVOUtil.Reading.source_name));
+            }
+            if(item.has(AVOUtil.Reading.source_url)){
+                mReading.setSource_url(item.getString(AVOUtil.Reading.source_url));
+            }
+            if(item.has(AVOUtil.Reading.type)){
+                mReading.setType(item.getString(AVOUtil.Reading.type));
+            }
+            if(item.has(AVOUtil.Reading.media_url)){
+                mReading.setMedia_url(item.getString(AVOUtil.Reading.media_url));
+            }
+            if(item.has(AVOUtil.Reading.content_type)){
+                mReading.setContent_type(item.getString(AVOUtil.Reading.content_type));
+            }
             DataBaseUtil.getInstance().saveOrGetStatus(mReading);
             avObjects.add(mReading);
         }
@@ -471,7 +499,9 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
             mReading.setTitle(item.getString(AVOUtil.Reading.title));
             mReading.setItem_id(String.valueOf(item.getNumber(AVOUtil.Reading.item_id)));
             mReading.setImg_url(item.getString(AVOUtil.Reading.img_url));
-            mReading.setPublish_time(String.valueOf(item.getDate(AVOUtil.Reading.publish_time).getTime()));
+            if(item.has(AVOUtil.Reading.publish_time)){
+                mReading.setPublish_time(String.valueOf(item.getDate(AVOUtil.Reading.publish_time).getTime()));
+            }
             mReading.setImg_type(item.getString(AVOUtil.Reading.img_type));
             mReading.setSource_name(item.getString(AVOUtil.Reading.source_name));
             mReading.setSource_url(item.getString(AVOUtil.Reading.source_url));
