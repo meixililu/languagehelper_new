@@ -5723,7 +5723,14 @@
                     "endOffset": 69561
                 },
                 "from": {
-                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values/strings.xml"
+                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 59,
+                        "endColumn": 45,
+                        "endOffset": 100
+                    }
                 }
             },
             {
@@ -8018,14 +8025,7 @@
                     "endOffset": 80869
                 },
                 "from": {
-                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values/strings.xml",
-                    "position": {
-                        "startLine": 318,
-                        "startColumn": 4,
-                        "startOffset": 15303,
-                        "endColumn": 60,
-                        "endOffset": 15359
-                    }
+                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values/strings.xml"
                 }
             },
             {
