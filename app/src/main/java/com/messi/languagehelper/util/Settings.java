@@ -40,9 +40,11 @@ public class Settings {
 	
 	public static String baiduWebTranslateUrl = "http://fanyi.baidu.com/v2transapi";
 
-	public static String IcibaTranslateUrl = "http://fy.iciba.com/api.php";
+	public static String HjTranslateUrl = "https://dict.hjenglish.com/services/Translate.ashx";
 
 	public static String IcibaTranslateNewUrl = "http://fy.iciba.com/ajax.php?a=fy";
+
+	public static String Tran388GCOmUrl = "http://www.388g.com/tts/trans.php?tool=bd&q=";
 	
 //	public static String BaiduOCRUrlOld = "http://apis.baidu.com/idl_baidu/baiduocrpay/idlocrpaid";
 
@@ -115,6 +117,8 @@ public class Settings {
 	public static final String EssayApi = "http://route.showapi.com/1211-1";
 
 	public static final String TXNewsApiEnd = "?key=18f7f9dbd7dfcd8ab45efdcfbc33826d&num=15&page=";
+
+	public static final String AiBrainUrl = "http://api.acobot.net/get?bid=866&key=vIjpiPkChlZ4om2F&uid=";
 
 	/**广阅通**/
 	public static final String GuangyuetongUrl = "http://p.contx.cn/v1/access?id=f9136944-bc17-4cb1-9b14-ece9de91b39d&uid=#uid#&ud=#ud#";

@@ -57,6 +57,7 @@
     <string name="dic_normal">Standard</string>
     <string name="dic_sentence">Offline Sentence</string>
     <string name="copy">Copy</string>
+    <string name="voice">voice</string>
     <string name="background_color">Background Color</string>
     <string name="font_color">Font Color</string>
     <string name="font_size">Font Size</string>
@@ -74,6 +75,7 @@
     <string name="app_name_share">App:Translator</string>
     <string name="share_text_hint">please input something</string>
     <string name="input_et_hint">please input chinese or english</string>
+    <string name="ai_chat_input_hint">just say something</string>
     <string name="ch_dic_input_hint">please input chinese</string>
     <string name="input_translate_hint">please translate</string>
     <string name="search">Search</string>
@@ -296,4 +298,7 @@
     <string name="title_daily_word_study">Vocabulary</string>
     <string name="search_hint">VOA | BBC | CNN</string>
     <string name="search_history"><![CDATA[History&Hot]]></string>
+    <string name="learn_english_with_ai">learn english with ai</string>
+    <string name="title_ai_chat">Chat</string>
+    <string name="sent">Sent</string>
 </resources>

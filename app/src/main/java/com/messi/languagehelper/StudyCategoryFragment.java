@@ -100,6 +100,8 @@ public class StudyCategoryFragment extends BaseFragment {
     FrameLayout enBusiness;
     @BindView(R.id.search_layout)
     FrameLayout searchLayout;
+    @BindView(R.id.ai_chat_cover)
+    FrameLayout aiChatCover;
 
     private WordListItem wordListItem;
     private NativeADDataRef mNativeADDataRef;
@@ -178,7 +180,7 @@ public class StudyCategoryFragment extends BaseFragment {
             R.id.en_examination_layout, R.id.study_composition, R.id.instagram_layout,
             R.id.collected_layout, R.id.ad_layout, R.id.essay_layout,
             R.id.study_spoken_english, R.id.en_grammar, R.id.en_story_layout,
-            R.id.en_broadcast, R.id.en_business, R.id.search_layout})
+            R.id.en_broadcast, R.id.en_business, R.id.search_layout,R.id.ai_chat_cover})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.word_study_view_all:
@@ -269,6 +271,10 @@ public class StudyCategoryFragment extends BaseFragment {
             case R.id.search_layout:
                 toActivity(SearchActivity.class, null);
                 AVAnalytics.onEvent(getContext(), "tab3_to_search");
+                break;
+            case R.id.ai_chat_cover:
+                toActivity(AiChatActivity.class, null);
+                AVAnalytics.onEvent(getContext(), "tab3_to_ai_chat");
                 break;
         }
     }

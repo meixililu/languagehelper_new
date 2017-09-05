@@ -6,6 +6,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.iflytek.cloud.SpeechConstant;
@@ -50,35 +51,69 @@ public class PlayUtil {
         mMyThread = new MyThread(mHandler);
     }
 
-    public static void play(String nfilepath,String nSpeakContent,AnimationDrawable nDrawable,
-                            SynthesizerListener nSynthesizerListener){
+    public static void play(String nfilepath,
+                            String nSpeakContent,
+                            AnimationDrawable nDrawable,
+                            SynthesizerListener nSynthesizerListener,
+                            String speaker){
         LogUtil.DefalutLog("PlayUtil-PlayerStatus:"+isPlaying);
+        if(nDrawable != null){
+            currentAnimationDrawable = nDrawable;
+        }else {
+            currentAnimationDrawable = null;
+        }
         if(!isPlaying){
             filepath = nfilepath;
             speakContent = nSpeakContent+".";
-            currentAnimationDrawable = nDrawable;
-            startToPlay(nSynthesizerListener);
+            if(TextUtils.isEmpty(speaker)){
+                startToPlay(nSynthesizerListener);
+            }else {
+                startToPlay(nSynthesizerListener,speaker);
+            }
         }else {
             stopPlay();
             if(!filepath.equals(nfilepath)){
                 filepath = nfilepath;
                 speakContent = nSpeakContent;
-                currentAnimationDrawable = nDrawable;
-                startToPlay(nSynthesizerListener);
+                if(TextUtils.isEmpty(speaker)){
+                    startToPlay(nSynthesizerListener);
+                }else {
+                    startToPlay(nSynthesizerListener,speaker);
+                }
             }
         }
     }
 
+    public static void play(String nfilepath,
+                            String nSpeakContent,
+                            AnimationDrawable nDrawable,
+                            SynthesizerListener nSynthesizerListener){
+        play(nfilepath,nSpeakContent,nDrawable,nSynthesizerListener,"");
+    }
 
     public static void startToPlay(SynthesizerListener nSynthesizerListener){
+        startToPlay(nSynthesizerListener,"");
+    }
+
+    public static void startToPlay(SynthesizerListener nSynthesizerListener,String speaker){
         if (!AudioTrackUtil.isFileExists(filepath)) {
             mSpeechSynthesizer.setParameter(SpeechConstant.TTS_AUDIO_PATH, filepath);
-            XFUtil.showSpeechSynthesizer(
-                    mContext,
-                    mSharedPreferences,
-                    mSpeechSynthesizer,
-                    speakContent,
-                    nSynthesizerListener);
+            if(TextUtils.isEmpty(speaker)){
+                XFUtil.showSpeechSynthesizer(
+                        mContext,
+                        mSharedPreferences,
+                        mSpeechSynthesizer,
+                        speakContent,
+                        nSynthesizerListener);
+            }else {
+                XFUtil.showSpeechSynthesizer(
+                        mContext,
+                        mSharedPreferences,
+                        mSpeechSynthesizer,
+                        speakContent,
+                        speaker,
+                        nSynthesizerListener);
+            }
         } else {
             onStartPlay();
             mMyThread.setDataUri(filepath);

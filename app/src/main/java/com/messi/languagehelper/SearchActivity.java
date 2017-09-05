@@ -251,31 +251,13 @@ public class SearchActivity extends BaseActivity implements AdapterStringListene
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        hideIME();
+        hideIME(searchEt);
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        hideIME();
+        hideIME(searchEt);
     }
-
-    /**
-     * 点击翻译之后隐藏输入法
-     */
-    private void hideIME() {
-        final InputMethodManager imm = (InputMethodManager) this.getSystemService(Activity.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(searchEt.getWindowToken(), 0);
-    }
-
-    /**
-     * 点击编辑之后显示输入法
-     */
-    private void showIME() {
-        final InputMethodManager imm = (InputMethodManager) this.getSystemService(Activity.INPUT_METHOD_SERVICE);
-        imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, InputMethodManager.HIDE_NOT_ALWAYS);
-    }
-
-
 
 }

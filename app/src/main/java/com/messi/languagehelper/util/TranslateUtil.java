@@ -12,6 +12,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import com.alibaba.fastjson.JSON;
 import com.avos.avoscloud.okhttp.Callback;
 import com.avos.avoscloud.okhttp.FormEncodingBuilder;
 import com.avos.avoscloud.okhttp.Request;
@@ -19,6 +20,10 @@ import com.avos.avoscloud.okhttp.RequestBody;
 import com.avos.avoscloud.okhttp.Response;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.messi.languagehelper.bean.HjTranBean;
+import com.messi.languagehelper.bean.IcibaNew;
+import com.messi.languagehelper.dao.record;
+import com.messi.languagehelper.impl.OnTranslateFinishListener;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.messi.languagehelper.bean.StackTransalte;
 import com.messi.languagehelper.bean.TranslateApiBean;
@@ -38,7 +43,13 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 
+import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class TranslateUtil {
 	
@@ -768,6 +779,152 @@ public class TranslateUtil {
 				sb.append("\n");
 			}
 		}
+	}
+
+	public static void Translate(final OnTranslateFinishListener listener) throws Exception{
+		Observable.create(new ObservableOnSubscribe<record>() {
+			@Override
+			public void subscribe(ObservableEmitter<record> e) throws Exception {
+				e.onNext( doTranslateBackground() );
+				e.onComplete();
+			}
+		})
+				.subscribeOn(Schedulers.io())
+				.observeOn(AndroidSchedulers.mainThread())
+				.subscribe(new Observer<record>() {
+					@Override
+					public void onSubscribe(Disposable d) {
+					}
+
+					@Override
+					public void onNext(record mResult) {
+						listener.OnFinishTranslate(mResult);
+					}
+
+					@Override
+					public void onError(Throwable e) {
+					}
+
+					@Override
+					public void onComplete() {
+					}
+				});
+	}
+
+	private static record doTranslateBackground() throws Exception{
+		record result = null;
+		Response mResponse = null;
+		mResponse = LanguagehelperHttpClient.postIcibaNew(null);
+		result = tran_js_newapi(mResponse);
+		if(result == null){
+			mResponse = LanguagehelperHttpClient.postHjApi(null);
+			result = tran_hj_api(mResponse);
+			if(result == null){
+				mResponse = LanguagehelperHttpClient.get388gcom(null);
+				result = tran_3g88_api(mResponse);
+				if (result == null) {
+					mResponse = LanguagehelperHttpClient.postBaidu(null);
+					result = tran_bd_api(mResponse);
+				}
+			}
+		}
+		return result;
+	}
+
+	private static record tran_bd_api(Response mResponse) throws Exception{
+		record currentDialogBean = null;
+		if(mResponse != null && mResponse.isSuccessful()) {
+			String mResult = mResponse.body().string();
+			if (JsonParser.isJson(mResult)) {
+				String dstString = JsonParser.getTranslateResult(mResult);
+				if (!dstString.contains("error_msg:")) {
+					currentDialogBean = new record(dstString, Settings.q);
+					LogUtil.DefalutLog("tran_bd_api http:"+dstString);
+				}
+			}
+		}
+		return currentDialogBean;
+	}
+
+	private static record tran_3g88_api(Response mResponse) throws Exception{
+		record currentDialogBean = null;
+		if(mResponse != null && mResponse.isSuccessful()) {
+			String mResult = mResponse.body().string();
+			if (!TextUtils.isEmpty(mResult)) {
+				currentDialogBean = new record(mResult, Settings.q);
+				LogUtil.DefalutLog("tran_3g88_api http:"+mResult);
+			}
+		}
+		return currentDialogBean;
+	}
+
+
+	private static record tran_hj_api(Response mResponse) throws Exception{
+		record currentDialogBean = null;
+		if(mResponse != null && mResponse.isSuccessful()) {
+			String mResult = mResponse.body().string();
+			if (JsonParser.isJson(mResult)) {
+				HjTranBean mHjTranBean = JSON.parseObject(mResult, HjTranBean.class);
+				if (mHjTranBean != null && mHjTranBean.getStatus() == 0) {
+					currentDialogBean = new record(mHjTranBean.getContent(), Settings.q);
+					LogUtil.DefalutLog("tran_hj_api http:"+mHjTranBean.getContent());
+				}
+			}
+		}
+		return currentDialogBean;
+	}
+
+	private static record tran_js_newapi(Response mResponse) throws Exception{
+		record currentDialogBean = null;
+		if(mResponse != null && mResponse.isSuccessful()) {
+			String mResult = mResponse.body().string();
+			if (JsonParser.isJson(mResult)) {
+				IcibaNew mIciba = JSON.parseObject(mResult, IcibaNew.class);
+				if (mIciba != null && mIciba.getContent() != null) {
+					if (mIciba.getStatus().equals("0")) {
+						StringBuilder sb = new StringBuilder();
+						StringBuilder sbplay = new StringBuilder();
+						if (!TextUtils.isEmpty(mIciba.getContent().getPh_en())) {
+							sb.append("英[");
+							sb.append(mIciba.getContent().getPh_en());
+							sb.append("]    ");
+						}
+						if (!TextUtils.isEmpty(mIciba.getContent().getPh_am())) {
+							sb.append("美[");
+							sb.append(mIciba.getContent().getPh_am());
+							sb.append("]");
+						}
+						if (sb.length() > 0) {
+							sb.append("\n");
+						}
+						if (mIciba.getContent().getWord_mean() != null) {
+							for (String item : mIciba.getContent().getWord_mean()) {
+								sb.append(item.trim());
+								sb.append("\n");
+								sbplay.append(item);
+								sbplay.append(",");
+							}
+						}
+						String resultStr = sbplay.toString();
+						resultStr = resultStr.replace("n.", "");
+						resultStr = resultStr.replace("adj.", "");
+						resultStr = resultStr.replace("adv.", "");
+						resultStr = resultStr.replace("vi.", "");
+						resultStr = resultStr.replace("vt.", "");
+						resultStr = resultStr.replace("v.", "");
+						currentDialogBean = new record(sb.substring(0, sb.lastIndexOf("\n")), Settings.q);
+						currentDialogBean.setBackup1(resultStr);
+						if (!TextUtils.isEmpty(mIciba.getContent().getPh_tts_mp3())) {
+							currentDialogBean.setBackup3(mIciba.getContent().getPh_tts_mp3());
+						}
+					} else if (mIciba.getStatus().equals("1")) {
+						currentDialogBean = new record(mIciba.getContent().getOut().replaceAll("<br/>", "").trim(), Settings.q);
+					}
+				}
+			}
+		}
+		LogUtil.DefalutLog("tran_js_newapi http:"+currentDialogBean.getEnglish());
+		return currentDialogBean;
 	}
 	
 }

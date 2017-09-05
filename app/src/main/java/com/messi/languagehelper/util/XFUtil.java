@@ -87,8 +87,11 @@ public class XFUtil {
 	}
 	
 	/**合成语音**/
-	public static void showSpeechSynthesizer(Context mContext,SharedPreferences mSharedPreferences,
-			SpeechSynthesizer mSpeechSynthesizer, String source, SynthesizerListener mSynthesizerListener) {
+	public static void showSpeechSynthesizer(Context mContext,
+											 SharedPreferences mSharedPreferences,
+											 SpeechSynthesizer mSpeechSynthesizer,
+											 String source,
+											 SynthesizerListener mSynthesizerListener) {
 		if (null == mSpeechSynthesizer) {
 			mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(mContext,null);
 		}
@@ -102,9 +105,12 @@ public class XFUtil {
 	}
 	
 	/**合成语音**/
-	public static void showSpeechSynthesizer(Context mContext,SharedPreferences mSharedPreferences,
-			SpeechSynthesizer mSpeechSynthesizer, String source, String speaker,
-			SynthesizerListener mSynthesizerListener) {
+	public static void showSpeechSynthesizer(Context mContext,
+											 SharedPreferences mSharedPreferences,
+											 SpeechSynthesizer mSpeechSynthesizer,
+											 String source,
+											 String speaker,
+											 SynthesizerListener mSynthesizerListener) {
 		if (null == mSpeechSynthesizer) {
 			mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(mContext,null);
 		}

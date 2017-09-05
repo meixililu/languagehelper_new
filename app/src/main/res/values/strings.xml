@@ -84,6 +84,7 @@
     <string name="share_text_hint">请输入分享内容</string>
     <string name="input_et_hint_dictionary">请输入需要查询的单词或句子</string>
     <string name="input_et_hint">请输入需要翻译的中文或英文</string>
+    <string name="ai_chat_input_hint">just say something</string>
     <string name="ch_dic_input_hint">请输入一个需要查询的文字</string>
     <string name="ch_dic_idiom_input_hint">请输入需要查询的成语</string>
     <string name="input_translate_hint">请翻译</string>
@@ -166,6 +167,7 @@
     <string name="click_and_finish">点击 完成</string>
     <string name="dele_success">删除成功</string>
     <string name="copy_success">复制成功</string>
+    <string name="voice">语音</string>
     <string name="copy">复制</string>
     <string name="share">分享</string>
     <string name="share_buddy">分享给小伙伴</string>
@@ -317,6 +319,9 @@
     <string name="title_daily_word_study">每日一词</string>
     <string name="search_hint">VOA | BBC | CNN | 空中英语</string>
     <string name="search_history"><![CDATA[历史&热门]]></string>
+    <string name="learn_english_with_ai">跟ai学英语</string>
+    <string name="title_ai_chat">聊天</string>
+    <string name="sent">发送</string>
 
 
 </resources>

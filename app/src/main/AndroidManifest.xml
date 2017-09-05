@@ -74,6 +74,10 @@
             </intent-filter>
         </service>
         <activity
+            android:name=".AiChatActivity"
+            android:screenOrientation="portrait"
+            />
+         <activity
             android:name=".SearchResultActivity"
             android:screenOrientation="portrait" />
          <activity

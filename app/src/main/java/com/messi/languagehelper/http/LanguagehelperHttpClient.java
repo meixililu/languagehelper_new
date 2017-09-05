@@ -107,15 +107,29 @@ public class LanguagehelperHttpClient {
 		}
 	}
 
-	public static void post(String url, RequestBody params, Callback mCallback) {
+	public static Response post(String url, RequestBody params, Callback mCallback) {
 		Request request = new Request.Builder()
 			.url(url)
 			.post(params)
 			.build();
-		client.newCall(request).enqueue(mCallback);
+		return executePost(request,mCallback);
 	}
 
-	public static void postBaidu(Callback mCallback) {
+	public static Response executePost(Request request,Callback mCallback){
+		Response mResponse = null;
+		if(mCallback != null){
+			client.newCall(request).enqueue(mCallback);
+		}else {
+			try {
+				mResponse = client.newCall(request).execute();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return mResponse;
+	}
+
+	public static Response postBaidu(Callback mCallback) {
 		long salt = System.currentTimeMillis();
 		RequestBody formBody  = new FormEncodingBuilder()
 			.add("appid", Settings.baidu_appid)
@@ -125,53 +139,73 @@ public class LanguagehelperHttpClient {
 			.add("to", Settings.to)
 			.add("sign", getBaiduTranslateSign(salt))
 			.build();
-		post(Settings.baiduTranslateUrl,  formBody , mCallback);
+		return post(Settings.baiduTranslateUrl,  formBody , mCallback);
 	}
 
-	public static void postIciba(Callback mCallback) {
-		try {
-			RequestBody formBody = new FormEncodingBuilder()
-				.add("q", Settings.q)
-				.add("type", "auto")
-				.build();
-			Request request = new Request.Builder()
-				.url(Settings.IcibaTranslateUrl)
-				.header("User-Agent", Header)
-				.post(formBody)
-				.build();
-			client.newCall(request).enqueue(mCallback);
-		} catch (Exception e) {
-			e.printStackTrace();
+	public static Response postHjApi(Callback mCallback) {
+		String from = "";
+		String to = "";
+		if (StringUtils.isEnglish(Settings.q)) {
+			from = "en";
+			to = "zh-CN";
+		} else {
+			from = "zh-CN";
+			to = "en";
 		}
+		RequestBody formBody = new FormEncodingBuilder()
+			.add("text", Settings.q)
+			.add("from", from)
+			.add("to", to)
+			.build();
+		Request request = new Request.Builder()
+			.url(Settings.HjTranslateUrl)
+			.header("User-Agent", Header)
+			.post(formBody)
+			.build();
+		return executePost(request,mCallback);
 	}
 
-	public static void postIcibaNew(Callback mCallback) {
-		try {
-			String from = "";
-			String to = "";
-			if (StringUtils.isEnglish(Settings.q)) {
-				from = "en-US";
-				to = "zh-CN";
-			} else {
-				from = "zh-CN";
-				to = "en-US";
-			}
-			LogUtil.DefalutLog("from:"+from+"---to:"+to);
-			RequestBody formBody = new FormEncodingBuilder()
-				.add("w", Settings.q)
-				.add("", "")
-				.add("f", from)
-				.add("t", to)
-				.build();
-			Request request = new Request.Builder()
-				.url(Settings.IcibaTranslateNewUrl)
-				.header("User-Agent", Header)
-				.post(formBody)
-				.build();
-			client.newCall(request).enqueue(mCallback);
-		} catch (Exception e) {
-			e.printStackTrace();
+	public static Response postIcibaNew(Callback mCallback) {
+		String from = "";
+		String to = "";
+		if (StringUtils.isEnglish(Settings.q)) {
+			from = "en-US";
+			to = "zh-CN";
+		} else {
+			from = "zh-CN";
+			to = "en-US";
 		}
+		LogUtil.DefalutLog("from:"+from+"---to:"+to);
+		RequestBody formBody = new FormEncodingBuilder()
+			.add("w", Settings.q)
+			.add("", "")
+			.add("f", from)
+			.add("t", to)
+			.build();
+		Request request = new Request.Builder()
+			.url(Settings.IcibaTranslateNewUrl)
+			.header("User-Agent", Header)
+			.post(formBody)
+			.build();
+		return executePost(request,mCallback);
+	}
+
+	public static Response get388gcom(Callback mCallback) {
+		String from = "";
+		String to = "";
+		if (StringUtils.isEnglish(Settings.q)) {
+			from = "en";
+			to = "zh-chs";
+		} else {
+			from = "zh-chs";
+			to = "en";
+		}
+		String url = Settings.Tran388GCOmUrl + Settings.q + "&from=" + from + "&to=" + to;
+		Request request = new Request.Builder()
+				.url(url)
+				.header("User-Agent", Header)
+				.build();
+		return executePost(request,mCallback);
 	}
 
 	public static void postBaiduOCR(Context context, String path, Callback mCallback) {

@@ -114,7 +114,7 @@ public class ADUtil {
 		}else{
 			SharedPreferences mSharedPreferences = Settings.getSharedPreferences(mContext);
 			int times = mSharedPreferences.getInt(KeyUtil.IsCanShowAD_Loading, 0);
-			return times > 1;
+			return times > 0;
 		}
 	}
 

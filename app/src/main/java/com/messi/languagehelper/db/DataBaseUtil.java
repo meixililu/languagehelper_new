@@ -5,6 +5,8 @@ import android.text.TextUtils;
 
 import com.messi.languagehelper.BaseApplication;
 import com.messi.languagehelper.R;
+import com.messi.languagehelper.dao.AiEntity;
+import com.messi.languagehelper.dao.AiEntityDao;
 import com.messi.languagehelper.dao.DaoSession;
 import com.messi.languagehelper.dao.Dictionary;
 import com.messi.languagehelper.dao.DictionaryDao;
@@ -26,6 +28,7 @@ import com.messi.languagehelper.util.Settings;
 import org.greenrobot.greendao.query.DeleteQuery;
 import org.greenrobot.greendao.query.QueryBuilder;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -40,6 +43,7 @@ public class DataBaseUtil {
     private ReadingDao mReadingDao;
     private SymbolListDaoDao mSymbolListDaoDao;
     private WordDetailListItemDao mWordDetailListItemDao;
+    private AiEntityDao mAiEntityDao;
 
     public DataBaseUtil() {
     }
@@ -57,6 +61,7 @@ public class DataBaseUtil {
             instance.mSymbolListDaoDao = instance.mDaoSession.getSymbolListDaoDao();
             instance.mReadingDao = instance.mDaoSession.getReadingDao();
             instance.mWordDetailListItemDao = instance.mDaoSession.getWordDetailListItemDao();
+            instance.mAiEntityDao = instance.mDaoSession.getAiEntityDao();
         }
         return instance;
     }
@@ -372,4 +377,41 @@ public class DataBaseUtil {
     }
 
     /** word study **/
+
+    public long insert(AiEntity entity){
+        return mAiEntityDao.insert(entity);
+    }
+
+    public void update(AiEntity entity){
+        mAiEntityDao.update(entity);
+    }
+
+    public List<AiEntity> getAiEntityList(){
+        List<AiEntity> history = mAiEntityDao
+                .queryBuilder()
+                .limit(30)
+                .orderDesc(AiEntityDao.Properties.Id)
+                .list();
+        Collections.reverse(history);
+        return history;
+    }
+
+    public List<AiEntity> getAiEntityList(long id){
+        List<AiEntity> history = mAiEntityDao
+                .queryBuilder()
+                .where(AiEntityDao.Properties.Id.lt(id))
+                .limit(30)
+                .orderDesc(AiEntityDao.Properties.Id)
+                .list();
+        Collections.reverse(history);
+        return history;
+    }
+
+    public void deleteAiEntity(AiEntity entity){
+        mAiEntityDao.delete(entity);
+    }
+
+    public void deleteAllAiEntity(){
+        mAiEntityDao.deleteAll();
+    }
 }

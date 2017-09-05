@@ -51,6 +51,8 @@
 	<color name="yellow_400">#FFEE58</color>
 	<color name="sky_blue">#4FC3F7</color>
 	<color name="light_green">#81C784</color>
+	<color name="ai_chat_background">#ebebeb</color>
+	<color name="ai_chat_input">#f4f4f4</color>
 
 	<color name="white_thin">#bbFFFFFF</color>
 	<color name="orange_thin">#bbff3226</color>

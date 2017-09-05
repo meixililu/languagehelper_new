@@ -58,6 +58,8 @@ public class KeyUtil {
 
 	public static final String TranUserSelectLanguage = "TranUserSelectLanguage";
 
+	public static final String AiChatUserSelectLanguage = "AiChatUserSelectLanguage";
+
 	public static final String IsReedPullDownRefresh = "IsReedPullDownRefresh";
 	
 	public static final String IsCanShowAD_Loading = "IsCanShowAD_Loading";
@@ -142,6 +144,8 @@ public class KeyUtil {
 
 	public static final String IsShowTranKeybordLayout = "IsShowTranKeybordLayout";
 
+	public static final String IsAiChatShowKeybordLayout = "IsAiChatShowKeybordLayout";
+
 	public static final String IsShowDicKeyboardLayout = "IsShowDicKeyboardLayout";
 
 	public static final String DicUserSelectLanguage = "DicUserSelectLanguage";
@@ -191,6 +195,8 @@ public class KeyUtil {
 	public static final String SearchKey = "SearchKey";
 
 	public static final String SearchHistory = "SearchHistory";
+
+	public static final String IsAiChatPlayVoice = "IsAiChatPlayVoice";
 
 
 
