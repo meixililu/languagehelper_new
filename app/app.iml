@@ -110,6 +110,8 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.jakewharton/butterknife/8.7.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.karumi/headerrecyclerview/1.1.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.orhanobut/dialogplus/1.11/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.yanzhenjie.alertdialog/alertdialog/1.0.1/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.yanzhenjie/permission/1.1.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.yqritc/recyclerview-flexibledivider/1.4.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/fm.jiecao/jiecaovideoplayer/5.8.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/io.reactivex.rxjava2/rxandroid/2.0.1/jars" />
@@ -140,6 +142,7 @@
     <orderEntry type="library" exported="" name="Ad_Android_SDK" level="project" />
     <orderEntry type="library" exported="" name="rxandroid-2.0.1" level="project" />
     <orderEntry type="library" exported="" name="circleprogress-1.2.1" level="project" />
+    <orderEntry type="library" exported="" name="alertdialog-1.0.1" level="project" />
     <orderEntry type="library" exported="" name="glide-3.8.0" level="project" />
     <orderEntry type="library" exported="" name="okhttp-2.6.0-leancloud" level="project" />
     <orderEntry type="library" exported="" name="rxjava-2.1.1" level="project" />
@@ -160,6 +163,7 @@
     <orderEntry type="library" exported="" name="support-vector-drawable-25.3.1" level="project" />
     <orderEntry type="library" exported="" name="support-compat-25.3.1" level="project" />
     <orderEntry type="library" exported="" name="recyclerview-flexibledivider-1.4.0" level="project" />
+    <orderEntry type="library" exported="" name="permission-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="nineoldandroids-2.4.0" level="project" />
     <orderEntry type="library" exported="" name="gson-2.8.0" level="project" />
     <orderEntry type="library" exported="" name="fastjson-1.1.39-leancloud" level="project" />

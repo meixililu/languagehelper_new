@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
@@ -32,7 +31,7 @@ import java.util.List;
  * Created by luli on 06/07/2017.
  */
 
-public class OrcHelper {
+public class OrcHelper123 {
 
     private int orc_api_retry_times = 2;
     private Fragment fragment;
@@ -41,7 +40,7 @@ public class OrcHelper {
     private OrcResultListener mOrcResultListener;
     private FragmentProgressbarListener mProgressbarListener;
 
-    public OrcHelper(Fragment fragment,OrcResultListener mOrcResultListener,FragmentProgressbarListener mProgressbarListener){
+    public OrcHelper123(Fragment fragment, OrcResultListener mOrcResultListener, FragmentProgressbarListener mProgressbarListener){
         this.fragment = fragment;
         this.context = fragment.getActivity();
         this.mOrcResultListener = mOrcResultListener;
@@ -80,23 +79,25 @@ public class OrcHelper {
                 .start();
     }
 
-    private void startCamera() throws Exception{
+    private void startCamera(){
         String state = Environment.getExternalStorageState();
         if (state.equals(Environment.MEDIA_MOUNTED)) {
             Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             if (takePictureIntent.resolveActivity(context.getPackageManager()) != null) {
-                File photoFile = CameraUtil.createImageFile();
-                mCurrentPhotoPath = photoFile.getAbsolutePath();
-                LogUtil.DefalutLog("img uri:"+mCurrentPhotoPath);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    takePictureIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                    Uri imageUri = FileProvider.getUriForFile(context, SDCardUtil.Provider, photoFile);
-                    takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-                } else
-                {
-                    takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoFile));
+                File photoFile = null;
+                try {
+                    photoFile = CameraUtil.createImageFile();
+                    mCurrentPhotoPath = photoFile.getAbsolutePath();
+                    LogUtil.DefalutLog("img uri:"+mCurrentPhotoPath);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
                 }
-                fragment.startActivityForResult(takePictureIntent, CameraUtil.REQUEST_CODE_CAPTURE_CAMEIA);
+                if (photoFile != null) {
+                    Uri imageUri = FileProvider.getUriForFile(context, SDCardUtil.Provider, photoFile);
+                    takePictureIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+                    fragment.startActivityForResult(takePictureIntent, CameraUtil.REQUEST_CODE_CAPTURE_CAMEIA);
+                }
             } else {
                 ToastUtil.diaplayMesShort(context, "请确认已经插入SD卡");
             }
@@ -106,11 +107,7 @@ public class OrcHelper {
     @PermissionYes(300)
     private void getPermissionYes(List<String> grantedPermissions) {
         LogUtil.DefalutLog("has permission");
-        try {
-            startCamera();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        startCamera();
     }
 
     @PermissionNo(300)
@@ -126,18 +123,16 @@ public class OrcHelper {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        Uri mOutUri = Uri.fromFile(photoTemp);
+        Uri mUri = FileProvider.getUriForFile(context, SDCardUtil.Provider,photoTemp);
         Intent intent = new Intent("com.android.camera.action.CROP");
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
-            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        }
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         intent.setDataAndType(uri, "image/*");
         intent.putExtra("crop", "true");
         intent.putExtra("scale", true);
         intent.putExtra("return-data", false);
         intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, mOutUri);
         intent.putExtra("noFaceDetection",  false);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, mUri);
         fragment.startActivityForResult(intent, CameraUtil.PHOTO_PICKED_WITH_DATA);
     }
 
@@ -194,12 +189,8 @@ public class OrcHelper {
                 }
             }
         } else if (requestCode == CameraUtil.REQUEST_CODE_CAPTURE_CAMEIA && resultCode == Activity.RESULT_OK) {
-            Uri contentUri = null;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
-                contentUri = FileProvider.getUriForFile(context, SDCardUtil.Provider, new File(mCurrentPhotoPath));
-            }else {
-                contentUri = Uri.fromFile(new File(mCurrentPhotoPath));
-            }
+            File file = new File(mCurrentPhotoPath);
+            Uri contentUri = FileProvider.getUriForFile(context, SDCardUtil.Provider,file);
             doCropPhoto(contentUri);
         }else if (requestCode == CameraUtil.PHOTO_PICKED_WITH_DATA && resultCode == Activity.RESULT_OK) {
             sendBaiduOCR();

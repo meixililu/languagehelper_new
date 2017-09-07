@@ -42,26 +42,26 @@
                 android:gravity="center"
                 android:text="name"
                 android:textColor="@color/white"
-                android:textSize="@dimen/title" />
+                android:textSize="@dimen/bigx" />
             <TextView
                 android:id="@+id/word_symbol"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/word_name"
-                android:layout_marginTop="@dimen/padding_10"
+                android:layout_marginTop="@dimen/padding_15"
                 android:gravity="center"
                 android:textColor="@color/white"
-                android:textSize="@dimen/big" />
+                android:textSize="@dimen/bigger" />
             <TextView
                 android:id="@+id/word_mean"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/word_name"
-                android:layout_marginTop="@dimen/padding_10"
+                android:layout_marginTop="@dimen/padding_15"
                 android:gravity="center"
                 android:text="n 名字，名称"
                 android:textColor="@color/white"
-                android:textSize="@dimen/big" />
+                android:textSize="@dimen/bigger" />
         </LinearLayout>
 
         <ImageView

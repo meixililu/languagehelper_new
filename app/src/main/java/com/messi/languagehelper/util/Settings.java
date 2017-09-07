@@ -23,8 +23,11 @@ import android.os.Build;
 import android.support.v4.BuildConfig;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
+import android.telephony.TelephonyManager;
 import android.text.ClipboardManager;
 import android.view.View;
+
+import java.util.UUID;
 
 import static android.support.v4.app.ActivityCompat.shouldShowRequestPermissionRationale;
 
@@ -452,5 +455,17 @@ public class Settings {
 			localIntent.putExtra("com.android.settings.ApplicationPkgName", mContext.getPackageName());
 		}
 		return localIntent;
+	}
+
+	public static String getUUID(Context context){
+		final TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+		final String tmDevice, tmSerial, tmPhone, androidId;
+		tmDevice = "" + tm.getDeviceId();
+		tmSerial = "" + tm.getSimSerialNumber();
+		androidId = "" + android.provider.Settings.Secure.getString(context.getContentResolver(),android.provider.Settings.Secure.ANDROID_ID);
+		UUID deviceUuid = new UUID(androidId.hashCode(), ((long)tmDevice.hashCode() << 32) | tmSerial.hashCode());
+		String uniqueId = deviceUuid.toString();
+		LogUtil.DefalutLog("uuid:"+uniqueId);
+		return uniqueId;
 	}
 }

@@ -72,6 +72,7 @@ dependencies {
     compile 'com.github.lzyzsd:circleprogress:1.2.1'
     compile 'com.daimajia.numberprogressbar:library:1.4@aar'
     compile 'com.android.support:multidex:1.0.0'
+    compile 'com.yanzhenjie:permission:1.1.0'
 }
 
 greendao {

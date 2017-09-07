@@ -262,7 +262,7 @@ public class AiChatActivity extends BaseActivity {
 
     private void requestData(String msg) {
         showProgressbar();
-        String url = Settings.AiBrainUrl + "001" + "&msg=" + msg;
+        String url = Settings.AiBrainUrl + Settings.getUUID(this) + "&msg=" + msg;
         LanguagehelperHttpClient.get(url, new UICallback(this) {
             @Override
             public void onResponsed(String responseString) {

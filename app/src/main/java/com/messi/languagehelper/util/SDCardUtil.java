@@ -1,14 +1,14 @@
 package com.messi.languagehelper.util;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Environment;
 import android.text.TextUtils;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class SDCardUtil {
 
@@ -30,6 +30,8 @@ public class SDCardUtil {
 	public static final String apkUpdatePath = "/zyhy/apps/update/";
 	public static final String OfflineDicPath = "/zyhy/offline/";
 	public static final String Delimiter = "/";
+
+	public static final String Provider = "com.messi.languagehelper.provider";
 	
 	/**sdcard路径
 	 * @return
