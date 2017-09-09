@@ -1,14 +1,7 @@
 package com.messi.languagehelper.http;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URLEncoder;
-import java.util.concurrent.TimeUnit;
-
 import android.content.Context;
 import android.text.TextUtils;
-
-import cn.contentx.MD5;
 
 import com.alibaba.fastjson.JSON;
 import com.avos.avoscloud.okhttp.Cache;
@@ -28,10 +21,15 @@ import com.messi.languagehelper.util.CameraUtil;
 import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.MD5;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.StringUtils;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class LanguagehelperHttpClient {
 	

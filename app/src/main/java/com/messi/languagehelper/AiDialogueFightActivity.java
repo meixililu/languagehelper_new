@@ -29,7 +29,7 @@ import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechRecognizer;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
-import com.messi.languagehelper.adapter.RcSpokenEndlishCategorySecondaryAdapter;
+import com.messi.languagehelper.adapter.RcAiDialoguePracticeAdapter;
 import com.messi.languagehelper.bean.UserSpeakBean;
 import com.messi.languagehelper.impl.SpokenEnglishPlayListener;
 import com.messi.languagehelper.task.MyThread;
@@ -59,7 +59,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class SpokenEnglishCategorySecondaryActivity extends BaseActivity implements View.OnClickListener, SpokenEnglishPlayListener {
+public class AiDialogueFightActivity extends BaseActivity implements View.OnClickListener, SpokenEnglishPlayListener {
 
     @BindView(R.id.listview)
     RecyclerView studylist_lv;
@@ -102,7 +102,7 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
     SimpleDraweeView speakerImg;
     @BindView(R.id.user_img)
     TextView userImg;
-    private RcSpokenEndlishCategorySecondaryAdapter mAdapter;
+    private RcAiDialoguePracticeAdapter mAdapter;
     private List<AVObject> avObjects;
     private String ECCode;
     private int position;
@@ -123,7 +123,7 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.spoken_english_category_secondary_activity);
+        setContentView(R.layout.ai_dialogue_fight_activity);
         ButterKnife.bind(this);
         initViews();
         getDataTask();
@@ -140,7 +140,7 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
         avObjects = new ArrayList<AVObject>();
         ECCode = getIntent().getStringExtra(AVOUtil.EvaluationCategory.ECCode);
         studylist_lv = (RecyclerView) findViewById(R.id.listview);
-        mAdapter = new RcSpokenEndlishCategorySecondaryAdapter(avObjects, this);
+        mAdapter = new RcAiDialoguePracticeAdapter(avObjects, this);
         mAdapter.setItems(avObjects);
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this);
         studylist_lv.setLayoutManager(mLinearLayoutManager);
@@ -225,9 +225,9 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
             position--;
             setDatas();
         } else {
-            ToastUtil.diaplayMesShort(SpokenEnglishCategorySecondaryActivity.this, "到头了");
+            ToastUtil.diaplayMesShort(AiDialogueFightActivity.this, "到头了");
         }
-        AVAnalytics.onEvent(SpokenEnglishCategorySecondaryActivity.this, "evaluationdetail_pg_previous_btn");
+        AVAnalytics.onEvent(AiDialogueFightActivity.this, "evaluationdetail_pg_previous_btn");
     }
 
     private void nextItem() {
@@ -242,10 +242,10 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
                 userContent.setText("");
                 speakerContent.setText("");
             }else {
-                ToastUtil.diaplayMesShort(SpokenEnglishCategorySecondaryActivity.this, "木有了");
+                ToastUtil.diaplayMesShort(AiDialogueFightActivity.this, "木有了");
             }
         }
-        AVAnalytics.onEvent(SpokenEnglishCategorySecondaryActivity.this, "evaluationdetail_pg_next_btn");
+        AVAnalytics.onEvent(AiDialogueFightActivity.this, "evaluationdetail_pg_next_btn");
     }
 
     private void setDatas() {
@@ -306,7 +306,7 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
                     finishRecord();
                 }
             }
-            AVAnalytics.onEvent(SpokenEnglishCategorySecondaryActivity.this, "evaluationdetail_pg_speak_btn");
+            AVAnalytics.onEvent(AiDialogueFightActivity.this, "evaluationdetail_pg_speak_btn");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -358,7 +358,7 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
                 }else {
                     stopVoiceImgAnimation();
                     finishRecord();
-                    ToastUtil.diaplayMesShort(SpokenEnglishCategorySecondaryActivity.this, "很好，本节已完成！");
+                    ToastUtil.diaplayMesShort(AiDialogueFightActivity.this, "很好，本节已完成！");
                 }
             }else if(!userFirst && conversation_cb.isChecked() && position == avObjects.size()-1){
                 changeRoles();
@@ -457,7 +457,7 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
     public void playOrStop(int index) {
         setSelected(index);
         playItem(avObjects.get(index));
-        AVAnalytics.onEvent(SpokenEnglishCategorySecondaryActivity.this, "evaluationdetail_pg_play_result");
+        AVAnalytics.onEvent(AiDialogueFightActivity.this, "evaluationdetail_pg_play_result");
     }
 
     public void playItem(AVObject avObject) {
@@ -470,7 +470,7 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
             mSpeechSynthesizer.setParameter(SpeechConstant.TTS_AUDIO_PATH, filepath);
             if (!AudioTrackUtil.isFileExists(filepath)) {
                 showProgressbar();
-                XFUtil.showSpeechSynthesizer(SpokenEnglishCategorySecondaryActivity.this, mSharedPreferences,
+                XFUtil.showSpeechSynthesizer(AiDialogueFightActivity.this, mSharedPreferences,
                         mSpeechSynthesizer, getEnglishContent(avObject), XFUtil.SpeakerEn,
                         new SynthesizerListener() {
                             @Override
@@ -493,7 +493,7 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
                             @Override
                             public void onCompleted(SpeechError arg0) {
                                 if (arg0 != null) {
-                                    ToastUtil.diaplayMesShort(SpokenEnglishCategorySecondaryActivity.this, arg0.getErrorDescription());
+                                    ToastUtil.diaplayMesShort(AiDialogueFightActivity.this, arg0.getErrorDescription());
                                 }
                                 onfinishPlay();
                             }
@@ -519,7 +519,7 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
                 String fullName = SDCardUtil.getDownloadPath(path) + fileName;
                 if (!AudioTrackUtil.isFileExists(fullName)) {
                     e.onNext("showProgressbar");
-                    DownLoadUtil.downloadFile(SpokenEnglishCategorySecondaryActivity.this, url, path, fileName);
+                    DownLoadUtil.downloadFile(AiDialogueFightActivity.this, url, path, fileName);
                     e.onNext("hideProgressbar");
                 }
                 playMp3(fullName, e);
@@ -609,7 +609,7 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
                 finishRecord();
                 if (!conversation_cb.isChecked()) {
                     AVObject mSpeakItem = avObjects.get(position);
-                    UserSpeakBean bean = ScoreUtil.score(SpokenEnglishCategorySecondaryActivity.this, sbResult.toString(), getEnglishContent(mSpeakItem), 0);
+                    UserSpeakBean bean = ScoreUtil.score(AiDialogueFightActivity.this, sbResult.toString(), getEnglishContent(mSpeakItem), 0);
                     mSpeakItem.put(KeyUtil.UserSpeakBean, bean);
                     mAdapter.notifyDataSetChanged();
                 }
@@ -624,7 +624,7 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
             LogUtil.DefalutLog("onError:" + error.getErrorDescription());
             finishRecord();
             hideProgressbar();
-            ToastUtil.diaplayMesShort(SpokenEnglishCategorySecondaryActivity.this, error.getErrorDescription());
+            ToastUtil.diaplayMesShort(AiDialogueFightActivity.this, error.getErrorDescription());
         }
 
         @Override
@@ -672,7 +672,7 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
                     if (position < avObjects.size() - 1) {
                         showNext();
                     } else {
-                        ToastUtil.diaplayMesShort(SpokenEnglishCategorySecondaryActivity.this, "很好，本节已完成！");
+                        ToastUtil.diaplayMesShort(AiDialogueFightActivity.this, "很好，本节已完成！");
                     }
                 } else if (conversation_cb.isChecked()) {
                     if (position < avObjects.size() - 2) {
@@ -689,7 +689,7 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
                         }else if (!userFirst) {
                             changeRoles();
                         } else {
-                            ToastUtil.diaplayMesShort(SpokenEnglishCategorySecondaryActivity.this, "很好，本节已完成！");
+                            ToastUtil.diaplayMesShort(AiDialogueFightActivity.this, "很好，本节已完成！");
                         }
 
                     }
@@ -705,7 +705,7 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
         position = 0;
         changeConversationLayout(true);
         setDatas();
-        ToastUtil.diaplayMesLong(SpokenEnglishCategorySecondaryActivity.this, "交换角色");
+        ToastUtil.diaplayMesLong(AiDialogueFightActivity.this, "交换角色");
     }
 
     @Override
@@ -716,15 +716,15 @@ public class SpokenEnglishCategorySecondaryActivity extends BaseActivity impleme
                 break;
             case R.id.sentence_cover:
                 selectedFlowType(0, false);
-                AVAnalytics.onEvent(SpokenEnglishCategorySecondaryActivity.this, "evaluationdetail_pg_sentence_btn");
+                AVAnalytics.onEvent(AiDialogueFightActivity.this, "evaluationdetail_pg_sentence_btn");
                 break;
             case R.id.continuity_cover:
                 selectedFlowType(1, false);
-                AVAnalytics.onEvent(SpokenEnglishCategorySecondaryActivity.this, "evaluationdetail_pg_continuity_btn");
+                AVAnalytics.onEvent(AiDialogueFightActivity.this, "evaluationdetail_pg_continuity_btn");
                 break;
             case R.id.conversation_cover:
                 selectedFlowType(2, true);
-                AVAnalytics.onEvent(SpokenEnglishCategorySecondaryActivity.this, "evaluationdetail_pg_conversation_btn");
+                AVAnalytics.onEvent(AiDialogueFightActivity.this, "evaluationdetail_pg_conversation_btn");
                 break;
             case R.id.previous_btn:
                 previousItem();

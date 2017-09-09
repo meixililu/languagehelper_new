@@ -2,12 +2,14 @@ package com.messi.languagehelper;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -100,14 +102,15 @@ public class StudyCategoryFragment extends BaseFragment {
     FrameLayout enBusiness;
     @BindView(R.id.search_layout)
     FrameLayout searchLayout;
-    @BindView(R.id.ai_chat_cover)
-    FrameLayout aiChatCover;
+    @BindView(R.id.ai_unread)
+    ImageView aiUnread;
 
     private WordListItem wordListItem;
     private NativeADDataRef mNativeADDataRef;
     private long lastLoadAd;
     private EssayData mEssayData;
     private boolean exposure;
+    private SharedPreferences sp;
 
     public static StudyCategoryFragment getInstance() {
         return new StudyCategoryFragment();
@@ -129,9 +132,19 @@ public class StudyCategoryFragment extends BaseFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.study_category_fragment, null);
         ButterKnife.bind(this, view);
+        setData();
         setBookName();
         requestData();
         return view;
+    }
+
+    private void setData(){
+        sp = Settings.getSharedPreferences(getActivity());
+        if(!sp.getBoolean(KeyUtil.HasClickNewFunAi,false)){
+            aiUnread.setVisibility(View.VISIBLE);
+        }else {
+            aiUnread.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -180,7 +193,7 @@ public class StudyCategoryFragment extends BaseFragment {
             R.id.en_examination_layout, R.id.study_composition, R.id.instagram_layout,
             R.id.collected_layout, R.id.ad_layout, R.id.essay_layout,
             R.id.study_spoken_english, R.id.en_grammar, R.id.en_story_layout,
-            R.id.en_broadcast, R.id.en_business, R.id.search_layout,R.id.ai_chat_cover})
+            R.id.en_broadcast, R.id.en_business, R.id.search_layout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.word_study_view_all:
@@ -212,7 +225,9 @@ public class StudyCategoryFragment extends BaseFragment {
                 AVAnalytics.onEvent(getContext(), "tab3_to_listening");
                 break;
             case R.id.study_test:
-                toActivity(JichuxiulianAndKouyulianxiActivity.class, null);
+                toActivity(AiActivity.class, null);
+                aiUnread.setVisibility(View.GONE);
+                Settings.saveSharedPreferences(sp,KeyUtil.HasClickNewFunAi,true);
                 AVAnalytics.onEvent(getContext(), "tab3_to_evaluation");
                 break;
             case R.id.en_examination_layout:
@@ -271,10 +286,6 @@ public class StudyCategoryFragment extends BaseFragment {
             case R.id.search_layout:
                 toActivity(SearchActivity.class, null);
                 AVAnalytics.onEvent(getContext(), "tab3_to_search");
-                break;
-            case R.id.ai_chat_cover:
-                toActivity(AiChatActivity.class, null);
-                AVAnalytics.onEvent(getContext(), "tab3_to_ai_chat");
                 break;
         }
     }

@@ -8,8 +8,9 @@
     <string name="title_about">About</string>
     <string name="title_share_preview">Preview</string>
     <string name="title_TranslatePractice">Practice</string>
+    <string name="title_ai">Ai</string>
+    <string name="title_ai_learn">Learn Englilsh From Ai</string>
     <string name="title_Practice">Practice</string>
-    <string name="title_practice_word">Word Practice</string>
     <string name="title_listening">Listening</string>
     <string name="title_symbol">Symbol Study</string>
     <string name="title_word_study">Word Study</string>
@@ -82,6 +83,7 @@
     <string name="query">Query</string>
     <string name="translate">Translate</string>
     <string name="start">Start</string>
+    <string name="start_to_follow">Start</string>
     <string name="listen">Listen</string>
     <string name="finish">Finish</string>
     <string name="exit_program">Press again to exit the program</string>
@@ -216,7 +218,6 @@
 	<string name="dailysentence">Daily Sentence</string>
     <string name="english_essay">English Essay</string>
 	<string name="spoken_english_practice">Practice</string>
-	<string name="spoken_english_reading">Learn</string>
     <string name="ChDicBushouList">Chinese Radicals</string>
     <string name="ChDicPinyinList">Chinese Phonetic</string>
 	<string name="simulation_dialogue">Dialogue</string>
@@ -299,6 +300,11 @@
     <string name="search_hint">VOA | BBC | CNN</string>
     <string name="search_history"><![CDATA[History&Hot]]></string>
     <string name="learn_english_with_ai">learn english with ai</string>
-    <string name="title_ai_chat">Chat</string>
+    <string name="title_ai_chat">AiChat</string>
     <string name="sent">Sent</string>
+    <string name="title_speak_basic">Basic</string>
+    <string name="title_speak_dialog">Dialogue</string>
+    <string name="title_ai_dialog_choice_course" >Choose Course</string>
+    <string name="random_course">Random</string>
+
 </resources>

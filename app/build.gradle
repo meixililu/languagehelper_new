@@ -43,7 +43,6 @@ android {
 
 dependencies {
 
-    //contx.jar 是广阅通的，不需要时可删除
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:25.3.1'

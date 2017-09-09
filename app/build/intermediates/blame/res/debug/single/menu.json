@@ -24,10 +24,6 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/menu/menu_scrolling.xml"
     },
     {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/menu/menu_contextual_action_bar.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.darsh.multipleimageselect/multipleimageselect/1.0.4/res/menu/menu_contextual_action_bar.xml"
-    },
-    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/menu/menu_main_activity_test.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/menu/menu_main_activity_test.xml"
     },

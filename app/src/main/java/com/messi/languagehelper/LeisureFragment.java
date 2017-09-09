@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
@@ -18,7 +17,6 @@ import com.iflytek.voiceads.IFLYNativeAd;
 import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.util.ADUtil;
-import com.messi.languagehelper.util.GytUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Settings;
@@ -28,7 +26,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import cn.contentx.ContExManager;
 
 public class LeisureFragment extends BaseFragment {
 
@@ -174,8 +171,7 @@ public class LeisureFragment extends BaseFragment {
                 toGodReplyActivity();
                 break;
             case R.id.news_layout:
-                ContExManager.initWithAPPId(getActivity(), "f9136944-bc17-4cb1-9b14-ece9de91b39d", "w1461Eub");
-                GytUtil.showHtml(getActivity(), getActivity().getResources().getString(R.string.leisuer_gyt));
+
                 break;
             case R.id.app_layout:
                 toChineseDictionaryActivity();
@@ -215,11 +211,7 @@ public class LeisureFragment extends BaseFragment {
     }
 
     private void toSougoActivity() {
-        Intent intent = new Intent(getActivity(), WebViewActivity.class);
-        intent.putExtra(KeyUtil.URL, Settings.SougoUrl);
-        intent.putExtra(KeyUtil.ActionbarTitle, getActivity().getResources().getString(R.string.title_sougo_wechat));
-        getActivity().startActivity(intent);
-        AVAnalytics.onEvent(getActivity(), "leisure_pg_sougo_wechat");
+
     }
 
     private void toYueduActivity() {

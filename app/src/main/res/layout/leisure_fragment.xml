@@ -132,7 +132,9 @@
             android:layout_marginTop="@dimen/padding_7"
             android:background="@color/style6_color1"
             android:foreground="@drawable/framelayout_selector"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:visibility="gone"
+            >
 
             <LinearLayout
                 android:layout_width="fill_parent"

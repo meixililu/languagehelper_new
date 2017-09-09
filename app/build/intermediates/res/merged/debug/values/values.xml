@@ -54,7 +54,7 @@
     <color name="content_txt_A">#AAAAAA</color>
     <color name="content_txt_red">#bc4c4c</color>
     <color name="content_txt_red_C">#cc0000</color>
-    <color name="contentbg">#f1f1f1</color>
+    <color name="contentbg">#f3f3f3</color>
     <color name="cyan">#00BCD4</color>
     <color name="design_bottom_navigation_shadow_color">#14000000</color>
     <color name="design_fab_shadow_end_color">@android:color/transparent</color>
@@ -1041,7 +1041,7 @@
     <string name="pinxie_des">根据提示拼写单词</string>
     <string name="play_speed_text">播放语速调节：</string>
     <string name="practice_check">检查</string>
-    <string name="practice_congratulation">太棒了，闯关完成!\n\n妈妈再也不用担心我的学习了！</string>
+    <string name="practice_congratulation">太棒了，闯关成功!\n\n妈妈再也不用担心我的学习了！</string>
     <string name="practice_dialog_listen">听</string>
     <string name="practice_dialog_readafterme">跟读</string>
     <string name="practice_dialog_rolea">角色 A</string>
@@ -1076,6 +1076,7 @@
     <string name="primary_lever">第二部分</string>
     <string name="prompt">提示</string>
     <string name="query">查询</string>
+    <string name="random_course">随机选择</string>
     <string name="reading">阅读</string>
     <string name="recent">最近</string>
     <string name="recent_study_empty">赶紧去添加最近要学习的课程吧</string>
@@ -1107,8 +1108,8 @@
     <string name="speak_english">请点击按钮说英语</string>
     <string name="speak_prompt">请根据您说的语言点击中文或者英文！</string>
     <string name="spoken_english_practice">口语</string>
-    <string name="spoken_english_reading">口语修炼</string>
     <string name="start">开始</string>
+    <string name="start_to_follow">跟读</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="style_classic">经典</string>
     <string name="style_minimalist">极简</string>
@@ -1119,11 +1120,14 @@
     <string name="tips_not_wifi">You are currently using the mobile network, the player will continue to consume traffic</string>
     <string name="tips_not_wifi_cancel">Stop play</string>
     <string name="tips_not_wifi_confirm">Resume</string>
-    <string name="title_Practice">修炼</string>
+    <string name="title_Practice">口语修炼</string>
     <string name="title_TranslatePractice">练习</string>
     <string name="title_about">关于我们</string>
     <string name="title_activity_main_test">MainActivityTest</string>
-    <string name="title_ai_chat">聊天</string>
+    <string name="title_ai">Ai</string>
+    <string name="title_ai_chat">Ai聊天</string>
+    <string name="title_ai_dialog_choice_course">情景选择</string>
+    <string name="title_ai_learn">跟Ai学英语</string>
     <string name="title_all_unit">单元选择</string>
     <string name="title_apps">发现APP</string>
     <string name="title_article_collected">文章</string>
@@ -1154,11 +1158,12 @@
     <string name="title_listening">听力</string>
     <string name="title_more">更多</string>
     <string name="title_offline_dic">离线词典</string>
-    <string name="title_practice_word">单词修炼</string>
     <string name="title_reading">阅读基地</string>
     <string name="title_settings">应用设置</string>
     <string name="title_share_preview">分享预览</string>
     <string name="title_sougo_wechat">微信英语</string>
+    <string name="title_speak_basic">口语基础</string>
+    <string name="title_speak_dialog">口语对话</string>
     <string name="title_spoken_english_study">口语学习</string>
     <string name="title_study">悦读</string>
     <string name="title_study_category">学习</string>

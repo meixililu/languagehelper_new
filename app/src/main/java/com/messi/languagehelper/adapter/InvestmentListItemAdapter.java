@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.messi.languagehelper.PracticeDetailActivity;
+import com.messi.languagehelper.AiSpokenBasicActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.util.ColorUtil;
 import com.messi.languagehelper.util.KeyUtil;
@@ -71,7 +71,7 @@ public class InvestmentListItemAdapter extends BaseAdapter {
 
 	public void onItemClick(int position) {
 		try {
-			Intent intent = new Intent(context,PracticeDetailActivity.class);
+			Intent intent = new Intent(context,AiSpokenBasicActivity.class);
 			intent.putExtra(KeyUtil.PracticeContentKey, position);
 			intent.putExtra(KeyUtil.LevelKey, level);
 			context.startActivity(intent);

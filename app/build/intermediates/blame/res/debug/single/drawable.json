@@ -12,10 +12,6 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/fm.jiecao/jiecaovideoplayer/5.8.1/res/drawable/jc_bottom_bg.9.png"
     },
     {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/crop__selectable_background.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.soundcloud.android.crop/lib_crop/1.0.0/res/drawable/crop__selectable_background.xml"
-    },
-    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/language_btn_bg_s.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable/language_btn_bg_s.xml"
     },
@@ -54,10 +50,6 @@
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/tc_black_to_white_selector.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable/tc_black_to_white_selector.xml"
-    },
-    {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/image_placeholder.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.darsh.multipleimageselect/multipleimageselect/1.0.4/res/drawable/image_placeholder.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/txt_color_darkgray_white_selector.xml",
@@ -114,10 +106,6 @@
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/content_btn_txt_color_selector.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable/content_btn_txt_color_selector.xml"
-    },
-    {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/crop__texture.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.soundcloud.android.crop/lib_crop/1.0.0/res/drawable/crop__texture.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_dark.xml",
@@ -374,6 +362,10 @@
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_material.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/drawable/abc_ratingbar_material.xml"
+    },
+    {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/bg_round_selector.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable/bg_round_selector.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable/notification_bg.xml",

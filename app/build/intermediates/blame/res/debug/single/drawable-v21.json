@@ -28,10 +28,6 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/drawable-v21/framelayout_selector.xml"
     },
     {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-v21/crop__selectable_background.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.soundcloud.android.crop/lib_crop/1.0.0/res/drawable-v21/crop__selectable_background.xml"
-    },
-    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/drawable-v21/design_bottom_navigation_item_background.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/design/25.3.1/res/drawable-v21/design_bottom_navigation_item_background.xml"
     },

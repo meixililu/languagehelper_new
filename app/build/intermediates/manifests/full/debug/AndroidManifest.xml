@@ -96,8 +96,15 @@
         </service>
 
         <activity
-            android:name="com.messi.languagehelper.AiChatActivity"
+            android:name="com.messi.languagehelper.AiDialogueFightActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.messi.languagehelper.AiDialogueSelectCourseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.messi.languagehelper.AiChatActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name="com.messi.languagehelper.SearchResultActivity"
             android:screenOrientation="portrait" />
@@ -209,7 +216,7 @@
             android:name="com.messi.languagehelper.WordStudySecondActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.messi.languagehelper.JichuxiulianAndKouyulianxiActivity"
+            android:name="com.messi.languagehelper.AiActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.WordStudyActivity"
@@ -254,7 +261,7 @@
             android:name="com.messi.languagehelper.SpokenEnglishDetailActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.messi.languagehelper.SpokenEnglishCategorySecondaryActivity"
+            android:name="com.messi.languagehelper.AiDialoguePracticeActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.SpokenEndlishCategoryActivity"
@@ -275,14 +282,11 @@
             android:name="com.messi.languagehelper.QRCodeShareActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.messi.languagehelper.PracticeDetailActivity"
+            android:name="com.messi.languagehelper.AiSpokenBasicActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name="com.messi.languagehelper.ViewImageActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.messi.languagehelper.PracticeCategoryListActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.WebViewActivity"

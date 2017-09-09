@@ -1,16 +1,10 @@
 package com.messi.languagehelper.util;
 
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.Handler;
+import android.os.Message;
+import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSON;
 import com.avos.avoscloud.okhttp.Callback;
@@ -20,28 +14,34 @@ import com.avos.avoscloud.okhttp.RequestBody;
 import com.avos.avoscloud.okhttp.Response;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.messi.languagehelper.bean.DictionaryRootJuhe;
 import com.messi.languagehelper.bean.HjTranBean;
 import com.messi.languagehelper.bean.IcibaNew;
-import com.messi.languagehelper.dao.record;
-import com.messi.languagehelper.impl.OnTranslateFinishListener;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
+import com.messi.languagehelper.bean.Root;
 import com.messi.languagehelper.bean.StackTransalte;
 import com.messi.languagehelper.bean.TranslateApiBean;
 import com.messi.languagehelper.dao.Dictionary;
-import com.messi.languagehelper.bean.DictionaryRootJuhe;
-import com.messi.languagehelper.bean.Root;
+import com.messi.languagehelper.dao.record;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
+import com.messi.languagehelper.impl.OnTranslateFinishListener;
+import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.youdao.localtransengine.EnLineTranslator;
 import com.youdao.localtransengine.LanguageConvert;
 import com.youdao.sdk.ydtranslate.EnWordTranslator;
 import com.youdao.sdk.ydtranslate.Translate;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Handler;
-import android.os.Message;
-import android.text.TextUtils;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;

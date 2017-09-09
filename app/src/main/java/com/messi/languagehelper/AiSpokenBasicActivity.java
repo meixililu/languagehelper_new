@@ -1,6 +1,16 @@
 package com.messi.languagehelper;
 
-import java.util.List;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVException;
@@ -15,19 +25,11 @@ import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.ViewUtil;
 
-import android.content.SharedPreferences;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import java.util.List;
 
-public class PracticeDetailActivity extends BaseActivity implements PracticeProgressListener {
+import static com.messi.languagehelper.util.AVOUtil.PracticeDetail.PracticeDetail;
+
+public class AiSpokenBasicActivity extends BaseActivity implements PracticeProgressListener {
 
 	public static String vedioPath = "";
 
@@ -36,12 +38,12 @@ public class PracticeDetailActivity extends BaseActivity implements PracticeProg
 	private String[] studyContent;
 	private FragmentManager fragmentManager;
 	public int pageIndex;// third level
-	private String PCCode;
-	private String PCLCode;
 	private SharedPreferences mSharedPreferences;
 	private Fragment mContent;
 	private SpeechSynthesizer mSpeechSynthesizer;
 	private AVObject avObject;
+	private int currentSection;
+	private String Section;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -53,12 +55,12 @@ public class PracticeDetailActivity extends BaseActivity implements PracticeProg
 	}
 	
 	private void initData(){
-		mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this,null);
 		mSharedPreferences = Settings.getSharedPreferences(this);
+		currentSection = mSharedPreferences.getInt(KeyUtil.AiBaseCurrentSection,0);
+		mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this,null);
 		fragmentManager = getSupportFragmentManager();
-		PCLCode = getIntent().getStringExtra(AVOUtil.PracticeCategoryList.PCLCode);
-		PCCode = getIntent().getStringExtra(AVOUtil.PracticeCategory.PCCode);
-		vedioPath = SDCardUtil.PracticePath + PCCode + SDCardUtil.Delimiter + PCLCode + SDCardUtil.Delimiter;
+		Section = "第"+ (currentSection+1) + "关  ";
+		getSupportActionBar().setTitle(Section);
 	}
 
 	private void initViews() {
@@ -89,9 +91,10 @@ public class PracticeDetailActivity extends BaseActivity implements PracticeProg
 		
 		@Override
 		protected Void doInBackground(Void... params) {
-			AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.PracticeDetail.PracticeDetail);
-			query.whereEqualTo(AVOUtil.PracticeDetail.PCCode, PCCode);
-			query.whereEqualTo(AVOUtil.PracticeDetail.PCLCode, PCLCode);
+			AVQuery<AVObject> query = new AVQuery<AVObject>(PracticeDetail);
+			query.skip(currentSection);
+			query.limit(1);
+			query.addAscendingOrder(AVOUtil.PracticeDetail.PCCode);
 			try {
 				List<AVObject> avObjects  = query.find();
 				if(avObjects != null && avObjects.size() > 0){
@@ -110,6 +113,9 @@ public class PracticeDetailActivity extends BaseActivity implements PracticeProg
 			if(avObject != null){
 				String content = avObject.getString(AVOUtil.PracticeDetail.PDContent);
 				if(!TextUtils.isEmpty(content)){
+					vedioPath = SDCardUtil.PracticePath + avObject.getString(AVOUtil.PracticeDetail.PCCode)
+							+ SDCardUtil.Delimiter + avObject.getString(AVOUtil.PracticeDetail.PCLCode)
+							+ SDCardUtil.Delimiter;
 					studyContent = content.split("@");
 					setData();
 				}else{
@@ -130,7 +136,8 @@ public class PracticeDetailActivity extends BaseActivity implements PracticeProg
 		String type = contents[contents.length-1];
 		getSupportActionBar().setTitle( getActionbarTitle(type) );
 		Fragment mpramf = getStudyType(type);
-		getSupportActionBar().setTitle(getResources().getString(R.string.practice_spoken_englist_style_studyevery));
+		getSupportActionBar().setTitle(Section +
+				getResources().getString(R.string.practice_spoken_englist_style_studyevery));
 		fragmentManager.beginTransaction()
 				.add(R.id.page_content, mpramf)
 				.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
@@ -166,7 +173,8 @@ public class PracticeDetailActivity extends BaseActivity implements PracticeProg
 				toNextPage();
 			}
 		}else {
-			getSupportActionBar().setTitle(getResources().getString(R.string.practice_spoken_englist_finish));
+			getSupportActionBar().setTitle(Section +
+					getResources().getString(R.string.practice_spoken_englist_finish));
 			FinishFragment mpramf = FinishFragment.newInstance(this);
 			setFragment(mpramf);
 			AVAnalytics.onEvent(this, "study_pg_finish", "口语练习完成", 1);
@@ -209,15 +217,15 @@ public class PracticeDetailActivity extends BaseActivity implements PracticeProg
 	private String getActionbarTitle(String type){
 		String mpramf = "";
 		if(type.equalsIgnoreCase(KeyUtil.Study_Every)){
-			mpramf = getResources().getString(R.string.practice_spoken_englist_style_fourinone);
+			mpramf = Section + getResources().getString(R.string.practice_spoken_englist_style_studyevery);
 		}else if(type.equalsIgnoreCase(KeyUtil.Practice_FourInOne)){
-			mpramf = getResources().getString(R.string.practice_spoken_englist_style_fourinone);
+			mpramf = Section + getResources().getString(R.string.practice_spoken_englist_style_fourinone);
 		}else if(type.equalsIgnoreCase(KeyUtil.Practice_ReadAfterMe)){
-			mpramf = getResources().getString(R.string.practice_spoken_englist_style_readafterme);
+			mpramf = Section + getResources().getString(R.string.practice_spoken_englist_style_readafterme);
 		}else if(type.equalsIgnoreCase(KeyUtil.Practice_Translate)){
-			mpramf = getResources().getString(R.string.practice_spoken_englist_style_write);
+			mpramf = Section + getResources().getString(R.string.practice_spoken_englist_style_write);
 		}else if(type.equalsIgnoreCase(KeyUtil.Practice_SpeakAfterMe)){
-			mpramf = getResources().getString(R.string.practice_spoken_englist_style_speakafterme);
+			mpramf = Section + getResources().getString(R.string.practice_spoken_englist_style_speakafterme);
 		}else{
 			mpramf = "";
 		}

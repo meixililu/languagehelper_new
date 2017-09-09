@@ -1,10 +1,13 @@
 package com.messi.languagehelper.util;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import android.content.Context;
+import android.graphics.Rect;
+import android.view.Display;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.WindowManager;
 
-import com.bumptech.glide.Glide;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.AdError;
 import com.iflytek.voiceads.AdKeys;
@@ -12,25 +15,8 @@ import com.iflytek.voiceads.IFLYNativeAd;
 import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.adapter.ViewPagerAdapter;
-import com.messi.languagehelper.views.ProportionalImageView;
-import com.messi.languagehelper.views.WrapContentHeightViewPager;
 
-import android.content.Context;
-import android.graphics.Rect;
-import android.net.Uri;
-import android.os.Handler;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.view.Display;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.View.OnTouchListener;
-import android.view.WindowManager;
-import android.widget.BaseAdapter;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
+import java.util.List;
 
 public class XFYSAD {
 	
@@ -98,8 +84,8 @@ public class XFYSAD {
 			}
 			@Override
 			public void onAdFailed(AdError arg0) {
-				parentView.setVisibility(View.GONE);
 				LogUtil.DefalutLog("onAdFailed---"+arg0.getErrorCode()+"---"+arg0.getErrorDescription());
+				parentView.setVisibility(View.GONE);
 				if(retryTime < 1){
 					retryTime ++;
 					showAD();
@@ -136,6 +122,12 @@ public class XFYSAD {
 				LogUtil.DefalutLog("XFYSAD-onClick:"+click);
 			}
 		});
+	}
+
+	public void hideHeader(){
+		if(parentView != null){
+			parentView.setVisibility(View.GONE);
+		}
 	}
 
 	public void ExposureAD(){

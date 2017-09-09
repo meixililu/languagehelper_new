@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/contentbg"
+    android:orientation="vertical"
+    >
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_awesome_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize">
+
+        <ProgressBar
+            android:id="@+id/progressBarCircularIndetermininate"
+            style="@style/CircularProgressWhite"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="right"
+            android:visibility="gone" />
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_10"
+        >
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            >
+            <TextView
+                android:id="@+id/tv_ai_chat"
+                android:layout_width="110dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="@drawable/bg_round_selector"
+                android:text="@string/title_ai_chat"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/big"
+                />
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            >
+            <TextView
+                android:id="@+id/tv_ai_dialogue"
+                android:layout_width="110dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="@drawable/bg_round_selector"
+                android:text="@string/title_speak_dialog"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/big"
+                />
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            >
+            <TextView
+                android:id="@+id/tv_ai_basic"
+                android:layout_width="110dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="@drawable/bg_round_selector"
+                android:text="@string/title_speak_basic"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/big"
+                />
+        </FrameLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

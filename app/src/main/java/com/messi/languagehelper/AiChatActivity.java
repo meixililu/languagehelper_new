@@ -11,10 +11,13 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.avos.avoscloud.AVAnalytics;
+import com.daimajia.numberprogressbar.NumberProgressBar;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.cloud.RecognizerListener;
 import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechError;
@@ -26,8 +29,10 @@ import com.messi.languagehelper.dao.AiEntity;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
+import com.messi.languagehelper.impl.OnFinishListener;
 import com.messi.languagehelper.util.AiUtil;
 import com.messi.languagehelper.util.JsonParser;
+import com.messi.languagehelper.util.KaiPinAdUIModelCustom;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.PlayUtil;
@@ -79,12 +84,22 @@ public class AiChatActivity extends BaseActivity {
     LinearLayout micLayout;
     @BindView(R.id.keybord_layout)
     LinearLayout keybordLayout;
+    @BindView(R.id.progress_tv)
+    TextView progressTv;
+    @BindView(R.id.number_progress_bar)
+    NumberProgressBar numberProgressBar;
+    @BindView(R.id.ad_img)
+    SimpleDraweeView adImg;
+    @BindView(R.id.ad_source)
+    TextView adSource;
+    @BindView(R.id.ad_layout)
+    RelativeLayout adLayout;
     private List<AiEntity> beans;
     private LinearLayoutManager mLinearLayoutManager;
     private SpeechRecognizer recognizer;
-
     public RcAiChatAdapter mAdapter;
     private SharedPreferences sp;
+    private KaiPinAdUIModelCustom mKaiPinAdUIModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -93,6 +108,14 @@ public class AiChatActivity extends BaseActivity {
         ButterKnife.bind(this);
         initSwipeRefresh();
         initData();
+        mKaiPinAdUIModel = new KaiPinAdUIModelCustom(this, adSource, adImg, adLayout,
+                contentLv, numberProgressBar, progressTv);
+        mKaiPinAdUIModel.setOnFinishListener(new OnFinishListener() {
+            @Override
+            public void OnFinish() {
+                sayHi();
+            }
+        });
     }
 
     private void initData() {
@@ -120,7 +143,7 @@ public class AiChatActivity extends BaseActivity {
         } else {
             showMicLayout();
         }
-        sayHi();
+        keybordLayout.requestFocus();
     }
 
     private void sayHi() {
@@ -146,7 +169,7 @@ public class AiChatActivity extends BaseActivity {
         onSwipeRefreshLayoutFinish();
     }
 
-    @OnClick({R.id.volume_btn, R.id.submit_btn_cover,R.id.input_type_layout,
+    @OnClick({R.id.volume_btn, R.id.submit_btn_cover, R.id.input_type_layout,
             R.id.voice_btn_cover, R.id.speak_language_layout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -176,7 +199,7 @@ public class AiChatActivity extends BaseActivity {
         }
     }
 
-    private void submit(){
+    private void submit() {
         if (!TextUtils.isEmpty(inputEt.getText().toString().trim())) {
             AiEntity mAiEntity = new AiEntity();
             mAiEntity.setRole(AiUtil.Role_User);

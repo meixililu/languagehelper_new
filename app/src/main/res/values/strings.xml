@@ -8,8 +8,9 @@
     <string name="title_about">关于我们</string>
     <string name="title_share_preview">分享预览</string>
     <string name="title_TranslatePractice">练习</string>
-    <string name="title_Practice">修炼</string>
-    <string name="title_practice_word">单词修炼</string>
+    <string name="title_ai">Ai</string>
+    <string name="title_ai_learn">跟Ai学英语</string>
+    <string name="title_Practice">口语修炼</string>
     <string name="title_listening">听力</string>
     <string name="title_word_vocabulary">词汇学习</string>
     <string name="title_spoken_english_study">口语学习</string>
@@ -95,6 +96,7 @@
     <string name="query">查询</string>
     <string name="translate">翻译</string>
     <string name="click_speak">翻译</string>
+    <string name="start_to_follow">跟读</string>
     <string name="start">开始</string>
     <string name="listen">听</string>
     <string name="finish">完毕</string>
@@ -225,7 +227,6 @@
     <string name="english_essay">励志语录</string>
     <string name="ChDicBushouList">汉字部首列表</string>
     <string name="ChDicPinyinList">汉字拼音列表</string>
-    <string name="spoken_english_reading">口语修炼</string>
     <string name="spoken_english_practice">口语</string>
     <string name="reading">阅读</string>
     <string name="examination">考题</string>
@@ -285,7 +286,7 @@
     <string name="practice_dialog_rolea">角色 A</string>
     <string name="practice_dialog_roleb">角色 B</string>
 
-    <string name="practice_congratulation">太棒了，闯关完成!\n\n妈妈再也不用担心我的学习了！</string>
+    <string name="practice_congratulation">太棒了，闯关成功!\n\n妈妈再也不用担心我的学习了！</string>
 
     <string name="getfans_1">别人花钱学英语，咱们学英语还赚钱，就这么科学！</string>
 	<string name="getfans_3">软件已有四百多万用户，每天十多万用户在这里翻译学习，有一部分是国外用户，将来大家可以在这里交朋友相互学习；
@@ -320,8 +321,12 @@
     <string name="search_hint">VOA | BBC | CNN | 空中英语</string>
     <string name="search_history"><![CDATA[历史&热门]]></string>
     <string name="learn_english_with_ai">跟ai学英语</string>
-    <string name="title_ai_chat">聊天</string>
+    <string name="title_ai_chat">Ai聊天</string>
     <string name="sent">发送</string>
+    <string name="title_speak_basic">口语基础</string>
+    <string name="title_speak_dialog">口语对话</string>
+    <string name="title_ai_dialog_choice_course" >情景选择</string>
+    <string name="random_course">随机选择</string>
 
 
 </resources>

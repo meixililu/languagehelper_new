@@ -84,10 +84,17 @@
                 <action android:name="com.messi.languagehelper.music.previous"/>
             </intent-filter>
         </service>
+
+        <activity
+            android:name=".AiDialogueFightActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AiDialogueSelectCourseActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".AiChatActivity"
-            android:screenOrientation="portrait"
-            />
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait" />
          <activity
             android:name=".SearchResultActivity"
             android:screenOrientation="portrait" />
@@ -199,7 +206,7 @@
             android:name=".WordStudySecondActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".JichuxiulianAndKouyulianxiActivity"
+            android:name=".AiActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".WordStudyActivity"
@@ -244,7 +251,7 @@
             android:name=".SpokenEnglishDetailActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SpokenEnglishCategorySecondaryActivity"
+            android:name=".AiDialoguePracticeActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".SpokenEndlishCategoryActivity"
@@ -265,14 +272,11 @@
             android:name=".QRCodeShareActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".PracticeDetailActivity"
+            android:name=".AiSpokenBasicActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".ViewImageActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".PracticeCategoryListActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".WebViewActivity"

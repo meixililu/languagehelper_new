@@ -19,7 +19,7 @@
             android:id="@+id/parent_layout"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:background="@color/green_dark"
+            android:background="@color/white"
             android:padding="5dp"
             android:gravity="center"
             android:orientation="vertical" >
@@ -34,11 +34,7 @@
                 android:paddingTop="35dp"
                 android:paddingBottom="35dp"
                 android:maxEms="15"
-                android:shadowColor="@color/white"
-                android:shadowDx="0.1"
-                android:shadowDy="0.1"
-                android:shadowRadius="0.1"
-                android:textColor="@color/white"
+                android:textColor="@color/text_black"
                 android:text="@string/practice_congratulation"
                 android:textSize="@dimen/big"
                 android:textStyle="bold" />
@@ -50,6 +46,7 @@
 		android:id="@+id/share_btn_cover"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		android:visibility="gone"
 		android:foreground="@drawable/framelayout_selector"
 		android:layout_margin="@dimen/padding_5">
 		<TextView

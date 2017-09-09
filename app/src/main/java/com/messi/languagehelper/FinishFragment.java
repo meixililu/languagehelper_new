@@ -2,6 +2,7 @@ package com.messi.languagehelper;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.media.AudioManager;
 import android.media.SoundPool;
@@ -19,12 +20,16 @@ import android.widget.TextView;
 
 import com.avos.avoscloud.AVAnalytics;
 import com.messi.languagehelper.impl.PracticeProgressListener;
+import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SDCardUtil;
+import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.ToastUtil;
 
 import java.io.File;
 import java.io.IOException;
+
+import static com.messi.languagehelper.util.PlayUtil.mSharedPreferences;
 
 public class FinishFragment extends BaseFragment implements OnClickListener {
 
@@ -35,6 +40,7 @@ public class FinishFragment extends BaseFragment implements OnClickListener {
     private String shareContent;
     private int mSoundId;
     private PracticeProgressListener mPracticeProgress;
+    private SharedPreferences sp;
 
     public static FinishFragment newInstance(PracticeProgressListener mPracticeProgress) {
         FinishFragment fragment = new FinishFragment();
@@ -55,10 +61,10 @@ public class FinishFragment extends BaseFragment implements OnClickListener {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         init();
-        ;
     }
 
     private void init() {
+        sp = Settings.getSharedPreferences(getContext());
         parent_layout = (LinearLayout) getView().findViewById(R.id.parent_layout);
         share_content = (TextView) getView().findViewById(R.id.share_content);
         share_btn_cover = (FrameLayout) getView().findViewById(R.id.share_btn_cover);
@@ -68,6 +74,9 @@ public class FinishFragment extends BaseFragment implements OnClickListener {
 
         share_btn_cover.setOnClickListener(this);
         check_btn.setOnClickListener(this);
+
+        int currentSection = mSharedPreferences.getInt(KeyUtil.AiBaseCurrentSection,0);
+        Settings.saveSharedPreferences(sp,KeyUtil.AiBaseCurrentSection,(currentSection+1));
     }
 
     private void shareWithImg() throws IOException {
@@ -138,5 +147,6 @@ public class FinishFragment extends BaseFragment implements OnClickListener {
             mPracticeProgress.finishActivity();
         }
     }
+
 
 }

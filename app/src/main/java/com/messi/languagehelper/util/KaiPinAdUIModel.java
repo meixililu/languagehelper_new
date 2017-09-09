@@ -1,14 +1,8 @@
 package com.messi.languagehelper.util;
 
 import android.app.Activity;
-import android.content.Context;
-import android.os.AsyncTask;
-import android.os.Build;
 import android.os.CountDownTimer;
-import android.os.Handler;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -30,7 +24,7 @@ public class KaiPinAdUIModel {
 
     private Activity mContext;
     private RelativeLayout ad_layout;
-    private LinearLayout contentLayout;
+    private View contentLayout;
     private TextView ad_source;
     private TextView progressTv;
     private SimpleDraweeView ad_img;
@@ -54,7 +48,7 @@ public class KaiPinAdUIModel {
     };
 
     public KaiPinAdUIModel(Activity mContext, TextView ad_source,SimpleDraweeView ad_img,
-                           RelativeLayout ad_layout,LinearLayout contentLayout,
+                           RelativeLayout ad_layout,View contentLayout,
                            NumberProgressBar numberProgressBar,TextView progressTv){
         this.mContext = mContext;
         this.ad_source = ad_source;

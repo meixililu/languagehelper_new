@@ -158,110 +158,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/padding_7"
-            android:orientation="vertical"
-            >
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/small"
-                android:background="@color/white"
-                android:textColor="@color/text_grey"
-                android:padding="@dimen/padding_10"
-                android:layout_marginBottom="1px"
-                android:text="@string/learn_english_with_ai"
-                />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="1px"
-                android:orientation="horizontal">
-                <FrameLayout
-                    android:id="@+id/ai_chat_cover"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/study_category_normal"
-                    android:layout_marginRight="1px"
-                    android:layout_weight="1"
-                    android:foreground="@drawable/framelayout_selector"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:background="@color/white"
-                        android:gravity="center"
-                        android:text="@string/title_ai_chat"
-                        android:textColor="@color/text_black"
-                        android:textSize="@dimen/big" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/ai_word_cover"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/study_category_normal"
-                    android:layout_weight="1"
-                    android:layout_marginRight="1px"
-                    android:foreground="@drawable/framelayout_selector"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:background="@color/white"
-                        android:gravity="center"
-                        android:text="@string/title_listening"
-                        android:textColor="@color/text_black"
-                        android:textSize="@dimen/big" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/ai_listen_cover"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/study_category_normal"
-                    android:layout_marginRight="1px"
-                    android:layout_weight="1"
-                    android:foreground="@drawable/framelayout_selector"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:background="@color/white"
-                        android:gravity="center"
-                        android:text="@string/spoken_english_practice"
-                        android:textColor="@color/text_black"
-                        android:textSize="@dimen/big" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/ai_spoken_cover"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/study_category_normal"
-                    android:layout_weight="1"
-                    android:foreground="@drawable/framelayout_selector"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:background="@color/white"
-                        android:gravity="center"
-                        android:text="@string/title_Practice"
-                        android:textColor="@color/text_black"
-                        android:textSize="@dimen/big" />
-                </FrameLayout>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_marginBottom="1px"
             android:orientation="horizontal">
-
-
             <FrameLayout
                 android:id="@+id/symbol_study_cover"
                 android:layout_width="0dp"
@@ -326,15 +224,22 @@
                 android:layout_weight="1"
                 android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
-
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:background="@color/white"
                     android:gravity="center"
-                    android:text="@string/title_Practice"
+                    android:text="@string/title_ai"
                     android:textColor="@color/text_black"
                     android:textSize="@dimen/big" />
+                <ImageView
+                    android:id="@+id/ai_unread"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_margin="@dimen/padding_7"
+                    android:layout_gravity="top|right"
+                    android:src="@drawable/unread_dot"
+                    />
             </FrameLayout>
 
         </LinearLayout>

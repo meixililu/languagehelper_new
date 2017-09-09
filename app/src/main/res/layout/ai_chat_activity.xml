@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -226,5 +227,57 @@
             android:src="@drawable/speak_voice_1" />
     </LinearLayout>
 
-
+    <RelativeLayout
+        android:id="@+id/ad_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="@color/white"
+        >
+        <LinearLayout
+            android:id="@+id/progress_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:padding="@dimen/padding_15"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:id="@+id/progress_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_5"
+                android:layout_marginBottom="@dimen/padding_10"
+                android:textSize="@dimen/small"
+                android:gravity="center"
+                android:textColor="@color/text_dark"
+                android:text="正在启动Ai聊天机器人"
+                />
+            <com.daimajia.numberprogressbar.NumberProgressBar
+                android:id="@+id/number_progress_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/padding_15"
+                style="@style/NumberProgressBar_Default"
+                />
+        </LinearLayout>
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/ad_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/progress_layout"
+            android:adjustViewBounds="true"
+            fresco:actualImageScaleType="fitXY" />
+        <TextView
+            android:id="@+id/ad_source"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/progress_layout"
+            android:layout_alignParentRight="true"
+            android:background="@color/none_alpha"
+            android:paddingLeft="1dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/smaller_l"
+            android:visibility="gone" />
+    </RelativeLayout>
 </RelativeLayout>
