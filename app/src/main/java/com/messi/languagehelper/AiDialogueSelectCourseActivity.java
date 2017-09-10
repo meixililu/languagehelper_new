@@ -67,6 +67,7 @@ public class AiDialogueSelectCourseActivity extends BaseActivity implements View
         mAdapter.setItems(avObjects);
         mAdapter.setHeader(new Object());
         mAdapter.setFooter(new Object());
+        mXFYSAD.setAdapter(mAdapter);
         hideFooterview();
         layoutManager = new GridLayoutManager(getContext(), NUMBER_OF_COLUMNS);
         HeaderSpanSizeLookup headerSpanSizeLookup = new HeaderSpanSizeLookup(mAdapter, layoutManager);

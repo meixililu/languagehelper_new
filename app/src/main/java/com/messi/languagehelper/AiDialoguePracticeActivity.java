@@ -39,12 +39,14 @@ import com.messi.languagehelper.util.ScoreUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
+import com.messi.languagehelper.wxapi.WXEntryActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -67,6 +69,8 @@ public class AiDialoguePracticeActivity extends BaseActivity implements View.OnC
     LinearLayout record_layout;
     @BindView(R.id.voice_img)
     ImageButton voice_img;
+    @BindView(R.id.start_to_fight)
+    FrameLayout startToFight;
     private RcAiDialoguePracticeAdapter mAdapter;
     private List<AVObject> avObjects;
     private String ECCode;
@@ -201,12 +205,15 @@ public class AiDialoguePracticeActivity extends BaseActivity implements View.OnC
                     @Override
                     public void onSubscribe(Disposable d) {
                     }
+
                     @Override
                     public void onNext(String s) {
                     }
+
                     @Override
                     public void onError(Throwable e) {
                     }
+
                     @Override
                     public void onComplete() {
                         onQueryDataFinish();
@@ -252,7 +259,7 @@ public class AiDialoguePracticeActivity extends BaseActivity implements View.OnC
     }
 
     private void setSelected(int index) {
-        if(avObjects.size() > position){
+        if (avObjects.size() > position) {
             position = index;
             resetData();
             avObjects.get(index).put(KeyUtil.PracticeItemIndex, "1");
@@ -350,6 +357,7 @@ public class AiDialoguePracticeActivity extends BaseActivity implements View.OnC
                     @Override
                     public void onSubscribe(Disposable d) {
                     }
+
                     @Override
                     public void onNext(String s) {
                         if (s.equals("showProgressbar")) {
@@ -359,9 +367,11 @@ public class AiDialoguePracticeActivity extends BaseActivity implements View.OnC
                             hideProgressbar();
                         }
                     }
+
                     @Override
                     public void onError(Throwable e) {
                     }
+
                     @Override
                     public void onComplete() {
                         onfinishPlay();
@@ -384,12 +394,15 @@ public class AiDialoguePracticeActivity extends BaseActivity implements View.OnC
                     @Override
                     public void onSubscribe(Disposable d) {
                     }
+
                     @Override
                     public void onNext(String s) {
                     }
+
                     @Override
                     public void onError(Throwable e) {
                     }
+
                     @Override
                     public void onComplete() {
                         onfinishPlay();
@@ -488,4 +501,20 @@ public class AiDialoguePracticeActivity extends BaseActivity implements View.OnC
         }
     }
 
+    @OnClick(R.id.start_to_fight)
+    public void onViewClicked() {
+        initData();
+        WXEntryActivity.dataMap.put("avObjects",avObjects);
+        toActivity(AiDialogueFightActivity.class,null);
+    }
+
+    private void initData(){
+        for (int i = 0; i < avObjects.size(); i++) {
+            if (i == 0) {
+                avObjects.get(i).put(KeyUtil.PracticeItemIndex, "1");
+            } else {
+                avObjects.get(i).put(KeyUtil.PracticeItemIndex, "0");
+            }
+        }
+    }
 }

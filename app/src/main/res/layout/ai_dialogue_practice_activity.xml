@@ -12,13 +12,38 @@
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize">
-        <ProgressBar
-            android:id="@+id/progressBarCircularIndetermininate"
-            style="@style/CircularProgressWhite"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
             android:layout_gravity="right"
-            android:visibility="gone" />
+            android:gravity="right|center_vertical"
+            android:orientation="horizontal"
+            >
+            <ProgressBar
+                android:id="@+id/progressBarCircularIndetermininate"
+                style="@style/CircularProgressWhite"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="right"
+                android:visibility="gone" />
+            <FrameLayout
+                android:id="@+id/start_to_fight"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:foreground="@drawable/framelayout_selector"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/start_to_fight"
+                    android:textSize="@dimen/big"
+                    android:textColor="@color/white"
+                    />
+            </FrameLayout>
+
+        </LinearLayout>
+
     </android.support.v7.widget.Toolbar>
 
     <android.support.v7.widget.RecyclerView

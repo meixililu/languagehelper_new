@@ -306,5 +306,6 @@
     <string name="title_speak_dialog">Dialogue</string>
     <string name="title_ai_dialog_choice_course" >Choose Course</string>
     <string name="random_course">Random</string>
+    <string name="start_to_fight">Start To Fight</string>
 
 </resources>

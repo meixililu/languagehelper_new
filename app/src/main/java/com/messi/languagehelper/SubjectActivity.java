@@ -24,7 +24,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 public class SubjectActivity extends BaseActivity {
 
@@ -64,6 +63,7 @@ public class SubjectActivity extends BaseActivity {
             mAdapter.setItems(avObjects);
             mAdapter.setHeader(new Object());
             mAdapter.setFooter(new Object());
+            mXFYSAD.setAdapter(mAdapter);
             hideFooterview();
             layoutManager = new GridLayoutManager(this, NUMBER_OF_COLUMNS);
             HeaderSpanSizeLookup headerSpanSizeLookup = new HeaderSpanSizeLookup(mAdapter, layoutManager);

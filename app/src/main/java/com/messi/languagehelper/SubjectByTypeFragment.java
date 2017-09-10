@@ -14,7 +14,6 @@ import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
-import com.messi.languagehelper.adapter.RcSubjectListAdapter;
 import com.messi.languagehelper.adapter.RcSubjectTypeListAdapter;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.ADUtil;
@@ -92,6 +91,7 @@ public class SubjectByTypeFragment extends BaseFragment {
             mAdapter.setItems(avObjects);
             mAdapter.setHeader(new Object());
             mAdapter.setFooter(new Object());
+            mXFYSAD.setAdapter(mAdapter);
             hideFooterview();
             layoutManager = new GridLayoutManager(getContext(), NUMBER_OF_COLUMNS);
             HeaderSpanSizeLookup headerSpanSizeLookup = new HeaderSpanSizeLookup(mAdapter, layoutManager);

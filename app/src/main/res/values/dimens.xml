@@ -26,6 +26,7 @@
     <dimen name="list_icon_size">19dp</dimen>
     <dimen name="list_divider_size">1px</dimen>
 
+    <dimen name="padding_30">30dp</dimen>
     <dimen name="padding_20">20dp</dimen>
     <dimen name="padding_15">15dp</dimen>
     <dimen name="padding_12">12dp</dimen>

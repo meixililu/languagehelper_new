@@ -15,13 +15,11 @@ import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.messi.languagehelper.adapter.RcDailySentenceListAdapter;
 import com.messi.languagehelper.dao.EveryDaySentence;
-import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
-import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.XFYSAD;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
@@ -80,6 +78,7 @@ public class DailySentenceFragment extends BaseFragment implements OnClickListen
             mAdapter = new RcDailySentenceListAdapter(getActivity(), beans, mPlayer, mProgressbarListener, mXFYSAD);
             mAdapter.setHeader(new Object());
             mAdapter.setItems(beans);
+            mXFYSAD.setAdapter(mAdapter);
             recent_used_lv.setLayoutManager(new LinearLayoutManager(getContext()));
             recent_used_lv.addItemDecoration(
                     new HorizontalDividerItemDecoration.Builder(getContext())
@@ -88,6 +87,7 @@ public class DailySentenceFragment extends BaseFragment implements OnClickListen
                             .marginResId(R.dimen.padding_margin, R.dimen.padding_margin)
                             .build());
             recent_used_lv.setAdapter(mAdapter);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

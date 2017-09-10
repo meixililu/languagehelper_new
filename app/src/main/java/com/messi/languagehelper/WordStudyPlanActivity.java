@@ -52,6 +52,7 @@ public class WordStudyPlanActivity extends BaseActivity {
         listview.addItemDecoration(new DividerGridItemDecoration(1));
         mAdapter.setHeader(new Object());
         mAdapter.setItems(avObjects);
+        mXFYSAD.setAdapter(mAdapter);
         listview.setAdapter(mAdapter);
     }
 

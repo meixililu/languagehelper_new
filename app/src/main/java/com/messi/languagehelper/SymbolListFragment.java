@@ -16,7 +16,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
 import com.avos.avoscloud.AVException;
@@ -103,6 +102,7 @@ public class SymbolListFragment extends BaseFragment {
         category_lv.addItemDecoration(new DividerGridItemDecoration(1));
         mAdapter.setHeader(new Object());
         mAdapter.setItems(mSymbolListDao);
+        mXFYSAD.setAdapter(mAdapter);
         category_lv.setAdapter(mAdapter);
     }
 

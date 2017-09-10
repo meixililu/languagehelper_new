@@ -203,6 +203,7 @@
     <string name="speak_prompt">请根据您说的语言点击中文或者英文！</string>
     <string name="spoken_english_practice">Practice</string>
     <string name="start">Start</string>
+    <string name="start_to_fight">Start To Fight</string>
     <string name="start_to_follow">Start</string>
     <string name="style_classic">Classic</string>
     <string name="style_minimalist">Minimalist</string>

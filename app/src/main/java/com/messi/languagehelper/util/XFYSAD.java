@@ -31,6 +31,7 @@ public class XFYSAD {
 	private long lastLoadAdTime;
 	private boolean isDirectExPosure = true;
 	private boolean exposure;
+	private HeaderFooterRecyclerViewAdapter mAdapter;
 
 	public XFYSAD(Context mContext,View parentView,String adId){
 		this.mContext = mContext;
@@ -48,7 +49,8 @@ public class XFYSAD {
 	}
 
 	public void setParentView(View parentView){
-		if(System.currentTimeMillis() - lastLoadAdTime > 3000){
+		LogUtil.DefalutLog("XFYSAD---setParentView");
+		if(System.currentTimeMillis() - lastLoadAdTime > 1000*30){
 			this.parentView = parentView;
 			ad_img = (SimpleDraweeView)parentView.findViewById(R.id.ad_img);
 			parentView.setVisibility(View.GONE);
@@ -63,12 +65,11 @@ public class XFYSAD {
 	}
 	
 	public void showAD(){
+		LogUtil.DefalutLog("XFYSAD---showAD");
 		if(ADUtil.isShowAd(mContext)){
-			if(System.currentTimeMillis() - lastLoadAdTime > 3000){
+			if(System.currentTimeMillis() - lastLoadAdTime > 1000*30){
 				loadData();
 			}
-		}else{
-			parentView.setVisibility(View.GONE);
 		}
 	}
 	
@@ -86,10 +87,7 @@ public class XFYSAD {
 			public void onAdFailed(AdError arg0) {
 				LogUtil.DefalutLog("onAdFailed---"+arg0.getErrorCode()+"---"+arg0.getErrorDescription());
 				parentView.setVisibility(View.GONE);
-				if(retryTime < 1){
-					retryTime ++;
-					showAD();
-				}
+				hideHeader(true);
 			}
 			@Override
 			public void onADLoaded(List<NativeADDataRef> arg0) {
@@ -97,6 +95,7 @@ public class XFYSAD {
 						if(arg0 != null && arg0.size() > 0){
 							LogUtil.DefalutLog("---onADLoaded---");
 							mNativeADDataRef = arg0.get(0);
+							hideHeader(false);
 							setAdData();
 						}
 					} catch (Exception e) {
@@ -124,9 +123,13 @@ public class XFYSAD {
 		});
 	}
 
-	public void hideHeader(){
-		if(parentView != null){
-			parentView.setVisibility(View.GONE);
+	public void hideHeader(final boolean isFaile){
+		if(mAdapter != null){
+			if(isFaile){
+				mAdapter.hideHeader();
+			}else {
+				mAdapter.showHeader();
+			}
 		}
 	}
 
@@ -141,6 +144,9 @@ public class XFYSAD {
 		isDirectExPosure = directExPosure;
 	}
 
+	public void setAdapter(HeaderFooterRecyclerViewAdapter adapter){
+		this.mAdapter = adapter;
+	}
 	/**
 	 * 判断view是否在屏幕范围内（是否曝光）。
 	 * @param context

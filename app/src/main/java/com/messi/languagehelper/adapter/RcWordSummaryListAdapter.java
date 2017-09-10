@@ -6,15 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.avos.avoscloud.AVObject;
-import com.karumi.headerrecyclerview.HeaderRecyclerViewAdapter;
 import com.messi.languagehelper.R;
+import com.messi.languagehelper.util.HeaderFooterRecyclerViewAdapter;
 import com.messi.languagehelper.util.XFYSAD;
 
 /**
  * Created by luli on 10/23/16.
  */
 
-public class RcWordSummaryListAdapter extends HeaderRecyclerViewAdapter<RecyclerView.ViewHolder, Object, AVObject, Object> {
+public class RcWordSummaryListAdapter extends HeaderFooterRecyclerViewAdapter<RecyclerView.ViewHolder, Object, AVObject, Object> {
 
     private XFYSAD mXFYSAD;
 
@@ -26,15 +26,12 @@ public class RcWordSummaryListAdapter extends HeaderRecyclerViewAdapter<Recycler
     protected RecyclerView.ViewHolder onCreateHeaderViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = getLayoutInflater(parent);
         View headerView = inflater.inflate(R.layout.xunfei_ysad_item, parent, false);
-        return new RcAdHeaderViewHolder(headerView);
+        return new RcAdHeaderViewHolder(headerView,mXFYSAD);
     }
 
     @Override
     protected void onBindHeaderViewHolder(RecyclerView.ViewHolder holder, int position) {
         super.onBindHeaderViewHolder(holder, position);
-        RcAdHeaderViewHolder mRcAdHeaderViewHolder = (RcAdHeaderViewHolder)holder;
-        mRcAdHeaderViewHolder.setXFYSAD(mXFYSAD);
-        mRcAdHeaderViewHolder.start();
     }
 
     @Override

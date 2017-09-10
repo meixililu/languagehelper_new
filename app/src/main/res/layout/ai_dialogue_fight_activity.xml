@@ -7,12 +7,12 @@
     android:orientation="vertical"
     android:fitsSystemWindows="true"
     >
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
         >
-
         <LinearLayout
             android:id="@+id/bottom"
             android:layout_width="match_parent"
@@ -25,8 +25,8 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@color/load_blue"
+                android:visibility="gone"
                 android:foreground="@drawable/framelayout_selector">
-
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
@@ -38,6 +38,7 @@
                 android:id="@+id/start_btn_cover"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:background="@color/ai_chat_input"
                 android:layout_weight="1"
                 android:foreground="@drawable/framelayout_selector">
 
@@ -93,6 +94,7 @@
                 android:id="@+id/next_btn"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:visibility="gone"
                 android:background="@color/load_blue"
                 android:foreground="@drawable/framelayout_selector">
 
@@ -112,6 +114,7 @@
             android:background="@color/text_tint1"
             android:gravity="center_vertical"
             android:orientation="horizontal"
+            android:visibility="gone"
             android:weightSum="3">
 
             <FrameLayout
@@ -286,6 +289,4 @@
             android:visibility="gone" />
 
     </RelativeLayout>
-
-
 </LinearLayout>

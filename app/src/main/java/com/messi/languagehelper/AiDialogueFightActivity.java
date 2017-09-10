@@ -18,9 +18,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVAnalytics;
-import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.cloud.RecognizerListener;
 import com.iflytek.cloud.RecognizerResult;
@@ -32,7 +30,6 @@ import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.adapter.RcAiDialoguePracticeAdapter;
 import com.messi.languagehelper.bean.UserSpeakBean;
 import com.messi.languagehelper.impl.SpokenEnglishPlayListener;
-import com.messi.languagehelper.task.MyThread;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.AudioTrackUtil;
 import com.messi.languagehelper.util.DownLoadUtil;
@@ -44,9 +41,9 @@ import com.messi.languagehelper.util.ScoreUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
+import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -104,7 +101,6 @@ public class AiDialogueFightActivity extends BaseActivity implements View.OnClic
     TextView userImg;
     private RcAiDialoguePracticeAdapter mAdapter;
     private List<AVObject> avObjects;
-    private String ECCode;
     private int position;
     private boolean isNewIn = true;
     private boolean isFollow;
@@ -116,8 +112,6 @@ public class AiDialogueFightActivity extends BaseActivity implements View.OnClic
     private SpeechRecognizer recognizer;
     private MediaPlayer mPlayer;
     private AnimationDrawable animationDrawable;
-    private Thread mThread;
-    private MyThread mMyThread;
     private boolean userFirst;
 
     @Override
@@ -126,8 +120,6 @@ public class AiDialogueFightActivity extends BaseActivity implements View.OnClic
         setContentView(R.layout.ai_dialogue_fight_activity);
         ButterKnife.bind(this);
         initViews();
-        getDataTask();
-
     }
 
     private void initViews() {
@@ -136,9 +128,9 @@ public class AiDialogueFightActivity extends BaseActivity implements View.OnClic
         mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
         recognizer = SpeechRecognizer.createRecognizer(this, null);
         mPlayer = new MediaPlayer();
-        mMyThread = new MyThread();
-        avObjects = new ArrayList<AVObject>();
-        ECCode = getIntent().getStringExtra(AVOUtil.EvaluationCategory.ECCode);
+        avObjects = (List<AVObject>) WXEntryActivity.dataMap.get("avObjects");
+        WXEntryActivity.dataMap.clear();
+
         studylist_lv = (RecyclerView) findViewById(R.id.listview);
         mAdapter = new RcAiDialoguePracticeAdapter(avObjects, this);
         mAdapter.setItems(avObjects);
@@ -152,7 +144,7 @@ public class AiDialogueFightActivity extends BaseActivity implements View.OnClic
                         .build());
         studylist_lv.setAdapter(mAdapter);
 
-        selectedFlowType(mSharedPreferences.getInt(KeyUtil.ReadModelType, 0), false);
+        selectedFlowType(2, false);
         sentence_cover.setOnClickListener(this);
         continuity_cover.setOnClickListener(this);
         conversation_cover.setOnClickListener(this);
@@ -368,64 +360,6 @@ public class AiDialogueFightActivity extends BaseActivity implements View.OnClic
         }
     }
 
-    private void getDataTask() {
-        showProgressbar();
-        Observable.create(new ObservableOnSubscribe<String>() {
-            @Override
-            public void subscribe(ObservableEmitter<String> e) throws Exception {
-                queryData();
-                e.onComplete();
-            }
-        })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<String>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                    }
-                    @Override
-                    public void onNext(String s) {
-                    }
-                    @Override
-                    public void onError(Throwable e) {
-                    }
-                    @Override
-                    public void onComplete() {
-                        onQueryDataFinish();
-                        setConversationContent();
-                    }
-                });
-
-    }
-
-    private void queryData() {
-        AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.EvaluationDetail.EvaluationDetail);
-        query.whereEqualTo(AVOUtil.EvaluationDetail.ECCode, ECCode);
-        query.whereEqualTo(AVOUtil.EvaluationDetail.EDIsValid, "1");
-        query.orderByAscending(AVOUtil.EvaluationDetail.ECLCode);
-        try {
-            List<AVObject> avObject = query.find();
-            if (avObject != null && avObject.size() > 0) {
-                for (int i = 0; i < avObject.size(); i++) {
-                    if (i == 0) {
-                        avObject.get(i).put(KeyUtil.PracticeItemIndex, "1");
-                    } else {
-                        avObject.get(i).put(KeyUtil.PracticeItemIndex, "0");
-                    }
-                }
-                avObjects.addAll(avObject);
-            }
-        } catch (AVException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void onQueryDataFinish() {
-        hideProgressbar();
-        onSwipeRefreshLayoutFinish();
-        mAdapter.notifyDataSetChanged();
-    }
-
     private void resetData() {
         for (AVObject item : avObjects) {
             if (item.get(KeyUtil.PracticeItemIndex).equals("1")) {
@@ -615,7 +549,6 @@ public class AiDialogueFightActivity extends BaseActivity implements View.OnClic
                 }
                 sbResult.setLength(0);
                 playNext();
-//                mMyThread = AudioTrackUtil.getMyThread(userPcmPath);
             }
         }
 

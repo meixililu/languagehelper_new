@@ -1,8 +1,6 @@
 package com.messi.languagehelper;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -10,24 +8,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.adapter.RcWordListAdapter;
-import com.messi.languagehelper.bean.WordListItem;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
-import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.SaveData;
-import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.XFYSAD;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,6 +62,7 @@ public class WordStudyFirstFragment extends BaseFragment {
         category_lv.addItemDecoration(new DividerGridItemDecoration(1));
         mAdapter.setHeader(new Object());
         mAdapter.setItems(avObjects);
+        mXFYSAD.setAdapter(mAdapter);
         category_lv.setAdapter(mAdapter);
     }
 

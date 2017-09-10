@@ -790,6 +790,7 @@
     <dimen name="padding_12">12dp</dimen>
     <dimen name="padding_15">15dp</dimen>
     <dimen name="padding_20">20dp</dimen>
+    <dimen name="padding_30">30dp</dimen>
     <dimen name="padding_5">5dp</dimen>
     <dimen name="padding_7">7dp</dimen>
     <dimen name="padding_margin">2dp</dimen>
@@ -1109,6 +1110,7 @@
     <string name="speak_prompt">请根据您说的语言点击中文或者英文！</string>
     <string name="spoken_english_practice">口语</string>
     <string name="start">开始</string>
+    <string name="start_to_fight">闯关</string>
     <string name="start_to_follow">跟读</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="style_classic">经典</string>
