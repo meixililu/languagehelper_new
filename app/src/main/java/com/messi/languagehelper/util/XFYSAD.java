@@ -88,6 +88,10 @@ public class XFYSAD {
 				LogUtil.DefalutLog("onAdFailed---"+arg0.getErrorCode()+"---"+arg0.getErrorDescription());
 				parentView.setVisibility(View.GONE);
 				hideHeader(true);
+				if(retryTime < 1){
+					retryTime ++;
+					showAD();
+				}
 			}
 			@Override
 			public void onADLoaded(List<NativeADDataRef> arg0) {

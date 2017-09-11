@@ -15,7 +15,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
-import com.avos.avoscloud.AVAnalytics;
+import com.avos.avoscloud.okhttp.FormEncodingBuilder;
+import com.avos.avoscloud.okhttp.RequestBody;
 import com.daimajia.numberprogressbar.NumberProgressBar;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.cloud.RecognizerListener;
@@ -23,13 +24,12 @@ import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechRecognizer;
 import com.iflytek.cloud.SynthesizerListener;
-import com.messi.languagehelper.adapter.RcAiChatAdapter;
-import com.messi.languagehelper.bean.AiResult;
+import com.messi.languagehelper.adapter.RcAiTuringAdapter;
+import com.messi.languagehelper.bean.AiTuringResult;
 import com.messi.languagehelper.dao.AiEntity;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
-import com.messi.languagehelper.impl.OnFinishListener;
 import com.messi.languagehelper.util.AiUtil;
 import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KaiPinAdUIModelCustom;
@@ -41,10 +41,6 @@ import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,7 +48,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class AiChatActivity extends BaseActivity {
+public class AiTuringActivity extends BaseActivity {
 
     @BindView(R.id.input_et)
     AppCompatEditText inputEt;
@@ -76,10 +72,6 @@ public class AiChatActivity extends BaseActivity {
     TextView voiceBtn;
     @BindView(R.id.voice_btn_cover)
     CardView voiceBtnCover;
-    @BindView(R.id.speak_language_tv)
-    TextView speakLanguageTv;
-    @BindView(R.id.speak_language_layout)
-    LinearLayout speakLanguageLayout;
     @BindView(R.id.mic_layout)
     LinearLayout micLayout;
     @BindView(R.id.keybord_layout)
@@ -97,43 +89,36 @@ public class AiChatActivity extends BaseActivity {
     private List<AiEntity> beans;
     private LinearLayoutManager mLinearLayoutManager;
     private SpeechRecognizer recognizer;
-    public RcAiChatAdapter mAdapter;
+    public RcAiTuringAdapter mAdapter;
     private SharedPreferences sp;
     private KaiPinAdUIModelCustom mKaiPinAdUIModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ai_chat_activity);
+        setContentView(R.layout.ai_turing_activity);
         ButterKnife.bind(this);
         initSwipeRefresh();
         initData();
         mKaiPinAdUIModel = new KaiPinAdUIModelCustom(this, adSource, adImg, adLayout,
                 contentLv, numberProgressBar, progressTv);
-        mKaiPinAdUIModel.setOnFinishListener(new OnFinishListener() {
-            @Override
-            public void OnFinish() {
-                sayHi();
-            }
-        });
     }
 
     private void initData() {
-        setActionBarTitle(getResources().getString(R.string.title_ai_chat));
+        setActionBarTitle(getResources().getString(R.string.title_tuling_ai));
         sp = Settings.getSharedPreferences(this);
         recognizer = SpeechRecognizer.createRecognizer(this, null);
         beans = new ArrayList<AiEntity>();
-        beans.addAll(DataBaseUtil.getInstance().getAiEntityList(AiUtil.Ai_Acobot));
-        mAdapter = new RcAiChatAdapter(this, beans, mProgressbar);
+        beans.addAll(DataBaseUtil.getInstance().getAiEntityList(AiUtil.Ai_Turing));
+        mAdapter = new RcAiTuringAdapter(this, beans, mProgressbar);
         mAdapter.setItems(beans);
         mLinearLayoutManager = new LinearLayoutManager(this);
-        if (beans.size() > 4) {
+        if (beans.size() > 7) {
             mLinearLayoutManager.setStackFromEnd(true);
         }
         contentLv.setLayoutManager(mLinearLayoutManager);
         contentLv.setAdapter(mAdapter);
-        setSpeakLanguageTv();
-        if (sp.getBoolean(KeyUtil.IsAiChatPlayVoice, true)) {
+        if (sp.getBoolean(KeyUtil.IsAiTuringPlayVoice, true)) {
             volumeImg.setImageResource(R.drawable.ic_volume_on);
         } else {
             volumeImg.setImageResource(R.drawable.ic_volume_off);
@@ -146,21 +131,9 @@ public class AiChatActivity extends BaseActivity {
         keybordLayout.requestFocus();
     }
 
-    private void sayHi() {
-        String sayHi = "say hello";
-        if (beans.size() > 0) {
-            AiEntity mAiEntity = beans.get(beans.size() - 1);
-            if (!sayHi.equals(mAiEntity.getContent())) {
-                requestData(sayHi);
-            }
-        } else {
-            requestData(sayHi);
-        }
-    }
-
     @Override
     public void onSwipeRefreshLayoutRefresh() {
-        List<AiEntity> list = DataBaseUtil.getInstance().getAiEntityList(beans.get(0).getId(),AiUtil.Ai_Acobot);
+        List<AiEntity> list = DataBaseUtil.getInstance().getAiEntityList(beans.get(0).getId(),AiUtil.Ai_Turing);
         if (list.size() > 0) {
             beans.addAll(0, list);
             mAdapter.notifyDataSetChanged();
@@ -170,13 +143,13 @@ public class AiChatActivity extends BaseActivity {
     }
 
     @OnClick({R.id.volume_btn, R.id.submit_btn_cover, R.id.input_type_layout,
-            R.id.voice_btn_cover, R.id.speak_language_layout})
+            R.id.voice_btn_cover})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.volume_btn:
-                boolean isPlay = !sp.getBoolean(KeyUtil.IsAiChatPlayVoice, true);
+                boolean isPlay = !sp.getBoolean(KeyUtil.IsAiTuringPlayVoice, true);
                 Settings.saveSharedPreferences(sp,
-                        KeyUtil.IsAiChatPlayVoice,
+                        KeyUtil.IsAiTuringPlayVoice,
                         isPlay);
                 if (isPlay) {
                     volumeImg.setImageResource(R.drawable.ic_volume_on);
@@ -193,9 +166,6 @@ public class AiChatActivity extends BaseActivity {
             case R.id.voice_btn_cover:
                 showIatDialog();
                 break;
-            case R.id.speak_language_layout:
-                changeSpeakLanguage();
-                break;
         }
     }
 
@@ -207,7 +177,7 @@ public class AiChatActivity extends BaseActivity {
             mAiEntity.setContent(inputEt.getText().toString().trim());
             mAiEntity.setContent_type(AiUtil.Content_Type_Text);
             mAiEntity.setEntity_type(AiUtil.Entity_Type_Chat);
-            mAiEntity.setAi_type(AiUtil.Ai_Acobot);
+            mAiEntity.setAi_type(AiUtil.Ai_Turing);
             mAdapter.addEntity(beans.size(), mAiEntity);
             contentLv.scrollToPosition(beans.size() - 1);
             requestData(inputEt.getText().toString().trim());
@@ -225,8 +195,11 @@ public class AiChatActivity extends BaseActivity {
             recordLayout.setVisibility(View.VISIBLE);
             inputEt.setText("");
             voiceBtn.setText(this.getResources().getText(R.string.click_and_finish));
-            XFUtil.showSpeechRecognizer(this, PlayUtil.getSP(), recognizer, recognizerListener,
-                    PlayUtil.getSP().getString(KeyUtil.AiChatUserSelectLanguage, XFUtil.VoiceEngineEN));
+            XFUtil.showSpeechRecognizer(this,
+                    PlayUtil.getSP(),
+                    recognizer,
+                    recognizerListener,
+                    XFUtil.VoiceEngineMD);
         } else {
             finishRecord();
             recognizer.stopListening();
@@ -234,29 +207,10 @@ public class AiChatActivity extends BaseActivity {
         }
     }
 
-    /**
-     * finish record
-     */
     private void finishRecord() {
         recordLayout.setVisibility(View.GONE);
         recordAnimImg.setBackgroundResource(R.drawable.speak_voice_1);
         voiceBtn.setText(this.getResources().getText(R.string.click_and_speak));
-    }
-
-    private void changeSpeakLanguage() {
-        if (PlayUtil.getSP().getString(KeyUtil.AiChatUserSelectLanguage, XFUtil.VoiceEngineEN).equals(XFUtil.VoiceEngineMD)) {
-            Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.AiChatUserSelectLanguage, XFUtil.VoiceEngineEN);
-            ToastUtil.diaplayMesShort(this, this.getResources().getString(R.string.speak_english));
-        } else {
-            Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.AiChatUserSelectLanguage, XFUtil.VoiceEngineMD);
-            ToastUtil.diaplayMesShort(this, this.getResources().getString(R.string.speak_chinese));
-        }
-        setSpeakLanguageTv();
-        AVAnalytics.onEvent(this, "tab3_ai_changelan");
-    }
-
-    private void setSpeakLanguageTv() {
-        speakLanguageTv.setText(XFUtil.getVoiceEngineText(sp.getString(KeyUtil.AiChatUserSelectLanguage, XFUtil.VoiceEngineEN)));
     }
 
     private void changeInputType() {
@@ -286,14 +240,18 @@ public class AiChatActivity extends BaseActivity {
 
     private void requestData(String msg) {
         showProgressbar();
-        String url = Settings.AiBrainUrl + Settings.getUUID(this) + "&msg=" + msg;
-        LanguagehelperHttpClient.get(url, new UICallback(this) {
+        RequestBody formBody = new FormEncodingBuilder()
+                .add("key", Settings.AiTuringApiKey)
+                .add("info", msg)
+                .add("userid", Settings.getUUID(this))
+                .build();
+        LanguagehelperHttpClient.post(Settings.AiTuringApi, formBody, new UICallback(this) {
             @Override
             public void onResponsed(String responseString) {
                 try {
                     LogUtil.DefalutLog(responseString);
                     if (JsonParser.isJson(responseString)) {
-                        AiResult mAiResult = JSON.parseObject(responseString, AiResult.class);
+                        AiTuringResult mAiResult = JSON.parseObject(responseString, AiTuringResult.class);
                         addAiResult(mAiResult);
                     }
                 } catch (Exception e) {
@@ -303,7 +261,7 @@ public class AiChatActivity extends BaseActivity {
 
             @Override
             public void onFailured() {
-                ToastUtil.diaplayMesShort(AiChatActivity.this, AiChatActivity.this.getResources().getString(R.string.network_error));
+                ToastUtil.diaplayMesShort(AiTuringActivity.this, AiTuringActivity.this.getResources().getString(R.string.network_error));
             }
 
             @Override
@@ -314,35 +272,27 @@ public class AiChatActivity extends BaseActivity {
         });
     }
 
-    private void addAiResult(AiResult mAiResult) {
+    private void addAiResult(AiTuringResult mAiResult) {
         if (mAiResult != null) {
-            AiEntity mAiEntity = parseResult(mAiResult.getCnt());
+            AiEntity mAiEntity = new AiEntity();
+            mAiEntity.setRole(AiUtil.Role_Machine);
+            mAiEntity.setEntity_type(AiUtil.Entity_Type_Chat);
+            mAiEntity.setAi_type(AiUtil.Ai_Turing);
+            mAiEntity.setContent_video_id(String.valueOf(System.currentTimeMillis()));
+            mAiEntity.setContent(mAiResult.getText());
+            if (TextUtils.isEmpty(mAiResult.getUrl())) {
+                mAiEntity.setContent_type(AiUtil.Content_Type_Text);
+            }else {
+                mAiEntity.setLink(mAiResult.getUrl());
+                mAiEntity.setContent_type(AiUtil.Content_Type_Link);
+            }
             mAdapter.addEntity(beans.size(), mAiEntity);
             contentLv.scrollToPosition(beans.size() - 1);
-            if (sp.getBoolean(KeyUtil.IsAiChatPlayVoice, true)) {
+            if (sp.getBoolean(KeyUtil.IsAiTuringPlayVoice, true)) {
                 playVideo(mAiEntity);
             }
             DataBaseUtil.getInstance().insert(mAiEntity);
         }
-    }
-
-    private AiEntity parseResult(String result) {
-        AiEntity mAiEntity = new AiEntity();
-        mAiEntity.setRole(AiUtil.Role_Machine);
-        mAiEntity.setEntity_type(AiUtil.Entity_Type_Chat);
-        mAiEntity.setAi_type(AiUtil.Ai_Acobot);
-        mAiEntity.setContent_video_id(String.valueOf(System.currentTimeMillis()));
-        if (result.contains("<a href=")) {
-            Document doc = Jsoup.parse(result);
-            Element element = doc.select("a").first();
-            mAiEntity.setContent(element.text());
-            mAiEntity.setContent_type(AiUtil.Content_Type_Link);
-            mAiEntity.setLink(element.attr("href"));
-        } else {
-            mAiEntity.setContent(result);
-            mAiEntity.setContent_type(AiUtil.Content_Type_Text);
-        }
-        return mAiEntity;
     }
 
     public void playVideo(final AiEntity mAiEntity) {
@@ -376,7 +326,7 @@ public class AiChatActivity extends BaseActivity {
                     @Override
                     public void onCompleted(SpeechError arg0) {
                         if (arg0 != null) {
-                            ToastUtil.diaplayMesShort(AiChatActivity.this, arg0.getErrorDescription());
+                            ToastUtil.diaplayMesShort(AiTuringActivity.this, arg0.getErrorDescription());
                         }
                         DataBaseUtil.getInstance().update(mAiEntity);
                         PlayUtil.onFinishPlay();
@@ -403,7 +353,7 @@ public class AiChatActivity extends BaseActivity {
         public void onError(SpeechError err) {
             LogUtil.DefalutLog("onError:" + err.getErrorDescription());
             finishRecord();
-            ToastUtil.diaplayMesShort(AiChatActivity.this, err.getErrorDescription());
+            ToastUtil.diaplayMesShort(AiTuringActivity.this, err.getErrorDescription());
             hideProgressbar();
         }
 

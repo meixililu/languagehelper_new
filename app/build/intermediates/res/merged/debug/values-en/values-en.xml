@@ -10,6 +10,7 @@
     <string name="about_volume_title">About Volume</string>
     <string name="advanced">Advanced</string>
     <string name="ai_chat_input_hint">just say something</string>
+    <string name="ai_turing_input_hint">chat with me in chinese</string>
     <string name="app_ad">Learn Chinese,You are worth it.</string>
     <string name="app_des">You are worth it</string>
     <string name="app_id">50aa1213</string>
@@ -260,6 +261,8 @@
     <string name="title_sure">Sure</string>
     <string name="title_symbol">Symbol Study</string>
     <string name="title_translate">Translate</string>
+    <string name="title_tuling_ai">Turing Robot</string>
+    <string name="title_tuling_ai_des">The Best Chinese Robot</string>
     <string name="title_update_title">Updage Info:</string>
     <string name="title_word_study">Word Study</string>
     <string name="title_word_study_change_plan">Choose Word Book</string>

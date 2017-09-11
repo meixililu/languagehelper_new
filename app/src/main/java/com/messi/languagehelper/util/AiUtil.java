@@ -6,6 +6,10 @@ package com.messi.languagehelper.util;
 
 public class AiUtil {
 
+
+    public static final String Ai_Acobot = "acobot";
+    public static final String Ai_Turing = "turing";
+
     public static final String Entity_Type_Chat = "chat";
     public static final String Entity_Type_Listen = "listen";
     public static final String Entity_Type_Word = "word";

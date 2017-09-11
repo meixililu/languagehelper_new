@@ -198,6 +198,8 @@ public class KeyUtil {
 
 	public static final String IsAiChatPlayVoice = "IsAiChatPlayVoice";
 
+	public static final String IsAiTuringPlayVoice = "IsAiTuringPlayVoice";
+
 	public static final String HasClickNewFunAi = "HasClickNewFunAi";
 
 	public static final String AiBaseCurrentSection = "AiBaseCurrentSection";

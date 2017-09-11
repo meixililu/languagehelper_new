@@ -1,11 +1,5 @@
 package com.messi.languagehelper.util;
 
-import com.avos.avoscloud.AVAnalytics;
-import com.messi.languagehelper.ImgShareActivity;
-import com.messi.languagehelper.R;
-import com.messi.languagehelper.dialog.PopDialog;
-import com.messi.languagehelper.dialog.PopDialog.PopViewItemOnclickListener;
-
 import android.Manifest;
 import android.app.Activity;
 import android.content.ComponentName;
@@ -26,6 +20,12 @@ import android.support.v7.app.AlertDialog;
 import android.telephony.TelephonyManager;
 import android.text.ClipboardManager;
 import android.view.View;
+
+import com.avos.avoscloud.AVAnalytics;
+import com.messi.languagehelper.ImgShareActivity;
+import com.messi.languagehelper.R;
+import com.messi.languagehelper.dialog.PopDialog;
+import com.messi.languagehelper.dialog.PopDialog.PopViewItemOnclickListener;
 
 import java.util.UUID;
 
@@ -122,6 +122,10 @@ public class Settings {
 	public static final String TXNewsApiEnd = "?key=18f7f9dbd7dfcd8ab45efdcfbc33826d&num=15&page=";
 
 	public static final String AiBrainUrl = "http://api.acobot.net/get?bid=866&key=vIjpiPkChlZ4om2F&uid=";
+
+	public static final String AiTuringApi = "http://www.tuling123.com/openapi/api";
+
+	public static final String AiTuringApiKey = "9cab5ca560c7403c84d035196b6f3500";
 
 	/**广阅通**/
 	public static final String GuangyuetongUrl = "http://p.contx.cn/v1/access?id=f9136944-bc17-4cb1-9b14-ece9de91b39d&uid=#uid#&ud=#ud#";

@@ -386,9 +386,10 @@ public class DataBaseUtil {
         mAiEntityDao.update(entity);
     }
 
-    public List<AiEntity> getAiEntityList(){
+    public List<AiEntity> getAiEntityList(String type){
         List<AiEntity> history = mAiEntityDao
                 .queryBuilder()
+                .where(AiEntityDao.Properties.Ai_type.eq(type))
                 .limit(30)
                 .orderDesc(AiEntityDao.Properties.Id)
                 .list();
@@ -396,9 +397,10 @@ public class DataBaseUtil {
         return history;
     }
 
-    public List<AiEntity> getAiEntityList(long id){
+    public List<AiEntity> getAiEntityList(long id,String type){
         List<AiEntity> history = mAiEntityDao
                 .queryBuilder()
+                .where(AiEntityDao.Properties.Ai_type.eq(type))
                 .where(AiEntityDao.Properties.Id.lt(id))
                 .limit(30)
                 .orderDesc(AiEntityDao.Properties.Id)

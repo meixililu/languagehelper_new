@@ -26,7 +26,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_gravity="center"
-                android:visibility="visible"
+                android:visibility="gone"
                 />
 
             <FrameLayout
@@ -117,25 +117,6 @@
                         android:textSize="@dimen/big" />
                 </android.support.v7.widget.CardView>
 
-                <LinearLayout
-                    android:id="@+id/speak_language_layout"
-                    android:layout_width="34dp"
-                    android:layout_height="34dp"
-                    android:layout_marginBottom="1dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/round_gray_bgl"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/speak_language_tv"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:gravity="center"
-                        android:text="@string/chinese"
-                        android:textColor="@color/text_black" />
-                </LinearLayout>
-
             </LinearLayout>
 
             <LinearLayout
@@ -154,7 +135,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="left|bottom"
-                    android:hint="@string/ai_chat_input_hint"
+                    android:hint="@string/ai_turing_input_hint"
                     android:textColor="@color/text_dark"
                     android:textColorHint="@color/text_grey"
                     android:textSize="@dimen/big"
@@ -253,7 +234,7 @@
                 android:textSize="@dimen/small"
                 android:gravity="center"
                 android:textColor="@color/text_dark"
-                android:text="正在启动Ai聊天机器人"
+                android:text="正在启动图灵机器人"
                 />
             <com.daimajia.numberprogressbar.NumberProgressBar
                 android:id="@+id/number_progress_bar"

@@ -86,6 +86,10 @@
         </service>
 
         <activity
+            android:name=".AiTuringActivity"
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".AiDialogueFightActivity"
             android:screenOrientation="portrait" />
         <activity

@@ -155,7 +155,7 @@ public class LeisureFragment extends BaseFragment {
                 toJokeActivity();
                 break;
             case R.id.sougou_layout:
-                toSougoActivity();
+                toTuringActivity();
                 break;
             case R.id.yuedu_layout:
                 toYueduActivity();
@@ -210,8 +210,9 @@ public class LeisureFragment extends BaseFragment {
         AVAnalytics.onEvent(getActivity(), "leisure_pg_tocailingpg_btn");
     }
 
-    private void toSougoActivity() {
-
+    private void toTuringActivity() {
+        toActivity(AiTuringActivity.class, null);
+        AVAnalytics.onEvent(getActivity(), "leisure_pg_to_turing");
     }
 
     private void toYueduActivity() {

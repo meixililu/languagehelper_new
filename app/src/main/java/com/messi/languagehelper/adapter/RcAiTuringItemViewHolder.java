@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.messi.languagehelper.AiChatActivity;
+import com.messi.languagehelper.AiTuringActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.WebViewActivity;
 import com.messi.languagehelper.bean.PopMenuItem;
@@ -32,22 +32,22 @@ import java.util.List;
  * Created by luli on 10/23/16.
  */
 
-public class RcAiChatItemViewHolder extends RecyclerView.ViewHolder {
+public class RcAiTuringItemViewHolder extends RecyclerView.ViewHolder {
 
     private Context context;
     public TextView ai_chat_machine;
     public TextView ai_chat_user;
     private ProgressBar mProgressbar;
     private List<AiEntity> beans;
-    private RcAiChatAdapter mAdapter;
+    private RcAiTuringAdapter mAdapter;
     private List<PopMenuItem> menuItems;
-    private AiChatActivity mAiChatActivity;
+    private AiTuringActivity mAiChatActivity;
 
-    public RcAiChatItemViewHolder(View convertView,
-                                  List<AiEntity> mBeans,
-                                  RcAiChatAdapter mAdapter,
-                                  ProgressBar mProgressbar,
-                                  AiChatActivity mAiChatActivity) {
+    public RcAiTuringItemViewHolder(View convertView,
+                                    List<AiEntity> mBeans,
+                                    RcAiTuringAdapter mAdapter,
+                                    ProgressBar mProgressbar,
+                                    AiTuringActivity mAiChatActivity) {
         super(convertView);
         this.context = convertView.getContext();
         this.beans = mBeans;

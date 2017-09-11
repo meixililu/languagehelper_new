@@ -133,7 +133,6 @@
             android:background="@color/style6_color1"
             android:foreground="@drawable/framelayout_selector"
             android:orientation="vertical"
-            android:visibility="gone"
             >
 
             <LinearLayout
@@ -150,7 +149,7 @@
                     android:shadowDx="0.3"
                     android:shadowDy="0.3"
                     android:shadowRadius="0.3"
-                    android:text="@string/leisuer_sougou_wechat"
+                    android:text="@string/title_tuling_ai"
                     android:textColor="@color/white"
                     android:textSize="@dimen/bigger" />
 
@@ -158,7 +157,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/leisuer_sougou_wechat_subtitle"
+                    android:text="@string/title_tuling_ai_des"
                     android:textColor="@color/white"
                     android:textSize="@dimen/small" />
             </LinearLayout>
@@ -329,6 +328,7 @@
             android:layout_marginLeft="@dimen/padding_7"
             android:layout_marginRight="@dimen/padding_7"
             android:layout_marginTop="@dimen/padding_7"
+            android:visibility="gone"
             android:background="@color/style5_color6"
             android:foreground="@drawable/framelayout_selector"
             android:orientation="vertical" >
