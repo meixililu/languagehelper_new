@@ -3,7 +3,9 @@ package com.messi.languagehelper;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.content.FileProvider;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.FrameLayout;
@@ -51,7 +53,12 @@ public class QRCodeShareActivity extends BaseActivity implements OnClickListener
             share_parent_layout.requestLayout();
             File file = new File(imgPath);
             if (file != null && file.exists() && file.isFile()) {
-                Uri uri = Uri.fromFile(file);
+                Uri uri = null;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    uri = FileProvider.getUriForFile(this, SDCardUtil.Provider, file);
+                } else {
+                    uri = Uri.fromFile(file);
+                }
                 if (uri != null) {
                     try {
                         Intent intent = new Intent(Intent.ACTION_SEND);

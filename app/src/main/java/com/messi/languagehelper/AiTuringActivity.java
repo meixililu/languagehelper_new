@@ -170,11 +170,16 @@ public class AiTuringActivity extends BaseActivity {
     }
 
     private void submit() {
-        if (!TextUtils.isEmpty(inputEt.getText().toString().trim())) {
+        String input = inputEt.getText().toString().trim();
+        if (!TextUtils.isEmpty(input)) {
+            String last = input.substring(input.length() - 1);
+            if (",.!;:'，。！‘；：".contains(last)) {
+                input = input.substring(0, input.length() - 1);
+            }
             AiEntity mAiEntity = new AiEntity();
             mAiEntity.setRole(AiUtil.Role_User);
             mAiEntity.setContent_video_id(String.valueOf(System.currentTimeMillis()));
-            mAiEntity.setContent(inputEt.getText().toString().trim());
+            mAiEntity.setContent(input);
             mAiEntity.setContent_type(AiUtil.Content_Type_Text);
             mAiEntity.setEntity_type(AiUtil.Entity_Type_Chat);
             mAiEntity.setAi_type(AiUtil.Ai_Turing);

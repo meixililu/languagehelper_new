@@ -6,7 +6,9 @@ import android.graphics.Typeface;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.content.FileProvider;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.TypedValue;
@@ -136,12 +138,17 @@ public class ImgShareActivity extends BaseActivity implements OnClickListener {
             String imgPath = SDCardUtil.saveBitmap(this, bitmap);
             File file = new File(imgPath);
             if (file != null && file.exists() && file.isFile()) {
-                Uri uri = Uri.fromFile(file);
+                Uri imageUri = null;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    imageUri = FileProvider.getUriForFile(this, SDCardUtil.Provider, file);
+                } else {
+                    imageUri = Uri.fromFile(file);
+                }
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("image/png");
-                intent.putExtra(Intent.EXTRA_STREAM, uri);
                 intent.putExtra(Intent.EXTRA_SUBJECT, this.getResources().getString(R.string.share));
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra(Intent.EXTRA_STREAM, imageUri);
                 this.startActivity(Intent.createChooser(intent, this.getResources().getString(R.string.share)));
             }
         } else {
