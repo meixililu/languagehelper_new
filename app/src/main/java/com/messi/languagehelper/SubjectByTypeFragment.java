@@ -86,20 +86,24 @@ public class SubjectByTypeFragment extends BaseFragment {
     }
 
     private void initAdapter(){
-        if(mAdapter == null){
-            mAdapter = new RcSubjectTypeListAdapter(mXFYSAD, recentKey);
-            mAdapter.setItems(avObjects);
-            mAdapter.setHeader(new Object());
-            mAdapter.setFooter(new Object());
-            mXFYSAD.setAdapter(mAdapter);
-            hideFooterview();
-            layoutManager = new GridLayoutManager(getContext(), NUMBER_OF_COLUMNS);
-            HeaderSpanSizeLookup headerSpanSizeLookup = new HeaderSpanSizeLookup(mAdapter, layoutManager);
-            layoutManager.setSpanSizeLookup(headerSpanSizeLookup);
-            category_lv.setLayoutManager(layoutManager);
-            category_lv.addItemDecoration(new DividerGridItemDecoration(1));
-            category_lv.setAdapter(mAdapter);
-            setListOnScrollListener();
+        try {
+            if(mAdapter == null){
+                mAdapter = new RcSubjectTypeListAdapter(mXFYSAD, recentKey);
+                mAdapter.setItems(avObjects);
+                mAdapter.setHeader(new Object());
+                mAdapter.setFooter(new Object());
+                mXFYSAD.setAdapter(mAdapter);
+                hideFooterview();
+                layoutManager = new GridLayoutManager(getContext(), NUMBER_OF_COLUMNS);
+                HeaderSpanSizeLookup headerSpanSizeLookup = new HeaderSpanSizeLookup(mAdapter, layoutManager);
+                layoutManager.setSpanSizeLookup(headerSpanSizeLookup);
+                category_lv.setLayoutManager(layoutManager);
+                category_lv.addItemDecoration(new DividerGridItemDecoration(1));
+                category_lv.setAdapter(mAdapter);
+                setListOnScrollListener();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
