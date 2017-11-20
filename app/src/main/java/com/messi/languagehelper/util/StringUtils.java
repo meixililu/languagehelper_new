@@ -57,8 +57,6 @@ public class StringUtils {
 		}
 		return result;
 	}
-	
-	
 
 	public static boolean isChinese(char c) {
 		Character.UnicodeBlock ub = Character.UnicodeBlock.of(c);
@@ -72,6 +70,16 @@ public class StringUtils {
 			return true;
 		}
 		return false;
+	}
+
+	public static String numToStrTimes(long times){
+		if(times < 10000){
+			return " " + String.valueOf(times);
+		}else if(times < 100000000){
+			return " " + new java.text.DecimalFormat("#.0").format( (double)times / 10000 ) + "万";
+		}else {
+			return " " + new java.text.DecimalFormat("#.0").format( (double)times / 100000000 ) + "亿";
+		}
 	}
 
 }

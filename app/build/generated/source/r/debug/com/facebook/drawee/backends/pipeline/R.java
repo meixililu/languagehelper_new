@@ -37,15 +37,16 @@ public final class R {
 		public static final int viewAspectRatio = 0x7f01010e;
 	}
 	public static final class id {
-		public static final int center = 0x7f0f0032;
-		public static final int centerCrop = 0x7f0f0046;
-		public static final int centerInside = 0x7f0f0047;
-		public static final int fitCenter = 0x7f0f0048;
-		public static final int fitEnd = 0x7f0f0049;
-		public static final int fitStart = 0x7f0f004a;
-		public static final int fitXY = 0x7f0f004b;
-		public static final int focusCrop = 0x7f0f004c;
-		public static final int none = 0x7f0f001f;
+		public static final int center = 0x7f0f0034;
+		public static final int centerCrop = 0x7f0f0048;
+		public static final int centerInside = 0x7f0f0049;
+		public static final int fitBottomStart = 0x7f0f004a;
+		public static final int fitCenter = 0x7f0f004b;
+		public static final int fitEnd = 0x7f0f004c;
+		public static final int fitStart = 0x7f0f004d;
+		public static final int fitXY = 0x7f0f004e;
+		public static final int focusCrop = 0x7f0f004f;
+		public static final int none = 0x7f0f0021;
 	}
 	public static final class styleable {
 		public static final int[] GenericDraweeHierarchy = { 0x7f01010d, 0x7f01010e, 0x7f01010f, 0x7f010110, 0x7f010111, 0x7f010112, 0x7f010113, 0x7f010114, 0x7f010115, 0x7f010116, 0x7f010117, 0x7f010118, 0x7f010119, 0x7f01011a, 0x7f01011b, 0x7f01011c, 0x7f01011d, 0x7f01011e, 0x7f01011f, 0x7f010120, 0x7f010121, 0x7f010122, 0x7f010123, 0x7f010124, 0x7f010125 };
@@ -74,8 +75,33 @@ public final class R {
 		public static final int GenericDraweeHierarchy_roundingBorderPadding = 24;
 		public static final int GenericDraweeHierarchy_roundingBorderWidth = 22;
 		public static final int GenericDraweeHierarchy_viewAspectRatio = 1;
-		public static final int[] SimpleDraweeView = { 0x7f010166, 0x7f010167 };
-		public static final int SimpleDraweeView_actualImageResource = 1;
-		public static final int SimpleDraweeView_actualImageUri = 0;
+		public static final int[] SimpleDraweeView = { 0x7f01010d, 0x7f01010e, 0x7f01010f, 0x7f010110, 0x7f010111, 0x7f010112, 0x7f010113, 0x7f010114, 0x7f010115, 0x7f010116, 0x7f010117, 0x7f010118, 0x7f010119, 0x7f01011a, 0x7f01011b, 0x7f01011c, 0x7f01011d, 0x7f01011e, 0x7f01011f, 0x7f010120, 0x7f010121, 0x7f010122, 0x7f010123, 0x7f010124, 0x7f010125, 0x7f010166, 0x7f010167 };
+		public static final int SimpleDraweeView_actualImageResource = 26;
+		public static final int SimpleDraweeView_actualImageScaleType = 11;
+		public static final int SimpleDraweeView_actualImageUri = 25;
+		public static final int SimpleDraweeView_backgroundImage = 12;
+		public static final int SimpleDraweeView_fadeDuration = 0;
+		public static final int SimpleDraweeView_failureImage = 6;
+		public static final int SimpleDraweeView_failureImageScaleType = 7;
+		public static final int SimpleDraweeView_overlayImage = 13;
+		public static final int SimpleDraweeView_placeholderImage = 2;
+		public static final int SimpleDraweeView_placeholderImageScaleType = 3;
+		public static final int SimpleDraweeView_pressedStateOverlayImage = 14;
+		public static final int SimpleDraweeView_progressBarAutoRotateInterval = 10;
+		public static final int SimpleDraweeView_progressBarImage = 8;
+		public static final int SimpleDraweeView_progressBarImageScaleType = 9;
+		public static final int SimpleDraweeView_retryImage = 4;
+		public static final int SimpleDraweeView_retryImageScaleType = 5;
+		public static final int SimpleDraweeView_roundAsCircle = 15;
+		public static final int SimpleDraweeView_roundBottomLeft = 20;
+		public static final int SimpleDraweeView_roundBottomRight = 19;
+		public static final int SimpleDraweeView_roundTopLeft = 17;
+		public static final int SimpleDraweeView_roundTopRight = 18;
+		public static final int SimpleDraweeView_roundWithOverlayColor = 21;
+		public static final int SimpleDraweeView_roundedCornerRadius = 16;
+		public static final int SimpleDraweeView_roundingBorderColor = 23;
+		public static final int SimpleDraweeView_roundingBorderPadding = 24;
+		public static final int SimpleDraweeView_roundingBorderWidth = 22;
+		public static final int SimpleDraweeView_viewAspectRatio = 1;
 	}
 }

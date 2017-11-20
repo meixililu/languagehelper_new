@@ -1,7 +1,10 @@
 package com.messi.languagehelper;
 
-import java.util.ArrayList;
-import java.util.List;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
@@ -13,15 +16,11 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SaveData;
 import com.messi.languagehelper.util.Settings;
-import com.messi.languagehelper.util.TimeUtil;
 
-import android.content.SharedPreferences;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
+import java.util.ArrayList;
+import java.util.List;
 
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+import cn.jzvd.JZVideoPlayer;
 
 public class CompositionActivity extends BaseActivity implements FragmentProgressbarListener{
 
@@ -117,7 +116,7 @@ public class CompositionActivity extends BaseActivity implements FragmentProgres
 
 	@Override
 	public void onBackPressed() {
-		if (JCVideoPlayer.backPress()) {
+		if (JZVideoPlayer.backPress()) {
 			return;
 		}
 		super.onBackPressed();
@@ -126,7 +125,7 @@ public class CompositionActivity extends BaseActivity implements FragmentProgres
 	@Override
 	protected void onPause() {
 		super.onPause();
-		JCVideoPlayer.releaseAllVideos();
+		JZVideoPlayer.releaseAllVideos();
 	}
 	
 	@Override

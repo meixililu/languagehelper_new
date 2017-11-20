@@ -23,12 +23,11 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Settings;
-import com.messi.languagehelper.util.StringUtils;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
 
 import java.util.List;
 
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
+import cn.jzvd.JZVideoPlayerStandard;
 
 /**
  * Created by luli on 10/23/16.
@@ -45,7 +44,7 @@ public class RcSubjectReadingListItemViewHolder extends RecyclerView.ViewHolder 
     private final FrameLayout list_item_img_parent;
     private final SimpleDraweeView list_item_img,imgs_1,imgs_2,imgs_3;
 
-    private final JCVideoPlayerStandard videoplayer;
+    private final JZVideoPlayerStandard videoplayer;
     private Context context;
     private String recentKey;
     private List<Reading> avObjects;
@@ -66,7 +65,7 @@ public class RcSubjectReadingListItemViewHolder extends RecyclerView.ViewHolder 
         imgs_1 = (SimpleDraweeView) itemView.findViewById(R.id.imgs_1);
         imgs_2 = (SimpleDraweeView) itemView.findViewById(R.id.imgs_2);
         imgs_3 = (SimpleDraweeView) itemView.findViewById(R.id.imgs_3);
-        videoplayer = (JCVideoPlayerStandard) itemView.findViewById(R.id.videoplayer);
+        videoplayer = (JZVideoPlayerStandard) itemView.findViewById(R.id.videoplayer);
     }
 
     public void render(final Reading mAVObject) {
@@ -85,7 +84,7 @@ public class RcSubjectReadingListItemViewHolder extends RecyclerView.ViewHolder 
                 videoplayer.setVisibility(View.VISIBLE);
                 list_item_img_parent.setVisibility(View.GONE);
                 list_item_img.setVisibility(View.GONE);
-                videoplayer.setUp(mAVObject.getMedia_url(), JCVideoPlayerStandard.SCREEN_LAYOUT_LIST, "");
+                videoplayer.setUp(mAVObject.getMedia_url(), JZVideoPlayerStandard.SCREEN_WINDOW_LIST, "");
                 if (!TextUtils.isEmpty(mAVObject.getImg_url())) {
                     Glide.with(context)
                             .load(mAVObject.getImg_url())
@@ -107,15 +106,15 @@ public class RcSubjectReadingListItemViewHolder extends RecyclerView.ViewHolder 
                 if (!TextUtils.isEmpty(mAVObject.getMedia_url())) {
                     music_play_img.setVisibility(View.VISIBLE);
                     if(WXEntryActivity.musicSrv == null){
-                        music_play_img.setImageResource(R.drawable.jc_click_play_selector);
+                        music_play_img.setImageResource(R.drawable.jz_click_play_selector);
                     }else if(mAVObject.getObject_id().equals(WXEntryActivity.musicSrv.lastSongId)){
                         if(WXEntryActivity.musicSrv.PlayerStatus == 1){
-                            music_play_img.setImageResource(R.drawable.jc_click_pause_selector);
+                            music_play_img.setImageResource(R.drawable.jz_click_pause_selector);
                         }else {
-                            music_play_img.setImageResource(R.drawable.jc_click_play_selector);
+                            music_play_img.setImageResource(R.drawable.jz_click_play_selector);
                         }
                     }else {
-                        music_play_img.setImageResource(R.drawable.jc_click_play_selector);
+                        music_play_img.setImageResource(R.drawable.jz_click_play_selector);
                     }
                 } else {
                     music_play_img.setVisibility(View.GONE);

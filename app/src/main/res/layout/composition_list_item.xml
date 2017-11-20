@@ -32,7 +32,7 @@
                 android:textColor="@color/text_dark"
                 android:textSize="@dimen/bigger" />
 
-			<fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
+			<cn.jzvd.JZVideoPlayerStandard
 				android:id="@+id/videoplayer"
 				android:layout_width="match_parent"
 				android:layout_marginBottom="@dimen/padding_7"
@@ -132,6 +132,7 @@
 				fresco:placeholderImageScaleType="fitCenter"
 				fresco:actualImageScaleType="focusCrop"
 				fresco:placeholderImage="@color/text_tint"
+				fresco:roundedCornerRadius="2dp"
 				/>
 
 			<ImageView
@@ -139,7 +140,7 @@
 				android:layout_width="38dp"
 				android:layout_height="38dp"
 				android:layout_gravity="center"
-				android:src="@drawable/jc_click_play_selector"
+				android:src="@drawable/jz_click_play_selector"
 				android:visibility="gone" />
 
         </FrameLayout>

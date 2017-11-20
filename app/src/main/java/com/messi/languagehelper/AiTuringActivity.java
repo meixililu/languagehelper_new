@@ -86,6 +86,8 @@ public class AiTuringActivity extends BaseActivity {
     TextView adSource;
     @BindView(R.id.ad_layout)
     RelativeLayout adLayout;
+    @BindView(R.id.delete_btn)
+    FrameLayout deleteBtn;
     private List<AiEntity> beans;
     private LinearLayoutManager mLinearLayoutManager;
     private SpeechRecognizer recognizer;
@@ -133,17 +135,19 @@ public class AiTuringActivity extends BaseActivity {
 
     @Override
     public void onSwipeRefreshLayoutRefresh() {
-        List<AiEntity> list = DataBaseUtil.getInstance().getAiEntityList(beans.get(0).getId(),AiUtil.Ai_Turing);
-        if (list.size() > 0) {
-            beans.addAll(0, list);
-            mAdapter.notifyDataSetChanged();
-            contentLv.scrollToPosition(list.size());
+        if(beans.size() > 0){
+            List<AiEntity> list = DataBaseUtil.getInstance().getAiEntityList(beans.get(0).getId(), AiUtil.Ai_Turing);
+            if (list.size() > 0) {
+                beans.addAll(0, list);
+                mAdapter.notifyDataSetChanged();
+                contentLv.scrollToPosition(list.size());
+            }
         }
         onSwipeRefreshLayoutFinish();
     }
 
     @OnClick({R.id.volume_btn, R.id.submit_btn_cover, R.id.input_type_layout,
-            R.id.voice_btn_cover})
+            R.id.voice_btn_cover,R.id.delete_btn})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.volume_btn:
@@ -166,7 +170,16 @@ public class AiTuringActivity extends BaseActivity {
             case R.id.voice_btn_cover:
                 showIatDialog();
                 break;
+            case R.id.delete_btn:
+                clear_all();
+                break;
         }
+    }
+
+    private void clear_all(){
+        beans.clear();
+        mAdapter.notifyDataSetChanged();
+        DataBaseUtil.getInstance().deleteAiEntity(AiUtil.Ai_Turing);
     }
 
     private void submit() {
@@ -287,7 +300,7 @@ public class AiTuringActivity extends BaseActivity {
             mAiEntity.setContent(mAiResult.getText());
             if (TextUtils.isEmpty(mAiResult.getUrl())) {
                 mAiEntity.setContent_type(AiUtil.Content_Type_Text);
-            }else {
+            } else {
                 mAiEntity.setLink(mAiResult.getUrl());
                 mAiEntity.setContent_type(AiUtil.Content_Type_Link);
             }

@@ -61,6 +61,7 @@
     <string name="download">Try it</string>
     <string name="english">En</string>
     <string name="english_essay">English Essay</string>
+    <string name="english_fm">FM</string>
     <string name="errcode_cancel">cancel</string>
     <string name="errcode_deny">deny</string>
     <string name="errcode_success">success</string>

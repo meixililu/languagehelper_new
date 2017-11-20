@@ -409,6 +409,14 @@ public class DataBaseUtil {
         return history;
     }
 
+    public void deleteAiEntity(String type){
+        List<AiEntity> history = mAiEntityDao
+                .queryBuilder()
+                .where(AiEntityDao.Properties.Ai_type.eq(type))
+                .list();
+        mAiEntityDao.deleteInTx(history);
+    }
+
     public void deleteAiEntity(AiEntity entity){
         mAiEntityDao.delete(entity);
     }

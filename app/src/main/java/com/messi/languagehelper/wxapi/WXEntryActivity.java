@@ -49,11 +49,13 @@ import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.TranslateUtil;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
+import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
+import com.ximalaya.ting.android.sdkdownloader.XmDownloadManager;
 
 import java.util.HashMap;
 import java.util.List;
 
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+import cn.jzvd.JZVideoPlayer;
 
 public class WXEntryActivity extends BaseActivity implements OnClickListener,FragmentProgressbarListener {
 
@@ -81,6 +83,7 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 			mInstance = this;
 			initViews();
 			Settings.verifyStoragePermissions(this,Settings.PERMISSIONS_STORAGE);
+			initXimalayaSDK();
 			runCheckUpdateTask();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -120,6 +123,12 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 			}
 		});
         setLastTimeSelectTab();
+	}
+
+	private void initXimalayaSDK(){
+		LogUtil.DefalutLog("main---initXimalayaSDK");
+		XmPlayerManager.getInstance(this).init();
+		XmPlayerManager.getInstance(this).setCommonBusinessHandle(XmDownloadManager.getInstance());
 	}
 
 	//connect to the service
@@ -187,7 +196,7 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 	
 	@Override
 	public void onBackPressed() {
-		if (JCVideoPlayer.backPress()) {
+		if (JZVideoPlayer.backPress()) {
 			return;
 		}
     	if ((System.currentTimeMillis() - exitTime) > 2000) {
@@ -211,7 +220,7 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 	@Override
 	protected void onPause() {
 		super.onPause();
-		JCVideoPlayer.releaseAllVideos();
+		JZVideoPlayer.releaseAllVideos();
 	}
 
 	@Override
@@ -227,12 +236,13 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 		if(mSharedPreferences.getBoolean(KeyUtil.AutoClearTran, false)){
 			DataBaseUtil.getInstance().clearExceptFavoriteTran();
 		}
-		JCVideoPlayer.releaseAllVideos();
+		JZVideoPlayer.releaseAllVideos();
 		PlayUtil.onDestroy();
 		if(playIntent != null){
 			stopService(playIntent);
 		}
 		unbindService(musicConnection);
+		XmPlayerManager.getInstance(this).release();
 		musicSrv = null;
 	}
 

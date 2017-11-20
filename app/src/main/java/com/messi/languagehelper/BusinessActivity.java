@@ -4,11 +4,10 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 
-import com.messi.languagehelper.adapter.BroadcastAdapter;
 import com.messi.languagehelper.adapter.BusinessAdapter;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+import cn.jzvd.JZVideoPlayer;
 
 public class BusinessActivity extends BaseActivity implements FragmentProgressbarListener {
 
@@ -36,7 +35,7 @@ public class BusinessActivity extends BaseActivity implements FragmentProgressba
 
     @Override
     public void onBackPressed() {
-        if (JCVideoPlayer.backPress()) {
+        if (JZVideoPlayer.backPress()) {
             return;
         }
         super.onBackPressed();
@@ -45,6 +44,6 @@ public class BusinessActivity extends BaseActivity implements FragmentProgressba
     @Override
     protected void onPause() {
         super.onPause();
-        JCVideoPlayer.releaseAllVideos();
+        JZVideoPlayer.releaseAllVideos();
     }
 }

@@ -14,6 +14,7 @@ import com.avos.avoscloud.okhttp.RequestBody;
 import com.avos.avoscloud.okhttp.Response;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.messi.languagehelper.bean.BaiduV2Bean;
 import com.messi.languagehelper.bean.DictionaryRootJuhe;
 import com.messi.languagehelper.bean.HjTranBean;
 import com.messi.languagehelper.bean.IcibaNew;
@@ -820,11 +821,15 @@ public class TranslateUtil {
 			mResponse = LanguagehelperHttpClient.postHjApi(null);
 			result = tran_hj_api(mResponse);
 			if(result == null){
-				mResponse = LanguagehelperHttpClient.get388gcom(null);
-				result = tran_3g88_api(mResponse);
-				if (result == null) {
-					mResponse = LanguagehelperHttpClient.postBaidu(null);
-					result = tran_bd_api(mResponse);
+				mResponse = LanguagehelperHttpClient.getBaiduV2api(null);
+				result = tran_baiduv2_api(mResponse);
+				if(result == null){
+					mResponse = LanguagehelperHttpClient.get388gcom(null);
+					result = tran_3g88_api(mResponse);
+					if (result == null) {
+						mResponse = LanguagehelperHttpClient.postBaidu(null);
+						result = tran_bd_api(mResponse);
+					}
 				}
 			}
 		}
@@ -858,6 +863,20 @@ public class TranslateUtil {
 		return currentDialogBean;
 	}
 
+	private static record tran_baiduv2_api(Response mResponse) throws Exception{
+		record currentDialogBean = null;
+		if(mResponse != null && mResponse.isSuccessful()) {
+			String mResult = mResponse.body().string();
+			LogUtil.DefalutLog("v2:"+mResult);
+			BaiduV2Bean mBaiduV2Bean = JSON.parseObject(mResult, BaiduV2Bean.class);
+			if (mBaiduV2Bean != null && mBaiduV2Bean.getTrans_result() != null &&
+					mBaiduV2Bean.getTrans_result().getStatus() == 0) {
+				currentDialogBean = new record(mBaiduV2Bean.getTrans_result().getData().get(0).getDst(), Settings.q);
+				LogUtil.DefalutLog("tran_baiduv2_api http:"+mBaiduV2Bean.getTrans_result().getData().get(0).getDst());
+			}
+		}
+		return currentDialogBean;
+	}
 
 	private static record tran_hj_api(Response mResponse) throws Exception{
 		record currentDialogBean = null;

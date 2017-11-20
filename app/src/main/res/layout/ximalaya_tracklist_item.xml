@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_cover"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:foreground="@drawable/framelayout_selector"
+    android:background="@color/white" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal" >
+
+		<FrameLayout
+			android:id="@+id/img_layout"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			>
+			<com.facebook.drawee.view.SimpleDraweeView
+				android:id="@+id/list_item_img"
+				android:layout_width="50dp"
+				android:layout_height="50dp"
+				fresco:placeholderImageScaleType="fitCenter"
+				fresco:actualImageScaleType="focusCrop"
+				fresco:placeholderImage="@color/text_tint"
+				fresco:roundAsCircle="true"
+				fresco:overlayImage="@color/none_alpha8"
+				/>
+			<ImageView
+				android:id="@+id/music_play_img"
+				android:layout_width="25dp"
+				android:layout_height="25dp"
+				android:layout_gravity="center"
+				android:src="@drawable/ic_play_white"/>
+		</FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+			android:layout_toLeftOf="@id/img_layout"
+			android:layout_marginRight="@dimen/padding_5"
+            android:orientation="vertical"
+			android:background="@color/white"
+            >
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+				android:layout_alignParentTop="true"
+                android:maxLines="2"
+				android:background="@color/white"
+				android:layout_marginBottom="@dimen/padding_15"
+                android:textColor="@color/text_dark"
+                android:textSize="@dimen/big" />
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+				android:layout_below="@id/title"
+				android:layout_alignParentBottom="true"
+                android:orientation="horizontal"
+				android:background="@color/white"
+                >
+                <TextView
+	                android:id="@+id/source_name"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+					android:background="@color/white"
+					android:maxLines="1"
+	                android:gravity="left"
+	                android:textColor="@color/text_grey1"
+					android:drawableLeft="@drawable/ic_item_playtimes_count"
+	                android:textSize="@dimen/smaller_l" />
+                <TextView
+	                android:id="@+id/type_name"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+					android:maxLines="1"
+					android:background="@color/white"
+	                android:layout_marginLeft="@dimen/padding_20"
+	                android:gravity="left"
+	                android:textColor="@color/text_grey1"
+					android:drawableLeft="@drawable/ic_item_duration"
+	                android:textSize="@dimen/smaller_l" />
+				<TextView
+					android:id="@+id/publish_time"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:maxLines="1"
+					android:background="@color/white"
+					android:layout_marginLeft="@dimen/padding_20"
+					android:gravity="left"
+					android:textColor="@color/text_grey1"
+					android:textSize="@dimen/smaller_l" />
+            </LinearLayout>
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</FrameLayout>

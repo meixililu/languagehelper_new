@@ -2,12 +2,8 @@ package com.messi.languagehelper;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
@@ -32,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+import cn.jzvd.JZVideoPlayer;
 
 public class SearchResultActivity extends BaseActivity{
 
@@ -262,7 +258,7 @@ public class SearchResultActivity extends BaseActivity{
 
 	@Override
 	public void onBackPressed() {
-		if (JCVideoPlayer.backPress()) {
+		if (JZVideoPlayer.backPress()) {
 			return;
 		}
 		super.onBackPressed();
@@ -279,7 +275,7 @@ public class SearchResultActivity extends BaseActivity{
 	@Override
 	protected void onPause() {
 		super.onPause();
-		JCVideoPlayer.releaseAllVideos();
+		JZVideoPlayer.releaseAllVideos();
 	}
 
 	@Override

@@ -1,17 +1,21 @@
 package com.messi.languagehelper.util;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.iflytek.cloud.thirdparty.T;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-
-import android.app.Activity;
-import android.content.Context;
-import android.content.SharedPreferences;
-
-import com.google.gson.Gson;
+import java.lang.reflect.Type;
+import java.util.List;
 
 public class SaveData {
 
@@ -24,6 +28,17 @@ public class SaveData {
         SharedPreferences sp = Settings.getSharedPreferences(mContext);
         String json = sp.getString(name,"");
         return new Gson().fromJson(json,classname);
+    }
+
+    public static void saveDataListAsJson(Context mContext,String name,List<?> json){
+        SharedPreferences sp = Settings.getSharedPreferences(mContext);
+        Settings.saveSharedPreferences(sp, name, new Gson().toJson(json));
+    }
+
+    public static <T> T getDataListFonJson(Context mContext, String name, Type type){
+        SharedPreferences sp = Settings.getSharedPreferences(mContext);
+        String json = sp.getString(name,"");
+        return new Gson().fromJson(json,type);
     }
 
 	/**

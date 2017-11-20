@@ -2,7 +2,7 @@
 
     <string name="app_name">中英互译</string>
     <string name="app_des">告别说不出口的英语</string>
-    <string name="app_ad">学英语，你值得拥有！</string>
+    <string name="app_ad">随时随地 学英语</string>
     <string name="author">作者：黎潞</string>
     <string name="designer">设计：李茜霞</string>
     <string name="title_about">关于我们</string>
@@ -331,6 +331,7 @@
     <string name="start_to_fight">闯关</string>
     <string name="title_tuling_ai">图灵机器人</string>
     <string name="title_tuling_ai_des">中文语境下智能度最高的机器人</string>
+    <string name="english_fm">英语FM</string>
 
 
 </resources>

@@ -1,13 +1,13 @@
 package com.messi.languagehelper;
 
-import com.messi.languagehelper.adapter.WordStudyTabAdapter;
-import com.messi.languagehelper.impl.FragmentProgressbarListener;
-
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+import com.messi.languagehelper.adapter.WordStudyTabAdapter;
+import com.messi.languagehelper.impl.FragmentProgressbarListener;
+
+import cn.jzvd.JZVideoPlayer;
 
 public class WordStudyActivity extends BaseActivity implements FragmentProgressbarListener{
 
@@ -36,7 +36,7 @@ public class WordStudyActivity extends BaseActivity implements FragmentProgressb
 
 	@Override
 	public void onBackPressed() {
-		if (JCVideoPlayer.backPress()) {
+		if (JZVideoPlayer.backPress()) {
 			return;
 		}
 		super.onBackPressed();
@@ -45,7 +45,7 @@ public class WordStudyActivity extends BaseActivity implements FragmentProgressb
 	@Override
 	protected void onPause() {
 		super.onPause();
-		JCVideoPlayer.releaseAllVideos();
+		JZVideoPlayer.releaseAllVideos();
 	}
 	
 	@Override

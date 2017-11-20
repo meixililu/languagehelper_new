@@ -1,8 +1,12 @@
 package com.messi.languagehelper;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.View.OnClickListener;
 
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
@@ -12,7 +16,6 @@ import com.iflytek.voiceads.IFLYNativeAd;
 import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.adapter.RcReadingListAdapter;
-import com.messi.languagehelper.adapter.ReadingListAdapter;
 import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.service.PlayerService;
@@ -21,26 +24,14 @@ import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
-import com.messi.languagehelper.util.ScreenUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.ToastUtil;
-import com.messi.languagehelper.views.DividerItemDecoration;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
-import android.graphics.Color;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.AbsListView;
-import android.widget.AbsListView.OnScrollListener;
-import android.widget.ListView;
+import java.util.ArrayList;
+import java.util.List;
 
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+import cn.jzvd.JZVideoPlayer;
 
 public class ReadingsActivity extends BaseActivity implements OnClickListener{
 
@@ -216,6 +207,8 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 			}
 			if(skip == maxRandom){
 				hasMore = false;
+			}else {
+				hasMore = true;
 			}
 
 		}
@@ -301,7 +294,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 
 	@Override
 	public void onBackPressed() {
-		if (JCVideoPlayer.backPress()) {
+		if (JZVideoPlayer.backPress()) {
 			return;
 		}
 		super.onBackPressed();
@@ -318,7 +311,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 	@Override
 	protected void onPause() {
 		super.onPause();
-		JCVideoPlayer.releaseAllVideos();
+		JZVideoPlayer.releaseAllVideos();
 	}
 
 	@Override

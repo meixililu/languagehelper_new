@@ -28,6 +28,8 @@ public class KeyUtil {
 
 	public static final String URL = "urlkey";
 
+	public static final String List = "List";
+
 	public static final String ShareUrlMsg = "ShareUrlMsg";
 
 	public static final String ToolbarBackgroundColorKey = "ToolbarBackgroundColorKey";

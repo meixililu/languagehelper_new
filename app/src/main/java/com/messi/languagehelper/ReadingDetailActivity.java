@@ -1,16 +1,10 @@
 package com.messi.languagehelper;
 
 import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.IBinder;
-import android.os.Message;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.NestedScrollView;
@@ -32,25 +26,23 @@ import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.service.PlayerService;
-import com.messi.languagehelper.task.MyThread;
 import com.messi.languagehelper.util.ADUtil;
-import com.messi.languagehelper.util.DownLoadUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
-import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.TextHandlerUtil;
 import com.messi.languagehelper.util.ViewUtil;
 import com.messi.languagehelper.util.XFYSAD;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
+
 import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
-import com.messi.languagehelper.service.PlayerService.MusicBinder;
+import cn.jzvd.JZVideoPlayer;
+import cn.jzvd.JZVideoPlayerStandard;
 
 public class ReadingDetailActivity extends BaseActivity {
 
@@ -71,7 +63,7 @@ public class ReadingDetailActivity extends BaseActivity {
     @BindView(R.id.item_img)
     SimpleDraweeView pimgview;
     @BindView(R.id.videoplayer)
-    JCVideoPlayerStandard videoplayer;
+    JZVideoPlayerStandard videoplayer;
 
     private Reading mAVObject;
     private List<Reading> mAVObjects;
@@ -111,7 +103,7 @@ public class ReadingDetailActivity extends BaseActivity {
         if (!TextUtils.isEmpty(mAVObject.getType()) &&
                 mAVObject.getType().equals("video")) {
             videoplayer.setVisibility(View.VISIBLE);
-            videoplayer.setUp(mAVObject.getMedia_url(), JCVideoPlayerStandard.SCREEN_LAYOUT_LIST, "");
+            videoplayer.setUp(mAVObject.getMedia_url(), JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL, "");
             if (!TextUtils.isEmpty(mAVObject.getImg_url())) {
                 Glide.with(this)
                         .load(mAVObject.getImg_url())
@@ -296,7 +288,7 @@ public class ReadingDetailActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        if (JCVideoPlayer.backPress()) {
+        if (JZVideoPlayer.backPress()) {
             return;
         }
         super.onBackPressed();
@@ -305,7 +297,7 @@ public class ReadingDetailActivity extends BaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        JCVideoPlayer.releaseAllVideos();
+        JZVideoPlayer.releaseAllVideos();
     }
 
     @Override

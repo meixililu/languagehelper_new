@@ -25,13 +25,13 @@ import com.messi.languagehelper.wxapi.WXEntryActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
+import cn.jzvd.JZVideoPlayer;
+import cn.jzvd.JZVideoPlayerStandard;
 
 public class SymbolDetailActivity extends BaseActivity implements OnClickListener {
 
     @BindView(R.id.videoplayer)
-    JCVideoPlayerStandard videoplayer;
+    JZVideoPlayerStandard videoplayer;
     @BindView(R.id.symbol_en)
     TextView symbol_en;
     @BindView(R.id.symbol_des)
@@ -96,7 +96,7 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
             symbol_info.setText(avObject.getSDInfo());
             if(!TextUtils.isEmpty(avObject.getBackup1())){
                 videoplayer.setVisibility(View.VISIBLE);
-                videoplayer.setUp(avObject.getBackup1(),JCVideoPlayerStandard.SCREEN_LAYOUT_LIST,"");
+                videoplayer.setUp(avObject.getBackup1(),JZVideoPlayerStandard.SCREEN_WINDOW_LIST,"");
                 if (!TextUtils.isEmpty(avObject.getBackup2())) {
                     Glide.with(this)
                             .load(avObject.getBackup2())
@@ -231,7 +231,7 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
 
     @Override
     public void onBackPressed() {
-        if (JCVideoPlayer.backPress()) {
+        if (JZVideoPlayer.backPress()) {
             return;
         }
         super.onBackPressed();
@@ -240,7 +240,7 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
     @Override
     protected void onPause() {
         super.onPause();
-        JCVideoPlayer.releaseAllVideos();
+        JZVideoPlayer.releaseAllVideos();
     }
 
     @Override

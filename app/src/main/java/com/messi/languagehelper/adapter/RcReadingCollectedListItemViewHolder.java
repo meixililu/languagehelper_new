@@ -1,7 +1,5 @@
 package com.messi.languagehelper.adapter;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
@@ -19,14 +17,13 @@ import com.messi.languagehelper.R;
 import com.messi.languagehelper.ReadingDetailActivity;
 import com.messi.languagehelper.WebViewActivity;
 import com.messi.languagehelper.dao.Reading;
-import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
 
 import java.util.List;
 
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
+import cn.jzvd.JZVideoPlayerStandard;
 
 /**
  * Created by luli on 10/23/16.
@@ -41,7 +38,7 @@ public class RcReadingCollectedListItemViewHolder extends RecyclerView.ViewHolde
     private final ImageView music_play_img;
     private final FrameLayout list_item_img_parent;
     private final SimpleDraweeView list_item_img;
-    private final JCVideoPlayerStandard videoplayer;
+    private final JZVideoPlayerStandard videoplayer;
     private Fragment context;
     private List<Reading> avObjects;
 
@@ -56,7 +53,7 @@ public class RcReadingCollectedListItemViewHolder extends RecyclerView.ViewHolde
         source_name = (TextView) itemView.findViewById(R.id.source_name);
         music_play_img = (ImageView) itemView.findViewById(R.id.music_play_img);
         list_item_img = (SimpleDraweeView) itemView.findViewById(R.id.list_item_img);
-        videoplayer = (JCVideoPlayerStandard) itemView.findViewById(R.id.videoplayer);
+        videoplayer = (JZVideoPlayerStandard) itemView.findViewById(R.id.videoplayer);
     }
 
     public void render(final Reading mAVObject) {
@@ -69,7 +66,7 @@ public class RcReadingCollectedListItemViewHolder extends RecyclerView.ViewHolde
                 videoplayer.setVisibility(View.VISIBLE);
                 list_item_img_parent.setVisibility(View.GONE);
                 list_item_img.setVisibility(View.GONE);
-                videoplayer.setUp(mAVObject.getMedia_url(), JCVideoPlayerStandard.SCREEN_LAYOUT_LIST, "");
+                videoplayer.setUp(mAVObject.getMedia_url(), JZVideoPlayerStandard.SCREEN_WINDOW_LIST, "");
                 if (!TextUtils.isEmpty(mAVObject.getImg_url())) {
                     Glide.with(context)
                             .load(mAVObject.getImg_url())
@@ -91,15 +88,15 @@ public class RcReadingCollectedListItemViewHolder extends RecyclerView.ViewHolde
                 if (!TextUtils.isEmpty(mAVObject.getMedia_url())) {
                     music_play_img.setVisibility(View.VISIBLE);
                     if(WXEntryActivity.musicSrv == null){
-                        music_play_img.setImageResource(R.drawable.jc_click_play_selector);
+                        music_play_img.setImageResource(R.drawable.jz_click_play_selector);
                     }else if(mAVObject.getObject_id().equals(WXEntryActivity.musicSrv.lastSongId)){
                         if(WXEntryActivity.musicSrv.PlayerStatus == 1){
-                            music_play_img.setImageResource(R.drawable.jc_click_pause_selector);
+                            music_play_img.setImageResource(R.drawable.jz_click_pause_selector);
                         }else {
-                            music_play_img.setImageResource(R.drawable.jc_click_play_selector);
+                            music_play_img.setImageResource(R.drawable.jz_click_play_selector);
                         }
                     }else {
-                        music_play_img.setImageResource(R.drawable.jc_click_play_selector);
+                        music_play_img.setImageResource(R.drawable.jz_click_play_selector);
                     }
 
                 } else {

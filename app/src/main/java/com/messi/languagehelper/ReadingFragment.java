@@ -1,32 +1,5 @@
 package com.messi.languagehelper;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
-import com.iflytek.voiceads.AdError;
-import com.iflytek.voiceads.AdKeys;
-import com.iflytek.voiceads.IFLYNativeAd;
-import com.iflytek.voiceads.IFLYNativeListener;
-import com.iflytek.voiceads.NativeADDataRef;
-import com.messi.languagehelper.adapter.RcReadingListAdapter;
-import com.messi.languagehelper.adapter.ReadingListAdapter;
-import com.messi.languagehelper.dao.Reading;
-import com.messi.languagehelper.db.DataBaseUtil;
-import com.messi.languagehelper.impl.FragmentProgressbarListener;
-import com.messi.languagehelper.service.PlayerService;
-import com.messi.languagehelper.util.ADUtil;
-import com.messi.languagehelper.util.AVOUtil;
-import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.NumberUtil;
-import com.messi.languagehelper.util.ScreenUtil;
-import com.messi.languagehelper.util.Settings;
-import com.messi.languagehelper.util.ToastUtil;
-import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
-
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -39,9 +12,29 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.AbsListView.OnScrollListener;
-import android.widget.ListView;
+
+import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVQuery;
+import com.iflytek.voiceads.AdError;
+import com.iflytek.voiceads.AdKeys;
+import com.iflytek.voiceads.IFLYNativeAd;
+import com.iflytek.voiceads.IFLYNativeListener;
+import com.iflytek.voiceads.NativeADDataRef;
+import com.messi.languagehelper.adapter.RcReadingListAdapter;
+import com.messi.languagehelper.dao.Reading;
+import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.impl.FragmentProgressbarListener;
+import com.messi.languagehelper.service.PlayerService;
+import com.messi.languagehelper.util.ADUtil;
+import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NumberUtil;
+import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.ToastUtil;
+import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReadingFragment extends BaseFragment implements OnClickListener{
 
@@ -244,6 +237,8 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 			}
 			if(skip == maxRandom){
 				hasMore = false;
+			}else {
+				hasMore = true;
 			}
 		}
 	}

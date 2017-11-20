@@ -19,6 +19,11 @@
     <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Compartir con"</string>
     <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"Compartir con %s"</string>
     <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Contraer"</string>
+    <string name="no_url">No hay vídeo</string>
+    <string name="replay">Volver a ver</string>
     <string msgid="146198913615257606" name="search_menu_title">"Buscar"</string>
     <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"+999"</string>
+    <string name="tips_not_wifi">Estás conectado a una red móvil, el reproductor utilizará tus datos si continuas</string>
+    <string name="tips_not_wifi_cancel">Prar</string>
+    <string name="tips_not_wifi_confirm">Reproducir</string>
 </resources>

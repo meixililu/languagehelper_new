@@ -1,15 +1,11 @@
 package com.messi.languagehelper;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 
 import com.messi.languagehelper.adapter.DailySentenceAndEssayAdapter;
-import com.messi.languagehelper.adapter.JokePageAdapter;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
-
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 
 public class DailySentenceAndEssayActivity extends BaseActivity implements FragmentProgressbarListener {
 

@@ -310,5 +310,6 @@
     <string name="start_to_fight">Start To Fight</string>
     <string name="title_tuling_ai">Turing Robot</string>
     <string name="title_tuling_ai_des">The Best Chinese Robot</string>
+    <string name="english_fm">FM</string>
 
 </resources>

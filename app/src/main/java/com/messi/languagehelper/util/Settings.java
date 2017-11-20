@@ -48,7 +48,9 @@ public class Settings {
 	public static String IcibaTranslateNewUrl = "http://fy.iciba.com/ajax.php?a=fy";
 
 	public static String Tran388GCOmUrl = "http://www.388g.com/tts/trans.php?tool=bd&q=";
-	
+
+	public static String BaiduTranV2api = "http://fanyi.baidu.com//v2transapi?from=auto&to=auto&transtype=hash&simple_means_flag=3&query=";
+
 //	public static String BaiduOCRUrlOld = "http://apis.baidu.com/idl_baidu/baiduocrpay/idlocrpaid";
 
 	public static String BaiduAccessToken = "https://aip.baidubce.com/oauth/2.0/token";
@@ -88,7 +90,8 @@ public class Settings {
 	/**showapi joke text api**/
 	public static String JokeTextUrl = "http://route.showapi.com/341-1";
 	
-	public static final String CaiLingUrl = "http://api.openspeech.cn/kyls/NTBhYTEyMTM=";
+//	public static final String CaiLingUrl = "http://api.openspeech.cn/kyls/NTBhYTEyMTM=";old
+	public static final String CaiLingUrl = "http://iring.diyring.cc/friendv2/135430af88bc3328#main";
 
 	public static final String ChDicSearchUrl = "http://v.juhe.cn/xhzd/query";
 

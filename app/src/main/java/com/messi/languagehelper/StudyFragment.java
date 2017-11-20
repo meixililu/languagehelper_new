@@ -5,14 +5,11 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 
 import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVObject;
@@ -43,7 +40,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+import cn.jzvd.JZVideoPlayer;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -203,7 +200,7 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         if (!isVisibleToUser) {
-            JCVideoPlayer.releaseAllVideos();
+            JZVideoPlayer.releaseAllVideos();
         }
     }
 
@@ -218,7 +215,7 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        JCVideoPlayer.releaseAllVideos();
+        JZVideoPlayer.releaseAllVideos();
         unregisterBroadcast();
     }
 

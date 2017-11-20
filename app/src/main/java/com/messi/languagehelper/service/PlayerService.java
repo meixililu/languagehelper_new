@@ -9,12 +9,10 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Binder;
-import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.PowerManager;
-import android.support.annotation.IntDef;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
@@ -24,14 +22,9 @@ import android.widget.RemoteViews;
 import com.messi.languagehelper.BaseActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.dao.Reading;
-import com.messi.languagehelper.task.MyThread;
-import com.messi.languagehelper.util.DownLoadUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
-
-import java.util.List;
 
 /**
  * Created by luli on 05/05/2017.
@@ -109,21 +102,23 @@ public class PlayerService extends Service implements
     private void checkMp3IsExit(Reading mAVObject) {
         if (mAVObject != null) {
             this.song = mAVObject;
-            String downLoadUrl = mAVObject.getMedia_url();
-            int pos = downLoadUrl.lastIndexOf(SDCardUtil.Delimiter) + 1;
-            String fileName = downLoadUrl.substring(pos, downLoadUrl.length());
-            String rootUrl = SDCardUtil.ReadingPath +
-                    mAVObject.getObject_id() + SDCardUtil.Delimiter;
-            String fileFullName = SDCardUtil.getDownloadPath(rootUrl) + fileName;
-            LogUtil.DefalutLog("fileName:" + fileName + "---fileFullName:" + fileFullName);
-            if (SDCardUtil.isFileExist(fileFullName)) {
-                startToPlay(mAVObject);
-                LogUtil.DefalutLog("FileExist");
-            } else {
-                sendBroadcast(action_loading);
-                LogUtil.DefalutLog("FileNotExist");
-                DownLoadUtil.downloadFile(this, downLoadUrl, rootUrl, fileName, mHandler);
-            }
+            startToPlay(mAVObject);
+
+//            String downLoadUrl = mAVObject.getMedia_url();
+//            int pos = downLoadUrl.lastIndexOf(SDCardUtil.Delimiter) + 1;
+//            String fileName = downLoadUrl.substring(pos, downLoadUrl.length());
+//            String rootUrl = SDCardUtil.ReadingPath +
+//                    mAVObject.getObject_id() + SDCardUtil.Delimiter;
+//            String fileFullName = SDCardUtil.getDownloadPath(rootUrl) + fileName;
+//            LogUtil.DefalutLog("fileName:" + fileName + "---fileFullName:" + fileFullName);
+//            if (SDCardUtil.isFileExist(fileFullName)) {
+//
+//                LogUtil.DefalutLog("FileExist");
+//            } else {
+//                sendBroadcast(action_loading);
+//                LogUtil.DefalutLog("FileNotExist");
+//                DownLoadUtil.downloadFile(this, downLoadUrl, rootUrl, fileName, mHandler);
+//            }
         }
     }
 
@@ -132,7 +127,7 @@ public class PlayerService extends Service implements
         lastSongId = song.getObject_id();
         PlayerStatus = 1;
         player.reset();
-        Uri uri = Uri.parse(DownLoadUtil.getLocalFilePath(song));
+        Uri uri = Uri.parse(song.getMedia_url());
         try{
             player.setDataSource(getApplicationContext(), uri);
             player.prepareAsync();

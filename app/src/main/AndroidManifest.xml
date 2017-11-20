@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INSTALL_SHORTCUT" />
@@ -60,6 +61,14 @@
             android:name="leancloud"
             android:value="LeanCloud" />
 
+        <!-- 喜马拉雅fm -->
+        <meta-data
+            android:name="app_key"
+            android:value="a167180a30ec21d09c1c78ccacdf5d43"/>
+        <meta-data
+            android:name="pack_id"
+            android:value="com.messi.languagehelper"/>
+
         <!-- 讯飞广告sdk -->
         <meta-data
             android:name="IFLYTEK_APPKEY_AD"
@@ -85,12 +94,46 @@
             </intent-filter>
         </service>
 
+        <service android:name="com.ximalaya.ting.android.opensdk.player.service.XmPlayerService"
+                android:process=":player"/>
+        <receiver
+            android:name="com.ximalaya.ting.android.opensdk.player.receive.PlayerReceiver" android:exported="true" android:process=":player">
+            <intent-filter>
+                <action android:name="com.ximalaya.ting.android.ACTION_CONTROL_START_PAUSE" />
+                <action android:name="com.ximalaya.ting.android.ACTION_CONTROL_PLAY_PRE" />
+                <action android:name="com.ximalaya.ting.android.ACTION_CONTROL_PLAY_NEXT" />
+                <action android:name="com.ximalaya.ting.android.ACTION_CLOSE" />
+                <action android:name="com.ximalaya.ting.android.ACTION_CONTROL_RELEASE_SERVICE" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.ximalaya.ting.android.opensdk.player.receive.WireControlReceiver"
+            android:process=":player"
+            android:exported="true" />
+        <receiver android:name=".service.XimalayaReceiver" android:exported="true" android:process=":player">
+            <intent-filter>
+                <action android:name="com.app.test.android.Action_Close"/>
+            </intent-filter>
+
+        </receiver>
+
+        <activity
+            android:name=".XimalayaDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".XimalayaTrackListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".XimalayaEnglishActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".AiTuringActivity"
             android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait" />
         <activity
             android:name=".AiDialogueFightActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".XimalayaActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".AiDialogueSelectCourseActivity"

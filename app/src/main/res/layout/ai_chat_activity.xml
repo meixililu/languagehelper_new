@@ -26,13 +26,22 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_gravity="center"
-                android:visibility="visible"
+                android:visibility="gone"
                 />
-
+            <FrameLayout
+                android:id="@+id/delete_btn"
+                android:layout_width="45dp"
+                android:layout_height="?attr/actionBarSize">
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_clear_all" />
+            </FrameLayout>
             <FrameLayout
                 android:id="@+id/volume_btn"
-                android:layout_width="50dp"
-                android:layout_height="50dp">
+                android:layout_width="45dp"
+                android:layout_height="?attr/actionBarSize">
 
                 <ImageView
                     android:id="@+id/volume_img"

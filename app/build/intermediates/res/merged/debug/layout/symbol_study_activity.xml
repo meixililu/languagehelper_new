@@ -40,7 +40,7 @@
     		android:orientation="vertical"
 	        >
 
-			<fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
+			<cn.jzvd.JZVideoPlayerStandard
 				android:id="@+id/videoplayer"
 				android:layout_margin="@dimen/padding_7"
 				android:layout_width="match_parent"

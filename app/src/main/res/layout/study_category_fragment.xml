@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_view"
@@ -331,7 +331,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/padding_7"
             android:orientation="horizontal">
 
             <FrameLayout
@@ -415,8 +414,8 @@
             android:id="@+id/search_layout"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginBottom="@dimen/padding_7"
             android:background="@color/white"
+            android:layout_marginTop="1px"
             android:foreground="@drawable/framelayout_selector"
             >
             <LinearLayout
@@ -444,118 +443,41 @@
             </LinearLayout>
 
         </FrameLayout>
-
         <FrameLayout
-            android:id="@+id/ad_layout"
+            android:id="@+id/ximalaya_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/padding_5"
+            android:layout_marginTop="@dimen/padding_7"
+            android:layout_height="47dp"
             android:background="@color/white"
-            android:foreground="@drawable/framelayout_selector"
-            android:visibility="gone">
+            android:layout_marginBottom="1px"
+            android:foreground="@drawable/framelayout_selector">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/padding_10"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
                 android:background="@color/white"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:minHeight="80dp"
-                    android:orientation="vertical"
-                    android:background="@color/white"
-                    >
-                    <TextView
-                        android:id="@+id/title"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:background="@color/white"
-                        android:maxLines="3"
-                        android:textColor="@color/text_dark"
-                        android:textSize="@dimen/bigger" />
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:background="@color/white"
-                        android:gravity="bottom"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/source_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@color/white"
-                            android:gravity="left"
-                            android:maxLines="1"
-                            android:textColor="@color/text_grey1"
-                            android:textSize="@dimen/small" />
-
-                        <TextView
-                            android:id="@+id/type_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/padding_20"
-                            android:background="@color/white"
-                            android:gravity="left"
-                            android:maxLines="1"
-                            android:textColor="@color/text_grey1"
-                            android:textSize="@dimen/small" />
-
-                    </LinearLayout>
-                </LinearLayout>
-                <com.facebook.drawee.view.SimpleDraweeView
-                    android:id="@+id/list_item_img"
-                    android:layout_width="105dp"
-                    android:layout_height="78dp"
-                    fresco:placeholderImageScaleType="fitCenter"
-                    fresco:actualImageScaleType="focusCrop"
-                    fresco:placeholderImage="@color/text_tint"
-                    />
-            </LinearLayout>
+                android:layout_gravity="left"
+                android:layout_marginLeft="12dp"
+                android:gravity="center"
+                android:text="@string/english_fm"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/big" />
+            <ImageView
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginRight="@dimen/padding_10"
+                android:src="@drawable/expend_right"
+                />
         </FrameLayout>
 
-        <FrameLayout
-            android:id="@+id/essay_layout"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/fm_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/padding_5"
-            android:visibility="gone"
+            android:layout_height="match_parent"
             android:background="@color/white"
-            android:foreground="@drawable/framelayout_selector"
-            >
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="@dimen/padding_15"
-                android:paddingBottom="@dimen/padding_5"
-                android:paddingLeft="@dimen/padding_10"
-                android:paddingRight="@dimen/padding_10"
-                android:orientation="vertical">
-                <TextView
-                    android:id="@+id/essay_tv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:textColor="@color/text_black"
-                    android:textSize="@dimen/bigger"
-                    />
-                <TextView
-                    android:id="@+id/essay_prompt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/padding_5"
-                    android:gravity="right"
-                    android:textColor="@color/text_tint"
-                    android:textSize="@dimen/small"
-                    />
-            </LinearLayout>
-        </FrameLayout>
+            />
+
 
     </LinearLayout>
-</ScrollView>
+</android.support.v4.widget.NestedScrollView>

@@ -7,7 +7,7 @@ import android.support.v4.view.ViewPager;
 import com.messi.languagehelper.adapter.ListenSubjectAdapter;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+import cn.jzvd.JZVideoPlayer;
 
 public class ListenSubjectActivity extends BaseActivity implements FragmentProgressbarListener {
 
@@ -35,7 +35,7 @@ public class ListenSubjectActivity extends BaseActivity implements FragmentProgr
 
     @Override
     public void onBackPressed() {
-        if (JCVideoPlayer.backPress()) {
+        if (JZVideoPlayer.backPress()) {
             return;
         }
         super.onBackPressed();
@@ -44,6 +44,6 @@ public class ListenSubjectActivity extends BaseActivity implements FragmentProgr
     @Override
     protected void onPause() {
         super.onPause();
-        JCVideoPlayer.releaseAllVideos();
+        JZVideoPlayer.releaseAllVideos();
     }
 }

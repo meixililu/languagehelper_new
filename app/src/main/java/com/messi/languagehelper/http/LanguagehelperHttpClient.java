@@ -31,6 +31,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import static com.messi.languagehelper.util.Settings.from;
+import static com.messi.languagehelper.util.Settings.to;
+
 public class LanguagehelperHttpClient {
 	
 	public static final int HTTP_RESPONSE_DISK_CACHE_MAX_SIZE = 10 * 1024 * 1024;
@@ -133,8 +136,8 @@ public class LanguagehelperHttpClient {
 			.add("appid", Settings.baidu_appid)
 			.add("salt", String.valueOf(salt))
 			.add("q", Settings.q)
-			.add("from", Settings.from)
-			.add("to", Settings.to)
+			.add("from", from)
+			.add("to", to)
 			.add("sign", getBaiduTranslateSign(salt))
 			.build();
 		return post(Settings.baiduTranslateUrl,  formBody , mCallback);
@@ -199,6 +202,15 @@ public class LanguagehelperHttpClient {
 			to = "en";
 		}
 		String url = Settings.Tran388GCOmUrl + Settings.q + "&from=" + from + "&to=" + to;
+		Request request = new Request.Builder()
+				.url(url)
+				.header("User-Agent", Header)
+				.build();
+		return executePost(request,mCallback);
+	}
+
+	public static Response getBaiduV2api(Callback mCallback) {
+		String url = Settings.BaiduTranV2api + Settings.q;
 		Request request = new Request.Builder()
 				.url(url)
 				.header("User-Agent", Header)
