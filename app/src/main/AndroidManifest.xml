@@ -113,7 +113,6 @@
             <intent-filter>
                 <action android:name="com.app.test.android.Action_Close"/>
             </intent-filter>
-
         </receiver>
 
         <activity

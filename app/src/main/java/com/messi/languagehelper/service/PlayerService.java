@@ -1,8 +1,6 @@
 package com.messi.languagehelper.service;
 
-import android.app.Notification;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.media.AudioManager;
@@ -14,17 +12,15 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.PowerManager;
 import android.support.annotation.Nullable;
-import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
-import android.view.View;
-import android.widget.RemoteViews;
 
-import com.messi.languagehelper.BaseActivity;
-import com.messi.languagehelper.R;
 import com.messi.languagehelper.dao.Reading;
-import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
+import com.messi.languagehelper.util.NotificationUtil;
+import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
+
+import static com.messi.languagehelper.util.KeyUtil.MesType;
+import static com.messi.languagehelper.util.KeyUtil.NotificationTitle;
 
 /**
  * Created by luli on 05/05/2017.
@@ -42,14 +38,13 @@ public class PlayerService extends Service implements
     public static final String action_next = "com.messi.languagehelper.music.next";
     public static final String action_previous = "com.messi.languagehelper.music.previous";
 
-    private static final int NOTIFY_ID = 1;
+    public static final int NOTIFY_ID = 1;
     //media player
     private MediaPlayer player;
     // 0 default, 1 playing, 2 pause
     public int PlayerStatus;
     public String lastSongId = "";
     private Reading song;
-    private NotificationManager manager;
     private final IBinder musicBind = new MusicBinder();
 
     public class MusicBinder extends Binder {
@@ -61,7 +56,7 @@ public class PlayerService extends Service implements
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            sendBroadcast(action_finish_loading);
+            NotificationUtil.sendBroadcast(PlayerService.this,action_finish_loading);
             LogUtil.DefalutLog("receive Handler:"+msg.what);
             if (msg.what == 1) {
                 if(song != null){
@@ -76,7 +71,6 @@ public class PlayerService extends Service implements
         super.onCreate();
         player = new MediaPlayer();
         initMusicPlayer();
-        manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
     }
 
     public void initMusicPlayer(){
@@ -88,6 +82,9 @@ public class PlayerService extends Service implements
     }
 
     public void initAndPlay(Reading song){
+        if(XmPlayerManager.getInstance(this).isPlaying()){
+            XmPlayerManager.getInstance(this).pause();
+        }
         if(!isSameMp3(song)){
             checkMp3IsExit(song);
         }else {
@@ -103,7 +100,6 @@ public class PlayerService extends Service implements
         if (mAVObject != null) {
             this.song = mAVObject;
             startToPlay(mAVObject);
-
 //            String downLoadUrl = mAVObject.getMedia_url();
 //            int pos = downLoadUrl.lastIndexOf(SDCardUtil.Delimiter) + 1;
 //            String fileName = downLoadUrl.substring(pos, downLoadUrl.length());
@@ -141,19 +137,46 @@ public class PlayerService extends Service implements
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (intent != null) {
             String action = intent.getAction();
+            String type = intent.getStringExtra(MesType);
+            String title = intent.getStringExtra(NotificationTitle);
+            LogUtil.DefalutLog("onStartCommand:"+action+"---MesType:"+type);
             if (!TextUtils.isEmpty(action)) {
-                if (action.equals(action_start)) {
-                    restart();
-                }else if(action.equals(action_pause)) {
-                    pause();
-                }else if(action.equals(action_next)) {
+                if(NotificationUtil.mes_type_zyhy.equals(type)){
+                    if (action.equals(action_start)) {
+                        restart();
+                    }else if(action.equals(action_pause)) {
+                        pause();
+                    }else if(action.equals(action_next)) {
 
-                }else if(action.equals(action_previous)) {
+                    }else if(action.equals(action_previous)) {
 
+                    }
+                }else if(NotificationUtil.mes_type_xmly.equals(type)){
+                    if (action.equals(action_start)) {
+                        xmly_play(title);
+                    }else if(action.equals(action_pause)) {
+                        xmly_pause(title);
+                    }else if(action.equals(action_next)) {
+
+                    }else if(action.equals(action_previous)) {
+
+                    }
                 }
             }
         }
         return super.onStartCommand(intent, flags, startId);
+    }
+
+    public void xmly_play(String title){
+        XmPlayerManager.getInstance(this).play();
+        NotificationUtil.showNotification(this,action_pause,title, NotificationUtil.mes_type_xmly);
+        NotificationUtil.sendBroadcast(this,action_pause);
+    }
+
+    public void xmly_pause(String title){
+        XmPlayerManager.getInstance(this).pause();
+        NotificationUtil.showNotification(this,action_start,title, NotificationUtil.mes_type_xmly);
+        NotificationUtil.sendBroadcast(this,action_start);
     }
 
     public boolean isSameMp3(Reading song){
@@ -168,38 +191,46 @@ public class PlayerService extends Service implements
 
     @Override
     public boolean onUnbind(Intent intent) {
-        manager.cancel(NOTIFY_ID);
+        ((NotificationManager) getSystemService(NOTIFICATION_SERVICE)).cancel(NOTIFY_ID);
         player.stop();
         player.release();
         return false;
     }
 
     public void pause(){
-        PlayerStatus = 2;
-        player.pause();
-        showNotification(action_start);
-        sendBroadcast(action_start);
+        if(song != null){
+            PlayerStatus = 2;
+            player.pause();
+            NotificationUtil.showNotification(this,action_start,song.getTitle(),
+                    NotificationUtil.mes_type_zyhy);
+        }
+        NotificationUtil.sendBroadcast(this,action_start);
     }
 
     public void restart(){
-        PlayerStatus = 1;
-        player.start();
-        showNotification(action_pause);
-        sendBroadcast(action_pause);
+        if(song != null){
+            PlayerStatus = 1;
+            player.start();
+            NotificationUtil.showNotification(this,action_pause,song.getTitle(),
+                    NotificationUtil.mes_type_zyhy);
+        }
+        NotificationUtil.sendBroadcast(this,action_pause);
     }
 
     @Override
     public void onCompletion(MediaPlayer mediaPlayer) {
         PlayerStatus = 0;
-        showNotification(action_start);
-        sendBroadcast(action_start);
+        NotificationUtil.showNotification(this,action_start,song.getTitle(),
+                NotificationUtil.mes_type_zyhy);
+        NotificationUtil.sendBroadcast(this,action_start);
     }
 
     @Override
     public void onPrepared(MediaPlayer mediaPlayer) {
         mediaPlayer.start();
-        showNotification(action_pause);
-        sendBroadcast(action_pause);
+        NotificationUtil.showNotification(this,action_pause,song.getTitle(),
+                NotificationUtil.mes_type_zyhy);
+        NotificationUtil.sendBroadcast(this,action_pause);
     }
 
     @Override
@@ -209,45 +240,8 @@ public class PlayerService extends Service implements
         return false;
     }
 
-    private void showNotification(String action){
-        Intent notIntent = new Intent(this, WXEntryActivity.class);
-        notIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendInt = PendingIntent.getActivity(this, 0, notIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
-
-        Intent intentAction = new Intent(action);//新建意图，并设置action标记为"play"，用于接收广播时过滤意图信息
-        PendingIntent pIntentAction = PendingIntent.getService(getApplicationContext(), 0, intentAction,
-                PendingIntent.FLAG_UPDATE_CURRENT);
-        int img_id = R.drawable.ic_pause_grey;
-        if(action.equals(action_pause)){
-            img_id = R.drawable.ic_pause_grey;
-        }else if (action.equals(action_start)) {
-            img_id = R.drawable.ic_play_grey;
-        } else {
-
-        }
-
-        RemoteViews contentView = new RemoteViews(getPackageName(),R.layout.notification_layout);
-        contentView.setTextViewText(R.id.notifi_title, song.getTitle());
-        contentView.setImageViewResource(R.id.notifi_action, img_id);
-        contentView.setViewVisibility(R.id.notifi_previous, View.GONE);
-        contentView.setViewVisibility(R.id.notifi_next, View.GONE);
-        contentView.setOnClickPendingIntent(R.id.notifi_action, pIntentAction);
-
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-        Notification notification = builder.setContentIntent(pendInt)
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setOngoing(true)
-                .setContent(contentView)
-                .setAutoCancel(true)
-                .build();
-        manager.notify(NOTIFY_ID, notification);
-    }
-
-    private void sendBroadcast(String music_action){
-        Intent broadcast = new Intent(BaseActivity.UpdateMusicUIToStop);
-        broadcast.putExtra(KeyUtil.MusicAction,music_action);
-        sendBroadcast(broadcast);
+    public boolean isPlaying(){
+        return PlayerStatus == 1;
     }
 
 }

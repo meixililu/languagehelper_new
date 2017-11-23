@@ -73,6 +73,7 @@ public class XimalayaTrackListActivity extends BaseActivity implements OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ximalaya_tracklist_activity);
         ButterKnife.bind(this);
+        registerBroadcast();
         album_id = getIntent().getStringExtra("album_id");
         play_times = getIntent().getLongExtra("play_times", 100000);
         track_count = getIntent().getLongExtra("track_count", 30);
@@ -194,7 +195,7 @@ public class XimalayaTrackListActivity extends BaseActivity implements OnClickLi
         } else if (music_action.equals(PlayerService.action_finish_loading)) {
             hideProgressbar();
         } else {
-            mAdapter.notifyDataSetChanged();
+            dataChange();
         }
     }
 
@@ -217,7 +218,7 @@ public class XimalayaTrackListActivity extends BaseActivity implements OnClickLi
     @Override
     public void onDestroy() {
         super.onDestroy();
-//        unregisterBroadcast();
+        unregisterBroadcast();
     }
 
     @OnClick({R.id.btn_sort, R.id.btn_download})
@@ -240,22 +241,47 @@ public class XimalayaTrackListActivity extends BaseActivity implements OnClickLi
 
     @Override
     public void onPlayStart() {
-
+        if (XmPlayerManager.getInstance(this).getCurrSound() instanceof Track) {
+            int position = XmPlayerManager.getInstance(this).getCurrentIndex();
+            if(avObjects.size() > position){
+                avObjects.get(position).setUpdateStatus(true);
+                dataChange();
+            }
+        }
     }
 
     @Override
     public void onPlayPause() {
-
+        if (XmPlayerManager.getInstance(this).getCurrSound() instanceof Track) {
+            int position = XmPlayerManager.getInstance(this).getCurrentIndex();
+            if(avObjects.size() > position){
+                avObjects.get(position).setUpdateStatus(false);
+                dataChange();
+            }
+        }
     }
 
     @Override
     public void onPlayStop() {
-
+        if (XmPlayerManager.getInstance(this).getCurrSound() instanceof Track) {
+            int position = XmPlayerManager.getInstance(this).getCurrentIndex();
+            if(avObjects.size() > position){
+                avObjects.get(position).setUpdateStatus(false);
+                dataChange();
+            }
+        }
     }
 
     @Override
     public void onSoundPlayComplete() {
-
+        if (XmPlayerManager.getInstance(this).getCurrSound() instanceof Track) {
+            int position = XmPlayerManager.getInstance(this).getCurrentIndex();
+            if(avObjects.size() > position){
+                avObjects.get(position).setUpdateStatus(false);
+                dataChange();
+            }
+        }
+        LogUtil.DefalutLog("onSoundPlayComplete");
     }
 
     @Override

@@ -129,6 +129,7 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 		LogUtil.DefalutLog("main---initXimalayaSDK");
 		XmPlayerManager.getInstance(this).init();
 		XmPlayerManager.getInstance(this).setCommonBusinessHandle(XmDownloadManager.getInstance());
+//		XmPlayerManager.getInstance(this).clearAllLocalHistory();
 	}
 
 	//connect to the service

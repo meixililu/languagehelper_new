@@ -28,6 +28,8 @@ public class KeyUtil {
 
 	public static final String URL = "urlkey";
 
+	public static final String MesType = "MesType";
+
 	public static final String List = "List";
 
 	public static final String ShareUrlMsg = "ShareUrlMsg";
@@ -128,7 +130,7 @@ public class KeyUtil {
 
 	public static final String IsNeedDelete = "IsNeedDelete";
 
-	public static final String DicTitle = "DicTitle";
+	public static final String NotificationTitle = "NotificationTitle";
 
 	public static final String DicContent = "DicContent";
 

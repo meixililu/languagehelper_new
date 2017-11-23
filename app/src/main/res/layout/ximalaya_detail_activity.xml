@@ -31,21 +31,109 @@
                 app:layout_collapseParallaxMultiplier="1"
                 android:fitsSystemWindows="true"
                 >
-                <com.facebook.drawee.view.SimpleDraweeView
-                    android:id="@+id/item_img"
+                <RelativeLayout
+                    android:id="@+id/item_img_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    fresco:viewAspectRatio="1"
-                    android:layout_centerHorizontal="true"
-                    fresco:placeholderImageScaleType="fitCenter"
-                    fresco:actualImageScaleType="focusCrop"
-                    fresco:placeholderImage="@color/text_tint"
-                    />
+                    android:layout_height="wrap_content">
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <com.facebook.drawee.view.SimpleDraweeView
+                            android:id="@+id/item_img"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            fresco:viewAspectRatio="1"
+                            fresco:placeholderImageScaleType="fitCenter"
+                            fresco:actualImageScaleType="focusCrop"
+                            fresco:placeholderImage="@color/text_tint"
+                            />
+                        <ImageView
+                            android:id="@+id/img_cover"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@color/none_thin"
+                            />
+                        <FrameLayout
+                            android:id="@+id/back_btn"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp">
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_gravity="bottom|right"
+                                android:layout_marginRight="@dimen/padding_30"
+                                android:layout_marginBottom="@dimen/padding_20"
+                                android:layout_marginTop="@dimen/padding_30"
+                                android:layout_marginLeft="@dimen/padding_20"
+                                android:src="@drawable/ic_arrow_back"
+                                />
+                        </FrameLayout>
+
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ad_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginRight="40dp"
+                        android:layout_marginTop="80dp"
+                        android:padding="@dimen/padding_10"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        >
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <com.facebook.drawee.view.SimpleDraweeView
+                                android:id="@+id/ad_img"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                fresco:viewAspectRatio="1.5"
+                                fresco:placeholderImageScaleType="fitCenter"
+                                fresco:actualImageScaleType="focusCrop"
+                                fresco:placeholderImage="@color/text_tint"
+                                />
+                            <ImageView
+                                android:id="@+id/ad_close"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="right|top"
+                                android:src="@drawable/clear_btn"
+                                />
+                        </FrameLayout>
+                        <TextView
+                            android:id="@+id/ad_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/padding_7"
+                            android:textSize="@dimen/middle"
+                            android:textColor="@color/text_black"
+                            android:gravity="center"
+                            />
+                        <TextView
+                            android:id="@+id/ad_btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/padding_7"
+                            android:layout_marginLeft="@dimen/padding_20"
+                            android:layout_marginRight="@dimen/padding_20"
+                            android:textSize="@dimen/middle"
+                            android:textColor="@color/white"
+                            android:padding="@dimen/padding_10"
+                            android:background="@drawable/main_ic_seekbar_thumb_orange"
+                            android:gravity="center"
+                            android:text="查看详情"
+                            />
+                    </LinearLayout>
+                </RelativeLayout>
+
                 <SeekBar
                     android:id="@+id/seekbar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/item_img"
+                    android:layout_below="@id/item_img_layout"
                     android:background="@color/none"
                     android:layout_marginTop="-15dp"
                     android:maxHeight="3dip"
@@ -117,6 +205,7 @@
                     android:layout_height="7dp"
                     android:background="@color/text_tint1"
                     />
+
             </RelativeLayout>
 
         </android.support.design.widget.CollapsingToolbarLayout>
