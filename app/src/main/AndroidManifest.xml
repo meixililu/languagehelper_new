@@ -122,7 +122,7 @@
             android:name=".XimalayaTrackListActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".XimalayaEnglishActivity"
+            android:name=".XimalayaTagsActiviry"
             android:screenOrientation="portrait" />
         <activity
             android:name=".AiTuringActivity"

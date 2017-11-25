@@ -7,25 +7,54 @@ import android.view.ViewGroup;
 
 import com.karumi.headerrecyclerview.HeaderRecyclerViewAdapter;
 import com.messi.languagehelper.R;
+import com.messi.languagehelper.impl.AdapterStringListener;
 import com.ximalaya.ting.android.opensdk.model.album.Album;
+import com.ximalaya.ting.android.opensdk.model.tag.Tag;
+
+import java.util.List;
 
 /**
  * Created by luli on 10/23/16.
  */
 
-public class RcXimalayaFragmentAdapter extends HeaderRecyclerViewAdapter<RecyclerView.ViewHolder, Object, Album, Object> {
+public class RcXmlyTagsAdapter extends HeaderRecyclerViewAdapter<RecyclerView.ViewHolder, Object, Album, Object> {
+
+    private List<Tag> list;
+    private AdapterStringListener listener;
+
+    public RcXmlyTagsAdapter(List<Tag> list,AdapterStringListener listener){
+        this.list = list;
+        this.listener = listener;
+    }
+
+    public RcXmlyTagsAdapter(){
+    }
+
+    @Override
+    protected RecyclerView.ViewHolder onCreateHeaderViewHolder(ViewGroup parent, int viewType) {
+        LayoutInflater inflater = getLayoutInflater(parent);
+        View headerView = inflater.inflate(R.layout.xmly_tags_list_header, parent, false);
+        return new RcXmlyTagsHeaderViewHolder(headerView,listener);
+    }
+
+    @Override
+    protected void onBindHeaderViewHolder(RecyclerView.ViewHolder holder, int position) {
+        super.onBindHeaderViewHolder(holder, position);
+        RcXmlyTagsHeaderViewHolder headerViewHolder = (RcXmlyTagsHeaderViewHolder)holder;
+        headerViewHolder.setData(list);
+    }
 
     @Override
     protected RecyclerView.ViewHolder onCreateItemViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = getLayoutInflater(parent);
         View characterView = inflater.inflate(R.layout.ximalaya_list_item, parent, false);
-        return new RcXimalayaFragmentItemViewHolder(characterView);
+        return new RcXmlyTagsItemViewHolder(characterView);
     }
 
     @Override
     protected void onBindItemViewHolder(RecyclerView.ViewHolder holder, int position) {
         Album mAVObject = getItem(position);
-        RcXimalayaFragmentItemViewHolder itemViewHolder = (RcXimalayaFragmentItemViewHolder)holder;
+        RcXmlyTagsItemViewHolder itemViewHolder = (RcXmlyTagsItemViewHolder)holder;
         itemViewHolder.render(mAVObject);
     }
 

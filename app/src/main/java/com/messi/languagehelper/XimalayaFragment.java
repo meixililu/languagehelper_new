@@ -17,7 +17,7 @@ import com.iflytek.voiceads.AdKeys;
 import com.iflytek.voiceads.IFLYNativeAd;
 import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
-import com.messi.languagehelper.adapter.RcXimalayaFragmentAdapter;
+import com.messi.languagehelper.adapter.RcXmlyTagsAdapter;
 import com.messi.languagehelper.bean.AlbumForAd;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.ADUtil;
@@ -41,11 +41,12 @@ import java.util.Random;
 public class XimalayaFragment extends BaseFragment implements OnClickListener{
 
 	private RecyclerView listview;
-	private RcXimalayaFragmentAdapter mAdapter;
+	private RcXmlyTagsAdapter mAdapter;
 	private List<Album> avObjects;
 	private int skip = 1;
 	private int max_page = 1;
 	private int ad_try_times = 1;
+	private int type = new Random().nextInt(3) + 1;
 	private String category;
 	private String tag_name;
 	private IFLYNativeAd nativeAd;
@@ -100,9 +101,10 @@ public class XimalayaFragment extends BaseFragment implements OnClickListener{
 	
 	private void initViews(View view){
 		listview = (RecyclerView) view.findViewById(R.id.listview);
+		LogUtil.DefalutLog("type:"+type);
 		avObjects = new ArrayList<Album>();
 		initSwipeRefresh(view);
-		mAdapter = new RcXimalayaFragmentAdapter();
+		mAdapter = new RcXmlyTagsAdapter();
 		mAdapter.setItems(avObjects);
 		mAdapter.setFooter(new Object());
 		hideFooterview();
@@ -190,7 +192,7 @@ public class XimalayaFragment extends BaseFragment implements OnClickListener{
 		if(!TextUtils.isEmpty(tag_name)){
 			map.put(DTransferConstants.TAG_NAME ,tag_name);
 		}
-		map.put(DTransferConstants.CALC_DIMENSION ,"3");
+		map.put(DTransferConstants.CALC_DIMENSION ,String.valueOf(type));
 		map.put(DTransferConstants.PAGE_SIZE ,String.valueOf(Settings.page_size));
 		map.put(DTransferConstants.PAGE ,String.valueOf(skip));
 		CommonRequest.getAlbumList(map, new IDataCallBack<AlbumList>(){

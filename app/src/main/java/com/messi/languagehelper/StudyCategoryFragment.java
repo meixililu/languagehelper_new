@@ -22,7 +22,7 @@ import com.iflytek.voiceads.AdKeys;
 import com.iflytek.voiceads.IFLYNativeAd;
 import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
-import com.messi.languagehelper.adapter.RcXimalayaFragmentAdapter;
+import com.messi.languagehelper.adapter.RcXmlyTagsAdapter;
 import com.messi.languagehelper.bean.AlbumForAd;
 import com.messi.languagehelper.bean.WordListItem;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
@@ -104,7 +104,7 @@ public class StudyCategoryFragment extends BaseFragment {
     private WordListItem wordListItem;
     private SharedPreferences sp;
 
-    private RcXimalayaFragmentAdapter mAdapter;
+    private RcXmlyTagsAdapter mAdapter;
     private List<Album> avObjects;
     private int skip = 1;
     private int ad_try_times = 1;
@@ -266,10 +266,16 @@ public class StudyCategoryFragment extends BaseFragment {
                 AVAnalytics.onEvent(getContext(), "tab3_to_search");
                 break;
             case R.id.ximalaya_layout:
-                toActivity(XimalayaEnglishActivity.class, null);
+                toXmlyTagsActiviry();
                 AVAnalytics.onEvent(getContext(), "tab3_to_ximalaya");
                 break;
         }
+    }
+
+    private void toXmlyTagsActiviry(){
+        Intent intent = new Intent(getContext(),XimalayaTagsActiviry.class);
+        intent.putExtra(KeyUtil.Category,XimalayaUtil.Category_Eng);
+        startActivity(intent);
     }
 
     private void toWordStudyDetailActivity() {
@@ -291,7 +297,7 @@ public class StudyCategoryFragment extends BaseFragment {
     private void initViews(){
         fmLayout.setNestedScrollingEnabled(false);
         avObjects = new ArrayList<Album>();
-        mAdapter = new RcXimalayaFragmentAdapter();
+        mAdapter = new RcXmlyTagsAdapter();
         mAdapter.setItems(avObjects);
         mAdapter.setFooter(new Object());
         hideFooterview();

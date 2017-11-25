@@ -69,6 +69,7 @@ dependencies {
     compile 'com.daimajia.numberprogressbar:library:1.4@aar'
     compile 'com.android.support:multidex:1.0.0'
     compile 'com.yanzhenjie:permission:1.1.0'
+    compile 'com.google.android:flexbox:0.3.0'
 }
 
 greendao {

@@ -32,6 +32,8 @@ public class KeyUtil {
 
 	public static final String List = "List";
 
+	public static final String Xmly_Tags_Eng = "Xmly_Tags_Eng";
+
 	public static final String ShareUrlMsg = "ShareUrlMsg";
 
 	public static final String ToolbarBackgroundColorKey = "ToolbarBackgroundColorKey";

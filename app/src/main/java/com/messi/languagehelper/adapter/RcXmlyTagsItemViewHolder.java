@@ -23,7 +23,7 @@ import com.ximalaya.ting.android.opensdk.model.album.Album;
  * Created by luli on 10/23/16.
  */
 
-public class RcXimalayaFragmentItemViewHolder extends RecyclerView.ViewHolder {
+public class RcXmlyTagsItemViewHolder extends RecyclerView.ViewHolder {
 
     private final FrameLayout layout_cover;
     private final TextView title, sub_title;
@@ -33,7 +33,7 @@ public class RcXimalayaFragmentItemViewHolder extends RecyclerView.ViewHolder {
 
     private Context context;
 
-    public RcXimalayaFragmentItemViewHolder(View itemView) {
+    public RcXmlyTagsItemViewHolder(View itemView) {
         super(itemView);
         this.context = itemView.getContext();
         layout_cover = (FrameLayout) itemView.findViewById(R.id.layout_cover);

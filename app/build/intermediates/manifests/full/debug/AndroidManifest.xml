@@ -139,7 +139,7 @@
             android:name="com.messi.languagehelper.XimalayaTrackListActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.messi.languagehelper.XimalayaEnglishActivity"
+            android:name="com.messi.languagehelper.XimalayaTagsActiviry"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.AiTuringActivity"
