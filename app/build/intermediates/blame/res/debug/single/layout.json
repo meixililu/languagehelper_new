@@ -96,6 +96,10 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/word_study_list_fragment.xml"
     },
     {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/xmly_tags_fragment.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/xmly_tags_fragment.xml"
+    },
+    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/design_navigation_menu.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/design/25.3.1/res/layout/design_navigation_menu.xml"
     },
@@ -372,6 +376,10 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/recycler_header.xml"
     },
     {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/xmly_live_fragment.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/xmly_live_fragment.xml"
+    },
+    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/popwindow_root.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/popwindow_root.xml"
     },
@@ -436,6 +444,10 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/practice_write_fragment.xml"
     },
     {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/activity_xmly.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/activity_xmly.xml"
+    },
+    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/investment_list_activity.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/investment_list_activity.xml"
     },
@@ -490,6 +502,10 @@
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/composition_fragment.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/composition_fragment.xml"
+    },
+    {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/ximalaya_tags_fragment.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/ximalaya_tags_fragment.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/abc_action_menu_item_layout.xml",
@@ -696,6 +712,10 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_list_menu_item_radio.xml"
     },
     {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/xmly_vategory_list_item.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/xmly_vategory_list_item.xml"
+    },
+    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/ai_chat_list_item.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/ai_chat_list_item.xml"
     },
@@ -730,6 +750,10 @@
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/design_navigation_menu_item.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/design/25.3.1/res/layout/design_navigation_menu_item.xml"
+    },
+    {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/xmly_category_fragment.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/xmly_category_fragment.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/fragment_translate.xml",

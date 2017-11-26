@@ -311,5 +311,9 @@
     <string name="title_tuling_ai">Turing Robot</string>
     <string name="title_tuling_ai_des">The Best Chinese Robot</string>
     <string name="english_fm">FM</string>
+    <string name="xmly_tab_eng">English</string>
+    <string name="title_history">history</string>
+    <string name="title_live">live</string>
+    <string name="title_all_fm">all</string>
 
 </resources>

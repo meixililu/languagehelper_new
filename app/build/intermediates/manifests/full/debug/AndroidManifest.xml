@@ -142,14 +142,14 @@
             android:name="com.messi.languagehelper.XimalayaTagsActiviry"
             android:screenOrientation="portrait" />
         <activity
+            android:name="com.messi.languagehelper.XmlyActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.messi.languagehelper.AiTuringActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name="com.messi.languagehelper.AiDialogueFightActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.messi.languagehelper.XimalayaActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.AiDialogueSelectCourseActivity"

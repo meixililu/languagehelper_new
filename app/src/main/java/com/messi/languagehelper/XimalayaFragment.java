@@ -1,6 +1,5 @@
 package com.messi.languagehelper;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -19,7 +18,6 @@ import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.adapter.RcXmlyTagsAdapter;
 import com.messi.languagehelper.bean.AlbumForAd;
-import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
@@ -70,17 +68,6 @@ public class XimalayaFragment extends BaseFragment implements OnClickListener{
 		Bundle mBundle = getArguments();
 		this.category = mBundle.getString("category");
 		this.tag_name = mBundle.getString("tag_name");
-	}
-
-	@Override
-	public void onAttach(Activity activity) {
-		super.onAttach(activity);
-		LogUtil.DefalutLog("onAttach");
-		try {
-			mProgressbarListener = (FragmentProgressbarListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString() + " must implement FragmentProgressbarListener");
-        }
 	}
 
 	@Override

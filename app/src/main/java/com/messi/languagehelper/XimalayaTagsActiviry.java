@@ -24,7 +24,6 @@ import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.SaveData;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.ToastUtil;
-import com.messi.languagehelper.util.XimalayaUtil;
 import com.ximalaya.ting.android.opensdk.constants.DTransferConstants;
 import com.ximalaya.ting.android.opensdk.datatrasfer.CommonRequest;
 import com.ximalaya.ting.android.opensdk.datatrasfer.IDataCallBack;
@@ -73,8 +72,9 @@ public class XimalayaTagsActiviry extends BaseActivity implements OnClickListene
     }
 
     public void initData() {
-        getSupportActionBar().setTitle("英语FM");
         category = getIntent().getStringExtra(KeyUtil.Category);
+        String title = getIntent().getStringExtra(KeyUtil.ActionbarTitle);
+        getSupportActionBar().setTitle(title);
         list = new ArrayList<Tag>();
         avObjects = new ArrayList<Album>();
         LogUtil.DefalutLog("type:" + type);
@@ -180,7 +180,7 @@ public class XimalayaTagsActiviry extends BaseActivity implements OnClickListene
     private void getTagsData() {
         showProgressbar();
         Type type = new TypeToken<List<Tag>>() {}.getType();
-        List<Tag> tagList = SaveData.getDataListFonJson(this, KeyUtil.Xmly_Tags_Eng, type);
+        List<Tag> tagList = SaveData.getDataListFonJson(this, "xmly_"+category, type);
         if (tagList != null) {
             list.clear();
             list.addAll(tagList);
@@ -292,7 +292,7 @@ public class XimalayaTagsActiviry extends BaseActivity implements OnClickListene
 
     private void RequestTagsData() {
         Map<String, String> map = new HashMap<String, String>();
-        map.put(DTransferConstants.CATEGORY_ID, XimalayaUtil.Category_Eng);
+        map.put(DTransferConstants.CATEGORY_ID, category);
         map.put(DTransferConstants.TYPE, "0");
         showProgressbar();
         CommonRequest.getTags(map, new IDataCallBack<TagList>() {
@@ -315,7 +315,7 @@ public class XimalayaTagsActiviry extends BaseActivity implements OnClickListene
     }
 
     private void saveData(){
-        SaveData.saveDataListAsJson(this, KeyUtil.Xmly_Tags_Eng,list);
+        SaveData.saveDataListAsJson(this, "xmly_"+category,list);
     }
 
     @Override

@@ -220,6 +220,7 @@
     <string name="title_ai_chat">AiChat</string>
     <string name="title_ai_dialog_choice_course">Choose Course</string>
     <string name="title_ai_learn">Learn Englilsh From Ai</string>
+    <string name="title_all_fm">all</string>
     <string name="title_all_unit">Unit Choose</string>
     <string name="title_apps">Find Apps</string>
     <string name="title_article_collected">Article</string>
@@ -243,11 +244,13 @@
     <string name="title_favorite">Favorite</string>
     <string name="title_grammar">Grammar</string>
     <string name="title_help">Style</string>
+    <string name="title_history">history</string>
     <string name="title_hotel">Hotel</string>
     <string name="title_instagram">Instagram</string>
     <string name="title_juhe">Synthesize</string>
     <string name="title_leisure">Recreation</string>
     <string name="title_listening">Listening</string>
+    <string name="title_live">live</string>
     <string name="title_more">More</string>
     <string name="title_offline_dic">Offline Dictionary</string>
     <string name="title_reading">Reading</string>
@@ -281,6 +284,7 @@
     <string name="wechat">wechat</string>
     <string name="word_study_detail_menu">Listen</string>
     <string name="word_test_result">Result</string>
+    <string name="xmly_tab_eng">English</string>
     <string name="your_turn">Your Turn</string>
     <string name="yuedu_ad_prompt">专注随身阅读30年! http://api.openspeech.cn/cmread/NTBhYTEyMTM=</string>
 </resources>

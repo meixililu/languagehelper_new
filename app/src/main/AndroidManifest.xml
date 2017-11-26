@@ -35,7 +35,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.messi.languagehelper.provider"
@@ -43,15 +42,15 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"/>
+                android:resource="@xml/file_paths" />
         </provider>
 
         <activity
             android:name=".LoadingActivity"
-            android:theme="@style/AppTheme.Launcher"
-            >
+            android:theme="@style/AppTheme.Launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -64,10 +63,10 @@
         <!-- 喜马拉雅fm -->
         <meta-data
             android:name="app_key"
-            android:value="a167180a30ec21d09c1c78ccacdf5d43"/>
+            android:value="a167180a30ec21d09c1c78ccacdf5d43" />
         <meta-data
             android:name="pack_id"
-            android:value="com.messi.languagehelper"/>
+            android:value="com.messi.languagehelper" />
 
         <!-- 讯飞广告sdk -->
         <meta-data
@@ -84,20 +83,24 @@
             android:screenOrientation="portrait" />
         <!-- 讯飞广告sdk -->
 
-        <service android:name=".service.PlayerService"
+        <service
+            android:name=".service.PlayerService"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.messi.languagehelper.music.start"/>
-                <action android:name="com.messi.languagehelper.music.pause"/>
-                <action android:name="com.messi.languagehelper.music.next"/>
-                <action android:name="com.messi.languagehelper.music.previous"/>
+                <action android:name="com.messi.languagehelper.music.start" />
+                <action android:name="com.messi.languagehelper.music.pause" />
+                <action android:name="com.messi.languagehelper.music.next" />
+                <action android:name="com.messi.languagehelper.music.previous" />
             </intent-filter>
         </service>
+        <service
+            android:name="com.ximalaya.ting.android.opensdk.player.service.XmPlayerService"
+            android:process=":player" />
 
-        <service android:name="com.ximalaya.ting.android.opensdk.player.service.XmPlayerService"
-                android:process=":player"/>
         <receiver
-            android:name="com.ximalaya.ting.android.opensdk.player.receive.PlayerReceiver" android:exported="true" android:process=":player">
+            android:name="com.ximalaya.ting.android.opensdk.player.receive.PlayerReceiver"
+            android:exported="true"
+            android:process=":player">
             <intent-filter>
                 <action android:name="com.ximalaya.ting.android.ACTION_CONTROL_START_PAUSE" />
                 <action android:name="com.ximalaya.ting.android.ACTION_CONTROL_PLAY_PRE" />
@@ -106,12 +109,16 @@
                 <action android:name="com.ximalaya.ting.android.ACTION_CONTROL_RELEASE_SERVICE" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.ximalaya.ting.android.opensdk.player.receive.WireControlReceiver"
-            android:process=":player"
-            android:exported="true" />
-        <receiver android:name=".service.XimalayaReceiver" android:exported="true" android:process=":player">
+        <receiver
+            android:name="com.ximalaya.ting.android.opensdk.player.receive.WireControlReceiver"
+            android:exported="true"
+            android:process=":player" />
+        <receiver
+            android:name=".service.XimalayaReceiver"
+            android:exported="true"
+            android:process=":player">
             <intent-filter>
-                <action android:name="com.app.test.android.Action_Close"/>
+                <action android:name="com.app.test.android.Action_Close" />
             </intent-filter>
         </receiver>
 
@@ -125,74 +132,74 @@
             android:name=".XimalayaTagsActiviry"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".AiTuringActivity"
-            android:windowSoftInputMode="stateHidden"
+            android:name=".XmlyActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".AiTuringActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".AiDialogueFightActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".XimalayaActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".AiDialogueSelectCourseActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".AiChatActivity"
-            android:windowSoftInputMode="stateHidden"
-            android:screenOrientation="portrait" />
-         <activity
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
             android:name=".SearchResultActivity"
             android:screenOrientation="portrait" />
-         <activity
+        <activity
             android:name=".SearchActivity"
             android:screenOrientation="portrait" />
-         <activity
+        <activity
             android:name=".BusinessActivity"
             android:screenOrientation="portrait" />
-         <activity
+        <activity
             android:name=".SubjectActivity"
             android:screenOrientation="portrait" />
-         <activity
+        <activity
             android:name=".BroadcastActivity"
             android:screenOrientation="portrait" />
-         <activity
+        <activity
             android:name=".StoryActivity"
             android:screenOrientation="portrait" />
-         <activity
+        <activity
             android:name=".GrammarActivity"
             android:screenOrientation="portrait" />
-         <activity
+        <activity
             android:name=".SpokenEnglishActivity"
             android:screenOrientation="portrait" />
-         <activity
+        <activity
             android:name=".VocabularyStudyActivity"
             android:screenOrientation="portrait" />
-         <activity
+        <activity
             android:name=".ReadingsBySubjectActivity"
             android:screenOrientation="portrait" />
-         <activity
+        <activity
             android:name=".SymbolActivity"
             android:screenOrientation="portrait" />
-         <activity
+        <activity
             android:name=".OfflineDicDownloadActivity"
             android:screenOrientation="portrait" />
-         <activity
+        <activity
             android:name=".ListenSubjectActivity"
             android:screenOrientation="portrait" />
-         <activity
+        <activity
             android:name=".WordStudyNewWordActivity"
             android:screenOrientation="portrait" />
-         <activity
+        <activity
             android:name=".WordStudyFightActivity"
             android:screenOrientation="portrait" />
-         <activity
+        <activity
             android:name=".WordStudyDanCiPinXieActivity"
             android:screenOrientation="portrait" />
-         <activity
+        <activity
             android:name=".WordStudyDuYinSuJiActivity"
             android:screenOrientation="portrait" />
-         <activity
+        <activity
             android:name=".WordStudyViewAllActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -353,11 +360,11 @@
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
         <activity
             android:name=".wxapi.WXEntryActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true"
             android:launchMode="singleTask"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:windowSoftInputMode="stateHidden"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
     </application>
 
 </manifest>

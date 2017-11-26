@@ -266,7 +266,8 @@ public class StudyCategoryFragment extends BaseFragment {
                 AVAnalytics.onEvent(getContext(), "tab3_to_search");
                 break;
             case R.id.ximalaya_layout:
-                toXmlyTagsActiviry();
+//                toXmlyTagsActiviry();
+                toActivity(XmlyActivity.class,null);
                 AVAnalytics.onEvent(getContext(), "tab3_to_ximalaya");
                 break;
         }
