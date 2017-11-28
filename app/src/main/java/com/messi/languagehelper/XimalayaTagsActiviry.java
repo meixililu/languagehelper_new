@@ -192,7 +192,6 @@ public class XimalayaTagsActiviry extends BaseActivity implements OnClickListene
 
     private void QueryTask() {
         loading = true;
-        showProgressbar();
         Map<String, String> map = new HashMap<String, String>();
         map.put(DTransferConstants.CATEGORY_ID, category);
         if (!TextUtils.isEmpty(tag_name) && !tag_name.equals("热门")) {

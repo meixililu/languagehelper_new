@@ -6,13 +6,16 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.messi.languagehelper.XimalayaFragment;
 import com.messi.languagehelper.XmlyCategoryFragment;
+import com.messi.languagehelper.XmlyCategoryRecommendFragment;
+import com.messi.languagehelper.impl.FragmentProgressbarListener;
 
 public class XmlyAllAdapter extends FragmentPagerAdapter {
 
+    private FragmentProgressbarListener listener;
 
-    public XmlyAllAdapter(FragmentManager fm) {
+    public XmlyAllAdapter(FragmentManager fm,FragmentProgressbarListener listener) {
         super(fm);
-
+        this.listener = listener;
     }
 
     @Override
@@ -20,7 +23,7 @@ public class XmlyAllAdapter extends FragmentPagerAdapter {
         if(position == 0){
             return XmlyCategoryFragment.getInstance();
         }else if(position == 1) {
-            return XimalayaFragment.newInstance("1", "");
+            return XmlyCategoryRecommendFragment.newInstance("","",listener);
         }else if(position == 2) {
             return XimalayaFragment.newInstance("6", "");
         }else {

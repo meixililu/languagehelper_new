@@ -964,6 +964,7 @@
     <string name="cailing_ad_prompt">三块钱你买不了吃亏，买不了上当，只需三块钱，就能让电话另一头的TA拥有一次美好而有爱的等待，而不是平凡并且枯燥的嘟。。。嘟。。。嘟。。。还等什么呢，赶紧操作起来，为TA设置一段好玩又有新意的铃声吧! http://api.openspeech.cn/kyls/NTBhYTEyMTM=</string>
     <string name="ch_dic_idiom_input_hint">请输入需要查询的成语</string>
     <string name="ch_dic_input_hint">请输入一个需要查询的文字</string>
+    <string name="change">换一批</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
     <string name="chinese">中</string>
     <string name="ciyixuanci">词义选词</string>

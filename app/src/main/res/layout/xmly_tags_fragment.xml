@@ -25,7 +25,8 @@
             style="@style/CircularProgressWhite"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_gravity="right"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:visibility="gone" />
     </RelativeLayout>
 

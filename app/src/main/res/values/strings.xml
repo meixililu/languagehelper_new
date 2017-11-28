@@ -340,6 +340,7 @@
     <string name="title_history">历史</string>
     <string name="title_live">直播</string>
     <string name="title_all_fm">全部</string>
+    <string name="change">换一批</string>
 
 
 </resources>
