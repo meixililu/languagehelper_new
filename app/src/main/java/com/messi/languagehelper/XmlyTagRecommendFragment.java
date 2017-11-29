@@ -43,6 +43,7 @@ public class XmlyTagRecommendFragment extends BaseFragment {
     Unbinder unbinder;
     private String category;
     private LayoutInflater inflater;
+    public static final String RandomNum = "5";
     private int skip = 2;
 
     public static Fragment newInstance(String category, FragmentProgressbarListener listener) {
@@ -83,11 +84,16 @@ public class XmlyTagRecommendFragment extends BaseFragment {
         QueryTask();
     }
 
+    private void onFinishLoadData() {
+        hideProgressbar();
+        onSwipeRefreshLayoutFinish();
+    }
+
     private void QueryTask() {
         showProgressbar();
         Map<String, String> map = new HashMap<String, String>();
         map.put(DTransferConstants.CATEGORY_ID, category);
-        map.put(DTransferConstants.DISPLAY_COUNT ,"4");
+        map.put(DTransferConstants.DISPLAY_COUNT ,RandomNum);
         CommonRequest.getCategoryRecommendAlbums(map,
                 new IDataCallBack<CategoryRecommendAlbumsList>(){
                     @Override
@@ -104,11 +110,6 @@ public class XmlyTagRecommendFragment extends BaseFragment {
                         onFinishLoadData();
                     }
                 });
-    }
-
-    private void onFinishLoadData() {
-        hideProgressbar();
-        onSwipeRefreshLayoutFinish();
     }
 
     private void setList(final CategoryRecommendAlbums dra){
@@ -183,7 +184,7 @@ public class XmlyTagRecommendFragment extends BaseFragment {
             map.put(DTransferConstants.TAG_NAME, dra.getTagName());
         }
         map.put(DTransferConstants.CALC_DIMENSION, "1");
-        map.put(DTransferConstants.PAGE_SIZE, "4");
+        map.put(DTransferConstants.PAGE_SIZE, RandomNum);
         map.put(DTransferConstants.PAGE, String.valueOf(skip));
         CommonRequest.getAlbumList(map, new IDataCallBack<AlbumList>() {
             @Override
@@ -221,8 +222,9 @@ public class XmlyTagRecommendFragment extends BaseFragment {
     }
 
     private void toXmlyCategoryActivity(CategoryRecommendAlbums dra){
-        Intent intent = new Intent(getContext(),XimalayaTagsActiviry.class);
+        Intent intent = new Intent(getContext(),XmlyAlbumActivity.class);
         intent.putExtra(KeyUtil.Category, dra.getCategoryId());
+        intent.putExtra(KeyUtil.Xmly_Tag, dra.getTagName());
         intent.putExtra(KeyUtil.ActionbarTitle, dra.getTagName());
         startActivity(intent);
     }

@@ -3,50 +3,44 @@ package com.messi.languagehelper;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVAnalytics;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.github.lzyzsd.circleprogress.ArcProgress;
-import com.iflytek.voiceads.AdError;
-import com.iflytek.voiceads.AdKeys;
-import com.iflytek.voiceads.IFLYNativeAd;
-import com.iflytek.voiceads.IFLYNativeListener;
-import com.iflytek.voiceads.NativeADDataRef;
-import com.messi.languagehelper.adapter.RcXmlyTagsAdapter;
-import com.messi.languagehelper.bean.AlbumForAd;
 import com.messi.languagehelper.bean.WordListItem;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
-import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.SaveData;
+import com.messi.languagehelper.util.ScreenUtil;
 import com.messi.languagehelper.util.Settings;
-import com.messi.languagehelper.util.ToastUtil;
+import com.messi.languagehelper.util.StringUtils;
+import com.messi.languagehelper.util.ViewUtil;
 import com.messi.languagehelper.util.XimalayaUtil;
 import com.ximalaya.ting.android.opensdk.constants.DTransferConstants;
 import com.ximalaya.ting.android.opensdk.datatrasfer.CommonRequest;
 import com.ximalaya.ting.android.opensdk.datatrasfer.IDataCallBack;
 import com.ximalaya.ting.android.opensdk.model.album.Album;
 import com.ximalaya.ting.android.opensdk.model.album.AlbumList;
-import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
+import com.ximalaya.ting.android.opensdk.model.album.CategoryRecommendAlbums;
+import com.ximalaya.ting.android.opensdk.model.album.CategoryRecommendAlbumsList;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -96,24 +90,16 @@ public class StudyCategoryFragment extends BaseFragment {
     FrameLayout searchLayout;
     @BindView(R.id.ai_unread)
     ImageView aiUnread;
-    @BindView(R.id.ximalaya_layout)
-    FrameLayout ximalaya_layout;
-    @BindView(R.id.fm_layout)
-    RecyclerView fmLayout;
+    @BindView(R.id.content_tv)
+    LinearLayout contentTv;
+    @BindView(R.id.xmly_layout)
+    FrameLayout xmlyLayout;
 
     private WordListItem wordListItem;
     private SharedPreferences sp;
-
-    private RcXmlyTagsAdapter mAdapter;
-    private List<Album> avObjects;
-    private int skip = 1;
-    private int ad_try_times = 1;
-    private int max_page = 1;
-    private IFLYNativeAd nativeAd;
-    private boolean loading;
-    private boolean hasMore = true;
-    private AlbumForAd mADObject;
-    private LinearLayoutManager mLinearLayoutManager;
+    private LayoutInflater inflater;
+    private int skip = 2;
+    public static final String RandomNum = "6";
 
     public static StudyCategoryFragment getInstance() {
         return new StudyCategoryFragment();
@@ -135,7 +121,7 @@ public class StudyCategoryFragment extends BaseFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.study_category_fragment, null);
         ButterKnife.bind(this, view);
-        initViews();
+        this.inflater = inflater;
         setData();
         setBookName();
         return view;
@@ -171,7 +157,6 @@ public class StudyCategoryFragment extends BaseFragment {
     @Override
     public void loadDataOnStart() {
         super.loadDataOnStart();
-        loadAD();
         QueryTask();
     }
 
@@ -187,8 +172,7 @@ public class StudyCategoryFragment extends BaseFragment {
             R.id.word_study_plan, R.id.study_test,
             R.id.en_examination_layout, R.id.study_composition, R.id.instagram_layout, R.id.collected_layout,
             R.id.study_spoken_english, R.id.en_grammar, R.id.en_story_layout,
-            R.id.en_broadcast, R.id.en_business, R.id.search_layout,
-            R.id.ximalaya_layout})
+            R.id.en_broadcast, R.id.en_business, R.id.search_layout,R.id.xmly_layout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.word_study_view_all:
@@ -265,18 +249,10 @@ public class StudyCategoryFragment extends BaseFragment {
                 toActivity(SearchActivity.class, null);
                 AVAnalytics.onEvent(getContext(), "tab3_to_search");
                 break;
-            case R.id.ximalaya_layout:
-//                toXmlyTagsActiviry();
+            case R.id.xmly_layout:
                 toActivity(XmlyActivity.class,null);
-                AVAnalytics.onEvent(getContext(), "tab3_to_ximalaya");
                 break;
         }
-    }
-
-    private void toXmlyTagsActiviry(){
-        Intent intent = new Intent(getContext(),XimalayaTagsActiviry.class);
-        intent.putExtra(KeyUtil.Category,XimalayaUtil.Category_Eng);
-        startActivity(intent);
     }
 
     private void toWordStudyDetailActivity() {
@@ -295,111 +271,121 @@ public class StudyCategoryFragment extends BaseFragment {
         getContext().startActivity(intent);
     }
 
-    private void initViews(){
-        fmLayout.setNestedScrollingEnabled(false);
-        avObjects = new ArrayList<Album>();
-        mAdapter = new RcXmlyTagsAdapter();
-        mAdapter.setItems(avObjects);
-        mAdapter.setFooter(new Object());
-        hideFooterview();
-        mLinearLayoutManager = new LinearLayoutManager(getContext());
-        fmLayout.setLayoutManager(mLinearLayoutManager);
-        fmLayout.addItemDecoration(
-                new HorizontalDividerItemDecoration.Builder(getContext())
-                        .colorResId(R.color.text_tint)
-                        .sizeResId(R.dimen.list_divider_size)
-                        .marginResId(R.dimen.padding_margin, R.dimen.padding_margin)
-                        .build());
-        fmLayout.setAdapter(mAdapter);
-        setListOnScrollListener();
-    }
-
-    public void setListOnScrollListener(){
-        fmLayout.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                int visible  = mLinearLayoutManager.getChildCount();
-                int total = mLinearLayoutManager.getItemCount();
-                int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
-                isADInList(recyclerView,firstVisibleItem,visible);
-                LogUtil.DefalutLog("firstVisibleItem:"+firstVisibleItem+"---visible:"+visible+"---total:"+total);
-                if(!loading && hasMore){
-                    if ((visible + firstVisibleItem) >= total){
-//                        loadAD();
-//                        QueryTask();
-                        LogUtil.DefalutLog("OnScrollListener");
-                    }
-                }
-            }
-        });
-    }
-
-    private void isADInList(RecyclerView view,int first, int vCount){
-        if(avObjects.size() > 3){
-            for(int i=first;i< (first+vCount);i++){
-                if(i < avObjects.size() && i > 0){
-                    Album mAVObject = avObjects.get(i);
-                    if (mAVObject instanceof AlbumForAd) {
-                        if(!((AlbumForAd)mAVObject).isAdShow()){
-                            NativeADDataRef mNativeADDataRef = ((AlbumForAd)mAVObject).getmNativeADDataRef();
-                            boolean isExposure = mNativeADDataRef.onExposured(view.getChildAt(i%vCount));
-                            LogUtil.DefalutLog("isExposure:"+isExposure);
-                            ((AlbumForAd)mAVObject).setAdShow(isExposure);
+    private void QueryTask() {
+        showProgressbar();
+        Map<String, String> map = new HashMap<String, String>();
+        map.put(DTransferConstants.CATEGORY_ID, XimalayaUtil.Category_Eng);
+        map.put(DTransferConstants.DISPLAY_COUNT, RandomNum);
+        CommonRequest.getCategoryRecommendAlbums(map,
+                new IDataCallBack<CategoryRecommendAlbumsList>() {
+                    @Override
+                    public void onSuccess(@Nullable CategoryRecommendAlbumsList categoryRecommendAlbumsList) {
+                        onFinishLoadData();
+                        contentTv.removeAllViews();
+                        for (CategoryRecommendAlbums dra : categoryRecommendAlbumsList.getCategoryRecommendAlbumses()) {
+                            setList(dra);
                         }
                     }
-                }
+
+                    @Override
+                    public void onError(int i, String s) {
+                        onFinishLoadData();
+                    }
+                });
+    }
+
+    private void setList(final CategoryRecommendAlbums dra) {
+        contentTv.addView(initView(dra));
+    }
+
+    private View initView(final CategoryRecommendAlbums dra) {
+        View view = inflater.inflate(R.layout.xmly_recommend_root, null);
+        FrameLayout.LayoutParams mParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+        mParams.bottomMargin = ScreenUtil.dip2px(getContext(), 12);
+        view.setLayoutParams(mParams);
+        FrameLayout header = (FrameLayout) view.findViewById(R.id.xmly_recommend_header);
+        TextView header_title = (TextView) view.findViewById(R.id.xmly_recommend_header_title);
+        final LinearLayout content_tv = (LinearLayout) view.findViewById(R.id.content_tv);
+        FrameLayout footer = (FrameLayout) view.findViewById(R.id.xmly_recommend_footer);
+        header_title.setText(dra.getDisPlayTagName());
+        content_tv.removeAllViews();
+        for (Album album : dra.getAlbumList()) {
+            LogUtil.DefalutLog(album.toString());
+            content_tv.addView(initAlbum(album));
+            content_tv.addView(ViewUtil.getLine(getContext()));
+        }
+        header.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toXmlyCategoryActivity(dra);
             }
-        }
+        });
+        footer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getCategoryRecommendList(dra, content_tv);
+            }
+        });
+        return view;
     }
 
-    private void random(){
-        if(max_page > 1){
-            skip = new Random().nextInt(max_page) + 1;
-        }else {
-            skip = 1;
-        }
-        LogUtil.DefalutLog("random:"+skip);
+    private View initAlbum(final Album mAVObject) {
+        View view = inflater.inflate(R.layout.ximalaya_list_item, null);
+        FrameLayout layout_cover = (FrameLayout) view.findViewById(R.id.layout_cover);
+        SimpleDraweeView list_item_img = (SimpleDraweeView) view.findViewById(R.id.list_item_img);
+        TextView title = (TextView) view.findViewById(R.id.title);
+        TextView sub_title = (TextView) view.findViewById(R.id.sub_title);
+        TextView source_name = (TextView) view.findViewById(R.id.source_name);
+        TextView type_name = (TextView) view.findViewById(R.id.type_name);
+        title.setText(mAVObject.getAlbumTitle());
+        sub_title.setText(mAVObject.getAlbumIntro());
+        source_name.setText(StringUtils.numToStrTimes(mAVObject.getPlayCount()));
+        type_name.setText(" " + String.valueOf(mAVObject.getIncludeTrackCount()) + " 集");
+        list_item_img.setImageURI(Uri.parse(mAVObject.getCoverUrlLarge()));
+        Drawable drawable = this.getResources().getDrawable(R.drawable.ic_item_playtimes_count);
+        drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+        source_name.setCompoundDrawables(drawable, null, null, null);
+        Drawable dra = this.getResources().getDrawable(R.drawable.ic_item_sounds_count);
+        dra.setBounds(0, 0, dra.getMinimumWidth(), dra.getMinimumHeight());
+        type_name.setCompoundDrawables(dra, null, null, null);
+        layout_cover.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toAlbumActivity(mAVObject);
+            }
+        });
+        return view;
     }
 
-    private void hideFooterview(){
-        mAdapter.hideFooter();
-    }
-
-    private void showFooterview(){
-        mAdapter.showFooter();
-    }
-
-    private void QueryTask(){
-        loading = true;
+    private void getCategoryRecommendList(final CategoryRecommendAlbums dra, final LinearLayout content_tv) {
         showProgressbar();
-        Map<String ,String> map = new HashMap<String, String>();
-        map.put(DTransferConstants.CATEGORY_ID , XimalayaUtil.Category_Eng);
-        map.put(DTransferConstants.CALC_DIMENSION ,"3");
-        map.put(DTransferConstants.PAGE_SIZE ,String.valueOf(30));
-        map.put(DTransferConstants.PAGE ,String.valueOf(skip));
-        CommonRequest.getAlbumList(map, new IDataCallBack<AlbumList>(){
+        Map<String, String> map = new HashMap<String, String>();
+        map.put(DTransferConstants.CATEGORY_ID, XimalayaUtil.Category_Eng);
+        if (!TextUtils.isEmpty(dra.getTagName())) {
+            map.put(DTransferConstants.TAG_NAME, dra.getTagName());
+        }
+        map.put(DTransferConstants.CALC_DIMENSION, "1");
+        map.put(DTransferConstants.PAGE_SIZE, RandomNum);
+        map.put(DTransferConstants.PAGE, String.valueOf(skip));
+        CommonRequest.getAlbumList(map, new IDataCallBack<AlbumList>() {
             @Override
             public void onSuccess(@Nullable AlbumList albumList) {
                 onFinishLoadData();
-                if(albumList != null && albumList.getAlbums() != null){
-                    LogUtil.DefalutLog(albumList.toString());
-                    avObjects.addAll( albumList.getAlbums() );
+                if (albumList != null && albumList.getAlbums() != null) {
                     skip += 1;
-                    if(addAD()){
-                        mAdapter.notifyDataSetChanged();
+                    if (skip > albumList.getTotalPage()) {
+                        skip = 1;
                     }
-                    if(skip > albumList.getTotalPage()){
-                        ToastUtil.diaplayMesShort(getContext(), "没有了！");
-                        hideFooterview();
-                        hasMore = false;
-                    }else {
-                        hasMore = true;
-                        showFooterview();
+                    content_tv.removeAllViews();
+                    for (Album album : albumList.getAlbums()) {
+                        LogUtil.DefalutLog(album.toString());
+                        content_tv.addView(initAlbum(album));
+                        content_tv.addView(ViewUtil.getLine(getContext()));
                     }
-                    max_page = albumList.getTotalPage();
                 }
             }
+
             @Override
             public void onError(int i, String s) {
                 onFinishLoadData();
@@ -408,59 +394,30 @@ public class StudyCategoryFragment extends BaseFragment {
         });
     }
 
-    private void onFinishLoadData(){
-        loading = false;
+    private void toAlbumActivity(final Album mAVObject) {
+        Intent intent = new Intent(getActivity(), XimalayaTrackListActivity.class);
+        intent.putExtra("album_id", mAVObject.getId() + "");
+        intent.putExtra("play_times", mAVObject.getPlayCount());
+        intent.putExtra("track_count", mAVObject.getIncludeTrackCount());
+        intent.putExtra(KeyUtil.ActionbarTitle, mAVObject.getAlbumTitle());
+        startActivity(intent);
+    }
+
+    private void toXmlyCategoryActivity(CategoryRecommendAlbums dra) {
+        Intent intent = new Intent(getContext(),XmlyAlbumActivity.class);
+        intent.putExtra(KeyUtil.Category, XimalayaUtil.Category_Eng);
+        intent.putExtra(KeyUtil.Xmly_Tag, dra.getTagName());
+        if(!TextUtils.isEmpty(dra.getTagName())){
+            intent.putExtra(KeyUtil.ActionbarTitle, dra.getTagName());
+        }else {
+            intent.putExtra(KeyUtil.ActionbarTitle, "精选");
+        }
+        startActivity(intent);
+    }
+
+    private void onFinishLoadData() {
         hideProgressbar();
         onSwipeRefreshLayoutFinish();
-    }
-
-    private void loadAD(){
-        nativeAd = new IFLYNativeAd(getContext(), ADUtil.XXLAD, new IFLYNativeListener() {
-            @Override
-            public void onConfirm() {
-            }
-            @Override
-            public void onCancel() {
-            }
-            @Override
-            public void onAdFailed(AdError arg0) {
-                if(ad_try_times > 0){
-                    ad_try_times -= 1;
-                    loadAD();
-                }
-                LogUtil.DefalutLog("onAdFailed---"+arg0.getErrorCode()+"---"+arg0.getErrorDescription());
-            }
-            @Override
-            public void onADLoaded(List<NativeADDataRef> adList) {
-                LogUtil.DefalutLog("onADLoaded---");
-                if(adList != null && adList.size() > 0){
-                    NativeADDataRef nad = adList.get(0);
-                    mADObject = new AlbumForAd();
-                    mADObject.setmNativeADDataRef(nad);
-                    mADObject.setAd(true);
-                    if(!loading){
-                        addAD();
-                    }
-                }
-            }
-        });
-        nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
-        nativeAd.loadAd(1);
-    }
-
-    private boolean addAD(){
-        if(mADObject != null && avObjects != null && avObjects.size() > 0){
-            int index = avObjects.size() - Settings.page_size + NumberUtil.randomNumberRange(2, 4);
-            if(index < 0){
-                index = 0;
-            }
-            avObjects.add(index,mADObject);
-            mAdapter.notifyDataSetChanged();
-            mADObject = null;
-            return false;
-        }else{
-            return true;
-        }
     }
 
     @Override

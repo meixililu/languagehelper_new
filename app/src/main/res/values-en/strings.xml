@@ -316,5 +316,6 @@
     <string name="title_live">live</string>
     <string name="title_all_fm">all</string>
     <string name="change">Change</string>
+    <string name="xmly_home">FM</string>
 
 </resources>

@@ -319,7 +319,7 @@
     <string name="title_business">行业</string>
     <string name="title_course">课程</string>
     <string name="title_daily_word_study">每日一词</string>
-    <string name="search_hint">VOA | BBC | CNN | 空中英语</string>
+    <string name="search_hint">VOA|BBC|CNN</string>
     <string name="search_history"><![CDATA[历史&热门]]></string>
     <string name="learn_english_with_ai">跟ai学英语</string>
     <string name="title_ai_chat">Ai聊天</string>
@@ -341,6 +341,7 @@
     <string name="title_live">直播</string>
     <string name="title_all_fm">全部</string>
     <string name="change">换一批</string>
+    <string name="xmly_home">喜马拉雅FM</string>
 
 
 </resources>

@@ -859,8 +859,8 @@
     <dimen name="small">12sp</dimen>
     <dimen name="smaller">8sp</dimen>
     <dimen name="smaller_l">10sp</dimen>
-    <dimen name="study_category_item_height">38dp</dimen>
-    <dimen name="study_category_normal">60dp</dimen>
+    <dimen name="study_category_item_height">40dp</dimen>
+    <dimen name="study_category_normal">50dp</dimen>
     <dimen name="study_menu_item_height">48dp</dimen>
     <dimen name="tabs_heigh">34dp</dimen>
     <dimen name="text_margin">16dp</dimen>
@@ -1155,7 +1155,7 @@
     <string name="restart_success">重启应用之后生效！</string>
     <string name="retry">重填</string>
     <string name="search">搜索</string>
-    <string name="search_hint">VOA | BBC | CNN | 空中英语</string>
+    <string name="search_hint">VOA|BBC|CNN</string>
     <string name="search_history">历史&amp;热门</string>
     <string name="search_menu_title">Search</string>
     <string name="section_format">Hello World from section: %1$d</string>
@@ -1267,6 +1267,7 @@
     <string name="wechat_long_click">微信长按有惊喜</string>
     <string name="word_study_detail_menu">听选</string>
     <string name="word_test_result">测试结果</string>
+    <string name="xmly_home">喜马拉雅FM</string>
     <string name="xmly_tab_eng">英语</string>
     <string name="your_turn">到你啦</string>
     <string name="yuedu_ad_prompt">专注随身阅读30年! http://api.openspeech.cn/cmread/NTBhYTEyMTM=</string>

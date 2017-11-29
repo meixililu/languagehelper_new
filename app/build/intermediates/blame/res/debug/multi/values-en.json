@@ -299,14 +299,7 @@
                     "endOffset": 1787
                 },
                 "from": {
-                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml",
-                    "position": {
-                        "startLine": 317,
-                        "startColumn": 4,
-                        "startOffset": 17016,
-                        "endColumn": 41,
-                        "endOffset": 17053
-                    }
+                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
                 }
             },
             {
@@ -3377,20 +3370,27 @@
                     "startLine": 287,
                     "startColumn": 4,
                     "startOffset": 17032,
-                    "endColumn": 48,
-                    "endOffset": 17076
+                    "endColumn": 40,
+                    "endOffset": 17068
                 },
                 "from": {
-                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
+                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml",
+                    "position": {
+                        "startLine": 318,
+                        "startColumn": 4,
+                        "startOffset": 17058,
+                        "endColumn": 40,
+                        "endOffset": 17094
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 288,
                     "startColumn": 4,
-                    "startOffset": 17081,
-                    "endColumn": 47,
-                    "endOffset": 17124
+                    "startOffset": 17073,
+                    "endColumn": 48,
+                    "endOffset": 17117
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
@@ -3400,9 +3400,21 @@
                 "to": {
                     "startLine": 289,
                     "startColumn": 4,
-                    "startOffset": 17129,
+                    "startOffset": 17122,
+                    "endColumn": 47,
+                    "endOffset": 17165
+                },
+                "from": {
+                    "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 290,
+                    "startColumn": 4,
+                    "startOffset": 17170,
                     "endColumn": 99,
-                    "endOffset": 17224
+                    "endOffset": 17265
                 },
                 "from": {
                     "file": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/values-en/strings.xml"
