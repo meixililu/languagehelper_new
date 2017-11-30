@@ -20,11 +20,10 @@ import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NotificationUtil;
-import com.messi.languagehelper.util.TimeUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.ximalaya.ting.android.opensdk.model.PlayableModel;
-import com.ximalaya.ting.android.opensdk.model.track.Track;
+import com.ximalaya.ting.android.opensdk.model.live.radio.Radio;
 import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
 import com.ximalaya.ting.android.opensdk.player.service.IXmPlayerStatusListener;
 import com.ximalaya.ting.android.opensdk.player.service.XmPlayerException;
@@ -38,7 +37,7 @@ import butterknife.OnClick;
 import static com.messi.languagehelper.service.PlayerService.action_pause;
 import static com.messi.languagehelper.service.PlayerService.action_start;
 
-public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerStatusListener, SeekBar.OnSeekBarChangeListener {
+public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlayerStatusListener, SeekBar.OnSeekBarChangeListener {
 
 
     @BindView(R.id.item_img)
@@ -49,16 +48,9 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
     TextView announcer_info;
     @BindView(R.id.album_title)
     TextView albumTitle;
-    @BindView(R.id.track_content)
-    TextView trackContent;
-    @BindView(R.id.track_intro)
-    TextView trackIntro;
+
     @BindView(R.id.seekbar)
     SeekBar seekbar;
-    @BindView(R.id.play_time_current)
-    TextView playTimeCurrent;
-    @BindView(R.id.play_time_duration)
-    TextView playTimeDuration;
     @BindView(R.id.play_btn)
     ImageView playBtn;
     @BindView(R.id.play_previous)
@@ -79,8 +71,7 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
     ImageView imgCover;
     @BindView(R.id.back_btn)
     FrameLayout backBtn;
-    private List<Track> trackList;
-    private Track currentTrack;
+    private Radio radio;
     private int position;
     private NativeADDataRef nad;
 
@@ -88,7 +79,7 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ximalaya_detail_activity);
+        setContentView(R.layout.ximalaya_radio_detail_activity);
         ButterKnife.bind(this);
         registerBroadcast();
         setStatusbarColor(R.color.none);
@@ -98,26 +89,23 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
 
     private void initData() {
         seekbar.setOnSeekBarChangeListener(this);
-        position = getIntent().getIntExtra(KeyUtil.PositionKey, 10);
-        trackList = (List<Track>) WXEntryActivity.dataMap.get(KeyUtil.List);
-        currentTrack = trackList.get(position);
-        setListPlayStatus();
+        radio = getIntent().getParcelableExtra(KeyUtil.XmlyRadio);
         if (XmPlayerManager.getInstance(this).isPlaying()) {
-            if (XmPlayerManager.getInstance(this).getCurrSound() instanceof Track) {
-                Track mTrack = (Track) XmPlayerManager.getInstance(this).getCurrSound();
-                if (mTrack.getDataId() != trackList.get(position).getDataId()) {
-                    XmPlayerManager.getInstance(this).playList(trackList, position);
+            if (XmPlayerManager.getInstance(this).getCurrSound() instanceof Radio) {
+                Radio mRadio = (Radio) XmPlayerManager.getInstance(this).getCurrSound();
+                if (mRadio.getDataId() != radio.getDataId()) {
+                    XmPlayerManager.getInstance(this).playRadio(radio);
                     setToPlay();
                 } else {
                     playBtn.setImageResource(R.drawable.player_pause_selector);
                 }
             }else {
                 XmPlayerManager.getInstance(this).pause();
-                XmPlayerManager.getInstance(this).playList(trackList, position);
+                XmPlayerManager.getInstance(this).playRadio(radio);
                 setToPlay();
             }
         } else {
-            XmPlayerManager.getInstance(this).playList(trackList, position);
+            XmPlayerManager.getInstance(this).playRadio(radio);
             setToPlay();
         }
         XmPlayerManager.getInstance(this).addPlayerStatusListener(this);
@@ -127,20 +115,13 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                NotificationUtil.sendBroadcast(XimalayaDetailActivity.this,action_pause);
-                NotificationUtil.showNotification(XimalayaDetailActivity.this,action_pause,
-                        currentTrack.getTrackTitle(),
+                NotificationUtil.sendBroadcast(XimalayaRadioDetailActivity.this,action_pause);
+                NotificationUtil.showNotification(XimalayaRadioDetailActivity.this,action_pause,
+                        radio.getProgramName(),
                         NotificationUtil.mes_type_xmly);
                 playBtn.setImageResource(R.drawable.player_pause_selector);
             }
         }, 500);
-    }
-
-    private void setListPlayStatus() {
-        for (Track mTrack : trackList) {
-            mTrack.setUpdateStatus(false);
-        }
-        currentTrack.setUpdateStatus(true);
     }
 
     private void setToPN() {
@@ -161,14 +142,11 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
             WXEntryActivity.musicSrv.pause();
         }
         loadAD();
-        itemImg.setImageURI(currentTrack.getCoverUrlLarge());
-        announcer_icon.setImageURI(currentTrack.getAnnouncer().getAvatarUrl());
-        albumTitle.setText(currentTrack.getAlbum().getAlbumTitle());
-        announcer_info.setText(currentTrack.getAnnouncer().getNickname());
-        trackContent.setText(currentTrack.getTrackTitle());
-        trackIntro.setText(currentTrack.getTrackIntro());
-        seekbar.setMax(currentTrack.getDuration() * 1000);
-        playTimeDuration.setText(TimeUtil.getDuration(currentTrack.getDuration()));
+        itemImg.setImageURI(radio.getCoverUrlLarge());
+        announcer_icon.setImageURI(radio.getCoverUrlLarge());
+        albumTitle.setText(radio.getRadioName());
+        announcer_info.setText(radio.getProgramName());
+        seekbar.setMax(100);
         setToPN();
     }
 
@@ -291,11 +269,10 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
     }
 
     private void pause(){
-        NotificationUtil.showNotification(this,action_start,currentTrack.getTrackTitle(),
+        NotificationUtil.showNotification(this,action_start,radio.getProgramName(),
                 NotificationUtil.mes_type_xmly);
         NotificationUtil.sendBroadcast(this,action_start);
         playBtn.setImageResource(R.drawable.player_play_selector);
-        trackList.get(position).setUpdateStatus(false);
         XmPlayerManager.getInstance(this).pause();
         if (!adLayout.isShown()) {
             loadAD();
@@ -303,18 +280,17 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
     }
 
     private void play(){
-        NotificationUtil.showNotification(this,action_pause,currentTrack.getTrackTitle(),
+        NotificationUtil.showNotification(this,action_pause,radio.getProgramName(),
                 NotificationUtil.mes_type_xmly);
         NotificationUtil.sendBroadcast(this,action_pause);
         playBtn.setImageResource(R.drawable.player_pause_selector);
-        trackList.get(position).setUpdateStatus(true);
         XmPlayerManager.getInstance(this).play();
     }
 
     private void playNext() {
         if (XmPlayerManager.getInstance(this).hasNextSound()) {
             position++;
-            XmPlayerManager.getInstance(this).playList(trackList, position);
+            XmPlayerManager.getInstance(this).playRadio(radio);
         } else {
             ToastUtil.diaplayMesShort(this, "sorry,没有了!");
         }
@@ -323,7 +299,7 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
     private void playPrevious() {
         if (XmPlayerManager.getInstance(this).hasPreSound()) {
             position--;
-            XmPlayerManager.getInstance(this).playList(trackList, position);
+            XmPlayerManager.getInstance(this).playRadio(radio);
         } else {
             ToastUtil.diaplayMesShort(this, "sorry,没有了!");
         }
@@ -344,7 +320,6 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
     @Override
     public void onSoundPlayComplete() {
         LogUtil.DefalutLog("onSoundPlayComplete");
-        currentTrack.setUpdateStatus(false);
     }
 
     @Override
@@ -353,16 +328,6 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
 
     @Override
     public void onSoundSwitch(PlayableModel lastModel, PlayableModel curModel) {
-        LogUtil.DefalutLog("onSoundSwitch:" + position);
-        position = XmPlayerManager.getInstance(this).getCurrentIndex();
-        if (XmPlayerManager.getInstance(this).getCurrSound() instanceof Track) {
-            currentTrack = (Track) XmPlayerManager.getInstance(this).getCurrSound();
-        }
-        setListPlayStatus();
-        initViews();
-        NotificationUtil.showNotification(this,action_pause,currentTrack.getTrackTitle(),
-                NotificationUtil.mes_type_xmly);
-        NotificationUtil.sendBroadcast(this,action_pause);
         LogUtil.DefalutLog("onSoundSwitch:" + position);
     }
 
@@ -384,7 +349,6 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
     @Override
     public void onPlayProgress(int currPos, int duration) {
         LogUtil.DefalutLog("currPos:" + currPos + "---duration:" + duration);
-        playTimeCurrent.setText(TimeUtil.getDuration(currPos / 1000));
         seekbar.setProgress(currPos);
     }
 

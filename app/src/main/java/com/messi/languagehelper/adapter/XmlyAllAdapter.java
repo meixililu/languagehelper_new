@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.messi.languagehelper.XimalayaFragment;
+import com.messi.languagehelper.XimalayaRadioHomeFragment;
 import com.messi.languagehelper.XmlyCategoryFragment;
 import com.messi.languagehelper.XmlyCategoryRecommendFragment;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
@@ -27,7 +28,7 @@ public class XmlyAllAdapter extends FragmentPagerAdapter {
         }else if(position == 2) {
             return XimalayaFragment.newInstance("6", "");
         }else {
-            return XimalayaFragment.newInstance("39", "");
+            return XimalayaRadioHomeFragment.newInstance(listener);
         }
     }
 

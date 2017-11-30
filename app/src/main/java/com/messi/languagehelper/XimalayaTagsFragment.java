@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 
 import com.google.gson.reflect.TypeToken;
 import com.iflytek.voiceads.AdError;
@@ -21,6 +20,7 @@ import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.adapter.RcXmlyTagsAdapter;
 import com.messi.languagehelper.bean.AlbumForAd;
 import com.messi.languagehelper.impl.AdapterStringListener;
+import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
@@ -47,7 +47,6 @@ import java.util.Random;
 public class XimalayaTagsFragment extends BaseFragment implements OnClickListener, AdapterStringListener {
 
     private RecyclerView listview;
-    private ProgressBar progressBar;
     private View view;
     private RcXmlyTagsAdapter mAdapter;
     private List<Album> avObjects;
@@ -64,12 +63,13 @@ public class XimalayaTagsFragment extends BaseFragment implements OnClickListene
     private LinearLayoutManager mLinearLayoutManager;
     private List<Tag> list;
 
-    public static Fragment newInstance(String category, String tag_name) {
+    public static Fragment newInstance(String category, String tag_name, FragmentProgressbarListener listener) {
         XimalayaTagsFragment fragment = new XimalayaTagsFragment();
         Bundle bundle = new Bundle();
         bundle.putString("category", category);
         bundle.putString("tag_name", tag_name);
         fragment.setArguments(bundle);
+        fragment.setListener(listener);
         return fragment;
     }
 
@@ -89,7 +89,6 @@ public class XimalayaTagsFragment extends BaseFragment implements OnClickListene
         view = inflater.inflate(R.layout.xmly_tags_fragment, container, false);
         initSwipeRefresh(view);
         listview = (RecyclerView)view.findViewById(R.id.listview);
-        progressBar = (ProgressBar)view.findViewById(R.id.progressBarCircularIndetermininate);
         getTagsData();
         return view;
     }
@@ -373,16 +372,8 @@ public class XimalayaTagsFragment extends BaseFragment implements OnClickListene
         QueryTask();
     }
 
-    public void showProgressbar(){
-        if(progressBar != null){
-            progressBar.setVisibility(View.VISIBLE);
-        }
-    }
-
-    public void hideProgressbar(){
-        if(progressBar != null){
-            progressBar.setVisibility(View.GONE);
-        }
+    public void setListener(FragmentProgressbarListener listener){
+        mProgressbarListener = listener;
     }
 
     @Override

@@ -177,7 +177,12 @@
     <string name="primary_lever">Part Two</string>
     <string name="prompt">Prompt</string>
     <string name="query">Query</string>
+    <string name="radio_country">Country</string>
+    <string name="radio_internet">Internet</string>
+    <string name="radio_local">Local</string>
+    <string name="radio_province">Province</string>
     <string name="random_course">Random</string>
+    <string name="rank">Rank</string>
     <string name="reading">Reading</string>
     <string name="recent">Recent</string>
     <string name="recent_study_empty">Empty</string>

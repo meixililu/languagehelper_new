@@ -19,10 +19,10 @@ public class XmlyActivity extends AppCompatActivity {
     FrameLayout content;
     @BindView(R.id.navigation)
     BottomNavigationView navigation;
-    private Fragment tagsFragment;
-    private Fragment ximalayaFragment;
+    private Fragment engFragment;
+    private Fragment dashboardFragment;
     private Fragment ximalayaFragment1;
-    private Fragment ximalayaFragment2;
+    private Fragment radioHomeFragment;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -32,11 +32,11 @@ public class XmlyActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     hideAllFragment();
-                    getSupportFragmentManager().beginTransaction().show(tagsFragment).commit();;
+                    getSupportFragmentManager().beginTransaction().show(engFragment).commit();;
                     return true;
                 case R.id.navigation_dashboard:
                     hideAllFragment();
-                    getSupportFragmentManager().beginTransaction().show(ximalayaFragment).commit();;
+                    getSupportFragmentManager().beginTransaction().show(dashboardFragment).commit();;
                     return true;
                 case R.id.navigation_face:
                     hideAllFragment();
@@ -44,7 +44,7 @@ public class XmlyActivity extends AppCompatActivity {
                     return true;
                 case R.id.navigation_history:
                     hideAllFragment();
-                    getSupportFragmentManager().beginTransaction().show(ximalayaFragment2).commit();;
+                    getSupportFragmentManager().beginTransaction().show(radioHomeFragment).commit();;
                     return true;
             }
             return false;
@@ -62,28 +62,29 @@ public class XmlyActivity extends AppCompatActivity {
 
     private void initFragment(){
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        tagsFragment = XimalayaTagsFragment.newInstance(XimalayaUtil.Category_Eng,"");
-        ximalayaFragment = XimalayaDashboardFragment.newInstance();
+        engFragment = XimalayaEngFragment.newInstance();
+        dashboardFragment = XimalayaDashboardFragment.newInstance();
         ximalayaFragment1 = XmlyTagRecommendFragment.newInstance(XimalayaUtil.Category_Eng,null);
-        ximalayaFragment2 = XimalayaFragment.newInstance("39","");
+        radioHomeFragment = XmlyTagRecommendFragment.newInstance(XimalayaUtil.Category_Eng,null);
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.content,tagsFragment)
-                .add(R.id.content,ximalayaFragment)
+                .add(R.id.content, engFragment)
+                .add(R.id.content, dashboardFragment)
                 .add(R.id.content,ximalayaFragment1)
-                .add(R.id.content,ximalayaFragment2)
+                .add(R.id.content, radioHomeFragment)
                 .commit();
         hideAllFragment();
         getSupportFragmentManager()
-                .beginTransaction().show(tagsFragment).commit();
+                .beginTransaction().show(engFragment).commit();
     }
 
     private void hideAllFragment(){
         getSupportFragmentManager()
-                .beginTransaction().hide(ximalayaFragment)
+                .beginTransaction()
+                .hide(dashboardFragment)
                 .hide(ximalayaFragment1)
-                .hide(ximalayaFragment2)
-                .hide(tagsFragment)
+                .hide(radioHomeFragment)
+                .hide(engFragment)
                 .commit();
     }
 

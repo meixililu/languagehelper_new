@@ -859,8 +859,8 @@
     <dimen name="small">12sp</dimen>
     <dimen name="smaller">8sp</dimen>
     <dimen name="smaller_l">10sp</dimen>
-    <dimen name="study_category_item_height">40dp</dimen>
-    <dimen name="study_category_normal">50dp</dimen>
+    <dimen name="study_category_item_height">42dp</dimen>
+    <dimen name="study_category_normal">47dp</dimen>
     <dimen name="study_menu_item_height">48dp</dimen>
     <dimen name="tabs_heigh">34dp</dimen>
     <dimen name="text_margin">16dp</dimen>
@@ -1142,7 +1142,12 @@
     <string name="primary_lever">第二部分</string>
     <string name="prompt">提示</string>
     <string name="query">查询</string>
+    <string name="radio_country">国家台</string>
+    <string name="radio_internet">网络台</string>
+    <string name="radio_local">本地台</string>
+    <string name="radio_province">省市台</string>
     <string name="random_course">随机选择</string>
+    <string name="rank">排行榜</string>
     <string name="reading">阅读</string>
     <string name="recent">最近</string>
     <string name="recent_study_empty">赶紧去添加最近要学习的课程吧</string>

@@ -342,6 +342,11 @@
     <string name="title_all_fm">全部</string>
     <string name="change">换一批</string>
     <string name="xmly_home">喜马拉雅FM</string>
+    <string name="radio_local">本地台</string>
+    <string name="radio_country">国家台</string>
+    <string name="radio_province">省市台</string>
+    <string name="radio_internet">网络台</string>
+    <string name="rank">排行榜</string>
 
 
 </resources>

@@ -123,6 +123,9 @@
         </receiver>
 
         <activity
+            android:name=".XimalayaRadioDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".XmlyAlbumActivity"
             android:screenOrientation="portrait" />
         <activity

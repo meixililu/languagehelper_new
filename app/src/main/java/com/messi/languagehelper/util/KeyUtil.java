@@ -32,6 +32,8 @@ public class KeyUtil {
 
 	public static final String List = "List";
 
+	public static final String XmlyRadio = "XmlyRadio";
+
 	public static final String Xmly_Tags_Eng = "Xmly_Tags_Eng";
 
 	public static final String Xmly_Tag = "Xmly_Tag";

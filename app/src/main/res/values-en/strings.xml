@@ -317,5 +317,10 @@
     <string name="title_all_fm">all</string>
     <string name="change">Change</string>
     <string name="xmly_home">FM</string>
+    <string name="radio_local">Local</string>
+    <string name="radio_country">Country</string>
+    <string name="radio_province">Province</string>
+    <string name="radio_internet">Internet</string>
+    <string name="rank">Rank</string>
 
 </resources>
