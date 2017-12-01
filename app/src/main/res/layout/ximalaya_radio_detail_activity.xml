@@ -128,29 +128,14 @@
                             />
                     </LinearLayout>
                 </RelativeLayout>
-
-                <SeekBar
-                    android:id="@+id/seekbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/item_img_layout"
-                    android:background="@color/none"
-                    android:layout_marginTop="-15dp"
-                    android:maxHeight="3dip"
-                    android:minHeight="3dip"
-                    android:paddingStart="1px"
-                    android:paddingEnd="1px"
-                    android:max="100"
-                    android:progress="0"
-                    style="@style/SeekbarStyle"
-                    />
                 <RelativeLayout
                     android:id="@+id/player_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/seekbar"
+                    android:layout_below="@id/item_img_layout"
                     app:layout_collapseMode="pin"
                     android:layout_marginBottom="@dimen/padding_15"
+                    android:layout_marginTop="@dimen/padding_15"
                     android:background="@color/white"
                     >
                     <ImageView
@@ -159,24 +144,6 @@
                         android:layout_height="50dp"
                         android:src="@drawable/player_play_selector"
                         android:layout_centerInParent="true"
-                        />
-                    <ImageView
-                        android:id="@+id/play_previous"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginRight="40dp"
-                        android:layout_toLeftOf="@id/play_btn"
-                        android:src="@drawable/player_previous_selector"
-                        android:layout_centerVertical="true"
-                        />
-                    <ImageView
-                        android:id="@+id/play_next"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginLeft="40dp"
-                        android:layout_toRightOf="@id/play_btn"
-                        android:src="@drawable/player_next_selector"
-                        android:layout_centerVertical="true"
                         />
                 </RelativeLayout>
                 <View
@@ -219,7 +186,7 @@
                 />
             <TextView
                 android:id="@+id/announcer_info"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/announcer_icon"
                 android:layout_below="@id/album_title"
@@ -227,9 +194,23 @@
                 android:layout_marginTop="@dimen/padding_10"
                 android:layout_marginLeft="@dimen/padding_10"
                 android:textColor="@color/text_grey"
-                android:textSize="@dimen/smaller_l"
+                android:textSize="@dimen/smaller"
                 android:gravity="left"
                 />
+            <TextView
+                android:id="@+id/source_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/album_title"
+                android:layout_marginTop="@dimen/padding_10"
+                android:layout_marginRight="@dimen/padding_10"
+                android:layout_alignParentRight="true"
+                android:background="@color/white"
+                android:text="dafdsf"
+                android:maxLines="1"
+                android:gravity="left"
+                android:textColor="@color/text_grey"
+                android:textSize="@dimen/small" />
         </RelativeLayout>
         <View
             android:layout_width="match_parent"
@@ -246,10 +227,12 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:fillViewport="true" >
         <LinearLayout
+            android:id="@+id/content_tv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="@dimen/padding_10"
+            android:paddingLeft="@dimen/padding_10"
+            android:paddingRight="@dimen/padding_10"
             >
 
         </LinearLayout>

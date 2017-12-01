@@ -133,6 +133,12 @@
         </receiver>
 
         <activity
+            android:name="com.messi.languagehelper.XimalayaRadioTypeListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.messi.languagehelper.XimalayaRadioCategoryListActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.messi.languagehelper.XimalayaRadioDetailActivity"
             android:screenOrientation="portrait" />
         <activity

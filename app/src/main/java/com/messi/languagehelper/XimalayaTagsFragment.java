@@ -231,7 +231,6 @@ public class XimalayaTagsFragment extends BaseFragment implements OnClickListene
             public void onSuccess(@Nullable AlbumList albumList) {
                 onFinishLoadData();
                 if (albumList != null && albumList.getAlbums() != null) {
-                    LogUtil.DefalutLog(albumList.toString());
                     avObjects.addAll(albumList.getAlbums());
                     skip += 1;
                     if (addAD()) {

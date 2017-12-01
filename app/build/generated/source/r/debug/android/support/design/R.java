@@ -776,7 +776,7 @@ public final class R {
 		public static final int line3 = 0x7f0f01bd;
 		public static final int listMode = 0x7f0f001c;
 		public static final int list_item = 0x7f0f0073;
-		public static final int masked = 0x7f0f0279;
+		public static final int masked = 0x7f0f027b;
 		public static final int media_actions = 0x7f0f01af;
 		public static final int middle = 0x7f0f0055;
 		public static final int mini = 0x7f0f0056;

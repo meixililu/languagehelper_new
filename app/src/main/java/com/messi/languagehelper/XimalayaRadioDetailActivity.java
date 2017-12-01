@@ -1,12 +1,14 @@
 package com.messi.languagehelper;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -20,15 +22,24 @@ import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NotificationUtil;
-import com.messi.languagehelper.util.ToastUtil;
+import com.messi.languagehelper.util.StringUtils;
+import com.messi.languagehelper.util.ViewUtil;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
+import com.ximalaya.ting.android.opensdk.constants.DTransferConstants;
+import com.ximalaya.ting.android.opensdk.datatrasfer.CommonRequest;
+import com.ximalaya.ting.android.opensdk.datatrasfer.IDataCallBack;
 import com.ximalaya.ting.android.opensdk.model.PlayableModel;
 import com.ximalaya.ting.android.opensdk.model.live.radio.Radio;
+import com.ximalaya.ting.android.opensdk.model.live.schedule.LiveAnnouncer;
+import com.ximalaya.ting.android.opensdk.model.live.schedule.Schedule;
+import com.ximalaya.ting.android.opensdk.model.live.schedule.ScheduleList;
 import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
 import com.ximalaya.ting.android.opensdk.player.service.IXmPlayerStatusListener;
 import com.ximalaya.ting.android.opensdk.player.service.XmPlayerException;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,7 +48,7 @@ import butterknife.OnClick;
 import static com.messi.languagehelper.service.PlayerService.action_pause;
 import static com.messi.languagehelper.service.PlayerService.action_start;
 
-public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlayerStatusListener, SeekBar.OnSeekBarChangeListener {
+public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlayerStatusListener {
 
 
     @BindView(R.id.item_img)
@@ -48,15 +59,8 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
     TextView announcer_info;
     @BindView(R.id.album_title)
     TextView albumTitle;
-
-    @BindView(R.id.seekbar)
-    SeekBar seekbar;
     @BindView(R.id.play_btn)
     ImageView playBtn;
-    @BindView(R.id.play_previous)
-    ImageView playPrevious;
-    @BindView(R.id.play_next)
-    ImageView playNext;
     @BindView(R.id.ad_img)
     SimpleDraweeView adImg;
     @BindView(R.id.ad_close)
@@ -71,6 +75,10 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
     ImageView imgCover;
     @BindView(R.id.back_btn)
     FrameLayout backBtn;
+    @BindView(R.id.source_name)
+    TextView sourceName;
+    @BindView(R.id.content_tv)
+    LinearLayout contentTv;
     private Radio radio;
     private int position;
     private NativeADDataRef nad;
@@ -88,7 +96,6 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
     }
 
     private void initData() {
-        seekbar.setOnSeekBarChangeListener(this);
         radio = getIntent().getParcelableExtra(KeyUtil.XmlyRadio);
         if (XmPlayerManager.getInstance(this).isPlaying()) {
             if (XmPlayerManager.getInstance(this).getCurrSound() instanceof Radio) {
@@ -99,7 +106,7 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
                 } else {
                     playBtn.setImageResource(R.drawable.player_pause_selector);
                 }
-            }else {
+            } else {
                 XmPlayerManager.getInstance(this).pause();
                 XmPlayerManager.getInstance(this).playRadio(radio);
                 setToPlay();
@@ -115,8 +122,8 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                NotificationUtil.sendBroadcast(XimalayaRadioDetailActivity.this,action_pause);
-                NotificationUtil.showNotification(XimalayaRadioDetailActivity.this,action_pause,
+                NotificationUtil.sendBroadcast(XimalayaRadioDetailActivity.this, action_pause);
+                NotificationUtil.showNotification(XimalayaRadioDetailActivity.this, action_pause,
                         radio.getProgramName(),
                         NotificationUtil.mes_type_xmly);
                 playBtn.setImageResource(R.drawable.player_pause_selector);
@@ -124,21 +131,9 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
         }, 500);
     }
 
-    private void setToPN() {
-        if (XmPlayerManager.getInstance(this).hasNextSound()) {
-            playNext.setEnabled(true);
-        } else {
-            playNext.setEnabled(false);
-        }
-        if (XmPlayerManager.getInstance(this).hasPreSound()) {
-            playPrevious.setEnabled(true);
-        } else {
-            playPrevious.setEnabled(false);
-        }
-    }
-
     private void initViews() {
-        if(WXEntryActivity.musicSrv.isPlaying()){
+        getProgramList();
+        if (WXEntryActivity.musicSrv.isPlaying()) {
             WXEntryActivity.musicSrv.pause();
         }
         loadAD();
@@ -146,8 +141,10 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
         announcer_icon.setImageURI(radio.getCoverUrlLarge());
         albumTitle.setText(radio.getRadioName());
         announcer_info.setText(radio.getProgramName());
-        seekbar.setMax(100);
-        setToPN();
+        sourceName.setText(StringUtils.numToStrTimes(radio.getRadioPlayCount()));
+        Drawable drawable = this.getResources().getDrawable(R.drawable.ic_item_playtimes_count);
+        drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+        sourceName.setCompoundDrawables(drawable, null, null, null);
     }
 
     private void loadAD() {
@@ -203,10 +200,10 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
 
     @Override
     public void updateUI(String music_action) {
-        LogUtil.DefalutLog("xima-updateUI:"+music_action);
-        if(music_action.equals(action_start)){
+        LogUtil.DefalutLog("xima-updateUI:" + music_action);
+        if (music_action.equals(action_start)) {
             playBtn.setImageResource(R.drawable.player_play_selector);
-        }else if (music_action.equals(PlayerService.action_pause)) {
+        } else if (music_action.equals(PlayerService.action_pause)) {
             playBtn.setImageResource(R.drawable.player_pause_selector);
         }
     }
@@ -222,18 +219,12 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
         unregisterBroadcast();
     }
 
-    @OnClick({R.id.play_btn, R.id.play_previous, R.id.play_next, R.id.ad_close, R.id.ad_btn,
-            R.id.ad_img, R.id.ad_title,R.id.back_btn})
+    @OnClick({R.id.play_btn, R.id.ad_close, R.id.ad_btn,
+            R.id.ad_img, R.id.ad_title, R.id.back_btn})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.play_btn:
                 playOrPause();
-                break;
-            case R.id.play_previous:
-                playPrevious();
-                break;
-            case R.id.play_next:
-                playNext();
                 break;
             case R.id.ad_close:
                 isShowAd(View.GONE);
@@ -268,10 +259,10 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
         }
     }
 
-    private void pause(){
-        NotificationUtil.showNotification(this,action_start,radio.getProgramName(),
+    private void pause() {
+        NotificationUtil.showNotification(this, action_start, radio.getProgramName(),
                 NotificationUtil.mes_type_xmly);
-        NotificationUtil.sendBroadcast(this,action_start);
+        NotificationUtil.sendBroadcast(this, action_start);
         playBtn.setImageResource(R.drawable.player_play_selector);
         XmPlayerManager.getInstance(this).pause();
         if (!adLayout.isShown()) {
@@ -279,30 +270,58 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
         }
     }
 
-    private void play(){
-        NotificationUtil.showNotification(this,action_pause,radio.getProgramName(),
+    private void play() {
+        NotificationUtil.showNotification(this, action_pause, radio.getProgramName(),
                 NotificationUtil.mes_type_xmly);
-        NotificationUtil.sendBroadcast(this,action_pause);
+        NotificationUtil.sendBroadcast(this, action_pause);
         playBtn.setImageResource(R.drawable.player_pause_selector);
         XmPlayerManager.getInstance(this).play();
     }
 
-    private void playNext() {
-        if (XmPlayerManager.getInstance(this).hasNextSound()) {
-            position++;
-            XmPlayerManager.getInstance(this).playRadio(radio);
-        } else {
-            ToastUtil.diaplayMesShort(this, "sorry,没有了!");
-        }
+    private void getProgramList(){
+        showProgressbar();
+        Map<String, String> map = new HashMap<String, String>();
+        map.put(DTransferConstants.RADIOID, String.valueOf(radio.getDataId()));
+        CommonRequest.getSchedules(map, new IDataCallBack<ScheduleList>(){
+            @Override
+            public void onSuccess(@Nullable ScheduleList scheduleList) {
+                hideProgressbar();
+                if (scheduleList != null && scheduleList.getmScheduleList() != null) {
+                    contentTv.removeAllViews();
+                    for (Schedule mSchedule : scheduleList.getmScheduleList()){
+                        contentTv.addView(initAlbum(mSchedule));
+                        contentTv.addView(ViewUtil.getLine(XimalayaRadioDetailActivity.this));
+                    }
+                }
+            }
+            @Override
+            public void onError(int i, String s) {
+                hideProgressbar();
+            }
+        });
     }
 
-    private void playPrevious() {
-        if (XmPlayerManager.getInstance(this).hasPreSound()) {
-            position--;
-            XmPlayerManager.getInstance(this).playRadio(radio);
-        } else {
-            ToastUtil.diaplayMesShort(this, "sorry,没有了!");
+    private View initAlbum(final Schedule mAVObject) {
+        View view = LayoutInflater.from(this).inflate(R.layout.xmly_radio_schedulelist, null);
+        FrameLayout layout_cover = (FrameLayout) view.findViewById(R.id.layout_cover);
+        TextView title = (TextView) view.findViewById(R.id.title);
+        TextView sub_title = (TextView) view.findViewById(R.id.sub_title);
+        TextView radio_time = (TextView) view.findViewById(R.id.radio_time);
+        TextView radio_replay = (TextView) view.findViewById(R.id.radio_replay);
+        if(mAVObject.getRelatedProgram() != null){
+            title.setText(mAVObject.getRelatedProgram().getProgramName());
+            if(mAVObject.getRelatedProgram().getAnnouncerList() != null){
+                String announces = "";
+                for (LiveAnnouncer announcer : mAVObject.getRelatedProgram().getAnnouncerList()){
+                    announces += announcer.getNickName() + " ";
+                }
+                sub_title.setText(announces);
+            }
         }
+
+        radio_time.setText(mAVObject.getStartTime()+"-"+mAVObject.getEndTime());
+        radio_replay.setText("");
+        return view;
     }
 
     @Override
@@ -319,7 +338,6 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
 
     @Override
     public void onSoundPlayComplete() {
-        LogUtil.DefalutLog("onSoundPlayComplete");
     }
 
     @Override
@@ -328,7 +346,6 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
 
     @Override
     public void onSoundSwitch(PlayableModel lastModel, PlayableModel curModel) {
-        LogUtil.DefalutLog("onSoundSwitch:" + position);
     }
 
     @Override
@@ -348,8 +365,6 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
 
     @Override
     public void onPlayProgress(int currPos, int duration) {
-        LogUtil.DefalutLog("currPos:" + currPos + "---duration:" + duration);
-        seekbar.setProgress(currPos);
     }
 
     @Override
@@ -357,19 +372,4 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
         return false;
     }
 
-    @Override
-    public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-    }
-
-    @Override
-    public void onStartTrackingTouch(SeekBar seekBar) {
-        XmPlayerManager.getInstance(this).pause();
-    }
-
-    @Override
-    public void onStopTrackingTouch(SeekBar seekBar) {
-        XmPlayerManager.getInstance(this).seekTo(seekBar.getProgress());
-        XmPlayerManager.getInstance(this).play();
-        playBtn.setImageResource(R.drawable.player_pause_selector);
-    }
 }

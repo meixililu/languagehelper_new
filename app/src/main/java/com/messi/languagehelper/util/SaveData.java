@@ -20,22 +20,26 @@ import java.util.List;
 public class SaveData {
 
     public static void saveDataAsJson(Context mContext,String name,String json){
+        LogUtil.DefalutLog("saveDataAsJson");
         SharedPreferences sp = Settings.getSharedPreferences(mContext);
         Settings.saveSharedPreferences(sp, name, json);
     }
 
     public static <T> T getDataFonJson(Context mContext,String name,Class<T> classname){
+        LogUtil.DefalutLog("getDataFonJson");
         SharedPreferences sp = Settings.getSharedPreferences(mContext);
         String json = sp.getString(name,"");
         return new Gson().fromJson(json,classname);
     }
 
     public static void saveDataListAsJson(Context mContext,String name,List<?> json){
+        LogUtil.DefalutLog("saveDataListAsJson");
         SharedPreferences sp = Settings.getSharedPreferences(mContext);
         Settings.saveSharedPreferences(sp, name, new Gson().toJson(json));
     }
 
     public static <T> T getDataListFonJson(Context mContext, String name, Type type){
+        LogUtil.DefalutLog("getDataListFonJson");
         SharedPreferences sp = Settings.getSharedPreferences(mContext);
         String json = sp.getString(name,"");
         return new Gson().fromJson(json,type);

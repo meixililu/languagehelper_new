@@ -2,35 +2,28 @@ package com.messi.languagehelper;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
-import com.google.gson.reflect.TypeToken;
 import com.iflytek.voiceads.AdError;
 import com.iflytek.voiceads.AdKeys;
 import com.iflytek.voiceads.IFLYNativeAd;
 import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
-import com.messi.languagehelper.adapter.RcXmlyRadioHomeAdapter;
+import com.messi.languagehelper.adapter.RcXmlyRadioListAdapter;
 import com.messi.languagehelper.bean.RadioForAd;
-import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
-import com.messi.languagehelper.util.SaveData;
+import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.ToastUtil;
 import com.ximalaya.ting.android.opensdk.constants.DTransferConstants;
 import com.ximalaya.ting.android.opensdk.datatrasfer.CommonRequest;
 import com.ximalaya.ting.android.opensdk.datatrasfer.IDataCallBack;
 import com.ximalaya.ting.android.opensdk.model.PlayableModel;
 import com.ximalaya.ting.android.opensdk.model.live.radio.Radio;
-import com.ximalaya.ting.android.opensdk.model.live.radio.RadioCategory;
-import com.ximalaya.ting.android.opensdk.model.live.radio.RadioCategoryList;
 import com.ximalaya.ting.android.opensdk.model.live.radio.RadioList;
 import com.ximalaya.ting.android.opensdk.model.track.Track;
 import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
@@ -38,75 +31,55 @@ import com.ximalaya.ting.android.opensdk.player.service.IXmPlayerStatusListener;
 import com.ximalaya.ting.android.opensdk.player.service.XmPlayerException;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
-public class XimalayaRadioHomeFragment extends BaseFragment implements FragmentProgressbarListener,
-        IXmPlayerStatusListener {
+public class XimalayaRadioTypeListActivity extends BaseActivity implements IXmPlayerStatusListener {
 
-    Unbinder unbinder;
     @BindView(R.id.listview)
     RecyclerView listview;
-
+    private RcXmlyRadioListAdapter adapter;
+    private List<Radio> radios;
     private int ad_try_times = 1;
+    private int skip = 1;
+    private int max_page = 1;
+    private String type;
     private IFLYNativeAd nativeAd;
     private RadioForAd mADObject;
-    private RcXmlyRadioHomeAdapter adapter;
     private boolean loading;
-    private List<Radio> radios;
-    private List<RadioCategory> radioCategories;
+    private boolean hasMore = true;
     private LinearLayoutManager mLinearLayoutManager;
-
-    public static Fragment newInstance(FragmentProgressbarListener listener) {
-        XimalayaRadioHomeFragment fragment = new XimalayaRadioHomeFragment();
-        fragment.setListener(listener);
-        return fragment;
-    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.xmly_radio_list_avtivity);
+        ButterKnife.bind(this);
         registerBroadcast();
-        radios = new ArrayList<Radio>();
-        radioCategories = new ArrayList<RadioCategory>();
-        adapter = new RcXmlyRadioHomeAdapter(radioCategories,radios);
-        adapter.setItems(radios);
-        adapter.setHeader(new Object());
-    }
-
-    @Override
-    public void loadDataOnStart() {
-        super.loadDataOnStart();
-        radios.clear();
-        loadAD();
-        getTagsData();
+        initView();
         getRankRadios();
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.xmly_radio_home_fragment, container, false);
-        unbinder = ButterKnife.bind(this, view);
-        initView(view);
-        return view;
-    }
-
-    private void initView(View view){
-        XmPlayerManager.getInstance(getContext()).addPlayerStatusListener(this);
-        initSwipeRefresh(view);
+    private void initView() {
+        type = getIntent().getStringExtra(KeyUtil.Type);
+        radios = new ArrayList<Radio>();
+        adapter = new RcXmlyRadioListAdapter(radios);
+        adapter.setItems(radios);
+        adapter.setFooter(new Object());
+        hideFooterview();
+        XmPlayerManager.getInstance(this).addPlayerStatusListener(this);
+        initSwipeRefresh();
         listview.setAdapter(adapter);
-        mLinearLayoutManager = new LinearLayoutManager(getContext());
+        mLinearLayoutManager = new LinearLayoutManager(this);
         listview.setLayoutManager(mLinearLayoutManager);
         listview.addItemDecoration(
-                new HorizontalDividerItemDecoration.Builder(getContext())
+                new HorizontalDividerItemDecoration.Builder(this)
                         .colorResId(R.color.text_tint)
                         .sizeResId(R.dimen.list_divider_size)
                         .marginResId(R.dimen.padding_margin, R.dimen.padding_margin)
@@ -120,9 +93,15 @@ public class XimalayaRadioHomeFragment extends BaseFragment implements FragmentP
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
                 int visible = mLinearLayoutManager.getChildCount();
+                int total = mLinearLayoutManager.getItemCount();
                 int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
                 isADInList(recyclerView, firstVisibleItem, visible);
-
+                if (!loading && hasMore) {
+                    if ((visible + firstVisibleItem) >= total) {
+                        loadAD();
+                        getRankRadios();
+                    }
+                }
             }
         });
     }
@@ -145,58 +124,36 @@ public class XimalayaRadioHomeFragment extends BaseFragment implements FragmentP
         }
     }
 
-    private void getTagsData() {
-        showProgressbar();
-        Type type = new TypeToken<List<RadioCategory>>() {}.getType();
-        List<RadioCategory> tagList = SaveData.getDataListFonJson(getContext(), KeyUtil.XmlyRadioCategory, type);
-        if (tagList != null) {
-            radioCategories.clear();
-            radioCategories.addAll(tagList);
-            adapter.notifyDataSetChanged();
-        } else {
-            getRadioType();
-        }
-    }
-
-    private void getRadioType() {
-        Map<String, String> map = new HashMap<String, String>();
-        CommonRequest.getRadioCategory(map, new IDataCallBack<RadioCategoryList>() {
-            @Override
-            public void onSuccess(RadioCategoryList object) {
-                if (object != null && object.getRadioCategories() != null) {
-                    radioCategories.clear();
-                    radioCategories.addAll(object.getRadioCategories());
-                    adapter.notifyDataSetChanged();
-                    saveData();
-                }
-            }
-            @Override
-            public void onError(int code, String message) {
-            }
-        });
-    }
-
-    private void saveData(){
-        SaveData.saveDataListAsJson(getContext(), KeyUtil.XmlyRadioCategory,radioCategories);
-    }
-
     private void getRankRadios() {
         loading = true;
         showProgressbar();
         Map<String, String> map = new HashMap<String, String>();
-        map.put(DTransferConstants.RADIO_COUNT, "30");
-        CommonRequest.getRankRadios(map, new IDataCallBack<RadioList>() {
+        map.put(DTransferConstants.RADIOTYPE , type);
+        map.put(DTransferConstants.PAGE_SIZE, String.valueOf(Settings.page_size));
+        map.put(DTransferConstants.PAGE, String.valueOf(skip));
+        CommonRequest.getRadios(map, new IDataCallBack<RadioList>() {
             @Override
             public void onSuccess(@Nullable RadioList radioList) {
                 finishLoading();
                 if (radioList != null && radioList.getRadios() != null) {
+                    initStatus(radioList.getRadios());
                     radios.addAll(radioList.getRadios());
-                    initStatus();
+                    skip += 1;
                     if (addAD()) {
                         adapter.notifyDataSetChanged();
                     }
+                    if (skip > radioList.getTotalPage()) {
+                        ToastUtil.diaplayMesShort(XimalayaRadioTypeListActivity.this, "没有了！");
+                        hideFooterview();
+                        hasMore = false;
+                    } else {
+                        hasMore = true;
+                        showFooterview();
+                    }
+                    max_page = radioList.getTotalPage();
                 }
             }
+
             @Override
             public void onError(int i, String s) {
                 finishLoading();
@@ -204,26 +161,32 @@ public class XimalayaRadioHomeFragment extends BaseFragment implements FragmentP
         });
     }
 
-    private void initStatus(){
-        if(XmPlayerManager.getInstance(getContext()).isPlaying()){
-            if(XmPlayerManager.getInstance(getContext()).getCurrSound() instanceof Radio){
-                Radio mRadio = (Radio)XmPlayerManager.getInstance(getContext()).getCurrSound();
-                upStatus(mRadio,true);
+    private void initStatus(List<Radio> radios) {
+        if (XmPlayerManager.getInstance(this).isPlaying()) {
+            if (XmPlayerManager.getInstance(this).getCurrSound() instanceof Radio) {
+                Radio mRadio = (Radio) XmPlayerManager.getInstance(this).getCurrSound();
+                for (Radio radio : radios) {
+                    if (radio.getDataId() == mRadio.getDataId()) {
+                        radio.setActivityLive(true);
+                    } else {
+                        radio.setActivityLive(false);
+                    }
+                }
             }
         }
     }
 
-    private void upStatus(Radio mRadio,boolean isTrue){
-        for (Radio radio : radios){
-            if(radio.getDataId() == mRadio.getDataId()){
+    private void upStatus(Radio mRadio, boolean isTrue) {
+        for (Radio radio : radios) {
+            if (radio.getDataId() == mRadio.getDataId()) {
                 radio.setActivityLive(isTrue);
-            }else {
+            } else {
                 radio.setActivityLive(false);
             }
         }
     }
 
-    private void finishLoading(){
+    private void finishLoading() {
         loading = false;
         hideProgressbar();
         onSwipeRefreshLayoutFinish();
@@ -231,14 +194,22 @@ public class XimalayaRadioHomeFragment extends BaseFragment implements FragmentP
 
     @Override
     public void onSwipeRefreshLayoutRefresh() {
-        radios.clear();
+        random();
         loadAD();
-        getTagsData();
         getRankRadios();
     }
 
+    private void random() {
+        if (max_page > 1) {
+            skip = new Random().nextInt(max_page) + 1;
+        } else {
+            skip = 1;
+        }
+        LogUtil.DefalutLog("random:" + skip);
+    }
+
     private void loadAD() {
-        nativeAd = new IFLYNativeAd(getContext(), ADUtil.XXLAD, new IFLYNativeListener() {
+        nativeAd = new IFLYNativeAd(this, ADUtil.XXLAD, new IFLYNativeListener() {
             @Override
             public void onConfirm() {
             }
@@ -275,7 +246,7 @@ public class XimalayaRadioHomeFragment extends BaseFragment implements FragmentP
 
     private boolean addAD() {
         if (mADObject != null && radios != null && radios.size() > 0) {
-            int index = NumberUtil.randomNumberRange(2, 4);
+            int index = radios.size() - Settings.page_size + NumberUtil.randomNumberRange(2, 4);
             if (index < 0) {
                 index = 0;
             }
@@ -292,47 +263,51 @@ public class XimalayaRadioHomeFragment extends BaseFragment implements FragmentP
     public void onResume() {
         super.onResume();
         dataChange();
+
     }
 
-    private void dataChange(){
-        if(adapter != null){
+    private void hideFooterview() {
+        adapter.hideFooter();
+    }
+
+    private void showFooterview() {
+        adapter.showFooter();
+    }
+
+    private void dataChange() {
+        if (adapter != null) {
             adapter.notifyDataSetChanged();
         }
     }
 
-    public void setListener(FragmentProgressbarListener listener) {
-        mProgressbarListener = listener;
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unregisterBroadcast();
-        unbinder.unbind();
-    }
-
-    private void reset(){
-        for (Radio mRadio : radios){
+    private void reset() {
+        for (Radio mRadio : radios) {
             mRadio.setActivityLive(false);
         }
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterBroadcast();
+    }
+
+    @Override
     public void updateUI(String music_action) {
-        if(music_action.equals(PlayerService.action_loading)){
+        if (music_action.equals(PlayerService.action_loading)) {
             showProgressbar();
-        }else if(music_action.equals(PlayerService.action_finish_loading)){
+        } else if (music_action.equals(PlayerService.action_finish_loading)) {
             hideProgressbar();
-        }else {
+        } else {
             dataChange();
         }
     }
 
     @Override
     public void onPlayStart() {
-        if (XmPlayerManager.getInstance(getContext()).getCurrSound() instanceof Radio) {
-            Radio mRadio = (Radio)XmPlayerManager.getInstance(getContext()).getCurrSound();
-            upStatus(mRadio,true);
+        if (XmPlayerManager.getInstance(this).getCurrSound() instanceof Radio) {
+            Radio mRadio = (Radio) XmPlayerManager.getInstance(this).getCurrSound();
+            upStatus(mRadio, true);
             dataChange();
         }
     }
@@ -342,10 +317,10 @@ public class XimalayaRadioHomeFragment extends BaseFragment implements FragmentP
         setPauseStatus();
     }
 
-    private void setPauseStatus(){
-        if (XmPlayerManager.getInstance(getContext()).getCurrSound() instanceof Radio) {
-            Radio mRadio = (Radio)XmPlayerManager.getInstance(getContext()).getCurrSound();
-            upStatus(mRadio,false);
+    private void setPauseStatus() {
+        if (XmPlayerManager.getInstance(this).getCurrSound() instanceof Radio) {
+            Radio mRadio = (Radio) XmPlayerManager.getInstance(this).getCurrSound();
+            upStatus(mRadio, false);
             dataChange();
         }
     }
@@ -367,7 +342,7 @@ public class XimalayaRadioHomeFragment extends BaseFragment implements FragmentP
 
     @Override
     public void onSoundSwitch(PlayableModel playableModel, PlayableModel playableModel1) {
-        if (XmPlayerManager.getInstance(getContext()).getCurrSound() instanceof Track) {
+        if (XmPlayerManager.getInstance(this).getCurrSound() instanceof Track) {
             reset();
             dataChange();
         }

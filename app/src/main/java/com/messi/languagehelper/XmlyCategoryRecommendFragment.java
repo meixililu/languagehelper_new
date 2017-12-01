@@ -194,7 +194,6 @@ public class XmlyCategoryRecommendFragment extends BaseFragment {
                     }
                     content_tv.removeAllViews();
                     for (Album album : albumList.getAlbums()){
-                        LogUtil.DefalutLog(album.toString());
                         content_tv.addView( initAlbum(album) );
                         content_tv.addView(ViewUtil.getLine(getContext()));
                     }
