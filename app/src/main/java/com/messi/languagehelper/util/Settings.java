@@ -154,7 +154,7 @@ public class Settings {
 	public static String to = "auto";	
 	public static String q = "";	
 	public static String role = "vimary";	
-	public static final int offset = 100;
+	public static final int offset = 150;
 
 	public static String[] PERMISSIONS_STORAGE = {
 			Manifest.permission.READ_EXTERNAL_STORAGE,

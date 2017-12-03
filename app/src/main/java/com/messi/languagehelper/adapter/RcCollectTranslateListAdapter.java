@@ -6,11 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.iflytek.cloud.SpeechSynthesizer;
 import com.karumi.headerrecyclerview.HeaderRecyclerViewAdapter;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.dao.record;
-import com.messi.languagehelper.util.ViewUtil;
 
 import java.util.List;
 
@@ -42,7 +40,9 @@ public class RcCollectTranslateListAdapter extends HeaderRecyclerViewAdapter<Rec
 
 	@Override
 	protected RecyclerView.ViewHolder onCreateFooterViewHolder(ViewGroup parent, int viewType) {
-		return new RcLmFooterViewHolder(ViewUtil.getListFooterView(parent.getContext()));
+		LayoutInflater inflater = getLayoutInflater(parent);
+		View footerView = inflater.inflate(R.layout.footerview, parent, false);
+		return new RcLmFooterViewHolder(footerView);
 	}
 
 	@Override

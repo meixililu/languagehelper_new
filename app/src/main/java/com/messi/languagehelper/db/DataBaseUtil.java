@@ -131,11 +131,28 @@ public class DataBaseUtil {
         return qb.list();
     }
 
+    public List<record> getTranCollectedListByPage(int page, int page_size) {
+        QueryBuilder<record> qb = mrecordDao.queryBuilder();
+        qb.where(Properties.Iscollected.eq("1"));
+        qb.orderDesc(Properties.Id);
+        qb.offset(page * page_size);
+        qb.limit(page_size);
+        return qb.list();
+    }
+
     public List<Dictionary> getDataListDictionaryCollected(int offset, int maxResult) {
         QueryBuilder<Dictionary> qb = mDictionaryDao.queryBuilder();
         qb.where(DictionaryDao.Properties.Iscollected.eq("1"));
         qb.orderDesc(DictionaryDao.Properties.Id);
         qb.limit(maxResult);
+        return qb.list();
+    }
+    public List<Dictionary> getDicCollectedListByPage(int page, int page_size) {
+        QueryBuilder<Dictionary> qb = mDictionaryDao.queryBuilder();
+        qb.where(DictionaryDao.Properties.Iscollected.eq("1"));
+        qb.orderDesc(DictionaryDao.Properties.Id);
+        qb.offset(page * page_size);
+        qb.limit(page_size);
         return qb.list();
     }
 

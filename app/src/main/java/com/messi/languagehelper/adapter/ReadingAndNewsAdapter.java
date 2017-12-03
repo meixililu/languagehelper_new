@@ -18,13 +18,13 @@ public class ReadingAndNewsAdapter extends FragmentPagerAdapter {
         super(fm);
         this.mContext = mContext;
         CONTENT = new String[] { 
-        		"头条",
         		"精选",
         		"社会",
         		"体育",
         		"科技",
         		"国内",
         		"娱乐",
+        		"头条",
         		"国际",
         		"生活"
         };
@@ -33,19 +33,19 @@ public class ReadingAndNewsAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if( position == 0 ){
-        	return ToutiaoNewsFragment.getInstance("top",mContext);
-        }else if( position == 1 ){
         	return WechatJXFragment.getInstance(mContext);
-        }else if( position == 2 ){
+        }else if( position == 1 ){
         	return NewsFragment.getInstance(NewsFragment.social, CONTENT[position], mContext);
-        }else if( position == 3 ){
+        }else if( position == 2 ){
             return NewsFragment.getInstance(NewsFragment.tiyu, CONTENT[position], mContext);
-        }else if( position == 4 ){
+        }else if( position == 3 ){
             return NewsFragment.getInstance(NewsFragment.keji, CONTENT[position], mContext);
-        }else if( position == 5 ){
+        }else if( position == 4 ){
             return NewsFragment.getInstance(NewsFragment.guonei, CONTENT[position], mContext);
-        }else if( position == 6 ){
+        }else if( position == 5 ){
             return NewsFragment.getInstance(NewsFragment.yule, CONTENT[position], mContext);
+        }else if( position == 6 ){
+        	return ToutiaoNewsFragment.getInstance("top",mContext);
         }else if( position == 7 ){
             return NewsFragment.getInstance(NewsFragment.guoji, CONTENT[position], mContext);
         }else if( position == 8 ){
