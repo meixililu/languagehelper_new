@@ -8,8 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
-import com.messi.languagehelper.util.XimalayaUtil;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -21,8 +19,7 @@ public class XmlyActivity extends AppCompatActivity {
     BottomNavigationView navigation;
     private Fragment engFragment;
     private Fragment dashboardFragment;
-    private Fragment ximalayaFragment1;
-    private Fragment radioHomeFragment;
+//    private Fragment radioHomeFragment;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -38,14 +35,10 @@ public class XmlyActivity extends AppCompatActivity {
                     hideAllFragment();
                     getSupportFragmentManager().beginTransaction().show(dashboardFragment).commit();;
                     return true;
-                case R.id.navigation_face:
-                    hideAllFragment();
-                    getSupportFragmentManager().beginTransaction().show(ximalayaFragment1).commit();;
-                    return true;
-                case R.id.navigation_history:
-                    hideAllFragment();
-                    getSupportFragmentManager().beginTransaction().show(radioHomeFragment).commit();;
-                    return true;
+//                case R.id.navigation_history:
+//                    hideAllFragment();
+//                    getSupportFragmentManager().beginTransaction().show(radioHomeFragment).commit();;
+//                    return true;
             }
             return false;
         }
@@ -64,14 +57,12 @@ public class XmlyActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         engFragment = XimalayaEngFragment.newInstance();
         dashboardFragment = XimalayaDashboardFragment.newInstance();
-        ximalayaFragment1 = XmlyTagRecommendFragment.newInstance(XimalayaUtil.Category_Eng,null);
-        radioHomeFragment = XmlyTagRecommendFragment.newInstance(XimalayaUtil.Category_Eng,null);
+//        radioHomeFragment = XmlyTagRecommendFragment.newInstance(XimalayaUtil.Category_Eng,null);
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.content, engFragment)
                 .add(R.id.content, dashboardFragment)
-                .add(R.id.content,ximalayaFragment1)
-                .add(R.id.content, radioHomeFragment)
+//                .add(R.id.content, radioHomeFragment)
                 .commit();
         hideAllFragment();
         getSupportFragmentManager()
@@ -82,10 +73,11 @@ public class XmlyActivity extends AppCompatActivity {
         getSupportFragmentManager()
                 .beginTransaction()
                 .hide(dashboardFragment)
-                .hide(ximalayaFragment1)
-                .hide(radioHomeFragment)
+//                .hide(radioHomeFragment)
                 .hide(engFragment)
                 .commit();
     }
+
+
 
 }

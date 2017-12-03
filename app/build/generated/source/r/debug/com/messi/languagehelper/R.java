@@ -4714,9 +4714,7 @@ containing a value of this type.
         public static final int name=0x7f0f00e8;
         public static final int navigation=0x7f0f00ab;
         public static final int navigation_dashboard=0x7f0f0284;
-        public static final int navigation_face=0x7f0f0285;
         public static final int navigation_header_container=0x7f0f010c;
-        public static final int navigation_history=0x7f0f0286;
         public static final int navigation_home=0x7f0f0283;
         public static final int never=0x7f0f0062;
         public static final int news_layout=0x7f0f0189;

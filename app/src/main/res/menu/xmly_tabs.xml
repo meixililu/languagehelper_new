@@ -11,13 +11,13 @@
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="@string/title_all_fm" />
 
-    <item
-        android:id="@+id/navigation_face"
-        android:icon="@drawable/ic_face_black_24dp"
-        android:title="@string/title_live" />
-    <item
-        android:id="@+id/navigation_history"
-        android:icon="@drawable/ic_history_black_24dp"
-        android:title="@string/title_history" />
+    <!--<item-->
+        <!--android:id="@+id/navigation_face"-->
+        <!--android:icon="@drawable/ic_face_black_24dp"-->
+        <!--android:title="@string/title_live" />-->
+    <!--<item-->
+        <!--android:id="@+id/navigation_history"-->
+        <!--android:icon="@drawable/ic_history_black_24dp"-->
+        <!--android:title="@string/title_history" />-->
 
 </menu>

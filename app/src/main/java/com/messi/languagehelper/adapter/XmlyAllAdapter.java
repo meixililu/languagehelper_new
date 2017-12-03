@@ -4,7 +4,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.messi.languagehelper.XimalayaFragment;
 import com.messi.languagehelper.XimalayaRadioHomeFragment;
 import com.messi.languagehelper.XmlyCategoryFragment;
 import com.messi.languagehelper.XmlyCategoryRecommendFragment;
@@ -25,16 +24,14 @@ public class XmlyAllAdapter extends FragmentPagerAdapter {
             return XmlyCategoryFragment.getInstance();
         }else if(position == 1) {
             return XmlyCategoryRecommendFragment.newInstance("","",listener);
-        }else if(position == 2) {
-            return XimalayaFragment.newInstance("6", "");
-        }else {
+        }else{
             return XimalayaRadioHomeFragment.newInstance(listener);
         }
     }
 
     @Override
     public int getCount() {
-        return 4;
+        return 3;
     }
 
     @Override
@@ -43,8 +40,6 @@ public class XmlyAllAdapter extends FragmentPagerAdapter {
             return "分类";
         }else if(position == 1) {
             return "推荐";
-        }else if(position == 2) {
-            return "直播";
         }else {
             return "广播";
         }

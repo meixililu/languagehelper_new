@@ -1556,9 +1556,7 @@ int id my_awesome_toolbar 0x7f0f009e
 int id name 0x7f0f00e8
 int id navigation 0x7f0f00ab
 int id navigation_dashboard 0x7f0f0284
-int id navigation_face 0x7f0f0285
 int id navigation_header_container 0x7f0f010c
-int id navigation_history 0x7f0f0286
 int id navigation_home 0x7f0f0283
 int id never 0x7f0f0062
 int id news_layout 0x7f0f0189

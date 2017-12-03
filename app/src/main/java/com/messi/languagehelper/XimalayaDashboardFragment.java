@@ -50,10 +50,11 @@ public class XimalayaDashboardFragment extends BaseFragment implements OnClickLi
 		progressBar = (ProgressBar) view.findViewById(R.id.progressBarCircularIndetermininate);
 		mTabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
 		mViewPager = (ViewPager) view.findViewById(viewpager);
-		mViewPager.setOffscreenPageLimit(4);
+		mViewPager.setOffscreenPageLimit(3);
 		XmlyAllAdapter allAdapter = new XmlyAllAdapter(getChildFragmentManager(),this);
 		mViewPager.setAdapter(allAdapter);
 		mTabLayout.setupWithViewPager(mViewPager);
+		mViewPager.setCurrentItem(1);
 	}
 
 	@Override
