@@ -6,8 +6,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.daimajia.numberprogressbar.NumberProgressBar;
-import com.iflytek.cloud.thirdparty.L;
-import com.messi.languagehelper.inteface.ProgressListener;
+import com.messi.languagehelper.impl.ProgressListener;
 import com.messi.languagehelper.util.DownLoadUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SDCardUtil;

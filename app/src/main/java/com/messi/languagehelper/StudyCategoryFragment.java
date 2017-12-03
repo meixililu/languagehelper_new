@@ -311,7 +311,6 @@ public class StudyCategoryFragment extends BaseFragment {
         header_title.setText(dra.getDisPlayTagName());
         content_tv.removeAllViews();
         for (Album album : dra.getAlbumList()) {
-            LogUtil.DefalutLog(album.toString());
             content_tv.addView(initAlbum(album));
             content_tv.addView(ViewUtil.getLine(getContext()));
         }

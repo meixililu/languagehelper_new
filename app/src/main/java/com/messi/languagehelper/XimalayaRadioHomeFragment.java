@@ -397,4 +397,6 @@ public class XimalayaRadioHomeFragment extends BaseFragment implements FragmentP
     public boolean onError(XmPlayerException e) {
         return false;
     }
+
+
 }

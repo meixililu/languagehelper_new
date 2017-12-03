@@ -1,4 +1,4 @@
-package com.messi.languagehelper.inteface;
+package com.messi.languagehelper.impl;
 
 public interface MenuInteface {
 	

@@ -702,7 +702,6 @@ public class MainFragment extends Fragment implements OnClickListener, OrcResult
                         mAdapter.notifyDataSetChanged();
                     }
                 });
-
     }
 
     private void AutoPlayWaitTask() {

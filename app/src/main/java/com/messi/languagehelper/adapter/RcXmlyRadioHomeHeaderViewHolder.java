@@ -13,6 +13,8 @@ import android.widget.TextView;
 import com.google.android.flexbox.FlexboxLayout;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.XimalayaRadioCategoryListActivity;
+import com.messi.languagehelper.XimalayaRadioLocalActivity;
+import com.messi.languagehelper.XimalayaRadioProvinceActivity;
 import com.messi.languagehelper.XimalayaRadioTypeListActivity;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.ScreenUtil;
@@ -86,16 +88,30 @@ public class RcXmlyRadioHomeHeaderViewHolder extends RecyclerView.ViewHolder imp
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.fm_radio_local:
+                toRadioLocal(context.getResources().getString(R.string.radio_local));
                 break;
             case R.id.fm_radio_country:
                 toRadioTypeList("1",context.getResources().getString(R.string.radio_country));
                 break;
             case R.id.fm_radio_province:
+                toRadioProvince(context.getResources().getString(R.string.radio_province));
                 break;
             case R.id.fm_radio_internet:
                 toRadioTypeList("3",context.getResources().getString(R.string.radio_internet));
                 break;
         }
+    }
+
+    private void toRadioProvince(String title){
+        Intent intent = new Intent(context, XimalayaRadioProvinceActivity.class);
+        intent.putExtra(KeyUtil.ActionbarTitle,title);
+        context.startActivity(intent);
+    }
+
+    private void toRadioLocal(String title){
+        Intent intent = new Intent(context, XimalayaRadioLocalActivity.class);
+        intent.putExtra(KeyUtil.ActionbarTitle,title);
+        context.startActivity(intent);
     }
 
     private void toRadioTypeList(String type,String title){

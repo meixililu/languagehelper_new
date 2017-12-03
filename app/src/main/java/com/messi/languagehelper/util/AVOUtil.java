@@ -604,4 +604,23 @@ public class AVOUtil {
 		public final static String createdAt = "createdAt";
 	}
 
+	public static class Location{
+		public final static String Location = "Location";
+		public final static String network = "network";
+		public final static String screen = "screen";
+		public final static String address = "address";
+		public final static String city = "city";
+		public final static String longitude = "longitude";
+		public final static String latitude = "latitude";
+		public final static String uuid = "uuid";
+		public final static String province = "province";
+		public final static String country = "country";
+		public final static String adcode = "adcode";
+		public final static String district = "district";
+		public final static String sdk = "sdk";
+		public final static String version = "version";
+		public final static String model = "model";
+		public final static String brand = "brand";
+	}
+
 }

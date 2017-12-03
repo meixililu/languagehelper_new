@@ -8,19 +8,14 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationCompat.Builder;
 import android.text.TextUtils;
 
 import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.okhttp.Interceptor;
-import com.avos.avoscloud.okhttp.OkHttpClient;
-import com.avos.avoscloud.okhttp.Request;
 import com.avos.avoscloud.okhttp.Response;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
-import com.messi.languagehelper.http.ProgressResponseBody;
-import com.messi.languagehelper.inteface.ProgressListener;
+import com.messi.languagehelper.impl.ProgressListener;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
 
 public class AppDownloadUtil {

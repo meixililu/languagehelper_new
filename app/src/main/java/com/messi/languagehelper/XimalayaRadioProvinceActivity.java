@@ -4,25 +4,31 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 
+import com.google.gson.reflect.TypeToken;
 import com.iflytek.voiceads.AdError;
 import com.iflytek.voiceads.AdKeys;
 import com.iflytek.voiceads.IFLYNativeAd;
 import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
-import com.messi.languagehelper.adapter.RcXmlyRadioListAdapter;
+import com.messi.languagehelper.adapter.RcXmlyRadioProvinceAdapter;
 import com.messi.languagehelper.bean.RadioForAd;
+import com.messi.languagehelper.impl.AdapterStringListener;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
+import com.messi.languagehelper.util.SaveData;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.ximalaya.ting.android.opensdk.constants.DTransferConstants;
 import com.ximalaya.ting.android.opensdk.datatrasfer.CommonRequest;
 import com.ximalaya.ting.android.opensdk.datatrasfer.IDataCallBack;
 import com.ximalaya.ting.android.opensdk.model.PlayableModel;
+import com.ximalaya.ting.android.opensdk.model.live.provinces.Province;
+import com.ximalaya.ting.android.opensdk.model.live.provinces.ProvinceList;
 import com.ximalaya.ting.android.opensdk.model.live.radio.Radio;
 import com.ximalaya.ting.android.opensdk.model.live.radio.RadioList;
 import com.ximalaya.ting.android.opensdk.model.track.Track;
@@ -31,6 +37,7 @@ import com.ximalaya.ting.android.opensdk.player.service.IXmPlayerStatusListener;
 import com.ximalaya.ting.android.opensdk.player.service.XmPlayerException;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -40,16 +47,18 @@ import java.util.Random;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class XimalayaRadioTypeListActivity extends BaseActivity implements IXmPlayerStatusListener {
+public class XimalayaRadioProvinceActivity extends BaseActivity implements AdapterStringListener,
+        IXmPlayerStatusListener {
 
     @BindView(R.id.listview)
     RecyclerView listview;
-    private RcXmlyRadioListAdapter adapter;
+    private List<Province> provinceList;
     private List<Radio> radios;
+    private RcXmlyRadioProvinceAdapter adapter;
     private int ad_try_times = 1;
     private int skip = 1;
     private int max_page = 1;
-    private String type;
+    private String province;
     private IFLYNativeAd nativeAd;
     private RadioForAd mADObject;
     private boolean loading;
@@ -57,20 +66,22 @@ public class XimalayaRadioTypeListActivity extends BaseActivity implements IXmPl
     private LinearLayoutManager mLinearLayoutManager;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.xmly_radio_list_avtivity);
+        setContentView(R.layout.ximalaya_tags_activity);
         ButterKnife.bind(this);
         registerBroadcast();
-        initView();
-        getRankRadios();
+        initData();
+        getProvinceTask();
     }
 
-    private void initView() {
-        type = getIntent().getStringExtra(KeyUtil.Type);
+    private void initData() {
+        provinceList = new ArrayList<Province>();
         radios = new ArrayList<Radio>();
-        adapter = new RcXmlyRadioListAdapter(radios);
+        initSwipeRefresh();
+        adapter = new RcXmlyRadioProvinceAdapter(provinceList,radios,this);
         adapter.setItems(radios);
+        adapter.setHeader(new Object());
         adapter.setFooter(new Object());
         hideFooterview();
         XmPlayerManager.getInstance(this).addPlayerStatusListener(this);
@@ -85,6 +96,59 @@ public class XimalayaRadioTypeListActivity extends BaseActivity implements IXmPl
                         .marginResId(R.dimen.padding_margin, R.dimen.padding_margin)
                         .build());
         setListOnScrollListener();
+    }
+
+    private void getProvinceTask() {
+        showProgressbar();
+        Type type = new TypeToken<List<Province>>() {}.getType();
+        List<Province> tagList = SaveData.getDataListFonJson(this, KeyUtil.XmlyRadioProvince, type);
+        if (tagList != null) {
+            provinceList.clear();
+            provinceList.addAll(tagList);
+            setProvinceData();
+        } else {
+            getProvince();
+        }
+    }
+
+    private void setProvinceData(){
+        if(provinceList.size() > 0){
+            provinceList.get(0).setCreatedAt(1);
+            province = String.valueOf(provinceList.get(0).getProvinceCode());
+            adapter.notifyDataSetChanged();
+            getRankRadios();
+        }
+    }
+
+    private void getProvince() {
+        Map<String, String> map = new HashMap<String, String>();
+        CommonRequest.getProvinces(map, new IDataCallBack<ProvinceList>() {
+            @Override
+            public void onSuccess(@Nullable ProvinceList pls) {
+                provinceList.clear();
+                provinceList.addAll(pls.getProvinceList());
+                setProvinceData();
+                saveData();
+            }
+
+            @Override
+            public void onError(int i, String s) {
+            }
+        });
+    }
+
+    private void saveData() {
+        SaveData.saveDataListAsJson(this, KeyUtil.XmlyRadioProvince, provinceList);
+    }
+
+
+    @Override
+    public void OnItemClick(String item) {
+        province = item;
+        skip = 1;
+        radios.clear();
+        adapter.notifyDataSetChanged();
+        getRankRadios();
     }
 
     public void setListOnScrollListener() {
@@ -125,10 +189,15 @@ public class XimalayaRadioTypeListActivity extends BaseActivity implements IXmPl
     }
 
     private void getRankRadios() {
+        if(TextUtils.isEmpty(province)){
+            finishLoading();
+            return;
+        }
         loading = true;
         showProgressbar();
         Map<String, String> map = new HashMap<String, String>();
-        map.put(DTransferConstants.RADIOTYPE , type);
+        map.put(DTransferConstants.RADIOTYPE , "2");
+        map.put(DTransferConstants.PROVINCECODE , province);
         map.put(DTransferConstants.PAGE_SIZE, String.valueOf(Settings.page_size));
         map.put(DTransferConstants.PAGE, String.valueOf(skip));
         CommonRequest.getRadios(map, new IDataCallBack<RadioList>() {
@@ -143,7 +212,7 @@ public class XimalayaRadioTypeListActivity extends BaseActivity implements IXmPl
                         adapter.notifyDataSetChanged();
                     }
                     if (skip > radioList.getTotalPage()) {
-                        ToastUtil.diaplayMesShort(XimalayaRadioTypeListActivity.this, "没有了！");
+                        ToastUtil.diaplayMesShort(XimalayaRadioProvinceActivity.this, "没有了！");
                         hideFooterview();
                         hasMore = false;
                     } else {
@@ -264,7 +333,6 @@ public class XimalayaRadioTypeListActivity extends BaseActivity implements IXmPl
     public void onResume() {
         super.onResume();
         dataChange();
-
     }
 
     private void hideFooterview() {

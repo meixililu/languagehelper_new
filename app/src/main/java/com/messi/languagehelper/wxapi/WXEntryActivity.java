@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -46,6 +47,7 @@ import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.TranslateUtil;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
@@ -57,13 +59,13 @@ import java.util.List;
 
 import cn.jzvd.JZVideoPlayer;
 
-public class WXEntryActivity extends BaseActivity implements OnClickListener,FragmentProgressbarListener {
+public class WXEntryActivity extends BaseActivity implements OnClickListener, FragmentProgressbarListener {
 
 	public static HashMap<String, Object> dataMap = new HashMap<String, Object>();
 	private TabLayout tablayout;
 	private ViewPager viewPager;
 	private MainPageAdapter mAdapter;
-	
+
 	private long exitTime = 0;
 	private Bundle bundle;
 	private boolean isRespondWX;
@@ -82,7 +84,7 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 			setContentView(R.layout.content_frame);
 			mInstance = this;
 			initViews();
-			Settings.verifyStoragePermissions(this,Settings.PERMISSIONS_STORAGE);
+			Settings.verifyStoragePermissions(this, Settings.PERMISSIONS_STORAGE);
 			initXimalayaSDK();
 			runCheckUpdateTask();
 		} catch (Exception e) {
@@ -90,20 +92,20 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 		}
 	}
 
-	private void initViews(){
+	private void initViews() {
 		bundle = getIntent().getExtras();
-		SpeechUtility.createUtility(this, SpeechConstant.APPID + "=" +getString(R.string.app_id));
+		SpeechUtility.createUtility(this, SpeechConstant.APPID + "=" + getString(R.string.app_id));
 		if (toolbar != null) {
 			getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 			getSupportActionBar().setTitle("");
 		}
 		mSharedPreferences = getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
 		mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
-		PlayUtil.initData(this,mSpeechSynthesizer,mSharedPreferences);
+		PlayUtil.initData(this, mSpeechSynthesizer, mSharedPreferences);
 
 		viewPager = (ViewPager) findViewById(R.id.pager);
 		tablayout = (TabLayout) findViewById(R.id.tablayout);
-		mAdapter = new MainPageAdapter(this.getSupportFragmentManager(),bundle,this,
+		mAdapter = new MainPageAdapter(this.getSupportFragmentManager(), bundle, this,
 				mSharedPreferences);
 		viewPager.setAdapter(mAdapter);
 		viewPager.setOffscreenPageLimit(5);
@@ -112,20 +114,31 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 			@Override
 			public void onTabSelected(TabLayout.Tab tab) {
 			}
+
 			@Override
 			public void onTabUnselected(TabLayout.Tab tab) {
 			}
+
 			@Override
 			public void onTabReselected(TabLayout.Tab tab) {
-				if(mAdapter != null){
+				if (mAdapter != null) {
 					mAdapter.onTabReselected(tab.getPosition());
 				}
 			}
 		});
-        setLastTimeSelectTab();
+		setLastTimeSelectTab();
+		getScreen();
 	}
 
-	private void initXimalayaSDK(){
+	private void getScreen(){
+		DisplayMetrics dm = new DisplayMetrics();
+		getWindowManager().getDefaultDisplay().getMetrics(dm);
+		SystemUtil.SCREEN_WIDTH = dm.widthPixels;
+		SystemUtil.SCREEN_HEIGHT = dm.heightPixels;
+		SystemUtil.screen = SystemUtil.SCREEN_WIDTH + "x" + SystemUtil.SCREEN_HEIGHT;
+	}
+
+	private void initXimalayaSDK() {
 		LogUtil.DefalutLog("main---initXimalayaSDK");
 		XmPlayerManager.getInstance(this).init();
 		XmPlayerManager.getInstance(this).setCommonBusinessHandle(XmDownloadManager.getInstance());
@@ -133,12 +146,13 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 	}
 
 	//connect to the service
-	private ServiceConnection musicConnection = new ServiceConnection(){
+	private ServiceConnection musicConnection = new ServiceConnection() {
 		@Override
 		public void onServiceConnected(ComponentName name, IBinder service) {
-			PlayerService.MusicBinder binder = (PlayerService.MusicBinder)service;
+			PlayerService.MusicBinder binder = (PlayerService.MusicBinder) service;
 			musicSrv = binder.getService();
 		}
+
 		@Override
 		public void onServiceDisconnected(ComponentName name) {
 		}
@@ -150,57 +164,57 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 		startMusicPlayerService();
 	}
 
-	private void startMusicPlayerService(){
-		if(playIntent == null){
+	private void startMusicPlayerService() {
+		if (playIntent == null) {
 			playIntent = new Intent(this, PlayerService.class);
 			bindService(playIntent, musicConnection, Context.BIND_AUTO_CREATE);
 			startService(playIntent);
 		}
 	}
-	
-	private void setLastTimeSelectTab(){
+
+	private void setLastTimeSelectTab() {
 		int index = mSharedPreferences.getInt(KeyUtil.LastTimeSelectTab, 0);
 		viewPager.setCurrentItem(index);
 	}
-	
+
 	@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-	
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case R.id.action_more:
-			toMoreActivity();
-			break;
+			case R.id.action_more:
+				toMoreActivity();
+				break;
 		}
-       return true;
+		return true;
 	}
-	
-	private void toMoreActivity(){
-		Intent intent = new Intent(this, MoreActivity.class); 
-		startActivity(intent); 
+
+	private void toMoreActivity() {
+		Intent intent = new Intent(this, MoreActivity.class);
+		startActivity(intent);
 		AVAnalytics.onEvent(this, "index_pg_to_morepg");
 	}
-	
+
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		switch (keyCode) {
-		case KeyEvent.KEYCODE_MENU:
-			 toMoreActivity();
-			 return true;
+			case KeyEvent.KEYCODE_MENU:
+				toMoreActivity();
+				return true;
 		}
 		return super.onKeyDown(keyCode, event);
 	}
-	
+
 	@Override
 	public void onBackPressed() {
 		if (JZVideoPlayer.backPress()) {
 			return;
 		}
-    	if ((System.currentTimeMillis() - exitTime) > 2000) {
+		if ((System.currentTimeMillis() - exitTime) > 2000) {
 			Toast.makeText(getApplicationContext(), this.getResources().getString(R.string.exit_program), Toast.LENGTH_SHORT).show();
 			exitTime = System.currentTimeMillis();
 		} else {
@@ -212,10 +226,10 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 	public void onClick(View v) {
 	}
 
-	private void saveSelectTab(){
+	private void saveSelectTab() {
 		int index = viewPager.getCurrentItem();
-		LogUtil.DefalutLog("WXEntryActivity---onDestroy---saveSelectTab---index:"+index);
-		Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.LastTimeSelectTab,index);
+		LogUtil.DefalutLog("WXEntryActivity---onDestroy---saveSelectTab---index:" + index);
+		Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.LastTimeSelectTab, index);
 	}
 
 	@Override
@@ -231,15 +245,15 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 		WebViewFragment.mMainFragment = null;
 		mInstance = null;
 		TranslateUtil.saveTranslateApiOrder(mSharedPreferences);
-		if(mSharedPreferences.getBoolean(KeyUtil.AutoClearDic, false)){
+		if (mSharedPreferences.getBoolean(KeyUtil.AutoClearDic, false)) {
 			DataBaseUtil.getInstance().clearExceptFavoriteDic();
 		}
-		if(mSharedPreferences.getBoolean(KeyUtil.AutoClearTran, false)){
+		if (mSharedPreferences.getBoolean(KeyUtil.AutoClearTran, false)) {
 			DataBaseUtil.getInstance().clearExceptFavoriteTran();
 		}
 		JZVideoPlayer.releaseAllVideos();
 		PlayUtil.onDestroy();
-		if(playIntent != null){
+		if (playIntent != null) {
 			stopService(playIntent);
 		}
 		unbindService(musicConnection);
@@ -247,16 +261,16 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 		musicSrv = null;
 	}
 
-	private void runCheckUpdateTask(){
+	private void runCheckUpdateTask() {
 		new Handler().postDelayed(new Runnable() {
 			@Override
 			public void run() {
 				checkUpdate();
 			}
-		},5*1000);
+		}, 5 * 1000);
 	}
 
-	private void checkUpdate(){
+	private void checkUpdate() {
 		AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.UpdateInfo.UpdateInfo);
 		query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "zyhy");
 		query.whereEqualTo(AVOUtil.UpdateInfo.IsValid, "1");
@@ -270,21 +284,21 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener,Fra
 		});
 	}
 
-	private void showUpdateDialog(final AVObject mAVObject){
+	private void showUpdateDialog(final AVObject mAVObject) {
 		int newVersionCode = mAVObject.getInt(AVOUtil.UpdateInfo.VersionCode);
 		int oldVersionCode = Settings.getVersion(WXEntryActivity.this);
-		if(newVersionCode > oldVersionCode){
+		if (newVersionCode > oldVersionCode) {
 			String updateInfo = mAVObject.getString(AVOUtil.UpdateInfo.AppUpdateInfo);
 			String downloadType = mAVObject.getString(AVOUtil.UpdateInfo.DownloadType);
 			String apkUrl = "";
-			if(downloadType.equals("apk")){
+			if (downloadType.equals("apk")) {
 				AVFile avFile = mAVObject.getAVFile(AVOUtil.UpdateInfo.Apk);
 				apkUrl = avFile.getUrl();
-			}else{
+			} else {
 				apkUrl = mAVObject.getString(AVOUtil.UpdateInfo.APPUrl);
 			}
 			final String downloadUrl = apkUrl;
-			LogUtil.DefalutLog("apkUrl:"+apkUrl);
+			LogUtil.DefalutLog("apkUrl:" + apkUrl);
 
 			dialog = DialogPlus.newDialog(this)
 					.setContentHolder(new ViewHolder(R.layout.dialog_update_info))

@@ -88,7 +88,6 @@ public class RcXmlyTagsItemViewHolder extends RecyclerView.ViewHolder {
     }
 
     private void toDetailActivity(final Album mAVObject) {
-        LogUtil.DefalutLog(mAVObject.toString());
         Intent intent = new Intent(context, XimalayaTrackListActivity.class);
         intent.putExtra("album_id", mAVObject.getId()+"");
         intent.putExtra("play_times", mAVObject.getPlayCount());

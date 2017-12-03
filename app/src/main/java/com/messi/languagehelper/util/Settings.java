@@ -43,6 +43,8 @@ public class Settings {
 	
 	public static String baiduWebTranslateUrl = "http://fanyi.baidu.com/v2transapi";
 
+	public static String BaiduLocationApi = "http://api.map.baidu.com/geocoder/v2/?output=json&pois=1&ak=vCV6TTGRTI5QrckdYSKHQIhq&location=";
+
 	public static String HjTranslateUrl = "https://dict.hjenglish.com/services/Translate.ashx";
 
 	public static String IcibaTranslateNewUrl = "http://fy.iciba.com/ajax.php?a=fy";

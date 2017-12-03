@@ -9,7 +9,7 @@ import com.avos.avoscloud.okhttp.Response;
 import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.dao.SymbolListDao;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
-import com.messi.languagehelper.inteface.ProgressListener;
+import com.messi.languagehelper.impl.ProgressListener;
 
 import java.io.File;
 import java.io.FileOutputStream;

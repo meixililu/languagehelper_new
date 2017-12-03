@@ -9,7 +9,7 @@ import com.avos.avoscloud.okio.BufferedSource;
 import com.avos.avoscloud.okio.ForwardingSource;
 import com.avos.avoscloud.okio.Okio;
 import com.avos.avoscloud.okio.Source;
-import com.messi.languagehelper.inteface.ProgressListener;
+import com.messi.languagehelper.impl.ProgressListener;
 
 public class ProgressResponseBody extends ResponseBody {
 

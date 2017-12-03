@@ -16,7 +16,7 @@ import com.avos.avoscloud.okhttp.RequestBody;
 import com.avos.avoscloud.okhttp.Response;
 import com.messi.languagehelper.MainFragmentOld;
 import com.messi.languagehelper.bean.BaiduAccessToken;
-import com.messi.languagehelper.inteface.ProgressListener;
+import com.messi.languagehelper.impl.ProgressListener;
 import com.messi.languagehelper.util.CameraUtil;
 import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KeyUtil;

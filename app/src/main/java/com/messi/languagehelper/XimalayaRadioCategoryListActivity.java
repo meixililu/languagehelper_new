@@ -194,6 +194,7 @@ public class XimalayaRadioCategoryListActivity extends BaseActivity implements I
 
     @Override
     public void onSwipeRefreshLayoutRefresh() {
+        radios.clear();
         random();
         loadAD();
         getRankRadios();
