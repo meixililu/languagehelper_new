@@ -173,7 +173,7 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
     }
 
     private void loadAD() {
-        IFLYNativeAd nativeAd = new IFLYNativeAd(this, ADUtil.XXLAD, new IFLYNativeListener() {
+        IFLYNativeAd nativeAd = new IFLYNativeAd(XimalayaDetailActivity.this, ADUtil.XXLAD, new IFLYNativeListener() {
             @Override
             public void onConfirm() {
             }
