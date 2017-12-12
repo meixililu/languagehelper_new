@@ -90,7 +90,8 @@
 
         <activity
             android:name="com.iflytek.voiceads.request.IFLYBrowser"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeForXF" />
         <!-- 讯飞广告sdk -->
 
         <service

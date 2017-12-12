@@ -3,9 +3,8 @@ package com.messi.languagehelper;
 
 import android.support.annotation.CallSuper;
 import android.support.annotation.UiThread;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.TextView;
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
 import java.lang.IllegalStateException;
@@ -23,8 +22,8 @@ public class ChineseDictionaryActivity_ViewBinding implements Unbinder {
   public ChineseDictionaryActivity_ViewBinding(ChineseDictionaryActivity target, View source) {
     this.target = target;
 
-    target.tablayout = Utils.findRequiredViewAsType(source, R.id.tablayout, "field 'tablayout'", TabLayout.class);
-    target.viewPager = Utils.findRequiredViewAsType(source, R.id.pager, "field 'viewPager'", ViewPager.class);
+    target.btnBushou = Utils.findRequiredViewAsType(source, R.id.btn_bushou, "field 'btnBushou'", TextView.class);
+    target.btnPinyin = Utils.findRequiredViewAsType(source, R.id.btn_pinyin, "field 'btnPinyin'", TextView.class);
   }
 
   @Override
@@ -34,7 +33,7 @@ public class ChineseDictionaryActivity_ViewBinding implements Unbinder {
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
     this.target = null;
 
-    target.tablayout = null;
-    target.viewPager = null;
+    target.btnBushou = null;
+    target.btnPinyin = null;
   }
 }

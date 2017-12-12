@@ -95,6 +95,8 @@ public class Settings {
 //	public static final String CaiLingUrl = "http://api.openspeech.cn/kyls/NTBhYTEyMTM=";old
 	public static final String CaiLingUrl = "http://iring.diyring.cc/friendv2/135430af88bc3328#main";
 
+	public static final String CHDicBaiduApi = "http://hanyu.baidu.com/s?ptype=zici&wd=";
+
 	public static final String ChDicSearchUrl = "http://v.juhe.cn/xhzd/query";
 
 	public static final String ChDicBushouUrl = "http://v.juhe.cn/xhzd/bushou";

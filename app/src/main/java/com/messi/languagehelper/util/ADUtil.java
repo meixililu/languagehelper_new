@@ -23,7 +23,8 @@ public class ADUtil {
 	public static final String QuanPingADId = "72C0E6B1042EA9F06A5A9B76235626CF";
 	public static final String ListADId = "8FCA7E5106A3DB7DBC97B3B357E8A57F";
 	public static final String XiuxianBanner = "8067D0538A5CC32E32550CCC816A23D2";
-	public static final String XiuxianYSNRLAd = "A6505AA06C919195709A1194CB632879";
+//	public static final String XiuxianYSNRLAd = "A6505AA06C919195709A1194CB632879";
+	public static final String XiuxianYSNRLAd = "912060B856C82B204149D8DF3DD65F6E";
 	public static final String MRYJYSNRLAd = "ED72385915DAC4C681891487523EBE87";
 	public static final String KaiPingYSAD = "F707B4276F3977F1F28BF110A8A20A74";
 

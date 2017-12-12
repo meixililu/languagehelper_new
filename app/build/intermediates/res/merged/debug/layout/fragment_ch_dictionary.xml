@@ -11,6 +11,20 @@
         android:focusableInTouchMode="true"
         android:orientation="vertical" >
 
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/my_awesome_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/style6_color1"
+            android:minHeight="?attr/actionBarSize" >
+
+            <ProgressBar style="@style/CircularProgressWhite"
+                android:id="@+id/progressBarCircularIndetermininate"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="right"
+                android:visibility="gone" />
+        </android.support.v7.widget.Toolbar>
         <ScrollView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" >
@@ -34,9 +48,8 @@
                     android:focusableInTouchMode="true"
                     android:gravity="left"
                     android:hint="@string/ch_dic_input_hint"
-                    android:maxLength="1"
                     android:imeOptions="actionDone"
-                    android:minLines="2"
+                    android:minLines="3"
                     android:textColor="@color/text_black"
                     android:textColorHint="@color/text_grey"
                     android:textCursorDrawable="@null"
@@ -69,7 +82,7 @@
                     android:layout_margin="@dimen/padding_5">
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="47dp"
+                        android:layout_height="42dp"
                         android:background="@color/style6_color1"
                         android:textColor="@color/white"
                         android:gravity="center"
@@ -107,6 +120,7 @@
             android:orientation="vertical" >
 
             <ScrollView
+                android:id="@+id/chdic_sv"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 >
@@ -117,15 +131,36 @@
                     android:background="@color/none"
                     android:cacheColorHint="@color/none"
                     >
-                    <TextView
-                        android:id="@+id/result_tv"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/text_dark"
-                        android:background="@color/white"
-                        android:padding="@dimen/padding_10"
-                        android:textSize="@dimen/bigger"
-                        />
+                        android:orientation="vertical"
+                        >
+                        <TextView
+                            android:id="@+id/question_tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_dark"
+                            android:background="@color/white"
+                            android:padding="@dimen/padding_10"
+                            android:textSize="@dimen/biggerx"
+                            />
+                        <TextView
+                            android:id="@+id/result_tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_dark"
+                            android:lineSpacingExtra="3dp"
+                            android:lineSpacingMultiplier="1.3"
+                            android:background="@color/white"
+                            android:padding="@dimen/padding_10"
+                            android:textSize="@dimen/bigger"
+                            />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"/>
+                    </LinearLayout>
+
                     <FrameLayout
                         android:id="@+id/copy_btn"
                         android:layout_width="40dp"
@@ -225,6 +260,7 @@
                 </LinearLayout>
             </RelativeLayout>
         </RelativeLayout>
+
     </LinearLayout>
 
     <LinearLayout
