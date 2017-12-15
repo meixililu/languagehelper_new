@@ -20,7 +20,6 @@ import com.iflytek.voiceads.AdKeys;
 import com.iflytek.voiceads.IFLYNativeAd;
 import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
-import com.messi.languagehelper.adapter.RcReadingListAdapter;
 import com.messi.languagehelper.adapter.RcSubjectReadingListAdapter;
 import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
@@ -335,6 +334,9 @@ public class ReadingsBySubjectFragment extends BaseFragment {
             @Override
             public void onAdFailed(AdError arg0) {
                 LogUtil.DefalutLog("onAdFailed---" + arg0.getErrorCode() + "---" + arg0.getErrorDescription());
+                if(ADUtil.isHasLocalAd()){
+                    onADLoaded(ADUtil.getRandomAdList());
+                }
             }
 
             @Override

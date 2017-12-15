@@ -223,6 +223,9 @@ public class SearchResultActivity extends BaseActivity{
 			@Override
 			public void onAdFailed(AdError arg0) {
 				LogUtil.DefalutLog("onAdFailed---"+arg0.getErrorCode()+"---"+arg0.getErrorDescription());
+				if(ADUtil.isHasLocalAd()){
+					onADLoaded(ADUtil.getRandomAdList());
+				}
 			}
 			@Override
 			public void onADLoaded(List<NativeADDataRef> adList) {

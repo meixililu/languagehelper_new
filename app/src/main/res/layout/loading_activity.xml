@@ -74,7 +74,7 @@
 		android:textColor="@color/white"
 		android:textSize="@dimen/smaller_l"
 		android:visibility="gone"
-		android:text="VoiceAds广告"
+		android:text="广告"
 		/>
 
 </RelativeLayout>

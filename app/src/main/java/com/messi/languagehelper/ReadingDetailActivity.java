@@ -269,7 +269,7 @@ public class ReadingDetailActivity extends BaseActivity {
                 final NativeADDataRef mNativeADDataRef = mObject.getmNativeADDataRef();
                 title.setText(mNativeADDataRef.getSubTitle());
                 type_name.setText(mNativeADDataRef.getTitle());
-                source_name.setText("VoiceAds广告");
+                source_name.setText("广告");
                 list_item_img.setImageURI(Uri.parse(mNativeADDataRef.getImage()));
                 mNativeADDataRef.onExposured(layout_cover);
                 layout_cover.setOnClickListener(new OnClickListener() {

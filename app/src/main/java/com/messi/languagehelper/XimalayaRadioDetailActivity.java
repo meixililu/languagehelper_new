@@ -159,8 +159,12 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
 
             @Override
             public void onAdFailed(AdError arg0) {
-                isShowAd(View.GONE);
                 LogUtil.DefalutLog("onAdFailed---" + arg0.getErrorCode() + "---" + arg0.getErrorDescription());
+                if(ADUtil.isHasLocalAd()){
+                    onADLoaded(ADUtil.getRandomAdList());
+                }else {
+                    isShowAd(View.GONE);
+                }
             }
 
             @Override

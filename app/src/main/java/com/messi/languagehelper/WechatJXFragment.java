@@ -23,7 +23,6 @@ import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.JsonParser;
-import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Settings;
@@ -208,6 +207,9 @@ public class WechatJXFragment extends BaseFragment implements OnClickListener {
             @Override
             public void onAdFailed(AdError arg0) {
                 LogUtil.DefalutLog("onAdFailed---" + arg0.getErrorCode() + "---" + arg0.getErrorDescription());
+                if(ADUtil.isHasLocalAd()){
+                    onADLoaded(ADUtil.getRandomAdList());
+                }
             }
 
             @Override

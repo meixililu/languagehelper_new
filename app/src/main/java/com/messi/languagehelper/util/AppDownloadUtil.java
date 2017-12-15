@@ -1,14 +1,13 @@
 package com.messi.languagehelper.util;
 
-import java.io.File;
-import java.io.IOException;
-
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.support.v4.app.NotificationCompat.Builder;
+import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
 
 import com.avos.avoscloud.AVObject;
@@ -17,6 +16,9 @@ import com.messi.languagehelper.R;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.impl.ProgressListener;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
+
+import java.io.File;
+import java.io.IOException;
 
 public class AppDownloadUtil {
 
@@ -63,7 +65,7 @@ public class AppDownloadUtil {
 						if(response.isSuccessful()){
 							LogUtil.DefalutLog("---DownloadFile success");
 							DownLoadUtil.saveFile(mContext,path,appFileName,response.body().bytes());
-							PendingIntent pendUp = PendingIntent.getActivity(mContext, 0, getInstallApkIntent(appLocalFullName), 
+							PendingIntent pendUp = PendingIntent.getActivity(mContext, 0, getInstallApkIntent(mContext,appLocalFullName),
 									PendingIntent.FLAG_UPDATE_CURRENT);
 							mBuilder.setContentIntent (pendUp);
 				            mNotifyManager.notify(0, mBuilder.build());
@@ -118,14 +120,20 @@ public class AppDownloadUtil {
 	
 	/**安装apk**/
 	public void installApk(Context mContext,String filePath){
-		mContext.startActivity(getInstallApkIntent(filePath));
+		mContext.startActivity(getInstallApkIntent(mContext,filePath));
 	}
 	
-	public Intent getInstallApkIntent(String filePath){
-		LogUtil.DefalutLog("---filePath:"+filePath);
+	public Intent getInstallApkIntent(Context mContext,String filePath){
+		LogUtil.DefalutLog("getInstallApkIntent---filePath:"+filePath);
 		Intent i = new Intent(Intent.ACTION_VIEW);
-		i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		i.setDataAndType(Uri.parse("file://" + filePath), "application/vnd.android.package-archive");
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+			i.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+			Uri imageUri = FileProvider.getUriForFile(mContext, SDCardUtil.Provider, new File(filePath));
+			i.setDataAndType(imageUri, "application/vnd.android.package-archive");
+		}else {
+			i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			i.setDataAndType(Uri.parse("file://" + filePath), "application/vnd.android.package-archive");
+		}
 		return i;
 	}
 	

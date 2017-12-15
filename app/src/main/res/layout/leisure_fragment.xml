@@ -35,7 +35,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="VoiceAds广告"
+                android:text="广告"
                 android:textColor="@color/white"
                 android:background="@color/none_alpha"
                 android:textSize="@dimen/smaller"

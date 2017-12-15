@@ -131,7 +131,7 @@
                     android:layout_alignParentLeft="true"
                     android:paddingBottom="1dp"
                     android:paddingLeft="1dp"
-                    android:text="VoiceAds广告"
+                    android:text="广告"
                     android:background="@color/none_alpha"
                     android:textColor="@color/white"
                     android:textSize="@dimen/smaller_l" />

@@ -19,7 +19,6 @@ import com.bumptech.glide.load.model.GlideUrl;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.AdError;
 import com.iflytek.voiceads.AdKeys;
-import com.iflytek.voiceads.IFLYFullScreenAd;
 import com.iflytek.voiceads.IFLYNativeAd;
 import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
@@ -47,7 +46,6 @@ public class LoadingActivity extends AppCompatActivity implements OnClickListene
     @BindView(R.id.ad_img)
     SimpleDraweeView ad_img;
     private SharedPreferences mSharedPreferences;
-    private IFLYFullScreenAd fullScreenAd;
     private Handler mHandler;
     private boolean isAdExposure;
     private boolean isAdClicked;
@@ -60,6 +58,7 @@ public class LoadingActivity extends AppCompatActivity implements OnClickListene
             TransparentStatusbar();
             setContentView(R.layout.loading_activity);
             ButterKnife.bind(this);
+            ADUtil.loadAd(this);
             init();
             lazyInit();
         } catch (Exception e) {
@@ -107,7 +106,12 @@ public class LoadingActivity extends AppCompatActivity implements OnClickListene
     IFLYNativeListener mListener = new IFLYNativeListener() {
         @Override
         public void onAdFailed(AdError error) { // 广告请求失败
-            onError();
+            if(ADUtil.isHasLocalAd()){
+                onAdReceive();
+                setAD(ADUtil.getRandomAd());
+            }else {
+                onError();
+            }
         }
         @Override
         public void onADLoaded(List<NativeADDataRef> lst) { // 广告请求成功
@@ -128,19 +132,23 @@ public class LoadingActivity extends AppCompatActivity implements OnClickListene
         if(lst != null && lst.size() > 0){
             final NativeADDataRef mNativeADDataRef = lst.get(0);
             if(mNativeADDataRef != null){
-                ad_img.setImageURI(mNativeADDataRef.getImage());
-                boolean loadingExposure = mNativeADDataRef.onExposured(ad_img);
-                LogUtil.DefalutLog("loadingExposure："+loadingExposure);
-                ad_img.setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        onClickAd();
-                        boolean onClicked = mNativeADDataRef.onClicked(view);
-                        LogUtil.DefalutLog("onClicked:"+onClicked);
-                    }
-                });
+                setAD(mNativeADDataRef);
             }
         }
+    }
+
+    private void setAD(final NativeADDataRef mNativeADDataRef){
+        ad_img.setImageURI(mNativeADDataRef.getImage());
+        boolean loadingExposure = mNativeADDataRef.onExposured(ad_img);
+        LogUtil.DefalutLog("loadingExposure："+loadingExposure);
+        ad_img.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onClickAd();
+                boolean onClicked = mNativeADDataRef.onClicked(view);
+                LogUtil.DefalutLog("onClicked:"+onClicked);
+            }
+        });
     }
 
     private void onAdReceive(){

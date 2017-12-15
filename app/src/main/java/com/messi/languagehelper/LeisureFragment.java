@@ -53,8 +53,6 @@ public class LeisureFragment extends BaseFragment {
     FrameLayout shenhuifuLayout;
     @BindView(R.id.ad_img)
     SimpleDraweeView adImg;
-    public LeisureFragment mMainFragment;
-    private long lastTimeLoadAd;
     private NativeADDataRef mNativeADDataRef;
     private long lastLoadAd;
     private boolean exposure;
@@ -95,6 +93,11 @@ public class LeisureFragment extends BaseFragment {
             @Override
             public void onAdFailed(AdError arg0) {
                 LogUtil.DefalutLog("onAdFailed---" + arg0.getErrorCode() + "---" + arg0.getErrorDescription());
+                if(ADUtil.isHasLocalAd()){
+                    mNativeADDataRef = ADUtil.getRandomAd();
+                    setAd();
+                }
+
             }
 
             @Override
@@ -111,12 +114,14 @@ public class LeisureFragment extends BaseFragment {
     }
 
     private void setAd() {
-        lastLoadAd = System.currentTimeMillis();
-        xx_ad_layout.setVisibility(View.VISIBLE);
-        adImg.setImageURI(mNativeADDataRef.getImage());
-        if(misVisibleToUser){
-            exposure = mNativeADDataRef.onExposured(xx_ad_layout);
-            LogUtil.DefalutLog("setAd-exposure:"+exposure);
+        if(mNativeADDataRef != null){
+            lastLoadAd = System.currentTimeMillis();
+            xx_ad_layout.setVisibility(View.VISIBLE);
+            adImg.setImageURI(mNativeADDataRef.getImage());
+            if(misVisibleToUser){
+                exposure = mNativeADDataRef.onExposured(xx_ad_layout);
+                LogUtil.DefalutLog("setAd-exposure:"+exposure);
+            }
         }
     }
 

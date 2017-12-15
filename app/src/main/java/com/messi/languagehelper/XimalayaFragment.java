@@ -43,7 +43,6 @@ public class XimalayaFragment extends BaseFragment implements OnClickListener{
 	private List<Album> avObjects;
 	private int skip = 1;
 	private int max_page = 1;
-	private int ad_try_times = 1;
 	private int type = new Random().nextInt(3) + 1;
 	private String category;
 	private String tag_name;
@@ -228,11 +227,10 @@ public class XimalayaFragment extends BaseFragment implements OnClickListener{
 			}
 			@Override
 			public void onAdFailed(AdError arg0) {
-				if(ad_try_times > 0){
-					ad_try_times -= 1;
-					loadAD();
-				}
 				LogUtil.DefalutLog("onAdFailed---"+arg0.getErrorCode()+"---"+arg0.getErrorDescription());
+				if(ADUtil.isHasLocalAd()){
+					onADLoaded(ADUtil.getRandomAdList());
+				}
 			}
 			@Override
 			public void onADLoaded(List<NativeADDataRef> adList) {

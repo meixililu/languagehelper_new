@@ -121,6 +121,7 @@ public class StudyCategoryFragment extends BaseFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.study_category_fragment, null);
         ButterKnife.bind(this, view);
+        initSwipeRefresh(view);
         this.inflater = inflater;
         setData();
         setBookName();
@@ -251,6 +252,7 @@ public class StudyCategoryFragment extends BaseFragment {
                 break;
             case R.id.xmly_layout:
                 toActivity(XmlyActivity.class,null);
+                AVAnalytics.onEvent(getContext(), "tab3_to_ximalaya_home");
                 break;
         }
     }
@@ -399,6 +401,7 @@ public class StudyCategoryFragment extends BaseFragment {
         intent.putExtra("track_count", mAVObject.getIncludeTrackCount());
         intent.putExtra(KeyUtil.ActionbarTitle, mAVObject.getAlbumTitle());
         startActivity(intent);
+        AVAnalytics.onEvent(getContext(), "tab3_to_ximalaya_album");
     }
 
     private void toXmlyCategoryActivity(CategoryRecommendAlbums dra) {
@@ -411,11 +414,17 @@ public class StudyCategoryFragment extends BaseFragment {
             intent.putExtra(KeyUtil.ActionbarTitle, "精选");
         }
         startActivity(intent);
+        AVAnalytics.onEvent(getContext(), "tab3_to_ximalaya_category");
     }
 
     private void onFinishLoadData() {
         hideProgressbar();
         onSwipeRefreshLayoutFinish();
+    }
+
+    @Override
+    public void onSwipeRefreshLayoutRefresh() {
+        QueryTask();
     }
 
     @Override

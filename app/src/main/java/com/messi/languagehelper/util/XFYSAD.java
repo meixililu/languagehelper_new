@@ -27,7 +27,6 @@ public class XFYSAD {
 	private SimpleDraweeView ad_img;
 	private LayoutInflater mInflater;
 	private String adId;
-	private int retryTime;
 	private long lastLoadAdTime;
 	private boolean isDirectExPosure = true;
 	private boolean exposure;
@@ -88,9 +87,8 @@ public class XFYSAD {
 				LogUtil.DefalutLog("onAdFailed---"+arg0.getErrorCode()+"---"+arg0.getErrorDescription());
 				parentView.setVisibility(View.GONE);
 				hideHeader(true);
-				if(retryTime < 1){
-					retryTime ++;
-					showAD();
+				if(ADUtil.isHasLocalAd()){
+					onADLoaded(ADUtil.getRandomAdList());
 				}
 			}
 			@Override

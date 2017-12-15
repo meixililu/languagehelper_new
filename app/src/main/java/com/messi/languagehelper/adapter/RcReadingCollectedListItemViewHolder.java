@@ -137,7 +137,7 @@ public class RcReadingCollectedListItemViewHolder extends RecyclerView.ViewHolde
                 list_item_img.setVisibility(View.VISIBLE);
                 title.setText( mNativeADDataRef.getSubTitle() );
                 type_name.setText(mNativeADDataRef.getTitle());
-                source_name.setText("VoiceAds广告");
+                source_name.setText("广告");
                 Glide.with(context)
                         .load(mNativeADDataRef.getImage())
                         .into(list_item_img);

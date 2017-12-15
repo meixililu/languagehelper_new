@@ -52,7 +52,6 @@ public class XimalayaTagsFragment extends BaseFragment implements OnClickListene
     private List<Album> avObjects;
     private int skip = 1;
     private int max_page = 1;
-    private int ad_try_times = 1;
     private int type = 1;
     private String category;
     private String tag_name;
@@ -274,11 +273,10 @@ public class XimalayaTagsFragment extends BaseFragment implements OnClickListene
 
             @Override
             public void onAdFailed(AdError arg0) {
-                if (ad_try_times > 0) {
-                    ad_try_times -= 1;
-                    loadAD();
-                }
                 LogUtil.DefalutLog("onAdFailed---" + arg0.getErrorCode() + "---" + arg0.getErrorDescription());
+                if(ADUtil.isHasLocalAd()){
+                    onADLoaded(ADUtil.getRandomAdList());
+                }
             }
 
             @Override

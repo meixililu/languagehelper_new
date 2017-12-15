@@ -85,7 +85,7 @@ public class KaiPinAdUIModelCustom {
                         LogUtil.DefalutLog("onClicked:"+onClicked);
                     }
                 });
-                ad_source.setText("VoiceAds广告");
+                ad_source.setText("广告");
             }
         }
     }

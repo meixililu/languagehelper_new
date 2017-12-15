@@ -153,7 +153,7 @@ public class RcSubjectReadingListItemViewHolder extends RecyclerView.ViewHolder 
                 music_play_img.setVisibility(View.GONE);
                 title.setText( mNativeADDataRef.getTitle() );
                 type_name.setText(mNativeADDataRef.getSubTitle());
-                source_name.setText("VoiceAds广告");
+                source_name.setText("广告");
 
                 if(mNativeADDataRef.getImgUrls() != null && mNativeADDataRef.getImgUrls().size() > 2){
                     imgs_layout.setVisibility(View.VISIBLE);

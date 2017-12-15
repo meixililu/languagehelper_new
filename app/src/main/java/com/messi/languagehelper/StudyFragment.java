@@ -320,7 +320,6 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
     }
 
     private void loadAD() {
-//        nativeAd = new IFLYNativeAd(getContext(), ADUtil.randomAd(), new IFLYNativeListener() {
         nativeAd = new IFLYNativeAd(getContext(), ADUtil.XXLAD, new IFLYNativeListener() {
             @Override
             public void onConfirm() {
@@ -332,41 +331,10 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
 
             @Override
             public void onAdFailed(AdError arg0) {
-                loadADBackup();
                 LogUtil.DefalutLog("onAdFailed---" + arg0.getErrorCode() + "---" + arg0.getErrorDescription());
-            }
-
-            @Override
-            public void onADLoaded(List<NativeADDataRef> adList) {
-                LogUtil.DefalutLog("onADLoaded---");
-                if (adList != null && adList.size() > 0) {
-                    NativeADDataRef nad = adList.get(0);
-                    mADObject = new Reading();
-                    mADObject.setmNativeADDataRef(nad);
-                    mADObject.setAd(true);
-                    if (!loading) {
-                        addAD();
-                    }
+                if(ADUtil.isHasLocalAd()){
+                    onADLoaded(ADUtil.getRandomAdList());
                 }
-            }
-        });
-        nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
-        nativeAd.loadAd(1);
-    }
-
-    private void loadADBackup() {
-        nativeAd = new IFLYNativeAd(getContext(), ADUtil.XXLAD, new IFLYNativeListener() {
-            @Override
-            public void onConfirm() {
-            }
-
-            @Override
-            public void onCancel() {
-            }
-
-            @Override
-            public void onAdFailed(AdError arg0) {
-                LogUtil.DefalutLog("onAdFailed---" + arg0.getErrorCode() + "---" + arg0.getErrorDescription());
             }
 
             @Override

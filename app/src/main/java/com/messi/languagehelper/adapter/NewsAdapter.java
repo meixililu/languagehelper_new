@@ -89,7 +89,7 @@ public class NewsAdapter extends BaseAdapter {
 		}else{
 			holder.title.setText( mNativeADDataRef.getSubTitle() );
 			holder.type_name.setText(mNativeADDataRef.getTitle());
-			holder.source_name.setText("VoiceAds广告");
+			holder.source_name.setText("广告");
 			holder.list_item_img_parent.setVisibility(View.VISIBLE);
 			holder.list_item_img.setVisibility(View.VISIBLE);
 			Glide.with(context)

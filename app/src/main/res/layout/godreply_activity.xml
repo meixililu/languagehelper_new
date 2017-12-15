@@ -47,7 +47,7 @@
             android:paddingBottom="1dp"
             android:paddingLeft="1dp"
             android:background="@color/none_alpha"
-            android:text="VoiceAds广告"
+            android:text="广告"
             android:textColor="@color/white"
             android:textSize="@dimen/smaller" />
     </RelativeLayout>

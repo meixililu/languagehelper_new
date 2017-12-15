@@ -61,7 +61,7 @@ public class RcXmlyRadioHomeItemViewHolder extends RecyclerView.ViewHolder {
                 Drawable drawable = context.getResources().getDrawable(R.drawable.ic_item_playtimes_count);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                 source_name.setCompoundDrawables(drawable, null, null, null);
-                source_name.setText(" VoiceAds广告");
+                source_name.setText(" 广告");
                 list_item_img.setImageURI(mNativeADDataRef.getImage());
                 layout_cover.setOnClickListener(new View.OnClickListener() {
                     @Override

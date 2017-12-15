@@ -1,19 +1,5 @@
 package com.messi.languagehelper.adapter;
 
-import java.util.List;
-
-import com.avos.avoscloud.AVFile;
-import com.avos.avoscloud.AVObject;
-import com.bumptech.glide.Glide;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.iflytek.voiceads.NativeADDataRef;
-import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
-import com.messi.languagehelper.R;
-import com.messi.languagehelper.ReadingDetailActivity;
-import com.messi.languagehelper.util.AVOUtil;
-import com.messi.languagehelper.util.KeyUtil;
-
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -24,8 +10,21 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.avos.avoscloud.AVFile;
+import com.avos.avoscloud.AVObject;
+import com.bumptech.glide.Glide;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.iflytek.voiceads.NativeADDataRef;
+import com.messi.languagehelper.R;
+import com.messi.languagehelper.ReadingDetailActivity;
+import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.wxapi.WXEntryActivity;
+
+import java.util.List;
 
 public class ReadingListAdapter extends BaseAdapter {
 
@@ -98,7 +97,7 @@ public class ReadingListAdapter extends BaseAdapter {
 		}else{
 			holder.title.setText( mNativeADDataRef.getSubTitle() );
 			holder.type_name.setText(mNativeADDataRef.getTitle());
-			holder.source_name.setText("VoiceAds广告");
+			holder.source_name.setText("广告");
 			holder.list_item_img_parent.setVisibility(View.VISIBLE);
 			holder.list_item_img.setVisibility(View.VISIBLE);
 			Glide.with(context)

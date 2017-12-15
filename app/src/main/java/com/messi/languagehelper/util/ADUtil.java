@@ -1,22 +1,41 @@
 package com.messi.languagehelper.util;
 
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
+import android.widget.LinearLayout;
+
+import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVQuery;
 import com.iflytek.voiceads.AdKeys;
 import com.iflytek.voiceads.IFLYAdSize;
 import com.iflytek.voiceads.IFLYBannerAd;
 import com.iflytek.voiceads.IFLYFullScreenAd;
 import com.iflytek.voiceads.IFLYInterstitialAd;
+import com.iflytek.voiceads.NativeADDataRef;
+import com.messi.languagehelper.WebViewActivity;
+import com.messi.languagehelper.bean.NativeADDataRefForZYHY;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.widget.LinearLayout;
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
+
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 
 public class ADUtil {
-	
+
+	public static List<NativeADDataRef> localAd = new ArrayList<NativeADDataRef>();
+
 	public static final String KaiPingADId = "E170E50B2CBFE09CFE53F6D0A446560C";
 	public static final String BannerADId = "A16A4713FB525DECF20126886F957534";
 	public static final String ChaPingADId = "484C6E8F51357AFF26AEDB2441AB1847";
@@ -82,7 +101,6 @@ public class ADUtil {
 	/**
 	 * 添加插屏广告
 	 * @param mActivity
-	 * @param view
 	 */
 	public static IFLYInterstitialAd initChaPingAD(Activity mActivity){
 		//创建IFLYBannerAdView对象 
@@ -96,7 +114,6 @@ public class ADUtil {
 	/**
 	 * 添加全屏广告
 	 * @param mActivity
-	 * @param view
 	 */
 	public static IFLYFullScreenAd initQuanPingAD(Activity mActivity){
 		//创建IFLYBannerAdView对象 
@@ -126,5 +143,107 @@ public class ADUtil {
 			return ADUtil.SanTuYiWen;
 		}
 	}
-	
+
+	public static void toAdView(Context mContext, String type, String url){
+		try {
+			Intent intent = new Intent();
+			intent.setAction("android.intent.action.VIEW");
+			Uri uri = null;
+			if(url.contains("https")){
+				uri = Uri.parse(url.replace("https",type));
+			}else if(url.contains("http")){
+				uri = Uri.parse(url.replace("http",type));
+			}else {
+				uri = Uri.parse(url);
+			}
+			intent.setData(uri);
+			mContext.startActivity(intent);
+		} catch (Exception e) {
+			toAdWebView(mContext,url,"什么资料值得买");
+			e.printStackTrace();
+		}
+	}
+
+	public static void toAdWebView(Context mContext,String url,String title){
+		try {
+			Intent intent = new Intent(mContext, WebViewActivity.class);
+			intent.putExtra(KeyUtil.URL, url);
+			intent.putExtra(KeyUtil.ActionbarTitle, title);
+			mContext.startActivity(intent);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void loadAd(final Context context){
+		Observable.create(new ObservableOnSubscribe<String>() {
+			@Override
+			public void subscribe(ObservableEmitter<String> e) throws Exception {
+				getZYHYAd(context);
+				e.onComplete();
+			}
+		})
+				.subscribeOn(Schedulers.io())
+				.observeOn(AndroidSchedulers.mainThread())
+				.subscribe(new Observer<String>() {
+					@Override
+					public void onSubscribe(Disposable d) {}
+
+					@Override
+					public void onNext(String s) {}
+
+					@Override
+					public void onError(Throwable e) {}
+
+					@Override
+					public void onComplete() {
+					}
+				});
+	}
+
+	public static void getZYHYAd(Context context){
+		try {
+			AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.AdList.AdList);
+			query.whereEqualTo(AVOUtil.AdList.isValid, "1");
+			query.addDescendingOrder(AVOUtil.AdList.createdAt);
+			query.limit(20);
+			List<AVObject> list = query.find();
+			localAd.clear();
+			if(list != null && list.size() > 0){
+				for (AVObject object : list){
+					localAd.add( NativeADDataRefForZYHY.build(context,object) );
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static NativeADDataRef getRandomAd(){
+		if(localAd != null && localAd.size() > 0){
+			return localAd.get( new Random().nextInt(localAd.size()) );
+		}else {
+			return null;
+		}
+	}
+
+	public static List<NativeADDataRef> getRandomAdList(){
+		if(localAd != null && localAd.size() > 0){
+			List<NativeADDataRef> list = new ArrayList<NativeADDataRef>();
+			NativeADDataRef local = localAd.get( new Random().nextInt(localAd.size()) );
+			list.add(local);
+			return list;
+		}else {
+			return null;
+		}
+	}
+
+	public static boolean isHasLocalAd(){
+		if(localAd != null && localAd.size() > 0){
+			return true;
+		}else {
+			return false;
+		}
+	}
+
 }

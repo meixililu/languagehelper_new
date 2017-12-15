@@ -46,7 +46,6 @@ public class XimalayaRadioCategoryListActivity extends BaseActivity implements I
     RecyclerView listview;
     private RcXmlyRadioListAdapter adapter;
     private List<Radio> radios;
-    private int ad_try_times = 1;
     private int skip = 1;
     private int max_page = 1;
     private String category;
@@ -221,11 +220,10 @@ public class XimalayaRadioCategoryListActivity extends BaseActivity implements I
 
             @Override
             public void onAdFailed(AdError arg0) {
-                if (ad_try_times > 0) {
-                    ad_try_times -= 1;
-                    loadAD();
-                }
                 LogUtil.DefalutLog("onAdFailed---" + arg0.getErrorCode() + "---" + arg0.getErrorDescription());
+                if(ADUtil.isHasLocalAd()){
+                    onADLoaded(ADUtil.getRandomAdList());
+                }
             }
 
             @Override

@@ -296,7 +296,7 @@ public class AVOUtil {
 		public final static String IsValid = "IsValid";
 		
 		public final static String DownloadTimes = "DownloadTimes";
-		
+
 	}
 	
 	public static class SymbolDetail {
@@ -621,6 +621,19 @@ public class AVOUtil {
 		public final static String version = "version";
 		public final static String model = "model";
 		public final static String brand = "brand";
+	}
+
+	public static class AdList{
+		public final static String AdList = "AdList";
+		public final static String title = "title";
+		public final static String sub_title = "sub_title";
+		public final static String type = "type";
+		public final static String isValid = "isValid";
+		public final static String click_time = "click_time";
+		public final static String url = "url";
+		public final static String img = "img";
+		public final static String imgs = "imgs";
+		public final static String createdAt = "createdAt";
 	}
 
 }

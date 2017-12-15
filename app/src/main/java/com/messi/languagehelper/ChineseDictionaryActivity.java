@@ -6,28 +6,24 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
 import com.avos.avoscloud.AVAnalytics;
-import com.avos.avoscloud.okhttp.FormEncodingBuilder;
-import com.avos.avoscloud.okhttp.RequestBody;
 import com.avos.avoscloud.okhttp.Response;
 import com.iflytek.cloud.RecognizerListener;
 import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechRecognizer;
 import com.iflytek.cloud.SpeechSynthesizer;
-import com.messi.languagehelper.bean.ChDic;
+import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
-import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.HtmlParseUtil;
 import com.messi.languagehelper.util.JsonParser;
@@ -40,6 +36,7 @@ import com.messi.languagehelper.util.XFUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -48,28 +45,44 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class ChineseDictionaryActivity extends BaseActivity implements OnClickListener {
+
+public class ChineseDictionaryActivity extends BaseActivity {
 
     @BindView(R.id.btn_bushou)
     TextView btnBushou;
     @BindView(R.id.btn_pinyin)
     TextView btnPinyin;
-    private EditText input_et;
-    private FrameLayout submit_btn;
-    private FrameLayout photo_tran_btn, copy_btn, share_btn;
-    private FrameLayout clear_btn_layout;
-    private Button voice_btn;
-    private LinearLayout speak_round_layout;
-    private TextView result_tv;
-    private TextView question_tv;
-    private ScrollView chdic_sv;
+    @BindView(R.id.input_et)
+    EditText input_et;
+    @BindView(R.id.submit_btn)
+    FrameLayout submit_btn;
+    @BindView(R.id.clear_btn_layout)
+    FrameLayout clear_btn_layout;
+    @BindView(R.id.question_tv)
+    TextView question_tv;
+    @BindView(R.id.question_tv_cover)
+    FrameLayout question_tv_cover;
+    @BindView(R.id.result_tv)
+    TextView result_tv;
+    @BindView(R.id.result_tv_cover)
+    FrameLayout result_tv_cover;
+    @BindView(R.id.copy_btn)
+    FrameLayout copy_btn;
+    @BindView(R.id.share_btn)
+    FrameLayout share_btn;
+    @BindView(R.id.chdic_sv)
+    ScrollView chdic_sv;
+    @BindView(R.id.voice_btn)
+    Button voice_btn;
+    @BindView(R.id.speak_round_layout)
+    LinearLayout speak_round_layout;
+    @BindView(R.id.layout_bottom)
+    RelativeLayout layout_bottom;
+    @BindView(R.id.record_anim_img)
+    ImageView record_anim_img;
+    @BindView(R.id.record_layout)
+    LinearLayout record_layout;
     private String word;
-    private ChDic mRoot;
-    /**
-     * record
-     **/
-    private LinearLayout record_layout;
-    private ImageView record_anim_img;
 
     // 识别对象
     private SpeechRecognizer recognizer;
@@ -153,51 +166,55 @@ public class ChineseDictionaryActivity extends BaseActivity implements OnClickLi
         mSharedPreferences = getSharedPreferences(getPackageName(), Activity.MODE_PRIVATE);
         mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
         recognizer = SpeechRecognizer.createRecognizer(this, null);
-
-        chdic_sv = (ScrollView) findViewById(R.id.chdic_sv);
-        result_tv = (TextView) findViewById(R.id.result_tv);
-        question_tv = (TextView) findViewById(R.id.question_tv);
-        input_et = (EditText) findViewById(R.id.input_et);
-        submit_btn = (FrameLayout) findViewById(R.id.submit_btn);
-        photo_tran_btn = (FrameLayout) findViewById(R.id.photo_tran_btn);
-        copy_btn = (FrameLayout) findViewById(R.id.copy_btn);
-        share_btn = (FrameLayout) findViewById(R.id.share_btn);
-        speak_round_layout = (LinearLayout) findViewById(R.id.speak_round_layout);
-        clear_btn_layout = (FrameLayout) findViewById(R.id.clear_btn_layout);
-        record_layout = (LinearLayout) findViewById(R.id.record_layout);
-        record_anim_img = (ImageView) findViewById(R.id.record_anim_img);
-        voice_btn = (Button) findViewById(R.id.voice_btn);
-
-        photo_tran_btn.setOnClickListener(this);
-        submit_btn.setOnClickListener(this);
-        copy_btn.setOnClickListener(this);
-        share_btn.setOnClickListener(this);
-        speak_round_layout.setOnClickListener(this);
-        clear_btn_layout.setOnClickListener(this);
-        btnBushou.setOnClickListener(this);
-        btnPinyin.setOnClickListener(this);
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.submit_btn) {
-            hideIME(input_et);
-            submit();
-            AVAnalytics.onEvent(this, "tab1_submit_btn");
-        } else if (v.getId() == R.id.speak_round_layout) {
-            showIatDialog();
-            AVAnalytics.onEvent(this, "tab1_speak_btn");
-        } else if (v.getId() == R.id.clear_btn_layout) {
-            input_et.setText("");
-            AVAnalytics.onEvent(this, "tab1_clear_btn");
-        } else if (v.getId() == R.id.copy_btn) {
-            copy();
-        } else if (v.getId() == R.id.share_btn) {
-            share();
-        } else if (v.getId() == R.id.btn_bushou) {
-            toBushouActivity();
-        } else if (v.getId() == R.id.btn_pinyin) {
-            toPinyinActivity();
+
+
+    private void play(String content) {
+        if (!mSpeechSynthesizer.isSpeaking()) {
+            XFUtil.showSpeechSynthesizer(
+                    this,
+                    mSharedPreferences,
+                    mSpeechSynthesizer,
+                    content,
+                    new SynthesizerListener() {
+                        @Override
+                        public void onSpeakBegin() {
+
+                        }
+
+                        @Override
+                        public void onBufferProgress(int i, int i1, int i2, String s) {
+
+                        }
+
+                        @Override
+                        public void onSpeakPaused() {
+
+                        }
+
+                        @Override
+                        public void onSpeakResumed() {
+
+                        }
+
+                        @Override
+                        public void onSpeakProgress(int i, int i1, int i2) {
+
+                        }
+
+                        @Override
+                        public void onCompleted(SpeechError speechError) {
+
+                        }
+
+                        @Override
+                        public void onEvent(int i, int i1, int i2, Bundle bundle) {
+
+                        }
+                    });
+        } else {
+            mSpeechSynthesizer.stopSpeaking();
         }
     }
 
@@ -232,13 +249,13 @@ public class ChineseDictionaryActivity extends BaseActivity implements OnClickLi
         submit_btn.setEnabled(true);
     }
 
-    private void RequestBaiduApi(){
+    private void RequestBaiduApi() {
         showProgressbar();
         submit_btn.setEnabled(false);
         Observable.create(new ObservableOnSubscribe<String>() {
             @Override
             public void subscribe(ObservableEmitter<String> e) throws Exception {
-                String url = Settings.CHDicBaiduApi+word;
+                String url = Settings.CHDicBaiduApi + word;
                 Response mResponse = LanguagehelperHttpClient.get(url);
                 if (mResponse != null && mResponse.isSuccessful()) {
                     e.onNext(HtmlParseUtil.parseCHDicBaiduHtml(mResponse.body().string()));
@@ -255,7 +272,7 @@ public class ChineseDictionaryActivity extends BaseActivity implements OnClickLi
 
                     @Override
                     public void onNext(String s) {
-                        chdic_sv.scrollTo(0,0);
+                        chdic_sv.scrollTo(0, 0);
                         input_et.setText("");
                         question_tv.setText(word);
                         result_tv.setText(s);
@@ -271,43 +288,6 @@ public class ChineseDictionaryActivity extends BaseActivity implements OnClickLi
                     }
                 });
 
-    }
-
-    private void RequestAsyncTask() {
-        showProgressbar();
-        submit_btn.setEnabled(false);
-        RequestBody formBody = new FormEncodingBuilder()
-                .add("key", "59ef16d2ca4ee5b590bde3976a8bf45f")
-                .add("word", word)
-                .build();
-        LanguagehelperHttpClient.post(Settings.ChDicSearchUrl, formBody, new UICallback(this) {
-            @Override
-            public void onFailured() {
-                ToastUtil.diaplayMesShort(ChineseDictionaryActivity.this, ChineseDictionaryActivity.this.getResources().getString(R.string.network_error));
-            }
-
-            @Override
-            public void onFinished() {
-                onFinishRequest();
-            }
-
-            @Override
-            public void onResponsed(String responseString) {
-                if (!TextUtils.isEmpty(responseString)) {
-                    LogUtil.DefalutLog("responseString:" + responseString);
-                    mRoot = JSON.parseObject(responseString, ChDic.class);
-                    if (mRoot != null && mRoot.getError_code() == 0) {
-                        mRoot.getResult().setResult();
-                        result_tv.setText(mRoot.getResult().getResultForShow(word));
-                    } else {
-                        ToastUtil.diaplayMesShort(ChineseDictionaryActivity.this, mRoot.getReason());
-                    }
-                } else {
-                    ToastUtil.diaplayMesShort(ChineseDictionaryActivity.this, ChineseDictionaryActivity.this.getResources().getString(
-                            R.string.network_error));
-                }
-            }
-        });
     }
 
     /**
@@ -369,5 +349,48 @@ public class ChineseDictionaryActivity extends BaseActivity implements OnClickLi
             recognizer = null;
         }
         LogUtil.DefalutLog("MainFragment-onDestroy");
+    }
+
+    @OnClick({R.id.submit_btn, R.id.clear_btn_layout, R.id.question_tv_cover, R.id.result_tv_cover, R.id.copy_btn, R.id.share_btn, R.id.btn_bushou, R.id.btn_pinyin, R.id.speak_round_layout})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.submit_btn:
+                hideIME(input_et);
+                submit();
+                AVAnalytics.onEvent(this, "chdic_submit_btn");
+                break;
+            case R.id.clear_btn_layout:
+                input_et.setText("");
+                AVAnalytics.onEvent(this, "chdic_clear_btn");
+                break;
+            case R.id.question_tv_cover:
+                play(question_tv.getText().toString());
+                AVAnalytics.onEvent(this, "chdic_play_question");
+                break;
+            case R.id.result_tv_cover:
+                play(result_tv.getText().toString());
+                AVAnalytics.onEvent(this, "chdic_play_result");
+                break;
+            case R.id.copy_btn:
+                copy();
+                AVAnalytics.onEvent(this, "chdic_copy");
+                break;
+            case R.id.share_btn:
+                share();
+                AVAnalytics.onEvent(this, "chdic_share");
+                break;
+            case R.id.btn_bushou:
+                toBushouActivity();
+                AVAnalytics.onEvent(this, "chdic_to_bushou");
+                break;
+            case R.id.btn_pinyin:
+                toPinyinActivity();
+                AVAnalytics.onEvent(this, "chdic_to_pinyin");
+                break;
+            case R.id.speak_round_layout:
+                showIatDialog();
+                AVAnalytics.onEvent(this, "chdic_speak_btn");
+                break;
+        }
     }
 }

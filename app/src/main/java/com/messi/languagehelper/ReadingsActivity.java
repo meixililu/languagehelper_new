@@ -46,7 +46,6 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 	private boolean loading;
 	private boolean hasMore = true;
 	private Reading mADObject;
-	private int adTryTimes = 1;
 	private LinearLayoutManager mLinearLayoutManager;
 
 	@Override
@@ -228,11 +227,10 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 
 			@Override
 			public void onAdFailed(AdError arg0) {
-				if(adTryTimes > 0){
-					adTryTimes--;
-					loadAD();
-				}
 				LogUtil.DefalutLog("onAdFailed---"+arg0.getErrorCode()+"---"+arg0.getErrorDescription());
+				if(ADUtil.isHasLocalAd()){
+					onADLoaded(ADUtil.getRandomAdList());
+				}
 			}
 			@Override
 			public void onADLoaded(List<NativeADDataRef> adList) {

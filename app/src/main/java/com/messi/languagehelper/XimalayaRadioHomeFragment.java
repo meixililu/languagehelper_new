@@ -55,7 +55,6 @@ public class XimalayaRadioHomeFragment extends BaseFragment implements FragmentP
     @BindView(R.id.listview)
     RecyclerView listview;
 
-    private int ad_try_times = 1;
     private IFLYNativeAd nativeAd;
     private RadioForAd mADObject;
     private RcXmlyRadioHomeAdapter adapter;
@@ -249,11 +248,10 @@ public class XimalayaRadioHomeFragment extends BaseFragment implements FragmentP
 
             @Override
             public void onAdFailed(AdError arg0) {
-                if (ad_try_times > 0) {
-                    ad_try_times -= 1;
-                    loadAD();
-                }
                 LogUtil.DefalutLog("onAdFailed---" + arg0.getErrorCode() + "---" + arg0.getErrorDescription());
+                if(ADUtil.isHasLocalAd()){
+                    onADLoaded(ADUtil.getRandomAdList());
+                }
             }
 
             @Override
