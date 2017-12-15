@@ -1,16 +1,7 @@
 package com.messi.languagehelper;
 
-import com.avos.avoscloud.AVAnalytics;
-import com.iflytek.voiceads.AdError;
-import com.iflytek.voiceads.IFLYAdListener;
-import com.iflytek.voiceads.IFLYInterstitialAd;
-import com.messi.languagehelper.util.ADUtil;
-import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.Settings;
-import com.messi.languagehelper.util.ShareUtil;
-
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -22,11 +13,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.webkit.WebChromeClient;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.avos.avoscloud.AVAnalytics;
+import com.messi.languagehelper.util.ADUtil;
+import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.ShareUtil;
 
 
 public class WebViewActivity extends BaseActivity{
@@ -40,7 +37,6 @@ public class WebViewActivity extends BaseActivity{
     private String ShareUrlMsg;
     private int ToolbarBackgroundColor;
     private boolean isReedPullDownRefresh;
-    private IFLYInterstitialAd mIFLYInterstitialAd;
     private long lastClick;
 
 	@Override
@@ -99,16 +95,24 @@ public class WebViewActivity extends BaseActivity{
 			@Override
 			public void onReceivedError(WebView view, int errorCode,String description, String failingUrl) {
 				super.onReceivedError(view, errorCode, description, failingUrl);
-				view.loadUrl("");
-				if(System.currentTimeMillis() - lastClick < 500){
-					new Handler().postDelayed(new Runnable() {
-						@Override
-						public void run() {
-							tap_to_reload.setVisibility(View.VISIBLE);
-						}
-					}, 600);
-				}else{
-					tap_to_reload.setVisibility(View.VISIBLE);
+				LogUtil.DefalutLog("failingUrl:"+failingUrl);
+				if(failingUrl.contains("openapp.jdmobile") || failingUrl.contains("taobao")){
+					Uri uri = Uri.parse(failingUrl);
+					view.loadUrl("");
+					ADUtil.toAdActivity(WebViewActivity.this,uri);
+					WebViewActivity.this.finish();
+				}else {
+					view.loadUrl("");
+					if(System.currentTimeMillis() - lastClick < 500){
+						new Handler().postDelayed(new Runnable() {
+							@Override
+							public void run() {
+								tap_to_reload.setVisibility(View.VISIBLE);
+							}
+						}, 600);
+					}else{
+						tap_to_reload.setVisibility(View.VISIBLE);
+					}
 				}
 				LogUtil.DefalutLog("WebViewClient:onReceivedError---"+errorCode);
 			}
@@ -160,43 +164,6 @@ public class WebViewActivity extends BaseActivity{
 		mWebView.loadUrl(Url);
 	}
 	
-	private void showAD(){
-		if(ADUtil.isShowAd(this)){
-			mIFLYInterstitialAd = ADUtil.initChaPingAD(this);
-			mIFLYInterstitialAd.loadAd(new IFLYAdListener() {
-				@Override
-				public void onConfirm() {
-
-				}
-
-				@Override
-				public void onCancel() {
-
-				}
-
-				@Override
-				public void onAdReceive() {
-					if(mIFLYInterstitialAd != null){
-						mIFLYInterstitialAd.showAd();
-					}
-				}
-				@Override
-				public void onAdFailed(AdError arg0) {
-				}
-				@Override
-				public void onAdClose() {
-				}
-				@Override
-				public void onAdClick() {
-					AVAnalytics.onEvent(WebViewActivity.this, "webview_ad_click_chapin");
-				}
-				@Override
-				public void onAdExposure() {
-				}
-			});
-		}
-	}
-	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		try {
@@ -239,9 +206,6 @@ public class WebViewActivity extends BaseActivity{
 	protected void onDestroy() {
 		super.onDestroy();
 		mWebView.destroy();
-		if(mIFLYInterstitialAd != null){
-			mIFLYInterstitialAd = null;
-		}
 	}
 	
 }

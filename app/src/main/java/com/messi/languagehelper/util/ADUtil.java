@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.text.TextUtils;
 import android.widget.LinearLayout;
 
 import com.avos.avoscloud.AVObject;
@@ -146,22 +147,34 @@ public class ADUtil {
 
 	public static void toAdView(Context mContext, String type, String url){
 		try {
-			Intent intent = new Intent();
-			intent.setAction("android.intent.action.VIEW");
-			Uri uri = null;
-			if(url.contains("https")){
-				uri = Uri.parse(url.replace("https",type));
-			}else if(url.contains("http")){
-				uri = Uri.parse(url.replace("http",type));
+			if(!TextUtils.isEmpty(type) && !type.equals("web")){
+				Uri uri = null;
+				if(type.equals("taobao")){
+					if(url.contains("https")){
+						uri = Uri.parse(url.replace("https",type));
+					}else if(url.contains("http")){
+						uri = Uri.parse(url.replace("http",type));
+					}else {
+						uri = Uri.parse(url);
+					}
+				}else if(type.equals("openapp.jdmobile")){
+					uri = Uri.parse(url);
+				}
+				toAdActivity(mContext,uri);
 			}else {
-				uri = Uri.parse(url);
+				toAdWebView(mContext,url,"什么资料值得买");
 			}
-			intent.setData(uri);
-			mContext.startActivity(intent);
 		} catch (Exception e) {
 			toAdWebView(mContext,url,"什么资料值得买");
 			e.printStackTrace();
 		}
+	}
+
+	public static void toAdActivity(Context mContext,Uri uri){
+		Intent intent = new Intent();
+		intent.setAction("android.intent.action.VIEW");
+		intent.setData(uri);
+		mContext.startActivity(intent);
 	}
 
 	public static void toAdWebView(Context mContext,String url,String title){
