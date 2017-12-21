@@ -86,7 +86,7 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener, Fr
 			initViews();
 			Settings.verifyStoragePermissions(this, Settings.PERMISSIONS_STORAGE);
 			initXimalayaSDK();
-			runCheckUpdateTask();
+//			runCheckUpdateTask();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

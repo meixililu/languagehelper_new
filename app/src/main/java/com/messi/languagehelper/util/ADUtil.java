@@ -162,19 +162,23 @@ public class ADUtil {
 				}
 				toAdActivity(mContext,uri);
 			}else {
-				toAdWebView(mContext,url,"什么资料值得买");
+				toAdWebView(mContext,url,"什么值得买");
 			}
 		} catch (Exception e) {
-			toAdWebView(mContext,url,"什么资料值得买");
+			toAdWebView(mContext,url,"什么值得买");
 			e.printStackTrace();
 		}
 	}
 
 	public static void toAdActivity(Context mContext,Uri uri){
-		Intent intent = new Intent();
-		intent.setAction("android.intent.action.VIEW");
-		intent.setData(uri);
-		mContext.startActivity(intent);
+		try {
+			Intent intent = new Intent();
+			intent.setAction("android.intent.action.VIEW");
+			intent.setData(uri);
+			mContext.startActivity(intent);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static void toAdWebView(Context mContext,String url,String title){
@@ -219,7 +223,7 @@ public class ADUtil {
 			AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.AdList.AdList);
 			query.whereEqualTo(AVOUtil.AdList.isValid, "1");
 			query.addDescendingOrder(AVOUtil.AdList.createdAt);
-			query.limit(20);
+			query.limit(10);
 			List<AVObject> list = query.find();
 			localAd.clear();
 			if(list != null && list.size() > 0){
