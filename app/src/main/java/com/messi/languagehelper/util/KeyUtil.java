@@ -208,6 +208,8 @@ public class KeyUtil {
 
 	public static final String SearchKey = "SearchKey";
 
+	public static final String XmlySearchHistory = "XmlySearchHistory";
+
 	public static final String SearchHistory = "SearchHistory";
 
 	public static final String IsAiChatPlayVoice = "IsAiChatPlayVoice";

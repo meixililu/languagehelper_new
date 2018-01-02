@@ -125,6 +125,12 @@
         </receiver>
 
         <activity
+            android:name=".XmlySearchResultActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".XmlySearchActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".XimalayaRadioProvinceActivity"
             android:screenOrientation="portrait" />
         <activity

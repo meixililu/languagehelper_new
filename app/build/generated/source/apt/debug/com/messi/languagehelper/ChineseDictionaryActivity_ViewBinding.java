@@ -21,23 +21,23 @@ import java.lang.Override;
 public class ChineseDictionaryActivity_ViewBinding implements Unbinder {
   private ChineseDictionaryActivity target;
 
-  private View view2131689807;
-
   private View view2131689808;
 
-  private View view2131689798;
+  private View view2131689809;
 
   private View view2131689799;
 
-  private View view2131689801;
+  private View view2131689800;
 
-  private View view2131689803;
+  private View view2131689802;
 
-  private View view2131689805;
+  private View view2131689804;
 
   private View view2131689806;
 
-  private View view2131689809;
+  private View view2131689807;
+
+  private View view2131689810;
 
   @UiThread
   public ChineseDictionaryActivity_ViewBinding(ChineseDictionaryActivity target) {
@@ -52,7 +52,7 @@ public class ChineseDictionaryActivity_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.btn_bushou, "field 'btnBushou' and method 'onViewClicked'");
     target.btnBushou = Utils.castView(view, R.id.btn_bushou, "field 'btnBushou'", TextView.class);
-    view2131689807 = view;
+    view2131689808 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -61,7 +61,7 @@ public class ChineseDictionaryActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.btn_pinyin, "field 'btnPinyin' and method 'onViewClicked'");
     target.btnPinyin = Utils.castView(view, R.id.btn_pinyin, "field 'btnPinyin'", TextView.class);
-    view2131689808 = view;
+    view2131689809 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -71,7 +71,7 @@ public class ChineseDictionaryActivity_ViewBinding implements Unbinder {
     target.input_et = Utils.findRequiredViewAsType(source, R.id.input_et, "field 'input_et'", EditText.class);
     view = Utils.findRequiredView(source, R.id.submit_btn, "field 'submit_btn' and method 'onViewClicked'");
     target.submit_btn = Utils.castView(view, R.id.submit_btn, "field 'submit_btn'", FrameLayout.class);
-    view2131689798 = view;
+    view2131689799 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -80,7 +80,7 @@ public class ChineseDictionaryActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.clear_btn_layout, "field 'clear_btn_layout' and method 'onViewClicked'");
     target.clear_btn_layout = Utils.castView(view, R.id.clear_btn_layout, "field 'clear_btn_layout'", FrameLayout.class);
-    view2131689799 = view;
+    view2131689800 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -90,7 +90,7 @@ public class ChineseDictionaryActivity_ViewBinding implements Unbinder {
     target.question_tv = Utils.findRequiredViewAsType(source, R.id.question_tv, "field 'question_tv'", TextView.class);
     view = Utils.findRequiredView(source, R.id.question_tv_cover, "field 'question_tv_cover' and method 'onViewClicked'");
     target.question_tv_cover = Utils.castView(view, R.id.question_tv_cover, "field 'question_tv_cover'", FrameLayout.class);
-    view2131689801 = view;
+    view2131689802 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -100,7 +100,7 @@ public class ChineseDictionaryActivity_ViewBinding implements Unbinder {
     target.result_tv = Utils.findRequiredViewAsType(source, R.id.result_tv, "field 'result_tv'", TextView.class);
     view = Utils.findRequiredView(source, R.id.result_tv_cover, "field 'result_tv_cover' and method 'onViewClicked'");
     target.result_tv_cover = Utils.castView(view, R.id.result_tv_cover, "field 'result_tv_cover'", FrameLayout.class);
-    view2131689803 = view;
+    view2131689804 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -109,7 +109,7 @@ public class ChineseDictionaryActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.copy_btn, "field 'copy_btn' and method 'onViewClicked'");
     target.copy_btn = Utils.castView(view, R.id.copy_btn, "field 'copy_btn'", FrameLayout.class);
-    view2131689805 = view;
+    view2131689806 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -118,7 +118,7 @@ public class ChineseDictionaryActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.share_btn, "field 'share_btn' and method 'onViewClicked'");
     target.share_btn = Utils.castView(view, R.id.share_btn, "field 'share_btn'", FrameLayout.class);
-    view2131689806 = view;
+    view2131689807 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -129,7 +129,7 @@ public class ChineseDictionaryActivity_ViewBinding implements Unbinder {
     target.voice_btn = Utils.findRequiredViewAsType(source, R.id.voice_btn, "field 'voice_btn'", Button.class);
     view = Utils.findRequiredView(source, R.id.speak_round_layout, "field 'speak_round_layout' and method 'onViewClicked'");
     target.speak_round_layout = Utils.castView(view, R.id.speak_round_layout, "field 'speak_round_layout'", LinearLayout.class);
-    view2131689809 = view;
+    view2131689810 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -166,23 +166,23 @@ public class ChineseDictionaryActivity_ViewBinding implements Unbinder {
     target.record_anim_img = null;
     target.record_layout = null;
 
-    view2131689807.setOnClickListener(null);
-    view2131689807 = null;
     view2131689808.setOnClickListener(null);
     view2131689808 = null;
-    view2131689798.setOnClickListener(null);
-    view2131689798 = null;
-    view2131689799.setOnClickListener(null);
-    view2131689799 = null;
-    view2131689801.setOnClickListener(null);
-    view2131689801 = null;
-    view2131689803.setOnClickListener(null);
-    view2131689803 = null;
-    view2131689805.setOnClickListener(null);
-    view2131689805 = null;
-    view2131689806.setOnClickListener(null);
-    view2131689806 = null;
     view2131689809.setOnClickListener(null);
     view2131689809 = null;
+    view2131689799.setOnClickListener(null);
+    view2131689799 = null;
+    view2131689800.setOnClickListener(null);
+    view2131689800 = null;
+    view2131689802.setOnClickListener(null);
+    view2131689802 = null;
+    view2131689804.setOnClickListener(null);
+    view2131689804 = null;
+    view2131689806.setOnClickListener(null);
+    view2131689806 = null;
+    view2131689807.setOnClickListener(null);
+    view2131689807 = null;
+    view2131689810.setOnClickListener(null);
+    view2131689810 = null;
   }
 }

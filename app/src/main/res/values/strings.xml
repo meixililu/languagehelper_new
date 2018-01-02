@@ -347,6 +347,10 @@
     <string name="radio_province">省市台</string>
     <string name="radio_internet">网络台</string>
     <string name="rank">排行榜</string>
+    <string name="search_xmly_hint">请输入需要搜索的内容</string>
+    <string name="xmly_album">专辑</string>
+    <string name="xmly_track">声音</string>
+    <string name="xmly_radio">电台</string>
 
 
 </resources>

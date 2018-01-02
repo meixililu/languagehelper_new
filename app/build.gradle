@@ -11,7 +11,7 @@ android {
         resConfigs "zh-rCN", "zh-rHK", "zh-rTW", "en"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 36
+        versionCode 37
         versionName "4.2"
         multiDexEnabled true
         ndk {

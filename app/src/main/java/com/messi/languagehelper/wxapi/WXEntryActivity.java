@@ -35,7 +35,6 @@ import com.iflytek.cloud.SpeechUtility;
 import com.messi.languagehelper.BaseActivity;
 import com.messi.languagehelper.MoreActivity;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.WebViewFragment;
 import com.messi.languagehelper.adapter.MainPageAdapter;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
@@ -242,7 +241,6 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener, Fr
 	protected void onDestroy() {
 		super.onDestroy();
 		saveSelectTab();
-		WebViewFragment.mMainFragment = null;
 		mInstance = null;
 		TranslateUtil.saveTranslateApiOrder(mSharedPreferences);
 		if (mSharedPreferences.getBoolean(KeyUtil.AutoClearDic, false)) {

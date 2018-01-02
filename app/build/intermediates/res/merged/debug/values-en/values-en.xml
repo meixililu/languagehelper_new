@@ -196,6 +196,7 @@
     <string name="search">Search</string>
     <string name="search_hint">VOA | BBC | CNN</string>
     <string name="search_history">History&amp;Hot</string>
+    <string name="search_xmly_hint">search</string>
     <string name="sent">Sent</string>
     <string name="sentence">Sentence</string>
     <string name="server_error">Server Error,Retry Later Please!</string>
@@ -290,8 +291,11 @@
     <string name="wechat">wechat</string>
     <string name="word_study_detail_menu">Listen</string>
     <string name="word_test_result">Result</string>
+    <string name="xmly_album">Album</string>
     <string name="xmly_home">FM</string>
+    <string name="xmly_radio">Radio</string>
     <string name="xmly_tab_eng">English</string>
+    <string name="xmly_track">Track</string>
     <string name="your_turn">Your Turn</string>
     <string name="yuedu_ad_prompt">专注随身阅读30年! http://api.openspeech.cn/cmread/NTBhYTEyMTM=</string>
 </resources>

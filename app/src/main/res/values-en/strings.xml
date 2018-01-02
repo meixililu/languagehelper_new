@@ -322,5 +322,9 @@
     <string name="radio_province">Province</string>
     <string name="radio_internet">Internet</string>
     <string name="rank">Rank</string>
+    <string name="search_xmly_hint">search</string>
+    <string name="xmly_album">Album</string>
+    <string name="xmly_track">Track</string>
+    <string name="xmly_radio">Radio</string>
 
 </resources>

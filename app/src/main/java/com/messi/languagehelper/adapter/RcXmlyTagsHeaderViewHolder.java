@@ -32,7 +32,6 @@ public class RcXmlyTagsHeaderViewHolder extends RecyclerView.ViewHolder {
     public RcXmlyTagsHeaderViewHolder(View itemView,AdapterStringListener listener) {
         super(itemView);
         context = itemView.getContext();
-
         this.listener = listener;
         auto_wrap_layout = (FlexboxLayout) itemView.findViewById(R.id.auto_wrap_layout);
         if(list != null){

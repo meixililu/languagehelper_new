@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/app_background"
+    android:background="@color/white"
     android:orientation="vertical" >
 
     <android.support.v7.widget.Toolbar
@@ -21,7 +22,7 @@
 			<EditText
 				android:id="@+id/search_et"
 				android:layout_width="0dp"
-				android:layout_height="38dp"
+				android:layout_height="36dp"
 				android:layout_gravity="center_vertical"
 				android:layout_weight="1"
 				android:layout_margin="0dp"
@@ -59,7 +60,7 @@
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		android:background="@color/text_grey"
+		android:background="@color/white"
 		android:orientation="vertical">
 
 		<LinearLayout
@@ -95,13 +96,23 @@
 		<View
 			android:layout_width="match_parent"
 			android:layout_height="1dp"
+			android:layout_marginBottom="@dimen/padding_5"
 			android:background="@color/text_tint2"
 			/>
-		<android.support.v7.widget.RecyclerView
-			android:id="@+id/studycategory_lv"
+		<com.google.android.flexbox.FlexboxLayout
+			android:id="@+id/auto_wrap_layout"
 			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:background="@color/contentbg"/>
+			android:layout_height="wrap_content"
+			android:background="@color/white"
+			android:paddingBottom="@dimen/padding_7"
+			android:paddingLeft="@dimen/padding_5"
+			app:alignItems="center"
+			app:alignContent="flex_start"
+			app:flexDirection="row"
+			app:justifyContent="flex_start"
+			app:showDivider="beginning|middle"
+			app:flexWrap="wrap">
+		</com.google.android.flexbox.FlexboxLayout>
 	</LinearLayout>
 
 </LinearLayout>

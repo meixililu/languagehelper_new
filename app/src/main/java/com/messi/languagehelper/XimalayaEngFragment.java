@@ -1,5 +1,6 @@
 package com.messi.languagehelper;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -9,12 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
 import com.messi.languagehelper.adapter.XmlyEngAdapter;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
-
-import static com.messi.languagehelper.R.id.viewpager;
 
 public class XimalayaEngFragment extends BaseFragment implements OnClickListener,
 		FragmentProgressbarListener{
@@ -22,6 +22,7 @@ public class XimalayaEngFragment extends BaseFragment implements OnClickListener
 	private ViewPager mViewPager;
 	private ProgressBar progressBar;
 	private TabLayout mTabLayout;
+	private FrameLayout search_btn;
 
 	public static Fragment newInstance(){
 		XimalayaEngFragment fragment = new XimalayaEngFragment();
@@ -49,18 +50,14 @@ public class XimalayaEngFragment extends BaseFragment implements OnClickListener
 	private void initViews(View view){
 		progressBar = (ProgressBar) view.findViewById(R.id.progressBarCircularIndetermininate);
 		mTabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
-		mViewPager = (ViewPager) view.findViewById(viewpager);
+		mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
+		search_btn = (FrameLayout) view.findViewById(R.id.search_btn);
 		mViewPager.setOffscreenPageLimit(2);
 		XmlyEngAdapter allAdapter = new XmlyEngAdapter(getChildFragmentManager(),this);
 		mViewPager.setAdapter(allAdapter);
 		mTabLayout.setupWithViewPager(mViewPager);
+		search_btn.setOnClickListener(this);
 	}
-
-	@Override
-	public void onResume() {
-		super.onResume();
-	}
-
 
 	public void showProgressbar(){
 		if(progressBar != null){
@@ -76,11 +73,14 @@ public class XimalayaEngFragment extends BaseFragment implements OnClickListener
 
 	@Override
 	public void onClick(View v) {
+		if(v.getId() == R.id.search_btn){
+			toSearchActivity();
+		}
 	}
 
-	@Override
-	public void onDestroy() {
-		super.onDestroy();
+	private void toSearchActivity() {
+		Intent intent = new Intent(getContext(), XmlySearchActivity.class);
+		startActivity(intent);
 	}
 
 }

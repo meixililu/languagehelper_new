@@ -20,12 +20,26 @@
             android:textSize="@dimen/biggerx"
             android:layout_marginLeft="@dimen/padding_20"
             />
+        <FrameLayout
+            android:id="@+id/search_btn"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:foreground="@drawable/framelayout_selector"
+            >
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:src="@drawable/ic_search_white"
+                android:layout_gravity="center"
+                />
+        </FrameLayout>
         <ProgressBar
             android:id="@+id/progressBarCircularIndetermininate"
             style="@style/CircularProgressWhite"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_alignParentRight="true"
+            android:layout_toLeftOf="@+id/search_btn"
             android:layout_centerVertical="true"
             android:visibility="gone" />
     </RelativeLayout>

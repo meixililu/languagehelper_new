@@ -1163,6 +1163,7 @@
     <string name="search_hint">VOA|BBC|CNN</string>
     <string name="search_history">历史&amp;热门</string>
     <string name="search_menu_title">Search</string>
+    <string name="search_xmly_hint">请输入需要搜索的内容</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="sent">发送</string>
     <string name="sentence">单句跟读</string>
@@ -1272,8 +1273,11 @@
     <string name="wechat_long_click">微信长按有惊喜</string>
     <string name="word_study_detail_menu">听选</string>
     <string name="word_test_result">测试结果</string>
+    <string name="xmly_album">专辑</string>
     <string name="xmly_home">喜马拉雅FM</string>
+    <string name="xmly_radio">电台</string>
     <string name="xmly_tab_eng">英语</string>
+    <string name="xmly_track">声音</string>
     <string name="your_turn">到你啦</string>
     <string name="yuedu_ad_prompt">专注随身阅读30年! http://api.openspeech.cn/cmread/NTBhYTEyMTM=</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>

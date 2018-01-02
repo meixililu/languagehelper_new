@@ -1,5 +1,6 @@
 package com.messi.languagehelper;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
 import com.messi.languagehelper.adapter.XmlyAllAdapter;
@@ -22,6 +24,7 @@ public class XimalayaDashboardFragment extends BaseFragment implements OnClickLi
 	private ViewPager mViewPager;
 	private ProgressBar progressBar;
 	private TabLayout mTabLayout;
+	private FrameLayout search_btn;
 
 	public static Fragment newInstance(){
 		XimalayaDashboardFragment fragment = new XimalayaDashboardFragment();
@@ -50,11 +53,13 @@ public class XimalayaDashboardFragment extends BaseFragment implements OnClickLi
 		progressBar = (ProgressBar) view.findViewById(R.id.progressBarCircularIndetermininate);
 		mTabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
 		mViewPager = (ViewPager) view.findViewById(viewpager);
+		search_btn = (FrameLayout) view.findViewById(R.id.search_btn);
 		mViewPager.setOffscreenPageLimit(3);
 		XmlyAllAdapter allAdapter = new XmlyAllAdapter(getChildFragmentManager(),this);
 		mViewPager.setAdapter(allAdapter);
 		mTabLayout.setupWithViewPager(mViewPager);
 		mViewPager.setCurrentItem(1);
+		search_btn.setOnClickListener(this);
 	}
 
 	@Override
@@ -77,11 +82,14 @@ public class XimalayaDashboardFragment extends BaseFragment implements OnClickLi
 
 	@Override
 	public void onClick(View v) {
+		if(v.getId() == R.id.search_btn){
+			toSearchActivity();
+		}
 	}
 
-	@Override
-	public void onDestroy() {
-		super.onDestroy();
+	private void toSearchActivity() {
+		Intent intent = new Intent(getContext(), XmlySearchActivity.class);
+		startActivity(intent);
 	}
 
 }

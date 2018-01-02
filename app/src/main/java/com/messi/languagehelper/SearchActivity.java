@@ -1,33 +1,27 @@
 package com.messi.languagehelper;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.v4.view.ViewCompat;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
-import com.iflytek.cloud.thirdparty.S;
-import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
-import com.messi.languagehelper.adapter.RcSearchHistoryAdapter;
-import com.messi.languagehelper.impl.AdapterStringListener;
+import com.google.android.flexbox.FlexboxLayout;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.ScreenUtil;
 import com.messi.languagehelper.util.Settings;
-import com.messi.languagehelper.util.ToastUtil;
-import com.messi.languagehelper.views.DividerGridItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,18 +30,16 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class SearchActivity extends BaseActivity implements AdapterStringListener {
+public class SearchActivity extends BaseActivity {
 
-    private static final int NUMBER_OF_COLUMNS = 2;
     @BindView(R.id.search_et)
     EditText searchEt;
     @BindView(R.id.search_btn)
     FrameLayout searchBtn;
-    @BindView(R.id.studycategory_lv)
-    RecyclerView category_lv;
+    @BindView(R.id.auto_wrap_layout)
+    FlexboxLayout auto_wrap_layout;
     @BindView(R.id.clear_history)
     FrameLayout clearHistory;
-    private RcSearchHistoryAdapter mAdapter;
     private long lastTime;
     private ArrayList<AVObject> historyList;
     private ArrayList<AVObject> avObjects;
@@ -68,15 +60,6 @@ public class SearchActivity extends BaseActivity implements AdapterStringListene
         historyList = new ArrayList<AVObject>();
         avObjects = new ArrayList<AVObject>();
         addHistory();
-        mAdapter = new RcSearchHistoryAdapter(this);
-        mAdapter.setItems(avObjects);
-        GridLayoutManager layoutManager = new GridLayoutManager(this, NUMBER_OF_COLUMNS);
-        HeaderSpanSizeLookup headerSpanSizeLookup = new HeaderSpanSizeLookup(mAdapter, layoutManager);
-        layoutManager.setSpanSizeLookup(headerSpanSizeLookup);
-        category_lv.setLayoutManager(layoutManager);
-        category_lv.addItemDecoration(new DividerGridItemDecoration(2));
-        category_lv.setAdapter(mAdapter);
-
         searchEt.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
@@ -111,7 +94,6 @@ public class SearchActivity extends BaseActivity implements AdapterStringListene
         }
     }
 
-    @Override
     public void OnItemClick(String item) {
         search(item);
     }
@@ -128,7 +110,7 @@ public class SearchActivity extends BaseActivity implements AdapterStringListene
             AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.SearchHot.SearchHot);
             query.orderByAscending(AVOUtil.SearchHot.createdAt);
             query.orderByDescending(AVOUtil.SearchHot.click_time);
-            query.limit(20);
+            query.limit(30);
             try {
                 return query.find();
             } catch (AVException e) {
@@ -142,7 +124,7 @@ public class SearchActivity extends BaseActivity implements AdapterStringListene
             super.onPostExecute(avObject);
             if(avObject != null){
                 if(avObject.size() != 0){
-                    if(avObjects != null && mAdapter != null){
+                    if(avObjects != null){
                         for(AVObject obj : avObject){
                             boolean isAdd = true;
                             for (AVObject history : historyList){
@@ -156,12 +138,43 @@ public class SearchActivity extends BaseActivity implements AdapterStringListene
                                 avObjects.add(obj);
                             }
                         }
-
+                        setData(avObjects);
                     }
-                    mAdapter.notifyDataSetChanged();
                 }
             }
         }
+    }
+
+    public void setData(List<AVObject> tags){
+        auto_wrap_layout.removeAllViews();
+        for (AVObject tag : tags){
+            auto_wrap_layout.addView(createNewFlexItemTextView(tag));
+        }
+    }
+
+    private TextView createNewFlexItemTextView(final AVObject book) {
+        TextView textView = new TextView(this);
+        textView.setGravity(Gravity.CENTER);
+        textView.setText(book.getString(AVOUtil.SearchHot.name));
+        textView.setTextSize(16);
+        textView.setTextColor(this.getResources().getColor(R.color.text_black));
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                OnItemClick(book.getString(AVOUtil.SearchHot.name));
+            }
+        });
+        int padding = ScreenUtil.dip2px(this,5);
+        int paddingLeftAndRight = ScreenUtil.dip2px(this,9);
+        ViewCompat.setPaddingRelative(textView, paddingLeftAndRight, padding, paddingLeftAndRight, padding);
+        FlexboxLayout.LayoutParams layoutParams = new FlexboxLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+        int margin = ScreenUtil.dip2px(this,5);
+        int marginTop = ScreenUtil.dip2px(this,5);
+        layoutParams.setMargins(margin, marginTop, margin, 0);
+        textView.setLayoutParams(layoutParams);
+        return textView;
     }
 
     @OnClick({R.id.search_btn, R.id.clear_history})
@@ -182,7 +195,6 @@ public class SearchActivity extends BaseActivity implements AdapterStringListene
                 "");
         historyList.clear();
         avObjects.clear();
-        mAdapter.notifyDataSetChanged();
         new QueryTask().execute();
     }
 
