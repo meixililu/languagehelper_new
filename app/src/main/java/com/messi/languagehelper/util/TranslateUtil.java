@@ -824,12 +824,8 @@ public class TranslateUtil {
 				mResponse = LanguagehelperHttpClient.getBaiduV2api(null);
 				result = tran_baiduv2_api(mResponse);
 				if(result == null){
-					mResponse = LanguagehelperHttpClient.get388gcom(null);
-					result = tran_3g88_api(mResponse);
-					if (result == null) {
-						mResponse = LanguagehelperHttpClient.postBaidu(null);
-						result = tran_bd_api(mResponse);
-					}
+					mResponse = LanguagehelperHttpClient.postBaidu(null);
+					result = tran_bd_api(mResponse);
 				}
 			}
 		}

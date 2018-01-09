@@ -16,6 +16,7 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.support.v4.BuildConfig;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.telephony.TelephonyManager;
 import android.text.ClipboardManager;
@@ -26,6 +27,8 @@ import com.messi.languagehelper.ImgShareActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.dialog.PopDialog;
 import com.messi.languagehelper.dialog.PopDialog.PopViewItemOnclickListener;
+import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.Permission;
 
 import java.util.UUID;
 
@@ -49,7 +52,7 @@ public class Settings {
 
 	public static String IcibaTranslateNewUrl = "http://fy.iciba.com/ajax.php?a=fy";
 
-	public static String Tran388GCOmUrl = "http://www.388g.com/tts/trans.php?tool=bd&q=";
+	public static String TranAiyueyuUrl = "https://yue.micblo.com/api.php";
 
 	public static String BaiduTranV2api = "http://fanyi.baidu.com//v2transapi?from=auto&to=auto&transtype=hash&simple_means_flag=3&query=";
 
@@ -151,7 +154,9 @@ public class Settings {
 	public static final int page_size = 12;
 	public static final String baidu_appid = "20151111000005006";	
 	public static final String baidu_secretkey = "91mGcsmdvX9HAaE8tXoI";	
-	public static final String client_id = "vCV6TTGRTI5QrckdYSKHQIhq";	
+	public static final String client_id = "vCV6TTGRTI5QrckdYSKHQIhq";
+	public static String yue = "yue";
+	public static String zh = "zh";
 	public static String from = "auto";	
 	public static String to = "auto";	
 	public static String q = "";	
@@ -469,13 +474,28 @@ public class Settings {
 	}
 
 	public static String getUUID(Context context){
-		final TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-		final String tmDevice, tmSerial, tmPhone, androidId;
-		tmDevice = "" + tm.getDeviceId();
-		tmSerial = "" + tm.getSimSerialNumber();
-		androidId = "" + android.provider.Settings.Secure.getString(context.getContentResolver(),android.provider.Settings.Secure.ANDROID_ID);
-		UUID deviceUuid = new UUID(androidId.hashCode(), ((long)tmDevice.hashCode() << 32) | tmSerial.hashCode());
-		String uniqueId = deviceUuid.toString();
+		String uniqueId = "1234567890";
+		try {
+			int permissionCheck = ContextCompat.checkSelfPermission(context,
+					Manifest.permission.READ_PHONE_STATE);
+			if(permissionCheck ==  PackageManager.PERMISSION_GRANTED){
+				final TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+				final String tmDevice, tmSerial, tmPhone, androidId;
+				tmDevice = "" + tm.getDeviceId();
+				tmSerial = "" + tm.getSimSerialNumber();
+				androidId = "" + android.provider.Settings.Secure.getString(context.getContentResolver(),android.provider.Settings.Secure.ANDROID_ID);
+				UUID deviceUuid = new UUID(androidId.hashCode(), ((long)tmDevice.hashCode() << 32) | tmSerial.hashCode());
+				uniqueId = deviceUuid.toString();
+			}else {
+				AndPermission.with(context)
+						.permission(Permission.PHONE)
+						.requestCode(110)
+						.callback(context)
+						.start();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		LogUtil.DefalutLog("uuid:"+uniqueId);
 		return uniqueId;
 	}

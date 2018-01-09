@@ -1,9 +1,5 @@
 package com.messi.languagehelper;
 
-import com.messi.languagehelper.impl.FragmentProgressbarListener;
-import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.LogUtil;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +13,10 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.messi.languagehelper.impl.FragmentProgressbarListener;
+import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.LogUtil;
 
 
 public class BaseFragment extends Fragment {
@@ -46,6 +46,7 @@ public class BaseFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 		if(getUserVisibleHint() && !isHasLoadData){
+			isHasLoadData = true;
 			loadDataOnStart();
 		}
 		return super.onCreateView(inflater, container, savedInstanceState);
@@ -56,12 +57,12 @@ public class BaseFragment extends Fragment {
 		super.setUserVisibleHint(isVisibleToUser);
 		misVisibleToUser = isVisibleToUser;
 		if(getActivity() != null && !isHasLoadData){
+			isHasLoadData = true;
 			loadDataOnStart();
 		}
 	}
 
 	public void loadDataOnStart(){
-		isHasLoadData = true;
 		LogUtil.DefalutLog("loadDataOnStart");
 	}
 

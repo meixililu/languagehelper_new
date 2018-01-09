@@ -52,16 +52,16 @@
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/word_study_dancipinxie_activity.xml"
     },
     {
+        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/activity_xmly_search.xml",
+        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/activity_xmly_search.xml"
+    },
+    {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/abc_action_bar_view_list_nav_layout.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_action_bar_view_list_nav_layout.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/help.xml",
         "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/help.xml"
-    },
-    {
-        "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/activity_xmly_search.xml",
-        "source": "/Users/luli/AndroidStudioProjects/languagehelper/app/src/main/res/layout/activity_xmly_search.xml"
     },
     {
         "merged": "/Users/luli/AndroidStudioProjects/languagehelper/app/build/intermediates/res/merged/debug/layout/content_frame.xml",

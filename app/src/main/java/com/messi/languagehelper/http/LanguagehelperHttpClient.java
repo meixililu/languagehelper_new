@@ -191,20 +191,22 @@ public class LanguagehelperHttpClient {
 		return executePost(request,mCallback);
 	}
 
-	public static Response get388gcom(Callback mCallback) {
-		String from = "";
-		String to = "";
-		if (StringUtils.isEnglish(Settings.q)) {
-			from = "en";
-			to = "zh-chs";
+	public static Response getAiyueyu(Callback mCallback) {
+		LogUtil.DefalutLog("getAiyueyu");
+		String type = "";
+		if (Settings.to.equals(Settings.yue)) {
+			type = "0";
 		} else {
-			from = "zh-chs";
-			to = "en";
+			type = "1";
 		}
-		String url = Settings.Tran388GCOmUrl + Settings.q + "&from=" + from + "&to=" + to;
+		RequestBody formBody = new FormEncodingBuilder()
+				.add("type", type)
+				.add("text", Settings.q)
+				.build();
 		Request request = new Request.Builder()
-				.url(url)
+				.url(Settings.TranAiyueyuUrl)
 				.header("User-Agent", Header)
+				.post(formBody)
 				.build();
 		return executePost(request,mCallback);
 	}
@@ -298,5 +300,15 @@ public class LanguagehelperHttpClient {
 	public static String getBaiduTranslateSign(long salt) {
 		String str = Settings.baidu_appid + Settings.q + salt + Settings.baidu_secretkey;
 		return MD5.encode(str);
+	}
+
+	public static void setTranslateLan(boolean isToYue){
+		if(isToYue){
+			Settings.from = Settings.zh;
+			Settings.to = Settings.yue;
+		}else{
+			Settings.from = Settings.yue;
+			Settings.to = Settings.zh;
+		}
 	}
 }
