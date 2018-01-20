@@ -54,8 +54,6 @@ public class Settings {
 
 	public static String TranAiyueyuUrl = "https://yue.micblo.com/api.php";
 
-	public static String BaiduTranV2api = "http://fanyi.baidu.com//v2transapi?from=auto&to=auto&transtype=hash&simple_means_flag=3&query=";
-
 //	public static String BaiduOCRUrlOld = "http://apis.baidu.com/idl_baidu/baiduocrpay/idlocrpaid";
 
 	public static String BaiduAccessToken = "https://aip.baidubce.com/oauth/2.0/token";

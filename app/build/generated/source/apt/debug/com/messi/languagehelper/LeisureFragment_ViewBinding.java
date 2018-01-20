@@ -16,27 +16,27 @@ import java.lang.Override;
 public class LeisureFragment_ViewBinding implements Unbinder {
   private LeisureFragment target;
 
-  private View view2131689866;
+  private View view2131231392;
 
-  private View view2131689867;
+  private View view2131231326;
 
-  private View view2131689715;
+  private View view2131231391;
 
-  private View view2131689863;
+  private View view2131230811;
 
-  private View view2131689864;
+  private View view2131230793;
 
-  private View view2131689871;
+  private View view2131230781;
 
-  private View view2131689870;
+  private View view2131231037;
 
-  private View view2131689868;
+  private View view2131230955;
 
-  private View view2131689872;
+  private View view2131230979;
 
-  private View view2131689865;
+  private View view2131231205;
 
-  private View view2131689869;
+  private View view2131231194;
 
   @UiThread
   public LeisureFragment_ViewBinding(final LeisureFragment target, View source) {
@@ -45,7 +45,7 @@ public class LeisureFragment_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.yuedu_layout, "field 'yueduLayout' and method 'onViewClicked'");
     target.yueduLayout = Utils.castView(view, R.id.yuedu_layout, "field 'yueduLayout'", FrameLayout.class);
-    view2131689866 = view;
+    view2131231392 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -54,7 +54,7 @@ public class LeisureFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.twists_layout, "field 'twistsLayout' and method 'onViewClicked'");
     target.twistsLayout = Utils.castView(view, R.id.twists_layout, "field 'twistsLayout'", FrameLayout.class);
-    view2131689867 = view;
+    view2131231326 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -63,7 +63,7 @@ public class LeisureFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.xx_ad_layout, "field 'xx_ad_layout' and method 'onViewClicked'");
     target.xx_ad_layout = Utils.castView(view, R.id.xx_ad_layout, "field 'xx_ad_layout'", RelativeLayout.class);
-    view2131689715 = view;
+    view2131231391 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -72,7 +72,7 @@ public class LeisureFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.cailing_layout, "field 'cailing_layout' and method 'onViewClicked'");
     target.cailing_layout = Utils.castView(view, R.id.cailing_layout, "field 'cailing_layout'", FrameLayout.class);
-    view2131689863 = view;
+    view2131230811 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -81,7 +81,7 @@ public class LeisureFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.baidu_layout, "field 'baidu_layout' and method 'onViewClicked'");
     target.baidu_layout = Utils.castView(view, R.id.baidu_layout, "field 'baidu_layout'", FrameLayout.class);
-    view2131689864 = view;
+    view2131230793 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -90,7 +90,7 @@ public class LeisureFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.app_layout, "field 'app_layout' and method 'onViewClicked'");
     target.app_layout = Utils.castView(view, R.id.app_layout, "field 'app_layout'", FrameLayout.class);
-    view2131689871 = view;
+    view2131230781 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -99,7 +99,7 @@ public class LeisureFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.news_layout, "field 'news_layout' and method 'onViewClicked'");
     target.news_layout = Utils.castView(view, R.id.news_layout, "field 'news_layout'", FrameLayout.class);
-    view2131689870 = view;
+    view2131231037 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -108,7 +108,7 @@ public class LeisureFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.game_layout, "field 'game_layout' and method 'onViewClicked'");
     target.game_layout = Utils.castView(view, R.id.game_layout, "field 'game_layout'", FrameLayout.class);
-    view2131689868 = view;
+    view2131230955 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -117,7 +117,7 @@ public class LeisureFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.invest_layout, "field 'invest_layout' and method 'onViewClicked'");
     target.invest_layout = Utils.castView(view, R.id.invest_layout, "field 'invest_layout'", FrameLayout.class);
-    view2131689872 = view;
+    view2131230979 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -126,7 +126,7 @@ public class LeisureFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.sougou_layout, "field 'sougou_layout' and method 'onViewClicked'");
     target.sougou_layout = Utils.castView(view, R.id.sougou_layout, "field 'sougou_layout'", FrameLayout.class);
-    view2131689865 = view;
+    view2131231205 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -135,7 +135,7 @@ public class LeisureFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.shenhuifu_layout, "field 'shenhuifuLayout' and method 'onViewClicked'");
     target.shenhuifuLayout = Utils.castView(view, R.id.shenhuifu_layout, "field 'shenhuifuLayout'", FrameLayout.class);
-    view2131689869 = view;
+    view2131231194 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -165,27 +165,27 @@ public class LeisureFragment_ViewBinding implements Unbinder {
     target.shenhuifuLayout = null;
     target.adImg = null;
 
-    view2131689866.setOnClickListener(null);
-    view2131689866 = null;
-    view2131689867.setOnClickListener(null);
-    view2131689867 = null;
-    view2131689715.setOnClickListener(null);
-    view2131689715 = null;
-    view2131689863.setOnClickListener(null);
-    view2131689863 = null;
-    view2131689864.setOnClickListener(null);
-    view2131689864 = null;
-    view2131689871.setOnClickListener(null);
-    view2131689871 = null;
-    view2131689870.setOnClickListener(null);
-    view2131689870 = null;
-    view2131689868.setOnClickListener(null);
-    view2131689868 = null;
-    view2131689872.setOnClickListener(null);
-    view2131689872 = null;
-    view2131689865.setOnClickListener(null);
-    view2131689865 = null;
-    view2131689869.setOnClickListener(null);
-    view2131689869 = null;
+    view2131231392.setOnClickListener(null);
+    view2131231392 = null;
+    view2131231326.setOnClickListener(null);
+    view2131231326 = null;
+    view2131231391.setOnClickListener(null);
+    view2131231391 = null;
+    view2131230811.setOnClickListener(null);
+    view2131230811 = null;
+    view2131230793.setOnClickListener(null);
+    view2131230793 = null;
+    view2131230781.setOnClickListener(null);
+    view2131230781 = null;
+    view2131231037.setOnClickListener(null);
+    view2131231037 = null;
+    view2131230955.setOnClickListener(null);
+    view2131230955 = null;
+    view2131230979.setOnClickListener(null);
+    view2131230979 = null;
+    view2131231205.setOnClickListener(null);
+    view2131231205 = null;
+    view2131231194.setOnClickListener(null);
+    view2131231194 = null;
   }
 }

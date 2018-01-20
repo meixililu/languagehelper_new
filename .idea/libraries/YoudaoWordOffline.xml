@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="YoudaoWordOffline">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/app/libs/YoudaoWordOffline.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

@@ -2,23 +2,41 @@ package com.messi.languagehelper.service;
 
 import android.app.NotificationManager;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
-import android.media.MediaPlayer;
 import android.net.Uri;
+import android.net.wifi.WifiManager;
 import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
-import android.os.PowerManager;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
+import com.google.android.exoplayer2.ExoPlaybackException;
+import com.google.android.exoplayer2.ExoPlayer;
+import com.google.android.exoplayer2.ExoPlayerFactory;
+import com.google.android.exoplayer2.PlaybackParameters;
+import com.google.android.exoplayer2.Player;
+import com.google.android.exoplayer2.SimpleExoPlayer;
+import com.google.android.exoplayer2.Timeline;
+import com.google.android.exoplayer2.audio.AudioAttributes;
+import com.google.android.exoplayer2.source.ExtractorMediaSource;
+import com.google.android.exoplayer2.source.MediaSource;
+import com.google.android.exoplayer2.source.TrackGroupArray;
+import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
+import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
+import com.google.android.exoplayer2.upstream.DataSource;
+import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
+import com.google.android.exoplayer2.util.Util;
 import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NotificationUtil;
 import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
 
+import static com.google.android.exoplayer2.C.CONTENT_TYPE_MUSIC;
+import static com.google.android.exoplayer2.C.USAGE_MEDIA;
 import static com.messi.languagehelper.util.KeyUtil.MesType;
 import static com.messi.languagehelper.util.KeyUtil.NotificationTitle;
 
@@ -26,10 +44,7 @@ import static com.messi.languagehelper.util.KeyUtil.NotificationTitle;
  * Created by luli on 05/05/2017.
  */
 
-public class PlayerService extends Service implements
-        MediaPlayer.OnPreparedListener,
-        MediaPlayer.OnErrorListener,
-        MediaPlayer.OnCompletionListener {
+public class PlayerService extends Service {
 
     public static final String action_loading = "com.messi.languagehelper.music.loading";
     public static final String action_finish_loading = "com.messi.languagehelper.music.finish.loading";
@@ -39,13 +54,15 @@ public class PlayerService extends Service implements
     public static final String action_previous = "com.messi.languagehelper.music.previous";
 
     public static final int NOTIFY_ID = 1;
-    //media player
-    private MediaPlayer player;
+    private AudioManager mAudioManager;
+    private WifiManager.WifiLock mWifiLock;
+    private SimpleExoPlayer mExoPlayer;
     // 0 default, 1 playing, 2 pause
     public int PlayerStatus;
     public String lastSongId = "";
     private Reading song;
     private final IBinder musicBind = new MusicBinder();
+    private final ExoPlayerEventListener mEventListener = new ExoPlayerEventListener();
 
     public class MusicBinder extends Binder {
         public PlayerService getService() {
@@ -60,7 +77,7 @@ public class PlayerService extends Service implements
             LogUtil.DefalutLog("receive Handler:"+msg.what);
             if (msg.what == 1) {
                 if(song != null){
-                    startToPlay(song);
+                    startExoplayer(song);
                 }
             }
         }
@@ -69,16 +86,14 @@ public class PlayerService extends Service implements
     @Override
     public void onCreate() {
         super.onCreate();
-        player = new MediaPlayer();
-        initMusicPlayer();
+        initExoplayer();
     }
 
-    public void initMusicPlayer(){
-        player.setWakeMode(getApplicationContext(), PowerManager.PARTIAL_WAKE_LOCK);
-        player.setAudioStreamType(AudioManager.STREAM_MUSIC);
-        player.setOnPreparedListener(this);
-        player.setOnCompletionListener(this);
-        player.setOnErrorListener(this);
+    private void initExoplayer(){
+        Context applicationContext = this.getApplicationContext();
+        this.mAudioManager = (AudioManager) applicationContext.getSystemService(Context.AUDIO_SERVICE);
+        this.mWifiLock = ((WifiManager) applicationContext.getSystemService(Context.WIFI_SERVICE))
+                        .createWifiLock(WifiManager.WIFI_MODE_FULL, "uAmp_lock");
     }
 
     public void initAndPlay(Reading song){
@@ -99,36 +114,37 @@ public class PlayerService extends Service implements
     private void checkMp3IsExit(Reading mAVObject) {
         if (mAVObject != null) {
             this.song = mAVObject;
-            startToPlay(mAVObject);
-//            String downLoadUrl = mAVObject.getMedia_url();
-//            int pos = downLoadUrl.lastIndexOf(SDCardUtil.Delimiter) + 1;
-//            String fileName = downLoadUrl.substring(pos, downLoadUrl.length());
-//            String rootUrl = SDCardUtil.ReadingPath +
-//                    mAVObject.getObject_id() + SDCardUtil.Delimiter;
-//            String fileFullName = SDCardUtil.getDownloadPath(rootUrl) + fileName;
-//            LogUtil.DefalutLog("fileName:" + fileName + "---fileFullName:" + fileFullName);
-//            if (SDCardUtil.isFileExist(fileFullName)) {
-//
-//                LogUtil.DefalutLog("FileExist");
-//            } else {
-//                sendBroadcast(action_loading);
-//                LogUtil.DefalutLog("FileNotExist");
-//                DownLoadUtil.downloadFile(this, downLoadUrl, rootUrl, fileName, mHandler);
-//            }
+            startExoplayer(mAVObject);
         }
     }
 
-    public void startToPlay(Reading song){
-        this.song = song;
-        lastSongId = song.getObject_id();
-        PlayerStatus = 1;
-        player.reset();
-        Uri uri = Uri.parse(song.getMedia_url());
-        try{
-            player.setDataSource(getApplicationContext(), uri);
-            player.prepareAsync();
-        } catch(Exception e){
-            LogUtil.DefalutLog("MUSIC SERVICE Error setting data source");
+    private void startExoplayer(Reading song){
+        try {
+            LogUtil.DefalutLog("startExoplayer:"+song.getMedia_url());
+            this.song = song;
+            lastSongId = song.getObject_id();
+            PlayerStatus = 1;
+            if (mExoPlayer == null) {
+                mExoPlayer = ExoPlayerFactory.newSimpleInstance(this, new DefaultTrackSelector());
+                mExoPlayer.addListener(mEventListener);
+            }
+            final AudioAttributes audioAttributes = new AudioAttributes.Builder()
+                    .setContentType(CONTENT_TYPE_MUSIC)
+                    .setUsage(USAGE_MEDIA)
+                    .build();
+            mExoPlayer.setAudioAttributes(audioAttributes);
+            DataSource.Factory dataSourceFactory =
+                    new DefaultDataSourceFactory(
+                            this,
+                            Util.getUserAgent(this, "LanguageHelper"),
+                            null);
+            MediaSource mediaSource = new ExtractorMediaSource
+                    .Factory(dataSourceFactory)
+                    .createMediaSource(Uri.parse(song.getMedia_url()));
+            mExoPlayer.prepare(mediaSource);
+            mExoPlayer.setPlayWhenReady(true);
+            mWifiLock.acquire();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -192,15 +208,22 @@ public class PlayerService extends Service implements
     @Override
     public boolean onUnbind(Intent intent) {
         ((NotificationManager) getSystemService(NOTIFICATION_SERVICE)).cancel(NOTIFY_ID);
-        player.stop();
-        player.release();
+        if (mExoPlayer != null) {
+            mExoPlayer.setPlayWhenReady(false);
+            mExoPlayer.release();
+            mExoPlayer.removeListener(mEventListener);
+            mExoPlayer = null;
+        }
+        if (mWifiLock.isHeld()) {
+            mWifiLock.release();
+        }
         return false;
     }
 
     public void pause(){
         if(song != null){
             PlayerStatus = 2;
-            player.pause();
+            mExoPlayer.setPlayWhenReady(false);
             NotificationUtil.showNotification(this,action_start,song.getTitle(),
                     NotificationUtil.mes_type_zyhy);
         }
@@ -210,38 +233,86 @@ public class PlayerService extends Service implements
     public void restart(){
         if(song != null){
             PlayerStatus = 1;
-            player.start();
+            mExoPlayer.setPlayWhenReady(true);
             NotificationUtil.showNotification(this,action_pause,song.getTitle(),
                     NotificationUtil.mes_type_zyhy);
         }
         NotificationUtil.sendBroadcast(this,action_pause);
     }
 
-    @Override
-    public void onCompletion(MediaPlayer mediaPlayer) {
-        PlayerStatus = 0;
-        NotificationUtil.showNotification(this,action_start,song.getTitle(),
-                NotificationUtil.mes_type_zyhy);
-        NotificationUtil.sendBroadcast(this,action_start);
-    }
-
-    @Override
-    public void onPrepared(MediaPlayer mediaPlayer) {
-        mediaPlayer.start();
-        NotificationUtil.showNotification(this,action_pause,song.getTitle(),
-                NotificationUtil.mes_type_zyhy);
-        NotificationUtil.sendBroadcast(this,action_pause);
-    }
-
-    @Override
-    public boolean onError(MediaPlayer mediaPlayer, int i, int i1) {
-        PlayerStatus = 0;
-        player.reset();
-        return false;
-    }
-
     public boolean isPlaying(){
         return PlayerStatus == 1;
+    }
+
+    private final class ExoPlayerEventListener implements ExoPlayer.EventListener {
+
+        @Override
+        public void onTimelineChanged(Timeline timeline, Object manifest) {
+        }
+
+        @Override
+        public void onTracksChanged(TrackGroupArray trackGroups, TrackSelectionArray trackSelections) {
+        }
+
+        @Override
+        public void onLoadingChanged(boolean isLoading) {
+        }
+
+        @Override
+        public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
+            switch (playbackState) {
+                case Player.STATE_IDLE:
+                    LogUtil.DefalutLog("STATE_IDLE");
+                case Player.STATE_BUFFERING:
+                    LogUtil.DefalutLog("STATE_BUFFERING");
+                    if(playWhenReady){
+                        NotificationUtil.showNotification(PlayerService.this,action_pause,song.getTitle(),
+                                NotificationUtil.mes_type_zyhy);
+                        NotificationUtil.sendBroadcast(PlayerService.this,action_pause);
+                    }
+                case Player.STATE_READY:
+                    LogUtil.DefalutLog("STATE_READY");
+                    if(playWhenReady){
+                        PlayerStatus = 1;
+                        NotificationUtil.showNotification(PlayerService.this,action_pause,song.getTitle(),
+                                NotificationUtil.mes_type_zyhy);
+                        NotificationUtil.sendBroadcast(PlayerService.this,action_pause);
+                    }
+                    break;
+                case Player.STATE_ENDED:
+                    LogUtil.DefalutLog("STATE_ENDED");
+                    PlayerStatus = 0;
+                    NotificationUtil.showNotification(PlayerService.this,action_start,song.getTitle(),
+                            NotificationUtil.mes_type_zyhy);
+                    NotificationUtil.sendBroadcast(PlayerService.this,action_start);
+                    break;
+            }
+        }
+
+        @Override
+        public void onRepeatModeChanged(int repeatMode) {
+        }
+
+        @Override
+        public void onShuffleModeEnabledChanged(boolean shuffleModeEnabled) {
+        }
+
+        @Override
+        public void onPlayerError(ExoPlaybackException error) {
+            PlayerStatus = 0;
+        }
+
+        @Override
+        public void onPositionDiscontinuity(int reason) {
+        }
+
+        @Override
+        public void onPlaybackParametersChanged(PlaybackParameters playbackParameters) {
+        }
+
+        @Override
+        public void onSeekProcessed() {
+        }
     }
 
 }

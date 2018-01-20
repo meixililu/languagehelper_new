@@ -1,13 +1,13 @@
 package com.messi.languagehelper.util;
 
+import com.messi.languagehelper.R;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import com.messi.languagehelper.R;
 
-
-public class ColorUtil {
+public class   ColorUtil {
 	
 	public static int styleColor1[] = {
 		R.color.style1_color1, R.color.style1_color2, R.color.style1_color3, R.color.style1_color4, R.color.style1_color5, 

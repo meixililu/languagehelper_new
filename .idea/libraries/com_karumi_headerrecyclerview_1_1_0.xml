@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="com.karumi:headerrecyclerview-1.1.0">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/headerrecyclerview-1.1.0.aar/c6c5c0b0e898921ba98abd28ba4de64c/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/headerrecyclerview-1.1.0.aar/c6c5c0b0e898921ba98abd28ba4de64c/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.karumi/headerrecyclerview/1.1.0/488fe9d2affc89d961c8e2dffd5abf314ded3dbe/headerrecyclerview-1.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

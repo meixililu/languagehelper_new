@@ -816,18 +816,19 @@ public class TranslateUtil {
 		record result = null;
 		Response mResponse = null;
 		mResponse = LanguagehelperHttpClient.postIcibaNew(null);
-		result = tran_js_newapi(mResponse);
-		if(result == null){
-			mResponse = LanguagehelperHttpClient.postHjApi(null);
-			result = tran_hj_api(mResponse);
+		if(mResponse != null){
+			result = tran_js_newapi(mResponse);
 			if(result == null){
-				mResponse = LanguagehelperHttpClient.getBaiduV2api(null);
-				result = tran_baiduv2_api(mResponse);
+				mResponse = LanguagehelperHttpClient.postHjApi(null);
+				result = tran_hj_api(mResponse);
 				if(result == null){
 					mResponse = LanguagehelperHttpClient.postBaidu(null);
 					result = tran_bd_api(mResponse);
 				}
 			}
+		}else {
+			mResponse = LanguagehelperHttpClient.postBaidu(null);
+			result = tran_bd_api(mResponse);
 		}
 		return result;
 	}

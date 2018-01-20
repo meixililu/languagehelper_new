@@ -13,7 +13,7 @@
         android:label="Tests for com.messi.languagehelper"
         android:targetPackage="com.messi.languagehelper" />
 
-    <application>
+    <application android:debuggable="true" >
         <uses-library android:name="android.test.runner" />
     </application>
 

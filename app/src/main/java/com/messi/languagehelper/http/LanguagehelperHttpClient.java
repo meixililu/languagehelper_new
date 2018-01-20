@@ -170,11 +170,11 @@ public class LanguagehelperHttpClient {
 		String from = "";
 		String to = "";
 		if (StringUtils.isEnglish(Settings.q)) {
-			from = "en-US";
-			to = "zh-CN";
+			from = "en";
+			to = "zh";
 		} else {
-			from = "zh-CN";
-			to = "en-US";
+			from = "zh";
+			to = "en";
 		}
 		LogUtil.DefalutLog("from:"+from+"---to:"+to);
 		RequestBody formBody = new FormEncodingBuilder()
@@ -207,15 +207,6 @@ public class LanguagehelperHttpClient {
 				.url(Settings.TranAiyueyuUrl)
 				.header("User-Agent", Header)
 				.post(formBody)
-				.build();
-		return executePost(request,mCallback);
-	}
-
-	public static Response getBaiduV2api(Callback mCallback) {
-		String url = Settings.BaiduTranV2api + Settings.q;
-		Request request = new Request.Builder()
-				.url(url)
-				.header("User-Agent", Header)
 				.build();
 		return executePost(request,mCallback);
 	}
