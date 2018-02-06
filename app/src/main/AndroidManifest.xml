@@ -300,6 +300,11 @@
             android:name=".ReadingDetailActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".ReadingVideoDetailActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            />
+        <activity
             android:name=".ReadingsActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -307,6 +312,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".JokeActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait" />
         <activity
             android:name=".WordStudyDanCiRenZhiActivity"

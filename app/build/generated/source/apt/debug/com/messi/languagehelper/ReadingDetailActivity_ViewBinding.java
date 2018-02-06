@@ -13,7 +13,6 @@ import android.widget.TextView;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
-import cn.jzvd.JZVideoPlayerStandard;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.lang.IllegalStateException;
 import java.lang.Override;
@@ -21,7 +20,7 @@ import java.lang.Override;
 public class ReadingDetailActivity_ViewBinding implements Unbinder {
   private ReadingDetailActivity target;
 
-  private View view2131231070;
+  private View view2131231103;
 
   @UiThread
   public ReadingDetailActivity_ViewBinding(ReadingDetailActivity target) {
@@ -41,7 +40,7 @@ public class ReadingDetailActivity_ViewBinding implements Unbinder {
     target.scrollview = Utils.findRequiredViewAsType(source, R.id.scrollview, "field 'scrollview'", NestedScrollView.class);
     view = Utils.findRequiredView(source, R.id.play_btn, "field 'fab' and method 'onClick'");
     target.fab = Utils.castView(view, R.id.play_btn, "field 'fab'", FloatingActionButton.class);
-    view2131231070 = view;
+    view2131231103 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -49,7 +48,6 @@ public class ReadingDetailActivity_ViewBinding implements Unbinder {
       }
     });
     target.pimgview = Utils.findRequiredViewAsType(source, R.id.item_img, "field 'pimgview'", SimpleDraweeView.class);
-    target.videoplayer = Utils.findRequiredViewAsType(source, R.id.videoplayer, "field 'videoplayer'", JZVideoPlayerStandard.class);
   }
 
   @Override
@@ -67,9 +65,8 @@ public class ReadingDetailActivity_ViewBinding implements Unbinder {
     target.scrollview = null;
     target.fab = null;
     target.pimgview = null;
-    target.videoplayer = null;
 
-    view2131231070.setOnClickListener(null);
-    view2131231070 = null;
+    view2131231103.setOnClickListener(null);
+    view2131231103 = null;
   }
 }

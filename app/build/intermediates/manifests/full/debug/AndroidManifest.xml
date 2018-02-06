@@ -307,6 +307,10 @@
             android:name="com.messi.languagehelper.ReadingDetailActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name="com.messi.languagehelper.ReadingVideoDetailActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.messi.languagehelper.ReadingsActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -314,6 +318,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.JokeActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.WordStudyDanCiRenZhiActivity"

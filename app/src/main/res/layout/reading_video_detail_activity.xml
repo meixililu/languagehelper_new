@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/app_bar"
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:orientation="vertical"
+        >
+        <com.google.android.exoplayer2.ui.SimpleExoPlayerView
+            android:id="@+id/player_view"
+            android:background="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            />
+    </LinearLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:fillViewport="true" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:focusable="true"
+            android:focusableInTouchMode="false"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_dark"
+                android:layout_marginLeft="@dimen/padding_10"
+                android:layout_marginRight="@dimen/padding_10"
+                android:layout_marginTop="@dimen/padding_15"
+                android:layout_marginBottom="@dimen/padding_10"
+                android:textSize="@dimen/bigest"
+                android:gravity="left"
+                />
+
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.3"
+                android:padding="@dimen/padding_10"
+                android:paddingBottom="@dimen/padding_15"
+                android:background="@color/white"
+                android:textColor="@color/text_black"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:textSize="@dimen/biggerx" />
+
+            <RelativeLayout
+                android:id="@+id/xx_ad_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/padding_15"
+                android:layout_marginBottom="@dimen/padding_15"
+                android:layout_marginLeft="@dimen/padding_10"
+                android:layout_marginRight="@dimen/padding_10"
+                android:visibility="gone" >
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/ad_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    fresco:actualImageScaleType="focusCrop"
+                    fresco:placeholderImage="@color/text_tint"
+                    fresco:placeholderImageScaleType="fitCenter"
+                    fresco:viewAspectRatio="1.77" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:paddingBottom="1dp"
+                    android:paddingLeft="1dp"
+                    android:text="广告"
+                    android:background="@color/none_alpha"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/smaller_l" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/next_composition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical" >
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+
+</LinearLayout>
+

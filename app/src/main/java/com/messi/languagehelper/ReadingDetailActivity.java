@@ -10,29 +10,21 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.TextHandlerUtil;
-import com.messi.languagehelper.util.ViewUtil;
 import com.messi.languagehelper.util.XFYSAD;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
 
@@ -41,8 +33,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import cn.jzvd.JZVideoPlayer;
-import cn.jzvd.JZVideoPlayerStandard;
 
 public class ReadingDetailActivity extends BaseActivity {
 
@@ -62,8 +52,6 @@ public class ReadingDetailActivity extends BaseActivity {
     FloatingActionButton fab;
     @BindView(R.id.item_img)
     SimpleDraweeView pimgview;
-    @BindView(R.id.videoplayer)
-    JZVideoPlayerStandard videoplayer;
 
     private Reading mAVObject;
     private List<Reading> mAVObjects;
@@ -94,23 +82,12 @@ public class ReadingDetailActivity extends BaseActivity {
     }
 
     private void setData() {
-        videoplayer.setVisibility(View.GONE);
         pimgview.setVisibility(View.GONE);
         toolbar_layout.setTitle(mAVObject.getTitle());
         title.setText(mAVObject.getTitle());
         scrollview.scrollTo(0, 0);
         TextHandlerUtil.handlerText(this, mProgressbar, content, mAVObject.getContent());
-        if (!TextUtils.isEmpty(mAVObject.getType()) &&
-                mAVObject.getType().equals("video")) {
-            videoplayer.setVisibility(View.VISIBLE);
-            videoplayer.setUp(mAVObject.getMedia_url(), JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL, "");
-            if (!TextUtils.isEmpty(mAVObject.getImg_url())) {
-                Glide.with(this)
-                        .load(mAVObject.getImg_url())
-                        .into(videoplayer.thumbImageView);
-            }
-            fab.setVisibility(View.GONE);
-        } else if (!TextUtils.isEmpty(mAVObject.getImg_url())) {
+        if (!TextUtils.isEmpty(mAVObject.getImg_url())) {
             pimgview.setVisibility(View.VISIBLE);
             pimgview.setImageURI(Uri.parse(mAVObject.getImg_url()));
         }
@@ -123,14 +100,7 @@ public class ReadingDetailActivity extends BaseActivity {
         if(mAVObject.getType().equals("text")){
             fab.setVisibility(View.GONE);
         }
-        next_composition.removeAllViews();
-        if(mAVObjects.size() > 5){
-            int[] random = NumberUtil.getRandomNumberLimit(mAVObjects.size(), 0, 5, index);
-            for (int i : random) {
-                next_composition.addView(ViewUtil.getLine(this));
-                next_composition.addView(getView(mAVObjects.get(i)));
-            }
-        }
+
         mXFYSAD = new XFYSAD(this, xx_ad_layout, ADUtil.NewsDetail);
         mXFYSAD.setDirectExPosure(false);
         mXFYSAD.showAD();
@@ -231,73 +201,14 @@ public class ReadingDetailActivity extends BaseActivity {
         }
     }
 
-    public View getView(final Reading mObject) {
-        View convertView = LayoutInflater.from(this).inflate(R.layout.composition_list_item, null);
-        FrameLayout layout_cover = (FrameLayout) convertView.findViewById(R.id.layout_cover);
-        FrameLayout list_item_img_parent = (FrameLayout) convertView.findViewById(R.id.list_item_img_parent);
-        TextView title = (TextView) convertView.findViewById(R.id.title);
-        TextView source_name = (TextView) convertView.findViewById(R.id.source_name);
-        TextView type_name = (TextView) convertView.findViewById(R.id.type_name);
-        SimpleDraweeView list_item_img = (SimpleDraweeView) convertView.findViewById(R.id.list_item_img);
-
-        if (!mObject.isAd()) {
-            title.setText(mObject.getTitle());
-            source_name.setText(mObject.getSource_name());
-            type_name.setText(mObject.getType_name());
-            String img_url = "";
-            if (mObject.getImg_type().equals("url")) {
-                img_url = mObject.getImg_url();
-            }
-            if (!TextUtils.isEmpty(img_url)) {
-                list_item_img_parent.setVisibility(View.VISIBLE);
-                list_item_img.setVisibility(View.VISIBLE);
-                list_item_img.setImageURI(Uri.parse(img_url));
-            } else {
-                list_item_img_parent.setVisibility(View.GONE);
-                list_item_img.setVisibility(View.GONE);
-            }
-            layout_cover.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    index = mAVObjects.indexOf(mObject);
-                    mAVObject = mObject;
-                    setData();
-                }
-            });
-        } else {
-            try {
-                final NativeADDataRef mNativeADDataRef = mObject.getmNativeADDataRef();
-                title.setText(mNativeADDataRef.getSubTitle());
-                type_name.setText(mNativeADDataRef.getTitle());
-                source_name.setText("广告");
-                list_item_img.setImageURI(Uri.parse(mNativeADDataRef.getImage()));
-                mNativeADDataRef.onExposured(layout_cover);
-                layout_cover.setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        boolean onClicked = mNativeADDataRef.onClicked(v);
-                        LogUtil.DefalutLog("onClicked:"+onClicked);
-                    }
-                });
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return convertView;
-    }
-
     @Override
     public void onBackPressed() {
-        if (JZVideoPlayer.backPress()) {
-            return;
-        }
         super.onBackPressed();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        JZVideoPlayer.releaseAllVideos();
     }
 
     @Override

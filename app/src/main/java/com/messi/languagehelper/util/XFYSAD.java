@@ -138,8 +138,8 @@ public class XFYSAD {
 	public void ExposureAD(){
 		if(!exposure){
 			exposure = mNativeADDataRef.onExposured(parentView);
+			LogUtil.DefalutLog("XFYSAD-ExposureAD-exposure:"+exposure);
 		}
-		LogUtil.DefalutLog("XFYSAD-ExposureAD-exposure:"+exposure);
 	}
 
 	public void setDirectExPosure(boolean directExPosure) {
