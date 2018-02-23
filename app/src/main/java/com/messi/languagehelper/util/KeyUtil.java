@@ -222,6 +222,14 @@ public class KeyUtil {
 
 	public static final String XmlyRadioCategory = "XmlyRadioCategory";
 
+	public static final String HomeBtnTexts = "HomeBtnText";
+
+	public static final String Btn_Tran = "Btn_Tran";
+	public static final String Btn_Sentence = "Btn_Sentence";
+	public static final String Btn_Dictionary = "Btn_Dictionary";
+	public static final String Btn_ENENDic = "Btn_ENENDic";
+	public static final String Btn_CHCHDic = "Btn_CHCHDic";
+
 
 
 

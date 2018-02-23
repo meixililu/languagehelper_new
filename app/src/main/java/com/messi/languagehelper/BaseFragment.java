@@ -125,6 +125,10 @@ public class BaseFragment extends Fragment {
 		}
 	}
 
+	public void setmProgressbarListener(FragmentProgressbarListener listener){
+		mProgressbarListener = listener;
+	}
+
 	protected void toActivity(Class mClass, Bundle bundle) {
 		Intent intent = new Intent(getContext(), mClass);
 		if (bundle != null) {

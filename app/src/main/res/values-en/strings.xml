@@ -27,8 +27,12 @@
     <string name="title_more">More</string>
     <string name="title_all_unit">Unit Choose</string>
     <string name="title_article_collected">Article</string>
+    <string name="title_home_tab">Home</string>
     <string name="title_translate">Translate</string>
     <string name="title_dictionary">Dictionary</string>
+    <string name="title_chinese_dic">Chinese Dic</string>
+    <string name="title_sentence">Sentences</string>
+    <string name="title_english_dic">English Dic</string>
     <string name="title_instagram">Instagram</string>
     <string name="title_study_category">Study</string>
     <string name="title_study">Read</string>
@@ -76,6 +80,9 @@
     <string name="app_name_share">App:Translator</string>
     <string name="share_text_hint">please input something</string>
     <string name="input_et_hint">please input chinese or english</string>
+    <string name="input_et_hint_english">please input english</string>
+    <string name="input_et_hint_chinese">please input chinese</string>
+    <string name="input_et_hint_dictionary">Please input Chinese or English word</string>
     <string name="ai_chat_input_hint">just say something</string>
     <string name="ai_turing_input_hint">chat with me in chinese</string>
     <string name="ch_dic_input_hint">please input chinese</string>
@@ -214,8 +221,7 @@
 	<string name="yuedu_ad_prompt">专注随身阅读30年! http://api.openspeech.cn/cmread/NTBhYTEyMTM=</string>
 	<string name="hotel_ad_prompt">专注开房30年! http://api.openspeech.cn/trip/NTBhYTEyMTM=</string>
 	<string name="invite_friends_prompt">so cool！ http://a.app.qq.com/o/simple.jsp?pkgname=com.messi.languagehelper</string>
-
-    <string name="input_et_hint_dictionary">Please input Chinese or English word</string>
+    <string name="input_et_empty">Please input something</string>
 	<string name="dailysentence">Daily Sentence</string>
     <string name="english_essay">English Essay</string>
 	<string name="spoken_english_practice">Practice</string>

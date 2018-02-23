@@ -7,14 +7,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.messi.languagehelper.DictionaryFragment;
-import com.messi.languagehelper.DictionaryFragmentOld;
 import com.messi.languagehelper.LeisureFragment;
 import com.messi.languagehelper.MainFragment;
 import com.messi.languagehelper.MainFragmentOld;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.StudyCategoryFragment;
 import com.messi.languagehelper.StudyFragment;
+import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.KeyUtil;
 
 public class MainPageAdapter extends FragmentPagerAdapter {
@@ -24,15 +23,18 @@ public class MainPageAdapter extends FragmentPagerAdapter {
 	private Activity mContext;
 	private SharedPreferences mSharedPreferences;
     private StudyFragment mfragment;
+    private FragmentProgressbarListener listener;
 
-    public MainPageAdapter(FragmentManager fm,Bundle bundle,Activity mContext,SharedPreferences mSharedPreferences) {
+    public MainPageAdapter(FragmentManager fm,Bundle bundle,Activity mContext,
+                           SharedPreferences mSharedPreferences,
+                           FragmentProgressbarListener listener) {
         super(fm);
         this.mContext = mContext;
         this.bundle = bundle;
+        this.listener = listener;
         this.mSharedPreferences = mSharedPreferences;
         CONTENT = new String[] {
-        		mContext.getResources().getString(R.string.title_translate),
-        		mContext.getResources().getString(R.string.title_dictionary),
+        		mContext.getResources().getString(R.string.title_home_tab),
         		mContext.getResources().getString(R.string.title_study_category),
         		mContext.getResources().getString(R.string.title_study),
         		mContext.getResources().getString(R.string.title_leisure)
@@ -43,26 +45,25 @@ public class MainPageAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         if( position == 0 ){
             if(mSharedPreferences.getBoolean(KeyUtil.IsUseOldStyle,true)){
-                return MainFragmentOld.getInstance(bundle,mContext);
+                return MainFragmentOld.getInstance(listener);
             }else {
         	    return MainFragment.getInstance(bundle,mContext);
             }
         }else if( position == 1 ){
-            if(mSharedPreferences.getBoolean(KeyUtil.IsUseOldStyle,true)){
-                return DictionaryFragmentOld.getInstance(bundle,mContext);
-            }else {
-                return DictionaryFragment.getInstance(bundle,mContext);
-            }
-        }else if( position == 2 ){
         	return StudyCategoryFragment.getInstance();
-        }else if( position == 3 ){
+        }else if( position == 2 ){
             mfragment = StudyFragment.getInstance();
         	return mfragment;
-        }else if( position == 4 ){
+        }else if( position == 3 ){
         	return LeisureFragment.getInstance();
         }
         return null;
     }
+//    if(mSharedPreferences.getBoolean(KeyUtil.IsUseOldStyle,true)){
+//        return DictionaryFragmentOld.getInstance(bundle,mContext);
+//    }else {
+//        return DictionaryFragment.getInstance(bundle,mContext);
+//    }
 
     public void onTabReselected(int index){
         if(mfragment != null){

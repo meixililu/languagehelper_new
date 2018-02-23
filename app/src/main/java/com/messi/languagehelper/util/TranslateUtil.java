@@ -812,38 +812,50 @@ public class TranslateUtil {
 				});
 	}
 
-	private static record doTranslateBackground() throws Exception{
+	private static record doTranslateBackground() {
 		record result = null;
 		Response mResponse = null;
-		mResponse = LanguagehelperHttpClient.postIcibaNew(null);
-		if(mResponse != null){
-			result = tran_js_newapi(mResponse);
-			if(result == null){
-				mResponse = LanguagehelperHttpClient.postHjApi(null);
-				result = tran_hj_api(mResponse);
+		try {
+			mResponse = LanguagehelperHttpClient.postIcibaNew(null);
+			if(mResponse != null){
+				result = tran_js_newapi(mResponse);
 				if(result == null){
-					mResponse = LanguagehelperHttpClient.postBaidu(null);
-					result = tran_bd_api(mResponse);
+					mResponse = LanguagehelperHttpClient.postHjApi(null);
+					result = tran_hj_api(mResponse);
+					if(result == null){
+						mResponse = LanguagehelperHttpClient.postBaidu(null);
+						result = tran_bd_api(mResponse);
+					}
 				}
+			}else {
+				mResponse = LanguagehelperHttpClient.postBaidu(null);
+				result = tran_bd_api(mResponse);
 			}
-		}else {
+		}catch (Exception e){
+			LogUtil.DefalutLog("doTranslateBackground error");
 			mResponse = LanguagehelperHttpClient.postBaidu(null);
 			result = tran_bd_api(mResponse);
+			e.printStackTrace();
 		}
 		return result;
 	}
 
-	private static record tran_bd_api(Response mResponse) throws Exception{
+	private static record tran_bd_api(Response mResponse) {
 		record currentDialogBean = null;
-		if(mResponse != null && mResponse.isSuccessful()) {
-			String mResult = mResponse.body().string();
-			if (JsonParser.isJson(mResult)) {
-				String dstString = JsonParser.getTranslateResult(mResult);
-				if (!dstString.contains("error_msg:")) {
-					currentDialogBean = new record(dstString, Settings.q);
-					LogUtil.DefalutLog("tran_bd_api http:"+dstString);
+		try {
+			if(mResponse != null && mResponse.isSuccessful()) {
+				String mResult = mResponse.body().string();
+				if (JsonParser.isJson(mResult)) {
+					String dstString = JsonParser.getTranslateResult(mResult);
+					if (!dstString.contains("error_msg:")) {
+						currentDialogBean = new record(dstString, Settings.q);
+						LogUtil.DefalutLog("tran_bd_api http:"+dstString);
+					}
 				}
 			}
+		}catch (Exception e){
+			LogUtil.DefalutLog("tran_bd_api error");
+			e.printStackTrace();
 		}
 		return currentDialogBean;
 	}

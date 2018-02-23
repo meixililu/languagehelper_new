@@ -63,6 +63,9 @@
     <style name="TabLayoutTextStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textSize">@dimen/big</item>
     </style>
+    <style name="MainTabTextStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textSize">@dimen/middle</item>
+    </style>
 
     <style name="SeekbarStyle" >
         <item name="android:progressDrawable">@drawable/seekbar_progress_bar</item>

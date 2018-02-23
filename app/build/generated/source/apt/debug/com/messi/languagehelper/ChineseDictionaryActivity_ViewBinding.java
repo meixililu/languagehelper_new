@@ -25,7 +25,7 @@ public class ChineseDictionaryActivity_ViewBinding implements Unbinder {
 
   private View view2131230811;
 
-  private View view2131231282;
+  private View view2131231286;
 
   private View view2131230834;
 
@@ -71,7 +71,7 @@ public class ChineseDictionaryActivity_ViewBinding implements Unbinder {
     target.input_et = Utils.findRequiredViewAsType(source, R.id.input_et, "field 'input_et'", EditText.class);
     view = Utils.findRequiredView(source, R.id.submit_btn, "field 'submit_btn' and method 'onViewClicked'");
     target.submit_btn = Utils.castView(view, R.id.submit_btn, "field 'submit_btn'", FrameLayout.class);
-    view2131231282 = view;
+    view2131231286 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -170,8 +170,8 @@ public class ChineseDictionaryActivity_ViewBinding implements Unbinder {
     view2131230809 = null;
     view2131230811.setOnClickListener(null);
     view2131230811 = null;
-    view2131231282.setOnClickListener(null);
-    view2131231282 = null;
+    view2131231286.setOnClickListener(null);
+    view2131231286 = null;
     view2131230834.setOnClickListener(null);
     view2131230834 = null;
     view2131231129.setOnClickListener(null);

@@ -105,7 +105,7 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener, Fr
 		viewPager = (ViewPager) findViewById(R.id.pager);
 		tablayout = (TabLayout) findViewById(R.id.tablayout);
 		mAdapter = new MainPageAdapter(this.getSupportFragmentManager(), bundle, this,
-				mSharedPreferences);
+				mSharedPreferences,this);
 		viewPager.setAdapter(mAdapter);
 		viewPager.setOffscreenPageLimit(5);
 		tablayout.setupWithViewPager(viewPager);
