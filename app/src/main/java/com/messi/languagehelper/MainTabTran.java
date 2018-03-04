@@ -12,6 +12,7 @@ import android.widget.FrameLayout;
 import com.messi.languagehelper.adapter.RcTranslateListAdapter;
 import com.messi.languagehelper.dao.record;
 import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.event.FinishEvent;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.impl.OnTranslateFinishListener;
 import com.messi.languagehelper.util.KeyUtil;
@@ -22,6 +23,7 @@ import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.TranslateUtil;
 import com.messi.languagehelper.views.DividerItemDecoration;
+import com.mindorks.nybus.NYBus;
 import com.youdao.sdk.ydtranslate.Translate;
 
 import java.util.ArrayList;
@@ -42,6 +44,7 @@ public class MainTabTran extends BaseFragment {
     private record currentDialogBean;
     private RcTranslateListAdapter mAdapter;
     private List<record> beans;
+    private String lastSearch;
 
     public static MainTabTran getInstance(FragmentProgressbarListener listener) {
         MainTabTran mMainFragment = new MainTabTran();
@@ -90,6 +93,7 @@ public class MainTabTran extends BaseFragment {
     }
 
     private void translateController(){
+        lastSearch = Settings.q;
         if(NetworkUtil.isNetworkConnected(getContext())){
             LogUtil.DefalutLog("online");
             try {
@@ -180,6 +184,7 @@ public class MainTabTran extends BaseFragment {
         if (PlayUtil.getSP().getBoolean(KeyUtil.AutoPlayResult, false)) {
             new AutoPlayWaitTask().execute();
         }
+        NYBus.get().post(new FinishEvent());
     }
 
     private void autoPlay() {
@@ -207,6 +212,7 @@ public class MainTabTran extends BaseFragment {
     public void submit() {
         translateController();
     }
+
 
     @Override
     public void onDestroy() {

@@ -3,17 +3,13 @@ package com.messi.languagehelper.util;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
-import android.view.View;
 
 import com.iflytek.cloud.SpeechConstant;
-import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
-import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.impl.OnFinishListener;
 import com.messi.languagehelper.task.MyThread;
 
@@ -93,6 +89,28 @@ public class PlayUtil {
 
     public static void startToPlay(SynthesizerListener nSynthesizerListener){
         startToPlay(nSynthesizerListener,"");
+    }
+
+    public static void playOnline(String speaker,
+                                  String nSpeakContent,
+                                  SynthesizerListener nSynthesizerListener){
+
+        if(TextUtils.isEmpty(speaker)){
+            XFUtil.showSpeechSynthesizer(
+                    mContext,
+                    mSharedPreferences,
+                    mSpeechSynthesizer,
+                    nSpeakContent,
+                    nSynthesizerListener);
+        }else {
+            XFUtil.showSpeechSynthesizer(
+                    mContext,
+                    mSharedPreferences,
+                    mSpeechSynthesizer,
+                    nSpeakContent,
+                    speaker,
+                    nSynthesizerListener);
+        }
     }
 
     public static void startToPlay(SynthesizerListener nSynthesizerListener,String speaker){

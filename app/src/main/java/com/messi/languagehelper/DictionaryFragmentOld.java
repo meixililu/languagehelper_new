@@ -17,6 +17,7 @@ import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.adapter.RcDictionaryListAdapter;
 import com.messi.languagehelper.dao.Dictionary;
 import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.event.FinishEvent;
 import com.messi.languagehelper.impl.DicHelperListener;
 import com.messi.languagehelper.impl.DictionaryTranslateListener;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
@@ -32,6 +33,7 @@ import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.TranslateUtil;
 import com.messi.languagehelper.views.DividerItemDecoration;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
+import com.mindorks.nybus.NYBus;
 import com.youdao.sdk.ydtranslate.Translate;
 
 import java.util.ArrayList;
@@ -61,6 +63,7 @@ public class DictionaryFragmentOld extends BaseFragment implements
 
     private RcDictionaryListAdapter mAdapter;
     private List<Dictionary> beans;
+    private String lastSearch;
 
     private Handler mHandler = new Handler() {
         @Override
@@ -121,6 +124,7 @@ public class DictionaryFragmentOld extends BaseFragment implements
     }
 
     private void translateController(){
+        lastSearch = Settings.q;
         if(NetworkUtil.isNetworkConnected(getContext())){
             LogUtil.DefalutLog("online");
             RequestTranslateApiTask();
@@ -200,6 +204,7 @@ public class DictionaryFragmentOld extends BaseFragment implements
         mDictionaryBean = (Dictionary) WXEntryActivity.dataMap.get(KeyUtil.DataMapKey);
         WXEntryActivity.dataMap.clear();
         setBean();
+        NYBus.get().post(new FinishEvent());
     }
 
     private void setBean() {

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ScrollView
+        android:id="@+id/dic_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:fillViewport="true">
+        <TextView
+            android:id="@+id/dic_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/text_dark"
+            android:paddingLeft="@dimen/padding_7"
+            android:paddingRight="@dimen/padding_7"
+            android:paddingTop="@dimen/padding_5"
+            android:paddingBottom="@dimen/padding_5"
+            android:textSize="@dimen/bigger"
+            android:lineSpacingExtra="7dp"
+            android:lineSpacingMultiplier="1.5"
+            />
+    </ScrollView>
+
+</RelativeLayout>

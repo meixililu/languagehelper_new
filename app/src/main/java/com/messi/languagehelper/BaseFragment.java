@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.mindorks.nybus.NYBus;
 
 
 public class BaseFragment extends Fragment {
@@ -25,6 +26,7 @@ public class BaseFragment extends Fragment {
 	public SwipeRefreshLayout mSwipeRefreshLayout;
 	public boolean isHasLoadData;
 	public boolean misVisibleToUser;
+	public boolean isRegisterBus;
 
 	BroadcastReceiver activityReceiver = new BroadcastReceiver() {
 		@Override
@@ -77,6 +79,22 @@ public class BaseFragment extends Fragment {
 	}
 
 	public void updateUI(String music_action){}
+
+	@Override
+	public void onStart() {
+		super.onStart();
+		if(isRegisterBus){
+			NYBus.get().register(this);
+		}
+	}
+
+	@Override
+	public void onStop() {
+		super.onStop();
+		if (isRegisterBus) {
+			NYBus.get().unregister(this);
+		}
+	}
 
 	/**
 	 * need init beford use

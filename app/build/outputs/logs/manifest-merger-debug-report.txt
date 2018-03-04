@@ -24,6 +24,7 @@ MERGED from [cn.jzvd:jiaozivideoplayer:6.2.4] /Users/luli/.gradle/caches/transfo
 MERGED from [com.facebook.fresco:fresco:1.5.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/fresco-1.5.0.aar/ca45e2b3ce34862795142c0bf645be11/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:animated-gif:1.5.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/animated-gif-1.5.0.aar/5775ac0524db23a5df14c3399d199358/AndroidManifest.xml:2:1-9:12
 MERGED from [com.yqritc:recyclerview-flexibledivider:1.4.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/recyclerview-flexibledivider-1.4.0.aar/70647590090de5b91af8205807a30efb/AndroidManifest.xml:2:1-12:12
+MERGED from [com.mindorks.nybus:nybus-android:1.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/nybus-android-1.0.0.aar/0f97351aca9143805a144e64763e35ba/AndroidManifest.xml:17:1-26:12
 MERGED from [io.reactivex.rxjava2:rxandroid:2.0.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/rxandroid-2.0.1.aar/e72ff56dbaf8e48581f3a48df4cef14b/AndroidManifest.xml:15:1-21:12
 MERGED from [com.orhanobut:dialogplus:1.11] /Users/luli/.gradle/caches/transforms-1/files-1.1/dialogplus-1.11.aar/c641c144d531e8b177a1fa628aa9e6f5/AndroidManifest.xml:2:1-10:12
 MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/GreenDaoUpgradeHelper-v2.0.0.aar/dda7758957c7216fcfc476672591052f/AndroidManifest.xml:2:1-16:12
@@ -916,6 +917,8 @@ MERGED from [com.facebook.fresco:animated-gif:1.5.0] /Users/luli/.gradle/caches/
 MERGED from [com.facebook.fresco:animated-gif:1.5.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/animated-gif-1.5.0.aar/5775ac0524db23a5df14c3399d199358/AndroidManifest.xml:5:5-7:41
 MERGED from [com.yqritc:recyclerview-flexibledivider:1.4.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/recyclerview-flexibledivider-1.4.0.aar/70647590090de5b91af8205807a30efb/AndroidManifest.xml:8:5-10:41
 MERGED from [com.yqritc:recyclerview-flexibledivider:1.4.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/recyclerview-flexibledivider-1.4.0.aar/70647590090de5b91af8205807a30efb/AndroidManifest.xml:8:5-10:41
+MERGED from [com.mindorks.nybus:nybus-android:1.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/nybus-android-1.0.0.aar/0f97351aca9143805a144e64763e35ba/AndroidManifest.xml:22:5-24:41
+MERGED from [com.mindorks.nybus:nybus-android:1.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/nybus-android-1.0.0.aar/0f97351aca9143805a144e64763e35ba/AndroidManifest.xml:22:5-24:41
 MERGED from [io.reactivex.rxjava2:rxandroid:2.0.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/rxandroid-2.0.1.aar/e72ff56dbaf8e48581f3a48df4cef14b/AndroidManifest.xml:19:5-43
 MERGED from [io.reactivex.rxjava2:rxandroid:2.0.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/rxandroid-2.0.1.aar/e72ff56dbaf8e48581f3a48df4cef14b/AndroidManifest.xml:19:5-43
 MERGED from [com.orhanobut:dialogplus:1.11] /Users/luli/.gradle/caches/transforms-1/files-1.1/dialogplus-1.11.aar/c641c144d531e8b177a1fa628aa9e6f5/AndroidManifest.xml:6:5-8:41

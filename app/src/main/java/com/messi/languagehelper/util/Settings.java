@@ -54,11 +54,13 @@ public class Settings {
 
 	public static String TranAiyueyuUrl = "https://yue.micblo.com/api.php";
 
-//	public static String BaiduOCRUrlOld = "http://apis.baidu.com/idl_baidu/baiduocrpay/idlocrpaid";
-
 	public static String BaiduAccessToken = "https://aip.baidubce.com/oauth/2.0/token";
 
 	public static String BaiduOCRUrl = "https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic";
+
+	public static String JuhaiApi = "http://dj.iciba.com/{0}-1-{1}-%01-0-0-0-0.html";
+
+	public static String EndicApi = "https://en.oxforddictionaries.com/definition/";
 
 	/**juhe dictionary api**/
 	public static String JuheYoudaoApiUrl = "http://japi.juhe.cn/youdao/dictionary.from?key=a8edec6297be9b017a106aec955974f6&word=";

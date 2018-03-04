@@ -155,7 +155,7 @@ public class ChineseDictionaryActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_ch_dictionary);
+        setContentView(R.layout.activity_ch_dictionary);
         ButterKnife.bind(this);
         setStatusbarColor(R.color.style6_color1);
         init();
