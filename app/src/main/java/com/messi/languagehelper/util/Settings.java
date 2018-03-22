@@ -110,8 +110,6 @@ public class Settings {
 
 	public static final String ChDicPinyinListUrl = "http://v.juhe.cn/xhzd/querypy";
 
-	public static final String ChDicIdiomSearchUrl = "http://v.juhe.cn/chengyu/query";
-
 	public static final String WechatJXUrl = "http://api.tianapi.com/wxnew/?key=18f7f9dbd7dfcd8ab45efdcfbc33826d&rand=1&num=15&page=";
 
 	public static final String ToutiaoNewsUrl = "http://v.juhe.cn/toutiao/index";
@@ -151,7 +149,7 @@ public class Settings {
 	public static final String showapi_appid = "11619";
 	public static final String showapi_secret = "f27574671ec14eb4a97faacb2eee3ef2";	
 	
-	public static final int page_size = 12;
+	public static final int page_size = 10;
 	public static final String baidu_appid = "20151111000005006";	
 	public static final String baidu_secretkey = "91mGcsmdvX9HAaE8tXoI";	
 	public static final String client_id = "vCV6TTGRTI5QrckdYSKHQIhq";

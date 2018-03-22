@@ -181,10 +181,10 @@ public class MainTabTran extends BaseFragment {
     }
 
     public void autoClearAndautoPlay() {
+        NYBus.get().post(new FinishEvent());
         if (PlayUtil.getSP().getBoolean(KeyUtil.AutoPlayResult, false)) {
             new AutoPlayWaitTask().execute();
         }
-        NYBus.get().post(new FinishEvent());
     }
 
     private void autoPlay() {

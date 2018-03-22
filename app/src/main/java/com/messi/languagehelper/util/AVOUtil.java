@@ -644,4 +644,21 @@ public class AVOUtil {
 		public final static String createdAt = "createdAt";
 	}
 
+	public static class XhDicList{
+		public final static String XhDicList = "XinhuaDicList";
+		public final static String name = "name";
+		public final static String code = "code";
+		public final static String type = "type";
+		public final static String createdAt = "createdAt";
+	}
+
+	public static class XhDicSList{
+		public final static String XhDicSList = "XinhuaDicSlist";
+		public final static String name = "name";
+		public final static String content = "content";
+		public final static String code = "code";
+		public final static String bs = "bs";
+		public final static String createdAt = "createdAt";
+	}
+
 }

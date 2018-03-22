@@ -73,8 +73,7 @@ public class EnDicFragment extends BaseFragment {
 
                     @Override
                     public void onNext(String content) {
-                        dic_content.setText(lastSearch+"\n");
-                        dic_content.append(content);
+                        dic_content.setText(lastSearch+"\n"+content);
                         dic_scrollview.scrollTo(0,0);
                         NYBus.get().post(new FinishEvent());
                     }

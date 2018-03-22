@@ -11,15 +11,15 @@ import java.lang.IllegalStateException;
 import java.lang.Override;
 
 public class ChDicBushouPinyinListActivity_ViewBinding implements Unbinder {
-  private ChDicBushouPinyinListActivity target;
+  private ChPybsSListActivity target;
 
   @UiThread
-  public ChDicBushouPinyinListActivity_ViewBinding(ChDicBushouPinyinListActivity target) {
+  public ChDicBushouPinyinListActivity_ViewBinding(ChPybsSListActivity target) {
     this(target, target.getWindow().getDecorView());
   }
 
   @UiThread
-  public ChDicBushouPinyinListActivity_ViewBinding(ChDicBushouPinyinListActivity target,
+  public ChDicBushouPinyinListActivity_ViewBinding(ChPybsSListActivity target,
       View source) {
     this.target = target;
 
@@ -29,7 +29,7 @@ public class ChDicBushouPinyinListActivity_ViewBinding implements Unbinder {
   @Override
   @CallSuper
   public void unbind() {
-    ChDicBushouPinyinListActivity target = this.target;
+    ChPybsSListActivity target = this.target;
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
     this.target = null;
 

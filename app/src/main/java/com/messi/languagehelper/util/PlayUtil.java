@@ -95,22 +95,27 @@ public class PlayUtil {
                                   String nSpeakContent,
                                   SynthesizerListener nSynthesizerListener){
 
-        if(TextUtils.isEmpty(speaker)){
-            XFUtil.showSpeechSynthesizer(
-                    mContext,
-                    mSharedPreferences,
-                    mSpeechSynthesizer,
-                    nSpeakContent,
-                    nSynthesizerListener);
+        if(!mSpeechSynthesizer.isSpeaking()){
+            if(TextUtils.isEmpty(speaker)){
+                XFUtil.showSpeechSynthesizer(
+                        mContext,
+                        mSharedPreferences,
+                        mSpeechSynthesizer,
+                        nSpeakContent,
+                        nSynthesizerListener);
+            }else {
+                XFUtil.showSpeechSynthesizer(
+                        mContext,
+                        mSharedPreferences,
+                        mSpeechSynthesizer,
+                        nSpeakContent,
+                        speaker,
+                        nSynthesizerListener);
+            }
         }else {
-            XFUtil.showSpeechSynthesizer(
-                    mContext,
-                    mSharedPreferences,
-                    mSpeechSynthesizer,
-                    nSpeakContent,
-                    speaker,
-                    nSynthesizerListener);
+            mSpeechSynthesizer.stopSpeaking();
         }
+
     }
 
     public static void startToPlay(SynthesizerListener nSynthesizerListener,String speaker){

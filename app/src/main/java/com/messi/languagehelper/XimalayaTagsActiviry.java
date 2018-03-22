@@ -127,7 +127,9 @@ public class XimalayaTagsActiviry extends BaseActivity implements OnClickListene
                             NativeADDataRef mNativeADDataRef = ((AlbumForAd) mAVObject).getmNativeADDataRef();
                             boolean isExposure = mNativeADDataRef.onExposured(view.getChildAt(i % vCount));
                             LogUtil.DefalutLog("isExposure:" + isExposure);
-                            ((AlbumForAd) mAVObject).setAdShow(isExposure);
+                            if(isExposure){
+                                ((AlbumForAd) mAVObject).setAdShow(isExposure);
+                            }
                         }
                     }
                 }

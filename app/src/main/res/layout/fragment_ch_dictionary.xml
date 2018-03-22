@@ -107,7 +107,7 @@
         android:layout_marginRight="@dimen/padding_15"
         android:background="@color/none"
         android:text="部首"
-        android:textColor="@color/style6_color1" />
+        android:textColor="@color/dark_blue" />
 
     <TextView
         android:id="@+id/btn_pinyin"
@@ -119,7 +119,7 @@
         android:layout_marginRight="@dimen/padding_15"
         android:background="@color/none"
         android:text="拼音"
-        android:textColor="@color/style6_color1" />
+        android:textColor="@color/dark_blue" />
 
 </RelativeLayout>
 

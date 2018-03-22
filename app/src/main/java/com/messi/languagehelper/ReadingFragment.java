@@ -154,7 +154,9 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 							NativeADDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
 							boolean isExposure = mNativeADDataRef.onExposured(view.getChildAt(i%vCount));
 							LogUtil.DefalutLog("isExposure:"+isExposure);
-							mAVObject.setAdShow(isExposure);
+							if(isExposure){
+								mAVObject.setAdShow(isExposure);
+							}
 						}
 					}
 				}
@@ -279,7 +281,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 
 	private boolean addAD(){
 		if(mADObject != null && avObjects != null && avObjects.size() > 0){
-			int index = avObjects.size() - Settings.page_size + NumberUtil.randomNumberRange(2, 4);
+			int index = avObjects.size() - Settings.page_size + NumberUtil.randomNumberRange(1, 2);
 			if(index < 0){
 				index = 0;
 			}

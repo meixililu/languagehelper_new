@@ -115,7 +115,9 @@ public class XimalayaRadioCategoryListActivity extends BaseActivity implements I
                             NativeADDataRef mNativeADDataRef = ((RadioForAd) mAVObject).getmNativeADDataRef();
                             boolean isExposure = mNativeADDataRef.onExposured(view.getChildAt(i % vCount));
                             LogUtil.DefalutLog("isExposure:" + isExposure);
-                            ((RadioForAd) mAVObject).setAdShow(isExposure);
+                            if(isExposure){
+                                ((RadioForAd) mAVObject).setAdShow(isExposure);
+                            }
                         }
                     }
                 }
@@ -245,7 +247,7 @@ public class XimalayaRadioCategoryListActivity extends BaseActivity implements I
 
     private boolean addAD() {
         if (mADObject != null && radios != null && radios.size() > 0) {
-            int index = radios.size() - Settings.page_size + NumberUtil.randomNumberRange(2, 4);
+            int index = radios.size() - Settings.page_size + NumberUtil.randomNumberRange(1, 2);
             if (index < 0) {
                 index = 0;
             }

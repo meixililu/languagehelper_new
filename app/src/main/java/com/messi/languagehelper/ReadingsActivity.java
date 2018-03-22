@@ -115,7 +115,9 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 							NativeADDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
 							boolean isShow = mNativeADDataRef.onExposured(view.getChildAt(i%vCount));
 							LogUtil.DefalutLog("onExposured:"+isShow);
-							mAVObject.setAdShow(isShow);
+							if(isShow){
+								mAVObject.setAdShow(isShow);
+							}
 						}
 					}
 				}
@@ -251,7 +253,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 
 	private boolean addAD(){
 		if(mADObject != null && avObjects != null && avObjects.size() > 0){
-			int index = avObjects.size() - Settings.page_size + NumberUtil.randomNumberRange(2, 4);
+			int index = avObjects.size() - Settings.page_size + NumberUtil.randomNumberRange(1, 2);
 			if(index < 0){
 				index = 0;
 			}

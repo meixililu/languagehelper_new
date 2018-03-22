@@ -3,25 +3,20 @@ package com.messi.languagehelper;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.support.design.widget.TabLayout;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.CardView;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.CheckBox;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVAnalytics;
@@ -29,50 +24,30 @@ import com.iflytek.cloud.RecognizerListener;
 import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechRecognizer;
-import com.messi.languagehelper.adapter.RcTranslateListAdapter;
 import com.messi.languagehelper.bean.BaiduOcrRoot;
-import com.messi.languagehelper.dao.record;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.event.FinishEvent;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
-import com.messi.languagehelper.impl.OnTranslateFinishListener;
 import com.messi.languagehelper.impl.OrcResultListener;
 import com.messi.languagehelper.util.AnimationUtil;
 import com.messi.languagehelper.util.CameraUtil;
 import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.NetworkUtil;
 import com.messi.languagehelper.util.OrcHelper;
 import com.messi.languagehelper.util.PlayUtil;
-import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.ToastUtil;
-import com.messi.languagehelper.util.TranslateUtil;
 import com.messi.languagehelper.util.XFUtil;
-import com.messi.languagehelper.views.DividerItemDecoration;
-import com.orhanobut.dialogplus.DialogPlus;
-import com.orhanobut.dialogplus.ViewHolder;
-import com.youdao.sdk.ydtranslate.Translate;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
+import com.mindorks.nybus.annotation.Subscribe;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
 
-public class MainFragment extends Fragment implements OnClickListener, OrcResultListener {
+public class MainFragment extends BaseFragment implements OnClickListener, OrcResultListener {
 
     public static MainFragment mMainFragment;
-    @BindView(R.id.recent_used_lv)
-    RecyclerView recent_used_lv;
+    @BindView(R.id.content_layout)
+    LinearLayout content_layout;
     @BindView(R.id.input_type_btn)
     ImageView input_type_btn;
 
@@ -108,38 +83,31 @@ public class MainFragment extends Fragment implements OnClickListener, OrcResult
     LinearLayout speakLanguageLayout;
     @BindView(R.id.more_tools_layout_mic)
     LinearLayout more_tools_layout_mic;
-    @BindView(R.id.action_setting)
-    CardView actionSetting;
-    @BindView(R.id.action_collected)
-    CardView actionCollected;
     @BindView(R.id.action_layout)
     LinearLayout actionLayout;
     @BindView(R.id.bottom_layout)
     CardView bottomLayout;
-    @BindView(R.id.action_col_all)
-    ImageView action_col_all;
     @BindView(R.id.action_photo_tran_btn)
     CardView actionPhotoTranBtn;
     @BindView(R.id.more_tools_img_mic)
     ImageView moreToolsImgMic;
     @BindView(R.id.more_tools_img)
     ImageView moreToolsImg;
+    @BindView(R.id.tablayout)
+    TabLayout tablayout;
 
-    //translate
-    private record currentDialogBean;
-    private RcTranslateListAdapter mAdapter;
-    private List<record> beans;
-    private String dstString = "";
     // 识别对象
     private SpeechRecognizer recognizer;
-    //合成对象.
-
-    private Bundle bundle;
     private FragmentProgressbarListener mProgressbarListener;
-
-    private boolean isShowCollected = true;
-    private Activity mActivity;
     private OrcHelper mOrcHelper;
+
+    public long lastSubmitTiem;
+    public int currentTabIndex;
+    public MainTabTran mMainTabTran;
+    public DictionaryFragmentOld mDictionaryFragmentOld;
+    public ChineseDictionaryFragment mChDicFragment;
+    public JuhaiFragment mJuhaiFragment;
+    public EnDicFragment mEnDicFragment;
 
     RecognizerListener recognizerListener = new RecognizerListener() {
 
@@ -152,14 +120,14 @@ public class MainFragment extends Fragment implements OnClickListener, OrcResult
         public void onError(SpeechError err) {
             LogUtil.DefalutLog("onError:" + err.getErrorDescription());
             finishRecord();
-            ToastUtil.diaplayMesShort(mActivity, err.getErrorDescription());
-            finishLoadding();
+            ToastUtil.diaplayMesShort(getContext(), err.getErrorDescription());
+            hideProgressbar();
         }
 
         @Override
         public void onEndOfSpeech() {
             LogUtil.DefalutLog("onEndOfSpeech");
-            loadding();
+            showProgressbar();
             finishRecord();
         }
 
@@ -201,24 +169,18 @@ public class MainFragment extends Fragment implements OnClickListener, OrcResult
 
     };
 
-    public static MainFragment getInstance(Bundle bundle, Activity mActivity) {
+    public static MainFragment getInstance(FragmentProgressbarListener listener) {
         if (mMainFragment == null) {
             mMainFragment = new MainFragment();
-            mMainFragment.bundle = bundle;
-            mMainFragment.setmActivity(mActivity);
         }
         return mMainFragment;
     }
 
-    public void setmActivity(Activity mActivity) {
-        this.mActivity = mActivity;
-    }
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            mActivity = activity;
             mProgressbarListener = (FragmentProgressbarListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString() + " must implement FragmentProgressbarListener");
@@ -234,22 +196,11 @@ public class MainFragment extends Fragment implements OnClickListener, OrcResult
     }
 
     private void init() {
-        recognizer = SpeechRecognizer.createRecognizer(mActivity, null);
-        beans = new ArrayList<record>();
-        beans.addAll(DataBaseUtil.getInstance().getDataListRecord(0, Settings.offset));
-        boolean IsHasShowBaiduMessage = PlayUtil.getSP().getBoolean(KeyUtil.IsHasShowBaiduMessage, false);
-        if (!IsHasShowBaiduMessage) {
-            initSample();
-            Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.IsHasShowBaiduMessage, true);
-        }
-        mAdapter = new RcTranslateListAdapter(beans);
-        recent_used_lv.setHasFixedSize(true);
-        recent_used_lv.setLayoutManager(new LinearLayoutManager(mActivity));
-        recent_used_lv.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.abc_list_divider_mtrl_alpha)));
-        mAdapter.setItems(beans);
-        recent_used_lv.setAdapter(mAdapter);
-
+        isRegisterBus = true;
+        recognizer = SpeechRecognizer.createRecognizer(getContext(), null);
+        initTablayout();
         setSpeakLanguageTv();
+        initFragment();
         submit_btn_cover.setOnClickListener(this);
         speakLanguageLayout.setOnClickListener(this);
         voice_btn_cover.setOnClickListener(this);
@@ -259,8 +210,6 @@ public class MainFragment extends Fragment implements OnClickListener, OrcResult
         more_tools_layout.setOnClickListener(this);
         more_tools_layout_mic.setOnClickListener(this);
         actionLayout.setOnClickListener(this);
-        actionSetting.setOnClickListener(this);
-        actionCollected.setOnClickListener(this);
         actionPhotoTranBtn.setOnClickListener(this);
 
         if (PlayUtil.getSP().getBoolean(KeyUtil.IsShowTranKeybordLayout, false)) {
@@ -288,12 +237,106 @@ public class MainFragment extends Fragment implements OnClickListener, OrcResult
             public void afterTextChanged(Editable editable) {
             }
         });
+        setPomptAndShowFragment();
     }
 
-    private void initSample() {
-        record sampleBean = new record("Click the mic to speak", "点击话筒说话");
-        DataBaseUtil.getInstance().insert(sampleBean);
-        beans.add(0, sampleBean);
+    private void initTablayout(){
+        currentTabIndex = PlayUtil.getSP().getInt(KeyUtil.MainFragmentIndex,0);
+        tablayout.addTab(tablayout.newTab().setText(getText(R.string.title_translate)));
+        tablayout.addTab(tablayout.newTab().setText(getText(R.string.title_dictionary)));
+        tablayout.addTab(tablayout.newTab().setText(getText(R.string.title_sentence)));
+        tablayout.addTab(tablayout.newTab().setText(getText(R.string.title_english_dic)));
+        tablayout.addTab(tablayout.newTab().setText(getText(R.string.title_chinese_dic)));
+        tablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                currentTabIndex = tab.getPosition();
+                setPomptAndShowFragment();
+                Settings.saveSharedPreferences(PlayUtil.getSP(),
+                        KeyUtil.MainFragmentIndex,
+                        currentTabIndex);
+            }
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+            }
+        });
+    }
+
+    private void initFragment(){
+        mMainTabTran = MainTabTran.getInstance(mProgressbarListener);
+        mDictionaryFragmentOld = DictionaryFragmentOld.getInstance(mProgressbarListener);
+        mChDicFragment = ChineseDictionaryFragment.getInstance(mProgressbarListener);
+        mJuhaiFragment = JuhaiFragment.getInstance(mProgressbarListener);
+        mEnDicFragment = EnDicFragment.getInstance(mProgressbarListener);
+        getChildFragmentManager()
+                .beginTransaction()
+                .add(R.id.content_layout,mMainTabTran)
+                .add(R.id.content_layout,mDictionaryFragmentOld)
+                .add(R.id.content_layout,mChDicFragment)
+                .add(R.id.content_layout, mJuhaiFragment)
+                .add(R.id.content_layout, mEnDicFragment)
+                .commit();
+        hideAllFragment();
+    }
+
+    private void hideAllFragment(){
+        getChildFragmentManager()
+                .beginTransaction()
+                .hide(mMainTabTran)
+                .hide(mDictionaryFragmentOld)
+                .hide(mChDicFragment)
+                .hide(mJuhaiFragment)
+                .hide(mEnDicFragment)
+                .commit();
+    }
+
+    private void setPomptAndShowFragment(){
+        hideAllFragment();
+        tablayout.getTabAt(currentTabIndex).select();
+        switch (currentTabIndex){
+            case 0:
+                input_et.setHint(getString(R.string.input_et_hint));
+                getChildFragmentManager()
+                        .beginTransaction().show(mMainTabTran).commit();
+                isChangeTabNeedSearch();
+                break;
+            case 1:
+                input_et.setHint(getString(R.string.input_et_hint_dictionary));
+                getChildFragmentManager()
+                        .beginTransaction().show(mDictionaryFragmentOld).commit();
+                isChangeTabNeedSearch();
+                break;
+            case 2:
+                input_et.setHint(getString(R.string.input_et_hint_dictionary));
+                getChildFragmentManager()
+                        .beginTransaction().show(mJuhaiFragment).commit();
+                isChangeTabNeedSearch();
+                break;
+            case 3:
+                input_et.setHint(getString(R.string.input_et_hint_english));
+                getChildFragmentManager()
+                        .beginTransaction().show(mEnDicFragment).commit();
+                isChangeTabNeedSearch();
+                break;
+            case 4:
+                input_et.setHint(getString(R.string.input_et_hint_chinese));
+                getChildFragmentManager()
+                        .beginTransaction().show(mChDicFragment).commit();
+                isChangeTabNeedSearch();
+                break;
+        }
+    }
+
+    private void isChangeTabNeedSearch(){
+        if (System.currentTimeMillis() - lastSubmitTiem < 1000 * 10){
+            if (PlayUtil.getSP().getBoolean(KeyUtil.AutoClearInput, true)) {
+                input_et.setText(Settings.q);
+                input_et.setSelection(Settings.q.length());
+            }
+        }
     }
 
     @Override
@@ -312,9 +355,25 @@ public class MainFragment extends Fragment implements OnClickListener, OrcResult
     }
 
     private void refresh() {
-        if (Settings.isMainFragmentNeedRefresh) {
-            Settings.isMainFragmentNeedRefresh = false;
-            reloadData();
+        if (getContext() != null && mMainTabTran != null) {
+            refreshFragment();
+        }
+    }
+
+    private void refreshFragment(){
+        switch (currentTabIndex){
+            case 0:
+                mMainTabTran.refresh();
+                break;
+            case 1:
+                mDictionaryFragmentOld.refresh();
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
         }
     }
 
@@ -322,16 +381,16 @@ public class MainFragment extends Fragment implements OnClickListener, OrcResult
     public void onClick(View v) {
         if (v.getId() == R.id.submit_btn_cover) {
             submit();
-            AVAnalytics.onEvent(mActivity, "tab1_submit_btn");
+            AVAnalytics.onEvent(getContext(), "tab1_submit_btn");
         } else if (v.getId() == R.id.action_photo_tran_btn) {
             resetImg();
             showORCDialog();
         } else if (v.getId() == R.id.voice_btn_cover) {
             showIatDialog();
-            AVAnalytics.onEvent(mActivity, "tab1_speak_btn");
+            AVAnalytics.onEvent(getContext(), "tab1_speak_btn");
         } else if (v.getId() == R.id.clear_btn_layout) {
             input_et.setText("");
-            AVAnalytics.onEvent(mActivity, "tab1_clear_btn");
+            AVAnalytics.onEvent(getContext(), "tab1_clear_btn");
         } else if (v.getId() == R.id.speak_language_layout) {
             resetImg();
             changeSpeakLanguage();
@@ -348,17 +407,6 @@ public class MainFragment extends Fragment implements OnClickListener, OrcResult
                 AnimationUtil.rotate(moreToolsImg,0, 45);
                 actionLayout.setVisibility(View.VISIBLE);
             }
-        } else if (v.getId() == R.id.action_setting) {
-            resetImg();
-            showMoreTools();
-        } else if (v.getId() == R.id.action_collected) {
-            resetImg();
-            if (isShowCollected) {
-                action_col_all.setImageResource(R.drawable.ic_uncollected_grey);
-            } else {
-                action_col_all.setImageResource(R.drawable.ic_collected_grey);
-            }
-            getCollectedDataTask();
         }
     }
 
@@ -383,13 +431,13 @@ public class MainFragment extends Fragment implements OnClickListener, OrcResult
     private void changeSpeakLanguage() {
         if (PlayUtil.getSP().getString(KeyUtil.TranUserSelectLanguage, XFUtil.VoiceEngineMD).equals(XFUtil.VoiceEngineMD)) {
             Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.TranUserSelectLanguage, XFUtil.VoiceEngineEN);
-            ToastUtil.diaplayMesShort(mActivity, mActivity.getResources().getString(R.string.speak_english));
+            ToastUtil.diaplayMesShort(getContext(), getActivity().getResources().getString(R.string.speak_english));
         } else {
             Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.TranUserSelectLanguage, XFUtil.VoiceEngineMD);
-            ToastUtil.diaplayMesShort(mActivity, mActivity.getResources().getString(R.string.speak_chinese));
+            ToastUtil.diaplayMesShort(getContext(), getActivity().getResources().getString(R.string.speak_chinese));
         }
         setSpeakLanguageTv();
-        AVAnalytics.onEvent(mActivity, "tab1_lan_sbtn");
+        AVAnalytics.onEvent(getContext(), "tab1_lan_sbtn");
     }
 
     private void setSpeakLanguageTv() {
@@ -410,155 +458,42 @@ public class MainFragment extends Fragment implements OnClickListener, OrcResult
     }
 
     private void showKeybordLayout() {
-        input_type_btn.setImageDrawable(mActivity.getResources().getDrawable(R.drawable.ic_mic));
+        input_type_btn.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.ic_mic));
         keybord_layout.setVisibility(View.VISIBLE);
         mic_layout.setVisibility(View.GONE);
     }
 
     private void showMicLayout() {
-        input_type_btn.setImageDrawable(mActivity.getResources().getDrawable(R.drawable.ic_keybord_btn));
+        input_type_btn.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.ic_keybord_btn));
         keybord_layout.setVisibility(View.GONE);
         mic_layout.setVisibility(View.VISIBLE);
-    }
-
-    private void translateController(){
-        if(NetworkUtil.isNetworkConnected(getContext())){
-            LogUtil.DefalutLog("online");
-            try {
-                RequestJinShanNewAsyncTask();
-            } catch (Exception e) {
-                LogUtil.DefalutLog("online exception");
-                e.printStackTrace();
-            }
-        }else {
-            LogUtil.DefalutLog("offline");
-            translateOffline();
-        }
-    }
-
-    private void translateOffline(){
-        loadding();
-        Observable.create(new ObservableOnSubscribe<Translate>() {
-            @Override
-            public void subscribe(ObservableEmitter<Translate> e) throws Exception {
-                TranslateUtil.offlineTranslate(e);
-            }
-        })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Translate>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                    }
-                    @Override
-                    public void onNext(Translate translate) {
-                        parseOfflineData(translate);
-                    }
-                    @Override
-                    public void onError(Throwable e) {
-                        onComplete();
-                    }
-                    @Override
-                    public void onComplete() {
-                        finishLoadding();
-                    }
-                });
-    }
-
-    private void parseOfflineData(Translate translate){
-        if(translate != null){
-            if(translate.getErrorCode() == 0){
-                StringBuilder sb = new StringBuilder();
-                TranslateUtil.addSymbol(translate,sb);
-                for(String tran : translate.getTranslations()){
-                    sb.append(tran);
-                    sb.append("\n");
-                }
-                currentDialogBean = new record(sb.substring(0, sb.lastIndexOf("\n")), Settings.q);
-                insertData();
-                autoClearAndautoPlay();
-            }
-        }else{
-            showToast("没找到离线词典，请到更多页面下载！");
-        }
-    }
-
-    /**
-     * send translate request
-     */
-    private void RequestJinShanNewAsyncTask() throws Exception {
-        loadding();
-        submit_btn_cover.setEnabled(false);
-        TranslateUtil.Translate(new OnTranslateFinishListener() {
-            @Override
-            public void OnFinishTranslate(record mRecord) {
-                onFinishRequest();
-                if(mRecord == null){
-                    showToast(mActivity.getResources().getString(R.string.network_error));
-                }else {
-                    currentDialogBean = mRecord;
-                    insertData();
-                    autoClearAndautoPlay();
-                }
-            }
-        });
-    }
-
-    private void onFinishRequest() {
-        finishLoadding();
-        submit_btn_cover.setEnabled(true);
-    }
-
-    public void insertData() {
-        long newRowId = DataBaseUtil.getInstance().insert(currentDialogBean);
-        mAdapter.addEntity(0, currentDialogBean);
-        recent_used_lv.scrollToPosition(0);
     }
 
     public void autoClearAndautoPlay() {
         if (PlayUtil.getSP().getBoolean(KeyUtil.AutoClearInput, true)) {
             input_et.setText("");
         }
-        if (PlayUtil.getSP().getBoolean(KeyUtil.AutoPlayResult, false)) {
-            AutoPlayWaitTask();
-        }
     }
 
-    private void autoPlay() {
-        View mView = recent_used_lv.getChildAt(0);
-        final FrameLayout record_answer_cover = (FrameLayout) mView.findViewById(R.id.record_answer_cover);
-        record_answer_cover.post(new Runnable() {
-            @Override
-            public void run() {
-                record_answer_cover.performClick();
-            }
-        });
-    }
-
-    /**
-     * toast message
-     *
-     * @param toastString
-     */
     private void showToast(String toastString) {
-        ToastUtil.diaplayMesShort(mActivity, toastString);
+        ToastUtil.diaplayMesShort(getContext(), toastString);
     }
 
     /**
      * 显示转写对话框.
      */
     public void showIatDialog() {
-        Settings.verifyStoragePermissions(mActivity, Settings.PERMISSIONS_RECORD_AUDIO);
+        Settings.verifyStoragePermissions(getActivity(), Settings.PERMISSIONS_RECORD_AUDIO);
         if (!recognizer.isListening()) {
             record_layout.setVisibility(View.VISIBLE);
             input_et.setText("");
-            voice_btn.setText(mActivity.getResources().getText(R.string.click_and_finish));
-            XFUtil.showSpeechRecognizer(mActivity, PlayUtil.getSP(), recognizer, recognizerListener,
+            voice_btn.setText(getActivity().getResources().getText(R.string.click_and_finish));
+            XFUtil.showSpeechRecognizer(getContext(), PlayUtil.getSP(), recognizer, recognizerListener,
                     PlayUtil.getSP().getString(KeyUtil.TranUserSelectLanguage, XFUtil.VoiceEngineMD));
         } else {
             finishRecord();
             recognizer.stopListening();
-            loadding();
+            showProgressbar();
         }
     }
 
@@ -568,14 +503,14 @@ public class MainFragment extends Fragment implements OnClickListener, OrcResult
     private void finishRecord() {
         record_layout.setVisibility(View.GONE);
         record_anim_img.setBackgroundResource(R.drawable.speak_voice_1);
-        voice_btn.setText(mActivity.getResources().getText(R.string.click_and_speak));
+        voice_btn.setText(getActivity().getResources().getText(R.string.click_and_speak));
     }
 
     /**
      * 点击翻译之后隐藏输入法
      */
     private void hideIME() {
-        final InputMethodManager imm = (InputMethodManager) mActivity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        final InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(submit_btn_cover.getWindowToken(), 0);
     }
 
@@ -583,43 +518,52 @@ public class MainFragment extends Fragment implements OnClickListener, OrcResult
      * 点击编辑之后显示输入法
      */
     private void showIME() {
-        final InputMethodManager imm = (InputMethodManager) mActivity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        final InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
         imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, InputMethodManager.HIDE_NOT_ALWAYS);
-    }
-
-    /**
-     * 通过接口回调activity执行进度条显示控制
-     */
-    private void loadding() {
-        if (mProgressbarListener != null) {
-            mProgressbarListener.showProgressbar();
-        }
-    }
-
-    /**
-     * 通过接口回调activity执行进度条显示控制
-     */
-    private void finishLoadding() {
-        if (mProgressbarListener != null) {
-            mProgressbarListener.hideProgressbar();
-        }
     }
 
     /**
      * submit request task
      */
     private void submit() {
+        lastSubmitTiem = System.currentTimeMillis();
         Settings.q = input_et.getText().toString().trim();
         if (!TextUtils.isEmpty(Settings.q)) {
             String last = Settings.q.substring(Settings.q.length() - 1);
             if (",.!;:'，。！‘；：".contains(last)) {
                 Settings.q = Settings.q.substring(0, Settings.q.length() - 1);
             }
-            translateController();
+            submit_to_fragment();
         } else {
-            showToast(mActivity.getResources().getString(R.string.input_et_hint));
-            finishLoadding();
+            showToast(getContext().getResources().getString(R.string.input_et_hint));
+            hideProgressbar();
         }
+    }
+
+    private void submit_to_fragment(){
+        switch (currentTabIndex){
+            case 0:
+                mMainTabTran.submit();
+                break;
+            case 1:
+                mDictionaryFragmentOld.submit();
+                break;
+            case 2:
+                mJuhaiFragment.submit();
+                break;
+            case 3:
+                mEnDicFragment.submit();
+                break;
+            case 4:
+                mChDicFragment.submit();
+                break;
+        }
+    }
+
+    @Subscribe
+    public void onEvent(FinishEvent event){
+        LogUtil.DefalutLog("FinishEvent");
+        autoClearAndautoPlay();
     }
 
     @Override
@@ -629,201 +573,6 @@ public class MainFragment extends Fragment implements OnClickListener, OrcResult
             recognizer.stopListening();
             recognizer = null;
         }
-    }
-
-    private void getCollectedDataTask() {
-        loadding();
-        Observable.create(new ObservableOnSubscribe<String>() {
-            @Override
-            public void subscribe(ObservableEmitter<String> e) throws Exception {
-                beans.clear();
-                if (isShowCollected) {
-                    isShowCollected = false;
-                    beans.addAll(DataBaseUtil.getInstance().getDataListCollected(0, Settings.offset));
-                } else {
-                    isShowCollected = true;
-                    beans.addAll(DataBaseUtil.getInstance().getDataListRecord(0, Settings.offset));
-                }
-                e.onComplete();
-            }
-        })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<String>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                    }
-
-                    @Override
-                    public void onNext(String s) {
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        finishLoadding();
-                        mAdapter.notifyDataSetChanged();
-                    }
-                });
-
-    }
-
-    private void reloadData() {
-        loadding();
-        Observable.create(new ObservableOnSubscribe<String>() {
-            @Override
-            public void subscribe(ObservableEmitter<String> e) throws Exception {
-                beans.clear();
-                beans.addAll(DataBaseUtil.getInstance().getDataListRecord(0, Settings.offset));
-                e.onComplete();
-            }
-        })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<String>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                    }
-
-                    @Override
-                    public void onNext(String s) {
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        finishLoadding();
-                        mAdapter.notifyDataSetChanged();
-                    }
-                });
-    }
-
-    private void AutoPlayWaitTask() {
-        Observable.just("1")
-                .delay(100, TimeUnit.MILLISECONDS)//延迟发送
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<String>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                    }
-
-                    @Override
-                    public void onNext(String s) {
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        autoPlay();
-                    }
-                });
-    }
-
-    //more tools
-    private void showMoreTools() {
-        hideIME();
-        final DialogPlus dialog = DialogPlus.newDialog(mActivity)
-                .setContentHolder(new ViewHolder(R.layout.tran_more_tools_layout))
-                .setCancelable(true)
-                .setGravity(Gravity.BOTTOM)
-                .setContentHeight(ViewGroup.LayoutParams.WRAP_CONTENT)
-//                .setContentHeight(900)
-                .setOverlayBackgroundResource(android.R.color.transparent)
-                .create();
-        initMoreToolsView(dialog.getHolderView(), dialog);
-        dialog.show();
-    }
-
-    private void initMoreToolsView(View view, final DialogPlus dialog) {
-        final TextView seekbar_text = (TextView) view.findViewById(R.id.seekbar_text);
-        SeekBar seekbar = (SeekBar) view.findViewById(R.id.seekbar);
-        FrameLayout auto_play = (FrameLayout) view.findViewById(R.id.setting_auto_play);
-        final CheckBox auto_play_cb = (CheckBox) view.findViewById(R.id.setting_auto_play_cb);
-        FrameLayout auto_clear = (FrameLayout) view.findViewById(R.id.setting_auto_clear);
-        final CheckBox auto_clear_cb = (CheckBox) view.findViewById(R.id.setting_auto_clear_cb);
-        FrameLayout clear_all = (FrameLayout) view.findViewById(R.id.setting_clear_all);
-
-        seekbar_text.setText(this.getResources().getString(R.string.play_speed_text) +
-                PlayUtil.getSP().getInt(getString(R.string.preference_key_tts_speed), 50));
-        seekbar.setProgress(PlayUtil.getSP().getInt(getString(R.string.preference_key_tts_speed), 50));
-        boolean autoPlay = PlayUtil.getSP().getBoolean(KeyUtil.AutoPlayResult, false);
-        boolean AutoClear = PlayUtil.getSP().getBoolean(KeyUtil.AutoClearTran, false);
-        auto_play_cb.setChecked(autoPlay);
-        auto_clear_cb.setChecked(AutoClear);
-
-        seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
-                seekbar_text.setText(mActivity.getResources().getString(R.string.play_speed_text) + progress);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                Settings.saveSharedPreferences(PlayUtil.getSP(),
-                        getString(R.string.preference_key_tts_speed),
-                        seekBar.getProgress());
-                AVAnalytics.onEvent(mActivity, "tran_tools_change_speed");
-            }
-        });
-
-        auto_play.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                auto_play_cb.setChecked(!auto_play_cb.isChecked());
-                Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.AutoPlayResult, auto_play_cb.isChecked());
-                AVAnalytics.onEvent(mActivity, "tran_tools_auto_play");
-            }
-        });
-        auto_play_cb.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.AutoPlayResult, auto_play_cb.isChecked());
-                AVAnalytics.onEvent(mActivity, "tran_tools_auto_play");
-            }
-        });
-
-        auto_clear.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                auto_clear_cb.setChecked(!auto_clear_cb.isChecked());
-                Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.AutoClearTran, auto_clear_cb.isChecked());
-                AVAnalytics.onEvent(mActivity, "tran_tools_auto_clear");
-            }
-        });
-        auto_clear_cb.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.AutoClearTran, auto_clear_cb.isChecked());
-                AVAnalytics.onEvent(mActivity, "tran_tools_auto_clear");
-            }
-        });
-
-        clear_all.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DataBaseUtil.getInstance().clearAllTran();
-                SDCardUtil.deleteOldFile();
-                dialog.dismiss();
-                beans.clear();
-                mAdapter.notifyDataSetChanged();
-                ToastUtil.diaplayMesShort(mActivity, mActivity.getResources().getString(R.string.clear_success));
-                AVAnalytics.onEvent(mActivity, "setting_pg_clear_all");
-            }
-        });
     }
 
     @Override
@@ -838,8 +587,4 @@ public class MainFragment extends Fragment implements OnClickListener, OrcResult
         input_et.setText(CameraUtil.getOcrResult(mBaiduOcrRoot));
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-    }
 }

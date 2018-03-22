@@ -140,7 +140,9 @@ public class NewsFragment extends BaseFragment implements OnClickListener {
                                 NativeADDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
                                 boolean isExposure = mNativeADDataRef.onExposured(view.getChildAt(i % vCount));
                                 LogUtil.DefalutLog("isExposure:" + isExposure);
-                                mAVObject.setHasShowAD(isExposure);
+                                if(isExposure){
+                                    mAVObject.setHasShowAD(isExposure);
+                                }
                             }
                         }
                     }
@@ -243,7 +245,7 @@ public class NewsFragment extends BaseFragment implements OnClickListener {
 
     private boolean addAD() {
         if (mADObject != null && mWechatJXItem != null && mWechatJXItem.size() > 0) {
-            int index = mWechatJXItem.size() - 15 + NumberUtil.randomNumberRange(2, 4);
+            int index = mWechatJXItem.size() - 15 + NumberUtil.randomNumberRange(1, 2);
             if (index < 0) {
                 index = 0;
             }

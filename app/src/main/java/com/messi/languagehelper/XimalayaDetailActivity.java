@@ -210,7 +210,8 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
         nad = mNativeADDataRef;
         adImg.setImageURI(nad.getImage());
         adTitle.setText(nad.getTitle());
-        nad.onExposured(adLayout);
+        boolean isExposure = nad.onExposured(adLayout);
+        LogUtil.DefalutLog("isExposure:" + isExposure);
     }
 
     private void closeAdAuto() {

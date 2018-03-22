@@ -26,6 +26,8 @@
 	<color name="gray">#FF888888</color>
 	<color name="cyan">#00BCD4</color>
 	<color name="load_blue">#2196F3</color>
+	<color name="btn_blue">#03A9F4</color>
+	<color name="dark_blue">#0288D1</color>
 	<color name="load_blue_alpha">#aa2196F3</color>
 	<color name="load_blue_dark">#1976D2</color>
 	<color name="mic_blue">#991e7dc8</color>

@@ -47,7 +47,7 @@ public class MainPageAdapter extends FragmentPagerAdapter {
             if(mSharedPreferences.getBoolean(KeyUtil.IsUseOldStyle,true)){
                 return MainFragmentOld.getInstance(listener);
             }else {
-        	    return MainFragment.getInstance(bundle,mContext);
+        	    return MainFragment.getInstance(listener);
             }
         }else if( position == 1 ){
         	return StudyCategoryFragment.getInstance();

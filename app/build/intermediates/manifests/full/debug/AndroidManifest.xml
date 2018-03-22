@@ -132,6 +132,12 @@
         </receiver>
 
         <activity
+            android:name="com.messi.languagehelper.PybsDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.messi.languagehelper.PyBsActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.messi.languagehelper.XmlySearchResultActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -266,10 +272,7 @@
             android:name="com.messi.languagehelper.ReadingAndNewsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.messi.languagehelper.ChDicBushouPinyinListActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.messi.languagehelper.ChDicBushouPinyinActivity"
+            android:name="com.messi.languagehelper.ChPybsSListActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.InvestListActivity"

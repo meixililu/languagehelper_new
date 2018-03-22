@@ -219,14 +219,14 @@ public class ChineseDictionaryActivity extends BaseActivity {
     }
 
     private void toPinyinActivity() {
-        Intent intent = new Intent(this, ChDicBushouPinyinActivity.class);
-        intent.putExtra(KeyUtil.CHDicType, ChDicBushouPinyinActivity.pinyin);
+        Intent intent = new Intent(this, PyBsActivity.class);
+        intent.putExtra(KeyUtil.CHDicType, 0);
         startActivity(intent);
     }
 
     private void toBushouActivity() {
-        Intent intent = new Intent(this, ChDicBushouPinyinActivity.class);
-        intent.putExtra(KeyUtil.CHDicType, ChDicBushouPinyinActivity.bushou);
+        Intent intent = new Intent(this, PyBsActivity.class);
+        intent.putExtra(KeyUtil.CHDicType, 1);
         startActivity(intent);
     }
 

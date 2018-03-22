@@ -1,21 +1,15 @@
 package com.messi.languagehelper.adapter;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.iflytek.cloud.SpeechError;
-import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.bean.JuhaiBean;
-import com.messi.languagehelper.event.ProgressEvent;
-import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Settings;
-import com.mindorks.nybus.NYBus;
+import com.messi.languagehelper.util.XFUtil;
 
 /**
  * Created by luli on 10/23/16.
@@ -46,13 +40,13 @@ public class RcJuhaiItemViewHolder extends RecyclerView.ViewHolder {
         record_question_cover.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                play(mBean.getSentence());
+                XFUtil.play(mBean.getSentence(),"");
             }
         });
         record_answer_cover.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                play(mBean.getMeanning());
+                XFUtil.play(mBean.getMeanning(),"");
             }
         });
 
@@ -72,43 +66,5 @@ public class RcJuhaiItemViewHolder extends RecyclerView.ViewHolder {
         });
     }
 
-    private void play(final String content){
-        PlayUtil.playOnline("", content, new SynthesizerListener() {
-                    @Override
-                    public void onSpeakResumed() {
-                    }
-
-                    @Override
-                    public void onSpeakProgress(int arg0, int arg1, int arg2) {
-                    }
-
-                    @Override
-                    public void onSpeakPaused() {
-                    }
-
-                    @Override
-                    public void onSpeakBegin() {
-                        NYBus.get().post(new ProgressEvent(1));
-                    }
-
-                    @Override
-                    public void onCompleted(SpeechError arg0) {
-                        if (arg0 != null) {
-                            LogUtil.DefalutLog(arg0.getErrorDescription());
-                        }
-                    }
-
-                    @Override
-                    public void onBufferProgress(int arg0, int arg1, int arg2, String arg3) {
-                        if (arg0 < 10) {
-                            NYBus.get().post(new ProgressEvent(0));
-                        }
-                    }
-
-                    @Override
-                    public void onEvent(int arg0, int arg1, int arg2, Bundle arg3) {
-                    }
-                });
-    }
 
 }

@@ -125,6 +125,12 @@
         </receiver>
 
         <activity
+            android:name=".PybsDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PyBsActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".XmlySearchResultActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -259,10 +265,7 @@
             android:name=".ReadingAndNewsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ChDicBushouPinyinListActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ChDicBushouPinyinActivity"
+            android:name=".ChPybsSListActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".InvestListActivity"

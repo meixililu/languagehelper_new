@@ -192,7 +192,6 @@ public class HtmlParseUtil {
 	}
 
 	public static String parseEndicHtml(String html) {
-		LogUtil.DefalutLog(html);
 		StringBuilder sb = new StringBuilder();
 		Document doc = Jsoup.parse(html);
 		Elements etyms = doc.select("section");

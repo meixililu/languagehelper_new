@@ -129,14 +129,14 @@ public class ChineseDictionaryFragment extends BaseFragment {
     }
 
     private void toPinyinActivity() {
-        Intent intent = new Intent(getContext(), ChDicBushouPinyinActivity.class);
-        intent.putExtra(KeyUtil.CHDicType, ChDicBushouPinyinActivity.pinyin);
+        Intent intent = new Intent(getContext(), PyBsActivity.class);
+        intent.putExtra(KeyUtil.CHDicType, 0);
         startActivity(intent);
     }
 
     private void toBushouActivity() {
-        Intent intent = new Intent(getContext(), ChDicBushouPinyinActivity.class);
-        intent.putExtra(KeyUtil.CHDicType, ChDicBushouPinyinActivity.bushou);
+        Intent intent = new Intent(getContext(), PyBsActivity.class);
+        intent.putExtra(KeyUtil.CHDicType, 1);
         startActivity(intent);
     }
 

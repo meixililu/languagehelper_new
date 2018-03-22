@@ -79,15 +79,15 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/input_et"
                     android:foreground="@drawable/framelayout_selector"
-                    android:layout_margin="@dimen/padding_5">
+                    android:layout_margin="@dimen/padding_margin">
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="42dp"
+                        android:layout_height="38dp"
                         android:background="@color/style6_color1"
                         android:textColor="@color/white"
                         android:gravity="center"
                         android:textStyle="bold"
-                        android:textSize="@dimen/big"
+                        android:textSize="@dimen/middle"
                         android:text="@string/query"
                         />
                 </FrameLayout>
@@ -253,23 +253,23 @@
 
                     <LinearLayout
                         android:id="@+id/speak_round_layout"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:layout_marginBottom="-3dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginBottom="-2dp"
                         android:background="@drawable/round_gray_green_bgl"
                         android:gravity="center"
                         android:orientation="horizontal" >
 
                         <Button
                             android:id="@+id/voice_btn"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="34dp"
+                            android:layout_height="34dp"
                             android:background="@drawable/ic_voice_padded_normal"
                             android:clickable="false"
                             android:gravity="center"
                             android:orientation="horizontal"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/big" />
+                            android:textSize="@dimen/middle" />
                     </LinearLayout>
                 </LinearLayout>
             </RelativeLayout>

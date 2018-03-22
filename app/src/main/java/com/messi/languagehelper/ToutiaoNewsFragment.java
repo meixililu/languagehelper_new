@@ -138,7 +138,9 @@ public class ToutiaoNewsFragment extends BaseFragment implements OnClickListener
                                 NativeADDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
                                 boolean isShow = mNativeADDataRef.onExposured(view.getChildAt(i % vCount));
                                 LogUtil.DefalutLog("onExposured:"+isShow);
-                                mAVObject.setHasShowAD(isShow);
+                                if(isShow){
+                                    mAVObject.setHasShowAD(isShow);
+                                }
                             }
                         }
                     }
@@ -235,7 +237,7 @@ public class ToutiaoNewsFragment extends BaseFragment implements OnClickListener
 
     private boolean addAD() {
         if (mADObject != null && mWechatJXItem != null && mWechatJXItem.size() > 0) {
-            int index = NumberUtil.randomNumberRange(2, 4);
+            int index = NumberUtil.randomNumberRange(1, 2);
             if (index < 0) {
                 index = 0;
             }

@@ -18,6 +18,7 @@ import com.messi.languagehelper.adapter.RcDictionaryListAdapter;
 import com.messi.languagehelper.dao.Dictionary;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.event.FinishEvent;
+import com.messi.languagehelper.event.ProgressEvent;
 import com.messi.languagehelper.impl.DicHelperListener;
 import com.messi.languagehelper.impl.DictionaryTranslateListener;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
@@ -34,6 +35,7 @@ import com.messi.languagehelper.util.TranslateUtil;
 import com.messi.languagehelper.views.DividerItemDecoration;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.mindorks.nybus.NYBus;
+import com.mindorks.nybus.annotation.Subscribe;
 import com.youdao.sdk.ydtranslate.Translate;
 
 import java.util.ArrayList;
@@ -93,6 +95,7 @@ public class DictionaryFragmentOld extends BaseFragment implements
     }
 
     private void init() {
+        isRegisterBus = true;
         beans = new ArrayList<Dictionary>();
         beans.addAll(DataBaseUtil.getInstance().getDataListDictionary(0, Settings.offset));
         mAdapter = new RcDictionaryListAdapter(getContext(), beans, this);
@@ -271,6 +274,16 @@ public class DictionaryFragmentOld extends BaseFragment implements
                     }
                 });
 
+    }
+
+    @Subscribe
+    public void onEvent(ProgressEvent event){
+        LogUtil.DefalutLog("ProgressEvent");
+        if(event.getStatus() == 0){
+            showProgressbar();
+        }else {
+            hideProgressbar();
+        }
     }
 
     @Override

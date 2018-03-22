@@ -31,7 +31,7 @@
     <string name="title_dictionary">词典</string>
     <string name="title_sentence">句海</string>
     <string name="title_english_dic">英英</string>
-    <string name="title_chinese_dic">中中</string>
+    <string name="title_chinese_dic">中汉</string>
     <string name="title_study_category">学习</string>
     <string name="title_study">悦读</string>
     <string name="title_leisure">休闲</string>
@@ -51,9 +51,9 @@
     <string name="title_duanzi">段子笑话</string>
     <string name="title_duanzi_mm">福利</string>
     <string name="title_duanzi_img">图片笑话</string>
-    <string name="title_duanzi_gif">短视频</string>
+    <string name="title_duanzi_gif">小视频</string>
     <string name="title_composition">作文</string>
-    <string name="title_ch_dictionary">新华字典</string>
+    <string name="title_ch_dictionary">汉语字典</string>
     <string name="title_dictionary_idiom">成语词典</string>
     <string name="dic_minimalist">精简版词典</string>
     <string name="dic_normal">标准版词典</string>
@@ -113,6 +113,7 @@
     <string name="continuity">连续跟读</string>
     <string name="conversation">对话模式</string>
     <string name="loadmore">正在加载...</string>
+    <string name="nomore">没有了!</string>
 
     <string name="share_dialog_text_1">文字</string>
     <string name="share_dialog_text_2">图片（推荐）</string>
@@ -233,8 +234,8 @@
 
     <string name="dailysentence">每日一句</string>
     <string name="english_essay">励志语录</string>
-    <string name="ChDicBushouList">汉字部首列表</string>
-    <string name="ChDicPinyinList">汉字拼音列表</string>
+    <string name="ChDicBushouList">按部首</string>
+    <string name="ChDicPinyinList">按拼音</string>
     <string name="spoken_english_practice">口语</string>
     <string name="reading">阅读</string>
     <string name="examination">考题</string>
