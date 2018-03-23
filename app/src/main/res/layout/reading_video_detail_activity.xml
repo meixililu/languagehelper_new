@@ -68,7 +68,7 @@
                 android:focusableInTouchMode="false"
                 android:textSize="@dimen/biggerx" />
 
-            <RelativeLayout
+            <FrameLayout
                 android:id="@+id/xx_ad_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -91,15 +91,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
+                    android:layout_gravity="right|bottom"
                     android:paddingBottom="1dp"
                     android:paddingLeft="1dp"
                     android:text="广告"
                     android:background="@color/none_alpha"
                     android:textColor="@color/white"
                     android:textSize="@dimen/smaller_l" />
-            </RelativeLayout>
+            </FrameLayout>
 
             <LinearLayout
                 android:id="@+id/next_composition"

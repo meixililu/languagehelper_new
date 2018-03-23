@@ -17,7 +17,6 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.exoplayer2.C;
@@ -59,7 +58,7 @@ public class ReadingVideoDetailActivity extends BaseActivity {
     @BindView(R.id.content)
     TextView content;
     @BindView(R.id.xx_ad_layout)
-    RelativeLayout xx_ad_layout;
+    FrameLayout xx_ad_layout;
     @BindView(R.id.next_composition)
     LinearLayout next_composition;
     @BindView(R.id.scrollview)
@@ -199,7 +198,7 @@ public class ReadingVideoDetailActivity extends BaseActivity {
         exoplaer(mAVObject.getMedia_url());
 
         mXFYSAD = new XFYSAD(this, xx_ad_layout, ADUtil.NewsDetail);
-        mXFYSAD.setDirectExPosure(false);
+        mXFYSAD.setDirectExPosure(true);
         mXFYSAD.showAD();
         scrollview.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
             @Override
