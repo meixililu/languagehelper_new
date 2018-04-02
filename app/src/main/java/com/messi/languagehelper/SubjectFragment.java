@@ -83,7 +83,6 @@ public class SubjectFragment extends BaseFragment {
         new QueryTask().execute();
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
@@ -100,7 +99,7 @@ public class SubjectFragment extends BaseFragment {
     }
 
     private void initAdapter(){
-        if(mAdapter == null){
+        if(mAdapter == null && category_lv != null){
             mAdapter = new RcSubjectListAdapter(mXFYSAD, recentKey);
             mAdapter.setItems(avObjects);
             mAdapter.setHeader(new Object());

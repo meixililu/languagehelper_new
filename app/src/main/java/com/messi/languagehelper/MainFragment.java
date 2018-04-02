@@ -36,6 +36,7 @@ import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.OrcHelper;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
 import com.mindorks.nybus.annotation.Subscribe;
@@ -241,6 +242,9 @@ public class MainFragment extends BaseFragment implements OnClickListener, OrcRe
     }
 
     private void initTablayout(){
+        if(SystemUtil.lan.equals("en")){
+            tablayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+        }
         currentTabIndex = PlayUtil.getSP().getInt(KeyUtil.MainFragmentIndex,0);
         tablayout.addTab(tablayout.newTab().setText(getText(R.string.title_translate)));
         tablayout.addTab(tablayout.newTab().setText(getText(R.string.title_dictionary)));

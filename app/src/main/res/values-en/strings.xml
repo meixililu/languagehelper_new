@@ -131,6 +131,10 @@
     <string name="finish_test">Finish</string>
     <string name="fight_success">Success</string>
     <string name="fight_fail">Fail</string>
+    <string name="change_books">Select</string>
+    <string name="start_unlock">Unlock</string>
+    <string name="glossary">Glossary</string>
+    <string name="new_and_wrong">Wrong</string>
 
     <string name="dic_tab_juhai">Sentences</string>
     <string name="dic_tab_cidian">Dictionary</string>
@@ -243,6 +247,7 @@
 	<string name="leisuer_reading_subtitle">Do some Reading</string>
 	<string name="leisuer_twists">Brain twists</string>
 	<string name="leisuer_shenhuifu">GodReply</string>
+    <string name="leisuer_shenhuifu_des">God-like reply</string>
     <string name="leisuer_henhuifu_des">amazing reply</string>
 	<string name="leisuer_yizhandaodi">Q-A</string>
     <string name="leisuer_yizhandaodi_des">Question and Answer</string>

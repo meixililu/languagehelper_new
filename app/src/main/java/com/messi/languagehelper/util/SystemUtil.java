@@ -19,6 +19,8 @@ public class SystemUtil {
 
     public static String screen = "";
 
+    public static String lan = "";
+
 
     /**
      * 获取当前手机系统语言。

@@ -18,7 +18,7 @@
     <string name="title_word_study">单词</string>
     <string name="title_word_study_summary">词汇大全</string>
     <string name="title_word_study_vocabulary">词汇</string>
-    <string name="title_english_jokes">双语笑话</string>
+    <string name="title_english_jokes">笑话</string>
     <string name="title_english_video">视频</string>
     <string name="title_english_story">故事</string>
     <string name="title_juhe">综合</string>
@@ -101,6 +101,10 @@
     <string name="auto_play_after_translate">自动播放翻译结果</string>
     <string name="auto_clear">退出应用删除非收藏记录</string>
     <string name="search">搜索</string>
+    <string name="change_books">换课本</string>
+    <string name="start_unlock">开始闯关</string>
+    <string name="glossary">词汇大全</string>
+    <string name="new_and_wrong">生词错词</string>
     <string name="query">查询</string>
     <string name="translate">翻译</string>
     <string name="click_speak">翻译</string>

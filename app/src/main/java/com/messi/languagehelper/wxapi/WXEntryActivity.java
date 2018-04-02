@@ -55,6 +55,7 @@ import com.ximalaya.ting.android.sdkdownloader.XmDownloadManager;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 import cn.jzvd.JZVideoPlayer;
 
@@ -93,6 +94,7 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener, Fr
 
 	private void initViews() {
 		bundle = getIntent().getExtras();
+		SystemUtil.lan = Locale.getDefault().getLanguage();
 		SpeechUtility.createUtility(this, SpeechConstant.APPID + "=" + getString(R.string.app_id));
 		if (toolbar != null) {
 			getSupportActionBar().setDisplayHomeAsUpEnabled(false);
@@ -106,6 +108,9 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener, Fr
 		tablayout = (TabLayout) findViewById(R.id.tablayout);
 		mAdapter = new MainPageAdapter(this.getSupportFragmentManager(), bundle, this,
 				mSharedPreferences,this);
+		if(SystemUtil.lan.equals("en")){
+			tablayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+		}
 		viewPager.setAdapter(mAdapter);
 		viewPager.setOffscreenPageLimit(5);
 		tablayout.setupWithViewPager(viewPager);

@@ -42,7 +42,6 @@
                 android:layout_height="36dp"
                 android:background="@color/bg_white"
                 app:tabMode="scrollable"
-                app:tabMaxWidth="55dp"
                 app:tabPadding="0dp"
                 app:paddingEnd="0dp"
                 app:paddingStart="0dp"

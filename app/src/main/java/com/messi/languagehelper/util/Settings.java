@@ -95,7 +95,6 @@ public class Settings {
 	/**showapi joke text api**/
 	public static String JokeTextUrl = "http://route.showapi.com/341-1";
 	
-//	public static final String CaiLingUrl = "http://api.openspeech.cn/kyls/NTBhYTEyMTM=";old
 	public static final String CaiLingUrl = "http://iring.diyring.cc/friendv2/135430af88bc3328#main";
 
 	public static final String CHDicBaiduApi = "http://hanyu.baidu.com/s?ptype=zici&wd=";

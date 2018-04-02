@@ -42,7 +42,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="换课本"
+                        android:text="@string/change_books"
                         android:textColor="@color/text_grey1"
                         android:textSize="@dimen/small" />
                 </FrameLayout>
@@ -67,7 +67,7 @@
                     android:layout_marginBottom="@dimen/padding_5"
                     android:background="@color/white"
                     custom:arc_angle="270"
-                    custom:arc_bottom_text="开始闯关"
+                    custom:arc_bottom_text="@string/start_unlock"
                     custom:arc_bottom_text_size="@dimen/small"
                     custom:arc_finished_color="@color/load_blue"
                     custom:arc_progress="0"
@@ -103,7 +103,7 @@
                         android:layout_height="fill_parent"
                         android:background="@color/white"
                         android:gravity="center"
-                        android:text="词汇大全"
+                        android:text="@string/glossary"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/middle" />
                 </FrameLayout>
@@ -151,7 +151,7 @@
                         android:layout_height="fill_parent"
                         android:background="@color/white"
                         android:gravity="center"
-                        android:text="生词错词"
+                        android:text="@string/new_and_wrong"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/middle" />
                 </FrameLayout>

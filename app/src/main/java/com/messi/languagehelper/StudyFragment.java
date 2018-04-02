@@ -1,6 +1,7 @@
 package com.messi.languagehelper;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -115,7 +116,7 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
                         .build());
         listview.setAdapter(mAdapter);
         setListOnScrollListener();
-        categories = getTabItem();
+        categories = getTabItem(getContext());
         initTablayout();
         getMaxPageNumberBackground();
     }
@@ -484,17 +485,17 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
         }
     }
 
-    public static List<ReadingCategory> getTabItem() {
+    public static List<ReadingCategory> getTabItem(Context context) {
         List<ReadingCategory> readingCategories = new ArrayList<ReadingCategory>();
-        readingCategories.add(new ReadingCategory("推荐", ""));
-        readingCategories.add(new ReadingCategory("阅读", "shuangyu_reading"));
-        readingCategories.add(new ReadingCategory("听力", "listening"));
-        readingCategories.add(new ReadingCategory("词汇", "word"));
-        readingCategories.add(new ReadingCategory("口语", "spoken_english"));
-        readingCategories.add(new ReadingCategory("作文", "composition"));
-        readingCategories.add(new ReadingCategory("考试", "examination"));
-        readingCategories.add(new ReadingCategory("故事", "story"));
-        readingCategories.add(new ReadingCategory("笑话", "jokes"));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.recommend), ""));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.reading), "shuangyu_reading"));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.title_listening), "listening"));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.title_word_study_vocabulary), "word"));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.spoken_english_practice), "spoken_english"));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.title_composition), "composition"));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.examination), "examination"));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.title_english_story), "story"));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.title_english_jokes), "jokes"));
         return readingCategories;
     }
 
