@@ -125,7 +125,7 @@ public class StudyCategoryFragment extends BaseFragment {
                 AVAnalytics.onEvent(getContext(), "tab3_to_symbol");
                 break;
             case R.id.study_listening_layout:
-                toActivity(ListenCourseFragment.class, null);
+                toActivity(ListenActivity.class, null);
                 AVAnalytics.onEvent(getContext(), "tab3_to_listening");
                 break;
             case R.id.en_examination_layout:
