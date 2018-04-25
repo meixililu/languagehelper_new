@@ -12,8 +12,9 @@
     <string name="title_ai_learn">Learn Englilsh From Ai</string>
     <string name="title_Practice">Practice</string>
     <string name="title_listening">Listening</string>
-    <string name="title_symbol">Symbol Study</string>
-    <string name="title_word_study">Word Study</string>
+    <string name="title_symbol">Symbol</string>
+    <string name="title_word_study">Word</string>
+    <string name="title_words">Words</string>
     <string name="title_word_study_summary">Word Summary</string>
     <string name="title_word_study_vocabulary">Vocabulary</string>
     <string name="title_word_vocabulary">Vocabulary</string>
@@ -74,7 +75,7 @@
     <string name="font_style_italic">Italic</string>
     <string name="examination">Examination</string>
     <string name="reading">Reading</string>
-    <string name="foreign_website">Learning Website</string>
+    <string name="foreign_website">Website</string>
     <string name="menu_share">DIY Share</string>
     <string name="menu_settings">Play Speed</string>
     <string name="app_name_share">App:Translator</string>
@@ -239,8 +240,8 @@
 	<string name="sorry">We Are Sorry</string>
     <string name="nomore">no more!</string>
 	
-	<string name="leisuer_one">Ringback Music</string>
-	<string name="leisuer_one_subtitle">Listen to the music</string>
+	<string name="leisuer_one">Competitive Products</string>
+	<string name="leisuer_one_subtitle">Hot-sold products</string>
     <string name="leisuer_sougou_wechat">Wechat English</string>
     <string name="leisuer_sougou_wechat_subtitle">All the Wechat English</string>
 	<string name="leisuer_reading">Readings</string>
@@ -259,8 +260,8 @@
     <string name="leisuer_invest">Investor</string>
     <string name="leisuer_invest_subtitle">Invest your idea</string>
 
-	<string name="leisuer_two">Dictionarys</string>
-	<string name="leisuer_two_subtitle">Xinhua Dictionary and Dictionary of Idioms</string>
+	<string name="leisuer_two">Travel To China</string>
+	<string name="leisuer_two_subtitle">Travel To China Meizhou</string>
 	<string name="download">Try it</string>
 	
 	<string name="invest_activity_title">Investors</string>
@@ -338,5 +339,6 @@
     <string name="xmly_album">Album</string>
     <string name="xmly_track">Track</string>
     <string name="xmly_radio">Radio</string>
+    <string name="click_to_skip">skip</string>
 
 </resources>

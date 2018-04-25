@@ -7,10 +7,11 @@ import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
-import android.widget.ImageView;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVAnalytics;
@@ -25,30 +26,32 @@ import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.OkHttpUrlLoader;
 import com.messi.languagehelper.util.ADUtil;
-import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
+import com.qq.e.ads.splash.SplashADListener;
 
 import java.io.InputStream;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
-public class LoadingActivity extends AppCompatActivity implements OnClickListener {
+public class LoadingActivity extends AppCompatActivity {
 
     @BindView(R.id.ad_source)
     TextView ad_source;
-    @BindView(R.id.forward_img)
-    ImageView forward_img;
+    @BindView(R.id.skip_view)
+    TextView skip_view;
     @BindView(R.id.ad_img)
     SimpleDraweeView ad_img;
+    @BindView(R.id.splash_container)
+    FrameLayout splash_container;
     private SharedPreferences mSharedPreferences;
     private Handler mHandler;
     private boolean isAdExposure;
     private boolean isAdClicked;
+    private boolean notJump;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +74,6 @@ public class LoadingActivity extends AppCompatActivity implements OnClickListene
         getWindow().getDecorView().post(new Runnable() {
             @Override
             public void run() {
-                addToShowAdTimes();
                 Glide.get(LoadingActivity.this).register(GlideUrl.class, InputStream.class,
                         new OkHttpUrlLoader.Factory(LanguagehelperHttpClient.initClient(LoadingActivity.this)));
             }
@@ -91,79 +93,112 @@ public class LoadingActivity extends AppCompatActivity implements OnClickListene
     private void init() {
         mSharedPreferences = getSharedPreferences(getPackageName(), MODE_PRIVATE);
         mHandler = new Handler();
-        forward_img = (ImageView) findViewById(R.id.forward_img);
-        forward_img.setOnClickListener(this);
-        if (ADUtil.isShowAd(this)) {
-            IFLYNativeAd nativeAd = new IFLYNativeAd(this,ADUtil.KaiPingYSAD, mListener);
-            nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
-            nativeAd.loadAd(1);
-        } else {
-            onError();
-        }
+//        loadXFAD();
+        loadTXAD();
         startTask();
+    }
+
+    private void loadXFAD() {
+        IFLYNativeAd nativeAd = new IFLYNativeAd(this, ADUtil.KaiPingYSAD, mListener);
+        nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
+        nativeAd.loadAd(1);
     }
 
     IFLYNativeListener mListener = new IFLYNativeListener() {
         @Override
         public void onAdFailed(AdError error) { // 广告请求失败
-            if(ADUtil.isHasLocalAd()){
-                onAdReceive();
-                setAD(ADUtil.getRandomAd());
-            }else {
-                onError();
-            }
+            loadTXAD();
         }
+
         @Override
         public void onADLoaded(List<NativeADDataRef> lst) { // 广告请求成功
             onAdReceive();
             setADData(lst);
         }
+
         @Override
         public void onCancel() { // 下载类广告，下载提示框取消
             toNextPage();
         }
+
         @Override
         public void onConfirm() { // 下载类广告，下载提示框确认
             toNextPage();
         }
     };
 
-    private void setADData(List<NativeADDataRef> lst){
-        if(lst != null && lst.size() > 0){
+    private void setADData(List<NativeADDataRef> lst) {
+        if (lst != null && lst.size() > 0) {
             final NativeADDataRef mNativeADDataRef = lst.get(0);
-            if(mNativeADDataRef != null){
+            if (mNativeADDataRef != null) {
                 setAD(mNativeADDataRef);
             }
         }
     }
 
-    private void setAD(final NativeADDataRef mNativeADDataRef){
+    private void setAD(final NativeADDataRef mNativeADDataRef) {
         ad_img.setImageURI(mNativeADDataRef.getImage());
         boolean loadingExposure = mNativeADDataRef.onExposured(ad_img);
-        LogUtil.DefalutLog("loadingExposure："+loadingExposure);
+        LogUtil.DefalutLog("loadingExposure：" + loadingExposure);
         ad_img.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 onClickAd();
                 boolean onClicked = mNativeADDataRef.onClicked(view);
-                LogUtil.DefalutLog("onClicked:"+onClicked);
+                LogUtil.DefalutLog("onClicked:" + onClicked);
             }
         });
-    }
-
-    private void onAdReceive(){
-        ad_source.setVisibility(View.VISIBLE);
-        isAdExposure = true;
-        if(mHandler != null){
-            mHandler.postDelayed(mRunnableFinal, 4000);
-        }
     }
 
     private void onClickAd() {
         isAdClicked = true;
         cancleRunable();
-        forward_img.setVisibility(View.VISIBLE);
         AVAnalytics.onEvent(LoadingActivity.this, "ad_click_kaiping");
+    }
+
+    private void loadTXAD() {
+        TXADUtil.showKaipingAD(this, splash_container, skip_view,
+                new SplashADListener() {
+                    @Override
+                    public void onADDismissed() {
+                        LogUtil.DefalutLog("onADDismissed");
+                        if(!notJump){
+                            toNextPage();
+                        }
+                    }
+
+                    @Override
+                    public void onNoAD(com.qq.e.comm.util.AdError adError) {
+                        LogUtil.DefalutLog(adError.getErrorMsg());
+                        onADFail();
+                    }
+
+                    @Override
+                    public void onADPresent() {
+                        LogUtil.DefalutLog("onADPresent");
+                        skip_view.setVisibility(View.VISIBLE);
+                        isAdExposure = true;
+                    }
+
+                    @Override
+                    public void onADClicked() {
+                        LogUtil.DefalutLog("onADClicked");
+                        onClickAd();
+                    }
+
+                    @Override
+                    public void onADTick(long l) {
+                    }
+                });
+    }
+
+    private void onADFail() {
+        if (ADUtil.isHasLocalAd()) {
+            onAdReceive();
+            setAD(ADUtil.getRandomAd());
+        } else {
+            onError();
+        }
     }
 
     private Runnable mRunnable = new Runnable() {
@@ -194,27 +229,22 @@ public class LoadingActivity extends AppCompatActivity implements OnClickListene
         }
     };
 
-    private void onError() {
-        mHandler.postDelayed(mRunnable, 800);
-    }
-
-    private void startTask() {
-        mHandler.postDelayed(m3Runnable, 3500);
-    }
-
-    @OnClick({R.id.forward_img})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.forward_img:
-                toNextPage();
-                break;
+    private void onAdReceive() {
+        ad_source.setVisibility(View.VISIBLE);
+        skip_view.setVisibility(View.VISIBLE);
+        isAdExposure = true;
+        if (mHandler != null) {
+            mHandler.postDelayed(mRunnableFinal, 4000);
         }
     }
 
-    private void addToShowAdTimes() {
-        int IsCanShowAD = mSharedPreferences.getInt(KeyUtil.IsCanShowAD_Loading, 0);
-        IsCanShowAD++;
-        Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.IsCanShowAD_Loading, IsCanShowAD);
+    private void onError() {
+        mHandler.postDelayed(mRunnable, 1000);
+    }
+
+    //启动页加载总时常，防止广告一直加载中等待过久
+    private void startTask() {
+        mHandler.postDelayed(m3Runnable, 4000);
     }
 
     private void toNextPage() {
@@ -231,23 +261,30 @@ public class LoadingActivity extends AppCompatActivity implements OnClickListene
         }
     }
 
+    //防止用户返回键退出APP
     @Override
-    protected void onStart() {
-        super.onStart();
-        if (isAdClicked) {
-            toNextPage();
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK || keyCode == KeyEvent.KEYCODE_HOME) {
+            return true;
         }
+        return super.onKeyDown(keyCode, event);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        LogUtil.DefalutLog("onResume");
+        if(isAdClicked) {
+            toNextPage();
+        }
         AVAnalytics.onResume(this);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        notJump = true;
+        LogUtil.DefalutLog("onPause");
         AVAnalytics.onPause(this);
     }
 

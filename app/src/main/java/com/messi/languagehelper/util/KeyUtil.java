@@ -216,8 +216,6 @@ public class KeyUtil {
 
 	public static final String IsAiTuringPlayVoice = "IsAiTuringPlayVoice";
 
-	public static final String HasClickNewFunAi = "HasClickNewFunAi";
-
 	public static final String AiBaseCurrentSection = "AiBaseCurrentSection";
 
 	public static final String XmlyRadioCategory = "XmlyRadioCategory";

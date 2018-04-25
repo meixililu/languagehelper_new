@@ -88,6 +88,10 @@ public class AiTuringActivity extends BaseActivity {
     RelativeLayout adLayout;
     @BindView(R.id.delete_btn)
     FrameLayout deleteBtn;
+    @BindView(R.id.splash_container)
+    FrameLayout splash_container;
+    @BindView(R.id.skip_view)
+    TextView skip_view;
     private List<AiEntity> beans;
     private LinearLayoutManager mLinearLayoutManager;
     private SpeechRecognizer recognizer;
@@ -103,7 +107,7 @@ public class AiTuringActivity extends BaseActivity {
         initSwipeRefresh();
         initData();
         mKaiPinAdUIModel = new KaiPinAdUIModelCustom(this, adSource, adImg, adLayout,
-                contentLv, numberProgressBar, progressTv);
+                contentLv, numberProgressBar, progressTv, splash_container, skip_view);
     }
 
     private void initData() {

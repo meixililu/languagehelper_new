@@ -3,6 +3,7 @@ package com.messi.languagehelper.util;
 import android.app.Activity;
 import android.os.CountDownTimer;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ import com.iflytek.voiceads.IFLYNativeAd;
 import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.impl.OnFinishListener;
+import com.qq.e.ads.splash.SplashADListener;
 
 import java.util.List;
 
@@ -31,10 +33,14 @@ public class KaiPinAdUIModelCustom {
     private SimpleDraweeView ad_img;
     private NumberProgressBar numberProgressBar;
     private OnFinishListener mFinishListener;
+    private ViewGroup adContainer;
+    private View skipContainer;
 
     IFLYNativeListener mListener = new IFLYNativeListener() {
         @Override
-        public void onAdFailed(AdError error) { }
+        public void onAdFailed(AdError error) {
+            initTXAD();
+        }
         @Override
         public void onADLoaded(List<NativeADDataRef> lst) { // 广告请求成功
             onAdReceive(lst);
@@ -51,24 +57,58 @@ public class KaiPinAdUIModelCustom {
 
     public KaiPinAdUIModelCustom(Activity mContext, TextView ad_source, SimpleDraweeView ad_img,
                                  RelativeLayout ad_layout, View contentLayout,
-                                 NumberProgressBar numberProgressBar, TextView progressTv){
+                                 NumberProgressBar numberProgressBar, TextView progressTv,
+                                 ViewGroup adContainer, View skipContainer){
         this.mContext = mContext;
         this.ad_source = ad_source;
         this.ad_img = ad_img;
         this.ad_layout = ad_layout;
         this.contentLayout = contentLayout;
         this.progressTv = progressTv;
+        this.adContainer = adContainer;
+        this.skipContainer = skipContainer;
         this.numberProgressBar = numberProgressBar;
         ad_layout.setVisibility(View.VISIBLE);
         numberProgressBar.setMax(4000);
         init();
+        timer.start();
     }
 
     private void init(){
         IFLYNativeAd nativeAd = new IFLYNativeAd(mContext, ADUtil.KaiPingYSAD, mListener);
         nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
         nativeAd.loadAd(1);
-        timer.start();
+    }
+
+    private void initTXAD(){
+        TXADUtil.showKaipingAD(mContext, adContainer, skipContainer,
+                new SplashADListener() {
+                    @Override
+                    public void onADDismissed() {
+                        LogUtil.DefalutLog("onADDismissed");
+                        toNextPage();
+                    }
+
+                    @Override
+                    public void onNoAD(com.qq.e.comm.util.AdError adError) {
+                        LogUtil.DefalutLog(adError.getErrorMsg());
+                    }
+
+                    @Override
+                    public void onADPresent() {
+                        LogUtil.DefalutLog("onADPresent");
+                        skipContainer.setVisibility(View.VISIBLE);
+                    }
+
+                    @Override
+                    public void onADClicked() {
+                        LogUtil.DefalutLog("onADClicked");
+                    }
+
+                    @Override
+                    public void onADTick(long l) {
+                    }
+                });
     }
 
     private void onAdReceive(List<NativeADDataRef> lst){

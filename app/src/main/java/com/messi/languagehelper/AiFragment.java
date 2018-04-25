@@ -1,20 +1,18 @@
 package com.messi.languagehelper;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVAnalytics;
-import com.messi.languagehelper.impl.FragmentProgressbarListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static com.androidquery.util.AQUtility.getContext;
-
-public class AiActivity extends BaseActivity implements FragmentProgressbarListener {
-
+public class AiFragment extends BaseFragment  {
 
     @BindView(R.id.tv_ai_chat)
     TextView tvAiChat;
@@ -23,16 +21,16 @@ public class AiActivity extends BaseActivity implements FragmentProgressbarListe
     @BindView(R.id.tv_ai_basic)
     TextView tvAiBasic;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.ai_activity);
-        ButterKnife.bind(this);
-        initViews();
+    public static AiFragment getInstance(){
+        return new AiFragment();
     }
 
-    private void initViews() {
-        getSupportActionBar().setTitle(getResources().getString(R.string.title_ai_learn));
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
+        View view = inflater.inflate(R.layout.ai_activity, null);
+        ButterKnife.bind(this, view);
+        return view;
     }
 
     @OnClick({R.id.tv_ai_chat, R.id.tv_ai_dialogue, R.id.tv_ai_basic})

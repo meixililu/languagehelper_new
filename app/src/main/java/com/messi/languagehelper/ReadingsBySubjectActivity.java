@@ -281,13 +281,13 @@ public class ReadingsBySubjectActivity extends BaseActivity{
 		if (!Settings.getSharedPreferences(this).getBoolean(KeyUtil.isAddRecentGuideShow, false)) {
 			AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.Theme_AppCompat_Light_Dialog_Alert);
 			builder.setTitle("");
-			builder.setMessage("本课程已设置为最近学习目标");
+			builder.setMessage("已订阅该课程");
 			builder.setPositiveButton("确认", null);
 			AlertDialog dialog = builder.create();
 			dialog.show();
 			Settings.saveSharedPreferences(Settings.getSharedPreferences(this), KeyUtil.isAddRecentGuideShow, true);
 		}else {
-			ToastUtil.diaplayMesShort(this,"本课程已设置为最近学习目标");
+			ToastUtil.diaplayMesShort(this,"已订阅该课程");
 		}
 	}
 

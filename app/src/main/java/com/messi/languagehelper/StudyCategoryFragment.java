@@ -2,7 +2,6 @@ package com.messi.languagehelper;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,22 +11,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVAnalytics;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.github.lzyzsd.circleprogress.ArcProgress;
-import com.messi.languagehelper.bean.WordListItem;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.SaveData;
 import com.messi.languagehelper.util.ScreenUtil;
-import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.StringUtils;
 import com.messi.languagehelper.util.ViewUtil;
 import com.messi.languagehelper.util.XimalayaUtil;
@@ -52,51 +45,26 @@ public class StudyCategoryFragment extends BaseFragment {
     FrameLayout symbolStudyCover;
     @BindView(R.id.study_listening_layout)
     FrameLayout studyListeningLayout;
-    @BindView(R.id.study_test)
-    FrameLayout studyTest;
     @BindView(R.id.en_examination_layout)
     FrameLayout enExaminationLayout;
     @BindView(R.id.study_composition)
     FrameLayout studyComposition;
-    @BindView(R.id.instagram_layout)
-    FrameLayout instagramLayout;
+    @BindView(R.id.study_word_layout)
+    FrameLayout studyWordLayout;
+
     @BindView(R.id.collected_layout)
     FrameLayout collectedLayout;
-    @BindView(R.id.word_study_change_plan)
-    FrameLayout wordStudyChangePlan;
-    @BindView(R.id.arc_progress)
-    ArcProgress arcProgress;
-    @BindView(R.id.word_study_plan)
-    RelativeLayout wordStudyPlan;
-    @BindView(R.id.word_study_view_all)
-    FrameLayout wordStudyViewAll;
-    @BindView(R.id.word_study_daily)
-    FrameLayout wordStudyDaily;
-    @BindView(R.id.word_study_new_word)
-    FrameLayout wordStudyNewWord;
-    @BindView(R.id.word_study_book_name)
-    TextView wordStudyBookName;
     @BindView(R.id.study_spoken_english)
     FrameLayout studySpokenEnglish;
     @BindView(R.id.en_grammar)
     FrameLayout enGrammar;
     @BindView(R.id.en_story_layout)
     FrameLayout enStoryLayout;
-    @BindView(R.id.en_broadcast)
-    FrameLayout enBroadcast;
-    @BindView(R.id.en_business)
-    FrameLayout enBusiness;
-    @BindView(R.id.search_layout)
-    FrameLayout searchLayout;
-    @BindView(R.id.ai_unread)
-    ImageView aiUnread;
     @BindView(R.id.content_tv)
     LinearLayout contentTv;
     @BindView(R.id.xmly_layout)
     FrameLayout xmlyLayout;
 
-    private WordListItem wordListItem;
-    private SharedPreferences sp;
     private LayoutInflater inflater;
     private int skip = 2;
     public static final String RandomNum = "6";
@@ -123,18 +91,7 @@ public class StudyCategoryFragment extends BaseFragment {
         ButterKnife.bind(this, view);
         initSwipeRefresh(view);
         this.inflater = inflater;
-        setData();
-        setBookName();
         return view;
-    }
-
-    private void setData() {
-        sp = Settings.getSharedPreferences(getActivity());
-        if (!sp.getBoolean(KeyUtil.HasClickNewFunAi, false)) {
-            aiUnread.setVisibility(View.VISIBLE);
-        } else {
-            aiUnread.setVisibility(View.GONE);
-        }
     }
 
     @Override
@@ -143,15 +100,6 @@ public class StudyCategoryFragment extends BaseFragment {
             showProgressbar();
         } else if (music_action.equals(PlayerService.action_finish_loading)) {
             hideProgressbar();
-        }
-    }
-
-    private void setBookName() {
-        wordListItem = SaveData.getDataFonJson(getContext(), KeyUtil.WordStudyUnit, WordListItem.class);
-        if (wordListItem != null && wordStudyBookName != null) {
-            wordStudyBookName.setText(wordListItem.getTitle());
-            arcProgress.setMax(wordListItem.getCourse_num());
-            arcProgress.setProgress(wordListItem.getCourse_id());
         }
     }
 
@@ -164,51 +112,21 @@ public class StudyCategoryFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        setBookName();
     }
 
-    @OnClick({R.id.word_study_view_all, R.id.word_study_daily, R.id.symbol_study_cover,
-            R.id.word_study_new_word,
-            R.id.study_listening_layout, R.id.word_study_change_plan,
-            R.id.word_study_plan, R.id.study_test,
-            R.id.en_examination_layout, R.id.study_composition, R.id.instagram_layout, R.id.collected_layout,
+    @OnClick({R.id.symbol_study_cover, R.id.study_listening_layout,
+            R.id.en_examination_layout, R.id.study_composition, R.id.collected_layout,
             R.id.study_spoken_english, R.id.en_grammar, R.id.en_story_layout,
-            R.id.en_broadcast, R.id.en_business, R.id.search_layout,R.id.xmly_layout})
+            R.id.xmly_layout, R.id.study_word_layout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.word_study_view_all:
-                toActivity(WordStudyActivity.class, null);
-                AVAnalytics.onEvent(getContext(), "tab3_to_wordstudy_view_all");
-                break;
-            case R.id.word_study_daily:
-                toActivity(VocabularyStudyActivity.class, null);
-                AVAnalytics.onEvent(getContext(), "tab3_to_wordstudy_daily");
-                break;
-            case R.id.word_study_change_plan:
-                toActivity(WordStudyPlanActivity.class, null);
-                AVAnalytics.onEvent(getContext(), "tab3_to_wordstudy_change_plan");
-                break;
-            case R.id.word_study_new_word:
-                toActivity(WordStudyNewWordActivity.class, null);
-                AVAnalytics.onEvent(getContext(), "tab3_to_wordstudy_new_word");
-                break;
-            case R.id.word_study_plan:
-                toWordStudyDetailActivity();
-                AVAnalytics.onEvent(getContext(), "tab3_to_wordstudy_detail");
-                break;
             case R.id.symbol_study_cover:
                 toActivity(SymbolActivity.class, null);
                 AVAnalytics.onEvent(getContext(), "tab3_to_symbol");
                 break;
             case R.id.study_listening_layout:
-                toActivity(ListenSubjectActivity.class, null);
+                toActivity(ListenCourseFragment.class, null);
                 AVAnalytics.onEvent(getContext(), "tab3_to_listening");
-                break;
-            case R.id.study_test:
-                toActivity(AiActivity.class, null);
-                aiUnread.setVisibility(View.GONE);
-                Settings.saveSharedPreferences(sp, KeyUtil.HasClickNewFunAi, true);
-                AVAnalytics.onEvent(getContext(), "tab3_to_evaluation");
                 break;
             case R.id.en_examination_layout:
                 toExaminationActivity(getContext().getResources().getString(R.string.examination));
@@ -218,16 +136,12 @@ public class StudyCategoryFragment extends BaseFragment {
                 toActivity(CompositionActivity.class, null);
                 AVAnalytics.onEvent(getContext(), "tab3_to_composition");
                 break;
-            case R.id.instagram_layout:
-                toActivity(EnglishWebsiteRecommendActivity.class, null);
-                AVAnalytics.onEvent(getContext(), "tab3_to_websiterecommend");
-                break;
             case R.id.collected_layout:
                 toActivity(CollectedActivity.class, null);
                 AVAnalytics.onEvent(getContext(), "tab3_to_collected");
                 break;
             case R.id.study_spoken_english:
-                toActivity(SpokenEnglishActivity.class, null);
+                toActivity(SpokenActivity.class, null);
                 AVAnalytics.onEvent(getContext(), "tab3_to_spoken_english");
                 break;
             case R.id.en_grammar:
@@ -238,32 +152,14 @@ public class StudyCategoryFragment extends BaseFragment {
                 toActivity(StoryActivity.class, null);
                 AVAnalytics.onEvent(getContext(), "tab3_to_story");
                 break;
-            case R.id.en_broadcast:
-                toActivity(BroadcastActivity.class, null);
-                AVAnalytics.onEvent(getContext(), "tab3_to_broadcast");
-                break;
-            case R.id.en_business:
-                toActivity(BusinessActivity.class, null);
-                AVAnalytics.onEvent(getContext(), "tab3_to_business");
-                break;
-            case R.id.search_layout:
-                toActivity(SearchActivity.class, null);
-                AVAnalytics.onEvent(getContext(), "tab3_to_search");
-                break;
             case R.id.xmly_layout:
                 toActivity(XmlyActivity.class,null);
                 AVAnalytics.onEvent(getContext(), "tab3_to_ximalaya_home");
                 break;
-        }
-    }
-
-    private void toWordStudyDetailActivity() {
-        if (wordListItem != null) {
-            Intent intent = new Intent(getContext(), WordStudyPlanDetailActivity.class);
-            intent.putExtra(KeyUtil.ActionbarTitle, wordListItem.getTitle());
-            getActivity().startActivity(intent);
-        } else {
-            toActivity(WordStudyPlanActivity.class, null);
+            case R.id.study_word_layout:
+                toActivity(WordsActivity.class,null);
+                AVAnalytics.onEvent(getContext(), "tab3_to_ximalaya_home");
+                break;
         }
     }
 

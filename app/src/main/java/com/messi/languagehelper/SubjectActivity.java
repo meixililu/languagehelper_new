@@ -14,7 +14,6 @@ import com.messi.languagehelper.adapter.RcSubjectListAdapter;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFYSAD;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
@@ -84,10 +83,8 @@ public class SubjectActivity extends BaseActivity {
                 int visible = layoutManager.getChildCount();
                 int total = layoutManager.getItemCount();
                 int firstVisibleItem = layoutManager.findFirstCompletelyVisibleItemPosition();
-                LogUtil.DefalutLog("visible:" + visible + "---total:" + total + "---firstVisibleItem:" + firstVisibleItem);
                 if (!loading && hasMore) {
                     if ((visible + firstVisibleItem) >= total) {
-                        LogUtil.DefalutLog("setListOnScrollListener");
                         new QueryTask().execute();
                     }
                 }

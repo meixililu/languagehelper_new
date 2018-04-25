@@ -55,7 +55,7 @@ public class MainTabTran extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.main_tab_tran, null);
-        LogUtil.DefalutLog("MainFragment-onCreateView");
+        LogUtil.DefalutLog("MainTabTran-onCreateView");
         init(view);
         return view;
     }

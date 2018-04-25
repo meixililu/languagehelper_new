@@ -10,7 +10,6 @@ import com.avos.avoscloud.AVObject;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.TextHandlerUtil;
 import com.messi.languagehelper.util.XFYSAD;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
@@ -59,18 +58,6 @@ public class WordStudySummaryDetailActivity extends BaseActivity {
         TextHandlerUtil.handlerText(this, mProgressbar, content, mAVObject.getString(AVOUtil.HJWordStudyCList.word_des));
 
         mXFYSAD = new XFYSAD(this, xx_ad_layout, ADUtil.NewsDetail);
-        mXFYSAD.setDirectExPosure(false);
         mXFYSAD.showAD();
-        scrollview.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
-            @Override
-            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                if (xx_ad_layout.isShown()) {
-                    if (XFYSAD.isInScreen(WordStudySummaryDetailActivity.this, xx_ad_layout)) {
-                        LogUtil.DefalutLog("onScrollChange---isInScreen");
-                        mXFYSAD.ExposureAD();
-                    }
-                }
-            }
-        });
     }
 }

@@ -84,8 +84,7 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener, Fr
 			setContentView(R.layout.content_frame);
 			mInstance = this;
 			initViews();
-			Settings.verifyStoragePermissions(this, Settings.PERMISSIONS_STORAGE);
-			initXimalayaSDK();
+			initSDKAndPermission();
 //			runCheckUpdateTask();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -147,6 +146,16 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener, Fr
 		XmPlayerManager.getInstance(this).init();
 		XmPlayerManager.getInstance(this).setCommonBusinessHandle(XmDownloadManager.getInstance());
 //		XmPlayerManager.getInstance(this).clearAllLocalHistory();
+		Settings.verifyStoragePermissions(this, Settings.PERMISSIONS_STORAGE);
+	}
+
+	private void initSDKAndPermission(){
+		new Handler().postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				initXimalayaSDK();
+			}
+		}, 1 * 1000);
 	}
 
 	//connect to the service

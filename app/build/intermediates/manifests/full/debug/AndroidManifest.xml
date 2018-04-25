@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.messi.languagehelper"
+    package="com.messi.cantonese.study"
     android:versionCode="39"
     android:versionName="4.3" >
 
@@ -45,7 +45,7 @@
         android:theme="@style/AppTheme" >
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.messi.languagehelper.provider"
+            android:authorities="com.messi.cantonese.study.provider"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data
@@ -92,6 +92,17 @@
             android:theme="@style/AppThemeForXF" />
         <!-- 讯飞广告sdk -->
 
+
+        <!-- 腾讯广告 -->
+        <service
+            android:name="com.qq.e.comm.DownloadService"
+            android:exported="false" />
+
+        <activity
+            android:name="com.qq.e.ads.ADActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
+        <!-- 腾讯广告 -->
+
         <service
             android:name="com.messi.languagehelper.service.PlayerService"
             android:exported="false" >
@@ -131,6 +142,21 @@
             </intent-filter>
         </receiver>
 
+        <activity
+            android:name="com.messi.languagehelper.ListenActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.messi.languagehelper.SpokenActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.messi.languagehelper.WordsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.messi.languagehelper.AdEnglishActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.messi.languagehelper.ShoppingActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.PybsDetailActivity"
             android:screenOrientation="portrait" />
@@ -194,25 +220,13 @@
             android:name="com.messi.languagehelper.SearchActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.messi.languagehelper.BusinessActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name="com.messi.languagehelper.SubjectActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.messi.languagehelper.BroadcastActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.StoryActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.GrammarActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.messi.languagehelper.SpokenEnglishActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.messi.languagehelper.VocabularyStudyActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.ReadingsBySubjectActivity"
@@ -222,9 +236,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.OfflineDicDownloadActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.messi.languagehelper.ListenSubjectActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.WordStudyNewWordActivity"
@@ -293,12 +304,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.WordStudySecondActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.messi.languagehelper.AiActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.messi.languagehelper.WordStudyActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.CollectedActivity"

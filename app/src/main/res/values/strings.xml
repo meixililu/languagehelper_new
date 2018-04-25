@@ -10,12 +10,13 @@
     <string name="title_TranslatePractice">练习</string>
     <string name="title_ai">Ai</string>
     <string name="title_ai_learn">跟Ai学英语</string>
-    <string name="title_Practice">口语修炼</string>
+    <string name="title_Practice">口语练习</string>
     <string name="title_listening">听力</string>
     <string name="title_word_vocabulary">词汇学习</string>
     <string name="title_spoken_english_study">口语学习</string>
     <string name="title_symbol">音标</string>
     <string name="title_word_study">单词</string>
+    <string name="title_words">背单词</string>
     <string name="title_word_study_summary">词汇大全</string>
     <string name="title_word_study_vocabulary">词汇</string>
     <string name="title_english_jokes">笑话</string>
@@ -76,8 +77,8 @@
     <string name="prompt">提示</string>
     <string name="retry">重填</string>
     <string name="recommend">推荐</string>
-    <string name="recent_study_empty">赶紧去添加最近要学习的课程吧</string>
-    <string name="recent">最近</string>
+    <string name="recent_study_empty">赶紧去订阅课程吧</string>
+    <string name="recent">订阅</string>
     <string name="beginner">初级</string>
     <string name="intermediate">中级</string>
     <string name="advanced">高级</string>
@@ -253,10 +254,10 @@
     <string name="detail_total">总分</string>
     <string name="download">试一试</string>
 
-    <string name="foreign_website">网站</string>
-    <string name="foreign_website_subtitle">喜欢进步的看这里</string>
-    <string name="leisuer_one">酷炫彩铃</string>
-    <string name="leisuer_one_subtitle">听听音乐放松一下</string>
+    <string name="foreign_website">英文网站</string>
+    <string name="foreign_website_subtitle">一些不错的英文网站</string>
+    <string name="leisuer_one">小白精选</string>
+    <string name="leisuer_one_subtitle">精选各种学习资料</string>
     <string name="leisuer_sougou_wechat">微信英语</string>
     <string name="leisuer_sougou_wechat_subtitle">微信公众号英语资料集合</string>
     <string name="leisuer_reading">新闻阅读</string>
@@ -277,8 +278,28 @@
     <string name="leisuer_duanzi">笑话段子</string>
     <string name="leisuer_duanzi_subtitle">各种笑话和段子</string>
 
-    <string name="leisuer_two">字典词典</string>
-    <string name="leisuer_two_subtitle">新华字典加成语词典</string>
+    <string name="leisuer_two">想学编程</string>
+    <string name="leisuer_two_subtitle">学编程，高薪就业</string>
+    <string name="leisuer_two_content">
+        最近遇到一些朋友，对编程感兴趣\n
+        却又不知道从何入手\n
+        有些人说自己不知道适不适合学\n
+        有些人说错过时机了\n
+        有些人说自己数学不好\n
+        有些人说自己老了\n
+        从何入手，我竟无言以对\n
+        计算机专业，工作编程8年\n
+        如今自己创业，中英互译英语翻译学习神器\n
+        虽然我很想帮助那些人\n
+        但仔细想想我能给出什么建议呢\n
+        。。。华丽的分割线。。。\n
+        想了好几天，习惯什么事都自己上的我\n
+        决定搞个直播编程教学\n
+        课程来自哪里呢？\n
+        唯有总结哈佛，剑桥，MIT等大学计算机公开课\n
+        我觉得才是最好的教材\n
+        那就来吧，just do it
+    </string>
 
     <string name="invest_activity_title">投资人列表</string>
     <string name="feedback">反馈</string>
@@ -353,7 +374,7 @@
     <string name="title_live">直播</string>
     <string name="title_all_fm">全部</string>
     <string name="change">换一批</string>
-    <string name="xmly_home">喜马拉雅FM</string>
+    <string name="xmly_home">FM</string>
     <string name="radio_local">本地台</string>
     <string name="radio_country">国家台</string>
     <string name="radio_province">省市台</string>
@@ -363,6 +384,7 @@
     <string name="xmly_album">专辑</string>
     <string name="xmly_track">声音</string>
     <string name="xmly_radio">电台</string>
+    <string name="click_to_skip">跳过</string>
 
 
 </resources>

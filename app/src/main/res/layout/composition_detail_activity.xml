@@ -70,18 +70,36 @@
             android:focusableInTouchMode="false"
             android:orientation="vertical" >
 
-
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:id="@+id/item_img"
-                android:layout_width="match_parent"
+            <FrameLayout
+                android:id="@+id/xx_ad_layout"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/white"
                 android:layout_margin="@dimen/padding_10"
-                android:visibility="gone"
-                fresco:viewAspectRatio="1.77"
-                fresco:placeholderImageScaleType="fitCenter"
-                fresco:actualImageScaleType="focusCrop"
-                fresco:placeholderImage="@color/text_tint"
-                />
+                android:visibility="gone" >
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/ad_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    fresco:actualImageScaleType="focusCrop"
+                    fresco:placeholderImage="@color/text_tint"
+                    fresco:placeholderImageScaleType="fitCenter"
+                    fresco:viewAspectRatio="1.77" />
+
+                <TextView
+                    android:id="@+id/ad_img_sign"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|left"
+                    android:paddingBottom="1dp"
+                    android:paddingLeft="1dp"
+                    android:text="广告"
+                    android:background="@color/none_alpha"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/smaller_l"
+                    />
+            </FrameLayout>
 
             <TextView
                 android:id="@+id/content"
@@ -97,39 +115,6 @@
                 android:focusable="false"
                 android:focusableInTouchMode="false"
                 android:textSize="@dimen/biggerx" />
-
-            <RelativeLayout
-                android:id="@+id/xx_ad_layout"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:layout_marginTop="@dimen/padding_15"
-                android:layout_marginBottom="@dimen/padding_15"
-                android:layout_marginLeft="@dimen/padding_10"
-                android:layout_marginRight="@dimen/padding_10"
-                android:visibility="gone" >
-
-                <com.facebook.drawee.view.SimpleDraweeView
-                    android:id="@+id/ad_img"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    fresco:actualImageScaleType="focusCrop"
-                    fresco:placeholderImage="@color/text_tint"
-                    fresco:placeholderImageScaleType="fitCenter"
-                    fresco:viewAspectRatio="1.77" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:paddingBottom="1dp"
-                    android:paddingLeft="1dp"
-                    android:text="广告"
-                    android:background="@color/none_alpha"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/smaller_l" />
-            </RelativeLayout>
 
             <LinearLayout
                 android:id="@+id/next_composition"

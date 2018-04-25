@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.messi.languagehelper.BaseActivity;
 import com.messi.languagehelper.WordStudyViewAllActivity;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.SaveData;
@@ -121,9 +122,9 @@ public class WordBookListAdapter extends BaseAdapter {
 
     private void setWordBook(WordListItem mAVObject){
         SaveData.saveDataAsJson(context, KeyUtil.WordStudyUnit, new Gson().toJson(mAVObject));
-        Intent intent = new Intent(context, WXEntryActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        context.startActivity(intent);
+        Intent intent = new Intent();
+        intent.setAction(BaseActivity.ActivityClose);
+        context.sendBroadcast(intent);
     }
 
     static class ViewHolder {

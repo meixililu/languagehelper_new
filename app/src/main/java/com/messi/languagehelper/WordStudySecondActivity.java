@@ -1,7 +1,9 @@
 package com.messi.languagehelper;
 
-import java.util.ArrayList;
-import java.util.List;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.widget.ListView;
 
 import com.avos.avoscloud.AVFile;
 import com.avos.avoscloud.AVObject;
@@ -11,10 +13,8 @@ import com.messi.languagehelper.bean.WordListType;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.widget.ListView;
+import java.util.ArrayList;
+import java.util.List;
 
 public class WordStudySecondActivity extends BaseActivity {
 
@@ -28,6 +28,7 @@ public class WordStudySecondActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.word_type_activity);
+		registerBroadcast(BaseActivity.ActivityClose);
 		initSwipeRefresh();
 		initViews();
 	}
@@ -102,5 +103,10 @@ public class WordStudySecondActivity extends BaseActivity {
 		}
 		return mType;
 	}
-	
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		unregisterBroadcast();
+	}
 }

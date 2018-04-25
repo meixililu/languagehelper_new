@@ -35,9 +35,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.messi.languagehelper.provider"
+            android:authorities="com.messi.cantonese.study.provider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -85,6 +86,12 @@
             />
         <!-- 讯飞广告sdk -->
 
+        <!--腾讯广告-->
+        <service android:name="com.qq.e.comm.DownloadService" android:exported="false" />
+        <activity android:name="com.qq.e.ads.ADActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
+        <!--腾讯广告-->
+
         <service
             android:name=".service.PlayerService"
             android:exported="false">
@@ -124,6 +131,21 @@
             </intent-filter>
         </receiver>
 
+        <activity
+            android:name=".ListenActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SpokenActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WordsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AdEnglishActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ShoppingActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".PybsDetailActivity"
             android:screenOrientation="portrait" />
@@ -187,25 +209,13 @@
             android:name=".SearchActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".BusinessActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".SubjectActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".BroadcastActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".StoryActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".GrammarActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".SpokenEnglishActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".VocabularyStudyActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ReadingsBySubjectActivity"
@@ -215,9 +225,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".OfflineDicDownloadActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ListenSubjectActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".WordStudyNewWordActivity"
@@ -286,12 +293,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".WordStudySecondActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".AiActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".WordStudyActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".CollectedActivity"

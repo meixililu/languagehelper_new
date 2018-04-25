@@ -246,7 +246,7 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        LogUtil.DefalutLog("MainFragment-onCreateView");
+        LogUtil.DefalutLog("DictionaryFragment-onCreateView");
         View view = inflater.inflate(R.layout.fragment_dictionary, null);
         ButterKnife.bind(this, view);
         init();

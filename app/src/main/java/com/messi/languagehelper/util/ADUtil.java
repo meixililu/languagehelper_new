@@ -1,21 +1,13 @@
 package com.messi.languagehelper.util;
 
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.text.TextUtils;
-import android.widget.LinearLayout;
 
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
-import com.iflytek.voiceads.AdKeys;
-import com.iflytek.voiceads.IFLYAdSize;
-import com.iflytek.voiceads.IFLYBannerAd;
-import com.iflytek.voiceads.IFLYFullScreenAd;
-import com.iflytek.voiceads.IFLYInterstitialAd;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.WebViewActivity;
 import com.messi.languagehelper.bean.NativeADDataRefForZYHY;
@@ -61,80 +53,15 @@ public class ADUtil {
 	
 	// initQuanPingAD  initChaPingAD    initBannerAD    initKaiPingAD
 	
-	/**
-	 * 添加banner广告条
-	 * @param mActivity
-	 * @param view
-	 */
-	public static IFLYBannerAd initBannerAD(Activity mActivity,LinearLayout view,String adId){
-		//创建IFLYBannerAdView对象 
-		final IFLYBannerAd bannerAd = IFLYBannerAd.createBannerAd(mActivity,adId); 
-		bannerAd.setAdSize(IFLYAdSize.BANNER); 
-		bannerAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
-		try {
-			view.removeAllViews();
-			view.addView(bannerAd);
-		} catch (Exception e) {
-			e.printStackTrace();
-		} 
-		return bannerAd;
-	}
-	
-	/**
-	 * 添加banner广告条
-	 * @param mActivity
-	 * @param view
-	 */
-	public static IFLYBannerAd initBannerAD(Activity mActivity,LinearLayout view){
-		//创建IFLYBannerAdView对象 
-		final IFLYBannerAd bannerAd = IFLYBannerAd.createBannerAd(mActivity,BannerADId); 
-		bannerAd.setAdSize(IFLYAdSize.BANNER); 
-		bannerAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
-		try {
-			view.removeAllViews();
-			view.addView(bannerAd);
-		} catch (Exception e) {
-			e.printStackTrace();
-		} 
-		return bannerAd;
-	}
-	
-	/**
-	 * 添加插屏广告
-	 * @param mActivity
-	 */
-	public static IFLYInterstitialAd initChaPingAD(Activity mActivity){
-		//创建IFLYBannerAdView对象 
-		final IFLYInterstitialAd interstitialAd = IFLYInterstitialAd.createInterstitialAd(mActivity,ChaPingADId);
-		//设置需要请求的广告大小 
-		interstitialAd.setAdSize(IFLYAdSize.INTERSTITIAL);
-		interstitialAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
-		return interstitialAd;
-	}
-	
-	/**
-	 * 添加全屏广告
-	 * @param mActivity
-	 */
-	public static IFLYFullScreenAd initQuanPingAD(Activity mActivity){
-		//创建IFLYBannerAdView对象 
-		final IFLYFullScreenAd fullScreenAd = IFLYFullScreenAd.createFullScreenAd(mActivity, QuanPingADId);
-		if(fullScreenAd != null){
-			fullScreenAd.setAdSize(IFLYAdSize.FULLSCREEN);
-			fullScreenAd.setParameter(AdKeys.SHOW_TIME_FULLSCREEN, "5000");
-			fullScreenAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
-		}
-		return fullScreenAd;
-	}
-	
 	public static boolean isShowAd(Context mContext){
-		if(IsShowAdImmediately){
-			return true;
-		}else{
-			SharedPreferences mSharedPreferences = Settings.getSharedPreferences(mContext);
-			int times = mSharedPreferences.getInt(KeyUtil.IsCanShowAD_Loading, 0);
-			return times > 0;
-		}
+		return true;
+//		if(IsShowAdImmediately){
+//
+//		}else{
+//			SharedPreferences mSharedPreferences = Settings.getSharedPreferences(mContext);
+//			int times = mSharedPreferences.getInt(KeyUtil.IsCanShowAD_Loading, 0);
+//			return times > 0;
+//		}
 	}
 
 	public static String randomAd(){
@@ -222,6 +149,7 @@ public class ADUtil {
 		try {
 			AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.AdList.AdList);
 			query.whereEqualTo(AVOUtil.AdList.isValid, "1");
+			query.whereContains(AVOUtil.AdList.app, "zyhy");
 			query.addDescendingOrder(AVOUtil.AdList.createdAt);
 			query.limit(10);
 			List<AVObject> list = query.find();

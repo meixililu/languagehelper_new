@@ -631,11 +631,25 @@ public class AVOUtil {
 		public final static String brand = "brand";
 	}
 
+	public static class AdCategory{
+		public final static String AdCategory = "AdCategory";
+		//type 根据客户端tab分类，tab 1 为 01，2 为 02。。。
+		public final static String type = "type";
+		//subject name: english, math, handsoap, sound
+		public final static String subject = "subject";
+		public final static String name = "name";
+		public final static String createdAt = "createdAt";
+	}
+
 	public static class AdList{
 		public final static String AdList = "AdList";
 		public final static String title = "title";
 		public final static String sub_title = "sub_title";
 		public final static String type = "type";
+		public final static String app = "app";
+		public final static String des = "des";
+		public final static String subject = "subject";
+		public final static String level = "level";
 		public final static String isValid = "isValid";
 		public final static String click_time = "click_time";
 		public final static String url = "url";
@@ -660,5 +674,7 @@ public class AVOUtil {
 		public final static String bs = "bs";
 		public final static String createdAt = "createdAt";
 	}
+
+
 
 }

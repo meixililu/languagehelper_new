@@ -28,6 +28,7 @@ import com.messi.languagehelper.util.ScreenUtil;
 public class BaseActivity extends AppCompatActivity {
 
     public static final String UpdateMusicUIToStop = "com.messi.languagehelper.updateuito.stop";
+    public static final String ActivityClose = "com.messi.languagehelper.activity.close";
     public Toolbar toolbar;
     public ProgressBar mProgressbar;
     public SwipeRefreshLayout mSwipeRefreshLayout;
@@ -41,6 +42,8 @@ public class BaseActivity extends AppCompatActivity {
                 if(!TextUtils.isEmpty(action)){
                     if(UpdateMusicUIToStop.equals(action)){
                         updateUI(intent.getStringExtra(KeyUtil.MusicAction));
+                    }else if(ActivityClose.equals(action)){
+                        finish();
                     }
                 }
             }
@@ -63,6 +66,12 @@ public class BaseActivity extends AppCompatActivity {
     public void registerBroadcast(){
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(UpdateMusicUIToStop);
+        registerReceiver(activityReceiver, intentFilter);
+    }
+
+    public void registerBroadcast(String action){
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(action);
         registerReceiver(activityReceiver, intentFilter);
     }
 

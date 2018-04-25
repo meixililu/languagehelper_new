@@ -17,9 +17,7 @@ import com.iflytek.voiceads.IFLYNativeAd;
 import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.util.ADUtil;
-import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.Settings;
 
 import java.util.List;
 
@@ -154,7 +152,7 @@ public class LeisureFragment extends BaseFragment {
                 }
                 break;
             case R.id.cailing_layout:
-                toCailingActivity();
+                toShoppingActivity();
                 break;
             case R.id.baidu_layout:
                 toJokeActivity();
@@ -176,7 +174,8 @@ public class LeisureFragment extends BaseFragment {
                 toGodReplyActivity();
                 break;
             case R.id.news_layout:
-
+                toActivity(EnglishWebsiteRecommendActivity.class, null);
+                AVAnalytics.onEvent(getContext(), "tab3_to_websiterecommend");
                 break;
             case R.id.app_layout:
                 toChineseDictionaryActivity();
@@ -207,12 +206,10 @@ public class LeisureFragment extends BaseFragment {
         AVAnalytics.onEvent(getActivity(), "leisure_pg_toyizhandaodi_btn");
     }
 
-    private void toCailingActivity() {
-        Intent intent = new Intent(getActivity(), WebViewActivity.class);
-        intent.putExtra(KeyUtil.URL, Settings.CaiLingUrl);
-        intent.putExtra(KeyUtil.ActionbarTitle, getActivity().getResources().getString(R.string.title_cailing));
+    private void toShoppingActivity() {
+        Intent intent = new Intent(getActivity(), AdEnglishActivity.class);
         getActivity().startActivity(intent);
-        AVAnalytics.onEvent(getActivity(), "leisure_pg_tocailingpg_btn");
+        AVAnalytics.onEvent(getActivity(), "leisure_pg_toshopping");
     }
 
     private void toTuringActivity() {

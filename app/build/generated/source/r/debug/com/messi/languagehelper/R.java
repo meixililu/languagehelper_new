@@ -4551,258 +4551,273 @@ public final class R {
     public static final int abc_vector_test=0x7f070058;
     public static final int avd_hide_password=0x7f070059;
     public static final int avd_show_password=0x7f07005a;
-    public static final int bg_btn_blue_d=0x7f07005b;
-    public static final int bg_btn_blue_s=0x7f07005c;
-    public static final int bg_btn_gray=0x7f07005d;
-    public static final int bg_btn_orange=0x7f07005e;
-    public static final int bg_lightblue_blue_selector=0x7f07005f;
-    public static final int bg_round_selector=0x7f070060;
-    public static final int blue_btn_bg_selector=0x7f070061;
-    public static final int btn_color_gray_green_selector=0x7f070062;
-    public static final int cb_white_blue_selector=0x7f070063;
-    public static final int chat_bg_green=0x7f070064;
-    public static final int chat_bg_white=0x7f070065;
-    public static final int chat_bg_white_r=0x7f070066;
-    public static final int checkbox_language_old_selector=0x7f070067;
-    public static final int checkbox_language_right_selector=0x7f070068;
-    public static final int clear_btn=0x7f070069;
-    public static final int collect_d=0x7f07006a;
-    public static final int collected_uncollected_selector=0x7f07006b;
-    public static final int content_btn_txt_color_selector=0x7f07006c;
-    public static final int delete=0x7f07006d;
-    public static final int design_bottom_navigation_item_background=0x7f07006e;
-    public static final int design_fab_background=0x7f07006f;
-    public static final int design_ic_visibility=0x7f070070;
-    public static final int design_ic_visibility_off=0x7f070071;
-    public static final int design_password_eye=0x7f070072;
-    public static final int design_snackbar_background=0x7f070073;
-    public static final int dot_d_bg=0x7f070074;
-    public static final int dot_s_bg=0x7f070075;
-    public static final int dot_selector=0x7f070076;
-    public static final int edit_btn_d=0x7f070077;
-    public static final int email=0x7f070078;
-    public static final int exo_controls_fastforward=0x7f070079;
-    public static final int exo_controls_next=0x7f07007a;
-    public static final int exo_controls_pause=0x7f07007b;
-    public static final int exo_controls_play=0x7f07007c;
-    public static final int exo_controls_previous=0x7f07007d;
-    public static final int exo_controls_repeat_all=0x7f07007e;
-    public static final int exo_controls_repeat_off=0x7f07007f;
-    public static final int exo_controls_repeat_one=0x7f070080;
-    public static final int exo_controls_rewind=0x7f070081;
-    public static final int exo_controls_shuffle=0x7f070082;
-    public static final int exo_edit_mode_logo=0x7f070083;
-    public static final int expend_right=0x7f070084;
-    public static final int framelayout_selector=0x7f070085;
-    public static final int framelayout_selector_gray=0x7f070086;
-    public static final int ic_ab_overflow_compat=0x7f070087;
-    public static final int ic_add=0x7f070088;
-    public static final int ic_arror_forward=0x7f070089;
-    public static final int ic_arrow_back=0x7f07008a;
-    public static final int ic_clear_all=0x7f07008b;
-    public static final int ic_clear_gray=0x7f07008c;
-    public static final int ic_collected_grey=0x7f07008d;
-    public static final int ic_collected_white=0x7f07008e;
-    public static final int ic_content_copy_grey600_24dp=0x7f07008f;
-    public static final int ic_content_copy_white_24dp=0x7f070090;
-    public static final int ic_dashboard_black_24dp=0x7f070091;
-    public static final int ic_done=0x7f070092;
-    public static final int ic_download_green=0x7f070093;
-    public static final int ic_expand_less=0x7f070094;
-    public static final int ic_expand_more=0x7f070095;
-    public static final int ic_face_black_24dp=0x7f070096;
-    public static final int ic_file_download_white_24dp=0x7f070097;
-    public static final int ic_forward_white_48dp=0x7f070098;
-    public static final int ic_fullscreen_exit_grey600_24dp=0x7f070099;
-    public static final int ic_fullscreen_grey600_24dp=0x7f07009a;
-    public static final int ic_get_app_white_36dp=0x7f07009b;
-    public static final int ic_grade_white_24dp=0x7f07009c;
-    public static final int ic_grade_white_36dp=0x7f07009d;
-    public static final int ic_help_grey600_24dp=0x7f07009e;
-    public static final int ic_help_white_24dp=0x7f07009f;
-    public static final int ic_history_black_24dp=0x7f0700a0;
-    public static final int ic_home_black_24dp=0x7f0700a1;
-    public static final int ic_item_duration=0x7f0700a2;
-    public static final int ic_item_playtimes_count=0x7f0700a3;
-    public static final int ic_item_sounds_count=0x7f0700a4;
-    public static final int ic_keybord_btn=0x7f0700a5;
-    public static final int ic_mic=0x7f0700a6;
-    public static final int ic_more_tools=0x7f0700a7;
-    public static final int ic_notifications_black_24dp=0x7f0700a8;
-    public static final int ic_pause_circle_outline_grey600_36dp=0x7f0700a9;
-    public static final int ic_pause_circle_outline_white_48dp=0x7f0700aa;
-    public static final int ic_pause_grey=0x7f0700ab;
-    public static final int ic_pause_white=0x7f0700ac;
-    public static final int ic_perm_contact_cal_grey600_24dp=0x7f0700ad;
-    public static final int ic_photo_camera_grey600_24dp=0x7f0700ae;
-    public static final int ic_play_arrow_white_48dp=0x7f0700af;
-    public static final int ic_play_circle_outline_grey600_36dp=0x7f0700b0;
-    public static final int ic_play_circle_outline_white_48dp=0x7f0700b1;
-    public static final int ic_play_grey=0x7f0700b2;
-    public static final int ic_play_white=0x7f0700b3;
-    public static final int ic_practise=0x7f0700b4;
-    public static final int ic_search=0x7f0700b5;
-    public static final int ic_search_white=0x7f0700b6;
-    public static final int ic_setting=0x7f0700b7;
-    public static final int ic_setting_grey=0x7f0700b8;
-    public static final int ic_share_grey600_24dp=0x7f0700b9;
-    public static final int ic_share_white_24dp=0x7f0700ba;
-    public static final int ic_skip_next=0x7f0700bb;
-    public static final int ic_skip_next_grey=0x7f0700bc;
-    public static final int ic_skip_next_white=0x7f0700bd;
-    public static final int ic_skip_previous=0x7f0700be;
-    public static final int ic_skip_previous_grey=0x7f0700bf;
-    public static final int ic_skip_previous_white=0x7f0700c0;
-    public static final int ic_stop_circle_outline_white_48dp=0x7f0700c1;
-    public static final int ic_stop_white_48dp=0x7f0700c2;
-    public static final int ic_swap=0x7f0700c3;
-    public static final int ic_tab_home=0x7f0700c4;
-    public static final int ic_tab_radio=0x7f0700c5;
-    public static final int ic_uncollected_grey=0x7f0700c6;
-    public static final int ic_uncollected_white=0x7f0700c7;
-    public static final int ic_view_all=0x7f0700c8;
-    public static final int ic_visibility_grey600_36dp=0x7f0700c9;
-    public static final int ic_voice_padded_normal=0x7f0700ca;
-    public static final int ic_volume_off=0x7f0700cb;
-    public static final int ic_volume_off_n=0x7f0700cc;
-    public static final int ic_volume_on=0x7f0700cd;
-    public static final int ic_volume_up_white_36dp=0x7f0700ce;
-    public static final int icon_copy_d=0x7f0700cf;
-    public static final int icon_radio_country=0x7f0700d0;
-    public static final int icon_radio_internet=0x7f0700d1;
-    public static final int icon_radio_local=0x7f0700d2;
-    public static final int icon_radio_province=0x7f0700d3;
-    public static final int icon_weixin=0x7f0700d4;
-    public static final int jz_add_volume=0x7f0700d5;
-    public static final int jz_back_normal=0x7f0700d6;
-    public static final int jz_back_pressed=0x7f0700d7;
-    public static final int jz_back_tiny_normal=0x7f0700d8;
-    public static final int jz_back_tiny_pressed=0x7f0700d9;
-    public static final int jz_backward_icon=0x7f0700da;
-    public static final int jz_battery_level_10=0x7f0700db;
-    public static final int jz_battery_level_100=0x7f0700dc;
-    public static final int jz_battery_level_30=0x7f0700dd;
-    public static final int jz_battery_level_50=0x7f0700de;
-    public static final int jz_battery_level_70=0x7f0700df;
-    public static final int jz_battery_level_90=0x7f0700e0;
-    public static final int jz_bottom_bg=0x7f0700e1;
-    public static final int jz_bottom_progress=0x7f0700e2;
-    public static final int jz_bottom_seek_progress=0x7f0700e3;
-    public static final int jz_bottom_seek_thumb=0x7f0700e4;
-    public static final int jz_brightness_video=0x7f0700e5;
-    public static final int jz_clarity_popwindow_bg=0x7f0700e6;
-    public static final int jz_click_back_selector=0x7f0700e7;
-    public static final int jz_click_back_tiny_selector=0x7f0700e8;
-    public static final int jz_click_pause_selector=0x7f0700e9;
-    public static final int jz_click_play_selector=0x7f0700ea;
-    public static final int jz_click_replay_selector=0x7f0700eb;
-    public static final int jz_click_share_selector=0x7f0700ec;
-    public static final int jz_close_volume=0x7f0700ed;
-    public static final int jz_dialog_progress=0x7f0700ee;
-    public static final int jz_dialog_progress_bg=0x7f0700ef;
-    public static final int jz_enlarge=0x7f0700f0;
-    public static final int jz_forward_icon=0x7f0700f1;
-    public static final int jz_loading=0x7f0700f2;
-    public static final int jz_loading_bg=0x7f0700f3;
-    public static final int jz_pause_normal=0x7f0700f4;
-    public static final int jz_pause_pressed=0x7f0700f5;
-    public static final int jz_play_normal=0x7f0700f6;
-    public static final int jz_play_pressed=0x7f0700f7;
-    public static final int jz_restart_normal=0x7f0700f8;
-    public static final int jz_restart_pressed=0x7f0700f9;
-    public static final int jz_seek_thumb_normal=0x7f0700fa;
-    public static final int jz_seek_thumb_pressed=0x7f0700fb;
-    public static final int jz_share_normal=0x7f0700fc;
-    public static final int jz_share_pressed=0x7f0700fd;
-    public static final int jz_shrink=0x7f0700fe;
-    public static final int jz_title_bg=0x7f0700ff;
-    public static final int jz_volume_icon=0x7f070100;
-    public static final int jz_volume_progress_bg=0x7f070101;
-    public static final int language_btn_bg_n=0x7f070102;
-    public static final int language_btn_bg_s=0x7f070103;
-    public static final int line_xml=0x7f070104;
-    public static final int list_item_bg_white=0x7f070105;
-    public static final int loading=0x7f070106;
-    public static final int main_album_sort_asc=0x7f070107;
-    public static final int main_album_sort_desc=0x7f070108;
-    public static final int main_ic_album_batch_download=0x7f070109;
-    public static final int main_ic_seekbar_thumb_orange=0x7f07010a;
-    public static final int navigation_empty_icon=0x7f07010b;
-    public static final int none_blue_bg_selector=0x7f07010c;
-    public static final int notification_action_background=0x7f07010d;
-    public static final int notification_bg=0x7f07010e;
-    public static final int notification_bg_low=0x7f07010f;
-    public static final int notification_bg_low_normal=0x7f070110;
-    public static final int notification_bg_low_pressed=0x7f070111;
-    public static final int notification_bg_normal=0x7f070112;
-    public static final int notification_bg_normal_pressed=0x7f070113;
-    public static final int notification_icon_background=0x7f070114;
-    public static final int notification_template_icon_bg=0x7f070115;
-    public static final int notification_template_icon_low_bg=0x7f070116;
-    public static final int notification_tile_bg=0x7f070117;
-    public static final int notify_panel_notification_icon_bg=0x7f070118;
-    public static final int pager_selector=0x7f070119;
-    public static final int play_btn_1=0x7f07011a;
-    public static final int play_btn_2=0x7f07011b;
-    public static final int play_btn_d=0x7f07011c;
-    public static final int play_btn_white_1=0x7f07011d;
-    public static final int play_btn_white_2=0x7f07011e;
-    public static final int play_btn_white_d=0x7f07011f;
-    public static final int player_next_selector=0x7f070120;
-    public static final int player_pause_selector=0x7f070121;
-    public static final int player_play_selector=0x7f070122;
-    public static final int player_previous_selector=0x7f070123;
-    public static final int player_toolbar_next_disable=0x7f070124;
-    public static final int player_toolbar_next_normal=0x7f070125;
-    public static final int player_toolbar_next_pressed=0x7f070126;
-    public static final int player_toolbar_pause_normal=0x7f070127;
-    public static final int player_toolbar_pause_pressed=0x7f070128;
-    public static final int player_toolbar_play_normal=0x7f070129;
-    public static final int player_toolbar_play_pressed=0x7f07012a;
-    public static final int player_toolbar_previous_disable=0x7f07012b;
-    public static final int player_toolbar_previous_normal=0x7f07012c;
-    public static final int player_toolbar_previous_pressed=0x7f07012d;
-    public static final int qrcode=0x7f07012e;
-    public static final int retry_bg=0x7f07012f;
-    public static final int round_bg=0x7f070130;
-    public static final int round_bg_record=0x7f070131;
-    public static final int round_bg_s=0x7f070132;
-    public static final int round_gray_bgl=0x7f070133;
-    public static final int round_gray_bgl_old=0x7f070134;
-    public static final int round_gray_green_bgl=0x7f070135;
-    public static final int round_green500_bg=0x7f070136;
-    public static final int round_light_blue_bgl=0x7f070137;
-    public static final int round_light_green_bgl=0x7f070138;
-    public static final int rounded_round=0x7f070139;
-    public static final int sample_footer_loading=0x7f07013a;
-    public static final int sample_footer_loading_progress=0x7f07013b;
-    public static final int seekbar_progress_bar=0x7f07013c;
-    public static final int seekbar_thumb=0x7f07013d;
-    public static final int seekbar_thumb_small=0x7f07013e;
-    public static final int shadow=0x7f07013f;
-    public static final int speak_voice_1=0x7f070140;
-    public static final int speak_voice_2=0x7f070141;
-    public static final int speak_voice_3=0x7f070142;
-    public static final int speak_voice_4=0x7f070143;
-    public static final int speak_voice_5=0x7f070144;
-    public static final int speak_voice_6=0x7f070145;
-    public static final int speak_voice_7=0x7f070146;
-    public static final int style1=0x7f070147;
-    public static final int style2=0x7f070148;
-    public static final int tab_color_selector=0x7f070149;
-    public static final int tab_nav_text_color_selector=0x7f07014a;
-    public static final int tc_black_to_white_selector=0x7f07014b;
-    public static final int text_selector=0x7f07014c;
-    public static final int tooltip_frame_dark=0x7f07014d;
-    public static final int tooltip_frame_light=0x7f07014e;
-    public static final int top_btn_txt_color_selector=0x7f07014f;
-    public static final int txt_color_darkgray_white_selector=0x7f070150;
-    public static final int txt_color_gray_white_selector=0x7f070151;
-    public static final int uncollected=0x7f070152;
-    public static final int unread_dot=0x7f070153;
-    public static final int voice_pic=0x7f070154;
-    public static final int voice_play=0x7f070155;
-    public static final int voice_play_white=0x7f070156;
+    public static final int background_circle=0x7f07005b;
+    public static final int bg_btn_blue_d=0x7f07005c;
+    public static final int bg_btn_blue_s=0x7f07005d;
+    public static final int bg_btn_gray=0x7f07005e;
+    public static final int bg_btn_orange=0x7f07005f;
+    public static final int bg_lightblue_blue_selector=0x7f070060;
+    public static final int bg_round_selector=0x7f070061;
+    public static final int blue_btn_bg_selector=0x7f070062;
+    public static final int btn_color_gray_green_selector=0x7f070063;
+    public static final int cb_white_blue_selector=0x7f070064;
+    public static final int chat_bg_green=0x7f070065;
+    public static final int chat_bg_white=0x7f070066;
+    public static final int chat_bg_white_r=0x7f070067;
+    public static final int checkbox_language_old_selector=0x7f070068;
+    public static final int checkbox_language_right_selector=0x7f070069;
+    public static final int clear_btn=0x7f07006a;
+    public static final int collect_d=0x7f07006b;
+    public static final int collected_uncollected_selector=0x7f07006c;
+    public static final int content_btn_txt_color_selector=0x7f07006d;
+    public static final int delete=0x7f07006e;
+    public static final int design_bottom_navigation_item_background=0x7f07006f;
+    public static final int design_fab_background=0x7f070070;
+    public static final int design_ic_visibility=0x7f070071;
+    public static final int design_ic_visibility_off=0x7f070072;
+    public static final int design_password_eye=0x7f070073;
+    public static final int design_snackbar_background=0x7f070074;
+    public static final int dot_d_bg=0x7f070075;
+    public static final int dot_s_bg=0x7f070076;
+    public static final int dot_selector=0x7f070077;
+    public static final int edit_btn_d=0x7f070078;
+    public static final int email=0x7f070079;
+    public static final int exo_controls_fastforward=0x7f07007a;
+    public static final int exo_controls_next=0x7f07007b;
+    public static final int exo_controls_pause=0x7f07007c;
+    public static final int exo_controls_play=0x7f07007d;
+    public static final int exo_controls_previous=0x7f07007e;
+    public static final int exo_controls_repeat_all=0x7f07007f;
+    public static final int exo_controls_repeat_off=0x7f070080;
+    public static final int exo_controls_repeat_one=0x7f070081;
+    public static final int exo_controls_rewind=0x7f070082;
+    public static final int exo_controls_shuffle=0x7f070083;
+    public static final int exo_edit_mode_logo=0x7f070084;
+    public static final int expend_right=0x7f070085;
+    public static final int framelayout_selector=0x7f070086;
+    public static final int framelayout_selector_gray=0x7f070087;
+    public static final int ic_ab_overflow_compat=0x7f070088;
+    public static final int ic_add=0x7f070089;
+    public static final int ic_arror_forward=0x7f07008a;
+    public static final int ic_arrow_back=0x7f07008b;
+    public static final int ic_clear_all=0x7f07008c;
+    public static final int ic_clear_gray=0x7f07008d;
+    public static final int ic_collected_grey=0x7f07008e;
+    public static final int ic_collected_white=0x7f07008f;
+    public static final int ic_content_copy_grey600_24dp=0x7f070090;
+    public static final int ic_content_copy_white_24dp=0x7f070091;
+    public static final int ic_dashboard_black_24dp=0x7f070092;
+    public static final int ic_done=0x7f070093;
+    public static final int ic_download_green=0x7f070094;
+    public static final int ic_expand_less=0x7f070095;
+    public static final int ic_expand_more=0x7f070096;
+    public static final int ic_face_black_24dp=0x7f070097;
+    public static final int ic_file_download_white_24dp=0x7f070098;
+    public static final int ic_forward_white_48dp=0x7f070099;
+    public static final int ic_fullscreen_exit_grey600_24dp=0x7f07009a;
+    public static final int ic_fullscreen_grey600_24dp=0x7f07009b;
+    public static final int ic_get_app_white_36dp=0x7f07009c;
+    public static final int ic_grade_white_24dp=0x7f07009d;
+    public static final int ic_grade_white_36dp=0x7f07009e;
+    public static final int ic_help_grey600_24dp=0x7f07009f;
+    public static final int ic_help_white_24dp=0x7f0700a0;
+    public static final int ic_history_black_24dp=0x7f0700a1;
+    public static final int ic_home_black_24dp=0x7f0700a2;
+    public static final int ic_item_duration=0x7f0700a3;
+    public static final int ic_item_playtimes_count=0x7f0700a4;
+    public static final int ic_item_sounds_count=0x7f0700a5;
+    public static final int ic_keybord_btn=0x7f0700a6;
+    public static final int ic_mic=0x7f0700a7;
+    public static final int ic_more_tools=0x7f0700a8;
+    public static final int ic_notifications_black_24dp=0x7f0700a9;
+    public static final int ic_pause_circle_outline_grey600_36dp=0x7f0700aa;
+    public static final int ic_pause_circle_outline_white_48dp=0x7f0700ab;
+    public static final int ic_pause_grey=0x7f0700ac;
+    public static final int ic_pause_white=0x7f0700ad;
+    public static final int ic_perm_contact_cal_grey600_24dp=0x7f0700ae;
+    public static final int ic_photo_camera_grey600_24dp=0x7f0700af;
+    public static final int ic_play_arrow_white_48dp=0x7f0700b0;
+    public static final int ic_play_circle_outline_grey600_36dp=0x7f0700b1;
+    public static final int ic_play_circle_outline_white_48dp=0x7f0700b2;
+    public static final int ic_play_grey=0x7f0700b3;
+    public static final int ic_play_white=0x7f0700b4;
+    public static final int ic_practise=0x7f0700b5;
+    public static final int ic_search=0x7f0700b6;
+    public static final int ic_search_white=0x7f0700b7;
+    public static final int ic_setting=0x7f0700b8;
+    public static final int ic_setting_grey=0x7f0700b9;
+    public static final int ic_share_grey600_24dp=0x7f0700ba;
+    public static final int ic_share_white_24dp=0x7f0700bb;
+    public static final int ic_skip_next=0x7f0700bc;
+    public static final int ic_skip_next_grey=0x7f0700bd;
+    public static final int ic_skip_next_white=0x7f0700be;
+    public static final int ic_skip_previous=0x7f0700bf;
+    public static final int ic_skip_previous_grey=0x7f0700c0;
+    public static final int ic_skip_previous_white=0x7f0700c1;
+    public static final int ic_stop_circle_outline_white_48dp=0x7f0700c2;
+    public static final int ic_stop_white_48dp=0x7f0700c3;
+    public static final int ic_store_black_24dp=0x7f0700c4;
+    public static final int ic_subject_black_24dp=0x7f0700c5;
+    public static final int ic_swap=0x7f0700c6;
+    public static final int ic_tab_home=0x7f0700c7;
+    public static final int ic_tab_radio=0x7f0700c8;
+    public static final int ic_uncollected_grey=0x7f0700c9;
+    public static final int ic_uncollected_white=0x7f0700ca;
+    public static final int ic_view_all=0x7f0700cb;
+    public static final int ic_view_list_black_24dp=0x7f0700cc;
+    public static final int ic_visibility_grey600_36dp=0x7f0700cd;
+    public static final int ic_voice_padded_normal=0x7f0700ce;
+    public static final int ic_volume_off=0x7f0700cf;
+    public static final int ic_volume_off_n=0x7f0700d0;
+    public static final int ic_volume_on=0x7f0700d1;
+    public static final int ic_volume_up_white_36dp=0x7f0700d2;
+    public static final int icon_copy_d=0x7f0700d3;
+    public static final int icon_examination=0x7f0700d4;
+    public static final int icon_favrite=0x7f0700d5;
+    public static final int icon_fm=0x7f0700d6;
+    public static final int icon_grammer=0x7f0700d7;
+    public static final int icon_listening=0x7f0700d8;
+    public static final int icon_radio_country=0x7f0700d9;
+    public static final int icon_radio_internet=0x7f0700da;
+    public static final int icon_radio_local=0x7f0700db;
+    public static final int icon_radio_province=0x7f0700dc;
+    public static final int icon_speaking=0x7f0700dd;
+    public static final int icon_story=0x7f0700de;
+    public static final int icon_symbol=0x7f0700df;
+    public static final int icon_website=0x7f0700e0;
+    public static final int icon_weixin=0x7f0700e1;
+    public static final int icon_words=0x7f0700e2;
+    public static final int icon_writing=0x7f0700e3;
+    public static final int jz_add_volume=0x7f0700e4;
+    public static final int jz_back_normal=0x7f0700e5;
+    public static final int jz_back_pressed=0x7f0700e6;
+    public static final int jz_back_tiny_normal=0x7f0700e7;
+    public static final int jz_back_tiny_pressed=0x7f0700e8;
+    public static final int jz_backward_icon=0x7f0700e9;
+    public static final int jz_battery_level_10=0x7f0700ea;
+    public static final int jz_battery_level_100=0x7f0700eb;
+    public static final int jz_battery_level_30=0x7f0700ec;
+    public static final int jz_battery_level_50=0x7f0700ed;
+    public static final int jz_battery_level_70=0x7f0700ee;
+    public static final int jz_battery_level_90=0x7f0700ef;
+    public static final int jz_bottom_bg=0x7f0700f0;
+    public static final int jz_bottom_progress=0x7f0700f1;
+    public static final int jz_bottom_seek_progress=0x7f0700f2;
+    public static final int jz_bottom_seek_thumb=0x7f0700f3;
+    public static final int jz_brightness_video=0x7f0700f4;
+    public static final int jz_clarity_popwindow_bg=0x7f0700f5;
+    public static final int jz_click_back_selector=0x7f0700f6;
+    public static final int jz_click_back_tiny_selector=0x7f0700f7;
+    public static final int jz_click_pause_selector=0x7f0700f8;
+    public static final int jz_click_play_selector=0x7f0700f9;
+    public static final int jz_click_replay_selector=0x7f0700fa;
+    public static final int jz_click_share_selector=0x7f0700fb;
+    public static final int jz_close_volume=0x7f0700fc;
+    public static final int jz_dialog_progress=0x7f0700fd;
+    public static final int jz_dialog_progress_bg=0x7f0700fe;
+    public static final int jz_enlarge=0x7f0700ff;
+    public static final int jz_forward_icon=0x7f070100;
+    public static final int jz_loading=0x7f070101;
+    public static final int jz_loading_bg=0x7f070102;
+    public static final int jz_pause_normal=0x7f070103;
+    public static final int jz_pause_pressed=0x7f070104;
+    public static final int jz_play_normal=0x7f070105;
+    public static final int jz_play_pressed=0x7f070106;
+    public static final int jz_restart_normal=0x7f070107;
+    public static final int jz_restart_pressed=0x7f070108;
+    public static final int jz_seek_thumb_normal=0x7f070109;
+    public static final int jz_seek_thumb_pressed=0x7f07010a;
+    public static final int jz_share_normal=0x7f07010b;
+    public static final int jz_share_pressed=0x7f07010c;
+    public static final int jz_shrink=0x7f07010d;
+    public static final int jz_title_bg=0x7f07010e;
+    public static final int jz_volume_icon=0x7f07010f;
+    public static final int jz_volume_progress_bg=0x7f070110;
+    public static final int language_btn_bg_n=0x7f070111;
+    public static final int language_btn_bg_s=0x7f070112;
+    public static final int line_xml=0x7f070113;
+    public static final int list_item_bg_white=0x7f070114;
+    public static final int loading=0x7f070115;
+    public static final int main_album_sort_asc=0x7f070116;
+    public static final int main_album_sort_desc=0x7f070117;
+    public static final int main_ic_album_batch_download=0x7f070118;
+    public static final int main_ic_seekbar_thumb_orange=0x7f070119;
+    public static final int navigation_empty_icon=0x7f07011a;
+    public static final int none_blue_bg_selector=0x7f07011b;
+    public static final int notification_action_background=0x7f07011c;
+    public static final int notification_bg=0x7f07011d;
+    public static final int notification_bg_low=0x7f07011e;
+    public static final int notification_bg_low_normal=0x7f07011f;
+    public static final int notification_bg_low_pressed=0x7f070120;
+    public static final int notification_bg_normal=0x7f070121;
+    public static final int notification_bg_normal_pressed=0x7f070122;
+    public static final int notification_icon_background=0x7f070123;
+    public static final int notification_template_icon_bg=0x7f070124;
+    public static final int notification_template_icon_low_bg=0x7f070125;
+    public static final int notification_tile_bg=0x7f070126;
+    public static final int notify_panel_notification_icon_bg=0x7f070127;
+    public static final int pager_selector=0x7f070128;
+    public static final int play_btn_1=0x7f070129;
+    public static final int play_btn_2=0x7f07012a;
+    public static final int play_btn_d=0x7f07012b;
+    public static final int play_btn_white_1=0x7f07012c;
+    public static final int play_btn_white_2=0x7f07012d;
+    public static final int play_btn_white_d=0x7f07012e;
+    public static final int player_next_selector=0x7f07012f;
+    public static final int player_pause_selector=0x7f070130;
+    public static final int player_play_selector=0x7f070131;
+    public static final int player_previous_selector=0x7f070132;
+    public static final int player_toolbar_next_disable=0x7f070133;
+    public static final int player_toolbar_next_normal=0x7f070134;
+    public static final int player_toolbar_next_pressed=0x7f070135;
+    public static final int player_toolbar_pause_normal=0x7f070136;
+    public static final int player_toolbar_pause_pressed=0x7f070137;
+    public static final int player_toolbar_play_normal=0x7f070138;
+    public static final int player_toolbar_play_pressed=0x7f070139;
+    public static final int player_toolbar_previous_disable=0x7f07013a;
+    public static final int player_toolbar_previous_normal=0x7f07013b;
+    public static final int player_toolbar_previous_pressed=0x7f07013c;
+    public static final int qrcode=0x7f07013d;
+    public static final int retry_bg=0x7f07013e;
+    public static final int round_bg=0x7f07013f;
+    public static final int round_bg_record=0x7f070140;
+    public static final int round_bg_s=0x7f070141;
+    public static final int round_gray_bgl=0x7f070142;
+    public static final int round_gray_bgl_old=0x7f070143;
+    public static final int round_gray_green_bgl=0x7f070144;
+    public static final int round_green500_bg=0x7f070145;
+    public static final int round_light_blue_bgl=0x7f070146;
+    public static final int round_light_green_bgl=0x7f070147;
+    public static final int rounded_round=0x7f070148;
+    public static final int sample_footer_loading=0x7f070149;
+    public static final int sample_footer_loading_progress=0x7f07014a;
+    public static final int seekbar_progress_bar=0x7f07014b;
+    public static final int seekbar_thumb=0x7f07014c;
+    public static final int seekbar_thumb_small=0x7f07014d;
+    public static final int shadow=0x7f07014e;
+    public static final int speak_voice_1=0x7f07014f;
+    public static final int speak_voice_2=0x7f070150;
+    public static final int speak_voice_3=0x7f070151;
+    public static final int speak_voice_4=0x7f070152;
+    public static final int speak_voice_5=0x7f070153;
+    public static final int speak_voice_6=0x7f070154;
+    public static final int speak_voice_7=0x7f070155;
+    public static final int style1=0x7f070156;
+    public static final int style2=0x7f070157;
+    public static final int tab_color_selector=0x7f070158;
+    public static final int tab_nav_text_color_selector=0x7f070159;
+    public static final int tc_black_to_white_selector=0x7f07015a;
+    public static final int text_selector=0x7f07015b;
+    public static final int tooltip_frame_dark=0x7f07015c;
+    public static final int tooltip_frame_light=0x7f07015d;
+    public static final int top_btn_txt_color_selector=0x7f07015e;
+    public static final int txt_color_darkgray_white_selector=0x7f07015f;
+    public static final int txt_color_gray_white_selector=0x7f070160;
+    public static final int uncollected=0x7f070161;
+    public static final int unread_dot=0x7f070162;
+    public static final int voice_pic=0x7f070163;
+    public static final int voice_play=0x7f070164;
+    public static final int voice_play_white=0x7f070165;
   }
   public static final class id {
     public static final int ALT=0x7f080000;
@@ -4853,14 +4868,14 @@ public final class R {
     public static final int ad_btn=0x7f08002d;
     public static final int ad_close=0x7f08002e;
     public static final int ad_img=0x7f08002f;
-    public static final int ad_layout=0x7f080030;
-    public static final int ad_source=0x7f080031;
-    public static final int ad_title=0x7f080032;
-    public static final int ad_view=0x7f080033;
-    public static final int add=0x7f080034;
-    public static final int ai_chat_machine=0x7f080035;
-    public static final int ai_chat_user=0x7f080036;
-    public static final int ai_unread=0x7f080037;
+    public static final int ad_img_sign=0x7f080030;
+    public static final int ad_layout=0x7f080031;
+    public static final int ad_source=0x7f080032;
+    public static final int ad_title=0x7f080033;
+    public static final int ad_view=0x7f080034;
+    public static final int add=0x7f080035;
+    public static final int ai_chat_machine=0x7f080036;
+    public static final int ai_chat_user=0x7f080037;
     public static final int album_title=0x7f080038;
     public static final int alertTitle=0x7f080039;
     public static final int all=0x7f08003a;
@@ -5001,517 +5016,514 @@ public final class R {
     public static final int edit_query=0x7f0800c1;
     public static final int email_layout=0x7f0800c2;
     public static final int empty_tv=0x7f0800c3;
-    public static final int en_broadcast=0x7f0800c4;
-    public static final int en_business=0x7f0800c5;
-    public static final int en_examination_layout=0x7f0800c6;
-    public static final int en_grammar=0x7f0800c7;
-    public static final int en_story_layout=0x7f0800c8;
-    public static final int end=0x7f0800c9;
-    public static final int end_padder=0x7f0800ca;
-    public static final int english_txt=0x7f0800cb;
-    public static final int english_website_layout2=0x7f0800cc;
-    public static final int enterAlways=0x7f0800cd;
-    public static final int enterAlwaysCollapsed=0x7f0800ce;
-    public static final int error_txt=0x7f0800cf;
-    public static final int evaluation_en_tv=0x7f0800d0;
-    public static final int evaluation_zh_tv=0x7f0800d1;
-    public static final int exitUntilCollapsed=0x7f0800d2;
-    public static final int exo_artwork=0x7f0800d3;
-    public static final int exo_content_frame=0x7f0800d4;
-    public static final int exo_controller=0x7f0800d5;
-    public static final int exo_controller_placeholder=0x7f0800d6;
-    public static final int exo_duration=0x7f0800d7;
-    public static final int exo_ffwd=0x7f0800d8;
-    public static final int exo_fullscreen_button=0x7f0800d9;
-    public static final int exo_fullscreen_icon=0x7f0800da;
-    public static final int exo_next=0x7f0800db;
-    public static final int exo_overlay=0x7f0800dc;
-    public static final int exo_pause=0x7f0800dd;
-    public static final int exo_play=0x7f0800de;
-    public static final int exo_position=0x7f0800df;
-    public static final int exo_prev=0x7f0800e0;
-    public static final int exo_progress=0x7f0800e1;
-    public static final int exo_repeat_toggle=0x7f0800e2;
-    public static final int exo_rew=0x7f0800e3;
-    public static final int exo_shuffle=0x7f0800e4;
-    public static final int exo_shutter=0x7f0800e5;
-    public static final int exo_subtitles=0x7f0800e6;
-    public static final int expand_activities_button=0x7f0800e7;
-    public static final int expanded_menu=0x7f0800e8;
-    public static final int fade_in=0x7f0800e9;
-    public static final int fade_in_out=0x7f0800ea;
-    public static final int fade_out=0x7f0800eb;
-    public static final int fight_resutl_tv=0x7f0800ec;
-    public static final int fill=0x7f0800ed;
-    public static final int fill_horizontal=0x7f0800ee;
-    public static final int fill_vertical=0x7f0800ef;
-    public static final int finish_test_layout=0x7f0800f0;
-    public static final int fit=0x7f0800f1;
-    public static final int fitBottomStart=0x7f0800f2;
-    public static final int fitCenter=0x7f0800f3;
-    public static final int fitEnd=0x7f0800f4;
-    public static final int fitStart=0x7f0800f5;
-    public static final int fitXY=0x7f0800f6;
-    public static final int fixed=0x7f0800f7;
-    public static final int fixed_height=0x7f0800f8;
-    public static final int fixed_width=0x7f0800f9;
-    public static final int flex_end=0x7f0800fa;
-    public static final int flex_start=0x7f0800fb;
-    public static final int fm_radio_country=0x7f0800fc;
-    public static final int fm_radio_internet=0x7f0800fd;
-    public static final int fm_radio_local=0x7f0800fe;
-    public static final int fm_radio_province=0x7f0800ff;
-    public static final int focusCrop=0x7f080100;
-    public static final int forever=0x7f080101;
-    public static final int forward_img=0x7f080102;
-    public static final int fullscreen=0x7f080103;
-    public static final int game_layout=0x7f080104;
-    public static final int ghost_view=0x7f080105;
-    public static final int group_layouttransition_backup=0x7f080106;
-    public static final int help_layout=0x7f080107;
-    public static final int home=0x7f080108;
-    public static final int homeAsUp=0x7f080109;
-    public static final int icon=0x7f08010a;
-    public static final int icon_group=0x7f08010b;
-    public static final int ifRoom=0x7f08010c;
-    public static final int image=0x7f08010d;
-    public static final int imageview=0x7f08010e;
-    public static final int img_cover=0x7f08010f;
-    public static final int img_layout=0x7f080110;
-    public static final int img_sort=0x7f080111;
-    public static final int imgs_1=0x7f080112;
-    public static final int imgs_2=0x7f080113;
-    public static final int imgs_3=0x7f080114;
-    public static final int imgs_layout=0x7f080115;
-    public static final int info=0x7f080116;
-    public static final int input_et=0x7f080117;
-    public static final int input_layout=0x7f080118;
-    public static final int input_type_btn=0x7f080119;
-    public static final int input_type_layout=0x7f08011a;
-    public static final int instagram_layout=0x7f08011b;
-    public static final int invest_layout=0x7f08011c;
-    public static final int invisible=0x7f08011d;
-    public static final int invite_layout=0x7f08011e;
-    public static final int italic=0x7f08011f;
-    public static final int item=0x7f080120;
-    public static final int item_img=0x7f080121;
-    public static final int item_img_layout=0x7f080122;
-    public static final int item_touch_helper_previous_elevation=0x7f080123;
-    public static final int jz_fullscreen_id=0x7f080124;
-    public static final int jz_tiny_id=0x7f080125;
-    public static final int keybord_layout=0x7f080126;
-    public static final int largeLabel=0x7f080127;
-    public static final int layout_bottom=0x7f080128;
-    public static final int layout_cover=0x7f080129;
-    public static final int layout_top=0x7f08012a;
-    public static final int left=0x7f08012b;
-    public static final int line1=0x7f08012c;
-    public static final int line3=0x7f08012d;
-    public static final int listMode=0x7f08012e;
-    public static final int list_item=0x7f08012f;
-    public static final int list_item_bg=0x7f080130;
-    public static final int list_item_img=0x7f080131;
-    public static final int list_item_img_parent=0x7f080132;
-    public static final int list_item_layout=0x7f080133;
-    public static final int listview=0x7f080134;
-    public static final int load_more_load_end_view=0x7f080135;
-    public static final int load_more_load_fail_view=0x7f080136;
-    public static final int load_more_loading_view=0x7f080137;
-    public static final int loading=0x7f080138;
-    public static final int loading_progress=0x7f080139;
-    public static final int loading_text=0x7f08013a;
-    public static final int mail_txt=0x7f08013b;
-    public static final int main_content=0x7f08013c;
-    public static final int masked=0x7f08013d;
-    public static final int material_color_1=0x7f08013e;
-    public static final int material_color_2=0x7f08013f;
-    public static final int material_color_3=0x7f080140;
-    public static final int material_color_4=0x7f080141;
-    public static final int material_color_5=0x7f080142;
-    public static final int media_actions=0x7f080143;
-    public static final int menu_frame=0x7f080144;
-    public static final int menulistview=0x7f080145;
-    public static final int message=0x7f080146;
-    public static final int mic_layout=0x7f080147;
-    public static final int middle=0x7f080148;
-    public static final int mini=0x7f080149;
-    public static final int mode_in=0x7f08014a;
-    public static final int mode_out=0x7f08014b;
-    public static final int more_layout=0x7f08014c;
-    public static final int more_tools_img=0x7f08014d;
-    public static final int more_tools_img_mic=0x7f08014e;
-    public static final int more_tools_layout=0x7f08014f;
-    public static final int more_tools_layout_mic=0x7f080150;
-    public static final int mswiperefreshlayout=0x7f080151;
-    public static final int multiply=0x7f080152;
-    public static final int music_play_img=0x7f080153;
-    public static final int my_awesome_toolbar=0x7f080154;
-    public static final int name=0x7f080155;
-    public static final int navigation=0x7f080156;
-    public static final int navigation_dashboard=0x7f080157;
-    public static final int navigation_header_container=0x7f080158;
-    public static final int navigation_home=0x7f080159;
-    public static final int never=0x7f08015a;
-    public static final int news_layout=0x7f08015b;
-    public static final int next_btn=0x7f08015c;
-    public static final int next_composition=0x7f08015d;
-    public static final int next_unit_layout=0x7f08015e;
-    public static final int none=0x7f08015f;
-    public static final int normal=0x7f080160;
-    public static final int notifi_action=0x7f080161;
-    public static final int notifi_des=0x7f080162;
-    public static final int notifi_icon=0x7f080163;
-    public static final int notifi_next=0x7f080164;
-    public static final int notifi_previous=0x7f080165;
-    public static final int notifi_title=0x7f080166;
-    public static final int notification_background=0x7f080167;
-    public static final int notification_main_column=0x7f080168;
-    public static final int notification_main_column_container=0x7f080169;
-    public static final int nowrap=0x7f08016a;
-    public static final int number_progress_bar=0x7f08016b;
-    public static final int offline_dic_layout=0x7f08016c;
-    public static final int offline_dic_unread_dot=0x7f08016d;
-    public static final int one=0x7f08016e;
-    public static final int overlay_layout_params_backup=0x7f08016f;
-    public static final int overlay_view=0x7f080170;
-    public static final int page_content=0x7f080171;
-    public static final int page_count=0x7f080172;
-    public static final int page_navigation=0x7f080173;
-    public static final int pager=0x7f080174;
-    public static final int parallax=0x7f080175;
-    public static final int parentMatrix=0x7f080176;
-    public static final int parentPanel=0x7f080177;
-    public static final int parent_layout=0x7f080178;
-    public static final int parent_matrix=0x7f080179;
-    public static final int photo_tran_btn=0x7f08017a;
-    public static final int pin=0x7f08017b;
-    public static final int pinxie_layout=0x7f08017c;
-    public static final int play_btn=0x7f08017d;
-    public static final int play_content_btn_progressbar=0x7f08017e;
-    public static final int play_img=0x7f08017f;
-    public static final int play_next=0x7f080180;
-    public static final int play_previous=0x7f080181;
-    public static final int play_time_current=0x7f080182;
-    public static final int play_time_duration=0x7f080183;
-    public static final int playbtn=0x7f080184;
-    public static final int player_layout=0x7f080185;
-    public static final int player_view=0x7f080186;
-    public static final int popview_item=0x7f080187;
-    public static final int popview_item_tv=0x7f080188;
-    public static final int popwindow_root=0x7f080189;
-    public static final int practice_prompt=0x7f08018a;
-    public static final int previous_btn=0x7f08018b;
-    public static final int progressBarCircularIndetermininate=0x7f08018c;
-    public static final int progress_circular=0x7f08018d;
-    public static final int progress_horizontal=0x7f08018e;
-    public static final int progress_layout=0x7f08018f;
-    public static final int progress_tv=0x7f080190;
-    public static final int progressdeterminate=0x7f080191;
-    public static final int prompt_tv=0x7f080192;
-    public static final int publish_time=0x7f080193;
-    public static final int qrcode_layout=0x7f080194;
-    public static final int question=0x7f080195;
-    public static final int question_tv=0x7f080196;
-    public static final int question_tv_cover=0x7f080197;
-    public static final int questiontv=0x7f080198;
-    public static final int radio=0x7f080199;
-    public static final int radio_replay=0x7f08019a;
-    public static final int radio_time=0x7f08019b;
-    public static final int random_cover=0x7f08019c;
-    public static final int recent_used_lv=0x7f08019d;
-    public static final int record__progressbar=0x7f08019e;
-    public static final int record_anim_img=0x7f08019f;
-    public static final int record_animation_layout=0x7f0801a0;
-    public static final int record_animation_text=0x7f0801a1;
-    public static final int record_answer=0x7f0801a2;
-    public static final int record_answer_cover=0x7f0801a3;
-    public static final int record_layout=0x7f0801a4;
-    public static final int record_listview=0x7f0801a5;
-    public static final int record_load_result=0x7f0801a6;
-    public static final int record_question=0x7f0801a7;
-    public static final int record_question_cover=0x7f0801a8;
-    public static final int record_to_practice=0x7f0801a9;
-    public static final int refreshable_webview=0x7f0801aa;
-    public static final int renzhi_layout=0x7f0801ab;
-    public static final int repeat_time=0x7f0801ac;
-    public static final int repeat_time_minus=0x7f0801ad;
-    public static final int repeat_time_minus_cover=0x7f0801ae;
-    public static final int repeat_time_plus=0x7f0801af;
-    public static final int repeat_time_plus_cover=0x7f0801b0;
-    public static final int replay_text=0x7f0801b1;
-    public static final int result_layout=0x7f0801b2;
-    public static final int result_tv=0x7f0801b3;
-    public static final int result_tv_cover=0x7f0801b4;
-    public static final int retry_btn=0x7f0801b5;
-    public static final int retry_layout=0x7f0801b6;
-    public static final int retry_tv=0x7f0801b7;
-    public static final int right=0x7f0801b8;
-    public static final int right_icon=0x7f0801b9;
-    public static final int right_side=0x7f0801ba;
-    public static final int root_view=0x7f0801bb;
-    public static final int row=0x7f0801bc;
-    public static final int row_reverse=0x7f0801bd;
-    public static final int runningTransitions=0x7f0801be;
-    public static final int save_image_matrix=0x7f0801bf;
-    public static final int save_non_transition_alpha=0x7f0801c0;
-    public static final int save_scale_type=0x7f0801c1;
-    public static final int scene_layoutid_cache=0x7f0801c2;
-    public static final int score=0x7f0801c3;
-    public static final int screen=0x7f0801c4;
-    public static final int scroll=0x7f0801c5;
-    public static final int scrollIndicatorDown=0x7f0801c6;
-    public static final int scrollIndicatorUp=0x7f0801c7;
-    public static final int scrollView=0x7f0801c8;
-    public static final int scrollable=0x7f0801c9;
-    public static final int scrollview=0x7f0801ca;
-    public static final int search_badge=0x7f0801cb;
-    public static final int search_bar=0x7f0801cc;
-    public static final int search_btn=0x7f0801cd;
-    public static final int search_button=0x7f0801ce;
-    public static final int search_close_btn=0x7f0801cf;
-    public static final int search_edit_frame=0x7f0801d0;
-    public static final int search_et=0x7f0801d1;
-    public static final int search_go_btn=0x7f0801d2;
-    public static final int search_layout=0x7f0801d3;
-    public static final int search_mag_icon=0x7f0801d4;
-    public static final int search_plate=0x7f0801d5;
-    public static final int search_src_text=0x7f0801d6;
-    public static final int search_voice_btn=0x7f0801d7;
-    public static final int seekbar=0x7f0801d8;
-    public static final int seekbar_text=0x7f0801d9;
-    public static final int select_answer1=0x7f0801da;
-    public static final int select_answer2=0x7f0801db;
-    public static final int select_answer3=0x7f0801dc;
-    public static final int select_answer4=0x7f0801dd;
-    public static final int select_dialog_listview=0x7f0801de;
-    public static final int select_popwindow_text1=0x7f0801df;
-    public static final int select_popwindow_text1_cover=0x7f0801e0;
-    public static final int select_popwindow_text2=0x7f0801e1;
-    public static final int select_popwindow_text2_cover=0x7f0801e2;
-    public static final int selection_1=0x7f0801e3;
-    public static final int selection_1_layout=0x7f0801e4;
-    public static final int selection_2=0x7f0801e5;
-    public static final int selection_2_layout=0x7f0801e6;
-    public static final int selection_3=0x7f0801e7;
-    public static final int selection_3_layout=0x7f0801e8;
-    public static final int selection_4=0x7f0801e9;
-    public static final int selection_4_layout=0x7f0801ea;
-    public static final int sentence_cb=0x7f0801eb;
-    public static final int sentence_cover=0x7f0801ec;
-    public static final int sequential=0x7f0801ed;
-    public static final int setting_auto_clear=0x7f0801ee;
-    public static final int setting_auto_clear_cb=0x7f0801ef;
-    public static final int setting_auto_play=0x7f0801f0;
-    public static final int setting_auto_play_cb=0x7f0801f1;
-    public static final int setting_clear_all=0x7f0801f2;
-    public static final int setting_clear_all_except_favorite=0x7f0801f3;
-    public static final int setting_layout=0x7f0801f4;
-    public static final int share_btn=0x7f0801f5;
-    public static final int share_btn_cover=0x7f0801f6;
-    public static final int share_content=0x7f0801f7;
-    public static final int share_parent_layout=0x7f0801f8;
-    public static final int shenhuifu_layout=0x7f0801f9;
-    public static final int shortcut=0x7f0801fa;
-    public static final int showCustom=0x7f0801fb;
-    public static final int showHome=0x7f0801fc;
-    public static final int showTitle=0x7f0801fd;
-    public static final int show_all_unit_layout=0x7f0801fe;
-    public static final int show_zh_img=0x7f0801ff;
-    public static final int smallLabel=0x7f080200;
-    public static final int snackbar_action=0x7f080201;
-    public static final int snackbar_text=0x7f080202;
-    public static final int snap=0x7f080203;
-    public static final int sougou_layout=0x7f080204;
-    public static final int source_name=0x7f080205;
-    public static final int space=0x7f080206;
-    public static final int space_around=0x7f080207;
-    public static final int space_between=0x7f080208;
-    public static final int spacer=0x7f080209;
-    public static final int speak_language_layout=0x7f08020a;
-    public static final int speak_language_tv=0x7f08020b;
-    public static final int speak_round_layout=0x7f08020c;
-    public static final int speak_type=0x7f08020d;
-    public static final int speaker_content=0x7f08020e;
-    public static final int speaker_img=0x7f08020f;
-    public static final int split_action_bar=0x7f080210;
-    public static final int src_atop=0x7f080211;
-    public static final int src_in=0x7f080212;
-    public static final int src_over=0x7f080213;
-    public static final int start=0x7f080214;
-    public static final int start_btn=0x7f080215;
-    public static final int start_btn_cover=0x7f080216;
-    public static final int start_layout=0x7f080217;
-    public static final int start_to_fight=0x7f080218;
-    public static final int status_bar_latest_event_content=0x7f080219;
-    public static final int stretch=0x7f08021a;
-    public static final int study_composition=0x7f08021b;
-    public static final int study_daily_sentence=0x7f08021c;
-    public static final int study_dialog_type=0x7f08021d;
-    public static final int study_listening_layout=0x7f08021e;
-    public static final int study_spoken_english=0x7f08021f;
-    public static final int study_test=0x7f080220;
-    public static final int studycategory_lv=0x7f080221;
-    public static final int studylist_lv=0x7f080222;
-    public static final int style_1=0x7f080223;
-    public static final int style_2=0x7f080224;
-    public static final int style_3=0x7f080225;
-    public static final int style_4=0x7f080226;
-    public static final int style_5=0x7f080227;
-    public static final int style_one=0x7f080228;
-    public static final int style_tv_1=0x7f080229;
-    public static final int style_tv_2=0x7f08022a;
-    public static final int style_two=0x7f08022b;
-    public static final int sub_title=0x7f08022c;
-    public static final int submenuarrow=0x7f08022d;
-    public static final int submit_area=0x7f08022e;
-    public static final int submit_btn=0x7f08022f;
-    public static final int submit_btn_cover=0x7f080230;
-    public static final int subtitle=0x7f080231;
-    public static final int sure_btn=0x7f080232;
-    public static final int surface_container=0x7f080233;
-    public static final int surface_view=0x7f080234;
-    public static final int swipe_container=0x7f080235;
-    public static final int symbol_cover=0x7f080236;
-    public static final int symbol_des=0x7f080237;
-    public static final int symbol_en=0x7f080238;
-    public static final int symbol_info=0x7f080239;
-    public static final int symbol_play_img=0x7f08023a;
-    public static final int symbol_study_cover=0x7f08023b;
-    public static final int tabLayout=0x7f08023c;
-    public static final int tabMode=0x7f08023d;
-    public static final int tablayout=0x7f08023e;
-    public static final int tablayout_line=0x7f08023f;
-    public static final int tag_transition_group=0x7f080240;
-    public static final int tap_to_reload=0x7f080241;
-    public static final int teacher_cover=0x7f080242;
-    public static final int teacher_play_img=0x7f080243;
-    public static final int text=0x7f080244;
-    public static final int text2=0x7f080245;
-    public static final int textSpacerNoButtons=0x7f080246;
-    public static final int textSpacerNoTitle=0x7f080247;
-    public static final int textView=0x7f080248;
-    public static final int text_color_1=0x7f080249;
-    public static final int text_color_2=0x7f08024a;
-    public static final int text_color_3=0x7f08024b;
-    public static final int text_color_4=0x7f08024c;
-    public static final int text_color_5=0x7f08024d;
-    public static final int text_input_password_toggle=0x7f08024e;
-    public static final int textinput_counter=0x7f08024f;
-    public static final int textinput_error=0x7f080250;
-    public static final int texture_view=0x7f080251;
-    public static final int thumb=0x7f080252;
-    public static final int time=0x7f080253;
-    public static final int title=0x7f080254;
-    public static final int titleDividerNoCustom=0x7f080255;
-    public static final int title_template=0x7f080256;
-    public static final int title_tv=0x7f080257;
-    public static final int together=0x7f080258;
-    public static final int toolbar_layout=0x7f080259;
-    public static final int top=0x7f08025a;
-    public static final int topPanel=0x7f08025b;
-    public static final int top_btn=0x7f08025c;
-    public static final int top_section=0x7f08025d;
-    public static final int total=0x7f08025e;
-    public static final int touch_outside=0x7f08025f;
-    public static final int track_content=0x7f080260;
-    public static final int track_info=0x7f080261;
-    public static final int track_intro=0x7f080262;
-    public static final int track_title=0x7f080263;
-    public static final int tranlate_content=0x7f080264;
-    public static final int tranlate_input=0x7f080265;
-    public static final int tranlate_title=0x7f080266;
-    public static final int transitionAlpha=0x7f080267;
-    public static final int transitionName=0x7f080268;
-    public static final int transitionPosition=0x7f080269;
-    public static final int transitionTransform=0x7f08026a;
-    public static final int transition_current_scene=0x7f08026b;
-    public static final int transition_layout_save=0x7f08026c;
-    public static final int transition_position=0x7f08026d;
-    public static final int transition_scene_layoutid_cache=0x7f08026e;
-    public static final int transition_transform=0x7f08026f;
-    public static final int transitions_container=0x7f080270;
-    public static final int translate_input=0x7f080271;
-    public static final int translate_result=0x7f080272;
-    public static final int translate_result_img=0x7f080273;
-    public static final int translate_result_layout=0x7f080274;
-    public static final int try_again_layout=0x7f080275;
-    public static final int tv_ai_basic=0x7f080276;
-    public static final int tv_ai_chat=0x7f080277;
-    public static final int tv_ai_dialogue=0x7f080278;
-    public static final int tv_brightness=0x7f080279;
-    public static final int tv_current=0x7f08027a;
-    public static final int tv_duration=0x7f08027b;
-    public static final int tv_prompt=0x7f08027c;
-    public static final int tv_volume=0x7f08027d;
-    public static final int twists_layout=0x7f08027e;
-    public static final int type_name=0x7f08027f;
-    public static final int uniform=0x7f080280;
-    public static final int unit_list=0x7f080281;
-    public static final int unread_dot_answer=0x7f080282;
-    public static final int unread_dot_question=0x7f080283;
-    public static final int up=0x7f080284;
-    public static final int updage_info=0x7f080285;
-    public static final int update_btn=0x7f080286;
-    public static final int useLogo=0x7f080287;
-    public static final int user_content=0x7f080288;
-    public static final int user_img=0x7f080289;
-    public static final int user_incorrect=0x7f08028a;
-    public static final int user_speak_content=0x7f08028b;
-    public static final int user_speak_cover=0x7f08028c;
-    public static final int user_speak_score=0x7f08028d;
-    public static final int user_voice_play_img=0x7f08028e;
-    public static final int video_current_time=0x7f08028f;
-    public static final int video_item=0x7f080290;
-    public static final int video_quality_wrapper_area=0x7f080291;
-    public static final int videoplayer=0x7f080292;
-    public static final int videoplayer_cover=0x7f080293;
-    public static final int videoplayer_img=0x7f080294;
-    public static final int view_offset_helper=0x7f080295;
-    public static final int viewpager=0x7f080296;
-    public static final int viewpager_dot_layout=0x7f080297;
-    public static final int visible=0x7f080298;
-    public static final int voice_btn=0x7f080299;
-    public static final int voice_btn_cover=0x7f08029a;
-    public static final int voice_img=0x7f08029b;
-    public static final int voice_play=0x7f08029c;
-    public static final int voice_play_answer=0x7f08029d;
-    public static final int voice_play_img=0x7f08029e;
-    public static final int voice_play_layout=0x7f08029f;
-    public static final int voice_play_question=0x7f0802a0;
-    public static final int volume_btn=0x7f0802a1;
-    public static final int volume_image_tip=0x7f0802a2;
-    public static final int volume_img=0x7f0802a3;
-    public static final int volume_layout=0x7f0802a4;
-    public static final int volume_progressbar=0x7f0802a5;
-    public static final int wechat_long_click=0x7f0802a6;
-    public static final int weixi_btn=0x7f0802a7;
-    public static final int withText=0x7f0802a8;
-    public static final int word_des=0x7f0802a9;
-    public static final int word_layout=0x7f0802aa;
-    public static final int word_mean=0x7f0802ab;
-    public static final int word_name=0x7f0802ac;
-    public static final int word_play_img=0x7f0802ad;
-    public static final int word_play_layout=0x7f0802ae;
-    public static final int word_spell_gv=0x7f0802af;
-    public static final int word_study_book_name=0x7f0802b0;
-    public static final int word_study_change_plan=0x7f0802b1;
-    public static final int word_study_daily=0x7f0802b2;
-    public static final int word_study_new_word=0x7f0802b3;
-    public static final int word_study_plan=0x7f0802b4;
-    public static final int word_study_view_all=0x7f0802b5;
-    public static final int word_suji_layout=0x7f0802b6;
-    public static final int word_symbol=0x7f0802b7;
-    public static final int word_test_layout=0x7f0802b8;
-    public static final int word_tv=0x7f0802b9;
-    public static final int wrap=0x7f0802ba;
-    public static final int wrap_content=0x7f0802bb;
-    public static final int wrap_reverse=0x7f0802bc;
-    public static final int xmly_layout=0x7f0802bd;
-    public static final int xmly_recommend_footer=0x7f0802be;
-    public static final int xmly_recommend_header=0x7f0802bf;
-    public static final int xmly_recommend_header_title=0x7f0802c0;
-    public static final int xx_ad_layout=0x7f0802c1;
-    public static final int yuedu_layout=0x7f0802c2;
+    public static final int en_examination_layout=0x7f0800c4;
+    public static final int en_grammar=0x7f0800c5;
+    public static final int en_story_layout=0x7f0800c6;
+    public static final int end=0x7f0800c7;
+    public static final int end_padder=0x7f0800c8;
+    public static final int english_txt=0x7f0800c9;
+    public static final int english_website_layout2=0x7f0800ca;
+    public static final int enterAlways=0x7f0800cb;
+    public static final int enterAlwaysCollapsed=0x7f0800cc;
+    public static final int error_txt=0x7f0800cd;
+    public static final int evaluation_en_tv=0x7f0800ce;
+    public static final int evaluation_zh_tv=0x7f0800cf;
+    public static final int exitUntilCollapsed=0x7f0800d0;
+    public static final int exo_artwork=0x7f0800d1;
+    public static final int exo_content_frame=0x7f0800d2;
+    public static final int exo_controller=0x7f0800d3;
+    public static final int exo_controller_placeholder=0x7f0800d4;
+    public static final int exo_duration=0x7f0800d5;
+    public static final int exo_ffwd=0x7f0800d6;
+    public static final int exo_fullscreen_button=0x7f0800d7;
+    public static final int exo_fullscreen_icon=0x7f0800d8;
+    public static final int exo_next=0x7f0800d9;
+    public static final int exo_overlay=0x7f0800da;
+    public static final int exo_pause=0x7f0800db;
+    public static final int exo_play=0x7f0800dc;
+    public static final int exo_position=0x7f0800dd;
+    public static final int exo_prev=0x7f0800de;
+    public static final int exo_progress=0x7f0800df;
+    public static final int exo_repeat_toggle=0x7f0800e0;
+    public static final int exo_rew=0x7f0800e1;
+    public static final int exo_shuffle=0x7f0800e2;
+    public static final int exo_shutter=0x7f0800e3;
+    public static final int exo_subtitles=0x7f0800e4;
+    public static final int expand_activities_button=0x7f0800e5;
+    public static final int expanded_menu=0x7f0800e6;
+    public static final int fade_in=0x7f0800e7;
+    public static final int fade_in_out=0x7f0800e8;
+    public static final int fade_out=0x7f0800e9;
+    public static final int fight_resutl_tv=0x7f0800ea;
+    public static final int fill=0x7f0800eb;
+    public static final int fill_horizontal=0x7f0800ec;
+    public static final int fill_vertical=0x7f0800ed;
+    public static final int finish_test_layout=0x7f0800ee;
+    public static final int fit=0x7f0800ef;
+    public static final int fitBottomStart=0x7f0800f0;
+    public static final int fitCenter=0x7f0800f1;
+    public static final int fitEnd=0x7f0800f2;
+    public static final int fitStart=0x7f0800f3;
+    public static final int fitXY=0x7f0800f4;
+    public static final int fixed=0x7f0800f5;
+    public static final int fixed_height=0x7f0800f6;
+    public static final int fixed_width=0x7f0800f7;
+    public static final int flex_end=0x7f0800f8;
+    public static final int flex_start=0x7f0800f9;
+    public static final int fm_radio_country=0x7f0800fa;
+    public static final int fm_radio_internet=0x7f0800fb;
+    public static final int fm_radio_local=0x7f0800fc;
+    public static final int fm_radio_province=0x7f0800fd;
+    public static final int focusCrop=0x7f0800fe;
+    public static final int forever=0x7f0800ff;
+    public static final int fullscreen=0x7f080100;
+    public static final int game_layout=0x7f080101;
+    public static final int ghost_view=0x7f080102;
+    public static final int group_layouttransition_backup=0x7f080103;
+    public static final int help_layout=0x7f080104;
+    public static final int home=0x7f080105;
+    public static final int homeAsUp=0x7f080106;
+    public static final int icon=0x7f080107;
+    public static final int icon_group=0x7f080108;
+    public static final int ifRoom=0x7f080109;
+    public static final int image=0x7f08010a;
+    public static final int imageview=0x7f08010b;
+    public static final int img_cover=0x7f08010c;
+    public static final int img_layout=0x7f08010d;
+    public static final int img_sort=0x7f08010e;
+    public static final int imgs_1=0x7f08010f;
+    public static final int imgs_2=0x7f080110;
+    public static final int imgs_3=0x7f080111;
+    public static final int imgs_layout=0x7f080112;
+    public static final int info=0x7f080113;
+    public static final int input_et=0x7f080114;
+    public static final int input_layout=0x7f080115;
+    public static final int input_type_btn=0x7f080116;
+    public static final int input_type_layout=0x7f080117;
+    public static final int invest_layout=0x7f080118;
+    public static final int invisible=0x7f080119;
+    public static final int invite_layout=0x7f08011a;
+    public static final int italic=0x7f08011b;
+    public static final int item=0x7f08011c;
+    public static final int item_img=0x7f08011d;
+    public static final int item_img_layout=0x7f08011e;
+    public static final int item_touch_helper_previous_elevation=0x7f08011f;
+    public static final int jz_fullscreen_id=0x7f080120;
+    public static final int jz_tiny_id=0x7f080121;
+    public static final int keybord_layout=0x7f080122;
+    public static final int largeLabel=0x7f080123;
+    public static final int layout_bottom=0x7f080124;
+    public static final int layout_cover=0x7f080125;
+    public static final int layout_top=0x7f080126;
+    public static final int left=0x7f080127;
+    public static final int line1=0x7f080128;
+    public static final int line3=0x7f080129;
+    public static final int listMode=0x7f08012a;
+    public static final int list_item=0x7f08012b;
+    public static final int list_item_bg=0x7f08012c;
+    public static final int list_item_img=0x7f08012d;
+    public static final int list_item_img_parent=0x7f08012e;
+    public static final int list_item_layout=0x7f08012f;
+    public static final int listview=0x7f080130;
+    public static final int load_more_load_end_view=0x7f080131;
+    public static final int load_more_load_fail_view=0x7f080132;
+    public static final int load_more_loading_view=0x7f080133;
+    public static final int loading=0x7f080134;
+    public static final int loading_progress=0x7f080135;
+    public static final int loading_text=0x7f080136;
+    public static final int mail_txt=0x7f080137;
+    public static final int main_content=0x7f080138;
+    public static final int masked=0x7f080139;
+    public static final int material_color_1=0x7f08013a;
+    public static final int material_color_2=0x7f08013b;
+    public static final int material_color_3=0x7f08013c;
+    public static final int material_color_4=0x7f08013d;
+    public static final int material_color_5=0x7f08013e;
+    public static final int media_actions=0x7f08013f;
+    public static final int menu_frame=0x7f080140;
+    public static final int menulistview=0x7f080141;
+    public static final int message=0x7f080142;
+    public static final int mic_layout=0x7f080143;
+    public static final int middle=0x7f080144;
+    public static final int mini=0x7f080145;
+    public static final int mode_in=0x7f080146;
+    public static final int mode_out=0x7f080147;
+    public static final int more_layout=0x7f080148;
+    public static final int more_tools_img=0x7f080149;
+    public static final int more_tools_img_mic=0x7f08014a;
+    public static final int more_tools_layout=0x7f08014b;
+    public static final int more_tools_layout_mic=0x7f08014c;
+    public static final int mswiperefreshlayout=0x7f08014d;
+    public static final int multiply=0x7f08014e;
+    public static final int music_play_img=0x7f08014f;
+    public static final int my_awesome_toolbar=0x7f080150;
+    public static final int name=0x7f080151;
+    public static final int navigation=0x7f080152;
+    public static final int navigation_dashboard=0x7f080153;
+    public static final int navigation_header_container=0x7f080154;
+    public static final int navigation_home=0x7f080155;
+    public static final int navigation_vovabulary=0x7f080156;
+    public static final int navigation_word_study=0x7f080157;
+    public static final int never=0x7f080158;
+    public static final int news_layout=0x7f080159;
+    public static final int next_btn=0x7f08015a;
+    public static final int next_composition=0x7f08015b;
+    public static final int next_unit_layout=0x7f08015c;
+    public static final int none=0x7f08015d;
+    public static final int normal=0x7f08015e;
+    public static final int notifi_action=0x7f08015f;
+    public static final int notifi_des=0x7f080160;
+    public static final int notifi_icon=0x7f080161;
+    public static final int notifi_next=0x7f080162;
+    public static final int notifi_previous=0x7f080163;
+    public static final int notifi_title=0x7f080164;
+    public static final int notification_background=0x7f080165;
+    public static final int notification_main_column=0x7f080166;
+    public static final int notification_main_column_container=0x7f080167;
+    public static final int nowrap=0x7f080168;
+    public static final int number_progress_bar=0x7f080169;
+    public static final int offline_dic_layout=0x7f08016a;
+    public static final int offline_dic_unread_dot=0x7f08016b;
+    public static final int one=0x7f08016c;
+    public static final int overlay_layout_params_backup=0x7f08016d;
+    public static final int overlay_view=0x7f08016e;
+    public static final int page_content=0x7f08016f;
+    public static final int page_count=0x7f080170;
+    public static final int page_navigation=0x7f080171;
+    public static final int pager=0x7f080172;
+    public static final int parallax=0x7f080173;
+    public static final int parentMatrix=0x7f080174;
+    public static final int parentPanel=0x7f080175;
+    public static final int parent_layout=0x7f080176;
+    public static final int parent_matrix=0x7f080177;
+    public static final int photo_tran_btn=0x7f080178;
+    public static final int pin=0x7f080179;
+    public static final int pinxie_layout=0x7f08017a;
+    public static final int play_btn=0x7f08017b;
+    public static final int play_content_btn_progressbar=0x7f08017c;
+    public static final int play_img=0x7f08017d;
+    public static final int play_next=0x7f08017e;
+    public static final int play_previous=0x7f08017f;
+    public static final int play_time_current=0x7f080180;
+    public static final int play_time_duration=0x7f080181;
+    public static final int playbtn=0x7f080182;
+    public static final int player_layout=0x7f080183;
+    public static final int player_view=0x7f080184;
+    public static final int popview_item=0x7f080185;
+    public static final int popview_item_tv=0x7f080186;
+    public static final int popwindow_root=0x7f080187;
+    public static final int practice_prompt=0x7f080188;
+    public static final int previous_btn=0x7f080189;
+    public static final int progressBarCircularIndetermininate=0x7f08018a;
+    public static final int progress_circular=0x7f08018b;
+    public static final int progress_horizontal=0x7f08018c;
+    public static final int progress_layout=0x7f08018d;
+    public static final int progress_tv=0x7f08018e;
+    public static final int progressdeterminate=0x7f08018f;
+    public static final int prompt_tv=0x7f080190;
+    public static final int publish_time=0x7f080191;
+    public static final int qrcode_layout=0x7f080192;
+    public static final int question=0x7f080193;
+    public static final int question_tv=0x7f080194;
+    public static final int question_tv_cover=0x7f080195;
+    public static final int questiontv=0x7f080196;
+    public static final int radio=0x7f080197;
+    public static final int radio_replay=0x7f080198;
+    public static final int radio_time=0x7f080199;
+    public static final int random_cover=0x7f08019a;
+    public static final int recent_used_lv=0x7f08019b;
+    public static final int record__progressbar=0x7f08019c;
+    public static final int record_anim_img=0x7f08019d;
+    public static final int record_animation_layout=0x7f08019e;
+    public static final int record_animation_text=0x7f08019f;
+    public static final int record_answer=0x7f0801a0;
+    public static final int record_answer_cover=0x7f0801a1;
+    public static final int record_layout=0x7f0801a2;
+    public static final int record_listview=0x7f0801a3;
+    public static final int record_load_result=0x7f0801a4;
+    public static final int record_question=0x7f0801a5;
+    public static final int record_question_cover=0x7f0801a6;
+    public static final int record_to_practice=0x7f0801a7;
+    public static final int refreshable_webview=0x7f0801a8;
+    public static final int renzhi_layout=0x7f0801a9;
+    public static final int repeat_time=0x7f0801aa;
+    public static final int repeat_time_minus=0x7f0801ab;
+    public static final int repeat_time_minus_cover=0x7f0801ac;
+    public static final int repeat_time_plus=0x7f0801ad;
+    public static final int repeat_time_plus_cover=0x7f0801ae;
+    public static final int replay_text=0x7f0801af;
+    public static final int result_layout=0x7f0801b0;
+    public static final int result_tv=0x7f0801b1;
+    public static final int result_tv_cover=0x7f0801b2;
+    public static final int retry_btn=0x7f0801b3;
+    public static final int retry_layout=0x7f0801b4;
+    public static final int retry_tv=0x7f0801b5;
+    public static final int right=0x7f0801b6;
+    public static final int right_icon=0x7f0801b7;
+    public static final int right_side=0x7f0801b8;
+    public static final int root_view=0x7f0801b9;
+    public static final int row=0x7f0801ba;
+    public static final int row_reverse=0x7f0801bb;
+    public static final int runningTransitions=0x7f0801bc;
+    public static final int save_image_matrix=0x7f0801bd;
+    public static final int save_non_transition_alpha=0x7f0801be;
+    public static final int save_scale_type=0x7f0801bf;
+    public static final int scene_layoutid_cache=0x7f0801c0;
+    public static final int score=0x7f0801c1;
+    public static final int screen=0x7f0801c2;
+    public static final int scroll=0x7f0801c3;
+    public static final int scrollIndicatorDown=0x7f0801c4;
+    public static final int scrollIndicatorUp=0x7f0801c5;
+    public static final int scrollView=0x7f0801c6;
+    public static final int scrollable=0x7f0801c7;
+    public static final int scrollview=0x7f0801c8;
+    public static final int search_badge=0x7f0801c9;
+    public static final int search_bar=0x7f0801ca;
+    public static final int search_btn=0x7f0801cb;
+    public static final int search_button=0x7f0801cc;
+    public static final int search_close_btn=0x7f0801cd;
+    public static final int search_edit_frame=0x7f0801ce;
+    public static final int search_et=0x7f0801cf;
+    public static final int search_go_btn=0x7f0801d0;
+    public static final int search_mag_icon=0x7f0801d1;
+    public static final int search_plate=0x7f0801d2;
+    public static final int search_src_text=0x7f0801d3;
+    public static final int search_voice_btn=0x7f0801d4;
+    public static final int seekbar=0x7f0801d5;
+    public static final int seekbar_text=0x7f0801d6;
+    public static final int select_answer1=0x7f0801d7;
+    public static final int select_answer2=0x7f0801d8;
+    public static final int select_answer3=0x7f0801d9;
+    public static final int select_answer4=0x7f0801da;
+    public static final int select_dialog_listview=0x7f0801db;
+    public static final int select_popwindow_text1=0x7f0801dc;
+    public static final int select_popwindow_text1_cover=0x7f0801dd;
+    public static final int select_popwindow_text2=0x7f0801de;
+    public static final int select_popwindow_text2_cover=0x7f0801df;
+    public static final int selection_1=0x7f0801e0;
+    public static final int selection_1_layout=0x7f0801e1;
+    public static final int selection_2=0x7f0801e2;
+    public static final int selection_2_layout=0x7f0801e3;
+    public static final int selection_3=0x7f0801e4;
+    public static final int selection_3_layout=0x7f0801e5;
+    public static final int selection_4=0x7f0801e6;
+    public static final int selection_4_layout=0x7f0801e7;
+    public static final int sentence_cb=0x7f0801e8;
+    public static final int sentence_cover=0x7f0801e9;
+    public static final int sequential=0x7f0801ea;
+    public static final int setting_auto_clear=0x7f0801eb;
+    public static final int setting_auto_clear_cb=0x7f0801ec;
+    public static final int setting_auto_play=0x7f0801ed;
+    public static final int setting_auto_play_cb=0x7f0801ee;
+    public static final int setting_clear_all=0x7f0801ef;
+    public static final int setting_clear_all_except_favorite=0x7f0801f0;
+    public static final int setting_layout=0x7f0801f1;
+    public static final int share_btn=0x7f0801f2;
+    public static final int share_btn_cover=0x7f0801f3;
+    public static final int share_content=0x7f0801f4;
+    public static final int share_parent_layout=0x7f0801f5;
+    public static final int shenhuifu_layout=0x7f0801f6;
+    public static final int shortcut=0x7f0801f7;
+    public static final int showCustom=0x7f0801f8;
+    public static final int showHome=0x7f0801f9;
+    public static final int showTitle=0x7f0801fa;
+    public static final int show_all_unit_layout=0x7f0801fb;
+    public static final int show_zh_img=0x7f0801fc;
+    public static final int skip_view=0x7f0801fd;
+    public static final int smallLabel=0x7f0801fe;
+    public static final int snackbar_action=0x7f0801ff;
+    public static final int snackbar_text=0x7f080200;
+    public static final int snap=0x7f080201;
+    public static final int sougou_layout=0x7f080202;
+    public static final int source_name=0x7f080203;
+    public static final int space=0x7f080204;
+    public static final int space_around=0x7f080205;
+    public static final int space_between=0x7f080206;
+    public static final int spacer=0x7f080207;
+    public static final int speak_language_layout=0x7f080208;
+    public static final int speak_language_tv=0x7f080209;
+    public static final int speak_round_layout=0x7f08020a;
+    public static final int speak_type=0x7f08020b;
+    public static final int speaker_content=0x7f08020c;
+    public static final int speaker_img=0x7f08020d;
+    public static final int splash_container=0x7f08020e;
+    public static final int split_action_bar=0x7f08020f;
+    public static final int src_atop=0x7f080210;
+    public static final int src_in=0x7f080211;
+    public static final int src_over=0x7f080212;
+    public static final int start=0x7f080213;
+    public static final int start_btn=0x7f080214;
+    public static final int start_btn_cover=0x7f080215;
+    public static final int start_layout=0x7f080216;
+    public static final int start_to_fight=0x7f080217;
+    public static final int status_bar_latest_event_content=0x7f080218;
+    public static final int stretch=0x7f080219;
+    public static final int study_composition=0x7f08021a;
+    public static final int study_daily_sentence=0x7f08021b;
+    public static final int study_dialog_type=0x7f08021c;
+    public static final int study_listening_layout=0x7f08021d;
+    public static final int study_spoken_english=0x7f08021e;
+    public static final int study_word_layout=0x7f08021f;
+    public static final int studycategory_lv=0x7f080220;
+    public static final int studylist_lv=0x7f080221;
+    public static final int style_1=0x7f080222;
+    public static final int style_2=0x7f080223;
+    public static final int style_3=0x7f080224;
+    public static final int style_4=0x7f080225;
+    public static final int style_5=0x7f080226;
+    public static final int style_one=0x7f080227;
+    public static final int style_tv_1=0x7f080228;
+    public static final int style_tv_2=0x7f080229;
+    public static final int style_two=0x7f08022a;
+    public static final int sub_title=0x7f08022b;
+    public static final int submenuarrow=0x7f08022c;
+    public static final int submit_area=0x7f08022d;
+    public static final int submit_btn=0x7f08022e;
+    public static final int submit_btn_cover=0x7f08022f;
+    public static final int subtitle=0x7f080230;
+    public static final int sure_btn=0x7f080231;
+    public static final int surface_container=0x7f080232;
+    public static final int surface_view=0x7f080233;
+    public static final int swipe_container=0x7f080234;
+    public static final int symbol_cover=0x7f080235;
+    public static final int symbol_des=0x7f080236;
+    public static final int symbol_en=0x7f080237;
+    public static final int symbol_info=0x7f080238;
+    public static final int symbol_play_img=0x7f080239;
+    public static final int symbol_study_cover=0x7f08023a;
+    public static final int tabLayout=0x7f08023b;
+    public static final int tabMode=0x7f08023c;
+    public static final int tablayout=0x7f08023d;
+    public static final int tablayout_line=0x7f08023e;
+    public static final int tag_transition_group=0x7f08023f;
+    public static final int tap_to_reload=0x7f080240;
+    public static final int teacher_cover=0x7f080241;
+    public static final int teacher_play_img=0x7f080242;
+    public static final int text=0x7f080243;
+    public static final int text2=0x7f080244;
+    public static final int textSpacerNoButtons=0x7f080245;
+    public static final int textSpacerNoTitle=0x7f080246;
+    public static final int textView=0x7f080247;
+    public static final int text_color_1=0x7f080248;
+    public static final int text_color_2=0x7f080249;
+    public static final int text_color_3=0x7f08024a;
+    public static final int text_color_4=0x7f08024b;
+    public static final int text_color_5=0x7f08024c;
+    public static final int text_input_password_toggle=0x7f08024d;
+    public static final int textinput_counter=0x7f08024e;
+    public static final int textinput_error=0x7f08024f;
+    public static final int texture_view=0x7f080250;
+    public static final int thumb=0x7f080251;
+    public static final int time=0x7f080252;
+    public static final int title=0x7f080253;
+    public static final int titleDividerNoCustom=0x7f080254;
+    public static final int title_template=0x7f080255;
+    public static final int title_tv=0x7f080256;
+    public static final int together=0x7f080257;
+    public static final int toolbar_layout=0x7f080258;
+    public static final int top=0x7f080259;
+    public static final int topPanel=0x7f08025a;
+    public static final int top_btn=0x7f08025b;
+    public static final int top_section=0x7f08025c;
+    public static final int total=0x7f08025d;
+    public static final int touch_outside=0x7f08025e;
+    public static final int track_content=0x7f08025f;
+    public static final int track_info=0x7f080260;
+    public static final int track_intro=0x7f080261;
+    public static final int track_title=0x7f080262;
+    public static final int tranlate_content=0x7f080263;
+    public static final int tranlate_input=0x7f080264;
+    public static final int tranlate_title=0x7f080265;
+    public static final int transitionAlpha=0x7f080266;
+    public static final int transitionName=0x7f080267;
+    public static final int transitionPosition=0x7f080268;
+    public static final int transitionTransform=0x7f080269;
+    public static final int transition_current_scene=0x7f08026a;
+    public static final int transition_layout_save=0x7f08026b;
+    public static final int transition_position=0x7f08026c;
+    public static final int transition_scene_layoutid_cache=0x7f08026d;
+    public static final int transition_transform=0x7f08026e;
+    public static final int transitions_container=0x7f08026f;
+    public static final int translate_input=0x7f080270;
+    public static final int translate_result=0x7f080271;
+    public static final int translate_result_img=0x7f080272;
+    public static final int translate_result_layout=0x7f080273;
+    public static final int try_again_layout=0x7f080274;
+    public static final int tv_ai_basic=0x7f080275;
+    public static final int tv_ai_chat=0x7f080276;
+    public static final int tv_ai_dialogue=0x7f080277;
+    public static final int tv_brightness=0x7f080278;
+    public static final int tv_current=0x7f080279;
+    public static final int tv_duration=0x7f08027a;
+    public static final int tv_prompt=0x7f08027b;
+    public static final int tv_volume=0x7f08027c;
+    public static final int twists_layout=0x7f08027d;
+    public static final int type_name=0x7f08027e;
+    public static final int uniform=0x7f08027f;
+    public static final int unit_list=0x7f080280;
+    public static final int unread_dot_answer=0x7f080281;
+    public static final int unread_dot_question=0x7f080282;
+    public static final int up=0x7f080283;
+    public static final int updage_info=0x7f080284;
+    public static final int update_btn=0x7f080285;
+    public static final int useLogo=0x7f080286;
+    public static final int user_content=0x7f080287;
+    public static final int user_img=0x7f080288;
+    public static final int user_incorrect=0x7f080289;
+    public static final int user_speak_content=0x7f08028a;
+    public static final int user_speak_cover=0x7f08028b;
+    public static final int user_speak_score=0x7f08028c;
+    public static final int user_voice_play_img=0x7f08028d;
+    public static final int video_current_time=0x7f08028e;
+    public static final int video_item=0x7f08028f;
+    public static final int video_quality_wrapper_area=0x7f080290;
+    public static final int videoplayer=0x7f080291;
+    public static final int videoplayer_cover=0x7f080292;
+    public static final int videoplayer_img=0x7f080293;
+    public static final int view_offset_helper=0x7f080294;
+    public static final int viewpager=0x7f080295;
+    public static final int viewpager_dot_layout=0x7f080296;
+    public static final int visible=0x7f080297;
+    public static final int voice_btn=0x7f080298;
+    public static final int voice_btn_cover=0x7f080299;
+    public static final int voice_img=0x7f08029a;
+    public static final int voice_play=0x7f08029b;
+    public static final int voice_play_answer=0x7f08029c;
+    public static final int voice_play_img=0x7f08029d;
+    public static final int voice_play_layout=0x7f08029e;
+    public static final int voice_play_question=0x7f08029f;
+    public static final int volume_btn=0x7f0802a0;
+    public static final int volume_image_tip=0x7f0802a1;
+    public static final int volume_img=0x7f0802a2;
+    public static final int volume_layout=0x7f0802a3;
+    public static final int volume_progressbar=0x7f0802a4;
+    public static final int wechat_long_click=0x7f0802a5;
+    public static final int weixi_btn=0x7f0802a6;
+    public static final int withText=0x7f0802a7;
+    public static final int word_des=0x7f0802a8;
+    public static final int word_layout=0x7f0802a9;
+    public static final int word_mean=0x7f0802aa;
+    public static final int word_name=0x7f0802ab;
+    public static final int word_play_img=0x7f0802ac;
+    public static final int word_play_layout=0x7f0802ad;
+    public static final int word_spell_gv=0x7f0802ae;
+    public static final int word_study_book_name=0x7f0802af;
+    public static final int word_study_change_plan=0x7f0802b0;
+    public static final int word_study_new_word=0x7f0802b1;
+    public static final int word_study_plan=0x7f0802b2;
+    public static final int word_suji_layout=0x7f0802b3;
+    public static final int word_symbol=0x7f0802b4;
+    public static final int word_test_layout=0x7f0802b5;
+    public static final int word_tv=0x7f0802b6;
+    public static final int wrap=0x7f0802b7;
+    public static final int wrap_content=0x7f0802b8;
+    public static final int wrap_reverse=0x7f0802b9;
+    public static final int xmly_layout=0x7f0802ba;
+    public static final int xmly_recommend_footer=0x7f0802bb;
+    public static final int xmly_recommend_header=0x7f0802bc;
+    public static final int xmly_recommend_header_title=0x7f0802bd;
+    public static final int xx_ad_layout=0x7f0802be;
+    public static final int yuedu_layout=0x7f0802bf;
   }
   public static final class integer {
     public static final int abc_config_activityDefaultDur=0x7f090000;
@@ -5555,216 +5567,225 @@ public final class R {
     public static final int abc_select_dialog_material=0x7f0a0019;
     public static final int about=0x7f0a001a;
     public static final int activity_ch_dictionary=0x7f0a001b;
-    public static final int activity_search=0x7f0a001c;
-    public static final int activity_subject=0x7f0a001d;
-    public static final int activity_xmly=0x7f0a001e;
-    public static final int activity_xmly_album=0x7f0a001f;
-    public static final int activity_xmly_search=0x7f0a0020;
-    public static final int ai_activity=0x7f0a0021;
-    public static final int ai_chat_activity=0x7f0a0022;
-    public static final int ai_chat_list_item=0x7f0a0023;
-    public static final int ai_dialogue_fight_activity=0x7f0a0024;
-    public static final int ai_dialogue_practice_activity=0x7f0a0025;
-    public static final int ai_turing_activity=0x7f0a0026;
-    public static final int base_container=0x7f0a0027;
-    public static final int brain_twists_activity=0x7f0a0028;
-    public static final int chdic_bushoupinyin_activity=0x7f0a0029;
-    public static final int chdic_bushoupinyin_list_activity=0x7f0a002a;
-    public static final int collected_main=0x7f0a002b;
-    public static final int collected_translate_fragment=0x7f0a002c;
-    public static final int composition_detail_activity=0x7f0a002d;
-    public static final int composition_fragment=0x7f0a002e;
-    public static final int composition_list_item=0x7f0a002f;
-    public static final int content_frame=0x7f0a0030;
-    public static final int daily_sentence_activity=0x7f0a0031;
-    public static final int daily_sentence_and_essay_activity=0x7f0a0032;
-    public static final int daily_sentence_list_item=0x7f0a0033;
-    public static final int design_bottom_navigation_item=0x7f0a0034;
-    public static final int design_bottom_sheet_dialog=0x7f0a0035;
-    public static final int design_layout_snackbar=0x7f0a0036;
-    public static final int design_layout_snackbar_include=0x7f0a0037;
-    public static final int design_layout_tab_icon=0x7f0a0038;
-    public static final int design_layout_tab_text=0x7f0a0039;
-    public static final int design_menu_item_action_area=0x7f0a003a;
-    public static final int design_navigation_item=0x7f0a003b;
-    public static final int design_navigation_item_header=0x7f0a003c;
-    public static final int design_navigation_item_separator=0x7f0a003d;
-    public static final int design_navigation_item_subheader=0x7f0a003e;
-    public static final int design_navigation_menu=0x7f0a003f;
-    public static final int design_navigation_menu_item=0x7f0a0040;
-    public static final int design_text_input_password_icon=0x7f0a0041;
-    public static final int dialog_first_fragment=0x7f0a0042;
-    public static final int dialog_grid=0x7f0a0043;
-    public static final int dialog_list=0x7f0a0044;
-    public static final int dialog_practice_activity=0x7f0a0045;
-    public static final int dialog_translate_result=0x7f0a0046;
-    public static final int dialog_update_info=0x7f0a0047;
-    public static final int dialog_view=0x7f0a0048;
-    public static final int dialog_word_study_book_confirm=0x7f0a0049;
-    public static final int dic_content_layout=0x7f0a004a;
-    public static final int dic_more_tools_layout=0x7f0a004b;
-    public static final int dic_title_layout=0x7f0a004c;
-    public static final int drawer_list_item=0x7f0a004d;
-    public static final int english_website_list_item=0x7f0a004e;
-    public static final int english_website_recommend_activity=0x7f0a004f;
-    public static final int essay_fragment=0x7f0a0050;
-    public static final int evaluation_detail_activity=0x7f0a0051;
-    public static final int evaluation_list_item=0x7f0a0052;
-    public static final int exo_playback_control_view=0x7f0a0053;
-    public static final int exo_simple_player_view=0x7f0a0054;
-    public static final int finish_fragment=0x7f0a0055;
-    public static final int footerview=0x7f0a0056;
-    public static final int fragment_ch_dictionary=0x7f0a0057;
-    public static final int fragment_dictionary=0x7f0a0058;
-    public static final int fragment_dictionary_old=0x7f0a0059;
-    public static final int fragment_en_dic=0x7f0a005a;
-    public static final int fragment_juhai=0x7f0a005b;
-    public static final int fragment_reading_subject_list=0x7f0a005c;
-    public static final int fragment_translate=0x7f0a005d;
-    public static final int fragment_translate_old=0x7f0a005e;
-    public static final int get_fans_activity=0x7f0a005f;
-    public static final int godreply_activity=0x7f0a0060;
-    public static final int help=0x7f0a0061;
-    public static final int invest_list_activity=0x7f0a0062;
-    public static final int invest_list_adapter=0x7f0a0063;
-    public static final int investment_list_activity=0x7f0a0064;
-    public static final int joke_activity=0x7f0a0065;
-    public static final int joke_bdj_list_item=0x7f0a0066;
-    public static final int joke_picture_fragment=0x7f0a0067;
-    public static final int juhai_list_item=0x7f0a0068;
-    public static final int jz_dialog_brightness=0x7f0a0069;
-    public static final int jz_dialog_progress=0x7f0a006a;
-    public static final int jz_dialog_volume=0x7f0a006b;
-    public static final int jz_layout_clarity=0x7f0a006c;
-    public static final int jz_layout_clarity_item=0x7f0a006d;
-    public static final int jz_layout_standard=0x7f0a006e;
-    public static final int leisure_fragment=0x7f0a006f;
-    public static final int listview_item_dictionary=0x7f0a0070;
-    public static final int listview_item_recent_used=0x7f0a0071;
-    public static final int loading_activity=0x7f0a0072;
-    public static final int main_tab_tran=0x7f0a0073;
-    public static final int menu_frame=0x7f0a0074;
-    public static final int more_activity=0x7f0a0075;
-    public static final int notification_action=0x7f0a0076;
-    public static final int notification_action_tombstone=0x7f0a0077;
-    public static final int notification_layout=0x7f0a0078;
-    public static final int notification_media_action=0x7f0a0079;
-    public static final int notification_media_cancel_action=0x7f0a007a;
-    public static final int notification_template_big_media=0x7f0a007b;
-    public static final int notification_template_big_media_custom=0x7f0a007c;
-    public static final int notification_template_big_media_narrow=0x7f0a007d;
-    public static final int notification_template_big_media_narrow_custom=0x7f0a007e;
-    public static final int notification_template_custom_big=0x7f0a007f;
-    public static final int notification_template_icon_group=0x7f0a0080;
-    public static final int notification_template_lines_media=0x7f0a0081;
-    public static final int notification_template_media=0x7f0a0082;
-    public static final int notification_template_media_custom=0x7f0a0083;
-    public static final int notification_template_part_chronometer=0x7f0a0084;
-    public static final int notification_template_part_time=0x7f0a0085;
-    public static final int offline_dic_download_activity=0x7f0a0086;
-    public static final int popwindow_item=0x7f0a0087;
-    public static final int popwindow_root=0x7f0a0088;
-    public static final int practice_activity=0x7f0a0089;
-    public static final int practice_activity_lv_item=0x7f0a008a;
-    public static final int practice_every_fragment=0x7f0a008b;
-    public static final int practice_every_item=0x7f0a008c;
-    public static final int practice_one_fragment=0x7f0a008d;
-    public static final int practice_read_after_me_fragmenty=0x7f0a008e;
-    public static final int practice_write_fragment=0x7f0a008f;
-    public static final int pybs_detail_activity=0x7f0a0090;
-    public static final int qrcode_share_layout=0x7f0a0091;
-    public static final int quick_view_load_more=0x7f0a0092;
-    public static final int read_list_item=0x7f0a0093;
-    public static final int reading_activity=0x7f0a0094;
-    public static final int reading_video_detail_activity=0x7f0a0095;
-    public static final int recommend_activity=0x7f0a0096;
-    public static final int record_activity=0x7f0a0097;
-    public static final int recycler_header=0x7f0a0098;
-    public static final int select_dialog_item_material=0x7f0a0099;
-    public static final int select_dialog_multichoice_material=0x7f0a009a;
-    public static final int select_dialog_singlechoice_material=0x7f0a009b;
-    public static final int select_popwindow=0x7f0a009c;
-    public static final int setting=0x7f0a009d;
-    public static final int share_layout=0x7f0a009e;
-    public static final int spoken_englis_category_activity=0x7f0a009f;
-    public static final int spoken_english_listview_item=0x7f0a00a0;
-    public static final int spoken_english_practice_fragment=0x7f0a00a1;
-    public static final int study_activity=0x7f0a00a2;
-    public static final int study_category_fragment=0x7f0a00a3;
-    public static final int study_dialog_activity=0x7f0a00a4;
-    public static final int study_fragment=0x7f0a00a5;
-    public static final int study_fragment_header=0x7f0a00a6;
-    public static final int study_list_fragment=0x7f0a00a7;
-    public static final int studylist_gridview_item=0x7f0a00a8;
-    public static final int studylist_item=0x7f0a00a9;
-    public static final int support_simple_spinner_dropdown_item=0x7f0a00aa;
-    public static final int symbol_list_activity=0x7f0a00ab;
-    public static final int symbol_list_fragment=0x7f0a00ac;
-    public static final int symbol_list_item=0x7f0a00ad;
-    public static final int symbol_study_activity=0x7f0a00ae;
-    public static final int tooltip=0x7f0a00af;
-    public static final int type_select_fragment=0x7f0a00b0;
-    public static final int view_image_activity=0x7f0a00b1;
-    public static final int web_view=0x7f0a00b2;
-    public static final int word_study_ciyixuanci_activity=0x7f0a00b3;
-    public static final int word_study_ciyixuanci_list_item=0x7f0a00b4;
-    public static final int word_study_dancipinxie_activity=0x7f0a00b5;
-    public static final int word_study_dancixuanyi_activity=0x7f0a00b6;
-    public static final int word_study_detail_activity=0x7f0a00b7;
-    public static final int word_study_detail_item=0x7f0a00b8;
-    public static final int word_study_duyinsuji_activity=0x7f0a00b9;
-    public static final int word_study_duyinxuanci_activity=0x7f0a00ba;
-    public static final int word_study_fight_activity=0x7f0a00bb;
-    public static final int word_study_list_fragment=0x7f0a00bc;
-    public static final int word_study_new_word_activity=0x7f0a00bd;
-    public static final int word_study_plan_activity=0x7f0a00be;
-    public static final int word_study_plan_detail_activity=0x7f0a00bf;
-    public static final int word_study_root_list_item=0x7f0a00c0;
-    public static final int word_study_spell_item=0x7f0a00c1;
-    public static final int word_study_summary_activity=0x7f0a00c2;
-    public static final int word_study_summary_detail_activity=0x7f0a00c3;
-    public static final int word_study_summary_list_item=0x7f0a00c4;
-    public static final int word_study_third_list_item=0x7f0a00c5;
-    public static final int word_study_uint_list_activity=0x7f0a00c6;
-    public static final int word_study_unit_list_item=0x7f0a00c7;
-    public static final int word_study_view_all_activity=0x7f0a00c8;
-    public static final int word_type_activity=0x7f0a00c9;
-    public static final int ximalaya_detail_activity=0x7f0a00ca;
-    public static final int ximalaya_list_item=0x7f0a00cb;
-    public static final int ximalaya_radio_detail_activity=0x7f0a00cc;
-    public static final int ximalaya_radio_list_item=0x7f0a00cd;
-    public static final int ximalaya_tags_activity=0x7f0a00ce;
-    public static final int ximalaya_tags_fragment=0x7f0a00cf;
-    public static final int ximalaya_tracklist_activity=0x7f0a00d0;
-    public static final int ximalaya_tracklist_item=0x7f0a00d1;
-    public static final int xmly_category_fragment=0x7f0a00d2;
-    public static final int xmly_dashboard_fragment=0x7f0a00d3;
-    public static final int xmly_eng_fragment=0x7f0a00d4;
-    public static final int xmly_radio_home_fragment=0x7f0a00d5;
-    public static final int xmly_radio_home_header=0x7f0a00d6;
-    public static final int xmly_radio_list_avtivity=0x7f0a00d7;
-    public static final int xmly_radio_schedulelist=0x7f0a00d8;
-    public static final int xmly_recommend_fragment=0x7f0a00d9;
-    public static final int xmly_recommend_root=0x7f0a00da;
-    public static final int xmly_tag_recommend_fragment=0x7f0a00db;
-    public static final int xmly_tags_fragment=0x7f0a00dc;
-    public static final int xmly_tags_list_header=0x7f0a00dd;
-    public static final int xmly_vategory_list_item=0x7f0a00de;
-    public static final int xunfei_ysad_item=0x7f0a00df;
-    public static final int yizhaondaodi_activity=0x7f0a00e0;
+    public static final int activity_listen=0x7f0a001c;
+    public static final int activity_search=0x7f0a001d;
+    public static final int activity_spoken=0x7f0a001e;
+    public static final int activity_subject=0x7f0a001f;
+    public static final int activity_words=0x7f0a0020;
+    public static final int activity_xmly=0x7f0a0021;
+    public static final int activity_xmly_album=0x7f0a0022;
+    public static final int activity_xmly_search=0x7f0a0023;
+    public static final int ad_list_item=0x7f0a0024;
+    public static final int ai_activity=0x7f0a0025;
+    public static final int ai_chat_activity=0x7f0a0026;
+    public static final int ai_chat_list_item=0x7f0a0027;
+    public static final int ai_dialogue_fight_activity=0x7f0a0028;
+    public static final int ai_dialogue_practice_activity=0x7f0a0029;
+    public static final int ai_turing_activity=0x7f0a002a;
+    public static final int base_container=0x7f0a002b;
+    public static final int brain_twists_activity=0x7f0a002c;
+    public static final int chdic_bushoupinyin_activity=0x7f0a002d;
+    public static final int chdic_bushoupinyin_list_activity=0x7f0a002e;
+    public static final int collected_main=0x7f0a002f;
+    public static final int collected_translate_fragment=0x7f0a0030;
+    public static final int composition_detail_activity=0x7f0a0031;
+    public static final int composition_fragment=0x7f0a0032;
+    public static final int composition_list_item=0x7f0a0033;
+    public static final int content_frame=0x7f0a0034;
+    public static final int daily_sentence_activity=0x7f0a0035;
+    public static final int daily_sentence_and_essay_activity=0x7f0a0036;
+    public static final int daily_sentence_list_item=0x7f0a0037;
+    public static final int design_bottom_navigation_item=0x7f0a0038;
+    public static final int design_bottom_sheet_dialog=0x7f0a0039;
+    public static final int design_layout_snackbar=0x7f0a003a;
+    public static final int design_layout_snackbar_include=0x7f0a003b;
+    public static final int design_layout_tab_icon=0x7f0a003c;
+    public static final int design_layout_tab_text=0x7f0a003d;
+    public static final int design_menu_item_action_area=0x7f0a003e;
+    public static final int design_navigation_item=0x7f0a003f;
+    public static final int design_navigation_item_header=0x7f0a0040;
+    public static final int design_navigation_item_separator=0x7f0a0041;
+    public static final int design_navigation_item_subheader=0x7f0a0042;
+    public static final int design_navigation_menu=0x7f0a0043;
+    public static final int design_navigation_menu_item=0x7f0a0044;
+    public static final int design_text_input_password_icon=0x7f0a0045;
+    public static final int dialog_first_fragment=0x7f0a0046;
+    public static final int dialog_grid=0x7f0a0047;
+    public static final int dialog_list=0x7f0a0048;
+    public static final int dialog_practice_activity=0x7f0a0049;
+    public static final int dialog_translate_result=0x7f0a004a;
+    public static final int dialog_update_info=0x7f0a004b;
+    public static final int dialog_view=0x7f0a004c;
+    public static final int dialog_word_study_book_confirm=0x7f0a004d;
+    public static final int dic_content_layout=0x7f0a004e;
+    public static final int dic_more_tools_layout=0x7f0a004f;
+    public static final int dic_title_layout=0x7f0a0050;
+    public static final int drawer_list_item=0x7f0a0051;
+    public static final int english_website_list_item=0x7f0a0052;
+    public static final int english_website_recommend_activity=0x7f0a0053;
+    public static final int essay_fragment=0x7f0a0054;
+    public static final int evaluation_detail_activity=0x7f0a0055;
+    public static final int evaluation_list_item=0x7f0a0056;
+    public static final int exo_playback_control_view=0x7f0a0057;
+    public static final int exo_simple_player_view=0x7f0a0058;
+    public static final int finish_fragment=0x7f0a0059;
+    public static final int footerview=0x7f0a005a;
+    public static final int fragment_ch_dictionary=0x7f0a005b;
+    public static final int fragment_dictionary=0x7f0a005c;
+    public static final int fragment_dictionary_old=0x7f0a005d;
+    public static final int fragment_en_dic=0x7f0a005e;
+    public static final int fragment_juhai=0x7f0a005f;
+    public static final int fragment_reading_subject_list=0x7f0a0060;
+    public static final int fragment_translate=0x7f0a0061;
+    public static final int fragment_translate_old=0x7f0a0062;
+    public static final int get_fans_activity=0x7f0a0063;
+    public static final int godreply_activity=0x7f0a0064;
+    public static final int help=0x7f0a0065;
+    public static final int invest_list_activity=0x7f0a0066;
+    public static final int invest_list_adapter=0x7f0a0067;
+    public static final int investment_list_activity=0x7f0a0068;
+    public static final int joke_activity=0x7f0a0069;
+    public static final int joke_bdj_list_item=0x7f0a006a;
+    public static final int joke_picture_fragment=0x7f0a006b;
+    public static final int juhai_list_item=0x7f0a006c;
+    public static final int jz_dialog_brightness=0x7f0a006d;
+    public static final int jz_dialog_progress=0x7f0a006e;
+    public static final int jz_dialog_volume=0x7f0a006f;
+    public static final int jz_layout_clarity=0x7f0a0070;
+    public static final int jz_layout_clarity_item=0x7f0a0071;
+    public static final int jz_layout_standard=0x7f0a0072;
+    public static final int leisure_fragment=0x7f0a0073;
+    public static final int listview_item_dictionary=0x7f0a0074;
+    public static final int listview_item_recent_used=0x7f0a0075;
+    public static final int loading_activity=0x7f0a0076;
+    public static final int main_tab_tran=0x7f0a0077;
+    public static final int menu_frame=0x7f0a0078;
+    public static final int more_activity=0x7f0a0079;
+    public static final int notification_action=0x7f0a007a;
+    public static final int notification_action_tombstone=0x7f0a007b;
+    public static final int notification_layout=0x7f0a007c;
+    public static final int notification_media_action=0x7f0a007d;
+    public static final int notification_media_cancel_action=0x7f0a007e;
+    public static final int notification_template_big_media=0x7f0a007f;
+    public static final int notification_template_big_media_custom=0x7f0a0080;
+    public static final int notification_template_big_media_narrow=0x7f0a0081;
+    public static final int notification_template_big_media_narrow_custom=0x7f0a0082;
+    public static final int notification_template_custom_big=0x7f0a0083;
+    public static final int notification_template_icon_group=0x7f0a0084;
+    public static final int notification_template_lines_media=0x7f0a0085;
+    public static final int notification_template_media=0x7f0a0086;
+    public static final int notification_template_media_custom=0x7f0a0087;
+    public static final int notification_template_part_chronometer=0x7f0a0088;
+    public static final int notification_template_part_time=0x7f0a0089;
+    public static final int offline_dic_download_activity=0x7f0a008a;
+    public static final int popwindow_item=0x7f0a008b;
+    public static final int popwindow_root=0x7f0a008c;
+    public static final int practice_activity=0x7f0a008d;
+    public static final int practice_activity_lv_item=0x7f0a008e;
+    public static final int practice_every_fragment=0x7f0a008f;
+    public static final int practice_every_item=0x7f0a0090;
+    public static final int practice_one_fragment=0x7f0a0091;
+    public static final int practice_read_after_me_fragmenty=0x7f0a0092;
+    public static final int practice_write_fragment=0x7f0a0093;
+    public static final int pybs_detail_activity=0x7f0a0094;
+    public static final int qrcode_share_layout=0x7f0a0095;
+    public static final int quick_view_load_more=0x7f0a0096;
+    public static final int read_list_item=0x7f0a0097;
+    public static final int reading_activity=0x7f0a0098;
+    public static final int reading_video_detail_activity=0x7f0a0099;
+    public static final int recommend_activity=0x7f0a009a;
+    public static final int record_activity=0x7f0a009b;
+    public static final int recycler_header=0x7f0a009c;
+    public static final int select_dialog_item_material=0x7f0a009d;
+    public static final int select_dialog_multichoice_material=0x7f0a009e;
+    public static final int select_dialog_singlechoice_material=0x7f0a009f;
+    public static final int select_popwindow=0x7f0a00a0;
+    public static final int setting=0x7f0a00a1;
+    public static final int share_layout=0x7f0a00a2;
+    public static final int spoken_englis_category_activity=0x7f0a00a3;
+    public static final int spoken_english_listview_item=0x7f0a00a4;
+    public static final int spoken_english_practice_fragment=0x7f0a00a5;
+    public static final int study_activity=0x7f0a00a6;
+    public static final int study_category_fragment=0x7f0a00a7;
+    public static final int study_dialog_activity=0x7f0a00a8;
+    public static final int study_fragment=0x7f0a00a9;
+    public static final int study_fragment_header=0x7f0a00aa;
+    public static final int study_list_fragment=0x7f0a00ab;
+    public static final int studylist_gridview_item=0x7f0a00ac;
+    public static final int studylist_item=0x7f0a00ad;
+    public static final int support_simple_spinner_dropdown_item=0x7f0a00ae;
+    public static final int symbol_list_activity=0x7f0a00af;
+    public static final int symbol_list_fragment=0x7f0a00b0;
+    public static final int symbol_list_item=0x7f0a00b1;
+    public static final int symbol_study_activity=0x7f0a00b2;
+    public static final int tablayout_fragment=0x7f0a00b3;
+    public static final int tooltip=0x7f0a00b4;
+    public static final int type_select_fragment=0x7f0a00b5;
+    public static final int view_image_activity=0x7f0a00b6;
+    public static final int web_view=0x7f0a00b7;
+    public static final int word_home_fragment=0x7f0a00b8;
+    public static final int word_study_ciyixuanci_activity=0x7f0a00b9;
+    public static final int word_study_ciyixuanci_list_item=0x7f0a00ba;
+    public static final int word_study_dancipinxie_activity=0x7f0a00bb;
+    public static final int word_study_dancixuanyi_activity=0x7f0a00bc;
+    public static final int word_study_detail_activity=0x7f0a00bd;
+    public static final int word_study_detail_item=0x7f0a00be;
+    public static final int word_study_duyinsuji_activity=0x7f0a00bf;
+    public static final int word_study_duyinxuanci_activity=0x7f0a00c0;
+    public static final int word_study_fight_activity=0x7f0a00c1;
+    public static final int word_study_list_fragment=0x7f0a00c2;
+    public static final int word_study_new_word_activity=0x7f0a00c3;
+    public static final int word_study_plan_activity=0x7f0a00c4;
+    public static final int word_study_plan_detail_activity=0x7f0a00c5;
+    public static final int word_study_root_list_item=0x7f0a00c6;
+    public static final int word_study_spell_item=0x7f0a00c7;
+    public static final int word_study_summary_activity=0x7f0a00c8;
+    public static final int word_study_summary_detail_activity=0x7f0a00c9;
+    public static final int word_study_summary_list_item=0x7f0a00ca;
+    public static final int word_study_third_list_item=0x7f0a00cb;
+    public static final int word_study_uint_list_activity=0x7f0a00cc;
+    public static final int word_study_unit_list_item=0x7f0a00cd;
+    public static final int word_study_view_all_activity=0x7f0a00ce;
+    public static final int word_type_activity=0x7f0a00cf;
+    public static final int ximalaya_detail_activity=0x7f0a00d0;
+    public static final int ximalaya_list_item=0x7f0a00d1;
+    public static final int ximalaya_radio_detail_activity=0x7f0a00d2;
+    public static final int ximalaya_radio_list_item=0x7f0a00d3;
+    public static final int ximalaya_tags_activity=0x7f0a00d4;
+    public static final int ximalaya_tags_fragment=0x7f0a00d5;
+    public static final int ximalaya_tracklist_activity=0x7f0a00d6;
+    public static final int ximalaya_tracklist_item=0x7f0a00d7;
+    public static final int xmly_category_fragment=0x7f0a00d8;
+    public static final int xmly_dashboard_fragment=0x7f0a00d9;
+    public static final int xmly_eng_fragment=0x7f0a00da;
+    public static final int xmly_radio_home_fragment=0x7f0a00db;
+    public static final int xmly_radio_home_header=0x7f0a00dc;
+    public static final int xmly_radio_list_avtivity=0x7f0a00dd;
+    public static final int xmly_radio_schedulelist=0x7f0a00de;
+    public static final int xmly_recommend_fragment=0x7f0a00df;
+    public static final int xmly_recommend_root=0x7f0a00e0;
+    public static final int xmly_tag_recommend_fragment=0x7f0a00e1;
+    public static final int xmly_tags_fragment=0x7f0a00e2;
+    public static final int xmly_tags_list_header=0x7f0a00e3;
+    public static final int xmly_vategory_list_item=0x7f0a00e4;
+    public static final int xunfei_ysad_item=0x7f0a00e5;
+    public static final int yizhaondaodi_activity=0x7f0a00e6;
   }
   public static final class menu {
     public static final int composition=0x7f0b0000;
     public static final int evaluation_detail_menu=0x7f0b0001;
-    public static final int main=0x7f0b0002;
-    public static final int menu_done=0x7f0b0003;
-    public static final int menu_main_activity_test=0x7f0b0004;
-    public static final int menu_scrolling=0x7f0b0005;
-    public static final int pybs_detail=0x7f0b0006;
-    public static final int settings=0x7f0b0007;
-    public static final int symbol_detail_menu=0x7f0b0008;
-    public static final int word_study_plan_menu=0x7f0b0009;
-    public static final int xmly_tabs=0x7f0b000a;
+    public static final int listen_tabs=0x7f0b0002;
+    public static final int main=0x7f0b0003;
+    public static final int menu_done=0x7f0b0004;
+    public static final int menu_main_activity_test=0x7f0b0005;
+    public static final int menu_scrolling=0x7f0b0006;
+    public static final int pybs_detail=0x7f0b0007;
+    public static final int settings=0x7f0b0008;
+    public static final int spoken_tabs=0x7f0b0009;
+    public static final int symbol_detail_menu=0x7f0b000a;
+    public static final int word_study_plan_menu=0x7f0b000b;
+    public static final int words_tabs=0x7f0b000c;
+    public static final int xmly_tabs=0x7f0b000d;
   }
   public static final class mipmap {
     public static final int ic_launcher=0x7f0c0000;
@@ -5845,332 +5866,335 @@ public final class R {
     public static final int click_and_finish=0x7f0e0043;
     public static final int click_and_speak=0x7f0e0044;
     public static final int click_speak=0x7f0e0045;
-    public static final int click_where_unknow=0x7f0e0046;
-    public static final int close=0x7f0e0047;
-    public static final int collect=0x7f0e0048;
-    public static final int continuity=0x7f0e0049;
-    public static final int conversation=0x7f0e004a;
-    public static final int copy=0x7f0e004b;
-    public static final int copy_success=0x7f0e004c;
-    public static final int dailysentence=0x7f0e004d;
-    public static final int danciceshi=0x7f0e004e;
-    public static final int danciceshi_des=0x7f0e004f;
-    public static final int dancirenzhi=0x7f0e0050;
-    public static final int dancirenzhi_des=0x7f0e0051;
-    public static final int dancisuji=0x7f0e0052;
-    public static final int dancisuji_des=0x7f0e0053;
-    public static final int dancitingxuan=0x7f0e0054;
-    public static final int dancitingxuan_des=0x7f0e0055;
-    public static final int dele_success=0x7f0e0056;
-    public static final int designer=0x7f0e0057;
-    public static final int detail=0x7f0e0058;
-    public static final int detail_total=0x7f0e0059;
-    public static final int dic_minimalist=0x7f0e005a;
-    public static final int dic_normal=0x7f0e005b;
-    public static final int dic_sentence=0x7f0e005c;
-    public static final int dic_tab_cidian=0x7f0e005d;
-    public static final int dic_tab_juhai=0x7f0e005e;
-    public static final int dic_tab_shoucang=0x7f0e005f;
-    public static final int download=0x7f0e0060;
-    public static final int english=0x7f0e0061;
-    public static final int english_essay=0x7f0e0062;
-    public static final int english_fm=0x7f0e0063;
-    public static final int errcode_cancel=0x7f0e0064;
-    public static final int errcode_deny=0x7f0e0065;
-    public static final int errcode_success=0x7f0e0066;
-    public static final int errcode_unknown=0x7f0e0067;
-    public static final int evaluation_prompt=0x7f0e0068;
-    public static final int examination=0x7f0e0069;
-    public static final int exit_program=0x7f0e006a;
-    public static final int exo_controls_fastforward_description=0x7f0e006b;
-    public static final int exo_controls_next_description=0x7f0e006c;
-    public static final int exo_controls_pause_description=0x7f0e006d;
-    public static final int exo_controls_play_description=0x7f0e006e;
-    public static final int exo_controls_previous_description=0x7f0e006f;
-    public static final int exo_controls_repeat_all_description=0x7f0e0070;
-    public static final int exo_controls_repeat_off_description=0x7f0e0071;
-    public static final int exo_controls_repeat_one_description=0x7f0e0072;
-    public static final int exo_controls_rewind_description=0x7f0e0073;
-    public static final int exo_controls_shuffle_description=0x7f0e0074;
-    public static final int exo_controls_stop_description=0x7f0e0075;
-    public static final int favorite_cancle=0x7f0e0076;
-    public static final int favorite_success=0x7f0e0077;
-    public static final int feedback=0x7f0e0078;
-    public static final int fifth_normal=0x7f0e0079;
-    public static final int fight_fail=0x7f0e007a;
-    public static final int fight_success=0x7f0e007b;
-    public static final int fighting=0x7f0e007c;
-    public static final int finish=0x7f0e007d;
-    public static final int finish_test=0x7f0e007e;
-    public static final int follow_teacher=0x7f0e007f;
-    public static final int font_color=0x7f0e0080;
-    public static final int font_size=0x7f0e0081;
-    public static final int font_style=0x7f0e0082;
-    public static final int font_style_bold=0x7f0e0083;
-    public static final int font_style_center=0x7f0e0084;
-    public static final int font_style_italic=0x7f0e0085;
-    public static final int font_style_left=0x7f0e0086;
-    public static final int font_style_right=0x7f0e0087;
-    public static final int foreign_website=0x7f0e0088;
-    public static final int foreign_website_subtitle=0x7f0e0089;
-    public static final int getcontent_1=0x7f0e008a;
-    public static final int getcontent_2=0x7f0e008b;
-    public static final int getfans_1=0x7f0e008c;
-    public static final int getfans_3=0x7f0e008d;
-    public static final int getfans_4=0x7f0e008e;
-    public static final int glossary=0x7f0e008f;
-    public static final int hotel_ad_prompt=0x7f0e0090;
-    public static final int i_speak_cantonese=0x7f0e0091;
-    public static final int input_et_empty=0x7f0e0092;
-    public static final int input_et_hint=0x7f0e0093;
-    public static final int input_et_hint_chinese=0x7f0e0094;
-    public static final int input_et_hint_dictionary=0x7f0e0095;
-    public static final int input_et_hint_english=0x7f0e0096;
-    public static final int input_translate_hint=0x7f0e0097;
-    public static final int intermediate=0x7f0e0098;
-    public static final int intermediate_lever=0x7f0e0099;
-    public static final int introduction=0x7f0e009a;
-    public static final int invest_activity_title=0x7f0e009b;
-    public static final int invest_list_prompt=0x7f0e009c;
-    public static final int invite_friends=0x7f0e009d;
-    public static final int invite_friends_prompt=0x7f0e009e;
-    public static final int invite_friends_qrcode=0x7f0e009f;
-    public static final int learn_english=0x7f0e00a0;
-    public static final int learn_english_with_ai=0x7f0e00a1;
-    public static final int leisuer_duanzi=0x7f0e00a2;
-    public static final int leisuer_duanzi_subtitle=0x7f0e00a3;
-    public static final int leisuer_gyt=0x7f0e00a4;
-    public static final int leisuer_gyt_subtitle=0x7f0e00a5;
-    public static final int leisuer_henhuifu_des=0x7f0e00a6;
-    public static final int leisuer_invest=0x7f0e00a7;
-    public static final int leisuer_invest_subtitle=0x7f0e00a8;
-    public static final int leisuer_one=0x7f0e00a9;
-    public static final int leisuer_one_subtitle=0x7f0e00aa;
-    public static final int leisuer_reading=0x7f0e00ab;
-    public static final int leisuer_reading_subtitle=0x7f0e00ac;
-    public static final int leisuer_shenhuifu=0x7f0e00ad;
-    public static final int leisuer_shenhuifu_des=0x7f0e00ae;
-    public static final int leisuer_sougou_wechat=0x7f0e00af;
-    public static final int leisuer_sougou_wechat_subtitle=0x7f0e00b0;
-    public static final int leisuer_twists=0x7f0e00b1;
-    public static final int leisuer_twists_subtitle=0x7f0e00b2;
-    public static final int leisuer_two=0x7f0e00b3;
-    public static final int leisuer_two_subtitle=0x7f0e00b4;
-    public static final int leisuer_yizhandaodi=0x7f0e00b5;
-    public static final int leisuer_yizhandaodi_des=0x7f0e00b6;
-    public static final int listen=0x7f0e00b7;
-    public static final int load_end=0x7f0e00b8;
-    public static final int load_failed=0x7f0e00b9;
-    public static final int loading=0x7f0e00ba;
-    public static final int loadmore=0x7f0e00bb;
-    public static final int menu_about=0x7f0e00bc;
-    public static final int menu_settings=0x7f0e00bd;
-    public static final int menu_share=0x7f0e00be;
-    public static final int menu_speak=0x7f0e00bf;
-    public static final int menu_translate=0x7f0e00c0;
-    public static final int network_error=0x7f0e00c1;
-    public static final int new_and_wrong=0x7f0e00c2;
-    public static final int new_concept=0x7f0e00c3;
-    public static final int next_unit=0x7f0e00c4;
-    public static final int no_result=0x7f0e00c5;
-    public static final int no_url=0x7f0e00c6;
-    public static final int nomore=0x7f0e00c7;
-    public static final int offline_download=0x7f0e00c8;
-    public static final int password_toggle_content_description=0x7f0e00c9;
-    public static final int path_password_eye=0x7f0e00ca;
-    public static final int path_password_eye_mask_strike_through=0x7f0e00cb;
-    public static final int path_password_eye_mask_visible=0x7f0e00cc;
-    public static final int path_password_strike_through=0x7f0e00cd;
-    public static final int permission_cancel=0x7f0e00ce;
-    public static final int permission_message_permission_failed=0x7f0e00cf;
-    public static final int permission_message_permission_rationale=0x7f0e00d0;
-    public static final int permission_resume=0x7f0e00d1;
-    public static final int permission_setting=0x7f0e00d2;
-    public static final int permission_title_permission_failed=0x7f0e00d3;
-    public static final int permission_title_permission_rationale=0x7f0e00d4;
-    public static final int photo_album=0x7f0e00d5;
-    public static final int pinxie=0x7f0e00d6;
-    public static final int pinxie_des=0x7f0e00d7;
-    public static final int play_speed_text=0x7f0e00d8;
-    public static final int practice_check=0x7f0e00d9;
-    public static final int practice_congratulation=0x7f0e00da;
-    public static final int practice_dialog_listen=0x7f0e00db;
-    public static final int practice_dialog_readafterme=0x7f0e00dc;
-    public static final int practice_dialog_rolea=0x7f0e00dd;
-    public static final int practice_dialog_roleb=0x7f0e00de;
-    public static final int practice_finish=0x7f0e00df;
-    public static final int practice_next=0x7f0e00e0;
-    public static final int practice_next_level=0x7f0e00e1;
-    public static final int practice_prompt_chinese=0x7f0e00e2;
-    public static final int practice_prompt_english=0x7f0e00e3;
-    public static final int practice_spoken_englist_finish=0x7f0e00e4;
-    public static final int practice_spoken_englist_style_fourinone=0x7f0e00e5;
-    public static final int practice_spoken_englist_style_readafterme=0x7f0e00e6;
-    public static final int practice_spoken_englist_style_speakafterme=0x7f0e00e7;
-    public static final int practice_spoken_englist_style_studyevery=0x7f0e00e8;
-    public static final int practice_spoken_englist_style_write=0x7f0e00e9;
-    public static final int practice_start=0x7f0e00ea;
-    public static final int preference_default_accent=0x7f0e00eb;
-    public static final int preference_default_iat_engine=0x7f0e00ec;
-    public static final int preference_default_iat_engine_en=0x7f0e00ed;
-    public static final int preference_default_iat_rate=0x7f0e00ee;
-    public static final int preference_default_recognizer=0x7f0e00ef;
-    public static final int preference_default_tts_music=0x7f0e00f0;
-    public static final int preference_dialog_title_tts_music=0x7f0e00f1;
-    public static final int preference_key_accent=0x7f0e00f2;
-    public static final int preference_key_iat_engine=0x7f0e00f3;
-    public static final int preference_key_iat_rate=0x7f0e00f4;
-    public static final int preference_key_recognizer=0x7f0e00f5;
-    public static final int preference_key_tts_music=0x7f0e00f6;
-    public static final int preference_key_tts_speed=0x7f0e00f7;
-    public static final int preference_title_iat_rate=0x7f0e00f8;
-    public static final int preference_title_tts_music=0x7f0e00f9;
-    public static final int primary_lever=0x7f0e00fa;
-    public static final int prompt=0x7f0e00fb;
-    public static final int query=0x7f0e00fc;
-    public static final int radio_country=0x7f0e00fd;
-    public static final int radio_internet=0x7f0e00fe;
-    public static final int radio_local=0x7f0e00ff;
-    public static final int radio_province=0x7f0e0100;
-    public static final int random_course=0x7f0e0101;
-    public static final int rank=0x7f0e0102;
-    public static final int reading=0x7f0e0103;
-    public static final int recent=0x7f0e0104;
-    public static final int recent_study_empty=0x7f0e0105;
-    public static final int recent_use_footer_prompt=0x7f0e0106;
-    public static final int recent_use_footer_prompt_content=0x7f0e0107;
-    public static final int recognize_error=0x7f0e0108;
-    public static final int recommend=0x7f0e0109;
-    public static final int replay=0x7f0e010a;
-    public static final int restart_success=0x7f0e010b;
-    public static final int retry=0x7f0e010c;
-    public static final int search=0x7f0e010d;
-    public static final int search_hint=0x7f0e010e;
-    public static final int search_history=0x7f0e010f;
-    public static final int search_menu_title=0x7f0e0110;
-    public static final int search_xmly_hint=0x7f0e0111;
-    public static final int section_format=0x7f0e0112;
-    public static final int sent=0x7f0e0113;
-    public static final int sentence=0x7f0e0114;
-    public static final int server_error=0x7f0e0115;
-    public static final int share=0x7f0e0116;
-    public static final int share_buddy=0x7f0e0117;
-    public static final int share_dialog_text_1=0x7f0e0118;
-    public static final int share_dialog_text_2=0x7f0e0119;
-    public static final int share_text_hint=0x7f0e011a;
-    public static final int simulation_dialogue=0x7f0e011b;
-    public static final int sorry=0x7f0e011c;
-    public static final int speak=0x7f0e011d;
-    public static final int speak_chinese=0x7f0e011e;
-    public static final int speak_english=0x7f0e011f;
-    public static final int speak_prompt=0x7f0e0120;
-    public static final int spoken_english_practice=0x7f0e0121;
-    public static final int start=0x7f0e0122;
-    public static final int start_to_fight=0x7f0e0123;
-    public static final int start_to_follow=0x7f0e0124;
-    public static final int start_unlock=0x7f0e0125;
-    public static final int status_bar_notification_info_overflow=0x7f0e0126;
-    public static final int style_classic=0x7f0e0127;
-    public static final int style_minimalist=0x7f0e0128;
-    public static final int style_select=0x7f0e0129;
-    public static final int take_photo=0x7f0e012a;
-    public static final int textclickguidedialog_content=0x7f0e012b;
-    public static final int textclickguidedialog_title=0x7f0e012c;
-    public static final int tips_not_wifi=0x7f0e012d;
-    public static final int tips_not_wifi_cancel=0x7f0e012e;
-    public static final int tips_not_wifi_confirm=0x7f0e012f;
-    public static final int title_Practice=0x7f0e0130;
-    public static final int title_TranslatePractice=0x7f0e0131;
-    public static final int title_about=0x7f0e0132;
-    public static final int title_activity_main=0x7f0e0133;
-    public static final int title_activity_main_test=0x7f0e0134;
-    public static final int title_ai=0x7f0e0135;
-    public static final int title_ai_chat=0x7f0e0136;
-    public static final int title_ai_dialog_choice_course=0x7f0e0137;
-    public static final int title_ai_learn=0x7f0e0138;
-    public static final int title_all_fm=0x7f0e0139;
-    public static final int title_all_unit=0x7f0e013a;
-    public static final int title_apps=0x7f0e013b;
-    public static final int title_article_collected=0x7f0e013c;
-    public static final int title_broadcast=0x7f0e013d;
-    public static final int title_business=0x7f0e013e;
-    public static final int title_cailing=0x7f0e013f;
-    public static final int title_ch_dictionary=0x7f0e0140;
-    public static final int title_chinese_dic=0x7f0e0141;
-    public static final int title_comments=0x7f0e0142;
-    public static final int title_composition=0x7f0e0143;
-    public static final int title_course=0x7f0e0144;
-    public static final int title_daily_word_study=0x7f0e0145;
-    public static final int title_dashboard=0x7f0e0146;
-    public static final int title_dialog_select=0x7f0e0147;
-    public static final int title_dictionary=0x7f0e0148;
-    public static final int title_dictionary_idiom=0x7f0e0149;
-    public static final int title_duanzi=0x7f0e014a;
-    public static final int title_duanzi_gif=0x7f0e014b;
-    public static final int title_duanzi_img=0x7f0e014c;
-    public static final int title_duanzi_mm=0x7f0e014d;
-    public static final int title_english_dic=0x7f0e014e;
-    public static final int title_english_jokes=0x7f0e014f;
-    public static final int title_english_story=0x7f0e0150;
-    public static final int title_english_video=0x7f0e0151;
-    public static final int title_favorite=0x7f0e0152;
-    public static final int title_grammar=0x7f0e0153;
-    public static final int title_help=0x7f0e0154;
-    public static final int title_history=0x7f0e0155;
-    public static final int title_home=0x7f0e0156;
-    public static final int title_home_tab=0x7f0e0157;
-    public static final int title_hotel=0x7f0e0158;
-    public static final int title_instagram=0x7f0e0159;
-    public static final int title_juhe=0x7f0e015a;
-    public static final int title_leisure=0x7f0e015b;
-    public static final int title_listening=0x7f0e015c;
-    public static final int title_live=0x7f0e015d;
-    public static final int title_more=0x7f0e015e;
-    public static final int title_notifications=0x7f0e015f;
-    public static final int title_offline_dic=0x7f0e0160;
-    public static final int title_reading=0x7f0e0161;
-    public static final int title_sentence=0x7f0e0162;
-    public static final int title_settings=0x7f0e0163;
-    public static final int title_share_preview=0x7f0e0164;
-    public static final int title_sougo_wechat=0x7f0e0165;
-    public static final int title_speak_basic=0x7f0e0166;
-    public static final int title_speak_dialog=0x7f0e0167;
-    public static final int title_spoken_english_study=0x7f0e0168;
-    public static final int title_study=0x7f0e0169;
-    public static final int title_study_category=0x7f0e016a;
-    public static final int title_style=0x7f0e016b;
-    public static final int title_sure=0x7f0e016c;
-    public static final int title_symbol=0x7f0e016d;
-    public static final int title_translate=0x7f0e016e;
-    public static final int title_tuling_ai=0x7f0e016f;
-    public static final int title_tuling_ai_des=0x7f0e0170;
-    public static final int title_update_title=0x7f0e0171;
-    public static final int title_website=0x7f0e0172;
-    public static final int title_word_study=0x7f0e0173;
-    public static final int title_word_study_change_plan=0x7f0e0174;
-    public static final int title_word_study_summary=0x7f0e0175;
-    public static final int title_word_study_vocabulary=0x7f0e0176;
-    public static final int title_word_vocabulary=0x7f0e0177;
-    public static final int translate=0x7f0e0178;
-    public static final int translate_content=0x7f0e0179;
-    public static final int try_again=0x7f0e017a;
-    public static final int tts_toast_format=0x7f0e017b;
-    public static final int updage_later=0x7f0e017c;
-    public static final int updage_now=0x7f0e017d;
-    public static final int voice=0x7f0e017e;
-    public static final int website_attention=0x7f0e017f;
-    public static final int webview_reload=0x7f0e0180;
-    public static final int wechat=0x7f0e0181;
-    public static final int wechat_long_click=0x7f0e0182;
-    public static final int word_study_detail_menu=0x7f0e0183;
-    public static final int word_test_result=0x7f0e0184;
-    public static final int xmly_album=0x7f0e0185;
-    public static final int xmly_home=0x7f0e0186;
-    public static final int xmly_radio=0x7f0e0187;
-    public static final int xmly_tab_eng=0x7f0e0188;
-    public static final int xmly_track=0x7f0e0189;
-    public static final int your_turn=0x7f0e018a;
-    public static final int yuedu_ad_prompt=0x7f0e018b;
+    public static final int click_to_skip=0x7f0e0046;
+    public static final int click_where_unknow=0x7f0e0047;
+    public static final int close=0x7f0e0048;
+    public static final int collect=0x7f0e0049;
+    public static final int continuity=0x7f0e004a;
+    public static final int conversation=0x7f0e004b;
+    public static final int copy=0x7f0e004c;
+    public static final int copy_success=0x7f0e004d;
+    public static final int dailysentence=0x7f0e004e;
+    public static final int danciceshi=0x7f0e004f;
+    public static final int danciceshi_des=0x7f0e0050;
+    public static final int dancirenzhi=0x7f0e0051;
+    public static final int dancirenzhi_des=0x7f0e0052;
+    public static final int dancisuji=0x7f0e0053;
+    public static final int dancisuji_des=0x7f0e0054;
+    public static final int dancitingxuan=0x7f0e0055;
+    public static final int dancitingxuan_des=0x7f0e0056;
+    public static final int dele_success=0x7f0e0057;
+    public static final int designer=0x7f0e0058;
+    public static final int detail=0x7f0e0059;
+    public static final int detail_total=0x7f0e005a;
+    public static final int dic_minimalist=0x7f0e005b;
+    public static final int dic_normal=0x7f0e005c;
+    public static final int dic_sentence=0x7f0e005d;
+    public static final int dic_tab_cidian=0x7f0e005e;
+    public static final int dic_tab_juhai=0x7f0e005f;
+    public static final int dic_tab_shoucang=0x7f0e0060;
+    public static final int download=0x7f0e0061;
+    public static final int english=0x7f0e0062;
+    public static final int english_essay=0x7f0e0063;
+    public static final int english_fm=0x7f0e0064;
+    public static final int errcode_cancel=0x7f0e0065;
+    public static final int errcode_deny=0x7f0e0066;
+    public static final int errcode_success=0x7f0e0067;
+    public static final int errcode_unknown=0x7f0e0068;
+    public static final int evaluation_prompt=0x7f0e0069;
+    public static final int examination=0x7f0e006a;
+    public static final int exit_program=0x7f0e006b;
+    public static final int exo_controls_fastforward_description=0x7f0e006c;
+    public static final int exo_controls_next_description=0x7f0e006d;
+    public static final int exo_controls_pause_description=0x7f0e006e;
+    public static final int exo_controls_play_description=0x7f0e006f;
+    public static final int exo_controls_previous_description=0x7f0e0070;
+    public static final int exo_controls_repeat_all_description=0x7f0e0071;
+    public static final int exo_controls_repeat_off_description=0x7f0e0072;
+    public static final int exo_controls_repeat_one_description=0x7f0e0073;
+    public static final int exo_controls_rewind_description=0x7f0e0074;
+    public static final int exo_controls_shuffle_description=0x7f0e0075;
+    public static final int exo_controls_stop_description=0x7f0e0076;
+    public static final int favorite_cancle=0x7f0e0077;
+    public static final int favorite_success=0x7f0e0078;
+    public static final int feedback=0x7f0e0079;
+    public static final int fifth_normal=0x7f0e007a;
+    public static final int fight_fail=0x7f0e007b;
+    public static final int fight_success=0x7f0e007c;
+    public static final int fighting=0x7f0e007d;
+    public static final int finish=0x7f0e007e;
+    public static final int finish_test=0x7f0e007f;
+    public static final int follow_teacher=0x7f0e0080;
+    public static final int font_color=0x7f0e0081;
+    public static final int font_size=0x7f0e0082;
+    public static final int font_style=0x7f0e0083;
+    public static final int font_style_bold=0x7f0e0084;
+    public static final int font_style_center=0x7f0e0085;
+    public static final int font_style_italic=0x7f0e0086;
+    public static final int font_style_left=0x7f0e0087;
+    public static final int font_style_right=0x7f0e0088;
+    public static final int foreign_website=0x7f0e0089;
+    public static final int foreign_website_subtitle=0x7f0e008a;
+    public static final int getcontent_1=0x7f0e008b;
+    public static final int getcontent_2=0x7f0e008c;
+    public static final int getfans_1=0x7f0e008d;
+    public static final int getfans_3=0x7f0e008e;
+    public static final int getfans_4=0x7f0e008f;
+    public static final int glossary=0x7f0e0090;
+    public static final int hotel_ad_prompt=0x7f0e0091;
+    public static final int i_speak_cantonese=0x7f0e0092;
+    public static final int input_et_empty=0x7f0e0093;
+    public static final int input_et_hint=0x7f0e0094;
+    public static final int input_et_hint_chinese=0x7f0e0095;
+    public static final int input_et_hint_dictionary=0x7f0e0096;
+    public static final int input_et_hint_english=0x7f0e0097;
+    public static final int input_translate_hint=0x7f0e0098;
+    public static final int intermediate=0x7f0e0099;
+    public static final int intermediate_lever=0x7f0e009a;
+    public static final int introduction=0x7f0e009b;
+    public static final int invest_activity_title=0x7f0e009c;
+    public static final int invest_list_prompt=0x7f0e009d;
+    public static final int invite_friends=0x7f0e009e;
+    public static final int invite_friends_prompt=0x7f0e009f;
+    public static final int invite_friends_qrcode=0x7f0e00a0;
+    public static final int learn_english=0x7f0e00a1;
+    public static final int learn_english_with_ai=0x7f0e00a2;
+    public static final int leisuer_duanzi=0x7f0e00a3;
+    public static final int leisuer_duanzi_subtitle=0x7f0e00a4;
+    public static final int leisuer_gyt=0x7f0e00a5;
+    public static final int leisuer_gyt_subtitle=0x7f0e00a6;
+    public static final int leisuer_henhuifu_des=0x7f0e00a7;
+    public static final int leisuer_invest=0x7f0e00a8;
+    public static final int leisuer_invest_subtitle=0x7f0e00a9;
+    public static final int leisuer_one=0x7f0e00aa;
+    public static final int leisuer_one_subtitle=0x7f0e00ab;
+    public static final int leisuer_reading=0x7f0e00ac;
+    public static final int leisuer_reading_subtitle=0x7f0e00ad;
+    public static final int leisuer_shenhuifu=0x7f0e00ae;
+    public static final int leisuer_shenhuifu_des=0x7f0e00af;
+    public static final int leisuer_sougou_wechat=0x7f0e00b0;
+    public static final int leisuer_sougou_wechat_subtitle=0x7f0e00b1;
+    public static final int leisuer_twists=0x7f0e00b2;
+    public static final int leisuer_twists_subtitle=0x7f0e00b3;
+    public static final int leisuer_two=0x7f0e00b4;
+    public static final int leisuer_two_content=0x7f0e00b5;
+    public static final int leisuer_two_subtitle=0x7f0e00b6;
+    public static final int leisuer_yizhandaodi=0x7f0e00b7;
+    public static final int leisuer_yizhandaodi_des=0x7f0e00b8;
+    public static final int listen=0x7f0e00b9;
+    public static final int load_end=0x7f0e00ba;
+    public static final int load_failed=0x7f0e00bb;
+    public static final int loading=0x7f0e00bc;
+    public static final int loadmore=0x7f0e00bd;
+    public static final int menu_about=0x7f0e00be;
+    public static final int menu_settings=0x7f0e00bf;
+    public static final int menu_share=0x7f0e00c0;
+    public static final int menu_speak=0x7f0e00c1;
+    public static final int menu_translate=0x7f0e00c2;
+    public static final int network_error=0x7f0e00c3;
+    public static final int new_and_wrong=0x7f0e00c4;
+    public static final int new_concept=0x7f0e00c5;
+    public static final int next_unit=0x7f0e00c6;
+    public static final int no_result=0x7f0e00c7;
+    public static final int no_url=0x7f0e00c8;
+    public static final int nomore=0x7f0e00c9;
+    public static final int offline_download=0x7f0e00ca;
+    public static final int password_toggle_content_description=0x7f0e00cb;
+    public static final int path_password_eye=0x7f0e00cc;
+    public static final int path_password_eye_mask_strike_through=0x7f0e00cd;
+    public static final int path_password_eye_mask_visible=0x7f0e00ce;
+    public static final int path_password_strike_through=0x7f0e00cf;
+    public static final int permission_cancel=0x7f0e00d0;
+    public static final int permission_message_permission_failed=0x7f0e00d1;
+    public static final int permission_message_permission_rationale=0x7f0e00d2;
+    public static final int permission_resume=0x7f0e00d3;
+    public static final int permission_setting=0x7f0e00d4;
+    public static final int permission_title_permission_failed=0x7f0e00d5;
+    public static final int permission_title_permission_rationale=0x7f0e00d6;
+    public static final int photo_album=0x7f0e00d7;
+    public static final int pinxie=0x7f0e00d8;
+    public static final int pinxie_des=0x7f0e00d9;
+    public static final int play_speed_text=0x7f0e00da;
+    public static final int practice_check=0x7f0e00db;
+    public static final int practice_congratulation=0x7f0e00dc;
+    public static final int practice_dialog_listen=0x7f0e00dd;
+    public static final int practice_dialog_readafterme=0x7f0e00de;
+    public static final int practice_dialog_rolea=0x7f0e00df;
+    public static final int practice_dialog_roleb=0x7f0e00e0;
+    public static final int practice_finish=0x7f0e00e1;
+    public static final int practice_next=0x7f0e00e2;
+    public static final int practice_next_level=0x7f0e00e3;
+    public static final int practice_prompt_chinese=0x7f0e00e4;
+    public static final int practice_prompt_english=0x7f0e00e5;
+    public static final int practice_spoken_englist_finish=0x7f0e00e6;
+    public static final int practice_spoken_englist_style_fourinone=0x7f0e00e7;
+    public static final int practice_spoken_englist_style_readafterme=0x7f0e00e8;
+    public static final int practice_spoken_englist_style_speakafterme=0x7f0e00e9;
+    public static final int practice_spoken_englist_style_studyevery=0x7f0e00ea;
+    public static final int practice_spoken_englist_style_write=0x7f0e00eb;
+    public static final int practice_start=0x7f0e00ec;
+    public static final int preference_default_accent=0x7f0e00ed;
+    public static final int preference_default_iat_engine=0x7f0e00ee;
+    public static final int preference_default_iat_engine_en=0x7f0e00ef;
+    public static final int preference_default_iat_rate=0x7f0e00f0;
+    public static final int preference_default_recognizer=0x7f0e00f1;
+    public static final int preference_default_tts_music=0x7f0e00f2;
+    public static final int preference_dialog_title_tts_music=0x7f0e00f3;
+    public static final int preference_key_accent=0x7f0e00f4;
+    public static final int preference_key_iat_engine=0x7f0e00f5;
+    public static final int preference_key_iat_rate=0x7f0e00f6;
+    public static final int preference_key_recognizer=0x7f0e00f7;
+    public static final int preference_key_tts_music=0x7f0e00f8;
+    public static final int preference_key_tts_speed=0x7f0e00f9;
+    public static final int preference_title_iat_rate=0x7f0e00fa;
+    public static final int preference_title_tts_music=0x7f0e00fb;
+    public static final int primary_lever=0x7f0e00fc;
+    public static final int prompt=0x7f0e00fd;
+    public static final int query=0x7f0e00fe;
+    public static final int radio_country=0x7f0e00ff;
+    public static final int radio_internet=0x7f0e0100;
+    public static final int radio_local=0x7f0e0101;
+    public static final int radio_province=0x7f0e0102;
+    public static final int random_course=0x7f0e0103;
+    public static final int rank=0x7f0e0104;
+    public static final int reading=0x7f0e0105;
+    public static final int recent=0x7f0e0106;
+    public static final int recent_study_empty=0x7f0e0107;
+    public static final int recent_use_footer_prompt=0x7f0e0108;
+    public static final int recent_use_footer_prompt_content=0x7f0e0109;
+    public static final int recognize_error=0x7f0e010a;
+    public static final int recommend=0x7f0e010b;
+    public static final int replay=0x7f0e010c;
+    public static final int restart_success=0x7f0e010d;
+    public static final int retry=0x7f0e010e;
+    public static final int search=0x7f0e010f;
+    public static final int search_hint=0x7f0e0110;
+    public static final int search_history=0x7f0e0111;
+    public static final int search_menu_title=0x7f0e0112;
+    public static final int search_xmly_hint=0x7f0e0113;
+    public static final int section_format=0x7f0e0114;
+    public static final int sent=0x7f0e0115;
+    public static final int sentence=0x7f0e0116;
+    public static final int server_error=0x7f0e0117;
+    public static final int share=0x7f0e0118;
+    public static final int share_buddy=0x7f0e0119;
+    public static final int share_dialog_text_1=0x7f0e011a;
+    public static final int share_dialog_text_2=0x7f0e011b;
+    public static final int share_text_hint=0x7f0e011c;
+    public static final int simulation_dialogue=0x7f0e011d;
+    public static final int sorry=0x7f0e011e;
+    public static final int speak=0x7f0e011f;
+    public static final int speak_chinese=0x7f0e0120;
+    public static final int speak_english=0x7f0e0121;
+    public static final int speak_prompt=0x7f0e0122;
+    public static final int spoken_english_practice=0x7f0e0123;
+    public static final int start=0x7f0e0124;
+    public static final int start_to_fight=0x7f0e0125;
+    public static final int start_to_follow=0x7f0e0126;
+    public static final int start_unlock=0x7f0e0127;
+    public static final int status_bar_notification_info_overflow=0x7f0e0128;
+    public static final int style_classic=0x7f0e0129;
+    public static final int style_minimalist=0x7f0e012a;
+    public static final int style_select=0x7f0e012b;
+    public static final int take_photo=0x7f0e012c;
+    public static final int textclickguidedialog_content=0x7f0e012d;
+    public static final int textclickguidedialog_title=0x7f0e012e;
+    public static final int tips_not_wifi=0x7f0e012f;
+    public static final int tips_not_wifi_cancel=0x7f0e0130;
+    public static final int tips_not_wifi_confirm=0x7f0e0131;
+    public static final int title_Practice=0x7f0e0132;
+    public static final int title_TranslatePractice=0x7f0e0133;
+    public static final int title_about=0x7f0e0134;
+    public static final int title_activity_main=0x7f0e0135;
+    public static final int title_activity_main_test=0x7f0e0136;
+    public static final int title_ai=0x7f0e0137;
+    public static final int title_ai_chat=0x7f0e0138;
+    public static final int title_ai_dialog_choice_course=0x7f0e0139;
+    public static final int title_ai_learn=0x7f0e013a;
+    public static final int title_all_fm=0x7f0e013b;
+    public static final int title_all_unit=0x7f0e013c;
+    public static final int title_apps=0x7f0e013d;
+    public static final int title_article_collected=0x7f0e013e;
+    public static final int title_broadcast=0x7f0e013f;
+    public static final int title_business=0x7f0e0140;
+    public static final int title_cailing=0x7f0e0141;
+    public static final int title_ch_dictionary=0x7f0e0142;
+    public static final int title_chinese_dic=0x7f0e0143;
+    public static final int title_comments=0x7f0e0144;
+    public static final int title_composition=0x7f0e0145;
+    public static final int title_course=0x7f0e0146;
+    public static final int title_daily_word_study=0x7f0e0147;
+    public static final int title_dashboard=0x7f0e0148;
+    public static final int title_dialog_select=0x7f0e0149;
+    public static final int title_dictionary=0x7f0e014a;
+    public static final int title_dictionary_idiom=0x7f0e014b;
+    public static final int title_duanzi=0x7f0e014c;
+    public static final int title_duanzi_gif=0x7f0e014d;
+    public static final int title_duanzi_img=0x7f0e014e;
+    public static final int title_duanzi_mm=0x7f0e014f;
+    public static final int title_english_dic=0x7f0e0150;
+    public static final int title_english_jokes=0x7f0e0151;
+    public static final int title_english_story=0x7f0e0152;
+    public static final int title_english_video=0x7f0e0153;
+    public static final int title_favorite=0x7f0e0154;
+    public static final int title_grammar=0x7f0e0155;
+    public static final int title_help=0x7f0e0156;
+    public static final int title_history=0x7f0e0157;
+    public static final int title_home=0x7f0e0158;
+    public static final int title_home_tab=0x7f0e0159;
+    public static final int title_hotel=0x7f0e015a;
+    public static final int title_instagram=0x7f0e015b;
+    public static final int title_juhe=0x7f0e015c;
+    public static final int title_leisure=0x7f0e015d;
+    public static final int title_listening=0x7f0e015e;
+    public static final int title_live=0x7f0e015f;
+    public static final int title_more=0x7f0e0160;
+    public static final int title_notifications=0x7f0e0161;
+    public static final int title_offline_dic=0x7f0e0162;
+    public static final int title_reading=0x7f0e0163;
+    public static final int title_sentence=0x7f0e0164;
+    public static final int title_settings=0x7f0e0165;
+    public static final int title_share_preview=0x7f0e0166;
+    public static final int title_sougo_wechat=0x7f0e0167;
+    public static final int title_speak_basic=0x7f0e0168;
+    public static final int title_speak_dialog=0x7f0e0169;
+    public static final int title_spoken_english_study=0x7f0e016a;
+    public static final int title_study=0x7f0e016b;
+    public static final int title_study_category=0x7f0e016c;
+    public static final int title_style=0x7f0e016d;
+    public static final int title_sure=0x7f0e016e;
+    public static final int title_symbol=0x7f0e016f;
+    public static final int title_translate=0x7f0e0170;
+    public static final int title_tuling_ai=0x7f0e0171;
+    public static final int title_tuling_ai_des=0x7f0e0172;
+    public static final int title_update_title=0x7f0e0173;
+    public static final int title_website=0x7f0e0174;
+    public static final int title_word_study=0x7f0e0175;
+    public static final int title_word_study_change_plan=0x7f0e0176;
+    public static final int title_word_study_summary=0x7f0e0177;
+    public static final int title_word_study_vocabulary=0x7f0e0178;
+    public static final int title_word_vocabulary=0x7f0e0179;
+    public static final int title_words=0x7f0e017a;
+    public static final int translate=0x7f0e017b;
+    public static final int translate_content=0x7f0e017c;
+    public static final int try_again=0x7f0e017d;
+    public static final int tts_toast_format=0x7f0e017e;
+    public static final int updage_later=0x7f0e017f;
+    public static final int updage_now=0x7f0e0180;
+    public static final int voice=0x7f0e0181;
+    public static final int website_attention=0x7f0e0182;
+    public static final int webview_reload=0x7f0e0183;
+    public static final int wechat=0x7f0e0184;
+    public static final int wechat_long_click=0x7f0e0185;
+    public static final int word_study_detail_menu=0x7f0e0186;
+    public static final int word_test_result=0x7f0e0187;
+    public static final int xmly_album=0x7f0e0188;
+    public static final int xmly_home=0x7f0e0189;
+    public static final int xmly_radio=0x7f0e018a;
+    public static final int xmly_tab_eng=0x7f0e018b;
+    public static final int xmly_track=0x7f0e018c;
+    public static final int your_turn=0x7f0e018d;
+    public static final int yuedu_ad_prompt=0x7f0e018e;
   }
   public static final class style {
     public static final int AlertDialog_AppCompat=0x7f0f0000;
@@ -6605,35 +6629,35 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #ActionBar_background com.messi.languagehelper:background}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_backgroundSplit com.messi.languagehelper:backgroundSplit}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_backgroundStacked com.messi.languagehelper:backgroundStacked}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_contentInsetEnd com.messi.languagehelper:contentInsetEnd}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_contentInsetEndWithActions com.messi.languagehelper:contentInsetEndWithActions}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_contentInsetLeft com.messi.languagehelper:contentInsetLeft}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_contentInsetRight com.messi.languagehelper:contentInsetRight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_contentInsetStart com.messi.languagehelper:contentInsetStart}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_contentInsetStartWithNavigation com.messi.languagehelper:contentInsetStartWithNavigation}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_customNavigationLayout com.messi.languagehelper:customNavigationLayout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_displayOptions com.messi.languagehelper:displayOptions}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_divider com.messi.languagehelper:divider}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_elevation com.messi.languagehelper:elevation}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_height com.messi.languagehelper:height}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_hideOnContentScroll com.messi.languagehelper:hideOnContentScroll}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_homeAsUpIndicator com.messi.languagehelper:homeAsUpIndicator}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_homeLayout com.messi.languagehelper:homeLayout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_icon com.messi.languagehelper:icon}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_indeterminateProgressStyle com.messi.languagehelper:indeterminateProgressStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_itemPadding com.messi.languagehelper:itemPadding}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_logo com.messi.languagehelper:logo}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_navigationMode com.messi.languagehelper:navigationMode}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_popupTheme com.messi.languagehelper:popupTheme}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_progressBarPadding com.messi.languagehelper:progressBarPadding}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_progressBarStyle com.messi.languagehelper:progressBarStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_subtitle com.messi.languagehelper:subtitle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_subtitleTextStyle com.messi.languagehelper:subtitleTextStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_title com.messi.languagehelper:title}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_titleTextStyle com.messi.languagehelper:titleTextStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_background com.messi.cantonese.study:background}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_backgroundSplit com.messi.cantonese.study:backgroundSplit}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_backgroundStacked com.messi.cantonese.study:backgroundStacked}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_contentInsetEnd com.messi.cantonese.study:contentInsetEnd}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_contentInsetEndWithActions com.messi.cantonese.study:contentInsetEndWithActions}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_contentInsetLeft com.messi.cantonese.study:contentInsetLeft}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_contentInsetRight com.messi.cantonese.study:contentInsetRight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_contentInsetStart com.messi.cantonese.study:contentInsetStart}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_contentInsetStartWithNavigation com.messi.cantonese.study:contentInsetStartWithNavigation}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_customNavigationLayout com.messi.cantonese.study:customNavigationLayout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_displayOptions com.messi.cantonese.study:displayOptions}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_divider com.messi.cantonese.study:divider}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_elevation com.messi.cantonese.study:elevation}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_height com.messi.cantonese.study:height}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_hideOnContentScroll com.messi.cantonese.study:hideOnContentScroll}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_homeAsUpIndicator com.messi.cantonese.study:homeAsUpIndicator}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_homeLayout com.messi.cantonese.study:homeLayout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_icon com.messi.cantonese.study:icon}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_indeterminateProgressStyle com.messi.cantonese.study:indeterminateProgressStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_itemPadding com.messi.cantonese.study:itemPadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_logo com.messi.cantonese.study:logo}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_navigationMode com.messi.cantonese.study:navigationMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_popupTheme com.messi.cantonese.study:popupTheme}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_progressBarPadding com.messi.cantonese.study:progressBarPadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_progressBarStyle com.messi.cantonese.study:progressBarStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_subtitle com.messi.cantonese.study:subtitle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_subtitleTextStyle com.messi.cantonese.study:subtitleTextStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_title com.messi.cantonese.study:title}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_titleTextStyle com.messi.cantonese.study:titleTextStyle}</code></td><td></td></tr>
      * </table>
      * @see #ActionBar_background
      * @see #ActionBar_backgroundSplit
@@ -6676,7 +6700,7 @@ public final class R {
         0x7f0301ef
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#background}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#background}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -6684,11 +6708,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:background
+     * @attr name com.messi.cantonese.study:background
      */
     public static final int ActionBar_background=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#backgroundSplit}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#backgroundSplit}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -6699,11 +6723,11 @@ public final class R {
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:backgroundSplit
+     * @attr name com.messi.cantonese.study:backgroundSplit
      */
     public static final int ActionBar_backgroundSplit=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#backgroundStacked}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#backgroundStacked}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -6714,11 +6738,11 @@ public final class R {
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:backgroundStacked
+     * @attr name com.messi.cantonese.study:backgroundStacked
      */
     public static final int ActionBar_backgroundStacked=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentInsetEnd}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#contentInsetEnd}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -6727,11 +6751,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:contentInsetEnd
+     * @attr name com.messi.cantonese.study:contentInsetEnd
      */
     public static final int ActionBar_contentInsetEnd=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentInsetEndWithActions}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#contentInsetEndWithActions}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -6740,11 +6764,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:contentInsetEndWithActions
+     * @attr name com.messi.cantonese.study:contentInsetEndWithActions
      */
     public static final int ActionBar_contentInsetEndWithActions=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentInsetLeft}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#contentInsetLeft}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -6753,11 +6777,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:contentInsetLeft
+     * @attr name com.messi.cantonese.study:contentInsetLeft
      */
     public static final int ActionBar_contentInsetLeft=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentInsetRight}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#contentInsetRight}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -6766,11 +6790,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:contentInsetRight
+     * @attr name com.messi.cantonese.study:contentInsetRight
      */
     public static final int ActionBar_contentInsetRight=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentInsetStart}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#contentInsetStart}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -6779,11 +6803,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:contentInsetStart
+     * @attr name com.messi.cantonese.study:contentInsetStart
      */
     public static final int ActionBar_contentInsetStart=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentInsetStartWithNavigation}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#contentInsetStartWithNavigation}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -6792,11 +6816,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:contentInsetStartWithNavigation
+     * @attr name com.messi.cantonese.study:contentInsetStartWithNavigation
      */
     public static final int ActionBar_contentInsetStartWithNavigation=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#customNavigationLayout}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#customNavigationLayout}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -6804,11 +6828,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:customNavigationLayout
+     * @attr name com.messi.cantonese.study:customNavigationLayout
      */
     public static final int ActionBar_customNavigationLayout=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#displayOptions}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#displayOptions}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -6826,11 +6850,11 @@ public final class R {
      * <tr><td>useLogo</td><td>1</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:displayOptions
+     * @attr name com.messi.cantonese.study:displayOptions
      */
     public static final int ActionBar_displayOptions=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#divider}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#divider}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -6838,11 +6862,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:divider
+     * @attr name com.messi.cantonese.study:divider
      */
     public static final int ActionBar_divider=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#elevation}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#elevation}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -6851,11 +6875,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:elevation
+     * @attr name com.messi.cantonese.study:elevation
      */
     public static final int ActionBar_elevation=12;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#height}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#height}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -6864,21 +6888,21 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:height
+     * @attr name com.messi.cantonese.study:height
      */
     public static final int ActionBar_height=13;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#hideOnContentScroll}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#hideOnContentScroll}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:hideOnContentScroll
+     * @attr name com.messi.cantonese.study:hideOnContentScroll
      */
     public static final int ActionBar_hideOnContentScroll=14;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#homeAsUpIndicator}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#homeAsUpIndicator}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -6886,11 +6910,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:homeAsUpIndicator
+     * @attr name com.messi.cantonese.study:homeAsUpIndicator
      */
     public static final int ActionBar_homeAsUpIndicator=15;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#homeLayout}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#homeLayout}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -6898,11 +6922,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:homeLayout
+     * @attr name com.messi.cantonese.study:homeLayout
      */
     public static final int ActionBar_homeLayout=16;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#icon}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#icon}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -6910,11 +6934,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:icon
+     * @attr name com.messi.cantonese.study:icon
      */
     public static final int ActionBar_icon=17;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#indeterminateProgressStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#indeterminateProgressStyle}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -6922,11 +6946,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:indeterminateProgressStyle
+     * @attr name com.messi.cantonese.study:indeterminateProgressStyle
      */
     public static final int ActionBar_indeterminateProgressStyle=18;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#itemPadding}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#itemPadding}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -6935,11 +6959,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:itemPadding
+     * @attr name com.messi.cantonese.study:itemPadding
      */
     public static final int ActionBar_itemPadding=19;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#logo}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#logo}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -6947,11 +6971,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:logo
+     * @attr name com.messi.cantonese.study:logo
      */
     public static final int ActionBar_logo=20;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#navigationMode}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#navigationMode}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -6965,11 +6989,11 @@ public final class R {
      * <tr><td>tabMode</td><td>2</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:navigationMode
+     * @attr name com.messi.cantonese.study:navigationMode
      */
     public static final int ActionBar_navigationMode=21;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#popupTheme}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#popupTheme}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -6977,11 +7001,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:popupTheme
+     * @attr name com.messi.cantonese.study:popupTheme
      */
     public static final int ActionBar_popupTheme=22;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progressBarPadding}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#progressBarPadding}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -6990,11 +7014,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:progressBarPadding
+     * @attr name com.messi.cantonese.study:progressBarPadding
      */
     public static final int ActionBar_progressBarPadding=23;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progressBarStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#progressBarStyle}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7002,21 +7026,21 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:progressBarStyle
+     * @attr name com.messi.cantonese.study:progressBarStyle
      */
     public static final int ActionBar_progressBarStyle=24;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#subtitle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#subtitle}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:subtitle
+     * @attr name com.messi.cantonese.study:subtitle
      */
     public static final int ActionBar_subtitle=25;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#subtitleTextStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#subtitleTextStyle}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7024,21 +7048,21 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:subtitleTextStyle
+     * @attr name com.messi.cantonese.study:subtitleTextStyle
      */
     public static final int ActionBar_subtitleTextStyle=26;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#title}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#title}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:title
+     * @attr name com.messi.cantonese.study:title
      */
     public static final int ActionBar_title=27;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#titleTextStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#titleTextStyle}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7046,7 +7070,7 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:titleTextStyle
+     * @attr name com.messi.cantonese.study:titleTextStyle
      */
     public static final int ActionBar_titleTextStyle=28;
     /**
@@ -7128,12 +7152,12 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #ActionMode_background com.messi.languagehelper:background}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionMode_backgroundSplit com.messi.languagehelper:backgroundSplit}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionMode_closeItemLayout com.messi.languagehelper:closeItemLayout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionMode_height com.messi.languagehelper:height}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionMode_subtitleTextStyle com.messi.languagehelper:subtitleTextStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionMode_titleTextStyle com.messi.languagehelper:titleTextStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionMode_background com.messi.cantonese.study:background}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionMode_backgroundSplit com.messi.cantonese.study:backgroundSplit}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionMode_closeItemLayout com.messi.cantonese.study:closeItemLayout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionMode_height com.messi.cantonese.study:height}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionMode_subtitleTextStyle com.messi.cantonese.study:subtitleTextStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionMode_titleTextStyle com.messi.cantonese.study:titleTextStyle}</code></td><td></td></tr>
      * </table>
      * @see #ActionMode_background
      * @see #ActionMode_backgroundSplit
@@ -7147,7 +7171,7 @@ public final class R {
         0x7f0301b5, 0x7f0301ef
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#background}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#background}
      * attribute's value can be found in the {@link #ActionMode} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7155,11 +7179,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:background
+     * @attr name com.messi.cantonese.study:background
      */
     public static final int ActionMode_background=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#backgroundSplit}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#backgroundSplit}
      * attribute's value can be found in the {@link #ActionMode} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7170,11 +7194,11 @@ public final class R {
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:backgroundSplit
+     * @attr name com.messi.cantonese.study:backgroundSplit
      */
     public static final int ActionMode_backgroundSplit=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#closeItemLayout}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#closeItemLayout}
      * attribute's value can be found in the {@link #ActionMode} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7182,11 +7206,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:closeItemLayout
+     * @attr name com.messi.cantonese.study:closeItemLayout
      */
     public static final int ActionMode_closeItemLayout=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#height}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#height}
      * attribute's value can be found in the {@link #ActionMode} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -7195,11 +7219,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:height
+     * @attr name com.messi.cantonese.study:height
      */
     public static final int ActionMode_height=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#subtitleTextStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#subtitleTextStyle}
      * attribute's value can be found in the {@link #ActionMode} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7207,11 +7231,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:subtitleTextStyle
+     * @attr name com.messi.cantonese.study:subtitleTextStyle
      */
     public static final int ActionMode_subtitleTextStyle=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#titleTextStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#titleTextStyle}
      * attribute's value can be found in the {@link #ActionMode} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7219,7 +7243,7 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:titleTextStyle
+     * @attr name com.messi.cantonese.study:titleTextStyle
      */
     public static final int ActionMode_titleTextStyle=5;
     /**
@@ -7229,8 +7253,8 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #ActivityChooserView_expandActivityOverflowButtonDrawable com.messi.languagehelper:expandActivityOverflowButtonDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActivityChooserView_initialActivityCount com.messi.languagehelper:initialActivityCount}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActivityChooserView_expandActivityOverflowButtonDrawable com.messi.cantonese.study:expandActivityOverflowButtonDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActivityChooserView_initialActivityCount com.messi.cantonese.study:initialActivityCount}</code></td><td></td></tr>
      * </table>
      * @see #ActivityChooserView_expandActivityOverflowButtonDrawable
      * @see #ActivityChooserView_initialActivityCount
@@ -7239,7 +7263,7 @@ public final class R {
         0x7f0300c9, 0x7f0300fd
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#expandActivityOverflowButtonDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#expandActivityOverflowButtonDrawable}
      * attribute's value can be found in the {@link #ActivityChooserView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7247,17 +7271,17 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:expandActivityOverflowButtonDrawable
+     * @attr name com.messi.cantonese.study:expandActivityOverflowButtonDrawable
      */
     public static final int ActivityChooserView_expandActivityOverflowButtonDrawable=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#initialActivityCount}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#initialActivityCount}
      * attribute's value can be found in the {@link #ActivityChooserView} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:initialActivityCount
+     * @attr name com.messi.cantonese.study:initialActivityCount
      */
     public static final int ActivityChooserView_initialActivityCount=1;
     /**
@@ -7268,12 +7292,12 @@ public final class R {
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #AlertDialog_android_layout android:layout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AlertDialog_buttonPanelSideLayout com.messi.languagehelper:buttonPanelSideLayout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AlertDialog_listItemLayout com.messi.languagehelper:listItemLayout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AlertDialog_listLayout com.messi.languagehelper:listLayout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AlertDialog_multiChoiceItemLayout com.messi.languagehelper:multiChoiceItemLayout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AlertDialog_showTitle com.messi.languagehelper:showTitle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AlertDialog_singleChoiceItemLayout com.messi.languagehelper:singleChoiceItemLayout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AlertDialog_buttonPanelSideLayout com.messi.cantonese.study:buttonPanelSideLayout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AlertDialog_listItemLayout com.messi.cantonese.study:listItemLayout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AlertDialog_listLayout com.messi.cantonese.study:listLayout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AlertDialog_multiChoiceItemLayout com.messi.cantonese.study:multiChoiceItemLayout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AlertDialog_showTitle com.messi.cantonese.study:showTitle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AlertDialog_singleChoiceItemLayout com.messi.cantonese.study:singleChoiceItemLayout}</code></td><td></td></tr>
      * </table>
      * @see #AlertDialog_android_layout
      * @see #AlertDialog_buttonPanelSideLayout
@@ -7300,7 +7324,7 @@ public final class R {
      */
     public static final int AlertDialog_android_layout=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#buttonPanelSideLayout}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#buttonPanelSideLayout}
      * attribute's value can be found in the {@link #AlertDialog} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7308,11 +7332,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:buttonPanelSideLayout
+     * @attr name com.messi.cantonese.study:buttonPanelSideLayout
      */
     public static final int AlertDialog_buttonPanelSideLayout=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#listItemLayout}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#listItemLayout}
      * attribute's value can be found in the {@link #AlertDialog} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7320,11 +7344,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:listItemLayout
+     * @attr name com.messi.cantonese.study:listItemLayout
      */
     public static final int AlertDialog_listItemLayout=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#listLayout}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#listLayout}
      * attribute's value can be found in the {@link #AlertDialog} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7332,11 +7356,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:listLayout
+     * @attr name com.messi.cantonese.study:listLayout
      */
     public static final int AlertDialog_listLayout=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#multiChoiceItemLayout}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#multiChoiceItemLayout}
      * attribute's value can be found in the {@link #AlertDialog} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7344,21 +7368,21 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:multiChoiceItemLayout
+     * @attr name com.messi.cantonese.study:multiChoiceItemLayout
      */
     public static final int AlertDialog_multiChoiceItemLayout=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#showTitle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#showTitle}
      * attribute's value can be found in the {@link #AlertDialog} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:showTitle
+     * @attr name com.messi.cantonese.study:showTitle
      */
     public static final int AlertDialog_showTitle=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#singleChoiceItemLayout}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#singleChoiceItemLayout}
      * attribute's value can be found in the {@link #AlertDialog} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7366,7 +7390,7 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:singleChoiceItemLayout
+     * @attr name com.messi.cantonese.study:singleChoiceItemLayout
      */
     public static final int AlertDialog_singleChoiceItemLayout=6;
     /**
@@ -7379,8 +7403,8 @@ public final class R {
      * <tr><td><code>{@link #AppBarLayout_android_background android:background}</code></td><td></td></tr>
      * <tr><td><code>{@link #AppBarLayout_android_touchscreenBlocksFocus android:touchscreenBlocksFocus}</code></td><td></td></tr>
      * <tr><td><code>{@link #AppBarLayout_android_keyboardNavigationCluster android:keyboardNavigationCluster}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppBarLayout_elevation com.messi.languagehelper:elevation}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppBarLayout_expanded com.messi.languagehelper:expanded}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppBarLayout_elevation com.messi.cantonese.study:elevation}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppBarLayout_expanded com.messi.cantonese.study:expanded}</code></td><td></td></tr>
      * </table>
      * @see #AppBarLayout_android_background
      * @see #AppBarLayout_android_touchscreenBlocksFocus
@@ -7428,7 +7452,7 @@ public final class R {
      */
     public static final int AppBarLayout_android_keyboardNavigationCluster=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#elevation}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#elevation}
      * attribute's value can be found in the {@link #AppBarLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -7437,17 +7461,17 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:elevation
+     * @attr name com.messi.cantonese.study:elevation
      */
     public static final int AppBarLayout_elevation=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#expanded}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#expanded}
      * attribute's value can be found in the {@link #AppBarLayout} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:expanded
+     * @attr name com.messi.cantonese.study:expanded
      */
     public static final int AppBarLayout_expanded=4;
     /**
@@ -7457,8 +7481,8 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #AppBarLayoutStates_state_collapsed com.messi.languagehelper:state_collapsed}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppBarLayoutStates_state_collapsible com.messi.languagehelper:state_collapsible}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppBarLayoutStates_state_collapsed com.messi.cantonese.study:state_collapsed}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppBarLayoutStates_state_collapsible com.messi.cantonese.study:state_collapsible}</code></td><td></td></tr>
      * </table>
      * @see #AppBarLayoutStates_state_collapsed
      * @see #AppBarLayoutStates_state_collapsible
@@ -7467,23 +7491,23 @@ public final class R {
         0x7f0301ac, 0x7f0301ad
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#state_collapsed}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#state_collapsed}
      * attribute's value can be found in the {@link #AppBarLayoutStates} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:state_collapsed
+     * @attr name com.messi.cantonese.study:state_collapsed
      */
     public static final int AppBarLayoutStates_state_collapsed=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#state_collapsible}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#state_collapsible}
      * attribute's value can be found in the {@link #AppBarLayoutStates} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:state_collapsible
+     * @attr name com.messi.cantonese.study:state_collapsible
      */
     public static final int AppBarLayoutStates_state_collapsible=1;
     /**
@@ -7493,8 +7517,8 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #AppBarLayout_Layout_layout_scrollFlags com.messi.languagehelper:layout_scrollFlags}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppBarLayout_Layout_layout_scrollInterpolator com.messi.languagehelper:layout_scrollInterpolator}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppBarLayout_Layout_layout_scrollFlags com.messi.cantonese.study:layout_scrollFlags}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppBarLayout_Layout_layout_scrollInterpolator com.messi.cantonese.study:layout_scrollInterpolator}</code></td><td></td></tr>
      * </table>
      * @see #AppBarLayout_Layout_layout_scrollFlags
      * @see #AppBarLayout_Layout_layout_scrollInterpolator
@@ -7503,7 +7527,7 @@ public final class R {
         0x7f03011b, 0x7f03011c
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_scrollFlags}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#layout_scrollFlags}
      * attribute's value can be found in the {@link #AppBarLayout_Layout} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -7519,11 +7543,11 @@ public final class R {
      * <tr><td>snap</td><td>10</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:layout_scrollFlags
+     * @attr name com.messi.cantonese.study:layout_scrollFlags
      */
     public static final int AppBarLayout_Layout_layout_scrollFlags=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_scrollInterpolator}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#layout_scrollInterpolator}
      * attribute's value can be found in the {@link #AppBarLayout_Layout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7531,7 +7555,7 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:layout_scrollInterpolator
+     * @attr name com.messi.cantonese.study:layout_scrollInterpolator
      */
     public static final int AppBarLayout_Layout_layout_scrollInterpolator=1;
     /**
@@ -7542,9 +7566,9 @@ public final class R {
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #AppCompatImageView_android_src android:src}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatImageView_srcCompat com.messi.languagehelper:srcCompat}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatImageView_tint com.messi.languagehelper:tint}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatImageView_tintMode com.messi.languagehelper:tintMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatImageView_srcCompat com.messi.cantonese.study:srcCompat}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatImageView_tint com.messi.cantonese.study:tint}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatImageView_tintMode com.messi.cantonese.study:tintMode}</code></td><td></td></tr>
      * </table>
      * @see #AppCompatImageView_android_src
      * @see #AppCompatImageView_srcCompat
@@ -7570,7 +7594,7 @@ public final class R {
      */
     public static final int AppCompatImageView_android_src=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#srcCompat}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#srcCompat}
      * attribute's value can be found in the {@link #AppCompatImageView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7578,22 +7602,22 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:srcCompat
+     * @attr name com.messi.cantonese.study:srcCompat
      */
     public static final int AppCompatImageView_srcCompat=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tint}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#tint}
      * attribute's value can be found in the {@link #AppCompatImageView} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:tint
+     * @attr name com.messi.cantonese.study:tint
      */
     public static final int AppCompatImageView_tint=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tintMode}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#tintMode}
      * attribute's value can be found in the {@link #AppCompatImageView} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -7610,7 +7634,7 @@ public final class R {
      * <tr><td>src_over</td><td>3</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:tintMode
+     * @attr name com.messi.cantonese.study:tintMode
      */
     public static final int AppCompatImageView_tintMode=3;
     /**
@@ -7621,9 +7645,9 @@ public final class R {
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #AppCompatSeekBar_android_thumb android:thumb}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatSeekBar_tickMark com.messi.languagehelper:tickMark}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatSeekBar_tickMarkTint com.messi.languagehelper:tickMarkTint}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatSeekBar_tickMarkTintMode com.messi.languagehelper:tickMarkTintMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatSeekBar_tickMark com.messi.cantonese.study:tickMark}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatSeekBar_tickMarkTint com.messi.cantonese.study:tickMarkTint}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatSeekBar_tickMarkTintMode com.messi.cantonese.study:tickMarkTintMode}</code></td><td></td></tr>
      * </table>
      * @see #AppCompatSeekBar_android_thumb
      * @see #AppCompatSeekBar_tickMark
@@ -7646,7 +7670,7 @@ public final class R {
      */
     public static final int AppCompatSeekBar_android_thumb=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tickMark}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#tickMark}
      * attribute's value can be found in the {@link #AppCompatSeekBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7654,22 +7678,22 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:tickMark
+     * @attr name com.messi.cantonese.study:tickMark
      */
     public static final int AppCompatSeekBar_tickMark=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tickMarkTint}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#tickMarkTint}
      * attribute's value can be found in the {@link #AppCompatSeekBar} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:tickMarkTint
+     * @attr name com.messi.cantonese.study:tickMarkTint
      */
     public static final int AppCompatSeekBar_tickMarkTint=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tickMarkTintMode}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#tickMarkTintMode}
      * attribute's value can be found in the {@link #AppCompatSeekBar} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -7686,7 +7710,7 @@ public final class R {
      * <tr><td>src_over</td><td>3</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:tickMarkTintMode
+     * @attr name com.messi.cantonese.study:tickMarkTintMode
      */
     public static final int AppCompatSeekBar_tickMarkTintMode=3;
     /**
@@ -7826,13 +7850,13 @@ public final class R {
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #AppCompatTextView_android_textAppearance android:textAppearance}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTextView_autoSizeMaxTextSize com.messi.languagehelper:autoSizeMaxTextSize}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTextView_autoSizeMinTextSize com.messi.languagehelper:autoSizeMinTextSize}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTextView_autoSizePresetSizes com.messi.languagehelper:autoSizePresetSizes}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTextView_autoSizeStepGranularity com.messi.languagehelper:autoSizeStepGranularity}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTextView_autoSizeTextType com.messi.languagehelper:autoSizeTextType}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTextView_fontFamily com.messi.languagehelper:fontFamily}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTextView_textAllCaps com.messi.languagehelper:textAllCaps}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTextView_autoSizeMaxTextSize com.messi.cantonese.study:autoSizeMaxTextSize}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTextView_autoSizeMinTextSize com.messi.cantonese.study:autoSizeMinTextSize}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTextView_autoSizePresetSizes com.messi.cantonese.study:autoSizePresetSizes}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTextView_autoSizeStepGranularity com.messi.cantonese.study:autoSizeStepGranularity}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTextView_autoSizeTextType com.messi.cantonese.study:autoSizeTextType}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTextView_fontFamily com.messi.cantonese.study:fontFamily}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTextView_textAllCaps com.messi.cantonese.study:textAllCaps}</code></td><td></td></tr>
      * </table>
      * @see #AppCompatTextView_android_textAppearance
      * @see #AppCompatTextView_autoSizeMaxTextSize
@@ -7860,7 +7884,7 @@ public final class R {
      */
     public static final int AppCompatTextView_android_textAppearance=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#autoSizeMaxTextSize}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#autoSizeMaxTextSize}
      * attribute's value can be found in the {@link #AppCompatTextView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -7869,11 +7893,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:autoSizeMaxTextSize
+     * @attr name com.messi.cantonese.study:autoSizeMaxTextSize
      */
     public static final int AppCompatTextView_autoSizeMaxTextSize=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#autoSizeMinTextSize}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#autoSizeMinTextSize}
      * attribute's value can be found in the {@link #AppCompatTextView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -7882,11 +7906,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:autoSizeMinTextSize
+     * @attr name com.messi.cantonese.study:autoSizeMinTextSize
      */
     public static final int AppCompatTextView_autoSizeMinTextSize=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#autoSizePresetSizes}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#autoSizePresetSizes}
      * attribute's value can be found in the {@link #AppCompatTextView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7894,11 +7918,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:autoSizePresetSizes
+     * @attr name com.messi.cantonese.study:autoSizePresetSizes
      */
     public static final int AppCompatTextView_autoSizePresetSizes=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#autoSizeStepGranularity}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#autoSizeStepGranularity}
      * attribute's value can be found in the {@link #AppCompatTextView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -7907,11 +7931,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:autoSizeStepGranularity
+     * @attr name com.messi.cantonese.study:autoSizeStepGranularity
      */
     public static final int AppCompatTextView_autoSizeStepGranularity=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#autoSizeTextType}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#autoSizeTextType}
      * attribute's value can be found in the {@link #AppCompatTextView} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -7924,21 +7948,21 @@ public final class R {
      * <tr><td>uniform</td><td>1</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:autoSizeTextType
+     * @attr name com.messi.cantonese.study:autoSizeTextType
      */
     public static final int AppCompatTextView_autoSizeTextType=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fontFamily}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#fontFamily}
      * attribute's value can be found in the {@link #AppCompatTextView} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:fontFamily
+     * @attr name com.messi.cantonese.study:fontFamily
      */
     public static final int AppCompatTextView_fontFamily=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#textAllCaps}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#textAllCaps}
      * attribute's value can be found in the {@link #AppCompatTextView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7948,7 +7972,7 @@ public final class R {
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:textAllCaps
+     * @attr name com.messi.cantonese.study:textAllCaps
      */
     public static final int AppCompatTextView_textAllCaps=7;
     /**
@@ -7960,123 +7984,123 @@ public final class R {
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #AppCompatTheme_android_windowIsFloating android:windowIsFloating}</code></td><td></td></tr>
      * <tr><td><code>{@link #AppCompatTheme_android_windowAnimationStyle android:windowAnimationStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionBarDivider com.messi.languagehelper:actionBarDivider}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionBarItemBackground com.messi.languagehelper:actionBarItemBackground}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionBarPopupTheme com.messi.languagehelper:actionBarPopupTheme}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionBarSize com.messi.languagehelper:actionBarSize}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionBarSplitStyle com.messi.languagehelper:actionBarSplitStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionBarStyle com.messi.languagehelper:actionBarStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionBarTabBarStyle com.messi.languagehelper:actionBarTabBarStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionBarTabStyle com.messi.languagehelper:actionBarTabStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionBarTabTextStyle com.messi.languagehelper:actionBarTabTextStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionBarTheme com.messi.languagehelper:actionBarTheme}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionBarWidgetTheme com.messi.languagehelper:actionBarWidgetTheme}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionButtonStyle com.messi.languagehelper:actionButtonStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionDropDownStyle com.messi.languagehelper:actionDropDownStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionMenuTextAppearance com.messi.languagehelper:actionMenuTextAppearance}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionMenuTextColor com.messi.languagehelper:actionMenuTextColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionModeBackground com.messi.languagehelper:actionModeBackground}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionModeCloseButtonStyle com.messi.languagehelper:actionModeCloseButtonStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionModeCloseDrawable com.messi.languagehelper:actionModeCloseDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionModeCopyDrawable com.messi.languagehelper:actionModeCopyDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionModeCutDrawable com.messi.languagehelper:actionModeCutDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionModeFindDrawable com.messi.languagehelper:actionModeFindDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionModePasteDrawable com.messi.languagehelper:actionModePasteDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionModePopupWindowStyle com.messi.languagehelper:actionModePopupWindowStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionModeSelectAllDrawable com.messi.languagehelper:actionModeSelectAllDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionModeShareDrawable com.messi.languagehelper:actionModeShareDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionModeSplitBackground com.messi.languagehelper:actionModeSplitBackground}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionModeStyle com.messi.languagehelper:actionModeStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionModeWebSearchDrawable com.messi.languagehelper:actionModeWebSearchDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionOverflowButtonStyle com.messi.languagehelper:actionOverflowButtonStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionOverflowMenuStyle com.messi.languagehelper:actionOverflowMenuStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_activityChooserViewStyle com.messi.languagehelper:activityChooserViewStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_alertDialogButtonGroupStyle com.messi.languagehelper:alertDialogButtonGroupStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_alertDialogCenterButtons com.messi.languagehelper:alertDialogCenterButtons}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_alertDialogStyle com.messi.languagehelper:alertDialogStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_alertDialogTheme com.messi.languagehelper:alertDialogTheme}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_autoCompleteTextViewStyle com.messi.languagehelper:autoCompleteTextViewStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_borderlessButtonStyle com.messi.languagehelper:borderlessButtonStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_buttonBarButtonStyle com.messi.languagehelper:buttonBarButtonStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_buttonBarNegativeButtonStyle com.messi.languagehelper:buttonBarNegativeButtonStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_buttonBarNeutralButtonStyle com.messi.languagehelper:buttonBarNeutralButtonStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_buttonBarPositiveButtonStyle com.messi.languagehelper:buttonBarPositiveButtonStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_buttonBarStyle com.messi.languagehelper:buttonBarStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_buttonStyle com.messi.languagehelper:buttonStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_buttonStyleSmall com.messi.languagehelper:buttonStyleSmall}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_checkboxStyle com.messi.languagehelper:checkboxStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_checkedTextViewStyle com.messi.languagehelper:checkedTextViewStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_colorAccent com.messi.languagehelper:colorAccent}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_colorBackgroundFloating com.messi.languagehelper:colorBackgroundFloating}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_colorButtonNormal com.messi.languagehelper:colorButtonNormal}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_colorControlActivated com.messi.languagehelper:colorControlActivated}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_colorControlHighlight com.messi.languagehelper:colorControlHighlight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_colorControlNormal com.messi.languagehelper:colorControlNormal}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_colorError com.messi.languagehelper:colorError}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_colorPrimary com.messi.languagehelper:colorPrimary}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_colorPrimaryDark com.messi.languagehelper:colorPrimaryDark}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_colorSwitchThumbNormal com.messi.languagehelper:colorSwitchThumbNormal}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_controlBackground com.messi.languagehelper:controlBackground}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_dialogPreferredPadding com.messi.languagehelper:dialogPreferredPadding}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_dialogTheme com.messi.languagehelper:dialogTheme}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_dividerHorizontal com.messi.languagehelper:dividerHorizontal}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_dividerVertical com.messi.languagehelper:dividerVertical}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_dropDownListViewStyle com.messi.languagehelper:dropDownListViewStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_dropdownListPreferredItemHeight com.messi.languagehelper:dropdownListPreferredItemHeight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_editTextBackground com.messi.languagehelper:editTextBackground}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_editTextColor com.messi.languagehelper:editTextColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_editTextStyle com.messi.languagehelper:editTextStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_homeAsUpIndicator com.messi.languagehelper:homeAsUpIndicator}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_imageButtonStyle com.messi.languagehelper:imageButtonStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_listChoiceBackgroundIndicator com.messi.languagehelper:listChoiceBackgroundIndicator}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_listDividerAlertDialog com.messi.languagehelper:listDividerAlertDialog}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_listMenuViewStyle com.messi.languagehelper:listMenuViewStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_listPopupWindowStyle com.messi.languagehelper:listPopupWindowStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_listPreferredItemHeight com.messi.languagehelper:listPreferredItemHeight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_listPreferredItemHeightLarge com.messi.languagehelper:listPreferredItemHeightLarge}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_listPreferredItemHeightSmall com.messi.languagehelper:listPreferredItemHeightSmall}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_listPreferredItemPaddingLeft com.messi.languagehelper:listPreferredItemPaddingLeft}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_listPreferredItemPaddingRight com.messi.languagehelper:listPreferredItemPaddingRight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_panelBackground com.messi.languagehelper:panelBackground}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_panelMenuListTheme com.messi.languagehelper:panelMenuListTheme}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_panelMenuListWidth com.messi.languagehelper:panelMenuListWidth}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_popupMenuStyle com.messi.languagehelper:popupMenuStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_popupWindowStyle com.messi.languagehelper:popupWindowStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_radioButtonStyle com.messi.languagehelper:radioButtonStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_ratingBarStyle com.messi.languagehelper:ratingBarStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_ratingBarStyleIndicator com.messi.languagehelper:ratingBarStyleIndicator}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_ratingBarStyleSmall com.messi.languagehelper:ratingBarStyleSmall}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_searchViewStyle com.messi.languagehelper:searchViewStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_seekBarStyle com.messi.languagehelper:seekBarStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_selectableItemBackground com.messi.languagehelper:selectableItemBackground}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_selectableItemBackgroundBorderless com.messi.languagehelper:selectableItemBackgroundBorderless}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_spinnerDropDownItemStyle com.messi.languagehelper:spinnerDropDownItemStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_spinnerStyle com.messi.languagehelper:spinnerStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_switchStyle com.messi.languagehelper:switchStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_textAppearanceLargePopupMenu com.messi.languagehelper:textAppearanceLargePopupMenu}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_textAppearanceListItem com.messi.languagehelper:textAppearanceListItem}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_textAppearanceListItemSecondary com.messi.languagehelper:textAppearanceListItemSecondary}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_textAppearanceListItemSmall com.messi.languagehelper:textAppearanceListItemSmall}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_textAppearancePopupMenuHeader com.messi.languagehelper:textAppearancePopupMenuHeader}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_textAppearanceSearchResultSubtitle com.messi.languagehelper:textAppearanceSearchResultSubtitle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_textAppearanceSearchResultTitle com.messi.languagehelper:textAppearanceSearchResultTitle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_textAppearanceSmallPopupMenu com.messi.languagehelper:textAppearanceSmallPopupMenu}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_textColorAlertDialogListItem com.messi.languagehelper:textColorAlertDialogListItem}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_textColorSearchUrl com.messi.languagehelper:textColorSearchUrl}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_toolbarNavigationButtonStyle com.messi.languagehelper:toolbarNavigationButtonStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_toolbarStyle com.messi.languagehelper:toolbarStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_tooltipForegroundColor com.messi.languagehelper:tooltipForegroundColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_tooltipFrameBackground com.messi.languagehelper:tooltipFrameBackground}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_windowActionBar com.messi.languagehelper:windowActionBar}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_windowActionBarOverlay com.messi.languagehelper:windowActionBarOverlay}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_windowActionModeOverlay com.messi.languagehelper:windowActionModeOverlay}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_windowFixedHeightMajor com.messi.languagehelper:windowFixedHeightMajor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_windowFixedHeightMinor com.messi.languagehelper:windowFixedHeightMinor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_windowFixedWidthMajor com.messi.languagehelper:windowFixedWidthMajor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_windowFixedWidthMinor com.messi.languagehelper:windowFixedWidthMinor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_windowMinWidthMajor com.messi.languagehelper:windowMinWidthMajor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_windowMinWidthMinor com.messi.languagehelper:windowMinWidthMinor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_windowNoTitle com.messi.languagehelper:windowNoTitle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionBarDivider com.messi.cantonese.study:actionBarDivider}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionBarItemBackground com.messi.cantonese.study:actionBarItemBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionBarPopupTheme com.messi.cantonese.study:actionBarPopupTheme}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionBarSize com.messi.cantonese.study:actionBarSize}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionBarSplitStyle com.messi.cantonese.study:actionBarSplitStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionBarStyle com.messi.cantonese.study:actionBarStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionBarTabBarStyle com.messi.cantonese.study:actionBarTabBarStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionBarTabStyle com.messi.cantonese.study:actionBarTabStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionBarTabTextStyle com.messi.cantonese.study:actionBarTabTextStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionBarTheme com.messi.cantonese.study:actionBarTheme}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionBarWidgetTheme com.messi.cantonese.study:actionBarWidgetTheme}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionButtonStyle com.messi.cantonese.study:actionButtonStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionDropDownStyle com.messi.cantonese.study:actionDropDownStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionMenuTextAppearance com.messi.cantonese.study:actionMenuTextAppearance}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionMenuTextColor com.messi.cantonese.study:actionMenuTextColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionModeBackground com.messi.cantonese.study:actionModeBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionModeCloseButtonStyle com.messi.cantonese.study:actionModeCloseButtonStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionModeCloseDrawable com.messi.cantonese.study:actionModeCloseDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionModeCopyDrawable com.messi.cantonese.study:actionModeCopyDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionModeCutDrawable com.messi.cantonese.study:actionModeCutDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionModeFindDrawable com.messi.cantonese.study:actionModeFindDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionModePasteDrawable com.messi.cantonese.study:actionModePasteDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionModePopupWindowStyle com.messi.cantonese.study:actionModePopupWindowStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionModeSelectAllDrawable com.messi.cantonese.study:actionModeSelectAllDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionModeShareDrawable com.messi.cantonese.study:actionModeShareDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionModeSplitBackground com.messi.cantonese.study:actionModeSplitBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionModeStyle com.messi.cantonese.study:actionModeStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionModeWebSearchDrawable com.messi.cantonese.study:actionModeWebSearchDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionOverflowButtonStyle com.messi.cantonese.study:actionOverflowButtonStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionOverflowMenuStyle com.messi.cantonese.study:actionOverflowMenuStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_activityChooserViewStyle com.messi.cantonese.study:activityChooserViewStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_alertDialogButtonGroupStyle com.messi.cantonese.study:alertDialogButtonGroupStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_alertDialogCenterButtons com.messi.cantonese.study:alertDialogCenterButtons}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_alertDialogStyle com.messi.cantonese.study:alertDialogStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_alertDialogTheme com.messi.cantonese.study:alertDialogTheme}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_autoCompleteTextViewStyle com.messi.cantonese.study:autoCompleteTextViewStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_borderlessButtonStyle com.messi.cantonese.study:borderlessButtonStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_buttonBarButtonStyle com.messi.cantonese.study:buttonBarButtonStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_buttonBarNegativeButtonStyle com.messi.cantonese.study:buttonBarNegativeButtonStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_buttonBarNeutralButtonStyle com.messi.cantonese.study:buttonBarNeutralButtonStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_buttonBarPositiveButtonStyle com.messi.cantonese.study:buttonBarPositiveButtonStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_buttonBarStyle com.messi.cantonese.study:buttonBarStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_buttonStyle com.messi.cantonese.study:buttonStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_buttonStyleSmall com.messi.cantonese.study:buttonStyleSmall}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_checkboxStyle com.messi.cantonese.study:checkboxStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_checkedTextViewStyle com.messi.cantonese.study:checkedTextViewStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_colorAccent com.messi.cantonese.study:colorAccent}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_colorBackgroundFloating com.messi.cantonese.study:colorBackgroundFloating}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_colorButtonNormal com.messi.cantonese.study:colorButtonNormal}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_colorControlActivated com.messi.cantonese.study:colorControlActivated}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_colorControlHighlight com.messi.cantonese.study:colorControlHighlight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_colorControlNormal com.messi.cantonese.study:colorControlNormal}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_colorError com.messi.cantonese.study:colorError}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_colorPrimary com.messi.cantonese.study:colorPrimary}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_colorPrimaryDark com.messi.cantonese.study:colorPrimaryDark}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_colorSwitchThumbNormal com.messi.cantonese.study:colorSwitchThumbNormal}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_controlBackground com.messi.cantonese.study:controlBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_dialogPreferredPadding com.messi.cantonese.study:dialogPreferredPadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_dialogTheme com.messi.cantonese.study:dialogTheme}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_dividerHorizontal com.messi.cantonese.study:dividerHorizontal}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_dividerVertical com.messi.cantonese.study:dividerVertical}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_dropDownListViewStyle com.messi.cantonese.study:dropDownListViewStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_dropdownListPreferredItemHeight com.messi.cantonese.study:dropdownListPreferredItemHeight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_editTextBackground com.messi.cantonese.study:editTextBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_editTextColor com.messi.cantonese.study:editTextColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_editTextStyle com.messi.cantonese.study:editTextStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_homeAsUpIndicator com.messi.cantonese.study:homeAsUpIndicator}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_imageButtonStyle com.messi.cantonese.study:imageButtonStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_listChoiceBackgroundIndicator com.messi.cantonese.study:listChoiceBackgroundIndicator}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_listDividerAlertDialog com.messi.cantonese.study:listDividerAlertDialog}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_listMenuViewStyle com.messi.cantonese.study:listMenuViewStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_listPopupWindowStyle com.messi.cantonese.study:listPopupWindowStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_listPreferredItemHeight com.messi.cantonese.study:listPreferredItemHeight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_listPreferredItemHeightLarge com.messi.cantonese.study:listPreferredItemHeightLarge}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_listPreferredItemHeightSmall com.messi.cantonese.study:listPreferredItemHeightSmall}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_listPreferredItemPaddingLeft com.messi.cantonese.study:listPreferredItemPaddingLeft}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_listPreferredItemPaddingRight com.messi.cantonese.study:listPreferredItemPaddingRight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_panelBackground com.messi.cantonese.study:panelBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_panelMenuListTheme com.messi.cantonese.study:panelMenuListTheme}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_panelMenuListWidth com.messi.cantonese.study:panelMenuListWidth}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_popupMenuStyle com.messi.cantonese.study:popupMenuStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_popupWindowStyle com.messi.cantonese.study:popupWindowStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_radioButtonStyle com.messi.cantonese.study:radioButtonStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_ratingBarStyle com.messi.cantonese.study:ratingBarStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_ratingBarStyleIndicator com.messi.cantonese.study:ratingBarStyleIndicator}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_ratingBarStyleSmall com.messi.cantonese.study:ratingBarStyleSmall}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_searchViewStyle com.messi.cantonese.study:searchViewStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_seekBarStyle com.messi.cantonese.study:seekBarStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_selectableItemBackground com.messi.cantonese.study:selectableItemBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_selectableItemBackgroundBorderless com.messi.cantonese.study:selectableItemBackgroundBorderless}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_spinnerDropDownItemStyle com.messi.cantonese.study:spinnerDropDownItemStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_spinnerStyle com.messi.cantonese.study:spinnerStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_switchStyle com.messi.cantonese.study:switchStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_textAppearanceLargePopupMenu com.messi.cantonese.study:textAppearanceLargePopupMenu}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_textAppearanceListItem com.messi.cantonese.study:textAppearanceListItem}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_textAppearanceListItemSecondary com.messi.cantonese.study:textAppearanceListItemSecondary}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_textAppearanceListItemSmall com.messi.cantonese.study:textAppearanceListItemSmall}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_textAppearancePopupMenuHeader com.messi.cantonese.study:textAppearancePopupMenuHeader}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_textAppearanceSearchResultSubtitle com.messi.cantonese.study:textAppearanceSearchResultSubtitle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_textAppearanceSearchResultTitle com.messi.cantonese.study:textAppearanceSearchResultTitle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_textAppearanceSmallPopupMenu com.messi.cantonese.study:textAppearanceSmallPopupMenu}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_textColorAlertDialogListItem com.messi.cantonese.study:textColorAlertDialogListItem}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_textColorSearchUrl com.messi.cantonese.study:textColorSearchUrl}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_toolbarNavigationButtonStyle com.messi.cantonese.study:toolbarNavigationButtonStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_toolbarStyle com.messi.cantonese.study:toolbarStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_tooltipForegroundColor com.messi.cantonese.study:tooltipForegroundColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_tooltipFrameBackground com.messi.cantonese.study:tooltipFrameBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_windowActionBar com.messi.cantonese.study:windowActionBar}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_windowActionBarOverlay com.messi.cantonese.study:windowActionBarOverlay}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_windowActionModeOverlay com.messi.cantonese.study:windowActionModeOverlay}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_windowFixedHeightMajor com.messi.cantonese.study:windowFixedHeightMajor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_windowFixedHeightMinor com.messi.cantonese.study:windowFixedHeightMinor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_windowFixedWidthMajor com.messi.cantonese.study:windowFixedWidthMajor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_windowFixedWidthMinor com.messi.cantonese.study:windowFixedWidthMinor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_windowMinWidthMajor com.messi.cantonese.study:windowMinWidthMajor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_windowMinWidthMinor com.messi.cantonese.study:windowMinWidthMinor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_windowNoTitle com.messi.cantonese.study:windowNoTitle}</code></td><td></td></tr>
      * </table>
      * @see #AppCompatTheme_android_windowIsFloating
      * @see #AppCompatTheme_android_windowAnimationStyle
@@ -8253,7 +8277,7 @@ public final class R {
      */
     public static final int AppCompatTheme_android_windowAnimationStyle=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionBarDivider}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionBarDivider}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8261,11 +8285,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionBarDivider
+     * @attr name com.messi.cantonese.study:actionBarDivider
      */
     public static final int AppCompatTheme_actionBarDivider=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionBarItemBackground}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionBarItemBackground}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8273,11 +8297,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionBarItemBackground
+     * @attr name com.messi.cantonese.study:actionBarItemBackground
      */
     public static final int AppCompatTheme_actionBarItemBackground=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionBarPopupTheme}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionBarPopupTheme}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8285,11 +8309,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionBarPopupTheme
+     * @attr name com.messi.cantonese.study:actionBarPopupTheme
      */
     public static final int AppCompatTheme_actionBarPopupTheme=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionBarSize}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionBarSize}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -8306,11 +8330,11 @@ public final class R {
      * <tr><td>wrap_content</td><td>0</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:actionBarSize
+     * @attr name com.messi.cantonese.study:actionBarSize
      */
     public static final int AppCompatTheme_actionBarSize=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionBarSplitStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionBarSplitStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8318,11 +8342,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionBarSplitStyle
+     * @attr name com.messi.cantonese.study:actionBarSplitStyle
      */
     public static final int AppCompatTheme_actionBarSplitStyle=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionBarStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionBarStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8330,11 +8354,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionBarStyle
+     * @attr name com.messi.cantonese.study:actionBarStyle
      */
     public static final int AppCompatTheme_actionBarStyle=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionBarTabBarStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionBarTabBarStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8342,11 +8366,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionBarTabBarStyle
+     * @attr name com.messi.cantonese.study:actionBarTabBarStyle
      */
     public static final int AppCompatTheme_actionBarTabBarStyle=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionBarTabStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionBarTabStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8354,11 +8378,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionBarTabStyle
+     * @attr name com.messi.cantonese.study:actionBarTabStyle
      */
     public static final int AppCompatTheme_actionBarTabStyle=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionBarTabTextStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionBarTabTextStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8366,11 +8390,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionBarTabTextStyle
+     * @attr name com.messi.cantonese.study:actionBarTabTextStyle
      */
     public static final int AppCompatTheme_actionBarTabTextStyle=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionBarTheme}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionBarTheme}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8378,11 +8402,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionBarTheme
+     * @attr name com.messi.cantonese.study:actionBarTheme
      */
     public static final int AppCompatTheme_actionBarTheme=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionBarWidgetTheme}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionBarWidgetTheme}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8390,11 +8414,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionBarWidgetTheme
+     * @attr name com.messi.cantonese.study:actionBarWidgetTheme
      */
     public static final int AppCompatTheme_actionBarWidgetTheme=12;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionButtonStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionButtonStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8402,11 +8426,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionButtonStyle
+     * @attr name com.messi.cantonese.study:actionButtonStyle
      */
     public static final int AppCompatTheme_actionButtonStyle=13;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionDropDownStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionDropDownStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8414,11 +8438,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionDropDownStyle
+     * @attr name com.messi.cantonese.study:actionDropDownStyle
      */
     public static final int AppCompatTheme_actionDropDownStyle=14;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionMenuTextAppearance}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionMenuTextAppearance}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8426,11 +8450,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionMenuTextAppearance
+     * @attr name com.messi.cantonese.study:actionMenuTextAppearance
      */
     public static final int AppCompatTheme_actionMenuTextAppearance=15;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionMenuTextColor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionMenuTextColor}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8441,11 +8465,11 @@ public final class R {
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionMenuTextColor
+     * @attr name com.messi.cantonese.study:actionMenuTextColor
      */
     public static final int AppCompatTheme_actionMenuTextColor=16;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionModeBackground}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionModeBackground}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8453,11 +8477,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionModeBackground
+     * @attr name com.messi.cantonese.study:actionModeBackground
      */
     public static final int AppCompatTheme_actionModeBackground=17;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionModeCloseButtonStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionModeCloseButtonStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8465,11 +8489,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionModeCloseButtonStyle
+     * @attr name com.messi.cantonese.study:actionModeCloseButtonStyle
      */
     public static final int AppCompatTheme_actionModeCloseButtonStyle=18;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionModeCloseDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionModeCloseDrawable}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8477,11 +8501,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionModeCloseDrawable
+     * @attr name com.messi.cantonese.study:actionModeCloseDrawable
      */
     public static final int AppCompatTheme_actionModeCloseDrawable=19;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionModeCopyDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionModeCopyDrawable}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8489,11 +8513,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionModeCopyDrawable
+     * @attr name com.messi.cantonese.study:actionModeCopyDrawable
      */
     public static final int AppCompatTheme_actionModeCopyDrawable=20;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionModeCutDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionModeCutDrawable}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8501,11 +8525,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionModeCutDrawable
+     * @attr name com.messi.cantonese.study:actionModeCutDrawable
      */
     public static final int AppCompatTheme_actionModeCutDrawable=21;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionModeFindDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionModeFindDrawable}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8513,11 +8537,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionModeFindDrawable
+     * @attr name com.messi.cantonese.study:actionModeFindDrawable
      */
     public static final int AppCompatTheme_actionModeFindDrawable=22;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionModePasteDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionModePasteDrawable}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8525,11 +8549,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionModePasteDrawable
+     * @attr name com.messi.cantonese.study:actionModePasteDrawable
      */
     public static final int AppCompatTheme_actionModePasteDrawable=23;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionModePopupWindowStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionModePopupWindowStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8537,11 +8561,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionModePopupWindowStyle
+     * @attr name com.messi.cantonese.study:actionModePopupWindowStyle
      */
     public static final int AppCompatTheme_actionModePopupWindowStyle=24;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionModeSelectAllDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionModeSelectAllDrawable}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8549,11 +8573,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionModeSelectAllDrawable
+     * @attr name com.messi.cantonese.study:actionModeSelectAllDrawable
      */
     public static final int AppCompatTheme_actionModeSelectAllDrawable=25;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionModeShareDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionModeShareDrawable}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8561,11 +8585,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionModeShareDrawable
+     * @attr name com.messi.cantonese.study:actionModeShareDrawable
      */
     public static final int AppCompatTheme_actionModeShareDrawable=26;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionModeSplitBackground}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionModeSplitBackground}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8573,11 +8597,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionModeSplitBackground
+     * @attr name com.messi.cantonese.study:actionModeSplitBackground
      */
     public static final int AppCompatTheme_actionModeSplitBackground=27;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionModeStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionModeStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8585,11 +8609,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionModeStyle
+     * @attr name com.messi.cantonese.study:actionModeStyle
      */
     public static final int AppCompatTheme_actionModeStyle=28;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionModeWebSearchDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionModeWebSearchDrawable}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8597,11 +8621,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionModeWebSearchDrawable
+     * @attr name com.messi.cantonese.study:actionModeWebSearchDrawable
      */
     public static final int AppCompatTheme_actionModeWebSearchDrawable=29;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionOverflowButtonStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionOverflowButtonStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8609,11 +8633,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionOverflowButtonStyle
+     * @attr name com.messi.cantonese.study:actionOverflowButtonStyle
      */
     public static final int AppCompatTheme_actionOverflowButtonStyle=30;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionOverflowMenuStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionOverflowMenuStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8621,11 +8645,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionOverflowMenuStyle
+     * @attr name com.messi.cantonese.study:actionOverflowMenuStyle
      */
     public static final int AppCompatTheme_actionOverflowMenuStyle=31;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#activityChooserViewStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#activityChooserViewStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8633,11 +8657,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:activityChooserViewStyle
+     * @attr name com.messi.cantonese.study:activityChooserViewStyle
      */
     public static final int AppCompatTheme_activityChooserViewStyle=32;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#alertDialogButtonGroupStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#alertDialogButtonGroupStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8645,21 +8669,21 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:alertDialogButtonGroupStyle
+     * @attr name com.messi.cantonese.study:alertDialogButtonGroupStyle
      */
     public static final int AppCompatTheme_alertDialogButtonGroupStyle=33;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#alertDialogCenterButtons}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#alertDialogCenterButtons}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:alertDialogCenterButtons
+     * @attr name com.messi.cantonese.study:alertDialogCenterButtons
      */
     public static final int AppCompatTheme_alertDialogCenterButtons=34;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#alertDialogStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#alertDialogStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8667,11 +8691,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:alertDialogStyle
+     * @attr name com.messi.cantonese.study:alertDialogStyle
      */
     public static final int AppCompatTheme_alertDialogStyle=35;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#alertDialogTheme}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#alertDialogTheme}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8679,11 +8703,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:alertDialogTheme
+     * @attr name com.messi.cantonese.study:alertDialogTheme
      */
     public static final int AppCompatTheme_alertDialogTheme=36;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#autoCompleteTextViewStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#autoCompleteTextViewStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8691,11 +8715,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:autoCompleteTextViewStyle
+     * @attr name com.messi.cantonese.study:autoCompleteTextViewStyle
      */
     public static final int AppCompatTheme_autoCompleteTextViewStyle=37;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#borderlessButtonStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#borderlessButtonStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8703,11 +8727,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:borderlessButtonStyle
+     * @attr name com.messi.cantonese.study:borderlessButtonStyle
      */
     public static final int AppCompatTheme_borderlessButtonStyle=38;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#buttonBarButtonStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#buttonBarButtonStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8715,11 +8739,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:buttonBarButtonStyle
+     * @attr name com.messi.cantonese.study:buttonBarButtonStyle
      */
     public static final int AppCompatTheme_buttonBarButtonStyle=39;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#buttonBarNegativeButtonStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#buttonBarNegativeButtonStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8727,11 +8751,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:buttonBarNegativeButtonStyle
+     * @attr name com.messi.cantonese.study:buttonBarNegativeButtonStyle
      */
     public static final int AppCompatTheme_buttonBarNegativeButtonStyle=40;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#buttonBarNeutralButtonStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#buttonBarNeutralButtonStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8739,11 +8763,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:buttonBarNeutralButtonStyle
+     * @attr name com.messi.cantonese.study:buttonBarNeutralButtonStyle
      */
     public static final int AppCompatTheme_buttonBarNeutralButtonStyle=41;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#buttonBarPositiveButtonStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#buttonBarPositiveButtonStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8751,11 +8775,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:buttonBarPositiveButtonStyle
+     * @attr name com.messi.cantonese.study:buttonBarPositiveButtonStyle
      */
     public static final int AppCompatTheme_buttonBarPositiveButtonStyle=42;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#buttonBarStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#buttonBarStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8763,11 +8787,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:buttonBarStyle
+     * @attr name com.messi.cantonese.study:buttonBarStyle
      */
     public static final int AppCompatTheme_buttonBarStyle=43;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#buttonStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#buttonStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8775,11 +8799,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:buttonStyle
+     * @attr name com.messi.cantonese.study:buttonStyle
      */
     public static final int AppCompatTheme_buttonStyle=44;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#buttonStyleSmall}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#buttonStyleSmall}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8787,11 +8811,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:buttonStyleSmall
+     * @attr name com.messi.cantonese.study:buttonStyleSmall
      */
     public static final int AppCompatTheme_buttonStyleSmall=45;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#checkboxStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#checkboxStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8799,11 +8823,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:checkboxStyle
+     * @attr name com.messi.cantonese.study:checkboxStyle
      */
     public static final int AppCompatTheme_checkboxStyle=46;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#checkedTextViewStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#checkedTextViewStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8811,77 +8835,77 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:checkedTextViewStyle
+     * @attr name com.messi.cantonese.study:checkedTextViewStyle
      */
     public static final int AppCompatTheme_checkedTextViewStyle=47;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#colorAccent}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#colorAccent}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:colorAccent
+     * @attr name com.messi.cantonese.study:colorAccent
      */
     public static final int AppCompatTheme_colorAccent=48;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#colorBackgroundFloating}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#colorBackgroundFloating}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:colorBackgroundFloating
+     * @attr name com.messi.cantonese.study:colorBackgroundFloating
      */
     public static final int AppCompatTheme_colorBackgroundFloating=49;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#colorButtonNormal}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#colorButtonNormal}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:colorButtonNormal
+     * @attr name com.messi.cantonese.study:colorButtonNormal
      */
     public static final int AppCompatTheme_colorButtonNormal=50;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#colorControlActivated}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#colorControlActivated}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:colorControlActivated
+     * @attr name com.messi.cantonese.study:colorControlActivated
      */
     public static final int AppCompatTheme_colorControlActivated=51;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#colorControlHighlight}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#colorControlHighlight}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:colorControlHighlight
+     * @attr name com.messi.cantonese.study:colorControlHighlight
      */
     public static final int AppCompatTheme_colorControlHighlight=52;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#colorControlNormal}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#colorControlNormal}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:colorControlNormal
+     * @attr name com.messi.cantonese.study:colorControlNormal
      */
     public static final int AppCompatTheme_colorControlNormal=53;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#colorError}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#colorError}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8892,44 +8916,44 @@ public final class R {
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:colorError
+     * @attr name com.messi.cantonese.study:colorError
      */
     public static final int AppCompatTheme_colorError=54;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#colorPrimary}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#colorPrimary}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:colorPrimary
+     * @attr name com.messi.cantonese.study:colorPrimary
      */
     public static final int AppCompatTheme_colorPrimary=55;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#colorPrimaryDark}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#colorPrimaryDark}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:colorPrimaryDark
+     * @attr name com.messi.cantonese.study:colorPrimaryDark
      */
     public static final int AppCompatTheme_colorPrimaryDark=56;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#colorSwitchThumbNormal}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#colorSwitchThumbNormal}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:colorSwitchThumbNormal
+     * @attr name com.messi.cantonese.study:colorSwitchThumbNormal
      */
     public static final int AppCompatTheme_colorSwitchThumbNormal=57;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#controlBackground}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#controlBackground}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8937,11 +8961,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:controlBackground
+     * @attr name com.messi.cantonese.study:controlBackground
      */
     public static final int AppCompatTheme_controlBackground=58;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#dialogPreferredPadding}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#dialogPreferredPadding}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -8950,11 +8974,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:dialogPreferredPadding
+     * @attr name com.messi.cantonese.study:dialogPreferredPadding
      */
     public static final int AppCompatTheme_dialogPreferredPadding=59;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#dialogTheme}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#dialogTheme}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8962,11 +8986,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:dialogTheme
+     * @attr name com.messi.cantonese.study:dialogTheme
      */
     public static final int AppCompatTheme_dialogTheme=60;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#dividerHorizontal}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#dividerHorizontal}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8974,11 +8998,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:dividerHorizontal
+     * @attr name com.messi.cantonese.study:dividerHorizontal
      */
     public static final int AppCompatTheme_dividerHorizontal=61;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#dividerVertical}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#dividerVertical}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8986,11 +9010,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:dividerVertical
+     * @attr name com.messi.cantonese.study:dividerVertical
      */
     public static final int AppCompatTheme_dividerVertical=62;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#dropDownListViewStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#dropDownListViewStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8998,11 +9022,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:dropDownListViewStyle
+     * @attr name com.messi.cantonese.study:dropDownListViewStyle
      */
     public static final int AppCompatTheme_dropDownListViewStyle=63;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#dropdownListPreferredItemHeight}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#dropdownListPreferredItemHeight}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9011,11 +9035,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:dropdownListPreferredItemHeight
+     * @attr name com.messi.cantonese.study:dropdownListPreferredItemHeight
      */
     public static final int AppCompatTheme_dropdownListPreferredItemHeight=64;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#editTextBackground}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#editTextBackground}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9023,11 +9047,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:editTextBackground
+     * @attr name com.messi.cantonese.study:editTextBackground
      */
     public static final int AppCompatTheme_editTextBackground=65;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#editTextColor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#editTextColor}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9038,11 +9062,11 @@ public final class R {
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:editTextColor
+     * @attr name com.messi.cantonese.study:editTextColor
      */
     public static final int AppCompatTheme_editTextColor=66;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#editTextStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#editTextStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9050,11 +9074,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:editTextStyle
+     * @attr name com.messi.cantonese.study:editTextStyle
      */
     public static final int AppCompatTheme_editTextStyle=67;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#homeAsUpIndicator}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#homeAsUpIndicator}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9062,11 +9086,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:homeAsUpIndicator
+     * @attr name com.messi.cantonese.study:homeAsUpIndicator
      */
     public static final int AppCompatTheme_homeAsUpIndicator=68;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#imageButtonStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#imageButtonStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9074,11 +9098,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:imageButtonStyle
+     * @attr name com.messi.cantonese.study:imageButtonStyle
      */
     public static final int AppCompatTheme_imageButtonStyle=69;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#listChoiceBackgroundIndicator}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#listChoiceBackgroundIndicator}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9086,11 +9110,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:listChoiceBackgroundIndicator
+     * @attr name com.messi.cantonese.study:listChoiceBackgroundIndicator
      */
     public static final int AppCompatTheme_listChoiceBackgroundIndicator=70;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#listDividerAlertDialog}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#listDividerAlertDialog}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9098,11 +9122,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:listDividerAlertDialog
+     * @attr name com.messi.cantonese.study:listDividerAlertDialog
      */
     public static final int AppCompatTheme_listDividerAlertDialog=71;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#listMenuViewStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#listMenuViewStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9110,11 +9134,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:listMenuViewStyle
+     * @attr name com.messi.cantonese.study:listMenuViewStyle
      */
     public static final int AppCompatTheme_listMenuViewStyle=72;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#listPopupWindowStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#listPopupWindowStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9122,11 +9146,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:listPopupWindowStyle
+     * @attr name com.messi.cantonese.study:listPopupWindowStyle
      */
     public static final int AppCompatTheme_listPopupWindowStyle=73;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#listPreferredItemHeight}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#listPreferredItemHeight}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9135,11 +9159,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:listPreferredItemHeight
+     * @attr name com.messi.cantonese.study:listPreferredItemHeight
      */
     public static final int AppCompatTheme_listPreferredItemHeight=74;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#listPreferredItemHeightLarge}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#listPreferredItemHeightLarge}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9148,11 +9172,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:listPreferredItemHeightLarge
+     * @attr name com.messi.cantonese.study:listPreferredItemHeightLarge
      */
     public static final int AppCompatTheme_listPreferredItemHeightLarge=75;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#listPreferredItemHeightSmall}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#listPreferredItemHeightSmall}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9161,11 +9185,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:listPreferredItemHeightSmall
+     * @attr name com.messi.cantonese.study:listPreferredItemHeightSmall
      */
     public static final int AppCompatTheme_listPreferredItemHeightSmall=76;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#listPreferredItemPaddingLeft}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#listPreferredItemPaddingLeft}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9174,11 +9198,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:listPreferredItemPaddingLeft
+     * @attr name com.messi.cantonese.study:listPreferredItemPaddingLeft
      */
     public static final int AppCompatTheme_listPreferredItemPaddingLeft=77;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#listPreferredItemPaddingRight}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#listPreferredItemPaddingRight}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9187,11 +9211,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:listPreferredItemPaddingRight
+     * @attr name com.messi.cantonese.study:listPreferredItemPaddingRight
      */
     public static final int AppCompatTheme_listPreferredItemPaddingRight=78;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#panelBackground}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#panelBackground}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9199,11 +9223,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:panelBackground
+     * @attr name com.messi.cantonese.study:panelBackground
      */
     public static final int AppCompatTheme_panelBackground=79;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#panelMenuListTheme}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#panelMenuListTheme}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9211,11 +9235,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:panelMenuListTheme
+     * @attr name com.messi.cantonese.study:panelMenuListTheme
      */
     public static final int AppCompatTheme_panelMenuListTheme=80;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#panelMenuListWidth}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#panelMenuListWidth}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9224,11 +9248,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:panelMenuListWidth
+     * @attr name com.messi.cantonese.study:panelMenuListWidth
      */
     public static final int AppCompatTheme_panelMenuListWidth=81;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#popupMenuStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#popupMenuStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9236,11 +9260,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:popupMenuStyle
+     * @attr name com.messi.cantonese.study:popupMenuStyle
      */
     public static final int AppCompatTheme_popupMenuStyle=82;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#popupWindowStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#popupWindowStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9248,11 +9272,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:popupWindowStyle
+     * @attr name com.messi.cantonese.study:popupWindowStyle
      */
     public static final int AppCompatTheme_popupWindowStyle=83;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#radioButtonStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#radioButtonStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9260,11 +9284,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:radioButtonStyle
+     * @attr name com.messi.cantonese.study:radioButtonStyle
      */
     public static final int AppCompatTheme_radioButtonStyle=84;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#ratingBarStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#ratingBarStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9272,11 +9296,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:ratingBarStyle
+     * @attr name com.messi.cantonese.study:ratingBarStyle
      */
     public static final int AppCompatTheme_ratingBarStyle=85;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#ratingBarStyleIndicator}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#ratingBarStyleIndicator}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9284,11 +9308,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:ratingBarStyleIndicator
+     * @attr name com.messi.cantonese.study:ratingBarStyleIndicator
      */
     public static final int AppCompatTheme_ratingBarStyleIndicator=86;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#ratingBarStyleSmall}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#ratingBarStyleSmall}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9296,11 +9320,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:ratingBarStyleSmall
+     * @attr name com.messi.cantonese.study:ratingBarStyleSmall
      */
     public static final int AppCompatTheme_ratingBarStyleSmall=87;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#searchViewStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#searchViewStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9308,11 +9332,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:searchViewStyle
+     * @attr name com.messi.cantonese.study:searchViewStyle
      */
     public static final int AppCompatTheme_searchViewStyle=88;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#seekBarStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#seekBarStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9320,11 +9344,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:seekBarStyle
+     * @attr name com.messi.cantonese.study:seekBarStyle
      */
     public static final int AppCompatTheme_seekBarStyle=89;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#selectableItemBackground}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#selectableItemBackground}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9332,11 +9356,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:selectableItemBackground
+     * @attr name com.messi.cantonese.study:selectableItemBackground
      */
     public static final int AppCompatTheme_selectableItemBackground=90;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#selectableItemBackgroundBorderless}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#selectableItemBackgroundBorderless}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9344,11 +9368,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:selectableItemBackgroundBorderless
+     * @attr name com.messi.cantonese.study:selectableItemBackgroundBorderless
      */
     public static final int AppCompatTheme_selectableItemBackgroundBorderless=91;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#spinnerDropDownItemStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#spinnerDropDownItemStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9356,11 +9380,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:spinnerDropDownItemStyle
+     * @attr name com.messi.cantonese.study:spinnerDropDownItemStyle
      */
     public static final int AppCompatTheme_spinnerDropDownItemStyle=92;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#spinnerStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#spinnerStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9368,11 +9392,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:spinnerStyle
+     * @attr name com.messi.cantonese.study:spinnerStyle
      */
     public static final int AppCompatTheme_spinnerStyle=93;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#switchStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#switchStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9380,11 +9404,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:switchStyle
+     * @attr name com.messi.cantonese.study:switchStyle
      */
     public static final int AppCompatTheme_switchStyle=94;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#textAppearanceLargePopupMenu}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#textAppearanceLargePopupMenu}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9392,11 +9416,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:textAppearanceLargePopupMenu
+     * @attr name com.messi.cantonese.study:textAppearanceLargePopupMenu
      */
     public static final int AppCompatTheme_textAppearanceLargePopupMenu=95;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#textAppearanceListItem}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#textAppearanceListItem}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9404,11 +9428,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:textAppearanceListItem
+     * @attr name com.messi.cantonese.study:textAppearanceListItem
      */
     public static final int AppCompatTheme_textAppearanceListItem=96;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#textAppearanceListItemSecondary}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#textAppearanceListItemSecondary}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9416,11 +9440,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:textAppearanceListItemSecondary
+     * @attr name com.messi.cantonese.study:textAppearanceListItemSecondary
      */
     public static final int AppCompatTheme_textAppearanceListItemSecondary=97;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#textAppearanceListItemSmall}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#textAppearanceListItemSmall}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9428,11 +9452,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:textAppearanceListItemSmall
+     * @attr name com.messi.cantonese.study:textAppearanceListItemSmall
      */
     public static final int AppCompatTheme_textAppearanceListItemSmall=98;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#textAppearancePopupMenuHeader}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#textAppearancePopupMenuHeader}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9440,11 +9464,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:textAppearancePopupMenuHeader
+     * @attr name com.messi.cantonese.study:textAppearancePopupMenuHeader
      */
     public static final int AppCompatTheme_textAppearancePopupMenuHeader=99;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#textAppearanceSearchResultSubtitle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#textAppearanceSearchResultSubtitle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9452,11 +9476,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:textAppearanceSearchResultSubtitle
+     * @attr name com.messi.cantonese.study:textAppearanceSearchResultSubtitle
      */
     public static final int AppCompatTheme_textAppearanceSearchResultSubtitle=100;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#textAppearanceSearchResultTitle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#textAppearanceSearchResultTitle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9464,11 +9488,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:textAppearanceSearchResultTitle
+     * @attr name com.messi.cantonese.study:textAppearanceSearchResultTitle
      */
     public static final int AppCompatTheme_textAppearanceSearchResultTitle=101;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#textAppearanceSmallPopupMenu}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#textAppearanceSmallPopupMenu}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9476,11 +9500,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:textAppearanceSmallPopupMenu
+     * @attr name com.messi.cantonese.study:textAppearanceSmallPopupMenu
      */
     public static final int AppCompatTheme_textAppearanceSmallPopupMenu=102;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#textColorAlertDialogListItem}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#textColorAlertDialogListItem}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9491,11 +9515,11 @@ public final class R {
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:textColorAlertDialogListItem
+     * @attr name com.messi.cantonese.study:textColorAlertDialogListItem
      */
     public static final int AppCompatTheme_textColorAlertDialogListItem=103;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#textColorSearchUrl}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#textColorSearchUrl}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9506,11 +9530,11 @@ public final class R {
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:textColorSearchUrl
+     * @attr name com.messi.cantonese.study:textColorSearchUrl
      */
     public static final int AppCompatTheme_textColorSearchUrl=104;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#toolbarNavigationButtonStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#toolbarNavigationButtonStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9518,11 +9542,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:toolbarNavigationButtonStyle
+     * @attr name com.messi.cantonese.study:toolbarNavigationButtonStyle
      */
     public static final int AppCompatTheme_toolbarNavigationButtonStyle=105;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#toolbarStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#toolbarStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9530,11 +9554,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:toolbarStyle
+     * @attr name com.messi.cantonese.study:toolbarStyle
      */
     public static final int AppCompatTheme_toolbarStyle=106;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tooltipForegroundColor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#tooltipForegroundColor}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9545,11 +9569,11 @@ public final class R {
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:tooltipForegroundColor
+     * @attr name com.messi.cantonese.study:tooltipForegroundColor
      */
     public static final int AppCompatTheme_tooltipForegroundColor=107;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tooltipFrameBackground}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#tooltipFrameBackground}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9557,41 +9581,41 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:tooltipFrameBackground
+     * @attr name com.messi.cantonese.study:tooltipFrameBackground
      */
     public static final int AppCompatTheme_tooltipFrameBackground=108;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#windowActionBar}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#windowActionBar}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:windowActionBar
+     * @attr name com.messi.cantonese.study:windowActionBar
      */
     public static final int AppCompatTheme_windowActionBar=109;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#windowActionBarOverlay}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#windowActionBarOverlay}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:windowActionBarOverlay
+     * @attr name com.messi.cantonese.study:windowActionBarOverlay
      */
     public static final int AppCompatTheme_windowActionBarOverlay=110;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#windowActionModeOverlay}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#windowActionModeOverlay}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:windowActionModeOverlay
+     * @attr name com.messi.cantonese.study:windowActionModeOverlay
      */
     public static final int AppCompatTheme_windowActionModeOverlay=111;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#windowFixedHeightMajor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#windowFixedHeightMajor}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9604,11 +9628,11 @@ public final class R {
      * The % suffix always means a percentage of the base size;
      * the optional %p suffix provides a size relative to some parent container.
      *
-     * @attr name com.messi.languagehelper:windowFixedHeightMajor
+     * @attr name com.messi.cantonese.study:windowFixedHeightMajor
      */
     public static final int AppCompatTheme_windowFixedHeightMajor=112;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#windowFixedHeightMinor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#windowFixedHeightMinor}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9621,11 +9645,11 @@ public final class R {
      * The % suffix always means a percentage of the base size;
      * the optional %p suffix provides a size relative to some parent container.
      *
-     * @attr name com.messi.languagehelper:windowFixedHeightMinor
+     * @attr name com.messi.cantonese.study:windowFixedHeightMinor
      */
     public static final int AppCompatTheme_windowFixedHeightMinor=113;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#windowFixedWidthMajor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#windowFixedWidthMajor}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9638,11 +9662,11 @@ public final class R {
      * The % suffix always means a percentage of the base size;
      * the optional %p suffix provides a size relative to some parent container.
      *
-     * @attr name com.messi.languagehelper:windowFixedWidthMajor
+     * @attr name com.messi.cantonese.study:windowFixedWidthMajor
      */
     public static final int AppCompatTheme_windowFixedWidthMajor=114;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#windowFixedWidthMinor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#windowFixedWidthMinor}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9655,11 +9679,11 @@ public final class R {
      * The % suffix always means a percentage of the base size;
      * the optional %p suffix provides a size relative to some parent container.
      *
-     * @attr name com.messi.languagehelper:windowFixedWidthMinor
+     * @attr name com.messi.cantonese.study:windowFixedWidthMinor
      */
     public static final int AppCompatTheme_windowFixedWidthMinor=115;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#windowMinWidthMajor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#windowMinWidthMajor}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9672,11 +9696,11 @@ public final class R {
      * The % suffix always means a percentage of the base size;
      * the optional %p suffix provides a size relative to some parent container.
      *
-     * @attr name com.messi.languagehelper:windowMinWidthMajor
+     * @attr name com.messi.cantonese.study:windowMinWidthMajor
      */
     public static final int AppCompatTheme_windowMinWidthMajor=116;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#windowMinWidthMinor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#windowMinWidthMinor}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9689,17 +9713,17 @@ public final class R {
      * The % suffix always means a percentage of the base size;
      * the optional %p suffix provides a size relative to some parent container.
      *
-     * @attr name com.messi.languagehelper:windowMinWidthMinor
+     * @attr name com.messi.cantonese.study:windowMinWidthMinor
      */
     public static final int AppCompatTheme_windowMinWidthMinor=117;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#windowNoTitle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#windowNoTitle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:windowNoTitle
+     * @attr name com.messi.cantonese.study:windowNoTitle
      */
     public static final int AppCompatTheme_windowNoTitle=118;
     /**
@@ -9709,9 +9733,9 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #ArcMotion_maximumAngle com.messi.languagehelper:maximumAngle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ArcMotion_minimumHorizontalAngle com.messi.languagehelper:minimumHorizontalAngle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ArcMotion_minimumVerticalAngle com.messi.languagehelper:minimumVerticalAngle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcMotion_maximumAngle com.messi.cantonese.study:maximumAngle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcMotion_minimumHorizontalAngle com.messi.cantonese.study:minimumHorizontalAngle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcMotion_minimumVerticalAngle com.messi.cantonese.study:minimumVerticalAngle}</code></td><td></td></tr>
      * </table>
      * @see #ArcMotion_maximumAngle
      * @see #ArcMotion_minimumHorizontalAngle
@@ -9721,30 +9745,30 @@ public final class R {
         0x7f03012e, 0x7f030131, 0x7f030132
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#maximumAngle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#maximumAngle}
      * attribute's value can be found in the {@link #ArcMotion} array.
      *
      * <p>May be a floating point value, such as "<code>1.2</code>".
      *
-     * @attr name com.messi.languagehelper:maximumAngle
+     * @attr name com.messi.cantonese.study:maximumAngle
      */
     public static final int ArcMotion_maximumAngle=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#minimumHorizontalAngle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#minimumHorizontalAngle}
      * attribute's value can be found in the {@link #ArcMotion} array.
      *
      * <p>May be a floating point value, such as "<code>1.2</code>".
      *
-     * @attr name com.messi.languagehelper:minimumHorizontalAngle
+     * @attr name com.messi.cantonese.study:minimumHorizontalAngle
      */
     public static final int ArcMotion_minimumHorizontalAngle=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#minimumVerticalAngle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#minimumVerticalAngle}
      * attribute's value can be found in the {@link #ArcMotion} array.
      *
      * <p>May be a floating point value, such as "<code>1.2</code>".
      *
-     * @attr name com.messi.languagehelper:minimumVerticalAngle
+     * @attr name com.messi.cantonese.study:minimumVerticalAngle
      */
     public static final int ArcMotion_minimumVerticalAngle=2;
     /**
@@ -9754,19 +9778,19 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #ArcProgress_arc_angle com.messi.languagehelper:arc_angle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ArcProgress_arc_bottom_text com.messi.languagehelper:arc_bottom_text}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ArcProgress_arc_bottom_text_size com.messi.languagehelper:arc_bottom_text_size}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ArcProgress_arc_finished_color com.messi.languagehelper:arc_finished_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ArcProgress_arc_max com.messi.languagehelper:arc_max}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ArcProgress_arc_progress com.messi.languagehelper:arc_progress}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ArcProgress_arc_stroke_width com.messi.languagehelper:arc_stroke_width}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ArcProgress_arc_suffix_text com.messi.languagehelper:arc_suffix_text}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ArcProgress_arc_suffix_text_padding com.messi.languagehelper:arc_suffix_text_padding}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ArcProgress_arc_suffix_text_size com.messi.languagehelper:arc_suffix_text_size}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ArcProgress_arc_text_color com.messi.languagehelper:arc_text_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ArcProgress_arc_text_size com.messi.languagehelper:arc_text_size}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ArcProgress_arc_unfinished_color com.messi.languagehelper:arc_unfinished_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcProgress_arc_angle com.messi.cantonese.study:arc_angle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcProgress_arc_bottom_text com.messi.cantonese.study:arc_bottom_text}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcProgress_arc_bottom_text_size com.messi.cantonese.study:arc_bottom_text_size}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcProgress_arc_finished_color com.messi.cantonese.study:arc_finished_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcProgress_arc_max com.messi.cantonese.study:arc_max}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcProgress_arc_progress com.messi.cantonese.study:arc_progress}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcProgress_arc_stroke_width com.messi.cantonese.study:arc_stroke_width}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcProgress_arc_suffix_text com.messi.cantonese.study:arc_suffix_text}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcProgress_arc_suffix_text_padding com.messi.cantonese.study:arc_suffix_text_padding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcProgress_arc_suffix_text_size com.messi.cantonese.study:arc_suffix_text_size}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcProgress_arc_text_color com.messi.cantonese.study:arc_text_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcProgress_arc_text_size com.messi.cantonese.study:arc_text_size}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcProgress_arc_unfinished_color com.messi.cantonese.study:arc_unfinished_color}</code></td><td></td></tr>
      * </table>
      * @see #ArcProgress_arc_angle
      * @see #ArcProgress_arc_bottom_text
@@ -9789,26 +9813,26 @@ public final class R {
         0x7f03003d
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arc_angle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#arc_angle}
      * attribute's value can be found in the {@link #ArcProgress} array.
      *
      * <p>May be a floating point value, such as "<code>1.2</code>".
      *
-     * @attr name com.messi.languagehelper:arc_angle
+     * @attr name com.messi.cantonese.study:arc_angle
      */
     public static final int ArcProgress_arc_angle=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arc_bottom_text}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#arc_bottom_text}
      * attribute's value can be found in the {@link #ArcProgress} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:arc_bottom_text
+     * @attr name com.messi.cantonese.study:arc_bottom_text
      */
     public static final int ArcProgress_arc_bottom_text=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arc_bottom_text_size}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#arc_bottom_text_size}
      * attribute's value can be found in the {@link #ArcProgress} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9817,40 +9841,40 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:arc_bottom_text_size
+     * @attr name com.messi.cantonese.study:arc_bottom_text_size
      */
     public static final int ArcProgress_arc_bottom_text_size=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arc_finished_color}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#arc_finished_color}
      * attribute's value can be found in the {@link #ArcProgress} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:arc_finished_color
+     * @attr name com.messi.cantonese.study:arc_finished_color
      */
     public static final int ArcProgress_arc_finished_color=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arc_max}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#arc_max}
      * attribute's value can be found in the {@link #ArcProgress} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.languagehelper:arc_max
+     * @attr name com.messi.cantonese.study:arc_max
      */
     public static final int ArcProgress_arc_max=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arc_progress}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#arc_progress}
      * attribute's value can be found in the {@link #ArcProgress} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.languagehelper:arc_progress
+     * @attr name com.messi.cantonese.study:arc_progress
      */
     public static final int ArcProgress_arc_progress=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arc_stroke_width}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#arc_stroke_width}
      * attribute's value can be found in the {@link #ArcProgress} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9859,21 +9883,21 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:arc_stroke_width
+     * @attr name com.messi.cantonese.study:arc_stroke_width
      */
     public static final int ArcProgress_arc_stroke_width=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arc_suffix_text}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#arc_suffix_text}
      * attribute's value can be found in the {@link #ArcProgress} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:arc_suffix_text
+     * @attr name com.messi.cantonese.study:arc_suffix_text
      */
     public static final int ArcProgress_arc_suffix_text=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arc_suffix_text_padding}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#arc_suffix_text_padding}
      * attribute's value can be found in the {@link #ArcProgress} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9882,11 +9906,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:arc_suffix_text_padding
+     * @attr name com.messi.cantonese.study:arc_suffix_text_padding
      */
     public static final int ArcProgress_arc_suffix_text_padding=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arc_suffix_text_size}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#arc_suffix_text_size}
      * attribute's value can be found in the {@link #ArcProgress} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9895,22 +9919,22 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:arc_suffix_text_size
+     * @attr name com.messi.cantonese.study:arc_suffix_text_size
      */
     public static final int ArcProgress_arc_suffix_text_size=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arc_text_color}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#arc_text_color}
      * attribute's value can be found in the {@link #ArcProgress} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:arc_text_color
+     * @attr name com.messi.cantonese.study:arc_text_color
      */
     public static final int ArcProgress_arc_text_color=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arc_text_size}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#arc_text_size}
      * attribute's value can be found in the {@link #ArcProgress} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9919,18 +9943,18 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:arc_text_size
+     * @attr name com.messi.cantonese.study:arc_text_size
      */
     public static final int ArcProgress_arc_text_size=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arc_unfinished_color}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#arc_unfinished_color}
      * attribute's value can be found in the {@link #ArcProgress} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:arc_unfinished_color
+     * @attr name com.messi.cantonese.study:arc_unfinished_color
      */
     public static final int ArcProgress_arc_unfinished_color=12;
     /**
@@ -9940,7 +9964,7 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #AspectRatioFrameLayout_resize_mode com.messi.languagehelper:resize_mode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AspectRatioFrameLayout_resize_mode com.messi.cantonese.study:resize_mode}</code></td><td></td></tr>
      * </table>
      * @see #AspectRatioFrameLayout_resize_mode
      */
@@ -9948,7 +9972,7 @@ public final class R {
         0x7f03017a
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#resize_mode}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#resize_mode}
      * attribute's value can be found in the {@link #AspectRatioFrameLayout} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -9963,7 +9987,7 @@ public final class R {
      * <tr><td>fixed_width</td><td>1</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:resize_mode
+     * @attr name com.messi.cantonese.study:resize_mode
      */
     public static final int AspectRatioFrameLayout_resize_mode=0;
     /**
@@ -9973,11 +9997,11 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #BottomNavigationView_elevation com.messi.languagehelper:elevation}</code></td><td></td></tr>
-     * <tr><td><code>{@link #BottomNavigationView_itemBackground com.messi.languagehelper:itemBackground}</code></td><td></td></tr>
-     * <tr><td><code>{@link #BottomNavigationView_itemIconTint com.messi.languagehelper:itemIconTint}</code></td><td></td></tr>
-     * <tr><td><code>{@link #BottomNavigationView_itemTextColor com.messi.languagehelper:itemTextColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #BottomNavigationView_menu com.messi.languagehelper:menu}</code></td><td></td></tr>
+     * <tr><td><code>{@link #BottomNavigationView_elevation com.messi.cantonese.study:elevation}</code></td><td></td></tr>
+     * <tr><td><code>{@link #BottomNavigationView_itemBackground com.messi.cantonese.study:itemBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #BottomNavigationView_itemIconTint com.messi.cantonese.study:itemIconTint}</code></td><td></td></tr>
+     * <tr><td><code>{@link #BottomNavigationView_itemTextColor com.messi.cantonese.study:itemTextColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #BottomNavigationView_menu com.messi.cantonese.study:menu}</code></td><td></td></tr>
      * </table>
      * @see #BottomNavigationView_elevation
      * @see #BottomNavigationView_itemBackground
@@ -9990,7 +10014,7 @@ public final class R {
         0x7f030130
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#elevation}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#elevation}
      * attribute's value can be found in the {@link #BottomNavigationView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9999,11 +10023,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:elevation
+     * @attr name com.messi.cantonese.study:elevation
      */
     public static final int BottomNavigationView_elevation=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#itemBackground}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#itemBackground}
      * attribute's value can be found in the {@link #BottomNavigationView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -10011,33 +10035,33 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:itemBackground
+     * @attr name com.messi.cantonese.study:itemBackground
      */
     public static final int BottomNavigationView_itemBackground=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#itemIconTint}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#itemIconTint}
      * attribute's value can be found in the {@link #BottomNavigationView} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:itemIconTint
+     * @attr name com.messi.cantonese.study:itemIconTint
      */
     public static final int BottomNavigationView_itemIconTint=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#itemTextColor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#itemTextColor}
      * attribute's value can be found in the {@link #BottomNavigationView} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:itemTextColor
+     * @attr name com.messi.cantonese.study:itemTextColor
      */
     public static final int BottomNavigationView_itemTextColor=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#menu}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#menu}
      * attribute's value can be found in the {@link #BottomNavigationView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -10045,7 +10069,7 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:menu
+     * @attr name com.messi.cantonese.study:menu
      */
     public static final int BottomNavigationView_menu=4;
     /**
@@ -10055,9 +10079,9 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #BottomSheetBehavior_Layout_behavior_hideable com.messi.languagehelper:behavior_hideable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #BottomSheetBehavior_Layout_behavior_peekHeight com.messi.languagehelper:behavior_peekHeight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #BottomSheetBehavior_Layout_behavior_skipCollapsed com.messi.languagehelper:behavior_skipCollapsed}</code></td><td></td></tr>
+     * <tr><td><code>{@link #BottomSheetBehavior_Layout_behavior_hideable com.messi.cantonese.study:behavior_hideable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #BottomSheetBehavior_Layout_behavior_peekHeight com.messi.cantonese.study:behavior_peekHeight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #BottomSheetBehavior_Layout_behavior_skipCollapsed com.messi.cantonese.study:behavior_skipCollapsed}</code></td><td></td></tr>
      * </table>
      * @see #BottomSheetBehavior_Layout_behavior_hideable
      * @see #BottomSheetBehavior_Layout_behavior_peekHeight
@@ -10067,17 +10091,17 @@ public final class R {
         0x7f030050, 0x7f030052, 0x7f030053
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#behavior_hideable}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#behavior_hideable}
      * attribute's value can be found in the {@link #BottomSheetBehavior_Layout} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:behavior_hideable
+     * @attr name com.messi.cantonese.study:behavior_hideable
      */
     public static final int BottomSheetBehavior_Layout_behavior_hideable=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#behavior_peekHeight}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#behavior_peekHeight}
      * attribute's value can be found in the {@link #BottomSheetBehavior_Layout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10094,17 +10118,17 @@ public final class R {
      * <tr><td>auto</td><td>ffffffff</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:behavior_peekHeight
+     * @attr name com.messi.cantonese.study:behavior_peekHeight
      */
     public static final int BottomSheetBehavior_Layout_behavior_peekHeight=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#behavior_skipCollapsed}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#behavior_skipCollapsed}
      * attribute's value can be found in the {@link #BottomSheetBehavior_Layout} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:behavior_skipCollapsed
+     * @attr name com.messi.cantonese.study:behavior_skipCollapsed
      */
     public static final int BottomSheetBehavior_Layout_behavior_skipCollapsed=2;
     /**
@@ -10114,7 +10138,7 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #ButtonBarLayout_allowStacking com.messi.languagehelper:allowStacking}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ButtonBarLayout_allowStacking com.messi.cantonese.study:allowStacking}</code></td><td></td></tr>
      * </table>
      * @see #ButtonBarLayout_allowStacking
      */
@@ -10122,13 +10146,13 @@ public final class R {
         0x7f03002d
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#allowStacking}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#allowStacking}
      * attribute's value can be found in the {@link #ButtonBarLayout} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:allowStacking
+     * @attr name com.messi.cantonese.study:allowStacking
      */
     public static final int ButtonBarLayout_allowStacking=0;
     /**
@@ -10140,17 +10164,17 @@ public final class R {
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #CardView_android_minWidth android:minWidth}</code></td><td></td></tr>
      * <tr><td><code>{@link #CardView_android_minHeight android:minHeight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CardView_cardBackgroundColor com.messi.languagehelper:cardBackgroundColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CardView_cardCornerRadius com.messi.languagehelper:cardCornerRadius}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CardView_cardElevation com.messi.languagehelper:cardElevation}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CardView_cardMaxElevation com.messi.languagehelper:cardMaxElevation}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CardView_cardPreventCornerOverlap com.messi.languagehelper:cardPreventCornerOverlap}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CardView_cardUseCompatPadding com.messi.languagehelper:cardUseCompatPadding}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CardView_contentPadding com.messi.languagehelper:contentPadding}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CardView_contentPaddingBottom com.messi.languagehelper:contentPaddingBottom}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CardView_contentPaddingLeft com.messi.languagehelper:contentPaddingLeft}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CardView_contentPaddingRight com.messi.languagehelper:contentPaddingRight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CardView_contentPaddingTop com.messi.languagehelper:contentPaddingTop}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CardView_cardBackgroundColor com.messi.cantonese.study:cardBackgroundColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CardView_cardCornerRadius com.messi.cantonese.study:cardCornerRadius}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CardView_cardElevation com.messi.cantonese.study:cardElevation}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CardView_cardMaxElevation com.messi.cantonese.study:cardMaxElevation}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CardView_cardPreventCornerOverlap com.messi.cantonese.study:cardPreventCornerOverlap}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CardView_cardUseCompatPadding com.messi.cantonese.study:cardUseCompatPadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CardView_contentPadding com.messi.cantonese.study:contentPadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CardView_contentPaddingBottom com.messi.cantonese.study:contentPaddingBottom}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CardView_contentPaddingLeft com.messi.cantonese.study:contentPaddingLeft}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CardView_contentPaddingRight com.messi.cantonese.study:contentPaddingRight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CardView_contentPaddingTop com.messi.cantonese.study:contentPaddingTop}</code></td><td></td></tr>
      * </table>
      * @see #CardView_android_minWidth
      * @see #CardView_android_minHeight
@@ -10199,18 +10223,18 @@ public final class R {
      */
     public static final int CardView_android_minHeight=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#cardBackgroundColor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#cardBackgroundColor}
      * attribute's value can be found in the {@link #CardView} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:cardBackgroundColor
+     * @attr name com.messi.cantonese.study:cardBackgroundColor
      */
     public static final int CardView_cardBackgroundColor=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#cardCornerRadius}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#cardCornerRadius}
      * attribute's value can be found in the {@link #CardView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10219,11 +10243,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:cardCornerRadius
+     * @attr name com.messi.cantonese.study:cardCornerRadius
      */
     public static final int CardView_cardCornerRadius=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#cardElevation}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#cardElevation}
      * attribute's value can be found in the {@link #CardView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10232,11 +10256,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:cardElevation
+     * @attr name com.messi.cantonese.study:cardElevation
      */
     public static final int CardView_cardElevation=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#cardMaxElevation}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#cardMaxElevation}
      * attribute's value can be found in the {@link #CardView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10245,31 +10269,31 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:cardMaxElevation
+     * @attr name com.messi.cantonese.study:cardMaxElevation
      */
     public static final int CardView_cardMaxElevation=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#cardPreventCornerOverlap}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#cardPreventCornerOverlap}
      * attribute's value can be found in the {@link #CardView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:cardPreventCornerOverlap
+     * @attr name com.messi.cantonese.study:cardPreventCornerOverlap
      */
     public static final int CardView_cardPreventCornerOverlap=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#cardUseCompatPadding}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#cardUseCompatPadding}
      * attribute's value can be found in the {@link #CardView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:cardUseCompatPadding
+     * @attr name com.messi.cantonese.study:cardUseCompatPadding
      */
     public static final int CardView_cardUseCompatPadding=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentPadding}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#contentPadding}
      * attribute's value can be found in the {@link #CardView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10278,11 +10302,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:contentPadding
+     * @attr name com.messi.cantonese.study:contentPadding
      */
     public static final int CardView_contentPadding=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentPaddingBottom}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#contentPaddingBottom}
      * attribute's value can be found in the {@link #CardView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10291,11 +10315,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:contentPaddingBottom
+     * @attr name com.messi.cantonese.study:contentPaddingBottom
      */
     public static final int CardView_contentPaddingBottom=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentPaddingLeft}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#contentPaddingLeft}
      * attribute's value can be found in the {@link #CardView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10304,11 +10328,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:contentPaddingLeft
+     * @attr name com.messi.cantonese.study:contentPaddingLeft
      */
     public static final int CardView_contentPaddingLeft=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentPaddingRight}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#contentPaddingRight}
      * attribute's value can be found in the {@link #CardView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10317,11 +10341,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:contentPaddingRight
+     * @attr name com.messi.cantonese.study:contentPaddingRight
      */
     public static final int CardView_contentPaddingRight=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentPaddingTop}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#contentPaddingTop}
      * attribute's value can be found in the {@link #CardView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10330,7 +10354,7 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:contentPaddingTop
+     * @attr name com.messi.cantonese.study:contentPaddingTop
      */
     public static final int CardView_contentPaddingTop=12;
     /**
@@ -10340,7 +10364,7 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #ChangeBounds_resizeClip com.messi.languagehelper:resizeClip}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ChangeBounds_resizeClip com.messi.cantonese.study:resizeClip}</code></td><td></td></tr>
      * </table>
      * @see #ChangeBounds_resizeClip
      */
@@ -10348,13 +10372,13 @@ public final class R {
         0x7f030179
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#resizeClip}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#resizeClip}
      * attribute's value can be found in the {@link #ChangeBounds} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:resizeClip
+     * @attr name com.messi.cantonese.study:resizeClip
      */
     public static final int ChangeBounds_resizeClip=0;
     /**
@@ -10364,8 +10388,8 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #ChangeTransform_reparent com.messi.languagehelper:reparent}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ChangeTransform_reparentWithOverlay com.messi.languagehelper:reparentWithOverlay}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ChangeTransform_reparent com.messi.cantonese.study:reparent}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ChangeTransform_reparentWithOverlay com.messi.cantonese.study:reparentWithOverlay}</code></td><td></td></tr>
      * </table>
      * @see #ChangeTransform_reparent
      * @see #ChangeTransform_reparentWithOverlay
@@ -10374,23 +10398,23 @@ public final class R {
         0x7f030176, 0x7f030177
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#reparent}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#reparent}
      * attribute's value can be found in the {@link #ChangeTransform} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:reparent
+     * @attr name com.messi.cantonese.study:reparent
      */
     public static final int ChangeTransform_reparent=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#reparentWithOverlay}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#reparentWithOverlay}
      * attribute's value can be found in the {@link #ChangeTransform} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:reparentWithOverlay
+     * @attr name com.messi.cantonese.study:reparentWithOverlay
      */
     public static final int ChangeTransform_reparentWithOverlay=1;
     /**
@@ -10400,14 +10424,14 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #CircleProgress_circle_finished_color com.messi.languagehelper:circle_finished_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CircleProgress_circle_max com.messi.languagehelper:circle_max}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CircleProgress_circle_prefix_text com.messi.languagehelper:circle_prefix_text}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CircleProgress_circle_progress com.messi.languagehelper:circle_progress}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CircleProgress_circle_suffix_text com.messi.languagehelper:circle_suffix_text}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CircleProgress_circle_text_color com.messi.languagehelper:circle_text_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CircleProgress_circle_text_size com.messi.languagehelper:circle_text_size}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CircleProgress_circle_unfinished_color com.messi.languagehelper:circle_unfinished_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CircleProgress_circle_finished_color com.messi.cantonese.study:circle_finished_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CircleProgress_circle_max com.messi.cantonese.study:circle_max}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CircleProgress_circle_prefix_text com.messi.cantonese.study:circle_prefix_text}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CircleProgress_circle_progress com.messi.cantonese.study:circle_progress}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CircleProgress_circle_suffix_text com.messi.cantonese.study:circle_suffix_text}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CircleProgress_circle_text_color com.messi.cantonese.study:circle_text_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CircleProgress_circle_text_size com.messi.cantonese.study:circle_text_size}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CircleProgress_circle_unfinished_color com.messi.cantonese.study:circle_unfinished_color}</code></td><td></td></tr>
      * </table>
      * @see #CircleProgress_circle_finished_color
      * @see #CircleProgress_circle_max
@@ -10423,67 +10447,67 @@ public final class R {
         0x7f030071, 0x7f030072, 0x7f030073, 0x7f030074
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#circle_finished_color}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#circle_finished_color}
      * attribute's value can be found in the {@link #CircleProgress} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:circle_finished_color
+     * @attr name com.messi.cantonese.study:circle_finished_color
      */
     public static final int CircleProgress_circle_finished_color=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#circle_max}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#circle_max}
      * attribute's value can be found in the {@link #CircleProgress} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.languagehelper:circle_max
+     * @attr name com.messi.cantonese.study:circle_max
      */
     public static final int CircleProgress_circle_max=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#circle_prefix_text}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#circle_prefix_text}
      * attribute's value can be found in the {@link #CircleProgress} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:circle_prefix_text
+     * @attr name com.messi.cantonese.study:circle_prefix_text
      */
     public static final int CircleProgress_circle_prefix_text=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#circle_progress}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#circle_progress}
      * attribute's value can be found in the {@link #CircleProgress} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.languagehelper:circle_progress
+     * @attr name com.messi.cantonese.study:circle_progress
      */
     public static final int CircleProgress_circle_progress=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#circle_suffix_text}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#circle_suffix_text}
      * attribute's value can be found in the {@link #CircleProgress} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:circle_suffix_text
+     * @attr name com.messi.cantonese.study:circle_suffix_text
      */
     public static final int CircleProgress_circle_suffix_text=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#circle_text_color}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#circle_text_color}
      * attribute's value can be found in the {@link #CircleProgress} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:circle_text_color
+     * @attr name com.messi.cantonese.study:circle_text_color
      */
     public static final int CircleProgress_circle_text_color=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#circle_text_size}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#circle_text_size}
      * attribute's value can be found in the {@link #CircleProgress} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10492,18 +10516,18 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:circle_text_size
+     * @attr name com.messi.cantonese.study:circle_text_size
      */
     public static final int CircleProgress_circle_text_size=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#circle_unfinished_color}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#circle_unfinished_color}
      * attribute's value can be found in the {@link #CircleProgress} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:circle_unfinished_color
+     * @attr name com.messi.cantonese.study:circle_unfinished_color
      */
     public static final int CircleProgress_circle_unfinished_color=7;
     /**
@@ -10513,22 +10537,22 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_collapsedTitleGravity com.messi.languagehelper:collapsedTitleGravity}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_collapsedTitleTextAppearance com.messi.languagehelper:collapsedTitleTextAppearance}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_contentScrim com.messi.languagehelper:contentScrim}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_expandedTitleGravity com.messi.languagehelper:expandedTitleGravity}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_expandedTitleMargin com.messi.languagehelper:expandedTitleMargin}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_expandedTitleMarginBottom com.messi.languagehelper:expandedTitleMarginBottom}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_expandedTitleMarginEnd com.messi.languagehelper:expandedTitleMarginEnd}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_expandedTitleMarginStart com.messi.languagehelper:expandedTitleMarginStart}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_expandedTitleMarginTop com.messi.languagehelper:expandedTitleMarginTop}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_expandedTitleTextAppearance com.messi.languagehelper:expandedTitleTextAppearance}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_scrimAnimationDuration com.messi.languagehelper:scrimAnimationDuration}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_scrimVisibleHeightTrigger com.messi.languagehelper:scrimVisibleHeightTrigger}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_statusBarScrim com.messi.languagehelper:statusBarScrim}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_title com.messi.languagehelper:title}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_titleEnabled com.messi.languagehelper:titleEnabled}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_toolbarId com.messi.languagehelper:toolbarId}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_collapsedTitleGravity com.messi.cantonese.study:collapsedTitleGravity}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_collapsedTitleTextAppearance com.messi.cantonese.study:collapsedTitleTextAppearance}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_contentScrim com.messi.cantonese.study:contentScrim}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_expandedTitleGravity com.messi.cantonese.study:expandedTitleGravity}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_expandedTitleMargin com.messi.cantonese.study:expandedTitleMargin}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_expandedTitleMarginBottom com.messi.cantonese.study:expandedTitleMarginBottom}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_expandedTitleMarginEnd com.messi.cantonese.study:expandedTitleMarginEnd}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_expandedTitleMarginStart com.messi.cantonese.study:expandedTitleMarginStart}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_expandedTitleMarginTop com.messi.cantonese.study:expandedTitleMarginTop}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_expandedTitleTextAppearance com.messi.cantonese.study:expandedTitleTextAppearance}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_scrimAnimationDuration com.messi.cantonese.study:scrimAnimationDuration}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_scrimVisibleHeightTrigger com.messi.cantonese.study:scrimVisibleHeightTrigger}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_statusBarScrim com.messi.cantonese.study:statusBarScrim}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_title com.messi.cantonese.study:title}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_titleEnabled com.messi.cantonese.study:titleEnabled}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_toolbarId com.messi.cantonese.study:toolbarId}</code></td><td></td></tr>
      * </table>
      * @see #CollapsingToolbarLayout_collapsedTitleGravity
      * @see #CollapsingToolbarLayout_collapsedTitleTextAppearance
@@ -10554,7 +10578,7 @@ public final class R {
         0x7f0301af, 0x7f0301e5, 0x7f0301e6, 0x7f0301f1
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#collapsedTitleGravity}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#collapsedTitleGravity}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -10575,11 +10599,11 @@ public final class R {
      * <tr><td>top</td><td>30</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:collapsedTitleGravity
+     * @attr name com.messi.cantonese.study:collapsedTitleGravity
      */
     public static final int CollapsingToolbarLayout_collapsedTitleGravity=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#collapsedTitleTextAppearance}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#collapsedTitleTextAppearance}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -10587,22 +10611,22 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:collapsedTitleTextAppearance
+     * @attr name com.messi.cantonese.study:collapsedTitleTextAppearance
      */
     public static final int CollapsingToolbarLayout_collapsedTitleTextAppearance=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentScrim}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#contentScrim}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:contentScrim
+     * @attr name com.messi.cantonese.study:contentScrim
      */
     public static final int CollapsingToolbarLayout_contentScrim=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#expandedTitleGravity}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#expandedTitleGravity}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -10623,11 +10647,11 @@ public final class R {
      * <tr><td>top</td><td>30</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:expandedTitleGravity
+     * @attr name com.messi.cantonese.study:expandedTitleGravity
      */
     public static final int CollapsingToolbarLayout_expandedTitleGravity=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#expandedTitleMargin}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#expandedTitleMargin}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10636,11 +10660,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:expandedTitleMargin
+     * @attr name com.messi.cantonese.study:expandedTitleMargin
      */
     public static final int CollapsingToolbarLayout_expandedTitleMargin=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#expandedTitleMarginBottom}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#expandedTitleMarginBottom}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10649,11 +10673,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:expandedTitleMarginBottom
+     * @attr name com.messi.cantonese.study:expandedTitleMarginBottom
      */
     public static final int CollapsingToolbarLayout_expandedTitleMarginBottom=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#expandedTitleMarginEnd}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#expandedTitleMarginEnd}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10662,11 +10686,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:expandedTitleMarginEnd
+     * @attr name com.messi.cantonese.study:expandedTitleMarginEnd
      */
     public static final int CollapsingToolbarLayout_expandedTitleMarginEnd=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#expandedTitleMarginStart}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#expandedTitleMarginStart}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10675,11 +10699,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:expandedTitleMarginStart
+     * @attr name com.messi.cantonese.study:expandedTitleMarginStart
      */
     public static final int CollapsingToolbarLayout_expandedTitleMarginStart=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#expandedTitleMarginTop}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#expandedTitleMarginTop}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10688,11 +10712,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:expandedTitleMarginTop
+     * @attr name com.messi.cantonese.study:expandedTitleMarginTop
      */
     public static final int CollapsingToolbarLayout_expandedTitleMarginTop=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#expandedTitleTextAppearance}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#expandedTitleTextAppearance}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -10700,20 +10724,20 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:expandedTitleTextAppearance
+     * @attr name com.messi.cantonese.study:expandedTitleTextAppearance
      */
     public static final int CollapsingToolbarLayout_expandedTitleTextAppearance=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#scrimAnimationDuration}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#scrimAnimationDuration}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.languagehelper:scrimAnimationDuration
+     * @attr name com.messi.cantonese.study:scrimAnimationDuration
      */
     public static final int CollapsingToolbarLayout_scrimAnimationDuration=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#scrimVisibleHeightTrigger}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#scrimVisibleHeightTrigger}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10722,42 +10746,42 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:scrimVisibleHeightTrigger
+     * @attr name com.messi.cantonese.study:scrimVisibleHeightTrigger
      */
     public static final int CollapsingToolbarLayout_scrimVisibleHeightTrigger=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#statusBarScrim}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#statusBarScrim}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:statusBarScrim
+     * @attr name com.messi.cantonese.study:statusBarScrim
      */
     public static final int CollapsingToolbarLayout_statusBarScrim=12;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#title}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#title}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:title
+     * @attr name com.messi.cantonese.study:title
      */
     public static final int CollapsingToolbarLayout_title=13;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#titleEnabled}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#titleEnabled}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:titleEnabled
+     * @attr name com.messi.cantonese.study:titleEnabled
      */
     public static final int CollapsingToolbarLayout_titleEnabled=14;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#toolbarId}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#toolbarId}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -10765,7 +10789,7 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:toolbarId
+     * @attr name com.messi.cantonese.study:toolbarId
      */
     public static final int CollapsingToolbarLayout_toolbarId=15;
     /**
@@ -10775,8 +10799,8 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_Layout_layout_collapseMode com.messi.languagehelper:layout_collapseMode}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_Layout_layout_collapseParallaxMultiplier com.messi.languagehelper:layout_collapseParallaxMultiplier}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_Layout_layout_collapseMode com.messi.cantonese.study:layout_collapseMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_Layout_layout_collapseParallaxMultiplier com.messi.cantonese.study:layout_collapseParallaxMultiplier}</code></td><td></td></tr>
      * </table>
      * @see #CollapsingToolbarLayout_Layout_layout_collapseMode
      * @see #CollapsingToolbarLayout_Layout_layout_collapseParallaxMultiplier
@@ -10785,7 +10809,7 @@ public final class R {
         0x7f03010e, 0x7f03010f
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_collapseMode}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#layout_collapseMode}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout_Layout} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -10799,16 +10823,16 @@ public final class R {
      * <tr><td>pin</td><td>1</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:layout_collapseMode
+     * @attr name com.messi.cantonese.study:layout_collapseMode
      */
     public static final int CollapsingToolbarLayout_Layout_layout_collapseMode=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_collapseParallaxMultiplier}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#layout_collapseParallaxMultiplier}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout_Layout} array.
      *
      * <p>May be a floating point value, such as "<code>1.2</code>".
      *
-     * @attr name com.messi.languagehelper:layout_collapseParallaxMultiplier
+     * @attr name com.messi.cantonese.study:layout_collapseParallaxMultiplier
      */
     public static final int CollapsingToolbarLayout_Layout_layout_collapseParallaxMultiplier=1;
     /**
@@ -10820,7 +10844,7 @@ public final class R {
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #ColorStateListItem_android_color android:color}</code></td><td></td></tr>
      * <tr><td><code>{@link #ColorStateListItem_android_alpha android:alpha}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ColorStateListItem_alpha com.messi.languagehelper:alpha}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ColorStateListItem_alpha com.messi.cantonese.study:alpha}</code></td><td></td></tr>
      * </table>
      * @see #ColorStateListItem_android_color
      * @see #ColorStateListItem_android_alpha
@@ -10850,12 +10874,12 @@ public final class R {
      */
     public static final int ColorStateListItem_android_alpha=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#alpha}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#alpha}
      * attribute's value can be found in the {@link #ColorStateListItem} array.
      *
      * <p>May be a floating point value, such as "<code>1.2</code>".
      *
-     * @attr name com.messi.languagehelper:alpha
+     * @attr name com.messi.cantonese.study:alpha
      */
     public static final int ColorStateListItem_alpha=2;
     /**
@@ -10866,8 +10890,8 @@ public final class R {
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #CompoundButton_android_button android:button}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CompoundButton_buttonTint com.messi.languagehelper:buttonTint}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CompoundButton_buttonTintMode com.messi.languagehelper:buttonTintMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CompoundButton_buttonTint com.messi.cantonese.study:buttonTint}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CompoundButton_buttonTintMode com.messi.cantonese.study:buttonTintMode}</code></td><td></td></tr>
      * </table>
      * @see #CompoundButton_android_button
      * @see #CompoundButton_buttonTint
@@ -10889,18 +10913,18 @@ public final class R {
      */
     public static final int CompoundButton_android_button=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#buttonTint}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#buttonTint}
      * attribute's value can be found in the {@link #CompoundButton} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:buttonTint
+     * @attr name com.messi.cantonese.study:buttonTint
      */
     public static final int CompoundButton_buttonTint=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#buttonTintMode}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#buttonTintMode}
      * attribute's value can be found in the {@link #CompoundButton} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -10917,7 +10941,7 @@ public final class R {
      * <tr><td>src_over</td><td>3</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:buttonTintMode
+     * @attr name com.messi.cantonese.study:buttonTintMode
      */
     public static final int CompoundButton_buttonTintMode=2;
     /**
@@ -10927,8 +10951,8 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #CoordinatorLayout_keylines com.messi.languagehelper:keylines}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CoordinatorLayout_statusBarBackground com.messi.languagehelper:statusBarBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CoordinatorLayout_keylines com.messi.cantonese.study:keylines}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CoordinatorLayout_statusBarBackground com.messi.cantonese.study:statusBarBackground}</code></td><td></td></tr>
      * </table>
      * @see #CoordinatorLayout_keylines
      * @see #CoordinatorLayout_statusBarBackground
@@ -10937,7 +10961,7 @@ public final class R {
         0x7f030107, 0x7f0301ae
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#keylines}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#keylines}
      * attribute's value can be found in the {@link #CoordinatorLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -10945,11 +10969,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:keylines
+     * @attr name com.messi.cantonese.study:keylines
      */
     public static final int CoordinatorLayout_keylines=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#statusBarBackground}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#statusBarBackground}
      * attribute's value can be found in the {@link #CoordinatorLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -10957,7 +10981,7 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:statusBarBackground
+     * @attr name com.messi.cantonese.study:statusBarBackground
      */
     public static final int CoordinatorLayout_statusBarBackground=1;
     /**
@@ -10968,12 +10992,12 @@ public final class R {
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #CoordinatorLayout_Layout_android_layout_gravity android:layout_gravity}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CoordinatorLayout_Layout_layout_anchor com.messi.languagehelper:layout_anchor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CoordinatorLayout_Layout_layout_anchorGravity com.messi.languagehelper:layout_anchorGravity}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CoordinatorLayout_Layout_layout_behavior com.messi.languagehelper:layout_behavior}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CoordinatorLayout_Layout_layout_dodgeInsetEdges com.messi.languagehelper:layout_dodgeInsetEdges}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CoordinatorLayout_Layout_layout_insetEdge com.messi.languagehelper:layout_insetEdge}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CoordinatorLayout_Layout_layout_keyline com.messi.languagehelper:layout_keyline}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CoordinatorLayout_Layout_layout_anchor com.messi.cantonese.study:layout_anchor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CoordinatorLayout_Layout_layout_anchorGravity com.messi.cantonese.study:layout_anchorGravity}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CoordinatorLayout_Layout_layout_behavior com.messi.cantonese.study:layout_behavior}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CoordinatorLayout_Layout_layout_dodgeInsetEdges com.messi.cantonese.study:layout_dodgeInsetEdges}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CoordinatorLayout_Layout_layout_insetEdge com.messi.cantonese.study:layout_insetEdge}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CoordinatorLayout_Layout_layout_keyline com.messi.cantonese.study:layout_keyline}</code></td><td></td></tr>
      * </table>
      * @see #CoordinatorLayout_Layout_android_layout_gravity
      * @see #CoordinatorLayout_Layout_layout_anchor
@@ -11017,7 +11041,7 @@ public final class R {
      */
     public static final int CoordinatorLayout_Layout_android_layout_gravity=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_anchor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#layout_anchor}
      * attribute's value can be found in the {@link #CoordinatorLayout_Layout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -11025,11 +11049,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:layout_anchor
+     * @attr name com.messi.cantonese.study:layout_anchor
      */
     public static final int CoordinatorLayout_Layout_layout_anchor=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_anchorGravity}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#layout_anchorGravity}
      * attribute's value can be found in the {@link #CoordinatorLayout_Layout} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -11054,21 +11078,21 @@ public final class R {
      * <tr><td>top</td><td>30</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:layout_anchorGravity
+     * @attr name com.messi.cantonese.study:layout_anchorGravity
      */
     public static final int CoordinatorLayout_Layout_layout_anchorGravity=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_behavior}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#layout_behavior}
      * attribute's value can be found in the {@link #CoordinatorLayout_Layout} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:layout_behavior
+     * @attr name com.messi.cantonese.study:layout_behavior
      */
     public static final int CoordinatorLayout_Layout_layout_behavior=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_dodgeInsetEdges}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#layout_dodgeInsetEdges}
      * attribute's value can be found in the {@link #CoordinatorLayout_Layout} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -11087,11 +11111,11 @@ public final class R {
      * <tr><td>top</td><td>30</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:layout_dodgeInsetEdges
+     * @attr name com.messi.cantonese.study:layout_dodgeInsetEdges
      */
     public static final int CoordinatorLayout_Layout_layout_dodgeInsetEdges=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_insetEdge}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#layout_insetEdge}
      * attribute's value can be found in the {@link #CoordinatorLayout_Layout} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -11109,16 +11133,16 @@ public final class R {
      * <tr><td>top</td><td>30</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:layout_insetEdge
+     * @attr name com.messi.cantonese.study:layout_insetEdge
      */
     public static final int CoordinatorLayout_Layout_layout_insetEdge=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_keyline}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#layout_keyline}
      * attribute's value can be found in the {@link #CoordinatorLayout_Layout} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.languagehelper:layout_keyline
+     * @attr name com.messi.cantonese.study:layout_keyline
      */
     public static final int CoordinatorLayout_Layout_layout_keyline=6;
     /**
@@ -11128,19 +11152,19 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #DefaultTimeBar_ad_marker_color com.messi.languagehelper:ad_marker_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DefaultTimeBar_ad_marker_width com.messi.languagehelper:ad_marker_width}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DefaultTimeBar_bar_height com.messi.languagehelper:bar_height}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DefaultTimeBar_buffered_color com.messi.languagehelper:buffered_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DefaultTimeBar_played_ad_marker_color com.messi.languagehelper:played_ad_marker_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DefaultTimeBar_played_color com.messi.languagehelper:played_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DefaultTimeBar_scrubber_color com.messi.languagehelper:scrubber_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DefaultTimeBar_scrubber_disabled_size com.messi.languagehelper:scrubber_disabled_size}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DefaultTimeBar_scrubber_dragged_size com.messi.languagehelper:scrubber_dragged_size}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DefaultTimeBar_scrubber_drawable com.messi.languagehelper:scrubber_drawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DefaultTimeBar_scrubber_enabled_size com.messi.languagehelper:scrubber_enabled_size}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DefaultTimeBar_touch_target_height com.messi.languagehelper:touch_target_height}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DefaultTimeBar_unplayed_color com.messi.languagehelper:unplayed_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DefaultTimeBar_ad_marker_color com.messi.cantonese.study:ad_marker_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DefaultTimeBar_ad_marker_width com.messi.cantonese.study:ad_marker_width}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DefaultTimeBar_bar_height com.messi.cantonese.study:bar_height}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DefaultTimeBar_buffered_color com.messi.cantonese.study:buffered_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DefaultTimeBar_played_ad_marker_color com.messi.cantonese.study:played_ad_marker_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DefaultTimeBar_played_color com.messi.cantonese.study:played_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DefaultTimeBar_scrubber_color com.messi.cantonese.study:scrubber_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DefaultTimeBar_scrubber_disabled_size com.messi.cantonese.study:scrubber_disabled_size}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DefaultTimeBar_scrubber_dragged_size com.messi.cantonese.study:scrubber_dragged_size}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DefaultTimeBar_scrubber_drawable com.messi.cantonese.study:scrubber_drawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DefaultTimeBar_scrubber_enabled_size com.messi.cantonese.study:scrubber_enabled_size}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DefaultTimeBar_touch_target_height com.messi.cantonese.study:touch_target_height}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DefaultTimeBar_unplayed_color com.messi.cantonese.study:unplayed_color}</code></td><td></td></tr>
      * </table>
      * @see #DefaultTimeBar_ad_marker_color
      * @see #DefaultTimeBar_ad_marker_width
@@ -11163,18 +11187,18 @@ public final class R {
         0x7f0301fe
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#ad_marker_color}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#ad_marker_color}
      * attribute's value can be found in the {@link #DefaultTimeBar} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:ad_marker_color
+     * @attr name com.messi.cantonese.study:ad_marker_color
      */
     public static final int DefaultTimeBar_ad_marker_color=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#ad_marker_width}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#ad_marker_width}
      * attribute's value can be found in the {@link #DefaultTimeBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11183,11 +11207,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:ad_marker_width
+     * @attr name com.messi.cantonese.study:ad_marker_width
      */
     public static final int DefaultTimeBar_ad_marker_width=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#bar_height}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#bar_height}
      * attribute's value can be found in the {@link #DefaultTimeBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11196,55 +11220,55 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:bar_height
+     * @attr name com.messi.cantonese.study:bar_height
      */
     public static final int DefaultTimeBar_bar_height=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#buffered_color}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#buffered_color}
      * attribute's value can be found in the {@link #DefaultTimeBar} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:buffered_color
+     * @attr name com.messi.cantonese.study:buffered_color
      */
     public static final int DefaultTimeBar_buffered_color=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#played_ad_marker_color}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#played_ad_marker_color}
      * attribute's value can be found in the {@link #DefaultTimeBar} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:played_ad_marker_color
+     * @attr name com.messi.cantonese.study:played_ad_marker_color
      */
     public static final int DefaultTimeBar_played_ad_marker_color=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#played_color}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#played_color}
      * attribute's value can be found in the {@link #DefaultTimeBar} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:played_color
+     * @attr name com.messi.cantonese.study:played_color
      */
     public static final int DefaultTimeBar_played_color=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#scrubber_color}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#scrubber_color}
      * attribute's value can be found in the {@link #DefaultTimeBar} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:scrubber_color
+     * @attr name com.messi.cantonese.study:scrubber_color
      */
     public static final int DefaultTimeBar_scrubber_color=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#scrubber_disabled_size}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#scrubber_disabled_size}
      * attribute's value can be found in the {@link #DefaultTimeBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11253,11 +11277,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:scrubber_disabled_size
+     * @attr name com.messi.cantonese.study:scrubber_disabled_size
      */
     public static final int DefaultTimeBar_scrubber_disabled_size=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#scrubber_dragged_size}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#scrubber_dragged_size}
      * attribute's value can be found in the {@link #DefaultTimeBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11266,11 +11290,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:scrubber_dragged_size
+     * @attr name com.messi.cantonese.study:scrubber_dragged_size
      */
     public static final int DefaultTimeBar_scrubber_dragged_size=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#scrubber_drawable}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#scrubber_drawable}
      * attribute's value can be found in the {@link #DefaultTimeBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -11278,11 +11302,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:scrubber_drawable
+     * @attr name com.messi.cantonese.study:scrubber_drawable
      */
     public static final int DefaultTimeBar_scrubber_drawable=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#scrubber_enabled_size}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#scrubber_enabled_size}
      * attribute's value can be found in the {@link #DefaultTimeBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11291,11 +11315,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:scrubber_enabled_size
+     * @attr name com.messi.cantonese.study:scrubber_enabled_size
      */
     public static final int DefaultTimeBar_scrubber_enabled_size=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#touch_target_height}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#touch_target_height}
      * attribute's value can be found in the {@link #DefaultTimeBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11304,18 +11328,18 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:touch_target_height
+     * @attr name com.messi.cantonese.study:touch_target_height
      */
     public static final int DefaultTimeBar_touch_target_height=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#unplayed_color}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#unplayed_color}
      * attribute's value can be found in the {@link #DefaultTimeBar} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:unplayed_color
+     * @attr name com.messi.cantonese.study:unplayed_color
      */
     public static final int DefaultTimeBar_unplayed_color=12;
     /**
@@ -11325,9 +11349,9 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #DesignTheme_bottomSheetDialogTheme com.messi.languagehelper:bottomSheetDialogTheme}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DesignTheme_bottomSheetStyle com.messi.languagehelper:bottomSheetStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DesignTheme_textColorError com.messi.languagehelper:textColorError}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DesignTheme_bottomSheetDialogTheme com.messi.cantonese.study:bottomSheetDialogTheme}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DesignTheme_bottomSheetStyle com.messi.cantonese.study:bottomSheetStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DesignTheme_textColorError com.messi.cantonese.study:textColorError}</code></td><td></td></tr>
      * </table>
      * @see #DesignTheme_bottomSheetDialogTheme
      * @see #DesignTheme_bottomSheetStyle
@@ -11337,7 +11361,7 @@ public final class R {
         0x7f030056, 0x7f030057, 0x7f0301d9
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#bottomSheetDialogTheme}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#bottomSheetDialogTheme}
      * attribute's value can be found in the {@link #DesignTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -11345,11 +11369,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:bottomSheetDialogTheme
+     * @attr name com.messi.cantonese.study:bottomSheetDialogTheme
      */
     public static final int DesignTheme_bottomSheetDialogTheme=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#bottomSheetStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#bottomSheetStyle}
      * attribute's value can be found in the {@link #DesignTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -11357,11 +11381,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:bottomSheetStyle
+     * @attr name com.messi.cantonese.study:bottomSheetStyle
      */
     public static final int DesignTheme_bottomSheetStyle=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#textColorError}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#textColorError}
      * attribute's value can be found in the {@link #DesignTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -11372,7 +11396,7 @@ public final class R {
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:textColorError
+     * @attr name com.messi.cantonese.study:textColorError
      */
     public static final int DesignTheme_textColorError=2;
     /**
@@ -11382,24 +11406,24 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_background_color com.messi.languagehelper:donut_background_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_circle_starting_degree com.messi.languagehelper:donut_circle_starting_degree}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_finished_color com.messi.languagehelper:donut_finished_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_finished_stroke_width com.messi.languagehelper:donut_finished_stroke_width}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_inner_bottom_text com.messi.languagehelper:donut_inner_bottom_text}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_inner_bottom_text_color com.messi.languagehelper:donut_inner_bottom_text_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_inner_bottom_text_size com.messi.languagehelper:donut_inner_bottom_text_size}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_inner_drawable com.messi.languagehelper:donut_inner_drawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_max com.messi.languagehelper:donut_max}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_prefix_text com.messi.languagehelper:donut_prefix_text}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_progress com.messi.languagehelper:donut_progress}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_show_text com.messi.languagehelper:donut_show_text}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_suffix_text com.messi.languagehelper:donut_suffix_text}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_text com.messi.languagehelper:donut_text}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_text_color com.messi.languagehelper:donut_text_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_text_size com.messi.languagehelper:donut_text_size}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_unfinished_color com.messi.languagehelper:donut_unfinished_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_unfinished_stroke_width com.messi.languagehelper:donut_unfinished_stroke_width}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_background_color com.messi.cantonese.study:donut_background_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_circle_starting_degree com.messi.cantonese.study:donut_circle_starting_degree}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_finished_color com.messi.cantonese.study:donut_finished_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_finished_stroke_width com.messi.cantonese.study:donut_finished_stroke_width}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_inner_bottom_text com.messi.cantonese.study:donut_inner_bottom_text}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_inner_bottom_text_color com.messi.cantonese.study:donut_inner_bottom_text_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_inner_bottom_text_size com.messi.cantonese.study:donut_inner_bottom_text_size}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_inner_drawable com.messi.cantonese.study:donut_inner_drawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_max com.messi.cantonese.study:donut_max}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_prefix_text com.messi.cantonese.study:donut_prefix_text}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_progress com.messi.cantonese.study:donut_progress}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_show_text com.messi.cantonese.study:donut_show_text}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_suffix_text com.messi.cantonese.study:donut_suffix_text}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_text com.messi.cantonese.study:donut_text}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_text_color com.messi.cantonese.study:donut_text_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_text_size com.messi.cantonese.study:donut_text_size}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_unfinished_color com.messi.cantonese.study:donut_unfinished_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_unfinished_stroke_width com.messi.cantonese.study:donut_unfinished_stroke_width}</code></td><td></td></tr>
      * </table>
      * @see #DonutProgress_donut_background_color
      * @see #DonutProgress_donut_circle_starting_degree
@@ -11428,38 +11452,38 @@ public final class R {
         0x7f0300b9, 0x7f0300ba
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_background_color}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#donut_background_color}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:donut_background_color
+     * @attr name com.messi.cantonese.study:donut_background_color
      */
     public static final int DonutProgress_donut_background_color=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_circle_starting_degree}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#donut_circle_starting_degree}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.languagehelper:donut_circle_starting_degree
+     * @attr name com.messi.cantonese.study:donut_circle_starting_degree
      */
     public static final int DonutProgress_donut_circle_starting_degree=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_finished_color}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#donut_finished_color}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:donut_finished_color
+     * @attr name com.messi.cantonese.study:donut_finished_color
      */
     public static final int DonutProgress_donut_finished_color=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_finished_stroke_width}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#donut_finished_stroke_width}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11468,32 +11492,32 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:donut_finished_stroke_width
+     * @attr name com.messi.cantonese.study:donut_finished_stroke_width
      */
     public static final int DonutProgress_donut_finished_stroke_width=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_inner_bottom_text}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#donut_inner_bottom_text}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:donut_inner_bottom_text
+     * @attr name com.messi.cantonese.study:donut_inner_bottom_text
      */
     public static final int DonutProgress_donut_inner_bottom_text=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_inner_bottom_text_color}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#donut_inner_bottom_text_color}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:donut_inner_bottom_text_color
+     * @attr name com.messi.cantonese.study:donut_inner_bottom_text_color
      */
     public static final int DonutProgress_donut_inner_bottom_text_color=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_inner_bottom_text_size}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#donut_inner_bottom_text_size}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11502,11 +11526,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:donut_inner_bottom_text_size
+     * @attr name com.messi.cantonese.study:donut_inner_bottom_text_size
      */
     public static final int DonutProgress_donut_inner_bottom_text_size=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_inner_drawable}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#donut_inner_drawable}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -11514,80 +11538,80 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:donut_inner_drawable
+     * @attr name com.messi.cantonese.study:donut_inner_drawable
      */
     public static final int DonutProgress_donut_inner_drawable=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_max}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#donut_max}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.languagehelper:donut_max
+     * @attr name com.messi.cantonese.study:donut_max
      */
     public static final int DonutProgress_donut_max=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_prefix_text}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#donut_prefix_text}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:donut_prefix_text
+     * @attr name com.messi.cantonese.study:donut_prefix_text
      */
     public static final int DonutProgress_donut_prefix_text=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_progress}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#donut_progress}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a floating point value, such as "<code>1.2</code>".
      *
-     * @attr name com.messi.languagehelper:donut_progress
+     * @attr name com.messi.cantonese.study:donut_progress
      */
     public static final int DonutProgress_donut_progress=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_show_text}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#donut_show_text}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:donut_show_text
+     * @attr name com.messi.cantonese.study:donut_show_text
      */
     public static final int DonutProgress_donut_show_text=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_suffix_text}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#donut_suffix_text}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:donut_suffix_text
+     * @attr name com.messi.cantonese.study:donut_suffix_text
      */
     public static final int DonutProgress_donut_suffix_text=12;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_text}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#donut_text}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:donut_text
+     * @attr name com.messi.cantonese.study:donut_text
      */
     public static final int DonutProgress_donut_text=13;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_text_color}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#donut_text_color}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:donut_text_color
+     * @attr name com.messi.cantonese.study:donut_text_color
      */
     public static final int DonutProgress_donut_text_color=14;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_text_size}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#donut_text_size}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11596,22 +11620,22 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:donut_text_size
+     * @attr name com.messi.cantonese.study:donut_text_size
      */
     public static final int DonutProgress_donut_text_size=15;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_unfinished_color}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#donut_unfinished_color}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:donut_unfinished_color
+     * @attr name com.messi.cantonese.study:donut_unfinished_color
      */
     public static final int DonutProgress_donut_unfinished_color=16;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_unfinished_stroke_width}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#donut_unfinished_stroke_width}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11620,7 +11644,7 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:donut_unfinished_stroke_width
+     * @attr name com.messi.cantonese.study:donut_unfinished_stroke_width
      */
     public static final int DonutProgress_donut_unfinished_stroke_width=17;
     /**
@@ -11630,14 +11654,14 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #DrawerArrowToggle_arrowHeadLength com.messi.languagehelper:arrowHeadLength}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DrawerArrowToggle_arrowShaftLength com.messi.languagehelper:arrowShaftLength}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DrawerArrowToggle_barLength com.messi.languagehelper:barLength}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DrawerArrowToggle_color com.messi.languagehelper:color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DrawerArrowToggle_drawableSize com.messi.languagehelper:drawableSize}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DrawerArrowToggle_gapBetweenBars com.messi.languagehelper:gapBetweenBars}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DrawerArrowToggle_spinBars com.messi.languagehelper:spinBars}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DrawerArrowToggle_thickness com.messi.languagehelper:thickness}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DrawerArrowToggle_arrowHeadLength com.messi.cantonese.study:arrowHeadLength}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DrawerArrowToggle_arrowShaftLength com.messi.cantonese.study:arrowShaftLength}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DrawerArrowToggle_barLength com.messi.cantonese.study:barLength}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DrawerArrowToggle_color com.messi.cantonese.study:color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DrawerArrowToggle_drawableSize com.messi.cantonese.study:drawableSize}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DrawerArrowToggle_gapBetweenBars com.messi.cantonese.study:gapBetweenBars}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DrawerArrowToggle_spinBars com.messi.cantonese.study:spinBars}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DrawerArrowToggle_thickness com.messi.cantonese.study:thickness}</code></td><td></td></tr>
      * </table>
      * @see #DrawerArrowToggle_arrowHeadLength
      * @see #DrawerArrowToggle_arrowShaftLength
@@ -11653,7 +11677,7 @@ public final class R {
         0x7f0300bb, 0x7f0300eb, 0x7f0301a4, 0x7f0301dc
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arrowHeadLength}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#arrowHeadLength}
      * attribute's value can be found in the {@link #DrawerArrowToggle} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11662,11 +11686,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:arrowHeadLength
+     * @attr name com.messi.cantonese.study:arrowHeadLength
      */
     public static final int DrawerArrowToggle_arrowHeadLength=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arrowShaftLength}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#arrowShaftLength}
      * attribute's value can be found in the {@link #DrawerArrowToggle} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11675,11 +11699,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:arrowShaftLength
+     * @attr name com.messi.cantonese.study:arrowShaftLength
      */
     public static final int DrawerArrowToggle_arrowShaftLength=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#barLength}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#barLength}
      * attribute's value can be found in the {@link #DrawerArrowToggle} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11688,22 +11712,22 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:barLength
+     * @attr name com.messi.cantonese.study:barLength
      */
     public static final int DrawerArrowToggle_barLength=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#color}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#color}
      * attribute's value can be found in the {@link #DrawerArrowToggle} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:color
+     * @attr name com.messi.cantonese.study:color
      */
     public static final int DrawerArrowToggle_color=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#drawableSize}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#drawableSize}
      * attribute's value can be found in the {@link #DrawerArrowToggle} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11712,11 +11736,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:drawableSize
+     * @attr name com.messi.cantonese.study:drawableSize
      */
     public static final int DrawerArrowToggle_drawableSize=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#gapBetweenBars}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#gapBetweenBars}
      * attribute's value can be found in the {@link #DrawerArrowToggle} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11725,21 +11749,21 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:gapBetweenBars
+     * @attr name com.messi.cantonese.study:gapBetweenBars
      */
     public static final int DrawerArrowToggle_gapBetweenBars=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#spinBars}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#spinBars}
      * attribute's value can be found in the {@link #DrawerArrowToggle} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:spinBars
+     * @attr name com.messi.cantonese.study:spinBars
      */
     public static final int DrawerArrowToggle_spinBars=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#thickness}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#thickness}
      * attribute's value can be found in the {@link #DrawerArrowToggle} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11748,7 +11772,7 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:thickness
+     * @attr name com.messi.cantonese.study:thickness
      */
     public static final int DrawerArrowToggle_thickness=7;
     /**
@@ -11758,7 +11782,7 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #Fade_fadingMode com.messi.languagehelper:fadingMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Fade_fadingMode com.messi.cantonese.study:fadingMode}</code></td><td></td></tr>
      * </table>
      * @see #Fade_fadingMode
      */
@@ -11766,7 +11790,7 @@ public final class R {
         0x7f0300d4
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fadingMode}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#fadingMode}
      * attribute's value can be found in the {@link #Fade} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -11780,7 +11804,7 @@ public final class R {
      * <tr><td>fade_out</td><td>2</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:fadingMode
+     * @attr name com.messi.cantonese.study:fadingMode
      */
     public static final int Fade_fadingMode=0;
     /**
@@ -11790,17 +11814,17 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #FlexboxLayout_alignContent com.messi.languagehelper:alignContent}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_alignItems com.messi.languagehelper:alignItems}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_dividerDrawable com.messi.languagehelper:dividerDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_dividerDrawableHorizontal com.messi.languagehelper:dividerDrawableHorizontal}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_dividerDrawableVertical com.messi.languagehelper:dividerDrawableVertical}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_flexDirection com.messi.languagehelper:flexDirection}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_flexWrap com.messi.languagehelper:flexWrap}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_justifyContent com.messi.languagehelper:justifyContent}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_showDivider com.messi.languagehelper:showDivider}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_showDividerHorizontal com.messi.languagehelper:showDividerHorizontal}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_showDividerVertical com.messi.languagehelper:showDividerVertical}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_alignContent com.messi.cantonese.study:alignContent}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_alignItems com.messi.cantonese.study:alignItems}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_dividerDrawable com.messi.cantonese.study:dividerDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_dividerDrawableHorizontal com.messi.cantonese.study:dividerDrawableHorizontal}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_dividerDrawableVertical com.messi.cantonese.study:dividerDrawableVertical}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_flexDirection com.messi.cantonese.study:flexDirection}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_flexWrap com.messi.cantonese.study:flexWrap}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_justifyContent com.messi.cantonese.study:justifyContent}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_showDivider com.messi.cantonese.study:showDivider}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_showDividerHorizontal com.messi.cantonese.study:showDividerHorizontal}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_showDividerVertical com.messi.cantonese.study:showDividerVertical}</code></td><td></td></tr>
      * </table>
      * @see #FlexboxLayout_alignContent
      * @see #FlexboxLayout_alignItems
@@ -11820,7 +11844,7 @@ public final class R {
         0x7f030198, 0x7f030199, 0x7f03019a
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#alignContent}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#alignContent}
      * attribute's value can be found in the {@link #FlexboxLayout} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -11837,11 +11861,11 @@ public final class R {
      * <tr><td>stretch</td><td>5</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:alignContent
+     * @attr name com.messi.cantonese.study:alignContent
      */
     public static final int FlexboxLayout_alignContent=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#alignItems}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#alignItems}
      * attribute's value can be found in the {@link #FlexboxLayout} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -11857,11 +11881,11 @@ public final class R {
      * <tr><td>stretch</td><td>4</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:alignItems
+     * @attr name com.messi.cantonese.study:alignItems
      */
     public static final int FlexboxLayout_alignItems=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#dividerDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#dividerDrawable}
      * attribute's value can be found in the {@link #FlexboxLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -11869,11 +11893,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:dividerDrawable
+     * @attr name com.messi.cantonese.study:dividerDrawable
      */
     public static final int FlexboxLayout_dividerDrawable=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#dividerDrawableHorizontal}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#dividerDrawableHorizontal}
      * attribute's value can be found in the {@link #FlexboxLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -11881,11 +11905,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:dividerDrawableHorizontal
+     * @attr name com.messi.cantonese.study:dividerDrawableHorizontal
      */
     public static final int FlexboxLayout_dividerDrawableHorizontal=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#dividerDrawableVertical}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#dividerDrawableVertical}
      * attribute's value can be found in the {@link #FlexboxLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -11893,11 +11917,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:dividerDrawableVertical
+     * @attr name com.messi.cantonese.study:dividerDrawableVertical
      */
     public static final int FlexboxLayout_dividerDrawableVertical=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#flexDirection}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#flexDirection}
      * attribute's value can be found in the {@link #FlexboxLayout} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -11912,11 +11936,11 @@ public final class R {
      * <tr><td>row_reverse</td><td>1</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:flexDirection
+     * @attr name com.messi.cantonese.study:flexDirection
      */
     public static final int FlexboxLayout_flexDirection=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#flexWrap}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#flexWrap}
      * attribute's value can be found in the {@link #FlexboxLayout} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -11930,11 +11954,11 @@ public final class R {
      * <tr><td>wrap_reverse</td><td>2</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:flexWrap
+     * @attr name com.messi.cantonese.study:flexWrap
      */
     public static final int FlexboxLayout_flexWrap=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#justifyContent}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#justifyContent}
      * attribute's value can be found in the {@link #FlexboxLayout} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -11950,11 +11974,11 @@ public final class R {
      * <tr><td>space_between</td><td>3</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:justifyContent
+     * @attr name com.messi.cantonese.study:justifyContent
      */
     public static final int FlexboxLayout_justifyContent=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#showDivider}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#showDivider}
      * attribute's value can be found in the {@link #FlexboxLayout} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -11969,11 +11993,11 @@ public final class R {
      * <tr><td>none</td><td>0</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:showDivider
+     * @attr name com.messi.cantonese.study:showDivider
      */
     public static final int FlexboxLayout_showDivider=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#showDividerHorizontal}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#showDividerHorizontal}
      * attribute's value can be found in the {@link #FlexboxLayout} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -11988,11 +12012,11 @@ public final class R {
      * <tr><td>none</td><td>0</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:showDividerHorizontal
+     * @attr name com.messi.cantonese.study:showDividerHorizontal
      */
     public static final int FlexboxLayout_showDividerHorizontal=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#showDividerVertical}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#showDividerVertical}
      * attribute's value can be found in the {@link #FlexboxLayout} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -12007,7 +12031,7 @@ public final class R {
      * <tr><td>none</td><td>0</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:showDividerVertical
+     * @attr name com.messi.cantonese.study:showDividerVertical
      */
     public static final int FlexboxLayout_showDividerVertical=10;
     /**
@@ -12017,16 +12041,16 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_alignSelf com.messi.languagehelper:layout_alignSelf}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_flexBasisPercent com.messi.languagehelper:layout_flexBasisPercent}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_flexGrow com.messi.languagehelper:layout_flexGrow}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_flexShrink com.messi.languagehelper:layout_flexShrink}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_maxHeight com.messi.languagehelper:layout_maxHeight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_maxWidth com.messi.languagehelper:layout_maxWidth}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_minHeight com.messi.languagehelper:layout_minHeight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_minWidth com.messi.languagehelper:layout_minWidth}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_order com.messi.languagehelper:layout_order}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_wrapBefore com.messi.languagehelper:layout_wrapBefore}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_alignSelf com.messi.cantonese.study:layout_alignSelf}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_flexBasisPercent com.messi.cantonese.study:layout_flexBasisPercent}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_flexGrow com.messi.cantonese.study:layout_flexGrow}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_flexShrink com.messi.cantonese.study:layout_flexShrink}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_maxHeight com.messi.cantonese.study:layout_maxHeight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_maxWidth com.messi.cantonese.study:layout_maxWidth}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_minHeight com.messi.cantonese.study:layout_minHeight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_minWidth com.messi.cantonese.study:layout_minWidth}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_order com.messi.cantonese.study:layout_order}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_wrapBefore com.messi.cantonese.study:layout_wrapBefore}</code></td><td></td></tr>
      * </table>
      * @see #FlexboxLayout_Layout_layout_alignSelf
      * @see #FlexboxLayout_Layout_layout_flexBasisPercent
@@ -12045,7 +12069,7 @@ public final class R {
         0x7f03011a, 0x7f03011d
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_alignSelf}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#layout_alignSelf}
      * attribute's value can be found in the {@link #FlexboxLayout_Layout} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -12062,11 +12086,11 @@ public final class R {
      * <tr><td>stretch</td><td>4</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:layout_alignSelf
+     * @attr name com.messi.cantonese.study:layout_alignSelf
      */
     public static final int FlexboxLayout_Layout_layout_alignSelf=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_flexBasisPercent}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#layout_flexBasisPercent}
      * attribute's value can be found in the {@link #FlexboxLayout_Layout} array.
      *
      * <p>May be a fractional value, which is a floating point number appended with
@@ -12074,29 +12098,29 @@ public final class R {
      * The % suffix always means a percentage of the base size;
      * the optional %p suffix provides a size relative to some parent container.
      *
-     * @attr name com.messi.languagehelper:layout_flexBasisPercent
+     * @attr name com.messi.cantonese.study:layout_flexBasisPercent
      */
     public static final int FlexboxLayout_Layout_layout_flexBasisPercent=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_flexGrow}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#layout_flexGrow}
      * attribute's value can be found in the {@link #FlexboxLayout_Layout} array.
      *
      * <p>May be a floating point value, such as "<code>1.2</code>".
      *
-     * @attr name com.messi.languagehelper:layout_flexGrow
+     * @attr name com.messi.cantonese.study:layout_flexGrow
      */
     public static final int FlexboxLayout_Layout_layout_flexGrow=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_flexShrink}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#layout_flexShrink}
      * attribute's value can be found in the {@link #FlexboxLayout_Layout} array.
      *
      * <p>May be a floating point value, such as "<code>1.2</code>".
      *
-     * @attr name com.messi.languagehelper:layout_flexShrink
+     * @attr name com.messi.cantonese.study:layout_flexShrink
      */
     public static final int FlexboxLayout_Layout_layout_flexShrink=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_maxHeight}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#layout_maxHeight}
      * attribute's value can be found in the {@link #FlexboxLayout_Layout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -12105,11 +12129,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:layout_maxHeight
+     * @attr name com.messi.cantonese.study:layout_maxHeight
      */
     public static final int FlexboxLayout_Layout_layout_maxHeight=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_maxWidth}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#layout_maxWidth}
      * attribute's value can be found in the {@link #FlexboxLayout_Layout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -12118,11 +12142,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:layout_maxWidth
+     * @attr name com.messi.cantonese.study:layout_maxWidth
      */
     public static final int FlexboxLayout_Layout_layout_maxWidth=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_minHeight}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#layout_minHeight}
      * attribute's value can be found in the {@link #FlexboxLayout_Layout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -12131,11 +12155,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:layout_minHeight
+     * @attr name com.messi.cantonese.study:layout_minHeight
      */
     public static final int FlexboxLayout_Layout_layout_minHeight=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_minWidth}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#layout_minWidth}
      * attribute's value can be found in the {@link #FlexboxLayout_Layout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -12144,26 +12168,26 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:layout_minWidth
+     * @attr name com.messi.cantonese.study:layout_minWidth
      */
     public static final int FlexboxLayout_Layout_layout_minWidth=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_order}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#layout_order}
      * attribute's value can be found in the {@link #FlexboxLayout_Layout} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.languagehelper:layout_order
+     * @attr name com.messi.cantonese.study:layout_order
      */
     public static final int FlexboxLayout_Layout_layout_order=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_wrapBefore}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#layout_wrapBefore}
      * attribute's value can be found in the {@link #FlexboxLayout_Layout} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:layout_wrapBefore
+     * @attr name com.messi.cantonese.study:layout_wrapBefore
      */
     public static final int FlexboxLayout_Layout_layout_wrapBefore=9;
     /**
@@ -12173,14 +12197,14 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #FloatingActionButton_backgroundTint com.messi.languagehelper:backgroundTint}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FloatingActionButton_backgroundTintMode com.messi.languagehelper:backgroundTintMode}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FloatingActionButton_borderWidth com.messi.languagehelper:borderWidth}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FloatingActionButton_elevation com.messi.languagehelper:elevation}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FloatingActionButton_fabSize com.messi.languagehelper:fabSize}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FloatingActionButton_pressedTranslationZ com.messi.languagehelper:pressedTranslationZ}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FloatingActionButton_rippleColor com.messi.languagehelper:rippleColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FloatingActionButton_useCompatPadding com.messi.languagehelper:useCompatPadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FloatingActionButton_backgroundTint com.messi.cantonese.study:backgroundTint}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FloatingActionButton_backgroundTintMode com.messi.cantonese.study:backgroundTintMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FloatingActionButton_borderWidth com.messi.cantonese.study:borderWidth}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FloatingActionButton_elevation com.messi.cantonese.study:elevation}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FloatingActionButton_fabSize com.messi.cantonese.study:fabSize}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FloatingActionButton_pressedTranslationZ com.messi.cantonese.study:pressedTranslationZ}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FloatingActionButton_rippleColor com.messi.cantonese.study:rippleColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FloatingActionButton_useCompatPadding com.messi.cantonese.study:useCompatPadding}</code></td><td></td></tr>
      * </table>
      * @see #FloatingActionButton_backgroundTint
      * @see #FloatingActionButton_backgroundTintMode
@@ -12196,18 +12220,18 @@ public final class R {
         0x7f0300d2, 0x7f030152, 0x7f03017f, 0x7f0301ff
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#backgroundTint}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#backgroundTint}
      * attribute's value can be found in the {@link #FloatingActionButton} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:backgroundTint
+     * @attr name com.messi.cantonese.study:backgroundTint
      */
     public static final int FloatingActionButton_backgroundTint=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#backgroundTintMode}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#backgroundTintMode}
      * attribute's value can be found in the {@link #FloatingActionButton} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -12224,11 +12248,11 @@ public final class R {
      * <tr><td>src_over</td><td>3</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:backgroundTintMode
+     * @attr name com.messi.cantonese.study:backgroundTintMode
      */
     public static final int FloatingActionButton_backgroundTintMode=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#borderWidth}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#borderWidth}
      * attribute's value can be found in the {@link #FloatingActionButton} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -12237,11 +12261,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:borderWidth
+     * @attr name com.messi.cantonese.study:borderWidth
      */
     public static final int FloatingActionButton_borderWidth=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#elevation}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#elevation}
      * attribute's value can be found in the {@link #FloatingActionButton} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -12250,11 +12274,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:elevation
+     * @attr name com.messi.cantonese.study:elevation
      */
     public static final int FloatingActionButton_elevation=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fabSize}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#fabSize}
      * attribute's value can be found in the {@link #FloatingActionButton} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -12268,11 +12292,11 @@ public final class R {
      * <tr><td>normal</td><td>0</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:fabSize
+     * @attr name com.messi.cantonese.study:fabSize
      */
     public static final int FloatingActionButton_fabSize=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pressedTranslationZ}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#pressedTranslationZ}
      * attribute's value can be found in the {@link #FloatingActionButton} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -12281,28 +12305,28 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:pressedTranslationZ
+     * @attr name com.messi.cantonese.study:pressedTranslationZ
      */
     public static final int FloatingActionButton_pressedTranslationZ=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#rippleColor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#rippleColor}
      * attribute's value can be found in the {@link #FloatingActionButton} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:rippleColor
+     * @attr name com.messi.cantonese.study:rippleColor
      */
     public static final int FloatingActionButton_rippleColor=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#useCompatPadding}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#useCompatPadding}
      * attribute's value can be found in the {@link #FloatingActionButton} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:useCompatPadding
+     * @attr name com.messi.cantonese.study:useCompatPadding
      */
     public static final int FloatingActionButton_useCompatPadding=7;
     /**
@@ -12312,7 +12336,7 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #FloatingActionButton_Behavior_Layout_behavior_autoHide com.messi.languagehelper:behavior_autoHide}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FloatingActionButton_Behavior_Layout_behavior_autoHide com.messi.cantonese.study:behavior_autoHide}</code></td><td></td></tr>
      * </table>
      * @see #FloatingActionButton_Behavior_Layout_behavior_autoHide
      */
@@ -12320,13 +12344,13 @@ public final class R {
         0x7f03004f
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#behavior_autoHide}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#behavior_autoHide}
      * attribute's value can be found in the {@link #FloatingActionButton_Behavior_Layout} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:behavior_autoHide
+     * @attr name com.messi.cantonese.study:behavior_autoHide
      */
     public static final int FloatingActionButton_Behavior_Layout_behavior_autoHide=0;
     /**
@@ -12336,12 +12360,12 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #FontFamily_fontProviderAuthority com.messi.languagehelper:fontProviderAuthority}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FontFamily_fontProviderCerts com.messi.languagehelper:fontProviderCerts}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FontFamily_fontProviderFetchStrategy com.messi.languagehelper:fontProviderFetchStrategy}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FontFamily_fontProviderFetchTimeout com.messi.languagehelper:fontProviderFetchTimeout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FontFamily_fontProviderPackage com.messi.languagehelper:fontProviderPackage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FontFamily_fontProviderQuery com.messi.languagehelper:fontProviderQuery}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FontFamily_fontProviderAuthority com.messi.cantonese.study:fontProviderAuthority}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FontFamily_fontProviderCerts com.messi.cantonese.study:fontProviderCerts}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FontFamily_fontProviderFetchStrategy com.messi.cantonese.study:fontProviderFetchStrategy}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FontFamily_fontProviderFetchTimeout com.messi.cantonese.study:fontProviderFetchTimeout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FontFamily_fontProviderPackage com.messi.cantonese.study:fontProviderPackage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FontFamily_fontProviderQuery com.messi.cantonese.study:fontProviderQuery}</code></td><td></td></tr>
      * </table>
      * @see #FontFamily_fontProviderAuthority
      * @see #FontFamily_fontProviderCerts
@@ -12355,17 +12379,17 @@ public final class R {
         0x7f0300e5, 0x7f0300e6
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fontProviderAuthority}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#fontProviderAuthority}
      * attribute's value can be found in the {@link #FontFamily} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:fontProviderAuthority
+     * @attr name com.messi.cantonese.study:fontProviderAuthority
      */
     public static final int FontFamily_fontProviderAuthority=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fontProviderCerts}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#fontProviderCerts}
      * attribute's value can be found in the {@link #FontFamily} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -12373,11 +12397,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:fontProviderCerts
+     * @attr name com.messi.cantonese.study:fontProviderCerts
      */
     public static final int FontFamily_fontProviderCerts=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fontProviderFetchStrategy}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#fontProviderFetchStrategy}
      * attribute's value can be found in the {@link #FontFamily} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -12390,11 +12414,11 @@ public final class R {
      * <tr><td>blocking</td><td>0</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:fontProviderFetchStrategy
+     * @attr name com.messi.cantonese.study:fontProviderFetchStrategy
      */
     public static final int FontFamily_fontProviderFetchStrategy=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fontProviderFetchTimeout}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#fontProviderFetchTimeout}
      * attribute's value can be found in the {@link #FontFamily} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
@@ -12407,27 +12431,27 @@ public final class R {
      * <tr><td>forever</td><td>ffffffff</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:fontProviderFetchTimeout
+     * @attr name com.messi.cantonese.study:fontProviderFetchTimeout
      */
     public static final int FontFamily_fontProviderFetchTimeout=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fontProviderPackage}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#fontProviderPackage}
      * attribute's value can be found in the {@link #FontFamily} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:fontProviderPackage
+     * @attr name com.messi.cantonese.study:fontProviderPackage
      */
     public static final int FontFamily_fontProviderPackage=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fontProviderQuery}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#fontProviderQuery}
      * attribute's value can be found in the {@link #FontFamily} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:fontProviderQuery
+     * @attr name com.messi.cantonese.study:fontProviderQuery
      */
     public static final int FontFamily_fontProviderQuery=5;
     /**
@@ -12440,9 +12464,9 @@ public final class R {
      * <tr><td><code>{@link #FontFamilyFont_android_font android:font}</code></td><td></td></tr>
      * <tr><td><code>{@link #FontFamilyFont_android_fontWeight android:fontWeight}</code></td><td></td></tr>
      * <tr><td><code>{@link #FontFamilyFont_android_fontStyle android:fontStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FontFamilyFont_font com.messi.languagehelper:font}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FontFamilyFont_fontStyle com.messi.languagehelper:fontStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FontFamilyFont_fontWeight com.messi.languagehelper:fontWeight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FontFamilyFont_font com.messi.cantonese.study:font}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FontFamilyFont_fontStyle com.messi.cantonese.study:fontStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FontFamilyFont_fontWeight com.messi.cantonese.study:fontWeight}</code></td><td></td></tr>
      * </table>
      * @see #FontFamilyFont_android_font
      * @see #FontFamilyFont_android_fontWeight
@@ -12494,7 +12518,7 @@ public final class R {
      */
     public static final int FontFamilyFont_android_fontStyle=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#font}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#font}
      * attribute's value can be found in the {@link #FontFamilyFont} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -12502,11 +12526,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:font
+     * @attr name com.messi.cantonese.study:font
      */
     public static final int FontFamilyFont_font=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fontStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#fontStyle}
      * attribute's value can be found in the {@link #FontFamilyFont} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -12519,16 +12543,16 @@ public final class R {
      * <tr><td>normal</td><td>0</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:fontStyle
+     * @attr name com.messi.cantonese.study:fontStyle
      */
     public static final int FontFamilyFont_fontStyle=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fontWeight}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#fontWeight}
      * attribute's value can be found in the {@link #FontFamilyFont} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.languagehelper:fontWeight
+     * @attr name com.messi.cantonese.study:fontWeight
      */
     public static final int FontFamilyFont_fontWeight=5;
     /**
@@ -12540,7 +12564,7 @@ public final class R {
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #ForegroundLinearLayout_android_foreground android:foreground}</code></td><td></td></tr>
      * <tr><td><code>{@link #ForegroundLinearLayout_android_foregroundGravity android:foregroundGravity}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ForegroundLinearLayout_foregroundInsidePadding com.messi.languagehelper:foregroundInsidePadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ForegroundLinearLayout_foregroundInsidePadding com.messi.cantonese.study:foregroundInsidePadding}</code></td><td></td></tr>
      * </table>
      * @see #ForegroundLinearLayout_android_foreground
      * @see #ForegroundLinearLayout_android_foregroundGravity
@@ -12592,13 +12616,13 @@ public final class R {
      */
     public static final int ForegroundLinearLayout_android_foregroundGravity=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#foregroundInsidePadding}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#foregroundInsidePadding}
      * attribute's value can be found in the {@link #ForegroundLinearLayout} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:foregroundInsidePadding
+     * @attr name com.messi.cantonese.study:foregroundInsidePadding
      */
     public static final int ForegroundLinearLayout_foregroundInsidePadding=2;
     /**
@@ -12608,31 +12632,31 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_actualImageScaleType com.messi.languagehelper:actualImageScaleType}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_backgroundImage com.messi.languagehelper:backgroundImage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_fadeDuration com.messi.languagehelper:fadeDuration}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_failureImage com.messi.languagehelper:failureImage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_failureImageScaleType com.messi.languagehelper:failureImageScaleType}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_overlayImage com.messi.languagehelper:overlayImage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_placeholderImage com.messi.languagehelper:placeholderImage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_placeholderImageScaleType com.messi.languagehelper:placeholderImageScaleType}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_pressedStateOverlayImage com.messi.languagehelper:pressedStateOverlayImage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_progressBarAutoRotateInterval com.messi.languagehelper:progressBarAutoRotateInterval}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_progressBarImage com.messi.languagehelper:progressBarImage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_progressBarImageScaleType com.messi.languagehelper:progressBarImageScaleType}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_retryImage com.messi.languagehelper:retryImage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_retryImageScaleType com.messi.languagehelper:retryImageScaleType}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_roundAsCircle com.messi.languagehelper:roundAsCircle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_roundBottomLeft com.messi.languagehelper:roundBottomLeft}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_roundBottomRight com.messi.languagehelper:roundBottomRight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_roundTopLeft com.messi.languagehelper:roundTopLeft}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_roundTopRight com.messi.languagehelper:roundTopRight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_roundWithOverlayColor com.messi.languagehelper:roundWithOverlayColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_roundedCornerRadius com.messi.languagehelper:roundedCornerRadius}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_roundingBorderColor com.messi.languagehelper:roundingBorderColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_roundingBorderPadding com.messi.languagehelper:roundingBorderPadding}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_roundingBorderWidth com.messi.languagehelper:roundingBorderWidth}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_viewAspectRatio com.messi.languagehelper:viewAspectRatio}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_actualImageScaleType com.messi.cantonese.study:actualImageScaleType}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_backgroundImage com.messi.cantonese.study:backgroundImage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_fadeDuration com.messi.cantonese.study:fadeDuration}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_failureImage com.messi.cantonese.study:failureImage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_failureImageScaleType com.messi.cantonese.study:failureImageScaleType}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_overlayImage com.messi.cantonese.study:overlayImage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_placeholderImage com.messi.cantonese.study:placeholderImage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_placeholderImageScaleType com.messi.cantonese.study:placeholderImageScaleType}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_pressedStateOverlayImage com.messi.cantonese.study:pressedStateOverlayImage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_progressBarAutoRotateInterval com.messi.cantonese.study:progressBarAutoRotateInterval}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_progressBarImage com.messi.cantonese.study:progressBarImage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_progressBarImageScaleType com.messi.cantonese.study:progressBarImageScaleType}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_retryImage com.messi.cantonese.study:retryImage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_retryImageScaleType com.messi.cantonese.study:retryImageScaleType}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_roundAsCircle com.messi.cantonese.study:roundAsCircle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_roundBottomLeft com.messi.cantonese.study:roundBottomLeft}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_roundBottomRight com.messi.cantonese.study:roundBottomRight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_roundTopLeft com.messi.cantonese.study:roundTopLeft}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_roundTopRight com.messi.cantonese.study:roundTopRight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_roundWithOverlayColor com.messi.cantonese.study:roundWithOverlayColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_roundedCornerRadius com.messi.cantonese.study:roundedCornerRadius}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_roundingBorderColor com.messi.cantonese.study:roundingBorderColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_roundingBorderPadding com.messi.cantonese.study:roundingBorderPadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_roundingBorderWidth com.messi.cantonese.study:roundingBorderWidth}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_viewAspectRatio com.messi.cantonese.study:viewAspectRatio}</code></td><td></td></tr>
      * </table>
      * @see #GenericDraweeHierarchy_actualImageScaleType
      * @see #GenericDraweeHierarchy_backgroundImage
@@ -12670,7 +12694,7 @@ public final class R {
         0x7f030202
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actualImageScaleType}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actualImageScaleType}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -12691,11 +12715,11 @@ public final class R {
      * <tr><td>none</td><td>ffffffff</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:actualImageScaleType
+     * @attr name com.messi.cantonese.study:actualImageScaleType
      */
     public static final int GenericDraweeHierarchy_actualImageScaleType=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#backgroundImage}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#backgroundImage}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -12703,20 +12727,20 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:backgroundImage
+     * @attr name com.messi.cantonese.study:backgroundImage
      */
     public static final int GenericDraweeHierarchy_backgroundImage=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fadeDuration}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#fadeDuration}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.languagehelper:fadeDuration
+     * @attr name com.messi.cantonese.study:fadeDuration
      */
     public static final int GenericDraweeHierarchy_fadeDuration=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#failureImage}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#failureImage}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -12724,11 +12748,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:failureImage
+     * @attr name com.messi.cantonese.study:failureImage
      */
     public static final int GenericDraweeHierarchy_failureImage=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#failureImageScaleType}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#failureImageScaleType}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -12749,11 +12773,11 @@ public final class R {
      * <tr><td>none</td><td>ffffffff</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:failureImageScaleType
+     * @attr name com.messi.cantonese.study:failureImageScaleType
      */
     public static final int GenericDraweeHierarchy_failureImageScaleType=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#overlayImage}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#overlayImage}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -12761,11 +12785,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:overlayImage
+     * @attr name com.messi.cantonese.study:overlayImage
      */
     public static final int GenericDraweeHierarchy_overlayImage=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#placeholderImage}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#placeholderImage}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -12773,11 +12797,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:placeholderImage
+     * @attr name com.messi.cantonese.study:placeholderImage
      */
     public static final int GenericDraweeHierarchy_placeholderImage=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#placeholderImageScaleType}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#placeholderImageScaleType}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -12798,11 +12822,11 @@ public final class R {
      * <tr><td>none</td><td>ffffffff</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:placeholderImageScaleType
+     * @attr name com.messi.cantonese.study:placeholderImageScaleType
      */
     public static final int GenericDraweeHierarchy_placeholderImageScaleType=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pressedStateOverlayImage}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#pressedStateOverlayImage}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -12810,20 +12834,20 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:pressedStateOverlayImage
+     * @attr name com.messi.cantonese.study:pressedStateOverlayImage
      */
     public static final int GenericDraweeHierarchy_pressedStateOverlayImage=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progressBarAutoRotateInterval}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#progressBarAutoRotateInterval}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.languagehelper:progressBarAutoRotateInterval
+     * @attr name com.messi.cantonese.study:progressBarAutoRotateInterval
      */
     public static final int GenericDraweeHierarchy_progressBarAutoRotateInterval=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progressBarImage}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#progressBarImage}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -12831,11 +12855,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:progressBarImage
+     * @attr name com.messi.cantonese.study:progressBarImage
      */
     public static final int GenericDraweeHierarchy_progressBarImage=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progressBarImageScaleType}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#progressBarImageScaleType}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -12856,11 +12880,11 @@ public final class R {
      * <tr><td>none</td><td>ffffffff</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:progressBarImageScaleType
+     * @attr name com.messi.cantonese.study:progressBarImageScaleType
      */
     public static final int GenericDraweeHierarchy_progressBarImageScaleType=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#retryImage}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#retryImage}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -12868,11 +12892,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:retryImage
+     * @attr name com.messi.cantonese.study:retryImage
      */
     public static final int GenericDraweeHierarchy_retryImage=12;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#retryImageScaleType}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#retryImageScaleType}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -12893,72 +12917,72 @@ public final class R {
      * <tr><td>none</td><td>ffffffff</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:retryImageScaleType
+     * @attr name com.messi.cantonese.study:retryImageScaleType
      */
     public static final int GenericDraweeHierarchy_retryImageScaleType=13;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundAsCircle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#roundAsCircle}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:roundAsCircle
+     * @attr name com.messi.cantonese.study:roundAsCircle
      */
     public static final int GenericDraweeHierarchy_roundAsCircle=14;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundBottomLeft}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#roundBottomLeft}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:roundBottomLeft
+     * @attr name com.messi.cantonese.study:roundBottomLeft
      */
     public static final int GenericDraweeHierarchy_roundBottomLeft=15;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundBottomRight}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#roundBottomRight}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:roundBottomRight
+     * @attr name com.messi.cantonese.study:roundBottomRight
      */
     public static final int GenericDraweeHierarchy_roundBottomRight=16;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundTopLeft}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#roundTopLeft}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:roundTopLeft
+     * @attr name com.messi.cantonese.study:roundTopLeft
      */
     public static final int GenericDraweeHierarchy_roundTopLeft=17;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundTopRight}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#roundTopRight}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:roundTopRight
+     * @attr name com.messi.cantonese.study:roundTopRight
      */
     public static final int GenericDraweeHierarchy_roundTopRight=18;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundWithOverlayColor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#roundWithOverlayColor}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:roundWithOverlayColor
+     * @attr name com.messi.cantonese.study:roundWithOverlayColor
      */
     public static final int GenericDraweeHierarchy_roundWithOverlayColor=19;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundedCornerRadius}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#roundedCornerRadius}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -12967,22 +12991,22 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:roundedCornerRadius
+     * @attr name com.messi.cantonese.study:roundedCornerRadius
      */
     public static final int GenericDraweeHierarchy_roundedCornerRadius=20;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundingBorderColor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#roundingBorderColor}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:roundingBorderColor
+     * @attr name com.messi.cantonese.study:roundingBorderColor
      */
     public static final int GenericDraweeHierarchy_roundingBorderColor=21;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundingBorderPadding}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#roundingBorderPadding}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -12991,11 +13015,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:roundingBorderPadding
+     * @attr name com.messi.cantonese.study:roundingBorderPadding
      */
     public static final int GenericDraweeHierarchy_roundingBorderPadding=22;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundingBorderWidth}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#roundingBorderWidth}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -13004,16 +13028,16 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:roundingBorderWidth
+     * @attr name com.messi.cantonese.study:roundingBorderWidth
      */
     public static final int GenericDraweeHierarchy_roundingBorderWidth=23;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#viewAspectRatio}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#viewAspectRatio}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a floating point value, such as "<code>1.2</code>".
      *
-     * @attr name com.messi.languagehelper:viewAspectRatio
+     * @attr name com.messi.cantonese.study:viewAspectRatio
      */
     public static final int GenericDraweeHierarchy_viewAspectRatio=24;
     /**
@@ -13028,10 +13052,10 @@ public final class R {
      * <tr><td><code>{@link #LinearLayoutCompat_android_baselineAligned android:baselineAligned}</code></td><td></td></tr>
      * <tr><td><code>{@link #LinearLayoutCompat_android_baselineAlignedChildIndex android:baselineAlignedChildIndex}</code></td><td></td></tr>
      * <tr><td><code>{@link #LinearLayoutCompat_android_weightSum android:weightSum}</code></td><td></td></tr>
-     * <tr><td><code>{@link #LinearLayoutCompat_divider com.messi.languagehelper:divider}</code></td><td></td></tr>
-     * <tr><td><code>{@link #LinearLayoutCompat_dividerPadding com.messi.languagehelper:dividerPadding}</code></td><td></td></tr>
-     * <tr><td><code>{@link #LinearLayoutCompat_measureWithLargestChild com.messi.languagehelper:measureWithLargestChild}</code></td><td></td></tr>
-     * <tr><td><code>{@link #LinearLayoutCompat_showDividers com.messi.languagehelper:showDividers}</code></td><td></td></tr>
+     * <tr><td><code>{@link #LinearLayoutCompat_divider com.messi.cantonese.study:divider}</code></td><td></td></tr>
+     * <tr><td><code>{@link #LinearLayoutCompat_dividerPadding com.messi.cantonese.study:dividerPadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #LinearLayoutCompat_measureWithLargestChild com.messi.cantonese.study:measureWithLargestChild}</code></td><td></td></tr>
+     * <tr><td><code>{@link #LinearLayoutCompat_showDividers com.messi.cantonese.study:showDividers}</code></td><td></td></tr>
      * </table>
      * @see #LinearLayoutCompat_android_gravity
      * @see #LinearLayoutCompat_android_orientation
@@ -13123,7 +13147,7 @@ public final class R {
      */
     public static final int LinearLayoutCompat_android_weightSum=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#divider}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#divider}
      * attribute's value can be found in the {@link #LinearLayoutCompat} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -13131,11 +13155,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:divider
+     * @attr name com.messi.cantonese.study:divider
      */
     public static final int LinearLayoutCompat_divider=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#dividerPadding}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#dividerPadding}
      * attribute's value can be found in the {@link #LinearLayoutCompat} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -13144,21 +13168,21 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:dividerPadding
+     * @attr name com.messi.cantonese.study:dividerPadding
      */
     public static final int LinearLayoutCompat_dividerPadding=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#measureWithLargestChild}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#measureWithLargestChild}
      * attribute's value can be found in the {@link #LinearLayoutCompat} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:measureWithLargestChild
+     * @attr name com.messi.cantonese.study:measureWithLargestChild
      */
     public static final int LinearLayoutCompat_measureWithLargestChild=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#showDividers}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#showDividers}
      * attribute's value can be found in the {@link #LinearLayoutCompat} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -13173,7 +13197,7 @@ public final class R {
      * <tr><td>none</td><td>0</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:showDividers
+     * @attr name com.messi.cantonese.study:showDividers
      */
     public static final int LinearLayoutCompat_showDividers=8;
     /**
@@ -13445,16 +13469,16 @@ public final class R {
      * <tr><td><code>{@link #MenuItem_android_numericShortcut android:numericShortcut}</code></td><td></td></tr>
      * <tr><td><code>{@link #MenuItem_android_checkable android:checkable}</code></td><td></td></tr>
      * <tr><td><code>{@link #MenuItem_android_onClick android:onClick}</code></td><td></td></tr>
-     * <tr><td><code>{@link #MenuItem_actionLayout com.messi.languagehelper:actionLayout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #MenuItem_actionProviderClass com.messi.languagehelper:actionProviderClass}</code></td><td></td></tr>
-     * <tr><td><code>{@link #MenuItem_actionViewClass com.messi.languagehelper:actionViewClass}</code></td><td></td></tr>
-     * <tr><td><code>{@link #MenuItem_alphabeticModifiers com.messi.languagehelper:alphabeticModifiers}</code></td><td></td></tr>
-     * <tr><td><code>{@link #MenuItem_contentDescription com.messi.languagehelper:contentDescription}</code></td><td></td></tr>
-     * <tr><td><code>{@link #MenuItem_iconTint com.messi.languagehelper:iconTint}</code></td><td></td></tr>
-     * <tr><td><code>{@link #MenuItem_iconTintMode com.messi.languagehelper:iconTintMode}</code></td><td></td></tr>
-     * <tr><td><code>{@link #MenuItem_numericModifiers com.messi.languagehelper:numericModifiers}</code></td><td></td></tr>
-     * <tr><td><code>{@link #MenuItem_showAsAction com.messi.languagehelper:showAsAction}</code></td><td></td></tr>
-     * <tr><td><code>{@link #MenuItem_tooltipText com.messi.languagehelper:tooltipText}</code></td><td></td></tr>
+     * <tr><td><code>{@link #MenuItem_actionLayout com.messi.cantonese.study:actionLayout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #MenuItem_actionProviderClass com.messi.cantonese.study:actionProviderClass}</code></td><td></td></tr>
+     * <tr><td><code>{@link #MenuItem_actionViewClass com.messi.cantonese.study:actionViewClass}</code></td><td></td></tr>
+     * <tr><td><code>{@link #MenuItem_alphabeticModifiers com.messi.cantonese.study:alphabeticModifiers}</code></td><td></td></tr>
+     * <tr><td><code>{@link #MenuItem_contentDescription com.messi.cantonese.study:contentDescription}</code></td><td></td></tr>
+     * <tr><td><code>{@link #MenuItem_iconTint com.messi.cantonese.study:iconTint}</code></td><td></td></tr>
+     * <tr><td><code>{@link #MenuItem_iconTintMode com.messi.cantonese.study:iconTintMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #MenuItem_numericModifiers com.messi.cantonese.study:numericModifiers}</code></td><td></td></tr>
+     * <tr><td><code>{@link #MenuItem_showAsAction com.messi.cantonese.study:showAsAction}</code></td><td></td></tr>
+     * <tr><td><code>{@link #MenuItem_tooltipText com.messi.cantonese.study:tooltipText}</code></td><td></td></tr>
      * </table>
      * @see #MenuItem_android_icon
      * @see #MenuItem_android_enabled
@@ -13631,7 +13655,7 @@ public final class R {
      */
     public static final int MenuItem_android_onClick=12;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionLayout}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionLayout}
      * attribute's value can be found in the {@link #MenuItem} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -13639,31 +13663,31 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actionLayout
+     * @attr name com.messi.cantonese.study:actionLayout
      */
     public static final int MenuItem_actionLayout=13;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionProviderClass}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionProviderClass}
      * attribute's value can be found in the {@link #MenuItem} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:actionProviderClass
+     * @attr name com.messi.cantonese.study:actionProviderClass
      */
     public static final int MenuItem_actionProviderClass=14;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionViewClass}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actionViewClass}
      * attribute's value can be found in the {@link #MenuItem} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:actionViewClass
+     * @attr name com.messi.cantonese.study:actionViewClass
      */
     public static final int MenuItem_actionViewClass=15;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#alphabeticModifiers}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#alphabeticModifiers}
      * attribute's value can be found in the {@link #MenuItem} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -13680,32 +13704,32 @@ public final class R {
      * <tr><td>SYM</td><td>4</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:alphabeticModifiers
+     * @attr name com.messi.cantonese.study:alphabeticModifiers
      */
     public static final int MenuItem_alphabeticModifiers=16;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentDescription}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#contentDescription}
      * attribute's value can be found in the {@link #MenuItem} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:contentDescription
+     * @attr name com.messi.cantonese.study:contentDescription
      */
     public static final int MenuItem_contentDescription=17;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#iconTint}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#iconTint}
      * attribute's value can be found in the {@link #MenuItem} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:iconTint
+     * @attr name com.messi.cantonese.study:iconTint
      */
     public static final int MenuItem_iconTint=18;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#iconTintMode}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#iconTintMode}
      * attribute's value can be found in the {@link #MenuItem} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -13722,11 +13746,11 @@ public final class R {
      * <tr><td>src_over</td><td>3</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:iconTintMode
+     * @attr name com.messi.cantonese.study:iconTintMode
      */
     public static final int MenuItem_iconTintMode=19;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#numericModifiers}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#numericModifiers}
      * attribute's value can be found in the {@link #MenuItem} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -13743,11 +13767,11 @@ public final class R {
      * <tr><td>SYM</td><td>4</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:numericModifiers
+     * @attr name com.messi.cantonese.study:numericModifiers
      */
     public static final int MenuItem_numericModifiers=20;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#showAsAction}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#showAsAction}
      * attribute's value can be found in the {@link #MenuItem} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -13763,17 +13787,17 @@ public final class R {
      * <tr><td>withText</td><td>4</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:showAsAction
+     * @attr name com.messi.cantonese.study:showAsAction
      */
     public static final int MenuItem_showAsAction=21;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tooltipText}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#tooltipText}
      * attribute's value can be found in the {@link #MenuItem} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:tooltipText
+     * @attr name com.messi.cantonese.study:tooltipText
      */
     public static final int MenuItem_tooltipText=22;
     /**
@@ -13790,8 +13814,8 @@ public final class R {
      * <tr><td><code>{@link #MenuView_android_headerBackground android:headerBackground}</code></td><td></td></tr>
      * <tr><td><code>{@link #MenuView_android_itemBackground android:itemBackground}</code></td><td></td></tr>
      * <tr><td><code>{@link #MenuView_android_itemIconDisabledAlpha android:itemIconDisabledAlpha}</code></td><td></td></tr>
-     * <tr><td><code>{@link #MenuView_preserveIconSpacing com.messi.languagehelper:preserveIconSpacing}</code></td><td></td></tr>
-     * <tr><td><code>{@link #MenuView_subMenuArrow com.messi.languagehelper:subMenuArrow}</code></td><td></td></tr>
+     * <tr><td><code>{@link #MenuView_preserveIconSpacing com.messi.cantonese.study:preserveIconSpacing}</code></td><td></td></tr>
+     * <tr><td><code>{@link #MenuView_subMenuArrow com.messi.cantonese.study:subMenuArrow}</code></td><td></td></tr>
      * </table>
      * @see #MenuView_android_windowAnimationStyle
      * @see #MenuView_android_itemTextAppearance
@@ -13896,17 +13920,17 @@ public final class R {
      */
     public static final int MenuView_android_itemIconDisabledAlpha=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#preserveIconSpacing}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#preserveIconSpacing}
      * attribute's value can be found in the {@link #MenuView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:preserveIconSpacing
+     * @attr name com.messi.cantonese.study:preserveIconSpacing
      */
     public static final int MenuView_preserveIconSpacing=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#subMenuArrow}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#subMenuArrow}
      * attribute's value can be found in the {@link #MenuView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -13914,7 +13938,7 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:subMenuArrow
+     * @attr name com.messi.cantonese.study:subMenuArrow
      */
     public static final int MenuView_subMenuArrow=8;
     /**
@@ -13927,13 +13951,13 @@ public final class R {
      * <tr><td><code>{@link #NavigationView_android_background android:background}</code></td><td></td></tr>
      * <tr><td><code>{@link #NavigationView_android_fitsSystemWindows android:fitsSystemWindows}</code></td><td></td></tr>
      * <tr><td><code>{@link #NavigationView_android_maxWidth android:maxWidth}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NavigationView_elevation com.messi.languagehelper:elevation}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NavigationView_headerLayout com.messi.languagehelper:headerLayout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NavigationView_itemBackground com.messi.languagehelper:itemBackground}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NavigationView_itemIconTint com.messi.languagehelper:itemIconTint}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NavigationView_itemTextAppearance com.messi.languagehelper:itemTextAppearance}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NavigationView_itemTextColor com.messi.languagehelper:itemTextColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NavigationView_menu com.messi.languagehelper:menu}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NavigationView_elevation com.messi.cantonese.study:elevation}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NavigationView_headerLayout com.messi.cantonese.study:headerLayout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NavigationView_itemBackground com.messi.cantonese.study:itemBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NavigationView_itemIconTint com.messi.cantonese.study:itemIconTint}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NavigationView_itemTextAppearance com.messi.cantonese.study:itemTextAppearance}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NavigationView_itemTextColor com.messi.cantonese.study:itemTextColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NavigationView_menu com.messi.cantonese.study:menu}</code></td><td></td></tr>
      * </table>
      * @see #NavigationView_android_background
      * @see #NavigationView_android_fitsSystemWindows
@@ -13990,7 +14014,7 @@ public final class R {
      */
     public static final int NavigationView_android_maxWidth=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#elevation}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#elevation}
      * attribute's value can be found in the {@link #NavigationView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -13999,11 +14023,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:elevation
+     * @attr name com.messi.cantonese.study:elevation
      */
     public static final int NavigationView_elevation=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#headerLayout}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#headerLayout}
      * attribute's value can be found in the {@link #NavigationView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -14011,11 +14035,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:headerLayout
+     * @attr name com.messi.cantonese.study:headerLayout
      */
     public static final int NavigationView_headerLayout=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#itemBackground}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#itemBackground}
      * attribute's value can be found in the {@link #NavigationView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -14023,22 +14047,22 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:itemBackground
+     * @attr name com.messi.cantonese.study:itemBackground
      */
     public static final int NavigationView_itemBackground=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#itemIconTint}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#itemIconTint}
      * attribute's value can be found in the {@link #NavigationView} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:itemIconTint
+     * @attr name com.messi.cantonese.study:itemIconTint
      */
     public static final int NavigationView_itemIconTint=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#itemTextAppearance}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#itemTextAppearance}
      * attribute's value can be found in the {@link #NavigationView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -14046,22 +14070,22 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:itemTextAppearance
+     * @attr name com.messi.cantonese.study:itemTextAppearance
      */
     public static final int NavigationView_itemTextAppearance=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#itemTextColor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#itemTextColor}
      * attribute's value can be found in the {@link #NavigationView} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:itemTextColor
+     * @attr name com.messi.cantonese.study:itemTextColor
      */
     public static final int NavigationView_itemTextColor=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#menu}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#menu}
      * attribute's value can be found in the {@link #NavigationView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -14069,7 +14093,7 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:menu
+     * @attr name com.messi.cantonese.study:menu
      */
     public static final int NavigationView_menu=9;
     /**
@@ -14079,16 +14103,16 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #NumberProgressBar_progress_current com.messi.languagehelper:progress_current}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NumberProgressBar_progress_max com.messi.languagehelper:progress_max}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NumberProgressBar_progress_reached_bar_height com.messi.languagehelper:progress_reached_bar_height}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NumberProgressBar_progress_reached_color com.messi.languagehelper:progress_reached_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NumberProgressBar_progress_text_color com.messi.languagehelper:progress_text_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NumberProgressBar_progress_text_offset com.messi.languagehelper:progress_text_offset}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NumberProgressBar_progress_text_size com.messi.languagehelper:progress_text_size}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NumberProgressBar_progress_text_visibility com.messi.languagehelper:progress_text_visibility}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NumberProgressBar_progress_unreached_bar_height com.messi.languagehelper:progress_unreached_bar_height}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NumberProgressBar_progress_unreached_color com.messi.languagehelper:progress_unreached_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NumberProgressBar_progress_current com.messi.cantonese.study:progress_current}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NumberProgressBar_progress_max com.messi.cantonese.study:progress_max}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NumberProgressBar_progress_reached_bar_height com.messi.cantonese.study:progress_reached_bar_height}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NumberProgressBar_progress_reached_color com.messi.cantonese.study:progress_reached_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NumberProgressBar_progress_text_color com.messi.cantonese.study:progress_text_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NumberProgressBar_progress_text_offset com.messi.cantonese.study:progress_text_offset}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NumberProgressBar_progress_text_size com.messi.cantonese.study:progress_text_size}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NumberProgressBar_progress_text_visibility com.messi.cantonese.study:progress_text_visibility}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NumberProgressBar_progress_unreached_bar_height com.messi.cantonese.study:progress_unreached_bar_height}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NumberProgressBar_progress_unreached_color com.messi.cantonese.study:progress_unreached_color}</code></td><td></td></tr>
      * </table>
      * @see #NumberProgressBar_progress_current
      * @see #NumberProgressBar_progress_max
@@ -14107,25 +14131,25 @@ public final class R {
         0x7f030160, 0x7f030161
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progress_current}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#progress_current}
      * attribute's value can be found in the {@link #NumberProgressBar} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.languagehelper:progress_current
+     * @attr name com.messi.cantonese.study:progress_current
      */
     public static final int NumberProgressBar_progress_current=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progress_max}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#progress_max}
      * attribute's value can be found in the {@link #NumberProgressBar} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.languagehelper:progress_max
+     * @attr name com.messi.cantonese.study:progress_max
      */
     public static final int NumberProgressBar_progress_max=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progress_reached_bar_height}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#progress_reached_bar_height}
      * attribute's value can be found in the {@link #NumberProgressBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -14134,33 +14158,33 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:progress_reached_bar_height
+     * @attr name com.messi.cantonese.study:progress_reached_bar_height
      */
     public static final int NumberProgressBar_progress_reached_bar_height=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progress_reached_color}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#progress_reached_color}
      * attribute's value can be found in the {@link #NumberProgressBar} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:progress_reached_color
+     * @attr name com.messi.cantonese.study:progress_reached_color
      */
     public static final int NumberProgressBar_progress_reached_color=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progress_text_color}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#progress_text_color}
      * attribute's value can be found in the {@link #NumberProgressBar} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:progress_text_color
+     * @attr name com.messi.cantonese.study:progress_text_color
      */
     public static final int NumberProgressBar_progress_text_color=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progress_text_offset}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#progress_text_offset}
      * attribute's value can be found in the {@link #NumberProgressBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -14169,11 +14193,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:progress_text_offset
+     * @attr name com.messi.cantonese.study:progress_text_offset
      */
     public static final int NumberProgressBar_progress_text_offset=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progress_text_size}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#progress_text_size}
      * attribute's value can be found in the {@link #NumberProgressBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -14182,11 +14206,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:progress_text_size
+     * @attr name com.messi.cantonese.study:progress_text_size
      */
     public static final int NumberProgressBar_progress_text_size=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progress_text_visibility}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#progress_text_visibility}
      * attribute's value can be found in the {@link #NumberProgressBar} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -14199,11 +14223,11 @@ public final class R {
      * <tr><td>visible</td><td>0</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:progress_text_visibility
+     * @attr name com.messi.cantonese.study:progress_text_visibility
      */
     public static final int NumberProgressBar_progress_text_visibility=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progress_unreached_bar_height}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#progress_unreached_bar_height}
      * attribute's value can be found in the {@link #NumberProgressBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -14212,18 +14236,18 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:progress_unreached_bar_height
+     * @attr name com.messi.cantonese.study:progress_unreached_bar_height
      */
     public static final int NumberProgressBar_progress_unreached_bar_height=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progress_unreached_color}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#progress_unreached_color}
      * attribute's value can be found in the {@link #NumberProgressBar} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:progress_unreached_color
+     * @attr name com.messi.cantonese.study:progress_unreached_color
      */
     public static final int NumberProgressBar_progress_unreached_color=9;
     /**
@@ -14233,20 +14257,20 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsActivateTextColor com.messi.languagehelper:pstsActivateTextColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsDeactivateTextColor com.messi.languagehelper:pstsDeactivateTextColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsDividerColor com.messi.languagehelper:pstsDividerColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsDividerPadding com.messi.languagehelper:pstsDividerPadding}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsIndicatorColor com.messi.languagehelper:pstsIndicatorColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsIndicatorHeight com.messi.languagehelper:pstsIndicatorHeight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsScrollOffset com.messi.languagehelper:pstsScrollOffset}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsShouldExpand com.messi.languagehelper:pstsShouldExpand}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsTabBackground com.messi.languagehelper:pstsTabBackground}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsTabPaddingLeftRight com.messi.languagehelper:pstsTabPaddingLeftRight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsTabSwitch com.messi.languagehelper:pstsTabSwitch}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsTextAllCaps com.messi.languagehelper:pstsTextAllCaps}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsUnderlineColor com.messi.languagehelper:pstsUnderlineColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsUnderlineHeight com.messi.languagehelper:pstsUnderlineHeight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsActivateTextColor com.messi.cantonese.study:pstsActivateTextColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsDeactivateTextColor com.messi.cantonese.study:pstsDeactivateTextColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsDividerColor com.messi.cantonese.study:pstsDividerColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsDividerPadding com.messi.cantonese.study:pstsDividerPadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsIndicatorColor com.messi.cantonese.study:pstsIndicatorColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsIndicatorHeight com.messi.cantonese.study:pstsIndicatorHeight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsScrollOffset com.messi.cantonese.study:pstsScrollOffset}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsShouldExpand com.messi.cantonese.study:pstsShouldExpand}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsTabBackground com.messi.cantonese.study:pstsTabBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsTabPaddingLeftRight com.messi.cantonese.study:pstsTabPaddingLeftRight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsTabSwitch com.messi.cantonese.study:pstsTabSwitch}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsTextAllCaps com.messi.cantonese.study:pstsTextAllCaps}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsUnderlineColor com.messi.cantonese.study:pstsUnderlineColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsUnderlineHeight com.messi.cantonese.study:pstsUnderlineHeight}</code></td><td></td></tr>
      * </table>
      * @see #PagerSlidingTabStrip_pstsActivateTextColor
      * @see #PagerSlidingTabStrip_pstsDeactivateTextColor
@@ -14270,40 +14294,40 @@ public final class R {
         0x7f03016e, 0x7f03016f
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pstsActivateTextColor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#pstsActivateTextColor}
      * attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:pstsActivateTextColor
+     * @attr name com.messi.cantonese.study:pstsActivateTextColor
      */
     public static final int PagerSlidingTabStrip_pstsActivateTextColor=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pstsDeactivateTextColor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#pstsDeactivateTextColor}
      * attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:pstsDeactivateTextColor
+     * @attr name com.messi.cantonese.study:pstsDeactivateTextColor
      */
     public static final int PagerSlidingTabStrip_pstsDeactivateTextColor=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pstsDividerColor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#pstsDividerColor}
      * attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:pstsDividerColor
+     * @attr name com.messi.cantonese.study:pstsDividerColor
      */
     public static final int PagerSlidingTabStrip_pstsDividerColor=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pstsDividerPadding}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#pstsDividerPadding}
      * attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -14312,22 +14336,22 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:pstsDividerPadding
+     * @attr name com.messi.cantonese.study:pstsDividerPadding
      */
     public static final int PagerSlidingTabStrip_pstsDividerPadding=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pstsIndicatorColor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#pstsIndicatorColor}
      * attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:pstsIndicatorColor
+     * @attr name com.messi.cantonese.study:pstsIndicatorColor
      */
     public static final int PagerSlidingTabStrip_pstsIndicatorColor=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pstsIndicatorHeight}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#pstsIndicatorHeight}
      * attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -14336,11 +14360,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:pstsIndicatorHeight
+     * @attr name com.messi.cantonese.study:pstsIndicatorHeight
      */
     public static final int PagerSlidingTabStrip_pstsIndicatorHeight=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pstsScrollOffset}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#pstsScrollOffset}
      * attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -14349,21 +14373,21 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:pstsScrollOffset
+     * @attr name com.messi.cantonese.study:pstsScrollOffset
      */
     public static final int PagerSlidingTabStrip_pstsScrollOffset=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pstsShouldExpand}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#pstsShouldExpand}
      * attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:pstsShouldExpand
+     * @attr name com.messi.cantonese.study:pstsShouldExpand
      */
     public static final int PagerSlidingTabStrip_pstsShouldExpand=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pstsTabBackground}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#pstsTabBackground}
      * attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -14371,11 +14395,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:pstsTabBackground
+     * @attr name com.messi.cantonese.study:pstsTabBackground
      */
     public static final int PagerSlidingTabStrip_pstsTabBackground=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pstsTabPaddingLeftRight}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#pstsTabPaddingLeftRight}
      * attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -14384,42 +14408,42 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:pstsTabPaddingLeftRight
+     * @attr name com.messi.cantonese.study:pstsTabPaddingLeftRight
      */
     public static final int PagerSlidingTabStrip_pstsTabPaddingLeftRight=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pstsTabSwitch}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#pstsTabSwitch}
      * attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:pstsTabSwitch
+     * @attr name com.messi.cantonese.study:pstsTabSwitch
      */
     public static final int PagerSlidingTabStrip_pstsTabSwitch=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pstsTextAllCaps}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#pstsTextAllCaps}
      * attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:pstsTextAllCaps
+     * @attr name com.messi.cantonese.study:pstsTextAllCaps
      */
     public static final int PagerSlidingTabStrip_pstsTextAllCaps=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pstsUnderlineColor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#pstsUnderlineColor}
      * attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:pstsUnderlineColor
+     * @attr name com.messi.cantonese.study:pstsUnderlineColor
      */
     public static final int PagerSlidingTabStrip_pstsUnderlineColor=12;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pstsUnderlineHeight}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#pstsUnderlineHeight}
      * attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -14428,7 +14452,7 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:pstsUnderlineHeight
+     * @attr name com.messi.cantonese.study:pstsUnderlineHeight
      */
     public static final int PagerSlidingTabStrip_pstsUnderlineHeight=13;
     /**
@@ -14438,7 +14462,7 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #PatternPathMotion_patternPathData com.messi.languagehelper:patternPathData}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PatternPathMotion_patternPathData com.messi.cantonese.study:patternPathData}</code></td><td></td></tr>
      * </table>
      * @see #PatternPathMotion_patternPathData
      */
@@ -14446,13 +14470,13 @@ public final class R {
         0x7f030147
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#patternPathData}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#patternPathData}
      * attribute's value can be found in the {@link #PatternPathMotion} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:patternPathData
+     * @attr name com.messi.cantonese.study:patternPathData
      */
     public static final int PatternPathMotion_patternPathData=0;
     /**
@@ -14462,12 +14486,12 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #PlaybackControlView_controller_layout_id com.messi.languagehelper:controller_layout_id}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PlaybackControlView_fastforward_increment com.messi.languagehelper:fastforward_increment}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PlaybackControlView_repeat_toggle_modes com.messi.languagehelper:repeat_toggle_modes}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PlaybackControlView_rewind_increment com.messi.languagehelper:rewind_increment}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PlaybackControlView_show_shuffle_button com.messi.languagehelper:show_shuffle_button}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PlaybackControlView_show_timeout com.messi.languagehelper:show_timeout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlaybackControlView_controller_layout_id com.messi.cantonese.study:controller_layout_id}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlaybackControlView_fastforward_increment com.messi.cantonese.study:fastforward_increment}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlaybackControlView_repeat_toggle_modes com.messi.cantonese.study:repeat_toggle_modes}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlaybackControlView_rewind_increment com.messi.cantonese.study:rewind_increment}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlaybackControlView_show_shuffle_button com.messi.cantonese.study:show_shuffle_button}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlaybackControlView_show_timeout com.messi.cantonese.study:show_timeout}</code></td><td></td></tr>
      * </table>
      * @see #PlaybackControlView_controller_layout_id
      * @see #PlaybackControlView_fastforward_increment
@@ -14481,7 +14505,7 @@ public final class R {
         0x7f03019e, 0x7f03019f
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#controller_layout_id}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#controller_layout_id}
      * attribute's value can be found in the {@link #PlaybackControlView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -14489,20 +14513,20 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:controller_layout_id
+     * @attr name com.messi.cantonese.study:controller_layout_id
      */
     public static final int PlaybackControlView_controller_layout_id=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fastforward_increment}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#fastforward_increment}
      * attribute's value can be found in the {@link #PlaybackControlView} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.languagehelper:fastforward_increment
+     * @attr name com.messi.cantonese.study:fastforward_increment
      */
     public static final int PlaybackControlView_fastforward_increment=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#repeat_toggle_modes}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#repeat_toggle_modes}
      * attribute's value can be found in the {@link #PlaybackControlView} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -14516,35 +14540,35 @@ public final class R {
      * <tr><td>one</td><td>1</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:repeat_toggle_modes
+     * @attr name com.messi.cantonese.study:repeat_toggle_modes
      */
     public static final int PlaybackControlView_repeat_toggle_modes=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#rewind_increment}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#rewind_increment}
      * attribute's value can be found in the {@link #PlaybackControlView} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.languagehelper:rewind_increment
+     * @attr name com.messi.cantonese.study:rewind_increment
      */
     public static final int PlaybackControlView_rewind_increment=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#show_shuffle_button}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#show_shuffle_button}
      * attribute's value can be found in the {@link #PlaybackControlView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:show_shuffle_button
+     * @attr name com.messi.cantonese.study:show_shuffle_button
      */
     public static final int PlaybackControlView_show_shuffle_button=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#show_timeout}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#show_timeout}
      * attribute's value can be found in the {@link #PlaybackControlView} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.languagehelper:show_timeout
+     * @attr name com.messi.cantonese.study:show_timeout
      */
     public static final int PlaybackControlView_show_timeout=5;
     /**
@@ -14556,7 +14580,7 @@ public final class R {
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #PopupWindow_android_popupBackground android:popupBackground}</code></td><td></td></tr>
      * <tr><td><code>{@link #PopupWindow_android_popupAnimationStyle android:popupAnimationStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PopupWindow_overlapAnchor com.messi.languagehelper:overlapAnchor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PopupWindow_overlapAnchor com.messi.cantonese.study:overlapAnchor}</code></td><td></td></tr>
      * </table>
      * @see #PopupWindow_android_popupBackground
      * @see #PopupWindow_android_popupAnimationStyle
@@ -14593,13 +14617,13 @@ public final class R {
      */
     public static final int PopupWindow_android_popupAnimationStyle=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#overlapAnchor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#overlapAnchor}
      * attribute's value can be found in the {@link #PopupWindow} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:overlapAnchor
+     * @attr name com.messi.cantonese.study:overlapAnchor
      */
     public static final int PopupWindow_overlapAnchor=2;
     /**
@@ -14609,7 +14633,7 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #PopupWindowBackgroundState_state_above_anchor com.messi.languagehelper:state_above_anchor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PopupWindowBackgroundState_state_above_anchor com.messi.cantonese.study:state_above_anchor}</code></td><td></td></tr>
      * </table>
      * @see #PopupWindowBackgroundState_state_above_anchor
      */
@@ -14617,13 +14641,13 @@ public final class R {
         0x7f0301ab
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#state_above_anchor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#state_above_anchor}
      * attribute's value can be found in the {@link #PopupWindowBackgroundState} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:state_above_anchor
+     * @attr name com.messi.cantonese.study:state_above_anchor
      */
     public static final int PopupWindowBackgroundState_state_above_anchor=0;
     /**
@@ -14633,8 +14657,8 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #RecycleListView_paddingBottomNoButtons com.messi.languagehelper:paddingBottomNoButtons}</code></td><td></td></tr>
-     * <tr><td><code>{@link #RecycleListView_paddingTopNoTitle com.messi.languagehelper:paddingTopNoTitle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #RecycleListView_paddingBottomNoButtons com.messi.cantonese.study:paddingBottomNoButtons}</code></td><td></td></tr>
+     * <tr><td><code>{@link #RecycleListView_paddingTopNoTitle com.messi.cantonese.study:paddingTopNoTitle}</code></td><td></td></tr>
      * </table>
      * @see #RecycleListView_paddingBottomNoButtons
      * @see #RecycleListView_paddingTopNoTitle
@@ -14643,7 +14667,7 @@ public final class R {
         0x7f03013b, 0x7f03013e
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#paddingBottomNoButtons}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#paddingBottomNoButtons}
      * attribute's value can be found in the {@link #RecycleListView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -14652,11 +14676,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:paddingBottomNoButtons
+     * @attr name com.messi.cantonese.study:paddingBottomNoButtons
      */
     public static final int RecycleListView_paddingBottomNoButtons=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#paddingTopNoTitle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#paddingTopNoTitle}
      * attribute's value can be found in the {@link #RecycleListView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -14665,7 +14689,7 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:paddingTopNoTitle
+     * @attr name com.messi.cantonese.study:paddingTopNoTitle
      */
     public static final int RecycleListView_paddingTopNoTitle=1;
     /**
@@ -14677,15 +14701,15 @@ public final class R {
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #RecyclerView_android_orientation android:orientation}</code></td><td></td></tr>
      * <tr><td><code>{@link #RecyclerView_android_descendantFocusability android:descendantFocusability}</code></td><td></td></tr>
-     * <tr><td><code>{@link #RecyclerView_fastScrollEnabled com.messi.languagehelper:fastScrollEnabled}</code></td><td></td></tr>
-     * <tr><td><code>{@link #RecyclerView_fastScrollHorizontalThumbDrawable com.messi.languagehelper:fastScrollHorizontalThumbDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #RecyclerView_fastScrollHorizontalTrackDrawable com.messi.languagehelper:fastScrollHorizontalTrackDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #RecyclerView_fastScrollVerticalThumbDrawable com.messi.languagehelper:fastScrollVerticalThumbDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #RecyclerView_fastScrollVerticalTrackDrawable com.messi.languagehelper:fastScrollVerticalTrackDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #RecyclerView_layoutManager com.messi.languagehelper:layoutManager}</code></td><td></td></tr>
-     * <tr><td><code>{@link #RecyclerView_reverseLayout com.messi.languagehelper:reverseLayout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #RecyclerView_spanCount com.messi.languagehelper:spanCount}</code></td><td></td></tr>
-     * <tr><td><code>{@link #RecyclerView_stackFromEnd com.messi.languagehelper:stackFromEnd}</code></td><td></td></tr>
+     * <tr><td><code>{@link #RecyclerView_fastScrollEnabled com.messi.cantonese.study:fastScrollEnabled}</code></td><td></td></tr>
+     * <tr><td><code>{@link #RecyclerView_fastScrollHorizontalThumbDrawable com.messi.cantonese.study:fastScrollHorizontalThumbDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #RecyclerView_fastScrollHorizontalTrackDrawable com.messi.cantonese.study:fastScrollHorizontalTrackDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #RecyclerView_fastScrollVerticalThumbDrawable com.messi.cantonese.study:fastScrollVerticalThumbDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #RecyclerView_fastScrollVerticalTrackDrawable com.messi.cantonese.study:fastScrollVerticalTrackDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #RecyclerView_layoutManager com.messi.cantonese.study:layoutManager}</code></td><td></td></tr>
+     * <tr><td><code>{@link #RecyclerView_reverseLayout com.messi.cantonese.study:reverseLayout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #RecyclerView_spanCount com.messi.cantonese.study:spanCount}</code></td><td></td></tr>
+     * <tr><td><code>{@link #RecyclerView_stackFromEnd com.messi.cantonese.study:stackFromEnd}</code></td><td></td></tr>
      * </table>
      * @see #RecyclerView_android_orientation
      * @see #RecyclerView_android_descendantFocusability
@@ -14740,17 +14764,17 @@ public final class R {
      */
     public static final int RecyclerView_android_descendantFocusability=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fastScrollEnabled}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#fastScrollEnabled}
      * attribute's value can be found in the {@link #RecyclerView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:fastScrollEnabled
+     * @attr name com.messi.cantonese.study:fastScrollEnabled
      */
     public static final int RecyclerView_fastScrollEnabled=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fastScrollHorizontalThumbDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#fastScrollHorizontalThumbDrawable}
      * attribute's value can be found in the {@link #RecyclerView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -14758,11 +14782,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:fastScrollHorizontalThumbDrawable
+     * @attr name com.messi.cantonese.study:fastScrollHorizontalThumbDrawable
      */
     public static final int RecyclerView_fastScrollHorizontalThumbDrawable=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fastScrollHorizontalTrackDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#fastScrollHorizontalTrackDrawable}
      * attribute's value can be found in the {@link #RecyclerView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -14770,11 +14794,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:fastScrollHorizontalTrackDrawable
+     * @attr name com.messi.cantonese.study:fastScrollHorizontalTrackDrawable
      */
     public static final int RecyclerView_fastScrollHorizontalTrackDrawable=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fastScrollVerticalThumbDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#fastScrollVerticalThumbDrawable}
      * attribute's value can be found in the {@link #RecyclerView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -14782,11 +14806,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:fastScrollVerticalThumbDrawable
+     * @attr name com.messi.cantonese.study:fastScrollVerticalThumbDrawable
      */
     public static final int RecyclerView_fastScrollVerticalThumbDrawable=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fastScrollVerticalTrackDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#fastScrollVerticalTrackDrawable}
      * attribute's value can be found in the {@link #RecyclerView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -14794,46 +14818,46 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:fastScrollVerticalTrackDrawable
+     * @attr name com.messi.cantonese.study:fastScrollVerticalTrackDrawable
      */
     public static final int RecyclerView_fastScrollVerticalTrackDrawable=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layoutManager}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#layoutManager}
      * attribute's value can be found in the {@link #RecyclerView} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:layoutManager
+     * @attr name com.messi.cantonese.study:layoutManager
      */
     public static final int RecyclerView_layoutManager=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#reverseLayout}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#reverseLayout}
      * attribute's value can be found in the {@link #RecyclerView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:reverseLayout
+     * @attr name com.messi.cantonese.study:reverseLayout
      */
     public static final int RecyclerView_reverseLayout=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#spanCount}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#spanCount}
      * attribute's value can be found in the {@link #RecyclerView} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.languagehelper:spanCount
+     * @attr name com.messi.cantonese.study:spanCount
      */
     public static final int RecyclerView_spanCount=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#stackFromEnd}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#stackFromEnd}
      * attribute's value can be found in the {@link #RecyclerView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:stackFromEnd
+     * @attr name com.messi.cantonese.study:stackFromEnd
      */
     public static final int RecyclerView_stackFromEnd=10;
     /**
@@ -14843,7 +14867,7 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #Scale_disappearedScale com.messi.languagehelper:disappearedScale}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Scale_disappearedScale com.messi.cantonese.study:disappearedScale}</code></td><td></td></tr>
      * </table>
      * @see #Scale_disappearedScale
      */
@@ -14851,12 +14875,12 @@ public final class R {
         0x7f03009f
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#disappearedScale}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#disappearedScale}
      * attribute's value can be found in the {@link #Scale} array.
      *
      * <p>May be a floating point value, such as "<code>1.2</code>".
      *
-     * @attr name com.messi.languagehelper:disappearedScale
+     * @attr name com.messi.cantonese.study:disappearedScale
      */
     public static final int Scale_disappearedScale=0;
     /**
@@ -14866,7 +14890,7 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #ScrimInsetsFrameLayout_insetForeground com.messi.languagehelper:insetForeground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ScrimInsetsFrameLayout_insetForeground com.messi.cantonese.study:insetForeground}</code></td><td></td></tr>
      * </table>
      * @see #ScrimInsetsFrameLayout_insetForeground
      */
@@ -14874,7 +14898,7 @@ public final class R {
         0x7f0300fe
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#insetForeground}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#insetForeground}
      * attribute's value can be found in the {@link #ScrimInsetsFrameLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -14885,7 +14909,7 @@ public final class R {
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:insetForeground
+     * @attr name com.messi.cantonese.study:insetForeground
      */
     public static final int ScrimInsetsFrameLayout_insetForeground=0;
     /**
@@ -14895,7 +14919,7 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #ScrollingViewBehavior_Layout_behavior_overlapTop com.messi.languagehelper:behavior_overlapTop}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ScrollingViewBehavior_Layout_behavior_overlapTop com.messi.cantonese.study:behavior_overlapTop}</code></td><td></td></tr>
      * </table>
      * @see #ScrollingViewBehavior_Layout_behavior_overlapTop
      */
@@ -14903,7 +14927,7 @@ public final class R {
         0x7f030051
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#behavior_overlapTop}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#behavior_overlapTop}
      * attribute's value can be found in the {@link #ScrollingViewBehavior_Layout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -14912,7 +14936,7 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:behavior_overlapTop
+     * @attr name com.messi.cantonese.study:behavior_overlapTop
      */
     public static final int ScrollingViewBehavior_Layout_behavior_overlapTop=0;
     /**
@@ -14926,19 +14950,19 @@ public final class R {
      * <tr><td><code>{@link #SearchView_android_maxWidth android:maxWidth}</code></td><td></td></tr>
      * <tr><td><code>{@link #SearchView_android_inputType android:inputType}</code></td><td></td></tr>
      * <tr><td><code>{@link #SearchView_android_imeOptions android:imeOptions}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SearchView_closeIcon com.messi.languagehelper:closeIcon}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SearchView_commitIcon com.messi.languagehelper:commitIcon}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SearchView_defaultQueryHint com.messi.languagehelper:defaultQueryHint}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SearchView_goIcon com.messi.languagehelper:goIcon}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SearchView_iconifiedByDefault com.messi.languagehelper:iconifiedByDefault}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SearchView_layout com.messi.languagehelper:layout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SearchView_queryBackground com.messi.languagehelper:queryBackground}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SearchView_queryHint com.messi.languagehelper:queryHint}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SearchView_searchHintIcon com.messi.languagehelper:searchHintIcon}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SearchView_searchIcon com.messi.languagehelper:searchIcon}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SearchView_submitBackground com.messi.languagehelper:submitBackground}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SearchView_suggestionRowLayout com.messi.languagehelper:suggestionRowLayout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SearchView_voiceIcon com.messi.languagehelper:voiceIcon}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SearchView_closeIcon com.messi.cantonese.study:closeIcon}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SearchView_commitIcon com.messi.cantonese.study:commitIcon}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SearchView_defaultQueryHint com.messi.cantonese.study:defaultQueryHint}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SearchView_goIcon com.messi.cantonese.study:goIcon}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SearchView_iconifiedByDefault com.messi.cantonese.study:iconifiedByDefault}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SearchView_layout com.messi.cantonese.study:layout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SearchView_queryBackground com.messi.cantonese.study:queryBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SearchView_queryHint com.messi.cantonese.study:queryHint}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SearchView_searchHintIcon com.messi.cantonese.study:searchHintIcon}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SearchView_searchIcon com.messi.cantonese.study:searchIcon}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SearchView_submitBackground com.messi.cantonese.study:submitBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SearchView_suggestionRowLayout com.messi.cantonese.study:suggestionRowLayout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SearchView_voiceIcon com.messi.cantonese.study:voiceIcon}</code></td><td></td></tr>
      * </table>
      * @see #SearchView_android_focusable
      * @see #SearchView_android_maxWidth
@@ -15076,7 +15100,7 @@ public final class R {
      */
     public static final int SearchView_android_imeOptions=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#closeIcon}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#closeIcon}
      * attribute's value can be found in the {@link #SearchView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15084,11 +15108,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:closeIcon
+     * @attr name com.messi.cantonese.study:closeIcon
      */
     public static final int SearchView_closeIcon=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#commitIcon}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#commitIcon}
      * attribute's value can be found in the {@link #SearchView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15096,21 +15120,21 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:commitIcon
+     * @attr name com.messi.cantonese.study:commitIcon
      */
     public static final int SearchView_commitIcon=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#defaultQueryHint}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#defaultQueryHint}
      * attribute's value can be found in the {@link #SearchView} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:defaultQueryHint
+     * @attr name com.messi.cantonese.study:defaultQueryHint
      */
     public static final int SearchView_defaultQueryHint=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#goIcon}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#goIcon}
      * attribute's value can be found in the {@link #SearchView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15118,21 +15142,21 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:goIcon
+     * @attr name com.messi.cantonese.study:goIcon
      */
     public static final int SearchView_goIcon=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#iconifiedByDefault}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#iconifiedByDefault}
      * attribute's value can be found in the {@link #SearchView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:iconifiedByDefault
+     * @attr name com.messi.cantonese.study:iconifiedByDefault
      */
     public static final int SearchView_iconifiedByDefault=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#layout}
      * attribute's value can be found in the {@link #SearchView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15140,11 +15164,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:layout
+     * @attr name com.messi.cantonese.study:layout
      */
     public static final int SearchView_layout=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#queryBackground}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#queryBackground}
      * attribute's value can be found in the {@link #SearchView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15152,21 +15176,21 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:queryBackground
+     * @attr name com.messi.cantonese.study:queryBackground
      */
     public static final int SearchView_queryBackground=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#queryHint}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#queryHint}
      * attribute's value can be found in the {@link #SearchView} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:queryHint
+     * @attr name com.messi.cantonese.study:queryHint
      */
     public static final int SearchView_queryHint=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#searchHintIcon}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#searchHintIcon}
      * attribute's value can be found in the {@link #SearchView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15174,11 +15198,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:searchHintIcon
+     * @attr name com.messi.cantonese.study:searchHintIcon
      */
     public static final int SearchView_searchHintIcon=12;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#searchIcon}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#searchIcon}
      * attribute's value can be found in the {@link #SearchView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15186,11 +15210,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:searchIcon
+     * @attr name com.messi.cantonese.study:searchIcon
      */
     public static final int SearchView_searchIcon=13;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#submitBackground}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#submitBackground}
      * attribute's value can be found in the {@link #SearchView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15198,11 +15222,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:submitBackground
+     * @attr name com.messi.cantonese.study:submitBackground
      */
     public static final int SearchView_submitBackground=14;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#suggestionRowLayout}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#suggestionRowLayout}
      * attribute's value can be found in the {@link #SearchView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15210,11 +15234,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:suggestionRowLayout
+     * @attr name com.messi.cantonese.study:suggestionRowLayout
      */
     public static final int SearchView_suggestionRowLayout=15;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#voiceIcon}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#voiceIcon}
      * attribute's value can be found in the {@link #SearchView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15222,7 +15246,7 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:voiceIcon
+     * @attr name com.messi.cantonese.study:voiceIcon
      */
     public static final int SearchView_voiceIcon=16;
     /**
@@ -15232,33 +15256,33 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_actualImageResource com.messi.languagehelper:actualImageResource}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_actualImageScaleType com.messi.languagehelper:actualImageScaleType}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_actualImageUri com.messi.languagehelper:actualImageUri}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_backgroundImage com.messi.languagehelper:backgroundImage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_fadeDuration com.messi.languagehelper:fadeDuration}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_failureImage com.messi.languagehelper:failureImage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_failureImageScaleType com.messi.languagehelper:failureImageScaleType}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_overlayImage com.messi.languagehelper:overlayImage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_placeholderImage com.messi.languagehelper:placeholderImage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_placeholderImageScaleType com.messi.languagehelper:placeholderImageScaleType}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_pressedStateOverlayImage com.messi.languagehelper:pressedStateOverlayImage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_progressBarAutoRotateInterval com.messi.languagehelper:progressBarAutoRotateInterval}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_progressBarImage com.messi.languagehelper:progressBarImage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_progressBarImageScaleType com.messi.languagehelper:progressBarImageScaleType}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_retryImage com.messi.languagehelper:retryImage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_retryImageScaleType com.messi.languagehelper:retryImageScaleType}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_roundAsCircle com.messi.languagehelper:roundAsCircle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_roundBottomLeft com.messi.languagehelper:roundBottomLeft}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_roundBottomRight com.messi.languagehelper:roundBottomRight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_roundTopLeft com.messi.languagehelper:roundTopLeft}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_roundTopRight com.messi.languagehelper:roundTopRight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_roundWithOverlayColor com.messi.languagehelper:roundWithOverlayColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_roundedCornerRadius com.messi.languagehelper:roundedCornerRadius}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_roundingBorderColor com.messi.languagehelper:roundingBorderColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_roundingBorderPadding com.messi.languagehelper:roundingBorderPadding}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_roundingBorderWidth com.messi.languagehelper:roundingBorderWidth}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_viewAspectRatio com.messi.languagehelper:viewAspectRatio}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_actualImageResource com.messi.cantonese.study:actualImageResource}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_actualImageScaleType com.messi.cantonese.study:actualImageScaleType}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_actualImageUri com.messi.cantonese.study:actualImageUri}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_backgroundImage com.messi.cantonese.study:backgroundImage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_fadeDuration com.messi.cantonese.study:fadeDuration}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_failureImage com.messi.cantonese.study:failureImage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_failureImageScaleType com.messi.cantonese.study:failureImageScaleType}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_overlayImage com.messi.cantonese.study:overlayImage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_placeholderImage com.messi.cantonese.study:placeholderImage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_placeholderImageScaleType com.messi.cantonese.study:placeholderImageScaleType}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_pressedStateOverlayImage com.messi.cantonese.study:pressedStateOverlayImage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_progressBarAutoRotateInterval com.messi.cantonese.study:progressBarAutoRotateInterval}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_progressBarImage com.messi.cantonese.study:progressBarImage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_progressBarImageScaleType com.messi.cantonese.study:progressBarImageScaleType}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_retryImage com.messi.cantonese.study:retryImage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_retryImageScaleType com.messi.cantonese.study:retryImageScaleType}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_roundAsCircle com.messi.cantonese.study:roundAsCircle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_roundBottomLeft com.messi.cantonese.study:roundBottomLeft}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_roundBottomRight com.messi.cantonese.study:roundBottomRight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_roundTopLeft com.messi.cantonese.study:roundTopLeft}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_roundTopRight com.messi.cantonese.study:roundTopRight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_roundWithOverlayColor com.messi.cantonese.study:roundWithOverlayColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_roundedCornerRadius com.messi.cantonese.study:roundedCornerRadius}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_roundingBorderColor com.messi.cantonese.study:roundingBorderColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_roundingBorderPadding com.messi.cantonese.study:roundingBorderPadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_roundingBorderWidth com.messi.cantonese.study:roundingBorderWidth}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_viewAspectRatio com.messi.cantonese.study:viewAspectRatio}</code></td><td></td></tr>
      * </table>
      * @see #SimpleDraweeView_actualImageResource
      * @see #SimpleDraweeView_actualImageScaleType
@@ -15298,7 +15322,7 @@ public final class R {
         0x7f030188, 0x7f030189, 0x7f030202
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actualImageResource}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actualImageResource}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15306,11 +15330,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:actualImageResource
+     * @attr name com.messi.cantonese.study:actualImageResource
      */
     public static final int SimpleDraweeView_actualImageResource=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actualImageScaleType}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actualImageScaleType}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -15331,21 +15355,21 @@ public final class R {
      * <tr><td>none</td><td>ffffffff</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:actualImageScaleType
+     * @attr name com.messi.cantonese.study:actualImageScaleType
      */
     public static final int SimpleDraweeView_actualImageScaleType=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actualImageUri}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#actualImageUri}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:actualImageUri
+     * @attr name com.messi.cantonese.study:actualImageUri
      */
     public static final int SimpleDraweeView_actualImageUri=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#backgroundImage}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#backgroundImage}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15353,20 +15377,20 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:backgroundImage
+     * @attr name com.messi.cantonese.study:backgroundImage
      */
     public static final int SimpleDraweeView_backgroundImage=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fadeDuration}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#fadeDuration}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.languagehelper:fadeDuration
+     * @attr name com.messi.cantonese.study:fadeDuration
      */
     public static final int SimpleDraweeView_fadeDuration=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#failureImage}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#failureImage}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15374,11 +15398,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:failureImage
+     * @attr name com.messi.cantonese.study:failureImage
      */
     public static final int SimpleDraweeView_failureImage=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#failureImageScaleType}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#failureImageScaleType}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -15399,11 +15423,11 @@ public final class R {
      * <tr><td>none</td><td>ffffffff</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:failureImageScaleType
+     * @attr name com.messi.cantonese.study:failureImageScaleType
      */
     public static final int SimpleDraweeView_failureImageScaleType=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#overlayImage}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#overlayImage}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15411,11 +15435,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:overlayImage
+     * @attr name com.messi.cantonese.study:overlayImage
      */
     public static final int SimpleDraweeView_overlayImage=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#placeholderImage}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#placeholderImage}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15423,11 +15447,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:placeholderImage
+     * @attr name com.messi.cantonese.study:placeholderImage
      */
     public static final int SimpleDraweeView_placeholderImage=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#placeholderImageScaleType}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#placeholderImageScaleType}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -15448,11 +15472,11 @@ public final class R {
      * <tr><td>none</td><td>ffffffff</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:placeholderImageScaleType
+     * @attr name com.messi.cantonese.study:placeholderImageScaleType
      */
     public static final int SimpleDraweeView_placeholderImageScaleType=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pressedStateOverlayImage}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#pressedStateOverlayImage}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15460,20 +15484,20 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:pressedStateOverlayImage
+     * @attr name com.messi.cantonese.study:pressedStateOverlayImage
      */
     public static final int SimpleDraweeView_pressedStateOverlayImage=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progressBarAutoRotateInterval}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#progressBarAutoRotateInterval}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.languagehelper:progressBarAutoRotateInterval
+     * @attr name com.messi.cantonese.study:progressBarAutoRotateInterval
      */
     public static final int SimpleDraweeView_progressBarAutoRotateInterval=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progressBarImage}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#progressBarImage}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15481,11 +15505,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:progressBarImage
+     * @attr name com.messi.cantonese.study:progressBarImage
      */
     public static final int SimpleDraweeView_progressBarImage=12;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progressBarImageScaleType}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#progressBarImageScaleType}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -15506,11 +15530,11 @@ public final class R {
      * <tr><td>none</td><td>ffffffff</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:progressBarImageScaleType
+     * @attr name com.messi.cantonese.study:progressBarImageScaleType
      */
     public static final int SimpleDraweeView_progressBarImageScaleType=13;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#retryImage}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#retryImage}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15518,11 +15542,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:retryImage
+     * @attr name com.messi.cantonese.study:retryImage
      */
     public static final int SimpleDraweeView_retryImage=14;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#retryImageScaleType}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#retryImageScaleType}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -15543,72 +15567,72 @@ public final class R {
      * <tr><td>none</td><td>ffffffff</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:retryImageScaleType
+     * @attr name com.messi.cantonese.study:retryImageScaleType
      */
     public static final int SimpleDraweeView_retryImageScaleType=15;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundAsCircle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#roundAsCircle}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:roundAsCircle
+     * @attr name com.messi.cantonese.study:roundAsCircle
      */
     public static final int SimpleDraweeView_roundAsCircle=16;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundBottomLeft}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#roundBottomLeft}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:roundBottomLeft
+     * @attr name com.messi.cantonese.study:roundBottomLeft
      */
     public static final int SimpleDraweeView_roundBottomLeft=17;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundBottomRight}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#roundBottomRight}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:roundBottomRight
+     * @attr name com.messi.cantonese.study:roundBottomRight
      */
     public static final int SimpleDraweeView_roundBottomRight=18;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundTopLeft}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#roundTopLeft}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:roundTopLeft
+     * @attr name com.messi.cantonese.study:roundTopLeft
      */
     public static final int SimpleDraweeView_roundTopLeft=19;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundTopRight}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#roundTopRight}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:roundTopRight
+     * @attr name com.messi.cantonese.study:roundTopRight
      */
     public static final int SimpleDraweeView_roundTopRight=20;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundWithOverlayColor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#roundWithOverlayColor}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:roundWithOverlayColor
+     * @attr name com.messi.cantonese.study:roundWithOverlayColor
      */
     public static final int SimpleDraweeView_roundWithOverlayColor=21;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundedCornerRadius}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#roundedCornerRadius}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -15617,22 +15641,22 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:roundedCornerRadius
+     * @attr name com.messi.cantonese.study:roundedCornerRadius
      */
     public static final int SimpleDraweeView_roundedCornerRadius=22;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundingBorderColor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#roundingBorderColor}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:roundingBorderColor
+     * @attr name com.messi.cantonese.study:roundingBorderColor
      */
     public static final int SimpleDraweeView_roundingBorderColor=23;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundingBorderPadding}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#roundingBorderPadding}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -15641,11 +15665,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:roundingBorderPadding
+     * @attr name com.messi.cantonese.study:roundingBorderPadding
      */
     public static final int SimpleDraweeView_roundingBorderPadding=24;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundingBorderWidth}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#roundingBorderWidth}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -15654,16 +15678,16 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:roundingBorderWidth
+     * @attr name com.messi.cantonese.study:roundingBorderWidth
      */
     public static final int SimpleDraweeView_roundingBorderWidth=25;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#viewAspectRatio}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#viewAspectRatio}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a floating point value, such as "<code>1.2</code>".
      *
-     * @attr name com.messi.languagehelper:viewAspectRatio
+     * @attr name com.messi.cantonese.study:viewAspectRatio
      */
     public static final int SimpleDraweeView_viewAspectRatio=26;
     /**
@@ -15673,22 +15697,22 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #SimpleExoPlayerView_auto_show com.messi.languagehelper:auto_show}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleExoPlayerView_controller_layout_id com.messi.languagehelper:controller_layout_id}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleExoPlayerView_default_artwork com.messi.languagehelper:default_artwork}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleExoPlayerView_fastforward_increment com.messi.languagehelper:fastforward_increment}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleExoPlayerView_hide_during_ads com.messi.languagehelper:hide_during_ads}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleExoPlayerView_hide_on_touch com.messi.languagehelper:hide_on_touch}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleExoPlayerView_player_layout_id com.messi.languagehelper:player_layout_id}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleExoPlayerView_repeat_toggle_modes com.messi.languagehelper:repeat_toggle_modes}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleExoPlayerView_resize_mode com.messi.languagehelper:resize_mode}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleExoPlayerView_rewind_increment com.messi.languagehelper:rewind_increment}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleExoPlayerView_show_shuffle_button com.messi.languagehelper:show_shuffle_button}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleExoPlayerView_show_timeout com.messi.languagehelper:show_timeout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleExoPlayerView_shutter_background_color com.messi.languagehelper:shutter_background_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleExoPlayerView_surface_type com.messi.languagehelper:surface_type}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleExoPlayerView_use_artwork com.messi.languagehelper:use_artwork}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleExoPlayerView_use_controller com.messi.languagehelper:use_controller}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleExoPlayerView_auto_show com.messi.cantonese.study:auto_show}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleExoPlayerView_controller_layout_id com.messi.cantonese.study:controller_layout_id}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleExoPlayerView_default_artwork com.messi.cantonese.study:default_artwork}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleExoPlayerView_fastforward_increment com.messi.cantonese.study:fastforward_increment}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleExoPlayerView_hide_during_ads com.messi.cantonese.study:hide_during_ads}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleExoPlayerView_hide_on_touch com.messi.cantonese.study:hide_on_touch}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleExoPlayerView_player_layout_id com.messi.cantonese.study:player_layout_id}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleExoPlayerView_repeat_toggle_modes com.messi.cantonese.study:repeat_toggle_modes}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleExoPlayerView_resize_mode com.messi.cantonese.study:resize_mode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleExoPlayerView_rewind_increment com.messi.cantonese.study:rewind_increment}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleExoPlayerView_show_shuffle_button com.messi.cantonese.study:show_shuffle_button}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleExoPlayerView_show_timeout com.messi.cantonese.study:show_timeout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleExoPlayerView_shutter_background_color com.messi.cantonese.study:shutter_background_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleExoPlayerView_surface_type com.messi.cantonese.study:surface_type}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleExoPlayerView_use_artwork com.messi.cantonese.study:use_artwork}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleExoPlayerView_use_controller com.messi.cantonese.study:use_controller}</code></td><td></td></tr>
      * </table>
      * @see #SimpleExoPlayerView_auto_show
      * @see #SimpleExoPlayerView_controller_layout_id
@@ -15714,17 +15738,17 @@ public final class R {
         0x7f0301a0, 0x7f0301b7, 0x7f030200, 0x7f030201
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#auto_show}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#auto_show}
      * attribute's value can be found in the {@link #SimpleExoPlayerView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:auto_show
+     * @attr name com.messi.cantonese.study:auto_show
      */
     public static final int SimpleExoPlayerView_auto_show=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#controller_layout_id}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#controller_layout_id}
      * attribute's value can be found in the {@link #SimpleExoPlayerView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15732,11 +15756,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:controller_layout_id
+     * @attr name com.messi.cantonese.study:controller_layout_id
      */
     public static final int SimpleExoPlayerView_controller_layout_id=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#default_artwork}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#default_artwork}
      * attribute's value can be found in the {@link #SimpleExoPlayerView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15744,40 +15768,40 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:default_artwork
+     * @attr name com.messi.cantonese.study:default_artwork
      */
     public static final int SimpleExoPlayerView_default_artwork=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fastforward_increment}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#fastforward_increment}
      * attribute's value can be found in the {@link #SimpleExoPlayerView} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.languagehelper:fastforward_increment
+     * @attr name com.messi.cantonese.study:fastforward_increment
      */
     public static final int SimpleExoPlayerView_fastforward_increment=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#hide_during_ads}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#hide_during_ads}
      * attribute's value can be found in the {@link #SimpleExoPlayerView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:hide_during_ads
+     * @attr name com.messi.cantonese.study:hide_during_ads
      */
     public static final int SimpleExoPlayerView_hide_during_ads=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#hide_on_touch}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#hide_on_touch}
      * attribute's value can be found in the {@link #SimpleExoPlayerView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:hide_on_touch
+     * @attr name com.messi.cantonese.study:hide_on_touch
      */
     public static final int SimpleExoPlayerView_hide_on_touch=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#player_layout_id}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#player_layout_id}
      * attribute's value can be found in the {@link #SimpleExoPlayerView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15785,11 +15809,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:player_layout_id
+     * @attr name com.messi.cantonese.study:player_layout_id
      */
     public static final int SimpleExoPlayerView_player_layout_id=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#repeat_toggle_modes}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#repeat_toggle_modes}
      * attribute's value can be found in the {@link #SimpleExoPlayerView} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -15803,11 +15827,11 @@ public final class R {
      * <tr><td>one</td><td>1</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:repeat_toggle_modes
+     * @attr name com.messi.cantonese.study:repeat_toggle_modes
      */
     public static final int SimpleExoPlayerView_repeat_toggle_modes=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#resize_mode}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#resize_mode}
      * attribute's value can be found in the {@link #SimpleExoPlayerView} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -15822,50 +15846,50 @@ public final class R {
      * <tr><td>fixed_width</td><td>1</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:resize_mode
+     * @attr name com.messi.cantonese.study:resize_mode
      */
     public static final int SimpleExoPlayerView_resize_mode=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#rewind_increment}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#rewind_increment}
      * attribute's value can be found in the {@link #SimpleExoPlayerView} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.languagehelper:rewind_increment
+     * @attr name com.messi.cantonese.study:rewind_increment
      */
     public static final int SimpleExoPlayerView_rewind_increment=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#show_shuffle_button}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#show_shuffle_button}
      * attribute's value can be found in the {@link #SimpleExoPlayerView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:show_shuffle_button
+     * @attr name com.messi.cantonese.study:show_shuffle_button
      */
     public static final int SimpleExoPlayerView_show_shuffle_button=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#show_timeout}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#show_timeout}
      * attribute's value can be found in the {@link #SimpleExoPlayerView} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.languagehelper:show_timeout
+     * @attr name com.messi.cantonese.study:show_timeout
      */
     public static final int SimpleExoPlayerView_show_timeout=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#shutter_background_color}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#shutter_background_color}
      * attribute's value can be found in the {@link #SimpleExoPlayerView} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:shutter_background_color
+     * @attr name com.messi.cantonese.study:shutter_background_color
      */
     public static final int SimpleExoPlayerView_shutter_background_color=12;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#surface_type}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#surface_type}
      * attribute's value can be found in the {@link #SimpleExoPlayerView} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -15879,27 +15903,27 @@ public final class R {
      * <tr><td>texture_view</td><td>2</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:surface_type
+     * @attr name com.messi.cantonese.study:surface_type
      */
     public static final int SimpleExoPlayerView_surface_type=13;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#use_artwork}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#use_artwork}
      * attribute's value can be found in the {@link #SimpleExoPlayerView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:use_artwork
+     * @attr name com.messi.cantonese.study:use_artwork
      */
     public static final int SimpleExoPlayerView_use_artwork=14;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#use_controller}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#use_controller}
      * attribute's value can be found in the {@link #SimpleExoPlayerView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:use_controller
+     * @attr name com.messi.cantonese.study:use_controller
      */
     public static final int SimpleExoPlayerView_use_controller=15;
     /**
@@ -15909,7 +15933,7 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #Slide_slideEdge com.messi.languagehelper:slideEdge}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Slide_slideEdge com.messi.cantonese.study:slideEdge}</code></td><td></td></tr>
      * </table>
      * @see #Slide_slideEdge
      */
@@ -15917,7 +15941,7 @@ public final class R {
         0x7f0301a2
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#slideEdge}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#slideEdge}
      * attribute's value can be found in the {@link #Slide} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -15932,7 +15956,7 @@ public final class R {
      * <tr><td>top</td><td>30</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:slideEdge
+     * @attr name com.messi.cantonese.study:slideEdge
      */
     public static final int Slide_slideEdge=0;
     /**
@@ -15943,8 +15967,8 @@ public final class R {
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #SnackbarLayout_android_maxWidth android:maxWidth}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SnackbarLayout_elevation com.messi.languagehelper:elevation}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SnackbarLayout_maxActionInlineWidth com.messi.languagehelper:maxActionInlineWidth}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SnackbarLayout_elevation com.messi.cantonese.study:elevation}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SnackbarLayout_maxActionInlineWidth com.messi.cantonese.study:maxActionInlineWidth}</code></td><td></td></tr>
      * </table>
      * @see #SnackbarLayout_android_maxWidth
      * @see #SnackbarLayout_elevation
@@ -15967,7 +15991,7 @@ public final class R {
      */
     public static final int SnackbarLayout_android_maxWidth=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#elevation}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#elevation}
      * attribute's value can be found in the {@link #SnackbarLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -15976,11 +16000,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:elevation
+     * @attr name com.messi.cantonese.study:elevation
      */
     public static final int SnackbarLayout_elevation=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#maxActionInlineWidth}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#maxActionInlineWidth}
      * attribute's value can be found in the {@link #SnackbarLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -15989,7 +16013,7 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:maxActionInlineWidth
+     * @attr name com.messi.cantonese.study:maxActionInlineWidth
      */
     public static final int SnackbarLayout_maxActionInlineWidth=2;
     /**
@@ -16003,7 +16027,7 @@ public final class R {
      * <tr><td><code>{@link #Spinner_android_popupBackground android:popupBackground}</code></td><td></td></tr>
      * <tr><td><code>{@link #Spinner_android_prompt android:prompt}</code></td><td></td></tr>
      * <tr><td><code>{@link #Spinner_android_dropDownWidth android:dropDownWidth}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Spinner_popupTheme com.messi.languagehelper:popupTheme}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Spinner_popupTheme com.messi.cantonese.study:popupTheme}</code></td><td></td></tr>
      * </table>
      * @see #Spinner_android_entries
      * @see #Spinner_android_popupBackground
@@ -16078,7 +16102,7 @@ public final class R {
      */
     public static final int Spinner_android_dropDownWidth=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#popupTheme}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#popupTheme}
      * attribute's value can be found in the {@link #Spinner} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -16086,7 +16110,7 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:popupTheme
+     * @attr name com.messi.cantonese.study:popupTheme
      */
     public static final int Spinner_popupTheme=4;
     /**
@@ -16099,17 +16123,17 @@ public final class R {
      * <tr><td><code>{@link #SwitchCompat_android_textOn android:textOn}</code></td><td></td></tr>
      * <tr><td><code>{@link #SwitchCompat_android_textOff android:textOff}</code></td><td></td></tr>
      * <tr><td><code>{@link #SwitchCompat_android_thumb android:thumb}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SwitchCompat_showText com.messi.languagehelper:showText}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SwitchCompat_splitTrack com.messi.languagehelper:splitTrack}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SwitchCompat_switchMinWidth com.messi.languagehelper:switchMinWidth}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SwitchCompat_switchPadding com.messi.languagehelper:switchPadding}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SwitchCompat_switchTextAppearance com.messi.languagehelper:switchTextAppearance}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SwitchCompat_thumbTextPadding com.messi.languagehelper:thumbTextPadding}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SwitchCompat_thumbTint com.messi.languagehelper:thumbTint}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SwitchCompat_thumbTintMode com.messi.languagehelper:thumbTintMode}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SwitchCompat_track com.messi.languagehelper:track}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SwitchCompat_trackTint com.messi.languagehelper:trackTint}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SwitchCompat_trackTintMode com.messi.languagehelper:trackTintMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SwitchCompat_showText com.messi.cantonese.study:showText}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SwitchCompat_splitTrack com.messi.cantonese.study:splitTrack}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SwitchCompat_switchMinWidth com.messi.cantonese.study:switchMinWidth}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SwitchCompat_switchPadding com.messi.cantonese.study:switchPadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SwitchCompat_switchTextAppearance com.messi.cantonese.study:switchTextAppearance}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SwitchCompat_thumbTextPadding com.messi.cantonese.study:thumbTextPadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SwitchCompat_thumbTint com.messi.cantonese.study:thumbTint}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SwitchCompat_thumbTintMode com.messi.cantonese.study:thumbTintMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SwitchCompat_track com.messi.cantonese.study:track}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SwitchCompat_trackTint com.messi.cantonese.study:trackTint}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SwitchCompat_trackTintMode com.messi.cantonese.study:trackTintMode}</code></td><td></td></tr>
      * </table>
      * @see #SwitchCompat_android_textOn
      * @see #SwitchCompat_android_textOff
@@ -16165,27 +16189,27 @@ public final class R {
      */
     public static final int SwitchCompat_android_thumb=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#showText}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#showText}
      * attribute's value can be found in the {@link #SwitchCompat} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:showText
+     * @attr name com.messi.cantonese.study:showText
      */
     public static final int SwitchCompat_showText=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#splitTrack}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#splitTrack}
      * attribute's value can be found in the {@link #SwitchCompat} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:splitTrack
+     * @attr name com.messi.cantonese.study:splitTrack
      */
     public static final int SwitchCompat_splitTrack=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#switchMinWidth}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#switchMinWidth}
      * attribute's value can be found in the {@link #SwitchCompat} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16194,11 +16218,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:switchMinWidth
+     * @attr name com.messi.cantonese.study:switchMinWidth
      */
     public static final int SwitchCompat_switchMinWidth=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#switchPadding}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#switchPadding}
      * attribute's value can be found in the {@link #SwitchCompat} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16207,11 +16231,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:switchPadding
+     * @attr name com.messi.cantonese.study:switchPadding
      */
     public static final int SwitchCompat_switchPadding=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#switchTextAppearance}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#switchTextAppearance}
      * attribute's value can be found in the {@link #SwitchCompat} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -16219,11 +16243,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:switchTextAppearance
+     * @attr name com.messi.cantonese.study:switchTextAppearance
      */
     public static final int SwitchCompat_switchTextAppearance=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#thumbTextPadding}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#thumbTextPadding}
      * attribute's value can be found in the {@link #SwitchCompat} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16232,22 +16256,22 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:thumbTextPadding
+     * @attr name com.messi.cantonese.study:thumbTextPadding
      */
     public static final int SwitchCompat_thumbTextPadding=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#thumbTint}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#thumbTint}
      * attribute's value can be found in the {@link #SwitchCompat} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:thumbTint
+     * @attr name com.messi.cantonese.study:thumbTint
      */
     public static final int SwitchCompat_thumbTint=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#thumbTintMode}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#thumbTintMode}
      * attribute's value can be found in the {@link #SwitchCompat} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -16264,11 +16288,11 @@ public final class R {
      * <tr><td>src_over</td><td>3</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:thumbTintMode
+     * @attr name com.messi.cantonese.study:thumbTintMode
      */
     public static final int SwitchCompat_thumbTintMode=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#track}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#track}
      * attribute's value can be found in the {@link #SwitchCompat} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -16276,22 +16300,22 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:track
+     * @attr name com.messi.cantonese.study:track
      */
     public static final int SwitchCompat_track=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#trackTint}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#trackTint}
      * attribute's value can be found in the {@link #SwitchCompat} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:trackTint
+     * @attr name com.messi.cantonese.study:trackTint
      */
     public static final int SwitchCompat_trackTint=12;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#trackTintMode}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#trackTintMode}
      * attribute's value can be found in the {@link #SwitchCompat} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -16308,7 +16332,7 @@ public final class R {
      * <tr><td>src_over</td><td>3</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:trackTintMode
+     * @attr name com.messi.cantonese.study:trackTintMode
      */
     public static final int SwitchCompat_trackTintMode=13;
     /**
@@ -16370,22 +16394,22 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #TabLayout_tabBackground com.messi.languagehelper:tabBackground}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabContentStart com.messi.languagehelper:tabContentStart}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabGravity com.messi.languagehelper:tabGravity}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabIndicatorColor com.messi.languagehelper:tabIndicatorColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabIndicatorHeight com.messi.languagehelper:tabIndicatorHeight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabMaxWidth com.messi.languagehelper:tabMaxWidth}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabMinWidth com.messi.languagehelper:tabMinWidth}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabMode com.messi.languagehelper:tabMode}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabPadding com.messi.languagehelper:tabPadding}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabPaddingBottom com.messi.languagehelper:tabPaddingBottom}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabPaddingEnd com.messi.languagehelper:tabPaddingEnd}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabPaddingStart com.messi.languagehelper:tabPaddingStart}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabPaddingTop com.messi.languagehelper:tabPaddingTop}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabSelectedTextColor com.messi.languagehelper:tabSelectedTextColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabTextAppearance com.messi.languagehelper:tabTextAppearance}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabTextColor com.messi.languagehelper:tabTextColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabBackground com.messi.cantonese.study:tabBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabContentStart com.messi.cantonese.study:tabContentStart}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabGravity com.messi.cantonese.study:tabGravity}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabIndicatorColor com.messi.cantonese.study:tabIndicatorColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabIndicatorHeight com.messi.cantonese.study:tabIndicatorHeight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabMaxWidth com.messi.cantonese.study:tabMaxWidth}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabMinWidth com.messi.cantonese.study:tabMinWidth}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabMode com.messi.cantonese.study:tabMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabPadding com.messi.cantonese.study:tabPadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabPaddingBottom com.messi.cantonese.study:tabPaddingBottom}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabPaddingEnd com.messi.cantonese.study:tabPaddingEnd}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabPaddingStart com.messi.cantonese.study:tabPaddingStart}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabPaddingTop com.messi.cantonese.study:tabPaddingTop}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabSelectedTextColor com.messi.cantonese.study:tabSelectedTextColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabTextAppearance com.messi.cantonese.study:tabTextAppearance}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabTextColor com.messi.cantonese.study:tabTextColor}</code></td><td></td></tr>
      * </table>
      * @see #TabLayout_tabBackground
      * @see #TabLayout_tabContentStart
@@ -16411,7 +16435,7 @@ public final class R {
         0x7f0301c8, 0x7f0301c9, 0x7f0301ca, 0x7f0301cb
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabBackground}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#tabBackground}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -16419,11 +16443,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:tabBackground
+     * @attr name com.messi.cantonese.study:tabBackground
      */
     public static final int TabLayout_tabBackground=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabContentStart}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#tabContentStart}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16432,11 +16456,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:tabContentStart
+     * @attr name com.messi.cantonese.study:tabContentStart
      */
     public static final int TabLayout_tabContentStart=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabGravity}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#tabGravity}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -16449,22 +16473,22 @@ public final class R {
      * <tr><td>fill</td><td>0</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:tabGravity
+     * @attr name com.messi.cantonese.study:tabGravity
      */
     public static final int TabLayout_tabGravity=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabIndicatorColor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#tabIndicatorColor}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:tabIndicatorColor
+     * @attr name com.messi.cantonese.study:tabIndicatorColor
      */
     public static final int TabLayout_tabIndicatorColor=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabIndicatorHeight}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#tabIndicatorHeight}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16473,11 +16497,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:tabIndicatorHeight
+     * @attr name com.messi.cantonese.study:tabIndicatorHeight
      */
     public static final int TabLayout_tabIndicatorHeight=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabMaxWidth}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#tabMaxWidth}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16486,11 +16510,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:tabMaxWidth
+     * @attr name com.messi.cantonese.study:tabMaxWidth
      */
     public static final int TabLayout_tabMaxWidth=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabMinWidth}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#tabMinWidth}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16499,11 +16523,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:tabMinWidth
+     * @attr name com.messi.cantonese.study:tabMinWidth
      */
     public static final int TabLayout_tabMinWidth=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabMode}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#tabMode}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -16516,11 +16540,11 @@ public final class R {
      * <tr><td>scrollable</td><td>0</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:tabMode
+     * @attr name com.messi.cantonese.study:tabMode
      */
     public static final int TabLayout_tabMode=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabPadding}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#tabPadding}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16529,11 +16553,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:tabPadding
+     * @attr name com.messi.cantonese.study:tabPadding
      */
     public static final int TabLayout_tabPadding=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabPaddingBottom}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#tabPaddingBottom}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16542,11 +16566,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:tabPaddingBottom
+     * @attr name com.messi.cantonese.study:tabPaddingBottom
      */
     public static final int TabLayout_tabPaddingBottom=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabPaddingEnd}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#tabPaddingEnd}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16555,11 +16579,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:tabPaddingEnd
+     * @attr name com.messi.cantonese.study:tabPaddingEnd
      */
     public static final int TabLayout_tabPaddingEnd=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabPaddingStart}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#tabPaddingStart}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16568,11 +16592,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:tabPaddingStart
+     * @attr name com.messi.cantonese.study:tabPaddingStart
      */
     public static final int TabLayout_tabPaddingStart=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabPaddingTop}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#tabPaddingTop}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16581,22 +16605,22 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:tabPaddingTop
+     * @attr name com.messi.cantonese.study:tabPaddingTop
      */
     public static final int TabLayout_tabPaddingTop=12;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabSelectedTextColor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#tabSelectedTextColor}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:tabSelectedTextColor
+     * @attr name com.messi.cantonese.study:tabSelectedTextColor
      */
     public static final int TabLayout_tabSelectedTextColor=13;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabTextAppearance}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#tabTextAppearance}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -16604,18 +16628,18 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:tabTextAppearance
+     * @attr name com.messi.cantonese.study:tabTextAppearance
      */
     public static final int TabLayout_tabTextAppearance=14;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabTextColor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#tabTextColor}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:tabTextColor
+     * @attr name com.messi.cantonese.study:tabTextColor
      */
     public static final int TabLayout_tabTextColor=15;
     /**
@@ -16636,8 +16660,8 @@ public final class R {
      * <tr><td><code>{@link #TextAppearance_android_shadowDy android:shadowDy}</code></td><td></td></tr>
      * <tr><td><code>{@link #TextAppearance_android_shadowRadius android:shadowRadius}</code></td><td></td></tr>
      * <tr><td><code>{@link #TextAppearance_android_fontFamily android:fontFamily}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextAppearance_fontFamily com.messi.languagehelper:fontFamily}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextAppearance_textAllCaps com.messi.languagehelper:textAllCaps}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextAppearance_fontFamily com.messi.cantonese.study:fontFamily}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextAppearance_textAllCaps com.messi.cantonese.study:textAllCaps}</code></td><td></td></tr>
      * </table>
      * @see #TextAppearance_android_textSize
      * @see #TextAppearance_android_typeface
@@ -16803,17 +16827,17 @@ public final class R {
      */
     public static final int TextAppearance_android_fontFamily=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fontFamily}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#fontFamily}
      * attribute's value can be found in the {@link #TextAppearance} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:fontFamily
+     * @attr name com.messi.cantonese.study:fontFamily
      */
     public static final int TextAppearance_fontFamily=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#textAllCaps}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#textAllCaps}
      * attribute's value can be found in the {@link #TextAppearance} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -16823,7 +16847,7 @@ public final class R {
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:textAllCaps
+     * @attr name com.messi.cantonese.study:textAllCaps
      */
     public static final int TextAppearance_textAllCaps=12;
     /**
@@ -16835,20 +16859,20 @@ public final class R {
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #TextInputLayout_android_textColorHint android:textColorHint}</code></td><td></td></tr>
      * <tr><td><code>{@link #TextInputLayout_android_hint android:hint}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextInputLayout_counterEnabled com.messi.languagehelper:counterEnabled}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextInputLayout_counterMaxLength com.messi.languagehelper:counterMaxLength}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextInputLayout_counterOverflowTextAppearance com.messi.languagehelper:counterOverflowTextAppearance}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextInputLayout_counterTextAppearance com.messi.languagehelper:counterTextAppearance}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextInputLayout_errorEnabled com.messi.languagehelper:errorEnabled}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextInputLayout_errorTextAppearance com.messi.languagehelper:errorTextAppearance}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextInputLayout_hintAnimationEnabled com.messi.languagehelper:hintAnimationEnabled}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextInputLayout_hintEnabled com.messi.languagehelper:hintEnabled}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextInputLayout_hintTextAppearance com.messi.languagehelper:hintTextAppearance}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextInputLayout_passwordToggleContentDescription com.messi.languagehelper:passwordToggleContentDescription}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextInputLayout_passwordToggleDrawable com.messi.languagehelper:passwordToggleDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextInputLayout_passwordToggleEnabled com.messi.languagehelper:passwordToggleEnabled}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextInputLayout_passwordToggleTint com.messi.languagehelper:passwordToggleTint}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextInputLayout_passwordToggleTintMode com.messi.languagehelper:passwordToggleTintMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextInputLayout_counterEnabled com.messi.cantonese.study:counterEnabled}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextInputLayout_counterMaxLength com.messi.cantonese.study:counterMaxLength}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextInputLayout_counterOverflowTextAppearance com.messi.cantonese.study:counterOverflowTextAppearance}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextInputLayout_counterTextAppearance com.messi.cantonese.study:counterTextAppearance}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextInputLayout_errorEnabled com.messi.cantonese.study:errorEnabled}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextInputLayout_errorTextAppearance com.messi.cantonese.study:errorTextAppearance}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextInputLayout_hintAnimationEnabled com.messi.cantonese.study:hintAnimationEnabled}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextInputLayout_hintEnabled com.messi.cantonese.study:hintEnabled}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextInputLayout_hintTextAppearance com.messi.cantonese.study:hintTextAppearance}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextInputLayout_passwordToggleContentDescription com.messi.cantonese.study:passwordToggleContentDescription}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextInputLayout_passwordToggleDrawable com.messi.cantonese.study:passwordToggleDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextInputLayout_passwordToggleEnabled com.messi.cantonese.study:passwordToggleEnabled}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextInputLayout_passwordToggleTint com.messi.cantonese.study:passwordToggleTint}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextInputLayout_passwordToggleTintMode com.messi.cantonese.study:passwordToggleTintMode}</code></td><td></td></tr>
      * </table>
      * @see #TextInputLayout_android_textColorHint
      * @see #TextInputLayout_android_hint
@@ -16899,26 +16923,26 @@ public final class R {
      */
     public static final int TextInputLayout_android_hint=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#counterEnabled}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#counterEnabled}
      * attribute's value can be found in the {@link #TextInputLayout} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:counterEnabled
+     * @attr name com.messi.cantonese.study:counterEnabled
      */
     public static final int TextInputLayout_counterEnabled=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#counterMaxLength}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#counterMaxLength}
      * attribute's value can be found in the {@link #TextInputLayout} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.languagehelper:counterMaxLength
+     * @attr name com.messi.cantonese.study:counterMaxLength
      */
     public static final int TextInputLayout_counterMaxLength=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#counterOverflowTextAppearance}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#counterOverflowTextAppearance}
      * attribute's value can be found in the {@link #TextInputLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -16926,11 +16950,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:counterOverflowTextAppearance
+     * @attr name com.messi.cantonese.study:counterOverflowTextAppearance
      */
     public static final int TextInputLayout_counterOverflowTextAppearance=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#counterTextAppearance}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#counterTextAppearance}
      * attribute's value can be found in the {@link #TextInputLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -16938,21 +16962,21 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:counterTextAppearance
+     * @attr name com.messi.cantonese.study:counterTextAppearance
      */
     public static final int TextInputLayout_counterTextAppearance=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#errorEnabled}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#errorEnabled}
      * attribute's value can be found in the {@link #TextInputLayout} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:errorEnabled
+     * @attr name com.messi.cantonese.study:errorEnabled
      */
     public static final int TextInputLayout_errorEnabled=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#errorTextAppearance}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#errorTextAppearance}
      * attribute's value can be found in the {@link #TextInputLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -16960,31 +16984,31 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:errorTextAppearance
+     * @attr name com.messi.cantonese.study:errorTextAppearance
      */
     public static final int TextInputLayout_errorTextAppearance=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#hintAnimationEnabled}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#hintAnimationEnabled}
      * attribute's value can be found in the {@link #TextInputLayout} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:hintAnimationEnabled
+     * @attr name com.messi.cantonese.study:hintAnimationEnabled
      */
     public static final int TextInputLayout_hintAnimationEnabled=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#hintEnabled}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#hintEnabled}
      * attribute's value can be found in the {@link #TextInputLayout} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:hintEnabled
+     * @attr name com.messi.cantonese.study:hintEnabled
      */
     public static final int TextInputLayout_hintEnabled=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#hintTextAppearance}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#hintTextAppearance}
      * attribute's value can be found in the {@link #TextInputLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -16992,21 +17016,21 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:hintTextAppearance
+     * @attr name com.messi.cantonese.study:hintTextAppearance
      */
     public static final int TextInputLayout_hintTextAppearance=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#passwordToggleContentDescription}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#passwordToggleContentDescription}
      * attribute's value can be found in the {@link #TextInputLayout} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:passwordToggleContentDescription
+     * @attr name com.messi.cantonese.study:passwordToggleContentDescription
      */
     public static final int TextInputLayout_passwordToggleContentDescription=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#passwordToggleDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#passwordToggleDrawable}
      * attribute's value can be found in the {@link #TextInputLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17014,32 +17038,32 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:passwordToggleDrawable
+     * @attr name com.messi.cantonese.study:passwordToggleDrawable
      */
     public static final int TextInputLayout_passwordToggleDrawable=12;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#passwordToggleEnabled}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#passwordToggleEnabled}
      * attribute's value can be found in the {@link #TextInputLayout} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.languagehelper:passwordToggleEnabled
+     * @attr name com.messi.cantonese.study:passwordToggleEnabled
      */
     public static final int TextInputLayout_passwordToggleEnabled=13;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#passwordToggleTint}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#passwordToggleTint}
      * attribute's value can be found in the {@link #TextInputLayout} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:passwordToggleTint
+     * @attr name com.messi.cantonese.study:passwordToggleTint
      */
     public static final int TextInputLayout_passwordToggleTint=14;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#passwordToggleTintMode}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#passwordToggleTintMode}
      * attribute's value can be found in the {@link #TextInputLayout} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -17055,7 +17079,7 @@ public final class R {
      * <tr><td>src_over</td><td>3</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:passwordToggleTintMode
+     * @attr name com.messi.cantonese.study:passwordToggleTintMode
      */
     public static final int TextInputLayout_passwordToggleTintMode=15;
     /**
@@ -17065,10 +17089,10 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #Themes_arcProgressStyle com.messi.languagehelper:arcProgressStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Themes_circleProgressStyle com.messi.languagehelper:circleProgressStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Themes_donutProgressStyle com.messi.languagehelper:donutProgressStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Themes_numberProgressBarStyle com.messi.languagehelper:numberProgressBarStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Themes_arcProgressStyle com.messi.cantonese.study:arcProgressStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Themes_circleProgressStyle com.messi.cantonese.study:circleProgressStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Themes_donutProgressStyle com.messi.cantonese.study:donutProgressStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Themes_numberProgressBarStyle com.messi.cantonese.study:numberProgressBarStyle}</code></td><td></td></tr>
      * </table>
      * @see #Themes_arcProgressStyle
      * @see #Themes_circleProgressStyle
@@ -17079,7 +17103,7 @@ public final class R {
         0x7f030030, 0x7f03006c, 0x7f0300a8, 0x7f030137
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arcProgressStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#arcProgressStyle}
      * attribute's value can be found in the {@link #Themes} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17087,11 +17111,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:arcProgressStyle
+     * @attr name com.messi.cantonese.study:arcProgressStyle
      */
     public static final int Themes_arcProgressStyle=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#circleProgressStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#circleProgressStyle}
      * attribute's value can be found in the {@link #Themes} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17099,11 +17123,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:circleProgressStyle
+     * @attr name com.messi.cantonese.study:circleProgressStyle
      */
     public static final int Themes_circleProgressStyle=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donutProgressStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#donutProgressStyle}
      * attribute's value can be found in the {@link #Themes} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17111,11 +17135,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:donutProgressStyle
+     * @attr name com.messi.cantonese.study:donutProgressStyle
      */
     public static final int Themes_donutProgressStyle=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#numberProgressBarStyle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#numberProgressBarStyle}
      * attribute's value can be found in the {@link #Themes} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17123,7 +17147,7 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:numberProgressBarStyle
+     * @attr name com.messi.cantonese.study:numberProgressBarStyle
      */
     public static final int Themes_numberProgressBarStyle=3;
     /**
@@ -17135,33 +17159,33 @@ public final class R {
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #Toolbar_android_gravity android:gravity}</code></td><td></td></tr>
      * <tr><td><code>{@link #Toolbar_android_minHeight android:minHeight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_buttonGravity com.messi.languagehelper:buttonGravity}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_collapseContentDescription com.messi.languagehelper:collapseContentDescription}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_collapseIcon com.messi.languagehelper:collapseIcon}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_contentInsetEnd com.messi.languagehelper:contentInsetEnd}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_contentInsetEndWithActions com.messi.languagehelper:contentInsetEndWithActions}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_contentInsetLeft com.messi.languagehelper:contentInsetLeft}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_contentInsetRight com.messi.languagehelper:contentInsetRight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_contentInsetStart com.messi.languagehelper:contentInsetStart}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_contentInsetStartWithNavigation com.messi.languagehelper:contentInsetStartWithNavigation}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_logo com.messi.languagehelper:logo}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_logoDescription com.messi.languagehelper:logoDescription}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_maxButtonHeight com.messi.languagehelper:maxButtonHeight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_navigationContentDescription com.messi.languagehelper:navigationContentDescription}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_navigationIcon com.messi.languagehelper:navigationIcon}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_popupTheme com.messi.languagehelper:popupTheme}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_subtitle com.messi.languagehelper:subtitle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_subtitleTextAppearance com.messi.languagehelper:subtitleTextAppearance}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_subtitleTextColor com.messi.languagehelper:subtitleTextColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_title com.messi.languagehelper:title}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_titleMargin com.messi.languagehelper:titleMargin}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_titleMarginBottom com.messi.languagehelper:titleMarginBottom}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_titleMarginEnd com.messi.languagehelper:titleMarginEnd}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_titleMarginStart com.messi.languagehelper:titleMarginStart}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_titleMarginTop com.messi.languagehelper:titleMarginTop}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_titleMargins com.messi.languagehelper:titleMargins}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_titleTextAppearance com.messi.languagehelper:titleTextAppearance}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_titleTextColor com.messi.languagehelper:titleTextColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_buttonGravity com.messi.cantonese.study:buttonGravity}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_collapseContentDescription com.messi.cantonese.study:collapseContentDescription}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_collapseIcon com.messi.cantonese.study:collapseIcon}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_contentInsetEnd com.messi.cantonese.study:contentInsetEnd}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_contentInsetEndWithActions com.messi.cantonese.study:contentInsetEndWithActions}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_contentInsetLeft com.messi.cantonese.study:contentInsetLeft}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_contentInsetRight com.messi.cantonese.study:contentInsetRight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_contentInsetStart com.messi.cantonese.study:contentInsetStart}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_contentInsetStartWithNavigation com.messi.cantonese.study:contentInsetStartWithNavigation}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_logo com.messi.cantonese.study:logo}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_logoDescription com.messi.cantonese.study:logoDescription}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_maxButtonHeight com.messi.cantonese.study:maxButtonHeight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_navigationContentDescription com.messi.cantonese.study:navigationContentDescription}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_navigationIcon com.messi.cantonese.study:navigationIcon}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_popupTheme com.messi.cantonese.study:popupTheme}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_subtitle com.messi.cantonese.study:subtitle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_subtitleTextAppearance com.messi.cantonese.study:subtitleTextAppearance}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_subtitleTextColor com.messi.cantonese.study:subtitleTextColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_title com.messi.cantonese.study:title}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_titleMargin com.messi.cantonese.study:titleMargin}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_titleMarginBottom com.messi.cantonese.study:titleMarginBottom}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_titleMarginEnd com.messi.cantonese.study:titleMarginEnd}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_titleMarginStart com.messi.cantonese.study:titleMarginStart}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_titleMarginTop com.messi.cantonese.study:titleMarginTop}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_titleMargins com.messi.cantonese.study:titleMargins}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_titleTextAppearance com.messi.cantonese.study:titleTextAppearance}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_titleTextColor com.messi.cantonese.study:titleTextColor}</code></td><td></td></tr>
      * </table>
      * @see #Toolbar_android_gravity
      * @see #Toolbar_android_minHeight
@@ -17246,7 +17270,7 @@ public final class R {
      */
     public static final int Toolbar_android_minHeight=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#buttonGravity}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#buttonGravity}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -17259,21 +17283,21 @@ public final class R {
      * <tr><td>top</td><td>30</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:buttonGravity
+     * @attr name com.messi.cantonese.study:buttonGravity
      */
     public static final int Toolbar_buttonGravity=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#collapseContentDescription}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#collapseContentDescription}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:collapseContentDescription
+     * @attr name com.messi.cantonese.study:collapseContentDescription
      */
     public static final int Toolbar_collapseContentDescription=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#collapseIcon}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#collapseIcon}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17281,11 +17305,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:collapseIcon
+     * @attr name com.messi.cantonese.study:collapseIcon
      */
     public static final int Toolbar_collapseIcon=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentInsetEnd}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#contentInsetEnd}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -17294,11 +17318,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:contentInsetEnd
+     * @attr name com.messi.cantonese.study:contentInsetEnd
      */
     public static final int Toolbar_contentInsetEnd=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentInsetEndWithActions}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#contentInsetEndWithActions}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -17307,11 +17331,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:contentInsetEndWithActions
+     * @attr name com.messi.cantonese.study:contentInsetEndWithActions
      */
     public static final int Toolbar_contentInsetEndWithActions=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentInsetLeft}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#contentInsetLeft}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -17320,11 +17344,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:contentInsetLeft
+     * @attr name com.messi.cantonese.study:contentInsetLeft
      */
     public static final int Toolbar_contentInsetLeft=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentInsetRight}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#contentInsetRight}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -17333,11 +17357,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:contentInsetRight
+     * @attr name com.messi.cantonese.study:contentInsetRight
      */
     public static final int Toolbar_contentInsetRight=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentInsetStart}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#contentInsetStart}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -17346,11 +17370,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:contentInsetStart
+     * @attr name com.messi.cantonese.study:contentInsetStart
      */
     public static final int Toolbar_contentInsetStart=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentInsetStartWithNavigation}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#contentInsetStartWithNavigation}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -17359,11 +17383,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:contentInsetStartWithNavigation
+     * @attr name com.messi.cantonese.study:contentInsetStartWithNavigation
      */
     public static final int Toolbar_contentInsetStartWithNavigation=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#logo}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#logo}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17371,21 +17395,21 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:logo
+     * @attr name com.messi.cantonese.study:logo
      */
     public static final int Toolbar_logo=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#logoDescription}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#logoDescription}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:logoDescription
+     * @attr name com.messi.cantonese.study:logoDescription
      */
     public static final int Toolbar_logoDescription=12;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#maxButtonHeight}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#maxButtonHeight}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -17394,21 +17418,21 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:maxButtonHeight
+     * @attr name com.messi.cantonese.study:maxButtonHeight
      */
     public static final int Toolbar_maxButtonHeight=13;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#navigationContentDescription}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#navigationContentDescription}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:navigationContentDescription
+     * @attr name com.messi.cantonese.study:navigationContentDescription
      */
     public static final int Toolbar_navigationContentDescription=14;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#navigationIcon}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#navigationIcon}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17416,11 +17440,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:navigationIcon
+     * @attr name com.messi.cantonese.study:navigationIcon
      */
     public static final int Toolbar_navigationIcon=15;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#popupTheme}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#popupTheme}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17428,21 +17452,21 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:popupTheme
+     * @attr name com.messi.cantonese.study:popupTheme
      */
     public static final int Toolbar_popupTheme=16;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#subtitle}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#subtitle}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:subtitle
+     * @attr name com.messi.cantonese.study:subtitle
      */
     public static final int Toolbar_subtitle=17;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#subtitleTextAppearance}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#subtitleTextAppearance}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17450,32 +17474,32 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:subtitleTextAppearance
+     * @attr name com.messi.cantonese.study:subtitleTextAppearance
      */
     public static final int Toolbar_subtitleTextAppearance=18;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#subtitleTextColor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#subtitleTextColor}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:subtitleTextColor
+     * @attr name com.messi.cantonese.study:subtitleTextColor
      */
     public static final int Toolbar_subtitleTextColor=19;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#title}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#title}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:title
+     * @attr name com.messi.cantonese.study:title
      */
     public static final int Toolbar_title=20;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#titleMargin}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#titleMargin}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -17484,11 +17508,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:titleMargin
+     * @attr name com.messi.cantonese.study:titleMargin
      */
     public static final int Toolbar_titleMargin=21;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#titleMarginBottom}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#titleMarginBottom}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -17497,11 +17521,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:titleMarginBottom
+     * @attr name com.messi.cantonese.study:titleMarginBottom
      */
     public static final int Toolbar_titleMarginBottom=22;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#titleMarginEnd}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#titleMarginEnd}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -17510,11 +17534,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:titleMarginEnd
+     * @attr name com.messi.cantonese.study:titleMarginEnd
      */
     public static final int Toolbar_titleMarginEnd=23;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#titleMarginStart}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#titleMarginStart}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -17523,11 +17547,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:titleMarginStart
+     * @attr name com.messi.cantonese.study:titleMarginStart
      */
     public static final int Toolbar_titleMarginStart=24;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#titleMarginTop}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#titleMarginTop}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -17536,11 +17560,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:titleMarginTop
+     * @attr name com.messi.cantonese.study:titleMarginTop
      */
     public static final int Toolbar_titleMarginTop=25;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#titleMargins}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#titleMargins}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -17549,11 +17573,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:titleMargins
+     * @attr name com.messi.cantonese.study:titleMargins
      */
     public static final int Toolbar_titleMargins=26;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#titleTextAppearance}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#titleTextAppearance}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17561,18 +17585,18 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:titleTextAppearance
+     * @attr name com.messi.cantonese.study:titleTextAppearance
      */
     public static final int Toolbar_titleTextAppearance=27;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#titleTextColor}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#titleTextColor}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:titleTextColor
+     * @attr name com.messi.cantonese.study:titleTextColor
      */
     public static final int Toolbar_titleTextColor=28;
     /**
@@ -17584,10 +17608,10 @@ public final class R {
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #Transition_android_interpolator android:interpolator}</code></td><td></td></tr>
      * <tr><td><code>{@link #Transition_android_duration android:duration}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Transition_duration com.messi.languagehelper:duration}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Transition_interpolator com.messi.languagehelper:interpolator}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Transition_matchOrder com.messi.languagehelper:matchOrder}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Transition_startDelay com.messi.languagehelper:startDelay}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Transition_duration com.messi.cantonese.study:duration}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Transition_interpolator com.messi.cantonese.study:interpolator}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Transition_matchOrder com.messi.cantonese.study:matchOrder}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Transition_startDelay com.messi.cantonese.study:startDelay}</code></td><td></td></tr>
      * </table>
      * @see #Transition_android_interpolator
      * @see #Transition_android_duration
@@ -17622,16 +17646,16 @@ public final class R {
      */
     public static final int Transition_android_duration=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#duration}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#duration}
      * attribute's value can be found in the {@link #Transition} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.languagehelper:duration
+     * @attr name com.messi.cantonese.study:duration
      */
     public static final int Transition_duration=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#interpolator}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#interpolator}
      * attribute's value can be found in the {@link #Transition} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17639,26 +17663,26 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:interpolator
+     * @attr name com.messi.cantonese.study:interpolator
      */
     public static final int Transition_interpolator=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#matchOrder}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#matchOrder}
      * attribute's value can be found in the {@link #Transition} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:matchOrder
+     * @attr name com.messi.cantonese.study:matchOrder
      */
     public static final int Transition_matchOrder=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#startDelay}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#startDelay}
      * attribute's value can be found in the {@link #Transition} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.languagehelper:startDelay
+     * @attr name com.messi.cantonese.study:startDelay
      */
     public static final int Transition_startDelay=5;
     /**
@@ -17668,9 +17692,9 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #TransitionManager_fromScene com.messi.languagehelper:fromScene}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TransitionManager_toScene com.messi.languagehelper:toScene}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TransitionManager_transition com.messi.languagehelper:transition}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TransitionManager_fromScene com.messi.cantonese.study:fromScene}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TransitionManager_toScene com.messi.cantonese.study:toScene}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TransitionManager_transition com.messi.cantonese.study:transition}</code></td><td></td></tr>
      * </table>
      * @see #TransitionManager_fromScene
      * @see #TransitionManager_toScene
@@ -17680,7 +17704,7 @@ public final class R {
         0x7f0300ea, 0x7f0301f0, 0x7f0301fb
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fromScene}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#fromScene}
      * attribute's value can be found in the {@link #TransitionManager} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17688,11 +17712,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:fromScene
+     * @attr name com.messi.cantonese.study:fromScene
      */
     public static final int TransitionManager_fromScene=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#toScene}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#toScene}
      * attribute's value can be found in the {@link #TransitionManager} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17700,11 +17724,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:toScene
+     * @attr name com.messi.cantonese.study:toScene
      */
     public static final int TransitionManager_toScene=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#transition}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#transition}
      * attribute's value can be found in the {@link #TransitionManager} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17712,7 +17736,7 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:transition
+     * @attr name com.messi.cantonese.study:transition
      */
     public static final int TransitionManager_transition=2;
     /**
@@ -17722,7 +17746,7 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #TransitionSet_transitionOrdering com.messi.languagehelper:transitionOrdering}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TransitionSet_transitionOrdering com.messi.cantonese.study:transitionOrdering}</code></td><td></td></tr>
      * </table>
      * @see #TransitionSet_transitionOrdering
      */
@@ -17730,7 +17754,7 @@ public final class R {
         0x7f0301fc
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#transitionOrdering}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#transitionOrdering}
      * attribute's value can be found in the {@link #TransitionSet} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -17743,7 +17767,7 @@ public final class R {
      * <tr><td>together</td><td>0</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:transitionOrdering
+     * @attr name com.messi.cantonese.study:transitionOrdering
      */
     public static final int TransitionSet_transitionOrdering=0;
     /**
@@ -17753,12 +17777,12 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #TransitionTarget_excludeClass com.messi.languagehelper:excludeClass}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TransitionTarget_excludeId com.messi.languagehelper:excludeId}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TransitionTarget_excludeName com.messi.languagehelper:excludeName}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TransitionTarget_targetClass com.messi.languagehelper:targetClass}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TransitionTarget_targetId com.messi.languagehelper:targetId}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TransitionTarget_targetName com.messi.languagehelper:targetName}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TransitionTarget_excludeClass com.messi.cantonese.study:excludeClass}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TransitionTarget_excludeId com.messi.cantonese.study:excludeId}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TransitionTarget_excludeName com.messi.cantonese.study:excludeName}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TransitionTarget_targetClass com.messi.cantonese.study:targetClass}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TransitionTarget_targetId com.messi.cantonese.study:targetId}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TransitionTarget_targetName com.messi.cantonese.study:targetName}</code></td><td></td></tr>
      * </table>
      * @see #TransitionTarget_excludeClass
      * @see #TransitionTarget_excludeId
@@ -17772,17 +17796,17 @@ public final class R {
         0x7f0301cd, 0x7f0301ce
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#excludeClass}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#excludeClass}
      * attribute's value can be found in the {@link #TransitionTarget} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:excludeClass
+     * @attr name com.messi.cantonese.study:excludeClass
      */
     public static final int TransitionTarget_excludeClass=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#excludeId}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#excludeId}
      * attribute's value can be found in the {@link #TransitionTarget} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17790,31 +17814,31 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:excludeId
+     * @attr name com.messi.cantonese.study:excludeId
      */
     public static final int TransitionTarget_excludeId=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#excludeName}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#excludeName}
      * attribute's value can be found in the {@link #TransitionTarget} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:excludeName
+     * @attr name com.messi.cantonese.study:excludeName
      */
     public static final int TransitionTarget_excludeName=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#targetClass}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#targetClass}
      * attribute's value can be found in the {@link #TransitionTarget} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:targetClass
+     * @attr name com.messi.cantonese.study:targetClass
      */
     public static final int TransitionTarget_targetClass=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#targetId}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#targetId}
      * attribute's value can be found in the {@link #TransitionTarget} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17822,17 +17846,17 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:targetId
+     * @attr name com.messi.cantonese.study:targetId
      */
     public static final int TransitionTarget_targetId=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#targetName}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#targetName}
      * attribute's value can be found in the {@link #TransitionTarget} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.languagehelper:targetName
+     * @attr name com.messi.cantonese.study:targetName
      */
     public static final int TransitionTarget_targetName=5;
     /**
@@ -17844,9 +17868,9 @@ public final class R {
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #View_android_theme android:theme}</code></td><td></td></tr>
      * <tr><td><code>{@link #View_android_focusable android:focusable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #View_paddingEnd com.messi.languagehelper:paddingEnd}</code></td><td></td></tr>
-     * <tr><td><code>{@link #View_paddingStart com.messi.languagehelper:paddingStart}</code></td><td></td></tr>
-     * <tr><td><code>{@link #View_theme com.messi.languagehelper:theme}</code></td><td></td></tr>
+     * <tr><td><code>{@link #View_paddingEnd com.messi.cantonese.study:paddingEnd}</code></td><td></td></tr>
+     * <tr><td><code>{@link #View_paddingStart com.messi.cantonese.study:paddingStart}</code></td><td></td></tr>
+     * <tr><td><code>{@link #View_theme com.messi.cantonese.study:theme}</code></td><td></td></tr>
      * </table>
      * @see #View_android_theme
      * @see #View_android_focusable
@@ -17889,7 +17913,7 @@ public final class R {
      */
     public static final int View_android_focusable=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#paddingEnd}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#paddingEnd}
      * attribute's value can be found in the {@link #View} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -17898,11 +17922,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:paddingEnd
+     * @attr name com.messi.cantonese.study:paddingEnd
      */
     public static final int View_paddingEnd=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#paddingStart}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#paddingStart}
      * attribute's value can be found in the {@link #View} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -17911,11 +17935,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.languagehelper:paddingStart
+     * @attr name com.messi.cantonese.study:paddingStart
      */
     public static final int View_paddingStart=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#theme}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#theme}
      * attribute's value can be found in the {@link #View} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17923,7 +17947,7 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.languagehelper:theme
+     * @attr name com.messi.cantonese.study:theme
      */
     public static final int View_theme=4;
     /**
@@ -17934,8 +17958,8 @@ public final class R {
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #ViewBackgroundHelper_android_background android:background}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ViewBackgroundHelper_backgroundTint com.messi.languagehelper:backgroundTint}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ViewBackgroundHelper_backgroundTintMode com.messi.languagehelper:backgroundTintMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ViewBackgroundHelper_backgroundTint com.messi.cantonese.study:backgroundTint}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ViewBackgroundHelper_backgroundTintMode com.messi.cantonese.study:backgroundTintMode}</code></td><td></td></tr>
      * </table>
      * @see #ViewBackgroundHelper_android_background
      * @see #ViewBackgroundHelper_backgroundTint
@@ -17960,18 +17984,18 @@ public final class R {
      */
     public static final int ViewBackgroundHelper_android_background=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#backgroundTint}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#backgroundTint}
      * attribute's value can be found in the {@link #ViewBackgroundHelper} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.languagehelper:backgroundTint
+     * @attr name com.messi.cantonese.study:backgroundTint
      */
     public static final int ViewBackgroundHelper_backgroundTint=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#backgroundTintMode}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#backgroundTintMode}
      * attribute's value can be found in the {@link #ViewBackgroundHelper} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -17988,7 +18012,7 @@ public final class R {
      * <tr><td>src_over</td><td>3</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:backgroundTintMode
+     * @attr name com.messi.cantonese.study:backgroundTintMode
      */
     public static final int ViewBackgroundHelper_backgroundTintMode=2;
     /**
@@ -18052,7 +18076,7 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #VisibilityTransition_transitionVisibilityMode com.messi.languagehelper:transitionVisibilityMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #VisibilityTransition_transitionVisibilityMode com.messi.cantonese.study:transitionVisibilityMode}</code></td><td></td></tr>
      * </table>
      * @see #VisibilityTransition_transitionVisibilityMode
      */
@@ -18060,7 +18084,7 @@ public final class R {
         0x7f0301fd
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#transitionVisibilityMode}
+     * <p>This symbol is the offset where the {@link com.messi.cantonese.study.R.attr#transitionVisibilityMode}
      * attribute's value can be found in the {@link #VisibilityTransition} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -18073,7 +18097,7 @@ public final class R {
      * <tr><td>mode_out</td><td>2</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.languagehelper:transitionVisibilityMode
+     * @attr name com.messi.cantonese.study:transitionVisibilityMode
      */
     public static final int VisibilityTransition_transitionVisibilityMode=0;
   }

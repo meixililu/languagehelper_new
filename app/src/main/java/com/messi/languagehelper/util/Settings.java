@@ -143,8 +143,8 @@ public class Settings {
 
 	public static final String Email = "meixililulu@163.com";
 	public static final String YoudaoApiKey = "64148bac216470a0";
-	public static final String BaiduORCAK = "GNBFfzUk2F9fzS109aTIiIDG";
-	public static final String BaiduORCSK = "6cuMEl0DPCQfeBhaiEvQq6koNFBHzw3C";
+	public static final String BaiduORCAK = "rOpNTQojXriwz14ol8COWTok";
+	public static final String BaiduORCSK = "dh99lxHNNUGILNV0UwLx0xBeDVgAh7vN";
 	public static final String showapi_appid = "11619";
 	public static final String showapi_secret = "f27574671ec14eb4a97faacb2eee3ef2";	
 	
@@ -162,7 +162,9 @@ public class Settings {
 
 	public static String[] PERMISSIONS_STORAGE = {
 			Manifest.permission.READ_EXTERNAL_STORAGE,
-			Manifest.permission.WRITE_EXTERNAL_STORAGE
+			Manifest.permission.READ_PHONE_STATE,
+			Manifest.permission.WRITE_EXTERNAL_STORAGE,
+			Manifest.permission.ACCESS_FINE_LOCATION
 	};
 	public static String[] PERMISSIONS_RECORD_AUDIO = {
 			Manifest.permission.RECORD_AUDIO
@@ -378,7 +380,7 @@ public class Settings {
 				if(shouldShowRequestPermissionRationale(activity,permissions[0])){
 					AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 					builder.setTitle("温馨提示");
-					builder.setMessage("软件需要SD卡和话筒的访问权限才能正常运行。");
+					builder.setMessage("软件需要一些权限才能正常运行。");
 					builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 						@Override
 						public void onClick(DialogInterface dialog, int which) {

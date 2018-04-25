@@ -26,6 +26,7 @@ public class WordStudyThirdActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.invest_list_activity);
+        registerBroadcast(BaseActivity.ActivityClose);
         initSwipeRefresh();
         initViews();
     }
@@ -53,4 +54,9 @@ public class WordStudyThirdActivity extends BaseActivity {
         onSwipeRefreshLayoutFinish();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterBroadcast();
+    }
 }

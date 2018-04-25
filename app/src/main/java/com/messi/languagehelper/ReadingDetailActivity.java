@@ -13,8 +13,8 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -42,16 +42,18 @@ public class ReadingDetailActivity extends BaseActivity {
     TextView title;
     @BindView(R.id.content)
     TextView content;
+    @BindView(R.id.ad_img_sign)
+    TextView ad_img_sign;
     @BindView(R.id.xx_ad_layout)
-    RelativeLayout xx_ad_layout;
+    FrameLayout xx_ad_layout;
     @BindView(R.id.next_composition)
     LinearLayout next_composition;
     @BindView(R.id.scrollview)
     NestedScrollView scrollview;
     @BindView(R.id.play_btn)
     FloatingActionButton fab;
-    @BindView(R.id.item_img)
-    SimpleDraweeView pimgview;
+    @BindView(R.id.ad_img)
+    SimpleDraweeView ad_img;
 
     private Reading mAVObject;
     private List<Reading> mAVObjects;
@@ -82,14 +84,18 @@ public class ReadingDetailActivity extends BaseActivity {
     }
 
     private void setData() {
-        pimgview.setVisibility(View.GONE);
+        xx_ad_layout.setVisibility(View.GONE);
         toolbar_layout.setTitle(mAVObject.getTitle());
         title.setText(mAVObject.getTitle());
         scrollview.scrollTo(0, 0);
         TextHandlerUtil.handlerText(this, mProgressbar, content, mAVObject.getContent());
         if (!TextUtils.isEmpty(mAVObject.getImg_url())) {
-            pimgview.setVisibility(View.VISIBLE);
-            pimgview.setImageURI(Uri.parse(mAVObject.getImg_url()));
+            xx_ad_layout.setVisibility(View.VISIBLE);
+            ad_img_sign.setVisibility(View.GONE);
+            ad_img.setImageURI(Uri.parse(mAVObject.getImg_url()));
+        }else {
+            mXFYSAD = new XFYSAD(this, xx_ad_layout, ADUtil.NewsDetail);
+            mXFYSAD.showAD();
         }
         if(WXEntryActivity.musicSrv.isSameMp3(mAVObject)){
             if(WXEntryActivity.musicSrv.PlayerStatus == 1) {
@@ -101,19 +107,6 @@ public class ReadingDetailActivity extends BaseActivity {
             fab.setVisibility(View.GONE);
         }
 
-        mXFYSAD = new XFYSAD(this, xx_ad_layout, ADUtil.NewsDetail);
-        mXFYSAD.setDirectExPosure(false);
-        mXFYSAD.showAD();
-        scrollview.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
-            @Override
-            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                if (xx_ad_layout.isShown()) {
-                    if (XFYSAD.isInScreen(ReadingDetailActivity.this, xx_ad_layout)) {
-                        mXFYSAD.ExposureAD();
-                    }
-                }
-            }
-        });
         if(TextUtils.isEmpty(mAVObject.getStatus())){
             mAVObject.setStatus("1");
             DataBaseUtil.getInstance().update(mAVObject);

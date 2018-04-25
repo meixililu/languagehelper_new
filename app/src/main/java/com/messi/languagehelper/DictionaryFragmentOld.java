@@ -87,7 +87,7 @@ public class DictionaryFragmentOld extends BaseFragment implements
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        LogUtil.DefalutLog("MainFragment-onCreateView");
+        LogUtil.DefalutLog("DictionaryFragmentOld-onCreateView");
         View view = inflater.inflate(R.layout.fragment_dictionary_old, null);
         ButterKnife.bind(this, view);
         init();

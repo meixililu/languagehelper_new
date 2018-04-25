@@ -34,6 +34,7 @@ public class WordStudyPlanActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_study_plan_activity);
         ButterKnife.bind(this);
+        registerBroadcast(BaseActivity.ActivityClose);
         initSwipeRefresh();
         initViews();
         new QueryTask().execute();
@@ -95,4 +96,9 @@ public class WordStudyPlanActivity extends BaseActivity {
         new QueryTask().execute();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterBroadcast();
+    }
 }

@@ -1,25 +1,23 @@
 package com.messi.languagehelper.adapter;
 
-import com.messi.languagehelper.R;
-import com.messi.languagehelper.ReadingFragment;
-import com.messi.languagehelper.WordStudyFirstFragment;
-import com.messi.languagehelper.WordStudySummaryFragment;
-import com.messi.languagehelper.util.AVOUtil;
-
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.messi.languagehelper.R;
+import com.messi.languagehelper.WordStudyFirstFragment;
+import com.messi.languagehelper.WordStudySummaryFragment;
+
 public class WordStudyTabAdapter extends FragmentPagerAdapter {
 
 	public static String[] CONTENT;
 	
-    public WordStudyTabAdapter(FragmentManager fm,Context mContext) {
+    public WordStudyTabAdapter(FragmentManager fm,Context context) {
         super(fm);
-        CONTENT = new String[] { 
-        		mContext.getResources().getString(R.string.title_word_study),
-        		mContext.getResources().getString(R.string.title_word_study_vocabulary)
+        CONTENT = new String[] {
+                context.getResources().getString(R.string.title_word_study),
+                context.getResources().getString(R.string.title_word_study_vocabulary)
         };
     }
 

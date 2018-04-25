@@ -7,8 +7,8 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.NestedScrollView;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
@@ -20,7 +20,7 @@ import java.lang.Override;
 public class ReadingDetailActivity_ViewBinding implements Unbinder {
   private ReadingDetailActivity target;
 
-  private View view2131231101;
+  private View view2131231099;
 
   @UiThread
   public ReadingDetailActivity_ViewBinding(ReadingDetailActivity target) {
@@ -35,19 +35,20 @@ public class ReadingDetailActivity_ViewBinding implements Unbinder {
     target.toolbar_layout = Utils.findRequiredViewAsType(source, R.id.toolbar_layout, "field 'toolbar_layout'", CollapsingToolbarLayout.class);
     target.title = Utils.findRequiredViewAsType(source, R.id.title, "field 'title'", TextView.class);
     target.content = Utils.findRequiredViewAsType(source, R.id.content, "field 'content'", TextView.class);
-    target.xx_ad_layout = Utils.findRequiredViewAsType(source, R.id.xx_ad_layout, "field 'xx_ad_layout'", RelativeLayout.class);
+    target.ad_img_sign = Utils.findRequiredViewAsType(source, R.id.ad_img_sign, "field 'ad_img_sign'", TextView.class);
+    target.xx_ad_layout = Utils.findRequiredViewAsType(source, R.id.xx_ad_layout, "field 'xx_ad_layout'", FrameLayout.class);
     target.next_composition = Utils.findRequiredViewAsType(source, R.id.next_composition, "field 'next_composition'", LinearLayout.class);
     target.scrollview = Utils.findRequiredViewAsType(source, R.id.scrollview, "field 'scrollview'", NestedScrollView.class);
     view = Utils.findRequiredView(source, R.id.play_btn, "field 'fab' and method 'onClick'");
     target.fab = Utils.castView(view, R.id.play_btn, "field 'fab'", FloatingActionButton.class);
-    view2131231101 = view;
+    view2131231099 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
         target.onClick();
       }
     });
-    target.pimgview = Utils.findRequiredViewAsType(source, R.id.item_img, "field 'pimgview'", SimpleDraweeView.class);
+    target.ad_img = Utils.findRequiredViewAsType(source, R.id.ad_img, "field 'ad_img'", SimpleDraweeView.class);
   }
 
   @Override
@@ -60,13 +61,14 @@ public class ReadingDetailActivity_ViewBinding implements Unbinder {
     target.toolbar_layout = null;
     target.title = null;
     target.content = null;
+    target.ad_img_sign = null;
     target.xx_ad_layout = null;
     target.next_composition = null;
     target.scrollview = null;
     target.fab = null;
-    target.pimgview = null;
+    target.ad_img = null;
 
-    view2131231101.setOnClickListener(null);
-    view2131231101 = null;
+    view2131231099.setOnClickListener(null);
+    view2131231099 = null;
   }
 }
