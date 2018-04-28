@@ -73,7 +73,7 @@ public class DailySentenceFragment extends BaseFragment implements OnClickListen
             mPlayer = new MediaPlayer();
             mInflater = LayoutInflater.from(getContext());
             beans = new ArrayList<EveryDaySentence>();
-            mXFYSAD = new XFYSAD(getContext(), ADUtil.MRYJYSNRLAd);
+            mXFYSAD = new XFYSAD(getActivity(), ADUtil.MRYJYSNRLAd);
             recent_used_lv = (RecyclerView) view.findViewById(R.id.listview);
             mAdapter = new RcDailySentenceListAdapter(getActivity(), beans, mPlayer, mProgressbarListener, mXFYSAD);
             mAdapter.setHeader(new Object());

@@ -71,12 +71,11 @@
             android:orientation="vertical" >
 
             <FrameLayout
-                android:id="@+id/xx_ad_layout"
+                android:id="@+id/xx_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:layout_margin="@dimen/padding_10"
-                android:visibility="gone" >
+                android:layout_margin="@dimen/padding_10">
 
                 <com.facebook.drawee.view.SimpleDraweeView
                     android:id="@+id/ad_img"
@@ -88,7 +87,7 @@
                     fresco:viewAspectRatio="1.77" />
 
                 <TextView
-                    android:id="@+id/ad_img_sign"
+                    android:id="@+id/ad_sign"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|left"
@@ -98,6 +97,12 @@
                     android:background="@color/none_alpha"
                     android:textColor="@color/white"
                     android:textSize="@dimen/smaller_l"
+                    />
+                <FrameLayout
+                    android:id="@+id/xx_ad_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
                     />
             </FrameLayout>
 

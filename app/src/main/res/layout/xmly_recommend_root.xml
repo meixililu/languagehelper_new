@@ -13,7 +13,7 @@
     <FrameLayout
         android:id="@+id/xmly_recommend_header"
         android:layout_width="match_parent"
-        android:layout_height="58dp"
+        android:layout_height="50dp"
         android:background="@color/white"
         android:layout_marginBottom="1px"
         android:foreground="@drawable/framelayout_selector">
@@ -27,15 +27,13 @@
             android:layout_marginLeft="10dp"
             android:gravity="center"
             android:textColor="@color/text_dark"
-            android:textSize="@dimen/bigger" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/load_blue"
+            android:textSize="@dimen/big" />
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:layout_gravity="center_vertical|right"
             android:layout_marginRight="@dimen/padding_10"
-            android:text="@string/title_more"
-            android:textSize="@dimen/middle"
+            android:src="@drawable/expend_right"
             />
     </FrameLayout>
     <LinearLayout

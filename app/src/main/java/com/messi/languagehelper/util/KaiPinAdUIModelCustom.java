@@ -39,7 +39,9 @@ public class KaiPinAdUIModelCustom {
     IFLYNativeListener mListener = new IFLYNativeListener() {
         @Override
         public void onAdFailed(AdError error) {
-            initTXAD();
+            if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
+                initTXAD();
+            }
         }
         @Override
         public void onADLoaded(List<NativeADDataRef> lst) { // 广告请求成功
@@ -70,11 +72,19 @@ public class KaiPinAdUIModelCustom {
         this.numberProgressBar = numberProgressBar;
         ad_layout.setVisibility(View.VISIBLE);
         numberProgressBar.setMax(4000);
-        init();
+        initAD();
         timer.start();
     }
 
-    private void init(){
+    private void initAD(){
+        if(ADUtil.Advertiser.equals(ADUtil.Advertiser_TX)){
+            initTXAD();
+        }else {
+            initXFAD();
+        }
+    }
+
+    private void initXFAD(){
         IFLYNativeAd nativeAd = new IFLYNativeAd(mContext, ADUtil.KaiPingYSAD, mListener);
         nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
         nativeAd.loadAd(1);
@@ -92,6 +102,9 @@ public class KaiPinAdUIModelCustom {
                     @Override
                     public void onNoAD(com.qq.e.comm.util.AdError adError) {
                         LogUtil.DefalutLog(adError.getErrorMsg());
+                        if(ADUtil.Advertiser.equals(ADUtil.Advertiser_TX)){
+                            initXFAD();
+                        }
                     }
 
                     @Override

@@ -58,7 +58,7 @@ public class WordStudySummaryFragment extends BaseFragment {
     private void initViews() {
         avObjects = new ArrayList<AVObject>();
         category_lv = (RecyclerView) getView().findViewById(R.id.listview);
-        mXFYSAD = new XFYSAD(getContext(), ADUtil.SecondaryPage);
+        mXFYSAD = new XFYSAD(getActivity(), ADUtil.SecondaryPage);
         mAdapter = new RcWordSummaryListAdapter(mXFYSAD);
         category_lv.setHasFixedSize(true);
         GridLayoutManager layoutManager = new GridLayoutManager(getContext(), NUMBER_OF_COLUMNS);

@@ -9,6 +9,7 @@ import android.widget.FrameLayout;
 
 import com.avos.avoscloud.AVAnalytics;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
+import com.messi.languagehelper.util.AVOUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -61,7 +62,8 @@ public class ListenActivity extends BaseActivity implements FragmentProgressbarL
 
     private void initFragment(){
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        mWordHomeFragment = AiFragment.getInstance();
+        mWordHomeFragment = ReadingToolbarFragment.newInstance(this.getResources().getString(R.string.title_listening),
+                AVOUtil.Category.listening,"");;
         dashboardFragment = ListenCourseFragment.getInstance();
         radioHomeFragment = BroadcastFragment.getInstance();
         getSupportFragmentManager()

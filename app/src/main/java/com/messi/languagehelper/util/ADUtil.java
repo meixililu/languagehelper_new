@@ -27,6 +27,12 @@ import io.reactivex.schedulers.Schedulers;
 
 public class ADUtil {
 
+	public static String Advertiser_XF = "xfad";
+
+	public static String Advertiser_TX = "txad";
+
+	public static String Advertiser = Advertiser_TX;
+
 	public static List<NativeADDataRef> localAd = new ArrayList<NativeADDataRef>();
 
 	public static final String KaiPingADId = "E170E50B2CBFE09CFE53F6D0A446560C";

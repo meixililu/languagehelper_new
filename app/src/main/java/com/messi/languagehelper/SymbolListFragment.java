@@ -90,7 +90,7 @@ public class SymbolListFragment extends BaseFragment {
 
     private void initViews(View view) {
         sharedPreferences = Settings.getSharedPreferences(getContext());
-        mXFYSAD = new XFYSAD(getContext(), ADUtil.SecondaryPage);
+        mXFYSAD = new XFYSAD(getActivity(), ADUtil.SecondaryPage);
         mSymbolListDao = new ArrayList<SymbolListDao>();
         category_lv = (RecyclerView) view.findViewById(R.id.listview);
         category_lv.setHasFixedSize(true);

@@ -1,13 +1,11 @@
 package com.messi.languagehelper.dao;
 
-import com.iflytek.cloud.thirdparty.S;
 import com.iflytek.voiceads.NativeADDataRef;
+import com.qq.e.ads.nativ.NativeExpressADView;
 
 import org.greenrobot.greendao.annotation.Entity;
-import org.greenrobot.greendao.annotation.Id;
-
-import java.util.List;
 import org.greenrobot.greendao.annotation.Generated;
+import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Transient;
 
 /**
@@ -58,6 +56,16 @@ public class Reading {
     private boolean isAdShow;
     @Transient
     private NativeADDataRef mNativeADDataRef;
+    @Transient
+    private NativeExpressADView mTXADView;
+
+    public NativeExpressADView getmTXADView() {
+        return mTXADView;
+    }
+
+    public void setmTXADView(NativeExpressADView mTXADView) {
+        this.mTXADView = mTXADView;
+    }
 
     public long getRead_later_time() {
         return read_later_time;

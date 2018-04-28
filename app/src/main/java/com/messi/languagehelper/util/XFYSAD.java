@@ -1,5 +1,6 @@
 package com.messi.languagehelper.util;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Rect;
 import android.view.Display;
@@ -7,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.AdError;
@@ -15,15 +18,20 @@ import com.iflytek.voiceads.IFLYNativeAd;
 import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.R;
+import com.qq.e.ads.nativ.NativeExpressAD;
+import com.qq.e.ads.nativ.NativeExpressADView;
 
 import java.util.List;
 
 public class XFYSAD {
 	
-	private Context mContext;
+	private Activity mContext;
 	private View parentView;
+	private FrameLayout xx_ad_layout;
+	private TextView ad_aign;
 	private IFLYNativeAd nativeAd;
 	private NativeADDataRef mNativeADDataRef;
+	private NativeExpressADView mTXADView;
 	private SimpleDraweeView ad_img;
 	private LayoutInflater mInflater;
 	private String adId;
@@ -32,16 +40,17 @@ public class XFYSAD {
 	private boolean exposure;
 	private HeaderFooterRecyclerViewAdapter mAdapter;
 
-	public XFYSAD(Context mContext,View parentView,String adId){
+	public XFYSAD(Activity mContext, View parentView, String adId){
 		this.mContext = mContext;
 		this.parentView = parentView;
 		this.adId = adId;
 		mInflater = LayoutInflater.from(mContext);
 		ad_img = (SimpleDraweeView)parentView.findViewById(R.id.ad_img);
-		parentView.setVisibility(View.GONE);
+		xx_ad_layout = (FrameLayout)parentView.findViewById(R.id.xx_ad_layout);
+		ad_aign = (TextView)parentView.findViewById(R.id.ad_sign);
 	}
 
-	public XFYSAD(Context mContext,String adId){
+	public XFYSAD(Activity mContext,String adId){
 		this.mContext = mContext;
 		this.adId = adId;
 		mInflater = LayoutInflater.from(mContext);
@@ -52,7 +61,8 @@ public class XFYSAD {
 		if(System.currentTimeMillis() - lastLoadAdTime > 1000*30){
 			this.parentView = parentView;
 			ad_img = (SimpleDraweeView)parentView.findViewById(R.id.ad_img);
-			parentView.setVisibility(View.GONE);
+			xx_ad_layout = (FrameLayout)parentView.findViewById(R.id.xx_ad_layout);
+			ad_aign = (TextView)parentView.findViewById(R.id.ad_sign);
 		}
 	}
 	
@@ -67,13 +77,83 @@ public class XFYSAD {
 		LogUtil.DefalutLog("XFYSAD---showAD");
 		if(ADUtil.isShowAd(mContext)){
 			if(System.currentTimeMillis() - lastLoadAdTime > 1000*30){
-				loadData();
+				ad_aign.setVisibility(View.GONE);
+				if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
+					loadXFAD();
+				}else {
+					loadTXAD();
+				}
 			}
 		}
 	}
+
+	private void loadTXAD(){
+		LogUtil.DefalutLog("---load TXAD Data---");
+		lastLoadAdTime = System.currentTimeMillis();
+		TXADUtil.showCDT(mContext, new NativeExpressAD.NativeExpressADListener() {
+			@Override
+			public void onNoAD(com.qq.e.comm.util.AdError adError) {
+				LogUtil.DefalutLog(adError.getErrorMsg());
+				if(ADUtil.Advertiser.equals(ADUtil.Advertiser_TX)){
+					loadXFAD();
+				}else {
+					onADFaile();
+				}
+			}
+
+			@Override
+			public void onADLoaded(List<NativeExpressADView> list) {
+				if(mTXADView != null){
+					mTXADView.destroy();
+				}
+				xx_ad_layout.setVisibility(View.VISIBLE);
+				xx_ad_layout.removeAllViews();
+				mTXADView = list.get(0);
+				xx_ad_layout.addView(mTXADView);
+				mTXADView.render();
+			}
+
+			@Override
+			public void onRenderFail(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onRenderFail");
+			}
+			@Override
+			public void onRenderSuccess(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onRenderSuccess");
+			}
+			@Override
+			public void onADExposure(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onADExposure");
+			}
+			@Override
+			public void onADClicked(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onADClicked");
+			}
+			@Override
+			public void onADClosed(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onADClosed");
+				if(xx_ad_layout != null){
+					xx_ad_layout.removeAllViews();
+					xx_ad_layout.setVisibility(View.GONE);
+				}
+			}
+			@Override
+			public void onADLeftApplication(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onADLeftApplication");
+			}
+			@Override
+			public void onADOpenOverlay(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onADOpenOverlay");
+			}
+			@Override
+			public void onADCloseOverlay(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onADCloseOverlay");
+			}
+		});
+	}
 	
-	private void loadData(){
-		LogUtil.DefalutLog("---load ad Data---");
+	private void loadXFAD(){
+		LogUtil.DefalutLog("---load XFAD Data---");
 		lastLoadAdTime = System.currentTimeMillis();
 		nativeAd = new IFLYNativeAd(mContext, adId, new IFLYNativeListener() {
 			@Override
@@ -85,47 +165,61 @@ public class XFYSAD {
 			@Override
 			public void onAdFailed(AdError arg0) {
 				LogUtil.DefalutLog("onAdFailed---"+arg0.getErrorCode()+"---"+arg0.getErrorDescription());
-				parentView.setVisibility(View.GONE);
-				hideHeader(true);
-				if(ADUtil.isHasLocalAd()){
-					onADLoaded(ADUtil.getRandomAdList());
+				if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
+					loadTXAD();
+				}else {
+					onADFaile();
 				}
 			}
 			@Override
 			public void onADLoaded(List<NativeADDataRef> arg0) {
-					try {
-						if(arg0 != null && arg0.size() > 0){
-							LogUtil.DefalutLog("---onADLoaded---");
-							mNativeADDataRef = arg0.get(0);
-							hideHeader(false);
-							setAdData();
-						}
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
+				LogUtil.DefalutLog("---onADLoaded---");
+				if(arg0 != null && arg0.size() > 0){
+					mNativeADDataRef = arg0.get(0);
+					setAdData();
+				}
 			}
 		});
 		nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
 		nativeAd.loadAd(ADUtil.adCount);
 	}
-	
-	private void setAdData() throws Exception{
-		parentView.setVisibility(View.VISIBLE);
-		ad_img.setImageURI(mNativeADDataRef.getImage());
-		if(isDirectExPosure){
-			exposure = mNativeADDataRef.onExposured(parentView);
-			LogUtil.DefalutLog("XFYSAD-setAdData-exposure:"+exposure);
+
+	private void onADFaile(){
+		parentView.setVisibility(View.GONE);
+		hideHeader(true);
+		if(ADUtil.isHasLocalAd()){
+			mNativeADDataRef = ADUtil.getRandomAd();
+			setAdData();
 		}
-		parentView.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				boolean click = mNativeADDataRef.onClicked(view);
-				LogUtil.DefalutLog("XFYSAD-onClick:"+click);
-			}
-		});
+	}
+	
+	private void setAdData(){
+		try {
+			hideHeader(false);
+			ad_aign.setVisibility(View.VISIBLE);
+			xx_ad_layout.setVisibility(View.GONE);
+			parentView.setVisibility(View.VISIBLE);
+			ad_img.setImageURI(mNativeADDataRef.getImage());
+			if(isDirectExPosure){
+                exposure = mNativeADDataRef.onExposured(parentView);
+                LogUtil.DefalutLog("XFYSAD-setAdData-exposure:"+exposure);
+            }
+			parentView.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    boolean click = mNativeADDataRef.onClicked(view);
+                    LogUtil.DefalutLog("XFYSAD-onClick:"+click);
+                }
+            });
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void hideHeader(final boolean isFaile){
+		if(parentView != null){
+			parentView.setVisibility(View.GONE);
+		}
 		if(mAdapter != null){
 			if(isFaile){
 				mAdapter.hideHeader();

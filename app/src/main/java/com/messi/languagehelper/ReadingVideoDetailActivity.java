@@ -35,11 +35,9 @@ import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.db.DataBaseUtil;
-import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.TextHandlerUtil;
-import com.messi.languagehelper.util.XFYSAD;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
 
 import java.util.List;
@@ -57,8 +55,6 @@ public class ReadingVideoDetailActivity extends BaseActivity {
     TextView title;
     @BindView(R.id.content)
     TextView content;
-    @BindView(R.id.xx_ad_layout)
-    FrameLayout xx_ad_layout;
     @BindView(R.id.next_composition)
     LinearLayout next_composition;
     @BindView(R.id.scrollview)
@@ -73,7 +69,6 @@ public class ReadingVideoDetailActivity extends BaseActivity {
     private List<Reading> mAVObjects;
     private SharedPreferences mSharedPreferences;
     private int index;
-    private XFYSAD mXFYSAD;
 
     private boolean mExoPlayerFullscreen = false;
     private FrameLayout mFullScreenButton;
@@ -197,19 +192,6 @@ public class ReadingVideoDetailActivity extends BaseActivity {
         simpleExoPlayerView.setUseArtwork(true);
         exoplaer(mAVObject.getMedia_url());
 
-        mXFYSAD = new XFYSAD(this, xx_ad_layout, ADUtil.NewsDetail);
-        mXFYSAD.setDirectExPosure(true);
-        mXFYSAD.showAD();
-        scrollview.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
-            @Override
-            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                if (xx_ad_layout.isShown()) {
-                    if (XFYSAD.isInScreen(ReadingVideoDetailActivity.this, xx_ad_layout)) {
-                        mXFYSAD.ExposureAD();
-                    }
-                }
-            }
-        });
         if (TextUtils.isEmpty(mAVObject.getStatus())) {
             mAVObject.setStatus("1");
             DataBaseUtil.getInstance().update(mAVObject);

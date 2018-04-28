@@ -42,9 +42,9 @@ public class ReadingDetailActivity extends BaseActivity {
     TextView title;
     @BindView(R.id.content)
     TextView content;
-    @BindView(R.id.ad_img_sign)
+    @BindView(R.id.ad_sign)
     TextView ad_img_sign;
-    @BindView(R.id.xx_ad_layout)
+    @BindView(R.id.xx_layout)
     FrameLayout xx_ad_layout;
     @BindView(R.id.next_composition)
     LinearLayout next_composition;
@@ -84,13 +84,11 @@ public class ReadingDetailActivity extends BaseActivity {
     }
 
     private void setData() {
-        xx_ad_layout.setVisibility(View.GONE);
         toolbar_layout.setTitle(mAVObject.getTitle());
         title.setText(mAVObject.getTitle());
         scrollview.scrollTo(0, 0);
         TextHandlerUtil.handlerText(this, mProgressbar, content, mAVObject.getContent());
         if (!TextUtils.isEmpty(mAVObject.getImg_url())) {
-            xx_ad_layout.setVisibility(View.VISIBLE);
             ad_img_sign.setVisibility(View.GONE);
             ad_img.setImageURI(Uri.parse(mAVObject.getImg_url()));
         }else {

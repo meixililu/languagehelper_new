@@ -37,7 +37,7 @@ public class SymbolAdapter extends FragmentPagerAdapter {
 
     private void addTitle(){
         titleList.add(mContext.getResources().getString(R.string.recommend));
-        titleList.add(mContext.getResources().getString(R.string.title_more));
+        titleList.add(mContext.getResources().getString(R.string.title_course));
     }
 
     @Override

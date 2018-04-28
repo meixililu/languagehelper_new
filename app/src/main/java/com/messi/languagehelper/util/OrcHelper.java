@@ -14,7 +14,7 @@ import android.view.View;
 import com.alibaba.fastjson.JSON;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.bean.BaiduOcrRoot;
-import com.messi.languagehelper.dialog.PopDialog;
+import com.messi.languagehelper.dialog.OCRDialog;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
@@ -51,8 +51,8 @@ public class OrcHelper {
     public void photoSelectDialog(){
         orc_api_retry_times = 2;
         String[] titles = {context.getResources().getString(R.string.take_photo),context.getResources().getString(R.string.photo_album)};
-        PopDialog mPhonoSelectDialog = new PopDialog(context,titles);
-        mPhonoSelectDialog.setListener(new PopDialog.PopViewItemOnclickListener() {
+        OCRDialog mPhonoSelectDialog = new OCRDialog(context,titles);
+        mPhonoSelectDialog.setListener(new OCRDialog.PopViewItemOnclickListener() {
             @Override
             public void onSecondClick(View v) {
                 getImageFromAlbum();

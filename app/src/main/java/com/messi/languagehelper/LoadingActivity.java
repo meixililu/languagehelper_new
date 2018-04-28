@@ -93,8 +93,11 @@ public class LoadingActivity extends AppCompatActivity {
     private void init() {
         mSharedPreferences = getSharedPreferences(getPackageName(), MODE_PRIVATE);
         mHandler = new Handler();
-//        loadXFAD();
-        loadTXAD();
+        if(ADUtil.Advertiser.equals(ADUtil.Advertiser_TX)){
+            loadTXAD();
+        }else {
+            loadXFAD();
+        }
         startTask();
     }
 
@@ -107,7 +110,11 @@ public class LoadingActivity extends AppCompatActivity {
     IFLYNativeListener mListener = new IFLYNativeListener() {
         @Override
         public void onAdFailed(AdError error) { // 广告请求失败
-            loadTXAD();
+            if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
+                loadTXAD();
+            }else {
+                onADFail();
+            }
         }
 
         @Override
@@ -170,7 +177,11 @@ public class LoadingActivity extends AppCompatActivity {
                     @Override
                     public void onNoAD(com.qq.e.comm.util.AdError adError) {
                         LogUtil.DefalutLog(adError.getErrorMsg());
-                        onADFail();
+                        if(ADUtil.Advertiser.equals(ADUtil.Advertiser_TX)){
+                            loadXFAD();
+                        }else {
+                            onADFail();
+                        }
                     }
 
                     @Override
@@ -234,7 +245,7 @@ public class LoadingActivity extends AppCompatActivity {
         skip_view.setVisibility(View.VISIBLE);
         isAdExposure = true;
         if (mHandler != null) {
-            mHandler.postDelayed(mRunnableFinal, 4000);
+            mHandler.postDelayed(mRunnableFinal, 4300);
         }
     }
 
@@ -244,7 +255,7 @@ public class LoadingActivity extends AppCompatActivity {
 
     //启动页加载总时常，防止广告一直加载中等待过久
     private void startTask() {
-        mHandler.postDelayed(m3Runnable, 4000);
+        mHandler.postDelayed(m3Runnable, 3800);
     }
 
     private void toNextPage() {

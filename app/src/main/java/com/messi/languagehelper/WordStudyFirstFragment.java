@@ -52,7 +52,7 @@ public class WordStudyFirstFragment extends BaseFragment {
     private void initViews(View view) {
         avObjects = new ArrayList<AVObject>();
         category_lv = (RecyclerView) view.findViewById(R.id.listview);
-        mXFYSAD = new XFYSAD(getContext(), ADUtil.SecondaryPage);
+        mXFYSAD = new XFYSAD(getActivity(), ADUtil.SecondaryPage);
         mAdapter = new RcWordListAdapter(mXFYSAD);
         category_lv.setHasFixedSize(true);
         GridLayoutManager layoutManager = new GridLayoutManager(getContext(), NUMBER_OF_COLUMNS);

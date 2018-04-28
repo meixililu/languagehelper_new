@@ -257,7 +257,6 @@
     <string name="foreign_website">英文网站</string>
     <string name="foreign_website_subtitle">一些不错的英文网站</string>
     <string name="leisuer_one">小白精选</string>
-    <string name="leisuer_one_subtitle">精选各种学习资料</string>
     <string name="leisuer_sougou_wechat">微信英语</string>
     <string name="leisuer_sougou_wechat_subtitle">微信公众号英语资料集合</string>
     <string name="leisuer_reading">新闻阅读</string>
@@ -362,7 +361,7 @@
     <string name="title_ai_dialog_choice_course">情景选择</string>
     <string name="random_course">随机选择</string>
     <string name="start_to_fight">闯关</string>
-    <string name="title_tuling_ai">图灵机器人</string>
+    <string name="title_tuling_ai">聊天机器人</string>
     <string name="title_tuling_ai_des">中文语境下智能度最高的机器人</string>
     <string name="english_fm">英语FM</string>
     <string name="title_activity_main">MainActivity</string>

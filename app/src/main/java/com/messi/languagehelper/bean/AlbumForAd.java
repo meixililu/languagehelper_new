@@ -1,6 +1,7 @@
 package com.messi.languagehelper.bean;
 
 import com.iflytek.voiceads.NativeADDataRef;
+import com.qq.e.ads.nativ.NativeExpressADView;
 import com.ximalaya.ting.android.opensdk.model.album.Album;
 
 /**
@@ -12,7 +13,14 @@ public class AlbumForAd extends Album {
     private boolean isAd;
     private boolean isAdShow;
     private NativeADDataRef mNativeADDataRef;
+    private NativeExpressADView mTXADView;
 
+    public NativeExpressADView getmTXADView() {
+        return mTXADView;
+    }
+    public void setmTXADView(NativeExpressADView mTXADView) {
+        this.mTXADView = mTXADView;
+    }
     public boolean isAd() {
         return isAd;
     }

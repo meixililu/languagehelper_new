@@ -30,7 +30,10 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.util.ToastUtil;
+import com.qq.e.ads.nativ.NativeExpressAD;
+import com.qq.e.ads.nativ.NativeExpressADView;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.util.ArrayList;
@@ -62,6 +65,7 @@ public class ReadingsBySubjectFragment extends BaseFragment {
     private boolean hasMoreUp = true;
     private Reading mADObject;
     private LinearLayoutManager mLinearLayoutManager;
+    private List<NativeExpressADView> mTXADList;
 
     public static Fragment newInstance(String category_2, String recentKey, String level) {
         ReadingsBySubjectFragment fragment = new ReadingsBySubjectFragment();
@@ -144,6 +148,7 @@ public class ReadingsBySubjectFragment extends BaseFragment {
 
     private void initViews(View view) {
         avObjects = new ArrayList<Reading>();
+        mTXADList = new ArrayList<NativeExpressADView>();
         listview = (RecyclerView) view.findViewById(R.id.listview);
         mAdapter = new RcSubjectReadingListAdapter(avObjects,recentKey);
         mAdapter.setItems(avObjects);
@@ -238,10 +243,12 @@ public class ReadingsBySubjectFragment extends BaseFragment {
         new QueryTask().execute();
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
+    private void loadAD(){
+        if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
+            loadXFAD();
+        }else {
+            loadTXAD();
+        }
     }
 
     private class QueryTask extends AsyncTask<Void, Void, List<AVObject>> {
@@ -323,7 +330,7 @@ public class ReadingsBySubjectFragment extends BaseFragment {
         }
     }
 
-    private void loadAD() {
+    private void loadXFAD() {
         nativeAd = new IFLYNativeAd(getContext(), ADUtil.XXLAD, new IFLYNativeListener() {
             @Override
             public void onConfirm() {
@@ -336,8 +343,10 @@ public class ReadingsBySubjectFragment extends BaseFragment {
             @Override
             public void onAdFailed(AdError arg0) {
                 LogUtil.DefalutLog("onAdFailed---" + arg0.getErrorCode() + "---" + arg0.getErrorDescription());
-                if(ADUtil.isHasLocalAd()){
-                    onADLoaded(ADUtil.getRandomAdList());
+                if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
+                    loadTXAD();
+                }else {
+                    onADFaile();
                 }
             }
 
@@ -345,17 +354,86 @@ public class ReadingsBySubjectFragment extends BaseFragment {
             public void onADLoaded(List<NativeADDataRef> adList) {
                 if (adList != null && adList.size() > 0) {
                     NativeADDataRef nad = adList.get(0);
-                    mADObject = new Reading();
-                    mADObject.setmNativeADDataRef(nad);
-                    mADObject.setAd(true);
-                    if (!loading) {
-                        addAD();
-                    }
+                    addXFAD(nad);
                 }
             }
         });
         nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
         nativeAd.loadAd(1);
+    }
+
+    private void addXFAD(NativeADDataRef nad){
+        mADObject = new Reading();
+        mADObject.setmNativeADDataRef(nad);
+        mADObject.setAd(true);
+        if (!loading) {
+            addAD();
+        }
+    }
+
+    private void onADFaile(){
+        if(ADUtil.isHasLocalAd()){
+            NativeADDataRef nad = ADUtil.getRandomAd();
+            addXFAD(nad);
+        }
+    }
+
+    private void loadTXAD(){
+        TXADUtil.showXXL(getActivity(), new NativeExpressAD.NativeExpressADListener() {
+            @Override
+            public void onNoAD(com.qq.e.comm.util.AdError adError) {
+                LogUtil.DefalutLog(adError.getErrorMsg());
+                if(ADUtil.Advertiser.equals(ADUtil.Advertiser_TX)){
+                    loadXFAD();
+                }else {
+                    onADFaile();
+                }
+            }
+            @Override
+            public void onADLoaded(List<NativeExpressADView> list) {
+                LogUtil.DefalutLog("onADLoaded");
+                if(list != null && list.size() > 0){
+                    mTXADList.add(list.get(0));
+                    mADObject = new Reading();
+                    mADObject.setmTXADView(list.get(0));
+                    if (!loading) {
+                        addAD();
+                    }
+                }
+            }
+            @Override
+            public void onRenderFail(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onRenderFail");
+            }
+            @Override
+            public void onRenderSuccess(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onRenderSuccess");
+            }
+            @Override
+            public void onADExposure(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onADExposure");
+            }
+            @Override
+            public void onADClicked(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onADClicked");
+            }
+            @Override
+            public void onADClosed(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onADClosed");
+            }
+            @Override
+            public void onADLeftApplication(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onADLeftApplication");
+            }
+            @Override
+            public void onADOpenOverlay(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onADOpenOverlay");
+            }
+            @Override
+            public void onADCloseOverlay(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onADCloseOverlay");
+            }
+        });
     }
 
     private boolean addAD() {
@@ -384,7 +462,13 @@ public class ReadingsBySubjectFragment extends BaseFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        unbinder.unbind();
         unregisterBroadcast();
+        if(mTXADList != null){
+            for(NativeExpressADView adView : mTXADList){
+                adView.destroy();
+            }
+        }
     }
 
 }

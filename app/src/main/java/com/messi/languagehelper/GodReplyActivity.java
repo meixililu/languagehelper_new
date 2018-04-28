@@ -1,7 +1,7 @@
 package com.messi.languagehelper;
 
 import android.os.Bundle;
-import android.widget.RelativeLayout;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
@@ -22,8 +22,8 @@ import butterknife.OnClick;
 
 public class GodReplyActivity extends BaseActivity {
 
-    @BindView(R.id.xx_ad_layout)
-    RelativeLayout xxAdLayout;
+    @BindView(R.id.xx_layout)
+    FrameLayout xxAdLayout;
     @BindView(R.id.question)
     TextView question;
     private XFYSAD mXFYSAD;

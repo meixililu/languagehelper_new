@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -17,6 +18,7 @@ import com.messi.languagehelper.bean.AlbumForAd;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.StringUtils;
+import com.qq.e.ads.nativ.NativeExpressADView;
 import com.ximalaya.ting.android.opensdk.model.album.Album;
 
 /**
@@ -30,7 +32,7 @@ public class RcXmlyTagsItemViewHolder extends RecyclerView.ViewHolder {
     private final TextView type_name;
     private final TextView source_name;
     private final SimpleDraweeView list_item_img;
-
+    private final FrameLayout ad_layout;
     private Context context;
 
     public RcXmlyTagsItemViewHolder(View itemView) {
@@ -42,29 +44,41 @@ public class RcXmlyTagsItemViewHolder extends RecyclerView.ViewHolder {
         type_name = (TextView) itemView.findViewById(R.id.type_name);
         source_name = (TextView) itemView.findViewById(R.id.source_name);
         list_item_img = (SimpleDraweeView) itemView.findViewById(R.id.list_item_img);
-
+        ad_layout = (FrameLayout) itemView.findViewById(R.id.ad_layout);
     }
 
     public void render(final Album mAVObject) {
+        ad_layout.setVisibility(View.GONE);
         if (mAVObject instanceof AlbumForAd) {
-            final NativeADDataRef mNativeADDataRef = ((AlbumForAd) mAVObject).getmNativeADDataRef();
-            if (mNativeADDataRef != null) {
-                title.setText(mNativeADDataRef.getTitle());
-                sub_title.setText("");
-                type_name.setText("");
-                type_name.setCompoundDrawables(null, null, null, null);
-                Drawable drawable = context.getResources().getDrawable(R.drawable.ic_item_playtimes_count);
-                drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                source_name.setCompoundDrawables(drawable, null, null, null);
-                source_name.setText(" 广告");
-                list_item_img.setImageURI(mNativeADDataRef.getImage());
-                layout_cover.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        boolean adClick = mNativeADDataRef.onClicked(v);
-                        LogUtil.DefalutLog("adClick:" + adClick);
-                    }
-                });
+            if(((AlbumForAd) mAVObject).getmTXADView() != null){
+                NativeExpressADView adView = ((AlbumForAd) mAVObject).getmTXADView();
+                ad_layout.setVisibility(View.VISIBLE);
+                ad_layout.removeAllViews();
+                if (adView.getParent() != null) {
+                    ((ViewGroup) adView.getParent()).removeView(adView);
+                }
+                ad_layout.addView(adView);
+                adView.render();
+            }else {
+                final NativeADDataRef mNativeADDataRef = ((AlbumForAd) mAVObject).getmNativeADDataRef();
+                if (mNativeADDataRef != null) {
+                    title.setText(mNativeADDataRef.getTitle());
+                    sub_title.setText("");
+                    type_name.setText("");
+                    type_name.setCompoundDrawables(null, null, null, null);
+                    Drawable drawable = context.getResources().getDrawable(R.drawable.ic_item_playtimes_count);
+                    drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+                    source_name.setCompoundDrawables(drawable, null, null, null);
+                    source_name.setText(" 广告");
+                    list_item_img.setImageURI(mNativeADDataRef.getImage());
+                    layout_cover.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            boolean adClick = mNativeADDataRef.onClicked(v);
+                            LogUtil.DefalutLog("adClick:" + adClick);
+                        }
+                    });
+                }
             }
         } else {
             title.setText(mAVObject.getAlbumTitle());

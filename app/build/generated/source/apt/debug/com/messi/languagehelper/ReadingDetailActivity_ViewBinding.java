@@ -35,8 +35,8 @@ public class ReadingDetailActivity_ViewBinding implements Unbinder {
     target.toolbar_layout = Utils.findRequiredViewAsType(source, R.id.toolbar_layout, "field 'toolbar_layout'", CollapsingToolbarLayout.class);
     target.title = Utils.findRequiredViewAsType(source, R.id.title, "field 'title'", TextView.class);
     target.content = Utils.findRequiredViewAsType(source, R.id.content, "field 'content'", TextView.class);
-    target.ad_img_sign = Utils.findRequiredViewAsType(source, R.id.ad_img_sign, "field 'ad_img_sign'", TextView.class);
-    target.xx_ad_layout = Utils.findRequiredViewAsType(source, R.id.xx_ad_layout, "field 'xx_ad_layout'", FrameLayout.class);
+    target.ad_img_sign = Utils.findRequiredViewAsType(source, R.id.ad_sign, "field 'ad_img_sign'", TextView.class);
+    target.xx_ad_layout = Utils.findRequiredViewAsType(source, R.id.xx_layout, "field 'xx_ad_layout'", FrameLayout.class);
     target.next_composition = Utils.findRequiredViewAsType(source, R.id.next_composition, "field 'next_composition'", LinearLayout.class);
     target.scrollview = Utils.findRequiredViewAsType(source, R.id.scrollview, "field 'scrollview'", NestedScrollView.class);
     view = Utils.findRequiredView(source, R.id.play_btn, "field 'fab' and method 'onClick'");

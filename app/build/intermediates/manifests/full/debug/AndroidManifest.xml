@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.messi.cantonese.study"
+    package="com.messi.languagehelper"
     android:versionCode="39"
     android:versionName="4.3" >
 
@@ -45,7 +45,7 @@
         android:theme="@style/AppTheme" >
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.messi.cantonese.study.provider"
+            android:authorities="com.messi.languagehelper.provider"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data
