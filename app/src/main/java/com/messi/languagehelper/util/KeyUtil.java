@@ -131,7 +131,9 @@ public class KeyUtil {
 	public static final String isAddRecentGuideShow = "isAddRecentGuideShow";
 
 	public static final String ADKey = "ADKey";
-	
+
+	public static final String TXADView = "TXADView";
+
 	public static final String ADIsShowKey = "ADIsShowKey";
 
 	public static final String CHDicType = "CHDicType";

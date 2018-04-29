@@ -20,9 +20,12 @@ import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NotificationUtil;
+import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.util.TimeUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
+import com.qq.e.ads.nativ.NativeExpressAD;
+import com.qq.e.ads.nativ.NativeExpressADView;
 import com.ximalaya.ting.android.opensdk.model.PlayableModel;
 import com.ximalaya.ting.android.opensdk.model.track.Track;
 import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
@@ -83,6 +86,7 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
     private Track currentTrack;
     private int position;
     private NativeADDataRef nad;
+    private NativeExpressADView mTXADView;
 
 
     @Override
@@ -172,7 +176,15 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
         setToPN();
     }
 
-    private void loadAD() {
+    private void loadAD(){
+        if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
+            loadXFAD();
+        }else {
+            loadTXAD();
+        }
+    }
+
+    private void loadXFAD() {
         IFLYNativeAd nativeAd = new IFLYNativeAd(XimalayaDetailActivity.this, ADUtil.XXLAD, new IFLYNativeListener() {
             @Override
             public void onConfirm() {
@@ -185,11 +197,7 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
             @Override
             public void onAdFailed(AdError arg0) {
                 LogUtil.DefalutLog("onAdFailed---" + arg0.getErrorCode() + "---" + arg0.getErrorDescription());
-                if(ADUtil.isHasLocalAd()){
-                    onADLoaded(ADUtil.getRandomAdList());
-                }else {
-                    isShowAd(View.GONE);
-                }
+                onADFaile();
             }
 
             @Override
@@ -204,6 +212,14 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
         nativeAd.loadAd(1);
     }
 
+    private void onADFaile(){
+        if(ADUtil.isHasLocalAd()){
+            setAd(ADUtil.getRandomAd());
+        }else {
+            isShowAd(View.GONE);
+        }
+    }
+
     private void setAd(NativeADDataRef mNativeADDataRef) {
         closeAdAuto();
         isShowAd(View.VISIBLE);
@@ -212,6 +228,68 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
         adTitle.setText(nad.getTitle());
         boolean isExposure = nad.onExposured(adLayout);
         LogUtil.DefalutLog("isExposure:" + isExposure);
+    }
+
+    private void loadTXAD(){
+        TXADUtil.showXXL_STXW(this, new NativeExpressAD.NativeExpressADListener() {
+            @Override
+            public void onNoAD(com.qq.e.comm.util.AdError adError) {
+                LogUtil.DefalutLog(adError.getErrorMsg());
+                if(ADUtil.Advertiser.equals(ADUtil.Advertiser_TX)){
+                    loadXFAD();
+                }else {
+                    onADFaile();
+                }
+            }
+            @Override
+            public void onADLoaded(List<NativeExpressADView> list) {
+                LogUtil.DefalutLog("onADLoaded");
+                if(list != null && list.size() > 0){
+                    if(mTXADView != null){
+                        mTXADView.destroy();
+                    }
+                    adLayout.setVisibility(View.VISIBLE);
+                    adLayout.removeAllViews();
+                    mTXADView = list.get(0);
+                    closeAdAuto();
+                    isShowAd(View.VISIBLE);
+                    adLayout.addView(mTXADView);
+                    mTXADView.render();
+                }
+            }
+            @Override
+            public void onRenderFail(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onRenderFail");
+            }
+            @Override
+            public void onRenderSuccess(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onRenderSuccess");
+            }
+            @Override
+            public void onADExposure(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onADExposure");
+            }
+            @Override
+            public void onADClicked(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onADClicked");
+            }
+            @Override
+            public void onADClosed(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onADClosed");
+            }
+            @Override
+            public void onADLeftApplication(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onADLeftApplication");
+            }
+            @Override
+            public void onADOpenOverlay(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onADOpenOverlay");
+            }
+            @Override
+            public void onADCloseOverlay(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onADCloseOverlay");
+            }
+        });
     }
 
     private void closeAdAuto() {
@@ -247,6 +325,9 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
     public void onDestroy() {
         super.onDestroy();
         unregisterBroadcast();
+        if(mTXADView != null){
+            mTXADView.destroy();
+        }
     }
 
     @OnClick({R.id.play_btn, R.id.play_previous, R.id.play_next, R.id.ad_close, R.id.ad_btn,

@@ -19,7 +19,7 @@ import java.lang.IllegalStateException;
 import java.lang.Override;
 
 public class ChineseDictionaryActivity_ViewBinding implements Unbinder {
-  private ChineseDictionaryActivity target;
+  private LearnCodingActivity target;
 
   private View view2131230809;
 
@@ -40,12 +40,12 @@ public class ChineseDictionaryActivity_ViewBinding implements Unbinder {
   private View view2131231244;
 
   @UiThread
-  public ChineseDictionaryActivity_ViewBinding(ChineseDictionaryActivity target) {
+  public ChineseDictionaryActivity_ViewBinding(LearnCodingActivity target) {
     this(target, target.getWindow().getDecorView());
   }
 
   @UiThread
-  public ChineseDictionaryActivity_ViewBinding(final ChineseDictionaryActivity target,
+  public ChineseDictionaryActivity_ViewBinding(final LearnCodingActivity target,
       View source) {
     this.target = target;
 
@@ -144,7 +144,7 @@ public class ChineseDictionaryActivity_ViewBinding implements Unbinder {
   @Override
   @CallSuper
   public void unbind() {
-    ChineseDictionaryActivity target = this.target;
+    LearnCodingActivity target = this.target;
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
     this.target = null;
 

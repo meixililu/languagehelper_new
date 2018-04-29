@@ -289,7 +289,7 @@
             android:name="com.messi.languagehelper.InvestListActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.messi.languagehelper.ChineseDictionaryActivity"
+            android:name="com.messi.languagehelper.LearnCodingActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.ExaminationActivity"

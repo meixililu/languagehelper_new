@@ -30,7 +30,7 @@ public class JokeActivity extends BaseActivity implements FragmentProgressbarLis
 
         pageAdapter = new JokePageAdapter(getSupportFragmentManager(), this);
         viewpager.setAdapter(pageAdapter);
-        viewpager.setOffscreenPageLimit(3);
+        viewpager.setOffscreenPageLimit(4);
         tablayout.setupWithViewPager(viewpager);
         tablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

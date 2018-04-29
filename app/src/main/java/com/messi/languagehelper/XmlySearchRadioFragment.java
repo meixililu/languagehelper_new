@@ -287,8 +287,8 @@ public class XmlySearchRadioFragment extends BaseFragment implements
     private boolean addAD() {
         if (mADObject != null && radios != null && radios.size() > 0) {
             int index = radios.size() - Settings.page_size + NumberUtil.randomNumberRange(1, 2);
-            if (index < 0) {
-                index = 0;
+            if (index < 1) {
+                index = 1;
             }
             radios.add(index, mADObject);
             adapter.notifyDataSetChanged();

@@ -371,8 +371,8 @@ public class ReadingToolbarFragment extends BaseFragment implements OnClickListe
 	private boolean addAD(){
 		if(mADObject != null && avObjects != null && avObjects.size() > 0){
 			int index = avObjects.size() - Settings.page_size + NumberUtil.randomNumberRange(1, 2);
-			if(index < 0){
-				index = 0;
+			if(index < 1){
+				index = 1;
 			}
 			avObjects.add(index,mADObject);
 			mAdapter.notifyDataSetChanged();
@@ -433,5 +433,10 @@ public class ReadingToolbarFragment extends BaseFragment implements OnClickListe
 	public void onDestroy() {
 		super.onDestroy();
 		unregisterBroadcast();
+		if(mTXADList != null){
+			for(NativeExpressADView adView : mTXADList){
+				adView.destroy();
+			}
+		}
 	}
 }

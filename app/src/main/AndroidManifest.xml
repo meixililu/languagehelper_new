@@ -278,7 +278,7 @@
             android:name=".InvestListActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ChineseDictionaryActivity"
+            android:name=".LearnCodingActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ExaminationActivity"

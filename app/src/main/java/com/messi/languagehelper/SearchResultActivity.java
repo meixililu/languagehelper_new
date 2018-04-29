@@ -250,7 +250,7 @@ public class SearchResultActivity extends BaseActivity{
 		if(mADObject != null && avObjects != null && avObjects.size() > 0){
 			int index = avObjects.size() - Settings.page_size + NumberUtil.randomNumberRange(1, 2);
 			if(index < 0){
-				index = 0;
+				index = 1;
 			}
 			avObjects.add(index,mADObject);
 			mAdapter.notifyDataSetChanged();

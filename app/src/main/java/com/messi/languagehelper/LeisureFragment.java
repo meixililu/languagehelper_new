@@ -320,7 +320,7 @@ public class LeisureFragment extends BaseFragment {
     }
 
     private void toChineseDictionaryActivity() {
-        toActivity(ChineseDictionaryActivity.class, null);
+        toActivity(LearnCodingActivity.class, null);
         AVAnalytics.onEvent(getActivity(), "leisure_pg_chinese_dic");
     }
 

@@ -3,7 +3,7 @@ package com.messi.languagehelper;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.widget.NestedScrollView;
-import android.widget.RelativeLayout;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVObject;
@@ -25,8 +25,8 @@ public class WordStudySummaryDetailActivity extends BaseActivity {
     TextView title;
     @BindView(R.id.content)
     TextView content;
-    @BindView(R.id.xx_ad_layout)
-    RelativeLayout xx_ad_layout;
+    @BindView(R.id.xx_layout)
+    FrameLayout xx_ad_layout;
     @BindView(R.id.scrollview)
     NestedScrollView scrollview;
 

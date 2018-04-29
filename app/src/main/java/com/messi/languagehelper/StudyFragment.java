@@ -378,7 +378,7 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
     }
 
     private void loadTXAD(){
-        TXADUtil.showXXL(getActivity(), new NativeExpressAD.NativeExpressADListener() {
+        TXADUtil.showXXL_ZWYT(getActivity(), new NativeExpressAD.NativeExpressADListener() {
             @Override
             public void onNoAD(com.qq.e.comm.util.AdError adError) {
                 LogUtil.DefalutLog(adError.getErrorMsg());

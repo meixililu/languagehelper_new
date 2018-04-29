@@ -5,7 +5,10 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.view.Menu;
+import android.view.MenuItem;
 
+import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
@@ -112,6 +115,27 @@ public class CompositionActivity extends BaseActivity implements FragmentProgres
 		viewpager.setAdapter(pageAdapter);
 		viewpager.setOffscreenPageLimit(5);
 		tablayout.setupWithViewPager(viewpager);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.search, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+			case R.id.action_search:
+				toMoreActivity();
+				break;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
+	private void toMoreActivity() {
+		toActivity(SearchActivity.class, null);
+		AVAnalytics.onEvent(this, "index_pg_to_morepg");
 	}
 
 	@Override

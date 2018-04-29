@@ -67,4 +67,15 @@ public class TXADUtil {
                 .build()); //
         nativeExpressAD.loadAD(1);
     }
+
+    public static void showXXL_STXW(Activity activity,
+                                    NativeExpressAD.NativeExpressADListener listener){
+        NativeExpressAD nativeExpressAD = new NativeExpressAD(activity,
+                new ADSize(ADSize.FULL_WIDTH, ADSize.AUTO_HEIGHT), appId, posId_XXL_STXW, listener);
+        nativeExpressAD.setVideoOption(new VideoOption.Builder()
+                .setAutoPlayPolicy(VideoOption.AutoPlayPolicy.WIFI) // WIFI环境下可以自动播放视频
+                .setAutoPlayMuted(true) // 自动播放时为静音
+                .build()); //
+        nativeExpressAD.loadAD(1);
+    }
 }

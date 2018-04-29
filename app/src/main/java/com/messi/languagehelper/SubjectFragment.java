@@ -7,9 +7,13 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
@@ -143,6 +147,27 @@ public class SubjectFragment extends BaseFragment {
         avObjects.clear();
         mAdapter.notifyDataSetChanged();
         new QueryTask().execute();
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.search, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_search:
+                toMoreActivity();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void toMoreActivity() {
+        toActivity(SearchActivity.class, null);
+        AVAnalytics.onEvent(getContext(), "subject_to_search");
     }
 
     @Override

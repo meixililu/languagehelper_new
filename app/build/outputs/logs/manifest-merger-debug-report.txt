@@ -635,12 +635,12 @@ ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/Android
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:279:13-49
 	android:name
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:278:13-47
-activity#com.messi.languagehelper.ChineseDictionaryActivity
+activity#com.messi.languagehelper.LearnCodingActivity
 ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:280:9-282:52
 	android:screenOrientation
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:282:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:281:13-54
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:281:13-48
 activity#com.messi.languagehelper.ExaminationActivity
 ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:283:9-285:52
 	android:screenOrientation

@@ -5,9 +5,12 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import com.avos.avoscloud.AVAnalytics;
 import com.iflytek.voiceads.AdError;
 import com.iflytek.voiceads.AdKeys;
 import com.iflytek.voiceads.IFLYNativeAd;
@@ -20,7 +23,10 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.util.ToastUtil;
+import com.qq.e.ads.nativ.NativeExpressAD;
+import com.qq.e.ads.nativ.NativeExpressADView;
 import com.ximalaya.ting.android.opensdk.constants.DTransferConstants;
 import com.ximalaya.ting.android.opensdk.datatrasfer.CommonRequest;
 import com.ximalaya.ting.android.opensdk.datatrasfer.IDataCallBack;
@@ -49,6 +55,7 @@ public class XmlyAlbumActivity extends BaseActivity implements OnClickListener{
 	private boolean hasMore = true;
 	private AlbumForAd mADObject;
 	private LinearLayoutManager mLinearLayoutManager;
+	private List<NativeExpressADView> mTXADList;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -71,6 +78,7 @@ public class XmlyAlbumActivity extends BaseActivity implements OnClickListener{
 	private void initViews(){
 		listview = (RecyclerView) findViewById(R.id.listview);
 		avObjects = new ArrayList<Album>();
+		mTXADList = new ArrayList<NativeExpressADView>();
 		mAdapter = new RcXmlyTagsAdapter();
 		mAdapter.setItems(avObjects);
 		mAdapter.setFooter(new Object());
@@ -112,12 +120,14 @@ public class XmlyAlbumActivity extends BaseActivity implements OnClickListener{
 				if(i < avObjects.size() && i > 0){
 					Album mAVObject = avObjects.get(i);
 					if (mAVObject instanceof AlbumForAd) {
-						if(!((AlbumForAd)mAVObject).isAdShow()){
-							NativeADDataRef mNativeADDataRef = ((AlbumForAd)mAVObject).getmNativeADDataRef();
-							boolean isExposure = mNativeADDataRef.onExposured(view.getChildAt(i%vCount));
-							LogUtil.DefalutLog("isExposure:"+isExposure);
-							if(isExposure){
-								((AlbumForAd)mAVObject).setAdShow(isExposure);
+						if(((AlbumForAd) mAVObject).getmNativeADDataRef() != null){
+							if(!((AlbumForAd)mAVObject).isAdShow()){
+								NativeADDataRef mNativeADDataRef = ((AlbumForAd)mAVObject).getmNativeADDataRef();
+								boolean isExposure = mNativeADDataRef.onExposured(view.getChildAt(i%vCount));
+								LogUtil.DefalutLog("isExposure:"+isExposure);
+								if(isExposure){
+									((AlbumForAd)mAVObject).setAdShow(isExposure);
+								}
 							}
 						}
 					}
@@ -142,6 +152,14 @@ public class XmlyAlbumActivity extends BaseActivity implements OnClickListener{
 		avObjects.clear();
 		mAdapter.notifyDataSetChanged();
 		QueryTask();
+	}
+
+	private void loadAD(){
+		if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
+			loadXFAD();
+		}else {
+			loadTXAD();
+		}
 	}
 
 	private void random(){
@@ -200,7 +218,7 @@ public class XmlyAlbumActivity extends BaseActivity implements OnClickListener{
 		onSwipeRefreshLayoutFinish();
 	}
 	
-	private void loadAD(){
+	private void loadXFAD(){
 		nativeAd = new IFLYNativeAd(this, ADUtil.XXLAD, new IFLYNativeListener() {
 			@Override
 			public void onConfirm() {
@@ -211,8 +229,10 @@ public class XmlyAlbumActivity extends BaseActivity implements OnClickListener{
 			@Override
 			public void onAdFailed(AdError arg0) {
 				LogUtil.DefalutLog("onAdFailed---"+arg0.getErrorCode()+"---"+arg0.getErrorDescription());
-				if(ADUtil.isHasLocalAd()){
-					onADLoaded(ADUtil.getRandomAdList());
+				if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
+					loadTXAD();
+				}else {
+					onADFaile();
 				}
 			}
 			@Override
@@ -220,17 +240,86 @@ public class XmlyAlbumActivity extends BaseActivity implements OnClickListener{
 				LogUtil.DefalutLog("onADLoaded---");
 				if(adList != null && adList.size() > 0){
 					NativeADDataRef nad = adList.get(0);
-					mADObject = new AlbumForAd();
-					mADObject.setmNativeADDataRef(nad);
-					mADObject.setAd(true);
-					if(!loading){
-						addAD();
-					}
+					addXFAD(nad);
 				}
 			}
 		});
 		nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
 		nativeAd.loadAd(1);
+	}
+
+	private void addXFAD(NativeADDataRef nad){
+		mADObject = new AlbumForAd();
+		mADObject.setmNativeADDataRef(nad);
+		mADObject.setAd(true);
+		if (!loading) {
+			addAD();
+		}
+	}
+
+	private void onADFaile(){
+		if(ADUtil.isHasLocalAd()){
+			NativeADDataRef nad = ADUtil.getRandomAd();
+			addXFAD(nad);
+		}
+	}
+
+	private void loadTXAD(){
+		TXADUtil.showXXL_ZWYT(this, new NativeExpressAD.NativeExpressADListener() {
+			@Override
+			public void onNoAD(com.qq.e.comm.util.AdError adError) {
+				LogUtil.DefalutLog(adError.getErrorMsg());
+				if(ADUtil.Advertiser.equals(ADUtil.Advertiser_TX)){
+					loadXFAD();
+				}else {
+					onADFaile();
+				}
+			}
+			@Override
+			public void onADLoaded(List<NativeExpressADView> list) {
+				LogUtil.DefalutLog("onADLoaded");
+				if(list != null && list.size() > 0){
+					mTXADList.add(list.get(0));
+					mADObject = new AlbumForAd();
+					mADObject.setmTXADView(list.get(0));
+					if (!loading) {
+						addAD();
+					}
+				}
+			}
+			@Override
+			public void onRenderFail(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onRenderFail");
+			}
+			@Override
+			public void onRenderSuccess(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onRenderSuccess");
+			}
+			@Override
+			public void onADExposure(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onADExposure");
+			}
+			@Override
+			public void onADClicked(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onADClicked");
+			}
+			@Override
+			public void onADClosed(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onADClosed");
+			}
+			@Override
+			public void onADLeftApplication(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onADLeftApplication");
+			}
+			@Override
+			public void onADOpenOverlay(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onADOpenOverlay");
+			}
+			@Override
+			public void onADCloseOverlay(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onADCloseOverlay");
+			}
+		});
 	}
 
 	private boolean addAD(){
@@ -255,7 +344,28 @@ public class XmlyAlbumActivity extends BaseActivity implements OnClickListener{
 			mAdapter.notifyDataSetChanged();
 		}
 	}
-	
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.search, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+			case R.id.action_search:
+				toMoreActivity();
+				break;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
+	private void toMoreActivity() {
+		toActivity(XmlySearchActivity.class, null);
+		AVAnalytics.onEvent(this, "index_pg_to_morepg");
+	}
+
 	@Override
 	public void onClick(View v) {
 	}
@@ -263,5 +373,10 @@ public class XmlyAlbumActivity extends BaseActivity implements OnClickListener{
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
+		if(mTXADList != null){
+			for(NativeExpressADView adView : mTXADList){
+				adView.destroy();
+			}
+		}
 	}
 }

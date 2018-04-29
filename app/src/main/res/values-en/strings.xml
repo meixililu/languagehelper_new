@@ -340,5 +340,14 @@
     <string name="xmly_track">Track</string>
     <string name="xmly_radio">Radio</string>
     <string name="click_to_skip">skip</string>
+    <string name="leisuer_two_content">
+        If you want to travel in China\n
+        If you want to teach English\n
+        If you want to learn Chinese\n
+        If you want to make friends with author\n
+        If you want to build a business with author\n
+        just add the author Wechat: xbkj6868\n
+        or email:mzxbkj@163.com
+    </string>
 
 </resources>

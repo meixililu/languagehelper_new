@@ -3,7 +3,7 @@ package com.messi.languagehelper;
 import android.os.Bundle;
 
 
-public class ChineseDictionaryActivity extends BaseActivity {
+public class LearnCodingActivity extends BaseActivity {
 
 
     @Override

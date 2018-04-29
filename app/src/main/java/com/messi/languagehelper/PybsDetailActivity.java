@@ -32,7 +32,7 @@ public class PybsDetailActivity extends BaseActivity {
     TextView title;
     @BindView(R.id.content)
     TextView content;
-    @BindView(R.id.xx_ad_layout)
+    @BindView(R.id.xx_layout)
     FrameLayout xx_ad_layout;
     @BindView(R.id.scrollview)
     NestedScrollView scrollview;
