@@ -21,6 +21,7 @@ import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.ScreenUtil;
 import com.messi.languagehelper.util.StringUtils;
 import com.messi.languagehelper.util.ViewUtil;
+import com.messi.languagehelper.util.XimalayaUtil;
 import com.ximalaya.ting.android.opensdk.constants.DTransferConstants;
 import com.ximalaya.ting.android.opensdk.datatrasfer.CommonRequest;
 import com.ximalaya.ting.android.opensdk.datatrasfer.IDataCallBack;
@@ -221,9 +222,13 @@ public class XmlyTagRecommendFragment extends BaseFragment {
 
     private void toXmlyCategoryActivity(CategoryRecommendAlbums dra){
         Intent intent = new Intent(getContext(),XmlyAlbumActivity.class);
-        intent.putExtra(KeyUtil.Category, dra.getCategoryId());
+        intent.putExtra(KeyUtil.Category, XimalayaUtil.Category_Eng);
         intent.putExtra(KeyUtil.Xmly_Tag, dra.getTagName());
-        intent.putExtra(KeyUtil.ActionbarTitle, dra.getTagName());
+        if(!TextUtils.isEmpty(dra.getTagName())){
+            intent.putExtra(KeyUtil.ActionbarTitle, dra.getTagName());
+        }else {
+            intent.putExtra(KeyUtil.ActionbarTitle, "精选");
+        }
         startActivity(intent);
     }
 

@@ -4,9 +4,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+
 import com.messi.languagehelper.adapter.CollectedActivityAdapter;
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Settings;
 
@@ -31,6 +31,7 @@ public class CollectedActivity extends BaseActivity {
         viewPager = (ViewPager) findViewById(R.id.pager);
         tablayout = (TabLayout) findViewById(R.id.tablayout);
         mAdapter = new CollectedActivityAdapter(getSupportFragmentManager(), this);
+        viewPager.setOffscreenPageLimit(3);
         viewPager.setAdapter(mAdapter);
         tablayout.setupWithViewPager(viewPager);
         setLastTimeSelectTab();

@@ -31,7 +31,7 @@ public class ADUtil {
 
 	public static String Advertiser_TX = "txad";
 
-	public static String Advertiser = Advertiser_TX;
+	public static String Advertiser = Advertiser_XF;
 
 	public static List<NativeADDataRef> localAd = new ArrayList<NativeADDataRef>();
 
