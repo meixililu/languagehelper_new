@@ -239,7 +239,12 @@
 	<string name="fighting">To All User</string>
 	<string name="sorry">We Are Sorry</string>
     <string name="nomore">no more!</string>
-	
+
+    <string name="leisure_novel">Novel</string>
+    <string name="leisure_caricature">Caricature</string>
+    <string name="leisure_dvideo">Video</string>
+    <string name="leisure_search">Search</string>
+    <string name="leisure_wyyx">Shopping</string>
 	<string name="leisuer_one">Competitive Products</string>
 	<string name="leisuer_one_subtitle">Hot-sold products</string>
     <string name="leisuer_sougou_wechat">Wechat English</string>

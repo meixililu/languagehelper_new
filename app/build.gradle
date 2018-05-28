@@ -10,7 +10,7 @@ android {
         applicationId "com.messi.languagehelper"
         resConfigs "zh-rCN", "zh-rHK", "zh-rTW", "en"
         minSdkVersion 16
-        targetSdkVersion 25
+        targetSdkVersion 27
         versionCode 40
         versionName "4.5.0"
         multiDexEnabled true
@@ -43,38 +43,39 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:27.0.0'
-    compile 'com.android.support:design:27.0.0'
-    compile 'com.android.support:support-v4:27.0.0'
-    compile 'com.android.support:recyclerview-v7:27.0.0'
-    compile 'com.android.support:cardview-v7:27.0.0'
-    compile 'com.android.support:support-vector-drawable:27.0.0'
+    compile 'com.android.support:appcompat-v7:27.1.1'
+    compile 'com.android.support:design:27.1.1'
+    compile 'com.android.support:support-v4:27.1.1'
+    compile 'com.android.support:recyclerview-v7:27.1.1'
+    compile 'com.android.support:cardview-v7:27.1.1'
+    compile 'com.android.support:support-vector-drawable:27.1.1'
+    compile 'com.android.support:support-media-compat:27.1.1'
     compile 'com.google.android:flexbox:0.3.0'
     compile 'com.android.support:multidex:1.0.2'
-    compile 'com.google.android.exoplayer:exoplayer-core:2.6.1'
-    compile 'com.google.android.exoplayer:exoplayer-ui:2.6.1'
+    compile 'com.google.android.exoplayer:exoplayer-core:2.8.0'
+    compile 'com.google.android.exoplayer:exoplayer-ui:2.8.0'
     compile 'com.jakewharton:butterknife:8.8.1'
-    compile 'com.github.bumptech.glide:glide:3.8.0'
-    compile 'com.google.code.gson:gson:2.8.2'
-    compile 'org.jsoup:jsoup:1.11.1'
+    compile 'com.github.bumptech.glide:glide:4.7.1'
+    compile 'com.google.code.gson:gson:2.8.5'
+    compile 'org.jsoup:jsoup:1.11.3'
     compile 'cn.leancloud.android:avoscloud-sdk:v3.+'
     compile 'cn.leancloud.android:avoscloud-statistics:v3.+'
-    compile 'cn.jzvd:jiaozivideoplayer:6.2.4'
-    compile 'com.facebook.fresco:fresco:1.5.0'
-    compile 'com.facebook.fresco:animated-gif:1.5.0'
-    compile 'com.karumi:headerrecyclerview:1.1.0'
-    compile 'com.yqritc:recyclerview-flexibledivider:1.4.0'
-    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    compile 'io.reactivex.rxjava2:rxjava:2.1.1'
+    compile 'cn.jzvd:jiaozivideoplayer:6.2.10'
+    compile 'com.facebook.fresco:fresco:1.9.0'
+    compile 'com.facebook.fresco:animated-gif:1.9.0'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.13'
     compile 'com.orhanobut:dialogplus:1.11@aar'
-    compile 'com.andkulikov:transitionseverywhere:1.7.0'
     compile 'org.greenrobot:greendao:3.2.2'
-    compile 'com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.0.0'
+    compile 'com.andkulikov:transitionseverywhere:1.7.0'
+    compile 'com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.0.3'
     compile 'com.github.lzyzsd:circleprogress:1.2.1'
     compile 'com.daimajia.numberprogressbar:library:1.4@aar'
-    compile 'com.yanzhenjie:permission:1.1.0'
-    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34'
+    compile 'com.yanzhenjie:permission:2.0.0-rc5'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
     compile 'com.mindorks.nybus:nybus-android:1.0.0'
+    compile 'com.yqritc:recyclerview-flexibledivider:1.4.0'
+    compile 'com.karumi:headerrecyclerview:1.1.0'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 }

@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -85,7 +86,7 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener, Fr
 			mInstance = this;
 			initViews();
 			initSDKAndPermission();
-//			runCheckUpdateTask();
+			runCheckUpdateTask();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -285,65 +286,87 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener, Fr
 	private void checkUpdate() {
 		AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.UpdateInfo.UpdateInfo);
 		query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "zyhy");
-		query.whereEqualTo(AVOUtil.UpdateInfo.IsValid, "1");
 		query.findInBackground(new FindCallback<AVObject>() {
 			public void done(List<AVObject> avObjects, AVException e) {
 				if (avObjects != null && avObjects.size() > 0) {
 					AVObject mAVObject = avObjects.get(0);
+					saveSetting(mAVObject);
 					showUpdateDialog(mAVObject);
 				}
 			}
 		});
 	}
 
+	private void saveSetting(AVObject mAVObject){
+		String app_advertiser = mAVObject.getString(AVOUtil.UpdateInfo.ad_type);
+		String wyyx_url = mAVObject.getString(AVOUtil.UpdateInfo.wyyx_url);
+		String uctt_url = mAVObject.getString(AVOUtil.UpdateInfo.uctt_url);
+		String ucsearch_url = mAVObject.getString(AVOUtil.UpdateInfo.ucsearch_url);
+		if(!TextUtils.isEmpty(wyyx_url)){
+			Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_WYYX_URL,wyyx_url);
+		}
+		if(!TextUtils.isEmpty(app_advertiser)){
+			Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.APP_Advertiser,app_advertiser);
+		}
+		if(!TextUtils.isEmpty(uctt_url)){
+			Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_UCTT,uctt_url);
+		}
+		if(!TextUtils.isEmpty(ucsearch_url)){
+			Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_UCSearch,ucsearch_url);
+		}
+	}
+
 	private void showUpdateDialog(final AVObject mAVObject) {
-		int newVersionCode = mAVObject.getInt(AVOUtil.UpdateInfo.VersionCode);
-		int oldVersionCode = Settings.getVersion(WXEntryActivity.this);
-		if (newVersionCode > oldVersionCode) {
-			String updateInfo = mAVObject.getString(AVOUtil.UpdateInfo.AppUpdateInfo);
-			String downloadType = mAVObject.getString(AVOUtil.UpdateInfo.DownloadType);
-			String apkUrl = "";
-			if (downloadType.equals("apk")) {
-				AVFile avFile = mAVObject.getAVFile(AVOUtil.UpdateInfo.Apk);
-				apkUrl = avFile.getUrl();
-			} else {
-				apkUrl = mAVObject.getString(AVOUtil.UpdateInfo.APPUrl);
+		String isValid = mAVObject.getString(AVOUtil.UpdateInfo.IsValid);
+		if(!TextUtils.isEmpty(isValid) && isValid.equals("2")){
+			int newVersionCode = mAVObject.getInt(AVOUtil.UpdateInfo.VersionCode);
+			int oldVersionCode = Settings.getVersion(WXEntryActivity.this);
+			if (newVersionCode > oldVersionCode) {
+				String updateInfo = mAVObject.getString(AVOUtil.UpdateInfo.AppUpdateInfo);
+				String downloadType = mAVObject.getString(AVOUtil.UpdateInfo.DownloadType);
+				String apkUrl = "";
+				if (downloadType.equals("apk")) {
+					AVFile avFile = mAVObject.getAVFile(AVOUtil.UpdateInfo.Apk);
+					apkUrl = avFile.getUrl();
+				} else {
+					apkUrl = mAVObject.getString(AVOUtil.UpdateInfo.APPUrl);
+				}
+				final String downloadUrl = apkUrl;
+				LogUtil.DefalutLog("apkUrl:" + apkUrl);
+
+				dialog = DialogPlus.newDialog(this)
+						.setContentHolder(new ViewHolder(R.layout.dialog_update_info))
+						.setCancelable(false)
+						.setGravity(Gravity.BOTTOM)
+						.setContentHeight(ViewGroup.LayoutParams.WRAP_CONTENT)
+						.setOverlayBackgroundResource(R.color.none_alpha)
+						.create();
+				View view = dialog.getHolderView();
+				TextView updage_info = (TextView) view.findViewById(R.id.updage_info);
+				TextView cancel_btn = (TextView) view.findViewById(R.id.cancel_btn);
+				TextView update_btn = (TextView) view.findViewById(R.id.update_btn);
+
+				updage_info.setText(updateInfo);
+				cancel_btn.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						dialog.dismiss();
+					}
+				});
+				update_btn.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						dialog.dismiss();
+						new AppDownloadUtil(WXEntryActivity.this,
+								downloadUrl,
+								mAVObject.getString(AVOUtil.UpdateInfo.AppName),
+								mAVObject.getObjectId(),
+								SDCardUtil.apkUpdatePath
+						).DownloadFile();
+					}
+				});
+				dialog.show();
 			}
-			final String downloadUrl = apkUrl;
-			LogUtil.DefalutLog("apkUrl:" + apkUrl);
-
-			dialog = DialogPlus.newDialog(this)
-					.setContentHolder(new ViewHolder(R.layout.dialog_update_info))
-					.setCancelable(false)
-					.setGravity(Gravity.BOTTOM)
-					.setContentHeight(ViewGroup.LayoutParams.WRAP_CONTENT)
-					.setOverlayBackgroundResource(R.color.none_alpha)
-					.create();
-			View view = dialog.getHolderView();
-			TextView updage_info = (TextView) view.findViewById(R.id.updage_info);
-			TextView cancel_btn = (TextView) view.findViewById(R.id.cancel_btn);
-			TextView update_btn = (TextView) view.findViewById(R.id.update_btn);
-
-			updage_info.setText(updateInfo);
-			cancel_btn.setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					dialog.dismiss();
-				}
-			});
-			update_btn.setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					dialog.dismiss();
-					new AppDownloadUtil(WXEntryActivity.this,
-							downloadUrl,
-							mAVObject.getString(AVOUtil.UpdateInfo.AppName),
-							mAVObject.getObjectId(),
-							SDCardUtil.apkUpdatePath
-					).DownloadFile();
-				}
-			});
-			dialog.show();
 		}
 	}
 

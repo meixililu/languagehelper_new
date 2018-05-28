@@ -15,23 +15,19 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVAnalytics;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.model.GlideUrl;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.AdError;
 import com.iflytek.voiceads.AdKeys;
 import com.iflytek.voiceads.IFLYNativeAd;
 import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
-import com.messi.languagehelper.http.LanguagehelperHttpClient;
-import com.messi.languagehelper.http.OkHttpUrlLoader;
 import com.messi.languagehelper.util.ADUtil;
+import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.qq.e.ads.splash.SplashADListener;
 
-import java.io.InputStream;
 import java.util.List;
 
 import butterknife.BindView;
@@ -63,22 +59,10 @@ public class LoadingActivity extends AppCompatActivity {
             ButterKnife.bind(this);
             ADUtil.loadAd(this);
             init();
-            lazyInit();
         } catch (Exception e) {
             onError();
             e.printStackTrace();
         }
-    }
-
-    private void lazyInit() {
-        getWindow().getDecorView().post(new Runnable() {
-            @Override
-            public void run() {
-                Glide.get(LoadingActivity.this).register(GlideUrl.class, InputStream.class,
-                        new OkHttpUrlLoader.Factory(LanguagehelperHttpClient.initClient(LoadingActivity.this)));
-            }
-        });
-
     }
 
     private void TransparentStatusbar() {
@@ -93,6 +77,7 @@ public class LoadingActivity extends AppCompatActivity {
     private void init() {
         mSharedPreferences = getSharedPreferences(getPackageName(), MODE_PRIVATE);
         mHandler = new Handler();
+        ADUtil.Advertiser = mSharedPreferences.getString(KeyUtil.APP_Advertiser,ADUtil.Advertiser_XF);
         if(ADUtil.Advertiser.equals(ADUtil.Advertiser_TX)){
             loadTXAD();
         }else {

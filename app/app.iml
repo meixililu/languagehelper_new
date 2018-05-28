@@ -118,78 +118,86 @@
     <orderEntry type="jdk" jdkName="Android API 27 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="com.android.support:multidex-1.0.2" level="project" />
+    <orderEntry type="library" name="com.android.support:appcompat-v7-27.1.1" level="project" />
     <orderEntry type="library" name="__local_aars__:/Users/luli/AndroidStudioProjects/languagehelper/app/libs/Msc.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="com.android.support:animated-vector-drawable-27.0.0" level="project" />
     <orderEntry type="library" name="com.google.android:flexbox-0.3.0" level="project" />
+    <orderEntry type="library" name="com.facebook.fresco:fresco-1.9.0" level="project" />
     <orderEntry type="library" name="__local_aars__:/Users/luli/AndroidStudioProjects/languagehelper/app/libs/TingPhoneOpenSDK_5.6.2.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="android.arch.lifecycle:common:1.0.0@jar" level="project" />
-    <orderEntry type="library" name="com.android.support:support-core-utils-27.0.0" level="project" />
+    <orderEntry type="library" name="com.android.support:design-27.1.1" level="project" />
+    <orderEntry type="library" name="com.yanzhenjie:permission-2.0.0-rc5" level="project" />
+    <orderEntry type="library" name="com.android.support:transition-27.1.1" level="project" />
     <orderEntry type="library" name="com.mindorks.nybus:nybus-android-1.0.0" level="project" />
-    <orderEntry type="library" name="android.arch.lifecycle:runtime-1.0.0" level="project" />
     <orderEntry type="library" name="com.parse.bolts:bolts-tasks:1.4.0@jar" level="project" />
-    <orderEntry type="library" name="io.reactivex.rxjava2:rxjava:2.1.1@jar" level="project" />
+    <orderEntry type="library" name="com.android.support:recyclerview-v7-27.1.1" level="project" />
     <orderEntry type="library" name="__local_aars__:/Users/luli/AndroidStudioProjects/languagehelper/app/libs/YoudaoBase.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="cn.leancloud.android:okhttp:2.6.0-leancloud@jar" level="project" />
-    <orderEntry type="library" name="com.android.support:support-compat-27.0.0" level="project" />
+    <orderEntry type="library" name="org.checkerframework:checker-qual:2.5.0@jar" level="project" />
     <orderEntry type="library" name="cn.leancloud.android:okio:1.6.0-leancloud@jar" level="project" />
-    <orderEntry type="library" name="com.github.bumptech.glide:glide:3.8.0@jar" level="project" />
-    <orderEntry type="library" name="com.facebook.fresco:fresco-1.5.0" level="project" />
-    <orderEntry type="library" name="com.android.support:support-vector-drawable-27.0.0" level="project" />
     <orderEntry type="library" name="com.mindorks.nybus:nybus-common:1.0.0@jar" level="project" />
-    <orderEntry type="library" name="com.facebook.fresco:fbcore-1.5.0" level="project" />
-    <orderEntry type="library" name="com.google.code.gson:gson:2.8.2@jar" level="project" />
     <orderEntry type="library" name="com.yqritc:recyclerview-flexibledivider-1.4.0" level="project" />
+    <orderEntry type="library" name="com.facebook.fresco:fbcore-1.9.0" level="project" />
     <orderEntry type="library" name="__local_aars__:/Users/luli/AndroidStudioProjects/languagehelper/app/libs/okio-1.8.0.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="org.greenrobot:greendao:3.2.2@jar" level="project" />
+    <orderEntry type="library" name="com.github.bumptech.glide:disklrucache:4.7.1@jar" level="project" />
     <orderEntry type="library" name="__local_aars__:/Users/luli/AndroidStudioProjects/languagehelper/app/libs/YoudaoWordOffline.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="com.android.support:cardview-v7-27.0.0" level="project" />
-    <orderEntry type="library" name="com.facebook.fresco:animated-base-1.5.0" level="project" />
     <orderEntry type="library" scope="TEST" name="org.hamcrest:hamcrest-core:1.3@jar" level="project" />
     <orderEntry type="library" name="cn.leancloud.android:avoscloud-sdk:v3.16.4@jar" level="project" />
     <orderEntry type="library" name="com.jakewharton:butterknife-annotations:8.8.1@jar" level="project" />
-    <orderEntry type="library" name="com.android.support:support-core-ui-27.0.0" level="project" />
-    <orderEntry type="library" name="android.arch.core:common:1.0.0@jar" level="project" />
+    <orderEntry type="library" name="io.reactivex.rxjava2:rxjava:2.1.13@jar" level="project" />
     <orderEntry type="library" name="com.orhanobut:dialogplus-1.11" level="project" />
-    <orderEntry type="library" name="com.github.CymChad:BaseRecyclerViewAdapterHelper-2.9.34" level="project" />
+    <orderEntry type="library" name="android.arch.lifecycle:viewmodel-1.1.0" level="project" />
     <orderEntry type="library" name="cn.leancloud.android:fastjson:1.1.39-leancloud@jar" level="project" />
-    <orderEntry type="library" name="org.reactivestreams:reactive-streams:1.0.0@jar" level="project" />
-    <orderEntry type="library" name="cn.jzvd:jiaozivideoplayer-6.2.4" level="project" />
-    <orderEntry type="library" name="com.android.support:support-media-compat-27.0.0" level="project" />
     <orderEntry type="library" scope="TEST" name="com.android.support:multidex-instrumentation-1.0.2" level="project" />
+    <orderEntry type="library" name="com.android.support:support-core-utils-27.1.1" level="project" />
     <orderEntry type="library" name="__local_aars__:/Users/luli/AndroidStudioProjects/languagehelper/app/libs/nineoldandroids-2.4.0.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="com.android.support:support-v4-27.0.0" level="project" />
-    <orderEntry type="library" name="com.android.support:support-fragment-27.0.0" level="project" />
+    <orderEntry type="library" name="com.facebook.fresco:animated-gif-1.9.0" level="project" />
     <orderEntry type="library" name="__local_aars__:/Users/luli/AndroidStudioProjects/languagehelper/app/libs/GDTUnionSDK.TBS.4.16.561.min.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="com.android.support:support-annotations:27.1.1@jar" level="project" />
     <orderEntry type="library" name="com.github.lzyzsd:circleprogress-1.2.1" level="project" />
-    <orderEntry type="library" name="com.facebook.fresco:animated-gif-1.5.0" level="project" />
-    <orderEntry type="library" name="com.android.support:appcompat-v7-27.0.0" level="project" />
+    <orderEntry type="library" name="com.facebook.fresco:animated-base-1.9.0" level="project" />
+    <orderEntry type="library" name="com.github.bumptech.glide:annotations:4.7.1@jar" level="project" />
+    <orderEntry type="library" name="com.facebook.fresco:imagepipeline-base-1.9.0" level="project" />
+    <orderEntry type="library" name="com.android.support:animated-vector-drawable-27.1.1" level="project" />
     <orderEntry type="library" name="__local_aars__:/Users/luli/AndroidStudioProjects/languagehelper/app/libs/XmDownload_1.6.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="org.greenrobot:greendao-api:3.2.2@jar" level="project" />
     <orderEntry type="library" name="com.karumi:headerrecyclerview-1.1.0" level="project" />
-    <orderEntry type="library" name="com.android.support:design-27.0.0" level="project" />
+    <orderEntry type="library" name="__local_aars__:/Users/luli/AndroidStudioProjects/languagehelper/app/libs/uc_infoflow.jar:unspecified@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="junit:junit:4.12@jar" level="project" />
-    <orderEntry type="library" name="com.facebook.fresco:animated-drawable-1.5.0" level="project" />
-    <orderEntry type="library" name="com.android.support:transition-27.0.0" level="project" />
-    <orderEntry type="library" name="com.github.yuweiguocn:GreenDaoUpgradeHelper-v2.0.0" level="project" />
-    <orderEntry type="library" name="com.facebook.fresco:imagepipeline-base-1.5.0" level="project" />
-    <orderEntry type="library" name="org.jsoup:jsoup:1.11.1@jar" level="project" />
+    <orderEntry type="library" name="android.arch.core:common:1.1.0@jar" level="project" />
+    <orderEntry type="library" name="com.google.code.gson:gson:2.8.5@jar" level="project" />
+    <orderEntry type="library" name="com.github.yuweiguocn:GreenDaoUpgradeHelper-v2.0.3" level="project" />
     <orderEntry type="library" name="__local_aars__:/Users/luli/AndroidStudioProjects/languagehelper/app/libs/YoudaoLineOffline.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="com.github.CymChad:BaseRecyclerViewAdapterHelper-2.9.40" level="project" />
     <orderEntry type="library" name="__local_aars__:/Users/luli/AndroidStudioProjects/languagehelper/app/libs/Sunflower.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="com.google.android.exoplayer:exoplayer-ui-2.6.1" level="project" />
-    <orderEntry type="library" name="com.android.support:recyclerview-v7-27.0.0" level="project" />
-    <orderEntry type="library" name="com.yanzhenjie:permission-1.1.0" level="project" />
+    <orderEntry type="library" name="com.google.android.exoplayer:exoplayer-ui-2.8.0" level="project" />
+    <orderEntry type="library" name="com.facebook.soloader:soloader-0.3.0" level="project" />
     <orderEntry type="library" name="__local_aars__:/Users/luli/AndroidStudioProjects/languagehelper/app/libs/okhttp-3.3.1.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="com.github.bumptech.glide:glide-4.7.1" level="project" />
+    <orderEntry type="library" name="com.android.support:support-vector-drawable-27.1.1" level="project" />
     <orderEntry type="library" name="com.andkulikov:transitionseverywhere-1.7.0" level="project" />
+    <orderEntry type="library" name="android.arch.lifecycle:runtime-1.1.0" level="project" />
+    <orderEntry type="library" name="android.arch.lifecycle:common:1.1.0@jar" level="project" />
+    <orderEntry type="library" name="com.android.support:cardview-v7-27.1.1" level="project" />
     <orderEntry type="library" name="com.jakewharton:butterknife-8.8.1" level="project" />
-    <orderEntry type="library" name="com.yanzhenjie.alertdialog:alertdialog-1.0.1" level="project" />
-    <orderEntry type="library" name="io.reactivex.rxjava2:rxandroid-2.0.1" level="project" />
-    <orderEntry type="library" name="com.facebook.fresco:drawee-1.5.0" level="project" />
+    <orderEntry type="library" name="io.reactivex.rxjava2:rxandroid-2.0.2" level="project" />
+    <orderEntry type="library" name="cn.jzvd:jiaozivideoplayer-6.2.10" level="project" />
+    <orderEntry type="library" name="org.reactivestreams:reactive-streams:1.0.2@jar" level="project" />
+    <orderEntry type="library" name="com.android.support:support-core-ui-27.1.1" level="project" />
+    <orderEntry type="library" name="com.android.support:support-compat-27.1.1" level="project" />
     <orderEntry type="library" name="__local_aars__:/Users/luli/AndroidStudioProjects/languagehelper/app/libs/android-query-full.0.26.7.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="org.jsoup:jsoup:1.11.3@jar" level="project" />
+    <orderEntry type="library" name="com.facebook.fresco:drawee-1.9.0" level="project" />
+    <orderEntry type="library" name="android.arch.lifecycle:livedata-core-1.1.0" level="project" />
+    <orderEntry type="library" name="com.github.bumptech.glide:gifdecoder-4.7.1" level="project" />
     <orderEntry type="library" name="cn.leancloud.android:avoscloud-statistics:v3.16.4@jar" level="project" />
-    <orderEntry type="library" name="com.android.support:support-annotations:27.0.0@jar" level="project" />
+    <orderEntry type="library" name="com.facebook.fresco:animated-drawable-1.9.0" level="project" />
+    <orderEntry type="library" name="com.android.support:support-fragment-27.1.1" level="project" />
+    <orderEntry type="library" name="com.facebook.fresco:imagepipeline-1.9.0" level="project" />
+    <orderEntry type="library" name="com.google.android.exoplayer:exoplayer-core-2.8.0" level="project" />
+    <orderEntry type="library" name="com.android.support:support-media-compat-27.1.1" level="project" />
     <orderEntry type="library" name="__local_aars__:/Users/luli/AndroidStudioProjects/languagehelper/app/libs/Ad_Android_SDK.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="com.facebook.fresco:imagepipeline-1.5.0" level="project" />
     <orderEntry type="library" name="com.daimajia.numberprogressbar:library-1.4" level="project" />
-    <orderEntry type="library" name="com.google.android.exoplayer:exoplayer-core-2.6.1" level="project" />
+    <orderEntry type="library" name="android.arch.core:runtime-1.1.0" level="project" />
+    <orderEntry type="library" name="com.android.support:support-v4-27.1.1" level="project" />
   </component>
 </module>

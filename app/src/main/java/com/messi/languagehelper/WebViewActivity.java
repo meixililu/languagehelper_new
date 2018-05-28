@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.net.http.SslError;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -17,6 +18,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
@@ -41,7 +43,9 @@ public class WebViewActivity extends BaseActivity{
     private String ShareUrlMsg;
     private int ToolbarBackgroundColor;
     private boolean isReedPullDownRefresh;
+    private boolean isHideToolbar;
     private long lastClick;
+	private String adFilte;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -55,16 +59,21 @@ public class WebViewActivity extends BaseActivity{
 		Url = getIntent().getStringExtra(KeyUtil.URL);
 		title = getIntent().getStringExtra(KeyUtil.ActionbarTitle);
 		ShareUrlMsg = getIntent().getStringExtra(KeyUtil.ShareUrlMsg);
+		adFilte = getIntent().getStringExtra(KeyUtil.AdFilter);
 		ToolbarBackgroundColor = getIntent().getIntExtra(KeyUtil.ToolbarBackgroundColorKey,0);
 		isReedPullDownRefresh = getIntent().getBooleanExtra(KeyUtil.IsReedPullDownRefresh, true);
-		if(TextUtils.isEmpty(title)){
-			title = getResources().getString(R.string.app_name);
-		}
+		isHideToolbar = getIntent().getBooleanExtra(KeyUtil.IsHideToolbar, false);
 		LogUtil.DefalutLog("ToolbarBackgroundColor:"+ToolbarBackgroundColor);
 		if(ToolbarBackgroundColor != 0){
 			setToolbarBackground(ToolbarBackgroundColor);
 		}
-		getSupportActionBar().setTitle(title);
+		if(!TextUtils.isEmpty(title)){
+			getSupportActionBar().setTitle(title);
+		}
+		if (isHideToolbar) {
+			setStatusbarColor(R.color.black);
+			getSupportActionBar().hide();
+		}
 	}
 	
 	private void initViews(){
@@ -77,8 +86,12 @@ public class WebViewActivity extends BaseActivity{
 		mWebView.getSettings().setJavaScriptEnabled(true);//如果访问的页面中有Javascript，则webview必须设置支持Javascript。
 		mWebView.getSettings().setUseWideViewPort(true);
 		mWebView.getSettings().setLoadWithOverviewMode(true);
-		mWebView.requestFocus();
-		
+		mWebView.getSettings().setDomStorageEnabled(true);
+		mWebView.getSettings().setBlockNetworkImage(false);
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP) {
+			mWebView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+		}
+
 		tap_to_reload.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -128,9 +141,18 @@ public class WebViewActivity extends BaseActivity{
 				LogUtil.DefalutLog("WebViewClient:onPageFinished");
 			}
 
+			@Override
 			public boolean shouldOverrideUrlLoading(WebView view, String url) {
-				mWebView.loadUrl(url);
-				return true;
+				if(url.contains("openapp.jdmobile") || url.contains("taobao")){
+					Uri uri = Uri.parse(url);
+					view.loadUrl("");
+					ADUtil.toAdActivity(WebViewActivity.this,uri);
+					WebViewActivity.this.finish();
+					return true;
+				}else if(url.contains("bilibili:")){
+					return true;
+				}
+				return super.shouldOverrideUrlLoading(view, url);
 			}
 
 			@Override
@@ -233,10 +255,10 @@ public class WebViewActivity extends BaseActivity{
 		}
        return super.onOptionsItemSelected(item);
 	}
-	
+
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if((keyCode == KeyEvent.KEYCODE_BACK ) && mWebView.canGoBack()){
+		if((keyCode == KeyEvent.KEYCODE_BACK) && mWebView.canGoBack()){
 			mWebView.goBack();
 			return true;
 		}

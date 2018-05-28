@@ -14,7 +14,6 @@ import android.net.Uri;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
-import android.support.v4.BuildConfig;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -23,13 +22,16 @@ import android.text.ClipboardManager;
 import android.view.View;
 
 import com.avos.avoscloud.AVAnalytics;
+import com.messi.languagehelper.BuildConfig;
 import com.messi.languagehelper.ImgShareActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.dialog.PopDialog;
 import com.messi.languagehelper.dialog.PopDialog.PopViewItemOnclickListener;
+import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Permission;
 
+import java.util.List;
 import java.util.UUID;
 
 import static android.support.v4.app.ActivityCompat.shouldShowRequestPermissionRationale;
@@ -40,11 +42,6 @@ public class Settings {
 
 	/**baidu translate api**/
 	public static String baiduTranslateUrl = "https://fanyi-api.baidu.com/api/trans/vip/translate";
-	
-	/**baidu dictionary api**/
-	public static String baiduDictionaryUrl = "http://openapi.baidu.com/public/2.0/translate/dict/simple";
-	
-	public static String baiduWebTranslateUrl = "http://fanyi.baidu.com/v2transapi";
 
 	public static String BaiduLocationApi = "http://api.map.baidu.com/geocoder/v2/?output=json&pois=1&ak=vCV6TTGRTI5QrckdYSKHQIhq&location=";
 
@@ -74,46 +71,16 @@ public class Settings {
 	/**showapi dictionary api**/
 	public static String ShowApiDictionaryUrl = "http://route.showapi.com/32-9";
 	
-	/**showapi word list api**/
-	public static String ShowApiWordListUrl = "http://route.showapi.com/8-11";
-	
-	/**showapi word detail list api**/
-	public static String ShowApiWordDetailListUrl = "http://route.showapi.com/8-10";
-	
 	/**jinshan daily sentence api**/
 	public static String DailySentenceUrl = "http://open.iciba.com/dsapi/";
-	
-	/**showapi budejie api**/
-	public static String BudejieUrl = "http://route.showapi.com/255-1";
-	
-	/**showapi joke picture api**/
-	public static String JokePictureUrl = "http://route.showapi.com/341-2";
-
-	/**showapi joke gif api**/
-	public static String JokeGifUrl = "http://route.showapi.com/341-3";
-
-	/**showapi joke text api**/
-	public static String JokeTextUrl = "http://route.showapi.com/341-1";
 	
 	public static final String CaiLingUrl = "http://iring.diyring.cc/friendv2/135430af88bc3328#main";
 
 	public static final String CHDicBaiduApi = "http://hanyu.baidu.com/s?ptype=zici&wd=";
 
-	public static final String ChDicSearchUrl = "http://v.juhe.cn/xhzd/query";
-
-	public static final String ChDicBushouUrl = "http://v.juhe.cn/xhzd/bushou";
-
-	public static final String ChDicBushouListUrl = "http://v.juhe.cn/xhzd/querybs";
-
-	public static final String ChDicPinyinUrl = "http://v.juhe.cn/xhzd/pinyin";
-
-	public static final String ChDicPinyinListUrl = "http://v.juhe.cn/xhzd/querypy";
-
 	public static final String WechatJXUrl = "http://api.tianapi.com/wxnew/?key=18f7f9dbd7dfcd8ab45efdcfbc33826d&rand=1&num=15&page=";
 
 	public static final String ToutiaoNewsUrl = "http://v.juhe.cn/toutiao/index";
-
-	public static final String SougoUrl = "http://weixin.sogou.com/weixinwap?ie=utf8&s_from=input&type=2&t=1488020521571&pg=webSearchList&_sug_=y&_sug_type_=&query=%E8%8B%B1%E8%AF%AD";
 
 	/** BrainTwists **/
 	public static final String TXBrainTwistsApi = "http://api.tianapi.com/txapi/naowan/?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
@@ -134,8 +101,12 @@ public class Settings {
 
 	public static final String AiTuringApiKey = "9cab5ca560c7403c84d035196b6f3500";
 
-	/**广阅通**/
-	public static final String GuangyuetongUrl = "http://p.contx.cn/v1/access?id=f9136944-bc17-4cb1-9b14-ece9de91b39d&uid=#uid#&ud=#ud#";
+	/**wang yi yan xuan**/
+	public static final String WYYX = "http://m.you.163.com/?_stat_from=&ts_share=1&channel_type=1&ts_dealer=1&ts_sharerId=9f6b4c82b98fe8eb&_stat_subject=5972&from=singlemessage";
+	//	uc toutiao
+	public static final String UCTT = "http://m.uczzd.cn/webview/newslist?app=languagehelper-iflow&zzd_from=languagehelper-iflow&uc_param_str=dndsfrvesvntnwpfgi&uc_biz_str=S%253Acustom%257CC%253Azzd_list&is_hide_top=1&is_hide_bottom=1&is_link_open=1";
+	// uc search
+	public static final String UCSearch = "https://yz.m.sm.cn/s?q=%E7%A5%9E%E9%A9%AC%E6%96%B0%E9%97%BB%E6%A6%9C%E5%8D%95&from=wm845578";
 
 	//应用静态常量：
 	public static boolean isMainFragmentNeedRefresh;
@@ -161,9 +132,9 @@ public class Settings {
 	public static final int offset = 150;
 
 	public static String[] PERMISSIONS_STORAGE = {
-			Manifest.permission.READ_EXTERNAL_STORAGE,
 			Manifest.permission.READ_PHONE_STATE,
 			Manifest.permission.WRITE_EXTERNAL_STORAGE,
+			Manifest.permission.READ_EXTERNAL_STORAGE,
 			Manifest.permission.ACCESS_FINE_LOCATION
 	};
 	public static String[] PERMISSIONS_RECORD_AUDIO = {
@@ -487,9 +458,20 @@ public class Settings {
 				uniqueId = deviceUuid.toString();
 			}else {
 				AndPermission.with(context)
-						.permission(Permission.PHONE)
-						.requestCode(110)
-						.callback(context)
+						.runtime()
+						.permission(Permission.Group.PHONE)
+						.onGranted(new Action<List<String>>() {
+							@Override
+							public void onAction(List<String> data) {
+
+							}
+						})
+						.onDenied(new Action<List<String>>() {
+							@Override
+							public void onAction(List<String> data) {
+
+							}
+						})
 						.start();
 			}
 		} catch (Exception e) {

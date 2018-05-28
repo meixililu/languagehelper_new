@@ -5,8 +5,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import com.iflytek.cloud.thirdparty.T;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -49,7 +47,7 @@ public class SaveData {
 	* @function 将一个对象保存到本地 
     * @author D-light 
     * @time 2014-07-23 
-    * @param String name 
+    * @param name
     * @return void 
     */  
    public static void saveObject(Context mContext,String name,Object object){  
@@ -86,7 +84,7 @@ public class SaveData {
    * @function 从本地读取保存的对象 
    * @author D-light 
    * @time 2014-07-23 
-   * @param String name 
+   * @param name
    * @return Object 
    */  
    public static Object getObject(Context mContext,String name){  

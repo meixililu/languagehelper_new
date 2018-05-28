@@ -247,7 +247,8 @@ public class PlayerService extends Service {
     private final class ExoPlayerEventListener implements ExoPlayer.EventListener {
 
         @Override
-        public void onTimelineChanged(Timeline timeline, Object manifest) {
+        public void onTimelineChanged(Timeline timeline, Object manifest, int reason) {
+
         }
 
         @Override

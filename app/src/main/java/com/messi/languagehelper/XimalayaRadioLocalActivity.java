@@ -33,10 +33,9 @@ import com.ximalaya.ting.android.opensdk.model.track.Track;
 import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
 import com.ximalaya.ting.android.opensdk.player.service.IXmPlayerStatusListener;
 import com.ximalaya.ting.android.opensdk.player.service.XmPlayerException;
+import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Permission;
-import com.yanzhenjie.permission.PermissionNo;
-import com.yanzhenjie.permission.PermissionYes;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.util.ArrayList;
@@ -75,26 +74,35 @@ public class XimalayaRadioLocalActivity extends BaseActivity implements IXmPlaye
 
     private void getLocation(){
         AndPermission.with(this)
-                .permission(Permission.LOCATION)
-                .requestCode(500)
-                .callback(this)
+                .runtime()
+                .permission(Permission.Group.LOCATION)
+                .onGranted(new Action<List<String>>() {
+                    @Override
+                    public void onAction(List<String> data) {
+                        onPermissionYes();
+                    }
+                })
+                .onDenied(new Action<List<String>>() {
+                    @Override
+                    public void onAction(List<String> data) {
+                        onPermissionNo();
+                    }
+                })
                 .start();
     }
 
-    @PermissionYes(500)
-    public void getPermissionYes(List<String> grantedPermissions) {
+
+    public void onPermissionYes() {
         LogUtil.DefalutLog("has permission");
         try {
-           requestLocation();
+            requestLocation();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    @PermissionNo(500)
-    public void getPermissionNo(List<String> deniedPermissions) {
+    public void onPermissionNo() {
         LogUtil.DefalutLog("permission deny");
-        AndPermission.defaultSettingDialog(this, 400).show();
         toRadioProvince();
     }
 

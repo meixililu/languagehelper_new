@@ -1,8 +1,10 @@
 package com.messi.languagehelper;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.widget.NestedScrollView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +18,9 @@ import com.iflytek.voiceads.IFLYNativeAd;
 import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.util.ADUtil;
+import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.TXADUtil;
 import com.qq.e.ads.nativ.NativeExpressAD;
 import com.qq.e.ads.nativ.NativeExpressADView;
@@ -51,14 +55,27 @@ public class LeisureFragment extends BaseFragment {
     FrameLayout sougou_layout;
     @BindView(R.id.shenhuifu_layout)
     FrameLayout shenhuifuLayout;
+    @BindView(R.id.wyyx_layout)
+    FrameLayout wyyx_layout;
+    @BindView(R.id.search_layout)
+    FrameLayout search_layout;
     @BindView(R.id.ad_img)
     SimpleDraweeView adImg;
+    @BindView(R.id.novel_layout)
+    FrameLayout novelLayout;
+    @BindView(R.id.caricature_layout)
+    FrameLayout caricatureLayout;
+    @BindView(R.id.jd_layout)
+    FrameLayout jdLayout;
+    @BindView(R.id.root_view)
+    NestedScrollView rootView;
     private NativeADDataRef mNativeADDataRef;
     private NativeExpressADView mTXADView;
     private long lastLoadAd;
     private boolean exposureXFAD;
     private boolean exposureTXAD;
     private String currentAD = ADUtil.Advertiser;
+    private SharedPreferences sp;
 
     public static LeisureFragment getInstance() {
         return new LeisureFragment();
@@ -66,12 +83,13 @@ public class LeisureFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.onCreateView(inflater,container,savedInstanceState);
+        super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.leisure_fragment, null);
         ButterKnife.bind(this, view);
-        if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
+        sp = Settings.getSharedPreferences(getContext());
+        if (ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)) {
             loadXFAD();
-        }else {
+        } else {
             loadTXAD();
         }
         return view;
@@ -80,8 +98,8 @@ public class LeisureFragment extends BaseFragment {
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        LogUtil.DefalutLog("LeisureFragment-setUserVisibleHint:"+isVisibleToUser);
-        if(isVisibleToUser){
+        LogUtil.DefalutLog("LeisureFragment-setUserVisibleHint:" + isVisibleToUser);
+        if (isVisibleToUser) {
             exposedAd();
         }
     }
@@ -92,18 +110,21 @@ public class LeisureFragment extends BaseFragment {
             @Override
             public void onConfirm() {
             }
+
             @Override
             public void onCancel() {
             }
+
             @Override
             public void onAdFailed(AdError arg0) {
                 LogUtil.DefalutLog("onAdFailed---" + arg0.getErrorCode() + "---" + arg0.getErrorDescription());
-                if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
+                if (ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)) {
                     loadTXAD();
-                }else {
+                } else {
                     onXFADFaile();
                 }
             }
+
             @Override
             public void onADLoaded(List<NativeADDataRef> adList) {
                 LogUtil.DefalutLog("onADLoaded---");
@@ -119,31 +140,32 @@ public class LeisureFragment extends BaseFragment {
         nativeAd.loadAd(1);
     }
 
-    private void onXFADFaile(){
-        if(ADUtil.isHasLocalAd()){
+    private void onXFADFaile() {
+        if (ADUtil.isHasLocalAd()) {
             mNativeADDataRef = ADUtil.getRandomAd();
             setAd();
         }
     }
 
-    private void loadTXAD(){
+    private void loadTXAD() {
         TXADUtil.showCDT(getActivity(), new NativeExpressAD.NativeExpressADListener() {
             @Override
             public void onNoAD(com.qq.e.comm.util.AdError adError) {
                 LogUtil.DefalutLog(adError.getErrorMsg());
-                if(ADUtil.Advertiser.equals(ADUtil.Advertiser_TX)){
+                if (ADUtil.Advertiser.equals(ADUtil.Advertiser_TX)) {
                     loadXFAD();
-                }else {
+                } else {
                     onXFADFaile();
                 }
             }
+
             @Override
             public void onADLoaded(List<NativeExpressADView> list) {
                 LogUtil.DefalutLog("onADLoaded");
-                if(list != null && list.size() > 0){
+                if (list != null && list.size() > 0) {
                     exposureTXAD = false;
                     currentAD = ADUtil.Advertiser_TX;
-                    if(mTXADView != null){
+                    if (mTXADView != null) {
                         mTXADView.destroy();
                     }
                     xx_ad_layout.setVisibility(View.VISIBLE);
@@ -153,39 +175,47 @@ public class LeisureFragment extends BaseFragment {
                     exposedTXADView();
                 }
             }
+
             @Override
             public void onRenderFail(NativeExpressADView nativeExpressADView) {
                 LogUtil.DefalutLog("onRenderFail");
             }
+
             @Override
             public void onRenderSuccess(NativeExpressADView nativeExpressADView) {
                 LogUtil.DefalutLog("onRenderSuccess");
             }
+
             @Override
             public void onADExposure(NativeExpressADView nativeExpressADView) {
                 LogUtil.DefalutLog("onADExposure");
                 exposureTXAD = true;
             }
+
             @Override
             public void onADClicked(NativeExpressADView nativeExpressADView) {
                 LogUtil.DefalutLog("onADClicked");
             }
+
             @Override
             public void onADClosed(NativeExpressADView nativeExpressADView) {
                 LogUtil.DefalutLog("onADClosed");
-                if(xx_ad_layout != null){
+                if (xx_ad_layout != null) {
                     xx_ad_layout.removeAllViews();
                     xx_ad_layout.setVisibility(View.GONE);
                 }
             }
+
             @Override
             public void onADLeftApplication(NativeExpressADView nativeExpressADView) {
                 LogUtil.DefalutLog("onADLeftApplication");
             }
+
             @Override
             public void onADOpenOverlay(NativeExpressADView nativeExpressADView) {
                 LogUtil.DefalutLog("onADOpenOverlay");
             }
+
             @Override
             public void onADCloseOverlay(NativeExpressADView nativeExpressADView) {
                 LogUtil.DefalutLog("onADCloseOverlay");
@@ -193,59 +223,62 @@ public class LeisureFragment extends BaseFragment {
         });
     }
 
-    private void exposedTXADView(){
-        if(misVisibleToUser && !exposureTXAD && mTXADView != null){
+    private void exposedTXADView() {
+        if (misVisibleToUser && !exposureTXAD && mTXADView != null) {
             xx_ad_layout.addView(mTXADView);
             mTXADView.render();
         }
     }
 
     private void setAd() {
-        if(mNativeADDataRef != null){
+        if (mNativeADDataRef != null) {
             lastLoadAd = System.currentTimeMillis();
             xx_ad_layout.setVisibility(View.VISIBLE);
             adImg.setImageURI(mNativeADDataRef.getImage());
-            if(misVisibleToUser){
+            if (misVisibleToUser) {
                 exposedXFAD();
             }
         }
     }
 
-    private void exposedXFAD(){
-        if(!exposureXFAD && mNativeADDataRef != null){
+    private void exposedXFAD() {
+        if (!exposureXFAD && mNativeADDataRef != null) {
             exposureXFAD = mNativeADDataRef.onExposured(xx_ad_layout);
-            LogUtil.DefalutLog("exposedAd-exposureXFAD:"+ exposureXFAD);
+            LogUtil.DefalutLog("exposedAd-exposureXFAD:" + exposureXFAD);
         }
     }
 
     private void exposedAd() {
-        if(currentAD.equals(ADUtil.Advertiser_XF)){
+        if (currentAD.equals(ADUtil.Advertiser_XF)) {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     exposedXFAD();
                 }
-            },500);
+            }, 500);
 
-        }else {
-            if(!exposureTXAD){
+        } else {
+            if (!exposureTXAD) {
                 exposedTXADView();
             }
         }
-        if(misVisibleToUser && lastLoadAd > 0){
-            if(System.currentTimeMillis() - lastLoadAd > 45000){
+        if (misVisibleToUser && lastLoadAd > 0) {
+            if (System.currentTimeMillis() - lastLoadAd > 45000) {
                 loadTXAD();
             }
         }
     }
 
-    @OnClick({R.id.xx_ad_layout, R.id.cailing_layout, R.id.baidu_layout, R.id.sougou_layout, R.id.yuedu_layout, R.id.twists_layout, R.id.game_layout, R.id.shenhuifu_layout, R.id.news_layout, R.id.app_layout, R.id.invest_layout})
+    @OnClick({R.id.xx_ad_layout, R.id.cailing_layout, R.id.baidu_layout, R.id.sougou_layout, R.id.yuedu_layout,
+            R.id.twists_layout, R.id.game_layout, R.id.shenhuifu_layout, R.id.news_layout, R.id.app_layout,
+            R.id.invest_layout, R.id.wyyx_layout, R.id.search_layout,R.id.novel_layout, R.id.caricature_layout,
+            R.id.jd_layout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.xx_ad_layout:
-                if(mNativeADDataRef != null){
+                if (mNativeADDataRef != null) {
                     boolean onClicked = mNativeADDataRef.onClicked(view);
-                    LogUtil.DefalutLog("onClicked:"+onClicked);
+                    LogUtil.DefalutLog("onClicked:" + onClicked);
                 }
                 break;
             case R.id.cailing_layout:
@@ -271,7 +304,7 @@ public class LeisureFragment extends BaseFragment {
                 toGodReplyActivity();
                 break;
             case R.id.news_layout:
-                toActivity(EnglishWebsiteRecommendActivity.class, null);
+                toEnglishRecommendWebsite();
                 AVAnalytics.onEvent(getContext(), "tab3_to_websiterecommend");
                 break;
             case R.id.app_layout:
@@ -280,7 +313,38 @@ public class LeisureFragment extends BaseFragment {
             case R.id.invest_layout:
                 toInvestorListActivity();
                 break;
+            case R.id.wyyx_layout:
+                toWYYX();
+                break;
+            case R.id.search_layout:
+                toUCSearch();
+                break;
+            case R.id.novel_layout:
+                toNovelActivity();
+                break;
+            case R.id.caricature_layout:
+                toCaricatureActivity();
+                break;
+            case R.id.jd_layout:
+                toVideoActivity();
+                break;
         }
+    }
+
+    private void toEnglishRecommendWebsite() {
+        Intent intent = new Intent(getContext(), WebsiteListActivity.class);
+        intent.putExtra(KeyUtil.Category, "english");
+        intent.putExtra(KeyUtil.ActionbarTitle, getContext().getResources().getString(R.string.title_website));
+        getContext().startActivity(intent);
+        AVAnalytics.onEvent(getActivity(), "leisure_pg_to_english_website");
+    }
+
+    private void toWYYX() {
+        Intent intent = new Intent(getContext(), WebViewActivity.class);
+        intent.putExtra(KeyUtil.URL, getWYYXUrl());
+        intent.putExtra(KeyUtil.IsHideToolbar, true);
+        intent.putExtra(KeyUtil.ActionbarTitle, getContext().getResources().getString(R.string.leisure_wyyx));
+        getContext().startActivity(intent);
     }
 
     private void toJokeActivity() {
@@ -314,8 +378,20 @@ public class LeisureFragment extends BaseFragment {
         AVAnalytics.onEvent(getActivity(), "leisure_pg_to_turing");
     }
 
+    private void toUCSearch() {
+        Intent intent = new Intent(getContext(), WebViewActivity.class);
+        intent.putExtra(KeyUtil.URL, getUCSearchUrl());
+        intent.putExtra(KeyUtil.IsHideToolbar, true);
+        intent.putExtra(KeyUtil.ActionbarTitle, getContext().getResources().getString(R.string.leisure_search));
+        getContext().startActivity(intent);
+    }
+
     private void toYueduActivity() {
-        toActivity(ReadingAndNewsActivity.class, null);
+        Intent intent = new Intent(getContext(), WebViewActivity.class);
+        intent.putExtra(KeyUtil.URL, getUCTTUrl());
+        intent.putExtra(KeyUtil.IsReedPullDownRefresh, false);
+        intent.putExtra(KeyUtil.ActionbarTitle, getContext().getResources().getString(R.string.leisuer_reading));
+        getContext().startActivity(intent);
         AVAnalytics.onEvent(getActivity(), "leisure_pg_to_news_page");
     }
 
@@ -324,11 +400,48 @@ public class LeisureFragment extends BaseFragment {
         AVAnalytics.onEvent(getActivity(), "leisure_pg_chinese_dic");
     }
 
+    private void toNovelActivity() {
+        Intent intent = new Intent(getContext(), WebsiteListActivity.class);
+        intent.putExtra(KeyUtil.Category, "novel");
+        intent.putExtra(KeyUtil.ActionbarTitle, getContext().getResources().getString(R.string.leisure_novel));
+        getContext().startActivity(intent);
+        AVAnalytics.onEvent(getActivity(), "leisure_pg_to_novel");
+    }
+
+    private void toCaricatureActivity() {
+        Intent intent = new Intent(getContext(), WebsiteListActivity.class);
+        intent.putExtra(KeyUtil.Category, "caricature");
+        intent.putExtra(KeyUtil.ActionbarTitle, getContext().getResources().getString(R.string.leisure_caricature));
+        getContext().startActivity(intent);
+        AVAnalytics.onEvent(getActivity(), "leisure_pg_to_caricature");
+    }
+
+    private void toVideoActivity() {
+        Intent intent = new Intent(getContext(), WebsiteListActivity.class);
+        intent.putExtra(KeyUtil.Category, "dvideo");
+        intent.putExtra(KeyUtil.ActionbarTitle, getContext().getResources().getString(R.string.leisure_dvideo));
+        getContext().startActivity(intent);
+        AVAnalytics.onEvent(getActivity(), "leisure_pg_to_dvideo");
+    }
+
+    private String getWYYXUrl(){
+        return sp.getString(KeyUtil.Lei_WYYX_URL,Settings.WYYX);
+    }
+
+    private String getUCTTUrl(){
+        return sp.getString(KeyUtil.Lei_UCTT,Settings.UCTT);
+    }
+
+    private String getUCSearchUrl(){
+        return sp.getString(KeyUtil.Lei_UCSearch,Settings.UCSearch);
+    }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        if(mTXADView != null){
+        if (mTXADView != null) {
             mTXADView.destroy();
         }
     }
+
 }

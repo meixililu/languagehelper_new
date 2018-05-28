@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="16"
-        android:targetSdkVersion="25" />
+        android:targetSdkVersion="27" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -41,6 +41,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -141,6 +142,9 @@
             </intent-filter>
         </receiver>
 
+        <activity
+            android:name="com.messi.languagehelper.WebsiteListActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.ListenActivity"
             android:screenOrientation="portrait" />
@@ -374,9 +378,6 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name="com.messi.languagehelper.ViewImageActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name="com.messi.languagehelper.WebViewActivity"
             android:screenOrientation="portrait"
             android:uiOptions="splitActionBarWhenNarrow" >
@@ -385,13 +386,13 @@
                 android:value="splitActionBarWhenNarrow" />
         </activity>
         <activity
-            android:name="com.messi.languagehelper.EnglishWebsiteRecommendActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name="com.messi.languagehelper.DailySentenceAndEssayActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.AboutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.messi.languagehelper.WebViewNoAdActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.messi.languagehelper.HelpActivity"
@@ -414,12 +415,18 @@
             android:name="com.yanzhenjie.permission.PermissionActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="standard"
-            android:theme="@style/permission_PermissionActivity"
+            android:theme="@style/Permission.Theme.Activity"
             android:windowSoftInputMode="stateHidden|stateAlwaysHidden" />
 
-        <meta-data
-            android:name="android.arch.lifecycle.VERSION"
-            android:value="27.0.0-SNAPSHOT" />
+        <provider
+            android:name="com.yanzhenjie.permission.FileProvider"
+            android:authorities="com.messi.languagehelper.file.path.share"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/permission_file_paths" />
+        </provider>
     </application>
 
 </manifest>

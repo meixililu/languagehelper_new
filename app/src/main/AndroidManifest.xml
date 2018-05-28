@@ -132,6 +132,9 @@
         </receiver>
 
         <activity
+            android:name=".WebsiteListActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".ListenActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -365,9 +368,6 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name=".ViewImageActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".WebViewActivity"
             android:screenOrientation="portrait"
             android:uiOptions="splitActionBarWhenNarrow">
@@ -376,13 +376,13 @@
                 android:value="splitActionBarWhenNarrow" />
         </activity>
         <activity
-            android:name=".EnglishWebsiteRecommendActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".DailySentenceAndEssayActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".AboutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WebViewNoAdActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".HelpActivity"

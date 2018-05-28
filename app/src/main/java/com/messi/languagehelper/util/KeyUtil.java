@@ -75,7 +75,9 @@ public class KeyUtil {
 	public static final String AiChatUserSelectLanguage = "AiChatUserSelectLanguage";
 
 	public static final String IsReedPullDownRefresh = "IsReedPullDownRefresh";
-	
+
+	public static final String IsHideToolbar = "IsHideToolbar";
+
 	public static final String IsCanShowAD_Loading = "IsCanShowAD_Loading";
 	
 	public static final String LastTimeSelectTab = "LastTimeSelectTab";
@@ -91,7 +93,9 @@ public class KeyUtil {
 	public static final String ResultTypeTranslate = "ResultTypeTranslate";
 	
 	public static final String StudyDialogAction = "StudyDialogAction";
-	
+
+	public static final String AdFilter = "AdFilter";
+
 	public static final String ContextKey = "ContextKey";
 	
 	public static final String SDcardPathKey = "SDcardPathKey";
@@ -228,6 +232,11 @@ public class KeyUtil {
 	public static final String Btn_ENENDic = "Btn_ENENDic";
 	public static final String Btn_CHCHDic = "Btn_CHCHDic";
 	public static final String MainFragmentIndex = "MainFragmentIndex";
+
+	public static final String APP_Advertiser = "APP_Advertiser";
+	public static final String Lei_WYYX_URL = "Lei_WYYX_URL";
+	public static final String Lei_UCTT = "Lei_UCTT";
+	public static final String Lei_UCSearch = "Lei_UCSearch";
 
 
 

@@ -140,6 +140,7 @@ public class ChPybsFragment extends BaseFragment {
         query.findInBackground(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
+                hideProgressbar();
                 loading = false;
                 onSwipeRefreshLayoutFinish();
                 if(list != null){

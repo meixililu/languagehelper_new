@@ -212,9 +212,13 @@ public class AVOUtil {
 		public final static String Title = "Title";
 		
 		public final static String Describe = "Describe";
-		
+
+		public final static String ad_filte = "ad_filte";
+
 		public final static String ImgUrl = "ImgUrl";
-		
+
+		public final static String category = "category";
+
 		public final static String ShareMsg = "ShareMsg";
 		
 		public final static String Url = "Url";
@@ -284,7 +288,15 @@ public class AVOUtil {
 		public final static String VersionCode = "VersionCode";
 		
 		public final static String Apk = "Apk";
-		
+
+		public final static String ad_type = "ad_type";
+
+		public final static String uctt_url = "uctt_url";
+
+		public final static String ucsearch_url = "ucsearch_url";
+
+		public final static String wyyx_url = "wyyx_url";
+
 		public final static String DownloadType = "DownloadType";//apk  url
 		
 		public final static String AppUpdateInfo = "AppUpdateInfo";

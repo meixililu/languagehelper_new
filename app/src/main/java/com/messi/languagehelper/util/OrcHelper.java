@@ -19,10 +19,9 @@ import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.impl.OrcResultListener;
+import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Permission;
-import com.yanzhenjie.permission.PermissionNo;
-import com.yanzhenjie.permission.PermissionYes;
 
 import java.io.File;
 import java.io.IOException;
@@ -74,9 +73,20 @@ public class OrcHelper {
     public void getImageFromCamera() {
         LogUtil.DefalutLog("check permission");
         AndPermission.with(context)
-                .permission(Permission.CAMERA)
-                .requestCode(300)
-                .callback(this)
+                .runtime()
+                .permission(Permission.Group.CAMERA)
+                .onGranted(new Action<List<String>>() {
+                    @Override
+                    public void onAction(List<String> data) {
+                        onPermissionYes();
+                    }
+                })
+                .onDenied(new Action<List<String>>() {
+                    @Override
+                    public void onAction(List<String> data) {
+                        onPermissionNo();
+                    }
+                })
                 .start();
     }
 
@@ -102,8 +112,7 @@ public class OrcHelper {
         }
     }
 
-    @PermissionYes(300)
-    private void getPermissionYes(List<String> grantedPermissions) {
+    private void onPermissionYes() {
         LogUtil.DefalutLog("has permission");
         try {
             startCamera();
@@ -112,10 +121,9 @@ public class OrcHelper {
         }
     }
 
-    @PermissionNo(300)
-    private void getPermissionNo(List<String> deniedPermissions) {
+    private void onPermissionNo() {
         LogUtil.DefalutLog("permission deny");
-        AndPermission.defaultSettingDialog(context, 400).show();
+
     }
 
     public void doCropPhoto(Uri uri) {

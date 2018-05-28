@@ -254,12 +254,17 @@
     <string name="detail_total">总分</string>
     <string name="download">试一试</string>
 
+    <string name="leisure_novel">小说</string>
+    <string name="leisure_caricature">漫画</string>
+    <string name="leisure_dvideo">短视频</string>
+    <string name="leisure_search">神马搜索</string>
+    <string name="leisure_wyyx">网易严选</string>
     <string name="foreign_website">英文网站</string>
     <string name="foreign_website_subtitle">一些不错的英文网站</string>
     <string name="leisuer_one">小白精选</string>
     <string name="leisuer_sougou_wechat">微信英语</string>
     <string name="leisuer_sougou_wechat_subtitle">微信公众号英语资料集合</string>
-    <string name="leisuer_reading">新闻阅读</string>
+    <string name="leisuer_reading">新闻头条</string>
     <string name="leisuer_reading_subtitle">新闻头条，微信精选</string>
     <string name="leisuer_twists">脑筋急转弯</string>
     <string name="leisuer_yizhandaodi">一站到底</string>
