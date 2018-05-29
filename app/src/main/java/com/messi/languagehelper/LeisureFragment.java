@@ -106,7 +106,7 @@ public class LeisureFragment extends BaseFragment {
 
     private void loadXFAD() {
         LogUtil.DefalutLog("loadAD---leisure---xiu xian da tu");
-        IFLYNativeAd nativeAd = new IFLYNativeAd(getContext(), ADUtil.XiuxianYSNRLAd, new IFLYNativeListener() {
+        IFLYNativeAd nativeAd = new IFLYNativeAd(getContext(), ADUtil.MRYJYSNRLAd, new IFLYNativeListener() {
             @Override
             public void onConfirm() {
             }

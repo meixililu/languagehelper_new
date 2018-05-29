@@ -37,7 +37,7 @@ public class GodReplyActivity extends BaseActivity {
         setStatusbarColor(R.color.style5_color5);
         getSupportActionBar().setTitle(getResources().getString(R.string.leisuer_shenhuifu));
         requestData();
-        mXFYSAD = new XFYSAD(this, xxAdLayout, ADUtil.XiuxianYSNRLAd);
+        mXFYSAD = new XFYSAD(this, xxAdLayout, ADUtil.MRYJYSNRLAd);
         mXFYSAD.showAD();
     }
 

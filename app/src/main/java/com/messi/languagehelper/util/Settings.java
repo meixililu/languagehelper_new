@@ -34,8 +34,6 @@ import com.yanzhenjie.permission.Permission;
 import java.util.List;
 import java.util.UUID;
 
-import static android.support.v4.app.ActivityCompat.shouldShowRequestPermissionRationale;
-
 public class Settings {
 
 	private static final int RequestCode = 1;
@@ -344,34 +342,38 @@ public class Settings {
 
 	public static void verifyStoragePermissions(final Activity activity,final String[] permissions) {
 		try{
-			// Check if we have write permission
-			int permission = ActivityCompat.checkSelfPermission(activity, permissions[0]);
-			LogUtil.DefalutLog("verifyStoragePermissions---permission:"+permission);
-			if (permission != PackageManager.PERMISSION_GRANTED) {
-				if(shouldShowRequestPermissionRationale(activity,permissions[0])){
-					AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-					builder.setTitle("温馨提示");
-					builder.setMessage("软件需要一些权限才能正常运行。");
-					builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+			AndPermission.with(activity)
+					.runtime()
+					.permission(permissions)
+					.onGranted(new Action<List<String>>() {
 						@Override
-						public void onClick(DialogInterface dialog, int which) {
-							ActivityCompat.requestPermissions(
-									activity,
-									permissions,
-									RequestCode
-							);
+						public void onAction(List<String> data) {
+							LogUtil.DefalutLog("onGranted");
 						}
-					});
-					AlertDialog dialog = builder.create();
-					dialog.show();
-				}else {
-					ActivityCompat.requestPermissions(
-							activity,
-							permissions,
-							RequestCode
-					);
-				}
-			}
+					})
+					.onDenied(new Action<List<String>>() {
+						@Override
+						public void onAction(List<String> data) {
+							LogUtil.DefalutLog("onDenied");
+							AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+							builder.setTitle("温馨提示");
+							builder.setMessage("软件需要一些权限才能正常运行。");
+							builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+								@Override
+								public void onClick(DialogInterface dialog, int which) {
+									ActivityCompat.requestPermissions(
+											activity,
+											permissions,
+											RequestCode
+									);
+								}
+							});
+							AlertDialog dialog = builder.create();
+							dialog.show();
+						}
+					})
+					.start();
+
 		}catch (Exception e){
 			e.printStackTrace();
 		}

@@ -1,12 +1,14 @@
 package com.messi.languagehelper.wxapi;
 
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -142,19 +144,26 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener, Fr
 		SystemUtil.screen = SystemUtil.SCREEN_WIDTH + "x" + SystemUtil.SCREEN_HEIGHT;
 	}
 
-	private void initXimalayaSDK() {
-		LogUtil.DefalutLog("main---initXimalayaSDK");
-		XmPlayerManager.getInstance(this).init();
-		XmPlayerManager.getInstance(this).setCommonBusinessHandle(XmDownloadManager.getInstance());
-//		XmPlayerManager.getInstance(this).clearAllLocalHistory();
+	private void initPermissions(){
+		if (Build.VERSION.SDK_INT >= 23) {
+			checkAndRequestPermission();
+		}
+	}
+
+	@TargetApi(Build.VERSION_CODES.M)
+	private void checkAndRequestPermission() {
 		Settings.verifyStoragePermissions(this, Settings.PERMISSIONS_STORAGE);
 	}
 
 	private void initSDKAndPermission(){
+		LogUtil.DefalutLog("main---initXimalayaSDK");
+		XmPlayerManager.getInstance(this).init();
+		XmPlayerManager.getInstance(this).setCommonBusinessHandle(XmDownloadManager.getInstance());
+//		XmPlayerManager.getInstance(this).clearAllLocalHistory();
 		new Handler().postDelayed(new Runnable() {
 			@Override
 			public void run() {
-				initXimalayaSDK();
+				initPermissions();
 			}
 		}, 1 * 1000);
 	}

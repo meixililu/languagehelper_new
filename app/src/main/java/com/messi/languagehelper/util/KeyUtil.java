@@ -237,6 +237,7 @@ public class KeyUtil {
 	public static final String Lei_WYYX_URL = "Lei_WYYX_URL";
 	public static final String Lei_UCTT = "Lei_UCTT";
 	public static final String Lei_UCSearch = "Lei_UCSearch";
+	public static final String IsTXADPermissionReady = "IsTXADPermissionReady";
 
 
 

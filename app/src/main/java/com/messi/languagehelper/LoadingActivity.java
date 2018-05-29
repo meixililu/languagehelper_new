@@ -1,7 +1,11 @@
 package com.messi.languagehelper;
 
+import android.Manifest;
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
@@ -24,10 +28,12 @@ import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.qq.e.ads.splash.SplashADListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -77,7 +83,13 @@ public class LoadingActivity extends AppCompatActivity {
     private void init() {
         mSharedPreferences = getSharedPreferences(getPackageName(), MODE_PRIVATE);
         mHandler = new Handler();
-        ADUtil.Advertiser = mSharedPreferences.getString(KeyUtil.APP_Advertiser,ADUtil.Advertiser_XF);
+        initPermissions();
+        if(!mSharedPreferences.getBoolean(KeyUtil.IsTXADPermissionReady,false)){
+            ADUtil.Advertiser = ADUtil.Advertiser_XF;
+        }else {
+            ADUtil.Advertiser = mSharedPreferences.getString(KeyUtil.APP_Advertiser,ADUtil.Advertiser_XF);
+        }
+        LogUtil.DefalutLog("Advertiser:"+ADUtil.Advertiser);
         if(ADUtil.Advertiser.equals(ADUtil.Advertiser_TX)){
             loadTXAD();
         }else {
@@ -282,6 +294,31 @@ public class LoadingActivity extends AppCompatActivity {
         notJump = true;
         LogUtil.DefalutLog("onPause");
         AVAnalytics.onPause(this);
+    }
+
+    private void initPermissions(){
+        if (Build.VERSION.SDK_INT >= 23) {
+            checkAndRequestPermission();
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.M)
+    private void checkAndRequestPermission() {
+        List<String> lackedPermission = new ArrayList<String>();
+        if (!(checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)) {
+            lackedPermission.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        }
+//        if (!(checkSelfPermission(Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED)) {
+//            lackedPermission.add(Manifest.permission.READ_PHONE_STATE);
+//        }
+//        if (!(checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)) {
+//            lackedPermission.add(Manifest.permission.ACCESS_FINE_LOCATION);
+//        }
+        if (lackedPermission.size() == 0) {
+            Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.IsTXADPermissionReady,true);
+        } else {
+            Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.IsTXADPermissionReady,false);
+        }
     }
 
 }
