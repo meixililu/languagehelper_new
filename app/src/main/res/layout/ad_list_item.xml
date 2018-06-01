@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_cover"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:foreground="@drawable/framelayout_selector"
+    android:background="@color/white" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_margin="12dp"
+        android:orientation="horizontal" >
+
+		<com.facebook.drawee.view.SimpleDraweeView
+			android:id="@+id/list_item_img"
+			android:layout_width="120dp"
+			android:layout_height="120dp"
+			android:layout_marginRight="@dimen/padding_5"
+			fresco:placeholderImageScaleType="fitCenter"
+			fresco:actualImageScaleType="focusCrop"
+			fresco:placeholderImage="@color/text_tint"
+			fresco:roundedCornerRadius="2dp"
+			/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+			android:layout_marginLeft="@dimen/padding_10"
+            android:minHeight="110dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+			android:background="@color/white"
+            >
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:maxLines="3"
+				android:background="@color/white"
+                android:textColor="@color/text_dark"
+                android:textSize="@dimen/big" />
+
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/padding_5"
+				android:layout_marginBottom="@dimen/padding_5"
+                android:layout_gravity="bottom"
+                android:gravity="bottom"
+                android:orientation="horizontal"
+				android:background="@color/white"
+                >
+                <TextView
+	                android:id="@+id/source_name"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+					android:background="@color/white"
+					android:maxLines="1"
+	                android:gravity="left"
+	                android:textColor="@color/text_grey1"
+	                android:textSize="@dimen/small" />
+                
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</FrameLayout>

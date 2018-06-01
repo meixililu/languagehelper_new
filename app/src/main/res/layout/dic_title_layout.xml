@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dic_title_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:foreground="@drawable/framelayout_selector"
+    android:padding="7dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <TextView
+            android:id="@+id/dic_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@color/white"
+            android:gravity="left"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/bigger" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@id/dic_title"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/padding_10"
+            android:src="@drawable/play_btn_d"
+            />
+        <CheckBox
+            android:id="@+id/collected_cb"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/collected_uncollected_selector"
+            android:button="@null"
+            android:focusable="false" />
+
+    </RelativeLayout>
+
+
+</FrameLayout>
