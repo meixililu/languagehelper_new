@@ -3,7 +3,9 @@ package com.messi.languagehelper.bean;
 public class HjTranBean {
 	
 	private int status;
-	private String content;
+	private String message;
+	private HjTranDataBean data;
+	private String time;
 
 	public int getStatus() {
 		return status;
@@ -13,11 +15,27 @@ public class HjTranBean {
 		this.status = status;
 	}
 
-	public String getContent() {
-		return content;
+	public String getMessage() {
+		return message;
 	}
 
-	public void setContent(String content) {
-		this.content = content;
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public HjTranDataBean getData() {
+		return data;
+	}
+
+	public void setData(HjTranDataBean data) {
+		this.data = data;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
 	}
 }

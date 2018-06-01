@@ -4,16 +4,15 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 import com.avos.avoscloud.AVAnalytics;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
-import com.messi.languagehelper.util.AVOUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import cn.jzvd.JZVideoPlayer;
 
 public class ListenActivity extends BaseActivity implements FragmentProgressbarListener {
 
@@ -21,7 +20,7 @@ public class ListenActivity extends BaseActivity implements FragmentProgressbarL
     FrameLayout content;
     @BindView(R.id.navigation)
     BottomNavigationView navigation;
-    private Fragment mWordHomeFragment;
+    private ListenHomeFragment mWordHomeFragment;
     private Fragment dashboardFragment;
     private Fragment radioHomeFragment;
 
@@ -62,8 +61,7 @@ public class ListenActivity extends BaseActivity implements FragmentProgressbarL
 
     private void initFragment(){
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        mWordHomeFragment = ReadingToolbarFragment.newInstance(this.getResources().getString(R.string.title_listening),
-                AVOUtil.Category.listening,"");;
+        mWordHomeFragment = ListenHomeFragment.getInstance();
         dashboardFragment = ListenCourseFragment.getInstance();
         radioHomeFragment = BroadcastFragment.getInstance();
         getSupportFragmentManager()
@@ -87,19 +85,21 @@ public class ListenActivity extends BaseActivity implements FragmentProgressbarL
     }
 
     @Override
-    public void onBackPressed() {
-        if (JZVideoPlayer.backPress()) {
-            return;
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK){
+            if(navigation.getSelectedItemId() == R.id.navigation_home){
+                if(mWordHomeFragment.getCurrentPosition() > 0){
+                    boolean result = mWordHomeFragment.onKeyDown(keyCode,event);
+                    if(!result){
+                        return super.onKeyDown(keyCode, event);
+                    }else {
+                        return result;
+                    }
+                }
+            }
         }
-        super.onBackPressed();
+        return super.onKeyDown(keyCode, event);
     }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        JZVideoPlayer.releaseAllVideos();
-    }
-
 
 
 }

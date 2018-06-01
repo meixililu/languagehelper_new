@@ -4,11 +4,12 @@ package com.messi.languagehelper;
 import android.support.annotation.CallSuper;
 import android.support.annotation.UiThread;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.NestedScrollView;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
@@ -20,7 +21,7 @@ import java.lang.Override;
 public class ReadingDetailActivity_ViewBinding implements Unbinder {
   private ReadingDetailActivity target;
 
-  private View view2131231103;
+  private View view2131230813;
 
   @UiThread
   public ReadingDetailActivity_ViewBinding(ReadingDetailActivity target) {
@@ -39,16 +40,20 @@ public class ReadingDetailActivity_ViewBinding implements Unbinder {
     target.xx_ad_layout = Utils.findRequiredViewAsType(source, R.id.xx_layout, "field 'xx_ad_layout'", FrameLayout.class);
     target.next_composition = Utils.findRequiredViewAsType(source, R.id.next_composition, "field 'next_composition'", LinearLayout.class);
     target.scrollview = Utils.findRequiredViewAsType(source, R.id.scrollview, "field 'scrollview'", NestedScrollView.class);
-    view = Utils.findRequiredView(source, R.id.play_btn, "field 'fab' and method 'onClick'");
-    target.fab = Utils.castView(view, R.id.play_btn, "field 'fab'", FloatingActionButton.class);
-    view2131231103 = view;
+    target.ad_img = Utils.findRequiredViewAsType(source, R.id.ad_img, "field 'ad_img'", SimpleDraweeView.class);
+    target.player_layout = Utils.findRequiredViewAsType(source, R.id.player_layout, "field 'player_layout'", LinearLayout.class);
+    view = Utils.findRequiredView(source, R.id.btn_play, "field 'btn_play' and method 'onClick'");
+    target.btn_play = Utils.castView(view, R.id.btn_play, "field 'btn_play'", ImageView.class);
+    view2131230813 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
         target.onClick();
       }
     });
-    target.ad_img = Utils.findRequiredViewAsType(source, R.id.ad_img, "field 'ad_img'", SimpleDraweeView.class);
+    target.seekbar = Utils.findRequiredViewAsType(source, R.id.seekbar, "field 'seekbar'", SeekBar.class);
+    target.time_current = Utils.findRequiredViewAsType(source, R.id.time_current, "field 'time_current'", TextView.class);
+    target.time_duration = Utils.findRequiredViewAsType(source, R.id.time_duration, "field 'time_duration'", TextView.class);
   }
 
   @Override
@@ -65,10 +70,14 @@ public class ReadingDetailActivity_ViewBinding implements Unbinder {
     target.xx_ad_layout = null;
     target.next_composition = null;
     target.scrollview = null;
-    target.fab = null;
     target.ad_img = null;
+    target.player_layout = null;
+    target.btn_play = null;
+    target.seekbar = null;
+    target.time_current = null;
+    target.time_duration = null;
 
-    view2131231103.setOnClickListener(null);
-    view2131231103 = null;
+    view2131230813.setOnClickListener(null);
+    view2131230813 = null;
   }
 }

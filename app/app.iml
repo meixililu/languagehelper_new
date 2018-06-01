@@ -161,7 +161,6 @@
     <orderEntry type="library" name="__local_aars__:/Users/luli/AndroidStudioProjects/languagehelper/app/libs/XmDownload_1.6.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="org.greenrobot:greendao-api:3.2.2@jar" level="project" />
     <orderEntry type="library" name="com.karumi:headerrecyclerview-1.1.0" level="project" />
-    <orderEntry type="library" name="__local_aars__:/Users/luli/AndroidStudioProjects/languagehelper/app/libs/uc_infoflow.jar:unspecified@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="junit:junit:4.12@jar" level="project" />
     <orderEntry type="library" name="android.arch.core:common:1.1.0@jar" level="project" />
     <orderEntry type="library" name="com.google.code.gson:gson:2.8.5@jar" level="project" />

@@ -15,7 +15,7 @@
         android:layout_height="210dp"
         android:orientation="vertical"
         >
-        <com.google.android.exoplayer2.ui.SimpleExoPlayerView
+        <com.google.android.exoplayer2.ui.PlayerView
             android:id="@+id/player_view"
             android:background="@color/black"
             android:layout_width="match_parent"

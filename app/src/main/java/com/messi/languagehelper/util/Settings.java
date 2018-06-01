@@ -43,7 +43,7 @@ public class Settings {
 
 	public static String BaiduLocationApi = "http://api.map.baidu.com/geocoder/v2/?output=json&pois=1&ak=vCV6TTGRTI5QrckdYSKHQIhq&location=";
 
-	public static String HjTranslateUrl = "https://dict.hjenglish.com/services/Translate.ashx";
+	public static String HjTranslateUrl = "https://dict.hjenglish.com/v10/dict/translation";
 
 	public static String IcibaTranslateNewUrl = "http://fy.iciba.com/ajax.php?a=fy";
 
@@ -106,6 +106,9 @@ public class Settings {
 	// uc search
 	public static final String UCSearch = "https://yz.m.sm.cn/s?q=%E7%A5%9E%E9%A9%AC%E6%96%B0%E9%97%BB%E6%A6%9C%E5%8D%95&from=wm845578";
 
+	public static final String NPR_Url = "https://www.npr.org/";
+	public static final String AmericanLife_Url = "https://www.thisamericanlife.org/";
+
 	//应用静态常量：
 	public static boolean isMainFragmentNeedRefresh;
 	public static boolean isDictionaryFragmentNeedRefresh;
@@ -130,9 +133,9 @@ public class Settings {
 	public static final int offset = 150;
 
 	public static String[] PERMISSIONS_STORAGE = {
-			Manifest.permission.READ_PHONE_STATE,
 			Manifest.permission.WRITE_EXTERNAL_STORAGE,
 			Manifest.permission.READ_EXTERNAL_STORAGE,
+			Manifest.permission.READ_PHONE_STATE,
 			Manifest.permission.ACCESS_FINE_LOCATION
 	};
 	public static String[] PERMISSIONS_RECORD_AUDIO = {
@@ -348,7 +351,7 @@ public class Settings {
 					.onGranted(new Action<List<String>>() {
 						@Override
 						public void onAction(List<String> data) {
-							LogUtil.DefalutLog("onGranted");
+
 						}
 					})
 					.onDenied(new Action<List<String>>() {

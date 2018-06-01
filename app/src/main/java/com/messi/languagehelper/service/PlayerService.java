@@ -15,7 +15,6 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import com.google.android.exoplayer2.ExoPlaybackException;
-import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.Player;
@@ -141,6 +140,7 @@ public class PlayerService extends Service {
             MediaSource mediaSource = new ExtractorMediaSource
                     .Factory(dataSourceFactory)
                     .createMediaSource(Uri.parse(song.getMedia_url()));
+
             mExoPlayer.prepare(mediaSource);
             mExoPlayer.setPlayWhenReady(true);
             mWifiLock.acquire();
@@ -244,23 +244,26 @@ public class PlayerService extends Service {
         return PlayerStatus == 1;
     }
 
-    private final class ExoPlayerEventListener implements ExoPlayer.EventListener {
+    private final class ExoPlayerEventListener extends Player.DefaultEventListener {
 
         @Override
         public void onTimelineChanged(Timeline timeline, Object manifest, int reason) {
-
+            LogUtil.DefalutLog("---onTimelineChanged---");
         }
 
         @Override
         public void onTracksChanged(TrackGroupArray trackGroups, TrackSelectionArray trackSelections) {
+            LogUtil.DefalutLog("---onTracksChanged---");
         }
 
         @Override
         public void onLoadingChanged(boolean isLoading) {
+            LogUtil.DefalutLog("---onLoadingChanged---");
         }
 
         @Override
         public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
+            LogUtil.DefalutLog("---onPlayerStateChanged---");
             switch (playbackState) {
                 case Player.STATE_IDLE:
                     LogUtil.DefalutLog("STATE_IDLE");
@@ -283,6 +286,8 @@ public class PlayerService extends Service {
                 case Player.STATE_ENDED:
                     LogUtil.DefalutLog("STATE_ENDED");
                     PlayerStatus = 0;
+                    mExoPlayer.seekTo(0);
+                    mExoPlayer.setPlayWhenReady(false);
                     NotificationUtil.showNotification(PlayerService.this,action_start,song.getTitle(),
                             NotificationUtil.mes_type_zyhy);
                     NotificationUtil.sendBroadcast(PlayerService.this,action_start);
@@ -292,10 +297,12 @@ public class PlayerService extends Service {
 
         @Override
         public void onRepeatModeChanged(int repeatMode) {
+            LogUtil.DefalutLog("---onRepeatModeChanged---");
         }
 
         @Override
         public void onShuffleModeEnabledChanged(boolean shuffleModeEnabled) {
+            LogUtil.DefalutLog("---onShuffleModeEnabledChanged---");
         }
 
         @Override
@@ -305,14 +312,37 @@ public class PlayerService extends Service {
 
         @Override
         public void onPositionDiscontinuity(int reason) {
+            LogUtil.DefalutLog("---onPositionDiscontinuity---");
         }
 
         @Override
         public void onPlaybackParametersChanged(PlaybackParameters playbackParameters) {
+            LogUtil.DefalutLog("---onPlaybackParametersChanged---");
         }
 
         @Override
         public void onSeekProcessed() {
+            LogUtil.DefalutLog("---onSeekProcessed---");
+        }
+    }
+
+    public int getCurrentPosition(){
+        if(mExoPlayer != null){
+            return (int)mExoPlayer.getContentPosition();
+        }
+        return 0;
+    }
+
+    public int getDuration(){
+        if(mExoPlayer != null){
+            return (int)mExoPlayer.getDuration();
+        }
+        return 0;
+    }
+
+    public void seekTo(int position){
+        if(mExoPlayer != null){
+            mExoPlayer.seekTo(position);
         }
     }
 

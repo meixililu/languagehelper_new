@@ -33,6 +33,7 @@
     <string name="title_dictionary">Dictionary</string>
     <string name="title_chinese_dic">Chinese Dic</string>
     <string name="title_sentence">Sentences</string>
+    <string name="title_video_spoken">video</string>
     <string name="title_english_dic">English Dic</string>
     <string name="title_instagram">Instagram</string>
     <string name="title_study_category">Study</string>
@@ -57,6 +58,8 @@
     <string name="title_duanzi_mm">Beauty</string>
     <string name="title_duanzi_img">Picture</string>
     <string name="title_duanzi_gif">Vidoe</string>
+    <string name="title_web_npr">NPR</string>
+    <string name="title_web_AmericanLife">AmericanLife</string>
     <string name="title_composition">Composition</string>
     <string name="title_sure">Sure</string>
     <string name="dic_minimalist">Minimalist</string>

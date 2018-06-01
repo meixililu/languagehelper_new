@@ -11,6 +11,7 @@
     <string name="title_ai">Ai</string>
     <string name="title_ai_learn">跟Ai学英语</string>
     <string name="title_Practice">口语练习</string>
+    <string name="title_video_spoken">口语视频</string>
     <string name="title_listening">听力</string>
     <string name="title_word_vocabulary">词汇学习</string>
     <string name="title_spoken_english_study">口语学习</string>
@@ -53,6 +54,8 @@
     <string name="title_duanzi_mm">福利</string>
     <string name="title_duanzi_img">图片笑话</string>
     <string name="title_duanzi_gif">小视频</string>
+    <string name="title_web_npr">NPR</string>
+    <string name="title_web_AmericanLife">AmericanLife</string>
     <string name="title_composition">作文</string>
     <string name="title_ch_dictionary">汉语字典</string>
     <string name="title_dictionary_idiom">成语词典</string>

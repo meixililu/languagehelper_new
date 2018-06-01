@@ -38,7 +38,7 @@ public class LanguagehelperHttpClient {
 	
 	public static final int HTTP_RESPONSE_DISK_CACHE_MAX_SIZE = 10 * 1024 * 1024;
 	private static final MediaType MEDIA_TYPE_JPG = MediaType.parse("image/jpg");
-	public static final String Header = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36";
+	public static final String Header = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36";
 	public static OkHttpClient client = new OkHttpClient();
 	
 	public static OkHttpClient initClient(Context mContext){
@@ -147,19 +147,19 @@ public class LanguagehelperHttpClient {
 		String from = "";
 		String to = "";
 		if (StringUtils.isEnglish(Settings.q)) {
-			from = "en";
-			to = "zh-CN";
+			from = "/en";
+			to = "/cn";
 		} else {
-			from = "zh-CN";
-			to = "en";
+			from = "/cn";
+			to = "/en";
 		}
+		String url = Settings.HjTranslateUrl + from + to;
+		LogUtil.DefalutLog("HjTranslateUrl:"+url);
 		RequestBody formBody = new FormEncodingBuilder()
-			.add("text", Settings.q)
-			.add("from", from)
-			.add("to", to)
+			.add("content", Settings.q)
 			.build();
 		Request request = new Request.Builder()
-			.url(Settings.HjTranslateUrl)
+			.url(url)
 			.header("User-Agent", Header)
 			.post(formBody)
 			.build();

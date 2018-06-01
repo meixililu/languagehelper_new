@@ -835,7 +835,6 @@ public class TranslateUtil {
 			LogUtil.DefalutLog("doTranslateBackground error");
 			mResponse = LanguagehelperHttpClient.postBaidu(null);
 			result = tran_bd_api(mResponse);
-			e.printStackTrace();
 		}
 		return result;
 	}
@@ -893,9 +892,11 @@ public class TranslateUtil {
 			String mResult = mResponse.body().string();
 			if (JsonParser.isJson(mResult)) {
 				HjTranBean mHjTranBean = JSON.parseObject(mResult, HjTranBean.class);
-				if (mHjTranBean != null && mHjTranBean.getStatus() == 0) {
-					currentDialogBean = new record(mHjTranBean.getContent(), Settings.q);
-					LogUtil.DefalutLog("tran_hj_api http:"+mHjTranBean.getContent());
+				if (mHjTranBean != null && mHjTranBean.getStatus() == 0
+						&& mHjTranBean.getData() != null
+						&& !TextUtils.isEmpty(mHjTranBean.getData().getContent())) {
+					currentDialogBean = new record(mHjTranBean.getData().getContent(), Settings.q);
+					LogUtil.DefalutLog("tran_hj_api http:"+mHjTranBean.getData().getContent());
 				}
 			}
 		}

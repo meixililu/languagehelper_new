@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
@@ -14,7 +14,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -23,10 +25,13 @@ import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.TextHandlerUtil;
+import com.messi.languagehelper.util.TimeUtil;
 import com.messi.languagehelper.util.XFYSAD;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
+import com.nineoldandroids.animation.ObjectAnimator;
 
 import java.util.List;
 
@@ -34,7 +39,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ReadingDetailActivity extends BaseActivity {
+public class ReadingDetailActivity extends BaseActivity implements SeekBar.OnSeekBarChangeListener {
 
     @BindView(R.id.toolbar_layout)
     CollapsingToolbarLayout toolbar_layout;
@@ -50,16 +55,34 @@ public class ReadingDetailActivity extends BaseActivity {
     LinearLayout next_composition;
     @BindView(R.id.scrollview)
     NestedScrollView scrollview;
-    @BindView(R.id.play_btn)
-    FloatingActionButton fab;
     @BindView(R.id.ad_img)
     SimpleDraweeView ad_img;
+    @BindView(R.id.player_layout)
+    LinearLayout player_layout;
+    @BindView(R.id.btn_play)
+    ImageView btn_play;
+    @BindView(R.id.seekbar)
+    SeekBar seekbar;
+    @BindView(R.id.time_current)
+    TextView time_current;
+    @BindView(R.id.time_duration)
+    TextView time_duration;
 
     private Reading mAVObject;
     private List<Reading> mAVObjects;
     private SharedPreferences mSharedPreferences;
     private int index;
     private XFYSAD mXFYSAD;
+
+    private Handler handler = new Handler();
+
+    private Runnable mRunnable = new Runnable() {
+        @Override
+        public void run() {
+            setSeekbarAndText();
+            handler.postDelayed(this,300);
+        }
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -84,6 +107,7 @@ public class ReadingDetailActivity extends BaseActivity {
     }
 
     private void setData() {
+        seekbar.setOnSeekBarChangeListener(this);
         toolbar_layout.setTitle(mAVObject.getTitle());
         title.setText(mAVObject.getTitle());
         scrollview.scrollTo(0, 0);
@@ -97,18 +121,51 @@ public class ReadingDetailActivity extends BaseActivity {
         }
         if(WXEntryActivity.musicSrv.isSameMp3(mAVObject)){
             if(WXEntryActivity.musicSrv.PlayerStatus == 1) {
-                fab.setImageResource(R.drawable.ic_pause_white);
+                btn_play.setImageResource(R.drawable.ic_pause_circle_outline_grey600_36dp);
+                handler.postDelayed(mRunnable,300);
             }
+            setSeekbarAndText();
         }
-
         if(mAVObject.getType().equals("text")){
-            fab.setVisibility(View.GONE);
+            player_layout.setVisibility(View.GONE);
         }
-
         if(TextUtils.isEmpty(mAVObject.getStatus())){
             mAVObject.setStatus("1");
             DataBaseUtil.getInstance().update(mAVObject);
         }
+        scrollview.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                if(!mAVObject.getType().equals("text")){
+                    if(scrollY - oldScrollY > 12){
+                        if(player_layout.isShown()){
+                           player_layout.setVisibility(View.GONE);
+                           ObjectAnimator mObjectAnimator = ObjectAnimator.ofFloat(player_layout, "alpha", 1, 0);
+                           mObjectAnimator.setDuration(500).start();
+                        }
+                    }else if(scrollY - oldScrollY < -8){
+                        if(!player_layout.isShown()){
+                            player_layout.setVisibility(View.VISIBLE);
+                            ObjectAnimator mObjectAnimator = ObjectAnimator.ofFloat(player_layout, "alpha", 0, 1);
+                            mObjectAnimator.setDuration(500).start();
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    private void setSeekbarAndText(){
+        int currentPosition = WXEntryActivity.musicSrv.getCurrentPosition();
+        int mDuration = WXEntryActivity.musicSrv.getDuration();
+        LogUtil.DefalutLog("ContentPosition:"+currentPosition);
+        LogUtil.DefalutLog("Duration:"+mDuration);
+        if(mDuration > 0){
+            seekbar.setMax(mDuration);
+            time_duration.setText(TimeUtil.getDuration(mDuration / 1000));
+        }
+        seekbar.setProgress(currentPosition);
+        time_current.setText(TimeUtil.getDuration(currentPosition / 1000));
     }
 
     @Override
@@ -169,7 +226,7 @@ public class ReadingDetailActivity extends BaseActivity {
         }
     }
 
-    @OnClick(R.id.play_btn)
+    @OnClick(R.id.btn_play)
     public void onClick() {
         if (WXEntryActivity.musicSrv != null) {
             WXEntryActivity.musicSrv.initAndPlay(mAVObject);
@@ -180,9 +237,11 @@ public class ReadingDetailActivity extends BaseActivity {
     public void updateUI(String music_action) {
         if(WXEntryActivity.musicSrv.isSameMp3(mAVObject)){
             if(music_action.equals(PlayerService.action_start)){
-                fab.setImageResource(R.drawable.ic_play_arrow_white_48dp);
+                btn_play.setImageResource(R.drawable.ic_play_circle_outline_grey600_36dp);
+                handler.removeCallbacks(mRunnable);
             }else if (music_action.equals(PlayerService.action_pause)) {
-                fab.setImageResource(R.drawable.ic_pause_white);
+                btn_play.setImageResource(R.drawable.ic_pause_circle_outline_grey600_36dp);
+                handler.postDelayed(mRunnable,300);
             }
         }
         if(music_action.equals(PlayerService.action_loading)){
@@ -206,6 +265,9 @@ public class ReadingDetailActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         unregisterBroadcast();
+        if(handler != null){
+            handler.removeCallbacks(mRunnable);
+        }
     }
 
     private void guide() {
@@ -220,4 +282,21 @@ public class ReadingDetailActivity extends BaseActivity {
         }
     }
 
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+        handler.removeCallbacks(mRunnable);
+        WXEntryActivity.musicSrv.pause();
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+        WXEntryActivity.musicSrv.seekTo(seekBar.getProgress());
+        WXEntryActivity.musicSrv.restart();
+        handler.postDelayed(mRunnable,300);
+    }
 }

@@ -4,11 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVObject;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.WebViewNoAdActivity;
 import com.messi.languagehelper.util.AVOUtil;
@@ -22,7 +22,7 @@ public class RcWebsiteItemViewHolder extends RecyclerView.ViewHolder {
 
     private final View cover;
     private final TextView name;
-    private final ImageView img;
+    private final SimpleDraweeView img;
     private Context context;
 
     public RcWebsiteItemViewHolder(View convertView) {
@@ -30,10 +30,11 @@ public class RcWebsiteItemViewHolder extends RecyclerView.ViewHolder {
         this.context = convertView.getContext();
         cover = (View) convertView.findViewById(R.id.layout_cover);
         name = (TextView) convertView.findViewById(R.id.name);
-        img = (ImageView) convertView.findViewById(R.id.img);
+        img = (SimpleDraweeView) convertView.findViewById(R.id.img);
     }
 
     public void render(final AVObject mAVObject) {
+        img.setImageURI(mAVObject.getString(AVOUtil.EnglishWebsite.ImgUrl));
         name.setText( mAVObject.getString(AVOUtil.EnglishWebsite.Title));
         cover.setOnClickListener(new View.OnClickListener() {
             @Override

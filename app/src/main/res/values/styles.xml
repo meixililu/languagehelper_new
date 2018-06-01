@@ -73,4 +73,10 @@
         <item name="android:thumbOffset">0dp</item>
     </style>
 
+    <style name="SeekbarBlackStyle" >
+        <item name="android:progressDrawable">@drawable/seekbar_progress_bar_black</item>
+        <item name="android:thumb">@drawable/seekbar_thumb</item>
+        <item name="android:thumbOffset">0dp</item>
+    </style>
+
 </resources>

@@ -73,7 +73,6 @@ public class LeisureFragment extends BaseFragment {
     private NativeExpressADView mTXADView;
     private long lastLoadAd;
     private boolean exposureXFAD;
-    private boolean exposureTXAD;
     private String currentAD = ADUtil.Advertiser;
     private SharedPreferences sp;
 
@@ -163,7 +162,6 @@ public class LeisureFragment extends BaseFragment {
             public void onADLoaded(List<NativeExpressADView> list) {
                 LogUtil.DefalutLog("onADLoaded");
                 if (list != null && list.size() > 0) {
-                    exposureTXAD = false;
                     currentAD = ADUtil.Advertiser_TX;
                     if (mTXADView != null) {
                         mTXADView.destroy();
@@ -172,12 +170,14 @@ public class LeisureFragment extends BaseFragment {
                     xx_ad_layout.removeAllViews();
                     mTXADView = list.get(0);
                     lastLoadAd = System.currentTimeMillis();
-                    exposedTXADView();
+                    xx_ad_layout.addView(mTXADView);
+                    mTXADView.render();
                 }
             }
 
             @Override
             public void onRenderFail(NativeExpressADView nativeExpressADView) {
+                nativeExpressADView.render();
                 LogUtil.DefalutLog("onRenderFail");
             }
 
@@ -189,7 +189,6 @@ public class LeisureFragment extends BaseFragment {
             @Override
             public void onADExposure(NativeExpressADView nativeExpressADView) {
                 LogUtil.DefalutLog("onADExposure");
-                exposureTXAD = true;
             }
 
             @Override
@@ -200,10 +199,6 @@ public class LeisureFragment extends BaseFragment {
             @Override
             public void onADClosed(NativeExpressADView nativeExpressADView) {
                 LogUtil.DefalutLog("onADClosed");
-                if (xx_ad_layout != null) {
-                    xx_ad_layout.removeAllViews();
-                    xx_ad_layout.setVisibility(View.GONE);
-                }
             }
 
             @Override
@@ -221,13 +216,6 @@ public class LeisureFragment extends BaseFragment {
                 LogUtil.DefalutLog("onADCloseOverlay");
             }
         });
-    }
-
-    private void exposedTXADView() {
-        if (misVisibleToUser && !exposureTXAD && mTXADView != null) {
-            xx_ad_layout.addView(mTXADView);
-            mTXADView.render();
-        }
     }
 
     private void setAd() {
@@ -249,6 +237,7 @@ public class LeisureFragment extends BaseFragment {
     }
 
     private void exposedAd() {
+        LogUtil.DefalutLog("exposedAd");
         if (currentAD.equals(ADUtil.Advertiser_XF)) {
             new Handler().postDelayed(new Runnable() {
                 @Override
@@ -257,10 +246,6 @@ public class LeisureFragment extends BaseFragment {
                 }
             }, 500);
 
-        } else {
-            if (!exposureTXAD) {
-                exposedTXADView();
-            }
         }
         if (misVisibleToUser && lastLoadAd > 0) {
             if (System.currentTimeMillis() - lastLoadAd > 45000) {
