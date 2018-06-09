@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.messi.languagehelper"
+    package="com.messi.learnenglish"
     android:versionCode="41"
     android:versionName="4.5.1" >
 
@@ -420,7 +420,7 @@
 
         <provider
             android:name="com.yanzhenjie.permission.FileProvider"
-            android:authorities="com.messi.languagehelper.file.path.share"
+            android:authorities="com.messi.learnenglish.file.path.share"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data

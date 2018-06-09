@@ -63,6 +63,7 @@ public class LoadingActivity extends AppCompatActivity {
             TransparentStatusbar();
             setContentView(R.layout.loading_activity);
             ButterKnife.bind(this);
+            TXADUtil.initTXADID(this);
             ADUtil.loadAd(this);
             init();
         } catch (Exception e) {
