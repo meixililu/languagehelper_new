@@ -72,6 +72,7 @@
             </FrameLayout>
 
             <ImageView
+                android:id="@+id/offline_dic_layout_line"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/contentbg"
@@ -155,6 +156,7 @@
                 </LinearLayout>
             </FrameLayout>
             <ImageView
+                android:id="@+id/help_layout_line"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/contentbg"

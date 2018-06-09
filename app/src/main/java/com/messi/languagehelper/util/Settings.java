@@ -132,6 +132,14 @@ public class Settings {
 	public static String role = "vimary";	
 	public static final int offset = 150;
 
+	public static final String application_id_zyhy = "com.messi.languagehelper";
+	public static final String application_id_zyhy_google = "com.messi.languagehelper.google";
+	public static final String application_id_yyj = "com.messi.learnenglish";
+	public static final String application_id_yys = "com.messi.cantonese.study";
+	public static final String application_id_yys_google = "com.messi.cantonese.study.google";
+	public static final String application_id_yycd = "com.messi.chinese.study";
+	public static final String application_id_xbky = "com.messi.spoken.study";
+
 	public static String[] PERMISSIONS_STORAGE = {
 			Manifest.permission.WRITE_EXTERNAL_STORAGE,
 			Manifest.permission.READ_EXTERNAL_STORAGE,

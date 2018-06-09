@@ -294,7 +294,21 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener, Fr
 
 	private void checkUpdate() {
 		AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.UpdateInfo.UpdateInfo);
-		query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "zyhy");
+		if(getPackageName().equals(Settings.application_id_zyhy)){
+			query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "zyhy");
+		}else if(getPackageName().equals(Settings.application_id_yyj)){
+			query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "yyj");
+		}else if(getPackageName().equals(Settings.application_id_yys_google)){
+			query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "yys_google");
+		}else if(getPackageName().equals(Settings.application_id_zyhy_google)){
+			query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "zyhy_google");
+		}else if(getPackageName().equals(Settings.application_id_yycd)){
+			query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "yycd");
+		}else if(getPackageName().equals(Settings.application_id_xbky)){
+			query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "xbky");
+		}else{
+			query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "noupdate");
+		}
 		query.findInBackground(new FindCallback<AVObject>() {
 			public void done(List<AVObject> avObjects, AVException e) {
 				if (avObjects != null && avObjects.size() > 0) {
@@ -307,6 +321,7 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener, Fr
 	}
 
 	private void saveSetting(AVObject mAVObject){
+		LogUtil.DefalutLog(mAVObject.getString(AVOUtil.UpdateInfo.AppName));
 		String app_advertiser = mAVObject.getString(AVOUtil.UpdateInfo.ad_type);
 		String wyyx_url = mAVObject.getString(AVOUtil.UpdateInfo.wyyx_url);
 		String uctt_url = mAVObject.getString(AVOUtil.UpdateInfo.uctt_url);

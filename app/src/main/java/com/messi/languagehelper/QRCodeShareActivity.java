@@ -9,11 +9,13 @@ import android.support.v4.content.FileProvider;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVAnalytics;
 import com.messi.languagehelper.util.SDCardUtil;
+import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.ViewUtil;
 
 import java.io.File;
@@ -22,6 +24,7 @@ import java.io.IOException;
 public class QRCodeShareActivity extends BaseActivity implements OnClickListener {
 
     private FrameLayout share_btn_cover;
+    private ImageView qrcode_img;
     private LinearLayout share_parent_layout;
     private TextView wechat_long_click;
 
@@ -41,7 +44,24 @@ public class QRCodeShareActivity extends BaseActivity implements OnClickListener
         share_parent_layout = (LinearLayout) findViewById(R.id.share_parent_layout);
         wechat_long_click = (TextView) findViewById(R.id.wechat_long_click);
         share_btn_cover = (FrameLayout) findViewById(R.id.share_btn_cover);
+        qrcode_img = (ImageView) findViewById(R.id.qrcode_img);
         share_btn_cover.setOnClickListener(this);
+        setImg();
+    }
+
+    private void setImg(){
+        if(getPackageName().equals(Settings.application_id_yyj)){
+            qrcode_img.setImageResource(R.drawable.yyj_qrcode);
+        }else if (getPackageName().equals(Settings.application_id_yys) ||
+                getPackageName().equals(Settings.application_id_yys_google)) {
+            qrcode_img.setImageResource(R.drawable.yys_qrcode);
+        } else if (getPackageName().equals(Settings.application_id_yycd)) {
+
+        } else if (getPackageName().equals(Settings.application_id_xbky)) {
+
+        } else {
+            qrcode_img.setImageResource(R.drawable.qrcode);
+        }
     }
 
     private void shareWithImg() throws IOException {

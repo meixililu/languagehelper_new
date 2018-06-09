@@ -37,6 +37,10 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
     FrameLayout offlineDicLayout;
     @BindView(R.id.offline_dic_unread_dot)
     ImageView offlineDicUnreadDot;
+    @BindView(R.id.offline_dic_layout_line)
+    ImageView offline_dic_layout_line;
+    @BindView(R.id.help_layout_line)
+    ImageView help_layout_line;
     private SharedPreferences mSharedPreferences;
 
     @Override
@@ -61,8 +65,23 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
         if(!Settings.getSharedPreferences(this).getBoolean(KeyUtil.OfflineDicUnreadKey,true)){
             offlineDicUnreadDot.setVisibility(View.GONE);
         }
+        initVieds();
     }
 
+    private void initVieds(){
+        if (getPackageName().equals(Settings.application_id_yys) ||
+                getPackageName().equals(Settings.application_id_yys_google)) {
+            offline_dic_layout_line.setVisibility(View.GONE);
+            offlineDicLayout.setVisibility(View.GONE);
+            help_layout.setVisibility(View.GONE);
+            help_layout_line.setVisibility(View.GONE);
+        } else if (getPackageName().equals(Settings.application_id_yycd)) {
+            offline_dic_layout_line.setVisibility(View.GONE);
+            offlineDicLayout.setVisibility(View.GONE);
+            help_layout.setVisibility(View.GONE);
+            help_layout_line.setVisibility(View.GONE);
+        }
+    }
 
     @Override
     public void onClick(View v) {
@@ -81,15 +100,7 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
                         KeyUtil.OfflineDicUnreadKey,false);
                 break;
             case R.id.comments_layout:
-                try {
-                    Intent intent = new Intent();
-                    intent.setAction(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse("market://details?id=com.messi.languagehelper"));
-                    MoreActivity.this.startActivity(intent);
-                    AVAnalytics.onEvent(MoreActivity.this, "more_pg_tocommendpg_btn");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                comment();
                 break;
             case R.id.help_layout:
                 toActivity(HelpActivity.class, null);
@@ -100,8 +111,7 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
                 AVAnalytics.onEvent(MoreActivity.this, "more_pg_toaboutpg_btn");
                 break;
             case R.id.invite_layout:
-                ShareUtil.shareText(MoreActivity.this, MoreActivity.this.getResources().getString(R.string.invite_friends_prompt));
-                AVAnalytics.onEvent(this, "more_pg_invite_btn", "邀请小伙伴", 1);
+                invite();
                 break;
             case R.id.qrcode_layout:
                 toActivity(QRCodeShareActivity.class, null);
@@ -110,6 +120,48 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
             default:
                 break;
         }
+    }
+
+    private void comment(){
+        try {
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_VIEW);
+            if(getPackageName().equals(Settings.application_id_yyj)){
+                intent.setData(Uri.parse("market://details?id=com.messi.learnenglish"));
+            } else if (getPackageName().equals(Settings.application_id_yys)) {
+                intent.setData(Uri.parse("market://details?id=com.messi.cantonese.study"));
+            } else if (getPackageName().equals(Settings.application_id_yys_google)) {
+                intent.setData(Uri.parse("market://details?id=com.messi.cantonese.study.google"));
+            } else if (getPackageName().equals(Settings.application_id_yycd)) {
+                intent.setData(Uri.parse("market://details?id=com.messi.chinese.study"));
+            } else if (getPackageName().equals(Settings.application_id_xbky)) {
+                intent.setData(Uri.parse("market://details?id=com.messi.spoken.study"));
+            } else if (getPackageName().equals(Settings.application_id_zyhy_google)) {
+                intent.setData(Uri.parse("market://details?id=com.messi.languagehelper.google"));
+            } else {
+                intent.setData(Uri.parse("market://details?id=com.messi.languagehelper"));
+            }
+            MoreActivity.this.startActivity(intent);
+            AVAnalytics.onEvent(MoreActivity.this, "more_pg_tocommendpg_btn");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void invite(){
+        if(getPackageName().equals(Settings.application_id_yyj)){
+            ShareUtil.shareText(MoreActivity.this, MoreActivity.this.getResources().getString(R.string.invite_friends_yyj));
+        }else if (getPackageName().equals(Settings.application_id_yys) ||
+                getPackageName().equals(Settings.application_id_yys_google)) {
+            ShareUtil.shareText(MoreActivity.this, MoreActivity.this.getResources().getString(R.string.invite_friends_yys));
+        } else if (getPackageName().equals(Settings.application_id_yycd)) {
+            ShareUtil.shareText(MoreActivity.this, MoreActivity.this.getResources().getString(R.string.invite_friends_yycd));
+        } else if (getPackageName().equals(Settings.application_id_xbky)) {
+            ShareUtil.shareText(MoreActivity.this, MoreActivity.this.getResources().getString(R.string.invite_friends_xbky));
+        } else {
+            ShareUtil.shareText(MoreActivity.this, MoreActivity.this.getResources().getString(R.string.invite_friends_zyhy));
+        }
+        AVAnalytics.onEvent(this, "more_pg_invite_btn", "邀请小伙伴", 1);
     }
 
 }

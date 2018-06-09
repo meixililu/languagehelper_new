@@ -15,6 +15,7 @@ import com.messi.languagehelper.StudyCategoryFragment;
 import com.messi.languagehelper.StudyFragment;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.Settings;
 
 public class MainPageAdapter extends FragmentPagerAdapter {
 
@@ -33,37 +34,70 @@ public class MainPageAdapter extends FragmentPagerAdapter {
         this.bundle = bundle;
         this.listener = listener;
         this.mSharedPreferences = mSharedPreferences;
-        CONTENT = new String[] {
-        		mContext.getResources().getString(R.string.title_home_tab),
-        		mContext.getResources().getString(R.string.title_study_category),
-        		mContext.getResources().getString(R.string.title_study),
-        		mContext.getResources().getString(R.string.title_leisure)
-        };
+        if(mContext.getApplication().getPackageName().equals(Settings.application_id_yyj)){
+            CONTENT = new String[] {
+                    mContext.getResources().getString(R.string.title_home_tab),
+                    mContext.getResources().getString(R.string.title_study_category),
+                    mContext.getResources().getString(R.string.title_translate),
+                    mContext.getResources().getString(R.string.title_leisure)
+            };
+        }else if(mContext.getApplication().getPackageName().equals(Settings.application_id_yycd)){
+            CONTENT = new String[] {
+                    mContext.getResources().getString(R.string.title_home_tab),
+                    mContext.getResources().getString(R.string.title_leisure)
+            };
+        }else {
+            CONTENT = new String[] {
+                    mContext.getResources().getString(R.string.title_home_tab),
+                    mContext.getResources().getString(R.string.title_study_category),
+                    mContext.getResources().getString(R.string.title_study),
+                    mContext.getResources().getString(R.string.title_leisure)
+            };
+        }
+
     }
 
     @Override
     public Fragment getItem(int position) {
-        if( position == 0 ){
-            if(mSharedPreferences.getBoolean(KeyUtil.IsUseOldStyle,true)){
-                return MainFragmentOld.getInstance(listener);
-            }else {
-        	    return MainFragment.getInstance(listener);
+        if(mContext.getApplication().getPackageName().equals(Settings.application_id_yyj)){
+            if( position == 0 ){
+                mfragment = StudyFragment.getInstance();
+                return mfragment;
+            }else if( position == 1 ){
+                return StudyCategoryFragment.getInstance();
+            }else if( position == 2 ){
+                if(mSharedPreferences.getBoolean(KeyUtil.IsUseOldStyle,true)){
+                    return MainFragmentOld.getInstance(listener);
+                }else {
+                    return MainFragment.getInstance(listener);
+                }
+            }else if( position == 3 ){
+                return LeisureFragment.getInstance();
             }
-        }else if( position == 1 ){
-        	return StudyCategoryFragment.getInstance();
-        }else if( position == 2 ){
-            mfragment = StudyFragment.getInstance();
-        	return mfragment;
-        }else if( position == 3 ){
-        	return LeisureFragment.getInstance();
+        }else if(mContext.getApplication().getPackageName().equals(Settings.application_id_yycd)){
+            if( position == 0 ){
+                return MainFragment.getInstance(listener);
+            }else if( position == 1 ){
+                return LeisureFragment.getInstance();
+            }
+        } else {
+            if( position == 0 ){
+                if(mSharedPreferences.getBoolean(KeyUtil.IsUseOldStyle,true)){
+                    return MainFragmentOld.getInstance(listener);
+                }else {
+                    return MainFragment.getInstance(listener);
+                }
+            }else if( position == 1 ){
+                return StudyCategoryFragment.getInstance();
+            }else if( position == 2 ){
+                mfragment = StudyFragment.getInstance();
+                return mfragment;
+            }else if( position == 3 ){
+                return LeisureFragment.getInstance();
+            }
         }
         return null;
     }
-//    if(mSharedPreferences.getBoolean(KeyUtil.IsUseOldStyle,true)){
-//        return DictionaryFragmentOld.getInstance(bundle,mContext);
-//    }else {
-//        return DictionaryFragment.getInstance(bundle,mContext);
-//    }
 
     public void onTabReselected(int index){
         if(mfragment != null){
