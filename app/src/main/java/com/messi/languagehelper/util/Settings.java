@@ -149,7 +149,10 @@ public class Settings {
 	public static String[] PERMISSIONS_RECORD_AUDIO = {
 			Manifest.permission.RECORD_AUDIO
 	};
-	
+
+	public static String getProvider(Context mContext){
+		return mContext.getPackageName() + ".provider";
+	}
 	/**is today already do something
 	 * @param mSharedPreferences
 	 * @return

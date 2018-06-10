@@ -31,8 +31,6 @@ public class SDCardUtil {
 	public static final String OfflineDicPath = "/zyhy/offline/";
 	public static final String Delimiter = "/";
 
-	public static final String Provider = "com.messi.languagehelper.provider";
-	
 	/**sdcard路径
 	 * @return
 	 */

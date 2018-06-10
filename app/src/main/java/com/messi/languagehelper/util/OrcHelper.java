@@ -100,7 +100,7 @@ public class OrcHelper {
                 LogUtil.DefalutLog("img uri:"+mCurrentPhotoPath);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                     takePictureIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                    Uri imageUri = FileProvider.getUriForFile(context, SDCardUtil.Provider, photoFile);
+                    Uri imageUri = FileProvider.getUriForFile(context, Settings.getProvider(context), photoFile);
                     takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
                 } else {
                     takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoFile));
@@ -203,7 +203,7 @@ public class OrcHelper {
         } else if (requestCode == CameraUtil.REQUEST_CODE_CAPTURE_CAMEIA && resultCode == Activity.RESULT_OK) {
             Uri contentUri = null;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
-                contentUri = FileProvider.getUriForFile(context, SDCardUtil.Provider, new File(mCurrentPhotoPath));
+                contentUri = FileProvider.getUriForFile(context, Settings.getProvider(context), new File(mCurrentPhotoPath));
             }else {
                 contentUri = Uri.fromFile(new File(mCurrentPhotoPath));
             }

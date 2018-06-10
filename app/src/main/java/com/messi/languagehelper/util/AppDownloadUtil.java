@@ -128,7 +128,7 @@ public class AppDownloadUtil {
 		Intent i = new Intent(Intent.ACTION_VIEW);
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
 			i.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-			Uri imageUri = FileProvider.getUriForFile(mContext, SDCardUtil.Provider, new File(filePath));
+			Uri imageUri = FileProvider.getUriForFile(mContext, Settings.getProvider(mContext), new File(filePath));
 			i.setDataAndType(imageUri, "application/vnd.android.package-archive");
 		}else {
 			i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

@@ -28,6 +28,7 @@ import com.avos.avoscloud.AVAnalytics;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SDCardUtil;
+import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.ToastUtil;
 
 import java.io.File;
@@ -140,7 +141,7 @@ public class ImgShareActivity extends BaseActivity implements OnClickListener {
             if (file != null && file.exists() && file.isFile()) {
                 Uri imageUri = null;
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    imageUri = FileProvider.getUriForFile(this, SDCardUtil.Provider, file);
+                    imageUri = FileProvider.getUriForFile(this, Settings.getProvider(this), file);
                 } else {
                     imageUri = Uri.fromFile(file);
                 }

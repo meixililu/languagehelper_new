@@ -6,7 +6,8 @@ android {
     buildToolsVersion "27.0.3"
 
     defaultConfig {
-//        applicationId "com.messi.languagehelper.google" //禁止使用更新
+        //修改 Provider
+//        applicationId "com.messi.languagehelper.google"
 //        applicationId "com.messi.learnenglish"  //英语君
         applicationId "com.messi.languagehelper"
         resConfigs "zh-rCN", "zh-rHK", "zh-rTW", "en"

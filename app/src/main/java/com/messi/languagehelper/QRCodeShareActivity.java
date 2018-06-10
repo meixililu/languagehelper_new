@@ -75,7 +75,7 @@ public class QRCodeShareActivity extends BaseActivity implements OnClickListener
             if (file != null && file.exists() && file.isFile()) {
                 Uri uri = null;
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    uri = FileProvider.getUriForFile(this, SDCardUtil.Provider, file);
+                    uri = FileProvider.getUriForFile(this, Settings.getProvider(this), file);
                 } else {
                     uri = Uri.fromFile(file);
                 }
