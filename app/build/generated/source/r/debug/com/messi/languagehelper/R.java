@@ -6790,35 +6790,35 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #ActionBar_background com.messi.learnenglish:background}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_backgroundSplit com.messi.learnenglish:backgroundSplit}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_backgroundStacked com.messi.learnenglish:backgroundStacked}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_contentInsetEnd com.messi.learnenglish:contentInsetEnd}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_contentInsetEndWithActions com.messi.learnenglish:contentInsetEndWithActions}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_contentInsetLeft com.messi.learnenglish:contentInsetLeft}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_contentInsetRight com.messi.learnenglish:contentInsetRight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_contentInsetStart com.messi.learnenglish:contentInsetStart}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_contentInsetStartWithNavigation com.messi.learnenglish:contentInsetStartWithNavigation}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_customNavigationLayout com.messi.learnenglish:customNavigationLayout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_displayOptions com.messi.learnenglish:displayOptions}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_divider com.messi.learnenglish:divider}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_elevation com.messi.learnenglish:elevation}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_height com.messi.learnenglish:height}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_hideOnContentScroll com.messi.learnenglish:hideOnContentScroll}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_homeAsUpIndicator com.messi.learnenglish:homeAsUpIndicator}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_homeLayout com.messi.learnenglish:homeLayout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_icon com.messi.learnenglish:icon}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_indeterminateProgressStyle com.messi.learnenglish:indeterminateProgressStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_itemPadding com.messi.learnenglish:itemPadding}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_logo com.messi.learnenglish:logo}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_navigationMode com.messi.learnenglish:navigationMode}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_popupTheme com.messi.learnenglish:popupTheme}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_progressBarPadding com.messi.learnenglish:progressBarPadding}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_progressBarStyle com.messi.learnenglish:progressBarStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_subtitle com.messi.learnenglish:subtitle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_subtitleTextStyle com.messi.learnenglish:subtitleTextStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_title com.messi.learnenglish:title}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionBar_titleTextStyle com.messi.learnenglish:titleTextStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_background com.messi.languagehelper:background}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_backgroundSplit com.messi.languagehelper:backgroundSplit}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_backgroundStacked com.messi.languagehelper:backgroundStacked}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_contentInsetEnd com.messi.languagehelper:contentInsetEnd}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_contentInsetEndWithActions com.messi.languagehelper:contentInsetEndWithActions}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_contentInsetLeft com.messi.languagehelper:contentInsetLeft}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_contentInsetRight com.messi.languagehelper:contentInsetRight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_contentInsetStart com.messi.languagehelper:contentInsetStart}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_contentInsetStartWithNavigation com.messi.languagehelper:contentInsetStartWithNavigation}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_customNavigationLayout com.messi.languagehelper:customNavigationLayout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_displayOptions com.messi.languagehelper:displayOptions}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_divider com.messi.languagehelper:divider}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_elevation com.messi.languagehelper:elevation}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_height com.messi.languagehelper:height}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_hideOnContentScroll com.messi.languagehelper:hideOnContentScroll}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_homeAsUpIndicator com.messi.languagehelper:homeAsUpIndicator}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_homeLayout com.messi.languagehelper:homeLayout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_icon com.messi.languagehelper:icon}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_indeterminateProgressStyle com.messi.languagehelper:indeterminateProgressStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_itemPadding com.messi.languagehelper:itemPadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_logo com.messi.languagehelper:logo}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_navigationMode com.messi.languagehelper:navigationMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_popupTheme com.messi.languagehelper:popupTheme}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_progressBarPadding com.messi.languagehelper:progressBarPadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_progressBarStyle com.messi.languagehelper:progressBarStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_subtitle com.messi.languagehelper:subtitle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_subtitleTextStyle com.messi.languagehelper:subtitleTextStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_title com.messi.languagehelper:title}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionBar_titleTextStyle com.messi.languagehelper:titleTextStyle}</code></td><td></td></tr>
      * </table>
      * @see #ActionBar_background
      * @see #ActionBar_backgroundSplit
@@ -6861,7 +6861,7 @@ public final class R {
         0x7f0301f8
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#background}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#background}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -6869,11 +6869,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:background
+     * @attr name com.messi.languagehelper:background
      */
     public static final int ActionBar_background=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#backgroundSplit}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#backgroundSplit}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -6884,11 +6884,11 @@ public final class R {
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:backgroundSplit
+     * @attr name com.messi.languagehelper:backgroundSplit
      */
     public static final int ActionBar_backgroundSplit=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#backgroundStacked}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#backgroundStacked}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -6899,11 +6899,11 @@ public final class R {
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:backgroundStacked
+     * @attr name com.messi.languagehelper:backgroundStacked
      */
     public static final int ActionBar_backgroundStacked=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#contentInsetEnd}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentInsetEnd}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -6912,11 +6912,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:contentInsetEnd
+     * @attr name com.messi.languagehelper:contentInsetEnd
      */
     public static final int ActionBar_contentInsetEnd=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#contentInsetEndWithActions}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentInsetEndWithActions}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -6925,11 +6925,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:contentInsetEndWithActions
+     * @attr name com.messi.languagehelper:contentInsetEndWithActions
      */
     public static final int ActionBar_contentInsetEndWithActions=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#contentInsetLeft}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentInsetLeft}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -6938,11 +6938,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:contentInsetLeft
+     * @attr name com.messi.languagehelper:contentInsetLeft
      */
     public static final int ActionBar_contentInsetLeft=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#contentInsetRight}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentInsetRight}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -6951,11 +6951,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:contentInsetRight
+     * @attr name com.messi.languagehelper:contentInsetRight
      */
     public static final int ActionBar_contentInsetRight=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#contentInsetStart}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentInsetStart}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -6964,11 +6964,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:contentInsetStart
+     * @attr name com.messi.languagehelper:contentInsetStart
      */
     public static final int ActionBar_contentInsetStart=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#contentInsetStartWithNavigation}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentInsetStartWithNavigation}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -6977,11 +6977,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:contentInsetStartWithNavigation
+     * @attr name com.messi.languagehelper:contentInsetStartWithNavigation
      */
     public static final int ActionBar_contentInsetStartWithNavigation=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#customNavigationLayout}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#customNavigationLayout}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -6989,11 +6989,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:customNavigationLayout
+     * @attr name com.messi.languagehelper:customNavigationLayout
      */
     public static final int ActionBar_customNavigationLayout=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#displayOptions}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#displayOptions}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -7011,11 +7011,11 @@ public final class R {
      * <tr><td>useLogo</td><td>1</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:displayOptions
+     * @attr name com.messi.languagehelper:displayOptions
      */
     public static final int ActionBar_displayOptions=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#divider}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#divider}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7023,11 +7023,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:divider
+     * @attr name com.messi.languagehelper:divider
      */
     public static final int ActionBar_divider=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#elevation}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#elevation}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -7036,11 +7036,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:elevation
+     * @attr name com.messi.languagehelper:elevation
      */
     public static final int ActionBar_elevation=12;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#height}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#height}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -7049,21 +7049,21 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:height
+     * @attr name com.messi.languagehelper:height
      */
     public static final int ActionBar_height=13;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#hideOnContentScroll}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#hideOnContentScroll}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:hideOnContentScroll
+     * @attr name com.messi.languagehelper:hideOnContentScroll
      */
     public static final int ActionBar_hideOnContentScroll=14;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#homeAsUpIndicator}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#homeAsUpIndicator}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7071,11 +7071,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:homeAsUpIndicator
+     * @attr name com.messi.languagehelper:homeAsUpIndicator
      */
     public static final int ActionBar_homeAsUpIndicator=15;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#homeLayout}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#homeLayout}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7083,11 +7083,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:homeLayout
+     * @attr name com.messi.languagehelper:homeLayout
      */
     public static final int ActionBar_homeLayout=16;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#icon}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#icon}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7095,11 +7095,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:icon
+     * @attr name com.messi.languagehelper:icon
      */
     public static final int ActionBar_icon=17;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#indeterminateProgressStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#indeterminateProgressStyle}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7107,11 +7107,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:indeterminateProgressStyle
+     * @attr name com.messi.languagehelper:indeterminateProgressStyle
      */
     public static final int ActionBar_indeterminateProgressStyle=18;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#itemPadding}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#itemPadding}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -7120,11 +7120,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:itemPadding
+     * @attr name com.messi.languagehelper:itemPadding
      */
     public static final int ActionBar_itemPadding=19;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#logo}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#logo}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7132,11 +7132,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:logo
+     * @attr name com.messi.languagehelper:logo
      */
     public static final int ActionBar_logo=20;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#navigationMode}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#navigationMode}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -7150,11 +7150,11 @@ public final class R {
      * <tr><td>tabMode</td><td>2</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:navigationMode
+     * @attr name com.messi.languagehelper:navigationMode
      */
     public static final int ActionBar_navigationMode=21;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#popupTheme}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#popupTheme}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7162,11 +7162,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:popupTheme
+     * @attr name com.messi.languagehelper:popupTheme
      */
     public static final int ActionBar_popupTheme=22;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#progressBarPadding}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progressBarPadding}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -7175,11 +7175,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:progressBarPadding
+     * @attr name com.messi.languagehelper:progressBarPadding
      */
     public static final int ActionBar_progressBarPadding=23;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#progressBarStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progressBarStyle}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7187,21 +7187,21 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:progressBarStyle
+     * @attr name com.messi.languagehelper:progressBarStyle
      */
     public static final int ActionBar_progressBarStyle=24;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#subtitle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#subtitle}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:subtitle
+     * @attr name com.messi.languagehelper:subtitle
      */
     public static final int ActionBar_subtitle=25;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#subtitleTextStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#subtitleTextStyle}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7209,21 +7209,21 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:subtitleTextStyle
+     * @attr name com.messi.languagehelper:subtitleTextStyle
      */
     public static final int ActionBar_subtitleTextStyle=26;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#title}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#title}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:title
+     * @attr name com.messi.languagehelper:title
      */
     public static final int ActionBar_title=27;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#titleTextStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#titleTextStyle}
      * attribute's value can be found in the {@link #ActionBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7231,7 +7231,7 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:titleTextStyle
+     * @attr name com.messi.languagehelper:titleTextStyle
      */
     public static final int ActionBar_titleTextStyle=28;
     /**
@@ -7313,12 +7313,12 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #ActionMode_background com.messi.learnenglish:background}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionMode_backgroundSplit com.messi.learnenglish:backgroundSplit}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionMode_closeItemLayout com.messi.learnenglish:closeItemLayout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionMode_height com.messi.learnenglish:height}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionMode_subtitleTextStyle com.messi.learnenglish:subtitleTextStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActionMode_titleTextStyle com.messi.learnenglish:titleTextStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionMode_background com.messi.languagehelper:background}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionMode_backgroundSplit com.messi.languagehelper:backgroundSplit}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionMode_closeItemLayout com.messi.languagehelper:closeItemLayout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionMode_height com.messi.languagehelper:height}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionMode_subtitleTextStyle com.messi.languagehelper:subtitleTextStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActionMode_titleTextStyle com.messi.languagehelper:titleTextStyle}</code></td><td></td></tr>
      * </table>
      * @see #ActionMode_background
      * @see #ActionMode_backgroundSplit
@@ -7332,7 +7332,7 @@ public final class R {
         0x7f0301be, 0x7f0301f8
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#background}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#background}
      * attribute's value can be found in the {@link #ActionMode} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7340,11 +7340,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:background
+     * @attr name com.messi.languagehelper:background
      */
     public static final int ActionMode_background=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#backgroundSplit}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#backgroundSplit}
      * attribute's value can be found in the {@link #ActionMode} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7355,11 +7355,11 @@ public final class R {
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:backgroundSplit
+     * @attr name com.messi.languagehelper:backgroundSplit
      */
     public static final int ActionMode_backgroundSplit=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#closeItemLayout}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#closeItemLayout}
      * attribute's value can be found in the {@link #ActionMode} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7367,11 +7367,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:closeItemLayout
+     * @attr name com.messi.languagehelper:closeItemLayout
      */
     public static final int ActionMode_closeItemLayout=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#height}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#height}
      * attribute's value can be found in the {@link #ActionMode} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -7380,11 +7380,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:height
+     * @attr name com.messi.languagehelper:height
      */
     public static final int ActionMode_height=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#subtitleTextStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#subtitleTextStyle}
      * attribute's value can be found in the {@link #ActionMode} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7392,11 +7392,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:subtitleTextStyle
+     * @attr name com.messi.languagehelper:subtitleTextStyle
      */
     public static final int ActionMode_subtitleTextStyle=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#titleTextStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#titleTextStyle}
      * attribute's value can be found in the {@link #ActionMode} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7404,7 +7404,7 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:titleTextStyle
+     * @attr name com.messi.languagehelper:titleTextStyle
      */
     public static final int ActionMode_titleTextStyle=5;
     /**
@@ -7414,8 +7414,8 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #ActivityChooserView_expandActivityOverflowButtonDrawable com.messi.learnenglish:expandActivityOverflowButtonDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ActivityChooserView_initialActivityCount com.messi.learnenglish:initialActivityCount}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActivityChooserView_expandActivityOverflowButtonDrawable com.messi.languagehelper:expandActivityOverflowButtonDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ActivityChooserView_initialActivityCount com.messi.languagehelper:initialActivityCount}</code></td><td></td></tr>
      * </table>
      * @see #ActivityChooserView_expandActivityOverflowButtonDrawable
      * @see #ActivityChooserView_initialActivityCount
@@ -7424,7 +7424,7 @@ public final class R {
         0x7f0300cc, 0x7f030101
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#expandActivityOverflowButtonDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#expandActivityOverflowButtonDrawable}
      * attribute's value can be found in the {@link #ActivityChooserView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7432,17 +7432,17 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:expandActivityOverflowButtonDrawable
+     * @attr name com.messi.languagehelper:expandActivityOverflowButtonDrawable
      */
     public static final int ActivityChooserView_expandActivityOverflowButtonDrawable=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#initialActivityCount}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#initialActivityCount}
      * attribute's value can be found in the {@link #ActivityChooserView} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:initialActivityCount
+     * @attr name com.messi.languagehelper:initialActivityCount
      */
     public static final int ActivityChooserView_initialActivityCount=1;
     /**
@@ -7453,13 +7453,13 @@ public final class R {
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #AlertDialog_android_layout android:layout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AlertDialog_buttonIconDimen com.messi.learnenglish:buttonIconDimen}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AlertDialog_buttonPanelSideLayout com.messi.learnenglish:buttonPanelSideLayout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AlertDialog_listItemLayout com.messi.learnenglish:listItemLayout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AlertDialog_listLayout com.messi.learnenglish:listLayout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AlertDialog_multiChoiceItemLayout com.messi.learnenglish:multiChoiceItemLayout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AlertDialog_showTitle com.messi.learnenglish:showTitle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AlertDialog_singleChoiceItemLayout com.messi.learnenglish:singleChoiceItemLayout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AlertDialog_buttonIconDimen com.messi.languagehelper:buttonIconDimen}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AlertDialog_buttonPanelSideLayout com.messi.languagehelper:buttonPanelSideLayout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AlertDialog_listItemLayout com.messi.languagehelper:listItemLayout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AlertDialog_listLayout com.messi.languagehelper:listLayout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AlertDialog_multiChoiceItemLayout com.messi.languagehelper:multiChoiceItemLayout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AlertDialog_showTitle com.messi.languagehelper:showTitle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AlertDialog_singleChoiceItemLayout com.messi.languagehelper:singleChoiceItemLayout}</code></td><td></td></tr>
      * </table>
      * @see #AlertDialog_android_layout
      * @see #AlertDialog_buttonIconDimen
@@ -7487,7 +7487,7 @@ public final class R {
      */
     public static final int AlertDialog_android_layout=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#buttonIconDimen}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#buttonIconDimen}
      * attribute's value can be found in the {@link #AlertDialog} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -7496,11 +7496,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:buttonIconDimen
+     * @attr name com.messi.languagehelper:buttonIconDimen
      */
     public static final int AlertDialog_buttonIconDimen=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#buttonPanelSideLayout}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#buttonPanelSideLayout}
      * attribute's value can be found in the {@link #AlertDialog} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7508,11 +7508,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:buttonPanelSideLayout
+     * @attr name com.messi.languagehelper:buttonPanelSideLayout
      */
     public static final int AlertDialog_buttonPanelSideLayout=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#listItemLayout}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#listItemLayout}
      * attribute's value can be found in the {@link #AlertDialog} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7520,11 +7520,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:listItemLayout
+     * @attr name com.messi.languagehelper:listItemLayout
      */
     public static final int AlertDialog_listItemLayout=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#listLayout}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#listLayout}
      * attribute's value can be found in the {@link #AlertDialog} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7532,11 +7532,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:listLayout
+     * @attr name com.messi.languagehelper:listLayout
      */
     public static final int AlertDialog_listLayout=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#multiChoiceItemLayout}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#multiChoiceItemLayout}
      * attribute's value can be found in the {@link #AlertDialog} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7544,21 +7544,21 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:multiChoiceItemLayout
+     * @attr name com.messi.languagehelper:multiChoiceItemLayout
      */
     public static final int AlertDialog_multiChoiceItemLayout=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#showTitle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#showTitle}
      * attribute's value can be found in the {@link #AlertDialog} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:showTitle
+     * @attr name com.messi.languagehelper:showTitle
      */
     public static final int AlertDialog_showTitle=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#singleChoiceItemLayout}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#singleChoiceItemLayout}
      * attribute's value can be found in the {@link #AlertDialog} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7566,7 +7566,7 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:singleChoiceItemLayout
+     * @attr name com.messi.languagehelper:singleChoiceItemLayout
      */
     public static final int AlertDialog_singleChoiceItemLayout=7;
     /**
@@ -7579,8 +7579,8 @@ public final class R {
      * <tr><td><code>{@link #AppBarLayout_android_background android:background}</code></td><td></td></tr>
      * <tr><td><code>{@link #AppBarLayout_android_touchscreenBlocksFocus android:touchscreenBlocksFocus}</code></td><td></td></tr>
      * <tr><td><code>{@link #AppBarLayout_android_keyboardNavigationCluster android:keyboardNavigationCluster}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppBarLayout_elevation com.messi.learnenglish:elevation}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppBarLayout_expanded com.messi.learnenglish:expanded}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppBarLayout_elevation com.messi.languagehelper:elevation}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppBarLayout_expanded com.messi.languagehelper:expanded}</code></td><td></td></tr>
      * </table>
      * @see #AppBarLayout_android_background
      * @see #AppBarLayout_android_touchscreenBlocksFocus
@@ -7628,7 +7628,7 @@ public final class R {
      */
     public static final int AppBarLayout_android_keyboardNavigationCluster=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#elevation}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#elevation}
      * attribute's value can be found in the {@link #AppBarLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -7637,17 +7637,17 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:elevation
+     * @attr name com.messi.languagehelper:elevation
      */
     public static final int AppBarLayout_elevation=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#expanded}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#expanded}
      * attribute's value can be found in the {@link #AppBarLayout} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:expanded
+     * @attr name com.messi.languagehelper:expanded
      */
     public static final int AppBarLayout_expanded=4;
     /**
@@ -7657,8 +7657,8 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #AppBarLayoutStates_state_collapsed com.messi.learnenglish:state_collapsed}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppBarLayoutStates_state_collapsible com.messi.learnenglish:state_collapsible}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppBarLayoutStates_state_collapsed com.messi.languagehelper:state_collapsed}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppBarLayoutStates_state_collapsible com.messi.languagehelper:state_collapsible}</code></td><td></td></tr>
      * </table>
      * @see #AppBarLayoutStates_state_collapsed
      * @see #AppBarLayoutStates_state_collapsible
@@ -7667,23 +7667,23 @@ public final class R {
         0x7f0301b5, 0x7f0301b6
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#state_collapsed}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#state_collapsed}
      * attribute's value can be found in the {@link #AppBarLayoutStates} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:state_collapsed
+     * @attr name com.messi.languagehelper:state_collapsed
      */
     public static final int AppBarLayoutStates_state_collapsed=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#state_collapsible}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#state_collapsible}
      * attribute's value can be found in the {@link #AppBarLayoutStates} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:state_collapsible
+     * @attr name com.messi.languagehelper:state_collapsible
      */
     public static final int AppBarLayoutStates_state_collapsible=1;
     /**
@@ -7693,8 +7693,8 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #AppBarLayout_Layout_layout_scrollFlags com.messi.learnenglish:layout_scrollFlags}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppBarLayout_Layout_layout_scrollInterpolator com.messi.learnenglish:layout_scrollInterpolator}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppBarLayout_Layout_layout_scrollFlags com.messi.languagehelper:layout_scrollFlags}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppBarLayout_Layout_layout_scrollInterpolator com.messi.languagehelper:layout_scrollInterpolator}</code></td><td></td></tr>
      * </table>
      * @see #AppBarLayout_Layout_layout_scrollFlags
      * @see #AppBarLayout_Layout_layout_scrollInterpolator
@@ -7703,7 +7703,7 @@ public final class R {
         0x7f03011f, 0x7f030120
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#layout_scrollFlags}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_scrollFlags}
      * attribute's value can be found in the {@link #AppBarLayout_Layout} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -7719,11 +7719,11 @@ public final class R {
      * <tr><td>snap</td><td>10</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:layout_scrollFlags
+     * @attr name com.messi.languagehelper:layout_scrollFlags
      */
     public static final int AppBarLayout_Layout_layout_scrollFlags=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#layout_scrollInterpolator}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_scrollInterpolator}
      * attribute's value can be found in the {@link #AppBarLayout_Layout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7731,7 +7731,7 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:layout_scrollInterpolator
+     * @attr name com.messi.languagehelper:layout_scrollInterpolator
      */
     public static final int AppBarLayout_Layout_layout_scrollInterpolator=1;
     /**
@@ -7742,9 +7742,9 @@ public final class R {
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #AppCompatImageView_android_src android:src}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatImageView_srcCompat com.messi.learnenglish:srcCompat}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatImageView_tint com.messi.learnenglish:tint}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatImageView_tintMode com.messi.learnenglish:tintMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatImageView_srcCompat com.messi.languagehelper:srcCompat}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatImageView_tint com.messi.languagehelper:tint}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatImageView_tintMode com.messi.languagehelper:tintMode}</code></td><td></td></tr>
      * </table>
      * @see #AppCompatImageView_android_src
      * @see #AppCompatImageView_srcCompat
@@ -7770,7 +7770,7 @@ public final class R {
      */
     public static final int AppCompatImageView_android_src=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#srcCompat}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#srcCompat}
      * attribute's value can be found in the {@link #AppCompatImageView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7778,22 +7778,22 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:srcCompat
+     * @attr name com.messi.languagehelper:srcCompat
      */
     public static final int AppCompatImageView_srcCompat=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#tint}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tint}
      * attribute's value can be found in the {@link #AppCompatImageView} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:tint
+     * @attr name com.messi.languagehelper:tint
      */
     public static final int AppCompatImageView_tint=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#tintMode}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tintMode}
      * attribute's value can be found in the {@link #AppCompatImageView} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -7810,7 +7810,7 @@ public final class R {
      * <tr><td>src_over</td><td>3</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:tintMode
+     * @attr name com.messi.languagehelper:tintMode
      */
     public static final int AppCompatImageView_tintMode=3;
     /**
@@ -7821,9 +7821,9 @@ public final class R {
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #AppCompatSeekBar_android_thumb android:thumb}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatSeekBar_tickMark com.messi.learnenglish:tickMark}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatSeekBar_tickMarkTint com.messi.learnenglish:tickMarkTint}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatSeekBar_tickMarkTintMode com.messi.learnenglish:tickMarkTintMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatSeekBar_tickMark com.messi.languagehelper:tickMark}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatSeekBar_tickMarkTint com.messi.languagehelper:tickMarkTint}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatSeekBar_tickMarkTintMode com.messi.languagehelper:tickMarkTintMode}</code></td><td></td></tr>
      * </table>
      * @see #AppCompatSeekBar_android_thumb
      * @see #AppCompatSeekBar_tickMark
@@ -7846,7 +7846,7 @@ public final class R {
      */
     public static final int AppCompatSeekBar_android_thumb=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#tickMark}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tickMark}
      * attribute's value can be found in the {@link #AppCompatSeekBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -7854,22 +7854,22 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:tickMark
+     * @attr name com.messi.languagehelper:tickMark
      */
     public static final int AppCompatSeekBar_tickMark=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#tickMarkTint}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tickMarkTint}
      * attribute's value can be found in the {@link #AppCompatSeekBar} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:tickMarkTint
+     * @attr name com.messi.languagehelper:tickMarkTint
      */
     public static final int AppCompatSeekBar_tickMarkTint=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#tickMarkTintMode}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tickMarkTintMode}
      * attribute's value can be found in the {@link #AppCompatSeekBar} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -7886,7 +7886,7 @@ public final class R {
      * <tr><td>src_over</td><td>3</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:tickMarkTintMode
+     * @attr name com.messi.languagehelper:tickMarkTintMode
      */
     public static final int AppCompatSeekBar_tickMarkTintMode=3;
     /**
@@ -8026,13 +8026,13 @@ public final class R {
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #AppCompatTextView_android_textAppearance android:textAppearance}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTextView_autoSizeMaxTextSize com.messi.learnenglish:autoSizeMaxTextSize}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTextView_autoSizeMinTextSize com.messi.learnenglish:autoSizeMinTextSize}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTextView_autoSizePresetSizes com.messi.learnenglish:autoSizePresetSizes}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTextView_autoSizeStepGranularity com.messi.learnenglish:autoSizeStepGranularity}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTextView_autoSizeTextType com.messi.learnenglish:autoSizeTextType}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTextView_fontFamily com.messi.learnenglish:fontFamily}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTextView_textAllCaps com.messi.learnenglish:textAllCaps}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTextView_autoSizeMaxTextSize com.messi.languagehelper:autoSizeMaxTextSize}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTextView_autoSizeMinTextSize com.messi.languagehelper:autoSizeMinTextSize}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTextView_autoSizePresetSizes com.messi.languagehelper:autoSizePresetSizes}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTextView_autoSizeStepGranularity com.messi.languagehelper:autoSizeStepGranularity}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTextView_autoSizeTextType com.messi.languagehelper:autoSizeTextType}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTextView_fontFamily com.messi.languagehelper:fontFamily}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTextView_textAllCaps com.messi.languagehelper:textAllCaps}</code></td><td></td></tr>
      * </table>
      * @see #AppCompatTextView_android_textAppearance
      * @see #AppCompatTextView_autoSizeMaxTextSize
@@ -8060,7 +8060,7 @@ public final class R {
      */
     public static final int AppCompatTextView_android_textAppearance=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#autoSizeMaxTextSize}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#autoSizeMaxTextSize}
      * attribute's value can be found in the {@link #AppCompatTextView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -8069,11 +8069,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:autoSizeMaxTextSize
+     * @attr name com.messi.languagehelper:autoSizeMaxTextSize
      */
     public static final int AppCompatTextView_autoSizeMaxTextSize=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#autoSizeMinTextSize}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#autoSizeMinTextSize}
      * attribute's value can be found in the {@link #AppCompatTextView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -8082,11 +8082,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:autoSizeMinTextSize
+     * @attr name com.messi.languagehelper:autoSizeMinTextSize
      */
     public static final int AppCompatTextView_autoSizeMinTextSize=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#autoSizePresetSizes}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#autoSizePresetSizes}
      * attribute's value can be found in the {@link #AppCompatTextView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8094,11 +8094,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:autoSizePresetSizes
+     * @attr name com.messi.languagehelper:autoSizePresetSizes
      */
     public static final int AppCompatTextView_autoSizePresetSizes=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#autoSizeStepGranularity}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#autoSizeStepGranularity}
      * attribute's value can be found in the {@link #AppCompatTextView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -8107,11 +8107,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:autoSizeStepGranularity
+     * @attr name com.messi.languagehelper:autoSizeStepGranularity
      */
     public static final int AppCompatTextView_autoSizeStepGranularity=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#autoSizeTextType}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#autoSizeTextType}
      * attribute's value can be found in the {@link #AppCompatTextView} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -8124,21 +8124,21 @@ public final class R {
      * <tr><td>uniform</td><td>1</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:autoSizeTextType
+     * @attr name com.messi.languagehelper:autoSizeTextType
      */
     public static final int AppCompatTextView_autoSizeTextType=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#fontFamily}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fontFamily}
      * attribute's value can be found in the {@link #AppCompatTextView} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:fontFamily
+     * @attr name com.messi.languagehelper:fontFamily
      */
     public static final int AppCompatTextView_fontFamily=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#textAllCaps}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#textAllCaps}
      * attribute's value can be found in the {@link #AppCompatTextView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8148,7 +8148,7 @@ public final class R {
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:textAllCaps
+     * @attr name com.messi.languagehelper:textAllCaps
      */
     public static final int AppCompatTextView_textAllCaps=7;
     /**
@@ -8160,124 +8160,124 @@ public final class R {
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #AppCompatTheme_android_windowIsFloating android:windowIsFloating}</code></td><td></td></tr>
      * <tr><td><code>{@link #AppCompatTheme_android_windowAnimationStyle android:windowAnimationStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionBarDivider com.messi.learnenglish:actionBarDivider}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionBarItemBackground com.messi.learnenglish:actionBarItemBackground}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionBarPopupTheme com.messi.learnenglish:actionBarPopupTheme}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionBarSize com.messi.learnenglish:actionBarSize}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionBarSplitStyle com.messi.learnenglish:actionBarSplitStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionBarStyle com.messi.learnenglish:actionBarStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionBarTabBarStyle com.messi.learnenglish:actionBarTabBarStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionBarTabStyle com.messi.learnenglish:actionBarTabStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionBarTabTextStyle com.messi.learnenglish:actionBarTabTextStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionBarTheme com.messi.learnenglish:actionBarTheme}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionBarWidgetTheme com.messi.learnenglish:actionBarWidgetTheme}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionButtonStyle com.messi.learnenglish:actionButtonStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionDropDownStyle com.messi.learnenglish:actionDropDownStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionMenuTextAppearance com.messi.learnenglish:actionMenuTextAppearance}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionMenuTextColor com.messi.learnenglish:actionMenuTextColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionModeBackground com.messi.learnenglish:actionModeBackground}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionModeCloseButtonStyle com.messi.learnenglish:actionModeCloseButtonStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionModeCloseDrawable com.messi.learnenglish:actionModeCloseDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionModeCopyDrawable com.messi.learnenglish:actionModeCopyDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionModeCutDrawable com.messi.learnenglish:actionModeCutDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionModeFindDrawable com.messi.learnenglish:actionModeFindDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionModePasteDrawable com.messi.learnenglish:actionModePasteDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionModePopupWindowStyle com.messi.learnenglish:actionModePopupWindowStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionModeSelectAllDrawable com.messi.learnenglish:actionModeSelectAllDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionModeShareDrawable com.messi.learnenglish:actionModeShareDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionModeSplitBackground com.messi.learnenglish:actionModeSplitBackground}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionModeStyle com.messi.learnenglish:actionModeStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionModeWebSearchDrawable com.messi.learnenglish:actionModeWebSearchDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionOverflowButtonStyle com.messi.learnenglish:actionOverflowButtonStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_actionOverflowMenuStyle com.messi.learnenglish:actionOverflowMenuStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_activityChooserViewStyle com.messi.learnenglish:activityChooserViewStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_alertDialogButtonGroupStyle com.messi.learnenglish:alertDialogButtonGroupStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_alertDialogCenterButtons com.messi.learnenglish:alertDialogCenterButtons}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_alertDialogStyle com.messi.learnenglish:alertDialogStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_alertDialogTheme com.messi.learnenglish:alertDialogTheme}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_autoCompleteTextViewStyle com.messi.learnenglish:autoCompleteTextViewStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_borderlessButtonStyle com.messi.learnenglish:borderlessButtonStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_buttonBarButtonStyle com.messi.learnenglish:buttonBarButtonStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_buttonBarNegativeButtonStyle com.messi.learnenglish:buttonBarNegativeButtonStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_buttonBarNeutralButtonStyle com.messi.learnenglish:buttonBarNeutralButtonStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_buttonBarPositiveButtonStyle com.messi.learnenglish:buttonBarPositiveButtonStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_buttonBarStyle com.messi.learnenglish:buttonBarStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_buttonStyle com.messi.learnenglish:buttonStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_buttonStyleSmall com.messi.learnenglish:buttonStyleSmall}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_checkboxStyle com.messi.learnenglish:checkboxStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_checkedTextViewStyle com.messi.learnenglish:checkedTextViewStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_colorAccent com.messi.learnenglish:colorAccent}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_colorBackgroundFloating com.messi.learnenglish:colorBackgroundFloating}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_colorButtonNormal com.messi.learnenglish:colorButtonNormal}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_colorControlActivated com.messi.learnenglish:colorControlActivated}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_colorControlHighlight com.messi.learnenglish:colorControlHighlight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_colorControlNormal com.messi.learnenglish:colorControlNormal}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_colorError com.messi.learnenglish:colorError}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_colorPrimary com.messi.learnenglish:colorPrimary}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_colorPrimaryDark com.messi.learnenglish:colorPrimaryDark}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_colorSwitchThumbNormal com.messi.learnenglish:colorSwitchThumbNormal}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_controlBackground com.messi.learnenglish:controlBackground}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_dialogPreferredPadding com.messi.learnenglish:dialogPreferredPadding}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_dialogTheme com.messi.learnenglish:dialogTheme}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_dividerHorizontal com.messi.learnenglish:dividerHorizontal}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_dividerVertical com.messi.learnenglish:dividerVertical}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_dropDownListViewStyle com.messi.learnenglish:dropDownListViewStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_dropdownListPreferredItemHeight com.messi.learnenglish:dropdownListPreferredItemHeight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_editTextBackground com.messi.learnenglish:editTextBackground}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_editTextColor com.messi.learnenglish:editTextColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_editTextStyle com.messi.learnenglish:editTextStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_homeAsUpIndicator com.messi.learnenglish:homeAsUpIndicator}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_imageButtonStyle com.messi.learnenglish:imageButtonStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_listChoiceBackgroundIndicator com.messi.learnenglish:listChoiceBackgroundIndicator}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_listDividerAlertDialog com.messi.learnenglish:listDividerAlertDialog}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_listMenuViewStyle com.messi.learnenglish:listMenuViewStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_listPopupWindowStyle com.messi.learnenglish:listPopupWindowStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_listPreferredItemHeight com.messi.learnenglish:listPreferredItemHeight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_listPreferredItemHeightLarge com.messi.learnenglish:listPreferredItemHeightLarge}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_listPreferredItemHeightSmall com.messi.learnenglish:listPreferredItemHeightSmall}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_listPreferredItemPaddingLeft com.messi.learnenglish:listPreferredItemPaddingLeft}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_listPreferredItemPaddingRight com.messi.learnenglish:listPreferredItemPaddingRight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_panelBackground com.messi.learnenglish:panelBackground}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_panelMenuListTheme com.messi.learnenglish:panelMenuListTheme}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_panelMenuListWidth com.messi.learnenglish:panelMenuListWidth}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_popupMenuStyle com.messi.learnenglish:popupMenuStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_popupWindowStyle com.messi.learnenglish:popupWindowStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_radioButtonStyle com.messi.learnenglish:radioButtonStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_ratingBarStyle com.messi.learnenglish:ratingBarStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_ratingBarStyleIndicator com.messi.learnenglish:ratingBarStyleIndicator}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_ratingBarStyleSmall com.messi.learnenglish:ratingBarStyleSmall}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_searchViewStyle com.messi.learnenglish:searchViewStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_seekBarStyle com.messi.learnenglish:seekBarStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_selectableItemBackground com.messi.learnenglish:selectableItemBackground}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_selectableItemBackgroundBorderless com.messi.learnenglish:selectableItemBackgroundBorderless}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_spinnerDropDownItemStyle com.messi.learnenglish:spinnerDropDownItemStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_spinnerStyle com.messi.learnenglish:spinnerStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_switchStyle com.messi.learnenglish:switchStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_textAppearanceLargePopupMenu com.messi.learnenglish:textAppearanceLargePopupMenu}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_textAppearanceListItem com.messi.learnenglish:textAppearanceListItem}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_textAppearanceListItemSecondary com.messi.learnenglish:textAppearanceListItemSecondary}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_textAppearanceListItemSmall com.messi.learnenglish:textAppearanceListItemSmall}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_textAppearancePopupMenuHeader com.messi.learnenglish:textAppearancePopupMenuHeader}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_textAppearanceSearchResultSubtitle com.messi.learnenglish:textAppearanceSearchResultSubtitle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_textAppearanceSearchResultTitle com.messi.learnenglish:textAppearanceSearchResultTitle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_textAppearanceSmallPopupMenu com.messi.learnenglish:textAppearanceSmallPopupMenu}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_textColorAlertDialogListItem com.messi.learnenglish:textColorAlertDialogListItem}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_textColorSearchUrl com.messi.learnenglish:textColorSearchUrl}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_toolbarNavigationButtonStyle com.messi.learnenglish:toolbarNavigationButtonStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_toolbarStyle com.messi.learnenglish:toolbarStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_tooltipForegroundColor com.messi.learnenglish:tooltipForegroundColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_tooltipFrameBackground com.messi.learnenglish:tooltipFrameBackground}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_viewInflaterClass com.messi.learnenglish:viewInflaterClass}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_windowActionBar com.messi.learnenglish:windowActionBar}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_windowActionBarOverlay com.messi.learnenglish:windowActionBarOverlay}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_windowActionModeOverlay com.messi.learnenglish:windowActionModeOverlay}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_windowFixedHeightMajor com.messi.learnenglish:windowFixedHeightMajor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_windowFixedHeightMinor com.messi.learnenglish:windowFixedHeightMinor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_windowFixedWidthMajor com.messi.learnenglish:windowFixedWidthMajor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_windowFixedWidthMinor com.messi.learnenglish:windowFixedWidthMinor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_windowMinWidthMajor com.messi.learnenglish:windowMinWidthMajor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_windowMinWidthMinor com.messi.learnenglish:windowMinWidthMinor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #AppCompatTheme_windowNoTitle com.messi.learnenglish:windowNoTitle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionBarDivider com.messi.languagehelper:actionBarDivider}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionBarItemBackground com.messi.languagehelper:actionBarItemBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionBarPopupTheme com.messi.languagehelper:actionBarPopupTheme}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionBarSize com.messi.languagehelper:actionBarSize}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionBarSplitStyle com.messi.languagehelper:actionBarSplitStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionBarStyle com.messi.languagehelper:actionBarStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionBarTabBarStyle com.messi.languagehelper:actionBarTabBarStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionBarTabStyle com.messi.languagehelper:actionBarTabStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionBarTabTextStyle com.messi.languagehelper:actionBarTabTextStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionBarTheme com.messi.languagehelper:actionBarTheme}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionBarWidgetTheme com.messi.languagehelper:actionBarWidgetTheme}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionButtonStyle com.messi.languagehelper:actionButtonStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionDropDownStyle com.messi.languagehelper:actionDropDownStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionMenuTextAppearance com.messi.languagehelper:actionMenuTextAppearance}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionMenuTextColor com.messi.languagehelper:actionMenuTextColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionModeBackground com.messi.languagehelper:actionModeBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionModeCloseButtonStyle com.messi.languagehelper:actionModeCloseButtonStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionModeCloseDrawable com.messi.languagehelper:actionModeCloseDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionModeCopyDrawable com.messi.languagehelper:actionModeCopyDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionModeCutDrawable com.messi.languagehelper:actionModeCutDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionModeFindDrawable com.messi.languagehelper:actionModeFindDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionModePasteDrawable com.messi.languagehelper:actionModePasteDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionModePopupWindowStyle com.messi.languagehelper:actionModePopupWindowStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionModeSelectAllDrawable com.messi.languagehelper:actionModeSelectAllDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionModeShareDrawable com.messi.languagehelper:actionModeShareDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionModeSplitBackground com.messi.languagehelper:actionModeSplitBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionModeStyle com.messi.languagehelper:actionModeStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionModeWebSearchDrawable com.messi.languagehelper:actionModeWebSearchDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionOverflowButtonStyle com.messi.languagehelper:actionOverflowButtonStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_actionOverflowMenuStyle com.messi.languagehelper:actionOverflowMenuStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_activityChooserViewStyle com.messi.languagehelper:activityChooserViewStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_alertDialogButtonGroupStyle com.messi.languagehelper:alertDialogButtonGroupStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_alertDialogCenterButtons com.messi.languagehelper:alertDialogCenterButtons}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_alertDialogStyle com.messi.languagehelper:alertDialogStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_alertDialogTheme com.messi.languagehelper:alertDialogTheme}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_autoCompleteTextViewStyle com.messi.languagehelper:autoCompleteTextViewStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_borderlessButtonStyle com.messi.languagehelper:borderlessButtonStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_buttonBarButtonStyle com.messi.languagehelper:buttonBarButtonStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_buttonBarNegativeButtonStyle com.messi.languagehelper:buttonBarNegativeButtonStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_buttonBarNeutralButtonStyle com.messi.languagehelper:buttonBarNeutralButtonStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_buttonBarPositiveButtonStyle com.messi.languagehelper:buttonBarPositiveButtonStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_buttonBarStyle com.messi.languagehelper:buttonBarStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_buttonStyle com.messi.languagehelper:buttonStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_buttonStyleSmall com.messi.languagehelper:buttonStyleSmall}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_checkboxStyle com.messi.languagehelper:checkboxStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_checkedTextViewStyle com.messi.languagehelper:checkedTextViewStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_colorAccent com.messi.languagehelper:colorAccent}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_colorBackgroundFloating com.messi.languagehelper:colorBackgroundFloating}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_colorButtonNormal com.messi.languagehelper:colorButtonNormal}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_colorControlActivated com.messi.languagehelper:colorControlActivated}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_colorControlHighlight com.messi.languagehelper:colorControlHighlight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_colorControlNormal com.messi.languagehelper:colorControlNormal}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_colorError com.messi.languagehelper:colorError}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_colorPrimary com.messi.languagehelper:colorPrimary}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_colorPrimaryDark com.messi.languagehelper:colorPrimaryDark}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_colorSwitchThumbNormal com.messi.languagehelper:colorSwitchThumbNormal}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_controlBackground com.messi.languagehelper:controlBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_dialogPreferredPadding com.messi.languagehelper:dialogPreferredPadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_dialogTheme com.messi.languagehelper:dialogTheme}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_dividerHorizontal com.messi.languagehelper:dividerHorizontal}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_dividerVertical com.messi.languagehelper:dividerVertical}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_dropDownListViewStyle com.messi.languagehelper:dropDownListViewStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_dropdownListPreferredItemHeight com.messi.languagehelper:dropdownListPreferredItemHeight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_editTextBackground com.messi.languagehelper:editTextBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_editTextColor com.messi.languagehelper:editTextColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_editTextStyle com.messi.languagehelper:editTextStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_homeAsUpIndicator com.messi.languagehelper:homeAsUpIndicator}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_imageButtonStyle com.messi.languagehelper:imageButtonStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_listChoiceBackgroundIndicator com.messi.languagehelper:listChoiceBackgroundIndicator}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_listDividerAlertDialog com.messi.languagehelper:listDividerAlertDialog}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_listMenuViewStyle com.messi.languagehelper:listMenuViewStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_listPopupWindowStyle com.messi.languagehelper:listPopupWindowStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_listPreferredItemHeight com.messi.languagehelper:listPreferredItemHeight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_listPreferredItemHeightLarge com.messi.languagehelper:listPreferredItemHeightLarge}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_listPreferredItemHeightSmall com.messi.languagehelper:listPreferredItemHeightSmall}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_listPreferredItemPaddingLeft com.messi.languagehelper:listPreferredItemPaddingLeft}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_listPreferredItemPaddingRight com.messi.languagehelper:listPreferredItemPaddingRight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_panelBackground com.messi.languagehelper:panelBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_panelMenuListTheme com.messi.languagehelper:panelMenuListTheme}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_panelMenuListWidth com.messi.languagehelper:panelMenuListWidth}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_popupMenuStyle com.messi.languagehelper:popupMenuStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_popupWindowStyle com.messi.languagehelper:popupWindowStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_radioButtonStyle com.messi.languagehelper:radioButtonStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_ratingBarStyle com.messi.languagehelper:ratingBarStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_ratingBarStyleIndicator com.messi.languagehelper:ratingBarStyleIndicator}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_ratingBarStyleSmall com.messi.languagehelper:ratingBarStyleSmall}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_searchViewStyle com.messi.languagehelper:searchViewStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_seekBarStyle com.messi.languagehelper:seekBarStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_selectableItemBackground com.messi.languagehelper:selectableItemBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_selectableItemBackgroundBorderless com.messi.languagehelper:selectableItemBackgroundBorderless}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_spinnerDropDownItemStyle com.messi.languagehelper:spinnerDropDownItemStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_spinnerStyle com.messi.languagehelper:spinnerStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_switchStyle com.messi.languagehelper:switchStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_textAppearanceLargePopupMenu com.messi.languagehelper:textAppearanceLargePopupMenu}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_textAppearanceListItem com.messi.languagehelper:textAppearanceListItem}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_textAppearanceListItemSecondary com.messi.languagehelper:textAppearanceListItemSecondary}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_textAppearanceListItemSmall com.messi.languagehelper:textAppearanceListItemSmall}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_textAppearancePopupMenuHeader com.messi.languagehelper:textAppearancePopupMenuHeader}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_textAppearanceSearchResultSubtitle com.messi.languagehelper:textAppearanceSearchResultSubtitle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_textAppearanceSearchResultTitle com.messi.languagehelper:textAppearanceSearchResultTitle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_textAppearanceSmallPopupMenu com.messi.languagehelper:textAppearanceSmallPopupMenu}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_textColorAlertDialogListItem com.messi.languagehelper:textColorAlertDialogListItem}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_textColorSearchUrl com.messi.languagehelper:textColorSearchUrl}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_toolbarNavigationButtonStyle com.messi.languagehelper:toolbarNavigationButtonStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_toolbarStyle com.messi.languagehelper:toolbarStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_tooltipForegroundColor com.messi.languagehelper:tooltipForegroundColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_tooltipFrameBackground com.messi.languagehelper:tooltipFrameBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_viewInflaterClass com.messi.languagehelper:viewInflaterClass}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_windowActionBar com.messi.languagehelper:windowActionBar}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_windowActionBarOverlay com.messi.languagehelper:windowActionBarOverlay}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_windowActionModeOverlay com.messi.languagehelper:windowActionModeOverlay}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_windowFixedHeightMajor com.messi.languagehelper:windowFixedHeightMajor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_windowFixedHeightMinor com.messi.languagehelper:windowFixedHeightMinor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_windowFixedWidthMajor com.messi.languagehelper:windowFixedWidthMajor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_windowFixedWidthMinor com.messi.languagehelper:windowFixedWidthMinor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_windowMinWidthMajor com.messi.languagehelper:windowMinWidthMajor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_windowMinWidthMinor com.messi.languagehelper:windowMinWidthMinor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AppCompatTheme_windowNoTitle com.messi.languagehelper:windowNoTitle}</code></td><td></td></tr>
      * </table>
      * @see #AppCompatTheme_android_windowIsFloating
      * @see #AppCompatTheme_android_windowAnimationStyle
@@ -8455,7 +8455,7 @@ public final class R {
      */
     public static final int AppCompatTheme_android_windowAnimationStyle=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionBarDivider}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionBarDivider}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8463,11 +8463,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionBarDivider
+     * @attr name com.messi.languagehelper:actionBarDivider
      */
     public static final int AppCompatTheme_actionBarDivider=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionBarItemBackground}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionBarItemBackground}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8475,11 +8475,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionBarItemBackground
+     * @attr name com.messi.languagehelper:actionBarItemBackground
      */
     public static final int AppCompatTheme_actionBarItemBackground=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionBarPopupTheme}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionBarPopupTheme}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8487,11 +8487,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionBarPopupTheme
+     * @attr name com.messi.languagehelper:actionBarPopupTheme
      */
     public static final int AppCompatTheme_actionBarPopupTheme=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionBarSize}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionBarSize}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -8508,11 +8508,11 @@ public final class R {
      * <tr><td>wrap_content</td><td>0</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:actionBarSize
+     * @attr name com.messi.languagehelper:actionBarSize
      */
     public static final int AppCompatTheme_actionBarSize=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionBarSplitStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionBarSplitStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8520,11 +8520,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionBarSplitStyle
+     * @attr name com.messi.languagehelper:actionBarSplitStyle
      */
     public static final int AppCompatTheme_actionBarSplitStyle=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionBarStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionBarStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8532,11 +8532,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionBarStyle
+     * @attr name com.messi.languagehelper:actionBarStyle
      */
     public static final int AppCompatTheme_actionBarStyle=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionBarTabBarStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionBarTabBarStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8544,11 +8544,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionBarTabBarStyle
+     * @attr name com.messi.languagehelper:actionBarTabBarStyle
      */
     public static final int AppCompatTheme_actionBarTabBarStyle=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionBarTabStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionBarTabStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8556,11 +8556,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionBarTabStyle
+     * @attr name com.messi.languagehelper:actionBarTabStyle
      */
     public static final int AppCompatTheme_actionBarTabStyle=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionBarTabTextStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionBarTabTextStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8568,11 +8568,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionBarTabTextStyle
+     * @attr name com.messi.languagehelper:actionBarTabTextStyle
      */
     public static final int AppCompatTheme_actionBarTabTextStyle=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionBarTheme}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionBarTheme}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8580,11 +8580,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionBarTheme
+     * @attr name com.messi.languagehelper:actionBarTheme
      */
     public static final int AppCompatTheme_actionBarTheme=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionBarWidgetTheme}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionBarWidgetTheme}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8592,11 +8592,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionBarWidgetTheme
+     * @attr name com.messi.languagehelper:actionBarWidgetTheme
      */
     public static final int AppCompatTheme_actionBarWidgetTheme=12;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionButtonStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionButtonStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8604,11 +8604,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionButtonStyle
+     * @attr name com.messi.languagehelper:actionButtonStyle
      */
     public static final int AppCompatTheme_actionButtonStyle=13;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionDropDownStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionDropDownStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8616,11 +8616,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionDropDownStyle
+     * @attr name com.messi.languagehelper:actionDropDownStyle
      */
     public static final int AppCompatTheme_actionDropDownStyle=14;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionMenuTextAppearance}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionMenuTextAppearance}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8628,11 +8628,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionMenuTextAppearance
+     * @attr name com.messi.languagehelper:actionMenuTextAppearance
      */
     public static final int AppCompatTheme_actionMenuTextAppearance=15;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionMenuTextColor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionMenuTextColor}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8643,11 +8643,11 @@ public final class R {
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionMenuTextColor
+     * @attr name com.messi.languagehelper:actionMenuTextColor
      */
     public static final int AppCompatTheme_actionMenuTextColor=16;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionModeBackground}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionModeBackground}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8655,11 +8655,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionModeBackground
+     * @attr name com.messi.languagehelper:actionModeBackground
      */
     public static final int AppCompatTheme_actionModeBackground=17;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionModeCloseButtonStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionModeCloseButtonStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8667,11 +8667,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionModeCloseButtonStyle
+     * @attr name com.messi.languagehelper:actionModeCloseButtonStyle
      */
     public static final int AppCompatTheme_actionModeCloseButtonStyle=18;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionModeCloseDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionModeCloseDrawable}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8679,11 +8679,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionModeCloseDrawable
+     * @attr name com.messi.languagehelper:actionModeCloseDrawable
      */
     public static final int AppCompatTheme_actionModeCloseDrawable=19;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionModeCopyDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionModeCopyDrawable}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8691,11 +8691,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionModeCopyDrawable
+     * @attr name com.messi.languagehelper:actionModeCopyDrawable
      */
     public static final int AppCompatTheme_actionModeCopyDrawable=20;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionModeCutDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionModeCutDrawable}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8703,11 +8703,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionModeCutDrawable
+     * @attr name com.messi.languagehelper:actionModeCutDrawable
      */
     public static final int AppCompatTheme_actionModeCutDrawable=21;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionModeFindDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionModeFindDrawable}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8715,11 +8715,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionModeFindDrawable
+     * @attr name com.messi.languagehelper:actionModeFindDrawable
      */
     public static final int AppCompatTheme_actionModeFindDrawable=22;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionModePasteDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionModePasteDrawable}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8727,11 +8727,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionModePasteDrawable
+     * @attr name com.messi.languagehelper:actionModePasteDrawable
      */
     public static final int AppCompatTheme_actionModePasteDrawable=23;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionModePopupWindowStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionModePopupWindowStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8739,11 +8739,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionModePopupWindowStyle
+     * @attr name com.messi.languagehelper:actionModePopupWindowStyle
      */
     public static final int AppCompatTheme_actionModePopupWindowStyle=24;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionModeSelectAllDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionModeSelectAllDrawable}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8751,11 +8751,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionModeSelectAllDrawable
+     * @attr name com.messi.languagehelper:actionModeSelectAllDrawable
      */
     public static final int AppCompatTheme_actionModeSelectAllDrawable=25;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionModeShareDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionModeShareDrawable}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8763,11 +8763,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionModeShareDrawable
+     * @attr name com.messi.languagehelper:actionModeShareDrawable
      */
     public static final int AppCompatTheme_actionModeShareDrawable=26;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionModeSplitBackground}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionModeSplitBackground}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8775,11 +8775,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionModeSplitBackground
+     * @attr name com.messi.languagehelper:actionModeSplitBackground
      */
     public static final int AppCompatTheme_actionModeSplitBackground=27;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionModeStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionModeStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8787,11 +8787,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionModeStyle
+     * @attr name com.messi.languagehelper:actionModeStyle
      */
     public static final int AppCompatTheme_actionModeStyle=28;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionModeWebSearchDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionModeWebSearchDrawable}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8799,11 +8799,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionModeWebSearchDrawable
+     * @attr name com.messi.languagehelper:actionModeWebSearchDrawable
      */
     public static final int AppCompatTheme_actionModeWebSearchDrawable=29;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionOverflowButtonStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionOverflowButtonStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8811,11 +8811,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionOverflowButtonStyle
+     * @attr name com.messi.languagehelper:actionOverflowButtonStyle
      */
     public static final int AppCompatTheme_actionOverflowButtonStyle=30;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionOverflowMenuStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionOverflowMenuStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8823,11 +8823,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionOverflowMenuStyle
+     * @attr name com.messi.languagehelper:actionOverflowMenuStyle
      */
     public static final int AppCompatTheme_actionOverflowMenuStyle=31;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#activityChooserViewStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#activityChooserViewStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8835,11 +8835,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:activityChooserViewStyle
+     * @attr name com.messi.languagehelper:activityChooserViewStyle
      */
     public static final int AppCompatTheme_activityChooserViewStyle=32;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#alertDialogButtonGroupStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#alertDialogButtonGroupStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8847,21 +8847,21 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:alertDialogButtonGroupStyle
+     * @attr name com.messi.languagehelper:alertDialogButtonGroupStyle
      */
     public static final int AppCompatTheme_alertDialogButtonGroupStyle=33;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#alertDialogCenterButtons}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#alertDialogCenterButtons}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:alertDialogCenterButtons
+     * @attr name com.messi.languagehelper:alertDialogCenterButtons
      */
     public static final int AppCompatTheme_alertDialogCenterButtons=34;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#alertDialogStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#alertDialogStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8869,11 +8869,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:alertDialogStyle
+     * @attr name com.messi.languagehelper:alertDialogStyle
      */
     public static final int AppCompatTheme_alertDialogStyle=35;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#alertDialogTheme}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#alertDialogTheme}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8881,11 +8881,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:alertDialogTheme
+     * @attr name com.messi.languagehelper:alertDialogTheme
      */
     public static final int AppCompatTheme_alertDialogTheme=36;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#autoCompleteTextViewStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#autoCompleteTextViewStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8893,11 +8893,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:autoCompleteTextViewStyle
+     * @attr name com.messi.languagehelper:autoCompleteTextViewStyle
      */
     public static final int AppCompatTheme_autoCompleteTextViewStyle=37;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#borderlessButtonStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#borderlessButtonStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8905,11 +8905,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:borderlessButtonStyle
+     * @attr name com.messi.languagehelper:borderlessButtonStyle
      */
     public static final int AppCompatTheme_borderlessButtonStyle=38;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#buttonBarButtonStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#buttonBarButtonStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8917,11 +8917,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:buttonBarButtonStyle
+     * @attr name com.messi.languagehelper:buttonBarButtonStyle
      */
     public static final int AppCompatTheme_buttonBarButtonStyle=39;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#buttonBarNegativeButtonStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#buttonBarNegativeButtonStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8929,11 +8929,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:buttonBarNegativeButtonStyle
+     * @attr name com.messi.languagehelper:buttonBarNegativeButtonStyle
      */
     public static final int AppCompatTheme_buttonBarNegativeButtonStyle=40;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#buttonBarNeutralButtonStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#buttonBarNeutralButtonStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8941,11 +8941,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:buttonBarNeutralButtonStyle
+     * @attr name com.messi.languagehelper:buttonBarNeutralButtonStyle
      */
     public static final int AppCompatTheme_buttonBarNeutralButtonStyle=41;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#buttonBarPositiveButtonStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#buttonBarPositiveButtonStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8953,11 +8953,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:buttonBarPositiveButtonStyle
+     * @attr name com.messi.languagehelper:buttonBarPositiveButtonStyle
      */
     public static final int AppCompatTheme_buttonBarPositiveButtonStyle=42;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#buttonBarStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#buttonBarStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8965,11 +8965,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:buttonBarStyle
+     * @attr name com.messi.languagehelper:buttonBarStyle
      */
     public static final int AppCompatTheme_buttonBarStyle=43;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#buttonStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#buttonStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8977,11 +8977,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:buttonStyle
+     * @attr name com.messi.languagehelper:buttonStyle
      */
     public static final int AppCompatTheme_buttonStyle=44;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#buttonStyleSmall}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#buttonStyleSmall}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -8989,11 +8989,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:buttonStyleSmall
+     * @attr name com.messi.languagehelper:buttonStyleSmall
      */
     public static final int AppCompatTheme_buttonStyleSmall=45;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#checkboxStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#checkboxStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9001,11 +9001,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:checkboxStyle
+     * @attr name com.messi.languagehelper:checkboxStyle
      */
     public static final int AppCompatTheme_checkboxStyle=46;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#checkedTextViewStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#checkedTextViewStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9013,77 +9013,77 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:checkedTextViewStyle
+     * @attr name com.messi.languagehelper:checkedTextViewStyle
      */
     public static final int AppCompatTheme_checkedTextViewStyle=47;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#colorAccent}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#colorAccent}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:colorAccent
+     * @attr name com.messi.languagehelper:colorAccent
      */
     public static final int AppCompatTheme_colorAccent=48;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#colorBackgroundFloating}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#colorBackgroundFloating}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:colorBackgroundFloating
+     * @attr name com.messi.languagehelper:colorBackgroundFloating
      */
     public static final int AppCompatTheme_colorBackgroundFloating=49;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#colorButtonNormal}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#colorButtonNormal}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:colorButtonNormal
+     * @attr name com.messi.languagehelper:colorButtonNormal
      */
     public static final int AppCompatTheme_colorButtonNormal=50;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#colorControlActivated}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#colorControlActivated}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:colorControlActivated
+     * @attr name com.messi.languagehelper:colorControlActivated
      */
     public static final int AppCompatTheme_colorControlActivated=51;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#colorControlHighlight}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#colorControlHighlight}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:colorControlHighlight
+     * @attr name com.messi.languagehelper:colorControlHighlight
      */
     public static final int AppCompatTheme_colorControlHighlight=52;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#colorControlNormal}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#colorControlNormal}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:colorControlNormal
+     * @attr name com.messi.languagehelper:colorControlNormal
      */
     public static final int AppCompatTheme_colorControlNormal=53;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#colorError}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#colorError}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9094,44 +9094,44 @@ public final class R {
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:colorError
+     * @attr name com.messi.languagehelper:colorError
      */
     public static final int AppCompatTheme_colorError=54;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#colorPrimary}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#colorPrimary}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:colorPrimary
+     * @attr name com.messi.languagehelper:colorPrimary
      */
     public static final int AppCompatTheme_colorPrimary=55;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#colorPrimaryDark}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#colorPrimaryDark}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:colorPrimaryDark
+     * @attr name com.messi.languagehelper:colorPrimaryDark
      */
     public static final int AppCompatTheme_colorPrimaryDark=56;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#colorSwitchThumbNormal}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#colorSwitchThumbNormal}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:colorSwitchThumbNormal
+     * @attr name com.messi.languagehelper:colorSwitchThumbNormal
      */
     public static final int AppCompatTheme_colorSwitchThumbNormal=57;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#controlBackground}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#controlBackground}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9139,11 +9139,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:controlBackground
+     * @attr name com.messi.languagehelper:controlBackground
      */
     public static final int AppCompatTheme_controlBackground=58;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#dialogPreferredPadding}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#dialogPreferredPadding}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9152,11 +9152,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:dialogPreferredPadding
+     * @attr name com.messi.languagehelper:dialogPreferredPadding
      */
     public static final int AppCompatTheme_dialogPreferredPadding=59;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#dialogTheme}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#dialogTheme}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9164,11 +9164,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:dialogTheme
+     * @attr name com.messi.languagehelper:dialogTheme
      */
     public static final int AppCompatTheme_dialogTheme=60;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#dividerHorizontal}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#dividerHorizontal}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9176,11 +9176,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:dividerHorizontal
+     * @attr name com.messi.languagehelper:dividerHorizontal
      */
     public static final int AppCompatTheme_dividerHorizontal=61;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#dividerVertical}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#dividerVertical}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9188,11 +9188,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:dividerVertical
+     * @attr name com.messi.languagehelper:dividerVertical
      */
     public static final int AppCompatTheme_dividerVertical=62;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#dropDownListViewStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#dropDownListViewStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9200,11 +9200,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:dropDownListViewStyle
+     * @attr name com.messi.languagehelper:dropDownListViewStyle
      */
     public static final int AppCompatTheme_dropDownListViewStyle=63;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#dropdownListPreferredItemHeight}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#dropdownListPreferredItemHeight}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9213,11 +9213,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:dropdownListPreferredItemHeight
+     * @attr name com.messi.languagehelper:dropdownListPreferredItemHeight
      */
     public static final int AppCompatTheme_dropdownListPreferredItemHeight=64;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#editTextBackground}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#editTextBackground}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9225,11 +9225,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:editTextBackground
+     * @attr name com.messi.languagehelper:editTextBackground
      */
     public static final int AppCompatTheme_editTextBackground=65;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#editTextColor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#editTextColor}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9240,11 +9240,11 @@ public final class R {
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:editTextColor
+     * @attr name com.messi.languagehelper:editTextColor
      */
     public static final int AppCompatTheme_editTextColor=66;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#editTextStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#editTextStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9252,11 +9252,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:editTextStyle
+     * @attr name com.messi.languagehelper:editTextStyle
      */
     public static final int AppCompatTheme_editTextStyle=67;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#homeAsUpIndicator}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#homeAsUpIndicator}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9264,11 +9264,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:homeAsUpIndicator
+     * @attr name com.messi.languagehelper:homeAsUpIndicator
      */
     public static final int AppCompatTheme_homeAsUpIndicator=68;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#imageButtonStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#imageButtonStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9276,11 +9276,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:imageButtonStyle
+     * @attr name com.messi.languagehelper:imageButtonStyle
      */
     public static final int AppCompatTheme_imageButtonStyle=69;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#listChoiceBackgroundIndicator}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#listChoiceBackgroundIndicator}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9288,11 +9288,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:listChoiceBackgroundIndicator
+     * @attr name com.messi.languagehelper:listChoiceBackgroundIndicator
      */
     public static final int AppCompatTheme_listChoiceBackgroundIndicator=70;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#listDividerAlertDialog}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#listDividerAlertDialog}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9300,11 +9300,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:listDividerAlertDialog
+     * @attr name com.messi.languagehelper:listDividerAlertDialog
      */
     public static final int AppCompatTheme_listDividerAlertDialog=71;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#listMenuViewStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#listMenuViewStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9312,11 +9312,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:listMenuViewStyle
+     * @attr name com.messi.languagehelper:listMenuViewStyle
      */
     public static final int AppCompatTheme_listMenuViewStyle=72;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#listPopupWindowStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#listPopupWindowStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9324,11 +9324,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:listPopupWindowStyle
+     * @attr name com.messi.languagehelper:listPopupWindowStyle
      */
     public static final int AppCompatTheme_listPopupWindowStyle=73;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#listPreferredItemHeight}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#listPreferredItemHeight}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9337,11 +9337,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:listPreferredItemHeight
+     * @attr name com.messi.languagehelper:listPreferredItemHeight
      */
     public static final int AppCompatTheme_listPreferredItemHeight=74;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#listPreferredItemHeightLarge}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#listPreferredItemHeightLarge}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9350,11 +9350,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:listPreferredItemHeightLarge
+     * @attr name com.messi.languagehelper:listPreferredItemHeightLarge
      */
     public static final int AppCompatTheme_listPreferredItemHeightLarge=75;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#listPreferredItemHeightSmall}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#listPreferredItemHeightSmall}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9363,11 +9363,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:listPreferredItemHeightSmall
+     * @attr name com.messi.languagehelper:listPreferredItemHeightSmall
      */
     public static final int AppCompatTheme_listPreferredItemHeightSmall=76;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#listPreferredItemPaddingLeft}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#listPreferredItemPaddingLeft}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9376,11 +9376,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:listPreferredItemPaddingLeft
+     * @attr name com.messi.languagehelper:listPreferredItemPaddingLeft
      */
     public static final int AppCompatTheme_listPreferredItemPaddingLeft=77;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#listPreferredItemPaddingRight}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#listPreferredItemPaddingRight}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9389,11 +9389,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:listPreferredItemPaddingRight
+     * @attr name com.messi.languagehelper:listPreferredItemPaddingRight
      */
     public static final int AppCompatTheme_listPreferredItemPaddingRight=78;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#panelBackground}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#panelBackground}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9401,11 +9401,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:panelBackground
+     * @attr name com.messi.languagehelper:panelBackground
      */
     public static final int AppCompatTheme_panelBackground=79;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#panelMenuListTheme}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#panelMenuListTheme}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9413,11 +9413,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:panelMenuListTheme
+     * @attr name com.messi.languagehelper:panelMenuListTheme
      */
     public static final int AppCompatTheme_panelMenuListTheme=80;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#panelMenuListWidth}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#panelMenuListWidth}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9426,11 +9426,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:panelMenuListWidth
+     * @attr name com.messi.languagehelper:panelMenuListWidth
      */
     public static final int AppCompatTheme_panelMenuListWidth=81;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#popupMenuStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#popupMenuStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9438,11 +9438,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:popupMenuStyle
+     * @attr name com.messi.languagehelper:popupMenuStyle
      */
     public static final int AppCompatTheme_popupMenuStyle=82;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#popupWindowStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#popupWindowStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9450,11 +9450,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:popupWindowStyle
+     * @attr name com.messi.languagehelper:popupWindowStyle
      */
     public static final int AppCompatTheme_popupWindowStyle=83;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#radioButtonStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#radioButtonStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9462,11 +9462,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:radioButtonStyle
+     * @attr name com.messi.languagehelper:radioButtonStyle
      */
     public static final int AppCompatTheme_radioButtonStyle=84;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#ratingBarStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#ratingBarStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9474,11 +9474,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:ratingBarStyle
+     * @attr name com.messi.languagehelper:ratingBarStyle
      */
     public static final int AppCompatTheme_ratingBarStyle=85;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#ratingBarStyleIndicator}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#ratingBarStyleIndicator}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9486,11 +9486,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:ratingBarStyleIndicator
+     * @attr name com.messi.languagehelper:ratingBarStyleIndicator
      */
     public static final int AppCompatTheme_ratingBarStyleIndicator=86;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#ratingBarStyleSmall}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#ratingBarStyleSmall}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9498,11 +9498,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:ratingBarStyleSmall
+     * @attr name com.messi.languagehelper:ratingBarStyleSmall
      */
     public static final int AppCompatTheme_ratingBarStyleSmall=87;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#searchViewStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#searchViewStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9510,11 +9510,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:searchViewStyle
+     * @attr name com.messi.languagehelper:searchViewStyle
      */
     public static final int AppCompatTheme_searchViewStyle=88;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#seekBarStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#seekBarStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9522,11 +9522,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:seekBarStyle
+     * @attr name com.messi.languagehelper:seekBarStyle
      */
     public static final int AppCompatTheme_seekBarStyle=89;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#selectableItemBackground}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#selectableItemBackground}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9534,11 +9534,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:selectableItemBackground
+     * @attr name com.messi.languagehelper:selectableItemBackground
      */
     public static final int AppCompatTheme_selectableItemBackground=90;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#selectableItemBackgroundBorderless}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#selectableItemBackgroundBorderless}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9546,11 +9546,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:selectableItemBackgroundBorderless
+     * @attr name com.messi.languagehelper:selectableItemBackgroundBorderless
      */
     public static final int AppCompatTheme_selectableItemBackgroundBorderless=91;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#spinnerDropDownItemStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#spinnerDropDownItemStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9558,11 +9558,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:spinnerDropDownItemStyle
+     * @attr name com.messi.languagehelper:spinnerDropDownItemStyle
      */
     public static final int AppCompatTheme_spinnerDropDownItemStyle=92;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#spinnerStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#spinnerStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9570,11 +9570,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:spinnerStyle
+     * @attr name com.messi.languagehelper:spinnerStyle
      */
     public static final int AppCompatTheme_spinnerStyle=93;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#switchStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#switchStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9582,11 +9582,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:switchStyle
+     * @attr name com.messi.languagehelper:switchStyle
      */
     public static final int AppCompatTheme_switchStyle=94;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#textAppearanceLargePopupMenu}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#textAppearanceLargePopupMenu}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9594,11 +9594,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:textAppearanceLargePopupMenu
+     * @attr name com.messi.languagehelper:textAppearanceLargePopupMenu
      */
     public static final int AppCompatTheme_textAppearanceLargePopupMenu=95;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#textAppearanceListItem}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#textAppearanceListItem}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9606,11 +9606,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:textAppearanceListItem
+     * @attr name com.messi.languagehelper:textAppearanceListItem
      */
     public static final int AppCompatTheme_textAppearanceListItem=96;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#textAppearanceListItemSecondary}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#textAppearanceListItemSecondary}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9618,11 +9618,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:textAppearanceListItemSecondary
+     * @attr name com.messi.languagehelper:textAppearanceListItemSecondary
      */
     public static final int AppCompatTheme_textAppearanceListItemSecondary=97;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#textAppearanceListItemSmall}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#textAppearanceListItemSmall}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9630,11 +9630,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:textAppearanceListItemSmall
+     * @attr name com.messi.languagehelper:textAppearanceListItemSmall
      */
     public static final int AppCompatTheme_textAppearanceListItemSmall=98;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#textAppearancePopupMenuHeader}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#textAppearancePopupMenuHeader}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9642,11 +9642,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:textAppearancePopupMenuHeader
+     * @attr name com.messi.languagehelper:textAppearancePopupMenuHeader
      */
     public static final int AppCompatTheme_textAppearancePopupMenuHeader=99;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#textAppearanceSearchResultSubtitle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#textAppearanceSearchResultSubtitle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9654,11 +9654,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:textAppearanceSearchResultSubtitle
+     * @attr name com.messi.languagehelper:textAppearanceSearchResultSubtitle
      */
     public static final int AppCompatTheme_textAppearanceSearchResultSubtitle=100;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#textAppearanceSearchResultTitle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#textAppearanceSearchResultTitle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9666,11 +9666,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:textAppearanceSearchResultTitle
+     * @attr name com.messi.languagehelper:textAppearanceSearchResultTitle
      */
     public static final int AppCompatTheme_textAppearanceSearchResultTitle=101;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#textAppearanceSmallPopupMenu}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#textAppearanceSmallPopupMenu}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9678,11 +9678,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:textAppearanceSmallPopupMenu
+     * @attr name com.messi.languagehelper:textAppearanceSmallPopupMenu
      */
     public static final int AppCompatTheme_textAppearanceSmallPopupMenu=102;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#textColorAlertDialogListItem}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#textColorAlertDialogListItem}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9693,11 +9693,11 @@ public final class R {
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:textColorAlertDialogListItem
+     * @attr name com.messi.languagehelper:textColorAlertDialogListItem
      */
     public static final int AppCompatTheme_textColorAlertDialogListItem=103;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#textColorSearchUrl}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#textColorSearchUrl}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9708,11 +9708,11 @@ public final class R {
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:textColorSearchUrl
+     * @attr name com.messi.languagehelper:textColorSearchUrl
      */
     public static final int AppCompatTheme_textColorSearchUrl=104;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#toolbarNavigationButtonStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#toolbarNavigationButtonStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9720,11 +9720,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:toolbarNavigationButtonStyle
+     * @attr name com.messi.languagehelper:toolbarNavigationButtonStyle
      */
     public static final int AppCompatTheme_toolbarNavigationButtonStyle=105;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#toolbarStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#toolbarStyle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9732,11 +9732,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:toolbarStyle
+     * @attr name com.messi.languagehelper:toolbarStyle
      */
     public static final int AppCompatTheme_toolbarStyle=106;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#tooltipForegroundColor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tooltipForegroundColor}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9747,11 +9747,11 @@ public final class R {
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:tooltipForegroundColor
+     * @attr name com.messi.languagehelper:tooltipForegroundColor
      */
     public static final int AppCompatTheme_tooltipForegroundColor=107;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#tooltipFrameBackground}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tooltipFrameBackground}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -9759,51 +9759,51 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:tooltipFrameBackground
+     * @attr name com.messi.languagehelper:tooltipFrameBackground
      */
     public static final int AppCompatTheme_tooltipFrameBackground=108;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#viewInflaterClass}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#viewInflaterClass}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:viewInflaterClass
+     * @attr name com.messi.languagehelper:viewInflaterClass
      */
     public static final int AppCompatTheme_viewInflaterClass=109;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#windowActionBar}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#windowActionBar}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:windowActionBar
+     * @attr name com.messi.languagehelper:windowActionBar
      */
     public static final int AppCompatTheme_windowActionBar=110;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#windowActionBarOverlay}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#windowActionBarOverlay}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:windowActionBarOverlay
+     * @attr name com.messi.languagehelper:windowActionBarOverlay
      */
     public static final int AppCompatTheme_windowActionBarOverlay=111;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#windowActionModeOverlay}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#windowActionModeOverlay}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:windowActionModeOverlay
+     * @attr name com.messi.languagehelper:windowActionModeOverlay
      */
     public static final int AppCompatTheme_windowActionModeOverlay=112;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#windowFixedHeightMajor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#windowFixedHeightMajor}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9816,11 +9816,11 @@ public final class R {
      * The % suffix always means a percentage of the base size;
      * the optional %p suffix provides a size relative to some parent container.
      *
-     * @attr name com.messi.learnenglish:windowFixedHeightMajor
+     * @attr name com.messi.languagehelper:windowFixedHeightMajor
      */
     public static final int AppCompatTheme_windowFixedHeightMajor=113;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#windowFixedHeightMinor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#windowFixedHeightMinor}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9833,11 +9833,11 @@ public final class R {
      * The % suffix always means a percentage of the base size;
      * the optional %p suffix provides a size relative to some parent container.
      *
-     * @attr name com.messi.learnenglish:windowFixedHeightMinor
+     * @attr name com.messi.languagehelper:windowFixedHeightMinor
      */
     public static final int AppCompatTheme_windowFixedHeightMinor=114;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#windowFixedWidthMajor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#windowFixedWidthMajor}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9850,11 +9850,11 @@ public final class R {
      * The % suffix always means a percentage of the base size;
      * the optional %p suffix provides a size relative to some parent container.
      *
-     * @attr name com.messi.learnenglish:windowFixedWidthMajor
+     * @attr name com.messi.languagehelper:windowFixedWidthMajor
      */
     public static final int AppCompatTheme_windowFixedWidthMajor=115;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#windowFixedWidthMinor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#windowFixedWidthMinor}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9867,11 +9867,11 @@ public final class R {
      * The % suffix always means a percentage of the base size;
      * the optional %p suffix provides a size relative to some parent container.
      *
-     * @attr name com.messi.learnenglish:windowFixedWidthMinor
+     * @attr name com.messi.languagehelper:windowFixedWidthMinor
      */
     public static final int AppCompatTheme_windowFixedWidthMinor=116;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#windowMinWidthMajor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#windowMinWidthMajor}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9884,11 +9884,11 @@ public final class R {
      * The % suffix always means a percentage of the base size;
      * the optional %p suffix provides a size relative to some parent container.
      *
-     * @attr name com.messi.learnenglish:windowMinWidthMajor
+     * @attr name com.messi.languagehelper:windowMinWidthMajor
      */
     public static final int AppCompatTheme_windowMinWidthMajor=117;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#windowMinWidthMinor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#windowMinWidthMinor}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -9901,17 +9901,17 @@ public final class R {
      * The % suffix always means a percentage of the base size;
      * the optional %p suffix provides a size relative to some parent container.
      *
-     * @attr name com.messi.learnenglish:windowMinWidthMinor
+     * @attr name com.messi.languagehelper:windowMinWidthMinor
      */
     public static final int AppCompatTheme_windowMinWidthMinor=118;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#windowNoTitle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#windowNoTitle}
      * attribute's value can be found in the {@link #AppCompatTheme} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:windowNoTitle
+     * @attr name com.messi.languagehelper:windowNoTitle
      */
     public static final int AppCompatTheme_windowNoTitle=119;
     /**
@@ -9921,9 +9921,9 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #ArcMotion_maximumAngle com.messi.learnenglish:maximumAngle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ArcMotion_minimumHorizontalAngle com.messi.learnenglish:minimumHorizontalAngle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ArcMotion_minimumVerticalAngle com.messi.learnenglish:minimumVerticalAngle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcMotion_maximumAngle com.messi.languagehelper:maximumAngle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcMotion_minimumHorizontalAngle com.messi.languagehelper:minimumHorizontalAngle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcMotion_minimumVerticalAngle com.messi.languagehelper:minimumVerticalAngle}</code></td><td></td></tr>
      * </table>
      * @see #ArcMotion_maximumAngle
      * @see #ArcMotion_minimumHorizontalAngle
@@ -9933,30 +9933,30 @@ public final class R {
         0x7f030132, 0x7f030135, 0x7f030136
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#maximumAngle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#maximumAngle}
      * attribute's value can be found in the {@link #ArcMotion} array.
      *
      * <p>May be a floating point value, such as "<code>1.2</code>".
      *
-     * @attr name com.messi.learnenglish:maximumAngle
+     * @attr name com.messi.languagehelper:maximumAngle
      */
     public static final int ArcMotion_maximumAngle=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#minimumHorizontalAngle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#minimumHorizontalAngle}
      * attribute's value can be found in the {@link #ArcMotion} array.
      *
      * <p>May be a floating point value, such as "<code>1.2</code>".
      *
-     * @attr name com.messi.learnenglish:minimumHorizontalAngle
+     * @attr name com.messi.languagehelper:minimumHorizontalAngle
      */
     public static final int ArcMotion_minimumHorizontalAngle=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#minimumVerticalAngle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#minimumVerticalAngle}
      * attribute's value can be found in the {@link #ArcMotion} array.
      *
      * <p>May be a floating point value, such as "<code>1.2</code>".
      *
-     * @attr name com.messi.learnenglish:minimumVerticalAngle
+     * @attr name com.messi.languagehelper:minimumVerticalAngle
      */
     public static final int ArcMotion_minimumVerticalAngle=2;
     /**
@@ -9966,19 +9966,19 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #ArcProgress_arc_angle com.messi.learnenglish:arc_angle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ArcProgress_arc_bottom_text com.messi.learnenglish:arc_bottom_text}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ArcProgress_arc_bottom_text_size com.messi.learnenglish:arc_bottom_text_size}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ArcProgress_arc_finished_color com.messi.learnenglish:arc_finished_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ArcProgress_arc_max com.messi.learnenglish:arc_max}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ArcProgress_arc_progress com.messi.learnenglish:arc_progress}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ArcProgress_arc_stroke_width com.messi.learnenglish:arc_stroke_width}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ArcProgress_arc_suffix_text com.messi.learnenglish:arc_suffix_text}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ArcProgress_arc_suffix_text_padding com.messi.learnenglish:arc_suffix_text_padding}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ArcProgress_arc_suffix_text_size com.messi.learnenglish:arc_suffix_text_size}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ArcProgress_arc_text_color com.messi.learnenglish:arc_text_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ArcProgress_arc_text_size com.messi.learnenglish:arc_text_size}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ArcProgress_arc_unfinished_color com.messi.learnenglish:arc_unfinished_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcProgress_arc_angle com.messi.languagehelper:arc_angle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcProgress_arc_bottom_text com.messi.languagehelper:arc_bottom_text}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcProgress_arc_bottom_text_size com.messi.languagehelper:arc_bottom_text_size}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcProgress_arc_finished_color com.messi.languagehelper:arc_finished_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcProgress_arc_max com.messi.languagehelper:arc_max}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcProgress_arc_progress com.messi.languagehelper:arc_progress}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcProgress_arc_stroke_width com.messi.languagehelper:arc_stroke_width}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcProgress_arc_suffix_text com.messi.languagehelper:arc_suffix_text}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcProgress_arc_suffix_text_padding com.messi.languagehelper:arc_suffix_text_padding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcProgress_arc_suffix_text_size com.messi.languagehelper:arc_suffix_text_size}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcProgress_arc_text_color com.messi.languagehelper:arc_text_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcProgress_arc_text_size com.messi.languagehelper:arc_text_size}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ArcProgress_arc_unfinished_color com.messi.languagehelper:arc_unfinished_color}</code></td><td></td></tr>
      * </table>
      * @see #ArcProgress_arc_angle
      * @see #ArcProgress_arc_bottom_text
@@ -10001,26 +10001,26 @@ public final class R {
         0x7f03003d
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#arc_angle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arc_angle}
      * attribute's value can be found in the {@link #ArcProgress} array.
      *
      * <p>May be a floating point value, such as "<code>1.2</code>".
      *
-     * @attr name com.messi.learnenglish:arc_angle
+     * @attr name com.messi.languagehelper:arc_angle
      */
     public static final int ArcProgress_arc_angle=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#arc_bottom_text}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arc_bottom_text}
      * attribute's value can be found in the {@link #ArcProgress} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:arc_bottom_text
+     * @attr name com.messi.languagehelper:arc_bottom_text
      */
     public static final int ArcProgress_arc_bottom_text=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#arc_bottom_text_size}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arc_bottom_text_size}
      * attribute's value can be found in the {@link #ArcProgress} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10029,40 +10029,40 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:arc_bottom_text_size
+     * @attr name com.messi.languagehelper:arc_bottom_text_size
      */
     public static final int ArcProgress_arc_bottom_text_size=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#arc_finished_color}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arc_finished_color}
      * attribute's value can be found in the {@link #ArcProgress} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:arc_finished_color
+     * @attr name com.messi.languagehelper:arc_finished_color
      */
     public static final int ArcProgress_arc_finished_color=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#arc_max}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arc_max}
      * attribute's value can be found in the {@link #ArcProgress} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.learnenglish:arc_max
+     * @attr name com.messi.languagehelper:arc_max
      */
     public static final int ArcProgress_arc_max=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#arc_progress}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arc_progress}
      * attribute's value can be found in the {@link #ArcProgress} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.learnenglish:arc_progress
+     * @attr name com.messi.languagehelper:arc_progress
      */
     public static final int ArcProgress_arc_progress=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#arc_stroke_width}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arc_stroke_width}
      * attribute's value can be found in the {@link #ArcProgress} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10071,21 +10071,21 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:arc_stroke_width
+     * @attr name com.messi.languagehelper:arc_stroke_width
      */
     public static final int ArcProgress_arc_stroke_width=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#arc_suffix_text}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arc_suffix_text}
      * attribute's value can be found in the {@link #ArcProgress} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:arc_suffix_text
+     * @attr name com.messi.languagehelper:arc_suffix_text
      */
     public static final int ArcProgress_arc_suffix_text=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#arc_suffix_text_padding}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arc_suffix_text_padding}
      * attribute's value can be found in the {@link #ArcProgress} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10094,11 +10094,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:arc_suffix_text_padding
+     * @attr name com.messi.languagehelper:arc_suffix_text_padding
      */
     public static final int ArcProgress_arc_suffix_text_padding=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#arc_suffix_text_size}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arc_suffix_text_size}
      * attribute's value can be found in the {@link #ArcProgress} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10107,22 +10107,22 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:arc_suffix_text_size
+     * @attr name com.messi.languagehelper:arc_suffix_text_size
      */
     public static final int ArcProgress_arc_suffix_text_size=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#arc_text_color}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arc_text_color}
      * attribute's value can be found in the {@link #ArcProgress} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:arc_text_color
+     * @attr name com.messi.languagehelper:arc_text_color
      */
     public static final int ArcProgress_arc_text_color=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#arc_text_size}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arc_text_size}
      * attribute's value can be found in the {@link #ArcProgress} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10131,18 +10131,18 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:arc_text_size
+     * @attr name com.messi.languagehelper:arc_text_size
      */
     public static final int ArcProgress_arc_text_size=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#arc_unfinished_color}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arc_unfinished_color}
      * attribute's value can be found in the {@link #ArcProgress} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:arc_unfinished_color
+     * @attr name com.messi.languagehelper:arc_unfinished_color
      */
     public static final int ArcProgress_arc_unfinished_color=12;
     /**
@@ -10152,7 +10152,7 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #AspectRatioFrameLayout_resize_mode com.messi.learnenglish:resize_mode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #AspectRatioFrameLayout_resize_mode com.messi.languagehelper:resize_mode}</code></td><td></td></tr>
      * </table>
      * @see #AspectRatioFrameLayout_resize_mode
      */
@@ -10160,7 +10160,7 @@ public final class R {
         0x7f03017e
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#resize_mode}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#resize_mode}
      * attribute's value can be found in the {@link #AspectRatioFrameLayout} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -10176,7 +10176,7 @@ public final class R {
      * <tr><td>zoom</td><td>4</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:resize_mode
+     * @attr name com.messi.languagehelper:resize_mode
      */
     public static final int AspectRatioFrameLayout_resize_mode=0;
     /**
@@ -10186,11 +10186,11 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #BottomNavigationView_elevation com.messi.learnenglish:elevation}</code></td><td></td></tr>
-     * <tr><td><code>{@link #BottomNavigationView_itemBackground com.messi.learnenglish:itemBackground}</code></td><td></td></tr>
-     * <tr><td><code>{@link #BottomNavigationView_itemIconTint com.messi.learnenglish:itemIconTint}</code></td><td></td></tr>
-     * <tr><td><code>{@link #BottomNavigationView_itemTextColor com.messi.learnenglish:itemTextColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #BottomNavigationView_menu com.messi.learnenglish:menu}</code></td><td></td></tr>
+     * <tr><td><code>{@link #BottomNavigationView_elevation com.messi.languagehelper:elevation}</code></td><td></td></tr>
+     * <tr><td><code>{@link #BottomNavigationView_itemBackground com.messi.languagehelper:itemBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #BottomNavigationView_itemIconTint com.messi.languagehelper:itemIconTint}</code></td><td></td></tr>
+     * <tr><td><code>{@link #BottomNavigationView_itemTextColor com.messi.languagehelper:itemTextColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #BottomNavigationView_menu com.messi.languagehelper:menu}</code></td><td></td></tr>
      * </table>
      * @see #BottomNavigationView_elevation
      * @see #BottomNavigationView_itemBackground
@@ -10203,7 +10203,7 @@ public final class R {
         0x7f030134
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#elevation}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#elevation}
      * attribute's value can be found in the {@link #BottomNavigationView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10212,11 +10212,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:elevation
+     * @attr name com.messi.languagehelper:elevation
      */
     public static final int BottomNavigationView_elevation=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#itemBackground}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#itemBackground}
      * attribute's value can be found in the {@link #BottomNavigationView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -10224,33 +10224,33 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:itemBackground
+     * @attr name com.messi.languagehelper:itemBackground
      */
     public static final int BottomNavigationView_itemBackground=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#itemIconTint}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#itemIconTint}
      * attribute's value can be found in the {@link #BottomNavigationView} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:itemIconTint
+     * @attr name com.messi.languagehelper:itemIconTint
      */
     public static final int BottomNavigationView_itemIconTint=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#itemTextColor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#itemTextColor}
      * attribute's value can be found in the {@link #BottomNavigationView} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:itemTextColor
+     * @attr name com.messi.languagehelper:itemTextColor
      */
     public static final int BottomNavigationView_itemTextColor=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#menu}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#menu}
      * attribute's value can be found in the {@link #BottomNavigationView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -10258,7 +10258,7 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:menu
+     * @attr name com.messi.languagehelper:menu
      */
     public static final int BottomNavigationView_menu=4;
     /**
@@ -10268,9 +10268,9 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #BottomSheetBehavior_Layout_behavior_hideable com.messi.learnenglish:behavior_hideable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #BottomSheetBehavior_Layout_behavior_peekHeight com.messi.learnenglish:behavior_peekHeight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #BottomSheetBehavior_Layout_behavior_skipCollapsed com.messi.learnenglish:behavior_skipCollapsed}</code></td><td></td></tr>
+     * <tr><td><code>{@link #BottomSheetBehavior_Layout_behavior_hideable com.messi.languagehelper:behavior_hideable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #BottomSheetBehavior_Layout_behavior_peekHeight com.messi.languagehelper:behavior_peekHeight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #BottomSheetBehavior_Layout_behavior_skipCollapsed com.messi.languagehelper:behavior_skipCollapsed}</code></td><td></td></tr>
      * </table>
      * @see #BottomSheetBehavior_Layout_behavior_hideable
      * @see #BottomSheetBehavior_Layout_behavior_peekHeight
@@ -10280,17 +10280,17 @@ public final class R {
         0x7f030050, 0x7f030052, 0x7f030053
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#behavior_hideable}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#behavior_hideable}
      * attribute's value can be found in the {@link #BottomSheetBehavior_Layout} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:behavior_hideable
+     * @attr name com.messi.languagehelper:behavior_hideable
      */
     public static final int BottomSheetBehavior_Layout_behavior_hideable=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#behavior_peekHeight}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#behavior_peekHeight}
      * attribute's value can be found in the {@link #BottomSheetBehavior_Layout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10307,17 +10307,17 @@ public final class R {
      * <tr><td>auto</td><td>ffffffff</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:behavior_peekHeight
+     * @attr name com.messi.languagehelper:behavior_peekHeight
      */
     public static final int BottomSheetBehavior_Layout_behavior_peekHeight=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#behavior_skipCollapsed}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#behavior_skipCollapsed}
      * attribute's value can be found in the {@link #BottomSheetBehavior_Layout} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:behavior_skipCollapsed
+     * @attr name com.messi.languagehelper:behavior_skipCollapsed
      */
     public static final int BottomSheetBehavior_Layout_behavior_skipCollapsed=2;
     /**
@@ -10327,7 +10327,7 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #ButtonBarLayout_allowStacking com.messi.learnenglish:allowStacking}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ButtonBarLayout_allowStacking com.messi.languagehelper:allowStacking}</code></td><td></td></tr>
      * </table>
      * @see #ButtonBarLayout_allowStacking
      */
@@ -10335,13 +10335,13 @@ public final class R {
         0x7f03002d
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#allowStacking}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#allowStacking}
      * attribute's value can be found in the {@link #ButtonBarLayout} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:allowStacking
+     * @attr name com.messi.languagehelper:allowStacking
      */
     public static final int ButtonBarLayout_allowStacking=0;
     /**
@@ -10353,17 +10353,17 @@ public final class R {
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #CardView_android_minWidth android:minWidth}</code></td><td></td></tr>
      * <tr><td><code>{@link #CardView_android_minHeight android:minHeight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CardView_cardBackgroundColor com.messi.learnenglish:cardBackgroundColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CardView_cardCornerRadius com.messi.learnenglish:cardCornerRadius}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CardView_cardElevation com.messi.learnenglish:cardElevation}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CardView_cardMaxElevation com.messi.learnenglish:cardMaxElevation}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CardView_cardPreventCornerOverlap com.messi.learnenglish:cardPreventCornerOverlap}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CardView_cardUseCompatPadding com.messi.learnenglish:cardUseCompatPadding}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CardView_contentPadding com.messi.learnenglish:contentPadding}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CardView_contentPaddingBottom com.messi.learnenglish:contentPaddingBottom}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CardView_contentPaddingLeft com.messi.learnenglish:contentPaddingLeft}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CardView_contentPaddingRight com.messi.learnenglish:contentPaddingRight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CardView_contentPaddingTop com.messi.learnenglish:contentPaddingTop}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CardView_cardBackgroundColor com.messi.languagehelper:cardBackgroundColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CardView_cardCornerRadius com.messi.languagehelper:cardCornerRadius}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CardView_cardElevation com.messi.languagehelper:cardElevation}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CardView_cardMaxElevation com.messi.languagehelper:cardMaxElevation}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CardView_cardPreventCornerOverlap com.messi.languagehelper:cardPreventCornerOverlap}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CardView_cardUseCompatPadding com.messi.languagehelper:cardUseCompatPadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CardView_contentPadding com.messi.languagehelper:contentPadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CardView_contentPaddingBottom com.messi.languagehelper:contentPaddingBottom}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CardView_contentPaddingLeft com.messi.languagehelper:contentPaddingLeft}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CardView_contentPaddingRight com.messi.languagehelper:contentPaddingRight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CardView_contentPaddingTop com.messi.languagehelper:contentPaddingTop}</code></td><td></td></tr>
      * </table>
      * @see #CardView_android_minWidth
      * @see #CardView_android_minHeight
@@ -10412,18 +10412,18 @@ public final class R {
      */
     public static final int CardView_android_minHeight=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#cardBackgroundColor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#cardBackgroundColor}
      * attribute's value can be found in the {@link #CardView} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:cardBackgroundColor
+     * @attr name com.messi.languagehelper:cardBackgroundColor
      */
     public static final int CardView_cardBackgroundColor=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#cardCornerRadius}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#cardCornerRadius}
      * attribute's value can be found in the {@link #CardView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10432,11 +10432,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:cardCornerRadius
+     * @attr name com.messi.languagehelper:cardCornerRadius
      */
     public static final int CardView_cardCornerRadius=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#cardElevation}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#cardElevation}
      * attribute's value can be found in the {@link #CardView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10445,11 +10445,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:cardElevation
+     * @attr name com.messi.languagehelper:cardElevation
      */
     public static final int CardView_cardElevation=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#cardMaxElevation}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#cardMaxElevation}
      * attribute's value can be found in the {@link #CardView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10458,31 +10458,31 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:cardMaxElevation
+     * @attr name com.messi.languagehelper:cardMaxElevation
      */
     public static final int CardView_cardMaxElevation=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#cardPreventCornerOverlap}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#cardPreventCornerOverlap}
      * attribute's value can be found in the {@link #CardView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:cardPreventCornerOverlap
+     * @attr name com.messi.languagehelper:cardPreventCornerOverlap
      */
     public static final int CardView_cardPreventCornerOverlap=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#cardUseCompatPadding}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#cardUseCompatPadding}
      * attribute's value can be found in the {@link #CardView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:cardUseCompatPadding
+     * @attr name com.messi.languagehelper:cardUseCompatPadding
      */
     public static final int CardView_cardUseCompatPadding=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#contentPadding}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentPadding}
      * attribute's value can be found in the {@link #CardView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10491,11 +10491,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:contentPadding
+     * @attr name com.messi.languagehelper:contentPadding
      */
     public static final int CardView_contentPadding=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#contentPaddingBottom}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentPaddingBottom}
      * attribute's value can be found in the {@link #CardView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10504,11 +10504,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:contentPaddingBottom
+     * @attr name com.messi.languagehelper:contentPaddingBottom
      */
     public static final int CardView_contentPaddingBottom=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#contentPaddingLeft}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentPaddingLeft}
      * attribute's value can be found in the {@link #CardView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10517,11 +10517,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:contentPaddingLeft
+     * @attr name com.messi.languagehelper:contentPaddingLeft
      */
     public static final int CardView_contentPaddingLeft=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#contentPaddingRight}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentPaddingRight}
      * attribute's value can be found in the {@link #CardView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10530,11 +10530,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:contentPaddingRight
+     * @attr name com.messi.languagehelper:contentPaddingRight
      */
     public static final int CardView_contentPaddingRight=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#contentPaddingTop}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentPaddingTop}
      * attribute's value can be found in the {@link #CardView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10543,7 +10543,7 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:contentPaddingTop
+     * @attr name com.messi.languagehelper:contentPaddingTop
      */
     public static final int CardView_contentPaddingTop=12;
     /**
@@ -10553,7 +10553,7 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #ChangeBounds_resizeClip com.messi.learnenglish:resizeClip}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ChangeBounds_resizeClip com.messi.languagehelper:resizeClip}</code></td><td></td></tr>
      * </table>
      * @see #ChangeBounds_resizeClip
      */
@@ -10561,13 +10561,13 @@ public final class R {
         0x7f03017d
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#resizeClip}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#resizeClip}
      * attribute's value can be found in the {@link #ChangeBounds} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:resizeClip
+     * @attr name com.messi.languagehelper:resizeClip
      */
     public static final int ChangeBounds_resizeClip=0;
     /**
@@ -10577,8 +10577,8 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #ChangeTransform_reparent com.messi.learnenglish:reparent}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ChangeTransform_reparentWithOverlay com.messi.learnenglish:reparentWithOverlay}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ChangeTransform_reparent com.messi.languagehelper:reparent}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ChangeTransform_reparentWithOverlay com.messi.languagehelper:reparentWithOverlay}</code></td><td></td></tr>
      * </table>
      * @see #ChangeTransform_reparent
      * @see #ChangeTransform_reparentWithOverlay
@@ -10587,23 +10587,23 @@ public final class R {
         0x7f03017a, 0x7f03017b
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#reparent}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#reparent}
      * attribute's value can be found in the {@link #ChangeTransform} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:reparent
+     * @attr name com.messi.languagehelper:reparent
      */
     public static final int ChangeTransform_reparent=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#reparentWithOverlay}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#reparentWithOverlay}
      * attribute's value can be found in the {@link #ChangeTransform} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:reparentWithOverlay
+     * @attr name com.messi.languagehelper:reparentWithOverlay
      */
     public static final int ChangeTransform_reparentWithOverlay=1;
     /**
@@ -10613,14 +10613,14 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #CircleProgress_circle_finished_color com.messi.learnenglish:circle_finished_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CircleProgress_circle_max com.messi.learnenglish:circle_max}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CircleProgress_circle_prefix_text com.messi.learnenglish:circle_prefix_text}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CircleProgress_circle_progress com.messi.learnenglish:circle_progress}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CircleProgress_circle_suffix_text com.messi.learnenglish:circle_suffix_text}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CircleProgress_circle_text_color com.messi.learnenglish:circle_text_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CircleProgress_circle_text_size com.messi.learnenglish:circle_text_size}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CircleProgress_circle_unfinished_color com.messi.learnenglish:circle_unfinished_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CircleProgress_circle_finished_color com.messi.languagehelper:circle_finished_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CircleProgress_circle_max com.messi.languagehelper:circle_max}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CircleProgress_circle_prefix_text com.messi.languagehelper:circle_prefix_text}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CircleProgress_circle_progress com.messi.languagehelper:circle_progress}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CircleProgress_circle_suffix_text com.messi.languagehelper:circle_suffix_text}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CircleProgress_circle_text_color com.messi.languagehelper:circle_text_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CircleProgress_circle_text_size com.messi.languagehelper:circle_text_size}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CircleProgress_circle_unfinished_color com.messi.languagehelper:circle_unfinished_color}</code></td><td></td></tr>
      * </table>
      * @see #CircleProgress_circle_finished_color
      * @see #CircleProgress_circle_max
@@ -10636,67 +10636,67 @@ public final class R {
         0x7f030073, 0x7f030074, 0x7f030075, 0x7f030076
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#circle_finished_color}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#circle_finished_color}
      * attribute's value can be found in the {@link #CircleProgress} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:circle_finished_color
+     * @attr name com.messi.languagehelper:circle_finished_color
      */
     public static final int CircleProgress_circle_finished_color=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#circle_max}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#circle_max}
      * attribute's value can be found in the {@link #CircleProgress} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.learnenglish:circle_max
+     * @attr name com.messi.languagehelper:circle_max
      */
     public static final int CircleProgress_circle_max=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#circle_prefix_text}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#circle_prefix_text}
      * attribute's value can be found in the {@link #CircleProgress} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:circle_prefix_text
+     * @attr name com.messi.languagehelper:circle_prefix_text
      */
     public static final int CircleProgress_circle_prefix_text=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#circle_progress}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#circle_progress}
      * attribute's value can be found in the {@link #CircleProgress} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.learnenglish:circle_progress
+     * @attr name com.messi.languagehelper:circle_progress
      */
     public static final int CircleProgress_circle_progress=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#circle_suffix_text}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#circle_suffix_text}
      * attribute's value can be found in the {@link #CircleProgress} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:circle_suffix_text
+     * @attr name com.messi.languagehelper:circle_suffix_text
      */
     public static final int CircleProgress_circle_suffix_text=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#circle_text_color}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#circle_text_color}
      * attribute's value can be found in the {@link #CircleProgress} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:circle_text_color
+     * @attr name com.messi.languagehelper:circle_text_color
      */
     public static final int CircleProgress_circle_text_color=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#circle_text_size}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#circle_text_size}
      * attribute's value can be found in the {@link #CircleProgress} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10705,18 +10705,18 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:circle_text_size
+     * @attr name com.messi.languagehelper:circle_text_size
      */
     public static final int CircleProgress_circle_text_size=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#circle_unfinished_color}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#circle_unfinished_color}
      * attribute's value can be found in the {@link #CircleProgress} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:circle_unfinished_color
+     * @attr name com.messi.languagehelper:circle_unfinished_color
      */
     public static final int CircleProgress_circle_unfinished_color=7;
     /**
@@ -10726,22 +10726,22 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_collapsedTitleGravity com.messi.learnenglish:collapsedTitleGravity}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_collapsedTitleTextAppearance com.messi.learnenglish:collapsedTitleTextAppearance}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_contentScrim com.messi.learnenglish:contentScrim}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_expandedTitleGravity com.messi.learnenglish:expandedTitleGravity}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_expandedTitleMargin com.messi.learnenglish:expandedTitleMargin}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_expandedTitleMarginBottom com.messi.learnenglish:expandedTitleMarginBottom}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_expandedTitleMarginEnd com.messi.learnenglish:expandedTitleMarginEnd}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_expandedTitleMarginStart com.messi.learnenglish:expandedTitleMarginStart}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_expandedTitleMarginTop com.messi.learnenglish:expandedTitleMarginTop}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_expandedTitleTextAppearance com.messi.learnenglish:expandedTitleTextAppearance}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_scrimAnimationDuration com.messi.learnenglish:scrimAnimationDuration}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_scrimVisibleHeightTrigger com.messi.learnenglish:scrimVisibleHeightTrigger}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_statusBarScrim com.messi.learnenglish:statusBarScrim}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_title com.messi.learnenglish:title}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_titleEnabled com.messi.learnenglish:titleEnabled}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_toolbarId com.messi.learnenglish:toolbarId}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_collapsedTitleGravity com.messi.languagehelper:collapsedTitleGravity}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_collapsedTitleTextAppearance com.messi.languagehelper:collapsedTitleTextAppearance}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_contentScrim com.messi.languagehelper:contentScrim}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_expandedTitleGravity com.messi.languagehelper:expandedTitleGravity}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_expandedTitleMargin com.messi.languagehelper:expandedTitleMargin}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_expandedTitleMarginBottom com.messi.languagehelper:expandedTitleMarginBottom}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_expandedTitleMarginEnd com.messi.languagehelper:expandedTitleMarginEnd}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_expandedTitleMarginStart com.messi.languagehelper:expandedTitleMarginStart}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_expandedTitleMarginTop com.messi.languagehelper:expandedTitleMarginTop}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_expandedTitleTextAppearance com.messi.languagehelper:expandedTitleTextAppearance}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_scrimAnimationDuration com.messi.languagehelper:scrimAnimationDuration}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_scrimVisibleHeightTrigger com.messi.languagehelper:scrimVisibleHeightTrigger}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_statusBarScrim com.messi.languagehelper:statusBarScrim}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_title com.messi.languagehelper:title}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_titleEnabled com.messi.languagehelper:titleEnabled}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_toolbarId com.messi.languagehelper:toolbarId}</code></td><td></td></tr>
      * </table>
      * @see #CollapsingToolbarLayout_collapsedTitleGravity
      * @see #CollapsingToolbarLayout_collapsedTitleTextAppearance
@@ -10767,7 +10767,7 @@ public final class R {
         0x7f0301b8, 0x7f0301ee, 0x7f0301ef, 0x7f0301fa
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#collapsedTitleGravity}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#collapsedTitleGravity}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -10788,11 +10788,11 @@ public final class R {
      * <tr><td>top</td><td>30</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:collapsedTitleGravity
+     * @attr name com.messi.languagehelper:collapsedTitleGravity
      */
     public static final int CollapsingToolbarLayout_collapsedTitleGravity=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#collapsedTitleTextAppearance}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#collapsedTitleTextAppearance}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -10800,22 +10800,22 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:collapsedTitleTextAppearance
+     * @attr name com.messi.languagehelper:collapsedTitleTextAppearance
      */
     public static final int CollapsingToolbarLayout_collapsedTitleTextAppearance=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#contentScrim}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentScrim}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:contentScrim
+     * @attr name com.messi.languagehelper:contentScrim
      */
     public static final int CollapsingToolbarLayout_contentScrim=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#expandedTitleGravity}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#expandedTitleGravity}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -10836,11 +10836,11 @@ public final class R {
      * <tr><td>top</td><td>30</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:expandedTitleGravity
+     * @attr name com.messi.languagehelper:expandedTitleGravity
      */
     public static final int CollapsingToolbarLayout_expandedTitleGravity=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#expandedTitleMargin}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#expandedTitleMargin}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10849,11 +10849,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:expandedTitleMargin
+     * @attr name com.messi.languagehelper:expandedTitleMargin
      */
     public static final int CollapsingToolbarLayout_expandedTitleMargin=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#expandedTitleMarginBottom}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#expandedTitleMarginBottom}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10862,11 +10862,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:expandedTitleMarginBottom
+     * @attr name com.messi.languagehelper:expandedTitleMarginBottom
      */
     public static final int CollapsingToolbarLayout_expandedTitleMarginBottom=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#expandedTitleMarginEnd}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#expandedTitleMarginEnd}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10875,11 +10875,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:expandedTitleMarginEnd
+     * @attr name com.messi.languagehelper:expandedTitleMarginEnd
      */
     public static final int CollapsingToolbarLayout_expandedTitleMarginEnd=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#expandedTitleMarginStart}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#expandedTitleMarginStart}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10888,11 +10888,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:expandedTitleMarginStart
+     * @attr name com.messi.languagehelper:expandedTitleMarginStart
      */
     public static final int CollapsingToolbarLayout_expandedTitleMarginStart=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#expandedTitleMarginTop}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#expandedTitleMarginTop}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10901,11 +10901,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:expandedTitleMarginTop
+     * @attr name com.messi.languagehelper:expandedTitleMarginTop
      */
     public static final int CollapsingToolbarLayout_expandedTitleMarginTop=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#expandedTitleTextAppearance}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#expandedTitleTextAppearance}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -10913,20 +10913,20 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:expandedTitleTextAppearance
+     * @attr name com.messi.languagehelper:expandedTitleTextAppearance
      */
     public static final int CollapsingToolbarLayout_expandedTitleTextAppearance=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#scrimAnimationDuration}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#scrimAnimationDuration}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.learnenglish:scrimAnimationDuration
+     * @attr name com.messi.languagehelper:scrimAnimationDuration
      */
     public static final int CollapsingToolbarLayout_scrimAnimationDuration=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#scrimVisibleHeightTrigger}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#scrimVisibleHeightTrigger}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -10935,42 +10935,42 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:scrimVisibleHeightTrigger
+     * @attr name com.messi.languagehelper:scrimVisibleHeightTrigger
      */
     public static final int CollapsingToolbarLayout_scrimVisibleHeightTrigger=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#statusBarScrim}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#statusBarScrim}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:statusBarScrim
+     * @attr name com.messi.languagehelper:statusBarScrim
      */
     public static final int CollapsingToolbarLayout_statusBarScrim=12;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#title}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#title}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:title
+     * @attr name com.messi.languagehelper:title
      */
     public static final int CollapsingToolbarLayout_title=13;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#titleEnabled}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#titleEnabled}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:titleEnabled
+     * @attr name com.messi.languagehelper:titleEnabled
      */
     public static final int CollapsingToolbarLayout_titleEnabled=14;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#toolbarId}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#toolbarId}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -10978,7 +10978,7 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:toolbarId
+     * @attr name com.messi.languagehelper:toolbarId
      */
     public static final int CollapsingToolbarLayout_toolbarId=15;
     /**
@@ -10988,8 +10988,8 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_Layout_layout_collapseMode com.messi.learnenglish:layout_collapseMode}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CollapsingToolbarLayout_Layout_layout_collapseParallaxMultiplier com.messi.learnenglish:layout_collapseParallaxMultiplier}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_Layout_layout_collapseMode com.messi.languagehelper:layout_collapseMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CollapsingToolbarLayout_Layout_layout_collapseParallaxMultiplier com.messi.languagehelper:layout_collapseParallaxMultiplier}</code></td><td></td></tr>
      * </table>
      * @see #CollapsingToolbarLayout_Layout_layout_collapseMode
      * @see #CollapsingToolbarLayout_Layout_layout_collapseParallaxMultiplier
@@ -10998,7 +10998,7 @@ public final class R {
         0x7f030112, 0x7f030113
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#layout_collapseMode}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_collapseMode}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout_Layout} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -11012,16 +11012,16 @@ public final class R {
      * <tr><td>pin</td><td>1</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:layout_collapseMode
+     * @attr name com.messi.languagehelper:layout_collapseMode
      */
     public static final int CollapsingToolbarLayout_Layout_layout_collapseMode=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#layout_collapseParallaxMultiplier}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_collapseParallaxMultiplier}
      * attribute's value can be found in the {@link #CollapsingToolbarLayout_Layout} array.
      *
      * <p>May be a floating point value, such as "<code>1.2</code>".
      *
-     * @attr name com.messi.learnenglish:layout_collapseParallaxMultiplier
+     * @attr name com.messi.languagehelper:layout_collapseParallaxMultiplier
      */
     public static final int CollapsingToolbarLayout_Layout_layout_collapseParallaxMultiplier=1;
     /**
@@ -11033,7 +11033,7 @@ public final class R {
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #ColorStateListItem_android_color android:color}</code></td><td></td></tr>
      * <tr><td><code>{@link #ColorStateListItem_android_alpha android:alpha}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ColorStateListItem_alpha com.messi.learnenglish:alpha}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ColorStateListItem_alpha com.messi.languagehelper:alpha}</code></td><td></td></tr>
      * </table>
      * @see #ColorStateListItem_android_color
      * @see #ColorStateListItem_android_alpha
@@ -11063,12 +11063,12 @@ public final class R {
      */
     public static final int ColorStateListItem_android_alpha=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#alpha}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#alpha}
      * attribute's value can be found in the {@link #ColorStateListItem} array.
      *
      * <p>May be a floating point value, such as "<code>1.2</code>".
      *
-     * @attr name com.messi.learnenglish:alpha
+     * @attr name com.messi.languagehelper:alpha
      */
     public static final int ColorStateListItem_alpha=2;
     /**
@@ -11079,8 +11079,8 @@ public final class R {
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #CompoundButton_android_button android:button}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CompoundButton_buttonTint com.messi.learnenglish:buttonTint}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CompoundButton_buttonTintMode com.messi.learnenglish:buttonTintMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CompoundButton_buttonTint com.messi.languagehelper:buttonTint}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CompoundButton_buttonTintMode com.messi.languagehelper:buttonTintMode}</code></td><td></td></tr>
      * </table>
      * @see #CompoundButton_android_button
      * @see #CompoundButton_buttonTint
@@ -11102,18 +11102,18 @@ public final class R {
      */
     public static final int CompoundButton_android_button=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#buttonTint}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#buttonTint}
      * attribute's value can be found in the {@link #CompoundButton} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:buttonTint
+     * @attr name com.messi.languagehelper:buttonTint
      */
     public static final int CompoundButton_buttonTint=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#buttonTintMode}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#buttonTintMode}
      * attribute's value can be found in the {@link #CompoundButton} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -11130,7 +11130,7 @@ public final class R {
      * <tr><td>src_over</td><td>3</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:buttonTintMode
+     * @attr name com.messi.languagehelper:buttonTintMode
      */
     public static final int CompoundButton_buttonTintMode=2;
     /**
@@ -11140,8 +11140,8 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #CoordinatorLayout_keylines com.messi.learnenglish:keylines}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CoordinatorLayout_statusBarBackground com.messi.learnenglish:statusBarBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CoordinatorLayout_keylines com.messi.languagehelper:keylines}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CoordinatorLayout_statusBarBackground com.messi.languagehelper:statusBarBackground}</code></td><td></td></tr>
      * </table>
      * @see #CoordinatorLayout_keylines
      * @see #CoordinatorLayout_statusBarBackground
@@ -11150,7 +11150,7 @@ public final class R {
         0x7f03010b, 0x7f0301b7
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#keylines}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#keylines}
      * attribute's value can be found in the {@link #CoordinatorLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -11158,11 +11158,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:keylines
+     * @attr name com.messi.languagehelper:keylines
      */
     public static final int CoordinatorLayout_keylines=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#statusBarBackground}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#statusBarBackground}
      * attribute's value can be found in the {@link #CoordinatorLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -11173,7 +11173,7 @@ public final class R {
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:statusBarBackground
+     * @attr name com.messi.languagehelper:statusBarBackground
      */
     public static final int CoordinatorLayout_statusBarBackground=1;
     /**
@@ -11184,12 +11184,12 @@ public final class R {
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #CoordinatorLayout_Layout_android_layout_gravity android:layout_gravity}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CoordinatorLayout_Layout_layout_anchor com.messi.learnenglish:layout_anchor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CoordinatorLayout_Layout_layout_anchorGravity com.messi.learnenglish:layout_anchorGravity}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CoordinatorLayout_Layout_layout_behavior com.messi.learnenglish:layout_behavior}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CoordinatorLayout_Layout_layout_dodgeInsetEdges com.messi.learnenglish:layout_dodgeInsetEdges}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CoordinatorLayout_Layout_layout_insetEdge com.messi.learnenglish:layout_insetEdge}</code></td><td></td></tr>
-     * <tr><td><code>{@link #CoordinatorLayout_Layout_layout_keyline com.messi.learnenglish:layout_keyline}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CoordinatorLayout_Layout_layout_anchor com.messi.languagehelper:layout_anchor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CoordinatorLayout_Layout_layout_anchorGravity com.messi.languagehelper:layout_anchorGravity}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CoordinatorLayout_Layout_layout_behavior com.messi.languagehelper:layout_behavior}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CoordinatorLayout_Layout_layout_dodgeInsetEdges com.messi.languagehelper:layout_dodgeInsetEdges}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CoordinatorLayout_Layout_layout_insetEdge com.messi.languagehelper:layout_insetEdge}</code></td><td></td></tr>
+     * <tr><td><code>{@link #CoordinatorLayout_Layout_layout_keyline com.messi.languagehelper:layout_keyline}</code></td><td></td></tr>
      * </table>
      * @see #CoordinatorLayout_Layout_android_layout_gravity
      * @see #CoordinatorLayout_Layout_layout_anchor
@@ -11233,7 +11233,7 @@ public final class R {
      */
     public static final int CoordinatorLayout_Layout_android_layout_gravity=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#layout_anchor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_anchor}
      * attribute's value can be found in the {@link #CoordinatorLayout_Layout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -11241,11 +11241,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:layout_anchor
+     * @attr name com.messi.languagehelper:layout_anchor
      */
     public static final int CoordinatorLayout_Layout_layout_anchor=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#layout_anchorGravity}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_anchorGravity}
      * attribute's value can be found in the {@link #CoordinatorLayout_Layout} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -11270,21 +11270,21 @@ public final class R {
      * <tr><td>top</td><td>30</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:layout_anchorGravity
+     * @attr name com.messi.languagehelper:layout_anchorGravity
      */
     public static final int CoordinatorLayout_Layout_layout_anchorGravity=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#layout_behavior}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_behavior}
      * attribute's value can be found in the {@link #CoordinatorLayout_Layout} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:layout_behavior
+     * @attr name com.messi.languagehelper:layout_behavior
      */
     public static final int CoordinatorLayout_Layout_layout_behavior=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#layout_dodgeInsetEdges}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_dodgeInsetEdges}
      * attribute's value can be found in the {@link #CoordinatorLayout_Layout} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -11303,11 +11303,11 @@ public final class R {
      * <tr><td>top</td><td>30</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:layout_dodgeInsetEdges
+     * @attr name com.messi.languagehelper:layout_dodgeInsetEdges
      */
     public static final int CoordinatorLayout_Layout_layout_dodgeInsetEdges=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#layout_insetEdge}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_insetEdge}
      * attribute's value can be found in the {@link #CoordinatorLayout_Layout} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -11325,16 +11325,16 @@ public final class R {
      * <tr><td>top</td><td>30</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:layout_insetEdge
+     * @attr name com.messi.languagehelper:layout_insetEdge
      */
     public static final int CoordinatorLayout_Layout_layout_insetEdge=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#layout_keyline}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_keyline}
      * attribute's value can be found in the {@link #CoordinatorLayout_Layout} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.learnenglish:layout_keyline
+     * @attr name com.messi.languagehelper:layout_keyline
      */
     public static final int CoordinatorLayout_Layout_layout_keyline=6;
     /**
@@ -11344,19 +11344,19 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #DefaultTimeBar_ad_marker_color com.messi.learnenglish:ad_marker_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DefaultTimeBar_ad_marker_width com.messi.learnenglish:ad_marker_width}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DefaultTimeBar_bar_height com.messi.learnenglish:bar_height}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DefaultTimeBar_buffered_color com.messi.learnenglish:buffered_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DefaultTimeBar_played_ad_marker_color com.messi.learnenglish:played_ad_marker_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DefaultTimeBar_played_color com.messi.learnenglish:played_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DefaultTimeBar_scrubber_color com.messi.learnenglish:scrubber_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DefaultTimeBar_scrubber_disabled_size com.messi.learnenglish:scrubber_disabled_size}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DefaultTimeBar_scrubber_dragged_size com.messi.learnenglish:scrubber_dragged_size}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DefaultTimeBar_scrubber_drawable com.messi.learnenglish:scrubber_drawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DefaultTimeBar_scrubber_enabled_size com.messi.learnenglish:scrubber_enabled_size}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DefaultTimeBar_touch_target_height com.messi.learnenglish:touch_target_height}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DefaultTimeBar_unplayed_color com.messi.learnenglish:unplayed_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DefaultTimeBar_ad_marker_color com.messi.languagehelper:ad_marker_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DefaultTimeBar_ad_marker_width com.messi.languagehelper:ad_marker_width}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DefaultTimeBar_bar_height com.messi.languagehelper:bar_height}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DefaultTimeBar_buffered_color com.messi.languagehelper:buffered_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DefaultTimeBar_played_ad_marker_color com.messi.languagehelper:played_ad_marker_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DefaultTimeBar_played_color com.messi.languagehelper:played_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DefaultTimeBar_scrubber_color com.messi.languagehelper:scrubber_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DefaultTimeBar_scrubber_disabled_size com.messi.languagehelper:scrubber_disabled_size}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DefaultTimeBar_scrubber_dragged_size com.messi.languagehelper:scrubber_dragged_size}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DefaultTimeBar_scrubber_drawable com.messi.languagehelper:scrubber_drawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DefaultTimeBar_scrubber_enabled_size com.messi.languagehelper:scrubber_enabled_size}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DefaultTimeBar_touch_target_height com.messi.languagehelper:touch_target_height}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DefaultTimeBar_unplayed_color com.messi.languagehelper:unplayed_color}</code></td><td></td></tr>
      * </table>
      * @see #DefaultTimeBar_ad_marker_color
      * @see #DefaultTimeBar_ad_marker_width
@@ -11379,18 +11379,18 @@ public final class R {
         0x7f030207
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#ad_marker_color}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#ad_marker_color}
      * attribute's value can be found in the {@link #DefaultTimeBar} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:ad_marker_color
+     * @attr name com.messi.languagehelper:ad_marker_color
      */
     public static final int DefaultTimeBar_ad_marker_color=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#ad_marker_width}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#ad_marker_width}
      * attribute's value can be found in the {@link #DefaultTimeBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11399,11 +11399,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:ad_marker_width
+     * @attr name com.messi.languagehelper:ad_marker_width
      */
     public static final int DefaultTimeBar_ad_marker_width=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#bar_height}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#bar_height}
      * attribute's value can be found in the {@link #DefaultTimeBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11412,55 +11412,55 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:bar_height
+     * @attr name com.messi.languagehelper:bar_height
      */
     public static final int DefaultTimeBar_bar_height=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#buffered_color}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#buffered_color}
      * attribute's value can be found in the {@link #DefaultTimeBar} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:buffered_color
+     * @attr name com.messi.languagehelper:buffered_color
      */
     public static final int DefaultTimeBar_buffered_color=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#played_ad_marker_color}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#played_ad_marker_color}
      * attribute's value can be found in the {@link #DefaultTimeBar} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:played_ad_marker_color
+     * @attr name com.messi.languagehelper:played_ad_marker_color
      */
     public static final int DefaultTimeBar_played_ad_marker_color=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#played_color}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#played_color}
      * attribute's value can be found in the {@link #DefaultTimeBar} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:played_color
+     * @attr name com.messi.languagehelper:played_color
      */
     public static final int DefaultTimeBar_played_color=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#scrubber_color}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#scrubber_color}
      * attribute's value can be found in the {@link #DefaultTimeBar} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:scrubber_color
+     * @attr name com.messi.languagehelper:scrubber_color
      */
     public static final int DefaultTimeBar_scrubber_color=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#scrubber_disabled_size}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#scrubber_disabled_size}
      * attribute's value can be found in the {@link #DefaultTimeBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11469,11 +11469,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:scrubber_disabled_size
+     * @attr name com.messi.languagehelper:scrubber_disabled_size
      */
     public static final int DefaultTimeBar_scrubber_disabled_size=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#scrubber_dragged_size}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#scrubber_dragged_size}
      * attribute's value can be found in the {@link #DefaultTimeBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11482,11 +11482,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:scrubber_dragged_size
+     * @attr name com.messi.languagehelper:scrubber_dragged_size
      */
     public static final int DefaultTimeBar_scrubber_dragged_size=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#scrubber_drawable}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#scrubber_drawable}
      * attribute's value can be found in the {@link #DefaultTimeBar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -11494,11 +11494,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:scrubber_drawable
+     * @attr name com.messi.languagehelper:scrubber_drawable
      */
     public static final int DefaultTimeBar_scrubber_drawable=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#scrubber_enabled_size}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#scrubber_enabled_size}
      * attribute's value can be found in the {@link #DefaultTimeBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11507,11 +11507,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:scrubber_enabled_size
+     * @attr name com.messi.languagehelper:scrubber_enabled_size
      */
     public static final int DefaultTimeBar_scrubber_enabled_size=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#touch_target_height}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#touch_target_height}
      * attribute's value can be found in the {@link #DefaultTimeBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11520,18 +11520,18 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:touch_target_height
+     * @attr name com.messi.languagehelper:touch_target_height
      */
     public static final int DefaultTimeBar_touch_target_height=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#unplayed_color}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#unplayed_color}
      * attribute's value can be found in the {@link #DefaultTimeBar} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:unplayed_color
+     * @attr name com.messi.languagehelper:unplayed_color
      */
     public static final int DefaultTimeBar_unplayed_color=12;
     /**
@@ -11541,9 +11541,9 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #DesignTheme_bottomSheetDialogTheme com.messi.learnenglish:bottomSheetDialogTheme}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DesignTheme_bottomSheetStyle com.messi.learnenglish:bottomSheetStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DesignTheme_textColorError com.messi.learnenglish:textColorError}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DesignTheme_bottomSheetDialogTheme com.messi.languagehelper:bottomSheetDialogTheme}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DesignTheme_bottomSheetStyle com.messi.languagehelper:bottomSheetStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DesignTheme_textColorError com.messi.languagehelper:textColorError}</code></td><td></td></tr>
      * </table>
      * @see #DesignTheme_bottomSheetDialogTheme
      * @see #DesignTheme_bottomSheetStyle
@@ -11553,7 +11553,7 @@ public final class R {
         0x7f030056, 0x7f030057, 0x7f0301e2
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#bottomSheetDialogTheme}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#bottomSheetDialogTheme}
      * attribute's value can be found in the {@link #DesignTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -11561,11 +11561,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:bottomSheetDialogTheme
+     * @attr name com.messi.languagehelper:bottomSheetDialogTheme
      */
     public static final int DesignTheme_bottomSheetDialogTheme=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#bottomSheetStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#bottomSheetStyle}
      * attribute's value can be found in the {@link #DesignTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -11573,11 +11573,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:bottomSheetStyle
+     * @attr name com.messi.languagehelper:bottomSheetStyle
      */
     public static final int DesignTheme_bottomSheetStyle=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#textColorError}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#textColorError}
      * attribute's value can be found in the {@link #DesignTheme} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -11588,7 +11588,7 @@ public final class R {
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:textColorError
+     * @attr name com.messi.languagehelper:textColorError
      */
     public static final int DesignTheme_textColorError=2;
     /**
@@ -11598,24 +11598,24 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_background_color com.messi.learnenglish:donut_background_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_circle_starting_degree com.messi.learnenglish:donut_circle_starting_degree}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_finished_color com.messi.learnenglish:donut_finished_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_finished_stroke_width com.messi.learnenglish:donut_finished_stroke_width}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_inner_bottom_text com.messi.learnenglish:donut_inner_bottom_text}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_inner_bottom_text_color com.messi.learnenglish:donut_inner_bottom_text_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_inner_bottom_text_size com.messi.learnenglish:donut_inner_bottom_text_size}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_inner_drawable com.messi.learnenglish:donut_inner_drawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_max com.messi.learnenglish:donut_max}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_prefix_text com.messi.learnenglish:donut_prefix_text}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_progress com.messi.learnenglish:donut_progress}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_show_text com.messi.learnenglish:donut_show_text}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_suffix_text com.messi.learnenglish:donut_suffix_text}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_text com.messi.learnenglish:donut_text}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_text_color com.messi.learnenglish:donut_text_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_text_size com.messi.learnenglish:donut_text_size}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_unfinished_color com.messi.learnenglish:donut_unfinished_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DonutProgress_donut_unfinished_stroke_width com.messi.learnenglish:donut_unfinished_stroke_width}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_background_color com.messi.languagehelper:donut_background_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_circle_starting_degree com.messi.languagehelper:donut_circle_starting_degree}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_finished_color com.messi.languagehelper:donut_finished_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_finished_stroke_width com.messi.languagehelper:donut_finished_stroke_width}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_inner_bottom_text com.messi.languagehelper:donut_inner_bottom_text}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_inner_bottom_text_color com.messi.languagehelper:donut_inner_bottom_text_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_inner_bottom_text_size com.messi.languagehelper:donut_inner_bottom_text_size}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_inner_drawable com.messi.languagehelper:donut_inner_drawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_max com.messi.languagehelper:donut_max}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_prefix_text com.messi.languagehelper:donut_prefix_text}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_progress com.messi.languagehelper:donut_progress}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_show_text com.messi.languagehelper:donut_show_text}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_suffix_text com.messi.languagehelper:donut_suffix_text}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_text com.messi.languagehelper:donut_text}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_text_color com.messi.languagehelper:donut_text_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_text_size com.messi.languagehelper:donut_text_size}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_unfinished_color com.messi.languagehelper:donut_unfinished_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DonutProgress_donut_unfinished_stroke_width com.messi.languagehelper:donut_unfinished_stroke_width}</code></td><td></td></tr>
      * </table>
      * @see #DonutProgress_donut_background_color
      * @see #DonutProgress_donut_circle_starting_degree
@@ -11644,38 +11644,38 @@ public final class R {
         0x7f0300bc, 0x7f0300bd
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#donut_background_color}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_background_color}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:donut_background_color
+     * @attr name com.messi.languagehelper:donut_background_color
      */
     public static final int DonutProgress_donut_background_color=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#donut_circle_starting_degree}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_circle_starting_degree}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.learnenglish:donut_circle_starting_degree
+     * @attr name com.messi.languagehelper:donut_circle_starting_degree
      */
     public static final int DonutProgress_donut_circle_starting_degree=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#donut_finished_color}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_finished_color}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:donut_finished_color
+     * @attr name com.messi.languagehelper:donut_finished_color
      */
     public static final int DonutProgress_donut_finished_color=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#donut_finished_stroke_width}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_finished_stroke_width}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11684,32 +11684,32 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:donut_finished_stroke_width
+     * @attr name com.messi.languagehelper:donut_finished_stroke_width
      */
     public static final int DonutProgress_donut_finished_stroke_width=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#donut_inner_bottom_text}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_inner_bottom_text}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:donut_inner_bottom_text
+     * @attr name com.messi.languagehelper:donut_inner_bottom_text
      */
     public static final int DonutProgress_donut_inner_bottom_text=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#donut_inner_bottom_text_color}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_inner_bottom_text_color}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:donut_inner_bottom_text_color
+     * @attr name com.messi.languagehelper:donut_inner_bottom_text_color
      */
     public static final int DonutProgress_donut_inner_bottom_text_color=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#donut_inner_bottom_text_size}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_inner_bottom_text_size}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11718,11 +11718,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:donut_inner_bottom_text_size
+     * @attr name com.messi.languagehelper:donut_inner_bottom_text_size
      */
     public static final int DonutProgress_donut_inner_bottom_text_size=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#donut_inner_drawable}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_inner_drawable}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -11730,80 +11730,80 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:donut_inner_drawable
+     * @attr name com.messi.languagehelper:donut_inner_drawable
      */
     public static final int DonutProgress_donut_inner_drawable=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#donut_max}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_max}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.learnenglish:donut_max
+     * @attr name com.messi.languagehelper:donut_max
      */
     public static final int DonutProgress_donut_max=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#donut_prefix_text}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_prefix_text}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:donut_prefix_text
+     * @attr name com.messi.languagehelper:donut_prefix_text
      */
     public static final int DonutProgress_donut_prefix_text=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#donut_progress}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_progress}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a floating point value, such as "<code>1.2</code>".
      *
-     * @attr name com.messi.learnenglish:donut_progress
+     * @attr name com.messi.languagehelper:donut_progress
      */
     public static final int DonutProgress_donut_progress=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#donut_show_text}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_show_text}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:donut_show_text
+     * @attr name com.messi.languagehelper:donut_show_text
      */
     public static final int DonutProgress_donut_show_text=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#donut_suffix_text}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_suffix_text}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:donut_suffix_text
+     * @attr name com.messi.languagehelper:donut_suffix_text
      */
     public static final int DonutProgress_donut_suffix_text=12;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#donut_text}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_text}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:donut_text
+     * @attr name com.messi.languagehelper:donut_text
      */
     public static final int DonutProgress_donut_text=13;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#donut_text_color}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_text_color}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:donut_text_color
+     * @attr name com.messi.languagehelper:donut_text_color
      */
     public static final int DonutProgress_donut_text_color=14;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#donut_text_size}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_text_size}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11812,22 +11812,22 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:donut_text_size
+     * @attr name com.messi.languagehelper:donut_text_size
      */
     public static final int DonutProgress_donut_text_size=15;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#donut_unfinished_color}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_unfinished_color}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:donut_unfinished_color
+     * @attr name com.messi.languagehelper:donut_unfinished_color
      */
     public static final int DonutProgress_donut_unfinished_color=16;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#donut_unfinished_stroke_width}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donut_unfinished_stroke_width}
      * attribute's value can be found in the {@link #DonutProgress} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11836,7 +11836,7 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:donut_unfinished_stroke_width
+     * @attr name com.messi.languagehelper:donut_unfinished_stroke_width
      */
     public static final int DonutProgress_donut_unfinished_stroke_width=17;
     /**
@@ -11846,14 +11846,14 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #DrawerArrowToggle_arrowHeadLength com.messi.learnenglish:arrowHeadLength}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DrawerArrowToggle_arrowShaftLength com.messi.learnenglish:arrowShaftLength}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DrawerArrowToggle_barLength com.messi.learnenglish:barLength}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DrawerArrowToggle_color com.messi.learnenglish:color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DrawerArrowToggle_drawableSize com.messi.learnenglish:drawableSize}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DrawerArrowToggle_gapBetweenBars com.messi.learnenglish:gapBetweenBars}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DrawerArrowToggle_spinBars com.messi.learnenglish:spinBars}</code></td><td></td></tr>
-     * <tr><td><code>{@link #DrawerArrowToggle_thickness com.messi.learnenglish:thickness}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DrawerArrowToggle_arrowHeadLength com.messi.languagehelper:arrowHeadLength}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DrawerArrowToggle_arrowShaftLength com.messi.languagehelper:arrowShaftLength}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DrawerArrowToggle_barLength com.messi.languagehelper:barLength}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DrawerArrowToggle_color com.messi.languagehelper:color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DrawerArrowToggle_drawableSize com.messi.languagehelper:drawableSize}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DrawerArrowToggle_gapBetweenBars com.messi.languagehelper:gapBetweenBars}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DrawerArrowToggle_spinBars com.messi.languagehelper:spinBars}</code></td><td></td></tr>
+     * <tr><td><code>{@link #DrawerArrowToggle_thickness com.messi.languagehelper:thickness}</code></td><td></td></tr>
      * </table>
      * @see #DrawerArrowToggle_arrowHeadLength
      * @see #DrawerArrowToggle_arrowShaftLength
@@ -11869,7 +11869,7 @@ public final class R {
         0x7f0300be, 0x7f0300ef, 0x7f0301ad, 0x7f0301e5
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#arrowHeadLength}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arrowHeadLength}
      * attribute's value can be found in the {@link #DrawerArrowToggle} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11878,11 +11878,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:arrowHeadLength
+     * @attr name com.messi.languagehelper:arrowHeadLength
      */
     public static final int DrawerArrowToggle_arrowHeadLength=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#arrowShaftLength}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arrowShaftLength}
      * attribute's value can be found in the {@link #DrawerArrowToggle} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11891,11 +11891,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:arrowShaftLength
+     * @attr name com.messi.languagehelper:arrowShaftLength
      */
     public static final int DrawerArrowToggle_arrowShaftLength=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#barLength}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#barLength}
      * attribute's value can be found in the {@link #DrawerArrowToggle} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11904,22 +11904,22 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:barLength
+     * @attr name com.messi.languagehelper:barLength
      */
     public static final int DrawerArrowToggle_barLength=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#color}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#color}
      * attribute's value can be found in the {@link #DrawerArrowToggle} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:color
+     * @attr name com.messi.languagehelper:color
      */
     public static final int DrawerArrowToggle_color=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#drawableSize}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#drawableSize}
      * attribute's value can be found in the {@link #DrawerArrowToggle} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11928,11 +11928,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:drawableSize
+     * @attr name com.messi.languagehelper:drawableSize
      */
     public static final int DrawerArrowToggle_drawableSize=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#gapBetweenBars}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#gapBetweenBars}
      * attribute's value can be found in the {@link #DrawerArrowToggle} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11941,21 +11941,21 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:gapBetweenBars
+     * @attr name com.messi.languagehelper:gapBetweenBars
      */
     public static final int DrawerArrowToggle_gapBetweenBars=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#spinBars}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#spinBars}
      * attribute's value can be found in the {@link #DrawerArrowToggle} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:spinBars
+     * @attr name com.messi.languagehelper:spinBars
      */
     public static final int DrawerArrowToggle_spinBars=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#thickness}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#thickness}
      * attribute's value can be found in the {@link #DrawerArrowToggle} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -11964,7 +11964,7 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:thickness
+     * @attr name com.messi.languagehelper:thickness
      */
     public static final int DrawerArrowToggle_thickness=7;
     /**
@@ -11974,7 +11974,7 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #Fade_fadingMode com.messi.learnenglish:fadingMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Fade_fadingMode com.messi.languagehelper:fadingMode}</code></td><td></td></tr>
      * </table>
      * @see #Fade_fadingMode
      */
@@ -11982,7 +11982,7 @@ public final class R {
         0x7f0300d8
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#fadingMode}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fadingMode}
      * attribute's value can be found in the {@link #Fade} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -11996,7 +11996,7 @@ public final class R {
      * <tr><td>fade_out</td><td>2</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:fadingMode
+     * @attr name com.messi.languagehelper:fadingMode
      */
     public static final int Fade_fadingMode=0;
     /**
@@ -12006,17 +12006,17 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #FlexboxLayout_alignContent com.messi.learnenglish:alignContent}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_alignItems com.messi.learnenglish:alignItems}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_dividerDrawable com.messi.learnenglish:dividerDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_dividerDrawableHorizontal com.messi.learnenglish:dividerDrawableHorizontal}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_dividerDrawableVertical com.messi.learnenglish:dividerDrawableVertical}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_flexDirection com.messi.learnenglish:flexDirection}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_flexWrap com.messi.learnenglish:flexWrap}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_justifyContent com.messi.learnenglish:justifyContent}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_showDivider com.messi.learnenglish:showDivider}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_showDividerHorizontal com.messi.learnenglish:showDividerHorizontal}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_showDividerVertical com.messi.learnenglish:showDividerVertical}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_alignContent com.messi.languagehelper:alignContent}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_alignItems com.messi.languagehelper:alignItems}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_dividerDrawable com.messi.languagehelper:dividerDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_dividerDrawableHorizontal com.messi.languagehelper:dividerDrawableHorizontal}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_dividerDrawableVertical com.messi.languagehelper:dividerDrawableVertical}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_flexDirection com.messi.languagehelper:flexDirection}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_flexWrap com.messi.languagehelper:flexWrap}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_justifyContent com.messi.languagehelper:justifyContent}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_showDivider com.messi.languagehelper:showDivider}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_showDividerHorizontal com.messi.languagehelper:showDividerHorizontal}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_showDividerVertical com.messi.languagehelper:showDividerVertical}</code></td><td></td></tr>
      * </table>
      * @see #FlexboxLayout_alignContent
      * @see #FlexboxLayout_alignItems
@@ -12036,7 +12036,7 @@ public final class R {
         0x7f0301a0, 0x7f0301a1, 0x7f0301a2
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#alignContent}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#alignContent}
      * attribute's value can be found in the {@link #FlexboxLayout} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -12053,11 +12053,11 @@ public final class R {
      * <tr><td>stretch</td><td>5</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:alignContent
+     * @attr name com.messi.languagehelper:alignContent
      */
     public static final int FlexboxLayout_alignContent=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#alignItems}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#alignItems}
      * attribute's value can be found in the {@link #FlexboxLayout} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -12073,11 +12073,11 @@ public final class R {
      * <tr><td>stretch</td><td>4</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:alignItems
+     * @attr name com.messi.languagehelper:alignItems
      */
     public static final int FlexboxLayout_alignItems=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#dividerDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#dividerDrawable}
      * attribute's value can be found in the {@link #FlexboxLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -12085,11 +12085,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:dividerDrawable
+     * @attr name com.messi.languagehelper:dividerDrawable
      */
     public static final int FlexboxLayout_dividerDrawable=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#dividerDrawableHorizontal}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#dividerDrawableHorizontal}
      * attribute's value can be found in the {@link #FlexboxLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -12097,11 +12097,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:dividerDrawableHorizontal
+     * @attr name com.messi.languagehelper:dividerDrawableHorizontal
      */
     public static final int FlexboxLayout_dividerDrawableHorizontal=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#dividerDrawableVertical}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#dividerDrawableVertical}
      * attribute's value can be found in the {@link #FlexboxLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -12109,11 +12109,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:dividerDrawableVertical
+     * @attr name com.messi.languagehelper:dividerDrawableVertical
      */
     public static final int FlexboxLayout_dividerDrawableVertical=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#flexDirection}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#flexDirection}
      * attribute's value can be found in the {@link #FlexboxLayout} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -12128,11 +12128,11 @@ public final class R {
      * <tr><td>row_reverse</td><td>1</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:flexDirection
+     * @attr name com.messi.languagehelper:flexDirection
      */
     public static final int FlexboxLayout_flexDirection=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#flexWrap}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#flexWrap}
      * attribute's value can be found in the {@link #FlexboxLayout} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -12146,11 +12146,11 @@ public final class R {
      * <tr><td>wrap_reverse</td><td>2</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:flexWrap
+     * @attr name com.messi.languagehelper:flexWrap
      */
     public static final int FlexboxLayout_flexWrap=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#justifyContent}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#justifyContent}
      * attribute's value can be found in the {@link #FlexboxLayout} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -12166,11 +12166,11 @@ public final class R {
      * <tr><td>space_between</td><td>3</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:justifyContent
+     * @attr name com.messi.languagehelper:justifyContent
      */
     public static final int FlexboxLayout_justifyContent=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#showDivider}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#showDivider}
      * attribute's value can be found in the {@link #FlexboxLayout} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -12185,11 +12185,11 @@ public final class R {
      * <tr><td>none</td><td>0</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:showDivider
+     * @attr name com.messi.languagehelper:showDivider
      */
     public static final int FlexboxLayout_showDivider=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#showDividerHorizontal}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#showDividerHorizontal}
      * attribute's value can be found in the {@link #FlexboxLayout} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -12204,11 +12204,11 @@ public final class R {
      * <tr><td>none</td><td>0</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:showDividerHorizontal
+     * @attr name com.messi.languagehelper:showDividerHorizontal
      */
     public static final int FlexboxLayout_showDividerHorizontal=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#showDividerVertical}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#showDividerVertical}
      * attribute's value can be found in the {@link #FlexboxLayout} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -12223,7 +12223,7 @@ public final class R {
      * <tr><td>none</td><td>0</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:showDividerVertical
+     * @attr name com.messi.languagehelper:showDividerVertical
      */
     public static final int FlexboxLayout_showDividerVertical=10;
     /**
@@ -12233,16 +12233,16 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_alignSelf com.messi.learnenglish:layout_alignSelf}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_flexBasisPercent com.messi.learnenglish:layout_flexBasisPercent}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_flexGrow com.messi.learnenglish:layout_flexGrow}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_flexShrink com.messi.learnenglish:layout_flexShrink}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_maxHeight com.messi.learnenglish:layout_maxHeight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_maxWidth com.messi.learnenglish:layout_maxWidth}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_minHeight com.messi.learnenglish:layout_minHeight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_minWidth com.messi.learnenglish:layout_minWidth}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_order com.messi.learnenglish:layout_order}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_wrapBefore com.messi.learnenglish:layout_wrapBefore}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_alignSelf com.messi.languagehelper:layout_alignSelf}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_flexBasisPercent com.messi.languagehelper:layout_flexBasisPercent}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_flexGrow com.messi.languagehelper:layout_flexGrow}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_flexShrink com.messi.languagehelper:layout_flexShrink}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_maxHeight com.messi.languagehelper:layout_maxHeight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_maxWidth com.messi.languagehelper:layout_maxWidth}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_minHeight com.messi.languagehelper:layout_minHeight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_minWidth com.messi.languagehelper:layout_minWidth}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_order com.messi.languagehelper:layout_order}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FlexboxLayout_Layout_layout_wrapBefore com.messi.languagehelper:layout_wrapBefore}</code></td><td></td></tr>
      * </table>
      * @see #FlexboxLayout_Layout_layout_alignSelf
      * @see #FlexboxLayout_Layout_layout_flexBasisPercent
@@ -12261,7 +12261,7 @@ public final class R {
         0x7f03011e, 0x7f030121
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#layout_alignSelf}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_alignSelf}
      * attribute's value can be found in the {@link #FlexboxLayout_Layout} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -12278,11 +12278,11 @@ public final class R {
      * <tr><td>stretch</td><td>4</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:layout_alignSelf
+     * @attr name com.messi.languagehelper:layout_alignSelf
      */
     public static final int FlexboxLayout_Layout_layout_alignSelf=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#layout_flexBasisPercent}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_flexBasisPercent}
      * attribute's value can be found in the {@link #FlexboxLayout_Layout} array.
      *
      * <p>May be a fractional value, which is a floating point number appended with
@@ -12290,29 +12290,29 @@ public final class R {
      * The % suffix always means a percentage of the base size;
      * the optional %p suffix provides a size relative to some parent container.
      *
-     * @attr name com.messi.learnenglish:layout_flexBasisPercent
+     * @attr name com.messi.languagehelper:layout_flexBasisPercent
      */
     public static final int FlexboxLayout_Layout_layout_flexBasisPercent=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#layout_flexGrow}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_flexGrow}
      * attribute's value can be found in the {@link #FlexboxLayout_Layout} array.
      *
      * <p>May be a floating point value, such as "<code>1.2</code>".
      *
-     * @attr name com.messi.learnenglish:layout_flexGrow
+     * @attr name com.messi.languagehelper:layout_flexGrow
      */
     public static final int FlexboxLayout_Layout_layout_flexGrow=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#layout_flexShrink}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_flexShrink}
      * attribute's value can be found in the {@link #FlexboxLayout_Layout} array.
      *
      * <p>May be a floating point value, such as "<code>1.2</code>".
      *
-     * @attr name com.messi.learnenglish:layout_flexShrink
+     * @attr name com.messi.languagehelper:layout_flexShrink
      */
     public static final int FlexboxLayout_Layout_layout_flexShrink=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#layout_maxHeight}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_maxHeight}
      * attribute's value can be found in the {@link #FlexboxLayout_Layout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -12321,11 +12321,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:layout_maxHeight
+     * @attr name com.messi.languagehelper:layout_maxHeight
      */
     public static final int FlexboxLayout_Layout_layout_maxHeight=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#layout_maxWidth}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_maxWidth}
      * attribute's value can be found in the {@link #FlexboxLayout_Layout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -12334,11 +12334,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:layout_maxWidth
+     * @attr name com.messi.languagehelper:layout_maxWidth
      */
     public static final int FlexboxLayout_Layout_layout_maxWidth=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#layout_minHeight}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_minHeight}
      * attribute's value can be found in the {@link #FlexboxLayout_Layout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -12347,11 +12347,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:layout_minHeight
+     * @attr name com.messi.languagehelper:layout_minHeight
      */
     public static final int FlexboxLayout_Layout_layout_minHeight=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#layout_minWidth}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_minWidth}
      * attribute's value can be found in the {@link #FlexboxLayout_Layout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -12360,26 +12360,26 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:layout_minWidth
+     * @attr name com.messi.languagehelper:layout_minWidth
      */
     public static final int FlexboxLayout_Layout_layout_minWidth=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#layout_order}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_order}
      * attribute's value can be found in the {@link #FlexboxLayout_Layout} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.learnenglish:layout_order
+     * @attr name com.messi.languagehelper:layout_order
      */
     public static final int FlexboxLayout_Layout_layout_order=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#layout_wrapBefore}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout_wrapBefore}
      * attribute's value can be found in the {@link #FlexboxLayout_Layout} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:layout_wrapBefore
+     * @attr name com.messi.languagehelper:layout_wrapBefore
      */
     public static final int FlexboxLayout_Layout_layout_wrapBefore=9;
     /**
@@ -12389,15 +12389,15 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #FloatingActionButton_backgroundTint com.messi.learnenglish:backgroundTint}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FloatingActionButton_backgroundTintMode com.messi.learnenglish:backgroundTintMode}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FloatingActionButton_borderWidth com.messi.learnenglish:borderWidth}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FloatingActionButton_elevation com.messi.learnenglish:elevation}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FloatingActionButton_fabCustomSize com.messi.learnenglish:fabCustomSize}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FloatingActionButton_fabSize com.messi.learnenglish:fabSize}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FloatingActionButton_pressedTranslationZ com.messi.learnenglish:pressedTranslationZ}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FloatingActionButton_rippleColor com.messi.learnenglish:rippleColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FloatingActionButton_useCompatPadding com.messi.learnenglish:useCompatPadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FloatingActionButton_backgroundTint com.messi.languagehelper:backgroundTint}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FloatingActionButton_backgroundTintMode com.messi.languagehelper:backgroundTintMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FloatingActionButton_borderWidth com.messi.languagehelper:borderWidth}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FloatingActionButton_elevation com.messi.languagehelper:elevation}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FloatingActionButton_fabCustomSize com.messi.languagehelper:fabCustomSize}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FloatingActionButton_fabSize com.messi.languagehelper:fabSize}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FloatingActionButton_pressedTranslationZ com.messi.languagehelper:pressedTranslationZ}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FloatingActionButton_rippleColor com.messi.languagehelper:rippleColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FloatingActionButton_useCompatPadding com.messi.languagehelper:useCompatPadding}</code></td><td></td></tr>
      * </table>
      * @see #FloatingActionButton_backgroundTint
      * @see #FloatingActionButton_backgroundTintMode
@@ -12415,18 +12415,18 @@ public final class R {
         0x7f030208
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#backgroundTint}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#backgroundTint}
      * attribute's value can be found in the {@link #FloatingActionButton} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:backgroundTint
+     * @attr name com.messi.languagehelper:backgroundTint
      */
     public static final int FloatingActionButton_backgroundTint=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#backgroundTintMode}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#backgroundTintMode}
      * attribute's value can be found in the {@link #FloatingActionButton} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -12443,11 +12443,11 @@ public final class R {
      * <tr><td>src_over</td><td>3</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:backgroundTintMode
+     * @attr name com.messi.languagehelper:backgroundTintMode
      */
     public static final int FloatingActionButton_backgroundTintMode=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#borderWidth}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#borderWidth}
      * attribute's value can be found in the {@link #FloatingActionButton} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -12456,11 +12456,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:borderWidth
+     * @attr name com.messi.languagehelper:borderWidth
      */
     public static final int FloatingActionButton_borderWidth=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#elevation}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#elevation}
      * attribute's value can be found in the {@link #FloatingActionButton} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -12469,11 +12469,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:elevation
+     * @attr name com.messi.languagehelper:elevation
      */
     public static final int FloatingActionButton_elevation=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#fabCustomSize}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fabCustomSize}
      * attribute's value can be found in the {@link #FloatingActionButton} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -12482,11 +12482,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:fabCustomSize
+     * @attr name com.messi.languagehelper:fabCustomSize
      */
     public static final int FloatingActionButton_fabCustomSize=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#fabSize}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fabSize}
      * attribute's value can be found in the {@link #FloatingActionButton} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -12500,11 +12500,11 @@ public final class R {
      * <tr><td>normal</td><td>0</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:fabSize
+     * @attr name com.messi.languagehelper:fabSize
      */
     public static final int FloatingActionButton_fabSize=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#pressedTranslationZ}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pressedTranslationZ}
      * attribute's value can be found in the {@link #FloatingActionButton} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -12513,28 +12513,28 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:pressedTranslationZ
+     * @attr name com.messi.languagehelper:pressedTranslationZ
      */
     public static final int FloatingActionButton_pressedTranslationZ=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#rippleColor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#rippleColor}
      * attribute's value can be found in the {@link #FloatingActionButton} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:rippleColor
+     * @attr name com.messi.languagehelper:rippleColor
      */
     public static final int FloatingActionButton_rippleColor=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#useCompatPadding}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#useCompatPadding}
      * attribute's value can be found in the {@link #FloatingActionButton} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:useCompatPadding
+     * @attr name com.messi.languagehelper:useCompatPadding
      */
     public static final int FloatingActionButton_useCompatPadding=8;
     /**
@@ -12544,7 +12544,7 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #FloatingActionButton_Behavior_Layout_behavior_autoHide com.messi.learnenglish:behavior_autoHide}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FloatingActionButton_Behavior_Layout_behavior_autoHide com.messi.languagehelper:behavior_autoHide}</code></td><td></td></tr>
      * </table>
      * @see #FloatingActionButton_Behavior_Layout_behavior_autoHide
      */
@@ -12552,13 +12552,13 @@ public final class R {
         0x7f03004f
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#behavior_autoHide}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#behavior_autoHide}
      * attribute's value can be found in the {@link #FloatingActionButton_Behavior_Layout} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:behavior_autoHide
+     * @attr name com.messi.languagehelper:behavior_autoHide
      */
     public static final int FloatingActionButton_Behavior_Layout_behavior_autoHide=0;
     /**
@@ -12568,12 +12568,12 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #FontFamily_fontProviderAuthority com.messi.learnenglish:fontProviderAuthority}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FontFamily_fontProviderCerts com.messi.learnenglish:fontProviderCerts}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FontFamily_fontProviderFetchStrategy com.messi.learnenglish:fontProviderFetchStrategy}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FontFamily_fontProviderFetchTimeout com.messi.learnenglish:fontProviderFetchTimeout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FontFamily_fontProviderPackage com.messi.learnenglish:fontProviderPackage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FontFamily_fontProviderQuery com.messi.learnenglish:fontProviderQuery}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FontFamily_fontProviderAuthority com.messi.languagehelper:fontProviderAuthority}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FontFamily_fontProviderCerts com.messi.languagehelper:fontProviderCerts}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FontFamily_fontProviderFetchStrategy com.messi.languagehelper:fontProviderFetchStrategy}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FontFamily_fontProviderFetchTimeout com.messi.languagehelper:fontProviderFetchTimeout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FontFamily_fontProviderPackage com.messi.languagehelper:fontProviderPackage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FontFamily_fontProviderQuery com.messi.languagehelper:fontProviderQuery}</code></td><td></td></tr>
      * </table>
      * @see #FontFamily_fontProviderAuthority
      * @see #FontFamily_fontProviderCerts
@@ -12587,17 +12587,17 @@ public final class R {
         0x7f0300e9, 0x7f0300ea
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#fontProviderAuthority}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fontProviderAuthority}
      * attribute's value can be found in the {@link #FontFamily} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:fontProviderAuthority
+     * @attr name com.messi.languagehelper:fontProviderAuthority
      */
     public static final int FontFamily_fontProviderAuthority=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#fontProviderCerts}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fontProviderCerts}
      * attribute's value can be found in the {@link #FontFamily} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -12605,11 +12605,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:fontProviderCerts
+     * @attr name com.messi.languagehelper:fontProviderCerts
      */
     public static final int FontFamily_fontProviderCerts=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#fontProviderFetchStrategy}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fontProviderFetchStrategy}
      * attribute's value can be found in the {@link #FontFamily} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -12622,11 +12622,11 @@ public final class R {
      * <tr><td>blocking</td><td>0</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:fontProviderFetchStrategy
+     * @attr name com.messi.languagehelper:fontProviderFetchStrategy
      */
     public static final int FontFamily_fontProviderFetchStrategy=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#fontProviderFetchTimeout}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fontProviderFetchTimeout}
      * attribute's value can be found in the {@link #FontFamily} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
@@ -12639,27 +12639,27 @@ public final class R {
      * <tr><td>forever</td><td>ffffffff</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:fontProviderFetchTimeout
+     * @attr name com.messi.languagehelper:fontProviderFetchTimeout
      */
     public static final int FontFamily_fontProviderFetchTimeout=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#fontProviderPackage}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fontProviderPackage}
      * attribute's value can be found in the {@link #FontFamily} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:fontProviderPackage
+     * @attr name com.messi.languagehelper:fontProviderPackage
      */
     public static final int FontFamily_fontProviderPackage=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#fontProviderQuery}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fontProviderQuery}
      * attribute's value can be found in the {@link #FontFamily} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:fontProviderQuery
+     * @attr name com.messi.languagehelper:fontProviderQuery
      */
     public static final int FontFamily_fontProviderQuery=5;
     /**
@@ -12672,9 +12672,9 @@ public final class R {
      * <tr><td><code>{@link #FontFamilyFont_android_font android:font}</code></td><td></td></tr>
      * <tr><td><code>{@link #FontFamilyFont_android_fontWeight android:fontWeight}</code></td><td></td></tr>
      * <tr><td><code>{@link #FontFamilyFont_android_fontStyle android:fontStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FontFamilyFont_font com.messi.learnenglish:font}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FontFamilyFont_fontStyle com.messi.learnenglish:fontStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #FontFamilyFont_fontWeight com.messi.learnenglish:fontWeight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FontFamilyFont_font com.messi.languagehelper:font}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FontFamilyFont_fontStyle com.messi.languagehelper:fontStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #FontFamilyFont_fontWeight com.messi.languagehelper:fontWeight}</code></td><td></td></tr>
      * </table>
      * @see #FontFamilyFont_android_font
      * @see #FontFamilyFont_android_fontWeight
@@ -12726,7 +12726,7 @@ public final class R {
      */
     public static final int FontFamilyFont_android_fontStyle=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#font}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#font}
      * attribute's value can be found in the {@link #FontFamilyFont} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -12734,11 +12734,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:font
+     * @attr name com.messi.languagehelper:font
      */
     public static final int FontFamilyFont_font=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#fontStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fontStyle}
      * attribute's value can be found in the {@link #FontFamilyFont} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -12751,16 +12751,16 @@ public final class R {
      * <tr><td>normal</td><td>0</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:fontStyle
+     * @attr name com.messi.languagehelper:fontStyle
      */
     public static final int FontFamilyFont_fontStyle=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#fontWeight}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fontWeight}
      * attribute's value can be found in the {@link #FontFamilyFont} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.learnenglish:fontWeight
+     * @attr name com.messi.languagehelper:fontWeight
      */
     public static final int FontFamilyFont_fontWeight=5;
     /**
@@ -12772,7 +12772,7 @@ public final class R {
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #ForegroundLinearLayout_android_foreground android:foreground}</code></td><td></td></tr>
      * <tr><td><code>{@link #ForegroundLinearLayout_android_foregroundGravity android:foregroundGravity}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ForegroundLinearLayout_foregroundInsidePadding com.messi.learnenglish:foregroundInsidePadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ForegroundLinearLayout_foregroundInsidePadding com.messi.languagehelper:foregroundInsidePadding}</code></td><td></td></tr>
      * </table>
      * @see #ForegroundLinearLayout_android_foreground
      * @see #ForegroundLinearLayout_android_foregroundGravity
@@ -12824,13 +12824,13 @@ public final class R {
      */
     public static final int ForegroundLinearLayout_android_foregroundGravity=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#foregroundInsidePadding}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#foregroundInsidePadding}
      * attribute's value can be found in the {@link #ForegroundLinearLayout} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:foregroundInsidePadding
+     * @attr name com.messi.languagehelper:foregroundInsidePadding
      */
     public static final int ForegroundLinearLayout_foregroundInsidePadding=2;
     /**
@@ -12840,35 +12840,35 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_actualImageScaleType com.messi.learnenglish:actualImageScaleType}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_backgroundImage com.messi.learnenglish:backgroundImage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_fadeDuration com.messi.learnenglish:fadeDuration}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_failureImage com.messi.learnenglish:failureImage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_failureImageScaleType com.messi.learnenglish:failureImageScaleType}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_overlayImage com.messi.learnenglish:overlayImage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_placeholderImage com.messi.learnenglish:placeholderImage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_placeholderImageScaleType com.messi.learnenglish:placeholderImageScaleType}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_pressedStateOverlayImage com.messi.learnenglish:pressedStateOverlayImage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_progressBarAutoRotateInterval com.messi.learnenglish:progressBarAutoRotateInterval}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_progressBarImage com.messi.learnenglish:progressBarImage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_progressBarImageScaleType com.messi.learnenglish:progressBarImageScaleType}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_retryImage com.messi.learnenglish:retryImage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_retryImageScaleType com.messi.learnenglish:retryImageScaleType}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_roundAsCircle com.messi.learnenglish:roundAsCircle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_roundBottomEnd com.messi.learnenglish:roundBottomEnd}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_roundBottomLeft com.messi.learnenglish:roundBottomLeft}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_roundBottomRight com.messi.learnenglish:roundBottomRight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_roundBottomStart com.messi.learnenglish:roundBottomStart}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_roundTopEnd com.messi.learnenglish:roundTopEnd}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_roundTopLeft com.messi.learnenglish:roundTopLeft}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_roundTopRight com.messi.learnenglish:roundTopRight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_roundTopStart com.messi.learnenglish:roundTopStart}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_roundWithOverlayColor com.messi.learnenglish:roundWithOverlayColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_roundedCornerRadius com.messi.learnenglish:roundedCornerRadius}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_roundingBorderColor com.messi.learnenglish:roundingBorderColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_roundingBorderPadding com.messi.learnenglish:roundingBorderPadding}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_roundingBorderWidth com.messi.learnenglish:roundingBorderWidth}</code></td><td></td></tr>
-     * <tr><td><code>{@link #GenericDraweeHierarchy_viewAspectRatio com.messi.learnenglish:viewAspectRatio}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_actualImageScaleType com.messi.languagehelper:actualImageScaleType}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_backgroundImage com.messi.languagehelper:backgroundImage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_fadeDuration com.messi.languagehelper:fadeDuration}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_failureImage com.messi.languagehelper:failureImage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_failureImageScaleType com.messi.languagehelper:failureImageScaleType}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_overlayImage com.messi.languagehelper:overlayImage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_placeholderImage com.messi.languagehelper:placeholderImage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_placeholderImageScaleType com.messi.languagehelper:placeholderImageScaleType}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_pressedStateOverlayImage com.messi.languagehelper:pressedStateOverlayImage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_progressBarAutoRotateInterval com.messi.languagehelper:progressBarAutoRotateInterval}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_progressBarImage com.messi.languagehelper:progressBarImage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_progressBarImageScaleType com.messi.languagehelper:progressBarImageScaleType}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_retryImage com.messi.languagehelper:retryImage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_retryImageScaleType com.messi.languagehelper:retryImageScaleType}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_roundAsCircle com.messi.languagehelper:roundAsCircle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_roundBottomEnd com.messi.languagehelper:roundBottomEnd}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_roundBottomLeft com.messi.languagehelper:roundBottomLeft}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_roundBottomRight com.messi.languagehelper:roundBottomRight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_roundBottomStart com.messi.languagehelper:roundBottomStart}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_roundTopEnd com.messi.languagehelper:roundTopEnd}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_roundTopLeft com.messi.languagehelper:roundTopLeft}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_roundTopRight com.messi.languagehelper:roundTopRight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_roundTopStart com.messi.languagehelper:roundTopStart}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_roundWithOverlayColor com.messi.languagehelper:roundWithOverlayColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_roundedCornerRadius com.messi.languagehelper:roundedCornerRadius}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_roundingBorderColor com.messi.languagehelper:roundingBorderColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_roundingBorderPadding com.messi.languagehelper:roundingBorderPadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_roundingBorderWidth com.messi.languagehelper:roundingBorderWidth}</code></td><td></td></tr>
+     * <tr><td><code>{@link #GenericDraweeHierarchy_viewAspectRatio com.messi.languagehelper:viewAspectRatio}</code></td><td></td></tr>
      * </table>
      * @see #GenericDraweeHierarchy_actualImageScaleType
      * @see #GenericDraweeHierarchy_backgroundImage
@@ -12911,7 +12911,7 @@ public final class R {
         0x7f03020b
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actualImageScaleType}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actualImageScaleType}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -12932,11 +12932,11 @@ public final class R {
      * <tr><td>none</td><td>ffffffff</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:actualImageScaleType
+     * @attr name com.messi.languagehelper:actualImageScaleType
      */
     public static final int GenericDraweeHierarchy_actualImageScaleType=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#backgroundImage}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#backgroundImage}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -12944,20 +12944,20 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:backgroundImage
+     * @attr name com.messi.languagehelper:backgroundImage
      */
     public static final int GenericDraweeHierarchy_backgroundImage=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#fadeDuration}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fadeDuration}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.learnenglish:fadeDuration
+     * @attr name com.messi.languagehelper:fadeDuration
      */
     public static final int GenericDraweeHierarchy_fadeDuration=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#failureImage}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#failureImage}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -12965,11 +12965,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:failureImage
+     * @attr name com.messi.languagehelper:failureImage
      */
     public static final int GenericDraweeHierarchy_failureImage=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#failureImageScaleType}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#failureImageScaleType}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -12990,11 +12990,11 @@ public final class R {
      * <tr><td>none</td><td>ffffffff</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:failureImageScaleType
+     * @attr name com.messi.languagehelper:failureImageScaleType
      */
     public static final int GenericDraweeHierarchy_failureImageScaleType=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#overlayImage}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#overlayImage}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -13002,11 +13002,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:overlayImage
+     * @attr name com.messi.languagehelper:overlayImage
      */
     public static final int GenericDraweeHierarchy_overlayImage=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#placeholderImage}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#placeholderImage}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -13014,11 +13014,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:placeholderImage
+     * @attr name com.messi.languagehelper:placeholderImage
      */
     public static final int GenericDraweeHierarchy_placeholderImage=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#placeholderImageScaleType}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#placeholderImageScaleType}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -13039,11 +13039,11 @@ public final class R {
      * <tr><td>none</td><td>ffffffff</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:placeholderImageScaleType
+     * @attr name com.messi.languagehelper:placeholderImageScaleType
      */
     public static final int GenericDraweeHierarchy_placeholderImageScaleType=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#pressedStateOverlayImage}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pressedStateOverlayImage}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -13051,20 +13051,20 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:pressedStateOverlayImage
+     * @attr name com.messi.languagehelper:pressedStateOverlayImage
      */
     public static final int GenericDraweeHierarchy_pressedStateOverlayImage=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#progressBarAutoRotateInterval}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progressBarAutoRotateInterval}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.learnenglish:progressBarAutoRotateInterval
+     * @attr name com.messi.languagehelper:progressBarAutoRotateInterval
      */
     public static final int GenericDraweeHierarchy_progressBarAutoRotateInterval=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#progressBarImage}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progressBarImage}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -13072,11 +13072,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:progressBarImage
+     * @attr name com.messi.languagehelper:progressBarImage
      */
     public static final int GenericDraweeHierarchy_progressBarImage=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#progressBarImageScaleType}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progressBarImageScaleType}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -13097,11 +13097,11 @@ public final class R {
      * <tr><td>none</td><td>ffffffff</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:progressBarImageScaleType
+     * @attr name com.messi.languagehelper:progressBarImageScaleType
      */
     public static final int GenericDraweeHierarchy_progressBarImageScaleType=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#retryImage}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#retryImage}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -13109,11 +13109,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:retryImage
+     * @attr name com.messi.languagehelper:retryImage
      */
     public static final int GenericDraweeHierarchy_retryImage=12;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#retryImageScaleType}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#retryImageScaleType}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -13134,112 +13134,112 @@ public final class R {
      * <tr><td>none</td><td>ffffffff</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:retryImageScaleType
+     * @attr name com.messi.languagehelper:retryImageScaleType
      */
     public static final int GenericDraweeHierarchy_retryImageScaleType=13;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#roundAsCircle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundAsCircle}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:roundAsCircle
+     * @attr name com.messi.languagehelper:roundAsCircle
      */
     public static final int GenericDraweeHierarchy_roundAsCircle=14;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#roundBottomEnd}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundBottomEnd}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:roundBottomEnd
+     * @attr name com.messi.languagehelper:roundBottomEnd
      */
     public static final int GenericDraweeHierarchy_roundBottomEnd=15;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#roundBottomLeft}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundBottomLeft}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:roundBottomLeft
+     * @attr name com.messi.languagehelper:roundBottomLeft
      */
     public static final int GenericDraweeHierarchy_roundBottomLeft=16;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#roundBottomRight}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundBottomRight}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:roundBottomRight
+     * @attr name com.messi.languagehelper:roundBottomRight
      */
     public static final int GenericDraweeHierarchy_roundBottomRight=17;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#roundBottomStart}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundBottomStart}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:roundBottomStart
+     * @attr name com.messi.languagehelper:roundBottomStart
      */
     public static final int GenericDraweeHierarchy_roundBottomStart=18;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#roundTopEnd}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundTopEnd}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:roundTopEnd
+     * @attr name com.messi.languagehelper:roundTopEnd
      */
     public static final int GenericDraweeHierarchy_roundTopEnd=19;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#roundTopLeft}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundTopLeft}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:roundTopLeft
+     * @attr name com.messi.languagehelper:roundTopLeft
      */
     public static final int GenericDraweeHierarchy_roundTopLeft=20;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#roundTopRight}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundTopRight}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:roundTopRight
+     * @attr name com.messi.languagehelper:roundTopRight
      */
     public static final int GenericDraweeHierarchy_roundTopRight=21;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#roundTopStart}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundTopStart}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:roundTopStart
+     * @attr name com.messi.languagehelper:roundTopStart
      */
     public static final int GenericDraweeHierarchy_roundTopStart=22;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#roundWithOverlayColor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundWithOverlayColor}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:roundWithOverlayColor
+     * @attr name com.messi.languagehelper:roundWithOverlayColor
      */
     public static final int GenericDraweeHierarchy_roundWithOverlayColor=23;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#roundedCornerRadius}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundedCornerRadius}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -13248,22 +13248,22 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:roundedCornerRadius
+     * @attr name com.messi.languagehelper:roundedCornerRadius
      */
     public static final int GenericDraweeHierarchy_roundedCornerRadius=24;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#roundingBorderColor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundingBorderColor}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:roundingBorderColor
+     * @attr name com.messi.languagehelper:roundingBorderColor
      */
     public static final int GenericDraweeHierarchy_roundingBorderColor=25;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#roundingBorderPadding}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundingBorderPadding}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -13272,11 +13272,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:roundingBorderPadding
+     * @attr name com.messi.languagehelper:roundingBorderPadding
      */
     public static final int GenericDraweeHierarchy_roundingBorderPadding=26;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#roundingBorderWidth}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundingBorderWidth}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -13285,16 +13285,16 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:roundingBorderWidth
+     * @attr name com.messi.languagehelper:roundingBorderWidth
      */
     public static final int GenericDraweeHierarchy_roundingBorderWidth=27;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#viewAspectRatio}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#viewAspectRatio}
      * attribute's value can be found in the {@link #GenericDraweeHierarchy} array.
      *
      * <p>May be a floating point value, such as "<code>1.2</code>".
      *
-     * @attr name com.messi.learnenglish:viewAspectRatio
+     * @attr name com.messi.languagehelper:viewAspectRatio
      */
     public static final int GenericDraweeHierarchy_viewAspectRatio=28;
     /**
@@ -13309,10 +13309,10 @@ public final class R {
      * <tr><td><code>{@link #LinearLayoutCompat_android_baselineAligned android:baselineAligned}</code></td><td></td></tr>
      * <tr><td><code>{@link #LinearLayoutCompat_android_baselineAlignedChildIndex android:baselineAlignedChildIndex}</code></td><td></td></tr>
      * <tr><td><code>{@link #LinearLayoutCompat_android_weightSum android:weightSum}</code></td><td></td></tr>
-     * <tr><td><code>{@link #LinearLayoutCompat_divider com.messi.learnenglish:divider}</code></td><td></td></tr>
-     * <tr><td><code>{@link #LinearLayoutCompat_dividerPadding com.messi.learnenglish:dividerPadding}</code></td><td></td></tr>
-     * <tr><td><code>{@link #LinearLayoutCompat_measureWithLargestChild com.messi.learnenglish:measureWithLargestChild}</code></td><td></td></tr>
-     * <tr><td><code>{@link #LinearLayoutCompat_showDividers com.messi.learnenglish:showDividers}</code></td><td></td></tr>
+     * <tr><td><code>{@link #LinearLayoutCompat_divider com.messi.languagehelper:divider}</code></td><td></td></tr>
+     * <tr><td><code>{@link #LinearLayoutCompat_dividerPadding com.messi.languagehelper:dividerPadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #LinearLayoutCompat_measureWithLargestChild com.messi.languagehelper:measureWithLargestChild}</code></td><td></td></tr>
+     * <tr><td><code>{@link #LinearLayoutCompat_showDividers com.messi.languagehelper:showDividers}</code></td><td></td></tr>
      * </table>
      * @see #LinearLayoutCompat_android_gravity
      * @see #LinearLayoutCompat_android_orientation
@@ -13404,7 +13404,7 @@ public final class R {
      */
     public static final int LinearLayoutCompat_android_weightSum=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#divider}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#divider}
      * attribute's value can be found in the {@link #LinearLayoutCompat} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -13412,11 +13412,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:divider
+     * @attr name com.messi.languagehelper:divider
      */
     public static final int LinearLayoutCompat_divider=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#dividerPadding}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#dividerPadding}
      * attribute's value can be found in the {@link #LinearLayoutCompat} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -13425,21 +13425,21 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:dividerPadding
+     * @attr name com.messi.languagehelper:dividerPadding
      */
     public static final int LinearLayoutCompat_dividerPadding=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#measureWithLargestChild}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#measureWithLargestChild}
      * attribute's value can be found in the {@link #LinearLayoutCompat} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:measureWithLargestChild
+     * @attr name com.messi.languagehelper:measureWithLargestChild
      */
     public static final int LinearLayoutCompat_measureWithLargestChild=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#showDividers}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#showDividers}
      * attribute's value can be found in the {@link #LinearLayoutCompat} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -13454,7 +13454,7 @@ public final class R {
      * <tr><td>none</td><td>0</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:showDividers
+     * @attr name com.messi.languagehelper:showDividers
      */
     public static final int LinearLayoutCompat_showDividers=8;
     /**
@@ -13726,16 +13726,16 @@ public final class R {
      * <tr><td><code>{@link #MenuItem_android_numericShortcut android:numericShortcut}</code></td><td></td></tr>
      * <tr><td><code>{@link #MenuItem_android_checkable android:checkable}</code></td><td></td></tr>
      * <tr><td><code>{@link #MenuItem_android_onClick android:onClick}</code></td><td></td></tr>
-     * <tr><td><code>{@link #MenuItem_actionLayout com.messi.learnenglish:actionLayout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #MenuItem_actionProviderClass com.messi.learnenglish:actionProviderClass}</code></td><td></td></tr>
-     * <tr><td><code>{@link #MenuItem_actionViewClass com.messi.learnenglish:actionViewClass}</code></td><td></td></tr>
-     * <tr><td><code>{@link #MenuItem_alphabeticModifiers com.messi.learnenglish:alphabeticModifiers}</code></td><td></td></tr>
-     * <tr><td><code>{@link #MenuItem_contentDescription com.messi.learnenglish:contentDescription}</code></td><td></td></tr>
-     * <tr><td><code>{@link #MenuItem_iconTint com.messi.learnenglish:iconTint}</code></td><td></td></tr>
-     * <tr><td><code>{@link #MenuItem_iconTintMode com.messi.learnenglish:iconTintMode}</code></td><td></td></tr>
-     * <tr><td><code>{@link #MenuItem_numericModifiers com.messi.learnenglish:numericModifiers}</code></td><td></td></tr>
-     * <tr><td><code>{@link #MenuItem_showAsAction com.messi.learnenglish:showAsAction}</code></td><td></td></tr>
-     * <tr><td><code>{@link #MenuItem_tooltipText com.messi.learnenglish:tooltipText}</code></td><td></td></tr>
+     * <tr><td><code>{@link #MenuItem_actionLayout com.messi.languagehelper:actionLayout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #MenuItem_actionProviderClass com.messi.languagehelper:actionProviderClass}</code></td><td></td></tr>
+     * <tr><td><code>{@link #MenuItem_actionViewClass com.messi.languagehelper:actionViewClass}</code></td><td></td></tr>
+     * <tr><td><code>{@link #MenuItem_alphabeticModifiers com.messi.languagehelper:alphabeticModifiers}</code></td><td></td></tr>
+     * <tr><td><code>{@link #MenuItem_contentDescription com.messi.languagehelper:contentDescription}</code></td><td></td></tr>
+     * <tr><td><code>{@link #MenuItem_iconTint com.messi.languagehelper:iconTint}</code></td><td></td></tr>
+     * <tr><td><code>{@link #MenuItem_iconTintMode com.messi.languagehelper:iconTintMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #MenuItem_numericModifiers com.messi.languagehelper:numericModifiers}</code></td><td></td></tr>
+     * <tr><td><code>{@link #MenuItem_showAsAction com.messi.languagehelper:showAsAction}</code></td><td></td></tr>
+     * <tr><td><code>{@link #MenuItem_tooltipText com.messi.languagehelper:tooltipText}</code></td><td></td></tr>
      * </table>
      * @see #MenuItem_android_icon
      * @see #MenuItem_android_enabled
@@ -13912,7 +13912,7 @@ public final class R {
      */
     public static final int MenuItem_android_onClick=12;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionLayout}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionLayout}
      * attribute's value can be found in the {@link #MenuItem} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -13920,31 +13920,31 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actionLayout
+     * @attr name com.messi.languagehelper:actionLayout
      */
     public static final int MenuItem_actionLayout=13;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionProviderClass}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionProviderClass}
      * attribute's value can be found in the {@link #MenuItem} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:actionProviderClass
+     * @attr name com.messi.languagehelper:actionProviderClass
      */
     public static final int MenuItem_actionProviderClass=14;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actionViewClass}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actionViewClass}
      * attribute's value can be found in the {@link #MenuItem} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:actionViewClass
+     * @attr name com.messi.languagehelper:actionViewClass
      */
     public static final int MenuItem_actionViewClass=15;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#alphabeticModifiers}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#alphabeticModifiers}
      * attribute's value can be found in the {@link #MenuItem} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -13961,32 +13961,32 @@ public final class R {
      * <tr><td>SYM</td><td>4</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:alphabeticModifiers
+     * @attr name com.messi.languagehelper:alphabeticModifiers
      */
     public static final int MenuItem_alphabeticModifiers=16;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#contentDescription}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentDescription}
      * attribute's value can be found in the {@link #MenuItem} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:contentDescription
+     * @attr name com.messi.languagehelper:contentDescription
      */
     public static final int MenuItem_contentDescription=17;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#iconTint}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#iconTint}
      * attribute's value can be found in the {@link #MenuItem} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:iconTint
+     * @attr name com.messi.languagehelper:iconTint
      */
     public static final int MenuItem_iconTint=18;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#iconTintMode}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#iconTintMode}
      * attribute's value can be found in the {@link #MenuItem} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -14003,11 +14003,11 @@ public final class R {
      * <tr><td>src_over</td><td>3</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:iconTintMode
+     * @attr name com.messi.languagehelper:iconTintMode
      */
     public static final int MenuItem_iconTintMode=19;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#numericModifiers}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#numericModifiers}
      * attribute's value can be found in the {@link #MenuItem} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -14024,11 +14024,11 @@ public final class R {
      * <tr><td>SYM</td><td>4</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:numericModifiers
+     * @attr name com.messi.languagehelper:numericModifiers
      */
     public static final int MenuItem_numericModifiers=20;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#showAsAction}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#showAsAction}
      * attribute's value can be found in the {@link #MenuItem} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -14044,17 +14044,17 @@ public final class R {
      * <tr><td>withText</td><td>4</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:showAsAction
+     * @attr name com.messi.languagehelper:showAsAction
      */
     public static final int MenuItem_showAsAction=21;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#tooltipText}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tooltipText}
      * attribute's value can be found in the {@link #MenuItem} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:tooltipText
+     * @attr name com.messi.languagehelper:tooltipText
      */
     public static final int MenuItem_tooltipText=22;
     /**
@@ -14071,8 +14071,8 @@ public final class R {
      * <tr><td><code>{@link #MenuView_android_headerBackground android:headerBackground}</code></td><td></td></tr>
      * <tr><td><code>{@link #MenuView_android_itemBackground android:itemBackground}</code></td><td></td></tr>
      * <tr><td><code>{@link #MenuView_android_itemIconDisabledAlpha android:itemIconDisabledAlpha}</code></td><td></td></tr>
-     * <tr><td><code>{@link #MenuView_preserveIconSpacing com.messi.learnenglish:preserveIconSpacing}</code></td><td></td></tr>
-     * <tr><td><code>{@link #MenuView_subMenuArrow com.messi.learnenglish:subMenuArrow}</code></td><td></td></tr>
+     * <tr><td><code>{@link #MenuView_preserveIconSpacing com.messi.languagehelper:preserveIconSpacing}</code></td><td></td></tr>
+     * <tr><td><code>{@link #MenuView_subMenuArrow com.messi.languagehelper:subMenuArrow}</code></td><td></td></tr>
      * </table>
      * @see #MenuView_android_windowAnimationStyle
      * @see #MenuView_android_itemTextAppearance
@@ -14177,17 +14177,17 @@ public final class R {
      */
     public static final int MenuView_android_itemIconDisabledAlpha=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#preserveIconSpacing}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#preserveIconSpacing}
      * attribute's value can be found in the {@link #MenuView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:preserveIconSpacing
+     * @attr name com.messi.languagehelper:preserveIconSpacing
      */
     public static final int MenuView_preserveIconSpacing=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#subMenuArrow}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#subMenuArrow}
      * attribute's value can be found in the {@link #MenuView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -14195,7 +14195,7 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:subMenuArrow
+     * @attr name com.messi.languagehelper:subMenuArrow
      */
     public static final int MenuView_subMenuArrow=8;
     /**
@@ -14208,13 +14208,13 @@ public final class R {
      * <tr><td><code>{@link #NavigationView_android_background android:background}</code></td><td></td></tr>
      * <tr><td><code>{@link #NavigationView_android_fitsSystemWindows android:fitsSystemWindows}</code></td><td></td></tr>
      * <tr><td><code>{@link #NavigationView_android_maxWidth android:maxWidth}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NavigationView_elevation com.messi.learnenglish:elevation}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NavigationView_headerLayout com.messi.learnenglish:headerLayout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NavigationView_itemBackground com.messi.learnenglish:itemBackground}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NavigationView_itemIconTint com.messi.learnenglish:itemIconTint}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NavigationView_itemTextAppearance com.messi.learnenglish:itemTextAppearance}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NavigationView_itemTextColor com.messi.learnenglish:itemTextColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NavigationView_menu com.messi.learnenglish:menu}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NavigationView_elevation com.messi.languagehelper:elevation}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NavigationView_headerLayout com.messi.languagehelper:headerLayout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NavigationView_itemBackground com.messi.languagehelper:itemBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NavigationView_itemIconTint com.messi.languagehelper:itemIconTint}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NavigationView_itemTextAppearance com.messi.languagehelper:itemTextAppearance}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NavigationView_itemTextColor com.messi.languagehelper:itemTextColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NavigationView_menu com.messi.languagehelper:menu}</code></td><td></td></tr>
      * </table>
      * @see #NavigationView_android_background
      * @see #NavigationView_android_fitsSystemWindows
@@ -14271,7 +14271,7 @@ public final class R {
      */
     public static final int NavigationView_android_maxWidth=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#elevation}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#elevation}
      * attribute's value can be found in the {@link #NavigationView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -14280,11 +14280,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:elevation
+     * @attr name com.messi.languagehelper:elevation
      */
     public static final int NavigationView_elevation=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#headerLayout}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#headerLayout}
      * attribute's value can be found in the {@link #NavigationView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -14292,11 +14292,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:headerLayout
+     * @attr name com.messi.languagehelper:headerLayout
      */
     public static final int NavigationView_headerLayout=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#itemBackground}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#itemBackground}
      * attribute's value can be found in the {@link #NavigationView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -14304,22 +14304,22 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:itemBackground
+     * @attr name com.messi.languagehelper:itemBackground
      */
     public static final int NavigationView_itemBackground=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#itemIconTint}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#itemIconTint}
      * attribute's value can be found in the {@link #NavigationView} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:itemIconTint
+     * @attr name com.messi.languagehelper:itemIconTint
      */
     public static final int NavigationView_itemIconTint=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#itemTextAppearance}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#itemTextAppearance}
      * attribute's value can be found in the {@link #NavigationView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -14327,22 +14327,22 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:itemTextAppearance
+     * @attr name com.messi.languagehelper:itemTextAppearance
      */
     public static final int NavigationView_itemTextAppearance=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#itemTextColor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#itemTextColor}
      * attribute's value can be found in the {@link #NavigationView} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:itemTextColor
+     * @attr name com.messi.languagehelper:itemTextColor
      */
     public static final int NavigationView_itemTextColor=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#menu}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#menu}
      * attribute's value can be found in the {@link #NavigationView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -14350,7 +14350,7 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:menu
+     * @attr name com.messi.languagehelper:menu
      */
     public static final int NavigationView_menu=9;
     /**
@@ -14360,16 +14360,16 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #NumberProgressBar_progress_current com.messi.learnenglish:progress_current}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NumberProgressBar_progress_max com.messi.learnenglish:progress_max}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NumberProgressBar_progress_reached_bar_height com.messi.learnenglish:progress_reached_bar_height}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NumberProgressBar_progress_reached_color com.messi.learnenglish:progress_reached_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NumberProgressBar_progress_text_color com.messi.learnenglish:progress_text_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NumberProgressBar_progress_text_offset com.messi.learnenglish:progress_text_offset}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NumberProgressBar_progress_text_size com.messi.learnenglish:progress_text_size}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NumberProgressBar_progress_text_visibility com.messi.learnenglish:progress_text_visibility}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NumberProgressBar_progress_unreached_bar_height com.messi.learnenglish:progress_unreached_bar_height}</code></td><td></td></tr>
-     * <tr><td><code>{@link #NumberProgressBar_progress_unreached_color com.messi.learnenglish:progress_unreached_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NumberProgressBar_progress_current com.messi.languagehelper:progress_current}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NumberProgressBar_progress_max com.messi.languagehelper:progress_max}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NumberProgressBar_progress_reached_bar_height com.messi.languagehelper:progress_reached_bar_height}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NumberProgressBar_progress_reached_color com.messi.languagehelper:progress_reached_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NumberProgressBar_progress_text_color com.messi.languagehelper:progress_text_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NumberProgressBar_progress_text_offset com.messi.languagehelper:progress_text_offset}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NumberProgressBar_progress_text_size com.messi.languagehelper:progress_text_size}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NumberProgressBar_progress_text_visibility com.messi.languagehelper:progress_text_visibility}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NumberProgressBar_progress_unreached_bar_height com.messi.languagehelper:progress_unreached_bar_height}</code></td><td></td></tr>
+     * <tr><td><code>{@link #NumberProgressBar_progress_unreached_color com.messi.languagehelper:progress_unreached_color}</code></td><td></td></tr>
      * </table>
      * @see #NumberProgressBar_progress_current
      * @see #NumberProgressBar_progress_max
@@ -14388,25 +14388,25 @@ public final class R {
         0x7f030164, 0x7f030165
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#progress_current}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progress_current}
      * attribute's value can be found in the {@link #NumberProgressBar} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.learnenglish:progress_current
+     * @attr name com.messi.languagehelper:progress_current
      */
     public static final int NumberProgressBar_progress_current=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#progress_max}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progress_max}
      * attribute's value can be found in the {@link #NumberProgressBar} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.learnenglish:progress_max
+     * @attr name com.messi.languagehelper:progress_max
      */
     public static final int NumberProgressBar_progress_max=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#progress_reached_bar_height}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progress_reached_bar_height}
      * attribute's value can be found in the {@link #NumberProgressBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -14415,33 +14415,33 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:progress_reached_bar_height
+     * @attr name com.messi.languagehelper:progress_reached_bar_height
      */
     public static final int NumberProgressBar_progress_reached_bar_height=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#progress_reached_color}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progress_reached_color}
      * attribute's value can be found in the {@link #NumberProgressBar} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:progress_reached_color
+     * @attr name com.messi.languagehelper:progress_reached_color
      */
     public static final int NumberProgressBar_progress_reached_color=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#progress_text_color}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progress_text_color}
      * attribute's value can be found in the {@link #NumberProgressBar} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:progress_text_color
+     * @attr name com.messi.languagehelper:progress_text_color
      */
     public static final int NumberProgressBar_progress_text_color=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#progress_text_offset}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progress_text_offset}
      * attribute's value can be found in the {@link #NumberProgressBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -14450,11 +14450,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:progress_text_offset
+     * @attr name com.messi.languagehelper:progress_text_offset
      */
     public static final int NumberProgressBar_progress_text_offset=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#progress_text_size}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progress_text_size}
      * attribute's value can be found in the {@link #NumberProgressBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -14463,11 +14463,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:progress_text_size
+     * @attr name com.messi.languagehelper:progress_text_size
      */
     public static final int NumberProgressBar_progress_text_size=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#progress_text_visibility}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progress_text_visibility}
      * attribute's value can be found in the {@link #NumberProgressBar} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -14480,11 +14480,11 @@ public final class R {
      * <tr><td>visible</td><td>0</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:progress_text_visibility
+     * @attr name com.messi.languagehelper:progress_text_visibility
      */
     public static final int NumberProgressBar_progress_text_visibility=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#progress_unreached_bar_height}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progress_unreached_bar_height}
      * attribute's value can be found in the {@link #NumberProgressBar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -14493,18 +14493,18 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:progress_unreached_bar_height
+     * @attr name com.messi.languagehelper:progress_unreached_bar_height
      */
     public static final int NumberProgressBar_progress_unreached_bar_height=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#progress_unreached_color}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progress_unreached_color}
      * attribute's value can be found in the {@link #NumberProgressBar} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:progress_unreached_color
+     * @attr name com.messi.languagehelper:progress_unreached_color
      */
     public static final int NumberProgressBar_progress_unreached_color=9;
     /**
@@ -14514,20 +14514,20 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsActivateTextColor com.messi.learnenglish:pstsActivateTextColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsDeactivateTextColor com.messi.learnenglish:pstsDeactivateTextColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsDividerColor com.messi.learnenglish:pstsDividerColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsDividerPadding com.messi.learnenglish:pstsDividerPadding}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsIndicatorColor com.messi.learnenglish:pstsIndicatorColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsIndicatorHeight com.messi.learnenglish:pstsIndicatorHeight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsScrollOffset com.messi.learnenglish:pstsScrollOffset}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsShouldExpand com.messi.learnenglish:pstsShouldExpand}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsTabBackground com.messi.learnenglish:pstsTabBackground}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsTabPaddingLeftRight com.messi.learnenglish:pstsTabPaddingLeftRight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsTabSwitch com.messi.learnenglish:pstsTabSwitch}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsTextAllCaps com.messi.learnenglish:pstsTextAllCaps}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsUnderlineColor com.messi.learnenglish:pstsUnderlineColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsUnderlineHeight com.messi.learnenglish:pstsUnderlineHeight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsActivateTextColor com.messi.languagehelper:pstsActivateTextColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsDeactivateTextColor com.messi.languagehelper:pstsDeactivateTextColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsDividerColor com.messi.languagehelper:pstsDividerColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsDividerPadding com.messi.languagehelper:pstsDividerPadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsIndicatorColor com.messi.languagehelper:pstsIndicatorColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsIndicatorHeight com.messi.languagehelper:pstsIndicatorHeight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsScrollOffset com.messi.languagehelper:pstsScrollOffset}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsShouldExpand com.messi.languagehelper:pstsShouldExpand}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsTabBackground com.messi.languagehelper:pstsTabBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsTabPaddingLeftRight com.messi.languagehelper:pstsTabPaddingLeftRight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsTabSwitch com.messi.languagehelper:pstsTabSwitch}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsTextAllCaps com.messi.languagehelper:pstsTextAllCaps}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsUnderlineColor com.messi.languagehelper:pstsUnderlineColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PagerSlidingTabStrip_pstsUnderlineHeight com.messi.languagehelper:pstsUnderlineHeight}</code></td><td></td></tr>
      * </table>
      * @see #PagerSlidingTabStrip_pstsActivateTextColor
      * @see #PagerSlidingTabStrip_pstsDeactivateTextColor
@@ -14551,40 +14551,40 @@ public final class R {
         0x7f030172, 0x7f030173
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#pstsActivateTextColor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pstsActivateTextColor}
      * attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:pstsActivateTextColor
+     * @attr name com.messi.languagehelper:pstsActivateTextColor
      */
     public static final int PagerSlidingTabStrip_pstsActivateTextColor=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#pstsDeactivateTextColor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pstsDeactivateTextColor}
      * attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:pstsDeactivateTextColor
+     * @attr name com.messi.languagehelper:pstsDeactivateTextColor
      */
     public static final int PagerSlidingTabStrip_pstsDeactivateTextColor=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#pstsDividerColor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pstsDividerColor}
      * attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:pstsDividerColor
+     * @attr name com.messi.languagehelper:pstsDividerColor
      */
     public static final int PagerSlidingTabStrip_pstsDividerColor=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#pstsDividerPadding}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pstsDividerPadding}
      * attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -14593,22 +14593,22 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:pstsDividerPadding
+     * @attr name com.messi.languagehelper:pstsDividerPadding
      */
     public static final int PagerSlidingTabStrip_pstsDividerPadding=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#pstsIndicatorColor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pstsIndicatorColor}
      * attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:pstsIndicatorColor
+     * @attr name com.messi.languagehelper:pstsIndicatorColor
      */
     public static final int PagerSlidingTabStrip_pstsIndicatorColor=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#pstsIndicatorHeight}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pstsIndicatorHeight}
      * attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -14617,11 +14617,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:pstsIndicatorHeight
+     * @attr name com.messi.languagehelper:pstsIndicatorHeight
      */
     public static final int PagerSlidingTabStrip_pstsIndicatorHeight=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#pstsScrollOffset}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pstsScrollOffset}
      * attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -14630,21 +14630,21 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:pstsScrollOffset
+     * @attr name com.messi.languagehelper:pstsScrollOffset
      */
     public static final int PagerSlidingTabStrip_pstsScrollOffset=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#pstsShouldExpand}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pstsShouldExpand}
      * attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:pstsShouldExpand
+     * @attr name com.messi.languagehelper:pstsShouldExpand
      */
     public static final int PagerSlidingTabStrip_pstsShouldExpand=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#pstsTabBackground}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pstsTabBackground}
      * attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -14652,11 +14652,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:pstsTabBackground
+     * @attr name com.messi.languagehelper:pstsTabBackground
      */
     public static final int PagerSlidingTabStrip_pstsTabBackground=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#pstsTabPaddingLeftRight}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pstsTabPaddingLeftRight}
      * attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -14665,42 +14665,42 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:pstsTabPaddingLeftRight
+     * @attr name com.messi.languagehelper:pstsTabPaddingLeftRight
      */
     public static final int PagerSlidingTabStrip_pstsTabPaddingLeftRight=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#pstsTabSwitch}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pstsTabSwitch}
      * attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:pstsTabSwitch
+     * @attr name com.messi.languagehelper:pstsTabSwitch
      */
     public static final int PagerSlidingTabStrip_pstsTabSwitch=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#pstsTextAllCaps}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pstsTextAllCaps}
      * attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:pstsTextAllCaps
+     * @attr name com.messi.languagehelper:pstsTextAllCaps
      */
     public static final int PagerSlidingTabStrip_pstsTextAllCaps=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#pstsUnderlineColor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pstsUnderlineColor}
      * attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:pstsUnderlineColor
+     * @attr name com.messi.languagehelper:pstsUnderlineColor
      */
     public static final int PagerSlidingTabStrip_pstsUnderlineColor=12;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#pstsUnderlineHeight}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pstsUnderlineHeight}
      * attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -14709,7 +14709,7 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:pstsUnderlineHeight
+     * @attr name com.messi.languagehelper:pstsUnderlineHeight
      */
     public static final int PagerSlidingTabStrip_pstsUnderlineHeight=13;
     /**
@@ -14719,7 +14719,7 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #PatternPathMotion_patternPathData com.messi.learnenglish:patternPathData}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PatternPathMotion_patternPathData com.messi.languagehelper:patternPathData}</code></td><td></td></tr>
      * </table>
      * @see #PatternPathMotion_patternPathData
      */
@@ -14727,13 +14727,13 @@ public final class R {
         0x7f03014b
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#patternPathData}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#patternPathData}
      * attribute's value can be found in the {@link #PatternPathMotion} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:patternPathData
+     * @attr name com.messi.languagehelper:patternPathData
      */
     public static final int PatternPathMotion_patternPathData=0;
     /**
@@ -14743,12 +14743,12 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #PlayerControlView_controller_layout_id com.messi.learnenglish:controller_layout_id}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PlayerControlView_fastforward_increment com.messi.learnenglish:fastforward_increment}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PlayerControlView_repeat_toggle_modes com.messi.learnenglish:repeat_toggle_modes}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PlayerControlView_rewind_increment com.messi.learnenglish:rewind_increment}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PlayerControlView_show_shuffle_button com.messi.learnenglish:show_shuffle_button}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PlayerControlView_show_timeout com.messi.learnenglish:show_timeout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlayerControlView_controller_layout_id com.messi.languagehelper:controller_layout_id}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlayerControlView_fastforward_increment com.messi.languagehelper:fastforward_increment}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlayerControlView_repeat_toggle_modes com.messi.languagehelper:repeat_toggle_modes}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlayerControlView_rewind_increment com.messi.languagehelper:rewind_increment}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlayerControlView_show_shuffle_button com.messi.languagehelper:show_shuffle_button}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlayerControlView_show_timeout com.messi.languagehelper:show_timeout}</code></td><td></td></tr>
      * </table>
      * @see #PlayerControlView_controller_layout_id
      * @see #PlayerControlView_fastforward_increment
@@ -14762,7 +14762,7 @@ public final class R {
         0x7f0301a7, 0x7f0301a8
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#controller_layout_id}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#controller_layout_id}
      * attribute's value can be found in the {@link #PlayerControlView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -14770,20 +14770,20 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:controller_layout_id
+     * @attr name com.messi.languagehelper:controller_layout_id
      */
     public static final int PlayerControlView_controller_layout_id=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#fastforward_increment}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fastforward_increment}
      * attribute's value can be found in the {@link #PlayerControlView} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.learnenglish:fastforward_increment
+     * @attr name com.messi.languagehelper:fastforward_increment
      */
     public static final int PlayerControlView_fastforward_increment=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#repeat_toggle_modes}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#repeat_toggle_modes}
      * attribute's value can be found in the {@link #PlayerControlView} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -14797,35 +14797,35 @@ public final class R {
      * <tr><td>one</td><td>1</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:repeat_toggle_modes
+     * @attr name com.messi.languagehelper:repeat_toggle_modes
      */
     public static final int PlayerControlView_repeat_toggle_modes=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#rewind_increment}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#rewind_increment}
      * attribute's value can be found in the {@link #PlayerControlView} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.learnenglish:rewind_increment
+     * @attr name com.messi.languagehelper:rewind_increment
      */
     public static final int PlayerControlView_rewind_increment=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#show_shuffle_button}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#show_shuffle_button}
      * attribute's value can be found in the {@link #PlayerControlView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:show_shuffle_button
+     * @attr name com.messi.languagehelper:show_shuffle_button
      */
     public static final int PlayerControlView_show_shuffle_button=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#show_timeout}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#show_timeout}
      * attribute's value can be found in the {@link #PlayerControlView} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.learnenglish:show_timeout
+     * @attr name com.messi.languagehelper:show_timeout
      */
     public static final int PlayerControlView_show_timeout=5;
     /**
@@ -14835,23 +14835,23 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #PlayerView_auto_show com.messi.learnenglish:auto_show}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PlayerView_controller_layout_id com.messi.learnenglish:controller_layout_id}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PlayerView_default_artwork com.messi.learnenglish:default_artwork}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PlayerView_fastforward_increment com.messi.learnenglish:fastforward_increment}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PlayerView_hide_during_ads com.messi.learnenglish:hide_during_ads}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PlayerView_hide_on_touch com.messi.learnenglish:hide_on_touch}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PlayerView_player_layout_id com.messi.learnenglish:player_layout_id}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PlayerView_repeat_toggle_modes com.messi.learnenglish:repeat_toggle_modes}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PlayerView_resize_mode com.messi.learnenglish:resize_mode}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PlayerView_rewind_increment com.messi.learnenglish:rewind_increment}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PlayerView_show_buffering com.messi.learnenglish:show_buffering}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PlayerView_show_shuffle_button com.messi.learnenglish:show_shuffle_button}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PlayerView_show_timeout com.messi.learnenglish:show_timeout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PlayerView_shutter_background_color com.messi.learnenglish:shutter_background_color}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PlayerView_surface_type com.messi.learnenglish:surface_type}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PlayerView_use_artwork com.messi.learnenglish:use_artwork}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PlayerView_use_controller com.messi.learnenglish:use_controller}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlayerView_auto_show com.messi.languagehelper:auto_show}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlayerView_controller_layout_id com.messi.languagehelper:controller_layout_id}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlayerView_default_artwork com.messi.languagehelper:default_artwork}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlayerView_fastforward_increment com.messi.languagehelper:fastforward_increment}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlayerView_hide_during_ads com.messi.languagehelper:hide_during_ads}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlayerView_hide_on_touch com.messi.languagehelper:hide_on_touch}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlayerView_player_layout_id com.messi.languagehelper:player_layout_id}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlayerView_repeat_toggle_modes com.messi.languagehelper:repeat_toggle_modes}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlayerView_resize_mode com.messi.languagehelper:resize_mode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlayerView_rewind_increment com.messi.languagehelper:rewind_increment}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlayerView_show_buffering com.messi.languagehelper:show_buffering}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlayerView_show_shuffle_button com.messi.languagehelper:show_shuffle_button}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlayerView_show_timeout com.messi.languagehelper:show_timeout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlayerView_shutter_background_color com.messi.languagehelper:shutter_background_color}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlayerView_surface_type com.messi.languagehelper:surface_type}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlayerView_use_artwork com.messi.languagehelper:use_artwork}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PlayerView_use_controller com.messi.languagehelper:use_controller}</code></td><td></td></tr>
      * </table>
      * @see #PlayerView_auto_show
      * @see #PlayerView_controller_layout_id
@@ -14879,17 +14879,17 @@ public final class R {
         0x7f03020a
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#auto_show}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#auto_show}
      * attribute's value can be found in the {@link #PlayerView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:auto_show
+     * @attr name com.messi.languagehelper:auto_show
      */
     public static final int PlayerView_auto_show=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#controller_layout_id}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#controller_layout_id}
      * attribute's value can be found in the {@link #PlayerView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -14897,11 +14897,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:controller_layout_id
+     * @attr name com.messi.languagehelper:controller_layout_id
      */
     public static final int PlayerView_controller_layout_id=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#default_artwork}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#default_artwork}
      * attribute's value can be found in the {@link #PlayerView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -14909,40 +14909,40 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:default_artwork
+     * @attr name com.messi.languagehelper:default_artwork
      */
     public static final int PlayerView_default_artwork=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#fastforward_increment}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fastforward_increment}
      * attribute's value can be found in the {@link #PlayerView} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.learnenglish:fastforward_increment
+     * @attr name com.messi.languagehelper:fastforward_increment
      */
     public static final int PlayerView_fastforward_increment=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#hide_during_ads}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#hide_during_ads}
      * attribute's value can be found in the {@link #PlayerView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:hide_during_ads
+     * @attr name com.messi.languagehelper:hide_during_ads
      */
     public static final int PlayerView_hide_during_ads=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#hide_on_touch}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#hide_on_touch}
      * attribute's value can be found in the {@link #PlayerView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:hide_on_touch
+     * @attr name com.messi.languagehelper:hide_on_touch
      */
     public static final int PlayerView_hide_on_touch=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#player_layout_id}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#player_layout_id}
      * attribute's value can be found in the {@link #PlayerView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -14950,11 +14950,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:player_layout_id
+     * @attr name com.messi.languagehelper:player_layout_id
      */
     public static final int PlayerView_player_layout_id=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#repeat_toggle_modes}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#repeat_toggle_modes}
      * attribute's value can be found in the {@link #PlayerView} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -14968,11 +14968,11 @@ public final class R {
      * <tr><td>one</td><td>1</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:repeat_toggle_modes
+     * @attr name com.messi.languagehelper:repeat_toggle_modes
      */
     public static final int PlayerView_repeat_toggle_modes=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#resize_mode}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#resize_mode}
      * attribute's value can be found in the {@link #PlayerView} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -14988,60 +14988,60 @@ public final class R {
      * <tr><td>zoom</td><td>4</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:resize_mode
+     * @attr name com.messi.languagehelper:resize_mode
      */
     public static final int PlayerView_resize_mode=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#rewind_increment}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#rewind_increment}
      * attribute's value can be found in the {@link #PlayerView} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.learnenglish:rewind_increment
+     * @attr name com.messi.languagehelper:rewind_increment
      */
     public static final int PlayerView_rewind_increment=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#show_buffering}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#show_buffering}
      * attribute's value can be found in the {@link #PlayerView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:show_buffering
+     * @attr name com.messi.languagehelper:show_buffering
      */
     public static final int PlayerView_show_buffering=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#show_shuffle_button}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#show_shuffle_button}
      * attribute's value can be found in the {@link #PlayerView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:show_shuffle_button
+     * @attr name com.messi.languagehelper:show_shuffle_button
      */
     public static final int PlayerView_show_shuffle_button=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#show_timeout}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#show_timeout}
      * attribute's value can be found in the {@link #PlayerView} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.learnenglish:show_timeout
+     * @attr name com.messi.languagehelper:show_timeout
      */
     public static final int PlayerView_show_timeout=12;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#shutter_background_color}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#shutter_background_color}
      * attribute's value can be found in the {@link #PlayerView} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:shutter_background_color
+     * @attr name com.messi.languagehelper:shutter_background_color
      */
     public static final int PlayerView_shutter_background_color=13;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#surface_type}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#surface_type}
      * attribute's value can be found in the {@link #PlayerView} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -15055,27 +15055,27 @@ public final class R {
      * <tr><td>texture_view</td><td>2</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:surface_type
+     * @attr name com.messi.languagehelper:surface_type
      */
     public static final int PlayerView_surface_type=14;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#use_artwork}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#use_artwork}
      * attribute's value can be found in the {@link #PlayerView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:use_artwork
+     * @attr name com.messi.languagehelper:use_artwork
      */
     public static final int PlayerView_use_artwork=15;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#use_controller}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#use_controller}
      * attribute's value can be found in the {@link #PlayerView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:use_controller
+     * @attr name com.messi.languagehelper:use_controller
      */
     public static final int PlayerView_use_controller=16;
     /**
@@ -15087,7 +15087,7 @@ public final class R {
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #PopupWindow_android_popupBackground android:popupBackground}</code></td><td></td></tr>
      * <tr><td><code>{@link #PopupWindow_android_popupAnimationStyle android:popupAnimationStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #PopupWindow_overlapAnchor com.messi.learnenglish:overlapAnchor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PopupWindow_overlapAnchor com.messi.languagehelper:overlapAnchor}</code></td><td></td></tr>
      * </table>
      * @see #PopupWindow_android_popupBackground
      * @see #PopupWindow_android_popupAnimationStyle
@@ -15124,13 +15124,13 @@ public final class R {
      */
     public static final int PopupWindow_android_popupAnimationStyle=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#overlapAnchor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#overlapAnchor}
      * attribute's value can be found in the {@link #PopupWindow} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:overlapAnchor
+     * @attr name com.messi.languagehelper:overlapAnchor
      */
     public static final int PopupWindow_overlapAnchor=2;
     /**
@@ -15140,7 +15140,7 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #PopupWindowBackgroundState_state_above_anchor com.messi.learnenglish:state_above_anchor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #PopupWindowBackgroundState_state_above_anchor com.messi.languagehelper:state_above_anchor}</code></td><td></td></tr>
      * </table>
      * @see #PopupWindowBackgroundState_state_above_anchor
      */
@@ -15148,13 +15148,13 @@ public final class R {
         0x7f0301b4
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#state_above_anchor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#state_above_anchor}
      * attribute's value can be found in the {@link #PopupWindowBackgroundState} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:state_above_anchor
+     * @attr name com.messi.languagehelper:state_above_anchor
      */
     public static final int PopupWindowBackgroundState_state_above_anchor=0;
     /**
@@ -15164,8 +15164,8 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #RecycleListView_paddingBottomNoButtons com.messi.learnenglish:paddingBottomNoButtons}</code></td><td></td></tr>
-     * <tr><td><code>{@link #RecycleListView_paddingTopNoTitle com.messi.learnenglish:paddingTopNoTitle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #RecycleListView_paddingBottomNoButtons com.messi.languagehelper:paddingBottomNoButtons}</code></td><td></td></tr>
+     * <tr><td><code>{@link #RecycleListView_paddingTopNoTitle com.messi.languagehelper:paddingTopNoTitle}</code></td><td></td></tr>
      * </table>
      * @see #RecycleListView_paddingBottomNoButtons
      * @see #RecycleListView_paddingTopNoTitle
@@ -15174,7 +15174,7 @@ public final class R {
         0x7f03013f, 0x7f030142
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#paddingBottomNoButtons}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#paddingBottomNoButtons}
      * attribute's value can be found in the {@link #RecycleListView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -15183,11 +15183,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:paddingBottomNoButtons
+     * @attr name com.messi.languagehelper:paddingBottomNoButtons
      */
     public static final int RecycleListView_paddingBottomNoButtons=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#paddingTopNoTitle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#paddingTopNoTitle}
      * attribute's value can be found in the {@link #RecycleListView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -15196,7 +15196,7 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:paddingTopNoTitle
+     * @attr name com.messi.languagehelper:paddingTopNoTitle
      */
     public static final int RecycleListView_paddingTopNoTitle=1;
     /**
@@ -15208,15 +15208,15 @@ public final class R {
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #RecyclerView_android_orientation android:orientation}</code></td><td></td></tr>
      * <tr><td><code>{@link #RecyclerView_android_descendantFocusability android:descendantFocusability}</code></td><td></td></tr>
-     * <tr><td><code>{@link #RecyclerView_fastScrollEnabled com.messi.learnenglish:fastScrollEnabled}</code></td><td></td></tr>
-     * <tr><td><code>{@link #RecyclerView_fastScrollHorizontalThumbDrawable com.messi.learnenglish:fastScrollHorizontalThumbDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #RecyclerView_fastScrollHorizontalTrackDrawable com.messi.learnenglish:fastScrollHorizontalTrackDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #RecyclerView_fastScrollVerticalThumbDrawable com.messi.learnenglish:fastScrollVerticalThumbDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #RecyclerView_fastScrollVerticalTrackDrawable com.messi.learnenglish:fastScrollVerticalTrackDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #RecyclerView_layoutManager com.messi.learnenglish:layoutManager}</code></td><td></td></tr>
-     * <tr><td><code>{@link #RecyclerView_reverseLayout com.messi.learnenglish:reverseLayout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #RecyclerView_spanCount com.messi.learnenglish:spanCount}</code></td><td></td></tr>
-     * <tr><td><code>{@link #RecyclerView_stackFromEnd com.messi.learnenglish:stackFromEnd}</code></td><td></td></tr>
+     * <tr><td><code>{@link #RecyclerView_fastScrollEnabled com.messi.languagehelper:fastScrollEnabled}</code></td><td></td></tr>
+     * <tr><td><code>{@link #RecyclerView_fastScrollHorizontalThumbDrawable com.messi.languagehelper:fastScrollHorizontalThumbDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #RecyclerView_fastScrollHorizontalTrackDrawable com.messi.languagehelper:fastScrollHorizontalTrackDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #RecyclerView_fastScrollVerticalThumbDrawable com.messi.languagehelper:fastScrollVerticalThumbDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #RecyclerView_fastScrollVerticalTrackDrawable com.messi.languagehelper:fastScrollVerticalTrackDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #RecyclerView_layoutManager com.messi.languagehelper:layoutManager}</code></td><td></td></tr>
+     * <tr><td><code>{@link #RecyclerView_reverseLayout com.messi.languagehelper:reverseLayout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #RecyclerView_spanCount com.messi.languagehelper:spanCount}</code></td><td></td></tr>
+     * <tr><td><code>{@link #RecyclerView_stackFromEnd com.messi.languagehelper:stackFromEnd}</code></td><td></td></tr>
      * </table>
      * @see #RecyclerView_android_orientation
      * @see #RecyclerView_android_descendantFocusability
@@ -15271,17 +15271,17 @@ public final class R {
      */
     public static final int RecyclerView_android_descendantFocusability=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#fastScrollEnabled}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fastScrollEnabled}
      * attribute's value can be found in the {@link #RecyclerView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:fastScrollEnabled
+     * @attr name com.messi.languagehelper:fastScrollEnabled
      */
     public static final int RecyclerView_fastScrollEnabled=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#fastScrollHorizontalThumbDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fastScrollHorizontalThumbDrawable}
      * attribute's value can be found in the {@link #RecyclerView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15289,11 +15289,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:fastScrollHorizontalThumbDrawable
+     * @attr name com.messi.languagehelper:fastScrollHorizontalThumbDrawable
      */
     public static final int RecyclerView_fastScrollHorizontalThumbDrawable=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#fastScrollHorizontalTrackDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fastScrollHorizontalTrackDrawable}
      * attribute's value can be found in the {@link #RecyclerView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15301,11 +15301,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:fastScrollHorizontalTrackDrawable
+     * @attr name com.messi.languagehelper:fastScrollHorizontalTrackDrawable
      */
     public static final int RecyclerView_fastScrollHorizontalTrackDrawable=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#fastScrollVerticalThumbDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fastScrollVerticalThumbDrawable}
      * attribute's value can be found in the {@link #RecyclerView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15313,11 +15313,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:fastScrollVerticalThumbDrawable
+     * @attr name com.messi.languagehelper:fastScrollVerticalThumbDrawable
      */
     public static final int RecyclerView_fastScrollVerticalThumbDrawable=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#fastScrollVerticalTrackDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fastScrollVerticalTrackDrawable}
      * attribute's value can be found in the {@link #RecyclerView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15325,46 +15325,46 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:fastScrollVerticalTrackDrawable
+     * @attr name com.messi.languagehelper:fastScrollVerticalTrackDrawable
      */
     public static final int RecyclerView_fastScrollVerticalTrackDrawable=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#layoutManager}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layoutManager}
      * attribute's value can be found in the {@link #RecyclerView} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:layoutManager
+     * @attr name com.messi.languagehelper:layoutManager
      */
     public static final int RecyclerView_layoutManager=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#reverseLayout}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#reverseLayout}
      * attribute's value can be found in the {@link #RecyclerView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:reverseLayout
+     * @attr name com.messi.languagehelper:reverseLayout
      */
     public static final int RecyclerView_reverseLayout=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#spanCount}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#spanCount}
      * attribute's value can be found in the {@link #RecyclerView} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.learnenglish:spanCount
+     * @attr name com.messi.languagehelper:spanCount
      */
     public static final int RecyclerView_spanCount=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#stackFromEnd}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#stackFromEnd}
      * attribute's value can be found in the {@link #RecyclerView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:stackFromEnd
+     * @attr name com.messi.languagehelper:stackFromEnd
      */
     public static final int RecyclerView_stackFromEnd=10;
     /**
@@ -15374,7 +15374,7 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #Scale_disappearedScale com.messi.learnenglish:disappearedScale}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Scale_disappearedScale com.messi.languagehelper:disappearedScale}</code></td><td></td></tr>
      * </table>
      * @see #Scale_disappearedScale
      */
@@ -15382,12 +15382,12 @@ public final class R {
         0x7f0300a2
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#disappearedScale}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#disappearedScale}
      * attribute's value can be found in the {@link #Scale} array.
      *
      * <p>May be a floating point value, such as "<code>1.2</code>".
      *
-     * @attr name com.messi.learnenglish:disappearedScale
+     * @attr name com.messi.languagehelper:disappearedScale
      */
     public static final int Scale_disappearedScale=0;
     /**
@@ -15397,7 +15397,7 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #ScrimInsetsFrameLayout_insetForeground com.messi.learnenglish:insetForeground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ScrimInsetsFrameLayout_insetForeground com.messi.languagehelper:insetForeground}</code></td><td></td></tr>
      * </table>
      * @see #ScrimInsetsFrameLayout_insetForeground
      */
@@ -15405,7 +15405,7 @@ public final class R {
         0x7f030102
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#insetForeground}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#insetForeground}
      * attribute's value can be found in the {@link #ScrimInsetsFrameLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15416,7 +15416,7 @@ public final class R {
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:insetForeground
+     * @attr name com.messi.languagehelper:insetForeground
      */
     public static final int ScrimInsetsFrameLayout_insetForeground=0;
     /**
@@ -15426,7 +15426,7 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #ScrollingViewBehavior_Layout_behavior_overlapTop com.messi.learnenglish:behavior_overlapTop}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ScrollingViewBehavior_Layout_behavior_overlapTop com.messi.languagehelper:behavior_overlapTop}</code></td><td></td></tr>
      * </table>
      * @see #ScrollingViewBehavior_Layout_behavior_overlapTop
      */
@@ -15434,7 +15434,7 @@ public final class R {
         0x7f030051
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#behavior_overlapTop}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#behavior_overlapTop}
      * attribute's value can be found in the {@link #ScrollingViewBehavior_Layout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -15443,7 +15443,7 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:behavior_overlapTop
+     * @attr name com.messi.languagehelper:behavior_overlapTop
      */
     public static final int ScrollingViewBehavior_Layout_behavior_overlapTop=0;
     /**
@@ -15457,19 +15457,19 @@ public final class R {
      * <tr><td><code>{@link #SearchView_android_maxWidth android:maxWidth}</code></td><td></td></tr>
      * <tr><td><code>{@link #SearchView_android_inputType android:inputType}</code></td><td></td></tr>
      * <tr><td><code>{@link #SearchView_android_imeOptions android:imeOptions}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SearchView_closeIcon com.messi.learnenglish:closeIcon}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SearchView_commitIcon com.messi.learnenglish:commitIcon}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SearchView_defaultQueryHint com.messi.learnenglish:defaultQueryHint}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SearchView_goIcon com.messi.learnenglish:goIcon}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SearchView_iconifiedByDefault com.messi.learnenglish:iconifiedByDefault}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SearchView_layout com.messi.learnenglish:layout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SearchView_queryBackground com.messi.learnenglish:queryBackground}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SearchView_queryHint com.messi.learnenglish:queryHint}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SearchView_searchHintIcon com.messi.learnenglish:searchHintIcon}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SearchView_searchIcon com.messi.learnenglish:searchIcon}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SearchView_submitBackground com.messi.learnenglish:submitBackground}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SearchView_suggestionRowLayout com.messi.learnenglish:suggestionRowLayout}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SearchView_voiceIcon com.messi.learnenglish:voiceIcon}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SearchView_closeIcon com.messi.languagehelper:closeIcon}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SearchView_commitIcon com.messi.languagehelper:commitIcon}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SearchView_defaultQueryHint com.messi.languagehelper:defaultQueryHint}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SearchView_goIcon com.messi.languagehelper:goIcon}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SearchView_iconifiedByDefault com.messi.languagehelper:iconifiedByDefault}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SearchView_layout com.messi.languagehelper:layout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SearchView_queryBackground com.messi.languagehelper:queryBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SearchView_queryHint com.messi.languagehelper:queryHint}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SearchView_searchHintIcon com.messi.languagehelper:searchHintIcon}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SearchView_searchIcon com.messi.languagehelper:searchIcon}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SearchView_submitBackground com.messi.languagehelper:submitBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SearchView_suggestionRowLayout com.messi.languagehelper:suggestionRowLayout}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SearchView_voiceIcon com.messi.languagehelper:voiceIcon}</code></td><td></td></tr>
      * </table>
      * @see #SearchView_android_focusable
      * @see #SearchView_android_maxWidth
@@ -15607,7 +15607,7 @@ public final class R {
      */
     public static final int SearchView_android_imeOptions=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#closeIcon}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#closeIcon}
      * attribute's value can be found in the {@link #SearchView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15615,11 +15615,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:closeIcon
+     * @attr name com.messi.languagehelper:closeIcon
      */
     public static final int SearchView_closeIcon=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#commitIcon}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#commitIcon}
      * attribute's value can be found in the {@link #SearchView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15627,21 +15627,21 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:commitIcon
+     * @attr name com.messi.languagehelper:commitIcon
      */
     public static final int SearchView_commitIcon=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#defaultQueryHint}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#defaultQueryHint}
      * attribute's value can be found in the {@link #SearchView} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:defaultQueryHint
+     * @attr name com.messi.languagehelper:defaultQueryHint
      */
     public static final int SearchView_defaultQueryHint=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#goIcon}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#goIcon}
      * attribute's value can be found in the {@link #SearchView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15649,21 +15649,21 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:goIcon
+     * @attr name com.messi.languagehelper:goIcon
      */
     public static final int SearchView_goIcon=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#iconifiedByDefault}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#iconifiedByDefault}
      * attribute's value can be found in the {@link #SearchView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:iconifiedByDefault
+     * @attr name com.messi.languagehelper:iconifiedByDefault
      */
     public static final int SearchView_iconifiedByDefault=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#layout}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#layout}
      * attribute's value can be found in the {@link #SearchView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15671,11 +15671,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:layout
+     * @attr name com.messi.languagehelper:layout
      */
     public static final int SearchView_layout=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#queryBackground}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#queryBackground}
      * attribute's value can be found in the {@link #SearchView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15683,21 +15683,21 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:queryBackground
+     * @attr name com.messi.languagehelper:queryBackground
      */
     public static final int SearchView_queryBackground=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#queryHint}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#queryHint}
      * attribute's value can be found in the {@link #SearchView} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:queryHint
+     * @attr name com.messi.languagehelper:queryHint
      */
     public static final int SearchView_queryHint=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#searchHintIcon}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#searchHintIcon}
      * attribute's value can be found in the {@link #SearchView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15705,11 +15705,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:searchHintIcon
+     * @attr name com.messi.languagehelper:searchHintIcon
      */
     public static final int SearchView_searchHintIcon=12;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#searchIcon}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#searchIcon}
      * attribute's value can be found in the {@link #SearchView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15717,11 +15717,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:searchIcon
+     * @attr name com.messi.languagehelper:searchIcon
      */
     public static final int SearchView_searchIcon=13;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#submitBackground}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#submitBackground}
      * attribute's value can be found in the {@link #SearchView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15729,11 +15729,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:submitBackground
+     * @attr name com.messi.languagehelper:submitBackground
      */
     public static final int SearchView_submitBackground=14;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#suggestionRowLayout}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#suggestionRowLayout}
      * attribute's value can be found in the {@link #SearchView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15741,11 +15741,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:suggestionRowLayout
+     * @attr name com.messi.languagehelper:suggestionRowLayout
      */
     public static final int SearchView_suggestionRowLayout=15;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#voiceIcon}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#voiceIcon}
      * attribute's value can be found in the {@link #SearchView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15753,7 +15753,7 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:voiceIcon
+     * @attr name com.messi.languagehelper:voiceIcon
      */
     public static final int SearchView_voiceIcon=16;
     /**
@@ -15763,37 +15763,37 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_actualImageResource com.messi.learnenglish:actualImageResource}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_actualImageScaleType com.messi.learnenglish:actualImageScaleType}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_actualImageUri com.messi.learnenglish:actualImageUri}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_backgroundImage com.messi.learnenglish:backgroundImage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_fadeDuration com.messi.learnenglish:fadeDuration}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_failureImage com.messi.learnenglish:failureImage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_failureImageScaleType com.messi.learnenglish:failureImageScaleType}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_overlayImage com.messi.learnenglish:overlayImage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_placeholderImage com.messi.learnenglish:placeholderImage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_placeholderImageScaleType com.messi.learnenglish:placeholderImageScaleType}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_pressedStateOverlayImage com.messi.learnenglish:pressedStateOverlayImage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_progressBarAutoRotateInterval com.messi.learnenglish:progressBarAutoRotateInterval}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_progressBarImage com.messi.learnenglish:progressBarImage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_progressBarImageScaleType com.messi.learnenglish:progressBarImageScaleType}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_retryImage com.messi.learnenglish:retryImage}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_retryImageScaleType com.messi.learnenglish:retryImageScaleType}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_roundAsCircle com.messi.learnenglish:roundAsCircle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_roundBottomEnd com.messi.learnenglish:roundBottomEnd}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_roundBottomLeft com.messi.learnenglish:roundBottomLeft}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_roundBottomRight com.messi.learnenglish:roundBottomRight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_roundBottomStart com.messi.learnenglish:roundBottomStart}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_roundTopEnd com.messi.learnenglish:roundTopEnd}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_roundTopLeft com.messi.learnenglish:roundTopLeft}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_roundTopRight com.messi.learnenglish:roundTopRight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_roundTopStart com.messi.learnenglish:roundTopStart}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_roundWithOverlayColor com.messi.learnenglish:roundWithOverlayColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_roundedCornerRadius com.messi.learnenglish:roundedCornerRadius}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_roundingBorderColor com.messi.learnenglish:roundingBorderColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_roundingBorderPadding com.messi.learnenglish:roundingBorderPadding}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_roundingBorderWidth com.messi.learnenglish:roundingBorderWidth}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SimpleDraweeView_viewAspectRatio com.messi.learnenglish:viewAspectRatio}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_actualImageResource com.messi.languagehelper:actualImageResource}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_actualImageScaleType com.messi.languagehelper:actualImageScaleType}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_actualImageUri com.messi.languagehelper:actualImageUri}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_backgroundImage com.messi.languagehelper:backgroundImage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_fadeDuration com.messi.languagehelper:fadeDuration}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_failureImage com.messi.languagehelper:failureImage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_failureImageScaleType com.messi.languagehelper:failureImageScaleType}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_overlayImage com.messi.languagehelper:overlayImage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_placeholderImage com.messi.languagehelper:placeholderImage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_placeholderImageScaleType com.messi.languagehelper:placeholderImageScaleType}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_pressedStateOverlayImage com.messi.languagehelper:pressedStateOverlayImage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_progressBarAutoRotateInterval com.messi.languagehelper:progressBarAutoRotateInterval}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_progressBarImage com.messi.languagehelper:progressBarImage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_progressBarImageScaleType com.messi.languagehelper:progressBarImageScaleType}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_retryImage com.messi.languagehelper:retryImage}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_retryImageScaleType com.messi.languagehelper:retryImageScaleType}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_roundAsCircle com.messi.languagehelper:roundAsCircle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_roundBottomEnd com.messi.languagehelper:roundBottomEnd}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_roundBottomLeft com.messi.languagehelper:roundBottomLeft}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_roundBottomRight com.messi.languagehelper:roundBottomRight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_roundBottomStart com.messi.languagehelper:roundBottomStart}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_roundTopEnd com.messi.languagehelper:roundTopEnd}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_roundTopLeft com.messi.languagehelper:roundTopLeft}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_roundTopRight com.messi.languagehelper:roundTopRight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_roundTopStart com.messi.languagehelper:roundTopStart}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_roundWithOverlayColor com.messi.languagehelper:roundWithOverlayColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_roundedCornerRadius com.messi.languagehelper:roundedCornerRadius}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_roundingBorderColor com.messi.languagehelper:roundingBorderColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_roundingBorderPadding com.messi.languagehelper:roundingBorderPadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_roundingBorderWidth com.messi.languagehelper:roundingBorderWidth}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SimpleDraweeView_viewAspectRatio com.messi.languagehelper:viewAspectRatio}</code></td><td></td></tr>
      * </table>
      * @see #SimpleDraweeView_actualImageResource
      * @see #SimpleDraweeView_actualImageScaleType
@@ -15838,7 +15838,7 @@ public final class R {
         0x7f030190, 0x7f030191, 0x7f03020b
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actualImageResource}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actualImageResource}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15846,11 +15846,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:actualImageResource
+     * @attr name com.messi.languagehelper:actualImageResource
      */
     public static final int SimpleDraweeView_actualImageResource=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actualImageScaleType}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actualImageScaleType}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -15871,21 +15871,21 @@ public final class R {
      * <tr><td>none</td><td>ffffffff</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:actualImageScaleType
+     * @attr name com.messi.languagehelper:actualImageScaleType
      */
     public static final int SimpleDraweeView_actualImageScaleType=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#actualImageUri}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#actualImageUri}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:actualImageUri
+     * @attr name com.messi.languagehelper:actualImageUri
      */
     public static final int SimpleDraweeView_actualImageUri=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#backgroundImage}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#backgroundImage}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15893,20 +15893,20 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:backgroundImage
+     * @attr name com.messi.languagehelper:backgroundImage
      */
     public static final int SimpleDraweeView_backgroundImage=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#fadeDuration}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fadeDuration}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.learnenglish:fadeDuration
+     * @attr name com.messi.languagehelper:fadeDuration
      */
     public static final int SimpleDraweeView_fadeDuration=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#failureImage}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#failureImage}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15914,11 +15914,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:failureImage
+     * @attr name com.messi.languagehelper:failureImage
      */
     public static final int SimpleDraweeView_failureImage=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#failureImageScaleType}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#failureImageScaleType}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -15939,11 +15939,11 @@ public final class R {
      * <tr><td>none</td><td>ffffffff</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:failureImageScaleType
+     * @attr name com.messi.languagehelper:failureImageScaleType
      */
     public static final int SimpleDraweeView_failureImageScaleType=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#overlayImage}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#overlayImage}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15951,11 +15951,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:overlayImage
+     * @attr name com.messi.languagehelper:overlayImage
      */
     public static final int SimpleDraweeView_overlayImage=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#placeholderImage}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#placeholderImage}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -15963,11 +15963,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:placeholderImage
+     * @attr name com.messi.languagehelper:placeholderImage
      */
     public static final int SimpleDraweeView_placeholderImage=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#placeholderImageScaleType}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#placeholderImageScaleType}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -15988,11 +15988,11 @@ public final class R {
      * <tr><td>none</td><td>ffffffff</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:placeholderImageScaleType
+     * @attr name com.messi.languagehelper:placeholderImageScaleType
      */
     public static final int SimpleDraweeView_placeholderImageScaleType=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#pressedStateOverlayImage}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#pressedStateOverlayImage}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -16000,20 +16000,20 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:pressedStateOverlayImage
+     * @attr name com.messi.languagehelper:pressedStateOverlayImage
      */
     public static final int SimpleDraweeView_pressedStateOverlayImage=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#progressBarAutoRotateInterval}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progressBarAutoRotateInterval}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.learnenglish:progressBarAutoRotateInterval
+     * @attr name com.messi.languagehelper:progressBarAutoRotateInterval
      */
     public static final int SimpleDraweeView_progressBarAutoRotateInterval=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#progressBarImage}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progressBarImage}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -16021,11 +16021,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:progressBarImage
+     * @attr name com.messi.languagehelper:progressBarImage
      */
     public static final int SimpleDraweeView_progressBarImage=12;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#progressBarImageScaleType}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#progressBarImageScaleType}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -16046,11 +16046,11 @@ public final class R {
      * <tr><td>none</td><td>ffffffff</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:progressBarImageScaleType
+     * @attr name com.messi.languagehelper:progressBarImageScaleType
      */
     public static final int SimpleDraweeView_progressBarImageScaleType=13;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#retryImage}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#retryImage}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -16058,11 +16058,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:retryImage
+     * @attr name com.messi.languagehelper:retryImage
      */
     public static final int SimpleDraweeView_retryImage=14;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#retryImageScaleType}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#retryImageScaleType}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -16083,112 +16083,112 @@ public final class R {
      * <tr><td>none</td><td>ffffffff</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:retryImageScaleType
+     * @attr name com.messi.languagehelper:retryImageScaleType
      */
     public static final int SimpleDraweeView_retryImageScaleType=15;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#roundAsCircle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundAsCircle}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:roundAsCircle
+     * @attr name com.messi.languagehelper:roundAsCircle
      */
     public static final int SimpleDraweeView_roundAsCircle=16;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#roundBottomEnd}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundBottomEnd}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:roundBottomEnd
+     * @attr name com.messi.languagehelper:roundBottomEnd
      */
     public static final int SimpleDraweeView_roundBottomEnd=17;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#roundBottomLeft}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundBottomLeft}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:roundBottomLeft
+     * @attr name com.messi.languagehelper:roundBottomLeft
      */
     public static final int SimpleDraweeView_roundBottomLeft=18;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#roundBottomRight}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundBottomRight}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:roundBottomRight
+     * @attr name com.messi.languagehelper:roundBottomRight
      */
     public static final int SimpleDraweeView_roundBottomRight=19;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#roundBottomStart}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundBottomStart}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:roundBottomStart
+     * @attr name com.messi.languagehelper:roundBottomStart
      */
     public static final int SimpleDraweeView_roundBottomStart=20;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#roundTopEnd}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundTopEnd}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:roundTopEnd
+     * @attr name com.messi.languagehelper:roundTopEnd
      */
     public static final int SimpleDraweeView_roundTopEnd=21;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#roundTopLeft}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundTopLeft}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:roundTopLeft
+     * @attr name com.messi.languagehelper:roundTopLeft
      */
     public static final int SimpleDraweeView_roundTopLeft=22;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#roundTopRight}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundTopRight}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:roundTopRight
+     * @attr name com.messi.languagehelper:roundTopRight
      */
     public static final int SimpleDraweeView_roundTopRight=23;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#roundTopStart}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundTopStart}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:roundTopStart
+     * @attr name com.messi.languagehelper:roundTopStart
      */
     public static final int SimpleDraweeView_roundTopStart=24;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#roundWithOverlayColor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundWithOverlayColor}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:roundWithOverlayColor
+     * @attr name com.messi.languagehelper:roundWithOverlayColor
      */
     public static final int SimpleDraweeView_roundWithOverlayColor=25;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#roundedCornerRadius}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundedCornerRadius}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16197,22 +16197,22 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:roundedCornerRadius
+     * @attr name com.messi.languagehelper:roundedCornerRadius
      */
     public static final int SimpleDraweeView_roundedCornerRadius=26;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#roundingBorderColor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundingBorderColor}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:roundingBorderColor
+     * @attr name com.messi.languagehelper:roundingBorderColor
      */
     public static final int SimpleDraweeView_roundingBorderColor=27;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#roundingBorderPadding}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundingBorderPadding}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16221,11 +16221,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:roundingBorderPadding
+     * @attr name com.messi.languagehelper:roundingBorderPadding
      */
     public static final int SimpleDraweeView_roundingBorderPadding=28;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#roundingBorderWidth}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#roundingBorderWidth}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16234,16 +16234,16 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:roundingBorderWidth
+     * @attr name com.messi.languagehelper:roundingBorderWidth
      */
     public static final int SimpleDraweeView_roundingBorderWidth=29;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#viewAspectRatio}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#viewAspectRatio}
      * attribute's value can be found in the {@link #SimpleDraweeView} array.
      *
      * <p>May be a floating point value, such as "<code>1.2</code>".
      *
-     * @attr name com.messi.learnenglish:viewAspectRatio
+     * @attr name com.messi.languagehelper:viewAspectRatio
      */
     public static final int SimpleDraweeView_viewAspectRatio=30;
     /**
@@ -16253,7 +16253,7 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #Slide_slideEdge com.messi.learnenglish:slideEdge}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Slide_slideEdge com.messi.languagehelper:slideEdge}</code></td><td></td></tr>
      * </table>
      * @see #Slide_slideEdge
      */
@@ -16261,7 +16261,7 @@ public final class R {
         0x7f0301ab
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#slideEdge}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#slideEdge}
      * attribute's value can be found in the {@link #Slide} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -16276,7 +16276,7 @@ public final class R {
      * <tr><td>top</td><td>30</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:slideEdge
+     * @attr name com.messi.languagehelper:slideEdge
      */
     public static final int Slide_slideEdge=0;
     /**
@@ -16287,8 +16287,8 @@ public final class R {
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #SnackbarLayout_android_maxWidth android:maxWidth}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SnackbarLayout_elevation com.messi.learnenglish:elevation}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SnackbarLayout_maxActionInlineWidth com.messi.learnenglish:maxActionInlineWidth}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SnackbarLayout_elevation com.messi.languagehelper:elevation}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SnackbarLayout_maxActionInlineWidth com.messi.languagehelper:maxActionInlineWidth}</code></td><td></td></tr>
      * </table>
      * @see #SnackbarLayout_android_maxWidth
      * @see #SnackbarLayout_elevation
@@ -16311,7 +16311,7 @@ public final class R {
      */
     public static final int SnackbarLayout_android_maxWidth=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#elevation}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#elevation}
      * attribute's value can be found in the {@link #SnackbarLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16320,11 +16320,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:elevation
+     * @attr name com.messi.languagehelper:elevation
      */
     public static final int SnackbarLayout_elevation=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#maxActionInlineWidth}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#maxActionInlineWidth}
      * attribute's value can be found in the {@link #SnackbarLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16333,7 +16333,7 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:maxActionInlineWidth
+     * @attr name com.messi.languagehelper:maxActionInlineWidth
      */
     public static final int SnackbarLayout_maxActionInlineWidth=2;
     /**
@@ -16347,7 +16347,7 @@ public final class R {
      * <tr><td><code>{@link #Spinner_android_popupBackground android:popupBackground}</code></td><td></td></tr>
      * <tr><td><code>{@link #Spinner_android_prompt android:prompt}</code></td><td></td></tr>
      * <tr><td><code>{@link #Spinner_android_dropDownWidth android:dropDownWidth}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Spinner_popupTheme com.messi.learnenglish:popupTheme}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Spinner_popupTheme com.messi.languagehelper:popupTheme}</code></td><td></td></tr>
      * </table>
      * @see #Spinner_android_entries
      * @see #Spinner_android_popupBackground
@@ -16422,7 +16422,7 @@ public final class R {
      */
     public static final int Spinner_android_dropDownWidth=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#popupTheme}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#popupTheme}
      * attribute's value can be found in the {@link #Spinner} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -16430,7 +16430,7 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:popupTheme
+     * @attr name com.messi.languagehelper:popupTheme
      */
     public static final int Spinner_popupTheme=4;
     /**
@@ -16443,17 +16443,17 @@ public final class R {
      * <tr><td><code>{@link #SwitchCompat_android_textOn android:textOn}</code></td><td></td></tr>
      * <tr><td><code>{@link #SwitchCompat_android_textOff android:textOff}</code></td><td></td></tr>
      * <tr><td><code>{@link #SwitchCompat_android_thumb android:thumb}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SwitchCompat_showText com.messi.learnenglish:showText}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SwitchCompat_splitTrack com.messi.learnenglish:splitTrack}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SwitchCompat_switchMinWidth com.messi.learnenglish:switchMinWidth}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SwitchCompat_switchPadding com.messi.learnenglish:switchPadding}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SwitchCompat_switchTextAppearance com.messi.learnenglish:switchTextAppearance}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SwitchCompat_thumbTextPadding com.messi.learnenglish:thumbTextPadding}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SwitchCompat_thumbTint com.messi.learnenglish:thumbTint}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SwitchCompat_thumbTintMode com.messi.learnenglish:thumbTintMode}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SwitchCompat_track com.messi.learnenglish:track}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SwitchCompat_trackTint com.messi.learnenglish:trackTint}</code></td><td></td></tr>
-     * <tr><td><code>{@link #SwitchCompat_trackTintMode com.messi.learnenglish:trackTintMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SwitchCompat_showText com.messi.languagehelper:showText}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SwitchCompat_splitTrack com.messi.languagehelper:splitTrack}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SwitchCompat_switchMinWidth com.messi.languagehelper:switchMinWidth}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SwitchCompat_switchPadding com.messi.languagehelper:switchPadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SwitchCompat_switchTextAppearance com.messi.languagehelper:switchTextAppearance}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SwitchCompat_thumbTextPadding com.messi.languagehelper:thumbTextPadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SwitchCompat_thumbTint com.messi.languagehelper:thumbTint}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SwitchCompat_thumbTintMode com.messi.languagehelper:thumbTintMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SwitchCompat_track com.messi.languagehelper:track}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SwitchCompat_trackTint com.messi.languagehelper:trackTint}</code></td><td></td></tr>
+     * <tr><td><code>{@link #SwitchCompat_trackTintMode com.messi.languagehelper:trackTintMode}</code></td><td></td></tr>
      * </table>
      * @see #SwitchCompat_android_textOn
      * @see #SwitchCompat_android_textOff
@@ -16509,27 +16509,27 @@ public final class R {
      */
     public static final int SwitchCompat_android_thumb=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#showText}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#showText}
      * attribute's value can be found in the {@link #SwitchCompat} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:showText
+     * @attr name com.messi.languagehelper:showText
      */
     public static final int SwitchCompat_showText=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#splitTrack}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#splitTrack}
      * attribute's value can be found in the {@link #SwitchCompat} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:splitTrack
+     * @attr name com.messi.languagehelper:splitTrack
      */
     public static final int SwitchCompat_splitTrack=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#switchMinWidth}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#switchMinWidth}
      * attribute's value can be found in the {@link #SwitchCompat} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16538,11 +16538,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:switchMinWidth
+     * @attr name com.messi.languagehelper:switchMinWidth
      */
     public static final int SwitchCompat_switchMinWidth=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#switchPadding}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#switchPadding}
      * attribute's value can be found in the {@link #SwitchCompat} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16551,11 +16551,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:switchPadding
+     * @attr name com.messi.languagehelper:switchPadding
      */
     public static final int SwitchCompat_switchPadding=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#switchTextAppearance}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#switchTextAppearance}
      * attribute's value can be found in the {@link #SwitchCompat} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -16563,11 +16563,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:switchTextAppearance
+     * @attr name com.messi.languagehelper:switchTextAppearance
      */
     public static final int SwitchCompat_switchTextAppearance=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#thumbTextPadding}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#thumbTextPadding}
      * attribute's value can be found in the {@link #SwitchCompat} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16576,22 +16576,22 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:thumbTextPadding
+     * @attr name com.messi.languagehelper:thumbTextPadding
      */
     public static final int SwitchCompat_thumbTextPadding=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#thumbTint}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#thumbTint}
      * attribute's value can be found in the {@link #SwitchCompat} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:thumbTint
+     * @attr name com.messi.languagehelper:thumbTint
      */
     public static final int SwitchCompat_thumbTint=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#thumbTintMode}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#thumbTintMode}
      * attribute's value can be found in the {@link #SwitchCompat} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -16608,11 +16608,11 @@ public final class R {
      * <tr><td>src_over</td><td>3</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:thumbTintMode
+     * @attr name com.messi.languagehelper:thumbTintMode
      */
     public static final int SwitchCompat_thumbTintMode=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#track}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#track}
      * attribute's value can be found in the {@link #SwitchCompat} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -16620,22 +16620,22 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:track
+     * @attr name com.messi.languagehelper:track
      */
     public static final int SwitchCompat_track=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#trackTint}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#trackTint}
      * attribute's value can be found in the {@link #SwitchCompat} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:trackTint
+     * @attr name com.messi.languagehelper:trackTint
      */
     public static final int SwitchCompat_trackTint=12;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#trackTintMode}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#trackTintMode}
      * attribute's value can be found in the {@link #SwitchCompat} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -16652,7 +16652,7 @@ public final class R {
      * <tr><td>src_over</td><td>3</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:trackTintMode
+     * @attr name com.messi.languagehelper:trackTintMode
      */
     public static final int SwitchCompat_trackTintMode=13;
     /**
@@ -16714,22 +16714,22 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #TabLayout_tabBackground com.messi.learnenglish:tabBackground}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabContentStart com.messi.learnenglish:tabContentStart}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabGravity com.messi.learnenglish:tabGravity}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabIndicatorColor com.messi.learnenglish:tabIndicatorColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabIndicatorHeight com.messi.learnenglish:tabIndicatorHeight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabMaxWidth com.messi.learnenglish:tabMaxWidth}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabMinWidth com.messi.learnenglish:tabMinWidth}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabMode com.messi.learnenglish:tabMode}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabPadding com.messi.learnenglish:tabPadding}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabPaddingBottom com.messi.learnenglish:tabPaddingBottom}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabPaddingEnd com.messi.learnenglish:tabPaddingEnd}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabPaddingStart com.messi.learnenglish:tabPaddingStart}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabPaddingTop com.messi.learnenglish:tabPaddingTop}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabSelectedTextColor com.messi.learnenglish:tabSelectedTextColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabTextAppearance com.messi.learnenglish:tabTextAppearance}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TabLayout_tabTextColor com.messi.learnenglish:tabTextColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabBackground com.messi.languagehelper:tabBackground}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabContentStart com.messi.languagehelper:tabContentStart}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabGravity com.messi.languagehelper:tabGravity}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabIndicatorColor com.messi.languagehelper:tabIndicatorColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabIndicatorHeight com.messi.languagehelper:tabIndicatorHeight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabMaxWidth com.messi.languagehelper:tabMaxWidth}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabMinWidth com.messi.languagehelper:tabMinWidth}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabMode com.messi.languagehelper:tabMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabPadding com.messi.languagehelper:tabPadding}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabPaddingBottom com.messi.languagehelper:tabPaddingBottom}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabPaddingEnd com.messi.languagehelper:tabPaddingEnd}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabPaddingStart com.messi.languagehelper:tabPaddingStart}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabPaddingTop com.messi.languagehelper:tabPaddingTop}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabSelectedTextColor com.messi.languagehelper:tabSelectedTextColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabTextAppearance com.messi.languagehelper:tabTextAppearance}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TabLayout_tabTextColor com.messi.languagehelper:tabTextColor}</code></td><td></td></tr>
      * </table>
      * @see #TabLayout_tabBackground
      * @see #TabLayout_tabContentStart
@@ -16755,7 +16755,7 @@ public final class R {
         0x7f0301d1, 0x7f0301d2, 0x7f0301d3, 0x7f0301d4
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#tabBackground}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabBackground}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -16763,11 +16763,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:tabBackground
+     * @attr name com.messi.languagehelper:tabBackground
      */
     public static final int TabLayout_tabBackground=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#tabContentStart}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabContentStart}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16776,11 +16776,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:tabContentStart
+     * @attr name com.messi.languagehelper:tabContentStart
      */
     public static final int TabLayout_tabContentStart=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#tabGravity}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabGravity}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -16793,22 +16793,22 @@ public final class R {
      * <tr><td>fill</td><td>0</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:tabGravity
+     * @attr name com.messi.languagehelper:tabGravity
      */
     public static final int TabLayout_tabGravity=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#tabIndicatorColor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabIndicatorColor}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:tabIndicatorColor
+     * @attr name com.messi.languagehelper:tabIndicatorColor
      */
     public static final int TabLayout_tabIndicatorColor=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#tabIndicatorHeight}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabIndicatorHeight}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16817,11 +16817,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:tabIndicatorHeight
+     * @attr name com.messi.languagehelper:tabIndicatorHeight
      */
     public static final int TabLayout_tabIndicatorHeight=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#tabMaxWidth}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabMaxWidth}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16830,11 +16830,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:tabMaxWidth
+     * @attr name com.messi.languagehelper:tabMaxWidth
      */
     public static final int TabLayout_tabMaxWidth=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#tabMinWidth}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabMinWidth}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16843,11 +16843,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:tabMinWidth
+     * @attr name com.messi.languagehelper:tabMinWidth
      */
     public static final int TabLayout_tabMinWidth=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#tabMode}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabMode}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -16860,11 +16860,11 @@ public final class R {
      * <tr><td>scrollable</td><td>0</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:tabMode
+     * @attr name com.messi.languagehelper:tabMode
      */
     public static final int TabLayout_tabMode=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#tabPadding}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabPadding}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16873,11 +16873,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:tabPadding
+     * @attr name com.messi.languagehelper:tabPadding
      */
     public static final int TabLayout_tabPadding=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#tabPaddingBottom}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabPaddingBottom}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16886,11 +16886,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:tabPaddingBottom
+     * @attr name com.messi.languagehelper:tabPaddingBottom
      */
     public static final int TabLayout_tabPaddingBottom=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#tabPaddingEnd}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabPaddingEnd}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16899,11 +16899,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:tabPaddingEnd
+     * @attr name com.messi.languagehelper:tabPaddingEnd
      */
     public static final int TabLayout_tabPaddingEnd=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#tabPaddingStart}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabPaddingStart}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16912,11 +16912,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:tabPaddingStart
+     * @attr name com.messi.languagehelper:tabPaddingStart
      */
     public static final int TabLayout_tabPaddingStart=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#tabPaddingTop}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabPaddingTop}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -16925,22 +16925,22 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:tabPaddingTop
+     * @attr name com.messi.languagehelper:tabPaddingTop
      */
     public static final int TabLayout_tabPaddingTop=12;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#tabSelectedTextColor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabSelectedTextColor}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:tabSelectedTextColor
+     * @attr name com.messi.languagehelper:tabSelectedTextColor
      */
     public static final int TabLayout_tabSelectedTextColor=13;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#tabTextAppearance}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabTextAppearance}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -16948,18 +16948,18 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:tabTextAppearance
+     * @attr name com.messi.languagehelper:tabTextAppearance
      */
     public static final int TabLayout_tabTextAppearance=14;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#tabTextColor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#tabTextColor}
      * attribute's value can be found in the {@link #TabLayout} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:tabTextColor
+     * @attr name com.messi.languagehelper:tabTextColor
      */
     public static final int TabLayout_tabTextColor=15;
     /**
@@ -16980,8 +16980,8 @@ public final class R {
      * <tr><td><code>{@link #TextAppearance_android_shadowDy android:shadowDy}</code></td><td></td></tr>
      * <tr><td><code>{@link #TextAppearance_android_shadowRadius android:shadowRadius}</code></td><td></td></tr>
      * <tr><td><code>{@link #TextAppearance_android_fontFamily android:fontFamily}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextAppearance_fontFamily com.messi.learnenglish:fontFamily}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextAppearance_textAllCaps com.messi.learnenglish:textAllCaps}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextAppearance_fontFamily com.messi.languagehelper:fontFamily}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextAppearance_textAllCaps com.messi.languagehelper:textAllCaps}</code></td><td></td></tr>
      * </table>
      * @see #TextAppearance_android_textSize
      * @see #TextAppearance_android_typeface
@@ -17147,17 +17147,17 @@ public final class R {
      */
     public static final int TextAppearance_android_fontFamily=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#fontFamily}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fontFamily}
      * attribute's value can be found in the {@link #TextAppearance} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:fontFamily
+     * @attr name com.messi.languagehelper:fontFamily
      */
     public static final int TextAppearance_fontFamily=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#textAllCaps}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#textAllCaps}
      * attribute's value can be found in the {@link #TextAppearance} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17167,7 +17167,7 @@ public final class R {
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:textAllCaps
+     * @attr name com.messi.languagehelper:textAllCaps
      */
     public static final int TextAppearance_textAllCaps=12;
     /**
@@ -17179,20 +17179,20 @@ public final class R {
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #TextInputLayout_android_textColorHint android:textColorHint}</code></td><td></td></tr>
      * <tr><td><code>{@link #TextInputLayout_android_hint android:hint}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextInputLayout_counterEnabled com.messi.learnenglish:counterEnabled}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextInputLayout_counterMaxLength com.messi.learnenglish:counterMaxLength}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextInputLayout_counterOverflowTextAppearance com.messi.learnenglish:counterOverflowTextAppearance}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextInputLayout_counterTextAppearance com.messi.learnenglish:counterTextAppearance}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextInputLayout_errorEnabled com.messi.learnenglish:errorEnabled}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextInputLayout_errorTextAppearance com.messi.learnenglish:errorTextAppearance}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextInputLayout_hintAnimationEnabled com.messi.learnenglish:hintAnimationEnabled}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextInputLayout_hintEnabled com.messi.learnenglish:hintEnabled}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextInputLayout_hintTextAppearance com.messi.learnenglish:hintTextAppearance}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextInputLayout_passwordToggleContentDescription com.messi.learnenglish:passwordToggleContentDescription}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextInputLayout_passwordToggleDrawable com.messi.learnenglish:passwordToggleDrawable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextInputLayout_passwordToggleEnabled com.messi.learnenglish:passwordToggleEnabled}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextInputLayout_passwordToggleTint com.messi.learnenglish:passwordToggleTint}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TextInputLayout_passwordToggleTintMode com.messi.learnenglish:passwordToggleTintMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextInputLayout_counterEnabled com.messi.languagehelper:counterEnabled}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextInputLayout_counterMaxLength com.messi.languagehelper:counterMaxLength}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextInputLayout_counterOverflowTextAppearance com.messi.languagehelper:counterOverflowTextAppearance}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextInputLayout_counterTextAppearance com.messi.languagehelper:counterTextAppearance}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextInputLayout_errorEnabled com.messi.languagehelper:errorEnabled}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextInputLayout_errorTextAppearance com.messi.languagehelper:errorTextAppearance}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextInputLayout_hintAnimationEnabled com.messi.languagehelper:hintAnimationEnabled}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextInputLayout_hintEnabled com.messi.languagehelper:hintEnabled}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextInputLayout_hintTextAppearance com.messi.languagehelper:hintTextAppearance}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextInputLayout_passwordToggleContentDescription com.messi.languagehelper:passwordToggleContentDescription}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextInputLayout_passwordToggleDrawable com.messi.languagehelper:passwordToggleDrawable}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextInputLayout_passwordToggleEnabled com.messi.languagehelper:passwordToggleEnabled}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextInputLayout_passwordToggleTint com.messi.languagehelper:passwordToggleTint}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TextInputLayout_passwordToggleTintMode com.messi.languagehelper:passwordToggleTintMode}</code></td><td></td></tr>
      * </table>
      * @see #TextInputLayout_android_textColorHint
      * @see #TextInputLayout_android_hint
@@ -17243,26 +17243,26 @@ public final class R {
      */
     public static final int TextInputLayout_android_hint=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#counterEnabled}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#counterEnabled}
      * attribute's value can be found in the {@link #TextInputLayout} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:counterEnabled
+     * @attr name com.messi.languagehelper:counterEnabled
      */
     public static final int TextInputLayout_counterEnabled=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#counterMaxLength}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#counterMaxLength}
      * attribute's value can be found in the {@link #TextInputLayout} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.learnenglish:counterMaxLength
+     * @attr name com.messi.languagehelper:counterMaxLength
      */
     public static final int TextInputLayout_counterMaxLength=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#counterOverflowTextAppearance}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#counterOverflowTextAppearance}
      * attribute's value can be found in the {@link #TextInputLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17270,11 +17270,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:counterOverflowTextAppearance
+     * @attr name com.messi.languagehelper:counterOverflowTextAppearance
      */
     public static final int TextInputLayout_counterOverflowTextAppearance=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#counterTextAppearance}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#counterTextAppearance}
      * attribute's value can be found in the {@link #TextInputLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17282,21 +17282,21 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:counterTextAppearance
+     * @attr name com.messi.languagehelper:counterTextAppearance
      */
     public static final int TextInputLayout_counterTextAppearance=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#errorEnabled}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#errorEnabled}
      * attribute's value can be found in the {@link #TextInputLayout} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:errorEnabled
+     * @attr name com.messi.languagehelper:errorEnabled
      */
     public static final int TextInputLayout_errorEnabled=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#errorTextAppearance}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#errorTextAppearance}
      * attribute's value can be found in the {@link #TextInputLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17304,31 +17304,31 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:errorTextAppearance
+     * @attr name com.messi.languagehelper:errorTextAppearance
      */
     public static final int TextInputLayout_errorTextAppearance=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#hintAnimationEnabled}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#hintAnimationEnabled}
      * attribute's value can be found in the {@link #TextInputLayout} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:hintAnimationEnabled
+     * @attr name com.messi.languagehelper:hintAnimationEnabled
      */
     public static final int TextInputLayout_hintAnimationEnabled=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#hintEnabled}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#hintEnabled}
      * attribute's value can be found in the {@link #TextInputLayout} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:hintEnabled
+     * @attr name com.messi.languagehelper:hintEnabled
      */
     public static final int TextInputLayout_hintEnabled=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#hintTextAppearance}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#hintTextAppearance}
      * attribute's value can be found in the {@link #TextInputLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17336,21 +17336,21 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:hintTextAppearance
+     * @attr name com.messi.languagehelper:hintTextAppearance
      */
     public static final int TextInputLayout_hintTextAppearance=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#passwordToggleContentDescription}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#passwordToggleContentDescription}
      * attribute's value can be found in the {@link #TextInputLayout} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:passwordToggleContentDescription
+     * @attr name com.messi.languagehelper:passwordToggleContentDescription
      */
     public static final int TextInputLayout_passwordToggleContentDescription=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#passwordToggleDrawable}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#passwordToggleDrawable}
      * attribute's value can be found in the {@link #TextInputLayout} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17358,32 +17358,32 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:passwordToggleDrawable
+     * @attr name com.messi.languagehelper:passwordToggleDrawable
      */
     public static final int TextInputLayout_passwordToggleDrawable=12;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#passwordToggleEnabled}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#passwordToggleEnabled}
      * attribute's value can be found in the {@link #TextInputLayout} array.
      *
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      *
-     * @attr name com.messi.learnenglish:passwordToggleEnabled
+     * @attr name com.messi.languagehelper:passwordToggleEnabled
      */
     public static final int TextInputLayout_passwordToggleEnabled=13;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#passwordToggleTint}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#passwordToggleTint}
      * attribute's value can be found in the {@link #TextInputLayout} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:passwordToggleTint
+     * @attr name com.messi.languagehelper:passwordToggleTint
      */
     public static final int TextInputLayout_passwordToggleTint=14;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#passwordToggleTintMode}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#passwordToggleTintMode}
      * attribute's value can be found in the {@link #TextInputLayout} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -17399,7 +17399,7 @@ public final class R {
      * <tr><td>src_over</td><td>3</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:passwordToggleTintMode
+     * @attr name com.messi.languagehelper:passwordToggleTintMode
      */
     public static final int TextInputLayout_passwordToggleTintMode=15;
     /**
@@ -17409,10 +17409,10 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #Themes_arcProgressStyle com.messi.learnenglish:arcProgressStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Themes_circleProgressStyle com.messi.learnenglish:circleProgressStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Themes_donutProgressStyle com.messi.learnenglish:donutProgressStyle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Themes_numberProgressBarStyle com.messi.learnenglish:numberProgressBarStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Themes_arcProgressStyle com.messi.languagehelper:arcProgressStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Themes_circleProgressStyle com.messi.languagehelper:circleProgressStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Themes_donutProgressStyle com.messi.languagehelper:donutProgressStyle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Themes_numberProgressBarStyle com.messi.languagehelper:numberProgressBarStyle}</code></td><td></td></tr>
      * </table>
      * @see #Themes_arcProgressStyle
      * @see #Themes_circleProgressStyle
@@ -17423,7 +17423,7 @@ public final class R {
         0x7f030030, 0x7f03006e, 0x7f0300ab, 0x7f03013b
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#arcProgressStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#arcProgressStyle}
      * attribute's value can be found in the {@link #Themes} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17431,11 +17431,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:arcProgressStyle
+     * @attr name com.messi.languagehelper:arcProgressStyle
      */
     public static final int Themes_arcProgressStyle=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#circleProgressStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#circleProgressStyle}
      * attribute's value can be found in the {@link #Themes} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17443,11 +17443,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:circleProgressStyle
+     * @attr name com.messi.languagehelper:circleProgressStyle
      */
     public static final int Themes_circleProgressStyle=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#donutProgressStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#donutProgressStyle}
      * attribute's value can be found in the {@link #Themes} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17455,11 +17455,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:donutProgressStyle
+     * @attr name com.messi.languagehelper:donutProgressStyle
      */
     public static final int Themes_donutProgressStyle=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#numberProgressBarStyle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#numberProgressBarStyle}
      * attribute's value can be found in the {@link #Themes} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17467,7 +17467,7 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:numberProgressBarStyle
+     * @attr name com.messi.languagehelper:numberProgressBarStyle
      */
     public static final int Themes_numberProgressBarStyle=3;
     /**
@@ -17479,33 +17479,33 @@ public final class R {
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #Toolbar_android_gravity android:gravity}</code></td><td></td></tr>
      * <tr><td><code>{@link #Toolbar_android_minHeight android:minHeight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_buttonGravity com.messi.learnenglish:buttonGravity}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_collapseContentDescription com.messi.learnenglish:collapseContentDescription}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_collapseIcon com.messi.learnenglish:collapseIcon}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_contentInsetEnd com.messi.learnenglish:contentInsetEnd}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_contentInsetEndWithActions com.messi.learnenglish:contentInsetEndWithActions}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_contentInsetLeft com.messi.learnenglish:contentInsetLeft}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_contentInsetRight com.messi.learnenglish:contentInsetRight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_contentInsetStart com.messi.learnenglish:contentInsetStart}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_contentInsetStartWithNavigation com.messi.learnenglish:contentInsetStartWithNavigation}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_logo com.messi.learnenglish:logo}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_logoDescription com.messi.learnenglish:logoDescription}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_maxButtonHeight com.messi.learnenglish:maxButtonHeight}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_navigationContentDescription com.messi.learnenglish:navigationContentDescription}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_navigationIcon com.messi.learnenglish:navigationIcon}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_popupTheme com.messi.learnenglish:popupTheme}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_subtitle com.messi.learnenglish:subtitle}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_subtitleTextAppearance com.messi.learnenglish:subtitleTextAppearance}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_subtitleTextColor com.messi.learnenglish:subtitleTextColor}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_title com.messi.learnenglish:title}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_titleMargin com.messi.learnenglish:titleMargin}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_titleMarginBottom com.messi.learnenglish:titleMarginBottom}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_titleMarginEnd com.messi.learnenglish:titleMarginEnd}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_titleMarginStart com.messi.learnenglish:titleMarginStart}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_titleMarginTop com.messi.learnenglish:titleMarginTop}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_titleMargins com.messi.learnenglish:titleMargins}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_titleTextAppearance com.messi.learnenglish:titleTextAppearance}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Toolbar_titleTextColor com.messi.learnenglish:titleTextColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_buttonGravity com.messi.languagehelper:buttonGravity}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_collapseContentDescription com.messi.languagehelper:collapseContentDescription}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_collapseIcon com.messi.languagehelper:collapseIcon}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_contentInsetEnd com.messi.languagehelper:contentInsetEnd}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_contentInsetEndWithActions com.messi.languagehelper:contentInsetEndWithActions}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_contentInsetLeft com.messi.languagehelper:contentInsetLeft}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_contentInsetRight com.messi.languagehelper:contentInsetRight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_contentInsetStart com.messi.languagehelper:contentInsetStart}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_contentInsetStartWithNavigation com.messi.languagehelper:contentInsetStartWithNavigation}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_logo com.messi.languagehelper:logo}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_logoDescription com.messi.languagehelper:logoDescription}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_maxButtonHeight com.messi.languagehelper:maxButtonHeight}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_navigationContentDescription com.messi.languagehelper:navigationContentDescription}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_navigationIcon com.messi.languagehelper:navigationIcon}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_popupTheme com.messi.languagehelper:popupTheme}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_subtitle com.messi.languagehelper:subtitle}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_subtitleTextAppearance com.messi.languagehelper:subtitleTextAppearance}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_subtitleTextColor com.messi.languagehelper:subtitleTextColor}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_title com.messi.languagehelper:title}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_titleMargin com.messi.languagehelper:titleMargin}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_titleMarginBottom com.messi.languagehelper:titleMarginBottom}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_titleMarginEnd com.messi.languagehelper:titleMarginEnd}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_titleMarginStart com.messi.languagehelper:titleMarginStart}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_titleMarginTop com.messi.languagehelper:titleMarginTop}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_titleMargins com.messi.languagehelper:titleMargins}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_titleTextAppearance com.messi.languagehelper:titleTextAppearance}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Toolbar_titleTextColor com.messi.languagehelper:titleTextColor}</code></td><td></td></tr>
      * </table>
      * @see #Toolbar_android_gravity
      * @see #Toolbar_android_minHeight
@@ -17590,7 +17590,7 @@ public final class R {
      */
     public static final int Toolbar_android_minHeight=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#buttonGravity}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#buttonGravity}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -17603,21 +17603,21 @@ public final class R {
      * <tr><td>top</td><td>30</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:buttonGravity
+     * @attr name com.messi.languagehelper:buttonGravity
      */
     public static final int Toolbar_buttonGravity=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#collapseContentDescription}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#collapseContentDescription}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:collapseContentDescription
+     * @attr name com.messi.languagehelper:collapseContentDescription
      */
     public static final int Toolbar_collapseContentDescription=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#collapseIcon}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#collapseIcon}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17625,11 +17625,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:collapseIcon
+     * @attr name com.messi.languagehelper:collapseIcon
      */
     public static final int Toolbar_collapseIcon=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#contentInsetEnd}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentInsetEnd}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -17638,11 +17638,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:contentInsetEnd
+     * @attr name com.messi.languagehelper:contentInsetEnd
      */
     public static final int Toolbar_contentInsetEnd=5;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#contentInsetEndWithActions}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentInsetEndWithActions}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -17651,11 +17651,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:contentInsetEndWithActions
+     * @attr name com.messi.languagehelper:contentInsetEndWithActions
      */
     public static final int Toolbar_contentInsetEndWithActions=6;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#contentInsetLeft}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentInsetLeft}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -17664,11 +17664,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:contentInsetLeft
+     * @attr name com.messi.languagehelper:contentInsetLeft
      */
     public static final int Toolbar_contentInsetLeft=7;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#contentInsetRight}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentInsetRight}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -17677,11 +17677,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:contentInsetRight
+     * @attr name com.messi.languagehelper:contentInsetRight
      */
     public static final int Toolbar_contentInsetRight=8;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#contentInsetStart}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentInsetStart}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -17690,11 +17690,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:contentInsetStart
+     * @attr name com.messi.languagehelper:contentInsetStart
      */
     public static final int Toolbar_contentInsetStart=9;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#contentInsetStartWithNavigation}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#contentInsetStartWithNavigation}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -17703,11 +17703,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:contentInsetStartWithNavigation
+     * @attr name com.messi.languagehelper:contentInsetStartWithNavigation
      */
     public static final int Toolbar_contentInsetStartWithNavigation=10;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#logo}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#logo}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17715,21 +17715,21 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:logo
+     * @attr name com.messi.languagehelper:logo
      */
     public static final int Toolbar_logo=11;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#logoDescription}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#logoDescription}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:logoDescription
+     * @attr name com.messi.languagehelper:logoDescription
      */
     public static final int Toolbar_logoDescription=12;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#maxButtonHeight}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#maxButtonHeight}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -17738,21 +17738,21 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:maxButtonHeight
+     * @attr name com.messi.languagehelper:maxButtonHeight
      */
     public static final int Toolbar_maxButtonHeight=13;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#navigationContentDescription}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#navigationContentDescription}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:navigationContentDescription
+     * @attr name com.messi.languagehelper:navigationContentDescription
      */
     public static final int Toolbar_navigationContentDescription=14;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#navigationIcon}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#navigationIcon}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17760,11 +17760,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:navigationIcon
+     * @attr name com.messi.languagehelper:navigationIcon
      */
     public static final int Toolbar_navigationIcon=15;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#popupTheme}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#popupTheme}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17772,21 +17772,21 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:popupTheme
+     * @attr name com.messi.languagehelper:popupTheme
      */
     public static final int Toolbar_popupTheme=16;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#subtitle}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#subtitle}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:subtitle
+     * @attr name com.messi.languagehelper:subtitle
      */
     public static final int Toolbar_subtitle=17;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#subtitleTextAppearance}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#subtitleTextAppearance}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17794,32 +17794,32 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:subtitleTextAppearance
+     * @attr name com.messi.languagehelper:subtitleTextAppearance
      */
     public static final int Toolbar_subtitleTextAppearance=18;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#subtitleTextColor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#subtitleTextColor}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:subtitleTextColor
+     * @attr name com.messi.languagehelper:subtitleTextColor
      */
     public static final int Toolbar_subtitleTextColor=19;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#title}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#title}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:title
+     * @attr name com.messi.languagehelper:title
      */
     public static final int Toolbar_title=20;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#titleMargin}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#titleMargin}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -17828,11 +17828,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:titleMargin
+     * @attr name com.messi.languagehelper:titleMargin
      */
     public static final int Toolbar_titleMargin=21;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#titleMarginBottom}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#titleMarginBottom}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -17841,11 +17841,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:titleMarginBottom
+     * @attr name com.messi.languagehelper:titleMarginBottom
      */
     public static final int Toolbar_titleMarginBottom=22;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#titleMarginEnd}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#titleMarginEnd}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -17854,11 +17854,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:titleMarginEnd
+     * @attr name com.messi.languagehelper:titleMarginEnd
      */
     public static final int Toolbar_titleMarginEnd=23;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#titleMarginStart}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#titleMarginStart}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -17867,11 +17867,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:titleMarginStart
+     * @attr name com.messi.languagehelper:titleMarginStart
      */
     public static final int Toolbar_titleMarginStart=24;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#titleMarginTop}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#titleMarginTop}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -17880,11 +17880,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:titleMarginTop
+     * @attr name com.messi.languagehelper:titleMarginTop
      */
     public static final int Toolbar_titleMarginTop=25;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#titleMargins}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#titleMargins}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -17893,11 +17893,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:titleMargins
+     * @attr name com.messi.languagehelper:titleMargins
      */
     public static final int Toolbar_titleMargins=26;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#titleTextAppearance}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#titleTextAppearance}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17905,18 +17905,18 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:titleTextAppearance
+     * @attr name com.messi.languagehelper:titleTextAppearance
      */
     public static final int Toolbar_titleTextAppearance=27;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#titleTextColor}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#titleTextColor}
      * attribute's value can be found in the {@link #Toolbar} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:titleTextColor
+     * @attr name com.messi.languagehelper:titleTextColor
      */
     public static final int Toolbar_titleTextColor=28;
     /**
@@ -17928,10 +17928,10 @@ public final class R {
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #Transition_android_interpolator android:interpolator}</code></td><td></td></tr>
      * <tr><td><code>{@link #Transition_android_duration android:duration}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Transition_duration com.messi.learnenglish:duration}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Transition_interpolator com.messi.learnenglish:interpolator}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Transition_matchOrder com.messi.learnenglish:matchOrder}</code></td><td></td></tr>
-     * <tr><td><code>{@link #Transition_startDelay com.messi.learnenglish:startDelay}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Transition_duration com.messi.languagehelper:duration}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Transition_interpolator com.messi.languagehelper:interpolator}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Transition_matchOrder com.messi.languagehelper:matchOrder}</code></td><td></td></tr>
+     * <tr><td><code>{@link #Transition_startDelay com.messi.languagehelper:startDelay}</code></td><td></td></tr>
      * </table>
      * @see #Transition_android_interpolator
      * @see #Transition_android_duration
@@ -17966,16 +17966,16 @@ public final class R {
      */
     public static final int Transition_android_duration=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#duration}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#duration}
      * attribute's value can be found in the {@link #Transition} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.learnenglish:duration
+     * @attr name com.messi.languagehelper:duration
      */
     public static final int Transition_duration=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#interpolator}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#interpolator}
      * attribute's value can be found in the {@link #Transition} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -17983,26 +17983,26 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:interpolator
+     * @attr name com.messi.languagehelper:interpolator
      */
     public static final int Transition_interpolator=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#matchOrder}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#matchOrder}
      * attribute's value can be found in the {@link #Transition} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:matchOrder
+     * @attr name com.messi.languagehelper:matchOrder
      */
     public static final int Transition_matchOrder=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#startDelay}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#startDelay}
      * attribute's value can be found in the {@link #Transition} array.
      *
      * <p>May be an integer value, such as "<code>100</code>".
      *
-     * @attr name com.messi.learnenglish:startDelay
+     * @attr name com.messi.languagehelper:startDelay
      */
     public static final int Transition_startDelay=5;
     /**
@@ -18012,9 +18012,9 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #TransitionManager_fromScene com.messi.learnenglish:fromScene}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TransitionManager_toScene com.messi.learnenglish:toScene}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TransitionManager_transition com.messi.learnenglish:transition}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TransitionManager_fromScene com.messi.languagehelper:fromScene}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TransitionManager_toScene com.messi.languagehelper:toScene}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TransitionManager_transition com.messi.languagehelper:transition}</code></td><td></td></tr>
      * </table>
      * @see #TransitionManager_fromScene
      * @see #TransitionManager_toScene
@@ -18024,7 +18024,7 @@ public final class R {
         0x7f0300ee, 0x7f0301f9, 0x7f030204
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#fromScene}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#fromScene}
      * attribute's value can be found in the {@link #TransitionManager} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -18032,11 +18032,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:fromScene
+     * @attr name com.messi.languagehelper:fromScene
      */
     public static final int TransitionManager_fromScene=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#toScene}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#toScene}
      * attribute's value can be found in the {@link #TransitionManager} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -18044,11 +18044,11 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:toScene
+     * @attr name com.messi.languagehelper:toScene
      */
     public static final int TransitionManager_toScene=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#transition}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#transition}
      * attribute's value can be found in the {@link #TransitionManager} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -18056,7 +18056,7 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:transition
+     * @attr name com.messi.languagehelper:transition
      */
     public static final int TransitionManager_transition=2;
     /**
@@ -18066,7 +18066,7 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #TransitionSet_transitionOrdering com.messi.learnenglish:transitionOrdering}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TransitionSet_transitionOrdering com.messi.languagehelper:transitionOrdering}</code></td><td></td></tr>
      * </table>
      * @see #TransitionSet_transitionOrdering
      */
@@ -18074,7 +18074,7 @@ public final class R {
         0x7f030205
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#transitionOrdering}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#transitionOrdering}
      * attribute's value can be found in the {@link #TransitionSet} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -18087,7 +18087,7 @@ public final class R {
      * <tr><td>together</td><td>0</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:transitionOrdering
+     * @attr name com.messi.languagehelper:transitionOrdering
      */
     public static final int TransitionSet_transitionOrdering=0;
     /**
@@ -18097,12 +18097,12 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #TransitionTarget_excludeClass com.messi.learnenglish:excludeClass}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TransitionTarget_excludeId com.messi.learnenglish:excludeId}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TransitionTarget_excludeName com.messi.learnenglish:excludeName}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TransitionTarget_targetClass com.messi.learnenglish:targetClass}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TransitionTarget_targetId com.messi.learnenglish:targetId}</code></td><td></td></tr>
-     * <tr><td><code>{@link #TransitionTarget_targetName com.messi.learnenglish:targetName}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TransitionTarget_excludeClass com.messi.languagehelper:excludeClass}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TransitionTarget_excludeId com.messi.languagehelper:excludeId}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TransitionTarget_excludeName com.messi.languagehelper:excludeName}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TransitionTarget_targetClass com.messi.languagehelper:targetClass}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TransitionTarget_targetId com.messi.languagehelper:targetId}</code></td><td></td></tr>
+     * <tr><td><code>{@link #TransitionTarget_targetName com.messi.languagehelper:targetName}</code></td><td></td></tr>
      * </table>
      * @see #TransitionTarget_excludeClass
      * @see #TransitionTarget_excludeId
@@ -18116,17 +18116,17 @@ public final class R {
         0x7f0301d6, 0x7f0301d7
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#excludeClass}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#excludeClass}
      * attribute's value can be found in the {@link #TransitionTarget} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:excludeClass
+     * @attr name com.messi.languagehelper:excludeClass
      */
     public static final int TransitionTarget_excludeClass=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#excludeId}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#excludeId}
      * attribute's value can be found in the {@link #TransitionTarget} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -18134,31 +18134,31 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:excludeId
+     * @attr name com.messi.languagehelper:excludeId
      */
     public static final int TransitionTarget_excludeId=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#excludeName}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#excludeName}
      * attribute's value can be found in the {@link #TransitionTarget} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:excludeName
+     * @attr name com.messi.languagehelper:excludeName
      */
     public static final int TransitionTarget_excludeName=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#targetClass}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#targetClass}
      * attribute's value can be found in the {@link #TransitionTarget} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:targetClass
+     * @attr name com.messi.languagehelper:targetClass
      */
     public static final int TransitionTarget_targetClass=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#targetId}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#targetId}
      * attribute's value can be found in the {@link #TransitionTarget} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -18166,17 +18166,17 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:targetId
+     * @attr name com.messi.languagehelper:targetId
      */
     public static final int TransitionTarget_targetId=4;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#targetName}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#targetName}
      * attribute's value can be found in the {@link #TransitionTarget} array.
      *
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      *
-     * @attr name com.messi.learnenglish:targetName
+     * @attr name com.messi.languagehelper:targetName
      */
     public static final int TransitionTarget_targetName=5;
     /**
@@ -18188,9 +18188,9 @@ public final class R {
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #View_android_theme android:theme}</code></td><td></td></tr>
      * <tr><td><code>{@link #View_android_focusable android:focusable}</code></td><td></td></tr>
-     * <tr><td><code>{@link #View_paddingEnd com.messi.learnenglish:paddingEnd}</code></td><td></td></tr>
-     * <tr><td><code>{@link #View_paddingStart com.messi.learnenglish:paddingStart}</code></td><td></td></tr>
-     * <tr><td><code>{@link #View_theme com.messi.learnenglish:theme}</code></td><td></td></tr>
+     * <tr><td><code>{@link #View_paddingEnd com.messi.languagehelper:paddingEnd}</code></td><td></td></tr>
+     * <tr><td><code>{@link #View_paddingStart com.messi.languagehelper:paddingStart}</code></td><td></td></tr>
+     * <tr><td><code>{@link #View_theme com.messi.languagehelper:theme}</code></td><td></td></tr>
      * </table>
      * @see #View_android_theme
      * @see #View_android_focusable
@@ -18233,7 +18233,7 @@ public final class R {
      */
     public static final int View_android_focusable=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#paddingEnd}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#paddingEnd}
      * attribute's value can be found in the {@link #View} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -18242,11 +18242,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:paddingEnd
+     * @attr name com.messi.languagehelper:paddingEnd
      */
     public static final int View_paddingEnd=2;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#paddingStart}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#paddingStart}
      * attribute's value can be found in the {@link #View} array.
      *
      * <p>May be a dimension value, which is a floating point number appended with a
@@ -18255,11 +18255,11 @@ public final class R {
      * sp (scaled pixels based on preferred font size), in (inches), and
      * mm (millimeters).
      *
-     * @attr name com.messi.learnenglish:paddingStart
+     * @attr name com.messi.languagehelper:paddingStart
      */
     public static final int View_paddingStart=3;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#theme}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#theme}
      * attribute's value can be found in the {@link #View} array.
      *
      * <p>May be a reference to another resource, in the form
@@ -18267,7 +18267,7 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      *
-     * @attr name com.messi.learnenglish:theme
+     * @attr name com.messi.languagehelper:theme
      */
     public static final int View_theme=4;
     /**
@@ -18278,8 +18278,8 @@ public final class R {
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
      * <tr><td><code>{@link #ViewBackgroundHelper_android_background android:background}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ViewBackgroundHelper_backgroundTint com.messi.learnenglish:backgroundTint}</code></td><td></td></tr>
-     * <tr><td><code>{@link #ViewBackgroundHelper_backgroundTintMode com.messi.learnenglish:backgroundTintMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ViewBackgroundHelper_backgroundTint com.messi.languagehelper:backgroundTint}</code></td><td></td></tr>
+     * <tr><td><code>{@link #ViewBackgroundHelper_backgroundTintMode com.messi.languagehelper:backgroundTintMode}</code></td><td></td></tr>
      * </table>
      * @see #ViewBackgroundHelper_android_background
      * @see #ViewBackgroundHelper_backgroundTint
@@ -18304,18 +18304,18 @@ public final class R {
      */
     public static final int ViewBackgroundHelper_android_background=0;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#backgroundTint}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#backgroundTint}
      * attribute's value can be found in the {@link #ViewBackgroundHelper} array.
      *
      * <p>May be a color value, in the form of "<code>#<i>rgb</i></code>",
      * "<code>#<i>argb</i></code>", "<code>#<i>rrggbb</i></code>", or
      * "<code>#<i>aarrggbb</i></code>".
      *
-     * @attr name com.messi.learnenglish:backgroundTint
+     * @attr name com.messi.languagehelper:backgroundTint
      */
     public static final int ViewBackgroundHelper_backgroundTint=1;
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#backgroundTintMode}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#backgroundTintMode}
      * attribute's value can be found in the {@link #ViewBackgroundHelper} array.
      *
      * <p>Must be one of the following constant values.</p>
@@ -18332,7 +18332,7 @@ public final class R {
      * <tr><td>src_over</td><td>3</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:backgroundTintMode
+     * @attr name com.messi.languagehelper:backgroundTintMode
      */
     public static final int ViewBackgroundHelper_backgroundTintMode=2;
     /**
@@ -18396,7 +18396,7 @@ public final class R {
      * <colgroup align="left" />
      * <colgroup align="left" />
      * <tr><th>Attribute</th><th>Description</th></tr>
-     * <tr><td><code>{@link #VisibilityTransition_transitionVisibilityMode com.messi.learnenglish:transitionVisibilityMode}</code></td><td></td></tr>
+     * <tr><td><code>{@link #VisibilityTransition_transitionVisibilityMode com.messi.languagehelper:transitionVisibilityMode}</code></td><td></td></tr>
      * </table>
      * @see #VisibilityTransition_transitionVisibilityMode
      */
@@ -18404,7 +18404,7 @@ public final class R {
         0x7f030206
       };
     /**
-     * <p>This symbol is the offset where the {@link com.messi.learnenglish.R.attr#transitionVisibilityMode}
+     * <p>This symbol is the offset where the {@link com.messi.languagehelper.R.attr#transitionVisibilityMode}
      * attribute's value can be found in the {@link #VisibilityTransition} array.
      *
      * <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -18417,7 +18417,7 @@ public final class R {
      * <tr><td>mode_out</td><td>2</td><td></td></tr>
      * </table>
      *
-     * @attr name com.messi.learnenglish:transitionVisibilityMode
+     * @attr name com.messi.languagehelper:transitionVisibilityMode
      */
     public static final int VisibilityTransition_transitionVisibilityMode=0;
   }
