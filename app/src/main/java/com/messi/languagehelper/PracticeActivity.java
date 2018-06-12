@@ -311,6 +311,7 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
      * 显示转写对话框.
      */
     public void showIatDialog() {
+        Settings.verifyStoragePermissions(this, Settings.PERMISSIONS_RECORD_AUDIO);
         if (recognizer != null) {
             if (!recognizer.isListening()) {
                 if (isNewIn) {

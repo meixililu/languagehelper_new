@@ -93,7 +93,6 @@ public class AiDialoguePracticeYYSActivity extends BaseActivity implements View.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ai_dialogue_practice_activity);
         ButterKnife.bind(this);
-        initSwipeRefresh();
         initViews();
         getDataTask();
     }
@@ -155,6 +154,7 @@ public class AiDialoguePracticeYYSActivity extends BaseActivity implements View.
 
     public void showIatDialog() {
         try {
+            Settings.verifyStoragePermissions(this, Settings.PERMISSIONS_RECORD_AUDIO);
             if (recognizer != null) {
                 if (!recognizer.isListening()) {
                     if (isNewIn) {
@@ -212,14 +212,6 @@ public class AiDialoguePracticeYYSActivity extends BaseActivity implements View.
             isFollow = false;
             showIatDialog();
         }
-    }
-
-    @Override
-    public void onSwipeRefreshLayoutRefresh() {
-        super.onSwipeRefreshLayoutRefresh();
-        skip = 0;
-        hideFooterview();
-        getDataTask();
     }
 
     private void getDataTask() {
@@ -304,7 +296,6 @@ public class AiDialoguePracticeYYSActivity extends BaseActivity implements View.
         }else {
             hideFooterview();
         }
-        onSwipeRefreshLayoutFinish();
         mAdapter.notifyDataSetChanged();
     }
 

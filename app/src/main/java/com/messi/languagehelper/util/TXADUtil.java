@@ -20,7 +20,7 @@ public class TXADUtil {
     public static String appId = "1106863330";
     public static String posId_Kaiping = "8070635391202695";
     public static String posId_XXL_STXW = "8020132381266427";
-    public static String posId_XXL_SWXT = "9070133322784103";//error
+    public static String posId_XXL_SWXT = "9070133322784103";
     public static String posId_XXL_ZWYT = "1090838321167493";
     public static String posId_CDT = "7080330341367043";
 
@@ -30,13 +30,18 @@ public class TXADUtil {
             appId = "1106957016";
             posId_Kaiping = "7080135419839958";
             posId_XXL_STXW = "1030736419937999";
-            posId_XXL_SWXT = "2000636429344052";//error
+            posId_XXL_SWXT = "2000636429344052";
             posId_XXL_ZWYT = "9000337459847020";
             posId_CDT = "7090539489345031";
             LogUtil.DefalutLog("application_id_yyj");
         }else if (mContext.getPackageName().equals(Settings.application_id_yys) ||
                 mContext.getPackageName().equals(Settings.application_id_yys_google)) {
-
+            appId = "1106957022";
+            posId_Kaiping = "3040833560655805";
+            posId_XXL_STXW = "5030230580451876";
+            posId_XXL_SWXT = "6080439550951887";
+            posId_XXL_ZWYT = "5010330570751838";
+            posId_CDT = "8030136520951889";
         } else if (mContext.getPackageName().equals(Settings.application_id_yycd)) {
 
         } else if (mContext.getPackageName().equals(Settings.application_id_xbky)) {
@@ -46,7 +51,7 @@ public class TXADUtil {
             appId = "1106863330";
             posId_Kaiping = "8070635391202695";
             posId_XXL_STXW = "8020132381266427";
-            posId_XXL_SWXT = "9070133322784103";//error
+            posId_XXL_SWXT = "9070133322784103";
             posId_XXL_ZWYT = "1090838321167493";
             posId_CDT = "7080330341367043";
             LogUtil.DefalutLog("application_id_zyhy");

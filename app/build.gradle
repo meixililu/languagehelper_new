@@ -11,8 +11,8 @@ android {
 //        applicationId "com.messi.languagehelper.google"
 //        applicationId "com.messi.learnenglish"  //英语君
 //        applicationId "com.messi.learnenglish.google"  //英语君
-        applicationId "com.messi.cantonese.study"  //粤语说
-//        applicationId "com.messi.cantonese.study.google"  //粤语说
+//        applicationId "com.messi.cantonese.study"  //粤语说
+        applicationId "com.messi.cantonese.study.google"  //粤语说
 //        applicationId "com.messi.languagehelper.chinese"  //语文词典
 //        applicationId "com.messi.languagehelper.spoken"  //小白口语
         resConfigs "zh-rCN", "zh-rHK", "zh-rTW", "en"

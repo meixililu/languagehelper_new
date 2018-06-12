@@ -131,6 +131,7 @@ public class AiDialoguePracticeActivity extends BaseActivity implements View.OnC
 
     public void showIatDialog() {
         try {
+            Settings.verifyStoragePermissions(this, Settings.PERMISSIONS_RECORD_AUDIO);
             if (recognizer != null) {
                 if (!recognizer.isListening()) {
                     if (isNewIn) {

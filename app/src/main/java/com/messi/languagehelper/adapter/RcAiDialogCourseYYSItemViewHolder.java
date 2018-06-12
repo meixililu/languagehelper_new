@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVObject;
+import com.messi.languagehelper.AiDialoguePracticeYYSActivity;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.SpokenEndlishCategoryActivity;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 
@@ -40,7 +40,7 @@ public class RcAiDialogCourseYYSItemViewHolder extends RecyclerView.ViewHolder {
     }
 
     private void onItemClick(AVObject mAVObject){
-        Intent intent = new Intent(context,SpokenEndlishCategoryActivity.class);
+        Intent intent = new Intent(context,AiDialoguePracticeYYSActivity.class);
         intent.putExtra(KeyUtil.ActionbarTitle, mAVObject.getString(AVOUtil.CantoneseCategory.ECName));
         intent.putExtra(AVOUtil.CantoneseCategory.ECCode, mAVObject.getString(AVOUtil.CantoneseCategory.ECCode));
         context.startActivity(intent);
