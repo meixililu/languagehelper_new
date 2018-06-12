@@ -44,7 +44,7 @@ public class XmlyMainForYYSFragment extends BaseFragment implements OnClickListe
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		super.onCreateView(inflater, container, savedInstanceState);
-		View view = inflater.inflate(R.layout.xmly_dashboard_fragment, container, false);
+		View view = inflater.inflate(R.layout.xmly_main_yys_fragment, container, false);
 		initViews(view);
 		return view;
 	}

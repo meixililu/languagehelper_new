@@ -9,7 +9,7 @@ import com.messi.languagehelper.R;
 import com.messi.languagehelper.XimalayaRadioHomeFragment;
 import com.messi.languagehelper.XmlyCategoryFragment;
 import com.messi.languagehelper.XmlyCategoryRecommendFragment;
-import com.messi.languagehelper.XmlySearchAlbumForHomeFragment;
+import com.messi.languagehelper.XmlySearchAlbumForYYSFragment;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 
 public class XmlyMainForYYSAdapter extends FragmentPagerAdapter {
@@ -28,23 +28,23 @@ public class XmlyMainForYYSAdapter extends FragmentPagerAdapter {
         if(position == 0){
             return XmlyCategoryFragment.getInstance();
         }else if(position == 1) {
-            return XmlySearchAlbumForHomeFragment.newInstance("粤语");
+            return XmlySearchAlbumForYYSFragment.newInstance("粤语");
         }else if(position == 2) {
             return XmlyCategoryRecommendFragment.newInstance("","",listener);
-        }else{
+        }else {
             return XimalayaRadioHomeFragment.newInstance(listener);
         }
     }
 
     @Override
     public int getCount() {
-        return 3;
+        return 4;
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
         if(position == 0){
-            return mContext.getResources().getString(R.string.title_study_category);
+            return mContext.getResources().getString(R.string.title_category);
         }else if(position == 1) {
             return mContext.getResources().getString(R.string.title_cantonese);
         }else if(position == 2) {
@@ -52,6 +52,5 @@ public class XmlyMainForYYSAdapter extends FragmentPagerAdapter {
         }else {
             return mContext.getResources().getString(R.string.title_broadcast);
         }
-
     }
 }

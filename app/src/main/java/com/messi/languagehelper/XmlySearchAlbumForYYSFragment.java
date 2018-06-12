@@ -3,7 +3,6 @@ package com.messi.languagehelper;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -38,10 +37,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-public class XmlySearchAlbumForHomeFragment extends BaseFragment {
+public class XmlySearchAlbumForYYSFragment extends BaseFragment {
 
     private RecyclerView listview;
-    private FloatingActionButton play_btn;
     private View view;
     private RcXmlySearchAlbumAdapter mAdapter;
     private List<Album> avObjects;
@@ -56,7 +54,7 @@ public class XmlySearchAlbumForHomeFragment extends BaseFragment {
     private LinearLayoutManager mLinearLayoutManager;
 
     public static Fragment newInstance(String search_text) {
-        XmlySearchAlbumForHomeFragment fragment = new XmlySearchAlbumForHomeFragment();
+        XmlySearchAlbumForYYSFragment fragment = new XmlySearchAlbumForYYSFragment();
         Bundle bundle = new Bundle();
         bundle.putString(KeyUtil.SearchKey, search_text);
         fragment.setArguments(bundle);
@@ -84,10 +82,9 @@ public class XmlySearchAlbumForHomeFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        view = inflater.inflate(R.layout.xmly_album_home_fragment, container, false);
+        view = inflater.inflate(R.layout.xmly_album_home_yys_fragment, container, false);
         initSwipeRefresh(view);
         listview = (RecyclerView)view.findViewById(R.id.listview);
-        play_btn = (FloatingActionButton)view.findViewById(R.id.play_btn);
         avObjects = new ArrayList<Album>();
         initViews();
         return view;
@@ -114,12 +111,6 @@ public class XmlySearchAlbumForHomeFragment extends BaseFragment {
                         .build());
         listview.setAdapter(mAdapter);
         setListOnScrollListener();
-        play_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                toActivity(XmlyActivity.class,null);
-            }
-        });
     }
 
     public void setListOnScrollListener() {
