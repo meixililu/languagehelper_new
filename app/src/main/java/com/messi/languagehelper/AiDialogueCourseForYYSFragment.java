@@ -36,7 +36,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class AiDialogueSelectCourseFragment extends BaseFragment implements View.OnClickListener{
+public class AiDialogueCourseForYYSFragment extends BaseFragment implements View.OnClickListener{
 
     private static final int NUMBER_OF_COLUMNS = 2;
     private RecyclerView category_lv;
@@ -49,8 +49,8 @@ public class AiDialogueSelectCourseFragment extends BaseFragment implements View
     private boolean hasMore = true;
     private GridLayoutManager layoutManager;
 
-    public static AiDialogueSelectCourseFragment getInstance() {
-        AiDialogueSelectCourseFragment fragment = new AiDialogueSelectCourseFragment();
+    public static AiDialogueCourseForYYSFragment getInstance() {
+        AiDialogueCourseForYYSFragment fragment = new AiDialogueCourseForYYSFragment();
         return fragment;
     }
 
@@ -68,7 +68,7 @@ public class AiDialogueSelectCourseFragment extends BaseFragment implements View
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater,container,savedInstanceState);
         LogUtil.DefalutLog("SpokenEnglishPractiseFragment-onCreateView");
-        View view = inflater.inflate(R.layout.spoken_english_practice_fragment, container, false);
+        View view = inflater.inflate(R.layout.ai_dialog_course_yys_fragment, container, false);
         initSwipeRefresh(view);
         initViews(view);
         return view;

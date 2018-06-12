@@ -7,7 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.messi.languagehelper.AiDialogueSelectCourseFragment;
+import com.messi.languagehelper.AiDialogueCourseForYYSFragment;
 import com.messi.languagehelper.LeisureFragment;
 import com.messi.languagehelper.MainFragment;
 import com.messi.languagehelper.MainFragmentOld;
@@ -91,7 +91,7 @@ public class MainPageAdapter extends FragmentPagerAdapter {
             if( position == 0 ){
                 return MainFragmentOld.getInstance(listener);
             }else if( position == 1 ){
-                return AiDialogueSelectCourseFragment.getInstance();
+                return AiDialogueCourseForYYSFragment.getInstance();
             }else if( position == 2 ){
                 return XmlyMainForYYSFragment.newInstance();
             }else if( position == 3 ){
