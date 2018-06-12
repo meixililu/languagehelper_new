@@ -5885,21 +5885,22 @@ public final class R {
     public static final int ximalaya_tags_fragment=0x7f0a00dc;
     public static final int ximalaya_tracklist_activity=0x7f0a00dd;
     public static final int ximalaya_tracklist_item=0x7f0a00de;
-    public static final int xmly_category_fragment=0x7f0a00df;
-    public static final int xmly_dashboard_fragment=0x7f0a00e0;
-    public static final int xmly_eng_fragment=0x7f0a00e1;
-    public static final int xmly_radio_home_fragment=0x7f0a00e2;
-    public static final int xmly_radio_home_header=0x7f0a00e3;
-    public static final int xmly_radio_list_avtivity=0x7f0a00e4;
-    public static final int xmly_radio_schedulelist=0x7f0a00e5;
-    public static final int xmly_recommend_fragment=0x7f0a00e6;
-    public static final int xmly_recommend_root=0x7f0a00e7;
-    public static final int xmly_tag_recommend_fragment=0x7f0a00e8;
-    public static final int xmly_tags_fragment=0x7f0a00e9;
-    public static final int xmly_tags_list_header=0x7f0a00ea;
-    public static final int xmly_vategory_list_item=0x7f0a00eb;
-    public static final int xunfei_ysad_item=0x7f0a00ec;
-    public static final int yizhaondaodi_activity=0x7f0a00ed;
+    public static final int xmly_album_home_fragment=0x7f0a00df;
+    public static final int xmly_category_fragment=0x7f0a00e0;
+    public static final int xmly_dashboard_fragment=0x7f0a00e1;
+    public static final int xmly_eng_fragment=0x7f0a00e2;
+    public static final int xmly_radio_home_fragment=0x7f0a00e3;
+    public static final int xmly_radio_home_header=0x7f0a00e4;
+    public static final int xmly_radio_list_avtivity=0x7f0a00e5;
+    public static final int xmly_radio_schedulelist=0x7f0a00e6;
+    public static final int xmly_recommend_fragment=0x7f0a00e7;
+    public static final int xmly_recommend_root=0x7f0a00e8;
+    public static final int xmly_tag_recommend_fragment=0x7f0a00e9;
+    public static final int xmly_tags_fragment=0x7f0a00ea;
+    public static final int xmly_tags_list_header=0x7f0a00eb;
+    public static final int xmly_vategory_list_item=0x7f0a00ec;
+    public static final int xunfei_ysad_item=0x7f0a00ed;
+    public static final int yizhaondaodi_activity=0x7f0a00ee;
   }
   public static final class menu {
     public static final int composition=0x7f0b0000;
