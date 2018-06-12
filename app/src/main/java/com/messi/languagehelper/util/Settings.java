@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -151,9 +152,6 @@ public class Settings {
 			Manifest.permission.RECORD_AUDIO
 	};
 
-	public static String getProvider(Context mContext){
-		return mContext.getPackageName() + ".provider";
-	}
 	/**is today already do something
 	 * @param mSharedPreferences
 	 * @return
@@ -496,5 +494,19 @@ public class Settings {
 		}
 		LogUtil.DefalutLog("uuid:"+uniqueId);
 		return uniqueId;
+	}
+
+	public static String getProvider(Context appContext) {
+		ApplicationInfo applicationInfo = null;
+		try {
+			applicationInfo = appContext.getPackageManager().getApplicationInfo(appContext.getPackageName(), PackageManager.GET_META_DATA);
+			if(applicationInfo == null){
+				return appContext.getPackageName() + ".provider";
+			}
+			return applicationInfo.metaData.getString("ProviderId");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return appContext.getPackageName() + ".provider";
+		}
 	}
 }

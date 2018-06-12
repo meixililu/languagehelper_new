@@ -687,6 +687,28 @@ public class AVOUtil {
 		public final static String createdAt = "createdAt";
 	}
 
+	public static class CantoneseCategory {
+
+		public final static String CantoneseCategory = "CantoneseCategory";
+
+		public final static String ECCode = "ECCode";
+
+		public final static String ETCode = "ETCode";
+
+		public final static String ECName = "ECName";
+
+		public final static String ECIsValid = "ECIsValid";
+
+		public final static String ECOrder = "ECOrder";
+
+		public final static String ECImgUrl = "ECImgUrl";
+
+		public final static String ECType = "ECType";
+
+		public final static String ECSign = "ECSign";
+	}
+
+
 
 
 }
