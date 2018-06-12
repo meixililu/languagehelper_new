@@ -15,7 +15,7 @@ import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
-import com.messi.languagehelper.adapter.RcSpokenEndlishPracticeTypeListAdapter;
+import com.messi.languagehelper.adapter.RcAiDialogCourseYYSListAdapter;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
@@ -41,7 +41,7 @@ public class AiDialogueCourseForYYSFragment extends BaseFragment implements View
     private static final int NUMBER_OF_COLUMNS = 2;
     private RecyclerView category_lv;
     private FrameLayout random_cover;
-    private RcSpokenEndlishPracticeTypeListAdapter mAdapter;
+    private RcAiDialogCourseYYSListAdapter mAdapter;
     private List<AVObject> avObjects;
     private XFYSAD mXFYSAD;
     private int skip = 0;
@@ -86,7 +86,7 @@ public class AiDialogueCourseForYYSFragment extends BaseFragment implements View
         random_cover = (FrameLayout) view.findViewById(R.id.random_cover);
         category_lv = (RecyclerView) view.findViewById(R.id.studycategory_lv);
         mXFYSAD = new XFYSAD(getActivity(), ADUtil.SecondaryPage);
-        mAdapter = new RcSpokenEndlishPracticeTypeListAdapter(mXFYSAD);
+        mAdapter = new RcAiDialogCourseYYSListAdapter(mXFYSAD);
         mAdapter.setItems(avObjects);
         mAdapter.setHeader(new Object());
         mAdapter.setFooter(new Object());
@@ -153,7 +153,7 @@ public class AiDialogueCourseForYYSFragment extends BaseFragment implements View
             query.whereEqualTo(AVOUtil.CantoneseCategory.ECIsValid, "1");
             query.orderByDescending(AVOUtil.CantoneseCategory.ECOrder);
             query.skip(skip);
-            query.limit(30);
+            query.limit(20);
             try {
                 return query.find();
             } catch (AVException e) {
