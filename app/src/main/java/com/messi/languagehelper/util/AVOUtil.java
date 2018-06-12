@@ -708,7 +708,23 @@ public class AVOUtil {
 		public final static String ECSign = "ECSign";
 	}
 
+	public static class CantoneseEvaluationDetail {
 
+		public final static String CantoneseEvaluationDetail = "CantoneseEvaluationDetail";
+
+		public final static String EDCode = "EDCode";
+
+		public final static String EDContent = "EDContent";
+
+		public final static String ECCode = "ECCode";
+
+		public final static String EDType = "EDType";
+
+		public final static String mp3url = "mp3url";
+
+		public final static String EDIsValid = "EDIsValid";
+
+	}
 
 
 }

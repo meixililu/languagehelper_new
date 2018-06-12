@@ -240,7 +240,7 @@ public class AiDialogueCourseForYYSFragment extends BaseFragment implements View
     }
 
     private void toPracticeActivity(AVObject mAVObject){
-        Intent intent = new Intent(getContext(),AiDialoguePracticeActivity.class);
+        Intent intent = new Intent(getContext(),AiDialoguePracticeYYSActivity.class);
         intent.putExtra(AVOUtil.CantoneseCategory.ECCode, mAVObject.getString(AVOUtil.CantoneseCategory.ECCode));
         startActivity(intent);
     }
