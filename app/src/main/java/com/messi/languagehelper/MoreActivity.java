@@ -126,18 +126,16 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
         try {
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_VIEW);
-            if(getPackageName().equals(Settings.application_id_yyj)){
+            if(getPackageName().equals(Settings.application_id_yyj) ||
+                    getPackageName().equals(Settings.application_id_yyj_google)){
                 intent.setData(Uri.parse("market://details?id=com.messi.learnenglish"));
-            } else if (getPackageName().equals(Settings.application_id_yys)) {
+            } else if (getPackageName().equals(Settings.application_id_yys) ||
+                    getPackageName().equals(Settings.application_id_yys_google)) {
                 intent.setData(Uri.parse("market://details?id=com.messi.cantonese.study"));
-            } else if (getPackageName().equals(Settings.application_id_yys_google)) {
-                intent.setData(Uri.parse("market://details?id=com.messi.cantonese.study.google"));
             } else if (getPackageName().equals(Settings.application_id_yycd)) {
-                intent.setData(Uri.parse("market://details?id=com.messi.chinese.study"));
+                intent.setData(Uri.parse("market://details?id=com.messi.languagehelper.chinese"));
             } else if (getPackageName().equals(Settings.application_id_xbky)) {
-                intent.setData(Uri.parse("market://details?id=com.messi.spoken.study"));
-            } else if (getPackageName().equals(Settings.application_id_zyhy_google)) {
-                intent.setData(Uri.parse("market://details?id=com.messi.languagehelper.google"));
+                intent.setData(Uri.parse("market://details?id=com.messi.languagehelper.spoken"));
             } else {
                 intent.setData(Uri.parse("market://details?id=com.messi.languagehelper"));
             }
@@ -149,7 +147,8 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
     }
 
     private void invite(){
-        if(getPackageName().equals(Settings.application_id_yyj)){
+        if(getPackageName().equals(Settings.application_id_yyj) ||
+                getPackageName().equals(Settings.application_id_yyj_google)){
             ShareUtil.shareText(MoreActivity.this, MoreActivity.this.getResources().getString(R.string.invite_friends_yyj));
         }else if (getPackageName().equals(Settings.application_id_yys) ||
                 getPackageName().equals(Settings.application_id_yys_google)) {

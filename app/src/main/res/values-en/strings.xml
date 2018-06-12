@@ -232,8 +232,8 @@
 	<string name="invite_friends_zyhy">so cool！ http://a.app.qq.com/o/simple.jsp?pkgname=com.messi.languagehelper</string>
 	<string name="invite_friends_yyj">so cool！ http://a.app.qq.com/o/simple.jsp?pkgname=com.messi.learnenglish</string>
 	<string name="invite_friends_yys">so cool！ http://a.app.qq.com/o/simple.jsp?pkgname=com.messi.cantonese.study</string>
-	<string name="invite_friends_yycd">so cool！ http://a.app.qq.com/o/simple.jsp?pkgname=com.messi.chinese.study</string>
-	<string name="invite_friends_xbky">so cool！ http://a.app.qq.com/o/simple.jsp?pkgname=com.messi.spoken.study</string>
+	<string name="invite_friends_yycd">so cool！ http://a.app.qq.com/o/simple.jsp?pkgname=com.messi.languagehelper.chinese</string>
+	<string name="invite_friends_xbky">so cool！ http://a.app.qq.com/o/simple.jsp?pkgname=com.messi.languagehelper.spoken</string>
     <string name="input_et_empty">Please input something</string>
 	<string name="dailysentence">Daily Sentence</string>
     <string name="english_essay">English Essay</string>

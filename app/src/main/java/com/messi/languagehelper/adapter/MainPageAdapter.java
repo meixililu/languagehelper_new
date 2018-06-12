@@ -34,7 +34,8 @@ public class MainPageAdapter extends FragmentPagerAdapter {
         this.bundle = bundle;
         this.listener = listener;
         this.mSharedPreferences = mSharedPreferences;
-        if(mContext.getApplication().getPackageName().equals(Settings.application_id_yyj)){
+        if(mContext.getApplication().getPackageName().equals(Settings.application_id_yyj) ||
+                mContext.getApplication().getPackageName().equals(Settings.application_id_yyj)){
             CONTENT = new String[] {
                     mContext.getResources().getString(R.string.title_home_tab),
                     mContext.getResources().getString(R.string.title_study_category),
@@ -59,7 +60,8 @@ public class MainPageAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        if(mContext.getApplication().getPackageName().equals(Settings.application_id_yyj)){
+        if(mContext.getApplication().getPackageName().equals(Settings.application_id_yyj) ||
+                mContext.getApplication().getPackageName().equals(Settings.application_id_yyj_google)){
             if( position == 0 ){
                 mfragment = StudyFragment.getInstance();
                 return mfragment;
@@ -76,7 +78,7 @@ public class MainPageAdapter extends FragmentPagerAdapter {
             }
         }else if(mContext.getApplication().getPackageName().equals(Settings.application_id_yycd)){
             if( position == 0 ){
-                return MainFragment.getInstance(listener);
+                return MainFragmentOld.getInstance(listener);
             }else if( position == 1 ){
                 return LeisureFragment.getInstance();
             }

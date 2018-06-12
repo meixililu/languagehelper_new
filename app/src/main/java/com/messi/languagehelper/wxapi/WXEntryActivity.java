@@ -296,12 +296,16 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener, Fr
 		AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.UpdateInfo.UpdateInfo);
 		if(getPackageName().equals(Settings.application_id_zyhy)){
 			query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "zyhy");
-		}else if(getPackageName().equals(Settings.application_id_yyj)){
-			query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "yyj");
-		}else if(getPackageName().equals(Settings.application_id_yys_google)){
-			query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "yys_google");
 		}else if(getPackageName().equals(Settings.application_id_zyhy_google)){
 			query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "zyhy_google");
+		}else if(getPackageName().equals(Settings.application_id_yys)){
+			query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "yys");
+		}else if(getPackageName().equals(Settings.application_id_yys_google)){
+			query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "yys_google");
+		}else if(getPackageName().equals(Settings.application_id_yyj)){
+			query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "yyj");
+		}else if(getPackageName().equals(Settings.application_id_yyj_google)){
+			query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "yyj_google");
 		}else if(getPackageName().equals(Settings.application_id_yycd)){
 			query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "yycd");
 		}else if(getPackageName().equals(Settings.application_id_xbky)){

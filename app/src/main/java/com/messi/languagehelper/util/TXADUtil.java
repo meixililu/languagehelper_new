@@ -25,7 +25,8 @@ public class TXADUtil {
     public static String posId_CDT = "7080330341367043";
 
     public static void initTXADID(Context mContext){
-        if(mContext.getPackageName().equals(Settings.application_id_yyj)){
+        if(mContext.getPackageName().equals(Settings.application_id_yyj) ||
+                mContext.getPackageName().equals(Settings.application_id_yyj_google)){
             appId = "1106957016";
             posId_Kaiping = "7080135419839958";
             posId_XXL_STXW = "1030736419937999";
