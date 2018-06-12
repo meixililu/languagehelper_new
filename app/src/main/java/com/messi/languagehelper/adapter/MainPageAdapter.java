@@ -35,7 +35,15 @@ public class MainPageAdapter extends FragmentPagerAdapter {
         this.listener = listener;
         this.mSharedPreferences = mSharedPreferences;
         if(mContext.getApplication().getPackageName().equals(Settings.application_id_yyj) ||
-                mContext.getApplication().getPackageName().equals(Settings.application_id_yyj)){
+                mContext.getApplication().getPackageName().equals(Settings.application_id_yyj_google)){
+            CONTENT = new String[] {
+                    mContext.getResources().getString(R.string.title_home_tab),
+                    mContext.getResources().getString(R.string.title_study_category),
+                    mContext.getResources().getString(R.string.title_translate),
+                    mContext.getResources().getString(R.string.title_leisure)
+            };
+        }else if(mContext.getApplication().getPackageName().equals(Settings.application_id_yys) ||
+                mContext.getApplication().getPackageName().equals(Settings.application_id_yys_google)){
             CONTENT = new String[] {
                     mContext.getResources().getString(R.string.title_home_tab),
                     mContext.getResources().getString(R.string.title_study_category),
