@@ -10,8 +10,6 @@ import android.text.style.ForegroundColorSpan;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.bean.UserSpeakBean;
 
-import java.util.regex.Pattern;
-
 public class ScoreUtil {
 
 	public static UserSpeakBean score(Context mContext, String content, String result){
@@ -88,6 +86,51 @@ public class ScoreUtil {
 			}else{
 				sb.append( setColor(mContext,item,R.color.text_red) );
 				sb.append(" ");
+			}
+		}
+		double length = 0;
+		for(String str : mResults){
+			if(!TextUtils.isEmpty(str.trim())){
+				length++;
+			}
+		}
+		int scoreInt = (int)(count / length * 100);
+		if(scoreInt > 59 ){
+			bean.setColor(R.color.green);
+		}else{
+			bean.setColor(R.color.text_red);
+		}
+		bean.setContent(sb);
+		bean.setScoreInt(scoreInt);
+		bean.setScore(String.valueOf(scoreInt));
+		return bean;
+	}
+
+	public static UserSpeakBean scoreChinese(Context mContext, String content, String result, int type){
+		LogUtil.DefalutLog("old---content:"+content+"---result:"+result);
+		SpannableStringBuilder sb = new SpannableStringBuilder();
+		UserSpeakBean bean = new UserSpeakBean();
+		String mResult = result.replaceAll("\\s+"," ");
+		String mContent = content.replaceAll("\\s+"," ");
+		LogUtil.DefalutLog("old---content:"+mContent+"---result:"+mResult);
+		String[] mResults = mResult.split("");
+		String[] mContents = mContent.split("");
+		int count = 0;
+		for(String item : mResults){
+			String itemTemp = item.replaceAll("\\p{P}", "");
+			boolean isRight = false;
+			for(String str : mContents){
+				String strTemp = str.replaceAll("\\p{P}", "");
+				if(itemTemp.toLowerCase().equals(strTemp.toLowerCase())){
+					isRight = true;
+					count ++;
+					break;
+				}
+			}
+			if(isRight){
+				sb.append( setColor(mContext,item,R.color.green) );
+			}else{
+				sb.append( setColor(mContext,item,R.color.text_red) );
 			}
 		}
 		double length = 0;

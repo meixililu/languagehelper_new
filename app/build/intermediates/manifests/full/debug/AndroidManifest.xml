@@ -239,6 +239,9 @@
             android:name="com.messi.languagehelper.AiDialoguePracticeYYSActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name="com.messi.languagehelper.AiDialogueFightYYSActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.messi.languagehelper.ReadingsBySubjectActivity"
             android:screenOrientation="portrait" />
         <activity

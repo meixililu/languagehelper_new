@@ -227,6 +227,9 @@
             android:name=".AiDialoguePracticeYYSActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".AiDialogueFightYYSActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".ReadingsBySubjectActivity"
             android:screenOrientation="portrait" />
         <activity

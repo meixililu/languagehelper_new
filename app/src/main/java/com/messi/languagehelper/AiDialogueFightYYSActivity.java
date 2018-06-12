@@ -5,6 +5,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -12,12 +13,13 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVAnalytics;
-import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.cloud.RecognizerListener;
 import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechConstant;
@@ -40,13 +42,12 @@ import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
+import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -55,84 +56,103 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class AiDialoguePracticeYYSActivity extends BaseActivity implements View.OnClickListener, SpokenEnglishPlayListener {
+public class AiDialogueFightYYSActivity extends BaseActivity implements View.OnClickListener, SpokenEnglishPlayListener {
 
     @BindView(R.id.listview)
     RecyclerView studylist_lv;
+    @BindView(R.id.sentence_cb)
+    RadioButton sentence_cb;
+    @BindView(R.id.sentence_cover)
+    FrameLayout sentence_cover;
+    @BindView(R.id.continuity_cb)
+    RadioButton continuity_cb;
+    @BindView(R.id.continuity_cover)
+    FrameLayout continuity_cover;
+    @BindView(R.id.conversation_cb)
+    RadioButton conversation_cb;
+    @BindView(R.id.conversation_cover)
+    FrameLayout conversation_cover;
+    @BindView(R.id.speak_type)
+    LinearLayout speak_type;
+    @BindView(R.id.previous_btn)
+    FrameLayout previous_btn;
     @BindView(R.id.start_btn)
     TextView start_btn;
     @BindView(R.id.start_btn_cover)
     FrameLayout start_btn_cover;
+    @BindView(R.id.next_btn)
+    FrameLayout next_btn;
     @BindView(R.id.record_anim_img)
     ImageView record_anim_img;
     @BindView(R.id.record_layout)
     LinearLayout record_layout;
     @BindView(R.id.voice_img)
     ImageButton voice_img;
-    @BindView(R.id.start_to_fight)
-    FrameLayout startToFight;
+
+    @BindView(R.id.conversation_layout)
+    RelativeLayout conversationLayout;
+    @BindView(R.id.speaker_content)
+    TextView speakerContent;
+    @BindView(R.id.user_content)
+    TextView userContent;
+    @BindView(R.id.speaker_img)
+    SimpleDraweeView speakerImg;
+    @BindView(R.id.user_img)
+    TextView userImg;
     private RcAiDialoguePracticeAdapter mAdapter;
     private List<AVObject> avObjects;
-    private String ECCode;
     private int position;
     private boolean isNewIn = true;
     private boolean isFollow;
-    private int skip = 0;
-    private boolean loading;
-    private boolean hasMore = true;
     private StringBuilder sbResult = new StringBuilder();
-    private LinearLayoutManager mLinearLayoutManager;
+    private String userPcmPath;
+
     private SpeechSynthesizer mSpeechSynthesizer;
     private SharedPreferences mSharedPreferences;
     private SpeechRecognizer recognizer;
     private MediaPlayer mPlayer;
     private AnimationDrawable animationDrawable;
+    private boolean userFirst;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ai_dialogue_practice_activity);
+        setContentView(R.layout.ai_dialogue_fight_activity);
         ButterKnife.bind(this);
         initViews();
-        getDataTask();
     }
 
     private void initViews() {
-        setActionBarTitle(this.getResources().getString(R.string.title_Practice));
+        setStatusbarColor(R.color.white_alph);
         mSharedPreferences = Settings.getSharedPreferences(this);
         mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
         recognizer = SpeechRecognizer.createRecognizer(this, null);
         mPlayer = new MediaPlayer();
-        avObjects = new ArrayList<AVObject>();
-        ECCode = getIntent().getStringExtra(AVOUtil.CantoneseCategory.ECCode);
+        avObjects = (List<AVObject>) WXEntryActivity.dataMap.get("avObjects");
+        WXEntryActivity.dataMap.clear();
+
         studylist_lv = (RecyclerView) findViewById(R.id.listview);
         mAdapter = new RcAiDialoguePracticeAdapter(avObjects, this);
         mAdapter.setItems(avObjects);
-        mAdapter.setFooter(new Object());
-        hideFooterview();
-        mLinearLayoutManager = new LinearLayoutManager(this);
+        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this);
         studylist_lv.setLayoutManager(mLinearLayoutManager);
+        studylist_lv.addItemDecoration(
+                new HorizontalDividerItemDecoration.Builder(this)
+                        .colorResId(R.color.text_tint)
+                        .sizeResId(R.dimen.list_divider_size)
+                        .marginResId(R.dimen.padding_margin, R.dimen.padding_margin)
+                        .build());
         studylist_lv.setAdapter(mAdapter);
+
+        selectedFlowType(2, false);
+        sentence_cover.setOnClickListener(this);
+        continuity_cover.setOnClickListener(this);
+        conversation_cover.setOnClickListener(this);
+        previous_btn.setOnClickListener(this);
+        conversationLayout.setOnClickListener(this);
+        next_btn.setOnClickListener(this);
         start_btn_cover.setOnClickListener(this);
         animationDrawable = (AnimationDrawable) voice_img.getBackground();
-        setListOnScrollListener();
-    }
-
-    public void setListOnScrollListener() {
-        studylist_lv.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                int visible = mLinearLayoutManager.getChildCount();
-                int total = mLinearLayoutManager.getItemCount();
-                int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
-                if (!loading && hasMore) {
-                    if ((visible + firstVisibleItem) >= total) {
-                        getDataTask();
-                    }
-                }
-            }
-        });
     }
 
     private void startVoiceImgAnimation() {
@@ -152,22 +172,133 @@ public class AiDialoguePracticeYYSActivity extends BaseActivity implements View.
         record_layout.setVisibility(View.VISIBLE);
     }
 
+    private void selectedFlowType(int selectedNum, boolean isReset) {
+        sentence_cb.setChecked(false);
+        continuity_cb.setChecked(false);
+        conversation_cb.setChecked(false);
+        if (selectedNum == 0) {
+            conversationLayout.setVisibility(View.GONE);
+            sentence_cb.setChecked(true);
+            setSelected(position);
+        } else if (selectedNum == 1) {
+            conversationLayout.setVisibility(View.GONE);
+            continuity_cb.setChecked(true);
+            setSelected(position);
+        } else if (selectedNum == 2) {
+            conversationLayout.setVisibility(View.VISIBLE);
+            conversation_cb.setChecked(true);
+            userFirst = false;
+            position = 0;
+            setConversationContent();
+            changeConversationLayout(false);
+        }
+        Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.ReadModelType, selectedNum);
+    }
+
+    private void changeConversationLayout(boolean isUserTurn) {
+        if (isUserTurn) {
+            userContent.setVisibility(View.VISIBLE);
+            speakerContent.setVisibility(View.GONE);
+            userImg.setVisibility(View.VISIBLE);
+            speakerImg.setVisibility(View.GONE);
+        } else {
+            speakerContent.setVisibility(View.VISIBLE);
+            userContent.setVisibility(View.GONE);
+            speakerImg.setVisibility(View.VISIBLE);
+            userImg.setVisibility(View.GONE);
+        }
+    }
+
+    private void previousItem() {
+        if (conversation_cb.isChecked() && position > 1) {
+            position -= 2;
+            setDatas();
+        } else if (!conversation_cb.isChecked() && position > 0) {
+            position--;
+            setDatas();
+        } else {
+            ToastUtil.diaplayMesShort(AiDialogueFightYYSActivity.this, "到头了");
+        }
+        AVAnalytics.onEvent(AiDialogueFightYYSActivity.this, "evaluationdetail_pg_previous_btn");
+    }
+
+    private void nextItem() {
+        if (conversation_cb.isChecked() && position < avObjects.size() - 2) {
+            position += 2;
+            setDatas();
+        } else if (!conversation_cb.isChecked() && position < avObjects.size() - 1) {
+            position++;
+            setDatas();
+        } else {
+            if(conversation_cb.isChecked()){
+                userContent.setText("");
+                speakerContent.setText("");
+            }else {
+                ToastUtil.diaplayMesShort(AiDialogueFightYYSActivity.this, "木有了");
+            }
+        }
+        AVAnalytics.onEvent(AiDialogueFightYYSActivity.this, "evaluationdetail_pg_next_btn");
+    }
+
+    private void setDatas() {
+        if (conversation_cb.isChecked()) {
+            setConversationContent();
+        } else {
+            playOrStop(position);
+            studylist_lv.scrollToPosition(position);
+        }
+    }
+
+    private void setConversationContent() {
+        if (avObjects.size() > 0) {
+            if (!userFirst) {
+                speakerContent.setText(getEnglishContent(avObjects.get(position)));
+                if ((position + 1) < avObjects.size()) {
+                    userContent.setText(getEnglishContent(avObjects.get(position + 1)));
+                } else {
+                    userContent.setText("");
+                }
+            } else {
+                userContent.setText(getEnglishContent(avObjects.get(position)));
+                if ((position + 1) < avObjects.size()) {
+                    speakerContent.setText(getEnglishContent(avObjects.get(position + 1)));
+                } else {
+                    speakerContent.setText("");
+                }
+            }
+        }
+    }
+
     public void showIatDialog() {
         try {
-            Settings.verifyStoragePermissions(this, Settings.PERMISSIONS_RECORD_AUDIO);
             if (recognizer != null) {
                 if (!recognizer.isListening()) {
-                    if (isNewIn) {
-                        startToPlaySpeaker(position);
+                    if (conversation_cb.isChecked()) {
+                        if (userFirst) {
+                            changeConversationLayout(true);
+                            startToRecord();
+                        } else {
+                            if (isNewIn) {
+                                changeConversationLayout(false);
+                                startToPlaySpeaker(position);
+                            } else {
+                                changeConversationLayout(true);
+                                startToRecord();
+                            }
+                        }
                     } else {
-                        startToRecord();
+                        if (isNewIn) {
+                            startToPlaySpeaker(position);
+                        } else {
+                            startToRecord();
+                        }
                     }
                 } else {
                     showProgressbar();
                     finishRecord();
                 }
             }
-            AVAnalytics.onEvent(this, "evaluationdetail_pg_speak_btn");
+            AVAnalytics.onEvent(AiDialogueFightYYSActivity.this, "evaluationdetail_pg_speak_btn");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -189,6 +320,9 @@ public class AiDialoguePracticeYYSActivity extends BaseActivity implements View.
         start_btn.setText("");
         XFUtil.showSpeechRecognizer(this, mSharedPreferences, recognizer,
                 recognizerListener, XFUtil.VoiceEngineHK);
+//        String path = SDCardUtil.getDownloadPath(SDCardUtil.UserPracticePath);
+//        userPcmPath = path + "/userpractice.pcm";
+//        recognizer.setParameter(SpeechConstant.ASR_AUDIO_PATH, userPcmPath);
     }
 
     /**
@@ -203,100 +337,27 @@ public class AiDialoguePracticeYYSActivity extends BaseActivity implements View.
             isFollow = false;
             record_layout.setVisibility(View.GONE);
             record_anim_img.setBackgroundResource(R.drawable.speak_voice_1);
-            start_btn.setText(this.getResources().getString(R.string.start_to_follow));
+            start_btn.setText(this.getResources().getString(R.string.start));
         }
     }
 
     private void onfinishPlay() {
         if (isFollow) {
             isFollow = false;
-            showIatDialog();
-        }
-    }
-
-    private void getDataTask() {
-        loading = true;
-        showProgressbar();
-        Observable.create(new ObservableOnSubscribe<String>() {
-            @Override
-            public void subscribe(ObservableEmitter<String> e) throws Exception {
-                queryData();
-                e.onComplete();
-            }
-        })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<String>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                    }
-
-                    @Override
-                    public void onNext(String s) {
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        onQueryDataFinish();
-                    }
-                });
-
-    }
-
-    private void queryData() {
-        AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.CantoneseEvaluationDetail.CantoneseEvaluationDetail);
-        query.whereEqualTo(AVOUtil.CantoneseEvaluationDetail.EDIsValid, "1");
-        query.whereEqualTo(AVOUtil.CantoneseEvaluationDetail.ECCode, ECCode);
-        query.orderByAscending(AVOUtil.CantoneseEvaluationDetail.EDCode);
-        query.skip(skip);
-        query.limit(20);
-        try {
-            List<AVObject> avObject = query.find();
-            if (avObject != null && avObject.size() > 0) {
-                if(avObject.size() == 0){
-                    hasMore = false;
-                }else if(avObject.size() > 0) {
-                    if (skip == 0) {
-                        avObjects.clear();
-                        for (int i = 0; i < avObject.size(); i++) {
-                            if (i == 0) {
-                                avObject.get(i).put(KeyUtil.PracticeItemIndex, "1");
-                            } else {
-                                avObject.get(i).put(KeyUtil.PracticeItemIndex, "0");
-                            }
-                        }
-                    }else {
-                        for (AVObject mAVObject : avObject) {
-                            mAVObject.put(KeyUtil.PracticeItemIndex, "0");
-                        }
-                    }
-                    if (avObject.size() == 20) {
-                        skip += 20;
-                        hasMore = true;
-                    } else if (avObject.size() < 20) {
-                        hasMore = false;
-                    }
-                    avObjects.addAll(avObject);
+            if(userFirst && conversation_cb.isChecked()){
+                if(position < avObjects.size()-2){
+                    showNext();
+                }else {
+                    stopVoiceImgAnimation();
+                    finishRecord();
+                    ToastUtil.diaplayMesShort(AiDialogueFightYYSActivity.this, "很好，本节已完成！");
                 }
+            }else if(!userFirst && conversation_cb.isChecked() && position == avObjects.size()-1){
+                changeRoles();
+            } else {
+                showIatDialog();
             }
-        } catch (AVException e) {
-            e.printStackTrace();
         }
-    }
-
-    private void onQueryDataFinish() {
-        loading = false;
-        hideProgressbar();
-        if(hasMore){
-            showFooterview();
-        }else {
-            hideFooterview();
-        }
-        mAdapter.notifyDataSetChanged();
     }
 
     private void resetData() {
@@ -308,7 +369,7 @@ public class AiDialoguePracticeYYSActivity extends BaseActivity implements View.
     }
 
     private void setSelected(int index) {
-        if (avObjects.size() > position) {
+        if(avObjects.size() > position){
             position = index;
             resetData();
             avObjects.get(index).put(KeyUtil.PracticeItemIndex, "1");
@@ -328,11 +389,9 @@ public class AiDialoguePracticeYYSActivity extends BaseActivity implements View.
 
     @Override
     public void playOrStop(int index) {
-        isNewIn = false;
-        isFollow = true;
         setSelected(index);
         playItem(avObjects.get(index));
-        AVAnalytics.onEvent(this, "evaluationdetail_pg_play_result");
+        AVAnalytics.onEvent(AiDialogueFightYYSActivity.this, "evaluationdetail_pg_play_result");
     }
 
     public void playItem(AVObject avObject) {
@@ -345,7 +404,7 @@ public class AiDialoguePracticeYYSActivity extends BaseActivity implements View.
             mSpeechSynthesizer.setParameter(SpeechConstant.TTS_AUDIO_PATH, filepath);
             if (!AudioTrackUtil.isFileExists(filepath)) {
                 showProgressbar();
-                XFUtil.showSpeechSynthesizer(this, mSharedPreferences,
+                XFUtil.showSpeechSynthesizer(AiDialogueFightYYSActivity.this, mSharedPreferences,
                         mSpeechSynthesizer, getEnglishContent(avObject), XFUtil.SpeakerHk,
                         new SynthesizerListener() {
                             @Override
@@ -368,7 +427,7 @@ public class AiDialoguePracticeYYSActivity extends BaseActivity implements View.
                             @Override
                             public void onCompleted(SpeechError arg0) {
                                 if (arg0 != null) {
-                                    ToastUtil.diaplayMesShort(AiDialoguePracticeYYSActivity.this, arg0.getErrorDescription());
+                                    ToastUtil.diaplayMesShort(AiDialogueFightYYSActivity.this, arg0.getErrorDescription());
                                 }
                                 onfinishPlay();
                             }
@@ -394,7 +453,7 @@ public class AiDialoguePracticeYYSActivity extends BaseActivity implements View.
                 String fullName = SDCardUtil.getDownloadPath(path) + fileName;
                 if (!AudioTrackUtil.isFileExists(fullName)) {
                     e.onNext("showProgressbar");
-                    DownLoadUtil.downloadFile(AiDialoguePracticeYYSActivity.this, url, path, fileName);
+                    DownLoadUtil.downloadFile(AiDialogueFightYYSActivity.this, url, path, fileName);
                     e.onNext("hideProgressbar");
                 }
                 playMp3(fullName, e);
@@ -406,7 +465,6 @@ public class AiDialoguePracticeYYSActivity extends BaseActivity implements View.
                     @Override
                     public void onSubscribe(Disposable d) {
                     }
-
                     @Override
                     public void onNext(String s) {
                         if (s.equals("showProgressbar")) {
@@ -416,11 +474,9 @@ public class AiDialoguePracticeYYSActivity extends BaseActivity implements View.
                             hideProgressbar();
                         }
                     }
-
                     @Override
                     public void onError(Throwable e) {
                     }
-
                     @Override
                     public void onComplete() {
                         onfinishPlay();
@@ -443,15 +499,12 @@ public class AiDialoguePracticeYYSActivity extends BaseActivity implements View.
                     @Override
                     public void onSubscribe(Disposable d) {
                     }
-
                     @Override
                     public void onNext(String s) {
                     }
-
                     @Override
                     public void onError(Throwable e) {
                     }
-
                     @Override
                     public void onComplete() {
                         onfinishPlay();
@@ -488,11 +541,14 @@ public class AiDialoguePracticeYYSActivity extends BaseActivity implements View.
                 LogUtil.DefalutLog("isLast---onResult:" + sbResult.toString());
                 hideProgressbar();
                 finishRecord();
-                AVObject mSpeakItem = avObjects.get(position);
-                UserSpeakBean bean = ScoreUtil.scoreChinese(AiDialoguePracticeYYSActivity.this, sbResult.toString(), getEnglishContent(mSpeakItem), 0);
-                mSpeakItem.put(KeyUtil.UserSpeakBean, bean);
-                mAdapter.notifyDataSetChanged();
+                if (!conversation_cb.isChecked()) {
+                    AVObject mSpeakItem = avObjects.get(position);
+                    UserSpeakBean bean = ScoreUtil.score(AiDialogueFightYYSActivity.this, sbResult.toString(), getEnglishContent(mSpeakItem), 0);
+                    mSpeakItem.put(KeyUtil.UserSpeakBean, bean);
+                    mAdapter.notifyDataSetChanged();
+                }
                 sbResult.setLength(0);
+                playNext();
             }
         }
 
@@ -501,7 +557,7 @@ public class AiDialoguePracticeYYSActivity extends BaseActivity implements View.
             LogUtil.DefalutLog("onError:" + error.getErrorDescription());
             finishRecord();
             hideProgressbar();
-            ToastUtil.diaplayMesShort(AiDialoguePracticeYYSActivity.this, error.getErrorDescription());
+            ToastUtil.diaplayMesShort(AiDialogueFightYYSActivity.this, error.getErrorDescription());
         }
 
         @Override
@@ -541,37 +597,90 @@ public class AiDialoguePracticeYYSActivity extends BaseActivity implements View.
         }
     };
 
+    private void playNext() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (continuity_cb.isChecked()) {
+                    if (position < avObjects.size() - 1) {
+                        showNext();
+                    } else {
+                        ToastUtil.diaplayMesShort(AiDialogueFightYYSActivity.this, "很好，本节已完成！");
+                    }
+                } else if (conversation_cb.isChecked()) {
+                    if (position < avObjects.size() - 2) {
+                        if(userFirst){
+                            changeConversationLayout(false);
+                            startToPlaySpeaker(position+1);
+                        }else {
+                            showNext();
+                        }
+                    } else {
+                        if(userFirst && position < avObjects.size() - 1){
+                            changeConversationLayout(false);
+                            startToPlaySpeaker(position+1);
+                        }else if (!userFirst) {
+                            changeRoles();
+                        } else {
+                            ToastUtil.diaplayMesShort(AiDialogueFightYYSActivity.this, "很好，本节已完成！");
+                        }
+
+                    }
+                }
+            }
+        }, 800);
+    }
+
+    private void changeRoles(){
+        stopVoiceImgAnimation();
+        finishRecord();
+        userFirst = true;
+        position = 0;
+        changeConversationLayout(true);
+        setDatas();
+        ToastUtil.diaplayMesLong(AiDialogueFightYYSActivity.this, "交换角色");
+    }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.start_btn_cover:
                 showIatDialog();
                 break;
+            case R.id.sentence_cover:
+                selectedFlowType(0, false);
+                AVAnalytics.onEvent(AiDialogueFightYYSActivity.this, "evaluationdetail_pg_sentence_btn");
+                break;
+            case R.id.continuity_cover:
+                selectedFlowType(1, false);
+                AVAnalytics.onEvent(AiDialogueFightYYSActivity.this, "evaluationdetail_pg_continuity_btn");
+                break;
+            case R.id.conversation_cover:
+                selectedFlowType(2, true);
+                AVAnalytics.onEvent(AiDialogueFightYYSActivity.this, "evaluationdetail_pg_conversation_btn");
+                break;
+            case R.id.previous_btn:
+                previousItem();
+                break;
+            case R.id.next_btn:
+                nextItem();
+                break;
         }
     }
 
-    @OnClick(R.id.start_to_fight)
-    public void onViewClicked() {
-        initData();
-        WXEntryActivity.dataMap.put("avObjects",avObjects);
-        toActivity(AiDialogueFightYYSActivity.class,null);
+    private void showNext() {
+        onClick(next_btn);
+        onClick(start_btn_cover);
     }
 
-    private void initData(){
-        for (int i = 0; i < avObjects.size(); i++) {
-            if (i == 0) {
-                avObjects.get(i).put(KeyUtil.PracticeItemIndex, "1");
-            } else {
-                avObjects.get(i).put(KeyUtil.PracticeItemIndex, "0");
-            }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mSpeechSynthesizer != null) {
+            mSpeechSynthesizer.stopSpeaking();
         }
-    }
-
-    private void hideFooterview() {
-        mAdapter.hideFooter();
-    }
-
-    private void showFooterview() {
-        mAdapter.showFooter();
+        if(recognizer != null){
+            recognizer.stopListening();
+        }
     }
 }
