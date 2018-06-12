@@ -247,6 +247,8 @@
 	<string name="fighting">To All User</string>
 	<string name="sorry">We Are Sorry</string>
     <string name="nomore">no more!</string>
+    <string name="title_listen_fm">FM</string>
+    <string name="title_cantonese">Cantonese</string>
 
     <string name="leisure_novel">Novel</string>
     <string name="leisure_caricature">Caricature</string>

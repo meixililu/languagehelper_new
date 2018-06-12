@@ -7,12 +7,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.messi.languagehelper.AiDialogueSelectCourseFragment;
 import com.messi.languagehelper.LeisureFragment;
 import com.messi.languagehelper.MainFragment;
 import com.messi.languagehelper.MainFragmentOld;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.StudyCategoryFragment;
 import com.messi.languagehelper.StudyFragment;
+import com.messi.languagehelper.XmlyMainForYYSFragment;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.Settings;
@@ -46,8 +48,8 @@ public class MainPageAdapter extends FragmentPagerAdapter {
                 mContext.getApplication().getPackageName().equals(Settings.application_id_yys_google)){
             CONTENT = new String[] {
                     mContext.getResources().getString(R.string.title_home_tab),
-                    mContext.getResources().getString(R.string.title_study_category),
-                    mContext.getResources().getString(R.string.title_translate),
+                    mContext.getResources().getString(R.string.title_TranslatePractice),
+                    mContext.getResources().getString(R.string.title_listen_fm),
                     mContext.getResources().getString(R.string.title_leisure)
             };
         }else if(mContext.getApplication().getPackageName().equals(Settings.application_id_yycd)){
@@ -84,7 +86,18 @@ public class MainPageAdapter extends FragmentPagerAdapter {
             }else if( position == 3 ){
                 return LeisureFragment.getInstance();
             }
-        }else if(mContext.getApplication().getPackageName().equals(Settings.application_id_yycd)){
+        } else if(mContext.getApplication().getPackageName().equals(Settings.application_id_yys) ||
+                mContext.getApplication().getPackageName().equals(Settings.application_id_yys_google)){
+            if( position == 0 ){
+                return MainFragmentOld.getInstance(listener);
+            }else if( position == 1 ){
+                return AiDialogueSelectCourseFragment.getInstance();
+            }else if( position == 2 ){
+                return XmlyMainForYYSFragment.newInstance();
+            }else if( position == 3 ){
+                return LeisureFragment.getInstance();
+            }
+        } else if(mContext.getApplication().getPackageName().equals(Settings.application_id_yycd)){
             if( position == 0 ){
                 return MainFragmentOld.getInstance(listener);
             }else if( position == 1 ){
