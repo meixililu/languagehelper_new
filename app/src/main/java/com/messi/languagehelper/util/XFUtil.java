@@ -55,6 +55,7 @@ public class XFUtil {
 	/**语音转写**/
 	public static void showSpeechRecognizer(Context mContext,SharedPreferences mSharedPreferences,
 			SpeechRecognizer iatRecognizer,RecognizerListener recognizerListener, String voiceEngine) {
+		LogUtil.DefalutLog("voiceEngine:"+voiceEngine);
 		if (null == iatRecognizer) {
 			iatRecognizer = SpeechRecognizer.createRecognizer(mContext,null);
 		}

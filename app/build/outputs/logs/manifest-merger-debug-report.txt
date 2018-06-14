@@ -18,10 +18,10 @@ INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/Andr
 	android:name
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:59:13-38
 manifest
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-415:12
-INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-415:12
-INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-415:12
-INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-415:12
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-418:12
+INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-418:12
+INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-418:12
+INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-418:12
 MERGED from [com.android.support:design:27.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/7f88b11ea08bda82a86f5edaa354acb5/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:appcompat-v7:27.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/c5b71071a20f0128b2a4d3064aaff19e/AndroidManifest.xml:17:1-22:12
 MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/transitionseverywhere-1.7.0.aar/c448cff51770a26c853fac99e049a5bc/AndroidManifest.xml:2:1-14:12
@@ -67,20 +67,20 @@ MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /Users/luli/.gradle/cac
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/dafbeaede48e8f311f35dc347fffd051/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:runtime:1.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/c21e93455b6270b63dedeb9cc7ffac4e/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/9e14426f90c2a0c9169290bc27ac9875/AndroidManifest.xml:17:1-22:12
-INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-415:12
-INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-415:12
-INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-415:12
+INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-418:12
+INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-418:12
+INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-418:12
 	package
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:3:5-39
 		INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-415:12
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-418:12
 		INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-415:12
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-418:12
 		INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:11-69
@@ -179,7 +179,7 @@ ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/Android
 	android:name
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:29:19-67
 application
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:31:5-413:19
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:31:5-416:19
 MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/transitionseverywhere-1.7.0.aar/c448cff51770a26c853fac99e049a5bc/AndroidManifest.xml:12:5-20
 MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/transitionseverywhere-1.7.0.aar/c448cff51770a26c853fac99e049a5bc/AndroidManifest.xml:12:5-20
 MERGED from [com.github.bumptech.glide:glide:4.7.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/glide-4.7.1.aar/1e2f51a56653e3bc577f8068aa4b85c7/AndroidManifest.xml:11:5-20
@@ -876,34 +876,40 @@ ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/Android
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:398:13-49
 	android:name
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:397:13-41
-activity#com.messi.languagehelper.PracticeActivity
+activity#com.messi.languagehelper.PracticeYYSActivity
 ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:399:9-401:52
 	android:screenOrientation
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:401:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:400:13-45
-activity#com.messi.languagehelper.ImgShareActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:402:9-405:75
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:400:13-48
+activity#com.messi.languagehelper.PracticeActivity
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:402:9-404:52
 	android:screenOrientation
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:404:13-49
-	android:windowSoftInputMode
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:405:13-72
 	android:name
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:403:13-45
-activity#com.messi.languagehelper.wxapi.WXEntryActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:406:9-412:57
+activity#com.messi.languagehelper.ImgShareActivity
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:405:9-408:75
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:411:13-49
-	android:launchMode
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:410:13-44
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:407:13-49
 	android:windowSoftInputMode
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:412:13-54
-	android:exported
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:409:13-36
-	android:configChanges
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:408:13-74
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:408:13-72
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:407:13-50
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:406:13-45
+activity#com.messi.languagehelper.wxapi.WXEntryActivity
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:409:9-415:57
+	android:screenOrientation
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:414:13-49
+	android:launchMode
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:413:13-44
+	android:windowSoftInputMode
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:415:13-54
+	android:exported
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:412:13-36
+	android:configChanges
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:411:13-74
+	android:name
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:410:13-50
 uses-sdk
 INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml

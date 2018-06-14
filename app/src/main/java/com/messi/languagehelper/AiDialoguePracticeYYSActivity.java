@@ -489,7 +489,7 @@ public class AiDialoguePracticeYYSActivity extends BaseActivity implements View.
                 hideProgressbar();
                 finishRecord();
                 AVObject mSpeakItem = avObjects.get(position);
-                UserSpeakBean bean = ScoreUtil.scoreChinese(AiDialoguePracticeYYSActivity.this, sbResult.toString(), getEnglishContent(mSpeakItem), 0);
+                UserSpeakBean bean = ScoreUtil.scoreChinese(AiDialoguePracticeYYSActivity.this, sbResult.toString(), getEnglishContent(mSpeakItem));
                 mSpeakItem.put(KeyUtil.UserSpeakBean, bean);
                 mAdapter.notifyDataSetChanged();
                 sbResult.setLength(0);

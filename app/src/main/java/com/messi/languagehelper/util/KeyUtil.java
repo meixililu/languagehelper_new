@@ -26,6 +26,8 @@ public class KeyUtil {
 
 	public static final String UpdateSymbolList = "UpdateSymbolList1";
 
+	public static final String IsTranslateYueKey = "IsTranslateYueKey";
+
 	public static final String URL = "urlkey";
 
 	public static final String MesType = "MesType";
@@ -71,6 +73,8 @@ public class KeyUtil {
 	public static final String IndexKey = "IndexKey";
 
 	public static final String TranUserSelectLanguage = "TranUserSelectLanguage";
+
+	public static final String TranUserSelectLanguageYYS = "TranUserSelectLanguageYYS";
 
 	public static final String AiChatUserSelectLanguage = "AiChatUserSelectLanguage";
 

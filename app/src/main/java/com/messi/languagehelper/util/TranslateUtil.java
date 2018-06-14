@@ -14,6 +14,7 @@ import com.avos.avoscloud.okhttp.RequestBody;
 import com.avos.avoscloud.okhttp.Response;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.messi.languagehelper.bean.AiYueYuBean;
 import com.messi.languagehelper.bean.BaiduV2Bean;
 import com.messi.languagehelper.bean.DictionaryRootJuhe;
 import com.messi.languagehelper.bean.HjTranBean;
@@ -22,9 +23,11 @@ import com.messi.languagehelper.bean.Root;
 import com.messi.languagehelper.bean.StackTransalte;
 import com.messi.languagehelper.bean.TranslateApiBean;
 import com.messi.languagehelper.dao.Dictionary;
+import com.messi.languagehelper.dao.TranResultZhYue;
 import com.messi.languagehelper.dao.record;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
+import com.messi.languagehelper.impl.OnTranZhYueFinishListener;
 import com.messi.languagehelper.impl.OnTranslateFinishListener;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.youdao.localtransengine.EnLineTranslator;
@@ -839,6 +842,60 @@ public class TranslateUtil {
 		return result;
 	}
 
+	public static void TranslateZhYue(final OnTranZhYueFinishListener listener) throws Exception{
+		Observable.create(new ObservableOnSubscribe<TranResultZhYue>() {
+			@Override
+			public void subscribe(ObservableEmitter<TranResultZhYue> e) throws Exception {
+				e.onNext( doTranZhYueBackground() );
+				e.onComplete();
+			}
+		})
+				.subscribeOn(Schedulers.io())
+				.observeOn(AndroidSchedulers.mainThread())
+				.subscribe(new Observer<TranResultZhYue>() {
+					@Override
+					public void onSubscribe(Disposable d) {
+					}
+
+					@Override
+					public void onNext(TranResultZhYue mResult) {
+						listener.OnFinishTranslate(mResult);
+					}
+
+					@Override
+					public void onError(Throwable e) {
+					}
+
+					@Override
+					public void onComplete() {
+					}
+				});
+	}
+
+	private static TranResultZhYue doTranZhYueBackground() {
+		TranResultZhYue result = null;
+		Response mResponse = null;
+		try {
+			mResponse = LanguagehelperHttpClient.postBaidu(null);
+			if(mResponse != null){
+				result = tran_bd_api_zh_yue(mResponse);
+				if(result == null){
+					mResponse = LanguagehelperHttpClient.getAiyueyu(null);
+					result = tran_aiyueyu(mResponse);
+				}
+			}else {
+				mResponse = LanguagehelperHttpClient.postBaidu(null);
+				result = tran_bd_api_zh_yue(mResponse);
+			}
+		}catch (Exception e){
+			LogUtil.DefalutLog("doTranslateBackground error");
+			mResponse = LanguagehelperHttpClient.postBaidu(null);
+			result = tran_bd_api_zh_yue(mResponse);
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 	private static record tran_bd_api(Response mResponse) {
 		record currentDialogBean = null;
 		try {
@@ -859,13 +916,37 @@ public class TranslateUtil {
 		return currentDialogBean;
 	}
 
-	private static record tran_3g88_api(Response mResponse) throws Exception{
-		record currentDialogBean = null;
+	private static TranResultZhYue tran_bd_api_zh_yue(Response mResponse) {
+		TranResultZhYue currentDialogBean = null;
+		try {
+			if(mResponse != null && mResponse.isSuccessful()) {
+				String mResult = mResponse.body().string();
+				if (JsonParser.isJson(mResult)) {
+					String dstString = JsonParser.getTranslateResult(mResult);
+					if (!dstString.contains("error_msg:")) {
+						currentDialogBean = new TranResultZhYue(dstString, Settings.q, Settings.to);
+						LogUtil.DefalutLog("tran_bd_api_zh_yue http:"+dstString);
+					}
+				}
+			}
+		}catch (Exception e){
+			LogUtil.DefalutLog("tran_bd_api_zh_yue error");
+			e.printStackTrace();
+		}
+		return currentDialogBean;
+	}
+
+	private static TranResultZhYue tran_aiyueyu(Response mResponse) throws Exception{
+		TranResultZhYue currentDialogBean = null;
 		if(mResponse != null && mResponse.isSuccessful()) {
-			String mResult = mResponse.body().string();
-			if (!TextUtils.isEmpty(mResult)) {
-				currentDialogBean = new record(mResult, Settings.q);
-				LogUtil.DefalutLog("tran_3g88_api http:"+mResult);
+			String mResult = mResponse.body().string().trim();
+			String result = mResult.substring(mResult.indexOf("{"));
+			LogUtil.DefalutLog("tran_aiyueyu:"+result);
+			AiYueYuBean mAiYueYuBean = new Gson().fromJson(result, AiYueYuBean.class);
+			if (mAiYueYuBean != null && mAiYueYuBean.getState() == 200 &&
+					!TextUtils.isEmpty(mAiYueYuBean.getContent())) {
+				currentDialogBean = new TranResultZhYue(mAiYueYuBean.getContent(), Settings.q, Settings.to);
+				LogUtil.DefalutLog("tran_aiyueyu http:"+mAiYueYuBean.getContent());
 			}
 		}
 		return currentDialogBean;

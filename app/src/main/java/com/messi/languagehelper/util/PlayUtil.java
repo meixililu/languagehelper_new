@@ -50,8 +50,9 @@ public class PlayUtil {
     public static void play(String nfilepath,
                             String nSpeakContent,
                             AnimationDrawable nDrawable,
-                            SynthesizerListener nSynthesizerListener,
-                            String speaker){
+                            String speaker,
+                            SynthesizerListener nSynthesizerListener
+                            ){
         LogUtil.DefalutLog("PlayUtil-PlayerStatus:"+isPlaying);
         if(nDrawable != null){
             currentAnimationDrawable = nDrawable;
@@ -84,7 +85,7 @@ public class PlayUtil {
                             String nSpeakContent,
                             AnimationDrawable nDrawable,
                             SynthesizerListener nSynthesizerListener){
-        play(nfilepath,nSpeakContent,nDrawable,nSynthesizerListener,"");
+        play(nfilepath,nSpeakContent,nDrawable,"",nSynthesizerListener);
     }
 
     public static void startToPlay(SynthesizerListener nSynthesizerListener){

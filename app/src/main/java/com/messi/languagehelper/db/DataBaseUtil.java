@@ -16,6 +16,8 @@ import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.dao.ReadingDao;
 import com.messi.languagehelper.dao.SymbolListDao;
 import com.messi.languagehelper.dao.SymbolListDaoDao;
+import com.messi.languagehelper.dao.TranResultZhYue;
+import com.messi.languagehelper.dao.TranResultZhYueDao;
 import com.messi.languagehelper.dao.WordDetailListItem;
 import com.messi.languagehelper.dao.WordDetailListItemDao;
 import com.messi.languagehelper.dao.record;
@@ -44,6 +46,7 @@ public class DataBaseUtil {
     private SymbolListDaoDao mSymbolListDaoDao;
     private WordDetailListItemDao mWordDetailListItemDao;
     private AiEntityDao mAiEntityDao;
+    private TranResultZhYueDao mTranResultZhYueDao;
 
     public DataBaseUtil() {
     }
@@ -62,6 +65,7 @@ public class DataBaseUtil {
             instance.mReadingDao = instance.mDaoSession.getReadingDao();
             instance.mWordDetailListItemDao = instance.mDaoSession.getWordDetailListItemDao();
             instance.mAiEntityDao = instance.mDaoSession.getAiEntityDao();
+            instance.mTranResultZhYueDao = instance.mDaoSession.getTranResultZhYueDao();
         }
         return instance;
     }
@@ -101,8 +105,21 @@ public class DataBaseUtil {
         return mrecordDao.insert(bean);
     }
 
+    public long insert(TranResultZhYue bean) {
+        bean.setIscollected("0");
+        bean.setVisit_times(0);
+        bean.setSpeak_speed(Settings.getSharedPreferences(appContext).getInt(appContext.getString(R.string.preference_key_tts_speed), 50));
+        bean.setQuestionVoiceId(System.currentTimeMillis() + "");
+        bean.setResultVoiceId(System.currentTimeMillis() - 5 + "");
+        return mTranResultZhYueDao.insert(bean);
+    }
+
     public void update(record bean) {
         mrecordDao.update(bean);
+    }
+
+    public void update(TranResultZhYue bean) {
+        mTranResultZhYueDao.update(bean);
     }
 
     public void update(Dictionary bean) {
@@ -112,6 +129,13 @@ public class DataBaseUtil {
     public List<record> getDataListRecord(int offset, int maxResult) {
         QueryBuilder<record> qb = mrecordDao.queryBuilder();
         qb.orderDesc(Properties.Id);
+        qb.limit(maxResult);
+        return qb.list();
+    }
+
+    public List<TranResultZhYue> getDataListZhYue(int offset, int maxResult) {
+        QueryBuilder<TranResultZhYue> qb = mTranResultZhYueDao.queryBuilder();
+        qb.orderDesc(TranResultZhYueDao.Properties.Id);
         qb.limit(maxResult);
         return qb.list();
     }
@@ -140,6 +164,15 @@ public class DataBaseUtil {
         return qb.list();
     }
 
+    public List<TranResultZhYue> getTranZhYueCollectedListByPage(int page, int page_size) {
+        QueryBuilder<TranResultZhYue> qb = mTranResultZhYueDao.queryBuilder();
+        qb.where(TranResultZhYueDao.Properties.Iscollected.eq("1"));
+        qb.orderDesc(TranResultZhYueDao.Properties.Id);
+        qb.offset(page * page_size);
+        qb.limit(page_size);
+        return qb.list();
+    }
+
     public List<Dictionary> getDataListDictionaryCollected(int offset, int maxResult) {
         QueryBuilder<Dictionary> qb = mDictionaryDao.queryBuilder();
         qb.where(DictionaryDao.Properties.Iscollected.eq("1"));
@@ -160,16 +193,22 @@ public class DataBaseUtil {
         mrecordDao.delete(bean);
     }
 
+    public void dele(TranResultZhYue bean) {
+        mTranResultZhYueDao.delete(bean);
+    }
+
     public void dele(Dictionary bean) {
         mDictionaryDao.delete(bean);
     }
 
-    public void clearExceptFavoriteTran() {
-        clearTranslateExceptFavorite();
-    }
-
-    public void clearExceptFavoriteDic() {
-        clearDictionaryExceptFavorite();
+    public void clearExceptFavorite() {
+        try {
+            clearTranslateExceptFavorite();
+            clearDictionaryExceptFavorite();
+            clearTranZhYueExceptFavorite();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void clearSymbolList() {
@@ -179,6 +218,12 @@ public class DataBaseUtil {
     public void clearTranslateExceptFavorite() {
         QueryBuilder<record> qb = mrecordDao.queryBuilder();
         DeleteQuery<record> bd = qb.where(Properties.Iscollected.eq("0")).buildDelete();
+        bd.executeDeleteWithoutDetachingEntities();
+    }
+
+    public void clearTranZhYueExceptFavorite() {
+        QueryBuilder<TranResultZhYue> qb = mTranResultZhYueDao.queryBuilder();
+        DeleteQuery<TranResultZhYue> bd = qb.where(TranResultZhYueDao.Properties.Iscollected.eq("0")).buildDelete();
         bd.executeDeleteWithoutDetachingEntities();
     }
 
@@ -202,6 +247,20 @@ public class DataBaseUtil {
 
     public void clearAllDictionary() {
         mDictionaryDao.deleteAll();
+    }
+
+    public void clearAllTranZhYue() {
+        mTranResultZhYueDao.deleteAll();
+    }
+
+    public void clearAllData(){
+        try {
+            clearAllTranslate();
+            clearAllDictionary();
+            clearAllTranZhYue();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public long getRecordCount() {

@@ -276,16 +276,8 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
 
     private void playUserPcm() {
         if (!TextUtils.isEmpty(userPcmPath)) {
-            if (mMyThread != null) {
-                if (mMyThread.isPlaying) {
-                    AudioTrackUtil.stopPlayPcm(mThread);
-                } else {
-                    mThread = AudioTrackUtil.startMyThread(mMyThread);
-                }
-            } else {
-                mMyThread = AudioTrackUtil.getMyThread(userPcmPath);
-                mThread = AudioTrackUtil.startMyThread(mMyThread);
-            }
+            mMyThread.setDataUri(userPcmPath);
+            mThread = AudioTrackUtil.startMyThread(mMyThread);
         }
     }
 
@@ -324,7 +316,7 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
                     record_layout.setVisibility(View.VISIBLE);
                     voice_btn.setText(this.getResources().getString(R.string.finish));
                     String path = SDCardUtil.getDownloadPath(SDCardUtil.UserPracticePath);
-                    userPcmPath = path + "/userpractice.pcm";
+                    userPcmPath = path + "userpractice.pcm";
                     recognizer.setParameter(SpeechConstant.ASR_AUDIO_PATH, userPcmPath);
                     if (isEnglish) {
                         XFUtil.showSpeechRecognizer(this, mSharedPreferences, recognizer,

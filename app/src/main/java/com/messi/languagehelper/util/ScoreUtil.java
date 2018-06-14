@@ -106,25 +106,27 @@ public class ScoreUtil {
 		return bean;
 	}
 
-	public static UserSpeakBean scoreChinese(Context mContext, String content, String result, int type){
+	public static UserSpeakBean scoreChinese(Context mContext, String content, String result){
 		LogUtil.DefalutLog("old---content:"+content+"---result:"+result);
 		SpannableStringBuilder sb = new SpannableStringBuilder();
 		UserSpeakBean bean = new UserSpeakBean();
-		String mResult = result.replaceAll("\\s+"," ");
-		String mContent = content.replaceAll("\\s+"," ");
+		String mResult = result.replaceAll("\\s+"," ").replaceAll("\\p{P}", "");
+		String mContent = content.replaceAll("\\s+"," ").replaceAll("\\p{P}", "");
 		LogUtil.DefalutLog("old---content:"+mContent+"---result:"+mResult);
 		String[] mResults = mResult.split("");
 		String[] mContents = mContent.split("");
 		int count = 0;
-		for(String item : mResults){
-			String itemTemp = item.replaceAll("\\p{P}", "");
+		for(String item : mContents){
 			boolean isRight = false;
-			for(String str : mContents){
-				String strTemp = str.replaceAll("\\p{P}", "");
-				if(itemTemp.toLowerCase().equals(strTemp.toLowerCase())){
-					isRight = true;
-					count ++;
-					break;
+			if(!TextUtils.isEmpty(item)){
+				for(String str : mResults){
+					if(!TextUtils.isEmpty(str)){
+						if(item.toLowerCase().equals(str.toLowerCase())){
+							isRight = true;
+							count ++;
+							break;
+						}
+					}
 				}
 			}
 			if(isRight){

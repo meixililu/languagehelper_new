@@ -85,6 +85,7 @@
     <string name="app_name_share">App:Translator</string>
     <string name="share_text_hint">please input something</string>
     <string name="input_et_hint">please input chinese or english</string>
+    <string name="input_et_zh_yue_hint">please input chinese or cantonese</string>
     <string name="input_et_hint_english">please input english</string>
     <string name="input_et_hint_chinese">please input chinese</string>
     <string name="input_et_hint_dictionary">Please input Chinese or English word</string>
@@ -117,6 +118,7 @@
     <string name="share_dialog_text_2">Image(recommend)</string>
     <string name="take_photo">TakePhoto</string>
     <string name="photo_album">PhotoAlbum</string>
+    <string name="network_offline">network unavailable</string>
 
     <string name="next_unit">Next Unit</string>
     <string name="dancirenzhi">Word Study</string>
@@ -202,6 +204,7 @@
 	<string name="errcode_unknown">unknown</string>
 	<string name="chinese">Zh</string>
 	<string name="english">En</string>
+    <string name="cantonese">Yue</string>
 	<string name="collect">favorite</string>
 	<string name="wechat">wechat</string>
 	<string name="speak_prompt">请根据您说的语言点击中文或者英文！</string>
@@ -225,6 +228,7 @@
 	<string name="about_volume_content">Click the volume keys to adjust.</string>
 	
 	<string name="practice_prompt_english">Click Start to speak english</string>
+    <string name="practice_prompt_cantonese">Click Start to speak cantonese</string>
 	<string name="practice_prompt_chinese">Click Start to speak chinese</string>
 	<string name="cailing_ad_prompt">三块钱你买不了吃亏，买不了上当，只需三块钱，就能让电话另一头的TA拥有一次美好而有爱的等待，而不是平凡并且枯燥的嘟。。。嘟。。。嘟。。。还等什么呢，赶紧操作起来，为TA设置一段好玩又有新意的铃声吧! http://api.openspeech.cn/kyls/NTBhYTEyMTM=</string>
 	<string name="yuedu_ad_prompt">专注随身阅读30年! http://api.openspeech.cn/cmread/NTBhYTEyMTM=</string>

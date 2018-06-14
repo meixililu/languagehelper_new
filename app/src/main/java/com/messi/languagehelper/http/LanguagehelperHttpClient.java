@@ -31,9 +31,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import static com.messi.languagehelper.util.Settings.from;
-import static com.messi.languagehelper.util.Settings.to;
-
 public class LanguagehelperHttpClient {
 	
 	public static final int HTTP_RESPONSE_DISK_CACHE_MAX_SIZE = 10 * 1024 * 1024;
@@ -136,8 +133,8 @@ public class LanguagehelperHttpClient {
 			.add("appid", Settings.baidu_appid)
 			.add("salt", String.valueOf(salt))
 			.add("q", Settings.q)
-			.add("from", from)
-			.add("to", to)
+			.add("from", Settings.from)
+			.add("to", Settings.to)
 			.add("sign", getBaiduTranslateSign(salt))
 			.build();
 		return post(Settings.baiduTranslateUrl,  formBody , mCallback);
@@ -199,6 +196,7 @@ public class LanguagehelperHttpClient {
 		} else {
 			type = "1";
 		}
+		LogUtil.DefalutLog("type:"+type);
 		RequestBody formBody = new FormEncodingBuilder()
 				.add("type", type)
 				.add("text", Settings.q)

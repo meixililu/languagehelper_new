@@ -408,6 +408,9 @@
             android:name="com.messi.languagehelper.HelpActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name="com.messi.languagehelper.PracticeYYSActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.messi.languagehelper.PracticeActivity"
             android:screenOrientation="portrait" />
         <activity

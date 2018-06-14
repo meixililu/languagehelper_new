@@ -11,6 +11,7 @@ import com.messi.languagehelper.AiDialogueCourseForYYSFragment;
 import com.messi.languagehelper.LeisureFragment;
 import com.messi.languagehelper.MainFragment;
 import com.messi.languagehelper.MainFragmentOld;
+import com.messi.languagehelper.MainFragmentYYS;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.StudyCategoryFragment;
 import com.messi.languagehelper.StudyFragment;
@@ -89,7 +90,7 @@ public class MainPageAdapter extends FragmentPagerAdapter {
         } else if(mContext.getApplication().getPackageName().equals(Settings.application_id_yys) ||
                 mContext.getApplication().getPackageName().equals(Settings.application_id_yys_google)){
             if( position == 0 ){
-                return MainFragmentOld.getInstance(listener);
+                return MainFragmentYYS.getInstance(listener);
             }else if( position == 1 ){
                 return AiDialogueCourseForYYSFragment.getInstance();
             }else if( position == 2 ){

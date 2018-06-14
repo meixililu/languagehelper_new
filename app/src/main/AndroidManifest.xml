@@ -397,6 +397,9 @@
             android:name=".HelpActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".PracticeYYSActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".PracticeActivity"
             android:screenOrientation="portrait" />
         <activity

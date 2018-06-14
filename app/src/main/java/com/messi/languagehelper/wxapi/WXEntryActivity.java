@@ -39,7 +39,6 @@ import com.messi.languagehelper.BaseActivity;
 import com.messi.languagehelper.MoreActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.adapter.MainPageAdapter;
-import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.AVOUtil;
@@ -267,12 +266,6 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener, Fr
 		saveSelectTab();
 		mInstance = null;
 		TranslateUtil.saveTranslateApiOrder(mSharedPreferences);
-		if (mSharedPreferences.getBoolean(KeyUtil.AutoClearDic, false)) {
-			DataBaseUtil.getInstance().clearExceptFavoriteDic();
-		}
-		if (mSharedPreferences.getBoolean(KeyUtil.AutoClearTran, false)) {
-			DataBaseUtil.getInstance().clearExceptFavoriteTran();
-		}
 		JZVideoPlayer.releaseAllVideos();
 		PlayUtil.onDestroy();
 		if (playIntent != null) {

@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.CheckBox;
 import android.widget.FrameLayout;
 import android.widget.SeekBar;
@@ -95,14 +94,12 @@ public class SettingActivity extends BaseActivity implements SeekBar.OnSeekBarCh
             case R.id.setting_clear_all_except_favorite:
                 Settings.isMainFragmentNeedRefresh = true;
                 Settings.isDictionaryFragmentNeedRefresh = true;
-                DataBaseUtil.getInstance().clearExceptFavoriteTran();
-                DataBaseUtil.getInstance().clearExceptFavoriteDic();
+                DataBaseUtil.getInstance().clearExceptFavorite();
                 ToastUtil.diaplayMesShort(SettingActivity.this, this.getResources().getString(R.string.clear_success));
                 AVAnalytics.onEvent(this, "setting_pg_clear_all_except");
                 break;
             case R.id.setting_clear_all:
-                DataBaseUtil.getInstance().clearAllTran();
-                DataBaseUtil.getInstance().clearAllDic();
+                DataBaseUtil.getInstance().clearAllData();
                 Settings.isMainFragmentNeedRefresh = true;
                 Settings.isDictionaryFragmentNeedRefresh = true;
                 SDCardUtil.deleteOldFile();
