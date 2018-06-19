@@ -1,9 +1,11 @@
 package com.messi.languagehelper;
 
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,7 @@ import android.widget.FrameLayout;
 
 import com.messi.languagehelper.adapter.RcTranZhYueListAdapter;
 import com.messi.languagehelper.dao.TranResultZhYue;
+import com.messi.languagehelper.dao.record;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.event.FinishEvent;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
@@ -54,8 +57,43 @@ public class MainTabTranZhYue extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.main_tab_tran, null);
         LogUtil.DefalutLog("MainTabTranZhYue-onCreateView");
+        initLowVersionData();
         init(view);
         return view;
+    }
+
+    private void initLowVersionData(){
+        SharedPreferences sp = Settings.getSharedPreferences(getContext());
+        if(!sp.getBoolean(KeyUtil.IsYYSHasTransafeData,false)){
+            boolean isNeedTransfeData = false;
+            List<record> oldBeans = DataBaseUtil.getInstance().getDataListRecord(0, Settings.offset);
+            for(record bean : oldBeans){
+                if(!TextUtils.isEmpty(bean.getBackup3()) && "yue".equals(bean.getBackup3())){
+                    isNeedTransfeData = true;
+                }
+            }
+            if(isNeedTransfeData){
+                for(int i = oldBeans.size(); i >= 0; i--){
+                    record bean = oldBeans.get(i);
+                    TranResultZhYue mResult = new TranResultZhYue();
+                    mResult.setChinese(bean.getChinese());
+                    mResult.setEnglish(bean.getEnglish());
+                    mResult.setIscollected(bean.getIscollected());
+                    mResult.setQuestionAudioPath(bean.getQuestionAudioPath());
+                    mResult.setQuestionVoiceId(bean.getQuestionVoiceId());
+                    mResult.setResultAudioPath(bean.getResultAudioPath());
+                    mResult.setResultVoiceId(bean.getResultVoiceId());
+                    mResult.setSpeak_speed(bean.getSpeak_speed());
+                    mResult.setVisit_times(bean.getVisit_times());
+                    mResult.setBackup1(bean.getBackup1());
+                    mResult.setBackup2(bean.getBackup2());
+                    mResult.setBackup3(bean.getBackup3());
+                    DataBaseUtil.getInstance().insert(mResult);
+                }
+            }
+            DataBaseUtil.getInstance().clearAllTran();
+            Settings.saveSharedPreferences(sp,KeyUtil.IsYYSHasTransafeData,true);
+        }
     }
 
     private void init(View view) {

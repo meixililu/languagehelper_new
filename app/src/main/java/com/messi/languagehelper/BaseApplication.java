@@ -46,9 +46,9 @@ public class BaseApplication extends MultiDexApplication {
                 CommonRequest.getInstanse().init(BaseApplication.this, "c779eeb1873325a487e2956a2077f2bc");
                 CommonRequest.getInstanse().setHttpConfig(null);
                 CommonRequest.getInstanse().setUseHttps(true);
-                LogUtil.DefalutLog("initXimalayaSDK");
 
                 initLearnCloudChannel();
+                LogUtil.DefalutLog("initXimalayaSDK");
             }
         }).run();
     }

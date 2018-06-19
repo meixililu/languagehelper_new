@@ -83,7 +83,7 @@ public class LeisureFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.leisure_fragment, null);
+        View view = inflater.inflate(R.layout.leisure_fragment_for_tx, null);
         ButterKnife.bind(this, view);
         sp = Settings.getSharedPreferences(getContext());
         if (ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)) {

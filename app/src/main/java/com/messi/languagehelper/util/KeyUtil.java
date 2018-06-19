@@ -243,7 +243,7 @@ public class KeyUtil {
 	public static final String Lei_UCSearch = "Lei_UCSearch";
 	public static final String IsTXADPermissionReady = "IsTXADPermissionReady";
 
-
+	public static final String IsYYSHasTransafeData = "IsYYSHasTransafeData";
 
 
 
