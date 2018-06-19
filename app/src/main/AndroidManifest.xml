@@ -60,9 +60,9 @@
             android:value="${applicationId}.provider" />
 
         <!-- leancloud 统计 -->
-        <meta-data
-            android:name="leancloud"
-            android:value="LeanCloud" />
+        <!--<meta-data-->
+            <!--android:name="leancloud"-->
+            <!--android:value="LeanCloud" />-->
 
         <!-- 喜马拉雅fm -->
         <meta-data

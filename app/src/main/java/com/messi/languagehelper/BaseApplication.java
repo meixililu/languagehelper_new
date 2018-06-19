@@ -47,10 +47,33 @@ public class BaseApplication extends MultiDexApplication {
                 CommonRequest.getInstanse().setHttpConfig(null);
                 CommonRequest.getInstanse().setUseHttps(true);
                 LogUtil.DefalutLog("initXimalayaSDK");
+
+                initLearnCloudChannel();
             }
         }).run();
     }
 
+    private void initLearnCloudChannel(){
+        if(getPackageName().equals(Settings.application_id_zyhy)){
+            AVAnalytics.setAppChannel("LeanCloud");
+        }else if(getPackageName().equals(Settings.application_id_zyhy_google)){
+            AVAnalytics.setAppChannel("zyhy_google");
+        }else if(getPackageName().equals(Settings.application_id_yys)){
+            AVAnalytics.setAppChannel("cantonese_study");
+        }else if(getPackageName().equals(Settings.application_id_yys_google)){
+            AVAnalytics.setAppChannel("yys_google");
+        }else if(getPackageName().equals(Settings.application_id_yyj)){
+            AVAnalytics.setAppChannel("LeanCloud");
+        }else if(getPackageName().equals(Settings.application_id_yyj_google)){
+            AVAnalytics.setAppChannel("yyj_google");
+        }else if(getPackageName().equals(Settings.application_id_yycd)){
+            AVAnalytics.setAppChannel("ywcd");
+        }else if(getPackageName().equals(Settings.application_id_xbky)){
+            AVAnalytics.setAppChannel("xbky");
+        }else{
+            AVAnalytics.setAppChannel("other");
+        }
+    }
 	/**
      * 取得DaoMaster
      * @param context
