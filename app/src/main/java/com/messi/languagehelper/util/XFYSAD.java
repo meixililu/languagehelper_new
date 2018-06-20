@@ -75,7 +75,7 @@ public class XFYSAD {
 	
 	public void showAD(){
 		LogUtil.DefalutLog("XFYSAD---showAD");
-		if(ADUtil.isShowAd(mContext)){
+		if(ADUtil.IsShowAD){
 			if(System.currentTimeMillis() - lastLoadAdTime > 1000*30){
 				ad_aign.setVisibility(View.GONE);
 				if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
@@ -83,6 +83,16 @@ public class XFYSAD {
 				}else {
 					loadTXAD();
 				}
+			}
+		}else {
+			if(parentView != null){
+				parentView.setVisibility(View.GONE);
+			}
+			if(xx_ad_layout != null){
+				xx_ad_layout.setVisibility(View.GONE);
+			}
+			if(ad_aign != null){
+				ad_aign.setVisibility(View.GONE);
 			}
 		}
 	}

@@ -509,4 +509,30 @@ public class Settings {
 			return appContext.getPackageName() + ".provider";
 		}
 	}
+
+	public static String getMetaData(Context appContext,String name) {
+		ApplicationInfo applicationInfo = null;
+		try {
+			applicationInfo = appContext.getPackageManager().getApplicationInfo(appContext.getPackageName(), PackageManager.GET_META_DATA);
+			if(applicationInfo == null){
+				return "";
+			}
+			return applicationInfo.metaData.getString(name);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return appContext.getPackageName() + ".provider";
+		}
+	}
+
+	public static String getVersionName(Context mContext) {
+		try {
+			PackageManager manager = mContext.getPackageManager();
+			PackageInfo info = manager.getPackageInfo(mContext.getPackageName(), 0);
+			String version = info.versionName;
+			return version;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "x.x";
+		}
+	}
 }

@@ -1,13 +1,10 @@
 package com.messi.languagehelper;
 
+import android.os.Bundle;
+import android.widget.TextView;
+
 import com.avos.avoscloud.AVAnalytics;
 import com.messi.languagehelper.util.Settings;
-
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,7 +25,7 @@ public class AboutActivity extends BaseActivity{
 
 	private void init() {
 		setActionBarTitle(getResources().getString(R.string.title_about));
-		app_version.setText(getVersion());
+		app_version.setText(Settings.getVersionName(this));
 	}
 
 	@OnClick(R.id.email_layout)
@@ -37,16 +34,6 @@ public class AboutActivity extends BaseActivity{
 		AVAnalytics.onEvent(this, "about_pg_send_email");
 	}
 	
-	public String getVersion() {
-		try {
-			PackageManager manager = this.getPackageManager();
-			PackageInfo info = manager.getPackageInfo(this.getPackageName(), 0);
-			String version = info.versionName;
-			return version;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return "x.x";
-		}
-	}
+
 	
 }

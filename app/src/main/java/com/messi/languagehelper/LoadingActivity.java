@@ -91,10 +91,12 @@ public class LoadingActivity extends AppCompatActivity {
             ADUtil.Advertiser = mSharedPreferences.getString(KeyUtil.APP_Advertiser,ADUtil.Advertiser_XF);
         }
         LogUtil.DefalutLog("Advertiser:"+ADUtil.Advertiser);
-        if(ADUtil.Advertiser.equals(ADUtil.Advertiser_TX)){
-            loadTXAD();
-        }else {
-            loadXFAD();
+        if(ADUtil.IsShowAD){
+            if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
+                loadXFAD();
+            }else {
+                loadTXAD();
+            }
         }
         startTask();
     }

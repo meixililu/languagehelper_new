@@ -33,6 +33,8 @@ public class ADUtil {
 
 	public static String Advertiser = Advertiser_XF;
 
+	public static boolean IsShowAD = true;
+
 	public static List<NativeADDataRef> localAd = new ArrayList<NativeADDataRef>();
 
 	public static final String KaiPingADId = "E170E50B2CBFE09CFE53F6D0A446560C";
@@ -55,19 +57,6 @@ public class ADUtil {
 	public static final boolean IsShowAdImmediately = false;
 	public static final int adCount = 1;
 	public static final int adInterval = 4500;
-	
-	// initQuanPingAD  initChaPingAD    initBannerAD    initKaiPingAD
-	
-	public static boolean isShowAd(Context mContext){
-		return true;
-//		if(IsShowAdImmediately){
-//
-//		}else{
-//			SharedPreferences mSharedPreferences = Settings.getSharedPreferences(mContext);
-//			int times = mSharedPreferences.getInt(KeyUtil.IsCanShowAD_Loading, 0);
-//			return times > 0;
-//		}
-	}
 
 	public static String randomAd(){
 		if(new Random().nextInt(2) > 0){

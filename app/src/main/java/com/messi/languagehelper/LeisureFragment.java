@@ -86,10 +86,12 @@ public class LeisureFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.leisure_fragment_for_tx, null);
         ButterKnife.bind(this, view);
         sp = Settings.getSharedPreferences(getContext());
-        if (ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)) {
-            loadXFAD();
-        } else {
-            loadTXAD();
+        if(ADUtil.IsShowAD){
+            if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
+                loadXFAD();
+            }else {
+                loadTXAD();
+            }
         }
         return view;
     }

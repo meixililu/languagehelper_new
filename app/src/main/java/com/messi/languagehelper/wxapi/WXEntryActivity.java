@@ -323,6 +323,8 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener, Fr
 		String wyyx_url = mAVObject.getString(AVOUtil.UpdateInfo.wyyx_url);
 		String uctt_url = mAVObject.getString(AVOUtil.UpdateInfo.uctt_url);
 		String ucsearch_url = mAVObject.getString(AVOUtil.UpdateInfo.ucsearch_url);
+		String ad_ids = mAVObject.getString(AVOUtil.UpdateInfo.ad_ids);
+		String no_ad_channel = mAVObject.getString(AVOUtil.UpdateInfo.no_ad_channel);
 		if(!TextUtils.isEmpty(wyyx_url)){
 			Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_WYYX_URL,wyyx_url);
 		}
@@ -335,6 +337,15 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener, Fr
 		if(!TextUtils.isEmpty(ucsearch_url)){
 			Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_UCSearch,ucsearch_url);
 		}
+		if(!TextUtils.isEmpty(ad_ids)){
+			Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.Ad_Ids,ad_ids);
+		}
+		if(!TextUtils.isEmpty(no_ad_channel)){
+			Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.No_Ad_Channel,no_ad_channel);
+		}
+		Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.VersionCode,
+				mAVObject.getInt(AVOUtil.UpdateInfo.VersionCode));
+
 	}
 
 	private void showUpdateDialog(final AVObject mAVObject) {

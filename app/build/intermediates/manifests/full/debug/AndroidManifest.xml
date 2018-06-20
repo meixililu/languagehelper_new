@@ -41,6 +41,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -70,7 +71,9 @@
         <!-- <meta-data -->
         <!-- android:name="leancloud" -->
         <!-- android:value="LeanCloud" /> -->
-
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="huawei" />
 
         <!-- 喜马拉雅fm -->
         <meta-data

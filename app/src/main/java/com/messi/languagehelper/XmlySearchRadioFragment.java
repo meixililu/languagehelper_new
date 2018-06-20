@@ -248,10 +248,12 @@ public class XmlySearchRadioFragment extends BaseFragment implements
     }
 
     private void loadAD(){
-        if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
-            loadXFAD();
-        }else {
-            loadTXAD();
+        if(ADUtil.IsShowAD){
+            if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
+                loadXFAD();
+            }else {
+                loadTXAD();
+            }
         }
     }
 

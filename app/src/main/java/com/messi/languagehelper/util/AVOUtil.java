@@ -282,12 +282,16 @@ public class AVOUtil {
 		public final static String UpdateInfo = "UpdateInfo";
 		
 		public final static String AppName = "AppName";
-		
+
 		public final static String AppCode = "AppCode";
-		
+
 		public final static String VersionCode = "VersionCode";
-		
+
 		public final static String Apk = "Apk";
+
+		public final static String ad_ids = "ad_ids";
+
+		public final static String no_ad_channel = "no_ad_channel";
 
 		public final static String ad_type = "ad_type";
 

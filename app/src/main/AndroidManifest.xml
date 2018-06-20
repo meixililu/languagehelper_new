@@ -63,6 +63,7 @@
         <!--<meta-data-->
             <!--android:name="leancloud"-->
             <!--android:value="LeanCloud" />-->
+        <meta-data android:value="huawei" android:name="UMENG_CHANNEL"/>
 
         <!-- 喜马拉雅fm -->
         <meta-data
