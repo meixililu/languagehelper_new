@@ -325,24 +325,12 @@ public class WXEntryActivity extends BaseActivity implements OnClickListener, Fr
 		String ucsearch_url = mAVObject.getString(AVOUtil.UpdateInfo.ucsearch_url);
 		String ad_ids = mAVObject.getString(AVOUtil.UpdateInfo.ad_ids);
 		String no_ad_channel = mAVObject.getString(AVOUtil.UpdateInfo.no_ad_channel);
-		if(!TextUtils.isEmpty(wyyx_url)){
-			Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_WYYX_URL,wyyx_url);
-		}
-		if(!TextUtils.isEmpty(app_advertiser)){
-			Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.APP_Advertiser,app_advertiser);
-		}
-		if(!TextUtils.isEmpty(uctt_url)){
-			Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_UCTT,uctt_url);
-		}
-		if(!TextUtils.isEmpty(ucsearch_url)){
-			Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_UCSearch,ucsearch_url);
-		}
-		if(!TextUtils.isEmpty(ad_ids)){
-			Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.Ad_Ids,ad_ids);
-		}
-		if(!TextUtils.isEmpty(no_ad_channel)){
-			Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.No_Ad_Channel,no_ad_channel);
-		}
+		Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_WYYX_URL,wyyx_url);
+		Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.APP_Advertiser,app_advertiser);
+		Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_UCTT,uctt_url);
+		Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_UCSearch,ucsearch_url);
+		Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.Ad_Ids,ad_ids);
+		Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.No_Ad_Channel,no_ad_channel);
 		Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.VersionCode,
 				mAVObject.getInt(AVOUtil.UpdateInfo.VersionCode));
 

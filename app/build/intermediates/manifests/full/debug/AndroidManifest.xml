@@ -73,7 +73,7 @@
         <!-- android:value="LeanCloud" /> -->
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="huawei" />
+            android:value="teent" />
 
         <!-- 喜马拉雅fm -->
         <meta-data

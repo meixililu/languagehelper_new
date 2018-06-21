@@ -249,6 +249,9 @@ public class KeyUtil {
 
 	public static final String IsYYSHasTransafeData = "IsYYSHasTransafeData";
 
+	public static final String No_Ad = "no_ad";
+
+
 
 
 

@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.NestedScrollView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -83,7 +84,13 @@ public class LeisureFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.leisure_fragment_for_tx, null);
+        String channel = Settings.getMetaData(getContext(),"UMENG_CHANNEL");
+        View view = null;
+        if(!TextUtils.isEmpty(channel) && channel.equals("tencent")){
+            view = inflater.inflate(R.layout.leisure_fragment_for_tx, null);
+        }else {
+            view = inflater.inflate(R.layout.leisure_fragment, null);
+        }
         ButterKnife.bind(this, view);
         sp = Settings.getSharedPreferences(getContext());
         if(ADUtil.IsShowAD){

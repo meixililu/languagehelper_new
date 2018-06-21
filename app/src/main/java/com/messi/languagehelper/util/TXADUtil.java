@@ -49,23 +49,29 @@ public class TXADUtil {
             }else {
                 initDefaultTXADID(mContext);
             }
-            String noAdChannel = sp.getString(KeyUtil.No_Ad_Channel,"");
-            String channel = Settings.getMetaData(mContext,"UMENG_CHANNEL");
-            int versionCode = Settings.getVersion(mContext);
-            int lastCode = sp.getInt(KeyUtil.VersionCode,-1);
-            LogUtil.DefalutLog("lastCode:"+lastCode+"--noAdChannel:"+noAdChannel+"--channel:"+channel);
-            if(lastCode < 0){
-                if("huawei".equals(channel)){
-                    ADUtil.IsShowAD = false;
-                }
-            }else if(versionCode >= lastCode){
-                if(!TextUtils.isEmpty(noAdChannel) && !TextUtils.isEmpty(channel)){
-                    if(noAdChannel.equals(channel)){
+
+            String ad = sp.getString(KeyUtil.APP_Advertiser,ADUtil.Advertiser_XF);
+            if(!ad.equals(KeyUtil.No_Ad)){
+                String noAdChannel = sp.getString(KeyUtil.No_Ad_Channel,"");
+                String channel = Settings.getMetaData(mContext,"UMENG_CHANNEL");
+                int versionCode = Settings.getVersion(mContext);
+                int lastCode = sp.getInt(KeyUtil.VersionCode,-1);
+                LogUtil.DefalutLog("lastCode:"+lastCode+"--noAdChannel:"+noAdChannel+"--channel:"+channel);
+                if(lastCode < 0){
+                    if("huawei".equals(channel)){
                         ADUtil.IsShowAD = false;
                     }
+                }else if(versionCode >= lastCode){
+                    if(!TextUtils.isEmpty(noAdChannel) && !TextUtils.isEmpty(channel)){
+                        if(noAdChannel.equals(channel)){
+                            ADUtil.IsShowAD = false;
+                        }
+                    }
                 }
-
+            }else {
+                ADUtil.IsShowAD = false;
             }
+            LogUtil.DefalutLog("IsShowAD:"+ADUtil.IsShowAD);
         } catch (Exception e) {
             initDefaultTXADID(mContext);
             e.printStackTrace();
