@@ -31,6 +31,7 @@ public class TXADUtil {
 
     public static void initTXADID(Context mContext){
         try {
+            ADUtil.IsShowAD = true;
             SharedPreferences sp = Settings.getSharedPreferences(mContext);
             String ids = sp.getString(KeyUtil.Ad_Ids,"");
             if(!TextUtils.isEmpty(ids)){
