@@ -11,10 +11,12 @@ import com.messi.languagehelper.AiDialogueCourseForYYSFragment;
 import com.messi.languagehelper.LeisureFragment;
 import com.messi.languagehelper.MainFragment;
 import com.messi.languagehelper.MainFragmentOld;
+import com.messi.languagehelper.MainFragmentYWCD;
 import com.messi.languagehelper.MainFragmentYYS;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.StudyCategoryFragment;
 import com.messi.languagehelper.StudyFragment;
+import com.messi.languagehelper.XmlyMainForYWCDFragment;
 import com.messi.languagehelper.XmlyMainForYYSFragment;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.KeyUtil;
@@ -56,6 +58,7 @@ public class MainPageAdapter extends FragmentPagerAdapter {
         }else if(mContext.getApplication().getPackageName().equals(Settings.application_id_yycd)){
             CONTENT = new String[] {
                     mContext.getResources().getString(R.string.title_home_tab),
+                    mContext.getResources().getString(R.string.title_listen_fm),
                     mContext.getResources().getString(R.string.title_leisure)
             };
         }else {
@@ -80,7 +83,7 @@ public class MainPageAdapter extends FragmentPagerAdapter {
                 return StudyCategoryFragment.getInstance();
             }else if( position == 2 ){
                 if(mSharedPreferences.getBoolean(KeyUtil.IsUseOldStyle,true)){
-                    return MainFragmentOld.getInstance(listener);
+                    return MainFragmentYWCD.getInstance(listener);
                 }else {
                     return MainFragment.getInstance(listener);
                 }
@@ -100,8 +103,10 @@ public class MainPageAdapter extends FragmentPagerAdapter {
             }
         } else if(mContext.getApplication().getPackageName().equals(Settings.application_id_yycd)){
             if( position == 0 ){
-                return MainFragmentOld.getInstance(listener);
+                return MainFragmentYWCD.getInstance(listener);
             }else if( position == 1 ){
+                return XmlyMainForYWCDFragment.newInstance();
+            }else if( position == 2 ){
                 return LeisureFragment.getInstance();
             }
         } else {

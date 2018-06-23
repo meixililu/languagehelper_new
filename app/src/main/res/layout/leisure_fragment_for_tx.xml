@@ -352,7 +352,7 @@
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/jd_layout"
+                android:id="@+id/news_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -371,7 +371,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/icon_0012" />
+                        android:src="@drawable/icon_0007" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -380,7 +380,7 @@
                         android:background="@color/white"
                         android:gravity="center"
                         android:lines="1"
-                        android:text="@string/leisure_dvideo"
+                        android:text="@string/foreign_website"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/middle" />
                 </LinearLayout>
@@ -431,11 +431,11 @@
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/news_layout"
+                android:id="@+id/invest_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="1px"
                 android:layout_weight="1"
+                android:layout_marginRight="1px"
                 android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
@@ -451,7 +451,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/icon_0007" />
+                        android:src="@drawable/icon_0008" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -460,7 +460,7 @@
                         android:background="@color/white"
                         android:gravity="center"
                         android:lines="1"
-                        android:text="@string/foreign_website"
+                        android:text="@string/leisuer_invest"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/middle" />
                 </LinearLayout>
@@ -503,15 +503,14 @@
 
         </LinearLayout>
 
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:orientation="horizontal">
 
             <FrameLayout
-                android:id="@+id/invest_layout"
+                android:id="@+id/jd_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -523,6 +522,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:gravity="center"
+                    android:visibility="gone"
                     android:orientation="vertical"
                     android:paddingBottom="@dimen/padding_15"
                     android:paddingTop="@dimen/padding_15">
@@ -530,7 +530,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/icon_0008" />
+                        android:src="@drawable/icon_0012" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -539,7 +539,7 @@
                         android:background="@color/white"
                         android:gravity="center"
                         android:lines="1"
-                        android:text="@string/leisuer_invest"
+                        android:text="@string/leisure_dvideo"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/middle" />
                 </LinearLayout>

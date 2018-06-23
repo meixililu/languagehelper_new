@@ -107,6 +107,7 @@
     <string name="prompt">Prompt</string>
     <string name="retry">Retry</string>
     <string name="recommend">Recommend</string>
+    <string name="title_yuwen">Chinese</string>
     <string name="recent_study_empty">Empty</string>
     <string name="recent">Recent</string>
     <string name="beginner">Beginner</string>

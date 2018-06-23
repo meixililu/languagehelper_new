@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.NestedScrollView;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -86,7 +85,7 @@ public class LeisureFragment extends BaseFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         String channel = Settings.getMetaData(getContext(),"UMENG_CHANNEL");
         View view = null;
-        if(!TextUtils.isEmpty(channel) && channel.equals("tencent")){
+        if(channel.equals("tencent") || channel.equals("huawei")){
             view = inflater.inflate(R.layout.leisure_fragment_for_tx, null);
         }else {
             view = inflater.inflate(R.layout.leisure_fragment, null);
