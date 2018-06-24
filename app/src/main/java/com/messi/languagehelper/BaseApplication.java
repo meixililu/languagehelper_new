@@ -63,7 +63,7 @@ public class BaseApplication extends MultiDexApplication {
         }else if(getPackageName().equals(Settings.application_id_yys_google)){
             AVAnalytics.setAppChannel("yys_google");
         }else if(getPackageName().equals(Settings.application_id_yyj)){
-            AVAnalytics.setAppChannel("LeanCloud");
+            AVAnalytics.setAppChannel("learnEnglish");
         }else if(getPackageName().equals(Settings.application_id_yyj_google)){
             AVAnalytics.setAppChannel("yyj_google");
         }else if(getPackageName().equals(Settings.application_id_yycd)){
