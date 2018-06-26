@@ -55,7 +55,7 @@ public class XmlyMainForYYSFragment extends BaseFragment implements OnClickListe
 		if(SystemUtil.lan.equals("en")){
 			mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
 		}
-		currentTabIndex = PlayUtil.getSP().getInt(KeyUtil.XmlyMainForYYS,0);
+		currentTabIndex = PlayUtil.getSP().getInt(KeyUtil.XmlyMainForYYS,1);
 		mTabLayout.addTab(mTabLayout.newTab().setText(getText(R.string.title_category)));
 		mTabLayout.addTab(mTabLayout.newTab().setText(getText(R.string.title_cantonese)));
 		mTabLayout.addTab(mTabLayout.newTab().setText(getText(R.string.recommend)));
