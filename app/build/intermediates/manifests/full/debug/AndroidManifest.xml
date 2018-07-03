@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.messi.cantonese.study"
+    package="com.messi.languagehelper"
     android:versionCode="41"
     android:versionName="4.5.1" >
 
@@ -45,7 +45,7 @@
         android:theme="@style/AppTheme" >
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.messi.cantonese.study.provider"
+            android:authorities="com.messi.languagehelper.provider"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data
@@ -65,7 +65,7 @@
 
         <meta-data
             android:name="ProviderId"
-            android:value="com.messi.cantonese.study.provider" />
+            android:value="com.messi.languagehelper.provider" />
 
         <!-- leancloud 统计 -->
         <!-- <meta-data -->
@@ -436,7 +436,7 @@
 
         <provider
             android:name="com.yanzhenjie.permission.FileProvider"
-            android:authorities="com.messi.cantonese.study.file.path.share"
+            android:authorities="com.messi.languagehelper.file.path.share"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data
