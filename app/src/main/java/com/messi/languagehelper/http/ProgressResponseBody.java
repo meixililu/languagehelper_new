@@ -1,15 +1,16 @@
 package com.messi.languagehelper.http;
 
+import com.messi.languagehelper.impl.ProgressListener;
+
 import java.io.IOException;
 
-import com.avos.avoscloud.okhttp.MediaType;
-import com.avos.avoscloud.okhttp.ResponseBody;
-import com.avos.avoscloud.okio.Buffer;
-import com.avos.avoscloud.okio.BufferedSource;
-import com.avos.avoscloud.okio.ForwardingSource;
-import com.avos.avoscloud.okio.Okio;
-import com.avos.avoscloud.okio.Source;
-import com.messi.languagehelper.impl.ProgressListener;
+import okhttp3.MediaType;
+import okhttp3.ResponseBody;
+import okio.Buffer;
+import okio.BufferedSource;
+import okio.ForwardingSource;
+import okio.Okio;
+import okio.Source;
 
 public class ProgressResponseBody extends ResponseBody {
 
@@ -29,12 +30,12 @@ public class ProgressResponseBody extends ResponseBody {
 	}
 
 	@Override
-	public long contentLength() throws IOException {
+	public long contentLength() {
 		return responseBody.contentLength();
 	}
 
 	@Override
-	public BufferedSource source() throws IOException {
+	public BufferedSource source() {
 		if (bufferedSource == null) {
 			bufferedSource = Okio.buffer(source(responseBody.source()));
 		}

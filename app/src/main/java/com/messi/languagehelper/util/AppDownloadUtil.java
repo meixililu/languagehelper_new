@@ -11,7 +11,6 @@ import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
 
 import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.okhttp.Response;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.impl.ProgressListener;
@@ -19,6 +18,8 @@ import com.messi.languagehelper.wxapi.WXEntryActivity;
 
 import java.io.File;
 import java.io.IOException;
+
+import okhttp3.Response;
 
 public class AppDownloadUtil {
 

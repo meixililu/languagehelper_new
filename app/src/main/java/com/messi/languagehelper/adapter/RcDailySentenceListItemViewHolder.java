@@ -9,12 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.avos.avoscloud.okhttp.Callback;
-import com.avos.avoscloud.okhttp.Request;
-import com.avos.avoscloud.okhttp.Response;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.messi.languagehelper.PracticeActivity;
 import com.messi.languagehelper.R;
@@ -32,6 +28,10 @@ import com.messi.languagehelper.wxapi.WXEntryActivity;
 
 import java.io.IOException;
 import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 /**
  * Created by luli on 10/23/16.
@@ -155,17 +155,18 @@ public class RcDailySentenceListItemViewHolder extends RecyclerView.ViewHolder {
         isLoading = true;
         LanguagehelperHttpClient.get(url, new Callback() {
             @Override
-            public void onResponse(Response arg0) throws IOException {
-                DownLoadUtil.saveFile(context, SDCardUtil.DailySentencePath, suffix, arg0.body().bytes());
+            public void onFailure(Call call, IOException e) {
+                onFinish();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                DownLoadUtil.saveFile(context, SDCardUtil.DailySentencePath, suffix, response.body().bytes());
                 String fileFullName = SDCardUtil.getDownloadPath(SDCardUtil.DailySentencePath) + suffix;
                 onFinish();
                 playMp3(fileFullName);
             }
 
-            @Override
-            public void onFailure(Request arg0, IOException arg1) {
-                onFinish();
-            }
         });
     }
 

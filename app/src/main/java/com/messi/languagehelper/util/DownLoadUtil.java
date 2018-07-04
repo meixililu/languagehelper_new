@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 
-import com.avos.avoscloud.okhttp.Response;
 import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.dao.SymbolListDao;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
@@ -15,6 +14,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
+
+import okhttp3.Response;
 
 public class DownLoadUtil {
 

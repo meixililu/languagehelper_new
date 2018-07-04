@@ -10,8 +10,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
 import com.alibaba.fastjson.JSON;
-import com.avos.avoscloud.okhttp.FormEncodingBuilder;
-import com.avos.avoscloud.okhttp.RequestBody;
 import com.iflytek.voiceads.AdError;
 import com.iflytek.voiceads.AdKeys;
 import com.iflytek.voiceads.IFLYNativeAd;
@@ -34,6 +32,8 @@ import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.FormBody;
 
 public class ToutiaoNewsFragment extends BaseFragment implements OnClickListener {
 
@@ -162,7 +162,7 @@ public class ToutiaoNewsFragment extends BaseFragment implements OnClickListener
     private void requestData() {
         loading = true;
         showProgressbar();
-        RequestBody formBody = new FormEncodingBuilder()
+        FormBody formBody = new FormBody.Builder()
                 .add("key", "06bc3d4c6f31f4a2c8794ef1ad45517f")
                 .add("type", type)
                 .build();

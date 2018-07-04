@@ -7,11 +7,6 @@ import android.os.Message;
 import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSON;
-import com.avos.avoscloud.okhttp.Callback;
-import com.avos.avoscloud.okhttp.FormEncodingBuilder;
-import com.avos.avoscloud.okhttp.Request;
-import com.avos.avoscloud.okhttp.RequestBody;
-import com.avos.avoscloud.okhttp.Response;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.messi.languagehelper.bean.AiYueYuBean;
@@ -54,6 +49,10 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.Response;
 
 public class TranslateUtil {
 	
@@ -122,7 +121,7 @@ public class TranslateUtil {
 	}
 
 	public static void Translate_Showapi(final Context mActivity, final Handler mHandler) {
-		RequestBody formBody = new FormEncodingBuilder()
+		FormBody formBody = new FormBody.Builder()
 				.add("showapi_appid", Settings.showapi_appid)
 				.add("showapi_sign", Settings.showapi_secret)
 				.add("showapi_timestamp", String.valueOf(System.currentTimeMillis()))
@@ -131,12 +130,12 @@ public class TranslateUtil {
 				.build();
 		LanguagehelperHttpClient.post(Settings.ShowApiDictionaryUrl, formBody, new Callback() {
 			@Override
-			public void onFailure(Request arg0, IOException arg1) {
+			public void onFailure(Call call, IOException e) {
 				Translate(mActivity,mHandler);
 			}
 
 			@Override
-			public void onResponse(Response mResponse) throws IOException {
+			public void onResponse(Call call, Response mResponse) throws IOException {
 				try {
 					if (mResponse.isSuccessful()) {
 						String responseString = mResponse.body().string();
@@ -173,12 +172,12 @@ public class TranslateUtil {
 	public static void Translate_Juhe(final Context mActivity, final Handler mHandler) {
 		LanguagehelperHttpClient.get(Settings.JuheYoudaoApiUrl + Settings.q, new Callback() {
 			@Override
-			public void onFailure(Request arg0, IOException arg1) {
+			public void onFailure(Call call, IOException e) {
 				Translate(mActivity,mHandler);
 			}
 
 			@Override
-			public void onResponse(Response mResponse) throws IOException {
+			public void onResponse(Call call, Response mResponse) throws IOException {
 				try {
 					if (mResponse.isSuccessful()) {
 						String responseString = mResponse.body().string();
@@ -219,12 +218,12 @@ public class TranslateUtil {
 	public static void Translate_youdao_web(final Context mActivity, final Handler mHandler) {
 		LanguagehelperHttpClient.get(Settings.YoudaoWeb + Settings.q + Settings.YoudaoWebEnd, new Callback() {
 			@Override
-			public void onFailure(Request arg0, IOException arg1) {
+			public void onFailure(Call call, IOException e) {
 				Translate(mActivity,mHandler);
 			}
-			
+
 			@Override
-			public void onResponse(Response mResponse) throws IOException {
+			public void onResponse(Call call, Response mResponse) throws IOException {
 				try {
 					if (mResponse.isSuccessful()) {
 						String responseString = mResponse.body().string();
@@ -435,12 +434,12 @@ public class TranslateUtil {
 	public static void Translate_Biying_web(final Context mActivity, final Handler mHandler) {
 		LanguagehelperHttpClient.get(Settings.BingyingWeb + Settings.q, new Callback() {
 			@Override
-			public void onFailure(Request arg0, IOException arg1) {
+			public void onFailure(Call call, IOException e) {
 				Translate(mActivity,mHandler);
 			}
-			
+
 			@Override
-			public void onResponse(Response mResponse) throws IOException {
+			public void onResponse(Call call, Response mResponse) throws IOException {
 				try {
 					if (mResponse.isSuccessful()) {
 						String responseString = mResponse.body().string();
@@ -644,11 +643,12 @@ public class TranslateUtil {
 	public static void Translate_baidu(final Context mActivity, final Handler mHandler) {
 		LanguagehelperHttpClient.postBaidu(new Callback() {
 			@Override
-			public void onFailure(Request arg0, IOException arg1) {
+			public void onFailure(Call call, IOException e) {
 				Translate(mActivity,mHandler);
 			}
+
 			@Override
-			public void onResponse(Response mResponse) throws IOException {
+			public void onResponse(Call call, Response mResponse) throws IOException {
 				try {
 					if (mResponse.isSuccessful()) {
 						String responseString = mResponse.body().string();

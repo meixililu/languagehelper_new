@@ -15,8 +15,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
-import com.avos.avoscloud.okhttp.FormEncodingBuilder;
-import com.avos.avoscloud.okhttp.RequestBody;
 import com.daimajia.numberprogressbar.NumberProgressBar;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.cloud.RecognizerListener;
@@ -47,6 +45,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.FormBody;
 
 public class AiTuringActivity extends BaseActivity {
 
@@ -262,7 +261,7 @@ public class AiTuringActivity extends BaseActivity {
 
     private void requestData(String msg) {
         showProgressbar();
-        RequestBody formBody = new FormEncodingBuilder()
+        FormBody formBody = new FormBody.Builder()
                 .add("key", Settings.AiTuringApiKey)
                 .add("info", msg)
                 .add("userid", Settings.getUUID(this))

@@ -12,7 +12,6 @@ import android.support.v4.app.ActivityCompat;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.okhttp.Response;
 import com.google.gson.Gson;
 import com.messi.languagehelper.bean.BdLocationRoot;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
@@ -25,6 +24,7 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import okhttp3.Response;
 
 /**
  * Created by luli on 02/12/2017.

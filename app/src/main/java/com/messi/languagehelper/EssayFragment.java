@@ -9,8 +9,6 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
-import com.avos.avoscloud.okhttp.FormEncodingBuilder;
-import com.avos.avoscloud.okhttp.RequestBody;
 import com.messi.languagehelper.bean.EssayData;
 import com.messi.languagehelper.bean.EssayRoot;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
@@ -23,6 +21,7 @@ import com.messi.languagehelper.util.ToastUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.FormBody;
 
 public class EssayFragment extends BaseFragment {
 
@@ -67,7 +66,7 @@ public class EssayFragment extends BaseFragment {
 
     private void requestData() {
         showProgressbar();
-        final RequestBody formBody = new FormEncodingBuilder()
+        final FormBody formBody = new FormBody.Builder()
                 .add("showapi_appid", Settings.showapi_appid)
                 .add("showapi_sign", Settings.showapi_secret)
                 .add("showapi_timestamp", String.valueOf(System.currentTimeMillis()))

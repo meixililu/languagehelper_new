@@ -4,16 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSON;
-import com.avos.avoscloud.okhttp.Cache;
-import com.avos.avoscloud.okhttp.Callback;
-import com.avos.avoscloud.okhttp.FormEncodingBuilder;
-import com.avos.avoscloud.okhttp.HttpUrl;
-import com.avos.avoscloud.okhttp.Interceptor;
-import com.avos.avoscloud.okhttp.MediaType;
-import com.avos.avoscloud.okhttp.OkHttpClient;
-import com.avos.avoscloud.okhttp.Request;
-import com.avos.avoscloud.okhttp.RequestBody;
-import com.avos.avoscloud.okhttp.Response;
 import com.messi.languagehelper.MainFragmentOld;
 import com.messi.languagehelper.bean.BaiduAccessToken;
 import com.messi.languagehelper.impl.ProgressListener;
@@ -31,24 +21,38 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import okhttp3.Cache;
+import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.HttpUrl;
+import okhttp3.Interceptor;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
 public class LanguagehelperHttpClient {
 	
 	public static final int HTTP_RESPONSE_DISK_CACHE_MAX_SIZE = 10 * 1024 * 1024;
 	private static final MediaType MEDIA_TYPE_JPG = MediaType.parse("image/jpg");
 	public static final String Header = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36";
-	public static OkHttpClient client = new OkHttpClient();
+	public static OkHttpClient client = new OkHttpClient.Builder()
+			.connectTimeout(15, TimeUnit.SECONDS)
+			.readTimeout(30, TimeUnit.SECONDS)
+			.writeTimeout(15, TimeUnit.SECONDS)
+			.build();
 	
 	public static OkHttpClient initClient(Context mContext){
-		if(client ==  null){
-			client = new OkHttpClient();
-		}
-		client.setConnectTimeout(15, TimeUnit.SECONDS);
-		client.setWriteTimeout(15, TimeUnit.SECONDS);
-		client.setReadTimeout(30, TimeUnit.SECONDS);
 		File baseDir = mContext.getCacheDir();
-		if(baseDir != null){
-			File cacheDir = new File(baseDir,"HttpResponseCache");
-			client.setCache(new Cache(cacheDir, HTTP_RESPONSE_DISK_CACHE_MAX_SIZE));
+		File cacheDir = new File(baseDir,"HttpResponseCache");
+		if(cacheDir != null){
+			client = new OkHttpClient.Builder()
+					.connectTimeout(15, TimeUnit.SECONDS)
+					.readTimeout(30, TimeUnit.SECONDS)
+					.writeTimeout(15, TimeUnit.SECONDS)
+					.cache(new Cache(cacheDir, HTTP_RESPONSE_DISK_CACHE_MAX_SIZE))
+					.build();
 		}
 		return client;
 	}
@@ -129,7 +133,7 @@ public class LanguagehelperHttpClient {
 
 	public static Response postBaidu(Callback mCallback) {
 		long salt = System.currentTimeMillis();
-		RequestBody formBody  = new FormEncodingBuilder()
+		FormBody formBody = new FormBody.Builder()
 			.add("appid", Settings.baidu_appid)
 			.add("salt", String.valueOf(salt))
 			.add("q", Settings.q)
@@ -152,7 +156,7 @@ public class LanguagehelperHttpClient {
 		}
 		String url = Settings.HjTranslateUrl + from + to;
 		LogUtil.DefalutLog("HjTranslateUrl:"+url);
-		RequestBody formBody = new FormEncodingBuilder()
+		FormBody formBody = new FormBody.Builder()
 			.add("content", Settings.q)
 			.build();
 		Request request = new Request.Builder()
@@ -174,7 +178,7 @@ public class LanguagehelperHttpClient {
 			to = "en";
 		}
 		LogUtil.DefalutLog("from:"+from+"---to:"+to);
-		RequestBody formBody = new FormEncodingBuilder()
+		FormBody formBody = new FormBody.Builder()
 			.add("w", Settings.q)
 			.add("", "")
 			.add("f", from)
@@ -197,7 +201,7 @@ public class LanguagehelperHttpClient {
 			type = "1";
 		}
 		LogUtil.DefalutLog("type:"+type);
-		RequestBody formBody = new FormEncodingBuilder()
+		FormBody formBody = new FormBody.Builder()
 				.add("type", type)
 				.add("text", Settings.q)
 				.build();
@@ -222,7 +226,7 @@ public class LanguagehelperHttpClient {
 
 				MainFragmentOld.base64 = CameraUtil.encodeBase64File(tempImage);
 				LogUtil.DefalutLog(MainFragmentOld.base64);
-				RequestBody formBody = new FormEncodingBuilder()
+				FormBody formBody = new FormBody.Builder()
 						.add("image", MainFragmentOld.base64)
 						.build();
 				Request request = new Request.Builder()
@@ -240,7 +244,7 @@ public class LanguagehelperHttpClient {
 	}
 
 	public static void getBaiduAccessToken(final Context context,final String path,final Callback mCallback){
-		RequestBody formBody  = new FormEncodingBuilder()
+		FormBody formBody = new FormBody.Builder()
 				.add("grant_type", "client_credentials")
 				.add("client_id", Settings.BaiduORCAK)
 				.add("client_secret", Settings.BaiduORCSK)
@@ -269,7 +273,7 @@ public class LanguagehelperHttpClient {
 	
 	public static OkHttpClient addProgressResponseListener(final ProgressListener progressListener){
         //克隆
-		OkHttpClient clone = client.clone();
+		OkHttpClient clone = new OkHttpClient();
 		// 增加拦截器
 		clone.networkInterceptors().add(new Interceptor() {
 			@Override

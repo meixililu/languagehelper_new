@@ -1,15 +1,16 @@
 package com.messi.languagehelper.http;
 
-import java.io.IOException;
-
 import android.app.Activity;
 import android.text.TextUtils;
 
-import com.avos.avoscloud.okhttp.Callback;
-import com.avos.avoscloud.okhttp.Request;
-import com.avos.avoscloud.okhttp.Response;
+import java.io.IOException;
 
-public class UICallback implements Callback{
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
+
+
+public class UICallback implements Callback {
 	
 	private Activity context;
 	private String responseString;
@@ -19,7 +20,7 @@ public class UICallback implements Callback{
 	}
 
 	@Override
-	public void onFailure(Request arg0, IOException arg1) {
+	public void onFailure(Call call, IOException e) {
 		context.runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
@@ -30,7 +31,7 @@ public class UICallback implements Callback{
 	}
 
 	@Override
-	public void onResponse(final Response mResponse) throws IOException {
+	public void onResponse(Call call,final Response mResponse) throws IOException {
 		if (mResponse != null && mResponse.isSuccessful()){
 			responseString = mResponse.body().string();
 		}
@@ -48,5 +49,6 @@ public class UICallback implements Callback{
 	public void onFailured() {}
 	public void onFinished() {}
 	public void onResponsed(String responseString) {}
-	
+
+
 }

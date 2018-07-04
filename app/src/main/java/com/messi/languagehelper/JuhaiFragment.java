@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.avos.avoscloud.okhttp.Response;
 import com.messi.languagehelper.adapter.RcJuhaiListAdapter;
 import com.messi.languagehelper.bean.JuhaiBean;
 import com.messi.languagehelper.event.FinishEvent;
@@ -33,6 +32,7 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import okhttp3.Response;
 
 public class JuhaiFragment extends BaseFragment {
 

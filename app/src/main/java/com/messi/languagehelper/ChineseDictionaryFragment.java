@@ -11,7 +11,6 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVAnalytics;
-import com.avos.avoscloud.okhttp.Response;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
@@ -36,6 +35,7 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import okhttp3.Response;
 
 
 public class ChineseDictionaryFragment extends BaseFragment {

@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.avos.avoscloud.okhttp.Response;
 import com.messi.languagehelper.event.FinishEvent;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
@@ -25,6 +24,7 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import okhttp3.Response;
 
 public class EnDicFragment extends BaseFragment {
 
