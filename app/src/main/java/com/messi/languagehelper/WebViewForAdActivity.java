@@ -21,30 +21,43 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVAnalytics;
-import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.FindCallback;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.ShareUtil;
+import com.messi.languagehelper.util.TXADUtil;
+import com.qq.e.ads.nativ.NativeExpressAD;
+import com.qq.e.ads.nativ.NativeExpressADView;
 
 import java.util.List;
 
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
-public class WebViewActivity extends BaseActivity{
+
+public class WebViewForAdActivity extends BaseActivity{
 	
 	private ProgressBar progressdeterminate;
 	private SwipeRefreshLayout mSwipeRefreshLayout;
 	private WebView mWebView;
 	private TextView tap_to_reload;
+	private LinearLayout ad_layout;
+	private LinearLayout ad_layout_zwyt;
+	private LinearLayout ad_layout_stxw;
     private String Url;
     private String title;
     private String ShareUrlMsg;
@@ -54,14 +67,16 @@ public class WebViewActivity extends BaseActivity{
     private long lastClick;
 	private String adFilte;
 	private boolean is_need_get_filter;
+	private String is_need_load_ad = "0";
 	private String filter_source_name;
 
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.web_view);
+		setContentView(R.layout.web_for_ad_view);
 		initData();
+		RequestADFilter();
 		initViews();
 	}
 	
@@ -75,7 +90,6 @@ public class WebViewActivity extends BaseActivity{
 		ToolbarBackgroundColor = getIntent().getIntExtra(KeyUtil.ToolbarBackgroundColorKey,0);
 		isReedPullDownRefresh = getIntent().getBooleanExtra(KeyUtil.IsReedPullDownRefresh, true);
 		isHideToolbar = getIntent().getBooleanExtra(KeyUtil.IsHideToolbar, false);
-		LogUtil.DefalutLog("ToolbarBackgroundColor:"+ToolbarBackgroundColor);
 		if(ToolbarBackgroundColor != 0){
 			setToolbarBackground(ToolbarBackgroundColor);
 		}
@@ -86,9 +100,6 @@ public class WebViewActivity extends BaseActivity{
 			setStatusbarColor(R.color.black);
 			getSupportActionBar().hide();
 		}
-		if(is_need_get_filter){
-			getFilter();
-		}
 	}
 
 	private void getFilter(){
@@ -96,22 +107,56 @@ public class WebViewActivity extends BaseActivity{
 			try {
 				AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.AdFilter.AdFilter);
 				query.whereEqualTo(AVOUtil.AdFilter.name, filter_source_name);
-				query.findInBackground(new FindCallback<AVObject>() {
-					@Override
-					public void done(List<AVObject> list, AVException e) {
-						if(list != null){
-							AVObject mAVObject = list.get(0);
-							if(mAVObject != null){
-								adFilte = mAVObject.getString(AVOUtil.AdFilter.filter);
-								hideAd(mWebView);
-							}
-						}
+				List<AVObject> list = query.find();
+				if(list != null){
+					AVObject mAVObject = list.get(0);
+					if(mAVObject != null){
+						adFilte = mAVObject.getString(AVOUtil.AdFilter.filter);
+						is_need_load_ad = mAVObject.getString(AVOUtil.AdFilter.isShowAd);
+						hideAd(mWebView);
 					}
-				});
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	private void RequestADFilter() {
+		showProgressbar();
+		Observable.create(new ObservableOnSubscribe<String>() {
+			@Override
+			public void subscribe(ObservableEmitter<String> e) throws Exception {
+				if(is_need_get_filter){
+					getFilter();
+				}
+				e.onComplete();
+			}
+		})
+				.subscribeOn(Schedulers.io())
+				.observeOn(AndroidSchedulers.mainThread())
+				.subscribe(new Observer<String>() {
+					@Override
+					public void onSubscribe(Disposable d) {
+					}
+
+					@Override
+					public void onNext(String s) {
+					}
+
+					@Override
+					public void onError(Throwable e) {
+					}
+
+					@Override
+					public void onComplete() {
+						if(is_need_load_ad.equals("1")){
+							loadTXAD();
+							loadTXADZTYW();
+						}
+					}
+				});
+
 	}
 	
 	private void initViews(){
@@ -119,6 +164,9 @@ public class WebViewActivity extends BaseActivity{
 		progressdeterminate = (ProgressBar) findViewById(R.id.progressdeterminate);
 		mWebView = (WebView) findViewById(R.id.refreshable_webview);
 		tap_to_reload = (TextView) findViewById(R.id.tap_to_reload);
+		ad_layout = (LinearLayout) findViewById(R.id.ad_layout);
+		ad_layout_zwyt = (LinearLayout) findViewById(R.id.ad_layout_zwyt);
+		ad_layout_stxw = (LinearLayout) findViewById(R.id.ad_layout_stxw);
 		setScrollable(mSwipeRefreshLayout);
 		mWebView.requestFocus();//如果不设置，则在点击网页文本输入框时，不能弹出软键盘及不响应其他的一些事件。
 		mWebView.getSettings().setJavaScriptEnabled(true);//如果访问的页面中有Javascript，则webview必须设置支持Javascript。
@@ -154,8 +202,8 @@ public class WebViewActivity extends BaseActivity{
 				if(failingUrl.contains("openapp.jdmobile") || failingUrl.contains("taobao")){
 					Uri uri = Uri.parse(failingUrl);
 					view.loadUrl("");
-					ADUtil.toAdActivity(WebViewActivity.this,uri);
-					WebViewActivity.this.finish();
+					ADUtil.toAdActivity(WebViewForAdActivity.this,uri);
+					WebViewForAdActivity.this.finish();
 				}else {
 					view.loadUrl("");
 					if(System.currentTimeMillis() - lastClick < 500){
@@ -185,8 +233,8 @@ public class WebViewActivity extends BaseActivity{
 				if(url.contains("openapp.jdmobile") || url.contains("taobao")){
 					Uri uri = Uri.parse(url);
 					view.loadUrl("");
-					ADUtil.toAdActivity(WebViewActivity.this,uri);
-					WebViewActivity.this.finish();
+					ADUtil.toAdActivity(WebViewForAdActivity.this,uri);
+					WebViewForAdActivity.this.finish();
 					return true;
 				}else if(url.contains("bilibili:")){
 					return true;
@@ -196,7 +244,7 @@ public class WebViewActivity extends BaseActivity{
 
 			@Override
 			public void onReceivedSslError(WebView view,final SslErrorHandler handler, SslError error) {
-				final AlertDialog.Builder builder = new AlertDialog.Builder(WebViewActivity.this);
+				final AlertDialog.Builder builder = new AlertDialog.Builder(WebViewForAdActivity.this);
 				String message = "SSL Certificate error.";
 				switch (error.getPrimaryError()) {
 					case SslError.SSL_UNTRUSTED:
@@ -265,7 +313,113 @@ public class WebViewActivity extends BaseActivity{
 		}
 		mWebView.loadUrl(Url);
 	}
-	
+
+	private void loadTXAD(){
+		TXADUtil.showCDT(this, new NativeExpressAD.NativeExpressADListener() {
+			@Override
+			public void onNoAD(com.qq.e.comm.util.AdError adError) {
+				LogUtil.DefalutLog(adError.getErrorMsg());
+			}
+			@Override
+			public void onADLoaded(List<NativeExpressADView> list) {
+				LogUtil.DefalutLog("onADLoaded");
+				if(list != null && list.size() > 0){
+					ad_layout.setVisibility(View.VISIBLE);
+					ad_layout_stxw.setVisibility(View.VISIBLE);
+//					ad_layout_stxw.removeAllViews();
+					NativeExpressADView mTXADView = list.get(0);
+					ad_layout_stxw.addView(mTXADView);
+					mTXADView.render();
+				}
+			}
+			@Override
+			public void onRenderFail(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onRenderFail");
+			}
+			@Override
+			public void onRenderSuccess(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onRenderSuccess");
+			}
+			@Override
+			public void onADExposure(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onADExposure");
+			}
+			@Override
+			public void onADClicked(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onADClicked");
+			}
+			@Override
+			public void onADClosed(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onADClosed");
+			}
+			@Override
+			public void onADLeftApplication(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onADLeftApplication");
+			}
+			@Override
+			public void onADOpenOverlay(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onADOpenOverlay");
+			}
+			@Override
+			public void onADCloseOverlay(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onADCloseOverlay");
+			}
+		});
+	}
+
+	private void loadTXADZTYW(){
+		TXADUtil.showXXL_ZWYT(this, new NativeExpressAD.NativeExpressADListener() {
+			@Override
+			public void onNoAD(com.qq.e.comm.util.AdError adError) {
+				LogUtil.DefalutLog(adError.getErrorMsg());
+			}
+			@Override
+			public void onADLoaded(List<NativeExpressADView> list) {
+				LogUtil.DefalutLog("onADLoaded");
+				if(list != null && list.size() > 0){
+					ad_layout.setVisibility(View.VISIBLE);
+					ad_layout_zwyt.setVisibility(View.VISIBLE);
+//					ad_layout_zwyt.removeAllViews();
+					NativeExpressADView mTXADView = list.get(0);
+					ad_layout_zwyt.addView(mTXADView);
+					mTXADView.render();
+				}
+			}
+			@Override
+			public void onRenderFail(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onRenderFail");
+			}
+			@Override
+			public void onRenderSuccess(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onRenderSuccess");
+			}
+			@Override
+			public void onADExposure(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onADExposure");
+			}
+			@Override
+			public void onADClicked(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onADClicked");
+			}
+			@Override
+			public void onADClosed(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onADClosed");
+			}
+			@Override
+			public void onADLeftApplication(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onADLeftApplication");
+			}
+			@Override
+			public void onADOpenOverlay(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onADOpenOverlay");
+			}
+			@Override
+			public void onADCloseOverlay(NativeExpressADView nativeExpressADView) {
+				LogUtil.DefalutLog("onADCloseOverlay");
+			}
+		});
+	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		try {
@@ -281,12 +435,12 @@ public class WebViewActivity extends BaseActivity{
 		switch (item.getItemId()) {
 		case 0:  
 			if(Url.equals(Settings.CaiLingUrl)){
-				ShareUtil.shareText(WebViewActivity.this,WebViewActivity.this.getResources().getString(R.string.cailing_ad_prompt));
+				ShareUtil.shareText(WebViewForAdActivity.this,WebViewForAdActivity.this.getResources().getString(R.string.cailing_ad_prompt));
 			}else{
 				if(!TextUtils.isEmpty(ShareUrlMsg)){
-					ShareUtil.shareText(WebViewActivity.this, ShareUrlMsg);
+					ShareUtil.shareText(WebViewForAdActivity.this, ShareUrlMsg);
 				}else {
-					ShareUtil.shareText(WebViewActivity.this,mWebView.getTitle() + " (share from:中英互译) " + Url);
+					ShareUtil.shareText(WebViewForAdActivity.this,mWebView.getTitle() + " (share from:中英互译) " + Url);
 				}
 			}
 			AVAnalytics.onEvent(this, "webview_share_link");

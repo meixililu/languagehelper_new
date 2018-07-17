@@ -37,8 +37,11 @@ import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.util.TextHandlerUtil;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
+import com.qq.e.ads.nativ.NativeExpressAD;
+import com.qq.e.ads.nativ.NativeExpressADView;
 
 import java.util.List;
 
@@ -92,6 +95,7 @@ public class ReadingVideoDetailActivity extends BaseActivity {
         setData();
         initFullscreenDialog();
         initFullscreenButton();
+        loadTXADZTYW();
     }
 
     @Override
@@ -196,6 +200,58 @@ public class ReadingVideoDetailActivity extends BaseActivity {
             mAVObject.setStatus("1");
             DataBaseUtil.getInstance().update(mAVObject);
         }
+    }
+
+    private void loadTXADZTYW(){
+        TXADUtil.showCDT(this, new NativeExpressAD.NativeExpressADListener() {
+            @Override
+            public void onNoAD(com.qq.e.comm.util.AdError adError) {
+                LogUtil.DefalutLog(adError.getErrorMsg());
+            }
+            @Override
+            public void onADLoaded(List<NativeExpressADView> list) {
+                LogUtil.DefalutLog("onADLoaded");
+                if(list != null && list.size() > 0){
+                    next_composition.setVisibility(View.VISIBLE);
+					next_composition.removeAllViews();
+                    NativeExpressADView mTXADView = list.get(0);
+                    next_composition.addView(mTXADView);
+                    mTXADView.render();
+                }
+            }
+            @Override
+            public void onRenderFail(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onRenderFail");
+            }
+            @Override
+            public void onRenderSuccess(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onRenderSuccess");
+            }
+            @Override
+            public void onADExposure(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onADExposure");
+            }
+            @Override
+            public void onADClicked(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onADClicked");
+            }
+            @Override
+            public void onADClosed(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onADClosed");
+            }
+            @Override
+            public void onADLeftApplication(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onADLeftApplication");
+            }
+            @Override
+            public void onADOpenOverlay(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onADOpenOverlay");
+            }
+            @Override
+            public void onADCloseOverlay(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onADCloseOverlay");
+            }
+        });
     }
 
     private void collected() {

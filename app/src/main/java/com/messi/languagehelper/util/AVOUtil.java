@@ -691,6 +691,13 @@ public class AVOUtil {
 		public final static String createdAt = "createdAt";
 	}
 
+	public static class AdFilter{
+		public final static String AdFilter = "AdFilter";
+		public final static String name = "name";
+		public final static String filter = "filter";
+		public final static String isShowAd = "isShowAd";
+	}
+
 	public static class CantoneseCategory {
 
 		public final static String CantoneseCategory = "CantoneseCategory";

@@ -139,6 +139,9 @@
             android:name=".WebsiteListActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".WebViewForAdActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".ListenActivity"
             android:screenOrientation="portrait" />
         <activity

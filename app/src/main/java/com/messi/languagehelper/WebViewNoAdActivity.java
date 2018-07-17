@@ -120,8 +120,8 @@ public class WebViewNoAdActivity extends BaseActivity{
 
 			@Override
 			public void onPageStarted(WebView view, String url, Bitmap favicon) {
-				LogUtil.DefalutLog("WebViewClient:onPageStarted");
 				super.onPageStarted(view, url, favicon);
+				LogUtil.DefalutLog("WebViewClient:onPageStarted");
 			}
 
 			@Override

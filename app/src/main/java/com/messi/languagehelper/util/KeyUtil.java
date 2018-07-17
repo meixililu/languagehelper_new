@@ -252,6 +252,8 @@ public class KeyUtil {
 	public static final String No_Ad = "no_ad";
 	public static final String XmlyMainForYWCD = "XmlyMainForYWCD";
 	public static final String XmlyMainForYYS = "XmlyMainForYYS";
+	public static final String IsNeedGetFilter = "IsNeedGetFilter";
+	public static final String FilterName = "FilterName";
 
 
 

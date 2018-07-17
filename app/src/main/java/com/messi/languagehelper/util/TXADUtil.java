@@ -143,7 +143,7 @@ public class TXADUtil {
                 new ADSize(ADSize.FULL_WIDTH, ADSize.AUTO_HEIGHT), appId, postID, listener);
         nativeExpressAD.setVideoOption(new VideoOption.Builder()
                 .setAutoPlayPolicy(VideoOption.AutoPlayPolicy.WIFI) // WIFI环境下可以自动播放视频
-                .setAutoPlayMuted(true) // 自动播放时为静音
+                .setAutoPlayMuted(true)// 自动播放时为静音
                 .build()); //
         nativeExpressAD.loadAD(1);
     }

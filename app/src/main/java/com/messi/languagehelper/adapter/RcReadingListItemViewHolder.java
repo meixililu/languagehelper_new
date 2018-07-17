@@ -18,7 +18,7 @@ import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.ReadingDetailActivity;
 import com.messi.languagehelper.ReadingVideoDetailActivity;
-import com.messi.languagehelper.WebViewActivity;
+import com.messi.languagehelper.WebViewForAdActivity;
 import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.util.KeyUtil;
@@ -199,9 +199,12 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
     private void toDetailActivity(int position){
         Reading item = avObjects.get(position);
         if(!TextUtils.isEmpty(item.getContent_type())){
-            Intent intent = new Intent(context, WebViewActivity.class);
+            Intent intent = new Intent(context, WebViewForAdActivity.class);
             intent.putExtra(KeyUtil.URL, item.getSource_url());
+            intent.putExtra(KeyUtil.IsNeedGetFilter, true);
+            intent.putExtra(KeyUtil.FilterName, item.getSource_name());
             intent.putExtra(KeyUtil.ActionbarTitle, " ");
+            intent.putExtra(KeyUtil.IsHideToolbar, true);
             context.startActivity(intent);
         }else {
             WXEntryActivity.dataMap.put(KeyUtil.DataMapKey, avObjects);
