@@ -136,6 +136,15 @@
         </receiver>
 
         <activity
+            android:name=".WebViewForCaricatureActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CaricatureDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CaricatureMainActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".WebsiteListActivity"
             android:screenOrientation="portrait" />
         <activity

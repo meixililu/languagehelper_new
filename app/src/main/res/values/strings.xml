@@ -189,6 +189,7 @@
     <string name="click_and_speak">点击 说话</string>
     <string name="click_and_finish">点击 完成</string>
     <string name="dele_success">删除成功</string>
+    <string name="add_bookshelf_success">加入成功</string>
     <string name="copy_success">复制成功</string>
     <string name="voice">语音</string>
     <string name="copy">复制</string>
@@ -372,6 +373,8 @@
     <string name="learn_english_with_ai">跟ai学英语</string>
     <string name="title_ai_chat">Ai聊天</string>
     <string name="sent">发送</string>
+    <string name="to_read">开始阅读</string>
+    <string name="add_bookshelf">加入书架</string>
     <string name="title_speak_basic">口语基础</string>
     <string name="title_speak_dialog">口语对话</string>
     <string name="title_ai_dialog_choice_course">情景选择</string>
@@ -385,9 +388,11 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="xmly_tab_eng">英语</string>
+    <string name="title_bookshelf">书架</string>
     <string name="title_history">历史</string>
     <string name="title_live">直播</string>
     <string name="title_all_fm">全部</string>
+    <string name="title_source">来源</string>
     <string name="change">换一批</string>
     <string name="xmly_home">FM</string>
     <string name="radio_local">本地台</string>

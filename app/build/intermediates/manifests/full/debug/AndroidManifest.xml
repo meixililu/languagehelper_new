@@ -150,6 +150,15 @@
         </receiver>
 
         <activity
+            android:name="com.messi.languagehelper.WebViewForCaricatureActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.messi.languagehelper.CaricatureDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.messi.languagehelper.CaricatureMainActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.messi.languagehelper.WebsiteListActivity"
             android:screenOrientation="portrait" />
         <activity

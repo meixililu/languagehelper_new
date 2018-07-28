@@ -402,10 +402,7 @@ public class LeisureFragment extends BaseFragment {
     }
 
     private void toCaricatureActivity() {
-        Intent intent = new Intent(getContext(), WebsiteListActivity.class);
-        intent.putExtra(KeyUtil.Category, "caricature");
-        intent.putExtra(KeyUtil.ActionbarTitle, getContext().getResources().getString(R.string.leisure_caricature));
-        getContext().startActivity(intent);
+        toActivity(CaricatureMainActivity.class,null);
         AVAnalytics.onEvent(getActivity(), "leisure_pg_to_caricature");
     }
 

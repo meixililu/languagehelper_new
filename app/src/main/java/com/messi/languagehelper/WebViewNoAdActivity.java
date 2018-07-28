@@ -263,6 +263,7 @@ public class WebViewNoAdActivity extends BaseActivity{
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
+		LogUtil.DefalutLog("Url:"+mWebView.getUrl());
 		mWebView.destroy();
 	}
 

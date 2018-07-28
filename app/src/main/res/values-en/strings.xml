@@ -193,6 +193,7 @@
     <string name="click_and_finish">Tap to finish</string>
     <string name="dele_success">delete success</string>
     <string name="copy_success">copy success</string>
+    <string name="add_bookshelf_success">Success</string>
     <string name="share">Share</string>
     <string name="share_buddy">Share to buddy</string>
     <string name="favorite_success">collect success</string>
@@ -336,6 +337,8 @@
     <string name="learn_english_with_ai">learn english with ai</string>
     <string name="title_ai_chat">AiChat</string>
     <string name="sent">Sent</string>
+    <string name="to_read">Start</string>
+    <string name="add_bookshelf">Bookshelf</string>
     <string name="title_speak_basic">Basic</string>
     <string name="title_speak_dialog">Dialogue</string>
     <string name="title_ai_dialog_choice_course" >Choose Course</string>
@@ -346,8 +349,10 @@
     <string name="english_fm">FM</string>
     <string name="xmly_tab_eng">English</string>
     <string name="title_history">history</string>
+    <string name="title_bookshelf">Bookshelf</string>
     <string name="title_live">live</string>
     <string name="title_all_fm">all</string>
+    <string name="title_source">Source</string>
     <string name="change">Change</string>
     <string name="xmly_home">FM</string>
     <string name="radio_local">Local</string>

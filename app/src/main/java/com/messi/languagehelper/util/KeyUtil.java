@@ -254,6 +254,7 @@ public class KeyUtil {
 	public static final String XmlyMainForYYS = "XmlyMainForYYS";
 	public static final String IsNeedGetFilter = "IsNeedGetFilter";
 	public static final String FilterName = "FilterName";
+	public static final String AVObjectKey = "AVObjectKey";
 
 
 

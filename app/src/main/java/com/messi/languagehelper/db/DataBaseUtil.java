@@ -3,10 +3,13 @@ package com.messi.languagehelper.db;
 import android.content.Context;
 import android.text.TextUtils;
 
+import com.avos.avoscloud.AVObject;
 import com.messi.languagehelper.BaseApplication;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.dao.AiEntity;
 import com.messi.languagehelper.dao.AiEntityDao;
+import com.messi.languagehelper.dao.Avobject;
+import com.messi.languagehelper.dao.AvobjectDao;
 import com.messi.languagehelper.dao.DaoSession;
 import com.messi.languagehelper.dao.Dictionary;
 import com.messi.languagehelper.dao.DictionaryDao;
@@ -16,6 +19,9 @@ import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.dao.ReadingDao;
 import com.messi.languagehelper.dao.SymbolListDao;
 import com.messi.languagehelper.dao.SymbolListDaoDao;
+import com.messi.languagehelper.dao.TranRecordDao;
+import com.messi.languagehelper.dao.TranRecord_jpDao;
+import com.messi.languagehelper.dao.TranRecord_korDao;
 import com.messi.languagehelper.dao.TranResultZhYue;
 import com.messi.languagehelper.dao.TranResultZhYueDao;
 import com.messi.languagehelper.dao.WordDetailListItem;
@@ -30,6 +36,7 @@ import com.messi.languagehelper.util.Settings;
 import org.greenrobot.greendao.query.DeleteQuery;
 import org.greenrobot.greendao.query.QueryBuilder;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -47,6 +54,10 @@ public class DataBaseUtil {
     private WordDetailListItemDao mWordDetailListItemDao;
     private AiEntityDao mAiEntityDao;
     private TranResultZhYueDao mTranResultZhYueDao;
+    private AvobjectDao mAvobjectDao;
+    private TranRecordDao mTranRecordDao;
+    private TranRecord_jpDao mTranRecord_jpDao;
+    private TranRecord_korDao mTranRecord_korDao;
 
     public DataBaseUtil() {
     }
@@ -66,6 +77,10 @@ public class DataBaseUtil {
             instance.mWordDetailListItemDao = instance.mDaoSession.getWordDetailListItemDao();
             instance.mAiEntityDao = instance.mDaoSession.getAiEntityDao();
             instance.mTranResultZhYueDao = instance.mDaoSession.getTranResultZhYueDao();
+            instance.mAvobjectDao = instance.mDaoSession.getAvobjectDao();
+            instance.mTranRecordDao = instance.mDaoSession.getTranRecordDao();
+            instance.mTranRecord_jpDao = instance.mDaoSession.getTranRecord_jpDao();
+            instance.mTranRecord_korDao = instance.mDaoSession.getTranRecord_korDao();
         }
         return instance;
     }
@@ -499,5 +514,106 @@ public class DataBaseUtil {
 
     public void deleteAllAiEntity(){
         mAiEntityDao.deleteAll();
+    }
+
+    public long insert(String tableName,AVObject mItem,long collected){
+        Avobject entity = new Avobject();
+        entity.setTableName(tableName);
+        entity.setItemId(mItem.getObjectId());
+        entity.setSerializedString(mItem.toString());
+        entity.setHistory(System.currentTimeMillis());
+        entity.setUpdateTime(System.currentTimeMillis());
+        entity.setCollected(collected);
+        entity.setCeateTime(System.currentTimeMillis());
+        return mAvobjectDao.insert(entity);
+    }
+    public void update(Avobject entity){
+        mAvobjectDao.update(entity);
+    }
+
+    public void updateOrInsertAVObject(String tableName,AVObject object){
+        Avobject mAvobject = findById(tableName,object.getObjectId());
+        if(mAvobject != null){
+            mAvobject.setSerializedString(object.toString());
+            mAvobject.setUpdateTime(System.currentTimeMillis());
+            update(mAvobject);
+        }else {
+            insert(tableName,object,0);
+        }
+    }
+
+    public void updateOrInsertAVObject(String tableName,AVObject object,long collected){
+        Avobject mAvobject = findById(tableName,object.getObjectId());
+        if(mAvobject != null){
+            mAvobject.setCollected(collected);
+            mAvobject.setSerializedString(object.toString());
+            mAvobject.setUpdateTime(System.currentTimeMillis());
+            update(mAvobject);
+        }else {
+            insert(tableName,object,collected);
+        }
+    }
+
+    public Avobject findById(String tableName, String objectId){
+        List<Avobject> history = mAvobjectDao
+                .queryBuilder()
+                .where(AvobjectDao.Properties.TableName.eq(tableName))
+                .where(AvobjectDao.Properties.ItemId.eq(objectId))
+                .orderDesc(AvobjectDao.Properties.Id)
+                .list();
+        if(history != null && history.size() > 0){
+            return history.get(0);
+        }else {
+            return null;
+        }
+    }
+
+    public AVObject findByItemId(String tableName, String objectId){
+        try {
+            Avobject mAvobject = findById(tableName,objectId);
+            if (mAvobject != null) {
+                return AVObject.parseAVObject(mAvobject.getSerializedString());
+            } else {
+                return null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<Avobject> getCaricatureList(String tableName,int page,int page_size,
+                                            boolean isHistory, boolean isCollected) {
+        QueryBuilder<Avobject> qb = mAvobjectDao.queryBuilder();
+        qb.where(AvobjectDao.Properties.TableName.eq(tableName));
+        if(isCollected){
+            qb.where(AvobjectDao.Properties.Collected.ge(100));
+        }
+        if(isHistory){
+            qb.where(AvobjectDao.Properties.History.ge(100));
+        }
+        qb.offset(page * page_size);
+        qb.limit(page_size);
+        qb.orderDesc(AvobjectDao.Properties.UpdateTime);
+        return qb.list();
+    }
+
+    public List<AVObject> getCaricaturesList(String tableName,int page,int page_size,
+                                             boolean isHistory, boolean isCollected){
+        List<AVObject> dataList = new ArrayList<AVObject>();
+        try {
+            List<Avobject> list = getCaricatureList(tableName,page,page_size,isHistory,isCollected);
+            if(list != null && list.size() > 0){
+                for(Avobject item : list){
+                    AVObject object = AVObject.parseAVObject(item.getSerializedString());
+                    if(object != null){
+                        dataList.add(object);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return dataList;
     }
 }
