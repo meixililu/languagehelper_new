@@ -143,6 +143,7 @@
     <string name="start_unlock">Unlock</string>
     <string name="glossary">Glossary</string>
     <string name="new_and_wrong">Wrong</string>
+    <string name="xmly_fm">XimalayaFM</string>
 
     <string name="dic_tab_juhai">Sentences</string>
     <string name="dic_tab_cidian">Dictionary</string>
@@ -175,6 +176,7 @@
     <string name="auto_play_after_translate">Auto Play After Translate</string>
     <string name="clear_all_except_favorite">Clear Records Except Favorites</string>
     <string name="clear_all_record">Clear All Records</string>
+    <string name="clear_all">Clear</string>
     <string name="auto_clear">Clear Records Except Favorites When Exit</string>
     <string name="invite_friends">Very good,invite some friends</string>
     <string name="auto_clear_after_translate">Auto Clear After Translate</string>

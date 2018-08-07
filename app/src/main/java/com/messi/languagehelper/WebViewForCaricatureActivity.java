@@ -24,10 +24,13 @@ import android.widget.TextView;
 
 import com.avos.avoscloud.AVObject;
 import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.dialog.AdDialog;
+import com.messi.languagehelper.event.CaricatureEventHistory;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.mindorks.nybus.NYBus;
 
 
 public class WebViewForCaricatureActivity extends BaseActivity{
@@ -41,6 +44,8 @@ public class WebViewForCaricatureActivity extends BaseActivity{
     private boolean isReedPullDownRefresh;
     private boolean isHideToolbar;
     private long lastClick;
+    private String filter_source_name;
+    private String is_need_load_ad;
     private String adFilte;
     private AVObject mItem;
 
@@ -92,6 +97,7 @@ public class WebViewForCaricatureActivity extends BaseActivity{
 		progressdeterminate = (ProgressBar) findViewById(R.id.progressdeterminate);
 		mWebView = (WebView) findViewById(R.id.refreshable_webview);
 		tap_to_reload = (TextView) findViewById(R.id.tap_to_reload);
+		getFilter();
 		setScrollable(mSwipeRefreshLayout);
 		mWebView.requestFocus();//如果不设置，则在点击网页文本输入框时，不能弹出软键盘及不响应其他的一些事件。
 		mWebView.getSettings().setJavaScriptEnabled(true);//如果访问的页面中有Javascript，则webview必须设置支持Javascript。
@@ -229,13 +235,36 @@ public class WebViewForCaricatureActivity extends BaseActivity{
 		mWebView.loadUrl(Url);
 	}
 
+	private void getFilter(){
+		AVObject object = DataBaseUtil.getInstance().findByItemKey(
+				AVOUtil.EnglishWebsite.EnglishWebsite,
+				mItem.getString(AVOUtil.Caricature.source_name));
+		if(object != null){
+			adFilte = object.getString(AVOUtil.EnglishWebsite.ad_filte);
+			LogUtil.DefalutLog("adFilte:"+adFilte);
+		}
+	}
+
 	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
+	public boolean onKeyDown(final int keyCode,final KeyEvent event) {
 		if((keyCode == KeyEvent.KEYCODE_BACK) && mWebView.canGoBack()){
 			mWebView.goBack();
 			return true;
+		}else {
+			AdDialog dialog = new AdDialog(this);
+			dialog.setListener(new AdDialog.PopViewItemOnclickListener() {
+				@Override
+				public void onFirstClick(View v) {
+				}
+
+				@Override
+				public void onSecondClick(View v) {
+					finish();
+				}
+			});
+			dialog.show();
+			return true;
 		}
-		return super.onKeyDown(keyCode, event);
 	}
 	
 	@Override
@@ -243,36 +272,48 @@ public class WebViewForCaricatureActivity extends BaseActivity{
 		super.onDestroy();
 		LogUtil.DefalutLog("Url:"+mWebView.getUrl());
 		mItem.put(AVOUtil.Caricature.lastUrl,mWebView.getUrl());
-		DataBaseUtil.getInstance().updateOrInsertAVObject(AVOUtil.Caricature.Caricature,mItem);
+		DataBaseUtil.getInstance().updateOrInsertAVObject(
+				AVOUtil.Caricature.Caricature,
+				mItem,
+				mItem.getString(AVOUtil.Caricature.name));
+		NYBus.get().post(new CaricatureEventHistory());
 		mWebView.destroy();
 	}
 
-	private void hideAd(WebView view){
-		if(!TextUtils.isEmpty(adFilte)){
-			String[] filters = adFilte.split("#");
-			if(filters != null && filters.length > 0){
-				for(String items : filters){
-					if(!TextUtils.isEmpty(items)){
-						String[] item = items.split(":");
-						if(item != null && item.length > 1){
-							if(item[0].equals("id")){
-								view.loadUrl(
-										"javascript:(function() { " +
-												"var element = document.getElementById('"+item[1]+"');"
-												+ "element.parentNode.removeChild(element);" + "})()");
-							}else if(item[0].equals("class")){
-								view.loadUrl(
-										"javascript:(function() { " +
-												"var element = document.getElementsByClassName('"+item[1]+"')[0];"
-												+ "element.parentNode.removeChild(element);" + "})()");
-							}else {
-								view.loadUrl(item[1]);
+	private void hideAd(final WebView view){
+		new Handler().postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				if(!TextUtils.isEmpty(adFilte)){
+					String[] filters = adFilte.split("#");
+					if(filters != null && filters.length > 0){
+						for(final String items : filters){
+							if(!TextUtils.isEmpty(items)){
+								if(items.startsWith("id:") || items.startsWith("class:") ){
+									String[] item = items.split(":");
+									if(item != null && item.length > 1){
+										if(item[0].equals("id")){
+											view.loadUrl(
+													"javascript:(function() { " +
+															"var element = document.getElementById('"+item[1]+"');"
+															+ "element.parentNode.removeChild(element);" + "})()");
+										}else if(item[0].equals("class")){
+											view.loadUrl(
+													"javascript:(function() { " +
+															"var element = document.getElementsByClassName('"+item[1]+"')[0];"
+															+ "element.parentNode.removeChild(element);" + "})()");
+										}
+									}
+								}else {
+									view.loadUrl(items);
+								}
+
 							}
 						}
 					}
 				}
 			}
-		}
+		},60);
 	}
 	
 }

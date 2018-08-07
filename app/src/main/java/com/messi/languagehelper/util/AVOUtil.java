@@ -628,6 +628,14 @@ public class AVOUtil {
 		public final static String createdAt = "createdAt";
 	}
 
+	public static class CaricatureSearchHot{
+		public final static String CaricatureSearchHot = "CaricatureSearchHot";
+		public final static String click_time = "click_time";
+		public final static String name = "name";
+		public final static String type = "type";
+		public final static String createdAt = "createdAt";
+	}
+
 	public static class Location{
 		public final static String Location = "Location";
 		public final static String network = "network";

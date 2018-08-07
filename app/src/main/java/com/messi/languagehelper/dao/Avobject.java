@@ -19,6 +19,7 @@ public class Avobject {
     private String tableName;
     private String itemId;
     private String serializedString;
+    private String key;
     private long collected;
     private long history;
     private long view;
@@ -43,16 +44,18 @@ public class Avobject {
     private NativeADDataRef mNativeADDataRef;
     @Transient
     private NativeExpressADView mTXADView;
-    @Generated(hash = 1113444)
+    @Generated(hash = 304265623)
     public Avobject(Long id, String tableName, String itemId,
-            String serializedString, long collected, long history, long view,
-            long ceateTime, long updateTime, String backup1, String backup2,
-            String backup3, String backup4, String backup5, String backup6,
-            String backup7, String backup8, String backup9, String backup10) {
+            String serializedString, String key, long collected, long history,
+            long view, long ceateTime, long updateTime, String backup1,
+            String backup2, String backup3, String backup4, String backup5,
+            String backup6, String backup7, String backup8, String backup9,
+            String backup10) {
         this.id = id;
         this.tableName = tableName;
         this.itemId = itemId;
         this.serializedString = serializedString;
+        this.key = key;
         this.collected = collected;
         this.history = history;
         this.view = view;
@@ -185,6 +188,12 @@ public class Avobject {
     }
     public void setBackup10(String backup10) {
         this.backup10 = backup10;
+    }
+    public String getKey() {
+        return this.key;
+    }
+    public void setKey(String key) {
+        this.key = key;
     }
 
     

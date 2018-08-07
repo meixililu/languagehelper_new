@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.R;
@@ -42,6 +41,7 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
     private final LinearLayout imgs_layout;
     private final FrameLayout list_item_img_parent;
     private final FrameLayout ad_layout;
+    private final LinearLayout item_layout;
     private final SimpleDraweeView list_item_img,imgs_1,imgs_2,imgs_3;
 
     private final FrameLayout videoplayer_cover;
@@ -56,6 +56,7 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
         layout_cover = (FrameLayout) itemView.findViewById(R.id.layout_cover);
         list_item_img_parent = (FrameLayout) itemView.findViewById(R.id.list_item_img_parent);
         ad_layout = (FrameLayout) itemView.findViewById(R.id.ad_layout);
+        item_layout = (LinearLayout) itemView.findViewById(R.id.item_layout);
         imgs_layout = (LinearLayout) itemView.findViewById(R.id.imgs_layout);
         title = (TextView) itemView.findViewById(R.id.title);
         type_name = (TextView) itemView.findViewById(R.id.type_name);
@@ -72,7 +73,9 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
     public void render(final Reading mAVObject) {
         list_item_img_parent.setClickable(false);
         ad_layout.setVisibility(View.GONE);
+        videoplayer_cover.setVisibility(View.GONE);
         if(!mAVObject.isAd()){
+            item_layout.setVisibility(View.VISIBLE);
             if(mAVObject.getmTXADView() != null){
                 NativeExpressADView adView = mAVObject.getmTXADView();
                 ad_layout.setVisibility(View.VISIBLE);
@@ -93,19 +96,20 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
                 type_name.setText( mAVObject.getType_name() );
                 source_name.setText( mAVObject.getSource_name() );
                 if(mAVObject.getType() != null && mAVObject.getType().equals("video") && !TextUtils.isEmpty(mAVObject.getMedia_url())){
-                    videoplayer_cover.setVisibility(View.VISIBLE);
-                    list_item_img_parent.setVisibility(View.GONE);
-                    list_item_img.setVisibility(View.GONE);
-                    if(mAVObject.getImg_color() > 0){
-                        videoplayer_img.setImageResource(mAVObject.getImg_color());
-                    }else {
-                        videoplayer_img.setImageResource(R.color.black);
+                    videoplayer_cover.setVisibility(View.GONE);
+                    list_item_img_parent.setVisibility(View.VISIBLE);
+                    list_item_img.setVisibility(View.VISIBLE);
+                    music_play_img.setVisibility(View.VISIBLE);
+                    if(!TextUtils.isEmpty(mAVObject.getImg_url())){
+                        list_item_img.setImageURI(Uri.parse(mAVObject.getImg_url()));
+                    }else{
+                        if(mAVObject.getImg_color() > 0){
+                            list_item_img.setImageResource(mAVObject.getImg_color());
+                        }else {
+                            list_item_img.setImageResource(R.color.style6_color2);
+                        }
                     }
-                    if (!TextUtils.isEmpty(mAVObject.getImg_url())) {
-                        Glide.with(context)
-                                .load(mAVObject.getImg_url())
-                                .into(videoplayer_img);
-                    }
+                    music_play_img.setImageResource(R.drawable.jz_click_play_selector);
                 }else if(mAVObject.getType() != null && mAVObject.getType().equals("mp3")){
                     videoplayer_cover.setVisibility(View.GONE);
                     list_item_img_parent.setVisibility(View.VISIBLE);
@@ -114,7 +118,6 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
                         list_item_img.setImageURI(Uri.parse(mAVObject.getImg_url()));
                     }else{
                         if(mAVObject.getImg_color() > 0){
-                            LogUtil.DefalutLog("Img_color:"+mAVObject.getImg_color());
                             list_item_img.setImageResource(mAVObject.getImg_color());
                         }else {
                             list_item_img.setImageResource(R.color.style6_color2);
@@ -163,6 +166,7 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
                 });
             }
         }else{
+            item_layout.setVisibility(View.GONE);
             final NativeADDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
             if(mNativeADDataRef != null){
                 title.setTextColor(context.getResources().getColor(R.color.text_dark));
@@ -201,6 +205,7 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
         if(!TextUtils.isEmpty(item.getContent_type())){
             Intent intent = new Intent(context, WebViewForAdActivity.class);
             intent.putExtra(KeyUtil.URL, item.getSource_url());
+            intent.putExtra(KeyUtil.Type, item.getType());
             intent.putExtra(KeyUtil.IsNeedGetFilter, true);
             intent.putExtra(KeyUtil.FilterName, item.getSource_name());
             intent.putExtra(KeyUtil.ActionbarTitle, " ");

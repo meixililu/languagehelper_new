@@ -7,13 +7,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
-import com.messi.languagehelper.adapter.RcWebsiteListAdapter;
+import com.messi.languagehelper.adapter.RcCaricatureSourceListAdapter;
+import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.ToastUtil;
@@ -23,24 +25,23 @@ import com.messi.languagehelper.views.DividerGridItemDecoration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CaricatureWebListFragment extends BaseFragment {
+public class CaricatureWebListFragment extends BaseFragment implements View.OnClickListener{
 
-    private static final int NUMBER_OF_COLUMNS = 2;
+    private static final int NUMBER_OF_COLUMNS = 3;
     private RecyclerView category_lv;
+    private FrameLayout search_btn;
     private Toolbar my_awesome_toolbar;
-    private RcWebsiteListAdapter mAdapter;
+    private RcCaricatureSourceListAdapter mAdapter;
     private GridLayoutManager layoutManager;
     private List<AVObject> mList;
     private XFYSAD mXFYSAD;
     private int skip = 0;
-    private int page_size = 20;
+    private int page_size = 21;
     private boolean loading;
     private boolean hasMore = true;
-    String category;
 
-    public static CaricatureWebListFragment newInstance(String category){
+    public static CaricatureWebListFragment newInstance(){
         CaricatureWebListFragment fragment = new CaricatureWebListFragment();
-        fragment.category = category;
         return fragment;
     }
 
@@ -59,9 +60,11 @@ public class CaricatureWebListFragment extends BaseFragment {
         mList = new ArrayList<AVObject>();
         my_awesome_toolbar = (Toolbar) view.findViewById(R.id.my_awesome_toolbar);
         category_lv = (RecyclerView) view.findViewById(R.id.listview);
-        my_awesome_toolbar.setTitle(R.string.leisure_caricature);
+        search_btn = (FrameLayout) view.findViewById(R.id.search_btn);
+        my_awesome_toolbar.setTitle(R.string.title_source);
+        search_btn.setOnClickListener(this);
         category_lv.setHasFixedSize(true);
-        mAdapter = new RcWebsiteListAdapter(mXFYSAD);
+        mAdapter = new RcCaricatureSourceListAdapter(mXFYSAD);
         layoutManager = new GridLayoutManager(getContext(), NUMBER_OF_COLUMNS);
         HeaderSpanSizeLookup headerSpanSizeLookup = new HeaderSpanSizeLookup(mAdapter, layoutManager);
         layoutManager.setSpanSizeLookup(headerSpanSizeLookup);
@@ -103,7 +106,7 @@ public class CaricatureWebListFragment extends BaseFragment {
         showProgressbar();
         loading = true;
         AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.EnglishWebsite.EnglishWebsite);
-        query.whereEqualTo(AVOUtil.EnglishWebsite.category, category);
+        query.whereEqualTo(AVOUtil.EnglishWebsite.category, "caricature");
         query.orderByDescending(AVOUtil.EnglishWebsite.Order);
         query.skip(skip);
         query.limit(page_size);
@@ -131,6 +134,7 @@ public class CaricatureWebListFragment extends BaseFragment {
                             hasMore = true;
                             showFooterview();
                         }
+                        saveData(list);
                     }
                 }else{
                     ToastUtil.diaplayMesShort(getContext(), "加载失败，下拉可刷新");
@@ -139,11 +143,32 @@ public class CaricatureWebListFragment extends BaseFragment {
         });
     }
 
+    private void saveData(List<AVObject> list){
+        for (AVObject object : list){
+            DataBaseUtil.getInstance().updateOrInsertAVObject(
+                    AVOUtil.EnglishWebsite.EnglishWebsite,
+                    object,
+                    object.getString(AVOUtil.EnglishWebsite.Title),
+                    0);
+        }
+    }
+
     private void hideFooterview(){
         mAdapter.hideFooter();
     }
 
     private void showFooterview(){
         mAdapter.showFooter();
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view.getId() == R.id.search_btn){
+            toSearchActivity();
+        }
+    }
+
+    private void toSearchActivity(){
+        toActivity(CaricatureSearchActivity.class,null);
     }
 }

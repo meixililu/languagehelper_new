@@ -12,11 +12,13 @@ import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVObject;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.event.CaricatureEventAddBookshelf;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFYSAD;
+import com.mindorks.nybus.NYBus;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -110,8 +112,12 @@ public class CaricatureDetailActivity extends BaseActivity {
 
     @OnClick(R.id.add_bookshelf)
     public void onAddBookshelfClicked() {
-        DataBaseUtil.getInstance().updateOrInsertAVObject(AVOUtil.Caricature.Caricature,
-                mAVObject, System.currentTimeMillis());
+        DataBaseUtil.getInstance().updateOrInsertAVObject(
+                AVOUtil.Caricature.Caricature,
+                mAVObject,
+                mAVObject.getString(AVOUtil.Caricature.name),
+                System.currentTimeMillis());
+        NYBus.get().post(new CaricatureEventAddBookshelf());
         ToastUtil.diaplayMesShort(this,getString(R.string.add_bookshelf_success));
     }
 

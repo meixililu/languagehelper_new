@@ -237,12 +237,24 @@
                 android:gravity="left"
                 />
             <TextView
-                android:id="@+id/announcer_info"
-                android:layout_width="match_parent"
+                android:id="@+id/item_sign"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="@string/xmly_fm"
+                android:layout_marginTop="@dimen/padding_10"
+                android:layout_marginLeft="@dimen/padding_10"
                 android:layout_toRightOf="@id/announcer_icon"
                 android:layout_below="@id/album_title"
-                android:maxLines="2"
+                android:textColor="@color/text_grey"
+                android:textSize="@dimen/smaller_l" />
+            <TextView
+                android:id="@+id/announcer_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/item_sign"
+                android:layout_below="@id/album_title"
+                android:maxLines="1"
                 android:layout_marginTop="@dimen/padding_10"
                 android:layout_marginLeft="@dimen/padding_10"
                 android:textColor="@color/text_grey"

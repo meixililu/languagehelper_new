@@ -66,10 +66,10 @@ public class WebViewForAdActivity extends BaseActivity{
     private boolean isHideToolbar;
     private long lastClick;
 	private String adFilte;
+	private String type;
 	private boolean is_need_get_filter;
 	private String is_need_load_ad = "0";
 	private String filter_source_name;
-
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -83,6 +83,7 @@ public class WebViewForAdActivity extends BaseActivity{
 	private void initData(){
 		Url = getIntent().getStringExtra(KeyUtil.URL);
 		title = getIntent().getStringExtra(KeyUtil.ActionbarTitle);
+		type = getIntent().getStringExtra(KeyUtil.Type);
 		ShareUrlMsg = getIntent().getStringExtra(KeyUtil.ShareUrlMsg);
 		adFilte = getIntent().getStringExtra(KeyUtil.AdFilter);
 		filter_source_name = getIntent().getStringExtra(KeyUtil.FilterName);
@@ -150,7 +151,7 @@ public class WebViewForAdActivity extends BaseActivity{
 
 					@Override
 					public void onComplete() {
-						if(is_need_load_ad.equals("1")){
+						if(is_need_load_ad.equals("1") && type.equals("video")){
 							loadTXAD();
 							loadTXADZTYW();
 						}
@@ -280,9 +281,11 @@ public class WebViewForAdActivity extends BaseActivity{
 				dialog.show();
 			}
 		});
-		
+
+
 		mWebView.setWebChromeClient(new WebChromeClient() {
-	        @Override
+
+			@Override
 	        public void onProgressChanged(WebView view, int newProgress) {
 	            if (newProgress == 100) {
 	            	progressdeterminate.setVisibility(View.GONE);
@@ -464,32 +467,40 @@ public class WebViewForAdActivity extends BaseActivity{
 		mWebView.destroy();
 	}
 
-	private void hideAd(WebView view){
-		if(!TextUtils.isEmpty(adFilte)){
-			String[] filters = adFilte.split("#");
-			if(filters != null && filters.length > 0){
-				for(String items : filters){
-					if(!TextUtils.isEmpty(items)){
-						String[] item = items.split(":");
-						if(item != null && item.length > 1){
-							if(item[0].equals("id")){
-								view.loadUrl(
-										"javascript:(function() { " +
-												"var element = document.getElementById('"+item[1]+"');"
-												+ "element.parentNode.removeChild(element);" + "})()");
-							}else if(item[0].equals("class")){
-								view.loadUrl(
-										"javascript:(function() { " +
-												"var element = document.getElementsByClassName('"+item[1]+"')[0];"
-												+ "element.parentNode.removeChild(element);" + "})()");
-							}else {
-								view.loadUrl(item[1]);
+	private void hideAd(final WebView view){
+		new Handler().postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				if(!TextUtils.isEmpty(adFilte)){
+					String[] filters = adFilte.split("#");
+					if(filters != null && filters.length > 0){
+						for(final String items : filters){
+							if(!TextUtils.isEmpty(items)){
+								if(items.startsWith("id:") || items.startsWith("class:") ){
+									String[] item = items.split(":");
+									if(item != null && item.length > 1){
+										if(item[0].equals("id")){
+											view.loadUrl(
+													"javascript:(function() { " +
+															"var element = document.getElementById('"+item[1]+"');"
+															+ "element.parentNode.removeChild(element);" + "})()");
+										}else if(item[0].equals("class")){
+											view.loadUrl(
+													"javascript:(function() { " +
+															"var element = document.getElementsByClassName('"+item[1]+"')[0];"
+															+ "element.parentNode.removeChild(element);" + "})()");
+										}
+									}
+								}else {
+									view.loadUrl(items);
+								}
+
 							}
 						}
 					}
 				}
 			}
-		}
+		},60);
 	}
 	
 }

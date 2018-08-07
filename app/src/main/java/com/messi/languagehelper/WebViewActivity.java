@@ -310,32 +310,40 @@ public class WebViewActivity extends BaseActivity{
 		mWebView.destroy();
 	}
 
-	private void hideAd(WebView view){
-		if(!TextUtils.isEmpty(adFilte)){
-			String[] filters = adFilte.split("#");
-			if(filters != null && filters.length > 0){
-				for(String items : filters){
-					if(!TextUtils.isEmpty(items)){
-						String[] item = items.split(":");
-						if(item != null && item.length > 1){
-							if(item[0].equals("id")){
-								view.loadUrl(
-										"javascript:(function() { " +
-												"var element = document.getElementById('"+item[1]+"');"
-												+ "element.parentNode.removeChild(element);" + "})()");
-							}else if(item[0].equals("class")){
-								view.loadUrl(
-										"javascript:(function() { " +
-												"var element = document.getElementsByClassName('"+item[1]+"')[0];"
-												+ "element.parentNode.removeChild(element);" + "})()");
-							}else {
-								view.loadUrl(item[1]);
+	private void hideAd(final WebView view){
+		new Handler().postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				if(!TextUtils.isEmpty(adFilte)){
+					String[] filters = adFilte.split("#");
+					if(filters != null && filters.length > 0){
+						for(final String items : filters){
+							if(!TextUtils.isEmpty(items)){
+								if(items.startsWith("id:") || items.startsWith("class:") ){
+									String[] item = items.split(":");
+									if(item != null && item.length > 1){
+										if(item[0].equals("id")){
+											view.loadUrl(
+													"javascript:(function() { " +
+															"var element = document.getElementById('"+item[1]+"');"
+															+ "element.parentNode.removeChild(element);" + "})()");
+										}else if(item[0].equals("class")){
+											view.loadUrl(
+													"javascript:(function() { " +
+															"var element = document.getElementsByClassName('"+item[1]+"')[0];"
+															+ "element.parentNode.removeChild(element);" + "})()");
+										}
+									}
+								}else {
+									view.loadUrl(items);
+								}
+
 							}
 						}
 					}
 				}
 			}
-		}
+		},60);
 	}
 	
 }

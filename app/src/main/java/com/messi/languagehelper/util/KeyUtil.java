@@ -34,6 +34,10 @@ public class KeyUtil {
 
 	public static final String Type = "Type";
 
+	public static final String DeleteModel = "DeleteModel";
+
+	public static final String isNeedDelete = "isNeedDelete";
+
 	public static final String List = "List";
 
 	public static final String XmlyRadio = "XmlyRadio";
@@ -219,6 +223,8 @@ public class KeyUtil {
 	public static final String SearchKey = "SearchKey";
 
 	public static final String XmlySearchHistory = "XmlySearchHistory";
+
+	public static final String CaricatureSearchHistory = "CaricatureSearchHistory";
 
 	public static final String SearchHistory = "SearchHistory";
 

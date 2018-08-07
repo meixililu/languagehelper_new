@@ -199,6 +199,12 @@ public class LoadingActivity extends AppCompatActivity {
 
                     @Override
                     public void onADTick(long l) {
+                        LogUtil.DefalutLog("onADTick:"+l);
+                        if(l < 2500){
+                            if(!notJump){
+                                toNextPage();
+                            }
+                        }
                     }
                 });
     }
@@ -285,6 +291,7 @@ public class LoadingActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         LogUtil.DefalutLog("onResume");
+        notJump = false;
         if(isAdClicked) {
             toNextPage();
         }

@@ -91,6 +91,11 @@ public class BaseFragment extends Fragment {
 	@Override
 	public void onStop() {
 		super.onStop();
+	}
+
+	@Override
+	public void onDestroyView() {
+		super.onDestroyView();
 		if (isRegisterBus) {
 			NYBus.get().unregister(this);
 		}

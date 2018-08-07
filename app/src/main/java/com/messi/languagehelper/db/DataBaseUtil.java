@@ -516,13 +516,14 @@ public class DataBaseUtil {
         mAiEntityDao.deleteAll();
     }
 
-    public long insert(String tableName,AVObject mItem,long collected){
+    public long insert(String tableName,AVObject mItem,String key,long collected,long history){
         Avobject entity = new Avobject();
         entity.setTableName(tableName);
         entity.setItemId(mItem.getObjectId());
         entity.setSerializedString(mItem.toString());
-        entity.setHistory(System.currentTimeMillis());
+        entity.setKey(key);
         entity.setUpdateTime(System.currentTimeMillis());
+        entity.setHistory(history);
         entity.setCollected(collected);
         entity.setCeateTime(System.currentTimeMillis());
         return mAvobjectDao.insert(entity);
@@ -531,26 +532,45 @@ public class DataBaseUtil {
         mAvobjectDao.update(entity);
     }
 
-    public void updateOrInsertAVObject(String tableName,AVObject object){
+    public void updateOrInsertAVObject(String tableName,AVObject object,String key){
         Avobject mAvobject = findById(tableName,object.getObjectId());
         if(mAvobject != null){
             mAvobject.setSerializedString(object.toString());
             mAvobject.setUpdateTime(System.currentTimeMillis());
             update(mAvobject);
         }else {
-            insert(tableName,object,0);
+            insert(tableName,object,key,0,System.currentTimeMillis());
         }
     }
 
-    public void updateOrInsertAVObject(String tableName,AVObject object,long collected){
+    public void updateOrInsertAVObject(String tableName,AVObject object,String key,long collected){
         Avobject mAvobject = findById(tableName,object.getObjectId());
         if(mAvobject != null){
+            mAvobject.setKey(key);
             mAvobject.setCollected(collected);
             mAvobject.setSerializedString(object.toString());
             mAvobject.setUpdateTime(System.currentTimeMillis());
             update(mAvobject);
         }else {
-            insert(tableName,object,collected);
+            insert(tableName,object,key,collected,0);
+        }
+    }
+
+    public void updateAVObjectCollected(String tableName,AVObject object,long collected){
+        Avobject mAvobject = findById(tableName,object.getObjectId());
+        if(mAvobject != null){
+            mAvobject.setCollected(collected);
+            mAvobject.setSerializedString(object.toString());
+            update(mAvobject);
+        }
+    }
+
+    public void updateAVObjectHistory(String tableName,AVObject object,long history){
+        Avobject mAvobject = findById(tableName,object.getObjectId());
+        if(mAvobject != null){
+            mAvobject.setHistory(history);
+            mAvobject.setSerializedString(object.toString());
+            update(mAvobject);
         }
     }
 
@@ -559,6 +579,20 @@ public class DataBaseUtil {
                 .queryBuilder()
                 .where(AvobjectDao.Properties.TableName.eq(tableName))
                 .where(AvobjectDao.Properties.ItemId.eq(objectId))
+                .orderDesc(AvobjectDao.Properties.Id)
+                .list();
+        if(history != null && history.size() > 0){
+            return history.get(0);
+        }else {
+            return null;
+        }
+    }
+
+    public Avobject findByKey(String tableName, String key){
+        List<Avobject> history = mAvobjectDao
+                .queryBuilder()
+                .where(AvobjectDao.Properties.TableName.eq(tableName))
+                .where(AvobjectDao.Properties.Key.eq(key))
                 .orderDesc(AvobjectDao.Properties.Id)
                 .list();
         if(history != null && history.size() > 0){
@@ -582,6 +616,20 @@ public class DataBaseUtil {
         }
     }
 
+    public AVObject findByItemKey(String tableName, String key){
+        try {
+            Avobject mAvobject = findByKey(tableName,key);
+            if (mAvobject != null) {
+                return AVObject.parseAVObject(mAvobject.getSerializedString());
+            } else {
+                return null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public List<Avobject> getCaricatureList(String tableName,int page,int page_size,
                                             boolean isHistory, boolean isCollected) {
         QueryBuilder<Avobject> qb = mAvobjectDao.queryBuilder();
@@ -592,7 +640,7 @@ public class DataBaseUtil {
         if(isHistory){
             qb.where(AvobjectDao.Properties.History.ge(100));
         }
-        qb.offset(page * page_size);
+        qb.offset(page);
         qb.limit(page_size);
         qb.orderDesc(AvobjectDao.Properties.UpdateTime);
         return qb.list();
@@ -615,5 +663,24 @@ public class DataBaseUtil {
             e.printStackTrace();
         }
         return dataList;
+    }
+
+    public void clearAvobjectCollected(String tableName) {
+        QueryBuilder<Avobject> qb = mAvobjectDao.queryBuilder();
+        DeleteQuery<Avobject> bd = qb
+                .where(AvobjectDao.Properties.TableName.eq(tableName))
+                .where(AvobjectDao.Properties.Collected.ge(100))
+                .buildDelete();
+        bd.executeDeleteWithoutDetachingEntities();
+    }
+
+    public void clearAvobjectHistory(String tableName) {
+        QueryBuilder<Avobject> qb = mAvobjectDao.queryBuilder();
+        DeleteQuery<Avobject> bd = qb
+                .where(AvobjectDao.Properties.TableName.eq(tableName))
+                .where(AvobjectDao.Properties.Collected.le(100))
+                .where(AvobjectDao.Properties.History.ge(100))
+                .buildDelete();
+        bd.executeDeleteWithoutDetachingEntities();
     }
 }

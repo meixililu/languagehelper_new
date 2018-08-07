@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
@@ -24,10 +25,11 @@ import com.messi.languagehelper.util.XFYSAD;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CaricatureHomeFragment extends BaseFragment {
+public class CaricatureHomeFragment extends BaseFragment implements View.OnClickListener{
 
     private static final int NUMBER_OF_COLUMNS = 3;
     private RecyclerView category_lv;
+    private FrameLayout search_btn;
     private Toolbar my_awesome_toolbar;
     private RcCaricatureHomeListAdapter mAdapter;
     private GridLayoutManager layoutManager;
@@ -39,7 +41,6 @@ public class CaricatureHomeFragment extends BaseFragment {
     private boolean loading;
     private boolean hasMore = true;
     private boolean isNeedClear = true;
-    String tag;
 
     public static CaricatureHomeFragment newInstance(){
         CaricatureHomeFragment fragment = new CaricatureHomeFragment();
@@ -49,7 +50,7 @@ public class CaricatureHomeFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.caricature_web_list_fragment, null);
+        View view = inflater.inflate(R.layout.caricature_home_fragment, null);
         initViews(view);
         initSwipeRefresh(view);
         randomPage();
@@ -61,8 +62,10 @@ public class CaricatureHomeFragment extends BaseFragment {
         mXFYSAD = new XFYSAD(getActivity(), ADUtil.SecondaryPage);
         mList = new ArrayList<AVObject>();
         my_awesome_toolbar = (Toolbar) view.findViewById(R.id.my_awesome_toolbar);
+        search_btn = (FrameLayout) view.findViewById(R.id.search_btn);
         category_lv = (RecyclerView) view.findViewById(R.id.listview);
         my_awesome_toolbar.setTitle(R.string.recommend);
+        search_btn.setOnClickListener(this);
         category_lv.setHasFixedSize(true);
         mAdapter = new RcCaricatureHomeListAdapter(mXFYSAD);
         layoutManager = new GridLayoutManager(getContext(), NUMBER_OF_COLUMNS);
@@ -159,4 +162,14 @@ public class CaricatureHomeFragment extends BaseFragment {
         mAdapter.showFooter();
     }
 
+    @Override
+    public void onClick(View view) {
+        if(view.getId() == R.id.search_btn){
+            toSearchActivity();
+        }
+    }
+
+    private void toSearchActivity(){
+        toActivity(CaricatureSearchActivity.class,null);
+    }
 }

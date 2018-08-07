@@ -18,14 +18,14 @@ public class RcCaricatureBookShelfAdapter extends HeaderFooterRecyclerViewAdapte
     @Override
     protected RecyclerView.ViewHolder onCreateItemViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = getLayoutInflater(parent);
-        View characterView = inflater.inflate(R.layout.caricature_home_list_item, parent, false);
-        return new RcCaricatureHomeListItemViewHolder(characterView);
+        View characterView = inflater.inflate(R.layout.caricature_bookshelf_list_item, parent, false);
+        return new RcCaricatureBookshelfItemViewHolder(characterView);
     }
 
     @Override
     protected void onBindItemViewHolder(RecyclerView.ViewHolder holder, int position) {
         AVObject mAVObject = getItem(position);
-        RcCaricatureHomeListItemViewHolder itemViewHolder = (RcCaricatureHomeListItemViewHolder)holder;
+        RcCaricatureBookshelfItemViewHolder itemViewHolder = (RcCaricatureBookshelfItemViewHolder)holder;
         itemViewHolder.render(mAVObject);
     }
 

@@ -1,9 +1,10 @@
 package com.messi.languagehelper;
 
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +13,12 @@ import com.avos.avoscloud.AVObject;
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.adapter.RcCaricatureBookShelfAdapter;
 import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.event.CaricatureEventHistory;
 import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.ToastUtil;
+import com.mindorks.nybus.annotation.Subscribe;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,11 +31,12 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class CaricatureHistoryFragment extends BaseFragment {
+public class CaricatureHistoryFragment extends BaseFragment implements View.OnClickListener{
 
     private static final int NUMBER_OF_COLUMNS = 3;
     private RecyclerView category_lv;
-    private Toolbar my_awesome_toolbar;
+    private CardView action_delete_all;
+    private CardView action_delete_btn;
     private RcCaricatureBookShelfAdapter mAdapter;
     private GridLayoutManager layoutManager;
     private List<AVObject> mList;
@@ -38,6 +44,7 @@ public class CaricatureHistoryFragment extends BaseFragment {
     private int page_size = 21;
     private boolean loading;
     private boolean hasMore = true;
+    private boolean isDeleteModel;
 
     public static CaricatureHistoryFragment newInstance(){
         CaricatureHistoryFragment fragment = new CaricatureHistoryFragment();
@@ -47,7 +54,7 @@ public class CaricatureHistoryFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.caricature_web_list_fragment, null);
+        View view = inflater.inflate(R.layout.caricature_bookshelf_fragment, null);
         initViews(view);
         initSwipeRefresh(view);
         RequestAsyncTask();
@@ -55,10 +62,13 @@ public class CaricatureHistoryFragment extends BaseFragment {
     }
 
     private void initViews(View view) {
+        isRegisterBus = true;
         mList = new ArrayList<AVObject>();
-        my_awesome_toolbar = (Toolbar) view.findViewById(R.id.my_awesome_toolbar);
         category_lv = (RecyclerView) view.findViewById(R.id.listview);
-        my_awesome_toolbar.setTitle(R.string.title_bookshelf);
+        action_delete_btn = (CardView) view.findViewById(R.id.action_delete_btn);
+        action_delete_all = (CardView) view.findViewById(R.id.action_delete_all);
+        action_delete_btn.setOnClickListener(this);
+        action_delete_all.setOnClickListener(this);
         category_lv.setHasFixedSize(true);
         mAdapter = new RcCaricatureBookShelfAdapter();
         layoutManager = new GridLayoutManager(getContext(), NUMBER_OF_COLUMNS);
@@ -87,6 +97,12 @@ public class CaricatureHistoryFragment extends BaseFragment {
         });
     }
 
+    @Subscribe
+    public void onEvent(CaricatureEventHistory scode){
+        LogUtil.DefalutLog("CaricatureEventHistory---onEvent");
+        onSwipeRefreshLayoutRefresh();
+    }
+
     @Override
     public void onSwipeRefreshLayoutRefresh() {
         skip = 0;
@@ -95,6 +111,7 @@ public class CaricatureHistoryFragment extends BaseFragment {
     }
 
     private void RequestAsyncTask(){
+        LogUtil.DefalutLog("CaricatureEventHistory---RequestAsyncTask");
         showProgressbar();
         loading = true;
         Observable.create(new ObservableOnSubscribe<List<AVObject>>() {
@@ -127,12 +144,14 @@ public class CaricatureHistoryFragment extends BaseFragment {
     }
 
     private List<AVObject> getData(){
+        LogUtil.DefalutLog("CaricatureEventHistory---getData");
         List<AVObject> list = DataBaseUtil.getInstance().getCaricaturesList(AVOUtil.Caricature.Caricature,
                 skip,page_size,true,false);
         return list;
     }
 
     private void onFinishLoadData(List<AVObject> list) {
+        LogUtil.DefalutLog("CaricatureEventHistory---onFinishLoadData");
         onSwipeRefreshLayoutFinish();
         hideProgressbar();
         loading = false;
@@ -144,6 +163,7 @@ public class CaricatureHistoryFragment extends BaseFragment {
                 if(skip == 0){
                     mList.clear();
                 }
+                initDeleteModel(list);
                 mList.addAll(list);
                 mAdapter.notifyDataSetChanged();
                 if(list.size() < page_size){
@@ -158,7 +178,19 @@ public class CaricatureHistoryFragment extends BaseFragment {
         }else{
             ToastUtil.diaplayMesShort(getContext(), "加载失败，下拉可刷新");
         }
+        if(mList.size() > 0){
+            action_delete_btn.setVisibility(View.VISIBLE);
+        }else {
+            action_delete_btn.setVisibility(View.GONE);
+        }
+    }
 
+    private void initDeleteModel(List<AVObject> list){
+        if(isDeleteModel){
+            setDeleteModel(list,"1");
+        }else {
+            setDeleteModel(list,"0");
+        }
     }
 
     private void hideFooterview(){
@@ -169,4 +201,53 @@ public class CaricatureHistoryFragment extends BaseFragment {
         mAdapter.showFooter();
     }
 
+    private void setDeleteModel(List<AVObject> list,String status){
+        for(AVObject mAVObject : list){
+            mAVObject.put(KeyUtil.DeleteModel,status);
+            mAVObject.put(KeyUtil.isNeedDelete,"0");
+        }
+        mAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == R.id.action_delete_btn) {
+            if(!isDeleteModel){
+                isDeleteModel = true;
+                action_delete_all.setVisibility(View.VISIBLE);
+                setDeleteModel(mList,"1");
+            }else {
+                deleteBooks();
+                isDeleteModel = false;
+                setDeleteModel(mList,"0");
+            }
+        } else if(view.getId() == R.id.action_delete_all) {
+            deleteAll();
+        }
+    }
+
+    private void deleteAll(){
+        DataBaseUtil.getInstance().clearAvobjectHistory(AVOUtil.Caricature.Caricature);
+        mList.clear();
+        mAdapter.notifyDataSetChanged();
+        isDeleteModel = false;
+        action_delete_all.setVisibility(View.GONE);
+    }
+
+    private void deleteBooks(){
+        List<AVObject> newList = new ArrayList<AVObject>();
+        for(AVObject mAVObject : mList){
+            if(!TextUtils.isEmpty(mAVObject.getString(KeyUtil.isNeedDelete))){
+               if("1".equals(mAVObject.getString(KeyUtil.isNeedDelete))){
+                   DataBaseUtil.getInstance().updateAVObjectHistory(AVOUtil.Caricature.Caricature,
+                           mAVObject,0);
+               }else {
+                   newList.add(mAVObject);
+               }
+            }
+        }
+        mList.clear();
+        mList.addAll(newList);
+        mAdapter.notifyDataSetChanged();
+    }
 }

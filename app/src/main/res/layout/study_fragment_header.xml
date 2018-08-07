@@ -18,7 +18,7 @@
             fresco:actualImageScaleType="focusCrop"
             fresco:placeholderImage="@color/text_tint"
             fresco:placeholderImageScaleType="focusCrop"
-            fresco:viewAspectRatio="2"
+            fresco:viewAspectRatio="2.5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

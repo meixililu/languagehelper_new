@@ -60,11 +60,21 @@
                     fresco:roundedCornerRadius="3dp"
                     />
                 <TextView
+                    android:id="@+id/item_sign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/xmly_fm"
+                    android:layout_marginTop="@dimen/padding_5"
+                    android:layout_below="@id/item_img"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/smaller_l" />
+                <TextView
                     android:id="@+id/track_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_below="@id/item_img"
+                    android:layout_below="@id/item_sign"
                     android:layout_marginTop="@dimen/padding_5"
                     android:textColor="@color/white"
                     android:textSize="@dimen/smaller_l"

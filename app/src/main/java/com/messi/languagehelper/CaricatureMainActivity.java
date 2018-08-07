@@ -56,8 +56,8 @@ public class CaricatureMainActivity extends AppCompatActivity {
     private void initFragment(){
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         engFragment = CaricatureHomeFragment.newInstance();
-        dashboardFragment = CaricatureHistoryFragment.newInstance();
-        radioHomeFragment = CaricatureBookShelfFragment.newInstance();
+        dashboardFragment = CaricatureWebListFragment.newInstance();
+        radioHomeFragment = CaricatureBHFragment.getInstance();
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.content, engFragment)
