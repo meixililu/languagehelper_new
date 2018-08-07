@@ -79,6 +79,7 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
             if(mAVObject.getmTXADView() != null){
                 NativeExpressADView adView = mAVObject.getmTXADView();
                 ad_layout.setVisibility(View.VISIBLE);
+                item_layout.setVisibility(View.GONE);
                 ad_layout.removeAllViews();
                 if (adView.getParent() != null) {
                     ((ViewGroup) adView.getParent()).removeView(adView);
@@ -166,7 +167,7 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
                 });
             }
         }else{
-            item_layout.setVisibility(View.GONE);
+            item_layout.setVisibility(View.VISIBLE);
             final NativeADDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
             if(mNativeADDataRef != null){
                 title.setTextColor(context.getResources().getColor(R.color.text_dark));
