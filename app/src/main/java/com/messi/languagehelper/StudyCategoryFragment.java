@@ -24,6 +24,7 @@ import com.ximalaya.ting.android.opensdk.datatrasfer.IDataCallBack;
 import com.ximalaya.ting.android.opensdk.model.album.CategoryRecommendAlbums;
 import com.ximalaya.ting.android.opensdk.model.album.CategoryRecommendAlbumsList;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -181,6 +182,7 @@ public class StudyCategoryFragment extends BaseFragment {
 
     private void initTab(CategoryRecommendAlbumsList categoryRecommendAlbumsList) {
         mTabList = categoryRecommendAlbumsList.getCategoryRecommendAlbumses();
+        Collections.reverse(mTabList);
         if(mTabList != null && mTabList.size() > 0){
             mAdapter.refreshByTags(XimalayaUtil.Category_Eng,mTabList.get(0).getTagName());
         }

@@ -144,7 +144,6 @@
     <orderEntry type="library" name="Gradle: com.mindorks.nybus:nybus-android-1.0.0" level="project" />
     <orderEntry type="library" name="Gradle: com.facebook.soloader:soloader-0.3.0" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.core:runtime-1.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:/Users/luli/AndroidStudioProjects/languagehelper/app/libs/TingPhoneOpenSDK_5.6.2.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:design-27.1.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.android.support:multidex-instrumentation-1.0.2" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:appcompat-v7-27.1.1" level="project" />
@@ -176,6 +175,7 @@
     <orderEntry type="library" name="Gradle: com.facebook.fresco:fresco-1.9.0" level="project" />
     <orderEntry type="library" name="Gradle: com.facebook.fresco:fbcore-1.9.0" level="project" />
     <orderEntry type="library" name="Gradle: com.github.bumptech.glide:disklrucache:4.7.1@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:/Users/luli/AndroidStudioProjects/languagehelper/app/libs/TingPhoneOpenSDK_6.0.0.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.facebook.fresco:animated-drawable-1.9.0" level="project" />
     <orderEntry type="library" name="Gradle: __local_aars__:/Users/luli/AndroidStudioProjects/languagehelper/app/libs/GDTUnionSDK.TBS.4.16.564.min.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: cn.leancloud.android:avoscloud-sdk:v4.6.4@jar" level="project" />
