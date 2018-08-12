@@ -490,6 +490,8 @@ public class AVOUtil {
 
 		public final static String content_type = "content_type";
 
+		public final static String lrc_url = "lrc_url";
+
 	}
 	
 	public static class Category {

@@ -175,16 +175,43 @@ public class HtmlParseUtil {
 	}
 
 	public static List<JuhaiBean> parseJuhaiHtml(String html) {
-		List<JuhaiBean> beans = new ArrayList<JuhaiBean>();
-		Document doc = Jsoup.parse(html);
-		Elements lis = doc.select("li");
-		if(lis != null && lis.size() > 0){
-			for(Element item : lis){
-				Elements ps = item.select("li > p");
-				if(ps.size() > 1) {
-					JuhaiBean bean = new JuhaiBean(ps.get(0).text().trim(),
-							ps.get(1).text().trim());
-					beans.add(bean);
+		List<JuhaiBean> beans = null;
+		if(!TextUtils.isEmpty(html)){
+			Document doc = Jsoup.parse(html);
+			Elements lis = doc.select("li");
+			if(lis != null && lis.size() > 0){
+				beans = new ArrayList<JuhaiBean>();
+				for(Element item : lis){
+					Elements ps = item.select("li > p");
+					if(ps.size() > 1) {
+						JuhaiBean bean = new JuhaiBean(ps.get(0).text().trim(),
+								ps.get(1).text().trim());
+						beans.add(bean);
+					}
+				}
+			}
+		}
+		return beans;
+	}
+
+	public static List<JuhaiBean> parseJukuHtml(String html) {
+		List<JuhaiBean> beans = null;
+		if(!TextUtils.isEmpty(html)){
+			Document doc = Jsoup.parse(html);
+			Elements tr_es = doc.select("tr.e");
+			Elements tr_cs = doc.select("tr.c");
+			if(tr_es != null && tr_es.size() > 0){
+				beans = new ArrayList<JuhaiBean>();
+				for(int i = 0;i<tr_es.size();i++){
+					String en = tr_es.get(i).text().trim();
+					if(!TextUtils.isEmpty(en)) {
+						String zh = "";
+						if(tr_cs.size() > i){
+							zh = tr_cs.get(i).text().trim();
+						}
+						JuhaiBean bean = new JuhaiBean(en, zh);
+						beans.add(bean);
+					}
 				}
 			}
 		}

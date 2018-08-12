@@ -235,7 +235,9 @@ public class SubjectFragment extends BaseFragment {
                     }
                 }
             }
-            mAdapter.notifyDataSetChanged();
+            if(mAdapter != null){
+                mAdapter.notifyDataSetChanged();
+            }
         }
 
     }

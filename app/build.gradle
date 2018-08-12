@@ -19,8 +19,8 @@ android {
         minSdkVersion 16
         targetSdkVersion 27
         //中英互译
-        versionCode 41
-        versionName "4.5.1"
+        versionCode 42
+        versionName "4.5.2"
         //粤语说
         //versionCode 6
         //versionName "1.5"
@@ -103,5 +103,5 @@ dependencies {
 }
 
 greendao {
-    schemaVersion 8
+    schemaVersion 9
 }

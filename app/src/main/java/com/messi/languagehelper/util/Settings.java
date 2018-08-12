@@ -54,7 +54,9 @@ public class Settings {
 
 	public static String BaiduOCRUrl = "https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic";
 
-	public static String JuhaiApi = "http://dj.iciba.com/{0}-1-{1}-%01-0-0-0-0.html";
+	public static String JuhaiApi = "http://dj.iciba.com/{0}-1-1-%01-0-0-0-0.html";
+
+	public static String JukuApi = "http://www.jukuu.com/show-{0}-0.html";
 
 	public static String EndicApi = "https://en.oxforddictionaries.com/definition/";
 

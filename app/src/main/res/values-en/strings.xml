@@ -11,6 +11,7 @@
     <string name="title_ai_learn">Learn Englilsh From Ai</string>
     <string name="title_Practice">Practice</string>
     <string name="title_listening">Listening</string>
+    <string name="title_intensive_listening">Intensive</string>
     <string name="title_symbol">Symbol</string>
     <string name="title_word_study">Word</string>
     <string name="title_words">Words</string>
@@ -246,6 +247,7 @@
 	<string name="dailysentence">Daily Sentence</string>
     <string name="english_essay">English Essay</string>
 	<string name="spoken_english_practice">Practice</string>
+	<string name="spoken_english_coach">Coach</string>
     <string name="ChDicBushouList">Radicals</string>
     <string name="ChDicPinyinList">Phonetic</string>
 	<string name="simulation_dialogue">Dialogue</string>

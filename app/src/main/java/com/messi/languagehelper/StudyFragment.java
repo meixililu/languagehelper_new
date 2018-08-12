@@ -529,6 +529,9 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
             if(item.has(AVOUtil.Reading.content_type)){
                 mReading.setContent_type(item.getString(AVOUtil.Reading.content_type));
             }
+            if(item.has(AVOUtil.Reading.lrc_url)){
+                mReading.setLrc_url(item.getString(AVOUtil.Reading.lrc_url));
+            }
             DataBaseUtil.getInstance().saveOrGetStatus(mReading);
             avObjects.add(mReading);
         }

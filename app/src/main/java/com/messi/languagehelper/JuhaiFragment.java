@@ -11,11 +11,13 @@ import com.messi.languagehelper.adapter.RcJuhaiListAdapter;
 import com.messi.languagehelper.bean.JuhaiBean;
 import com.messi.languagehelper.event.FinishEvent;
 import com.messi.languagehelper.event.ProgressEvent;
+import com.messi.languagehelper.http.BgCallback;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.HtmlParseUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.ToastUtil;
 import com.mindorks.nybus.NYBus;
 import com.mindorks.nybus.annotation.Subscribe;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
@@ -32,7 +34,6 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import okhttp3.Response;
 
 public class JuhaiFragment extends BaseFragment {
 
@@ -75,20 +76,82 @@ public class JuhaiFragment extends BaseFragment {
         recent_used_lv.setAdapter(mAdapter);
     }
 
-    private void translateController(final int page) {
+    private void translateController() {
         lastSearch = Settings.q;
         showProgressbar();
         Observable.create(new ObservableOnSubscribe<List<JuhaiBean>>() {
             @Override
-            public void subscribe(ObservableEmitter<List<JuhaiBean>> e) throws Exception {
-                String url = Settings.JuhaiApi.replace("{0}",lastSearch);
-                url = url.replace("{1}",String.valueOf(page));
-                LogUtil.DefalutLog(url);
-                Response mResponse = LanguagehelperHttpClient.get(url);
-                if (mResponse != null && mResponse.isSuccessful()) {
-                    e.onNext(HtmlParseUtil.parseJuhaiHtml(mResponse.body().string()));
+            public void subscribe(final ObservableEmitter<List<JuhaiBean>> e) throws Exception {
+                String url = Settings.JukuApi.replace("{0}",lastSearch);
+                LanguagehelperHttpClient.get(url,new BgCallback(){
+                    @Override
+                    public void onResponsed(String responseString) {
+                        List<JuhaiBean> list = HtmlParseUtil.parseJukuHtml(responseString);
+                        e.onNext(list);
+                    }
+
+                    @Override
+                    public void onFailured() {
+                        getDataTask();
+                    }
+                });
+            }
+        })
+        .subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribe(new Observer<List<JuhaiBean>>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+            }
+            @Override
+            public void onNext(List<JuhaiBean> juhaiBeans) {
+                if(juhaiBeans != null){
+                    setData(juhaiBeans);
+                }else {
+                    getDataTask();
                 }
-                e.onComplete();
+            }
+            @Override
+            public void onError(Throwable e) {
+                getDataTask();
+            }
+            @Override
+            public void onComplete() {
+            }
+        });
+    }
+
+    private void setData(List<JuhaiBean> juhaiBeans){
+        hideProgressbar();
+        if(juhaiBeans != null && juhaiBeans.size() > 0){
+            beans.clear();
+            beans.addAll(juhaiBeans);
+            mAdapter.notifyDataSetChanged();
+            NYBus.get().post(new FinishEvent());
+        }else {
+            ToastUtil.diaplayMesShort(getContext(),"未找到相关例句");
+        }
+    }
+
+    private void getDataTask() {
+        lastSearch = Settings.q;
+        showProgressbar();
+        Observable.create(new ObservableOnSubscribe<List<JuhaiBean>>() {
+            @Override
+            public void subscribe(final ObservableEmitter<List<JuhaiBean>> e) throws Exception {
+                String url = Settings.JuhaiApi.replace("{0}",lastSearch);
+                LanguagehelperHttpClient.get(url,new BgCallback(){
+                    @Override
+                    public void onResponsed(String responseString) {
+                        List<JuhaiBean> list = HtmlParseUtil.parseJuhaiHtml(responseString);
+                        e.onNext(list);
+                    }
+
+                    @Override
+                    public void onFailured() {
+                        e.onError(null);
+                    }
+                });
             }
         })
                 .subscribeOn(Schedulers.io())
@@ -97,36 +160,23 @@ public class JuhaiFragment extends BaseFragment {
                     @Override
                     public void onSubscribe(Disposable d) {
                     }
-
                     @Override
                     public void onNext(List<JuhaiBean> juhaiBeans) {
-                        if(page == 1){
-                            beans.clear();
-                        }
-                        beans.addAll(juhaiBeans);
-                        mAdapter.notifyDataSetChanged();
-                        if(page == 1){
-                            recent_used_lv.scrollToPosition(0);
-                            translateController(2);
-                        }
-                        NYBus.get().post(new FinishEvent());
+                        setData(juhaiBeans);
                     }
-
                     @Override
                     public void onError(Throwable e) {
                         hideProgressbar();
+                        setData(null);
                     }
-
                     @Override
                     public void onComplete() {
-                        hideProgressbar();
                     }
                 });
-
     }
 
     public void submit() {
-        translateController(1);
+        translateController();
     }
 
     @Subscribe

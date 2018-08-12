@@ -16,6 +16,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.ReadingDetailActivity;
+import com.messi.languagehelper.ReadingDetailLrcActivity;
 import com.messi.languagehelper.ReadingVideoDetailActivity;
 import com.messi.languagehelper.WebViewForAdActivity;
 import com.messi.languagehelper.dao.Reading;
@@ -218,7 +219,11 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
             if(item.getType() != null && item.getType().equals("video") && !TextUtils.isEmpty(item.getMedia_url())){
                 toDetail = ReadingVideoDetailActivity.class;
             }else {
-                toDetail = ReadingDetailActivity.class;
+                if(TextUtils.isEmpty(item.getLrc_url())){
+                    toDetail = ReadingDetailActivity.class;
+                }else {
+                    toDetail = ReadingDetailLrcActivity.class;
+                }
             }
             Intent intent = new Intent(context,toDetail);
             intent.putExtra(KeyUtil.IndexKey, position);

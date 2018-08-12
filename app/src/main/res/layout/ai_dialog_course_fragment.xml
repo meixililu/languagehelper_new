@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/my_awesome_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/load_blue">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_ai_dialog_choice_course"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/biggerx"
+            android:layout_marginLeft="@dimen/padding_20"
+            />
+
+        <ProgressBar
+            android:id="@+id/progressBarCircularIndetermininate"
+            style="@style/CircularProgressWhite"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_toLeftOf="@+id/search_btn"
+            android:layout_centerVertical="true"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/mswiperefreshlayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/contentbg">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/studycategory_lv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/random_cover"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_gravity="bottom|right"
+            app:cardCornerRadius="21dp"
+            app:cardBackgroundColor="@color/none_alpha8"
+            app:cardElevation="1dp"
+            android:layout_marginRight="@dimen/padding_20"
+            android:layout_marginBottom="@dimen/padding_15"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/big"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:text="@string/random_course"
+                />
+        </android.support.v7.widget.CardView>
+
+    </FrameLayout>
+
+    
+
+</LinearLayout>

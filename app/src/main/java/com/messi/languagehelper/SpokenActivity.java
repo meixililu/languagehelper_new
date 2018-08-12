@@ -12,7 +12,6 @@ import com.messi.languagehelper.impl.FragmentProgressbarListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import cn.jzvd.JZVideoPlayer;
 
 public class SpokenActivity extends BaseActivity implements FragmentProgressbarListener {
 
@@ -21,6 +20,7 @@ public class SpokenActivity extends BaseActivity implements FragmentProgressbarL
     @BindView(R.id.navigation)
     BottomNavigationView navigation;
     private Fragment mWordHomeFragment;
+    private Fragment practiceFragment;
     private Fragment dashboardFragment;
     private Fragment radioHomeFragment;
 
@@ -33,17 +33,22 @@ public class SpokenActivity extends BaseActivity implements FragmentProgressbarL
                 case R.id.navigation_home:
                     hideAllFragment();
                     getSupportFragmentManager().beginTransaction().show(mWordHomeFragment).commit();;
-                    AVAnalytics.onEvent(SpokenActivity.this, "wordstudy_daily");
+                    AVAnalytics.onEvent(SpokenActivity.this, "spoken_home");
+                    return true;
+                case R.id.navigation_practice:
+                    hideAllFragment();
+                    getSupportFragmentManager().beginTransaction().show(practiceFragment).commit();;
+                    AVAnalytics.onEvent(SpokenActivity.this, "spoken_practice");
                     return true;
                 case R.id.navigation_word_study:
                     hideAllFragment();
                     getSupportFragmentManager().beginTransaction().show(dashboardFragment).commit();;
-                    AVAnalytics.onEvent(SpokenActivity.this, "wordstudy_course");
+                    AVAnalytics.onEvent(SpokenActivity.this, "spoken_course");
                     return true;
                 case R.id.navigation_vovabulary:
                     hideAllFragment();
                     getSupportFragmentManager().beginTransaction().show(radioHomeFragment).commit();;
-                    AVAnalytics.onEvent(SpokenActivity.this, "wordstudy_vocabulary");
+                    AVAnalytics.onEvent(SpokenActivity.this, "spoken_bussiness");
                     return true;
             }
             return false;
@@ -61,12 +66,14 @@ public class SpokenActivity extends BaseActivity implements FragmentProgressbarL
 
     private void initFragment(){
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        mWordHomeFragment = AiFragment.getInstance();
+        mWordHomeFragment = SpokenHomeFragment.getInstance();
+        practiceFragment = AiDialogueCourseFragment.getInstance();
         dashboardFragment = SpokenCourseFragment.getInstance();
         radioHomeFragment = BusinessFragment.getInstance();
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.content, mWordHomeFragment)
+                .add(R.id.content, practiceFragment)
                 .add(R.id.content, dashboardFragment)
                 .add(R.id.content, radioHomeFragment)
                 .commit();
@@ -79,23 +86,10 @@ public class SpokenActivity extends BaseActivity implements FragmentProgressbarL
         getSupportFragmentManager()
                 .beginTransaction()
                 .hide(dashboardFragment)
+                .hide(practiceFragment)
                 .hide(radioHomeFragment)
                 .hide(mWordHomeFragment)
                 .commit();
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (JZVideoPlayer.backPress()) {
-            return;
-        }
-        super.onBackPressed();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        JZVideoPlayer.releaseAllVideos();
     }
 
 

@@ -47,6 +47,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 	private int skip = 0;
 	private String category;
 	private String code;
+	private String source;
 	private int maxRandom;
 	private IFLYNativeAd nativeAd;
 	private boolean loading;
@@ -66,6 +67,15 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 		return fragment;
 	}
 
+	public static Fragment newInstanceBySource(String category, String source){
+		ReadingFragment fragment = new ReadingFragment();
+		Bundle bundle = new Bundle();
+		bundle.putString("category",category);
+		bundle.putString("source",source);
+		fragment.setArguments(bundle);
+		return fragment;
+	}
+
 	@Override
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -73,6 +83,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 		Bundle mBundle = getArguments();
 		this.category = mBundle.getString("category");
 		this.code = mBundle.getString("code");
+		this.source = mBundle.getString("source");
 	}
 
 	@Override
@@ -212,6 +223,9 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 			if(!TextUtils.isEmpty(category)){
 				query.whereEqualTo(AVOUtil.Reading.category, category);
 			}
+			if(!TextUtils.isEmpty(source)){
+				query.whereEqualTo(AVOUtil.Reading.source_name, source);
+			}
 			if(!TextUtils.isEmpty(code)){
 				if(!code.equals("1000")){
 					query.whereEqualTo(AVOUtil.Reading.type_id, code);
@@ -238,6 +252,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 				if(avObject.size() == 0){
 					ToastUtil.diaplayMesShort(getContext(), "没有了！");
 					hideFooterview();
+					hasMore = false;
 				}else{
 					if(avObjects != null && mAdapter != null){
 						if(skip == 0){
@@ -247,15 +262,17 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 						if(addAD()){
 							mAdapter.notifyDataSetChanged();
 						}
-						skip += Settings.page_size;
-						showFooterview();
+						if(avObject.size() < Settings.page_size){
+							LogUtil.DefalutLog("avObject.size() < Settings.page_size");
+							hideFooterview();
+							hasMore = false;
+						}else {
+							showFooterview();
+							hasMore = true;
+						}
 					}
 				}
-			}
-			if(skip == maxRandom){
-				hasMore = false;
-			}else {
-				hasMore = true;
+				skip += Settings.page_size;
 			}
 		}
 	}
@@ -410,6 +427,9 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 					AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.Reading.Reading);
 					if(!TextUtils.isEmpty(category)){
 						query.whereEqualTo(AVOUtil.Reading.category, category);
+					}
+					if(!TextUtils.isEmpty(source)){
+						query.whereEqualTo(AVOUtil.Reading.source_name, source);
 					}
 					if(!TextUtils.isEmpty(code)){
 						if(!code.equals("1000")){

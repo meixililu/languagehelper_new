@@ -28,6 +28,7 @@ public class SDCardUtil {
 	public static final String ReadingPath = "/zyhy/audio/study/reading/mp3/";
 	public static final String apkPath = "/zyhy/apps/download/";
 	public static final String apkUpdatePath = "/zyhy/apps/update/";
+	public static final String lrcPath = "/zyhy/lrc/voa/";
 	public static final String OfflineDicPath = "/zyhy/offline/";
 	public static final String Delimiter = "/";
 

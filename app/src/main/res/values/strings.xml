@@ -12,6 +12,7 @@
     <string name="title_Practice">口语练习</string>
     <string name="title_video_spoken">口语视频</string>
     <string name="title_listening">听力</string>
+    <string name="title_intensive_listening">精听</string>
     <string name="title_word_vocabulary">词汇学习</string>
     <string name="title_spoken_english_study">口语学习</string>
     <string name="title_symbol">音标</string>
@@ -257,6 +258,7 @@
     <string name="ChDicBushouList">按部首</string>
     <string name="ChDicPinyinList">按拼音</string>
     <string name="spoken_english_practice">口语</string>
+    <string name="spoken_english_coach">教练</string>
     <string name="reading">阅读</string>
     <string name="examination">考题</string>
     <string name="simulation_dialogue">模拟对话</string>
@@ -380,7 +382,7 @@
     <string name="title_speak_basic">口语基础</string>
     <string name="title_speak_dialog">口语对话</string>
     <string name="title_ai_dialog_choice_course">情景选择</string>
-    <string name="random_course">随机选择</string>
+    <string name="random_course">随机</string>
     <string name="start_to_fight">闯关</string>
     <string name="title_tuling_ai">聊天机器人</string>
     <string name="title_tuling_ai_des">中文语境下智能度最高的机器人</string>

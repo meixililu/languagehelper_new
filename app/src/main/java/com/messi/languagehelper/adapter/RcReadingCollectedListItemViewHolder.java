@@ -15,6 +15,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.ReadingDetailActivity;
+import com.messi.languagehelper.ReadingDetailLrcActivity;
 import com.messi.languagehelper.WebViewActivity;
 import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.util.KeyUtil;
@@ -161,7 +162,13 @@ public class RcReadingCollectedListItemViewHolder extends RecyclerView.ViewHolde
             context.startActivity(intent);
         }else {
             WXEntryActivity.dataMap.put(KeyUtil.DataMapKey, avObjects);
-            Intent intent = new Intent(context.getContext(),ReadingDetailActivity.class);
+            Class toDetail = null;
+            if(TextUtils.isEmpty(item.getLrc_url())){
+                toDetail = ReadingDetailActivity.class;
+            }else {
+                toDetail = ReadingDetailLrcActivity.class;
+            }
+            Intent intent = new Intent(context.getContext(),toDetail);
             intent.putExtra(KeyUtil.IndexKey, position);
             context.startActivityForResult(intent,position);
         }

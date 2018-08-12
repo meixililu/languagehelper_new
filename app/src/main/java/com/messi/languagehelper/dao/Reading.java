@@ -42,6 +42,7 @@ public class Reading {
     private int unlike;
     private int comments;
     private int readed;
+    private String lrc_url;
     private String backup1;
     private String backup2;
     private String backup3;
@@ -139,7 +140,7 @@ public class Reading {
         this.mNativeADDataRef = mNativeADDataRef;
     }
 
-    @Generated(hash = 2133973491)
+    @Generated(hash = 1011974711)
     public Reading(Long id, String title, String source_url, String content,
             String media_url, String source_name, String publish_time,
             String type_name, String item_id, String img_type, String img_url,
@@ -147,8 +148,8 @@ public class Reading {
             String content_type, String img_urls, String object_id, String status,
             String isCollected, long collected_time, String isReadLater,
             long read_later_time, int like, int unlike, int comments, int readed,
-            String backup1, String backup2, String backup3, String backup4,
-            String backup5, int img_color) {
+            String lrc_url, String backup1, String backup2, String backup3,
+            String backup4, String backup5, int img_color) {
         this.id = id;
         this.title = title;
         this.source_url = source_url;
@@ -176,6 +177,7 @@ public class Reading {
         this.unlike = unlike;
         this.comments = comments;
         this.readed = readed;
+        this.lrc_url = lrc_url;
         this.backup1 = backup1;
         this.backup2 = backup2;
         this.backup3 = backup3;
@@ -376,6 +378,14 @@ public class Reading {
 
     public void setBackup5(String backup5) {
         this.backup5 = backup5;
+    }
+
+    public String getLrc_url() {
+        return this.lrc_url;
+    }
+
+    public void setLrc_url(String lrc_url) {
+        this.lrc_url = lrc_url;
     }
 
 

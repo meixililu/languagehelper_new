@@ -23,6 +23,7 @@ public class ListenHomeAdapter extends FragmentPagerAdapter {
         this.mContext = mContext;
         CONTENT = new String[] {
                 mContext.getResources().getString(R.string.title_listening),
+                mContext.getResources().getString(R.string.title_intensive_listening),
                 mContext.getResources().getString(R.string.title_web_npr),
                 mContext.getResources().getString(R.string.title_web_AmericanLife)
         };
@@ -33,9 +34,11 @@ public class ListenHomeAdapter extends FragmentPagerAdapter {
         if( position == 0 ){
             return ReadingFragment.newInstance(AVOUtil.Category.listening,"");
         }else if( position == 1 ){
+            return ReadingFragment.newInstanceBySource(AVOUtil.Category.listening,"VOA慢速英语精听网");
+        }else if( position == 2 ){
             mWebViewFragment1 = WebViewFragment.getInstance(Settings.NPR_Url);
             return mWebViewFragment1;
-        }else if( position == 2 ){
+        }else if( position == 3 ){
             mWebViewFragment2 = WebViewFragment.getInstance(Settings.AmericanLife_Url);
             return mWebViewFragment2;
         }
@@ -52,7 +55,7 @@ public class ListenHomeAdapter extends FragmentPagerAdapter {
     }
 
     public WebViewFragment getWebViewFragment(int position){
-        if(position == 1){
+        if(position == 2){
             return mWebViewFragment1;
         }else {
             return mWebViewFragment2;
