@@ -205,16 +205,16 @@ public class MainFragmentOld extends BaseFragment implements OnClickListener, Or
     private void initFragment(){
         mMainTabTran = MainTabTran.getInstance(mProgressbarListener);
         mDictionaryFragmentOld = DictionaryFragmentOld.getInstance(mProgressbarListener);
-        mChDicFragment = ChineseDictionaryFragment.getInstance(mProgressbarListener);
         mJuhaiFragment = JuhaiFragment.getInstance(mProgressbarListener);
         mEnDicFragment = EnDicFragment.getInstance(mProgressbarListener);
+        mChDicFragment = ChineseDictionaryFragment.getInstance(mProgressbarListener);
         getChildFragmentManager()
                 .beginTransaction()
                 .add(R.id.content_layout,mMainTabTran)
                 .add(R.id.content_layout,mDictionaryFragmentOld)
-                .add(R.id.content_layout,mChDicFragment)
                 .add(R.id.content_layout, mJuhaiFragment)
                 .add(R.id.content_layout, mEnDicFragment)
+                .add(R.id.content_layout,mChDicFragment)
                 .commit();
         hideAllFragment();
     }

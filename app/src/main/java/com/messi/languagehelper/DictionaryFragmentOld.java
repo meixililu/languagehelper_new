@@ -186,8 +186,8 @@ public class DictionaryFragmentOld extends BaseFragment implements
                 }
                 mDictionaryBean.setWord_name(Settings.q);
                 mDictionaryBean.setResult(sb.substring(0, sb.lastIndexOf("\n")));
-                DataBaseUtil.getInstance().insert(mDictionaryBean);
                 setBean();
+                DataBaseUtil.getInstance().insert(mDictionaryBean);
             }
         }else{
             showToast("没找到离线词典，请到更多页面下载！");

@@ -157,9 +157,9 @@ public class MainTabTranZhYue extends BaseFragment {
     }
 
     public void insertData() {
-        long newRowId = DataBaseUtil.getInstance().insert(currentDialogBean);
         mAdapter.addEntity(0, currentDialogBean);
         recent_used_lv.scrollToPosition(0);
+        long newRowId = DataBaseUtil.getInstance().insert(currentDialogBean);
     }
 
     public void autoClearAndautoPlay() {

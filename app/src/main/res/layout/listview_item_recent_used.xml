@@ -20,9 +20,9 @@
 			        android:id="@+id/record_question"
 			        android:layout_width="fill_parent"
 			        android:layout_height="wrap_content"
-			        android:paddingLeft="10dp"
-			        android:paddingTop="7dp"
-			        android:paddingBottom="1dp"
+			        android:paddingLeft="11dp"
+			        android:paddingTop="9dp"
+			        android:paddingBottom="3dp"
 					android:textColor="@color/text_black"
 			        android:textSize="@dimen/bigger" />
 			    <ImageView 
@@ -48,9 +48,9 @@
 			        android:layout_width="fill_parent"
 			        android:layout_height="wrap_content"
 					android:lineSpacingExtra="8dp"
-			        android:paddingLeft="10dp"
-			        android:paddingTop="1dp"
-			        android:paddingBottom="7dp"
+			        android:paddingLeft="11dp"
+			        android:paddingTop="3dp"
+			        android:paddingBottom="9dp"
 			        android:text=""
 			        android:textColor="@color/text_black"
 			        android:textSize="@dimen/bigger" />

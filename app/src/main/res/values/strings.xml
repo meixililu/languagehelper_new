@@ -409,6 +409,8 @@
     <string name="xmly_track">声音</string>
     <string name="xmly_radio">电台</string>
     <string name="click_to_skip">跳过</string>
+    <string name="list_empty">空空的，快去添加图书吧</string>
+    <string name="history_empty">什么也没有</string>
 
 
 </resources>

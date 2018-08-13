@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.avos.avoscloud.AVObject;
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
@@ -37,6 +38,7 @@ public class CaricatureHistoryFragment extends BaseFragment implements View.OnCl
     private RecyclerView category_lv;
     private CardView action_delete_all;
     private CardView action_delete_btn;
+    private TextView empty_tv;
     private RcCaricatureBookShelfAdapter mAdapter;
     private GridLayoutManager layoutManager;
     private List<AVObject> mList;
@@ -67,6 +69,8 @@ public class CaricatureHistoryFragment extends BaseFragment implements View.OnCl
         category_lv = (RecyclerView) view.findViewById(R.id.listview);
         action_delete_btn = (CardView) view.findViewById(R.id.action_delete_btn);
         action_delete_all = (CardView) view.findViewById(R.id.action_delete_all);
+        empty_tv = (TextView) view.findViewById(R.id.empty_tv);
+        empty_tv.setText(getResources().getText(R.string.history_empty));
         action_delete_btn.setOnClickListener(this);
         action_delete_all.setOnClickListener(this);
         category_lv.setHasFixedSize(true);
@@ -179,9 +183,11 @@ public class CaricatureHistoryFragment extends BaseFragment implements View.OnCl
             ToastUtil.diaplayMesShort(getContext(), "加载失败，下拉可刷新");
         }
         if(mList.size() > 0){
+            empty_tv.setVisibility(View.GONE);
             action_delete_btn.setVisibility(View.VISIBLE);
         }else {
             action_delete_btn.setVisibility(View.GONE);
+            empty_tv.setVisibility(View.VISIBLE);
         }
     }
 

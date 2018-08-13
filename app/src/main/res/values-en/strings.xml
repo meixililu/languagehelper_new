@@ -378,5 +378,7 @@
         just add the author Wechat: xbkj6868\n
         or email:mzxbkj@163.com
     </string>
+    <string name="list_empty">Bookshelf is empty</string>
+    <string name="history_empty">nothing here</string>
 
 </resources>
