@@ -6,25 +6,24 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/my_awesome_toolbar"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/load_blue">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/title_all_fm"
-            android:layout_centerVertical="true"
-            android:textColor="@color/white"
-            android:textSize="@dimen/biggerx"
-            android:layout_marginLeft="@dimen/padding_20"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/load_blue"
+        >
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_weight="1"
+            android:background="@color/load_blue"
+            app:tabIndicatorColor="@color/white"
             />
         <FrameLayout
             android:id="@+id/search_btn"
             android:layout_width="50dp"
             android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
             android:foreground="@drawable/framelayout_selector"
             >
             <ImageView
@@ -34,23 +33,7 @@
                 android:layout_gravity="center"
                 />
         </FrameLayout>
-        <ProgressBar
-            android:id="@+id/progressBarCircularIndetermininate"
-            style="@style/CircularProgressWhite"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_toLeftOf="@+id/search_btn"
-            android:layout_centerVertical="true"
-            android:visibility="gone" />
-    </RelativeLayout>
-
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/tabs_heigh"
-        android:background="@color/load_blue"
-        app:tabIndicatorColor="@color/white"
-        />
+    </LinearLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"

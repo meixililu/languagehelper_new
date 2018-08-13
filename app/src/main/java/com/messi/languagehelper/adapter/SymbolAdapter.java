@@ -4,9 +4,9 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.text.TextUtils;
 
 import com.messi.languagehelper.R;
+import com.messi.languagehelper.ReadingFragment;
 import com.messi.languagehelper.ReadingsBySubjectFragment;
 import com.messi.languagehelper.SubjectFragment;
 import com.messi.languagehelper.SymbolListFragment;
@@ -26,38 +26,26 @@ public class SymbolAdapter extends FragmentPagerAdapter {
         super(fm);
         this.mContext = mContext;
         category_2 = Settings.getSharedPreferences(mContext).getString(KeyUtil.RecentSymbol,"");
-        if(TextUtils.isEmpty(category_2)){
-            addTitle();
-            titleList.add(mContext.getResources().getString(R.string.recent));
-        }else {
-            addTitle();
-            titleList.add(1,mContext.getResources().getString(R.string.recent));
-        }
+        titleList.add(mContext.getResources().getString(R.string.recommend));
+        titleList.add(mContext.getResources().getString(R.string.title_study_category));
+        titleList.add(mContext.getResources().getString(R.string.title_course));
+        titleList.add(mContext.getResources().getString(R.string.recent));
     }
 
     private void addTitle(){
-        titleList.add(mContext.getResources().getString(R.string.recommend));
-        titleList.add(mContext.getResources().getString(R.string.title_course));
+
     }
 
     @Override
     public Fragment getItem(int position) {
-        if(TextUtils.isEmpty(category_2)){
-            if( position == 0 ){
-                return SymbolListFragment.getInstance();
-            }else if( position == 1 ){
-                return SubjectFragment.getInstance(AVOUtil.Category.symbol,KeyUtil.RecentSymbol,"");
-            }else if( position == 2 ){
-                return ReadingsBySubjectFragment.newInstance(category_2,KeyUtil.RecentSymbol,"");
-            }
-        }else {
-            if( position == 0 ){
-                return SymbolListFragment.getInstance();
-            }else if( position == 1 ){
-                return ReadingsBySubjectFragment.newInstance(category_2,KeyUtil.RecentSymbol,"");
-            }else if( position == 2 ){
-                return SubjectFragment.getInstance(AVOUtil.Category.symbol,KeyUtil.RecentSymbol,"");
-            }
+        if( position == 0 ){
+            return SymbolListFragment.getInstance();
+        }else if( position == 1 ){
+            return ReadingFragment.newInstanceBySearchTitle("","音标");
+        }else if( position == 2 ){
+            return SubjectFragment.getInstance(AVOUtil.Category.symbol,KeyUtil.RecentSymbol,"");
+        }else if( position == 3 ){
+            return ReadingsBySubjectFragment.newInstance(category_2,KeyUtil.RecentSymbol,"");
         }
 
         return null;

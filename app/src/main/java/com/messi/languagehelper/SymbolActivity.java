@@ -29,7 +29,7 @@ public class SymbolActivity extends BaseActivity implements FragmentProgressbarL
 
         pageAdapter = new SymbolAdapter(getSupportFragmentManager(), this);
         viewpager.setAdapter(pageAdapter);
-        viewpager.setOffscreenPageLimit(3);
+        viewpager.setOffscreenPageLimit(4);
         tablayout.setupWithViewPager(viewpager);
     }
 

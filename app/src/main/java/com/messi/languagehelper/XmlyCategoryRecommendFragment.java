@@ -89,7 +89,7 @@ public class XmlyCategoryRecommendFragment extends BaseFragment {
     private void QueryTask() {
         showProgressbar();
         Map<String, String> map = new HashMap<String, String>();
-        map.put(DTransferConstants.DISPLAY_COUNT, "4");
+        map.put(DTransferConstants.DISPLAY_COUNT, "3");
         CommonRequest.getDiscoveryRecommendAlbums(map, new IDataCallBack<DiscoveryRecommendAlbumsList>() {
             @Override
             public void onSuccess(@Nullable DiscoveryRecommendAlbumsList discoveryRecommendAlbumsList) {

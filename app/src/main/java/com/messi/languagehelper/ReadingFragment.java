@@ -48,6 +48,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 	private String category;
 	private String code;
 	private String source;
+	private String quest;
 	private int maxRandom;
 	private IFLYNativeAd nativeAd;
 	private boolean loading;
@@ -76,6 +77,16 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 		return fragment;
 	}
 
+
+	public static Fragment newInstanceBySearchTitle(String category, String quest){
+		ReadingFragment fragment = new ReadingFragment();
+		Bundle bundle = new Bundle();
+		bundle.putString("category",category);
+		bundle.putString("quest",quest);
+		fragment.setArguments(bundle);
+		return fragment;
+	}
+
 	@Override
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -84,6 +95,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 		this.category = mBundle.getString("category");
 		this.code = mBundle.getString("code");
 		this.source = mBundle.getString("source");
+		this.quest = mBundle.getString("quest");
 	}
 
 	@Override
@@ -225,6 +237,9 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 			}
 			if(!TextUtils.isEmpty(source)){
 				query.whereEqualTo(AVOUtil.Reading.source_name, source);
+			}
+			if(!TextUtils.isEmpty(quest)){
+				query.whereContains(AVOUtil.Reading.title, quest);
 			}
 			if(!TextUtils.isEmpty(code)){
 				if(!code.equals("1000")){
