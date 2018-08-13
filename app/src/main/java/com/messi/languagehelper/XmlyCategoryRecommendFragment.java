@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -29,6 +30,7 @@ import com.ximalaya.ting.android.opensdk.model.album.DiscoveryRecommendAlbums;
 import com.ximalaya.ting.android.opensdk.model.album.DiscoveryRecommendAlbumsList;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import butterknife.BindView;
@@ -95,8 +97,21 @@ public class XmlyCategoryRecommendFragment extends BaseFragment {
             public void onSuccess(@Nullable DiscoveryRecommendAlbumsList discoveryRecommendAlbumsList) {
                 onFinishLoadData();
                 contentTv.removeAllViews();
-                for (DiscoveryRecommendAlbums dra : discoveryRecommendAlbumsList.getDiscoveryRecommendAlbumses()){
-                    setList(dra);
+                final List<DiscoveryRecommendAlbums> list = discoveryRecommendAlbumsList.getDiscoveryRecommendAlbumses();
+                if(list != null && list.size() > 0){
+                    for (int i=0;i<list.size();i++){
+                        if(i < 2){
+                            setList(list.get(i));
+                        }else {
+                            final int index = i;
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    setList(list.get(index));
+                                }
+                            },200);
+                        }
+                    }
                 }
             }
 
