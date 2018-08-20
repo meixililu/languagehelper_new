@@ -147,6 +147,9 @@
         </receiver>
 
         <activity
+            android:name="com.messi.languagehelper.TitleActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.messi.languagehelper.ReadingDetailLrcActivity"
             android:screenOrientation="portrait" />
         <activity

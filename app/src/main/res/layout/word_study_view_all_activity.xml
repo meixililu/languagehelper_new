@@ -29,7 +29,7 @@
         android:layout_height="45dp"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
-        android:background="@color/load_blue"
+        android:background="?attr/colorPrimary"
         >
         <FrameLayout
             android:id="@+id/show_all_unit_layout"

@@ -74,7 +74,7 @@
                 android:id="@+id/start_btn"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:background="@color/load_blue"
+                android:background="?attr/colorPrimary"
                 android:gravity="center"
                 android:text="@string/start_to_follow"
                 android:textColor="@color/white"

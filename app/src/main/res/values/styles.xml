@@ -4,8 +4,10 @@
     <style name="AppTheme" parent="AppTheme.Base" />
 
     <style name="AppTheme.Base" parent="Theme.AppCompat.NoActionBar">
-        <item name="colorPrimary">@color/load_blue</item>
-        <item name="colorPrimaryDark">@color/load_blue</item>
+        <!--<item name="colorPrimary">@color/load_blue</item>-->
+        <!--<item name="colorPrimaryDark">@color/load_blue</item>-->
+        <item name="colorPrimary">@color/green_500</item>
+        <item name="colorPrimaryDark">@color/green</item>
         <item name="colorAccent">@color/white</item>
         <item name="android:itemBackground">@drawable/bg_lightblue_blue_selector</item>
     </style>

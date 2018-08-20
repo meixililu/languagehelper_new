@@ -133,6 +133,9 @@
         </receiver>
 
         <activity
+            android:name=".TitleActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".ReadingDetailLrcActivity"
             android:screenOrientation="portrait" />
         <activity

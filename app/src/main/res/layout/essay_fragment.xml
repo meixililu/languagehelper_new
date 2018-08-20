@@ -30,7 +30,7 @@
                 android:paddingTop="20dp"
                 android:paddingRight="@dimen/padding_10"
                 android:paddingLeft="@dimen/padding_10"
-                android:background="@color/load_blue"
+                android:background="?attr/colorPrimary"
                 android:layout_weight="5"
                 android:textSize="@dimen/bigest" />
 

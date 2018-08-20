@@ -46,7 +46,7 @@
                         android:layout_marginTop="@dimen/padding_5"
                         android:text="@string/title_symbol"
                         android:textColor="@color/text_black"
-                        android:textSize="@dimen/small" />
+                        android:textSize="@dimen/big" />
                 </LinearLayout>
             </FrameLayout>
 
@@ -81,7 +81,7 @@
                         android:layout_marginTop="@dimen/padding_5"
                         android:text="@string/title_word_study"
                         android:textColor="@color/text_black"
-                        android:textSize="@dimen/small" />
+                        android:textSize="@dimen/big" />
                 </LinearLayout>
 
             </FrameLayout>
@@ -91,6 +91,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="1px"
             android:orientation="horizontal">
 
             <FrameLayout
@@ -125,7 +126,7 @@
                         android:layout_marginTop="@dimen/padding_5"
                         android:text="@string/title_listening"
                         android:textColor="@color/text_black"
-                        android:textSize="@dimen/small" />
+                        android:textSize="@dimen/big" />
                 </LinearLayout>
 
             </FrameLayout>
@@ -161,7 +162,7 @@
                         android:layout_marginTop="@dimen/padding_5"
                         android:text="@string/spoken_english_practice"
                         android:textColor="@color/text_black"
-                        android:textSize="@dimen/small" />
+                        android:textSize="@dimen/big" />
                 </LinearLayout>
 
             </FrameLayout>
@@ -170,6 +171,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="1px"
             android:orientation="horizontal">
 
             <FrameLayout
@@ -203,84 +205,7 @@
                         android:layout_marginTop="@dimen/padding_5"
                         android:text="@string/examination"
                         android:textColor="@color/text_black"
-                        android:textSize="@dimen/small" />
-                </LinearLayout>
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/en_grammar"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:foreground="@drawable/framelayout_selector"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:paddingBottom="@dimen/padding_10"
-                    android:paddingTop="@dimen/padding_10">
-
-                    <ImageView
-                        android:layout_width="65dp"
-                        android:layout_height="65dp"
-                        android:src="@drawable/icon_grammer" />
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:background="@color/white"
-                        android:gravity="center"
-                        android:lines="1"
-                        android:layout_marginTop="@dimen/padding_5"
-                        android:text="@string/title_grammar"
-                        android:textColor="@color/text_black"
-                        android:textSize="@dimen/small" />
-                </LinearLayout>
-            </FrameLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <FrameLayout
-                android:id="@+id/en_story_layout"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="1px"
-                android:layout_weight="1"
-                android:foreground="@drawable/framelayout_selector">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:paddingBottom="@dimen/padding_10"
-                    android:paddingTop="@dimen/padding_10">
-
-                    <ImageView
-                        android:layout_width="65dp"
-                        android:layout_height="65dp"
-                        android:src="@drawable/icon_story" />
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:background="@color/white"
-                        android:gravity="center"
-                        android:lines="1"
-                        android:layout_marginTop="@dimen/padding_5"
-                        android:text="@string/title_english_story"
-                        android:textColor="@color/text_black"
-                        android:textSize="@dimen/small" />
+                        android:textSize="@dimen/big" />
                 </LinearLayout>
             </FrameLayout>
 
@@ -314,14 +239,94 @@
                         android:layout_marginTop="@dimen/padding_5"
                         android:text="@string/xmly_home"
                         android:textColor="@color/text_black"
-                        android:textSize="@dimen/small" />
+                        android:textSize="@dimen/big" />
                 </LinearLayout>
             </FrameLayout>
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="1px"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:id="@+id/en_grammar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="1px"
+                android:foreground="@drawable/framelayout_selector"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/padding_10"
+                    android:paddingTop="@dimen/padding_10">
+
+                    <ImageView
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:src="@drawable/icon_grammer" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:layout_marginTop="@dimen/padding_5"
+                        android:text="@string/title_grammar"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/big" />
+                </LinearLayout>
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/translate_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:foreground="@drawable/framelayout_selector"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/padding_10"
+                    android:paddingTop="@dimen/padding_10">
+
+                    <ImageView
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:src="@drawable/icon_translate" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:background="@color/white"
+                        android:layout_marginTop="@dimen/padding_5"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:text="@string/translate"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/big" />
+                </LinearLayout>
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1px"
             android:orientation="horizontal">
 
             <FrameLayout
@@ -355,7 +360,84 @@
                         android:lines="1"
                         android:text="@string/title_composition"
                         android:textColor="@color/text_black"
-                        android:textSize="@dimen/small" />
+                        android:textSize="@dimen/big" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/en_story_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:foreground="@drawable/framelayout_selector">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/padding_10"
+                    android:paddingTop="@dimen/padding_10">
+
+                    <ImageView
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:src="@drawable/icon_story" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:layout_marginTop="@dimen/padding_5"
+                        android:text="@string/title_english_story"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/big" />
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1px"
+            android:layout_marginBottom="1px"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:id="@+id/study_setting"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="1px"
+                android:foreground="@drawable/framelayout_selector">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/padding_10"
+                    android:paddingTop="@dimen/padding_10">
+
+                    <ImageView
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:src="@drawable/icon_setting" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/padding_5"
+                        android:lines="1"
+                        android:text="@string/title_setting"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/big" />
                 </LinearLayout>
             </FrameLayout>
 
@@ -390,7 +472,7 @@
                         android:lines="1"
                         android:text="@string/dic_tab_shoucang"
                         android:textColor="@color/text_black"
-                        android:textSize="@dimen/small" />
+                        android:textSize="@dimen/big" />
                 </LinearLayout>
             </FrameLayout>
         </LinearLayout>

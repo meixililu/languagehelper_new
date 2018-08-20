@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@color/load_blue"
+            android:background="?attr/colorPrimary"
             android:gravity="center"
             android:orientation="vertical">
             <ImageView
@@ -141,7 +141,7 @@
             android:gravity="center"
             android:textSize="32sp"
             android:textColor="@color/white"
-            android:background="@color/load_blue"
+            android:background="?attr/colorPrimary"
             />
         <android.support.v7.widget.RecyclerView
             android:id="@+id/listview"

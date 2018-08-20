@@ -23,11 +23,12 @@ import com.avos.avoscloud.AVAnalytics;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SpeechUtility;
-import com.messi.languagehelper.AiDialogueCourseFragment;
 import com.messi.languagehelper.BaseActivity;
-import com.messi.languagehelper.BusinessFragment;
+import com.messi.languagehelper.LeisureFragment;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.SpokenCourseFragment;
+import com.messi.languagehelper.StudyFragment;
+import com.messi.languagehelper.TitleFragment;
+import com.messi.languagehelper.XimalayaTagsFragment;
 import com.messi.languagehelper.YYJHomeFragment;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
@@ -36,6 +37,7 @@ import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.TranslateUtil;
+import com.messi.languagehelper.util.XimalayaUtil;
 import com.messi.languagehelper.views.BottomNavigationViewHelper;
 import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
 
@@ -95,7 +97,7 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		try {
-			setContentView(R.layout.activity_spoken);
+			setContentView(R.layout.activity_yyj_main);
 			ButterKnife.bind(this);
 			initData();
 			initFragment();
@@ -116,10 +118,11 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 	private void initFragment() {
 		BottomNavigationViewHelper.disableShiftMode(navigation);
 		navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-		mWordHomeFragment = YYJHomeFragment.getInstance();
-		practiceFragment = AiDialogueCourseFragment.getInstance();
-		dashboardFragment = SpokenCourseFragment.getInstance();
-		radioHomeFragment = BusinessFragment.getInstance();
+		mWordHomeFragment = TitleFragment.newInstance(YYJHomeFragment.getInstance(),R.string.title_home_tab);
+		practiceFragment = TitleFragment.newInstance(StudyFragment.getInstance(),R.string.title_study);
+		dashboardFragment = TitleFragment.newInstance(XimalayaTagsFragment.newInstance(XimalayaUtil.Category_Eng,"",null),
+				R.string.title_listen_fm);
+		radioHomeFragment = TitleFragment.newInstance(LeisureFragment.getInstance(),R.string.title_leisure);
 		getSupportFragmentManager()
 				.beginTransaction()
 				.add(R.id.content, mWordHomeFragment)

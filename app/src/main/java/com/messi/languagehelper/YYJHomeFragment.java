@@ -38,6 +38,10 @@ public class YYJHomeFragment extends BaseFragment {
     FrameLayout enStoryLayout;
     @BindView(R.id.xmly_layout)
     FrameLayout xmlyLayout;
+    @BindView(R.id.translate_layout)
+    FrameLayout translateLayout;
+    @BindView(R.id.study_setting)
+    FrameLayout studySetting;
 
     public static YYJHomeFragment getInstance() {
         return new YYJHomeFragment();
@@ -64,7 +68,7 @@ public class YYJHomeFragment extends BaseFragment {
     @OnClick({R.id.symbol_study_cover, R.id.study_listening_layout,
             R.id.en_examination_layout, R.id.study_composition, R.id.collected_layout,
             R.id.study_spoken_english, R.id.en_grammar, R.id.en_story_layout,
-            R.id.xmly_layout, R.id.study_word_layout})
+            R.id.xmly_layout, R.id.study_word_layout,R.id.translate_layout, R.id.study_setting})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.symbol_study_cover:
@@ -100,14 +104,27 @@ public class YYJHomeFragment extends BaseFragment {
                 AVAnalytics.onEvent(getContext(), "tab3_to_story");
                 break;
             case R.id.xmly_layout:
-                toActivity(XmlyActivity.class,null);
+                toActivity(XmlyActivity.class, null);
                 AVAnalytics.onEvent(getContext(), "tab3_to_ximalaya_home");
                 break;
             case R.id.study_word_layout:
-                toActivity(WordsActivity.class,null);
+                toActivity(WordsActivity.class, null);
                 AVAnalytics.onEvent(getContext(), "tab3_to_ximalaya_home");
                 break;
+            case R.id.translate_layout:
+                toTranslate();
+                break;
+            case R.id.study_setting:
+                toActivity(MoreActivity.class, null);
+                break;
         }
+    }
+
+    private void toTranslate() {
+        Intent intent = new Intent(getContext(), TitleActivity.class);
+        intent.putExtra(KeyUtil.ActionbarTitle, getResources().getString(R.string.translate));
+        intent.putExtra(KeyUtil.Type, R.string.translate);
+        startActivity(intent);
     }
 
     private void toExaminationActivity(String title) {

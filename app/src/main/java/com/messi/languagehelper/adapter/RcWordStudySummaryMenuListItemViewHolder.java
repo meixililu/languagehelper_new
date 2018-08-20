@@ -1,18 +1,16 @@
 package com.messi.languagehelper.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
+import android.content.res.TypedArray;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVObject;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.WordStudySummaryDetailActivity;
 import com.messi.languagehelper.WordStudySummaryListActivity;
 import com.messi.languagehelper.util.AVOUtil;
-import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
 
 /**
  * Created by luli on 10/23/16.
@@ -33,8 +31,12 @@ public class RcWordStudySummaryMenuListItemViewHolder extends RecyclerView.ViewH
         name = (TextView) convertView.findViewById(R.id.name);
     }
 
+    @SuppressLint("ResourceAsColor")
     public void render(final AVObject mAVObject) {
-        name.setTextColor(context.getResources().getColor(R.color.load_blue));
+        TypedArray array = context.getTheme().obtainStyledAttributes(new int[] {
+                R.attr.colorPrimary
+        });
+        name.setTextColor(array.getColor(0,R.color.load_blue));
         name.setText( mAVObject.getString(AVOUtil.HJWordStudyCategory.name) );
         cover.setOnClickListener(new View.OnClickListener() {
             @Override
