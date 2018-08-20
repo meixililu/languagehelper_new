@@ -34,6 +34,7 @@ public class RcXmlyRadioHomeItemViewHolder extends RecyclerView.ViewHolder {
     private final TextView title, sub_title;
     private final TextView type_name;
     private final TextView source_name;
+    private final TextView source_tag;
     private final ImageView music_play_img;
     private final SimpleDraweeView list_item_img;
     private final FrameLayout ad_layout;
@@ -50,12 +51,14 @@ public class RcXmlyRadioHomeItemViewHolder extends RecyclerView.ViewHolder {
         sub_title = (TextView) view.findViewById(R.id.sub_title);
         source_name = (TextView) view.findViewById(R.id.source_name);
         type_name = (TextView) view.findViewById(R.id.type_name);
+        source_tag = (TextView) view.findViewById(R.id.source_tag);
         music_play_img = (ImageView) view.findViewById(R.id.music_play_img);
         ad_layout = (FrameLayout) itemView.findViewById(R.id.ad_layout);
     }
 
     public void render(final Radio mAVObject) {
         ad_layout.setVisibility(View.GONE);
+        source_tag.setVisibility(View.GONE);
         if (mAVObject instanceof RadioForAd) {
             if(((RadioForAd) mAVObject).getmTXADView() != null){
                 NativeExpressADView adView = ((RadioForAd) mAVObject).getmTXADView();
@@ -89,6 +92,7 @@ public class RcXmlyRadioHomeItemViewHolder extends RecyclerView.ViewHolder {
             }
 
         } else {
+            source_tag.setVisibility(View.VISIBLE);
             title.setText(mAVObject.getRadioName());
             sub_title.setText("正在直播：" + mAVObject.getProgramName());
             source_name.setText(StringUtils.numToStrTimes(mAVObject.getRadioPlayCount()));

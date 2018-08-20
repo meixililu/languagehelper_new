@@ -56,7 +56,6 @@ import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.TranslateUtil;
 import com.messi.languagehelper.util.XFUtil;
 import com.messi.languagehelper.views.DividerItemDecoration;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
 import com.youdao.sdk.ydtranslate.Translate;
@@ -517,8 +516,8 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
     }
 
     private void setData() {
-        mDictionaryBean = (Dictionary) WXEntryActivity.dataMap.get(KeyUtil.DataMapKey);
-        WXEntryActivity.dataMap.clear();
+        mDictionaryBean = (Dictionary) Settings.dataMap.get(KeyUtil.DataMapKey);
+        Settings.dataMap.clear();
         setBean();
     }
 

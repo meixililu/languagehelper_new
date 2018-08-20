@@ -10,9 +10,9 @@ import com.avos.avoscloud.AVObject;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.TextHandlerUtil;
 import com.messi.languagehelper.util.XFYSAD;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,8 +43,8 @@ public class WordStudySummaryDetailActivity extends BaseActivity {
     }
 
     private void initData() {
-        mAVObject = (AVObject) WXEntryActivity.dataMap.get(KeyUtil.DataMapKey);
-        WXEntryActivity.dataMap.clear();
+        mAVObject = (AVObject) Settings.dataMap.get(KeyUtil.DataMapKey);
+        Settings.dataMap.clear();
         if (mAVObject == null) {
             finish();
         }

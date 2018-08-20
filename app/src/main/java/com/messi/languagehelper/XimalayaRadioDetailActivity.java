@@ -22,9 +22,9 @@ import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NotificationUtil;
+import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.StringUtils;
 import com.messi.languagehelper.util.ViewUtil;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.ximalaya.ting.android.opensdk.constants.DTransferConstants;
 import com.ximalaya.ting.android.opensdk.datatrasfer.CommonRequest;
 import com.ximalaya.ting.android.opensdk.datatrasfer.IDataCallBack;
@@ -133,8 +133,8 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
 
     private void initViews() {
         getProgramList();
-        if (WXEntryActivity.musicSrv.isPlaying()) {
-            WXEntryActivity.musicSrv.pause();
+        if (Settings.musicSrv.isPlaying()) {
+            Settings.musicSrv.pause();
         }
         loadAD();
         itemImg.setImageURI(radio.getCoverUrlLarge());

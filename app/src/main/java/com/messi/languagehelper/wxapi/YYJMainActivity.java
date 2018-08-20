@@ -12,54 +12,93 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
-import android.view.KeyEvent;
-import android.view.Menu;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.avos.avoscloud.AVAnalytics;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SpeechUtility;
+import com.messi.languagehelper.AiDialogueCourseFragment;
 import com.messi.languagehelper.BaseActivity;
-import com.messi.languagehelper.MoreActivity;
+import com.messi.languagehelper.BusinessFragment;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.adapter.MainPageAdapter;
+import com.messi.languagehelper.SpokenCourseFragment;
+import com.messi.languagehelper.YYJHomeFragment;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.AppUpdateUtil;
-import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Settings;
-import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.TranslateUtil;
+import com.messi.languagehelper.views.BottomNavigationViewHelper;
 import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
 
-import java.util.Locale;
-
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import cn.jzvd.JZVideoPlayer;
 
-public class WXEntryActivity extends BaseActivity implements FragmentProgressbarListener {
-
-	private TabLayout tablayout;
-	private ViewPager viewPager;
+public class YYJMainActivity extends BaseActivity implements FragmentProgressbarListener {
 
 	private long exitTime = 0;
 	private SharedPreferences mSharedPreferences;
 	private SpeechSynthesizer mSpeechSynthesizer;
-
 	private Intent playIntent;
+
+	@BindView(R.id.content)
+	FrameLayout content;
+	@BindView(R.id.navigation)
+	BottomNavigationView navigation;
+	private Fragment mWordHomeFragment;
+	private Fragment practiceFragment;
+	private Fragment dashboardFragment;
+	private Fragment radioHomeFragment;
+
+	private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+			= new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+		@Override
+		public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+			switch (item.getItemId()) {
+				case R.id.navigation_home:
+					hideAllFragment();
+					getSupportFragmentManager().beginTransaction().show(mWordHomeFragment).commit();;
+					AVAnalytics.onEvent(YYJMainActivity.this, "spoken_home");
+					return true;
+				case R.id.navigation_practice:
+					hideAllFragment();
+					getSupportFragmentManager().beginTransaction().show(practiceFragment).commit();;
+					AVAnalytics.onEvent(YYJMainActivity.this, "spoken_practice");
+					return true;
+				case R.id.navigation_word_study:
+					hideAllFragment();
+					getSupportFragmentManager().beginTransaction().show(dashboardFragment).commit();;
+					AVAnalytics.onEvent(YYJMainActivity.this, "spoken_course");
+					return true;
+				case R.id.navigation_vovabulary:
+					hideAllFragment();
+					getSupportFragmentManager().beginTransaction().show(radioHomeFragment).commit();;
+					AVAnalytics.onEvent(YYJMainActivity.this, "spoken_bussiness");
+					return true;
+			}
+			return false;
+		}
+
+	};
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		try {
-			setContentView(R.layout.content_frame);
-			initViews();
+			setContentView(R.layout.activity_spoken);
+			ButterKnife.bind(this);
 			initData();
+			initFragment();
 			initSDKAndPermission();
 			AppUpdateUtil.runCheckUpdateTask(this);
 		} catch (Exception e) {
@@ -72,44 +111,36 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 		mSharedPreferences = getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
 		mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
 		PlayUtil.initData(this, mSpeechSynthesizer, mSharedPreferences);
-		SystemUtil.lan = Locale.getDefault().getLanguage();
-		if (toolbar != null) {
-			getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-			getSupportActionBar().setTitle("");
-		}
 	}
 
-	private void initViews() {
-		viewPager = (ViewPager) findViewById(R.id.pager);
-		tablayout = (TabLayout) findViewById(R.id.tablayout);
-		final MainPageAdapter mAdapter = new MainPageAdapter(this.getSupportFragmentManager(),this,
-				mSharedPreferences,this);
-		if(SystemUtil.lan.equals("en")){
-			tablayout.setTabMode(TabLayout.MODE_SCROLLABLE);
-		}
-		viewPager.setAdapter(mAdapter);
-		viewPager.setOffscreenPageLimit(4);
-		tablayout.setupWithViewPager(viewPager);
-		tablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-			@Override
-			public void onTabSelected(TabLayout.Tab tab) {
-			}
-
-			@Override
-			public void onTabUnselected(TabLayout.Tab tab) {
-			}
-
-			@Override
-			public void onTabReselected(TabLayout.Tab tab) {
-				if (mAdapter != null) {
-					mAdapter.onTabReselected(tab.getPosition());
-				}
-			}
-		});
-		setLastTimeSelectTab();
+	private void initFragment() {
+		BottomNavigationViewHelper.disableShiftMode(navigation);
+		navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+		mWordHomeFragment = YYJHomeFragment.getInstance();
+		practiceFragment = AiDialogueCourseFragment.getInstance();
+		dashboardFragment = SpokenCourseFragment.getInstance();
+		radioHomeFragment = BusinessFragment.getInstance();
+		getSupportFragmentManager()
+				.beginTransaction()
+				.add(R.id.content, mWordHomeFragment)
+				.add(R.id.content, practiceFragment)
+				.add(R.id.content, dashboardFragment)
+				.add(R.id.content, radioHomeFragment)
+				.commit();
+		hideAllFragment();
+		getSupportFragmentManager()
+				.beginTransaction().show(mWordHomeFragment).commit();
 	}
 
-
+	private void hideAllFragment(){
+		getSupportFragmentManager()
+				.beginTransaction()
+				.hide(dashboardFragment)
+				.hide(practiceFragment)
+				.hide(radioHomeFragment)
+				.hide(mWordHomeFragment)
+				.commit();
+	}
 
 	private void initPermissions(){
 		if (Build.VERSION.SDK_INT >= 23) {
@@ -160,43 +191,6 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 		}
 	}
 
-	private void setLastTimeSelectTab() {
-		int index = mSharedPreferences.getInt(KeyUtil.LastTimeSelectTab, 0);
-		viewPager.setCurrentItem(index);
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-			case R.id.action_more:
-				toMoreActivity();
-				break;
-		}
-		return true;
-	}
-
-	private void toMoreActivity() {
-		Intent intent = new Intent(this, MoreActivity.class);
-		startActivity(intent);
-		AVAnalytics.onEvent(this, "index_pg_to_morepg");
-	}
-
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		switch (keyCode) {
-			case KeyEvent.KEYCODE_MENU:
-				toMoreActivity();
-				return true;
-		}
-		return super.onKeyDown(keyCode, event);
-	}
-
 	@Override
 	public void onBackPressed() {
 		if ((System.currentTimeMillis() - exitTime) > 2000) {
@@ -207,16 +201,9 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 		}
 	}
 
-	private void saveSelectTab() {
-		int index = viewPager.getCurrentItem();
-		LogUtil.DefalutLog("WXEntryActivity---onDestroy---saveSelectTab---index:" + index);
-		Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.LastTimeSelectTab, index);
-	}
-
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		saveSelectTab();
 		TranslateUtil.saveTranslateApiOrder(mSharedPreferences);
 		JZVideoPlayer.releaseAllVideos();
 		PlayUtil.onDestroy();
@@ -227,11 +214,5 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 		XmPlayerManager.getInstance(this).release();
 		Settings.musicSrv = null;
 	}
-
-
-
-
-
-
 
 }

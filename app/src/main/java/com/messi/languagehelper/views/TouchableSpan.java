@@ -3,8 +3,6 @@ package com.messi.languagehelper.views;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.util.NetworkUtil;
 import com.messi.languagehelper.util.StringUtils;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
-import com.messi.languagehelper.DictionaryFragment;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.dao.Dictionary;
 import com.messi.languagehelper.dialog.TranslateResultDialog;
@@ -148,8 +146,8 @@ public class TouchableSpan extends ClickableSpan {// extend ClickableSpan
 	}
 	
 	private void setData(){
-		Dictionary bean = (Dictionary) WXEntryActivity.dataMap.get(KeyUtil.DataMapKey);
-		WXEntryActivity.dataMap.clear();
+		Dictionary bean = (Dictionary) Settings.dataMap.get(KeyUtil.DataMapKey);
+		Settings.dataMap.clear();
 		showDialog(bean);
 	}
 

@@ -37,9 +37,9 @@ import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.util.TextHandlerUtil;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.qq.e.ads.nativ.NativeExpressAD;
 import com.qq.e.ads.nativ.NativeExpressADView;
 
@@ -157,10 +157,10 @@ public class ReadingVideoDetailActivity extends BaseActivity {
 
     private void initData() {
         mSharedPreferences = this.getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
-        mAVObjects = (List<Reading>) WXEntryActivity.dataMap.get(KeyUtil.DataMapKey);
+        mAVObjects = (List<Reading>) Settings.dataMap.get(KeyUtil.DataMapKey);
         index = getIntent().getIntExtra(KeyUtil.IndexKey, 0);
         mAVObject = mAVObjects.get(index);
-        WXEntryActivity.dataMap.clear();
+        Settings.dataMap.clear();
         if (mAVObject == null) {
             finish();
         }

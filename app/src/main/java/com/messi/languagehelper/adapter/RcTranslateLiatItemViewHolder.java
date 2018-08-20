@@ -18,14 +18,12 @@ import com.avos.avoscloud.AVAnalytics;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.util.PlayUtil;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.messi.languagehelper.PracticeActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.dao.record;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.util.AudioTrackUtil;
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.ToastUtil;
@@ -164,7 +162,7 @@ public class RcTranslateLiatItemViewHolder extends RecyclerView.ViewHolder {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context,PracticeActivity.class);
-                WXEntryActivity.dataMap.put(KeyUtil.DialogBeanKey, mBean);
+                Settings.dataMap.put(KeyUtil.DialogBeanKey, mBean);
                 context.startActivity(intent);
                 AVAnalytics.onEvent(context, "tab1_tran_to_practicepg");
             }

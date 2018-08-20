@@ -18,7 +18,7 @@ import com.messi.languagehelper.BaseActivity;
 import com.messi.languagehelper.WordStudyViewAllActivity;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.SaveData;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
+import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.bean.WordListItem;
 import com.messi.languagehelper.util.KeyUtil;
@@ -78,7 +78,7 @@ public class WordBookListAdapter extends BaseAdapter {
 
     private void onItemClick(WordListItem mAVObject) {
         if(TextUtils.isEmpty(play_sign)){
-            WXEntryActivity.dataMap.put(KeyUtil.DataMapKey, mAVObject);
+            Settings.dataMap.put(KeyUtil.DataMapKey, mAVObject);
             Intent intent = new Intent(context, WordStudyViewAllActivity.class);
             intent.putExtra(KeyUtil.ActionbarTitle, mAVObject.getTitle());
             context.startActivity(intent);

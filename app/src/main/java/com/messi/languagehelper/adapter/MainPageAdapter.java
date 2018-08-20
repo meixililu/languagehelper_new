@@ -2,7 +2,6 @@ package com.messi.languagehelper.adapter;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -18,6 +17,7 @@ import com.messi.languagehelper.StudyCategoryFragment;
 import com.messi.languagehelper.StudyFragment;
 import com.messi.languagehelper.XmlyMainForYWCDFragment;
 import com.messi.languagehelper.XmlyMainForYYSFragment;
+import com.messi.languagehelper.YYJHomeFragment;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.Settings;
@@ -25,18 +25,16 @@ import com.messi.languagehelper.util.Settings;
 public class MainPageAdapter extends FragmentPagerAdapter {
 
 	public static String[] CONTENT;
-	private Bundle bundle;
 	private Activity mContext;
 	private SharedPreferences mSharedPreferences;
     private StudyFragment mfragment;
     private FragmentProgressbarListener listener;
 
-    public MainPageAdapter(FragmentManager fm,Bundle bundle,Activity mContext,
+    public MainPageAdapter(FragmentManager fm,Activity mContext,
                            SharedPreferences mSharedPreferences,
                            FragmentProgressbarListener listener) {
         super(fm);
         this.mContext = mContext;
-        this.bundle = bundle;
         this.listener = listener;
         this.mSharedPreferences = mSharedPreferences;
         if(mContext.getApplication().getPackageName().equals(Settings.application_id_yyj) ||
@@ -82,11 +80,7 @@ public class MainPageAdapter extends FragmentPagerAdapter {
             }else if( position == 1 ){
                 return StudyCategoryFragment.getInstance();
             }else if( position == 2 ){
-                if(mSharedPreferences.getBoolean(KeyUtil.IsUseOldStyle,true)){
-                    return MainFragmentYWCD.getInstance(listener);
-                }else {
-                    return MainFragment.getInstance(listener);
-                }
+                return YYJHomeFragment.getInstance();
             }else if( position == 3 ){
                 return LeisureFragment.getInstance();
             }

@@ -9,6 +9,7 @@ import android.widget.FrameLayout;
 
 import com.avos.avoscloud.AVAnalytics;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
+import com.messi.languagehelper.views.BottomNavigationViewHelper;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -65,6 +66,7 @@ public class SpokenActivity extends BaseActivity implements FragmentProgressbarL
     }
 
     private void initFragment(){
+        BottomNavigationViewHelper.disableShiftMode(navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         mWordHomeFragment = SpokenHomeFragment.getInstance();
         practiceFragment = AiDialogueCourseFragment.getInstance();

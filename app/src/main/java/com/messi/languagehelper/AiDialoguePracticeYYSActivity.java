@@ -39,7 +39,6 @@ import com.messi.languagehelper.util.ScoreUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -553,7 +552,7 @@ public class AiDialoguePracticeYYSActivity extends BaseActivity implements View.
     @OnClick(R.id.start_to_fight)
     public void onViewClicked() {
         initData();
-        WXEntryActivity.dataMap.put("avObjects",avObjects);
+        Settings.dataMap.put("avObjects",avObjects);
         toActivity(AiDialogueFightYYSActivity.class,null);
     }
 

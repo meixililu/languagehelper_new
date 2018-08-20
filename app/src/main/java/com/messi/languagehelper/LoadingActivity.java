@@ -31,6 +31,7 @@ import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
+import com.messi.languagehelper.wxapi.YYJMainActivity;
 import com.qq.e.ads.splash.SplashADListener;
 
 import java.util.ArrayList;
@@ -265,7 +266,12 @@ public class LoadingActivity extends AppCompatActivity {
     }
 
     private void toNextPage() {
-        Intent intent = new Intent(LoadingActivity.this, WXEntryActivity.class);
+        Class mclass = WXEntryActivity.class;
+        if(getPackageName().equals(Settings.application_id_yyj) ||
+                getPackageName().equals(Settings.application_id_yyj_google)){
+            mclass = YYJMainActivity.class;
+        }
+        Intent intent = new Intent(LoadingActivity.this, mclass);
         startActivity(intent);
         finish();
     }

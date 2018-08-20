@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
@@ -18,15 +16,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVAnalytics;
-import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechError;
-import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.PracticeActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.dao.record;
 import com.messi.languagehelper.db.DataBaseUtil;
-import com.messi.languagehelper.task.MyThread;
 import com.messi.languagehelper.util.AudioTrackUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -34,8 +29,6 @@ import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.ToastUtil;
-import com.messi.languagehelper.util.XFUtil;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
 
 import java.util.List;
 
@@ -164,7 +157,7 @@ public class RcCollectTranslateLiatItemViewHolder extends RecyclerView.ViewHolde
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, PracticeActivity.class);
-                WXEntryActivity.dataMap.put(KeyUtil.DialogBeanKey, mBean);
+                Settings.dataMap.put(KeyUtil.DialogBeanKey, mBean);
                 context.startActivity(intent);
                 AVAnalytics.onEvent(context, "collect_tran_to_practicepg");
             }

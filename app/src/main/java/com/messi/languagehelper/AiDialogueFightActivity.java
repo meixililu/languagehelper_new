@@ -41,7 +41,6 @@ import com.messi.languagehelper.util.ScoreUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.util.List;
@@ -128,8 +127,8 @@ public class AiDialogueFightActivity extends BaseActivity implements View.OnClic
         mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
         recognizer = SpeechRecognizer.createRecognizer(this, null);
         mPlayer = new MediaPlayer();
-        avObjects = (List<AVObject>) WXEntryActivity.dataMap.get("avObjects");
-        WXEntryActivity.dataMap.clear();
+        avObjects = (List<AVObject>) Settings.dataMap.get("avObjects");
+        Settings.dataMap.clear();
 
         studylist_lv = (RecyclerView) findViewById(R.id.listview);
         mAdapter = new RcAiDialoguePracticeAdapter(avObjects, this);

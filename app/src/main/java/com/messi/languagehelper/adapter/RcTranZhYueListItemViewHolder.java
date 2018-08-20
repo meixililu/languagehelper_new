@@ -28,7 +28,6 @@ import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
 
 import java.util.List;
 
@@ -164,7 +163,7 @@ public class RcTranZhYueListItemViewHolder extends RecyclerView.ViewHolder {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context,PracticeYYSActivity.class);
-                WXEntryActivity.dataMap.put(KeyUtil.DialogBeanKey, mBean);
+                Settings.dataMap.put(KeyUtil.DialogBeanKey, mBean);
                 context.startActivity(intent);
                 AVAnalytics.onEvent(context, "tab1_tran_to_practicepg");
             }

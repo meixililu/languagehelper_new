@@ -3,7 +3,7 @@ package com.messi.languagehelper.adapter;
 import java.util.List;
 
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
+import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.WordStudyThirdActivity;
 import com.messi.languagehelper.bean.WordListType;
@@ -87,7 +87,7 @@ public class WordStudySecondAdapter extends BaseAdapter {
 	}
 
 	private void onItemClick(WordListType mAVObject){
-		WXEntryActivity.dataMap.put(KeyUtil.DataMapKey, mAVObject.getItemList());
+		Settings.dataMap.put(KeyUtil.DataMapKey, mAVObject.getItemList());
 		Intent intent = new Intent(context,WordStudyThirdActivity.class);
 		if(!TextUtils.isEmpty(play_sign)){
 			intent.putExtra(KeyUtil.WordStudyPlan, play_sign);

@@ -28,10 +28,12 @@ import com.messi.languagehelper.ImgShareActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.dialog.PopDialog;
 import com.messi.languagehelper.dialog.PopDialog.PopViewItemOnclickListener;
+import com.messi.languagehelper.service.PlayerService;
 import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Permission;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
@@ -153,8 +155,10 @@ public class Settings {
 	public static String[] PERMISSIONS_RECORD_AUDIO = {
 			Manifest.permission.RECORD_AUDIO
 	};
+    public static HashMap<String, Object> dataMap = new HashMap<String, Object>();
+    public static PlayerService musicSrv;
 
-	/**is today already do something
+    /**is today already do something
 	 * @param mSharedPreferences
 	 * @return
 	 */

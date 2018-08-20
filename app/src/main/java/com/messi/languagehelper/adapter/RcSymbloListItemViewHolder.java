@@ -2,25 +2,14 @@ package com.messi.languagehelper.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVFile;
-import com.avos.avoscloud.AVObject;
-import com.bumptech.glide.Glide;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.iflytek.voiceads.NativeADDataRef;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
+import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.ReadingDetailActivity;
 import com.messi.languagehelper.SymbolDetailActivity;
 import com.messi.languagehelper.dao.SymbolListDao;
-import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 
 import java.util.List;
@@ -58,7 +47,7 @@ public class RcSymbloListItemViewHolder extends RecyclerView.ViewHolder {
     }
 
     private void onItemClick(SymbolListDao mAVObject){
-        WXEntryActivity.dataMap.put(KeyUtil.DataMapKey, mAVObject);
+        Settings.dataMap.put(KeyUtil.DataMapKey, mAVObject);
         Intent intent = new Intent(context,SymbolDetailActivity.class);
         intent.putExtra(KeyUtil.ActionbarTitle, mAVObject.getSDDes() + mAVObject.getSDName());
         context.startActivity(intent);

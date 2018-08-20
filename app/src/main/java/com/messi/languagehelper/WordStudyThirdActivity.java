@@ -9,8 +9,8 @@ import com.messi.languagehelper.adapter.WordBookListAdapter;
 import com.messi.languagehelper.bean.WordListItem;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.XFYSAD;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
 
 import java.util.List;
 
@@ -32,9 +32,9 @@ public class WordStudyThirdActivity extends BaseActivity {
     }
 
     private void initViews() {
-        child_list = (List<WordListItem>) WXEntryActivity.dataMap.get(KeyUtil.DataMapKey);
+        child_list = (List<WordListItem>) Settings.dataMap.get(KeyUtil.DataMapKey);
         play_sign = getIntent().getStringExtra(KeyUtil.WordStudyPlan);
-        WXEntryActivity.dataMap.clear();
+        Settings.dataMap.clear();
         if (child_list != null) {
             category_lv = (ListView) findViewById(R.id.studycategory_lv);
             View headerView = LayoutInflater.from(this).inflate(R.layout.xunfei_ysad_item, null);

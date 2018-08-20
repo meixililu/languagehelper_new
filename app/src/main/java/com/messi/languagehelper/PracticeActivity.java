@@ -42,7 +42,6 @@ import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.StringUtils;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.Animator.AnimatorListener;
 import com.nineoldandroids.animation.ObjectAnimator;
@@ -214,7 +213,7 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
     }
 
     private void initData() {
-        mBean = (record) WXEntryActivity.dataMap.get(KeyUtil.DialogBeanKey);
+        mBean = (record) Settings.dataMap.get(KeyUtil.DialogBeanKey);
         isNeedDelete = getIntent().getBooleanExtra(KeyUtil.IsNeedDelete, false);
         isEnglish = StringUtils.isEnglish(mBean.getEnglish());
         mUserSpeakBeanList = new ArrayList<UserSpeakBean>();

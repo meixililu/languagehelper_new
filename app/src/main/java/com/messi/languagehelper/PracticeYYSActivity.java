@@ -40,7 +40,6 @@ import com.messi.languagehelper.util.ScoreUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.Animator.AnimatorListener;
 import com.nineoldandroids.animation.ObjectAnimator;
@@ -212,7 +211,7 @@ public class PracticeYYSActivity extends BaseActivity implements OnClickListener
     }
 
     private void initData() {
-        mBean = (TranResultZhYue) WXEntryActivity.dataMap.get(KeyUtil.DialogBeanKey);
+        mBean = (TranResultZhYue) Settings.dataMap.get(KeyUtil.DialogBeanKey);
         isNeedDelete = getIntent().getBooleanExtra(KeyUtil.IsNeedDelete, false);
         if(mBean.getBackup3().equals(Settings.yue)){
             isCantonese = true;

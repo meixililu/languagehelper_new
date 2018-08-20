@@ -1,5 +1,6 @@
 package com.messi.languagehelper.http;
 
+import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
 
@@ -15,7 +16,6 @@ import com.messi.languagehelper.util.MD5;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.StringUtils;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
 
 import java.io.File;
 import java.io.IOException;
@@ -213,7 +213,7 @@ public class LanguagehelperHttpClient {
 		return executePost(request,mCallback);
 	}
 
-	public static void postBaiduOCR(Context context, String path, Callback mCallback) {
+	public static void postBaiduOCR(Activity context, String path, Callback mCallback) {
 		try {
 			String BaiduAccessToken = PlayUtil.getSP().getString(KeyUtil.BaiduAccessToken,"");
 			long BaiduAccessTokenExpires = PlayUtil.getSP().getLong(KeyUtil.BaiduAccessTokenExpires,(long)0);
@@ -243,13 +243,13 @@ public class LanguagehelperHttpClient {
 		}
 	}
 
-	public static void getBaiduAccessToken(final Context context,final String path,final Callback mCallback){
+	public static void getBaiduAccessToken(final Activity context,final String path,final Callback mCallback){
 		FormBody formBody = new FormBody.Builder()
 				.add("grant_type", "client_credentials")
 				.add("client_id", Settings.BaiduORCAK)
 				.add("client_secret", Settings.BaiduORCSK)
 				.build();
-		post(Settings.BaiduAccessToken,  formBody ,new UICallback(WXEntryActivity.mInstance){
+		post(Settings.BaiduAccessToken,  formBody ,new UICallback(context){
 			@Override
 			public void onFailured() {
 			}

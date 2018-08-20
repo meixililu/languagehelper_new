@@ -20,10 +20,10 @@ import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NotificationUtil;
+import com.messi.languagehelper.util.Settings;
 import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.util.TimeUtil;
 import com.messi.languagehelper.util.ToastUtil;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.qq.e.ads.nativ.NativeExpressAD;
 import com.qq.e.ads.nativ.NativeExpressADView;
 import com.ximalaya.ting.android.opensdk.model.PlayableModel;
@@ -103,7 +103,7 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
     private void initData() {
         seekbar.setOnSeekBarChangeListener(this);
         position = getIntent().getIntExtra(KeyUtil.PositionKey, 10);
-        trackList = (List<Track>) WXEntryActivity.dataMap.get(KeyUtil.List);
+        trackList = (List<Track>) Settings.dataMap.get(KeyUtil.List);
         currentTrack = trackList.get(position);
         setListPlayStatus();
         if (XmPlayerManager.getInstance(this).isPlaying()) {
@@ -161,8 +161,8 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
     }
 
     private void initViews() {
-        if(WXEntryActivity.musicSrv.isPlaying()){
-            WXEntryActivity.musicSrv.pause();
+        if(Settings.musicSrv.isPlaying()){
+            Settings.musicSrv.pause();
         }
         loadAD();
         itemImg.setImageURI(currentTrack.getCoverUrlLarge());

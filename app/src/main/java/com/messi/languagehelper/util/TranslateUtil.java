@@ -25,7 +25,6 @@ import com.messi.languagehelper.http.BgCallback;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.impl.OnTranZhYueFinishListener;
 import com.messi.languagehelper.impl.OnTranslateFinishListener;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.youdao.localtransengine.EnLineTranslator;
 import com.youdao.localtransengine.LanguageConvert;
 import com.youdao.sdk.ydtranslate.EnWordTranslator;
@@ -148,7 +147,7 @@ public class TranslateUtil {
 										&& mRoot.getShowapi_res_body() != null
 										&& mRoot.getShowapi_res_body().getRet_code() != -1) {
 									Dictionary mDictionaryBean = JsonParser.changeShowapiResultToDicBean(mRoot,Settings.q);
-									WXEntryActivity.dataMap.put(KeyUtil.DataMapKey, mDictionaryBean);
+									Settings.dataMap.put(KeyUtil.DataMapKey, mDictionaryBean);
 									sendMessage(mHandler,1);
 								}else{
 									Translate(mActivity,mHandler);
@@ -194,7 +193,7 @@ public class TranslateUtil {
 								DictionaryRootJuhe mRoot = new Gson().fromJson(responseString, DictionaryRootJuhe.class);
 								if (mRoot != null && mRoot.getError_code() == 0 && mRoot.getResult() != null) {
 									Dictionary mDictionaryBean = JsonParser.changeJuheResultToDicBean(mRoot,Settings.q);
-									WXEntryActivity.dataMap.put(KeyUtil.DataMapKey, mDictionaryBean);
+									Settings.dataMap.put(KeyUtil.DataMapKey, mDictionaryBean);
 									sendMessage(mHandler,1);
 								}else{
 									Translate(mActivity,mHandler);
@@ -232,7 +231,7 @@ public class TranslateUtil {
 						if (!TextUtils.isEmpty(responseString)) {
 							Dictionary mDictionary = getParseYoudaoWebHtml(responseString);
 							if (mDictionary != null) {
-								WXEntryActivity.dataMap.put(KeyUtil.DataMapKey, mDictionary);
+								Settings.dataMap.put(KeyUtil.DataMapKey, mDictionary);
 								sendMessage(mHandler,1);
 							}else{
 								Translate(mActivity,mHandler);
@@ -449,7 +448,7 @@ public class TranslateUtil {
 						if (!TextUtils.isEmpty(responseString)) {
 							Dictionary mDictionary = getParseBingyingWebHtml(responseString);
 							if (mDictionary != null) {
-								WXEntryActivity.dataMap.put(KeyUtil.DataMapKey, mDictionary);
+								Settings.dataMap.put(KeyUtil.DataMapKey, mDictionary);
 								sendMessage(mHandler,1);
 							}else{
 								Translate(mActivity,mHandler);
@@ -665,7 +664,7 @@ public class TranslateUtil {
 								mDictionaryBean.setWord_name(Settings.q);
 								mDictionaryBean.setResult(dstString);
 								DataBaseUtil.getInstance().insert(mDictionaryBean);
-								WXEntryActivity.dataMap.put(KeyUtil.DataMapKey, mDictionaryBean);
+								Settings.dataMap.put(KeyUtil.DataMapKey, mDictionaryBean);
 								sendMessage(mHandler,1);
 							}
 						} else {
