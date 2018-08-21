@@ -29,7 +29,7 @@
                 app:tabTextColor="@color/white_alph_unselect"
                 app:tabTextAppearance="@style/TabLayoutTextStyle"
                 android:layout_marginLeft="@dimen/padding_5"
-                android:background="@color/load_blue" />
+                android:background="?attr/colorPrimary" />
             <LinearLayout
                 android:layout_width="20dp"
                 android:layout_height="20dp"

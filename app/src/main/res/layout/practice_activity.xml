@@ -28,7 +28,7 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="@color/load_blue"
+            android:background="?attr/colorPrimary"
             android:orientation="vertical" >
 
                 <FrameLayout
@@ -148,7 +148,7 @@
                     android:id="@+id/voice_btn"
                     android:layout_width="match_parent"
                     android:layout_height="47dp"
-                    android:background="@color/load_blue"
+                    android:background="?attr/colorPrimary"
                     android:textColor="@color/white"
                     android:gravity="center"
                     android:textStyle="bold"
