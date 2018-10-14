@@ -8,10 +8,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
@@ -40,7 +43,7 @@ import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
 
 import java.util.Locale;
 
-import cn.jzvd.JZVideoPlayer;
+import cn.jzvd.Jzvd;
 
 public class WXEntryActivity extends BaseActivity implements FragmentProgressbarListener {
 
@@ -58,8 +61,8 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 		super.onCreate(savedInstanceState);
 		try {
 			setContentView(R.layout.content_frame);
-			initViews();
 			initData();
+			initViews();
 			initSDKAndPermission();
 			AppUpdateUtil.runCheckUpdateTask(this);
 		} catch (Exception e) {
@@ -109,8 +112,6 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 		setLastTimeSelectTab();
 	}
 
-
-
 	private void initPermissions(){
 		if (Build.VERSION.SDK_INT >= 23) {
 			checkAndRequestPermission();
@@ -123,8 +124,6 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 	}
 
 	private void initSDKAndPermission(){
-		LogUtil.DefalutLog("main---initXimalayaSDK");
-
 		new Handler().postDelayed(new Runnable() {
 			@Override
 			public void run() {
@@ -218,7 +217,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 		super.onDestroy();
 		saveSelectTab();
 		TranslateUtil.saveTranslateApiOrder(mSharedPreferences);
-		JZVideoPlayer.releaseAllVideos();
+		Jzvd.releaseAllVideos();
 		PlayUtil.onDestroy();
 		if (playIntent != null) {
 			stopService(playIntent);
@@ -228,6 +227,30 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 		Settings.musicSrv = null;
 	}
 
+	@Override
+	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+		switch (requestCode) {
+			case 10010:
+				if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+					AppUpdateUtil.checkUpdate(this);
+				} else {
+					Uri packageURI = Uri.parse("package:"+this.getPackageName());
+					Intent intent = new Intent(android.provider.Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES,packageURI);
+					startActivityForResult(intent, 10086);
+				}
+				break;
+
+		}
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (resultCode == RESULT_OK && requestCode == 10086) {
+			AppUpdateUtil.checkUpdate(this);
+		}
+	}
 
 
 

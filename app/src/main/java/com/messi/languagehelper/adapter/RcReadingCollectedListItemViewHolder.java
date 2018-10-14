@@ -24,7 +24,8 @@ import com.messi.languagehelper.util.Settings;
 
 import java.util.List;
 
-import cn.jzvd.JZVideoPlayerStandard;
+import cn.jzvd.Jzvd;
+import cn.jzvd.JzvdStd;
 
 /**
  * Created by luli on 10/23/16.
@@ -39,7 +40,7 @@ public class RcReadingCollectedListItemViewHolder extends RecyclerView.ViewHolde
     private final ImageView music_play_img;
     private final FrameLayout list_item_img_parent;
     private final SimpleDraweeView list_item_img;
-    private final JZVideoPlayerStandard videoplayer;
+    private final JzvdStd videoplayer;
     private Fragment context;
     private List<Reading> avObjects;
 
@@ -54,7 +55,7 @@ public class RcReadingCollectedListItemViewHolder extends RecyclerView.ViewHolde
         source_name = (TextView) itemView.findViewById(R.id.source_name);
         music_play_img = (ImageView) itemView.findViewById(R.id.music_play_img);
         list_item_img = (SimpleDraweeView) itemView.findViewById(R.id.list_item_img);
-        videoplayer = (JZVideoPlayerStandard) itemView.findViewById(R.id.videoplayer);
+        videoplayer = (JzvdStd) itemView.findViewById(R.id.videoplayer);
     }
 
     public void render(final Reading mAVObject) {
@@ -67,7 +68,7 @@ public class RcReadingCollectedListItemViewHolder extends RecyclerView.ViewHolde
                 videoplayer.setVisibility(View.VISIBLE);
                 list_item_img_parent.setVisibility(View.GONE);
                 list_item_img.setVisibility(View.GONE);
-                videoplayer.setUp(mAVObject.getMedia_url(), JZVideoPlayerStandard.SCREEN_WINDOW_LIST, "");
+                videoplayer.setUp(mAVObject.getMedia_url(), "",Jzvd.SCREEN_WINDOW_LIST);
                 if (!TextUtils.isEmpty(mAVObject.getImg_url())) {
                     Glide.with(context)
                             .load(mAVObject.getImg_url())

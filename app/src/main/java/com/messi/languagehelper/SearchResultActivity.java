@@ -28,8 +28,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import cn.jzvd.JZVideoPlayer;
-
 public class SearchResultActivity extends BaseActivity{
 
 	private RecyclerView listview;
@@ -262,25 +260,11 @@ public class SearchResultActivity extends BaseActivity{
 	}
 
 	@Override
-	public void onBackPressed() {
-		if (JZVideoPlayer.backPress()) {
-			return;
-		}
-		super.onBackPressed();
-	}
-
-	@Override
 	protected void onResume() {
 		super.onResume();
 		if(mAdapter != null){
 			mAdapter.notifyDataSetChanged();
 		}
-	}
-
-	@Override
-	protected void onPause() {
-		super.onPause();
-		JZVideoPlayer.releaseAllVideos();
 	}
 
 	@Override

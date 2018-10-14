@@ -272,10 +272,7 @@ public class LanguagehelperHttpClient {
 	}
 	
 	public static OkHttpClient addProgressResponseListener(final ProgressListener progressListener){
-        //克隆
-		OkHttpClient clone = new OkHttpClient();
-		// 增加拦截器
-		clone.networkInterceptors().add(new Interceptor() {
+		OkHttpClient clone = new OkHttpClient.Builder().addNetworkInterceptor(new Interceptor() {
 			@Override
 			public Response intercept(Chain chain) throws IOException {
 				// 拦截
@@ -286,8 +283,8 @@ public class LanguagehelperHttpClient {
 						.body(new ProgressResponseBody(originalResponse.body(), progressListener))
 						.build();
 			}
-		});
-        return clone;
+		}).build();
+		return clone;
     }
 
 	public static String getBaiduTranslateSign(long salt) {

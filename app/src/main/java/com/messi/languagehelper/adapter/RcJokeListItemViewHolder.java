@@ -25,7 +25,7 @@ import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.StringUtils;
 import com.qq.e.ads.nativ.NativeExpressADView;
 
-import cn.jzvd.JZVideoPlayerStandard;
+import cn.jzvd.JzvdStd;
 
 /**
  * Created by luli on 10/23/16.
@@ -37,7 +37,7 @@ public class RcJokeListItemViewHolder extends RecyclerView.ViewHolder {
     private SimpleDraweeView list_item_img;
     private LinearLayout layout_cover;
     private FrameLayout ad_layout;
-    private JZVideoPlayerStandard videoplayer;
+    private JzvdStd videoplayer;
     private Context context;
 
     public RcJokeListItemViewHolder(View convertView) {
@@ -46,7 +46,7 @@ public class RcJokeListItemViewHolder extends RecyclerView.ViewHolder {
         des = (TextView) convertView.findViewById(R.id.des);
         list_item_img = (SimpleDraweeView) convertView.findViewById(R.id.list_item_img);
         ad_layout = (FrameLayout) convertView.findViewById(R.id.ad_layout);
-        videoplayer = (JZVideoPlayerStandard) convertView.findViewById(R.id.videoplayer);
+        videoplayer = (JzvdStd) convertView.findViewById(R.id.videoplayer);
     }
 
     //		type 1 img; 2 gif; 3 gif; 4 video; 5 text; 6 url；
@@ -82,7 +82,7 @@ public class RcJokeListItemViewHolder extends RecyclerView.ViewHolder {
                 }else if(mAVObject.getString(AVOUtil.Joke.type).equals("4")){
                     videoplayer.setVisibility(View.VISIBLE);
                     videoplayer.setUp(mAVObject.getString(AVOUtil.Joke.video_url),
-                            JZVideoPlayerStandard.SCREEN_WINDOW_LIST,"");
+                            "",JzvdStd.SCREEN_WINDOW_LIST);
                     if(!TextUtils.isEmpty(mAVObject.getString(AVOUtil.Joke.img))){
                         Glide.with(context)
                                 .load(mAVObject.getString(AVOUtil.Joke.img))

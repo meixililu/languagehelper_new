@@ -25,13 +25,13 @@ import com.messi.languagehelper.util.Settings;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import cn.jzvd.JZVideoPlayer;
-import cn.jzvd.JZVideoPlayerStandard;
+import cn.jzvd.Jzvd;
+import cn.jzvd.JzvdStd;
 
 public class SymbolDetailActivity extends BaseActivity implements OnClickListener {
 
     @BindView(R.id.videoplayer)
-    JZVideoPlayerStandard videoplayer;
+    JzvdStd videoplayer;
     @BindView(R.id.symbol_en)
     TextView symbol_en;
     @BindView(R.id.symbol_des)
@@ -96,7 +96,7 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
             symbol_info.setText(avObject.getSDInfo());
             if(!TextUtils.isEmpty(avObject.getBackup1())){
                 videoplayer.setVisibility(View.VISIBLE);
-                videoplayer.setUp(avObject.getBackup1(),JZVideoPlayerStandard.SCREEN_WINDOW_LIST,"");
+                videoplayer.setUp(avObject.getBackup1(),"",JzvdStd.SCREEN_WINDOW_LIST);
                 if (!TextUtils.isEmpty(avObject.getBackup2())) {
                     Glide.with(this)
                             .load(avObject.getBackup2())
@@ -231,7 +231,7 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
 
     @Override
     public void onBackPressed() {
-        if (JZVideoPlayer.backPress()) {
+        if (Jzvd.backPress()) {
             return;
         }
         super.onBackPressed();
@@ -240,7 +240,7 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
     @Override
     protected void onPause() {
         super.onPause();
-        JZVideoPlayer.releaseAllVideos();
+        Jzvd.releaseAllVideos();
     }
 
     @Override

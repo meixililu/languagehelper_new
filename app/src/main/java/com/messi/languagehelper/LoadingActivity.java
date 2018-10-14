@@ -207,6 +207,11 @@ public class LoadingActivity extends AppCompatActivity {
                             }
                         }
                     }
+
+                    @Override
+                    public void onADExposure() {
+
+                    }
                 });
     }
 

@@ -10,7 +10,7 @@ import com.avos.avoscloud.AVAnalytics;
 import com.messi.languagehelper.adapter.GrammarAdapter;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 
-import cn.jzvd.JZVideoPlayer;
+import cn.jzvd.Jzvd;
 public class GrammarActivity extends BaseActivity implements FragmentProgressbarListener {
 
     private TabLayout tablayout;
@@ -58,7 +58,7 @@ public class GrammarActivity extends BaseActivity implements FragmentProgressbar
 
     @Override
     public void onBackPressed() {
-        if (JZVideoPlayer.backPress()) {
+        if (Jzvd.backPress()) {
             return;
         }
         super.onBackPressed();
@@ -67,7 +67,7 @@ public class GrammarActivity extends BaseActivity implements FragmentProgressbar
     @Override
     protected void onPause() {
         super.onPause();
-        JZVideoPlayer.releaseAllVideos();
+        Jzvd.releaseAllVideos();
     }
 }
 

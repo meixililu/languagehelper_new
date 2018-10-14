@@ -34,7 +34,7 @@ import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.jzvd.JZVideoPlayer;
+import cn.jzvd.Jzvd;
 
 public class ReadingsBySubjectActivity extends BaseActivity{
 
@@ -379,7 +379,7 @@ public class ReadingsBySubjectActivity extends BaseActivity{
 
 	@Override
 	public void onBackPressed() {
-		if (JZVideoPlayer.backPress()) {
+		if (Jzvd.backPress()) {
 			return;
 		}
 		super.onBackPressed();
@@ -396,7 +396,7 @@ public class ReadingsBySubjectActivity extends BaseActivity{
 	@Override
 	protected void onPause() {
 		super.onPause();
-		JZVideoPlayer.releaseAllVideos();
+		Jzvd.releaseAllVideos();
 	}
 
 	@Override

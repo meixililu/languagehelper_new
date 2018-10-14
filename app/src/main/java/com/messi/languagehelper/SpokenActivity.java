@@ -2,6 +2,7 @@ package com.messi.languagehelper;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.bottomnavigation.LabelVisibilityMode;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.view.MenuItem;
@@ -9,7 +10,6 @@ import android.widget.FrameLayout;
 
 import com.avos.avoscloud.AVAnalytics;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
-import com.messi.languagehelper.views.BottomNavigationViewHelper;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -66,7 +66,7 @@ public class SpokenActivity extends BaseActivity implements FragmentProgressbarL
     }
 
     private void initFragment(){
-        BottomNavigationViewHelper.disableShiftMode(navigation);
+        navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         mWordHomeFragment = SpokenHomeFragment.getInstance();
         practiceFragment = AiDialogueCourseFragment.getInstance();

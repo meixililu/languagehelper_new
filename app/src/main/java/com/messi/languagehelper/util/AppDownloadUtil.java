@@ -1,20 +1,25 @@
 package com.messi.languagehelper.util;
 
+import android.Manifest;
+import android.app.Activity;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationCompat.Builder;
 import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
 
 import com.avos.avoscloud.AVObject;
+import com.messi.languagehelper.InstallActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.impl.ProgressListener;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,7 +28,7 @@ import okhttp3.Response;
 
 public class AppDownloadUtil {
 
-	private Context mContext;
+	private Activity mContext;
 	private int record = -2;
 	private String url;
 	private String ContentTitle;
@@ -35,7 +40,7 @@ public class AppDownloadUtil {
 	private NotificationManager mNotifyManager;
 	private Builder mBuilder;
 	
-	public AppDownloadUtil(Context mContext, String url, String appName, String AVObjectId, String path){
+	public AppDownloadUtil(Activity mContext, String url, String appName, String AVObjectId, String path){
 		this.mContext = mContext;
 		this.url = url;
 		this.ContentTitle = appName + "下载通知";
@@ -54,16 +59,23 @@ public class AppDownloadUtil {
 				@Override
 				public void run() {
 					mNotifyManager  = (NotificationManager)mContext.getSystemService(Context.NOTIFICATION_SERVICE);
-					mBuilder = new Builder(mContext);
-					mBuilder.setContentTitle(ContentTitle).setContentText("开始下载").setSmallIcon(R.drawable.ic_get_app_white_36dp).setTicker(Ticker).setAutoCancel(true);
-					Intent intent = new Intent (mContext, WXEntryActivity.class);
+					createNotificationChannel();
+					mBuilder = new Builder(mContext,AVObjectId);
+					mBuilder.setContentTitle(ContentTitle)
+							.setContentText("开始下载")
+							.setSmallIcon(R.drawable.ic_get_app_white_36dp)
+							.setTicker(Ticker)
+							.setPriority(NotificationCompat.PRIORITY_DEFAULT)
+							.setAutoCancel(true);
+					Intent intent = new Intent (mContext, InstallActivity.class);
 					intent.addFlags (Intent.FLAG_ACTIVITY_NEW_TASK);
+					intent.putExtra(KeyUtil.Type,"install");
 					PendingIntent pend = PendingIntent.getActivity(mContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 					mBuilder.setContentIntent (pend);
 					mNotifyManager.notify(0, mBuilder.build());
 					try {
 						Response response = LanguagehelperHttpClient.get(url,progressListener);
-						if(response.isSuccessful()){
+						if(response != null && response.isSuccessful()){
 							LogUtil.DefalutLog("---DownloadFile success");
 							DownLoadUtil.saveFile(mContext,path,appFileName,response.body().bytes());
 							PendingIntent pendUp = PendingIntent.getActivity(mContext, 0, getInstallApkIntent(mContext,appLocalFullName),
@@ -84,7 +96,19 @@ public class AppDownloadUtil {
 			}).start();
 		}
 	}
-	
+
+	private void createNotificationChannel() {
+		// Create the NotificationChannel, but only on API 26+ because
+		// the NotificationChannel class is new and not in the support library
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+			String description = "update";
+			int importance = NotificationManager.IMPORTANCE_DEFAULT;
+			NotificationChannel channel = new NotificationChannel(AVObjectId, appFileName, importance);
+			channel.setDescription(description);
+			mNotifyManager.createNotificationChannel(channel);
+		}
+	}
+
 	final ProgressListener progressListener = new ProgressListener() {
 		@Override
 		public void update(long bytesRead, long contentLength, boolean done) {
@@ -120,8 +144,17 @@ public class AppDownloadUtil {
 	} 
 	
 	/**安装apk**/
-	public void installApk(Context mContext,String filePath){
-		mContext.startActivity(getInstallApkIntent(mContext,filePath));
+	public void installApk(Activity mContext, String filePath){
+		if (Build.VERSION.SDK_INT >= 26) {
+			boolean installAllowed = mContext.getPackageManager().canRequestPackageInstalls();
+			if (installAllowed) {
+				mContext.startActivity(getInstallApkIntent(mContext,filePath));
+			} else {
+				ActivityCompat.requestPermissions(mContext, new String[]{Manifest.permission.REQUEST_INSTALL_PACKAGES}, 10010);
+			}
+		}else {
+			mContext.startActivity(getInstallApkIntent(mContext,filePath));
+		}
 	}
 	
 	public Intent getInstallApkIntent(Context mContext,String filePath){

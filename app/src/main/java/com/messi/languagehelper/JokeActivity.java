@@ -8,7 +8,7 @@ import android.support.v4.view.ViewPager;
 import com.messi.languagehelper.adapter.JokePageAdapter;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 
-import cn.jzvd.JZVideoPlayer;
+import cn.jzvd.Jzvd;
 
 public class JokeActivity extends BaseActivity implements FragmentProgressbarListener {
 
@@ -55,7 +55,7 @@ public class JokeActivity extends BaseActivity implements FragmentProgressbarLis
 
     @Override
     public void onBackPressed() {
-        if (JZVideoPlayer.backPress()) {
+        if (Jzvd.backPress()) {
             return;
         }
         super.onBackPressed();
@@ -64,6 +64,6 @@ public class JokeActivity extends BaseActivity implements FragmentProgressbarLis
     @Override
     protected void onPause() {
         super.onPause();
-        JZVideoPlayer.releaseAllVideos();
+        Jzvd.releaseAllVideos();
     }
 }

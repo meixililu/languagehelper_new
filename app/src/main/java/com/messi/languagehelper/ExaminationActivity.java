@@ -23,8 +23,6 @@ import com.messi.languagehelper.util.Settings;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.jzvd.JZVideoPlayer;
-
 public class ExaminationActivity extends BaseActivity implements FragmentProgressbarListener{
 
 	private TabLayout tablayout;
@@ -136,20 +134,6 @@ public class ExaminationActivity extends BaseActivity implements FragmentProgres
 	private void toMoreActivity() {
 		toActivity(SearchActivity.class, null);
 		AVAnalytics.onEvent(this, "index_pg_to_morepg");
-	}
-
-	@Override
-	public void onBackPressed() {
-		if (JZVideoPlayer.backPress()) {
-			return;
-		}
-		super.onBackPressed();
-	}
-
-	@Override
-	protected void onPause() {
-		super.onPause();
-		JZVideoPlayer.releaseAllVideos();
 	}
 	
 	@Override

@@ -26,12 +26,7 @@ import java.util.List;
 public class AppUpdateUtil {
 
     public static void runCheckUpdateTask(final Activity mActivity) {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                checkUpdate(mActivity);
-            }
-        }, 5 * 1000);
+        checkUpdate(mActivity);
         initXMLY(mActivity);
     }
 
@@ -71,9 +66,14 @@ public class AppUpdateUtil {
         query.findInBackground(new FindCallback<AVObject>() {
             public void done(List<AVObject> avObjects, AVException e) {
                 if (avObjects != null && avObjects.size() > 0) {
-                    AVObject mAVObject = avObjects.get(0);
+                    final AVObject mAVObject = avObjects.get(0);
                     saveSetting(mActivity,mAVObject);
-                    showUpdateDialog(mActivity,mAVObject);
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            showUpdateDialog(mActivity,mAVObject);
+                        }
+                    }, 3700);
                 }
             }
         });
@@ -83,12 +83,10 @@ public class AppUpdateUtil {
         SharedPreferences mSharedPreferences = Settings.getSharedPreferences(mActivity);
         LogUtil.DefalutLog(mAVObject.getString(AVOUtil.UpdateInfo.AppName));
         String app_advertiser = mAVObject.getString(AVOUtil.UpdateInfo.ad_type);
-        String wyyx_url = mAVObject.getString(AVOUtil.UpdateInfo.wyyx_url);
         String uctt_url = mAVObject.getString(AVOUtil.UpdateInfo.uctt_url);
         String ucsearch_url = mAVObject.getString(AVOUtil.UpdateInfo.ucsearch_url);
         String ad_ids = mAVObject.getString(AVOUtil.UpdateInfo.ad_ids);
         String no_ad_channel = mAVObject.getString(AVOUtil.UpdateInfo.no_ad_channel);
-        Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_WYYX_URL,wyyx_url);
         Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.APP_Advertiser,app_advertiser);
         Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_UCTT,uctt_url);
         Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_UCSearch,ucsearch_url);
@@ -101,7 +99,7 @@ public class AppUpdateUtil {
 
     public static void showUpdateDialog(final Activity mActivity,final AVObject mAVObject) {
         String isValid = mAVObject.getString(AVOUtil.UpdateInfo.IsValid);
-        if(!TextUtils.isEmpty(isValid) && isValid.equals("2")){
+        if(!TextUtils.isEmpty(isValid) && isValid.equals("3")){
             int newVersionCode = mAVObject.getInt(AVOUtil.UpdateInfo.VersionCode);
             int oldVersionCode = Settings.getVersion(mActivity);
             if (newVersionCode > oldVersionCode) {

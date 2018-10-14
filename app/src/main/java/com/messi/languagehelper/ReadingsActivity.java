@@ -34,8 +34,6 @@ import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.jzvd.JZVideoPlayer;
-
 public class ReadingsActivity extends BaseActivity implements OnClickListener{
 
 	private RecyclerView listview;
@@ -352,14 +350,6 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 	}
 
 	@Override
-	public void onBackPressed() {
-		if (JZVideoPlayer.backPress()) {
-			return;
-		}
-		super.onBackPressed();
-	}
-
-	@Override
 	protected void onResume() {
 		super.onResume();
 		if(mAdapter != null){
@@ -367,11 +357,6 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 		}
 	}
 
-	@Override
-	protected void onPause() {
-		super.onPause();
-		JZVideoPlayer.releaseAllVideos();
-	}
 
 	@Override
 	public void onClick(View v) {

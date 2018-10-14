@@ -12,7 +12,7 @@ import com.messi.languagehelper.impl.FragmentProgressbarListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import cn.jzvd.JZVideoPlayer;
+import cn.jzvd.Jzvd;
 
 public class WordsActivity extends BaseActivity implements FragmentProgressbarListener {
 
@@ -86,7 +86,7 @@ public class WordsActivity extends BaseActivity implements FragmentProgressbarLi
 
     @Override
     public void onBackPressed() {
-        if (JZVideoPlayer.backPress()) {
+        if (Jzvd.backPress()) {
             return;
         }
         super.onBackPressed();
@@ -95,7 +95,7 @@ public class WordsActivity extends BaseActivity implements FragmentProgressbarLi
     @Override
     protected void onPause() {
         super.onPause();
-        JZVideoPlayer.releaseAllVideos();
+        Jzvd.releaseAllVideos();
     }
 
 

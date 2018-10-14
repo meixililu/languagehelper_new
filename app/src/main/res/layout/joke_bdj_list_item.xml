@@ -33,7 +33,7 @@
             fresco:placeholderImage="@color/text_tint"
             fresco:placeholderImageScaleType="fitCenter"
             fresco:viewAspectRatio="0.8" />
-        <cn.jzvd.JZVideoPlayerStandard
+        <cn.jzvd.JzvdStd
             android:id="@+id/videoplayer"
             android:layout_width="match_parent"
             android:layout_height="230dp"

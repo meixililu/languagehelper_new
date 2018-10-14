@@ -21,8 +21,6 @@ import com.messi.languagehelper.util.Settings;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.jzvd.JZVideoPlayer;
-
 public class ReadingJuheActivity extends BaseActivity implements FragmentProgressbarListener{
 
 	private TabLayout tablayout;
@@ -112,20 +110,6 @@ public class ReadingJuheActivity extends BaseActivity implements FragmentProgres
 		viewpager.setAdapter(pageAdapter);
 		viewpager.setOffscreenPageLimit(7);
 		tablayout.setupWithViewPager(viewpager);
-	}
-
-	@Override
-	public void onBackPressed() {
-		if (JZVideoPlayer.backPress()) {
-			return;
-		}
-		super.onBackPressed();
-	}
-
-	@Override
-	protected void onPause() {
-		super.onPause();
-		JZVideoPlayer.releaseAllVideos();
 	}
 	
 	@Override

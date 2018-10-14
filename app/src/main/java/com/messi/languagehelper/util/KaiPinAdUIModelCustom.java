@@ -121,6 +121,11 @@ public class KaiPinAdUIModelCustom {
                     @Override
                     public void onADTick(long l) {
                     }
+
+                    @Override
+                    public void onADExposure() {
+
+                    }
                 });
     }
 

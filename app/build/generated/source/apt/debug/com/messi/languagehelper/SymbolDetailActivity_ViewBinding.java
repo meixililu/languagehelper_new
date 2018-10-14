@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
-import cn.jzvd.JZVideoPlayerStandard;
+import cn.jzvd.JzvdStd;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 
@@ -27,7 +27,7 @@ public class SymbolDetailActivity_ViewBinding implements Unbinder {
   public SymbolDetailActivity_ViewBinding(SymbolDetailActivity target, View source) {
     this.target = target;
 
-    target.videoplayer = Utils.findRequiredViewAsType(source, R.id.videoplayer, "field 'videoplayer'", JZVideoPlayerStandard.class);
+    target.videoplayer = Utils.findRequiredViewAsType(source, R.id.videoplayer, "field 'videoplayer'", JzvdStd.class);
     target.symbol_en = Utils.findRequiredViewAsType(source, R.id.symbol_en, "field 'symbol_en'", TextView.class);
     target.symbol_des = Utils.findRequiredViewAsType(source, R.id.symbol_des, "field 'symbol_des'", TextView.class);
     target.symbol_play_img = Utils.findRequiredViewAsType(source, R.id.symbol_play_img, "field 'symbol_play_img'", ImageButton.class);

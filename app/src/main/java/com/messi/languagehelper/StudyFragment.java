@@ -44,7 +44,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import cn.jzvd.JZVideoPlayer;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -201,14 +200,6 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
             hideProgressbar();
         } else {
             mAdapter.notifyDataSetChanged();
-        }
-    }
-
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        if (!isVisibleToUser) {
-            JZVideoPlayer.releaseAllVideos();
         }
     }
 
@@ -590,7 +581,6 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
     @Override
     public void onDestroy() {
         super.onDestroy();
-        JZVideoPlayer.releaseAllVideos();
         unregisterBroadcast();
         if(mTXADList != null){
             for(NativeExpressADView adView : mTXADList){

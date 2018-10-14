@@ -7,7 +7,7 @@ import android.support.v4.view.ViewPager;
 import com.messi.languagehelper.adapter.SymbolAdapter;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 
-import cn.jzvd.JZVideoPlayer;
+import cn.jzvd.Jzvd;
 
 public class SymbolActivity extends BaseActivity implements FragmentProgressbarListener {
 
@@ -35,7 +35,7 @@ public class SymbolActivity extends BaseActivity implements FragmentProgressbarL
 
     @Override
     public void onBackPressed() {
-        if (JZVideoPlayer.backPress()) {
+        if (Jzvd.backPress()) {
             return;
         }
         super.onBackPressed();
@@ -44,6 +44,6 @@ public class SymbolActivity extends BaseActivity implements FragmentProgressbarL
     @Override
     protected void onPause() {
         super.onPause();
-        JZVideoPlayer.releaseAllVideos();
+        Jzvd.releaseAllVideos();
     }
 }
