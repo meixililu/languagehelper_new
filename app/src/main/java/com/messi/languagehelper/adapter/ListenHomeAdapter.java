@@ -9,7 +9,7 @@ import com.messi.languagehelper.R;
 import com.messi.languagehelper.ReadingFragment;
 import com.messi.languagehelper.WebViewFragment;
 import com.messi.languagehelper.util.AVOUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 
 public class ListenHomeAdapter extends FragmentPagerAdapter {
 
@@ -36,10 +36,10 @@ public class ListenHomeAdapter extends FragmentPagerAdapter {
         }else if( position == 1 ){
             return ReadingFragment.newInstanceBySource(AVOUtil.Category.listening,"VOA慢速英语精听网");
         }else if( position == 2 ){
-            mWebViewFragment1 = WebViewFragment.getInstance(Settings.NPR_Url);
+            mWebViewFragment1 = WebViewFragment.getInstance(Setings.NPR_Url);
             return mWebViewFragment1;
         }else if( position == 3 ){
-            mWebViewFragment2 = WebViewFragment.getInstance(Settings.AmericanLife_Url);
+            mWebViewFragment2 = WebViewFragment.getInstance(Setings.AmericanLife_Url);
             return mWebViewFragment2;
         }
         return null;

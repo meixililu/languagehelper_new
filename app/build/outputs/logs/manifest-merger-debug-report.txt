@@ -18,10 +18,10 @@ INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/Andr
 	android:name
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:58:13-38
 manifest
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-455:12
-INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-455:12
-INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-455:12
-INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-455:12
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-459:12
+INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-459:12
+INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-459:12
+INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-459:12
 MERGED from [com.android.support:multidex:1.0.3] /Users/luli/.gradle/caches/transforms-1/files-1.1/multidex-1.0.3.aar/c59feed1e72de053d067a595c6169566/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:design:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/5431fe06b164daeac8d30dffaab97382/AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c9b63a9817f5629f9fa89a8e3b67e7a6/AndroidManifest.xml:17:1-22:12
@@ -34,7 +34,7 @@ MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/luli/.g
 MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/87fd7b5a9e4c8ca32ee8f390e03c493a/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.exoplayer:exoplayer-ui:2.8.4] /Users/luli/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.8.4.aar/b0095aa7a75e9271c8f1654340fe0383/AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:support-media-compat:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/6b56cd327ef247128cdcdbdcc0e63ab7/AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.android:flexbox:1.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/flexbox-1.1.0.aar/332e1d6111ed92e5c180ef9f44ccffe9/AndroidManifest.xml:17:1-26:12
+MERGED from [com.google.android:flexbox:1.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/flexbox-1.0.0.aar/c2f465503024f38b94bd2ec4ea63402d/AndroidManifest.xml:17:1-27:12
 MERGED from [com.google.android.exoplayer:exoplayer-core:2.8.4] /Users/luli/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.8.4.aar/049c25eb54a0be01306172e5095991e1/AndroidManifest.xml:17:1-26:12
 MERGED from [com.jakewharton:butterknife:9.0.0-rc1] /Users/luli/.gradle/caches/transforms-1/files-1.1/butterknife-9.0.0-rc1.aar/13a71c8c0ba7351871fe943966ad0042/AndroidManifest.xml:2:1-7:12
 MERGED from [com.github.bumptech.glide:glide:4.7.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/glide-4.7.1.aar/08697d255b3b2c146321b4c6fe2249f9/AndroidManifest.xml:2:1-13:12
@@ -83,20 +83,20 @@ MERGED from [com.facebook.fresco:imagepipeline:1.9.0] /Users/luli/.gradle/caches
 MERGED from [com.facebook.fresco:imagepipeline-base:1.9.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.9.0.aar/528b2c4b5af488348c01881eb383cee4/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:fbcore:1.9.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/fbcore-1.9.0.aar/f617ac7686ccee7e9ed1fff20557fe9a/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.soloader:soloader:0.3.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/soloader-0.3.0.aar/22f1f8a0a943f5875ef00df1cc995eac/AndroidManifest.xml:2:1-13:12
-INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-455:12
-INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-455:12
-INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-455:12
+INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-459:12
+INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-459:12
+INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-459:12
 	package
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:3:5-39
 		INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-455:12
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-459:12
 		INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-455:12
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-459:12
 		INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:11-69
@@ -187,7 +187,7 @@ ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/Android
 	android:name
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:27:19-67
 application
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:29:5-453:19
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:29:5-457:19
 MERGED from [com.android.support:design:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/5431fe06b164daeac8d30dffaab97382/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/5431fe06b164daeac8d30dffaab97382/AndroidManifest.xml:22:5-20
 MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/transitionseverywhere-1.7.0.aar/d421f30ff243ea75940d1778d57133a9/AndroidManifest.xml:12:5-20
@@ -374,634 +374,642 @@ action#com.app.test.android.Action_Close
 ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:133:17-76
 	android:name
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:133:25-73
+activity#com.messi.languagehelper.ReadDetailTouTiaoActivity
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:137:9-140:52
+	android:screenOrientation
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:140:13-49
+	android:configChanges
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:139:13-74
+	android:name
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:138:13-54
 activity#com.messi.languagehelper.InstallActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:137:9-139:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:141:9-143:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:139:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:143:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:138:13-44
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:142:13-44
 activity#com.messi.languagehelper.TitleActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:140:9-142:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:144:9-146:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:142:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:146:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:141:13-42
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:145:13-42
 activity#com.messi.languagehelper.ReadingDetailLrcActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:143:9-145:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:147:9-149:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:145:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:149:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:144:13-53
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:148:13-53
 activity#com.messi.languagehelper.CaricatureSourceActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:146:9-148:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:150:9-152:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:148:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:152:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:147:13-53
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:151:13-53
 activity#com.messi.languagehelper.CaricatureSearchResultActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:149:9-151:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:153:9-155:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:151:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:155:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:150:13-59
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:154:13-59
 activity#com.messi.languagehelper.CaricatureSearchActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:152:9-154:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:156:9-158:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:154:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:158:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:153:13-53
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:157:13-53
 activity#com.messi.languagehelper.WebViewForCaricatureActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:155:9-157:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:159:9-161:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:157:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:161:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:156:13-57
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:160:13-57
 activity#com.messi.languagehelper.CaricatureDetailActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:158:9-160:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:162:9-164:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:160:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:164:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:159:13-53
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:163:13-53
 activity#com.messi.languagehelper.CaricatureMainActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:161:9-163:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:165:9-167:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:163:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:167:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:162:13-51
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:166:13-51
 activity#com.messi.languagehelper.WebsiteListActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:164:9-166:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:168:9-170:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:166:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:170:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:165:13-48
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:169:13-48
 activity#com.messi.languagehelper.WebViewForAdActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:167:9-169:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:171:9-173:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:169:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:173:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:168:13-49
-activity#com.messi.languagehelper.ListenActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:170:9-172:52
-	android:screenOrientation
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:172:13-49
+activity#com.messi.languagehelper.ListenActivity
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:174:9-176:52
+	android:screenOrientation
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:176:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:171:13-43
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:175:13-43
 activity#com.messi.languagehelper.SpokenActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:173:9-175:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:177:9-179:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:175:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:179:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:174:13-43
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:178:13-43
 activity#com.messi.languagehelper.WordsActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:176:9-178:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:180:9-182:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:178:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:182:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:177:13-42
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:181:13-42
 activity#com.messi.languagehelper.AdEnglishActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:179:9-181:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:183:9-185:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:181:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:185:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:180:13-46
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:184:13-46
 activity#com.messi.languagehelper.ShoppingActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:182:9-184:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:186:9-188:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:184:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:188:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:183:13-45
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:187:13-45
 activity#com.messi.languagehelper.PybsDetailActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:185:9-187:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:189:9-191:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:187:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:191:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:186:13-47
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:190:13-47
 activity#com.messi.languagehelper.PyBsActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:188:9-190:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:192:9-194:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:190:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:194:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:189:13-41
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:193:13-41
 activity#com.messi.languagehelper.XmlySearchResultActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:191:9-193:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:195:9-197:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:193:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:197:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:192:13-53
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:196:13-53
 activity#com.messi.languagehelper.XmlySearchActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:194:9-196:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:198:9-200:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:196:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:200:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:195:13-47
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:199:13-47
 activity#com.messi.languagehelper.XimalayaRadioProvinceActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:197:9-199:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:201:9-203:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:199:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:203:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:198:13-58
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:202:13-58
 activity#com.messi.languagehelper.XimalayaRadioLocalActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:200:9-202:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:204:9-206:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:202:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:206:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:201:13-55
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:205:13-55
 activity#com.messi.languagehelper.XimalayaRadioTypeListActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:203:9-205:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:207:9-209:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:205:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:209:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:204:13-58
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:208:13-58
 activity#com.messi.languagehelper.XimalayaRadioCategoryListActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:206:9-208:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:210:9-212:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:208:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:212:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:207:13-62
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:211:13-62
 activity#com.messi.languagehelper.XimalayaRadioDetailActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:209:9-211:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:213:9-215:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:211:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:215:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:210:13-56
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:214:13-56
 activity#com.messi.languagehelper.XmlyAlbumActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:212:9-214:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:216:9-218:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:214:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:218:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:213:13-46
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:217:13-46
 activity#com.messi.languagehelper.XimalayaDetailActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:215:9-217:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:219:9-221:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:217:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:221:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:216:13-51
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:220:13-51
 activity#com.messi.languagehelper.XimalayaTrackListActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:218:9-220:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:222:9-224:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:220:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:224:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:219:13-54
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:223:13-54
 activity#com.messi.languagehelper.XimalayaTagsActiviry
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:221:9-223:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:225:9-227:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:223:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:227:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:222:13-49
-activity#com.messi.languagehelper.XmlyActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:224:9-226:52
-	android:screenOrientation
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:226:13-49
-	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:225:13-41
-activity#com.messi.languagehelper.AiTuringActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:227:9-230:57
+activity#com.messi.languagehelper.XmlyActivity
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:228:9-230:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:229:13-49
-	android:windowSoftInputMode
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:230:13-54
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:230:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:228:13-45
-activity#com.messi.languagehelper.AiDialogueFightActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:231:9-233:52
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:229:13-41
+activity#com.messi.languagehelper.AiTuringActivity
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:231:9-234:57
 	android:screenOrientation
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:233:13-49
-	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:232:13-52
-activity#com.messi.languagehelper.AiDialogueSelectCourseActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:234:9-236:52
-	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:236:13-49
-	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:235:13-59
-activity#com.messi.languagehelper.AiChatActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:237:9-240:57
-	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:239:13-49
 	android:windowSoftInputMode
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:240:13-54
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:234:13-54
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:238:13-43
-activity#com.messi.languagehelper.SearchResultActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:241:9-243:52
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:232:13-45
+activity#com.messi.languagehelper.AiDialogueFightActivity
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:235:9-237:52
+	android:screenOrientation
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:237:13-49
+	android:name
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:236:13-52
+activity#com.messi.languagehelper.AiDialogueSelectCourseActivity
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:238:9-240:52
+	android:screenOrientation
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:240:13-49
+	android:name
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:239:13-59
+activity#com.messi.languagehelper.AiChatActivity
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:241:9-244:57
 	android:screenOrientation
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:243:13-49
+	android:windowSoftInputMode
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:244:13-54
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:242:13-49
-activity#com.messi.languagehelper.SearchActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:244:9-246:52
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:242:13-43
+activity#com.messi.languagehelper.SearchResultActivity
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:245:9-247:52
 	android:screenOrientation
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:247:13-49
+	android:name
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:246:13-49
+activity#com.messi.languagehelper.SearchActivity
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:248:9-250:52
+	android:screenOrientation
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:250:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:245:13-43
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:249:13-43
 activity#com.messi.languagehelper.SubjectActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:247:9-249:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:251:9-253:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:249:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:253:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:248:13-44
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:252:13-44
 activity#com.messi.languagehelper.StoryActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:250:9-252:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:254:9-256:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:252:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:256:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:251:13-42
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:255:13-42
 activity#com.messi.languagehelper.GrammarActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:253:9-255:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:257:9-259:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:255:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:259:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:254:13-44
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:258:13-44
 activity#com.messi.languagehelper.AiDialoguePracticeYYSActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:256:9-258:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:260:9-262:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:258:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:262:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:257:13-58
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:261:13-58
 activity#com.messi.languagehelper.AiDialogueFightYYSActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:259:9-261:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:263:9-265:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:261:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:265:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:260:13-55
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:264:13-55
 activity#com.messi.languagehelper.ReadingsBySubjectActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:262:9-264:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:266:9-268:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:264:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:268:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:263:13-54
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:267:13-54
 activity#com.messi.languagehelper.SymbolActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:265:9-267:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:269:9-271:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:267:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:271:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:266:13-43
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:270:13-43
 activity#com.messi.languagehelper.OfflineDicDownloadActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:268:9-270:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:272:9-274:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:270:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:274:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:269:13-55
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:273:13-55
 activity#com.messi.languagehelper.WordStudyNewWordActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:271:9-273:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:275:9-277:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:273:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:277:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:272:13-53
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:276:13-53
 activity#com.messi.languagehelper.WordStudyFightActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:274:9-276:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:278:9-280:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:276:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:280:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:275:13-51
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:279:13-51
 activity#com.messi.languagehelper.WordStudyDanCiPinXieActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:277:9-279:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:281:9-283:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:279:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:283:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:278:13-57
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:282:13-57
 activity#com.messi.languagehelper.WordStudyDuYinSuJiActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:280:9-282:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:284:9-286:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:282:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:286:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:281:13-55
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:285:13-55
 activity#com.messi.languagehelper.WordStudyViewAllActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:283:9-285:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:287:9-289:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:285:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:289:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:284:13-53
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:288:13-53
 activity#com.messi.languagehelper.WordStudyPlanActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:286:9-288:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:290:9-292:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:288:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:292:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:287:13-50
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:291:13-50
 activity#com.messi.languagehelper.GodReplyActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:289:9-291:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:293:9-295:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:291:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:295:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:290:13-45
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:294:13-45
 activity#com.messi.languagehelper.WordStudySummaryDetailActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:292:9-294:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:296:9-298:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:294:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:298:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:293:13-59
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:297:13-59
 activity#com.messi.languagehelper.WordStudySummaryListActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:295:9-297:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:299:9-301:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:297:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:301:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:296:13-57
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:300:13-57
 activity#com.messi.languagehelper.WordStudyCiYiXuanCiActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:298:9-300:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:302:9-304:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:300:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:304:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:299:13-56
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:303:13-56
 activity#com.messi.languagehelper.WordStudyDanCiXuanYiActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:301:9-303:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:305:9-307:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:303:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:307:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:302:13-57
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:306:13-57
 activity#com.messi.languagehelper.WordStudyPlanDetailActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:304:9-306:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:308:9-310:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:306:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:310:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:305:13-56
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:309:13-56
 activity#com.messi.languagehelper.YiZhanDaoDiActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:307:9-309:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:311:9-313:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:309:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:313:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:308:13-48
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:312:13-48
 activity#com.messi.languagehelper.BrainTwistsActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:310:9-312:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:314:9-316:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:312:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:316:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:311:13-48
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:315:13-48
 activity#com.messi.languagehelper.ReadingAndNewsActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:313:9-315:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:317:9-319:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:315:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:319:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:314:13-51
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:318:13-51
 activity#com.messi.languagehelper.ChPybsSListActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:316:9-318:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:320:9-322:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:318:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:322:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:317:13-48
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:321:13-48
 activity#com.messi.languagehelper.InvestListActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:319:9-321:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:323:9-325:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:321:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:325:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:320:13-47
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:324:13-47
 activity#com.messi.languagehelper.LearnCodingActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:322:9-324:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:326:9-328:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:324:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:328:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:323:13-48
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:327:13-48
 activity#com.messi.languagehelper.ExaminationActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:325:9-327:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:329:9-331:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:327:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:331:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:326:13-48
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:330:13-48
 activity#com.messi.languagehelper.WordStudyDuYinXuanCiActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:328:9-330:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:332:9-334:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:330:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:334:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:329:13-57
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:333:13-57
 activity#com.messi.languagehelper.ReadingJuheActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:331:9-335:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:335:9-339:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:335:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:339:13-49
 	android:launchMode
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:334:13-44
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:338:13-44
 	android:exported
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:333:13-36
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:337:13-36
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:332:13-48
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:336:13-48
 activity#com.messi.languagehelper.WordStudySecondActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:336:9-338:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:340:9-342:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:338:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:342:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:337:13-52
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:341:13-52
 activity#com.messi.languagehelper.CollectedActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:339:9-341:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:343:9-345:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:341:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:345:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:340:13-46
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:344:13-46
 activity#com.messi.languagehelper.SettingActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:342:9-344:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:346:9-348:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:344:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:348:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:343:13-44
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:347:13-44
 activity#com.messi.languagehelper.ReadingDetailActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:345:9-347:52
-	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:347:13-49
-	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:346:13-50
-activity#com.messi.languagehelper.ReadingVideoDetailActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:348:9-352:15
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:349:9-351:52
 	android:screenOrientation
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:351:13-49
-	android:configChanges
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:350:13-74
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:349:13-55
-activity#com.messi.languagehelper.ReadingsActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:353:9-355:52
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:350:13-50
+activity#com.messi.languagehelper.ReadingVideoDetailActivity
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:352:9-356:15
 	android:screenOrientation
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:355:13-49
+	android:configChanges
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:354:13-74
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:354:13-45
-activity#com.messi.languagehelper.CompositionActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:356:9-358:52
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:353:13-55
+activity#com.messi.languagehelper.ReadingsActivity
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:357:9-359:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:358:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:359:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:357:13-48
-activity#com.messi.languagehelper.JokeActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:359:9-362:52
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:358:13-45
+activity#com.messi.languagehelper.CompositionActivity
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:360:9-362:52
 	android:screenOrientation
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:362:13-49
+	android:name
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:361:13-48
+activity#com.messi.languagehelper.JokeActivity
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:363:9-366:52
+	android:screenOrientation
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:366:13-49
 	android:configChanges
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:361:13-74
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:365:13-74
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:360:13-41
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:364:13-41
 activity#com.messi.languagehelper.WordStudyDanCiRenZhiActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:363:9-365:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:367:9-369:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:365:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:369:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:364:13-57
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:368:13-57
 activity#com.messi.languagehelper.WordStudyThirdActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:366:9-368:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:370:9-372:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:368:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:372:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:367:13-51
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:371:13-51
 activity#com.messi.languagehelper.PhotosTranslateActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:369:9-371:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:373:9-375:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:371:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:375:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:370:13-52
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:374:13-52
 activity#com.messi.languagehelper.MoreActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:372:9-374:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:376:9-378:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:374:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:378:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:373:13-41
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:377:13-41
 activity#com.messi.languagehelper.SymbolDetailActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:375:9-377:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:379:9-381:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:377:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:381:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:376:13-49
-activity#com.messi.languagehelper.InvestmentActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:378:9-380:52
-	android:screenOrientation
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:380:13-49
+activity#com.messi.languagehelper.InvestmentActivity
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:382:9-384:52
+	android:screenOrientation
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:384:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:379:13-47
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:383:13-47
 activity#com.messi.languagehelper.SpokenEnglishDetailActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:381:9-383:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:385:9-387:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:383:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:387:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:382:13-56
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:386:13-56
 activity#com.messi.languagehelper.AiDialoguePracticeActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:384:9-386:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:388:9-390:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:386:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:390:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:385:13-55
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:389:13-55
 activity#com.messi.languagehelper.SpokenEndlishCategoryActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:387:9-389:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:391:9-393:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:389:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:393:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:388:13-58
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:392:13-58
 activity#com.messi.languagehelper.DialogPracticeActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:390:9-392:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:394:9-396:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:392:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:396:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:391:13-51
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:395:13-51
 activity#com.messi.languagehelper.StudyDialogActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:393:9-395:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:397:9-399:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:395:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:399:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:394:13-48
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:398:13-48
 activity#com.messi.languagehelper.StudyDialogCategoryActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:396:9-398:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:400:9-402:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:398:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:402:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:397:13-56
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:401:13-56
 activity#com.messi.languagehelper.StudyDialogListActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:399:9-401:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:403:9-405:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:401:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:405:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:400:13-52
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:404:13-52
 activity#com.messi.languagehelper.QRCodeShareActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:402:9-404:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:406:9-408:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:404:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:408:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:403:13-48
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:407:13-48
 activity#com.messi.languagehelper.AiSpokenBasicActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:405:9-408:70
-	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:407:13-49
-	android:windowSoftInputMode
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:408:13-67
-	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:406:13-50
-activity#com.messi.languagehelper.WebViewActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:409:9-416:20
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:409:9-412:70
 	android:screenOrientation
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:411:13-49
+	android:windowSoftInputMode
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:412:13-67
+	android:name
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:410:13-50
+activity#com.messi.languagehelper.WebViewActivity
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:413:9-420:20
+	android:screenOrientation
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:415:13-49
 	android:uiOptions
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:412:13-57
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:416:13-57
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:410:13-44
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:414:13-44
 meta-data#android.support.UI_OPTIONS
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:413:13-415:60
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:417:13-419:60
 	android:value
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:415:17-57
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:419:17-57
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:414:17-58
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:418:17-58
 activity#com.messi.languagehelper.DailySentenceAndEssayActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:417:9-419:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:421:9-423:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:419:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:423:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:418:13-58
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:422:13-58
 activity#com.messi.languagehelper.AboutActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:420:9-422:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:424:9-426:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:422:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:426:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:421:13-42
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:425:13-42
 activity#com.messi.languagehelper.WebViewNoAdActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:423:9-425:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:427:9-429:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:425:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:429:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:424:13-48
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:428:13-48
 activity#com.messi.languagehelper.HelpActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:426:9-428:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:430:9-432:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:428:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:432:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:427:13-41
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:431:13-41
 activity#com.messi.languagehelper.PracticeYYSActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:429:9-431:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:433:9-435:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:431:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:435:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:430:13-48
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:434:13-48
 activity#com.messi.languagehelper.PracticeActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:432:9-434:52
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:436:9-438:52
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:434:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:438:13-49
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:433:13-45
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:437:13-45
 activity#com.messi.languagehelper.ImgShareActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:435:9-438:75
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:439:9-442:75
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:437:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:441:13-49
 	android:windowSoftInputMode
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:438:13-72
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:442:13-72
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:436:13-45
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:440:13-45
 activity#com.messi.languagehelper.wxapi.WXEntryActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:439:9-445:57
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:443:9-449:57
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:444:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:448:13-49
 	android:launchMode
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:443:13-44
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:447:13-44
 	android:windowSoftInputMode
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:445:13-54
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:449:13-54
 	android:exported
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:442:13-36
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:446:13-36
 	android:configChanges
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:441:13-74
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:445:13-74
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:440:13-50
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:444:13-50
 activity#com.messi.languagehelper.wxapi.YYJMainActivity
-ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:446:9-452:57
+ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:450:9-456:57
 	android:screenOrientation
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:451:13-49
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:455:13-49
 	android:launchMode
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:450:13-44
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:454:13-44
 	android:windowSoftInputMode
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:452:13-54
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:456:13-54
 	android:exported
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:449:13-36
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:453:13-36
 	android:configChanges
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:448:13-74
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:452:13-74
 	android:name
-		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:447:13-50
+		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:451:13-50
 uses-sdk
 INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml
@@ -1030,8 +1038,8 @@ MERGED from [com.google.android.exoplayer:exoplayer-ui:2.8.4] /Users/luli/.gradl
 MERGED from [com.google.android.exoplayer:exoplayer-ui:2.8.4] /Users/luli/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.8.4.aar/b0095aa7a75e9271c8f1654340fe0383/AndroidManifest.xml:20:5-22:41
 MERGED from [com.android.support:support-media-compat:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/6b56cd327ef247128cdcdbdcc0e63ab7/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-media-compat:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/6b56cd327ef247128cdcdbdcc0e63ab7/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android:flexbox:1.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/flexbox-1.1.0.aar/332e1d6111ed92e5c180ef9f44ccffe9/AndroidManifest.xml:22:5-24:41
-MERGED from [com.google.android:flexbox:1.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/flexbox-1.1.0.aar/332e1d6111ed92e5c180ef9f44ccffe9/AndroidManifest.xml:22:5-24:41
+MERGED from [com.google.android:flexbox:1.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/flexbox-1.0.0.aar/c2f465503024f38b94bd2ec4ea63402d/AndroidManifest.xml:23:5-25:41
+MERGED from [com.google.android:flexbox:1.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/flexbox-1.0.0.aar/c2f465503024f38b94bd2ec4ea63402d/AndroidManifest.xml:23:5-25:41
 MERGED from [com.google.android.exoplayer:exoplayer-core:2.8.4] /Users/luli/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.8.4.aar/049c25eb54a0be01306172e5095991e1/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.exoplayer:exoplayer-core:2.8.4] /Users/luli/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.8.4.aar/049c25eb54a0be01306172e5095991e1/AndroidManifest.xml:20:5-22:41
 MERGED from [com.jakewharton:butterknife:9.0.0-rc1] /Users/luli/.gradle/caches/transforms-1/files-1.1/butterknife-9.0.0-rc1.aar/13a71c8c0ba7351871fe943966ad0042/AndroidManifest.xml:5:5-44

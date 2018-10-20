@@ -15,7 +15,7 @@ import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.JsonParser;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 
 import butterknife.BindView;
@@ -67,13 +67,13 @@ public class EssayFragment extends BaseFragment {
     private void requestData() {
         showProgressbar();
         final FormBody formBody = new FormBody.Builder()
-                .add("showapi_appid", Settings.showapi_appid)
-                .add("showapi_sign", Settings.showapi_secret)
+                .add("showapi_appid", Setings.showapi_appid)
+                .add("showapi_sign", Setings.showapi_secret)
                 .add("showapi_timestamp", String.valueOf(System.currentTimeMillis()))
                 .add("showapi_res_gzip", "1")
                 .add("count", "1")
                 .build();
-        LanguagehelperHttpClient.post(Settings.EssayApi, formBody, new UICallback(getActivity()) {
+        LanguagehelperHttpClient.post(Setings.EssayApi, formBody, new UICallback(getActivity()) {
             @Override
             public void onResponsed(String responseString) {
                 try {

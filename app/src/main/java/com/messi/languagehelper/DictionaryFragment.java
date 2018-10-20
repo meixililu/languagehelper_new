@@ -50,7 +50,7 @@ import com.messi.languagehelper.util.NetworkUtil;
 import com.messi.languagehelper.util.OrcHelper;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.SDCardUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.StringUtils;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.TranslateUtil;
@@ -255,7 +255,7 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
     private void init() {
         recognizer = SpeechRecognizer.createRecognizer(mActivity, null);
         beans = new ArrayList<Dictionary>();
-        beans.addAll(DataBaseUtil.getInstance().getDataListDictionary(0, Settings.offset));
+        beans.addAll(DataBaseUtil.getInstance().getDataListDictionary(0, Setings.offset));
         mAdapter = new RcDictionaryListAdapter(mActivity, beans, this);
 
         submit_btn_cover.setOnClickListener(this);
@@ -322,8 +322,8 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
     }
 
     private void refresh() {
-        if (Settings.isDictionaryFragmentNeedRefresh) {
-            Settings.isDictionaryFragmentNeedRefresh = false;
+        if (Setings.isDictionaryFragmentNeedRefresh) {
+            Setings.isDictionaryFragmentNeedRefresh = false;
             reloadData();
         }
     }
@@ -400,11 +400,11 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
     private void changeInputType() {
         if (keybord_layout.isShown()) {
             showMicLayout();
-            Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.IsShowDicKeyboardLayout, false);
+            Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.IsShowDicKeyboardLayout, false);
             hideIME();
         } else {
             showKeybordLayout();
-            Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.IsShowDicKeyboardLayout, true);
+            Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.IsShowDicKeyboardLayout, true);
             showIME();
             input_et.requestFocus();
         }
@@ -424,10 +424,10 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
 
     private void changeSpeakLanguage() {
         if (PlayUtil.getSP().getString(KeyUtil.DicUserSelectLanguage, XFUtil.VoiceEngineMD).equals(XFUtil.VoiceEngineMD)) {
-            Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.DicUserSelectLanguage, XFUtil.VoiceEngineEN);
+            Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.DicUserSelectLanguage, XFUtil.VoiceEngineEN);
             ToastUtil.diaplayMesShort(mActivity, mActivity.getResources().getString(R.string.speak_english));
         } else {
-            Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.DicUserSelectLanguage, XFUtil.VoiceEngineMD);
+            Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.DicUserSelectLanguage, XFUtil.VoiceEngineMD);
             ToastUtil.diaplayMesShort(mActivity, mActivity.getResources().getString(R.string.speak_chinese));
         }
         setSpeakLanguageTv();
@@ -487,7 +487,7 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
                     sb.append("\n");
                 }
                 mDictionaryBean = new Dictionary();
-                boolean isEnglish = StringUtils.isEnglish(Settings.q);
+                boolean isEnglish = StringUtils.isEnglish(Setings.q);
                 if(isEnglish){
                     mDictionaryBean.setFrom("en");
                     mDictionaryBean.setTo("zh");
@@ -495,7 +495,7 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
                     mDictionaryBean.setFrom("zh");
                     mDictionaryBean.setTo("en");
                 }
-                mDictionaryBean.setWord_name(Settings.q);
+                mDictionaryBean.setWord_name(Setings.q);
                 mDictionaryBean.setResult(sb.substring(0, sb.lastIndexOf("\n")));
                 DataBaseUtil.getInstance().insert(mDictionaryBean);
                 setBean();
@@ -516,8 +516,8 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
     }
 
     private void setData() {
-        mDictionaryBean = (Dictionary) Settings.dataMap.get(KeyUtil.DataMapKey);
-        Settings.dataMap.clear();
+        mDictionaryBean = (Dictionary) Setings.dataMap.get(KeyUtil.DataMapKey);
+        Setings.dataMap.clear();
         setBean();
     }
 
@@ -548,7 +548,7 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
      * 显示转写对话框.
      */
     public void showIatDialog() {
-        Settings.verifyStoragePermissions(mActivity, Settings.PERMISSIONS_RECORD_AUDIO);
+        Setings.verifyStoragePermissions(mActivity, Setings.PERMISSIONS_RECORD_AUDIO);
         if (!recognizer.isListening()) {
             record_layout.setVisibility(View.VISIBLE);
             input_et.setText("");
@@ -609,11 +609,11 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
      * submit request task
      */
     private void submit() {
-        Settings.q = input_et.getText().toString().trim();
-        if (!TextUtils.isEmpty(Settings.q)) {
-            String last = Settings.q.substring(Settings.q.length() - 1);
+        Setings.q = input_et.getText().toString().trim();
+        if (!TextUtils.isEmpty(Setings.q)) {
+            String last = Setings.q.substring(Setings.q.length() - 1);
             if (",.!;:'，。！‘；：".contains(last)) {
-                Settings.q = Settings.q.substring(0, Settings.q.length() - 1);
+                Setings.q = Setings.q.substring(0, Setings.q.length() - 1);
             }
             translateController();
         } else {
@@ -636,10 +636,10 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
                 beans.clear();
                 if (isShowCollected) {
                     isShowCollected = false;
-                    beans.addAll(DataBaseUtil.getInstance().getDataListDictionaryCollected(0, Settings.offset));
+                    beans.addAll(DataBaseUtil.getInstance().getDataListDictionaryCollected(0, Setings.offset));
                 } else {
                     isShowCollected = true;
-                    beans.addAll(DataBaseUtil.getInstance().getDataListDictionary(0, Settings.offset));
+                    beans.addAll(DataBaseUtil.getInstance().getDataListDictionary(0, Setings.offset));
                 }
                 e.onComplete();
             }
@@ -674,7 +674,7 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
             @Override
             public void subscribe(ObservableEmitter<String> e) throws Exception {
                 beans.clear();
-                beans.addAll(DataBaseUtil.getInstance().getDataListDictionary(0, Settings.offset));
+                beans.addAll(DataBaseUtil.getInstance().getDataListDictionary(0, Setings.offset));
                 e.onComplete();
             }
         })
@@ -791,14 +791,14 @@ public class DictionaryFragment extends Fragment implements OnClickListener,
             @Override
             public void onClick(View view) {
                 auto_clear_cb.setChecked(!auto_clear_cb.isChecked());
-                Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.AutoClearDic, auto_clear_cb.isChecked());
+                Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.AutoClearDic, auto_clear_cb.isChecked());
                 AVAnalytics.onEvent(mActivity, "dic_tools_auto_clear");
             }
         });
         auto_clear_cb.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.AutoClearDic, auto_clear_cb.isChecked());
+                Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.AutoClearDic, auto_clear_cb.isChecked());
                 AVAnalytics.onEvent(mActivity, "dic_tools_auto_clear");
             }
         });

@@ -29,7 +29,7 @@ import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFYSAD;
@@ -121,7 +121,7 @@ public class SpokenAIFragment extends BaseFragment implements OnClickListener{
 		avObjects = new ArrayList<Reading>();
 		mTXADList = new ArrayList<NativeExpressADView>();
 		mXFYSAD = new XFYSAD(getActivity(), ADUtil.SecondaryPage);
-		avObjects.addAll(DataBaseUtil.getInstance().getReadingList(Settings.page_size,category,"",code));
+		avObjects.addAll(DataBaseUtil.getInstance().getReadingList(Setings.page_size,category,"",code));
 		initSwipeRefresh(view);
 		mAdapter = new RcSpokenAIListAdapter(avObjects,mXFYSAD,getContext());
 		mAdapter.setItems(avObjects);
@@ -238,7 +238,7 @@ public class SpokenAIFragment extends BaseFragment implements OnClickListener{
 			}
 			query.addDescendingOrder(AVOUtil.Reading.publish_time);
 			query.skip(skip);
-			query.limit(Settings.page_size);
+			query.limit(Setings.page_size);
 			try {
 				return query.find();
 			} catch (Exception e) {
@@ -267,7 +267,7 @@ public class SpokenAIFragment extends BaseFragment implements OnClickListener{
 						if(addAD()){
 							mAdapter.notifyDataSetChanged();
 						}
-						if(avObject.size() < Settings.page_size){
+						if(avObject.size() < Setings.page_size){
 							LogUtil.DefalutLog("avObject.size() < Settings.page_size");
 							hideFooterview();
 							hasMore = false;
@@ -277,7 +277,7 @@ public class SpokenAIFragment extends BaseFragment implements OnClickListener{
 						}
 					}
 				}
-				skip += Settings.page_size;
+				skip += Setings.page_size;
 			}
 		}
 	}
@@ -388,7 +388,7 @@ public class SpokenAIFragment extends BaseFragment implements OnClickListener{
 
 	private boolean addAD(){
 		if(mADObject != null && avObjects != null && avObjects.size() > 0){
-			int index = avObjects.size() - Settings.page_size + NumberUtil.randomNumberRange(1, 2);
+			int index = avObjects.size() - Setings.page_size + NumberUtil.randomNumberRange(1, 2);
 			if(index < 0){
 				index = 0;
 			}
@@ -441,7 +441,7 @@ public class SpokenAIFragment extends BaseFragment implements OnClickListener{
 							query.whereEqualTo(AVOUtil.Reading.type_id, code);
 						}
 					}
-					maxRandom =  query.count() / Settings.page_size; 
+					maxRandom =  query.count() / Setings.page_size;
 					LogUtil.DefalutLog("category:"+category+"---maxRandom:"+maxRandom);
 				} catch (Exception e) {
 					e.printStackTrace();

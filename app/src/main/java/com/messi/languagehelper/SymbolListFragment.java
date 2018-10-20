@@ -32,7 +32,7 @@ import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.DownLoadUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFYSAD;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
@@ -89,7 +89,7 @@ public class SymbolListFragment extends BaseFragment {
     }
 
     private void initViews(View view) {
-        sharedPreferences = Settings.getSharedPreferences(getContext());
+        sharedPreferences = Setings.getSharedPreferences(getContext());
         mXFYSAD = new XFYSAD(getActivity(), ADUtil.SecondaryPage);
         mSymbolListDao = new ArrayList<SymbolListDao>();
         category_lv = (RecyclerView) view.findViewById(R.id.listview);
@@ -164,7 +164,7 @@ public class SymbolListFragment extends BaseFragment {
                 if (sharedPreferences.getString(KeyUtil.UpdateSymbolList, "UpdateSymbolList1").equals("UpdateSymbolList1")) {
                     localSize = 0;
                     DataBaseUtil.getInstance().clearSymbolList();
-                    Settings.saveSharedPreferences(sharedPreferences, KeyUtil.UpdateSymbolList, "");
+                    Setings.saveSharedPreferences(sharedPreferences, KeyUtil.UpdateSymbolList, "");
                 }
                 mSymbolListDao.clear();
                 if (localSize == 0) {

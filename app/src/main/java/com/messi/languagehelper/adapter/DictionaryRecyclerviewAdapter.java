@@ -7,23 +7,19 @@ import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
-import com.messi.languagehelper.DictionaryFragment;
 import com.messi.languagehelper.ImgShareActivity;
-import com.messi.languagehelper.MainFragment;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.dao.Dictionary;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.dialog.PopDialog;
 import com.messi.languagehelper.dialog.PopDialog.PopViewItemOnclickListener;
 import com.messi.languagehelper.task.MyThread;
-import com.messi.languagehelper.task.PublicTask;
-import com.messi.languagehelper.task.PublicTask.PublicTaskListener;
 import com.messi.languagehelper.util.AudioTrackUtil;
 import com.messi.languagehelper.util.DictionaryUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SDCardUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.StringUtils;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
@@ -45,10 +41,8 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class DictionaryRecyclerviewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -392,7 +386,7 @@ public class DictionaryRecyclerviewAdapter extends RecyclerView.Adapter<Recycler
 						filepath = path + mBean.getResultVoiceId() + ".pcm";
 						mBean.setResultAudioPath(filepath);
 						speakContent = mBean.getResult();
-						Settings.role = XFUtil.SpeakerEn;
+						Setings.role = XFUtil.SpeakerEn;
 					} else {
 						filepath = path + mBean.getQuestionVoiceId() + ".pcm";
 						mBean.setQuestionAudioPath(filepath);
@@ -416,7 +410,7 @@ public class DictionaryRecyclerviewAdapter extends RecyclerView.Adapter<Recycler
 						play_content_btn_progressbar.setVisibility(View.VISIBLE);
 						voice_play.setVisibility(View.GONE);
 						XFUtil.showSpeechSynthesizer(context, mSharedPreferences,
-								mSpeechSynthesizer, speakContent, Settings.role,
+								mSpeechSynthesizer, speakContent, Setings.role,
 								new SynthesizerListener() {
 									@Override
 									public void onSpeakResumed() {

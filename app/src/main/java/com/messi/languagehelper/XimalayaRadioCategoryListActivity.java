@@ -17,7 +17,7 @@ import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.qq.e.ads.nativ.NativeExpressAD;
@@ -138,7 +138,7 @@ public class XimalayaRadioCategoryListActivity extends BaseActivity implements I
         showProgressbar();
         Map<String, String> map = new HashMap<String, String>();
         map.put(DTransferConstants.RADIO_CATEGORY_ID , category);
-        map.put(DTransferConstants.PAGE_SIZE, String.valueOf(Settings.page_size));
+        map.put(DTransferConstants.PAGE_SIZE, String.valueOf(Setings.page_size));
         map.put(DTransferConstants.PAGE, String.valueOf(skip));
         CommonRequest.getRadiosByCategory(map, new IDataCallBack<RadioListByCategory>() {
             @Override
@@ -336,7 +336,7 @@ public class XimalayaRadioCategoryListActivity extends BaseActivity implements I
 
     private boolean addAD() {
         if (mADObject != null && radios != null && radios.size() > 0) {
-            int index = radios.size() - Settings.page_size + NumberUtil.randomNumberRange(1, 2);
+            int index = radios.size() - Setings.page_size + NumberUtil.randomNumberRange(1, 2);
             if (index < 0) {
                 index = 1;
             }

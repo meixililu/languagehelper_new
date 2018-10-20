@@ -16,7 +16,7 @@ import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.ximalaya.ting.android.opensdk.constants.DTransferConstants;
 import com.ximalaya.ting.android.opensdk.datatrasfer.CommonRequest;
@@ -146,7 +146,7 @@ public class XmlySearchTrackFragment extends BaseFragment implements OnClickList
         showProgressbar();
         Map<String, String> map = new HashMap<String, String>();
         map.put(DTransferConstants.SEARCH_KEY, search_text);
-        map.put(DTransferConstants.PAGE_SIZE, String.valueOf(Settings.page_size));
+        map.put(DTransferConstants.PAGE_SIZE, String.valueOf(Setings.page_size));
         map.put(DTransferConstants.PAGE, String.valueOf(skip));
         CommonRequest.getSearchedTracks(map, new IDataCallBack<SearchTrackList>() {
             @Override

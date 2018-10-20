@@ -25,7 +25,7 @@ import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.SaveData;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XimalayaUtil;
@@ -242,7 +242,7 @@ public class XimalayaTagsFragment extends BaseFragment implements OnClickListene
             map.put(DTransferConstants.TAG_NAME, tag_name);
         }
         map.put(DTransferConstants.CALC_DIMENSION, String.valueOf(type));
-        map.put(DTransferConstants.PAGE_SIZE, String.valueOf(Settings.page_size));
+        map.put(DTransferConstants.PAGE_SIZE, String.valueOf(Setings.page_size));
         map.put(DTransferConstants.PAGE, String.valueOf(skip));
         CommonRequest.getAlbumList(map, new IDataCallBack<AlbumList>() {
             @Override
@@ -389,7 +389,7 @@ public class XimalayaTagsFragment extends BaseFragment implements OnClickListene
 
     private boolean addAD() {
         if (mADObject != null && avObjects != null && avObjects.size() > 0) {
-            int index = avObjects.size() - Settings.page_size + NumberUtil.randomNumberRange(1, 2);
+            int index = avObjects.size() - Setings.page_size + NumberUtil.randomNumberRange(1, 2);
             if (index < 0) {
                 index = 0;
             }

@@ -12,7 +12,7 @@ import com.google.gson.reflect.TypeToken;
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.adapter.RcXmlyCategoryAdapter;
 import com.messi.languagehelper.util.SaveData;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
 import com.ximalaya.ting.android.opensdk.datatrasfer.CommonRequest;
 import com.ximalaya.ting.android.opensdk.datatrasfer.IDataCallBack;
@@ -48,7 +48,7 @@ public class XmlyCategoryFragment extends BaseFragment {
     }
 
     private void initViews(View view) {
-        sharedPreferences = Settings.getSharedPreferences(getContext());
+        sharedPreferences = Setings.getSharedPreferences(getContext());
         categories = new ArrayList<Category>();
         category_lv = (RecyclerView) view.findViewById(R.id.listview);
         category_lv.setHasFixedSize(true);

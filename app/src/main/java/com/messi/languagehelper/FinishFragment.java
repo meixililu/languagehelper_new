@@ -23,7 +23,7 @@ import com.messi.languagehelper.impl.PracticeProgressListener;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SDCardUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 
 import java.io.File;
@@ -64,7 +64,7 @@ public class FinishFragment extends BaseFragment implements OnClickListener {
     }
 
     private void init() {
-        sp = Settings.getSharedPreferences(getContext());
+        sp = Setings.getSharedPreferences(getContext());
         parent_layout = (LinearLayout) getView().findViewById(R.id.parent_layout);
         share_content = (TextView) getView().findViewById(R.id.share_content);
         share_btn_cover = (FrameLayout) getView().findViewById(R.id.share_btn_cover);
@@ -76,7 +76,7 @@ public class FinishFragment extends BaseFragment implements OnClickListener {
         check_btn.setOnClickListener(this);
 
         int currentSection = mSharedPreferences.getInt(KeyUtil.AiBaseCurrentSection,0);
-        Settings.saveSharedPreferences(sp,KeyUtil.AiBaseCurrentSection,(currentSection+1));
+        Setings.saveSharedPreferences(sp,KeyUtil.AiBaseCurrentSection,(currentSection+1));
     }
 
     private void shareWithImg() throws IOException {

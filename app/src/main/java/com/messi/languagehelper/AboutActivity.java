@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVAnalytics;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,12 +25,12 @@ public class AboutActivity extends BaseActivity{
 
 	private void init() {
 		setActionBarTitle(getResources().getString(R.string.title_about));
-		app_version.setText(Settings.getVersionName(this));
+		app_version.setText(Setings.getVersionName(this));
 	}
 
 	@OnClick(R.id.email_layout)
 	public void onClick() {
-		Settings.contantUs(AboutActivity.this);
+		Setings.contantUs(AboutActivity.this);
 		AVAnalytics.onEvent(this, "about_pg_send_email");
 	}
 	

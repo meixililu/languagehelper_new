@@ -35,17 +35,17 @@ public class NotificationUtil {
         NotificationManager manager = (NotificationManager) mContext.getSystemService(NOTIFICATION_SERVICE);
         createNotificationChannel(manager,type);
         Class toClass = WXEntryActivity.class;
-        if(mContext.getPackageName().equals(Settings.application_id_yys)){
+        if(mContext.getPackageName().equals(Setings.application_id_yys)){
             toClass = WXEntryActivity.class;
-        }else if(mContext.getPackageName().equals(Settings.application_id_yys_google)){
+        }else if(mContext.getPackageName().equals(Setings.application_id_yys_google)){
             toClass = WXEntryActivity.class;
-        }else if(mContext.getPackageName().equals(Settings.application_id_yyj)){
+        }else if(mContext.getPackageName().equals(Setings.application_id_yyj)){
             toClass = YYJMainActivity.class;
-        }else if(mContext.getPackageName().equals(Settings.application_id_yyj_google)){
+        }else if(mContext.getPackageName().equals(Setings.application_id_yyj_google)){
             toClass = YYJMainActivity.class;
-        }else if(mContext.getPackageName().equals(Settings.application_id_yycd)){
+        }else if(mContext.getPackageName().equals(Setings.application_id_yycd)){
 
-        }else if(mContext.getPackageName().equals(Settings.application_id_xbky)){
+        }else if(mContext.getPackageName().equals(Setings.application_id_xbky)){
 
         }
         Intent notIntent = new Intent(mContext, toClass);

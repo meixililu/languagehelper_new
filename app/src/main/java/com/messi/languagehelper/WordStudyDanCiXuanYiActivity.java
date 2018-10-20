@@ -26,13 +26,12 @@ import com.messi.languagehelper.adapter.RcWordStudyCiYiXuanCiAdapter;
 import com.messi.languagehelper.dao.WordDetailListItem;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.impl.OnFinishListener;
-import com.messi.languagehelper.util.ChangeDataTypeUtil;
 import com.messi.languagehelper.util.DownLoadUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.SDCardUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
@@ -127,7 +126,7 @@ public class WordStudyDanCiXuanYiActivity extends BaseActivity implements OnFini
 
     private void initViews() {
         setActionBarTitle(this.getResources().getString(R.string.danciceshi));
-        sharedPreferences = Settings.getSharedPreferences(this);
+        sharedPreferences = Setings.getSharedPreferences(this);
         mPlayer = new MediaPlayer();
         class_name = getIntent().getStringExtra(KeyUtil.ClassName);
         class_id = getIntent().getStringExtra(KeyUtil.ClassId);
@@ -374,7 +373,7 @@ public class WordStudyDanCiXuanYiActivity extends BaseActivity implements OnFini
     }
 
     private void changeVolumeImg(){
-        Settings.saveSharedPreferences(sharedPreferences,KeyUtil.IsWordStudyPlaySound,
+        Setings.saveSharedPreferences(sharedPreferences,KeyUtil.IsWordStudyPlaySound,
                 !sharedPreferences.getBoolean(KeyUtil.IsWordStudyPlaySound,true));
         setVolumeImg();
     }

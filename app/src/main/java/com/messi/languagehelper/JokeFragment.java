@@ -26,7 +26,7 @@ import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.qq.e.ads.nativ.NativeExpressAD;
@@ -213,7 +213,7 @@ public class JokeFragment extends BaseFragment implements OnClickListener {
             }
             query.addDescendingOrder(AVOUtil.Joke.createdAt);
             query.skip(skip);
-            query.limit(Settings.page_size);
+            query.limit(Setings.page_size);
             try {
                 return query.find();
             } catch (Exception e) {
@@ -238,7 +238,7 @@ public class JokeFragment extends BaseFragment implements OnClickListener {
                         if(addAD()){
                             mAdapter.notifyDataSetChanged();
                         }
-                        skip += Settings.page_size;
+                        skip += Setings.page_size;
                         showFooterview();
                     }
                 }
@@ -355,7 +355,7 @@ public class JokeFragment extends BaseFragment implements OnClickListener {
 
     private boolean addAD(){
         if(mADObject != null && avObjects != null && avObjects.size() > 0){
-            int index = avObjects.size() - Settings.page_size + NumberUtil.randomNumberRange(1, 2);
+            int index = avObjects.size() - Setings.page_size + NumberUtil.randomNumberRange(1, 2);
             if(index < 1){
                 index = 1;
             }
@@ -401,7 +401,7 @@ public class JokeFragment extends BaseFragment implements OnClickListener {
                     }else {
                         query.whereNotEqualTo(AVOUtil.Joke.category,"103");
                     }
-                    maxRandom =  query.count() / Settings.page_size;
+                    maxRandom =  query.count() / Setings.page_size;
                     LogUtil.DefalutLog("category:"+category+"---maxRandom:"+maxRandom);
                 } catch (Exception e) {
                     e.printStackTrace();

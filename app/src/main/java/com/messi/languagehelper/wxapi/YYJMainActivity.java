@@ -37,7 +37,7 @@ import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.AppUpdateUtil;
 import com.messi.languagehelper.util.PlayUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TranslateUtil;
 import com.messi.languagehelper.util.XimalayaUtil;
 import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
@@ -154,7 +154,7 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 
 	@TargetApi(Build.VERSION_CODES.M)
 	private void checkAndRequestPermission() {
-		Settings.verifyStoragePermissions(this, Settings.PERMISSIONS_STORAGE);
+		Setings.verifyStoragePermissions(this, Setings.PERMISSIONS_STORAGE);
 	}
 
 	private void initSDKAndPermission(){
@@ -171,7 +171,7 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 		@Override
 		public void onServiceConnected(ComponentName name, IBinder service) {
 			PlayerService.MusicBinder binder = (PlayerService.MusicBinder) service;
-			Settings.musicSrv = binder.getService();
+			Setings.musicSrv = binder.getService();
 		}
 
 		@Override
@@ -214,7 +214,7 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 		}
 		unbindService(musicConnection);
 		XmPlayerManager.getInstance(this).release();
-		Settings.musicSrv = null;
+		Setings.musicSrv = null;
 	}
 
 	@Override

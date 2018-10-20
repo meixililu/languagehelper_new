@@ -10,7 +10,7 @@ import com.messi.languagehelper.bean.TwistaResult;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.util.JsonParser;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 
 import butterknife.BindView;
@@ -45,7 +45,7 @@ public class BrainTwistsActivity extends BaseActivity {
 
     private void requestData() {
         showProgressbar();
-        LanguagehelperHttpClient.get(Settings.TXBrainTwistsApi, new UICallback(BrainTwistsActivity.this) {
+        LanguagehelperHttpClient.get(Setings.TXBrainTwistsApi, new UICallback(BrainTwistsActivity.this) {
             @Override
             public void onResponsed(String responseString) {
                 try {

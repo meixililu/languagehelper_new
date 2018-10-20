@@ -26,7 +26,7 @@ import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
@@ -166,7 +166,7 @@ public class ToutiaoNewsFragment extends BaseFragment implements OnClickListener
                 .add("key", "06bc3d4c6f31f4a2c8794ef1ad45517f")
                 .add("type", type)
                 .build();
-        LanguagehelperHttpClient.post(Settings.ToutiaoNewsUrl, formBody, new UICallback(mContext) {
+        LanguagehelperHttpClient.post(Setings.ToutiaoNewsUrl, formBody, new UICallback(mContext) {
             @Override
             public void onResponsed(String responseString) {
                 try {

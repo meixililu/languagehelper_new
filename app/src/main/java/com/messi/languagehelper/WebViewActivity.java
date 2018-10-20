@@ -33,7 +33,7 @@ import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ShareUtil;
 
 import java.util.List;
@@ -280,7 +280,7 @@ public class WebViewActivity extends BaseActivity{
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case 0:  
-			if(Url.equals(Settings.CaiLingUrl)){
+			if(Url.equals(Setings.CaiLingUrl)){
 				ShareUtil.shareText(WebViewActivity.this,WebViewActivity.this.getResources().getString(R.string.cailing_ad_prompt));
 			}else{
 				if(!TextUtils.isEmpty(ShareUrlMsg)){

@@ -8,7 +8,7 @@ import android.support.v4.view.ViewPager;
 import com.messi.languagehelper.adapter.CollectedActivityAdapter;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.PlayUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 
 public class CollectedActivity extends BaseActivity {
 
@@ -27,7 +27,7 @@ public class CollectedActivity extends BaseActivity {
 
     private void init() {
         getSupportActionBar().setTitle(getResources().getString(R.string.title_favorite));
-        mSharedPreferences = Settings.getSharedPreferences(this);
+        mSharedPreferences = Setings.getSharedPreferences(this);
         viewPager = (ViewPager) findViewById(R.id.pager);
         tablayout = (TabLayout) findViewById(R.id.tablayout);
         mAdapter = new CollectedActivityAdapter(getSupportFragmentManager(), this);
@@ -38,13 +38,13 @@ public class CollectedActivity extends BaseActivity {
     }
 
     private void setLastTimeSelectTab(){
-        int index = Settings.getSharedPreferences(this).getInt(KeyUtil.LastTimeCollectedActivitySelectTab, 0);
+        int index = Setings.getSharedPreferences(this).getInt(KeyUtil.LastTimeCollectedActivitySelectTab, 0);
         viewPager.setCurrentItem(index);
     }
 
     private void saveSelectTab(){
         int index = viewPager.getCurrentItem();
-        Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.LastTimeCollectedActivitySelectTab,index);
+        Setings.saveSharedPreferences(mSharedPreferences, KeyUtil.LastTimeCollectedActivitySelectTab,index);
     }
 
     @Override

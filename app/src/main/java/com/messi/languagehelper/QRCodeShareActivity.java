@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.avos.avoscloud.AVAnalytics;
 import com.messi.languagehelper.util.SDCardUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ViewUtil;
 
 import java.io.File;
@@ -50,14 +50,14 @@ public class QRCodeShareActivity extends BaseActivity implements OnClickListener
     }
 
     private void setImg(){
-        if(getPackageName().equals(Settings.application_id_yyj)){
+        if(getPackageName().equals(Setings.application_id_yyj)){
             qrcode_img.setImageResource(R.drawable.yyj_qrcode);
-        }else if (getPackageName().equals(Settings.application_id_yys) ||
-                getPackageName().equals(Settings.application_id_yys_google)) {
+        }else if (getPackageName().equals(Setings.application_id_yys) ||
+                getPackageName().equals(Setings.application_id_yys_google)) {
             qrcode_img.setImageResource(R.drawable.yys_qrcode);
-        } else if (getPackageName().equals(Settings.application_id_yycd)) {
+        } else if (getPackageName().equals(Setings.application_id_yycd)) {
             qrcode_img.setImageResource(R.drawable.qr_ywcd);
-        } else if (getPackageName().equals(Settings.application_id_xbky)) {
+        } else if (getPackageName().equals(Setings.application_id_xbky)) {
 
         } else {
             qrcode_img.setImageResource(R.drawable.qrcode);
@@ -75,7 +75,7 @@ public class QRCodeShareActivity extends BaseActivity implements OnClickListener
             if (file != null && file.exists() && file.isFile()) {
                 Uri uri = null;
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    uri = FileProvider.getUriForFile(this, Settings.getProvider(this), file);
+                    uri = FileProvider.getUriForFile(this, Setings.getProvider(this), file);
                 } else {
                     uri = Uri.fromFile(file);
                 }

@@ -29,7 +29,7 @@ import com.messi.languagehelper.util.DownLoadUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SDCardUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TextHandlerUtil;
 import com.messi.languagehelper.util.TimeUtil;
 import com.messi.languagehelper.util.XFYSAD;
@@ -100,10 +100,10 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
 
     private void initData() {
         mSharedPreferences = this.getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
-        mAVObjects = (List<Reading>) Settings.dataMap.get(KeyUtil.DataMapKey);
+        mAVObjects = (List<Reading>) Setings.dataMap.get(KeyUtil.DataMapKey);
         index = getIntent().getIntExtra(KeyUtil.IndexKey, 0);
         mAVObject = mAVObjects.get(index);
-        Settings.dataMap.clear();
+        Setings.dataMap.clear();
         if (mAVObject == null) {
             finish();
         }
@@ -122,8 +122,8 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
             mXFYSAD = new XFYSAD(this, xx_ad_layout, ADUtil.NewsDetail);
             mXFYSAD.showAD();
         }
-        if(Settings.musicSrv.isSameMp3(mAVObject)){
-            if(Settings.musicSrv.PlayerStatus == 1) {
+        if(Setings.musicSrv.isSameMp3(mAVObject)){
+            if(Setings.musicSrv.PlayerStatus == 1) {
                 btn_play.setImageResource(R.drawable.ic_pause_circle_outline_grey600_36dp);
                 handler.postDelayed(mRunnable,300);
                 downloadLrc();
@@ -160,8 +160,8 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
     }
 
     private void setSeekbarAndText(){
-        int currentPosition = Settings.musicSrv.getCurrentPosition();
-        int mDuration = Settings.musicSrv.getDuration();
+        int currentPosition = Setings.musicSrv.getCurrentPosition();
+        int mDuration = Setings.musicSrv.getDuration();
         LogUtil.DefalutLog("ContentPosition:"+currentPosition);
 //        LogUtil.DefalutLog("Duration:"+mDuration);
         if(mDuration > 0){
@@ -276,23 +276,23 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
         sb.append("\n");
         sb.append(mAVObject.getContent());
         if (i == 0) {
-            Settings.share(this, sb.toString());
+            Setings.share(this, sb.toString());
         } else {
-            Settings.copy(this, sb.toString());
+            Setings.copy(this, sb.toString());
         }
     }
 
     @OnClick(R.id.btn_play)
     public void onClick() {
-        if (Settings.musicSrv != null) {
-            Settings.musicSrv.initAndPlay(mAVObject);
+        if (Setings.musicSrv != null) {
+            Setings.musicSrv.initAndPlay(mAVObject);
         }
         downloadLrc();
     }
 
     @Override
     public void updateUI(String music_action) {
-        if(Settings.musicSrv.isSameMp3(mAVObject)){
+        if(Setings.musicSrv.isSameMp3(mAVObject)){
             if(music_action.equals(PlayerService.action_start)){
                 btn_play.setImageResource(R.drawable.ic_play_circle_outline_grey600_36dp);
                 handler.removeCallbacks(mRunnable);
@@ -324,13 +324,13 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) {
         handler.removeCallbacks(mRunnable);
-        Settings.musicSrv.pause();
+        Setings.musicSrv.pause();
     }
 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
-        Settings.musicSrv.seekTo(seekBar.getProgress());
-        Settings.musicSrv.restart();
+        Setings.musicSrv.seekTo(seekBar.getProgress());
+        Setings.musicSrv.restart();
         handler.postDelayed(mRunnable,300);
     }
 }

@@ -35,7 +35,7 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.SDCardUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
 
@@ -111,7 +111,7 @@ public class AiTuringActivity extends BaseActivity {
 
     private void initData() {
         setActionBarTitle(getResources().getString(R.string.title_tuling_ai));
-        sp = Settings.getSharedPreferences(this);
+        sp = Setings.getSharedPreferences(this);
         recognizer = SpeechRecognizer.createRecognizer(this, null);
         beans = new ArrayList<AiEntity>();
         beans.addAll(DataBaseUtil.getInstance().getAiEntityList(AiUtil.Ai_Turing));
@@ -155,7 +155,7 @@ public class AiTuringActivity extends BaseActivity {
         switch (view.getId()) {
             case R.id.volume_btn:
                 boolean isPlay = !sp.getBoolean(KeyUtil.IsAiTuringPlayVoice, true);
-                Settings.saveSharedPreferences(sp,
+                Setings.saveSharedPreferences(sp,
                         KeyUtil.IsAiTuringPlayVoice,
                         isPlay);
                 if (isPlay) {
@@ -211,7 +211,7 @@ public class AiTuringActivity extends BaseActivity {
      * 显示转写对话框.
      */
     public void showIatDialog() {
-        Settings.verifyStoragePermissions(this, Settings.PERMISSIONS_RECORD_AUDIO);
+        Setings.verifyStoragePermissions(this, Setings.PERMISSIONS_RECORD_AUDIO);
         if (!recognizer.isListening()) {
             recordLayout.setVisibility(View.VISIBLE);
             inputEt.setText("");
@@ -237,11 +237,11 @@ public class AiTuringActivity extends BaseActivity {
     private void changeInputType() {
         if (keybordLayout.isShown()) {
             showMicLayout();
-            Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.IsAiChatShowKeybordLayout, false);
+            Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.IsAiChatShowKeybordLayout, false);
             hideIME(inputEt);
         } else {
             showKeybordLayout();
-            Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.IsAiChatShowKeybordLayout, true);
+            Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.IsAiChatShowKeybordLayout, true);
             showIME();
             inputEt.requestFocus();
         }
@@ -262,11 +262,11 @@ public class AiTuringActivity extends BaseActivity {
     private void requestData(String msg) {
         showProgressbar();
         FormBody formBody = new FormBody.Builder()
-                .add("key", Settings.AiTuringApiKey)
+                .add("key", Setings.AiTuringApiKey)
                 .add("info", msg)
-                .add("userid", Settings.getUUID(this))
+                .add("userid", Setings.getUUID(this))
                 .build();
-        LanguagehelperHttpClient.post(Settings.AiTuringApi, formBody, new UICallback(this) {
+        LanguagehelperHttpClient.post(Setings.AiTuringApi, formBody, new UICallback(this) {
             @Override
             public void onResponsed(String responseString) {
                 try {

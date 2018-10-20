@@ -23,7 +23,7 @@ import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 
 import java.util.List;
 
@@ -106,10 +106,10 @@ public class RcSubjectReadingListItemViewHolder extends RecyclerView.ViewHolder 
                 }
                 if (!TextUtils.isEmpty(mAVObject.getMedia_url())) {
                     music_play_img.setVisibility(View.VISIBLE);
-                    if(Settings.musicSrv == null){
+                    if(Setings.musicSrv == null){
                         music_play_img.setImageResource(R.drawable.jz_click_play_selector);
-                    }else if(mAVObject.getObject_id().equals(Settings.musicSrv.lastSongId)){
-                        if(Settings.musicSrv.PlayerStatus == 1){
+                    }else if(mAVObject.getObject_id().equals(Setings.musicSrv.lastSongId)){
+                        if(Setings.musicSrv.PlayerStatus == 1){
                             music_play_img.setImageResource(R.drawable.jz_click_pause_selector);
                         }else {
                             music_play_img.setImageResource(R.drawable.jz_click_play_selector);
@@ -124,7 +124,7 @@ public class RcSubjectReadingListItemViewHolder extends RecyclerView.ViewHolder 
                 list_item_img_parent.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Settings.musicSrv.initAndPlay(mAVObject);
+                        Setings.musicSrv.initAndPlay(mAVObject);
                         saveLastTimeReadItemId(mAVObject);
                     }
                 });
@@ -188,7 +188,7 @@ public class RcSubjectReadingListItemViewHolder extends RecyclerView.ViewHolder 
             intent.putExtra(KeyUtil.ActionbarTitle, " ");
             context.startActivity(intent);
         }else {
-            Settings.dataMap.put(KeyUtil.DataMapKey, avObjects);
+            Setings.dataMap.put(KeyUtil.DataMapKey, avObjects);
             Class toDetail = null;
             if(TextUtils.isEmpty(item.getLrc_url())){
                 toDetail = ReadingDetailActivity.class;
@@ -207,7 +207,7 @@ public class RcSubjectReadingListItemViewHolder extends RecyclerView.ViewHolder 
     }
 
     private void saveLastTimeReadItemId(Reading item){
-        Settings.saveSharedPreferences(Settings.getSharedPreferences(context),
+        Setings.saveSharedPreferences(Setings.getSharedPreferences(context),
                 recentKey+KeyUtil.SubjectLastTimeReadItemId, NumberUtil.StringToInt(item.getItem_id()));
     }
 

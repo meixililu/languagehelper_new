@@ -20,7 +20,7 @@ import com.messi.languagehelper.XmlyMainForYYSFragment;
 import com.messi.languagehelper.YYJHomeFragment;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 
 public class MainPageAdapter extends FragmentPagerAdapter {
 
@@ -37,23 +37,23 @@ public class MainPageAdapter extends FragmentPagerAdapter {
         this.mContext = mContext;
         this.listener = listener;
         this.mSharedPreferences = mSharedPreferences;
-        if(mContext.getApplication().getPackageName().equals(Settings.application_id_yyj) ||
-                mContext.getApplication().getPackageName().equals(Settings.application_id_yyj_google)){
+        if(mContext.getApplication().getPackageName().equals(Setings.application_id_yyj) ||
+                mContext.getApplication().getPackageName().equals(Setings.application_id_yyj_google)){
             CONTENT = new String[] {
                     mContext.getResources().getString(R.string.title_home_tab),
                     mContext.getResources().getString(R.string.title_study_category),
                     mContext.getResources().getString(R.string.title_translate),
                     mContext.getResources().getString(R.string.title_leisure)
             };
-        }else if(mContext.getApplication().getPackageName().equals(Settings.application_id_yys) ||
-                mContext.getApplication().getPackageName().equals(Settings.application_id_yys_google)){
+        }else if(mContext.getApplication().getPackageName().equals(Setings.application_id_yys) ||
+                mContext.getApplication().getPackageName().equals(Setings.application_id_yys_google)){
             CONTENT = new String[] {
                     mContext.getResources().getString(R.string.title_home_tab),
                     mContext.getResources().getString(R.string.title_TranslatePractice),
                     mContext.getResources().getString(R.string.title_listen_fm),
                     mContext.getResources().getString(R.string.title_leisure)
             };
-        }else if(mContext.getApplication().getPackageName().equals(Settings.application_id_yycd)){
+        }else if(mContext.getApplication().getPackageName().equals(Setings.application_id_yycd)){
             CONTENT = new String[] {
                     mContext.getResources().getString(R.string.title_home_tab),
                     mContext.getResources().getString(R.string.title_listen_fm),
@@ -72,8 +72,8 @@ public class MainPageAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        if(mContext.getApplication().getPackageName().equals(Settings.application_id_yyj) ||
-                mContext.getApplication().getPackageName().equals(Settings.application_id_yyj_google)){
+        if(mContext.getApplication().getPackageName().equals(Setings.application_id_yyj) ||
+                mContext.getApplication().getPackageName().equals(Setings.application_id_yyj_google)){
             if( position == 0 ){
                 mfragment = StudyFragment.getInstance();
                 return mfragment;
@@ -84,8 +84,8 @@ public class MainPageAdapter extends FragmentPagerAdapter {
             }else if( position == 3 ){
                 return LeisureFragment.getInstance();
             }
-        } else if(mContext.getApplication().getPackageName().equals(Settings.application_id_yys) ||
-                mContext.getApplication().getPackageName().equals(Settings.application_id_yys_google)){
+        } else if(mContext.getApplication().getPackageName().equals(Setings.application_id_yys) ||
+                mContext.getApplication().getPackageName().equals(Setings.application_id_yys_google)){
             if( position == 0 ){
                 return MainFragmentYYS.getInstance(listener);
             }else if( position == 1 ){
@@ -95,7 +95,7 @@ public class MainPageAdapter extends FragmentPagerAdapter {
             }else if( position == 3 ){
                 return LeisureFragment.getInstance();
             }
-        } else if(mContext.getApplication().getPackageName().equals(Settings.application_id_yycd)){
+        } else if(mContext.getApplication().getPackageName().equals(Setings.application_id_yycd)){
             if( position == 0 ){
                 return MainFragmentYWCD.getInstance(listener);
             }else if( position == 1 ){

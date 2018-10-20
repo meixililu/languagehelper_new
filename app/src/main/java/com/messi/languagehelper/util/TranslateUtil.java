@@ -66,7 +66,7 @@ public class TranslateUtil {
 	public static String translateDefaultOrder = "[{\"name\":\"baidu_api\",\"status\":\"1\"},{\"name\":\"show_api\",\"status\":\"1\"},{\"name\":\"juhe_api\",\"status\":\"1\"},{\"name\":\"biying_web\",\"status\":\"1\"},{\"name\":\"youdao_web\",\"status\":\"1\"}]";
 
 	public static void Translate_init(Context mActivity, Handler mHandler) {
-		SharedPreferences sp = Settings.getSharedPreferences(mActivity);
+		SharedPreferences sp = Setings.getSharedPreferences(mActivity);
 		if(apiOrder == null){
 			String apiOrders = sp.getString(KeyUtil.TranslateApiOrder, translateDefaultOrder);
 			LogUtil.DefalutLog("apiOrders:"+apiOrders);
@@ -122,13 +122,13 @@ public class TranslateUtil {
 
 	public static void Translate_Showapi(final Context mActivity, final Handler mHandler) {
 		FormBody formBody = new FormBody.Builder()
-				.add("showapi_appid", Settings.showapi_appid)
-				.add("showapi_sign", Settings.showapi_secret)
+				.add("showapi_appid", Setings.showapi_appid)
+				.add("showapi_sign", Setings.showapi_secret)
 				.add("showapi_timestamp", String.valueOf(System.currentTimeMillis()))
 				.add("showapi_res_gzip", "1")
-				.add("q", Settings.q)
+				.add("q", Setings.q)
 				.build();
-		LanguagehelperHttpClient.post(Settings.ShowApiDictionaryUrl, formBody, new Callback() {
+		LanguagehelperHttpClient.post(Setings.ShowApiDictionaryUrl, formBody, new Callback() {
 			@Override
 			public void onFailure(Call call, IOException e) {
 				Translate(mActivity,mHandler);
@@ -146,8 +146,8 @@ public class TranslateUtil {
 								if (mRoot != null && mRoot.getShowapi_res_code() == 0
 										&& mRoot.getShowapi_res_body() != null
 										&& mRoot.getShowapi_res_body().getRet_code() != -1) {
-									Dictionary mDictionaryBean = JsonParser.changeShowapiResultToDicBean(mRoot,Settings.q);
-									Settings.dataMap.put(KeyUtil.DataMapKey, mDictionaryBean);
+									Dictionary mDictionaryBean = JsonParser.changeShowapiResultToDicBean(mRoot,Setings.q);
+									Setings.dataMap.put(KeyUtil.DataMapKey, mDictionaryBean);
 									sendMessage(mHandler,1);
 								}else{
 									Translate(mActivity,mHandler);
@@ -170,7 +170,7 @@ public class TranslateUtil {
 	}
 
 	public static void Translate_Juhe(final Context mActivity, final Handler mHandler) {
-		LanguagehelperHttpClient.get(Settings.JuheYoudaoApiUrl + Settings.q, new Callback() {
+		LanguagehelperHttpClient.get(Setings.JuheYoudaoApiUrl + Setings.q, new Callback() {
 			@Override
 			public void onFailure(Call call, IOException e) {
 				Translate(mActivity,mHandler);
@@ -192,8 +192,8 @@ public class TranslateUtil {
 								}
 								DictionaryRootJuhe mRoot = new Gson().fromJson(responseString, DictionaryRootJuhe.class);
 								if (mRoot != null && mRoot.getError_code() == 0 && mRoot.getResult() != null) {
-									Dictionary mDictionaryBean = JsonParser.changeJuheResultToDicBean(mRoot,Settings.q);
-									Settings.dataMap.put(KeyUtil.DataMapKey, mDictionaryBean);
+									Dictionary mDictionaryBean = JsonParser.changeJuheResultToDicBean(mRoot,Setings.q);
+									Setings.dataMap.put(KeyUtil.DataMapKey, mDictionaryBean);
 									sendMessage(mHandler,1);
 								}else{
 									Translate(mActivity,mHandler);
@@ -216,7 +216,7 @@ public class TranslateUtil {
 	}
 	
 	public static void Translate_youdao_web(final Context mActivity, final Handler mHandler) {
-		LanguagehelperHttpClient.get(Settings.YoudaoWeb + Settings.q + Settings.YoudaoWebEnd, new Callback() {
+		LanguagehelperHttpClient.get(Setings.YoudaoWeb + Setings.q + Setings.YoudaoWebEnd, new Callback() {
 			@Override
 			public void onFailure(Call call, IOException e) {
 				Translate(mActivity,mHandler);
@@ -231,7 +231,7 @@ public class TranslateUtil {
 						if (!TextUtils.isEmpty(responseString)) {
 							Dictionary mDictionary = getParseYoudaoWebHtml(responseString);
 							if (mDictionary != null) {
-								Settings.dataMap.put(KeyUtil.DataMapKey, mDictionary);
+								Setings.dataMap.put(KeyUtil.DataMapKey, mDictionary);
 								sendMessage(mHandler,1);
 							}else{
 								Translate(mActivity,mHandler);
@@ -254,7 +254,7 @@ public class TranslateUtil {
 		StringBuilder sb = new StringBuilder();
 		StringBuilder sb_play = new StringBuilder();
 		Dictionary mDictionary = new Dictionary();
-		boolean isEnglish = StringUtils.isEnglish(Settings.q);
+		boolean isEnglish = StringUtils.isEnglish(Setings.q);
 		mDictionary.setType(KeyUtil.ResultTypeShowapi);
 		if(isEnglish){
 			mDictionary.setFrom("en");
@@ -263,8 +263,8 @@ public class TranslateUtil {
 			mDictionary.setFrom("zh");
 			mDictionary.setTo("en");
 		}
-		mDictionary.setWord_name(Settings.q);
-		sb_play.append(Settings.q);
+		mDictionary.setWord_name(Setings.q);
+		sb_play.append(Setings.q);
 		sb_play.append("\n");
 		Document doc = Jsoup.parse(html);
 		Element error = doc.select("div.error-wrapper").first();
@@ -432,7 +432,7 @@ public class TranslateUtil {
 	}
 	
 	public static void Translate_Biying_web(final Context mActivity, final Handler mHandler) {
-		LanguagehelperHttpClient.get(Settings.BingyingWeb + Settings.q, new Callback() {
+		LanguagehelperHttpClient.get(Setings.BingyingWeb + Setings.q, new Callback() {
 			@Override
 			public void onFailure(Call call, IOException e) {
 				Translate(mActivity,mHandler);
@@ -448,7 +448,7 @@ public class TranslateUtil {
 						if (!TextUtils.isEmpty(responseString)) {
 							Dictionary mDictionary = getParseBingyingWebHtml(responseString);
 							if (mDictionary != null) {
-								Settings.dataMap.put(KeyUtil.DataMapKey, mDictionary);
+								Setings.dataMap.put(KeyUtil.DataMapKey, mDictionary);
 								sendMessage(mHandler,1);
 							}else{
 								Translate(mActivity,mHandler);
@@ -471,7 +471,7 @@ public class TranslateUtil {
 		StringBuilder sb = new StringBuilder();
 		StringBuilder sb_play = new StringBuilder();
 		Dictionary mDictionary = new Dictionary();
-		boolean isEnglish = StringUtils.isEnglish(Settings.q);
+		boolean isEnglish = StringUtils.isEnglish(Setings.q);
 		mDictionary.setType(KeyUtil.ResultTypeShowapi);
 		if(isEnglish){
 			mDictionary.setFrom("en");
@@ -480,8 +480,8 @@ public class TranslateUtil {
 			mDictionary.setFrom("zh");
 			mDictionary.setTo("en");
 		}
-		mDictionary.setWord_name(Settings.q);
-		sb_play.append(Settings.q);
+		mDictionary.setWord_name(Setings.q);
+		sb_play.append(Setings.q);
 		sb_play.append("\n");
 		Document doc = Jsoup.parse(html);
 		Element smt_hw = doc.select("div.smt_hw").first();
@@ -661,10 +661,10 @@ public class TranslateUtil {
 							} else {
 								Dictionary mDictionaryBean = new Dictionary();
 								mDictionaryBean.setType(KeyUtil.ResultTypeTranslate);
-								mDictionaryBean.setWord_name(Settings.q);
+								mDictionaryBean.setWord_name(Setings.q);
 								mDictionaryBean.setResult(dstString);
 								DataBaseUtil.getInstance().insert(mDictionaryBean);
-								Settings.dataMap.put(KeyUtil.DataMapKey, mDictionaryBean);
+								Setings.dataMap.put(KeyUtil.DataMapKey, mDictionaryBean);
 								sendMessage(mHandler,1);
 							}
 						} else {
@@ -702,7 +702,7 @@ public class TranslateUtil {
 		if(apiOrder != null){
 			String order = new Gson().toJson(apiOrder);
 			LogUtil.DefalutLog("saveTranslateApiOrder:"+order);
-			Settings.saveSharedPreferences(sp, KeyUtil.TranslateApiOrder, order);
+			Setings.saveSharedPreferences(sp, KeyUtil.TranslateApiOrder, order);
 		}
 	}
 
@@ -740,23 +740,23 @@ public class TranslateUtil {
 		if(!EnWordTranslator.isInited()){
 			EnWordTranslator.init();
 		}
-		return EnWordTranslator.lookupNative(Settings.q);
+		return EnWordTranslator.lookupNative(Setings.q);
 	}
 
 	public static Translate getSentenceTranslate(){
 		EnLineTranslator.initDictPath(SDCardUtil.OfflineDicPath);
-		return EnLineTranslator.lookup(Settings.q, LanguageConvert.AUTO);
+		return EnLineTranslator.lookup(Setings.q, LanguageConvert.AUTO);
 	}
 
 	public static boolean isOfflineTranslateWords(){
-		if (StringUtils.isEnglish(Settings.q)) {
-			if(Settings.q.split(" ").length > 2){
+		if (StringUtils.isEnglish(Setings.q)) {
+			if(Setings.q.split(" ").length > 2){
 				return false;
 			}else {
 				return true;
 			}
 		}else {
-			if(Settings.q.split("").length > 3){
+			if(Setings.q.split("").length > 3){
 				return false;
 			}else {
 				return true;
@@ -765,7 +765,7 @@ public class TranslateUtil {
 	}
 
 	public static void addSymbol(Translate translate, StringBuilder sb){
-		if(StringUtils.isEnglish(Settings.q)){
+		if(StringUtils.isEnglish(Setings.q)){
 			boolean isHasSymbol = false;
 			if (!TextUtils.isEmpty(translate.getUkPhonetic())) {
 				sb.append("英[");
@@ -1030,7 +1030,7 @@ public class TranslateUtil {
 				if (JsonParser.isJson(mResult)) {
 					String dstString = JsonParser.getTranslateResult(mResult);
 					if (!dstString.contains("error_msg:")) {
-						currentDialogBean = new record(dstString, Settings.q);
+						currentDialogBean = new record(dstString, Setings.q);
 						LogUtil.DefalutLog("tran_bd_api http:"+dstString);
 					}
 				}
@@ -1049,7 +1049,7 @@ public class TranslateUtil {
 				if (JsonParser.isJson(mResult)) {
 					String dstString = JsonParser.getTranslateResult(mResult);
 					if (!dstString.contains("error_msg:")) {
-						currentDialogBean = new TranResultZhYue(dstString, Settings.q, Settings.to);
+						currentDialogBean = new TranResultZhYue(dstString, Setings.q, Setings.to);
 						LogUtil.DefalutLog("tran_bd_api_zh_yue http:"+dstString);
 					}
 				}
@@ -1069,7 +1069,7 @@ public class TranslateUtil {
 			AiYueYuBean mAiYueYuBean = new Gson().fromJson(result, AiYueYuBean.class);
 			if (mAiYueYuBean != null && mAiYueYuBean.getState() == 200 &&
 					!TextUtils.isEmpty(mAiYueYuBean.getContent())) {
-				currentDialogBean = new TranResultZhYue(mAiYueYuBean.getContent(), Settings.q, Settings.to);
+				currentDialogBean = new TranResultZhYue(mAiYueYuBean.getContent(), Setings.q, Setings.to);
 				LogUtil.DefalutLog("tran_aiyueyu http:"+mAiYueYuBean.getContent());
 			}
 		}
@@ -1084,7 +1084,7 @@ public class TranslateUtil {
 			BaiduV2Bean mBaiduV2Bean = JSON.parseObject(mResult, BaiduV2Bean.class);
 			if (mBaiduV2Bean != null && mBaiduV2Bean.getTrans_result() != null &&
 					mBaiduV2Bean.getTrans_result().getStatus() == 0) {
-				currentDialogBean = new record(mBaiduV2Bean.getTrans_result().getData().get(0).getDst(), Settings.q);
+				currentDialogBean = new record(mBaiduV2Bean.getTrans_result().getData().get(0).getDst(), Setings.q);
 				LogUtil.DefalutLog("tran_baiduv2_api http:"+mBaiduV2Bean.getTrans_result().getData().get(0).getDst());
 			}
 		}
@@ -1099,7 +1099,7 @@ public class TranslateUtil {
 				if (mHjTranBean != null && mHjTranBean.getStatus() == 0
 						&& mHjTranBean.getData() != null
 						&& !TextUtils.isEmpty(mHjTranBean.getData().getContent())) {
-					currentDialogBean = new record(mHjTranBean.getData().getContent(), Settings.q);
+					currentDialogBean = new record(mHjTranBean.getData().getContent(), Setings.q);
 					LogUtil.DefalutLog("tran_hj_api http:"+mHjTranBean.getData().getContent());
 				}
 			}
@@ -1144,13 +1144,13 @@ public class TranslateUtil {
 						resultStr = resultStr.replace("vi.", "");
 						resultStr = resultStr.replace("vt.", "");
 						resultStr = resultStr.replace("v.", "");
-						currentDialogBean = new record(sb.substring(0, sb.lastIndexOf("\n")), Settings.q);
+						currentDialogBean = new record(sb.substring(0, sb.lastIndexOf("\n")), Setings.q);
 						currentDialogBean.setBackup1(resultStr);
 						if (!TextUtils.isEmpty(mIciba.getContent().getPh_tts_mp3())) {
 							currentDialogBean.setBackup3(mIciba.getContent().getPh_tts_mp3());
 						}
 					} else if (mIciba.getStatus().equals("1")) {
-						currentDialogBean = new record(mIciba.getContent().getOut().replaceAll("<br/>", "").trim(), Settings.q);
+						currentDialogBean = new record(mIciba.getContent().getOut().replaceAll("<br/>", "").trim(), Setings.q);
 					}
 				}
 			}

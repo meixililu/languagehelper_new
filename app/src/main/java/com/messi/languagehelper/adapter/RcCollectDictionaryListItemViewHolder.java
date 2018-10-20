@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
@@ -16,22 +14,17 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVAnalytics;
-import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechError;
-import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.dao.Dictionary;
 import com.messi.languagehelper.db.DataBaseUtil;
-import com.messi.languagehelper.impl.DictionaryTranslateListener;
-import com.messi.languagehelper.task.MyThread;
 import com.messi.languagehelper.util.AudioTrackUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.SDCardUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
-import com.messi.languagehelper.util.XFUtil;
 
 import java.util.List;
 
@@ -102,7 +95,7 @@ public class RcCollectDictionaryListItemViewHolder extends RecyclerView.ViewHold
         record_question_cover.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Settings.copy(context,mBean.getWord_name());
+                Setings.copy(context,mBean.getWord_name());
                 return true;
             }
         });
@@ -110,7 +103,7 @@ public class RcCollectDictionaryListItemViewHolder extends RecyclerView.ViewHold
         copy_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Settings.copy(context,mBean.getWord_name() + "\n" + finalResult);
+                Setings.copy(context,mBean.getWord_name() + "\n" + finalResult);
             }
         });
         collected_btn.setOnClickListener(new View.OnClickListener() {
@@ -132,7 +125,7 @@ public class RcCollectDictionaryListItemViewHolder extends RecyclerView.ViewHold
             Dictionary mBean = mBeans.remove(position);
             mAdapter.notifyItemRemoved(position);
             DataBaseUtil.getInstance().dele(mBean);
-            Settings.isDictionaryFragmentNeedRefresh = true;
+            Setings.isDictionaryFragmentNeedRefresh = true;
             ToastUtil.diaplayMesShort(context, context.getResources().getString(R.string.dele_success));
             AVAnalytics.onEvent(context, "tab2_delete_btn");
         } catch (Exception e) {
@@ -145,7 +138,7 @@ public class RcCollectDictionaryListItemViewHolder extends RecyclerView.ViewHold
         mAdapter.notifyItemRemoved(position);
         mBean.setIscollected("0");
         DataBaseUtil.getInstance().update(mBean);
-        Settings.isDictionaryFragmentNeedRefresh = true;
+        Setings.isDictionaryFragmentNeedRefresh = true;
         ToastUtil.diaplayMesShort(context, context.getResources().getString(R.string.favorite_cancle));
     }
 

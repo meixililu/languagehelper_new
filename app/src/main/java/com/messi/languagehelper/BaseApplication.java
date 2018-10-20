@@ -12,7 +12,7 @@ import com.messi.languagehelper.dao.DaoSession;
 import com.messi.languagehelper.db.LHContract;
 import com.messi.languagehelper.db.SQLiteOpenHelper;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.ximalaya.ting.android.opensdk.datatrasfer.CommonRequest;
 import com.youdao.sdk.app.YouDaoApplication;
 
@@ -40,7 +40,7 @@ public class BaseApplication extends MultiDexApplication {
                 Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND);
                 Fresco.initialize(BaseApplication.this);
                 AVOSCloud.initialize(BaseApplication.this, "3fg5ql3r45i3apx2is4j9on5q5rf6kapxce51t5bc0ffw2y4", "twhlgs6nvdt7z7sfaw76ujbmaw7l12gb8v6sdyjw1nzk9b1a");
-                YouDaoApplication.init(BaseApplication.this, Settings.YoudaoApiKey);
+                YouDaoApplication.init(BaseApplication.this, Setings.YoudaoApiKey);
                 AVAnalytics.enableCrashReport(BaseApplication.this, true);
                 initLearnCloudChannel();
             }
@@ -52,21 +52,21 @@ public class BaseApplication extends MultiDexApplication {
     }
 
     private void initLearnCloudChannel(){
-        if(getPackageName().equals(Settings.application_id_zyhy)){
+        if(getPackageName().equals(Setings.application_id_zyhy)){
             AVAnalytics.setAppChannel("LeanCloud");
-        }else if(getPackageName().equals(Settings.application_id_zyhy_google)){
+        }else if(getPackageName().equals(Setings.application_id_zyhy_google)){
             AVAnalytics.setAppChannel("zyhy_google");
-        }else if(getPackageName().equals(Settings.application_id_yys)){
+        }else if(getPackageName().equals(Setings.application_id_yys)){
             AVAnalytics.setAppChannel("cantonese_study");
-        }else if(getPackageName().equals(Settings.application_id_yys_google)){
+        }else if(getPackageName().equals(Setings.application_id_yys_google)){
             AVAnalytics.setAppChannel("yys_google");
-        }else if(getPackageName().equals(Settings.application_id_yyj)){
+        }else if(getPackageName().equals(Setings.application_id_yyj)){
             AVAnalytics.setAppChannel("learnEnglish");
-        }else if(getPackageName().equals(Settings.application_id_yyj_google)){
+        }else if(getPackageName().equals(Setings.application_id_yyj_google)){
             AVAnalytics.setAppChannel("yyj_google");
-        }else if(getPackageName().equals(Settings.application_id_yycd)){
+        }else if(getPackageName().equals(Setings.application_id_yycd)){
             AVAnalytics.setAppChannel("ywcd");
-        }else if(getPackageName().equals(Settings.application_id_xbky)){
+        }else if(getPackageName().equals(Setings.application_id_xbky)){
             AVAnalytics.setAppChannel("xbky");
         }else{
             AVAnalytics.setAppChannel("other");

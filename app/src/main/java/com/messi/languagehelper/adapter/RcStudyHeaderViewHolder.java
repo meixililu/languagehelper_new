@@ -29,7 +29,7 @@ import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.SDCardUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TimeUtil;
 
 import java.util.List;
@@ -130,7 +130,7 @@ public class RcStudyHeaderViewHolder extends RecyclerView.ViewHolder {
 
     private void requestDailysentence(){
         LogUtil.DefalutLog("StudyFragment-requestDailysentence()");
-        LanguagehelperHttpClient.get(Settings.DailySentenceUrl, new UICallback(mContext){
+        LanguagehelperHttpClient.get(Setings.DailySentenceUrl, new UICallback(mContext){
             public void onResponsed(String responseString) {
                 if(JsonParser.isJson(responseString)){
                     mEveryDaySentence = JsonParser.parseEveryDaySentence(responseString);

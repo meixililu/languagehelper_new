@@ -38,7 +38,7 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.ScoreUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
 import com.nineoldandroids.animation.Animator;
@@ -228,7 +228,7 @@ public class PracticeReadAfterMeFragment extends BaseFragment implements OnClick
     }
 
     private void initView() {
-        mSharedPreferences = Settings.getSharedPreferences(getActivity());
+        mSharedPreferences = Setings.getSharedPreferences(getActivity());
         recognizer = SpeechRecognizer.createRecognizer(getActivity(), null);
         repeatTimes = mSharedPreferences.getInt(KeyUtil.ReadRepeatTime, 2);
 
@@ -295,13 +295,13 @@ public class PracticeReadAfterMeFragment extends BaseFragment implements OnClick
                     repeatTimes--;
                     repeat_time.setText("跟读 " + repeatTimes + " 次");
                 }
-                Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.ReadRepeatTime, repeatTimes);
+                Setings.saveSharedPreferences(mSharedPreferences, KeyUtil.ReadRepeatTime, repeatTimes);
                 AVAnalytics.onEvent(getActivity(), "readafterme_pg_minus_btn");
                 break;
             case R.id.repeat_time_plus_cover:
                 repeatTimes++;
                 repeat_time.setText("跟读 " + repeatTimes + " 次");
-                Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.ReadRepeatTime, repeatTimes);
+                Setings.saveSharedPreferences(mSharedPreferences, KeyUtil.ReadRepeatTime, repeatTimes);
                 AVAnalytics.onEvent(getActivity(), "readafterme_pg_plus_btn");
                 break;
             default:

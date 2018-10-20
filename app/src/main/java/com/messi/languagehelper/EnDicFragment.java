@@ -12,7 +12,7 @@ import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.HtmlParseUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.mindorks.nybus.NYBus;
 
 import butterknife.BindView;
@@ -50,12 +50,12 @@ public class EnDicFragment extends BaseFragment {
     }
 
     private void translateController() {
-        lastSearch = Settings.q;
+        lastSearch = Setings.q;
         showProgressbar();
         Observable.create(new ObservableOnSubscribe<String>() {
             @Override
             public void subscribe(ObservableEmitter<String> e) throws Exception {
-                String url = Settings.EndicApi + lastSearch;
+                String url = Setings.EndicApi + lastSearch;
                 LogUtil.DefalutLog(url);
                 Response mResponse = LanguagehelperHttpClient.get(url);
                 if (mResponse != null && mResponse.isSuccessful()) {

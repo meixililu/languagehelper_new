@@ -14,7 +14,7 @@ import com.messi.languagehelper.adapter.RcWordStudySummaryListAdapter;
 import com.messi.languagehelper.adapter.RcWordStudySummaryMenuListAdapter;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
@@ -67,7 +67,7 @@ public class WordStudySummaryListActivity extends BaseActivity {
         getSupportActionBar().setTitle(title);
         category = getIntent().getStringExtra(KeyUtil.Category);
         list_type = getIntent().getStringExtra(KeyUtil.list_type);
-        sharedPreferences = Settings.getSharedPreferences(this);
+        sharedPreferences = Setings.getSharedPreferences(this);
 
         mAVObjectList = new ArrayList<AVObject>();
         mAVObjectMenuList = new ArrayList<AVObject>();

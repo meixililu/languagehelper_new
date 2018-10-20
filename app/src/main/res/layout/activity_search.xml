@@ -99,20 +99,24 @@
 			android:layout_marginBottom="@dimen/padding_5"
 			android:background="@color/text_tint2"
 			/>
-		<com.google.android.flexbox.FlexboxLayout
-			android:id="@+id/auto_wrap_layout"
+		<ScrollView
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:background="@color/white"
-			android:paddingBottom="@dimen/padding_7"
-			android:paddingLeft="@dimen/padding_5"
-			app:alignItems="center"
-			app:alignContent="flex_start"
-			app:flexDirection="row"
-			app:justifyContent="flex_start"
-			app:showDivider="beginning|middle"
-			app:flexWrap="wrap">
-		</com.google.android.flexbox.FlexboxLayout>
+			android:layout_height="match_parent">
+			<com.google.android.flexbox.FlexboxLayout
+				android:id="@+id/auto_wrap_layout"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="@color/white"
+				android:paddingBottom="@dimen/padding_7"
+				android:paddingLeft="@dimen/padding_5"
+				app:alignItems="center"
+				app:alignContent="flex_start"
+				app:flexDirection="row"
+				app:justifyContent="flex_start"
+				app:showDivider="beginning|middle"
+				app:flexWrap="wrap">
+			</com.google.android.flexbox.FlexboxLayout>
+		</ScrollView>
 	</LinearLayout>
 
 </LinearLayout>

@@ -37,7 +37,7 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.ScoreUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
 import com.nineoldandroids.animation.Animator;
@@ -211,9 +211,9 @@ public class PracticeYYSActivity extends BaseActivity implements OnClickListener
     }
 
     private void initData() {
-        mBean = (TranResultZhYue) Settings.dataMap.get(KeyUtil.DialogBeanKey);
+        mBean = (TranResultZhYue) Setings.dataMap.get(KeyUtil.DialogBeanKey);
         isNeedDelete = getIntent().getBooleanExtra(KeyUtil.IsNeedDelete, false);
-        if(mBean.getBackup3().equals(Settings.yue)){
+        if(mBean.getBackup3().equals(Setings.yue)){
             isCantonese = true;
         }
         mUserSpeakBeanList = new ArrayList<UserSpeakBean>();
@@ -222,7 +222,7 @@ public class PracticeYYSActivity extends BaseActivity implements OnClickListener
 
     private void initView() {
         getSupportActionBar().setTitle("");
-        mSharedPreferences = Settings.getSharedPreferences(this);
+        mSharedPreferences = Setings.getSharedPreferences(this);
         mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
         recognizer = SpeechRecognizer.createRecognizer(this, null);
         recent_used_lv.setLayoutManager(new LinearLayoutManager(this));

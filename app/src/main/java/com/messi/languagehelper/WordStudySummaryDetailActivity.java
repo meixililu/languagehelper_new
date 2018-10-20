@@ -10,7 +10,7 @@ import com.avos.avoscloud.AVObject;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TextHandlerUtil;
 import com.messi.languagehelper.util.XFYSAD;
 
@@ -43,8 +43,8 @@ public class WordStudySummaryDetailActivity extends BaseActivity {
     }
 
     private void initData() {
-        mAVObject = (AVObject) Settings.dataMap.get(KeyUtil.DataMapKey);
-        Settings.dataMap.clear();
+        mAVObject = (AVObject) Setings.dataMap.get(KeyUtil.DataMapKey);
+        Setings.dataMap.clear();
         if (mAVObject == null) {
             finish();
         }

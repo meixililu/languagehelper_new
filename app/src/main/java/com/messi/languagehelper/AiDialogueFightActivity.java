@@ -38,7 +38,7 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.ScoreUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
@@ -123,12 +123,12 @@ public class AiDialogueFightActivity extends BaseActivity implements View.OnClic
 
     private void initViews() {
         setStatusbarColor(R.color.white_alph);
-        mSharedPreferences = Settings.getSharedPreferences(this);
+        mSharedPreferences = Setings.getSharedPreferences(this);
         mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
         recognizer = SpeechRecognizer.createRecognizer(this, null);
         mPlayer = new MediaPlayer();
-        avObjects = (List<AVObject>) Settings.dataMap.get("avObjects");
-        Settings.dataMap.clear();
+        avObjects = (List<AVObject>) Setings.dataMap.get("avObjects");
+        Setings.dataMap.clear();
 
         studylist_lv = (RecyclerView) findViewById(R.id.listview);
         mAdapter = new RcAiDialoguePracticeAdapter(avObjects, this);
@@ -191,7 +191,7 @@ public class AiDialogueFightActivity extends BaseActivity implements View.OnClic
             setConversationContent();
             changeConversationLayout(false);
         }
-        Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.ReadModelType, selectedNum);
+        Setings.saveSharedPreferences(mSharedPreferences, KeyUtil.ReadModelType, selectedNum);
     }
 
     private void changeConversationLayout(boolean isUserTurn) {

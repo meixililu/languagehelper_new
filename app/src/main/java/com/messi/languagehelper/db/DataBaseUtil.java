@@ -31,7 +31,7 @@ import com.messi.languagehelper.dao.recordDao;
 import com.messi.languagehelper.dao.recordDao.Properties;
 import com.messi.languagehelper.util.ColorUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 
 import org.greenrobot.greendao.query.DeleteQuery;
 import org.greenrobot.greendao.query.QueryBuilder;
@@ -106,7 +106,7 @@ public class DataBaseUtil {
     public long insert(Dictionary bean) {
         bean.setIscollected("0");
         bean.setVisit_times(0);
-        bean.setSpeak_speed(Settings.getSharedPreferences(appContext).getInt(appContext.getString(R.string.preference_key_tts_speed), 50));
+        bean.setSpeak_speed(Setings.getSharedPreferences(appContext).getInt(appContext.getString(R.string.preference_key_tts_speed), 50));
         bean.setQuestionVoiceId(System.currentTimeMillis() + "");
         return mDictionaryDao.insert(bean);
     }
@@ -114,7 +114,7 @@ public class DataBaseUtil {
     public long insert(record bean) {
         bean.setIscollected("0");
         bean.setVisit_times(0);
-        bean.setSpeak_speed(Settings.getSharedPreferences(appContext).getInt(appContext.getString(R.string.preference_key_tts_speed), 50));
+        bean.setSpeak_speed(Setings.getSharedPreferences(appContext).getInt(appContext.getString(R.string.preference_key_tts_speed), 50));
         bean.setQuestionVoiceId(System.currentTimeMillis() + "");
         bean.setResultVoiceId(System.currentTimeMillis() - 5 + "");
         return mrecordDao.insert(bean);
@@ -123,7 +123,7 @@ public class DataBaseUtil {
     public long insert(TranResultZhYue bean) {
         bean.setIscollected("0");
         bean.setVisit_times(0);
-        bean.setSpeak_speed(Settings.getSharedPreferences(appContext).getInt(appContext.getString(R.string.preference_key_tts_speed), 50));
+        bean.setSpeak_speed(Setings.getSharedPreferences(appContext).getInt(appContext.getString(R.string.preference_key_tts_speed), 50));
         bean.setQuestionVoiceId(System.currentTimeMillis() + "");
         bean.setResultVoiceId(System.currentTimeMillis() - 5 + "");
         return mTranResultZhYueDao.insert(bean);

@@ -11,7 +11,7 @@ import android.widget.ImageView;
 
 import com.avos.avoscloud.AVAnalytics;
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ShareUtil;
 
 import butterknife.BindView;
@@ -53,7 +53,7 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
 
     private void init() {
         getSupportActionBar().setTitle(getResources().getString(R.string.title_more));
-        mSharedPreferences = Settings.getSharedPreferences(this);
+        mSharedPreferences = Setings.getSharedPreferences(this);
         costom_share_layout.setOnClickListener(this);
         comments_layout.setOnClickListener(this);
         help_layout.setOnClickListener(this);
@@ -62,20 +62,20 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
         qrcode_layout.setOnClickListener(this);
         setting_layout.setOnClickListener(this);
         offlineDicLayout.setOnClickListener(this);
-        if(!Settings.getSharedPreferences(this).getBoolean(KeyUtil.OfflineDicUnreadKey,true)){
+        if(!Setings.getSharedPreferences(this).getBoolean(KeyUtil.OfflineDicUnreadKey,true)){
             offlineDicUnreadDot.setVisibility(View.GONE);
         }
         initVieds();
     }
 
     private void initVieds(){
-        if (getPackageName().equals(Settings.application_id_yys) ||
-                getPackageName().equals(Settings.application_id_yys_google)) {
+        if (getPackageName().equals(Setings.application_id_yys) ||
+                getPackageName().equals(Setings.application_id_yys_google)) {
             offline_dic_layout_line.setVisibility(View.GONE);
             offlineDicLayout.setVisibility(View.GONE);
             help_layout.setVisibility(View.GONE);
             help_layout_line.setVisibility(View.GONE);
-        } else if (getPackageName().equals(Settings.application_id_yycd)) {
+        } else if (getPackageName().equals(Setings.application_id_yycd)) {
             offline_dic_layout_line.setVisibility(View.GONE);
             offlineDicLayout.setVisibility(View.GONE);
             help_layout.setVisibility(View.GONE);
@@ -96,7 +96,7 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
             case R.id.offline_dic_layout:
                 toActivity(OfflineDicDownloadActivity.class, null);
                 offlineDicUnreadDot.setVisibility(View.GONE);
-                Settings.saveSharedPreferences(Settings.getSharedPreferences(this),
+                Setings.saveSharedPreferences(Setings.getSharedPreferences(this),
                         KeyUtil.OfflineDicUnreadKey,false);
                 break;
             case R.id.comments_layout:
@@ -126,15 +126,15 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
         try {
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_VIEW);
-            if(getPackageName().equals(Settings.application_id_yyj) ||
-                    getPackageName().equals(Settings.application_id_yyj_google)){
+            if(getPackageName().equals(Setings.application_id_yyj) ||
+                    getPackageName().equals(Setings.application_id_yyj_google)){
                 intent.setData(Uri.parse("market://details?id=com.messi.learnenglish"));
-            } else if (getPackageName().equals(Settings.application_id_yys) ||
-                    getPackageName().equals(Settings.application_id_yys_google)) {
+            } else if (getPackageName().equals(Setings.application_id_yys) ||
+                    getPackageName().equals(Setings.application_id_yys_google)) {
                 intent.setData(Uri.parse("market://details?id=com.messi.cantonese.study"));
-            } else if (getPackageName().equals(Settings.application_id_yycd)) {
+            } else if (getPackageName().equals(Setings.application_id_yycd)) {
                 intent.setData(Uri.parse("market://details?id=com.messi.languagehelper.chinese"));
-            } else if (getPackageName().equals(Settings.application_id_xbky)) {
+            } else if (getPackageName().equals(Setings.application_id_xbky)) {
                 intent.setData(Uri.parse("market://details?id=com.messi.languagehelper.spoken"));
             } else {
                 intent.setData(Uri.parse("market://details?id=com.messi.languagehelper"));
@@ -147,15 +147,15 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
     }
 
     private void invite(){
-        if(getPackageName().equals(Settings.application_id_yyj) ||
-                getPackageName().equals(Settings.application_id_yyj_google)){
+        if(getPackageName().equals(Setings.application_id_yyj) ||
+                getPackageName().equals(Setings.application_id_yyj_google)){
             ShareUtil.shareText(MoreActivity.this, MoreActivity.this.getResources().getString(R.string.invite_friends_yyj));
-        }else if (getPackageName().equals(Settings.application_id_yys) ||
-                getPackageName().equals(Settings.application_id_yys_google)) {
+        }else if (getPackageName().equals(Setings.application_id_yys) ||
+                getPackageName().equals(Setings.application_id_yys_google)) {
             ShareUtil.shareText(MoreActivity.this, MoreActivity.this.getResources().getString(R.string.invite_friends_yys));
-        } else if (getPackageName().equals(Settings.application_id_yycd)) {
+        } else if (getPackageName().equals(Setings.application_id_yycd)) {
             ShareUtil.shareText(MoreActivity.this, MoreActivity.this.getResources().getString(R.string.invite_friends_yycd));
-        } else if (getPackageName().equals(Settings.application_id_xbky)) {
+        } else if (getPackageName().equals(Setings.application_id_xbky)) {
             ShareUtil.shareText(MoreActivity.this, MoreActivity.this.getResources().getString(R.string.invite_friends_xbky));
         } else {
             ShareUtil.shareText(MoreActivity.this, MoreActivity.this.getResources().getString(R.string.invite_friends_zyhy));

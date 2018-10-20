@@ -25,7 +25,7 @@ import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
@@ -159,7 +159,7 @@ public class WechatJXFragment extends BaseFragment implements OnClickListener {
     private void requestData() {
         loading = true;
         showProgressbar();
-        LanguagehelperHttpClient.get(Settings.WechatJXUrl + currentPage, new UICallback(mContext) {
+        LanguagehelperHttpClient.get(Setings.WechatJXUrl + currentPage, new UICallback(mContext) {
             @Override
             public void onResponsed(String responseString) {
                 try {

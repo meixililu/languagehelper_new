@@ -20,7 +20,7 @@ import com.messi.languagehelper.impl.OnTranslateFinishListener;
 import com.messi.languagehelper.impl.OnViewClickListener;
 import com.messi.languagehelper.util.AiUtil;
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TextHandlerUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.TranslateUtil;
@@ -98,7 +98,7 @@ public class RcAiChatItemViewHolder extends RecyclerView.ViewHolder {
             ai_chat_user.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View view) {
-                    Settings.copy(context,mBean.getContent());
+                    Setings.copy(context,mBean.getContent());
                     return true;
                 }
             });
@@ -118,11 +118,11 @@ public class RcAiChatItemViewHolder extends RecyclerView.ViewHolder {
             @Override
             public void OnViewClicked(String code) {
                 if(code.equals("copy")){
-                    Settings.copy(context,mBean.getContent());
+                    Setings.copy(context,mBean.getContent());
                 }else if(code.equals("translate")){
                     try {
                         if(TextUtils.isEmpty(mBean.getTranslate())){
-                            Settings.q = mBean.getContent();
+                            Setings.q = mBean.getContent();
                             TranslateUtil.Translate(new OnTranslateFinishListener() {
                                 @Override
                                 public void OnFinishTranslate(record mRecord) {

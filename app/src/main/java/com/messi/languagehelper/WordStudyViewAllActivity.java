@@ -23,7 +23,7 @@ import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.ChangeDataTypeUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.SDCardUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.transitionseverywhere.TransitionManager;
 
@@ -83,8 +83,8 @@ public class WordStudyViewAllActivity extends BaseActivity implements AdapterLis
         mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
         mPlayer = new MediaPlayer();
         resultList = new ArrayList<WordDetailListItem>();
-        avObjects = (WordListItem) Settings.dataMap.get(KeyUtil.DataMapKey);
-        Settings.dataMap.clear();
+        avObjects = (WordListItem) Setings.dataMap.get(KeyUtil.DataMapKey);
+        Setings.dataMap.clear();
         class_name = avObjects.getTitle();
         class_id = avObjects.getClass_id();
         course_id = avObjects.getCourse_id();

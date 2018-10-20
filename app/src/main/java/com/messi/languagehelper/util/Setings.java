@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
-public class Settings {
+public class Setings {
 
 	private static final int RequestCode = 1;
 
@@ -104,8 +104,8 @@ public class Settings {
 
 	public static final String AiTuringApiKey = "9cab5ca560c7403c84d035196b6f3500";
 
-	/**wang yi yan xuan**/
-	public static final String WYYX = "http://m.you.163.com/?_stat_from=&ts_share=1&channel_type=1&ts_dealer=1&ts_sharerId=9f6b4c82b98fe8eb&_stat_subject=5972&from=singlemessage";
+	/**toutiao video parse api**/
+	public static final String TTParseApi = "http://service.iiilab.com/video/download/toutiao";
 	//	uc toutiao
 	public static final String UCTT = "http://m.uczzd.cn/webview/newslist?app=languagehelper-iflow&zzd_from=languagehelper-iflow&uc_param_str=dndsfrvesvntnwpfgi&uc_biz_str=S%253Acustom%257CC%253Azzd_list&is_hide_top=1&is_hide_bottom=1&is_link_open=1";
 	// uc search
@@ -118,6 +118,8 @@ public class Settings {
 	public static boolean isMainFragmentNeedRefresh;
 	public static boolean isDictionaryFragmentNeedRefresh;
 
+	public static final String TTParseClientSecretKey = "95077da2aa9ade5058a41cd5bf96d9f8";
+	public static final String TTParseClientId = "dcc76daf232aee45";
 	public static final String Email = "meixililulu@163.com";
 	public static final String YoudaoApiKey = "64148bac216470a0";
 	public static final String BaiduORCAK = "rOpNTQojXriwz14ol8COWTok";

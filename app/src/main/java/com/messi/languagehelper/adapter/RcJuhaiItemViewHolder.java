@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.bean.JuhaiBean;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.XFUtil;
 
 /**
@@ -53,14 +53,14 @@ public class RcJuhaiItemViewHolder extends RecyclerView.ViewHolder {
         record_question_cover.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Settings.copy(context,mBean.getSentence());
+                Setings.copy(context,mBean.getSentence());
                 return true;
             }
         });
         record_answer_cover.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Settings.copy(context,mBean.getMeanning());
+                Setings.copy(context,mBean.getMeanning());
                 return true;
             }
         });

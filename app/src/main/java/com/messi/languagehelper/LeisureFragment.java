@@ -20,7 +20,7 @@ import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TXADUtil;
 import com.qq.e.ads.nativ.NativeExpressAD;
 import com.qq.e.ads.nativ.NativeExpressADView;
@@ -83,7 +83,7 @@ public class LeisureFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        String channel = Settings.getMetaData(getContext(),"UMENG_CHANNEL");
+        String channel = Setings.getMetaData(getContext(),"UMENG_CHANNEL");
         View view = null;
         if(channel.equals("tencent") || channel.equals("huawei")){
             view = inflater.inflate(R.layout.leisure_fragment_for_tx, null);
@@ -91,7 +91,7 @@ public class LeisureFragment extends BaseFragment {
             view = inflater.inflate(R.layout.leisure_fragment, null);
         }
         ButterKnife.bind(this, view);
-        sp = Settings.getSharedPreferences(getContext());
+        sp = Setings.getSharedPreferences(getContext());
         if(ADUtil.IsShowAD){
             if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
                 loadXFAD();
@@ -415,15 +415,15 @@ public class LeisureFragment extends BaseFragment {
     }
 
     private String getWYYXUrl(){
-        return sp.getString(KeyUtil.Lei_WYYX_URL,Settings.WYYX);
+        return "";
     }
 
     private String getUCTTUrl(){
-        return sp.getString(KeyUtil.Lei_UCTT,Settings.UCTT);
+        return sp.getString(KeyUtil.Lei_UCTT,Setings.UCTT);
     }
 
     private String getUCSearchUrl(){
-        return sp.getString(KeyUtil.Lei_UCSearch,Settings.UCSearch);
+        return sp.getString(KeyUtil.Lei_UCSearch,Setings.UCSearch);
     }
 
     @Override

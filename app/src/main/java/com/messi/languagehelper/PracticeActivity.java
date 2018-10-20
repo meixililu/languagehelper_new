@@ -38,7 +38,7 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.ScoreUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.StringUtils;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
@@ -213,7 +213,7 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
     }
 
     private void initData() {
-        mBean = (record) Settings.dataMap.get(KeyUtil.DialogBeanKey);
+        mBean = (record) Setings.dataMap.get(KeyUtil.DialogBeanKey);
         isNeedDelete = getIntent().getBooleanExtra(KeyUtil.IsNeedDelete, false);
         isEnglish = StringUtils.isEnglish(mBean.getEnglish());
         mUserSpeakBeanList = new ArrayList<UserSpeakBean>();
@@ -223,7 +223,7 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
     private void initView() {
 //        getSupportActionBar().setTitle(getResources().getString(R.string.title_TranslatePractice));
         getSupportActionBar().setTitle("");
-        mSharedPreferences = Settings.getSharedPreferences(this);
+        mSharedPreferences = Setings.getSharedPreferences(this);
         mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
         recognizer = SpeechRecognizer.createRecognizer(this, null);
         recent_used_lv.setLayoutManager(new LinearLayoutManager(this));
@@ -302,7 +302,7 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
      * 显示转写对话框.
      */
     public void showIatDialog() {
-        Settings.verifyStoragePermissions(this, Settings.PERMISSIONS_RECORD_AUDIO);
+        Setings.verifyStoragePermissions(this, Setings.PERMISSIONS_RECORD_AUDIO);
         if (recognizer != null) {
             if (!recognizer.isListening()) {
                 if (isNewIn) {

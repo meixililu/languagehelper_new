@@ -21,7 +21,7 @@ import com.google.android.flexbox.FlexboxLayout;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.ScreenUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,7 +72,7 @@ public class CaricatureSearchActivity extends BaseActivity {
     }
 
     private void addHistory(){
-        String history_str = Settings.getSharedPreferences(this).getString(KeyUtil.CaricatureSearchHistory,"");
+        String history_str = Setings.getSharedPreferences(this).getString(KeyUtil.CaricatureSearchHistory,"");
         if (!TextUtils.isEmpty(history_str)) {
             String[] hiss = history_str.split(",");
             if(hiss.length > 0){
@@ -189,7 +189,7 @@ public class CaricatureSearchActivity extends BaseActivity {
     }
 
     private void clearHistory(){
-        Settings.saveSharedPreferences(Settings.getSharedPreferences(this),
+        Setings.saveSharedPreferences(Setings.getSharedPreferences(this),
                 KeyUtil.CaricatureSearchHistory,
                 "");
         auto_wrap_layout.removeAllViews();
@@ -209,7 +209,7 @@ public class CaricatureSearchActivity extends BaseActivity {
     private void saveHistory(String quest){
         StringBuilder sb = new StringBuilder();
         sb.append(quest);
-        String history_str = Settings.getSharedPreferences(this).getString(KeyUtil.CaricatureSearchHistory,"");
+        String history_str = Setings.getSharedPreferences(this).getString(KeyUtil.CaricatureSearchHistory,"");
         if (!TextUtils.isEmpty(history_str)) {
             String[] hiss = history_str.split(",");
             if(hiss.length > 0){
@@ -223,7 +223,7 @@ public class CaricatureSearchActivity extends BaseActivity {
                 }
             }
         }
-        Settings.saveSharedPreferences(Settings.getSharedPreferences(this),
+        Setings.saveSharedPreferences(Setings.getSharedPreferences(this),
                 KeyUtil.CaricatureSearchHistory,
                 sb.toString());
         saveHistoryToServer(quest);

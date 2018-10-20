@@ -29,7 +29,7 @@ import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.qq.e.ads.nativ.NativeExpressAD;
@@ -87,7 +87,7 @@ public class ReadingsBySubjectFragment extends BaseFragment {
         subjectName = mBundle.getString(KeyUtil.SubjectName);
         level = mBundle.getString(KeyUtil.LevelKey);
         recentKey = mBundle.getString(KeyUtil.RecentKey);
-        lastTimeReadItemId = Settings.getSharedPreferences(getContext()).getInt(
+        lastTimeReadItemId = Setings.getSharedPreferences(getContext()).getInt(
                 recentKey+KeyUtil.SubjectLastTimeReadItemId,
                 0
         );
@@ -123,7 +123,7 @@ public class ReadingsBySubjectFragment extends BaseFragment {
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         if (isHasLoadData) {
-            String newSubject = Settings.getSharedPreferences(getContext()).
+            String newSubject = Setings.getSharedPreferences(getContext()).
                     getString(recentKey, "");
             if (!subjectName.equals(newSubject)) {
                 subjectName = newSubject;
@@ -269,7 +269,7 @@ public class ReadingsBySubjectFragment extends BaseFragment {
             if (!TextUtils.isEmpty(level)) {
                 query.whereEqualTo(AVOUtil.Reading.level, level);
             }
-            query.limit(Settings.page_size);
+            query.limit(Setings.page_size);
             if(isLookUpData){
                 query.whereLessThan(AVOUtil.Reading.item_id,lastTimeReadItemId);
                 query.addDescendingOrder(AVOUtil.Reading.item_id);
@@ -307,13 +307,13 @@ public class ReadingsBySubjectFragment extends BaseFragment {
                     if (addAD()) {
                         mAdapter.notifyDataSetChanged();
                     }
-                    if(avObject.size() == Settings.page_size){
+                    if(avObject.size() == Setings.page_size){
                         if(isLookUpData){
                             hasMoreUp = true;
-                            skipUp += Settings.page_size;
+                            skipUp += Setings.page_size;
                         }else {
                             hasMore = true;
-                            skip += Settings.page_size;
+                            skip += Setings.page_size;
                             showFooterview();
                         }
                     }else {
@@ -440,7 +440,7 @@ public class ReadingsBySubjectFragment extends BaseFragment {
 
     private boolean addAD() {
         if (mADObject != null && avObjects != null && avObjects.size() > 0) {
-            int index = avObjects.size() - Settings.page_size + NumberUtil.randomNumberRange(1, 2);
+            int index = avObjects.size() - Setings.page_size + NumberUtil.randomNumberRange(1, 2);
             if (index < 0) {
                 index = 0;
             }

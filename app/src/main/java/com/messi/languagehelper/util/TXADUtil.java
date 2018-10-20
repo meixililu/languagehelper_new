@@ -32,7 +32,7 @@ public class TXADUtil {
     public static void initTXADID(Context mContext){
         try {
             ADUtil.IsShowAD = true;
-            SharedPreferences sp = Settings.getSharedPreferences(mContext);
+            SharedPreferences sp = Setings.getSharedPreferences(mContext);
             String ids = sp.getString(KeyUtil.Ad_Ids,"");
             if(!TextUtils.isEmpty(ids)){
                 String[] ides = ids.split("#");
@@ -54,8 +54,8 @@ public class TXADUtil {
             String ad = sp.getString(KeyUtil.APP_Advertiser,ADUtil.Advertiser_XF);
             if(!ad.equals(KeyUtil.No_Ad)){
                 String noAdChannel = sp.getString(KeyUtil.No_Ad_Channel,"");
-                String channel = Settings.getMetaData(mContext,"UMENG_CHANNEL");
-                int versionCode = Settings.getVersion(mContext);
+                String channel = Setings.getMetaData(mContext,"UMENG_CHANNEL");
+                int versionCode = Setings.getVersion(mContext);
                 int lastCode = sp.getInt(KeyUtil.VersionCode,-1);
                 LogUtil.DefalutLog("lastCode:"+lastCode+"--noAdChannel:"+noAdChannel+"--channel:"+channel);
                 if(lastCode < 0){
@@ -81,8 +81,8 @@ public class TXADUtil {
 
     private static void initDefaultTXADID(Context mContext){
         LogUtil.DefalutLog("initDefaultTXADID");
-        if(mContext.getPackageName().equals(Settings.application_id_yyj) ||
-                mContext.getPackageName().equals(Settings.application_id_yyj_google)){
+        if(mContext.getPackageName().equals(Setings.application_id_yyj) ||
+                mContext.getPackageName().equals(Setings.application_id_yyj_google)){
             appId = "1106957016";
             posId_Kaiping = "7080135419839958";
             posId_XXL_STXW = "1030736419937999";
@@ -90,17 +90,17 @@ public class TXADUtil {
             posId_XXL_ZWYT = "9000337459847020";
             posId_CDT = "7090539489345031";
             LogUtil.DefalutLog("application_id_yyj");
-        }else if (mContext.getPackageName().equals(Settings.application_id_yys) ||
-                mContext.getPackageName().equals(Settings.application_id_yys_google)) {
+        }else if (mContext.getPackageName().equals(Setings.application_id_yys) ||
+                mContext.getPackageName().equals(Setings.application_id_yys_google)) {
             appId = "1106957022";
             posId_Kaiping = "3040833560655805";
             posId_XXL_STXW = "5030230580451876";
             posId_XXL_SWXT = "6080439550951887";
             posId_XXL_ZWYT = "5010330570751838";
             posId_CDT = "8030136520951889";
-        } else if (mContext.getPackageName().equals(Settings.application_id_yycd)) {
+        } else if (mContext.getPackageName().equals(Setings.application_id_yycd)) {
 
-        } else if (mContext.getPackageName().equals(Settings.application_id_xbky)) {
+        } else if (mContext.getPackageName().equals(Setings.application_id_xbky)) {
 
         } else {
             //zyhy id

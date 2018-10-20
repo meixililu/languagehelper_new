@@ -20,7 +20,7 @@ import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
@@ -168,7 +168,7 @@ public class SearchResultActivity extends BaseActivity{
 				query = AVQuery.or(Arrays.asList(priorityQuery, statusQuery));
 			}
 			query.skip(skip);
-			query.limit(Settings.page_size);
+			query.limit(Setings.page_size);
 			try {
 				return query.find();
 			} catch (Exception e) {
@@ -195,8 +195,8 @@ public class SearchResultActivity extends BaseActivity{
 					if(addAD()){
 						mAdapter.notifyDataSetChanged();
 					}
-					if(avObject.size() == Settings.page_size){
-						skip += Settings.page_size;
+					if(avObject.size() == Setings.page_size){
+						skip += Setings.page_size;
 						showFooterview();
 						hasMore = true;
 					}else {
@@ -246,7 +246,7 @@ public class SearchResultActivity extends BaseActivity{
 
 	private boolean addAD(){
 		if(mADObject != null && avObjects != null && avObjects.size() > 0){
-			int index = avObjects.size() - Settings.page_size + NumberUtil.randomNumberRange(1, 2);
+			int index = avObjects.size() - Setings.page_size + NumberUtil.randomNumberRange(1, 2);
 			if(index < 0){
 				index = 1;
 			}

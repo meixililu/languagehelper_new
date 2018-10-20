@@ -15,7 +15,7 @@ import com.avos.avoscloud.FindCallback;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFYSAD;
 
@@ -105,6 +105,6 @@ public class PybsDetailActivity extends BaseActivity {
         sb.append(code);
         sb.append("\n");
         sb.append(content.getText().toString());
-        Settings.share(this, sb.toString());
+        Setings.share(this, sb.toString());
     }
 }

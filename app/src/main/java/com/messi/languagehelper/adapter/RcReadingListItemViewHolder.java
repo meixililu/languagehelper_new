@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.R;
+import com.messi.languagehelper.ReadDetailTouTiaoActivity;
 import com.messi.languagehelper.ReadingDetailActivity;
 import com.messi.languagehelper.ReadingDetailLrcActivity;
 import com.messi.languagehelper.ReadingVideoDetailActivity;
@@ -23,7 +24,7 @@ import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.qq.e.ads.nativ.NativeExpressADView;
 
 import java.util.List;
@@ -127,10 +128,10 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
                     }
                     if (!TextUtils.isEmpty(mAVObject.getMedia_url())) {
                         music_play_img.setVisibility(View.VISIBLE);
-                        if(Settings.musicSrv == null){
+                        if(Setings.musicSrv == null){
                             music_play_img.setImageResource(R.drawable.jz_click_play_selector);
-                        }else if(mAVObject.getObject_id().equals(Settings.musicSrv.lastSongId)){
-                            if(Settings.musicSrv.PlayerStatus == 1){
+                        }else if(mAVObject.getObject_id().equals(Setings.musicSrv.lastSongId)){
+                            if(Setings.musicSrv.PlayerStatus == 1){
                                 music_play_img.setImageResource(R.drawable.jz_click_pause_selector);
                             }else {
                                 music_play_img.setImageResource(R.drawable.jz_click_play_selector);
@@ -145,7 +146,7 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
                     list_item_img_parent.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Settings.musicSrv.initAndPlay(mAVObject);
+                            Setings.musicSrv.initAndPlay(mAVObject);
                         }
                     });
                 }else {
@@ -205,16 +206,22 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
     private void toDetailActivity(int position){
         Reading item = avObjects.get(position);
         if(!TextUtils.isEmpty(item.getContent_type())){
-            Intent intent = new Intent(context, WebViewForAdActivity.class);
-            intent.putExtra(KeyUtil.URL, item.getSource_url());
-            intent.putExtra(KeyUtil.Type, item.getType());
-            intent.putExtra(KeyUtil.IsNeedGetFilter, true);
-            intent.putExtra(KeyUtil.FilterName, item.getSource_name());
-            intent.putExtra(KeyUtil.ActionbarTitle, " ");
-            intent.putExtra(KeyUtil.IsHideToolbar, true);
-            context.startActivity(intent);
+            if("今日头条".equals(item.getSource_name()) && item.getType().equals("video")){
+                Setings.dataMap.put(KeyUtil.DataMapKey, item);
+                Intent intent = new Intent(context, ReadDetailTouTiaoActivity.class);
+                context.startActivity(intent);
+            }else {
+                Intent intent = new Intent(context, WebViewForAdActivity.class);
+                intent.putExtra(KeyUtil.URL, item.getSource_url());
+                intent.putExtra(KeyUtil.Type, item.getType());
+                intent.putExtra(KeyUtil.IsNeedGetFilter, true);
+                intent.putExtra(KeyUtil.FilterName, item.getSource_name());
+                intent.putExtra(KeyUtil.ActionbarTitle, " ");
+                intent.putExtra(KeyUtil.IsHideToolbar, true);
+                context.startActivity(intent);
+            }
         }else {
-            Settings.dataMap.put(KeyUtil.DataMapKey, avObjects);
+            Setings.dataMap.put(KeyUtil.DataMapKey, avObjects);
             Class toDetail = null;
             if(item.getType() != null && item.getType().equals("video") && !TextUtils.isEmpty(item.getMedia_url())){
                 toDetail = ReadingVideoDetailActivity.class;

@@ -14,7 +14,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.messi.languagehelper.adapter.RcXimalayaTrackListAdapter;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.StringUtils;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XimalayaUtil;
@@ -141,7 +141,7 @@ public class XimalayaTrackListActivity extends BaseActivity implements OnClickLi
         Map<String, String> map = new HashMap<String, String>();
         map.put(DTransferConstants.ALBUM_ID, album_id);
         map.put(DTransferConstants.SORT, sort);
-        map.put(DTransferConstants.PAGE_SIZE, String.valueOf(Settings.page_size));
+        map.put(DTransferConstants.PAGE_SIZE, String.valueOf(Setings.page_size));
         map.put(DTransferConstants.PAGE, String.valueOf(skip));
         CommonRequest.getTracks(map, new IDataCallBack<TrackList>() {
             @Override

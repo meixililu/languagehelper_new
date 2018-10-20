@@ -28,7 +28,7 @@ import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NetworkUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.SDCardUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.StringUtils;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.TranslateUtil;
@@ -96,7 +96,7 @@ public class DictionaryFragmentOld extends BaseFragment implements
     private void init() {
         isRegisterBus = true;
         beans = new ArrayList<Dictionary>();
-        beans.addAll(DataBaseUtil.getInstance().getDataListDictionary(0, Settings.offset));
+        beans.addAll(DataBaseUtil.getInstance().getDataListDictionary(0, Setings.offset));
         mAdapter = new RcDictionaryListAdapter(getContext(), beans, this);
 
         recent_used_lv.setHasFixedSize(true);
@@ -109,8 +109,8 @@ public class DictionaryFragmentOld extends BaseFragment implements
     }
 
     public void refresh() {
-        if (Settings.isDictionaryFragmentNeedRefresh) {
-            Settings.isDictionaryFragmentNeedRefresh = false;
+        if (Setings.isDictionaryFragmentNeedRefresh) {
+            Setings.isDictionaryFragmentNeedRefresh = false;
             reloadData();
         }
     }
@@ -126,7 +126,7 @@ public class DictionaryFragmentOld extends BaseFragment implements
     }
 
     private void translateController(){
-        lastSearch = Settings.q;
+        lastSearch = Setings.q;
         if(NetworkUtil.isNetworkConnected(getContext())){
             LogUtil.DefalutLog("online");
             RequestTranslateApiTask();
@@ -175,7 +175,7 @@ public class DictionaryFragmentOld extends BaseFragment implements
                     sb.append("\n");
                 }
                 mDictionaryBean = new Dictionary();
-                boolean isEnglish = StringUtils.isEnglish(Settings.q);
+                boolean isEnglish = StringUtils.isEnglish(Setings.q);
                 if(isEnglish){
                     mDictionaryBean.setFrom("en");
                     mDictionaryBean.setTo("zh");
@@ -183,7 +183,7 @@ public class DictionaryFragmentOld extends BaseFragment implements
                     mDictionaryBean.setFrom("zh");
                     mDictionaryBean.setTo("en");
                 }
-                mDictionaryBean.setWord_name(Settings.q);
+                mDictionaryBean.setWord_name(Setings.q);
                 mDictionaryBean.setResult(sb.substring(0, sb.lastIndexOf("\n")));
                 setBean();
                 DataBaseUtil.getInstance().insert(mDictionaryBean);
@@ -203,8 +203,8 @@ public class DictionaryFragmentOld extends BaseFragment implements
     }
 
     private void setData() {
-        mDictionaryBean = (Dictionary) Settings.dataMap.get(KeyUtil.DataMapKey);
-        Settings.dataMap.clear();
+        mDictionaryBean = (Dictionary) Setings.dataMap.get(KeyUtil.DataMapKey);
+        Setings.dataMap.clear();
         setBean();
         NYBus.get().post(new FinishEvent());
     }
@@ -247,7 +247,7 @@ public class DictionaryFragmentOld extends BaseFragment implements
             @Override
             public void subscribe(ObservableEmitter<String> e) throws Exception {
                 beans.clear();
-                beans.addAll(DataBaseUtil.getInstance().getDataListDictionary(0, Settings.offset));
+                beans.addAll(DataBaseUtil.getInstance().getDataListDictionary(0, Setings.offset));
                 e.onComplete();
             }
         })

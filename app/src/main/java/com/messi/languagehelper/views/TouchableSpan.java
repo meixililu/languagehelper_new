@@ -9,7 +9,7 @@ import com.messi.languagehelper.dialog.TranslateResultDialog;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.TranslateUtil;
 import com.youdao.sdk.ydtranslate.Translate;
@@ -73,7 +73,7 @@ public class TouchableSpan extends ClickableSpan {// extend ClickableSpan
 	};
 
 	private void translateController(){
-		Settings.q = word;
+		Setings.q = word;
 		if(NetworkUtil.isNetworkConnected(context)){
 			LogUtil.DefalutLog("online");
 			RequestShowapiAsyncTask();
@@ -122,7 +122,7 @@ public class TouchableSpan extends ClickableSpan {// extend ClickableSpan
 					sb.append("\n");
 				}
 				Dictionary mDictionaryBean = new Dictionary();
-				boolean isEnglish = StringUtils.isEnglish(Settings.q);
+				boolean isEnglish = StringUtils.isEnglish(Setings.q);
 				if(isEnglish){
 					mDictionaryBean.setFrom("en");
 					mDictionaryBean.setTo("zh");
@@ -130,7 +130,7 @@ public class TouchableSpan extends ClickableSpan {// extend ClickableSpan
 					mDictionaryBean.setFrom("zh");
 					mDictionaryBean.setTo("en");
 				}
-				mDictionaryBean.setWord_name(Settings.q);
+				mDictionaryBean.setWord_name(Setings.q);
 				mDictionaryBean.setResult(sb.substring(0, sb.lastIndexOf("\n")));
 				DataBaseUtil.getInstance().insert(mDictionaryBean);
 				showDialog(mDictionaryBean);
@@ -146,8 +146,8 @@ public class TouchableSpan extends ClickableSpan {// extend ClickableSpan
 	}
 	
 	private void setData(){
-		Dictionary bean = (Dictionary) Settings.dataMap.get(KeyUtil.DataMapKey);
-		Settings.dataMap.clear();
+		Dictionary bean = (Dictionary) Setings.dataMap.get(KeyUtil.DataMapKey);
+		Setings.dataMap.clear();
 		showDialog(bean);
 	}
 

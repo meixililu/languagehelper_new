@@ -21,7 +21,7 @@ import com.messi.languagehelper.dao.SymbolListDao;
 import com.messi.languagehelper.util.DownLoadUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.SDCardUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -75,8 +75,8 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
 
     private void initData() {
         mPlayer = new MediaPlayer();
-        avObject = (SymbolListDao) Settings.dataMap.get(KeyUtil.DataMapKey);
-        Settings.dataMap.clear();
+        avObject = (SymbolListDao) Setings.dataMap.get(KeyUtil.DataMapKey);
+        Setings.dataMap.clear();
         if (avObject != null) {
             audioPath = SDCardUtil.SymbolPath + avObject.getSDCode() + SDCardUtil.Delimiter;
         } else {

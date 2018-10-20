@@ -14,7 +14,7 @@ import android.widget.ProgressBar;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.PlayUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.SystemUtil;
 
 public class XmlyMainForYWCDFragment extends BaseFragment implements OnClickListener,
@@ -65,7 +65,7 @@ public class XmlyMainForYWCDFragment extends BaseFragment implements OnClickList
 			public void onTabSelected(TabLayout.Tab tab) {
 				currentTabIndex = tab.getPosition();
 				showSelectFragment();
-				Settings.saveSharedPreferences(PlayUtil.getSP(),
+				Setings.saveSharedPreferences(PlayUtil.getSP(),
 						KeyUtil.XmlyMainForYWCD,
 						currentTabIndex);
 			}

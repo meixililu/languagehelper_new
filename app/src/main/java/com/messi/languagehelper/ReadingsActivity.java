@@ -24,7 +24,7 @@ import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.qq.e.ads.nativ.NativeExpressAD;
@@ -66,7 +66,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 		type = getIntent().getStringExtra(KeyUtil.NewsType);
 		avObjects = new ArrayList<Reading>();
 		mTXADList = new ArrayList<NativeExpressADView>();
-		avObjects.addAll(DataBaseUtil.getInstance().getReadingList(Settings.page_size,category,type,""));
+		avObjects.addAll(DataBaseUtil.getInstance().getReadingList(Setings.page_size,category,type,""));
 		initSwipeRefresh();
 		listview = (RecyclerView) findViewById(R.id.listview);
 		mAdapter = new RcReadingListAdapter(avObjects);
@@ -188,7 +188,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 			query.addDescendingOrder(AVOUtil.Reading.publish_time);
 			query.addDescendingOrder(AVOUtil.Reading.item_id);
 			query.skip(skip);
-			query.limit(Settings.page_size);
+			query.limit(Setings.page_size);
 			try {
 				return query.find();
 			} catch (Exception e) {
@@ -214,7 +214,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 					if(addAD()){
 						mAdapter.notifyDataSetChanged();
 					}
-					skip += Settings.page_size;
+					skip += Setings.page_size;
 					showFooterview();
 				}
 			}else{
@@ -336,7 +336,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 
 	private boolean addAD(){
 		if(mADObject != null && avObjects != null && avObjects.size() > 0){
-			int index = avObjects.size() - Settings.page_size + NumberUtil.randomNumberRange(1, 2);
+			int index = avObjects.size() - Setings.page_size + NumberUtil.randomNumberRange(1, 2);
 			if(index < 0){
 				index = 0;
 			}
@@ -375,7 +375,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 						query.whereEqualTo(AVOUtil.Reading.type, type);
 					}
 					maxRandom = query.count();
-					maxRandom /= Settings.page_size;
+					maxRandom /= Setings.page_size;
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

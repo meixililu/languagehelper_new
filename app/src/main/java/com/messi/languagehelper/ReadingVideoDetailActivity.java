@@ -37,7 +37,7 @@ import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.util.TextHandlerUtil;
 import com.qq.e.ads.nativ.NativeExpressAD;
@@ -47,6 +47,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class ReadingVideoDetailActivity extends BaseActivity {
 
@@ -66,6 +67,8 @@ public class ReadingVideoDetailActivity extends BaseActivity {
     PlayerView simpleExoPlayerView;
     @BindView(R.id.app_bar)
     LinearLayout appBar;
+    @BindView(R.id.back_btn)
+    LinearLayout backBtn;
 
     private SimpleExoPlayer player;
     private Reading mAVObject;
@@ -156,11 +159,12 @@ public class ReadingVideoDetailActivity extends BaseActivity {
     }
 
     private void initData() {
+        Setings.musicSrv.pause();
         mSharedPreferences = this.getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
-        mAVObjects = (List<Reading>) Settings.dataMap.get(KeyUtil.DataMapKey);
+        mAVObjects = (List<Reading>) Setings.dataMap.get(KeyUtil.DataMapKey);
         index = getIntent().getIntExtra(KeyUtil.IndexKey, 0);
         mAVObject = mAVObjects.get(index);
-        Settings.dataMap.clear();
+        Setings.dataMap.clear();
         if (mAVObject == null) {
             finish();
         }
@@ -279,6 +283,11 @@ public class ReadingVideoDetailActivity extends BaseActivity {
             player.release();
             player = null;
         }
+    }
+
+    @OnClick(R.id.back_btn)
+    public void onViewClicked() {
+        onBackPressed();
     }
 
     @Override

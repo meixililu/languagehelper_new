@@ -37,7 +37,7 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.SDCardUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
 
@@ -126,7 +126,7 @@ public class AiChatActivity extends BaseActivity {
 
     private void initData() {
         setActionBarTitle(getResources().getString(R.string.title_ai_chat));
-        sp = Settings.getSharedPreferences(this);
+        sp = Setings.getSharedPreferences(this);
         recognizer = SpeechRecognizer.createRecognizer(this, null);
         beans = new ArrayList<AiEntity>();
         beans.addAll(DataBaseUtil.getInstance().getAiEntityList(AiUtil.Ai_Acobot));
@@ -183,7 +183,7 @@ public class AiChatActivity extends BaseActivity {
         switch (view.getId()) {
             case R.id.volume_btn:
                 boolean isPlay = !sp.getBoolean(KeyUtil.IsAiChatPlayVoice, true);
-                Settings.saveSharedPreferences(sp,
+                Setings.saveSharedPreferences(sp,
                         KeyUtil.IsAiChatPlayVoice,
                         isPlay);
                 if (isPlay) {
@@ -237,7 +237,7 @@ public class AiChatActivity extends BaseActivity {
      * 显示转写对话框.
      */
     public void showIatDialog() {
-        Settings.verifyStoragePermissions(this, Settings.PERMISSIONS_RECORD_AUDIO);
+        Setings.verifyStoragePermissions(this, Setings.PERMISSIONS_RECORD_AUDIO);
         if (!recognizer.isListening()) {
             recordLayout.setVisibility(View.VISIBLE);
             inputEt.setText("");
@@ -262,10 +262,10 @@ public class AiChatActivity extends BaseActivity {
 
     private void changeSpeakLanguage() {
         if (PlayUtil.getSP().getString(KeyUtil.AiChatUserSelectLanguage, XFUtil.VoiceEngineEN).equals(XFUtil.VoiceEngineMD)) {
-            Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.AiChatUserSelectLanguage, XFUtil.VoiceEngineEN);
+            Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.AiChatUserSelectLanguage, XFUtil.VoiceEngineEN);
             ToastUtil.diaplayMesShort(this, this.getResources().getString(R.string.speak_english));
         } else {
-            Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.AiChatUserSelectLanguage, XFUtil.VoiceEngineMD);
+            Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.AiChatUserSelectLanguage, XFUtil.VoiceEngineMD);
             ToastUtil.diaplayMesShort(this, this.getResources().getString(R.string.speak_chinese));
         }
         setSpeakLanguageTv();
@@ -279,11 +279,11 @@ public class AiChatActivity extends BaseActivity {
     private void changeInputType() {
         if (keybordLayout.isShown()) {
             showMicLayout();
-            Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.IsAiChatShowKeybordLayout, false);
+            Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.IsAiChatShowKeybordLayout, false);
             hideIME(inputEt);
         } else {
             showKeybordLayout();
-            Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.IsAiChatShowKeybordLayout, true);
+            Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.IsAiChatShowKeybordLayout, true);
             showIME();
             inputEt.requestFocus();
         }
@@ -303,7 +303,7 @@ public class AiChatActivity extends BaseActivity {
 
     private void requestData(String msg) {
         showProgressbar();
-        String url = Settings.AiBrainUrl + Settings.getUUID(this) + "&msg=" + msg;
+        String url = Setings.AiBrainUrl + Setings.getUUID(this) + "&msg=" + msg;
         LanguagehelperHttpClient.get(url, new UICallback(this) {
             @Override
             public void onResponsed(String responseString) {

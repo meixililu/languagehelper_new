@@ -6,9 +6,8 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.avos.avoscloud.AVAnalytics;
-import com.iflytek.cloud.Setting;
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
 
@@ -35,7 +34,7 @@ public class HelpActivity extends BaseActivity {
     }
 
     private void init() {
-        mSharedPreferences = Settings.getSharedPreferences(this);
+        mSharedPreferences = Setings.getSharedPreferences(this);
         isFirstLoad = getIntent().getBooleanExtra(KeyUtil.IsFirstLoadStylePage,false);
     }
 
@@ -45,13 +44,13 @@ public class HelpActivity extends BaseActivity {
         switch (view.getId()) {
             //classic
             case R.id.style_one:
-                Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.IsUseOldStyle, true);
+                Setings.saveSharedPreferences(mSharedPreferences, KeyUtil.IsUseOldStyle, true);
                 AVAnalytics.onEvent(this, "style_select_classic");
                 toNext();
                 break;
             //minimalist
             case R.id.style_two:
-                Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.IsUseOldStyle, false);
+                Setings.saveSharedPreferences(mSharedPreferences, KeyUtil.IsUseOldStyle, false);
                 AVAnalytics.onEvent(this, "style_select_minimalist");
                 toNext();
                 break;

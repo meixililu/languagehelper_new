@@ -12,7 +12,7 @@ import com.messi.languagehelper.SubjectFragment;
 import com.messi.languagehelper.SymbolListFragment;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 
 import java.util.ArrayList;
 
@@ -25,7 +25,7 @@ public class SymbolAdapter extends FragmentPagerAdapter {
     public SymbolAdapter(FragmentManager fm, Context mContext) {
         super(fm);
         this.mContext = mContext;
-        category_2 = Settings.getSharedPreferences(mContext).getString(KeyUtil.RecentSymbol,"");
+        category_2 = Setings.getSharedPreferences(mContext).getString(KeyUtil.RecentSymbol,"");
         titleList.add(mContext.getResources().getString(R.string.recommend));
         titleList.add(mContext.getResources().getString(R.string.title_study_category));
         titleList.add(mContext.getResources().getString(R.string.title_course));

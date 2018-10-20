@@ -35,7 +35,7 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.SDCardUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
@@ -127,7 +127,7 @@ public class WordStudyDanCiPinXieActivity extends BaseActivity implements OnFini
 
     private void initViews() {
         setActionBarTitle(this.getResources().getString(R.string.pinxie));
-        sharedPreferences = Settings.getSharedPreferences(this);
+        sharedPreferences = Setings.getSharedPreferences(this);
         mPlayer = new MediaPlayer();
         sb = new StringBuilder();
         mWordSpellCharacter = new ArrayList<WordSpellCharacter>();
@@ -377,7 +377,7 @@ public class WordStudyDanCiPinXieActivity extends BaseActivity implements OnFini
     }
 
     private void changeVolumeImg() {
-        Settings.saveSharedPreferences(sharedPreferences, KeyUtil.IsWordStudySpellPlaySound,
+        Setings.saveSharedPreferences(sharedPreferences, KeyUtil.IsWordStudySpellPlaySound,
                 !sharedPreferences.getBoolean(KeyUtil.IsWordStudySpellPlaySound, true));
         setVolumeImg();
     }

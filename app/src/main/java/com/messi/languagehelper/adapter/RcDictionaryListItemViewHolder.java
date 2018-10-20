@@ -23,7 +23,7 @@ import com.messi.languagehelper.util.AudioTrackUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.SDCardUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 
 import java.util.List;
@@ -95,7 +95,7 @@ public class RcDictionaryListItemViewHolder extends RecyclerView.ViewHolder {
         record_question_cover.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Settings.copy(context,mBean.getWord_name());
+                Setings.copy(context,mBean.getWord_name());
                 return true;
             }
         });
@@ -111,7 +111,7 @@ public class RcDictionaryListItemViewHolder extends RecyclerView.ViewHolder {
         copy_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Settings.copy(context,mBean.getWord_name() + "\n" + finalResult);
+                Setings.copy(context,mBean.getWord_name() + "\n" + finalResult);
             }
         });
         collected_btn.setOnClickListener(new View.OnClickListener() {

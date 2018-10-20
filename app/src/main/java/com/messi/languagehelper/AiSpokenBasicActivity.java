@@ -22,7 +22,7 @@ import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SDCardUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ViewUtil;
 
 import java.util.List;
@@ -55,7 +55,7 @@ public class AiSpokenBasicActivity extends BaseActivity implements PracticeProgr
 	}
 	
 	private void initData(){
-		mSharedPreferences = Settings.getSharedPreferences(this);
+		mSharedPreferences = Setings.getSharedPreferences(this);
 		currentSection = mSharedPreferences.getInt(KeyUtil.AiBaseCurrentSection,0);
 		mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this,null);
 		fragmentManager = getSupportFragmentManager();

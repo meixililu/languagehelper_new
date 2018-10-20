@@ -20,7 +20,7 @@ import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.HtmlParseUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.PlayUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ShareUtil;
 import com.messi.languagehelper.util.XFUtil;
 import com.mindorks.nybus.NYBus;
@@ -163,7 +163,7 @@ public class ChineseDictionaryFragment extends BaseFragment {
         Observable.create(new ObservableOnSubscribe<String>() {
             @Override
             public void subscribe(ObservableEmitter<String> e) throws Exception {
-                String url = Settings.CHDicBaiduApi + Settings.q;
+                String url = Setings.CHDicBaiduApi + Setings.q;
                 Response mResponse = LanguagehelperHttpClient.get(url);
                 if (mResponse != null && mResponse.isSuccessful()) {
                     e.onNext(HtmlParseUtil.parseCHDicBaiduHtml(mResponse.body().string()));
@@ -181,7 +181,7 @@ public class ChineseDictionaryFragment extends BaseFragment {
                     @Override
                     public void onNext(String s) {
                         chdic_sv.scrollTo(0, 0);
-                        question_tv.setText(Settings.q);
+                        question_tv.setText(Setings.q);
                         result_tv.setText(s);
                         NYBus.get().post(new FinishEvent());
                     }

@@ -16,7 +16,7 @@ import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.HtmlParseUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.mindorks.nybus.NYBus;
 import com.mindorks.nybus.annotation.Subscribe;
@@ -77,12 +77,12 @@ public class JuhaiFragment extends BaseFragment {
     }
 
     private void translateController() {
-        lastSearch = Settings.q;
+        lastSearch = Setings.q;
         showProgressbar();
         Observable.create(new ObservableOnSubscribe<List<JuhaiBean>>() {
             @Override
             public void subscribe(final ObservableEmitter<List<JuhaiBean>> e) throws Exception {
-                String url = Settings.JukuApi.replace("{0}",lastSearch);
+                String url = Setings.JukuApi.replace("{0}",lastSearch);
                 LanguagehelperHttpClient.get(url,new BgCallback(){
                     @Override
                     public void onResponsed(String responseString) {
@@ -134,12 +134,12 @@ public class JuhaiFragment extends BaseFragment {
     }
 
     private void getDataTask() {
-        lastSearch = Settings.q;
+        lastSearch = Setings.q;
         showProgressbar();
         Observable.create(new ObservableOnSubscribe<List<JuhaiBean>>() {
             @Override
             public void subscribe(final ObservableEmitter<List<JuhaiBean>> e) throws Exception {
-                String url = Settings.JuhaiApi.replace("{0}",lastSearch);
+                String url = Setings.JuhaiApi.replace("{0}",lastSearch);
                 LanguagehelperHttpClient.get(url,new BgCallback(){
                     @Override
                     public void onResponsed(String responseString) {

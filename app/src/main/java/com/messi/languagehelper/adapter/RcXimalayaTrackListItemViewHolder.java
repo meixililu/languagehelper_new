@@ -14,7 +14,7 @@ import com.messi.languagehelper.R;
 import com.messi.languagehelper.XimalayaDetailActivity;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.StringUtils;
 import com.messi.languagehelper.util.TimeUtil;
 import com.ximalaya.ting.android.opensdk.model.track.Track;
@@ -86,7 +86,7 @@ public class RcXimalayaTrackListItemViewHolder extends RecyclerView.ViewHolder {
         LogUtil.DefalutLog(trackList.get(position).toString());
         Intent intent = new Intent(context, XimalayaDetailActivity.class);
         intent.putExtra(KeyUtil.PositionKey,position);
-        Settings.dataMap.put(KeyUtil.List,trackList);
+        Setings.dataMap.put(KeyUtil.List,trackList);
         context.startActivity(intent);
 
     }

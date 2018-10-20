@@ -24,7 +24,7 @@ import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.qq.e.ads.nativ.NativeExpressAD;
@@ -182,7 +182,7 @@ public class ReadingsBySubjectActivity extends BaseActivity{
 			}
 			query.addAscendingOrder(AVOUtil.Reading.item_id);
 			query.skip(skip);
-			query.limit(Settings.page_size);
+			query.limit(Setings.page_size);
 			try {
 				return query.find();
 			} catch (Exception e) {
@@ -209,8 +209,8 @@ public class ReadingsBySubjectActivity extends BaseActivity{
 					if(addAD()){
 						mAdapter.notifyDataSetChanged();
 					}
-					if(avObject.size() == Settings.page_size){
-						skip += Settings.page_size;
+					if(avObject.size() == Setings.page_size){
+						skip += Setings.page_size;
 						showFooterview();
 						hasMore = true;
 					}else {
@@ -331,7 +331,7 @@ public class ReadingsBySubjectActivity extends BaseActivity{
 
 	private boolean addAD(){
 		if(mADObject != null && avObjects != null && avObjects.size() > 0){
-			int index = avObjects.size() - Settings.page_size + NumberUtil.randomNumberRange(1, 2);
+			int index = avObjects.size() - Setings.page_size + NumberUtil.randomNumberRange(1, 2);
 			if(index < 0){
 				index = 0;
 			}
@@ -361,17 +361,17 @@ public class ReadingsBySubjectActivity extends BaseActivity{
 	}
 
 	private void saveRecentKey(){
-		Settings.saveSharedPreferences(Settings.getSharedPreferences(this),
+		Setings.saveSharedPreferences(Setings.getSharedPreferences(this),
 				recentKey,
 				subjectName);
-		if (!Settings.getSharedPreferences(this).getBoolean(KeyUtil.isAddRecentGuideShow, false)) {
+		if (!Setings.getSharedPreferences(this).getBoolean(KeyUtil.isAddRecentGuideShow, false)) {
 			AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.Theme_AppCompat_Light_Dialog_Alert);
 			builder.setTitle("");
 			builder.setMessage("已订阅该课程");
 			builder.setPositiveButton("确认", null);
 			AlertDialog dialog = builder.create();
 			dialog.show();
-			Settings.saveSharedPreferences(Settings.getSharedPreferences(this), KeyUtil.isAddRecentGuideShow, true);
+			Setings.saveSharedPreferences(Setings.getSharedPreferences(this), KeyUtil.isAddRecentGuideShow, true);
 		}else {
 			ToastUtil.diaplayMesShort(this,"已订阅该课程");
 		}

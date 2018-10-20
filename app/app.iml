@@ -171,7 +171,6 @@
     <orderEntry type="library" name="Gradle: com.android.support:documentfile-28.0.0" level="project" />
     <orderEntry type="library" name="Gradle: com.mindorks.nybus:nybus-common:1.0.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.facebook.fresco:fresco-1.9.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android:flexbox-1.1.0" level="project" />
     <orderEntry type="library" name="Gradle: __local_aars__:/Users/luli/AndroidStudioProjects/languagehelper/app/libs/TingPhoneOpenSDK_6.0.0.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:recyclerview-v7-28.0.0" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:design-28.0.0" level="project" />
@@ -194,6 +193,7 @@
     <orderEntry type="library" name="Gradle: com.android.support:multidex-1.0.3" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:swiperefreshlayout-28.0.0" level="project" />
     <orderEntry type="library" name="Gradle: com.jakewharton:butterknife-annotations:9.0.0-rc1@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android:flexbox-1.0.0" level="project" />
     <orderEntry type="library" name="Gradle: cn.leancloud.android:avoscloud-statistics:v4.7.3@jar" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.lifecycle:livedata-1.1.1" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okio:okio:2.1.0@jar" level="project" />

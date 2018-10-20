@@ -36,7 +36,7 @@ import com.messi.languagehelper.util.AppUpdateUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.PlayUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.TranslateUtil;
 import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
@@ -120,7 +120,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 
 	@TargetApi(Build.VERSION_CODES.M)
 	private void checkAndRequestPermission() {
-		Settings.verifyStoragePermissions(this, Settings.PERMISSIONS_STORAGE);
+		Setings.verifyStoragePermissions(this, Setings.PERMISSIONS_STORAGE);
 	}
 
 	private void initSDKAndPermission(){
@@ -137,7 +137,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 		@Override
 		public void onServiceConnected(ComponentName name, IBinder service) {
 			PlayerService.MusicBinder binder = (PlayerService.MusicBinder) service;
-			Settings.musicSrv = binder.getService();
+			Setings.musicSrv = binder.getService();
 		}
 
 		@Override
@@ -209,7 +209,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 	private void saveSelectTab() {
 		int index = viewPager.getCurrentItem();
 		LogUtil.DefalutLog("WXEntryActivity---onDestroy---saveSelectTab---index:" + index);
-		Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.LastTimeSelectTab, index);
+		Setings.saveSharedPreferences(mSharedPreferences, KeyUtil.LastTimeSelectTab, index);
 	}
 
 	@Override
@@ -224,7 +224,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 		}
 		unbindService(musicConnection);
 		XmPlayerManager.getInstance(this).release();
-		Settings.musicSrv = null;
+		Setings.musicSrv = null;
 	}
 
 	@Override

@@ -33,7 +33,7 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.OrcHelper;
 import com.messi.languagehelper.util.PlayUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
@@ -189,7 +189,7 @@ public class MainFragmentYWCD extends BaseFragment implements OnClickListener, O
             public void onTabSelected(TabLayout.Tab tab) {
                 currentTabIndex = tab.getPosition();
                 setPomptAndShowFragment();
-                Settings.saveSharedPreferences(PlayUtil.getSP(),
+                Setings.saveSharedPreferences(PlayUtil.getSP(),
                         KeyUtil.MainFragmentIndex,
                         currentTabIndex);
             }
@@ -256,12 +256,12 @@ public class MainFragmentYWCD extends BaseFragment implements OnClickListener, O
             AVAnalytics.onEvent(getContext(), "tab1_clear_btn");
         } else if (v.getId() == R.id.cb_speak_language_ch) {
             cb_speak_language_en.setChecked(false);
-            Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.TranUserSelectLanguage, XFUtil.VoiceEngineMD);
+            Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.TranUserSelectLanguage, XFUtil.VoiceEngineMD);
             ToastUtil.diaplayMesShort(getContext(), getContext().getResources().getString(R.string.speak_chinese));
             AVAnalytics.onEvent(getContext(), "tab1_zh_sbtn");
         } else if (v.getId() == R.id.cb_speak_language_en) {
             cb_speak_language_ch.setChecked(false);
-            Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.TranUserSelectLanguage, XFUtil.VoiceEngineEN);
+            Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.TranUserSelectLanguage, XFUtil.VoiceEngineEN);
             ToastUtil.diaplayMesShort(getContext(), getContext().getResources().getString(R.string.speak_english));
             AVAnalytics.onEvent(getContext(), "tab1_en_sbtn");
         }
@@ -310,8 +310,8 @@ public class MainFragmentYWCD extends BaseFragment implements OnClickListener, O
     private void isChangeTabNeedSearch(){
         if (System.currentTimeMillis() - lastSubmitTiem < 1000 * 10){
             if (PlayUtil.getSP().getBoolean(KeyUtil.AutoClearInput, true)) {
-                input_et.setText(Settings.q);
-                input_et.setSelection(Settings.q.length());
+                input_et.setText(Setings.q);
+                input_et.setSelection(Setings.q.length());
             }
         }
     }
@@ -375,7 +375,7 @@ public class MainFragmentYWCD extends BaseFragment implements OnClickListener, O
      * 显示转写对话框.
      */
     public void showIatDialog() {
-        Settings.verifyStoragePermissions(getActivity(), Settings.PERMISSIONS_RECORD_AUDIO);
+        Setings.verifyStoragePermissions(getActivity(), Setings.PERMISSIONS_RECORD_AUDIO);
         if (!recognizer.isListening()) {
             record_layout.setVisibility(View.VISIBLE);
             input_et.setText("");
@@ -423,11 +423,11 @@ public class MainFragmentYWCD extends BaseFragment implements OnClickListener, O
      */
     private void submit() {
         lastSubmitTiem = System.currentTimeMillis();
-        Settings.q = input_et.getText().toString().trim();
-        if (!TextUtils.isEmpty(Settings.q)) {
-            String last = Settings.q.substring(Settings.q.length() - 1);
+        Setings.q = input_et.getText().toString().trim();
+        if (!TextUtils.isEmpty(Setings.q)) {
+            String last = Setings.q.substring(Setings.q.length() - 1);
             if (",.!;:'，。！‘；：".contains(last)) {
-                Settings.q = Settings.q.substring(0, Settings.q.length() - 1);
+                Setings.q = Setings.q.substring(0, Setings.q.length() - 1);
             }
             submit_to_fragment();
         } else {

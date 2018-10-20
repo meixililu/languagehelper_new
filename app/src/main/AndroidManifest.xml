@@ -135,6 +135,10 @@
         </receiver>
 
         <activity
+            android:name=".ReadDetailTouTiaoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".InstallActivity"
             android:screenOrientation="portrait" />
         <activity

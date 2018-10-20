@@ -33,7 +33,6 @@ import com.messi.languagehelper.bean.WordListItem;
 import com.messi.languagehelper.dao.WordDetailListItem;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.impl.OnFinishListener;
-import com.messi.languagehelper.util.ChangeDataTypeUtil;
 import com.messi.languagehelper.util.DownLoadUtil;
 import com.messi.languagehelper.util.KaiPinAdUIModel;
 import com.messi.languagehelper.util.KeyUtil;
@@ -41,7 +40,7 @@ import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.SaveData;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
@@ -151,7 +150,7 @@ public class WordStudyFightActivity extends BaseActivity implements OnFinishList
     }
 
     private void initViews() {
-        sharedPreferences = Settings.getSharedPreferences(this);
+        sharedPreferences = Setings.getSharedPreferences(this);
         mPlayer = new MediaPlayer();
         class_name = getIntent().getStringExtra(KeyUtil.ClassName);
         class_id = getIntent().getStringExtra(KeyUtil.ClassId);

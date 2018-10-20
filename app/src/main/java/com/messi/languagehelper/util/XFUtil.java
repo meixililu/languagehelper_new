@@ -97,9 +97,9 @@ public class XFUtil {
 		if (null == mSpeechSynthesizer) {
 			mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(mContext,null);
 		}
-		LogUtil.DefalutLog("role:"+Settings.role+"--source:"+source);
+		LogUtil.DefalutLog("role:"+Setings.role+"--source:"+source);
 		StringUtils.setSpeaker(source);
-		mSpeechSynthesizer.setParameter(SpeechConstant.VOICE_NAME, Settings.role);
+		mSpeechSynthesizer.setParameter(SpeechConstant.VOICE_NAME, Setings.role);
 		mSpeechSynthesizer.setParameter(SpeechConstant.SPEED, String.valueOf( mSharedPreferences.getInt("tts_speed", 50) ));
 		mSpeechSynthesizer.setParameter(SpeechConstant.VOLUME, "100");
 		mSpeechSynthesizer.setParameter(SpeechConstant.ENGINE_TYPE, "cloud");//离线 local

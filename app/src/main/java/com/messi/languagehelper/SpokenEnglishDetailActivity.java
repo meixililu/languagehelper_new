@@ -35,7 +35,7 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.ScoreUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
 import com.nineoldandroids.animation.Animator;
@@ -264,9 +264,9 @@ public class SpokenEnglishDetailActivity extends BaseActivity implements OnClick
         getSupportActionBar().setTitle(getResources().getString(R.string.spoken_english_practice));
         mPlayer = new MediaPlayer();
         positin = getIntent().getIntExtra(KeyUtil.PositionKey, 0);
-        avObjects = (List<AVObject>) Settings.dataMap.get(KeyUtil.DataMapKey);
-        Settings.dataMap.clear();
-        mSharedPreferences = Settings.getSharedPreferences(this);
+        avObjects = (List<AVObject>) Setings.dataMap.get(KeyUtil.DataMapKey);
+        Setings.dataMap.clear();
+        mSharedPreferences = Setings.getSharedPreferences(this);
         mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
         recognizer = SpeechRecognizer.createRecognizer(this, null);
     }
@@ -362,7 +362,7 @@ public class SpokenEnglishDetailActivity extends BaseActivity implements OnClick
                 setDatas();
             }
         }
-        Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.ReadModelType, selectedNum);
+        Setings.saveSharedPreferences(mSharedPreferences, KeyUtil.ReadModelType, selectedNum);
     }
 
     private void previousItem() {

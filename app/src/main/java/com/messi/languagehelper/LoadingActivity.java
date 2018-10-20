@@ -28,7 +28,7 @@ import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.messi.languagehelper.wxapi.YYJMainActivity;
@@ -272,8 +272,8 @@ public class LoadingActivity extends AppCompatActivity {
 
     private void toNextPage() {
         Class mclass = WXEntryActivity.class;
-        if(getPackageName().equals(Settings.application_id_yyj) ||
-                getPackageName().equals(Settings.application_id_yyj_google)){
+        if(getPackageName().equals(Setings.application_id_yyj) ||
+                getPackageName().equals(Setings.application_id_yyj_google)){
             mclass = YYJMainActivity.class;
         }
         Intent intent = new Intent(LoadingActivity.this, mclass);
@@ -336,9 +336,9 @@ public class LoadingActivity extends AppCompatActivity {
 //            lackedPermission.add(Manifest.permission.ACCESS_FINE_LOCATION);
 //        }
         if (lackedPermission.size() == 0) {
-            Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.IsTXADPermissionReady,true);
+            Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.IsTXADPermissionReady,true);
         } else {
-            Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.IsTXADPermissionReady,false);
+            Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.IsTXADPermissionReady,false);
         }
     }
 

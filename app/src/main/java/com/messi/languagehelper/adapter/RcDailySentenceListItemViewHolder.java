@@ -23,7 +23,7 @@ import com.messi.languagehelper.util.DownLoadUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SDCardUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TextHandlerUtil;
 
 import java.io.IOException;
@@ -187,7 +187,7 @@ public class RcDailySentenceListItemViewHolder extends RecyclerView.ViewHolder {
         DataBaseUtil.getInstance().insert(sampleBean);
         Intent intent = new Intent(context, PracticeActivity.class);
         intent.putExtra(KeyUtil.IsNeedDelete, true);
-        Settings.dataMap.put(KeyUtil.DialogBeanKey, sampleBean);
+        Setings.dataMap.put(KeyUtil.DialogBeanKey, sampleBean);
         context.startActivity(intent);
     }
 

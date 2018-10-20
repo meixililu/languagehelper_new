@@ -27,7 +27,7 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.SDCardUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 
 import java.util.List;
@@ -104,14 +104,14 @@ public class RcCollectTranslateLiatItemViewHolder extends RecyclerView.ViewHolde
         record_answer_cover.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Settings.copy(context, mBean.getEnglish());
+                Setings.copy(context, mBean.getEnglish());
                 return true;
             }
         });
         record_question_cover.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Settings.copy(context, mBean.getChinese());
+                Setings.copy(context, mBean.getChinese());
                 return true;
             }
         });
@@ -126,9 +126,9 @@ public class RcCollectTranslateLiatItemViewHolder extends RecyclerView.ViewHolde
             @Override
             public void onClick(View v) {
                 if (mBean.getEnglish().contains("英[") || mBean.getEnglish().contains("美[")) {
-                    Settings.copy(context, mBean.getChinese() + "\n" + mBean.getEnglish());
+                    Setings.copy(context, mBean.getChinese() + "\n" + mBean.getEnglish());
                 } else {
-                    Settings.copy(context, mBean.getEnglish());
+                    Setings.copy(context, mBean.getEnglish());
                 }
                 AVAnalytics.onEvent(context, "collect_tran_copy");
             }
@@ -142,7 +142,7 @@ public class RcCollectTranslateLiatItemViewHolder extends RecyclerView.ViewHolde
                 } else {
                     text = mBean.getEnglish();
                 }
-                Settings.share(context, text);
+                Setings.share(context, text);
                 AVAnalytics.onEvent(context, "collect_share_btn");
             }
         });
@@ -157,7 +157,7 @@ public class RcCollectTranslateLiatItemViewHolder extends RecyclerView.ViewHolde
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, PracticeActivity.class);
-                Settings.dataMap.put(KeyUtil.DialogBeanKey, mBean);
+                Setings.dataMap.put(KeyUtil.DialogBeanKey, mBean);
                 context.startActivity(intent);
                 AVAnalytics.onEvent(context, "collect_tran_to_practicepg");
             }
@@ -169,7 +169,7 @@ public class RcCollectTranslateLiatItemViewHolder extends RecyclerView.ViewHolde
             record mBean = beans.remove(position);
             mAdapter.notifyItemRemoved(position);
             DataBaseUtil.getInstance().dele(mBean);
-            Settings.isMainFragmentNeedRefresh = true;
+            Setings.isMainFragmentNeedRefresh = true;
             ToastUtil.diaplayMesShort(context, context.getResources().getString(R.string.dele_success));
             AVAnalytics.onEvent(context, "collect_tran_delete");
         } catch (Exception e) {
@@ -182,7 +182,7 @@ public class RcCollectTranslateLiatItemViewHolder extends RecyclerView.ViewHolde
         mAdapter.notifyItemRemoved(position);
         mBean.setIscollected("0");
         DataBaseUtil.getInstance().update(mBean);
-        Settings.isMainFragmentNeedRefresh = true;
+        Setings.isMainFragmentNeedRefresh = true;
         ToastUtil.diaplayMesShort(context, context.getResources().getString(R.string.favorite_cancle));
     }
 
@@ -214,7 +214,7 @@ public class RcCollectTranslateLiatItemViewHolder extends RecyclerView.ViewHolde
                 mBean.setResultVoiceId(System.currentTimeMillis() - 5 + "");
             }
             if (isPlayResult) {
-                Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.IsShowAnswerUnread, true);
+                Setings.saveSharedPreferences(mSharedPreferences, KeyUtil.IsShowAnswerUnread, true);
                 filepath = path + mBean.getResultVoiceId() + ".pcm";
                 mBean.setResultAudioPath(filepath);
                 if (!TextUtils.isEmpty(mBean.getBackup1())) {
@@ -223,7 +223,7 @@ public class RcCollectTranslateLiatItemViewHolder extends RecyclerView.ViewHolde
                     speakContent = mBean.getEnglish();
                 }
             } else {
-                Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.IsShowQuestionUnread, true);
+                Setings.saveSharedPreferences(mSharedPreferences, KeyUtil.IsShowQuestionUnread, true);
                 filepath = path + mBean.getQuestionVoiceId() + ".pcm";
                 mBean.setQuestionAudioPath(filepath);
                 speakContent = mBean.getChinese();

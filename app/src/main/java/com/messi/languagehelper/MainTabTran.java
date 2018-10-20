@@ -19,7 +19,7 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NetworkUtil;
 import com.messi.languagehelper.util.PlayUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.TranslateUtil;
 import com.messi.languagehelper.views.DividerItemDecoration;
@@ -63,11 +63,11 @@ public class MainTabTran extends BaseFragment {
     private void init(View view) {
         recent_used_lv = (RecyclerView) view.findViewById(R.id.recent_used_lv);
         beans = new ArrayList<record>();
-        beans.addAll(DataBaseUtil.getInstance().getDataListRecord(0, Settings.offset));
+        beans.addAll(DataBaseUtil.getInstance().getDataListRecord(0, Setings.offset));
         boolean IsHasShowBaiduMessage = PlayUtil.getSP().getBoolean(KeyUtil.IsHasShowBaiduMessage, false);
         if (!IsHasShowBaiduMessage) {
             initSample();
-            Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.IsHasShowBaiduMessage, true);
+            Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.IsHasShowBaiduMessage, true);
         }
         mAdapter = new RcTranslateListAdapter(beans);
         recent_used_lv.setHasFixedSize(true);
@@ -85,15 +85,15 @@ public class MainTabTran extends BaseFragment {
     }
 
     public void refresh() {
-        if (Settings.isMainFragmentNeedRefresh) {
-            Settings.isMainFragmentNeedRefresh = false;
+        if (Setings.isMainFragmentNeedRefresh) {
+            Setings.isMainFragmentNeedRefresh = false;
             reloadData();
         }
 
     }
 
     private void translateController(){
-        lastSearch = Settings.q;
+        lastSearch = Setings.q;
         if(NetworkUtil.isNetworkConnected(getContext())){
             LogUtil.DefalutLog("online");
             try {
@@ -146,7 +146,7 @@ public class MainTabTran extends BaseFragment {
                     sb.append(tran);
                     sb.append("\n");
                 }
-                currentDialogBean = new record(sb.substring(0, sb.lastIndexOf("\n")), Settings.q);
+                currentDialogBean = new record(sb.substring(0, sb.lastIndexOf("\n")), Setings.q);
                 insertData();
                 autoClearAndautoPlay();
             }
@@ -225,7 +225,7 @@ public class MainTabTran extends BaseFragment {
             @Override
             public void subscribe(ObservableEmitter<String> e) throws Exception {
                 beans.clear();
-                beans.addAll(DataBaseUtil.getInstance().getDataListRecord(0, Settings.offset));
+                beans.addAll(DataBaseUtil.getInstance().getDataListRecord(0, Setings.offset));
                 e.onComplete();
             }
         })

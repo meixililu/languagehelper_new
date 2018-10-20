@@ -31,7 +31,7 @@ import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.qq.e.ads.nativ.NativeExpressAD;
@@ -102,7 +102,7 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
     private void initViews(View view) {
         avObjects = new ArrayList<Reading>();
         mTXADList = new ArrayList<NativeExpressADView>();
-        avObjects.addAll(DataBaseUtil.getInstance().getReadingList(Settings.page_size, "", "", ""));
+        avObjects.addAll(DataBaseUtil.getInstance().getReadingList(Setings.page_size, "", "", ""));
         skip = 0;
         initSwipeRefresh(view);
         mAdapter = new RcStudyListAdapter(avObjects, mProgressbarListener, getActivity());
@@ -282,7 +282,7 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
         }
         query.addDescendingOrder(AVOUtil.Reading.publish_time);
         query.skip(skip);
-        query.limit(Settings.page_size);
+        query.limit(Setings.page_size);
         try {
             tempList = query.find();
             LogUtil.DefalutLog("skip:" + skip);
@@ -314,7 +314,7 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
                     if (addAD()) {
                         mAdapter.notifyDataSetChanged();
                     }
-                    skip += Settings.page_size;
+                    skip += Setings.page_size;
                     showFooterview();
                 }
             }
@@ -430,7 +430,7 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
 
     private boolean addAD() {
         if (mADObject != null && avObjects != null && avObjects.size() > 0) {
-            int index = avObjects.size() - Settings.page_size + NumberUtil.randomNumberRange(1, 2);
+            int index = avObjects.size() - Setings.page_size + NumberUtil.randomNumberRange(1, 2);
             if (index < 0) {
                 index = 0;
             }

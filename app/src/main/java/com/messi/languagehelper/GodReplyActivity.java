@@ -12,7 +12,7 @@ import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFYSAD;
 
@@ -44,7 +44,7 @@ public class GodReplyActivity extends BaseActivity {
     private void requestData() {
         isLoading = true;
         showProgressbar();
-        LanguagehelperHttpClient.get(Settings.TXGodreplyApi, new UICallback(GodReplyActivity.this) {
+        LanguagehelperHttpClient.get(Setings.TXGodreplyApi, new UICallback(GodReplyActivity.this) {
             @Override
             public void onResponsed(String responseString) {
                 try {

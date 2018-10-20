@@ -9,10 +9,9 @@ import android.text.TextUtils;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.ReadingsBySubjectFragment;
 import com.messi.languagehelper.SubjectByTypeFragment;
-import com.messi.languagehelper.SubjectFragment;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 
 import java.util.ArrayList;
 
@@ -25,7 +24,7 @@ public class BroadcastAdapter extends FragmentPagerAdapter {
     public BroadcastAdapter(FragmentManager fm, Context mContext) {
         super(fm);
         this.mContext = mContext;
-        category_2 = Settings.getSharedPreferences(mContext).getString(KeyUtil.RecentBroadcast,"");
+        category_2 = Setings.getSharedPreferences(mContext).getString(KeyUtil.RecentBroadcast,"");
         if(TextUtils.isEmpty(category_2)){
             addTitle();
             titleList.add(mContext.getResources().getString(R.string.recent));

@@ -16,7 +16,7 @@ import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SaveData;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +39,7 @@ public class ReadingJuheActivity extends BaseActivity implements FragmentProgres
 	}
 	
 	private void initViews(){
-		spf = Settings.getSharedPreferences(this);
+		spf = Setings.getSharedPreferences(this);
 		tablayout = (TabLayout) findViewById(R.id.tablayout);
 		viewpager = (ViewPager) findViewById(R.id.viewpager);
 		avObjects = new ArrayList<AVObject>();
@@ -121,7 +121,7 @@ public class ReadingJuheActivity extends BaseActivity implements FragmentProgres
 				listStr.add(item.toString());
 			}
 			SaveData.saveObject(this, "ReadingJuheActivity", listStr);
-			Settings.saveSharedPreferences(spf, KeyUtil.SaveLastTime_ReadingJuheActivity, 
+			Setings.saveSharedPreferences(spf, KeyUtil.SaveLastTime_ReadingJuheActivity,
 					System.currentTimeMillis());
 			LogUtil.DefalutLog("saveObject   ReadingJuheActivity");
 		}

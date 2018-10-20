@@ -13,7 +13,7 @@ import com.avos.avoscloud.AVAnalytics;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.SDCardUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 
 import butterknife.BindView;
@@ -77,7 +77,7 @@ public class SettingActivity extends BaseActivity implements SeekBar.OnSeekBarCh
 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
-        Settings.saveSharedPreferences(mSharedPreferences,
+        Setings.saveSharedPreferences(mSharedPreferences,
                 getString(R.string.preference_key_tts_speed),
                 seekBar.getProgress());
         AVAnalytics.onEvent(SettingActivity.this, "tran_tools_change_speed");
@@ -88,27 +88,27 @@ public class SettingActivity extends BaseActivity implements SeekBar.OnSeekBarCh
         switch (view.getId()) {
             case R.id.setting_auto_play:
                 settingAutoPlayCb.setChecked(!settingAutoPlayCb.isChecked());
-                Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.AutoPlayResult, settingAutoPlayCb.isChecked());
+                Setings.saveSharedPreferences(mSharedPreferences, KeyUtil.AutoPlayResult, settingAutoPlayCb.isChecked());
                 AVAnalytics.onEvent(this, "setting_pg_auto_play");
                 break;
             case R.id.setting_clear_all_except_favorite:
-                Settings.isMainFragmentNeedRefresh = true;
-                Settings.isDictionaryFragmentNeedRefresh = true;
+                Setings.isMainFragmentNeedRefresh = true;
+                Setings.isDictionaryFragmentNeedRefresh = true;
                 DataBaseUtil.getInstance().clearExceptFavorite();
                 ToastUtil.diaplayMesShort(SettingActivity.this, this.getResources().getString(R.string.clear_success));
                 AVAnalytics.onEvent(this, "setting_pg_clear_all_except");
                 break;
             case R.id.setting_clear_all:
                 DataBaseUtil.getInstance().clearAllData();
-                Settings.isMainFragmentNeedRefresh = true;
-                Settings.isDictionaryFragmentNeedRefresh = true;
+                Setings.isMainFragmentNeedRefresh = true;
+                Setings.isDictionaryFragmentNeedRefresh = true;
                 SDCardUtil.deleteOldFile();
                 ToastUtil.diaplayMesShort(SettingActivity.this, this.getResources().getString(R.string.clear_success));
                 AVAnalytics.onEvent(this, "setting_pg_clear_all");
                 break;
             case R.id.setting_auto_clear:
                 settingAutoClearCb.setChecked(!settingAutoClearCb.isChecked());
-                Settings.saveSharedPreferences(mSharedPreferences, KeyUtil.AutoClearInput, settingAutoClearCb.isChecked());
+                Setings.saveSharedPreferences(mSharedPreferences, KeyUtil.AutoClearInput, settingAutoClearCb.isChecked());
                 AVAnalytics.onEvent(this, "setting_pg_auto_clear_input");
                 break;
         }

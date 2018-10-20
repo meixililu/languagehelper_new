@@ -2,7 +2,7 @@ package com.messi.languagehelper.adapter;
 
 import java.util.List;
 
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.SymbolDetailActivity;
 import com.messi.languagehelper.dao.SymbolListDao;
@@ -73,7 +73,7 @@ public class SymbolListAdapter extends BaseAdapter {
 	}
 
 	private void onItemClick(SymbolListDao mAVObject){
-		Settings.dataMap.put(KeyUtil.DataMapKey, mAVObject);
+		Setings.dataMap.put(KeyUtil.DataMapKey, mAVObject);
 		Intent intent = new Intent(context,SymbolDetailActivity.class);
 		intent.putExtra(KeyUtil.ActionbarTitle, mAVObject.getSDDes() + mAVObject.getSDName());
 		context.startActivity(intent);

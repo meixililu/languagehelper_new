@@ -36,7 +36,7 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.ScoreUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
 
@@ -95,7 +95,7 @@ public class AiDialoguePracticeActivity extends BaseActivity implements View.OnC
 
     private void initViews() {
         setActionBarTitle(this.getResources().getString(R.string.title_Practice));
-        mSharedPreferences = Settings.getSharedPreferences(this);
+        mSharedPreferences = Setings.getSharedPreferences(this);
         mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
         recognizer = SpeechRecognizer.createRecognizer(this, null);
         mPlayer = new MediaPlayer();
@@ -130,7 +130,7 @@ public class AiDialoguePracticeActivity extends BaseActivity implements View.OnC
 
     public void showIatDialog() {
         try {
-            Settings.verifyStoragePermissions(this, Settings.PERMISSIONS_RECORD_AUDIO);
+            Setings.verifyStoragePermissions(this, Setings.PERMISSIONS_RECORD_AUDIO);
             if (recognizer != null) {
                 if (!recognizer.isListening()) {
                     if (isNewIn) {
@@ -504,7 +504,7 @@ public class AiDialoguePracticeActivity extends BaseActivity implements View.OnC
     @OnClick(R.id.start_to_fight)
     public void onViewClicked() {
         initData();
-        Settings.dataMap.put("avObjects",avObjects);
+        Setings.dataMap.put("avObjects",avObjects);
         toActivity(AiDialogueFightActivity.class,null);
     }
 

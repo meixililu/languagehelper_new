@@ -14,7 +14,7 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.MD5;
 import com.messi.languagehelper.util.PlayUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.StringUtils;
 
 import java.io.File;
@@ -134,30 +134,30 @@ public class LanguagehelperHttpClient {
 	public static Response postBaidu(Callback mCallback) {
 		long salt = System.currentTimeMillis();
 		FormBody formBody = new FormBody.Builder()
-			.add("appid", Settings.baidu_appid)
+			.add("appid", Setings.baidu_appid)
 			.add("salt", String.valueOf(salt))
-			.add("q", Settings.q)
-			.add("from", Settings.from)
-			.add("to", Settings.to)
+			.add("q", Setings.q)
+			.add("from", Setings.from)
+			.add("to", Setings.to)
 			.add("sign", getBaiduTranslateSign(salt))
 			.build();
-		return post(Settings.baiduTranslateUrl,  formBody , mCallback);
+		return post(Setings.baiduTranslateUrl,  formBody , mCallback);
 	}
 
 	public static Response postHjApi(Callback mCallback) {
 		String from = "";
 		String to = "";
-		if (StringUtils.isEnglish(Settings.q)) {
+		if (StringUtils.isEnglish(Setings.q)) {
 			from = "/en";
 			to = "/cn";
 		} else {
 			from = "/cn";
 			to = "/en";
 		}
-		String url = Settings.HjTranslateUrl + from + to;
+		String url = Setings.HjTranslateUrl + from + to;
 		LogUtil.DefalutLog("HjTranslateUrl:"+url);
 		FormBody formBody = new FormBody.Builder()
-			.add("content", Settings.q)
+			.add("content", Setings.q)
 			.build();
 		Request request = new Request.Builder()
 			.url(url)
@@ -170,7 +170,7 @@ public class LanguagehelperHttpClient {
 	public static Response postIcibaNew(Callback mCallback) {
 		String from = "";
 		String to = "";
-		if (StringUtils.isEnglish(Settings.q)) {
+		if (StringUtils.isEnglish(Setings.q)) {
 			from = "en";
 			to = "zh";
 		} else {
@@ -179,13 +179,13 @@ public class LanguagehelperHttpClient {
 		}
 		LogUtil.DefalutLog("from:"+from+"---to:"+to);
 		FormBody formBody = new FormBody.Builder()
-			.add("w", Settings.q)
+			.add("w", Setings.q)
 			.add("", "")
 			.add("f", from)
 			.add("t", to)
 			.build();
 		Request request = new Request.Builder()
-			.url(Settings.IcibaTranslateNewUrl)
+			.url(Setings.IcibaTranslateNewUrl)
 			.header("User-Agent", Header)
 			.post(formBody)
 			.build();
@@ -195,7 +195,7 @@ public class LanguagehelperHttpClient {
 	public static Response getAiyueyu(Callback mCallback) {
 		LogUtil.DefalutLog("getAiyueyu");
 		String type = "";
-		if (Settings.to.equals(Settings.yue)) {
+		if (Setings.to.equals(Setings.yue)) {
 			type = "0";
 		} else {
 			type = "1";
@@ -203,10 +203,10 @@ public class LanguagehelperHttpClient {
 		LogUtil.DefalutLog("type:"+type);
 		FormBody formBody = new FormBody.Builder()
 				.add("type", type)
-				.add("text", Settings.q)
+				.add("text", Setings.q)
 				.build();
 		Request request = new Request.Builder()
-				.url(Settings.TranAiyueyuUrl)
+				.url(Setings.TranAiyueyuUrl)
 				.header("User-Agent", Header)
 				.post(formBody)
 				.build();
@@ -230,7 +230,7 @@ public class LanguagehelperHttpClient {
 						.add("image", MainFragmentOld.base64)
 						.build();
 				Request request = new Request.Builder()
-						.url(Settings.BaiduOCRUrl+"?access_token="+PlayUtil.getSP().getString(KeyUtil.BaiduAccessToken,""))
+						.url(Setings.BaiduOCRUrl+"?access_token="+PlayUtil.getSP().getString(KeyUtil.BaiduAccessToken,""))
 						.header("Content-Type", "application/x-www-form-urlencoded")
 						.post(formBody)
 						.build();
@@ -246,10 +246,10 @@ public class LanguagehelperHttpClient {
 	public static void getBaiduAccessToken(final Activity context,final String path,final Callback mCallback){
 		FormBody formBody = new FormBody.Builder()
 				.add("grant_type", "client_credentials")
-				.add("client_id", Settings.BaiduORCAK)
-				.add("client_secret", Settings.BaiduORCSK)
+				.add("client_id", Setings.BaiduORCAK)
+				.add("client_secret", Setings.BaiduORCSK)
 				.build();
-		post(Settings.BaiduAccessToken,  formBody ,new UICallback(context){
+		post(Setings.BaiduAccessToken,  formBody ,new UICallback(context){
 			@Override
 			public void onFailured() {
 			}
@@ -261,9 +261,9 @@ public class LanguagehelperHttpClient {
 				if(JsonParser.isJson(responseString)){
 					BaiduAccessToken mBaiduAccessToken = JSON.parseObject(responseString, BaiduAccessToken.class);
 					if(mBaiduAccessToken != null){
-						Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.BaiduAccessToken, mBaiduAccessToken.getAccess_token());
-						Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.BaiduAccessTokenExpires, mBaiduAccessToken.getExpires_in());
-						Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.BaiduAccessTokenCreateAt, System.currentTimeMillis());
+						Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.BaiduAccessToken, mBaiduAccessToken.getAccess_token());
+						Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.BaiduAccessTokenExpires, mBaiduAccessToken.getExpires_in());
+						Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.BaiduAccessTokenCreateAt, System.currentTimeMillis());
 					}
 					postBaiduOCR(context,path,mCallback);
 				}
@@ -288,17 +288,17 @@ public class LanguagehelperHttpClient {
     }
 
 	public static String getBaiduTranslateSign(long salt) {
-		String str = Settings.baidu_appid + Settings.q + salt + Settings.baidu_secretkey;
+		String str = Setings.baidu_appid + Setings.q + salt + Setings.baidu_secretkey;
 		return MD5.encode(str);
 	}
 
 	public static void setTranslateLan(boolean isToYue){
 		if(isToYue){
-			Settings.from = Settings.zh;
-			Settings.to = Settings.yue;
+			Setings.from = Setings.zh;
+			Setings.to = Setings.yue;
 		}else{
-			Settings.from = Settings.yue;
-			Settings.to = Settings.zh;
+			Setings.from = Setings.yue;
+			Setings.to = Setings.zh;
 		}
 	}
 }

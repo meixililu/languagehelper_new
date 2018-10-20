@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 
 import butterknife.ButterKnife;
 
@@ -23,7 +23,7 @@ public class TitleActivity extends BaseActivity {
     }
 
     private void init(){
-        mSharedPreferences = Settings.getSharedPreferences(this);
+        mSharedPreferences = Setings.getSharedPreferences(this);
         Fragment fragment = null;
         type = getIntent().getIntExtra(KeyUtil.Type,0);
         if(type > 0){

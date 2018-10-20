@@ -100,7 +100,7 @@ public class OrcHelper {
                 LogUtil.DefalutLog("img uri:"+mCurrentPhotoPath);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                     takePictureIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                    Uri imageUri = FileProvider.getUriForFile(context, Settings.getProvider(context), photoFile);
+                    Uri imageUri = FileProvider.getUriForFile(context, Setings.getProvider(context), photoFile);
                     takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
                 } else {
                     takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoFile));
@@ -163,9 +163,9 @@ public class OrcHelper {
                             }
                         }else{
                             if(mBaiduOcrRoot.getError_code() > 90 && mBaiduOcrRoot.getError_code() < 120){
-                                Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.BaiduAccessToken, "");
-                                Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.BaiduAccessTokenExpires, (long)0);
-                                Settings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.BaiduAccessTokenCreateAt, (long)0);
+                                Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.BaiduAccessToken, "");
+                                Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.BaiduAccessTokenExpires, (long)0);
+                                Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.BaiduAccessTokenCreateAt, (long)0);
                                 if(orc_api_retry_times > 0){
                                     orc_api_retry_times--;
                                     sendBaiduOCR();
@@ -203,7 +203,7 @@ public class OrcHelper {
         } else if (requestCode == CameraUtil.REQUEST_CODE_CAPTURE_CAMEIA && resultCode == Activity.RESULT_OK) {
             Uri contentUri = null;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
-                contentUri = FileProvider.getUriForFile(context, Settings.getProvider(context), new File(mCurrentPhotoPath));
+                contentUri = FileProvider.getUriForFile(context, Setings.getProvider(context), new File(mCurrentPhotoPath));
             }else {
                 contentUri = Uri.fromFile(new File(mCurrentPhotoPath));
             }

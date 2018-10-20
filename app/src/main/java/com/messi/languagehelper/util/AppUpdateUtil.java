@@ -44,21 +44,21 @@ public class AppUpdateUtil {
 
     public static void checkUpdate(final Activity mActivity) {
         AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.UpdateInfo.UpdateInfo);
-        if(mActivity.getPackageName().equals(Settings.application_id_zyhy)){
+        if(mActivity.getPackageName().equals(Setings.application_id_zyhy)){
             query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "zyhy");
-        }else if(mActivity.getPackageName().equals(Settings.application_id_zyhy_google)){
+        }else if(mActivity.getPackageName().equals(Setings.application_id_zyhy_google)){
             query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "zyhy_google");
-        }else if(mActivity.getPackageName().equals(Settings.application_id_yys)){
+        }else if(mActivity.getPackageName().equals(Setings.application_id_yys)){
             query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "yys");
-        }else if(mActivity.getPackageName().equals(Settings.application_id_yys_google)){
+        }else if(mActivity.getPackageName().equals(Setings.application_id_yys_google)){
             query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "yys_google");
-        }else if(mActivity.getPackageName().equals(Settings.application_id_yyj)){
+        }else if(mActivity.getPackageName().equals(Setings.application_id_yyj)){
             query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "yyj");
-        }else if(mActivity.getPackageName().equals(Settings.application_id_yyj_google)){
+        }else if(mActivity.getPackageName().equals(Setings.application_id_yyj_google)){
             query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "yyj_google");
-        }else if(mActivity.getPackageName().equals(Settings.application_id_yycd)){
+        }else if(mActivity.getPackageName().equals(Setings.application_id_yycd)){
             query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "yycd");
-        }else if(mActivity.getPackageName().equals(Settings.application_id_xbky)){
+        }else if(mActivity.getPackageName().equals(Setings.application_id_xbky)){
             query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "xbky");
         }else{
             query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "noupdate");
@@ -80,19 +80,19 @@ public class AppUpdateUtil {
     }
 
     public static void saveSetting(Activity mActivity,AVObject mAVObject){
-        SharedPreferences mSharedPreferences = Settings.getSharedPreferences(mActivity);
+        SharedPreferences mSharedPreferences = Setings.getSharedPreferences(mActivity);
         LogUtil.DefalutLog(mAVObject.getString(AVOUtil.UpdateInfo.AppName));
         String app_advertiser = mAVObject.getString(AVOUtil.UpdateInfo.ad_type);
         String uctt_url = mAVObject.getString(AVOUtil.UpdateInfo.uctt_url);
         String ucsearch_url = mAVObject.getString(AVOUtil.UpdateInfo.ucsearch_url);
         String ad_ids = mAVObject.getString(AVOUtil.UpdateInfo.ad_ids);
         String no_ad_channel = mAVObject.getString(AVOUtil.UpdateInfo.no_ad_channel);
-        Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.APP_Advertiser,app_advertiser);
-        Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_UCTT,uctt_url);
-        Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_UCSearch,ucsearch_url);
-        Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.Ad_Ids,ad_ids);
-        Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.No_Ad_Channel,no_ad_channel);
-        Settings.saveSharedPreferences(mSharedPreferences,KeyUtil.VersionCode,
+        Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.APP_Advertiser,app_advertiser);
+        Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_UCTT,uctt_url);
+        Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_UCSearch,ucsearch_url);
+        Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.Ad_Ids,ad_ids);
+        Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.No_Ad_Channel,no_ad_channel);
+        Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.VersionCode,
                 mAVObject.getInt(AVOUtil.UpdateInfo.VersionCode));
 
     }
@@ -101,7 +101,7 @@ public class AppUpdateUtil {
         String isValid = mAVObject.getString(AVOUtil.UpdateInfo.IsValid);
         if(!TextUtils.isEmpty(isValid) && isValid.equals("3")){
             int newVersionCode = mAVObject.getInt(AVOUtil.UpdateInfo.VersionCode);
-            int oldVersionCode = Settings.getVersion(mActivity);
+            int oldVersionCode = Setings.getVersion(mActivity);
             if (newVersionCode > oldVersionCode) {
                 String updateInfo = mAVObject.getString(AVOUtil.UpdateInfo.AppUpdateInfo);
                 String downloadType = mAVObject.getString(AVOUtil.UpdateInfo.DownloadType);

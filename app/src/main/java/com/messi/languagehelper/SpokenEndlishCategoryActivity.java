@@ -11,7 +11,7 @@ import com.avos.avoscloud.AVQuery;
 import com.messi.languagehelper.adapter.RcSpokenEndlishCategoryAdapter;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.Settings;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
@@ -109,7 +109,7 @@ public class SpokenEndlishCategoryActivity extends BaseActivity {
             query.whereEqualTo(AVOUtil.EvaluationCategory.ETCode, code);
             query.orderByDescending(AVOUtil.EvaluationCategory.ECOrder);
             query.skip(skip);
-            query.limit(Settings.page_size);
+            query.limit(Setings.page_size);
             try {
                 return query.find();
             } catch (AVException e) {
@@ -132,12 +132,12 @@ public class SpokenEndlishCategoryActivity extends BaseActivity {
                 } else {
                     avObjects.addAll(avObject);
                     mAdapter.notifyDataSetChanged();
-                    if (skip == 0 && avObject.size() < Settings.page_size) {
+                    if (skip == 0 && avObject.size() < Setings.page_size) {
                         hasMore = false;
                         hideFooterview();
                     } else {
                         showFooterview();
-                        skip += Settings.page_size;
+                        skip += Setings.page_size;
                     }
                 }
             } else {
