@@ -323,7 +323,7 @@ public class XimalayaRadioLocalActivity extends BaseActivity implements IXmPlaye
 
     private void onADFaile(){
         if(ADUtil.isHasLocalAd()){
-            NativeADDataRef nad = ADUtil.getRandomAd();
+            NativeADDataRef nad = ADUtil.getRandomAd(this);
             addXFAD(nad);
         }
     }

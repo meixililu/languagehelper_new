@@ -1,6 +1,6 @@
 package com.messi.languagehelper.bean;
 
-import android.content.Context;
+import android.app.Activity;
 import android.text.TextUtils;
 import android.view.View;
 
@@ -18,22 +18,24 @@ import java.util.ArrayList;
 
 public class NativeADDataRefForZYHY extends NativeADDataRef {
 
-    private Context context;
+    private Activity context;
     private String title;
     private String sub_title;
     private String type;
     private String url;
     private String img;
+    private String ad_type;
     private String adObjectId;
     private ArrayList<String> imgs;
 
-    public NativeADDataRefForZYHY(Context context,
+    public NativeADDataRefForZYHY(Activity context,
                                   String title,
                                   String sub_title,
                                   String type,
                                   String url,
                                   String img,
                                   ArrayList<String> imgs,
+                                  String ad_type,
                                   String adObjectId){
         this.context = context;
         this.title = title;
@@ -42,10 +44,11 @@ public class NativeADDataRefForZYHY extends NativeADDataRef {
         this.url = url;
         this.img = img;
         this.imgs = imgs;
+        this.ad_type = ad_type;
         this.adObjectId = adObjectId;
     }
 
-    public static NativeADDataRefForZYHY build(Context context, AVObject adObject){
+    public static NativeADDataRefForZYHY build(Activity context, AVObject adObject){
         return NativeADDataRefForZYHY.create()
                 .setContext(context)
                 .setTitile(adObject.getString(AVOUtil.AdList.title))
@@ -54,8 +57,13 @@ public class NativeADDataRefForZYHY extends NativeADDataRef {
                 .setUrl(adObject.getString(AVOUtil.AdList.url))
                 .setImg(adObject.getString(AVOUtil.AdList.img))
                 .setImgs((ArrayList<String>)adObject.get(AVOUtil.AdList.imgs))
+                .setAd_Type(adObject.getString(AVOUtil.AdList.ad_type))
                 .setAVObjectId(adObject.getObjectId())
                 .build();
+    }
+
+    public void setContext(Activity context) {
+        this.context = context;
     }
 
     @Override
@@ -102,7 +110,11 @@ public class NativeADDataRefForZYHY extends NativeADDataRef {
     @Override
     public boolean onClicked(View view) {
         LogUtil.DefalutLog("NativeADDataRefForZYHY---onClicked");
-        ADUtil.toAdView(context,type,url);
+        if("app".equals(ad_type)){
+            ADUtil.showDownloadAppDialog(context,url);
+        }else {
+            ADUtil.toAdView(context,type,url);
+        }
         if(!TextUtils.isEmpty(adObjectId)){
             updateDownloadTime();
             return true;
@@ -127,16 +139,17 @@ public class NativeADDataRefForZYHY extends NativeADDataRef {
 
 
     public static class ADBuilder{
-        private Context context;
+        private Activity context;
         private String title;
         private String sub_title;
         private String type;
         private String url;
         private String img;
         private ArrayList<String> imgs;
+        private String ad_type;
         private String adObjectId;
 
-        public ADBuilder setContext(Context context){
+        public ADBuilder setContext(Activity context){
             this.context = context;
             return this;
         }
@@ -160,6 +173,10 @@ public class NativeADDataRefForZYHY extends NativeADDataRef {
             this.img = img;
             return this;
         }
+        public ADBuilder setAd_Type(String ad_type){
+            this.ad_type = ad_type;
+            return this;
+        }
         public ADBuilder setImgs(ArrayList<String> imgs){
             this.imgs = imgs;
             return this;
@@ -169,7 +186,7 @@ public class NativeADDataRefForZYHY extends NativeADDataRef {
             return this;
         }
         public NativeADDataRefForZYHY build(){
-            return new NativeADDataRefForZYHY(context,title,sub_title,type,url,img,imgs,adObjectId);
+            return new NativeADDataRefForZYHY(context,title,sub_title,type,url,img,imgs,ad_type,adObjectId);
         }
     }
 

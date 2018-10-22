@@ -1,14 +1,18 @@
 package com.messi.languagehelper.util;
 
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.iflytek.voiceads.NativeADDataRef;
+import com.messi.languagehelper.R;
 import com.messi.languagehelper.WebViewActivity;
 import com.messi.languagehelper.bean.NativeADDataRefForZYHY;
 
@@ -113,7 +117,7 @@ public class ADUtil {
 		}
 	}
 
-	public static void loadAd(final Context context){
+	public static void loadAd(final Activity context){
 		Observable.create(new ObservableOnSubscribe<String>() {
 			@Override
 			public void subscribe(ObservableEmitter<String> e) throws Exception {
@@ -139,13 +143,13 @@ public class ADUtil {
 				});
 	}
 
-	public static void getZYHYAd(Context context){
+	public static void getZYHYAd(Activity context){
 		try {
 			AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.AdList.AdList);
-			query.whereEqualTo(AVOUtil.AdList.isValid, "1");
+			query.whereEqualTo(AVOUtil.AdList.isValid, "0");
 			query.whereContains(AVOUtil.AdList.app, "zyhy");
 			query.addDescendingOrder(AVOUtil.AdList.createdAt);
-			query.limit(10);
+			query.limit(20);
 			List<AVObject> list = query.find();
 			localAd.clear();
 			if(list != null && list.size() > 0){
@@ -158,9 +162,11 @@ public class ADUtil {
 		}
 	}
 
-	public static NativeADDataRef getRandomAd(){
+	public static NativeADDataRef getRandomAd(Activity mActivity){
 		if(localAd != null && localAd.size() > 0){
-			return localAd.get( new Random().nextInt(localAd.size()) );
+			NativeADDataRefForZYHY mNad = (NativeADDataRefForZYHY)localAd.get( new Random().nextInt(localAd.size()) );
+			mNad.setContext(mActivity);
+			return mNad;
 		}else {
 			return null;
 		}
@@ -183,6 +189,28 @@ public class ADUtil {
 		}else {
 			return false;
 		}
+	}
+
+	public static void showDownloadAppDialog(final Activity mContext,final String url){
+		AlertDialog.Builder builder = new AlertDialog.Builder(mContext,R.style.Theme_AppCompat_Light_Dialog_Alert);
+		String message = "是要安装试试吗？";
+		builder.setTitle("弱弱的问一下");
+		builder.setMessage(message);
+		builder.setPositiveButton("是的", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.cancel();
+				new AppDownloadUtil(mContext,
+						url,
+						"",
+						System.currentTimeMillis()+"",
+						SDCardUtil.apkUpdatePath
+				).DownloadFile();
+			}
+		});
+		builder.setNegativeButton("不是", null);
+		AlertDialog dialog = builder.create();
+		dialog.show();
 	}
 
 }

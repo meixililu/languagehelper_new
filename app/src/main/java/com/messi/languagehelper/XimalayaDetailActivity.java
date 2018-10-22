@@ -216,7 +216,7 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
 
     private void onADFaile(){
         if(ADUtil.isHasLocalAd()){
-            setAd(ADUtil.getRandomAd());
+            setAd(ADUtil.getRandomAd(this));
         }else {
             isShowAd(View.GONE);
         }

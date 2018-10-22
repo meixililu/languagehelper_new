@@ -681,6 +681,7 @@ public class AVOUtil {
 		public final static String url = "url";
 		public final static String img = "img";
 		public final static String imgs = "imgs";
+		public final static String ad_type = "ad_type";
 		public final static String createdAt = "createdAt";
 	}
 

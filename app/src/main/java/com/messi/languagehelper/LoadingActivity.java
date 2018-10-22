@@ -218,7 +218,7 @@ public class LoadingActivity extends AppCompatActivity {
     private void onADFail() {
         if (ADUtil.isHasLocalAd()) {
             onAdReceive();
-            setAD(ADUtil.getRandomAd());
+            setAD(ADUtil.getRandomAd(this));
         } else {
             onError();
         }

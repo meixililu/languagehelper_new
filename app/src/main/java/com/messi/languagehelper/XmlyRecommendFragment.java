@@ -279,7 +279,7 @@ public class XmlyRecommendFragment extends BaseFragment {
 
     private void onADFaile(){
         if(ADUtil.isHasLocalAd()){
-            NativeADDataRef nad = ADUtil.getRandomAd();
+            NativeADDataRef nad = ADUtil.getRandomAd(getActivity());
             addXFAD(nad);
         }
     }

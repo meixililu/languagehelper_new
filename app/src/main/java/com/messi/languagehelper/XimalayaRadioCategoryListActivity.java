@@ -271,7 +271,7 @@ public class XimalayaRadioCategoryListActivity extends BaseActivity implements I
 
     private void onADFaile(){
         if(ADUtil.isHasLocalAd()){
-            NativeADDataRef nad = ADUtil.getRandomAd();
+            NativeADDataRef nad = ADUtil.getRandomAd(this);
             addXFAD(nad);
         }
     }

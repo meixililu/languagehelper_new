@@ -198,7 +198,7 @@ public class XFYSAD {
 		parentView.setVisibility(View.GONE);
 		hideHeader(true);
 		if(ADUtil.isHasLocalAd()){
-			mNativeADDataRef = ADUtil.getRandomAd();
+			mNativeADDataRef = ADUtil.getRandomAd(mContext);
 			setAdData();
 		}
 	}

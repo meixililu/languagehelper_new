@@ -324,7 +324,7 @@ public class XimalayaTagsFragment extends BaseFragment implements OnClickListene
 
     private void onADFaile(){
         if(ADUtil.isHasLocalAd()){
-            NativeADDataRef nad = ADUtil.getRandomAd();
+            NativeADDataRef nad = ADUtil.getRandomAd(getActivity());
             addXFAD(nad);
         }
     }

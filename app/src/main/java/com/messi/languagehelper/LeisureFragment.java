@@ -149,7 +149,7 @@ public class LeisureFragment extends BaseFragment {
 
     private void onXFADFaile() {
         if (ADUtil.isHasLocalAd()) {
-            mNativeADDataRef = ADUtil.getRandomAd();
+            mNativeADDataRef = ADUtil.getRandomAd(getActivity());
             setAd();
         }
     }
