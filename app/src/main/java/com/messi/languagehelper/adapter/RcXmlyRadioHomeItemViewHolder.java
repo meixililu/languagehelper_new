@@ -58,8 +58,8 @@ public class RcXmlyRadioHomeItemViewHolder extends RecyclerView.ViewHolder {
 
     public void render(final Radio mAVObject) {
         ad_layout.setVisibility(View.GONE);
-        source_tag.setVisibility(View.GONE);
         if (mAVObject instanceof RadioForAd) {
+            source_tag.setVisibility(View.GONE);
             if(((RadioForAd) mAVObject).getmTXADView() != null){
                 NativeExpressADView adView = ((RadioForAd) mAVObject).getmTXADView();
                 ad_layout.setVisibility(View.VISIBLE);
@@ -76,10 +76,8 @@ public class RcXmlyRadioHomeItemViewHolder extends RecyclerView.ViewHolder {
                     title.setText(mNativeADDataRef.getTitle());
                     sub_title.setText("");
                     type_name.setText("");
-                    Drawable drawable = context.getResources().getDrawable(R.drawable.ic_item_playtimes_count);
-                    drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                    source_name.setCompoundDrawables(drawable, null, null, null);
-                    source_name.setText(" 广告");
+                    source_name.setCompoundDrawables(null, null, null, null);
+                    source_name.setText("广告");
                     list_item_img.setImageURI(mNativeADDataRef.getImage());
                     layout_cover.setOnClickListener(new View.OnClickListener() {
                         @Override

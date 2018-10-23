@@ -172,10 +172,11 @@ public class ADUtil {
 		}
 	}
 
-	public static List<NativeADDataRef> getRandomAdList(){
+	public static List<NativeADDataRef> getRandomAdList(Activity mActivity){
 		if(localAd != null && localAd.size() > 0){
 			List<NativeADDataRef> list = new ArrayList<NativeADDataRef>();
-			NativeADDataRef local = localAd.get( new Random().nextInt(localAd.size()) );
+			NativeADDataRefForZYHY local = (NativeADDataRefForZYHY)localAd.get( new Random().nextInt(localAd.size()) );
+			local.setContext(mActivity);
 			list.add(local);
 			return list;
 		}else {
@@ -192,25 +193,29 @@ public class ADUtil {
 	}
 
 	public static void showDownloadAppDialog(final Activity mContext,final String url){
-		AlertDialog.Builder builder = new AlertDialog.Builder(mContext,R.style.Theme_AppCompat_Light_Dialog_Alert);
-		String message = "是要安装试试吗？";
-		builder.setTitle("弱弱的问一下");
-		builder.setMessage(message);
-		builder.setPositiveButton("是的", new DialogInterface.OnClickListener() {
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				dialog.cancel();
-				new AppDownloadUtil(mContext,
-						url,
-						"",
-						System.currentTimeMillis()+"",
-						SDCardUtil.apkUpdatePath
-				).DownloadFile();
-			}
-		});
-		builder.setNegativeButton("不是", null);
-		AlertDialog dialog = builder.create();
-		dialog.show();
+		try{
+			AlertDialog.Builder builder = new AlertDialog.Builder(mContext,R.style.Theme_AppCompat_Light_Dialog_Alert);
+			String message = "是要安装试试吗？";
+			builder.setTitle("弱弱的问一下");
+			builder.setMessage(message);
+			builder.setPositiveButton("是的", new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.cancel();
+					new AppDownloadUtil(mContext,
+							url,
+							"",
+							System.currentTimeMillis()+"",
+							SDCardUtil.apkUpdatePath
+					).DownloadFile();
+				}
+			});
+			builder.setNegativeButton("不是", null);
+			AlertDialog dialog = builder.create();
+			dialog.show();
+		}catch (Exception e){
+			e.printStackTrace();
+		}
 	}
 
 }

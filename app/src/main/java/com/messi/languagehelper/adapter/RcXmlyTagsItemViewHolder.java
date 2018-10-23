@@ -31,6 +31,7 @@ public class RcXmlyTagsItemViewHolder extends RecyclerView.ViewHolder {
     private final TextView title, sub_title;
     private final TextView type_name;
     private final TextView source_name;
+    private final TextView source_sign;
     private final SimpleDraweeView list_item_img;
     private final FrameLayout ad_layout;
     private Context context;
@@ -43,6 +44,7 @@ public class RcXmlyTagsItemViewHolder extends RecyclerView.ViewHolder {
         sub_title = (TextView) itemView.findViewById(R.id.sub_title);
         type_name = (TextView) itemView.findViewById(R.id.type_name);
         source_name = (TextView) itemView.findViewById(R.id.source_name);
+        source_sign = (TextView) itemView.findViewById(R.id.source_sign);
         list_item_img = (SimpleDraweeView) itemView.findViewById(R.id.list_item_img);
         ad_layout = (FrameLayout) itemView.findViewById(R.id.ad_layout);
     }
@@ -50,6 +52,7 @@ public class RcXmlyTagsItemViewHolder extends RecyclerView.ViewHolder {
     public void render(final Album mAVObject) {
         ad_layout.setVisibility(View.GONE);
         if (mAVObject instanceof AlbumForAd) {
+            source_sign.setVisibility(View.GONE);
             if(((AlbumForAd) mAVObject).getmTXADView() != null){
                 NativeExpressADView adView = ((AlbumForAd) mAVObject).getmTXADView();
                 ad_layout.setVisibility(View.VISIBLE);
@@ -66,10 +69,8 @@ public class RcXmlyTagsItemViewHolder extends RecyclerView.ViewHolder {
                     sub_title.setText("");
                     type_name.setText("");
                     type_name.setCompoundDrawables(null, null, null, null);
-                    Drawable drawable = context.getResources().getDrawable(R.drawable.ic_item_playtimes_count);
-                    drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                    source_name.setCompoundDrawables(drawable, null, null, null);
-                    source_name.setText(" 广告");
+                    source_name.setCompoundDrawables(null, null, null, null);
+                    source_name.setText("广告");
                     list_item_img.setImageURI(mNativeADDataRef.getImage());
                     layout_cover.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -81,6 +82,7 @@ public class RcXmlyTagsItemViewHolder extends RecyclerView.ViewHolder {
                 }
             }
         } else {
+            source_sign.setVisibility(View.VISIBLE);
             title.setText(mAVObject.getAlbumTitle());
             sub_title.setText(mAVObject.getAlbumIntro());
             source_name.setText(StringUtils.numToStrTimes(mAVObject.getPlayCount()));

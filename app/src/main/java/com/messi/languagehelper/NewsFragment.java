@@ -222,7 +222,7 @@ public class NewsFragment extends BaseFragment implements OnClickListener {
             public void onAdFailed(AdError arg0) {
                 LogUtil.DefalutLog("onAdFailed---" + arg0.getErrorCode() + "---" + arg0.getErrorDescription());
                 if(ADUtil.isHasLocalAd()){
-                    onADLoaded(ADUtil.getRandomAdList());
+                    onADLoaded(ADUtil.getRandomAdList(getActivity()));
                 }
             }
 

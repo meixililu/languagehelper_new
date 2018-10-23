@@ -154,8 +154,12 @@ public class XmlyRecommendFragment extends BaseFragment {
         skip = 1;
         loadAD();
         hideFooterview();
-        avObjects.clear();
-        mAdapter.notifyDataSetChanged();
+        if(avObjects != null){
+            avObjects.clear();
+        }
+        if(mAdapter != null){
+            mAdapter.notifyDataSetChanged();
+        }
         QueryTask();
     }
 
@@ -164,8 +168,12 @@ public class XmlyRecommendFragment extends BaseFragment {
         loadAD();
         random();
         hideFooterview();
-        avObjects.clear();
-        mAdapter.notifyDataSetChanged();
+        if(avObjects != null){
+            avObjects.clear();
+        }
+        if(mAdapter != null){
+            mAdapter.notifyDataSetChanged();
+        }
         QueryTask();
     }
 

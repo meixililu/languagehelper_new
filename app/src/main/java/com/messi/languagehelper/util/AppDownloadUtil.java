@@ -119,7 +119,7 @@ public class AppDownloadUtil {
 					mBuilder.setProgress(100, percent, false);
 					mBuilder.setContentText("更新进度"+percent+"%");
 					mNotifyManager.notify(0, mBuilder.build());
-				}else if(percent == 100){
+				}else {
 					if(done){
 						mBuilder.setContentText("下载完成").setProgress(0,0,false);
 						mNotifyManager.notify(0, mBuilder.build());
