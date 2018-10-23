@@ -59,7 +59,8 @@
 				android:textColor="@color/text_grey"
 				android:textSize="@dimen/middle" />
 
-            <LinearLayout 
+            <LinearLayout
+				android:id="@+id/source_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"

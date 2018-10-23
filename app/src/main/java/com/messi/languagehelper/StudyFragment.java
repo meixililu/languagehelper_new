@@ -105,10 +105,9 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
         avObjects.addAll(DataBaseUtil.getInstance().getReadingList(Setings.page_size, "", "", ""));
         skip = 0;
         initSwipeRefresh(view);
-        mAdapter = new RcStudyListAdapter(avObjects, mProgressbarListener, getActivity());
+        mAdapter = new RcStudyListAdapter(avObjects);
         mAdapter.setItems(avObjects);
         mAdapter.setFooter(new Object());
-        mAdapter.setHeader(new Object());
         hideFooterview();
         mLinearLayoutManager = new LinearLayoutManager(getContext());
         listview.setLayoutManager(mLinearLayoutManager);

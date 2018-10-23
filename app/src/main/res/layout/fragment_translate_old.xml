@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/contentbg"
+        android:background="@color/white"
         android:focusableInTouchMode="true"
         android:orientation="vertical" >
 
@@ -100,7 +100,7 @@
                     <TextView
                         android:id="@+id/submit_btn"
                         android:layout_width="match_parent"
-                        android:layout_height="34dp"
+                        android:layout_height="36dp"
                         android:background="?attr/colorPrimary"
                         android:textColor="@color/white"
                         android:gravity="center"
@@ -120,6 +120,7 @@
                 android:id="@+id/content_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@color/white"
                 android:orientation="horizontal"
                 >
             </LinearLayout>
@@ -142,7 +143,7 @@
                     <RadioButton
                         android:id="@+id/cb_speak_language_ch"
                         android:layout_width="0dp"
-                        android:layout_height="36dp"
+                        android:layout_height="40dp"
                         android:layout_weight="1"
                         android:layout_marginLeft="90dp"
                         android:layout_marginBottom="1dp"
@@ -156,7 +157,7 @@
                     <RadioButton
                         android:id="@+id/cb_speak_language_en"
                         android:layout_width="0dp"
-                        android:layout_height="36dp"
+                        android:layout_height="40dp"
                         android:layout_weight="1"
                         android:layout_marginRight="90dp"
                         android:layout_marginBottom="1dp"
@@ -175,8 +176,8 @@
 
                     <LinearLayout
                         android:id="@+id/speak_round_layout"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:layout_width="62dp"
+                        android:layout_height="62dp"
                         android:layout_marginBottom="-5dp"
                         android:background="@drawable/round_gray_bgl_old"
                         android:gravity="center"
@@ -184,8 +185,8 @@
 
                         <Button
                             android:id="@+id/voice_btn"
-                            android:layout_width="34dp"
-                            android:layout_height="34dp"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
                             android:background="@drawable/ic_voice_padded_normal"
                             android:clickable="false"
                             android:gravity="center"

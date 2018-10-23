@@ -141,14 +141,14 @@ public class ChineseDictionaryFragment extends BaseFragment {
     }
 
     private void copy() {
-        String content = question_tv.getText().toString() + result_tv.getText().toString();
+        String content = question_tv.getText().toString() +"\n"+ result_tv.getText().toString();
         if (!TextUtils.isEmpty(content)) {
             ShareUtil.copy(getContext(), content);
         }
     }
 
     private void share() {
-        String content = question_tv.getText().toString() + result_tv.getText().toString();
+        String content = question_tv.getText().toString() +"\n"+ result_tv.getText().toString();
         if (!TextUtils.isEmpty(content)) {
             ShareUtil.shareText(getContext(), content);
         }

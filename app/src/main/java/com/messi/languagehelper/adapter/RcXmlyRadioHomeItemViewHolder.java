@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -31,6 +32,7 @@ import java.util.List;
 public class RcXmlyRadioHomeItemViewHolder extends RecyclerView.ViewHolder {
 
     private final FrameLayout layout_cover;
+    private final LinearLayout source_layout;
     private final TextView title, sub_title;
     private final TextView type_name;
     private final TextView source_name;
@@ -46,6 +48,7 @@ public class RcXmlyRadioHomeItemViewHolder extends RecyclerView.ViewHolder {
         this.context = view.getContext();
         this.radios = radios;
         layout_cover = (FrameLayout) view.findViewById(R.id.layout_cover);
+        source_layout = (LinearLayout) itemView.findViewById(R.id.source_layout);
         list_item_img = (SimpleDraweeView) view.findViewById(R.id.list_item_img);
         title = (TextView) view.findViewById(R.id.title);
         sub_title = (TextView) view.findViewById(R.id.sub_title);
@@ -58,9 +61,11 @@ public class RcXmlyRadioHomeItemViewHolder extends RecyclerView.ViewHolder {
 
     public void render(final Radio mAVObject) {
         ad_layout.setVisibility(View.GONE);
+        source_layout.setVisibility(View.VISIBLE);
         if (mAVObject instanceof RadioForAd) {
             source_tag.setVisibility(View.GONE);
             if(((RadioForAd) mAVObject).getmTXADView() != null){
+                source_layout.setVisibility(View.GONE);
                 NativeExpressADView adView = ((RadioForAd) mAVObject).getmTXADView();
                 ad_layout.setVisibility(View.VISIBLE);
                 ad_layout.removeAllViews();

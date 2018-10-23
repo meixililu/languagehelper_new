@@ -2,6 +2,7 @@ package com.messi.languagehelper;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -11,12 +12,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.avos.avoscloud.AVAnalytics;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.messi.languagehelper.adapter.XmlyRecommendPageAdapter;
+import com.messi.languagehelper.dao.EveryDaySentence;
+import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.http.LanguagehelperHttpClient;
+import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
+import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NumberUtil;
+import com.messi.languagehelper.util.Setings;
+import com.messi.languagehelper.util.TimeUtil;
 import com.messi.languagehelper.util.XimalayaUtil;
 import com.ximalaya.ting.android.opensdk.constants.DTransferConstants;
 import com.ximalaya.ting.android.opensdk.datatrasfer.CommonRequest;
@@ -60,9 +72,16 @@ public class StudyCategoryFragment extends BaseFragment {
     FrameLayout xmlyLayout;
     @BindView(R.id.tablayout)
     TabLayout tablayout;
+    @BindView(R.id.dailysentence_txt)
+    TextView dailysentence_txt;
+
+    @BindView(R.id.study_daily_sentence)
+    FrameLayout study_daily_sentence;
+    @BindView(R.id.daily_sentence_item_img)
+    SimpleDraweeView daily_sentence_item_img;
 
     private List<CategoryRecommendAlbums> mTabList;
-
+    private EveryDaySentence mEveryDaySentence;
     private XmlyRecommendPageAdapter mAdapter;
 
     public static StudyCategoryFragment getInstance() {
@@ -87,6 +106,7 @@ public class StudyCategoryFragment extends BaseFragment {
         ButterKnife.bind(this, view);
         mAdapter = new XmlyRecommendPageAdapter(getChildFragmentManager());
         viewpager.setAdapter(mAdapter);
+        getDailySentence();
         QueryTask();
         return view;
     }
@@ -100,15 +120,10 @@ public class StudyCategoryFragment extends BaseFragment {
         }
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
-
     @OnClick({R.id.symbol_study_cover, R.id.study_listening_layout,
             R.id.en_examination_layout, R.id.study_composition, R.id.collected_layout,
             R.id.study_spoken_english, R.id.en_grammar, R.id.en_story_layout,
-            R.id.xmly_layout, R.id.study_word_layout})
+            R.id.xmly_layout, R.id.study_word_layout, R.id.study_daily_sentence})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.symbol_study_cover:
@@ -150,6 +165,10 @@ public class StudyCategoryFragment extends BaseFragment {
             case R.id.study_word_layout:
                 toActivity(WordsActivity.class,null);
                 AVAnalytics.onEvent(getContext(), "tab3_to_ximalaya_home");
+                break;
+            case R.id.study_daily_sentence:
+                toActivity(DailySentenceAndEssayActivity.class,null);
+                AVAnalytics.onEvent(getContext(), "tab3_to_dailysentence");
                 break;
         }
     }
@@ -216,6 +235,47 @@ public class StudyCategoryFragment extends BaseFragment {
 
     private void onFinishLoadData() {
         hideProgressbar();
+    }
+
+    private void getDailySentence(){
+        List<EveryDaySentence> mList = DataBaseUtil.getInstance().getDailySentenceList(1);
+        if(mList != null){
+            if(mList.size() > 0){
+                mEveryDaySentence = mList.get(0);
+            }
+        }
+        setSentence();
+        LogUtil.DefalutLog("StudyFragment-getDailySentence()");
+    }
+
+    private void isLoadDailySentence(){
+        String todayStr = TimeUtil.getTimeDateLong(System.currentTimeMillis());
+        long cid = NumberUtil.StringToLong(todayStr);
+        boolean isExist = DataBaseUtil.getInstance().isExist(cid);
+        if(!isExist){
+            requestDailysentence();
+        }
+        LogUtil.DefalutLog("StudyFragment-isLoadDailySentence()");
+    }
+
+    private void requestDailysentence(){
+        LogUtil.DefalutLog("StudyFragment-requestDailysentence()");
+        LanguagehelperHttpClient.get(Setings.DailySentenceUrl, new UICallback(getActivity()){
+            public void onResponsed(String responseString) {
+                if(JsonParser.isJson(responseString)){
+                    mEveryDaySentence = JsonParser.parseEveryDaySentence(responseString);
+                    setSentence();
+                }
+            }
+        });
+    }
+
+    private void setSentence(){
+        LogUtil.DefalutLog("StudyFragment-setSentence()");
+        if(mEveryDaySentence != null){
+            dailysentence_txt.setText(mEveryDaySentence.getContent());
+            daily_sentence_item_img.setImageURI(Uri.parse(mEveryDaySentence.getPicture2()));
+        }
     }
 
     @Override

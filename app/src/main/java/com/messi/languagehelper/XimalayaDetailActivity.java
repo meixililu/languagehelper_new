@@ -199,7 +199,11 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
             @Override
             public void onAdFailed(AdError arg0) {
                 LogUtil.DefalutLog("onAdFailed---" + arg0.getErrorCode() + "---" + arg0.getErrorDescription());
-                onADFaile();
+                if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
+                    loadTXAD();
+                }else {
+                    onADFaile();
+                }
             }
 
             @Override

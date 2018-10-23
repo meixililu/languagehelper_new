@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -28,6 +29,7 @@ import com.ximalaya.ting.android.opensdk.model.album.Album;
 public class RcXmlyTagsItemViewHolder extends RecyclerView.ViewHolder {
 
     private final FrameLayout layout_cover;
+    private final LinearLayout source_layout;
     private final TextView title, sub_title;
     private final TextView type_name;
     private final TextView source_name;
@@ -40,6 +42,7 @@ public class RcXmlyTagsItemViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
         this.context = itemView.getContext();
         layout_cover = (FrameLayout) itemView.findViewById(R.id.layout_cover);
+        source_layout = (LinearLayout) itemView.findViewById(R.id.source_layout);
         title = (TextView) itemView.findViewById(R.id.title);
         sub_title = (TextView) itemView.findViewById(R.id.sub_title);
         type_name = (TextView) itemView.findViewById(R.id.type_name);
@@ -51,9 +54,11 @@ public class RcXmlyTagsItemViewHolder extends RecyclerView.ViewHolder {
 
     public void render(final Album mAVObject) {
         ad_layout.setVisibility(View.GONE);
+        source_layout.setVisibility(View.VISIBLE);
         if (mAVObject instanceof AlbumForAd) {
             source_sign.setVisibility(View.GONE);
             if(((AlbumForAd) mAVObject).getmTXADView() != null){
+                source_layout.setVisibility(View.GONE);
                 NativeExpressADView adView = ((AlbumForAd) mAVObject).getmTXADView();
                 ad_layout.setVisibility(View.VISIBLE);
                 ad_layout.removeAllViews();

@@ -1,6 +1,5 @@
 package com.messi.languagehelper.adapter;
 
-import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +7,6 @@ import android.view.ViewGroup;
 
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.dao.Reading;
-import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.HeaderFooterRecyclerViewAdapter;
 
 import java.util.List;
@@ -19,16 +17,10 @@ import java.util.List;
 
 public class RcStudyListAdapter extends HeaderFooterRecyclerViewAdapter<RecyclerView.ViewHolder, Object, Reading, Object> {
 
-    private Activity mContext;
     private List<Reading> avObjects;
-    private FragmentProgressbarListener mProgressbarListener;
-    private RcStudyHeaderViewHolder mRcStudyHeaderViewHolder;
 
-    public RcStudyListAdapter(List<Reading> avObjects, FragmentProgressbarListener mProgressbarListener,
-                              Activity mContext){
+    public RcStudyListAdapter(List<Reading> avObjects){
         this.avObjects = avObjects;
-        this.mContext = mContext;
-        this.mProgressbarListener = mProgressbarListener;
     }
 
     @Override
@@ -43,19 +35,6 @@ public class RcStudyListAdapter extends HeaderFooterRecyclerViewAdapter<Recycler
         Reading mAVObject = getItem(position);
         RcReadingListItemViewHolder itemViewHolder = (RcReadingListItemViewHolder)holder;
         itemViewHolder.render(mAVObject);
-    }
-
-    @Override
-    protected RecyclerView.ViewHolder onCreateHeaderViewHolder(ViewGroup parent, int viewType) {
-        LayoutInflater inflater = getLayoutInflater(parent);
-        View headerView = inflater.inflate(R.layout.study_fragment_header, parent, false);
-        mRcStudyHeaderViewHolder =  new RcStudyHeaderViewHolder(headerView,mProgressbarListener,mContext);
-        return mRcStudyHeaderViewHolder;
-    }
-
-    @Override
-    protected void onBindHeaderViewHolder(RecyclerView.ViewHolder holder, int position) {
-        super.onBindHeaderViewHolder(holder, position);
     }
 
     @Override

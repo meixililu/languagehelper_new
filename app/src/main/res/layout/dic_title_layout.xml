@@ -5,7 +5,10 @@
     android:layout_height="wrap_content"
     android:background="@color/white"
     android:foreground="@drawable/framelayout_selector"
-    android:padding="7dp">
+    android:paddingLeft="10dp"
+    android:paddingTop="6dp"
+    android:paddingBottom="6dp"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -22,11 +25,12 @@
             android:textSize="@dimen/bigger" />
 
         <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
             android:layout_toRightOf="@id/dic_title"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/padding_10"
+            android:layout_marginTop="4dp"
             android:src="@drawable/play_btn_d"
             />
         <CheckBox

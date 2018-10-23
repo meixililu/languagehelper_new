@@ -20,8 +20,9 @@
 			        android:id="@+id/record_question"
 			        android:layout_width="fill_parent"
 			        android:layout_height="wrap_content"
-			        android:paddingLeft="11dp"
-			        android:paddingTop="9dp"
+					android:lineSpacingExtra="7dp"
+			        android:paddingLeft="10dp"
+			        android:paddingTop="10dp"
 			        android:paddingBottom="3dp"
 					android:textColor="@color/text_black"
 			        android:textSize="@dimen/bigger" />
@@ -47,10 +48,10 @@
 			        android:id="@+id/record_answer"
 			        android:layout_width="fill_parent"
 			        android:layout_height="wrap_content"
-					android:lineSpacingExtra="8dp"
-			        android:paddingLeft="11dp"
-			        android:paddingTop="3dp"
-			        android:paddingBottom="9dp"
+					android:lineSpacingExtra="7dp"
+			        android:paddingLeft="10dp"
+			        android:paddingTop="4dp"
+			        android:paddingBottom="10dp"
 			        android:text=""
 			        android:textColor="@color/text_black"
 			        android:textSize="@dimen/bigger" />
@@ -86,8 +87,8 @@
             android:id="@+id/weixi_btn"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:paddingTop="@dimen/padding_margin"
-            android:paddingBottom="@dimen/padding_margin"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
             android:layout_weight="1"
             android:foreground="@drawable/framelayout_selector"
             >
@@ -103,8 +104,8 @@
         <ImageView
             android:layout_width="1px"
             android:layout_height="fill_parent"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
             android:background="@color/line_color_blue" />
 
         <FrameLayout
@@ -141,7 +142,6 @@
             android:layout_weight="1"
             android:foreground="@drawable/framelayout_selector"
             >
-
             <ImageButton
                 android:layout_width="@dimen/list_item_icon"
                 android:layout_height="@dimen/list_item_icon"
@@ -188,8 +188,8 @@
 			android:foreground="@drawable/framelayout_selector"
 			>
 			<ImageButton
-				android:layout_width="12dp"
-				android:layout_height="12dp"
+				android:layout_width="13dp"
+				android:layout_height="13dp"
 				android:layout_gravity="center"
 				android:background="@drawable/ic_practise"
 				android:clickable="false" />

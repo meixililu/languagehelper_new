@@ -1,9 +1,7 @@
 package com.messi.languagehelper.adapter;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Handler;
@@ -51,7 +49,6 @@ public class RcStudyHeaderViewHolder extends RecyclerView.ViewHolder {
     private MediaPlayer mPlayer;
     private String fileFullName;
     private boolean isInitMedia;
-    private SharedPreferences mSharedPreferences;
     private Activity mContext;
     private FragmentProgressbarListener mProgressbarListener;
     private List<ReadingCategory> categories;
@@ -62,7 +59,6 @@ public class RcStudyHeaderViewHolder extends RecyclerView.ViewHolder {
         this.mContext = mContext;
         categories = getTabItem(mContext);
         mPlayer = new MediaPlayer();
-        mSharedPreferences = mContext.getSharedPreferences(mContext.getPackageName(), Context.MODE_PRIVATE);
         study_daily_sentence = (FrameLayout)view.findViewById(R.id.study_daily_sentence);
         dailysentence_txt = (TextView)view.findViewById(R.id.dailysentence_txt);
         daily_sentence_item_img = (SimpleDraweeView)view.findViewById(R.id.daily_sentence_item_img);
