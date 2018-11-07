@@ -10,17 +10,16 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/padding_15"
-        android:paddingLeft="@dimen/padding_7"
-        android:paddingRight="@dimen/padding_7"
-        android:paddingTop="@dimen/padding_15">
+        android:paddingBottom="@dimen/padding_10">
         <TextView
             android:id="@+id/des"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_5"
+            android:layout_marginTop="@dimen/padding_10"
+            android:layout_marginBottom="@dimen/padding_7"
+            android:layout_marginLeft="6dp"
             android:gravity="left"
-            android:lineSpacingExtra="6dp"
+            android:lineSpacingExtra="8dp"
             android:textColor="@color/text_black"
             android:textIsSelectable="true"
             android:textSize="@dimen/bigger" />
@@ -28,23 +27,22 @@
             android:id="@+id/list_item_img"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_10"
-            fresco:actualImageScaleType="fitCenter"
-            fresco:placeholderImage="@color/text_tint"
+            fresco:actualImageScaleType="centerCrop"
+            fresco:placeholderImage="@drawable/img_loading"
             fresco:placeholderImageScaleType="fitCenter"
+            fresco:failureImage="@drawable/img_lost"
+            fresco:failureImageScaleType="fitCenter"
             fresco:viewAspectRatio="0.8" />
         <cn.jzvd.JzvdStd
             android:id="@+id/videoplayer"
             android:layout_width="match_parent"
-            android:layout_height="230dp"
-            android:layout_marginTop="@dimen/padding_10" />
+            android:layout_height="230dp" />
+
     </LinearLayout>
     <FrameLayout
         android:id="@+id/ad_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_margin"
         android:visibility="gone"
         />
-
 </FrameLayout>

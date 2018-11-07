@@ -2,6 +2,8 @@ package com.messi.languagehelper.util;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -17,14 +19,15 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
 import android.telephony.TelephonyManager;
-import android.text.ClipboardManager;
 import android.view.View;
 
 import com.avos.avoscloud.AVAnalytics;
 import com.messi.languagehelper.BuildConfig;
 import com.messi.languagehelper.ImgShareActivity;
+import com.messi.languagehelper.ImgViewActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.dialog.PopDialog;
 import com.messi.languagehelper.dialog.PopDialog.PopViewItemOnclickListener;
@@ -33,13 +36,14 @@ import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Permission;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
 public class Setings {
 
-	private static final int RequestCode = 1;
+	public static final int RequestCode = 1;
 
 	/**baidu translate api**/
 	public static String baiduTranslateUrl = "https://fanyi-api.baidu.com/api/trans/vip/translate";
@@ -107,9 +111,19 @@ public class Setings {
 	/**toutiao video parse api**/
 	public static final String TTParseApi = "http://service.iiilab.com/video/download/toutiao";
 	//	uc toutiao
-	public static final String UCTT = "http://m.uczzd.cn/webview/newslist?app=languagehelper-iflow&zzd_from=languagehelper-iflow&uc_param_str=dndsfrvesvntnwpfgi&uc_biz_str=S%253Acustom%257CC%253Azzd_list&is_hide_top=1&is_hide_bottom=1&is_link_open=1";
+	public static final String XMNovel = "https://reader.browser.duokan.com/v2/#tab=store&mz=&_miui_orientation=portrait&_miui_fullscreen=1&source=browser-mz";
 	// uc search
+	public static final String DVideo = "https://hot.browser.miui.com/v7/#page=short-video-list&cid=rec&_miui_=";
+
 	public static final String UCSearch = "https://yz.m.sm.cn/s?q=%E7%A5%9E%E9%A9%AC%E6%96%B0%E9%97%BB%E6%A6%9C%E5%8D%95&from=wm845578";
+
+	public static final String UCAI = "https://ai.sm.cn/#?query=";
+
+	public static final String UCSearchUrl = "https://yz.m.sm.cn/s?from=wm845578&q={0}";
+
+	public static final String NovelSearchUrl = "https://www.owllook.net/search?wd={0}";
+
+	public static final String CaricatureSearchUrl = "https://nyaso.com/man/{0}.html";
 
 	public static final String NPR_Url = "https://www.npr.org/";
 	public static final String AmericanLife_Url = "https://www.thisamericanlife.org/";
@@ -125,8 +139,9 @@ public class Setings {
 	public static final String BaiduORCAK = "rOpNTQojXriwz14ol8COWTok";
 	public static final String BaiduORCSK = "dh99lxHNNUGILNV0UwLx0xBeDVgAh7vN";
 	public static final String showapi_appid = "11619";
-	public static final String showapi_secret = "f27574671ec14eb4a97faacb2eee3ef2";	
-	
+	public static final String showapi_secret = "f27574671ec14eb4a97faacb2eee3ef2";
+
+	public static final int ca_psize = 12;
 	public static final int page_size = 10;
 	public static final String baidu_appid = "20151111000005006";	
 	public static final String baidu_secretkey = "91mGcsmdvX9HAaE8tXoI";	
@@ -284,7 +299,7 @@ public class Setings {
 		try {
 			// 得到剪贴板管理器
 			ClipboardManager cmb = (ClipboardManager)mContext.getSystemService(Context.CLIPBOARD_SERVICE);
-			cmb.setText(dstString);
+			cmb.setPrimaryClip(ClipData.newPlainText("data",dstString));
 			ToastUtil.diaplayMesShort(mContext, mContext.getResources().getString(R.string.copy_success));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -320,8 +335,32 @@ public class Setings {
       ((i >> 8 ) & 0xFF) + "." +       
       ((i >> 16 ) & 0xFF) + "." +       
       ( i >> 24 & 0xFF) ;  
-   }  
-	
+   	}
+
+	public static void shareImg(Activity mContext,String filePath){
+		File file = new File(filePath);
+		if (file != null && file.exists() && file.isFile()) {
+			Uri uri = null;
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+				uri = FileProvider.getUriForFile(mContext, getProvider(mContext), file);
+			} else {
+				uri = Uri.fromFile(file);
+			}
+			if (uri != null) {
+				try {
+					Intent intent = new Intent(Intent.ACTION_SEND);
+					intent.setType("image/png");
+					intent.putExtra(Intent.EXTRA_STREAM, uri);
+					intent.putExtra(Intent.EXTRA_SUBJECT, mContext.getResources().getString(R.string.share));
+					intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+					mContext.startActivityForResult(Intent.createChooser(intent,
+							mContext.getResources().getString(R.string.share)), ImgViewActivity.ShareImgCode);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
 	/**
 	 * 分享
 	 */
@@ -376,7 +415,7 @@ public class Setings {
 						@Override
 						public void onAction(List<String> data) {
 							LogUtil.DefalutLog("onDenied");
-							AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+							AlertDialog.Builder builder = new AlertDialog.Builder(activity,R.style.Theme_AppCompat_Light_Dialog_Alert);
 							builder.setTitle("温馨提示");
 							builder.setMessage("软件需要一些权限才能正常运行。");
 							builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -394,7 +433,6 @@ public class Setings {
 						}
 					})
 					.start();
-
 		}catch (Exception e){
 			e.printStackTrace();
 		}

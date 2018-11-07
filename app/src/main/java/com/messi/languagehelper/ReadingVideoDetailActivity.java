@@ -74,6 +74,7 @@ public class ReadingVideoDetailActivity extends BaseActivity {
     private Reading mAVObject;
     private List<Reading> mAVObjects;
     private SharedPreferences mSharedPreferences;
+    private NativeExpressADView mTXADView;
     private int index;
 
     private boolean mExoPlayerFullscreen = false;
@@ -218,7 +219,7 @@ public class ReadingVideoDetailActivity extends BaseActivity {
                 if(list != null && list.size() > 0){
                     next_composition.setVisibility(View.VISIBLE);
 					next_composition.removeAllViews();
-                    NativeExpressADView mTXADView = list.get(0);
+					mTXADView = list.get(0);
                     next_composition.addView(mTXADView);
                     mTXADView.render();
                 }
@@ -302,6 +303,9 @@ public class ReadingVideoDetailActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         releasePlayer();
+        if(mTXADView != null){
+            mTXADView.destroy();
+        }
     }
 
 }

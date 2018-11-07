@@ -15,9 +15,15 @@ public class KeyUtil {
 	public static final String Practice_Finish = "Practice_Finish";
 	
 	public static final String ShareContentKey = "ShareContentKey";
-	
+
+	public static final String Id = "Id";
+
 	public static final String DialogBeanKey = "DialogBeanKey";
-	
+
+	public static final String DownloadUrl = "DownloadUrl";
+
+	public static final String isHideMic = "isHideMic";
+
 	public static final String IsFirstLoadPracticePage = "IsFirstLoadPracticePage";
 	
 	public static final String IsShowAnswerUnread = "IsShowAnswerUnread";
@@ -30,7 +36,11 @@ public class KeyUtil {
 
 	public static final String URL = "urlkey";
 
+	public static final String SearchUrl = "SearchUrl";
+
 	public static final String MesType = "MesType";
+
+	public static final String KSearchSelected = "KSearchSelected";
 
 	public static final String Type = "Type";
 
@@ -39,6 +49,8 @@ public class KeyUtil {
 	public static final String isNeedDelete = "isNeedDelete";
 
 	public static final String List = "List";
+
+	public static final String Ratio = "Ratio";
 
 	public static final String XmlyRadio = "XmlyRadio";
 
@@ -244,8 +256,8 @@ public class KeyUtil {
 	public static final String MainFragmentIndex = "MainFragmentIndex";
 
 	public static final String APP_Advertiser = "APP_Advertiser";
-	public static final String Lei_WYYX_URL = "Lei_WYYX_URL";
-	public static final String Lei_UCTT = "Lei_UCTT";
+	public static final String Lei_DVideo = "Lei_DVideo";
+	public static final String Lei_Novel = "Lei_Novel";
 	public static final String Lei_UCSearch = "Lei_UCSearch";
 
 	public static final String Ad_Ids = "Ad_Ids";

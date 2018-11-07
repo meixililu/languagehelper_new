@@ -34,6 +34,8 @@ import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NotificationUtil;
 import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
 
+import java.util.List;
+
 import static com.google.android.exoplayer2.C.CONTENT_TYPE_MUSIC;
 import static com.google.android.exoplayer2.C.USAGE_MEDIA;
 import static com.messi.languagehelper.util.KeyUtil.MesType;
@@ -60,6 +62,9 @@ public class PlayerService extends Service {
     public int PlayerStatus;
     public String lastSongId = "";
     private Reading song;
+    private boolean isPlayList;
+    private List<Reading> list;
+    private int currentPosition;
     private final IBinder musicBind = new MusicBinder();
     private final ExoPlayerEventListener mEventListener = new ExoPlayerEventListener();
 
@@ -95,7 +100,29 @@ public class PlayerService extends Service {
                         .createWifiLock(WifiManager.WIFI_MODE_FULL, "uAmp_lock");
     }
 
+    public void initPlayList(List<Reading> list,int position){
+        LogUtil.DefalutLog("position:"+position);
+        isPlayList = true;
+        this.list = list;
+        currentPosition = position;
+        if(list != null && list.size() > position){
+            Reading item = list.get(position);
+            if(item.getType() != null && item.getType().equals("mp3")){
+                LogUtil.DefalutLog("position:"+position);
+                startToPlay(item);
+            }else {
+                currentPosition++;
+                initPlayList(list,currentPosition);
+            }
+        }
+    }
+
     public void initAndPlay(Reading song){
+        isPlayList = false;
+        startToPlay(song);
+    }
+
+    private void startToPlay(Reading song){
         if(XmPlayerManager.getInstance(this).isPlaying()){
             XmPlayerManager.getInstance(this).pause();
         }
@@ -120,6 +147,7 @@ public class PlayerService extends Service {
     private void startExoplayer(Reading song){
         try {
             LogUtil.DefalutLog("startExoplayer:"+song.getMedia_url());
+            currentPosition++;
             this.song = song;
             lastSongId = song.getObject_id();
             PlayerStatus = 1;
@@ -284,13 +312,17 @@ public class PlayerService extends Service {
                     }
                     break;
                 case Player.STATE_ENDED:
-                    LogUtil.DefalutLog("STATE_ENDED");
+                    LogUtil.DefalutLog("STATE_ENDED:"+playWhenReady);
                     PlayerStatus = 0;
-                    mExoPlayer.seekTo(0);
-                    mExoPlayer.setPlayWhenReady(false);
                     NotificationUtil.showNotification(PlayerService.this,action_start,song.getTitle(),
                             NotificationUtil.mes_type_zyhy);
                     NotificationUtil.sendBroadcast(PlayerService.this,action_start);
+                    if(isPlayList){
+                        initPlayList(list,currentPosition);
+                    }else {
+                        mExoPlayer.seekTo(0);
+                        mExoPlayer.setPlayWhenReady(false);
+                    }
                     break;
             }
         }

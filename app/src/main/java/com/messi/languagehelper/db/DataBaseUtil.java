@@ -162,11 +162,17 @@ public class DataBaseUtil {
         return qb.list();
     }
 
-    public List<record> getDataListCollected(int offset, int maxResult) {
+    public List<Dictionary> getAllCollectedDictionaryData() {
+        QueryBuilder<Dictionary> qb = mDictionaryDao.queryBuilder();
+        qb.where(DictionaryDao.Properties.Iscollected.eq("1"));
+        qb.orderDesc(DictionaryDao.Properties.Id);
+        return qb.list();
+    }
+
+    public List<record> getAllCollectedData() {
         QueryBuilder<record> qb = mrecordDao.queryBuilder();
         qb.where(Properties.Iscollected.eq("1"));
         qb.orderDesc(Properties.Id);
-        qb.limit(maxResult);
         return qb.list();
     }
 

@@ -53,6 +53,8 @@ public class WebViewForCaricatureActivity extends BaseActivity{
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.web_view);
+		transparentStatusbar();
+		changeStatusBarTextColor(true);
 		try {
 			initData();
 			initViews();
@@ -87,7 +89,7 @@ public class WebViewForCaricatureActivity extends BaseActivity{
 			setToolbarBackground(ToolbarBackgroundColor);
 		}
 		if (isHideToolbar) {
-			setStatusbarColor(R.color.black);
+//			setStatusbarColor(R.color.black);
 			getSupportActionBar().hide();
 		}
 	}

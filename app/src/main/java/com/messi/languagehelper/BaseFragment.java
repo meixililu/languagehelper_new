@@ -25,6 +25,7 @@ public class BaseFragment extends Fragment {
 	public FragmentProgressbarListener mProgressbarListener;
 	public SwipeRefreshLayout mSwipeRefreshLayout;
 	public boolean isHasLoadData;
+	public boolean isFragmentInit;
 	public boolean misVisibleToUser;
 	public boolean isRegisterBus;
 
@@ -47,6 +48,7 @@ public class BaseFragment extends Fragment {
 	@Nullable
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+		isFragmentInit = true;
 		if(getUserVisibleHint() && !isHasLoadData){
 			isHasLoadData = true;
 			loadDataOnStart();
@@ -58,10 +60,13 @@ public class BaseFragment extends Fragment {
 	public void setUserVisibleHint(boolean isVisibleToUser) {
 		super.setUserVisibleHint(isVisibleToUser);
 		misVisibleToUser = isVisibleToUser;
-		if(getActivity() != null && !isHasLoadData){
-			isHasLoadData = true;
-			loadDataOnStart();
+		if(isFragmentInit){
+			if(isVisibleToUser && getActivity() != null && !isHasLoadData){
+				isHasLoadData = true;
+				loadDataOnStart();
+			}
 		}
+
 	}
 
 	public void loadDataOnStart(){

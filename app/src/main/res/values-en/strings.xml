@@ -25,6 +25,7 @@
     <string name="title_sougo_wechat">Wechat English</string>
     <string name="title_juhe">Synthesize</string>
     <string name="title_help">Style</string>
+    <string name="title_xvideo">Video</string>
     <string name="title_more">More</string>
     <string name="title_all_unit">Unit Choose</string>
     <string name="title_article_collected">Article</string>
@@ -235,9 +236,6 @@
 	<string name="practice_prompt_english">Click Start to speak english</string>
     <string name="practice_prompt_cantonese">Click Start to speak cantonese</string>
 	<string name="practice_prompt_chinese">Click Start to speak chinese</string>
-	<string name="cailing_ad_prompt">三块钱你买不了吃亏，买不了上当，只需三块钱，就能让电话另一头的TA拥有一次美好而有爱的等待，而不是平凡并且枯燥的嘟。。。嘟。。。嘟。。。还等什么呢，赶紧操作起来，为TA设置一段好玩又有新意的铃声吧! http://api.openspeech.cn/kyls/NTBhYTEyMTM=</string>
-	<string name="yuedu_ad_prompt">专注随身阅读30年! http://api.openspeech.cn/cmread/NTBhYTEyMTM=</string>
-	<string name="hotel_ad_prompt">专注开房30年! http://api.openspeech.cn/trip/NTBhYTEyMTM=</string>
 	<string name="invite_friends_zyhy">so cool！ http://a.app.qq.com/o/simple.jsp?pkgname=com.messi.languagehelper</string>
 	<string name="invite_friends_yyj">so cool！ http://a.app.qq.com/o/simple.jsp?pkgname=com.messi.learnenglish</string>
 	<string name="invite_friends_yys">so cool！ http://a.app.qq.com/o/simple.jsp?pkgname=com.messi.cantonese.study</string>
@@ -264,7 +262,7 @@
     <string name="leisure_caricature">Caricature</string>
     <string name="leisure_dvideo">Video</string>
     <string name="leisure_search">Search</string>
-    <string name="leisure_wyyx">lrts</string>
+    <string name="leisure_wyyx">Search</string>
 	<string name="leisuer_one">Competitive Products</string>
 	<string name="leisuer_one_subtitle">Hot-sold products</string>
     <string name="leisuer_sougou_wechat">Wechat English</string>
@@ -340,7 +338,7 @@
     <string name="search_hint">VOA | BBC | CNN</string>
     <string name="search_history"><![CDATA[History&Hot]]></string>
     <string name="learn_english_with_ai">learn english with ai</string>
-    <string name="title_ai_chat">AiChat</string>
+    <string name="title_ai_chat">Chat</string>
     <string name="sent">Sent</string>
     <string name="to_read">Start</string>
     <string name="add_bookshelf">Bookshelf</string>
@@ -349,7 +347,7 @@
     <string name="title_ai_dialog_choice_course" >Choose Course</string>
     <string name="random_course">Random</string>
     <string name="start_to_fight">Start To Fight</string>
-    <string name="title_tuling_ai">Turing Robot</string>
+    <string name="title_tuling_ai">Robot</string>
     <string name="title_tuling_ai_des">The Best Chinese Robot</string>
     <string name="english_fm">FM</string>
     <string name="xmly_tab_eng">English</string>
@@ -381,5 +379,10 @@
     </string>
     <string name="list_empty">Bookshelf is empty</string>
     <string name="history_empty">nothing here</string>
+    <string name="find_more">more</string>
+    <string name="go_on">Go on</string>
+    <string name="search_internet">ALL</string>
+    <string name="search_novel">Novel</string>
+    <string name="search_caricature">Caricature</string>
 
 </resources>

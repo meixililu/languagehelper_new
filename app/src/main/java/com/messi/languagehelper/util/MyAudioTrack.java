@@ -66,7 +66,7 @@ public class MyAudioTrack {
                 mAudioTrack.release();
                 mAudioTrack = null;
             }
-		} catch (IllegalStateException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -75,7 +75,6 @@ public class MyAudioTrack {
 		if (data == null || data.length == 0){
 			return ;
 		}
-		
 		try {
 			mAudioTrack.write(data, offset, length);
 		} catch (Exception e) {

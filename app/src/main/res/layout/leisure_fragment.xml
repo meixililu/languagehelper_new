@@ -10,18 +10,13 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:background="@color/contentbg"
-        android:orientation="vertical"
-        android:paddingTop="@dimen/padding_7">
+        android:orientation="vertical">
 
         <FrameLayout
             android:id="@+id/xx_ad_layout"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/padding_7"
-            android:layout_marginLeft="@dimen/padding_7"
-            android:layout_marginRight="@dimen/padding_7"
-            android:background="@color/white"
-            android:visibility="gone">
+            android:layout_height="220dp"
+            android:background="@color/white">
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/ad_img"
@@ -36,10 +31,11 @@
                 android:id="@+id/ad_sign"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom|left"
+                android:layout_gravity="bottom|right"
                 android:background="@color/none_alpha"
+                android:visibility="gone"
                 android:paddingBottom="1dp"
-                android:paddingLeft="1dp"
+                android:paddingRight="1dp"
                 android:text="广告"
                 android:textColor="@color/white"
                 android:textSize="@dimen/smaller" />
@@ -195,7 +191,7 @@
                         android:background="@color/white"
                         android:gravity="center"
                         android:lines="1"
-                        android:text="@string/leisuer_reading"
+                        android:text="@string/title_xvideo"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/middle" />
                 </LinearLayout>
@@ -317,11 +313,11 @@
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/news_layout"
+                android:id="@+id/jd_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="1px"
                 android:layout_weight="1"
+                android:layout_marginRight="1px"
                 android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
@@ -337,7 +333,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/icon_0007" />
+                        android:src="@drawable/icon_0012" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -346,7 +342,7 @@
                         android:background="@color/white"
                         android:gravity="center"
                         android:lines="1"
-                        android:text="@string/foreign_website"
+                        android:text="@string/leisure_dvideo"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/middle" />
                 </LinearLayout>
@@ -432,10 +428,45 @@
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/twists_layout"
+                android:id="@+id/wyyx_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="1px"
+                android:layout_weight="1"
+                android:foreground="@drawable/framelayout_selector"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/padding_15"
+                    android:paddingTop="@dimen/padding_15">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/icon_0016" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="@dimen/padding_5"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:text="@string/leisure_wyyx"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/middle" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/twists_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
@@ -467,11 +498,21 @@
                 </LinearLayout>
             </FrameLayout>
 
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
             <FrameLayout
-                android:id="@+id/app_layout"
+                android:id="@+id/news_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginRight="1px"
                 android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
@@ -487,7 +528,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/icon_0006" />
+                        android:src="@drawable/icon_0007" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -496,24 +537,17 @@
                         android:background="@color/white"
                         android:gravity="center"
                         android:lines="1"
-                        android:text="@string/leisuer_two"
+                        android:text="@string/foreign_website"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/middle" />
                 </LinearLayout>
             </FrameLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
             <FrameLayout
                 android:id="@+id/invest_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginRight="1px"
                 android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
@@ -545,46 +579,11 @@
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/jd_layout"
+                android:id="@+id/app_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:foreground="@drawable/framelayout_selector"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:visibility="gone"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:paddingBottom="@dimen/padding_15"
-                    android:paddingTop="@dimen/padding_15">
-
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/icon_0012" />
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_marginTop="@dimen/padding_5"
-                        android:background="@color/white"
-                        android:gravity="center"
-                        android:lines="1"
-                        android:text="@string/leisure_dvideo"
-                        android:textColor="@color/text_black"
-                        android:textSize="@dimen/middle" />
-                </LinearLayout>
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/wyyx_layout"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_marginRight="1px"
                 android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
@@ -594,14 +593,13 @@
                     android:background="@color/white"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:visibility="gone"
                     android:paddingBottom="@dimen/padding_15"
                     android:paddingTop="@dimen/padding_15">
 
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/icon_0016" />
+                        android:src="@drawable/icon_0006" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -610,15 +608,11 @@
                         android:background="@color/white"
                         android:gravity="center"
                         android:lines="1"
-                        android:text="@string/leisure_wyyx"
+                        android:text="@string/leisuer_two"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/middle" />
                 </LinearLayout>
             </FrameLayout>
-
-
-
-
 
         </LinearLayout>
 

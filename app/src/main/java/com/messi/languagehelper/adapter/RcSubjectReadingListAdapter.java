@@ -19,17 +19,19 @@ public class RcSubjectReadingListAdapter extends HeaderRecyclerViewAdapter<Recyc
 
     private List<Reading> avObjects;
     private String recentKey;
+    private boolean isPlayList;
 
-    public RcSubjectReadingListAdapter(List<Reading> avObjects,String recentKey){
+    public RcSubjectReadingListAdapter(List<Reading> avObjects,String recentKey,boolean isPlayList){
         this.avObjects = avObjects;
         this.recentKey = recentKey;
+        this.isPlayList = isPlayList;
     }
 
     @Override
     protected RecyclerView.ViewHolder onCreateItemViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = getLayoutInflater(parent);
         View characterView = inflater.inflate(R.layout.composition_list_item, parent, false);
-        return new RcSubjectReadingListItemViewHolder(characterView,avObjects,recentKey);
+        return new RcSubjectReadingListItemViewHolder(characterView,avObjects,recentKey,isPlayList);
     }
 
     @Override

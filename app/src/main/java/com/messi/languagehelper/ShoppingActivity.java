@@ -57,7 +57,7 @@ public class ShoppingActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         engFragment = XimalayaEngFragment.newInstance();
         dashboardFragment = XimalayaDashboardFragment.newInstance();
-//        radioHomeFragment = XmlyTagRecommendFragment.newInstance(XimalayaUtil.Category_Eng,null);
+//        radioHomeFragment = XmlyTagRecommendFragment.newInstance(XimalayaUtil.Category_english,null);
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.content, engFragment)

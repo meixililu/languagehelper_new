@@ -29,7 +29,7 @@ public class SpokenHomeAdapter extends FragmentPagerAdapter {
         if( position == 0 ){
             return SpokenAIFragment.newInstance(AVOUtil.Category.spoken_english,"");
         }else if( position == 1 ){
-            return ReadingFragment.newInstanceBySource(AVOUtil.Category.spoken_english,"口语天堂");
+            return ReadingFragment.newInstanceBySource(AVOUtil.Category.spoken_english,"口语天堂",false);
         }
         return null;
     }

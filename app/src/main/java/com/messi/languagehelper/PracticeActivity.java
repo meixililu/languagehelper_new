@@ -1,8 +1,11 @@
 package com.messi.languagehelper;
 
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -45,9 +48,12 @@ import com.messi.languagehelper.util.XFUtil;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.Animator.AnimatorListener;
 import com.nineoldandroids.animation.ObjectAnimator;
+import com.yanzhenjie.permission.Action;
+import com.yanzhenjie.permission.AndPermission;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -298,11 +304,45 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
         initSpeakLanguage();
     }
 
-    /**
-     * 显示转写对话框.
-     */
     public void showIatDialog() {
-        Setings.verifyStoragePermissions(this, Setings.PERMISSIONS_RECORD_AUDIO);
+        try{
+            AndPermission.with(this)
+                    .runtime()
+                    .permission(Setings.PERMISSIONS_RECORD_AUDIO)
+                    .onGranted(new Action<List<String>>() {
+                        @Override
+                        public void onAction(List<String> data) {
+                            showIat();
+                        }
+                    })
+                    .onDenied(new Action<List<String>>() {
+                        @Override
+                        public void onAction(List<String> data) {
+                            LogUtil.DefalutLog("onDenied");
+                            AlertDialog.Builder builder = new AlertDialog.Builder(PracticeActivity.this,R.style.Theme_AppCompat_Light_Dialog_Alert);
+                            builder.setTitle("温馨提示");
+                            builder.setMessage("需要授权才能使用。");
+                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    ActivityCompat.requestPermissions(
+                                            PracticeActivity.this,
+                                            Setings.PERMISSIONS_RECORD_AUDIO,
+                                            Setings.RequestCode
+                                    );
+                                }
+                            });
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
+                        }
+                    })
+                    .start();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void showIat() {
         if (recognizer != null) {
             if (!recognizer.isListening()) {
                 if (isNewIn) {

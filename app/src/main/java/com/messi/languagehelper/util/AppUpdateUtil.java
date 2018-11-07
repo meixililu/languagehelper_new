@@ -83,12 +83,14 @@ public class AppUpdateUtil {
         SharedPreferences mSharedPreferences = Setings.getSharedPreferences(mActivity);
         LogUtil.DefalutLog(mAVObject.getString(AVOUtil.UpdateInfo.AppName));
         String app_advertiser = mAVObject.getString(AVOUtil.UpdateInfo.ad_type);
+        String wyyx_url = mAVObject.getString(AVOUtil.UpdateInfo.wyyx_url);
         String uctt_url = mAVObject.getString(AVOUtil.UpdateInfo.uctt_url);
         String ucsearch_url = mAVObject.getString(AVOUtil.UpdateInfo.ucsearch_url);
         String ad_ids = mAVObject.getString(AVOUtil.UpdateInfo.ad_ids);
         String no_ad_channel = mAVObject.getString(AVOUtil.UpdateInfo.no_ad_channel);
         Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.APP_Advertiser,app_advertiser);
-        Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_UCTT,uctt_url);
+        Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_DVideo,uctt_url);
+        Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_Novel,wyyx_url);
         Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_UCSearch,ucsearch_url);
         Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.Ad_Ids,ad_ids);
         Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.No_Ad_Channel,no_ad_channel);

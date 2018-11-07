@@ -1,5 +1,6 @@
 package com.messi.languagehelper.dao;
 
+import com.avos.avoscloud.AVObject;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.qq.e.ads.nativ.NativeExpressADView;
 
@@ -7,6 +8,8 @@ import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Transient;
+
+import java.util.List;
 
 /**
  * Created by luli on 04/05/2017.
@@ -59,7 +62,15 @@ public class Reading {
     private NativeADDataRef mNativeADDataRef;
     @Transient
     private NativeExpressADView mTXADView;
+    @Transient
+    private List<AVObject> xvideoList;
 
+    public List<AVObject> getXvideoList() {
+        return xvideoList;
+    }
+    public void setXvideoList(List<AVObject> xvideoList) {
+        this.xvideoList = xvideoList;
+    }
     public NativeExpressADView getmTXADView() {
         return mTXADView;
     }

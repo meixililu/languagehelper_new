@@ -32,9 +32,9 @@ public class ListenHomeAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if( position == 0 ){
-            return ReadingFragment.newInstance(AVOUtil.Category.listening,"");
+            return ReadingFragment.newInstance(AVOUtil.Category.listening,"",true);
         }else if( position == 1 ){
-            return ReadingFragment.newInstanceBySource(AVOUtil.Category.listening,"VOA慢速英语精听网");
+            return ReadingFragment.newInstanceBySource(AVOUtil.Category.listening,"VOA慢速英语精听网",true);
         }else if( position == 2 ){
             mWebViewFragment1 = WebViewFragment.getInstance(Setings.NPR_Url);
             return mWebViewFragment1;

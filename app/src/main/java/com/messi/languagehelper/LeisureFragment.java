@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.avos.avoscloud.AVAnalytics;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -33,6 +34,8 @@ import butterknife.OnClick;
 
 public class LeisureFragment extends BaseFragment {
 
+    @BindView(R.id.ad_sign)
+    TextView ad_sign;
     @BindView(R.id.yuedu_layout)
     FrameLayout yueduLayout;
     @BindView(R.id.twists_layout)
@@ -83,13 +86,7 @@ public class LeisureFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        String channel = Setings.getMetaData(getContext(),"UMENG_CHANNEL");
-        View view = null;
-        if(channel.equals("tencent") || channel.equals("huawei")){
-            view = inflater.inflate(R.layout.leisure_fragment_for_tx, null);
-        }else {
-            view = inflater.inflate(R.layout.leisure_fragment, null);
-        }
+        View view = inflater.inflate(R.layout.leisure_fragment, null);
         ButterKnife.bind(this, view);
         sp = Setings.getSharedPreferences(getContext());
         if(ADUtil.IsShowAD){
@@ -151,6 +148,8 @@ public class LeisureFragment extends BaseFragment {
         if (ADUtil.isHasLocalAd()) {
             mNativeADDataRef = ADUtil.getRandomAd(getActivity());
             setAd();
+        }else{
+            xx_ad_layout.setVisibility(View.GONE);
         }
     }
 
@@ -174,6 +173,7 @@ public class LeisureFragment extends BaseFragment {
                     if (mTXADView != null) {
                         mTXADView.destroy();
                     }
+                    ad_sign.setVisibility(View.GONE);
                     xx_ad_layout.setVisibility(View.VISIBLE);
                     xx_ad_layout.removeAllViews();
                     mTXADView = list.get(0);
@@ -229,7 +229,7 @@ public class LeisureFragment extends BaseFragment {
     private void setAd() {
         if (mNativeADDataRef != null) {
             lastLoadAd = System.currentTimeMillis();
-            xx_ad_layout.setVisibility(View.VISIBLE);
+            ad_sign.setVisibility(View.VISIBLE);
             adImg.setImageURI(mNativeADDataRef.getImage());
             if (misVisibleToUser) {
                 exposedXFAD();
@@ -284,7 +284,8 @@ public class LeisureFragment extends BaseFragment {
                 toTuringActivity();
                 break;
             case R.id.yuedu_layout:
-                toYueduActivity();
+                toActivity(XVideoHomeActivity.class, null);
+                AVAnalytics.onEvent(getActivity(), "leisure_pg_to_xvideo");
                 break;
             case R.id.twists_layout:
                 toActivity(BrainTwistsActivity.class, null);
@@ -298,7 +299,6 @@ public class LeisureFragment extends BaseFragment {
                 break;
             case R.id.news_layout:
                 toEnglishRecommendWebsite();
-                AVAnalytics.onEvent(getContext(), "tab3_to_websiterecommend");
                 break;
             case R.id.app_layout:
                 toChineseDictionaryActivity();
@@ -307,7 +307,7 @@ public class LeisureFragment extends BaseFragment {
                 toInvestorListActivity();
                 break;
             case R.id.wyyx_layout:
-                toWYYX();
+                toKSearch();
                 break;
             case R.id.search_layout:
                 toUCSearch();
@@ -319,7 +319,7 @@ public class LeisureFragment extends BaseFragment {
                 toCaricatureActivity();
                 break;
             case R.id.jd_layout:
-                toVideoActivity();
+                toDVideo();
                 break;
         }
     }
@@ -332,12 +332,13 @@ public class LeisureFragment extends BaseFragment {
         AVAnalytics.onEvent(getActivity(), "leisure_pg_to_english_website");
     }
 
-    private void toWYYX() {
-        Intent intent = new Intent(getContext(), WebViewActivity.class);
-        intent.putExtra(KeyUtil.URL, getWYYXUrl());
+    private void toDVideo() {
+        Intent intent = new Intent(getContext(), WebViewFullscreenActivity.class);
+        intent.putExtra(KeyUtil.URL, getDVideoUrl());
         intent.putExtra(KeyUtil.IsHideToolbar, true);
-        intent.putExtra(KeyUtil.ActionbarTitle, getContext().getResources().getString(R.string.leisure_wyyx));
+        intent.putExtra(KeyUtil.IsReedPullDownRefresh, false);
         getContext().startActivity(intent);
+        AVAnalytics.onEvent(getActivity(), "leisure_pg_to_dvideo");
     }
 
     private void toJokeActivity() {
@@ -345,9 +346,14 @@ public class LeisureFragment extends BaseFragment {
         AVAnalytics.onEvent(getActivity(), "leisure_pg_to_joke_page");
     }
 
+    private void toKSearch() {
+        toActivity(KSearchActivity.class, null);
+        AVAnalytics.onEvent(getActivity(), "leisure_pg_to_ksearch");
+    }
+
     private void toGodReplyActivity() {
         toActivity(GodReplyActivity.class, null);
-        AVAnalytics.onEvent(getActivity(), "leisure_pg_to_joke_page");
+        AVAnalytics.onEvent(getActivity(), "leisure_pg_to_god_reply");
     }
 
     private void toInvestorListActivity() {
@@ -367,36 +373,28 @@ public class LeisureFragment extends BaseFragment {
     }
 
     private void toTuringActivity() {
-        toActivity(AiTuringActivity.class, null);
+        toActivity(AiUCXYActivity.class, null);
         AVAnalytics.onEvent(getActivity(), "leisure_pg_to_turing");
     }
 
     private void toUCSearch() {
-        Intent intent = new Intent(getContext(), WebViewActivity.class);
+        Intent intent = new Intent(getContext(), WebViewWithMicActivity.class);
         intent.putExtra(KeyUtil.URL, getUCSearchUrl());
+        intent.putExtra(KeyUtil.SearchUrl, Setings.UCSearchUrl);
         intent.putExtra(KeyUtil.IsHideToolbar, true);
-        intent.putExtra(KeyUtil.ActionbarTitle, getContext().getResources().getString(R.string.leisure_search));
         getContext().startActivity(intent);
-    }
-
-    private void toYueduActivity() {
-        Intent intent = new Intent(getContext(), WebViewActivity.class);
-        intent.putExtra(KeyUtil.URL, getUCTTUrl());
-        intent.putExtra(KeyUtil.IsReedPullDownRefresh, false);
-        intent.putExtra(KeyUtil.ActionbarTitle, getContext().getResources().getString(R.string.leisuer_reading));
-        getContext().startActivity(intent);
-        AVAnalytics.onEvent(getActivity(), "leisure_pg_to_news_page");
+        AVAnalytics.onEvent(getActivity(), "leisure_pg_to_uc_search");
     }
 
     private void toChineseDictionaryActivity() {
         toActivity(LearnCodingActivity.class, null);
-        AVAnalytics.onEvent(getActivity(), "leisure_pg_chinese_dic");
+        AVAnalytics.onEvent(getActivity(), "leisure_pg_learn_coding");
     }
 
     private void toNovelActivity() {
-        Intent intent = new Intent(getContext(), WebsiteListActivity.class);
-        intent.putExtra(KeyUtil.Category, "novel");
-        intent.putExtra(KeyUtil.ActionbarTitle, getContext().getResources().getString(R.string.leisure_novel));
+        Intent intent = new Intent(getContext(), WebViewForNovelActivity.class);
+        intent.putExtra(KeyUtil.URL, getNovelUrl());
+        intent.putExtra(KeyUtil.FilterName, "小米小说");
         getContext().startActivity(intent);
         AVAnalytics.onEvent(getActivity(), "leisure_pg_to_novel");
     }
@@ -406,20 +404,12 @@ public class LeisureFragment extends BaseFragment {
         AVAnalytics.onEvent(getActivity(), "leisure_pg_to_caricature");
     }
 
-    private void toVideoActivity() {
-        Intent intent = new Intent(getContext(), WebsiteListActivity.class);
-        intent.putExtra(KeyUtil.Category, "dvideo");
-        intent.putExtra(KeyUtil.ActionbarTitle, getContext().getResources().getString(R.string.leisure_dvideo));
-        getContext().startActivity(intent);
-        AVAnalytics.onEvent(getActivity(), "leisure_pg_to_dvideo");
+    private String getDVideoUrl(){
+        return sp.getString(KeyUtil.Lei_DVideo,Setings.DVideo);
     }
 
-    private String getWYYXUrl(){
-        return "";
-    }
-
-    private String getUCTTUrl(){
-        return sp.getString(KeyUtil.Lei_UCTT,Setings.UCTT);
+    private String getNovelUrl(){
+        return sp.getString(KeyUtil.Lei_Novel,Setings.XMNovel);
     }
 
     private String getUCSearchUrl(){

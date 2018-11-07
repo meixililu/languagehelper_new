@@ -22,6 +22,7 @@ public class RcSpokenAIListAdapter extends HeaderFooterRecyclerViewAdapter<Recyc
     private List<Reading> avObjects;
     private Context mContext;
     private XFYSAD mXFYSAD;
+    private boolean isPlayList;
 
     public RcSpokenAIListAdapter(List<Reading> avObjects,XFYSAD mXFYSAD,
                                  Context mContext){
@@ -46,7 +47,7 @@ public class RcSpokenAIListAdapter extends HeaderFooterRecyclerViewAdapter<Recyc
     protected RecyclerView.ViewHolder onCreateItemViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = getLayoutInflater(parent);
         View characterView = inflater.inflate(R.layout.read_list_item, parent, false);
-        return new RcReadingListItemViewHolder(characterView,avObjects);
+        return new RcReadingListItemViewHolder(characterView,avObjects,isPlayList);
     }
 
     @Override

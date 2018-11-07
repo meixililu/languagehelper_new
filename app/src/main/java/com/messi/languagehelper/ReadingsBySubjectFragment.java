@@ -150,7 +150,7 @@ public class ReadingsBySubjectFragment extends BaseFragment {
         avObjects = new ArrayList<Reading>();
         mTXADList = new ArrayList<NativeExpressADView>();
         listview = (RecyclerView) view.findViewById(R.id.listview);
-        mAdapter = new RcSubjectReadingListAdapter(avObjects,recentKey);
+        mAdapter = new RcSubjectReadingListAdapter(avObjects,recentKey,true);
         mAdapter.setItems(avObjects);
         mAdapter.setFooter(new Object());
         hideFooterview();

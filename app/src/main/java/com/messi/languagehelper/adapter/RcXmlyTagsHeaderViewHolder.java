@@ -55,6 +55,8 @@ public class RcXmlyTagsHeaderViewHolder extends RecyclerView.ViewHolder {
         textView.setTextColor(context.getResources().getColor(R.color.text_black));
         if(book.getKind().equals("1")){
             textView.setBackgroundResource(R.drawable.bg_btn_orange);
+        }else {
+            textView.setBackgroundResource(R.drawable.bg_btn_gray);
         }
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,8 +68,8 @@ public class RcXmlyTagsHeaderViewHolder extends RecyclerView.ViewHolder {
                 }
             }
         });
-        int padding = ScreenUtil.dip2px(context,5);
-        int paddingLeftAndRight = ScreenUtil.dip2px(context,9);
+        int padding = ScreenUtil.dip2px(context,6);
+        int paddingLeftAndRight = ScreenUtil.dip2px(context,6);
         ViewCompat.setPaddingRelative(textView, paddingLeftAndRight, padding, paddingLeftAndRight, padding);
         FlexboxLayout.LayoutParams layoutParams = new FlexboxLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,

@@ -21,9 +21,9 @@ public class XmlyEngAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if(position == 0){
-            return XimalayaTagsFragment.newInstance(XimalayaUtil.Category_Eng,"",listener);
+            return XimalayaTagsFragment.newInstance(XimalayaUtil.Category_english,"",listener);
         }else {
-            return XmlyTagRecommendFragment.newInstance(XimalayaUtil.Category_Eng,listener);
+            return XmlyTagRecommendFragment.newInstance(XimalayaUtil.Category_english,listener);
         }
     }
 

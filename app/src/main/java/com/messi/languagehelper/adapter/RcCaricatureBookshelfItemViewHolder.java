@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVObject;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.messi.languagehelper.CaricatureDetailActivity;
@@ -85,7 +84,6 @@ public class RcCaricatureBookshelfItemViewHolder extends RecyclerView.ViewHolder
         intent.putExtra(KeyUtil.AVObjectKey, mAVObject.toString());
         intent.putExtra(KeyUtil.ActionbarTitle, mAVObject.getString(AVOUtil.Caricature.name));
         context.startActivity(intent);
-        AVAnalytics.onEvent(context, "to_CaricatureDetailActivity");
     }
 
 }

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -12,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.avos.avoscloud.AVObject;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.R;
@@ -20,10 +22,14 @@ import com.messi.languagehelper.ReadingDetailActivity;
 import com.messi.languagehelper.ReadingDetailLrcActivity;
 import com.messi.languagehelper.ReadingVideoDetailActivity;
 import com.messi.languagehelper.WebViewForAdActivity;
+import com.messi.languagehelper.XVideoDetailActivity;
+import com.messi.languagehelper.XVideoHomeActivity;
 import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.ScreenUtil;
 import com.messi.languagehelper.util.Setings;
 import com.qq.e.ads.nativ.NativeExpressADView;
 
@@ -39,8 +45,12 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
     private final TextView title;
     private final TextView type_name;
     private final TextView source_name;
+    private final TextView xvideo_more_tv;
     private final ImageView music_play_img;
     private final LinearLayout imgs_layout;
+    private final LinearLayout normal_layout;
+    private final LinearLayout xvideo_layout;
+    private final LinearLayout xvideo_content;
     private final FrameLayout list_item_img_parent;
     private final FrameLayout ad_layout;
     private final LinearLayout item_layout;
@@ -50,19 +60,25 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
     private final SimpleDraweeView videoplayer_img;
     private Context context;
     private List<Reading> avObjects;
+    private boolean isPlayList;
 
-    public RcReadingListItemViewHolder(View itemView,List<Reading> avObjects) {
+    public RcReadingListItemViewHolder(View itemView,List<Reading> avObjects,boolean isPlayList) {
         super(itemView);
         this.context = itemView.getContext();
         this.avObjects = avObjects;
+        this.isPlayList = isPlayList;
         layout_cover = (FrameLayout) itemView.findViewById(R.id.layout_cover);
         list_item_img_parent = (FrameLayout) itemView.findViewById(R.id.list_item_img_parent);
         ad_layout = (FrameLayout) itemView.findViewById(R.id.ad_layout);
         item_layout = (LinearLayout) itemView.findViewById(R.id.item_layout);
         imgs_layout = (LinearLayout) itemView.findViewById(R.id.imgs_layout);
+        normal_layout = (LinearLayout) itemView.findViewById(R.id.normal_layout);
+        xvideo_layout = (LinearLayout) itemView.findViewById(R.id.xvideo_layout);
+        xvideo_content = (LinearLayout) itemView.findViewById(R.id.xvideo_content);
         title = (TextView) itemView.findViewById(R.id.title);
         type_name = (TextView) itemView.findViewById(R.id.type_name);
         source_name = (TextView) itemView.findViewById(R.id.source_name);
+        xvideo_more_tv = (TextView) itemView.findViewById(R.id.xvideo_more_tv);
         music_play_img = (ImageView) itemView.findViewById(R.id.music_play_img);
         list_item_img = (SimpleDraweeView) itemView.findViewById(R.id.list_item_img);
         imgs_1 = (SimpleDraweeView) itemView.findViewById(R.id.imgs_1);
@@ -76,6 +92,7 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
         list_item_img_parent.setClickable(false);
         ad_layout.setVisibility(View.GONE);
         videoplayer_cover.setVisibility(View.GONE);
+        xvideo_layout.setVisibility(View.GONE);
         if(!mAVObject.isAd()){
             item_layout.setVisibility(View.VISIBLE);
             if(mAVObject.getmTXADView() != null){
@@ -88,6 +105,15 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
                 }
                 ad_layout.addView(adView);
                 adView.render();
+            }else if(mAVObject.getXvideoList() != null){
+                xvideo_layout.setVisibility(View.VISIBLE);
+                xvideo_more_tv.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        toXVideoActivity();
+                    }
+                });
+                addXvideo(mAVObject.getXvideoList());
             }else {
                 imgs_layout.setVisibility(View.GONE);
                 if(TextUtils.isEmpty(mAVObject.getStatus())){
@@ -146,7 +172,11 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
                     list_item_img_parent.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Setings.musicSrv.initAndPlay(mAVObject);
+                            if(isPlayList){
+                                Setings.musicSrv.initPlayList(avObjects,avObjects.indexOf(mAVObject));
+                            }else {
+                                Setings.musicSrv.initAndPlay(mAVObject);
+                            }
                         }
                     });
                 }else {
@@ -242,4 +272,57 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
         }
     }
 
+    private void toXVideoActivity(){
+        Intent intent = new Intent(context, XVideoHomeActivity.class);
+        intent.putExtra(KeyUtil.IndexKey,1);
+        context.startActivity(intent);
+    }
+
+    private void addXvideo(List<AVObject> list){
+        xvideo_content.removeAllViews();
+        for(AVObject item : list){
+            xvideo_content.addView(getItemView(item));
+        }
+        xvideo_content.addView(getItemMoreView());
+    }
+
+    private View getItemView(final AVObject item){
+        View view = LayoutInflater.from(context).inflate(R.layout.xvideo_item,null);
+        View cover = (View) view.findViewById(R.id.layout_cover);
+        LinearLayout.LayoutParams mParams = new LinearLayout.LayoutParams(ScreenUtil.dip2px(context, 170),ScreenUtil.dip2px(context, 250));
+        mParams.rightMargin = ScreenUtil.dip2px(context, 10);
+        cover.setLayoutParams(mParams);
+        TextView name = (TextView) view.findViewById(R.id.name);
+        SimpleDraweeView img = (SimpleDraweeView) view.findViewById(R.id.img);
+        img.setImageURI(item.getString(AVOUtil.XVideo.img_url));
+        name.setText( item.getString(AVOUtil.XVideo.title));
+        cover.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                onItemClick(item);
+            }
+        });
+        return view;
+    }
+
+    private View getItemMoreView(){
+        View view = LayoutInflater.from(context).inflate(R.layout.xvideo_item_more,null);
+        View cover = (View) view.findViewById(R.id.layout_cover);
+        LinearLayout.LayoutParams mParams = new LinearLayout.LayoutParams(ScreenUtil.dip2px(context, 170),ScreenUtil.dip2px(context, 250));
+        mParams.rightMargin = ScreenUtil.dip2px(context, 10);
+        cover.setLayoutParams(mParams);
+        cover.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                toXVideoActivity();
+            }
+        });
+        return view;
+    }
+
+    private void onItemClick(AVObject mAVObject){
+        Intent intent = new Intent(context, XVideoDetailActivity.class);
+        intent.putExtra(KeyUtil.AVObjectKey, mAVObject.toString());
+        context.startActivity(intent);
+    }
 }

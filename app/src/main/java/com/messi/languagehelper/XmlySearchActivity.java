@@ -147,9 +147,27 @@ public class XmlySearchActivity extends BaseActivity {
         @Override
         protected List<AVObject> doInBackground(Void... params) {
             AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.XmlySearchHot.XmlySearchHot);
+            if(getPackageName().equals(Setings.application_id_zyhy)){
+                query.whereContains(AVOUtil.XmlySearchHot.app,"zyhy");
+            }else if(getPackageName().equals(Setings.application_id_zyhy_google)){
+                query.whereContains(AVOUtil.XmlySearchHot.app,"zyhy");
+            }else if(getPackageName().equals(Setings.application_id_yys)){
+                query.whereContains(AVOUtil.XmlySearchHot.app,"yys");
+            }else if(getPackageName().equals(Setings.application_id_yys_google)){
+                query.whereContains(AVOUtil.XmlySearchHot.app,"yys");
+            }else if(getPackageName().equals(Setings.application_id_yyj)){
+                query.whereContains(AVOUtil.XmlySearchHot.app,"zyhy");
+            }else if(getPackageName().equals(Setings.application_id_yyj_google)){
+                query.whereContains(AVOUtil.XmlySearchHot.app,"zyhy");
+            }else if(getPackageName().equals(Setings.application_id_yycd)){
+                query.whereContains(AVOUtil.XmlySearchHot.app,"yycd");
+            }else if(getPackageName().equals(Setings.application_id_xbky)){
+                query.whereContains(AVOUtil.XmlySearchHot.app,"zyhy");
+            }else{
+                query.whereContains(AVOUtil.XmlySearchHot.app,"zyhy");
+            }
             query.orderByAscending(AVOUtil.XmlySearchHot.createdAt);
             query.orderByDescending(AVOUtil.XmlySearchHot.click_time);
-            query.limit(10);
             try {
                 return query.find();
             } catch (AVException e) {
@@ -293,6 +311,25 @@ public class XmlySearchActivity extends BaseActivity {
                     mAVObject.saveInBackground();
                 } else {
                     AVObject object = new AVObject(AVOUtil.XmlySearchHot.XmlySearchHot);
+                    if(getPackageName().equals(Setings.application_id_zyhy)){
+                        object.put(AVOUtil.XmlySearchHot.app,"zyhy");
+                    }else if(getPackageName().equals(Setings.application_id_zyhy_google)){
+                        object.put(AVOUtil.XmlySearchHot.app,"zyhy");
+                    }else if(getPackageName().equals(Setings.application_id_yys)){
+                        object.put(AVOUtil.XmlySearchHot.app,"yys");
+                    }else if(getPackageName().equals(Setings.application_id_yys_google)){
+                        object.put(AVOUtil.XmlySearchHot.app,"yys");
+                    }else if(getPackageName().equals(Setings.application_id_yyj)){
+                        object.put(AVOUtil.XmlySearchHot.app,"zyhy");
+                    }else if(getPackageName().equals(Setings.application_id_yyj_google)){
+                        object.put(AVOUtil.XmlySearchHot.app,"zyhy");
+                    }else if(getPackageName().equals(Setings.application_id_yycd)){
+                        object.put(AVOUtil.XmlySearchHot.app,"yycd");
+                    }else if(getPackageName().equals(Setings.application_id_xbky)){
+                        object.put(AVOUtil.XmlySearchHot.app,"zyhy");
+                    }else{
+                        object.put(AVOUtil.XmlySearchHot.app,"zyhy");
+                    }
                     object.put(AVOUtil.XmlySearchHot.name, quest);
                     object.saveInBackground();
                 }

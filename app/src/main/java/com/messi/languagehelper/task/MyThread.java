@@ -39,36 +39,40 @@ public class MyThread implements Runnable {
 
 	public void run() {
 		synchronized (object) {
-			if (data == null || data.length == 0) {
-				return;
-			}
-			myAudioTrack = new MyAudioTrack(8000,
-					AudioFormat.CHANNEL_OUT_STEREO,
-					AudioFormat.ENCODING_PCM_16BIT);
-			myAudioTrack.init();
-			int playSize = myAudioTrack.getPrimePlaySize();
-			int index = 0;
-			int offset = 0;
-			while (!Thread.currentThread().isInterrupted() && isPlaying) {
-				try {
-//					Thread.sleep(0);
-					offset = index * playSize;
-					if (offset >= data.length) {
+			try {
+				if (data == null || data.length == 0) {
+					return;
+				}
+				myAudioTrack = new MyAudioTrack(8000,
+						AudioFormat.CHANNEL_OUT_STEREO,
+						AudioFormat.ENCODING_PCM_16BIT);
+				myAudioTrack.init();
+				int playSize = myAudioTrack.getPrimePlaySize();
+				int index = 0;
+				int offset = 0;
+				while (!Thread.currentThread().isInterrupted() && isPlaying) {
+					try {
+	//					Thread.sleep(0);
+						offset = index * playSize;
+						if (offset >= data.length) {
+							isPlaying = false;
+							break;
+						}
+						myAudioTrack.playAudioTrack(data, offset, playSize);
+					} catch (Exception e) {
+						e.printStackTrace();
 						isPlaying = false;
 						break;
 					}
-					myAudioTrack.playAudioTrack(data, offset, playSize);
-				} catch (Exception e) {
-					e.printStackTrace();
-					isPlaying = false;
-					break;
+					index++;
 				}
-				index++;
-			}
-			myAudioTrack.release();
-			if(mHandler != null){
-				Message msg = Message.obtain(mHandler, EVENT_PLAY_OVER);
-				mHandler.sendMessage(msg);
+				myAudioTrack.release();
+				if(mHandler != null){
+					Message msg = Message.obtain(mHandler, EVENT_PLAY_OVER);
+					mHandler.sendMessage(msg);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		}
 	}

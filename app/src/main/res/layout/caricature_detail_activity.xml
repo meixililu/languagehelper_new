@@ -16,8 +16,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             fresco:actualImageScaleType="focusCrop"
-            fresco:placeholderImage="@color/white"
+            fresco:placeholderImage="@drawable/img_loading"
             fresco:placeholderImageScaleType="fitCenter"
+            fresco:failureImage="@drawable/img_lost"
+            fresco:failureImageScaleType="fitCenter"
             fresco:viewAspectRatio="0.75" />
 
         <LinearLayout
@@ -41,8 +43,10 @@
                     android:layout_weight="3"
                     android:layout_marginLeft="@dimen/padding_5"
                     fresco:actualImageScaleType="focusCrop"
-                    fresco:placeholderImage="@color/white"
+                    fresco:placeholderImage="@drawable/img_loading"
                     fresco:placeholderImageScaleType="fitCenter"
+                    fresco:failureImage="@drawable/img_lost"
+                    fresco:failureImageScaleType="fitCenter"
                     fresco:roundedCornerRadius="8dp"
                     fresco:viewAspectRatio="0.75" />
 
@@ -168,8 +172,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         fresco:actualImageScaleType="focusCrop"
-                        fresco:placeholderImage="@color/text_tint"
+                        fresco:placeholderImage="@drawable/img_loading"
                         fresco:placeholderImageScaleType="fitCenter"
+                        fresco:failureImage="@drawable/img_lost"
+                        fresco:failureImageScaleType="fitCenter"
                         fresco:viewAspectRatio="1.77" />
 
                     <TextView
@@ -194,6 +200,15 @@
             android:layout_marginLeft="@dimen/padding_15"
             android:layout_marginTop="35dp"
             android:src="@drawable/ic_arrow_back"
+            />
+        <ImageView
+            android:id="@+id/share_img"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="35dp"
+            android:layout_gravity="right|top"
+            android:src="@drawable/ic_share_white_24dp"
+            android:layout_marginRight="@dimen/padding_15"
             />
     </FrameLayout>
 

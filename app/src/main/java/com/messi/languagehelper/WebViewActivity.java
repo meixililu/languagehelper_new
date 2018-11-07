@@ -33,7 +33,6 @@ import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ShareUtil;
 
 import java.util.List;
@@ -61,6 +60,8 @@ public class WebViewActivity extends BaseActivity{
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.web_view);
+		setStatusbarColor(R.color.white);
+		changeStatusBarTextColor(true);
 		initData();
 		initViews();
 	}
@@ -83,7 +84,6 @@ public class WebViewActivity extends BaseActivity{
 			getSupportActionBar().setTitle(title);
 		}
 		if (isHideToolbar) {
-			setStatusbarColor(R.color.black);
 			getSupportActionBar().hide();
 		}
 		if(is_need_get_filter){
@@ -279,15 +279,11 @@ public class WebViewActivity extends BaseActivity{
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case 0:  
-			if(Url.equals(Setings.CaiLingUrl)){
-				ShareUtil.shareText(WebViewActivity.this,WebViewActivity.this.getResources().getString(R.string.cailing_ad_prompt));
-			}else{
-				if(!TextUtils.isEmpty(ShareUrlMsg)){
-					ShareUtil.shareText(WebViewActivity.this, ShareUrlMsg);
-				}else {
-					ShareUtil.shareText(WebViewActivity.this,mWebView.getTitle() + " (share from:中英互译) " + Url);
-				}
+		case 0:
+			if(!TextUtils.isEmpty(ShareUrlMsg)){
+				ShareUtil.shareText(WebViewActivity.this, ShareUrlMsg);
+			}else {
+				ShareUtil.shareText(WebViewActivity.this,mWebView.getTitle() + " (share from:中英互译) " + Url);
 			}
 			AVAnalytics.onEvent(this, "webview_share_link");
 			break;

@@ -1,24 +1,30 @@
 package com.messi.languagehelper;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.WindowManager;
+import android.os.Handler;
+import android.os.Message;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVObject;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.event.CaricatureEventAddBookshelf;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.DownLoadUtil;
+import com.messi.languagehelper.util.ImgUtil;
 import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFYSAD;
 import com.mindorks.nybus.NYBus;
+
+import java.text.DecimalFormat;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -51,9 +57,30 @@ public class CaricatureDetailActivity extends BaseActivity {
     FrameLayout xx_ad_layout;
     @BindView(R.id.back_btn)
     ImageView backBtn;
+    @BindView(R.id.share_img)
+    ImageView share_img;
+    @BindView(R.id.item_layout)
+    LinearLayout itemLayout;
 
     private AVObject mAVObject;
     private XFYSAD mXFYSAD;
+    private String sharePath;
+    private String imgUrl;
+    private String shareImgName = "share_img.jpg";
+
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            if (msg.what == 1) {
+                try {
+                    sharePath = SDCardUtil.getDownloadPath(SDCardUtil.ImgPath) + shareImgName;
+                    ImgUtil.toBitmap(CaricatureDetailActivity.this,sharePath);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -66,27 +93,19 @@ public class CaricatureDetailActivity extends BaseActivity {
         loadAD();
     }
 
-    private void transparentStatusbar() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            //透明状态栏 透明导航栏
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        } else {
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        }
-    }
-
     private void init() {
         try {
             String serializedStr = getIntent().getStringExtra(KeyUtil.AVObjectKey);
             mAVObject = AVObject.parseAVObject(serializedStr);
             if (mAVObject != null) {
-                itemImg.setImageURI(mAVObject.getString(AVOUtil.Caricature.book_img_url));
-                item_img_bg.setImageURI(mAVObject.getString(AVOUtil.Caricature.book_img_url));
+                imgUrl = mAVObject.getString(AVOUtil.Caricature.book_img_url);
+                itemImg.setImageURI(imgUrl);
+                item_img_bg.setImageURI(imgUrl);
                 name.setText(mAVObject.getString(AVOUtil.Caricature.name));
                 tags.setText(mAVObject.getString(AVOUtil.Caricature.tag));
                 author.setText(mAVObject.getString(AVOUtil.Caricature.author));
                 des.setText(mAVObject.getString(AVOUtil.Caricature.des));
-                views.setText("人气：" + mAVObject.getNumber(AVOUtil.Caricature.views));
+                views.setText("人气：" + getNumberStr(mAVObject.getNumber(AVOUtil.Caricature.views).doubleValue()));
                 source.setText("来源：" + mAVObject.getString(AVOUtil.Caricature.source_name));
             } else {
                 finish();
@@ -96,7 +115,21 @@ public class CaricatureDetailActivity extends BaseActivity {
         }
     }
 
-    private void loadAD(){
+    private String getNumberStr(double num){
+        String numStr = "" + num;
+        if(num > 100000000){
+            num = num / 100000000.0;
+            DecimalFormat df = new DecimalFormat("#.00");
+            numStr = df.format(num)+ "亿";
+        }else if(num > 10000){
+            num = num / 10000.0;
+            DecimalFormat df = new DecimalFormat("#.00");
+            numStr = df.format(num)+ "万";
+        }
+        return numStr;
+    }
+
+    private void loadAD() {
         mXFYSAD = new XFYSAD(this, xx_ad_layout, ADUtil.MRYJYSNRLAd);
         mXFYSAD.showAD();
     }
@@ -106,9 +139,25 @@ public class CaricatureDetailActivity extends BaseActivity {
         intent.putExtra(KeyUtil.AVObjectKey, mAVObject.toString());
         intent.putExtra(KeyUtil.IsHideToolbar, true);
         startActivity(intent);
-        AVAnalytics.onEvent(this, "to_caricature_webview");
     }
 
+    private void shareImg() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                DownLoadUtil.downloadFile(CaricatureDetailActivity.this,
+                        imgUrl, SDCardUtil.ImgPath, shareImgName, mHandler);
+            }
+        }).start();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (mXFYSAD != null) {
+            mXFYSAD.showAD();
+        }
+    }
 
     @OnClick(R.id.add_bookshelf)
     public void onAddBookshelfClicked() {
@@ -118,7 +167,7 @@ public class CaricatureDetailActivity extends BaseActivity {
                 mAVObject.getString(AVOUtil.Caricature.name),
                 System.currentTimeMillis());
         NYBus.get().post(new CaricatureEventAddBookshelf());
-        ToastUtil.diaplayMesShort(this,getString(R.string.add_bookshelf_success));
+        ToastUtil.diaplayMesShort(this, getString(R.string.add_bookshelf_success));
     }
 
     @OnClick(R.id.to_read)
@@ -129,5 +178,11 @@ public class CaricatureDetailActivity extends BaseActivity {
     @OnClick(R.id.back_btn)
     public void onBackBtnClicked() {
         onBackPressed();
+    }
+
+    @OnClick(R.id.share_img)
+    public void onViewClicked() {
+        LogUtil.DefalutLog("onViewClicked:"+share_img);
+        shareImg();
     }
 }

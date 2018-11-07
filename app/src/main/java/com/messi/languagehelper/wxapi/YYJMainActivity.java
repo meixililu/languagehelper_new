@@ -121,7 +121,7 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 		navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 		mWordHomeFragment = TitleFragment.newInstance(YYJHomeFragment.getInstance(),R.string.title_home_tab);
 		practiceFragment = TitleFragment.newInstance(StudyFragment.getInstance(),R.string.title_study);
-		dashboardFragment = TitleFragment.newInstance(XimalayaTagsFragment.newInstance(XimalayaUtil.Category_Eng,"",null),
+		dashboardFragment = TitleFragment.newInstance(XimalayaTagsFragment.newInstance(XimalayaUtil.Category_english,"",null),
 				R.string.title_listen_fm);
 		radioHomeFragment = TitleFragment.newInstance(LeisureFragment.getInstance(),R.string.title_leisure);
 		getSupportFragmentManager()

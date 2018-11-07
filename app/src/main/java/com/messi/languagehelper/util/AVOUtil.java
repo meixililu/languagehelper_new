@@ -627,6 +627,7 @@ public class AVOUtil {
 		public final static String click_time = "click_time";
 		public final static String name = "name";
 		public final static String type = "type";
+		public final static String app = "app";
 		public final static String createdAt = "createdAt";
 	}
 
@@ -706,6 +707,7 @@ public class AVOUtil {
 		public final static String AdFilter = "AdFilter";
 		public final static String name = "name";
 		public final static String filter = "filter";
+		public final static String ad_url = "ad_url";
 		public final static String isShowAd = "isShowAd";
 	}
 
@@ -771,6 +773,30 @@ public class AVOUtil {
 		public final static String collected = "collected";
 		public final static String lastUrl = "lastUrl";
 		public final static String lastPosition = "lastPosition";
+	}
+
+	public static class XVideo {
+		public final static String XVideo = "XVideo";
+
+		public final static String title = "title";
+
+		public final static String category = "category";
+
+		public final static String group_id = "group_id";
+
+		public final static String img_url = "img_url";
+
+		public final static String media_url = "media_url";
+
+		public final static String play_count = "play_count";
+
+		public final static String publish_time = "publish_time";
+
+		public final static String source_name = "source_name";
+
+		public final static String source_url = "source_url";
+
+		public final static String tag = "tag";
 	}
 
 

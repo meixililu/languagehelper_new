@@ -123,7 +123,7 @@ public class OrcHelper {
 
     private void onPermissionNo() {
         LogUtil.DefalutLog("permission deny");
-
+        ToastUtil.diaplayMesShort(context, "不同意授权将无法使用拍照翻译！");
     }
 
     public void doCropPhoto(Uri uri) {

@@ -6,7 +6,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVObject;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.messi.languagehelper.CaricatureSourceActivity;
@@ -51,7 +50,6 @@ public class RcCaricatureSourceItemViewHolder extends RecyclerView.ViewHolder {
         intent.putExtra(KeyUtil.URL, mAVObject.getString(AVOUtil.EnglishWebsite.Url));
         intent.putExtra(KeyUtil.AdFilter, mAVObject.getString(AVOUtil.EnglishWebsite.ad_filte));
         context.startActivity(intent);
-        AVAnalytics.onEvent(context, "to_CaricatureSourceActivity");
     }
 
 }

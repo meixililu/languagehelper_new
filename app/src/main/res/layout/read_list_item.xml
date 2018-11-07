@@ -8,10 +8,14 @@
     android:background="@color/white" >
 
     <LinearLayout
+		android:id="@+id/normal_layout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginBottom="11dp"
         android:orientation="horizontal" >
 
         <RelativeLayout
@@ -107,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
 				android:layout_below="@id/title"
-				android:layout_marginTop="15dp"
+				android:layout_marginTop="20dp"
                 android:orientation="horizontal"
 				android:background="@color/white"
                 >
@@ -164,11 +168,54 @@
         </FrameLayout>
     </LinearLayout>
 
+	<LinearLayout
+		android:id="@+id/xvideo_layout"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:paddingTop="@dimen/padding_5"
+		android:paddingBottom="@dimen/padding_5"
+		android:background="@color/contentbg"
+		android:orientation="vertical"
+		>
+		<TextView
+			android:id="@+id/xvideo_more_tv"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@color/white"
+			android:textSize="@dimen/middle"
+			android:gravity="center_vertical"
+			android:paddingLeft="12dp"
+			android:paddingTop="@dimen/padding_5"
+			android:paddingBottom="@dimen/padding_5"
+			android:textColor="@color/text_dark"
+			android:text="@string/title_xvideo"
+			android:drawableRight="@drawable/expend_right"
+			/>
+		<HorizontalScrollView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@color/white"
+			android:paddingBottom="@dimen/padding_5"
+			android:paddingLeft="@dimen/padding_10"
+			>
+			<LinearLayout
+				android:id="@+id/xvideo_content"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				/>
+		</HorizontalScrollView>
+
+	</LinearLayout>
+
+
 	<FrameLayout
 		android:id="@+id/ad_layout"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:padding="@dimen/padding_margin"
+		android:paddingTop="@dimen/padding_margin"
+		android:paddingBottom="@dimen/padding_margin"
 		android:visibility="gone"
 		/>
+
 </FrameLayout>

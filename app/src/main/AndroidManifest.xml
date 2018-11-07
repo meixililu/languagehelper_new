@@ -139,6 +139,18 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".XVideoSearchResultActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".XVideoHomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".XVideoDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ImgViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".InstallActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -404,7 +416,15 @@
             android:name=".StudyDialogListActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".AiUCXYActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".QRCodeShareActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".KSearchActivity"
+            android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait" />
         <activity
             android:name=".AiSpokenBasicActivity"
@@ -412,12 +432,19 @@
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".WebViewActivity"
-            android:screenOrientation="portrait"
-            android:uiOptions="splitActionBarWhenNarrow">
-            <meta-data
-                android:name="android.support.UI_OPTIONS"
-                android:value="splitActionBarWhenNarrow" />
+            android:screenOrientation="portrait">
         </activity>
+        <activity
+            android:name=".WebViewFullscreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WebViewWithMicActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WebViewForNovelActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".DailySentenceAndEssayActivity"
             android:screenOrientation="portrait" />

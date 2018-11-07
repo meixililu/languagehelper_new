@@ -107,8 +107,19 @@ public class StudyCategoryFragment extends BaseFragment {
         mAdapter = new XmlyRecommendPageAdapter(getChildFragmentManager());
         viewpager.setAdapter(mAdapter);
         getDailySentence();
+        isLoadDailySentence();
         QueryTask();
         return view;
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if(isVisibleToUser && isHasLoadData && isFragmentInit){
+            if(mTabList == null){
+                QueryTask();
+            }
+        }
     }
 
     @Override
@@ -182,7 +193,7 @@ public class StudyCategoryFragment extends BaseFragment {
     private void QueryTask() {
         showProgressbar();
         Map<String, String> map = new HashMap<String, String>();
-        map.put(DTransferConstants.CATEGORY_ID, XimalayaUtil.Category_Eng);
+        map.put(DTransferConstants.CATEGORY_ID, XimalayaUtil.Category_english);
         map.put(DTransferConstants.DISPLAY_COUNT, "1");
         CommonRequest.getCategoryRecommendAlbums(map,
                 new IDataCallBack<CategoryRecommendAlbumsList>() {
@@ -203,7 +214,7 @@ public class StudyCategoryFragment extends BaseFragment {
         mTabList = categoryRecommendAlbumsList.getCategoryRecommendAlbumses();
         Collections.reverse(mTabList);
         if(mTabList != null && mTabList.size() > 0){
-            mAdapter.refreshByTags(XimalayaUtil.Category_Eng,mTabList.get(0).getTagName());
+            mAdapter.refreshByTags(XimalayaUtil.Category_english,mTabList.get(0).getTagName());
         }
         for (CategoryRecommendAlbums dra : mTabList) {
             if(!TextUtils.isEmpty(dra.getTagName())){
@@ -230,7 +241,7 @@ public class StudyCategoryFragment extends BaseFragment {
     }
 
     private void onTabChange(CategoryRecommendAlbums dra){
-        mAdapter.refreshByTags(XimalayaUtil.Category_Eng,dra.getTagName());
+        mAdapter.refreshByTags(XimalayaUtil.Category_english,dra.getTagName());
     }
 
     private void onFinishLoadData() {

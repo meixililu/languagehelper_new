@@ -8,11 +8,13 @@ import android.text.TextUtils;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class SDCardUtil {
 
 	/**sd卡保存文件夹名称**/
+	public static final String RootPath = "/zyhy/";
 	public static final String sdPath = "/zyhy/audio/";
 	public static final String ImgPath = "/zyhy/img/";
 	public static final String SymbolPath = "/zyhy/audio/symbol/";
@@ -54,6 +56,23 @@ public class SDCardUtil {
 		File sdDir = new File(path);
 		if(!sdDir.exists()){
 			sdDir.mkdirs();
+		}
+	}
+
+	public static String saveFile(Context mContext,String path,String name,String content){
+		try{
+			String filePath = getDownloadPath(path) + name;
+			LogUtil.DefalutLog("filePath:"+filePath);
+			File txtFile = new File(filePath);
+			txtFile.createNewFile();
+			FileWriter fw = new FileWriter(txtFile);
+			fw.flush();
+			fw.write(content);
+			fw.close();
+			return txtFile.getAbsolutePath();
+		}catch (Exception e){
+			e.printStackTrace();
+			return "";
 		}
 	}
 	

@@ -35,7 +35,7 @@ public class XFYSAD {
 	private SimpleDraweeView ad_img;
 	private LayoutInflater mInflater;
 	private String adId;
-	private long lastLoadAdTime;
+	public long lastLoadAdTime;
 	private boolean isDirectExPosure = true;
 	private boolean exposure;
 	private HeaderFooterRecyclerViewAdapter mAdapter;

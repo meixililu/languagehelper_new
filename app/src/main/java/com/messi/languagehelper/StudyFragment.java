@@ -13,8 +13,10 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.avos.avoscloud.AVAnalytics;
+import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
+import com.avos.avoscloud.FindCallback;
 import com.iflytek.voiceads.AdError;
 import com.iflytek.voiceads.AdKeys;
 import com.iflytek.voiceads.IFLYNativeAd;
@@ -73,7 +75,9 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
     private LinearLayoutManager mLinearLayoutManager;
     private List<ReadingCategory> categories;
     private boolean isNeedClear;
+    private boolean isAdAddToHead;
     private List<NativeExpressADView> mTXADList;
+    private Reading xvideoItem;
 
     public static StudyFragment getInstance() {
         return new StudyFragment();
@@ -216,6 +220,7 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
         skip = 0;
         loadAD();
         QueryTask();
+        XVideoAsyncTask();
     }
 
     @Override
@@ -229,6 +234,7 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
         loadAD();
         hideFooterview();
         QueryTask();
+        XVideoAsyncTask();
     }
 
     private void loadAD(){
@@ -302,14 +308,22 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
                 hasMore = false;
             } else {
                 if (avObjects != null && mAdapter != null) {
-                    if (skip == 0) {
-                        avObjects.clear();
-                    }
-                    if (isNeedClear) {
-                        avObjects.clear();
+                    if (isNeedClear || skip == 0) {
                         isNeedClear = false;
+                        isAdAddToHead = true;
+                        changeDataToHead(tempList, avObjects);
+                    }else {
+                        changeData(tempList, avObjects);
                     }
-                    changeData(tempList, avObjects);
+                    if(xvideoItem != null){
+                        if(avObjects.size() > 9){
+                            avObjects.add(NumberUtil.randomNumberRange(3,6),xvideoItem);
+                        }else {
+                            avObjects.add(0,xvideoItem);
+                        }
+                        xvideoItem = null;
+                        mAdapter.notifyDataSetChanged();
+                    }
                     if (addAD()) {
                         mAdapter.notifyDataSetChanged();
                     }
@@ -370,7 +384,7 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
     }
 
     private void loadTXAD(){
-        TXADUtil.showXXL_ZWYT(getActivity(), new NativeExpressAD.NativeExpressADListener() {
+        TXADUtil.showXXL(getActivity(), new NativeExpressAD.NativeExpressADListener() {
             @Override
             public void onNoAD(com.qq.e.comm.util.AdError adError) {
                 LogUtil.DefalutLog("TX-onNoAD");
@@ -432,6 +446,10 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
             int index = avObjects.size() - Setings.page_size + NumberUtil.randomNumberRange(1, 2);
             if (index < 0) {
                 index = 0;
+            }
+            if(isAdAddToHead){
+                isAdAddToHead = false;
+                index = NumberUtil.randomNumberRange(1, 2);
             }
             avObjects.add(index, mADObject);
             mAdapter.notifyDataSetChanged();
@@ -527,6 +545,60 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
         }
     }
 
+    public static void changeDataToHead(List<AVObject> avObjectlist, List<Reading> avObjects) {
+        for (AVObject item : avObjectlist) {
+            Reading mReading = new Reading();
+            mReading.setObject_id(item.getObjectId());
+            if(item.has(AVOUtil.Reading.category)){
+                mReading.setCategory(item.getString(AVOUtil.Reading.category));
+            }
+            if(item.has(AVOUtil.Reading.content)){
+                mReading.setContent(item.getString(AVOUtil.Reading.content));
+            }
+            if(item.has(AVOUtil.Reading.type_id)){
+                mReading.setType_id(item.getString(AVOUtil.Reading.type_id));
+            }
+            if(item.has(AVOUtil.Reading.type_name)){
+                mReading.setType_name(item.getString(AVOUtil.Reading.type_name));
+            }
+            if(item.has(AVOUtil.Reading.title)){
+                mReading.setTitle(item.getString(AVOUtil.Reading.title));
+            }
+            if(item.has(AVOUtil.Reading.item_id)){
+                mReading.setItem_id(String.valueOf(item.getNumber(AVOUtil.Reading.item_id)));
+            }
+            if(item.has(AVOUtil.Reading.img_url)){
+                mReading.setImg_url(item.getString(AVOUtil.Reading.img_url));
+            }
+            if(item.has(AVOUtil.Reading.publish_time)){
+                mReading.setPublish_time(String.valueOf(item.getDate(AVOUtil.Reading.publish_time).getTime()));
+            }
+            if(item.has(AVOUtil.Reading.img_type)){
+                mReading.setImg_type(item.getString(AVOUtil.Reading.img_type));
+            }
+            if(item.has(AVOUtil.Reading.source_name)){
+                mReading.setSource_name(item.getString(AVOUtil.Reading.source_name));
+            }
+            if(item.has(AVOUtil.Reading.source_url)){
+                mReading.setSource_url(item.getString(AVOUtil.Reading.source_url));
+            }
+            if(item.has(AVOUtil.Reading.type)){
+                mReading.setType(item.getString(AVOUtil.Reading.type));
+            }
+            if(item.has(AVOUtil.Reading.media_url)){
+                mReading.setMedia_url(item.getString(AVOUtil.Reading.media_url));
+            }
+            if(item.has(AVOUtil.Reading.content_type)){
+                mReading.setContent_type(item.getString(AVOUtil.Reading.content_type));
+            }
+            if(item.has(AVOUtil.Reading.lrc_url)){
+                mReading.setLrc_url(item.getString(AVOUtil.Reading.lrc_url));
+            }
+            DataBaseUtil.getInstance().saveOrGetStatus(mReading);
+            avObjects.add(0,mReading);
+        }
+    }
+
     public static void changeData(List<AVObject> avObjectlist, List<Reading> avObjects, boolean isAddToHead) {
 
         for (AVObject item : avObjectlist) {
@@ -586,5 +658,27 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
                 adView.destroy();
             }
         }
+    }
+
+    private void XVideoAsyncTask() {
+        getXVideoAsyncTask();
+    }
+
+    private void getXVideoAsyncTask(){
+        int random = (int) Math.round(Math.random() * 6000);
+        AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.XVideo.XVideo);
+        query.whereEqualTo(AVOUtil.XVideo.category,"english");
+        query.orderByDescending(AVOUtil.XVideo.play_count);
+        query.skip(random);
+        query.limit(6);
+        query.findInBackground(new FindCallback<AVObject>() {
+            @Override
+            public void done(List<AVObject> list, AVException e) {
+                if(list != null){
+                    xvideoItem = new Reading();
+                    xvideoItem.setXvideoList(list);
+                }
+            }
+        });
     }
 }

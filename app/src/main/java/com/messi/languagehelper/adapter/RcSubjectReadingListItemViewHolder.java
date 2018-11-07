@@ -49,12 +49,14 @@ public class RcSubjectReadingListItemViewHolder extends RecyclerView.ViewHolder 
     private Context context;
     private String recentKey;
     private List<Reading> avObjects;
+    private boolean isPlayList;
 
-    public RcSubjectReadingListItemViewHolder(View itemView, List<Reading> avObjects,String recentKey) {
+    public RcSubjectReadingListItemViewHolder(View itemView, List<Reading> avObjects,String recentKey,boolean isPlayList) {
         super(itemView);
         this.context = itemView.getContext();
         this.avObjects = avObjects;
         this.recentKey = recentKey;
+        this.isPlayList = isPlayList;
         layout_cover = (FrameLayout) itemView.findViewById(R.id.layout_cover);
         list_item_img_parent = (FrameLayout) itemView.findViewById(R.id.list_item_img_parent);
         imgs_layout = (LinearLayout) itemView.findViewById(R.id.imgs_layout);
@@ -124,7 +126,11 @@ public class RcSubjectReadingListItemViewHolder extends RecyclerView.ViewHolder 
                 list_item_img_parent.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Setings.musicSrv.initAndPlay(mAVObject);
+                        if(isPlayList){
+                            Setings.musicSrv.initPlayList(avObjects,avObjects.indexOf(mAVObject));
+                        }else {
+                            Setings.musicSrv.initAndPlay(mAVObject);
+                        }
                         saveLastTimeReadItemId(mAVObject);
                     }
                 });

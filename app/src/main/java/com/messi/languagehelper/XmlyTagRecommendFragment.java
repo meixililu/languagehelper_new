@@ -105,7 +105,7 @@ public class XmlyTagRecommendFragment extends BaseFragment {
         mTabList = categoryRecommendAlbumsList.getCategoryRecommendAlbumses();
         Collections.reverse(mTabList);
         if (mTabList != null && mTabList.size() > 0) {
-            mAdapter.refreshByTags(XimalayaUtil.Category_Eng, mTabList.get(0).getTagName());
+            mAdapter.refreshByTags(XimalayaUtil.Category_english, mTabList.get(0).getTagName());
         }
         for (CategoryRecommendAlbums dra : mTabList) {
             if (!TextUtils.isEmpty(dra.getTagName())) {
@@ -132,7 +132,7 @@ public class XmlyTagRecommendFragment extends BaseFragment {
     }
 
     private void onTabChange(CategoryRecommendAlbums dra){
-        mAdapter.refreshByTags(XimalayaUtil.Category_Eng,dra.getTagName());
+        mAdapter.refreshByTags(XimalayaUtil.Category_english,dra.getTagName());
     }
 
     @Override

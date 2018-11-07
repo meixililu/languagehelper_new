@@ -112,11 +112,10 @@ public class JokeFragment extends BaseFragment implements OnClickListener {
         mLinearLayoutManager = new LinearLayoutManager(getContext());
         listview.setLayoutManager(mLinearLayoutManager);
         listview.addItemDecoration(
-                new HorizontalDividerItemDecoration.Builder(getContext())
-                        .colorResId(R.color.text_tint)
-                        .sizeResId(R.dimen.list_divider_size)
-                        .marginResId(R.dimen.padding_margin, R.dimen.padding_margin)
-                        .build());
+                        new HorizontalDividerItemDecoration.Builder(getContext())
+                                .colorResId(R.color.text_tint)
+                                .sizeResId(R.dimen.padding_15)
+                                .build());
         listview.setAdapter(mAdapter);
         setListOnScrollListener();
     }
@@ -296,7 +295,7 @@ public class JokeFragment extends BaseFragment implements OnClickListener {
     }
 
     private void loadTXAD(){
-        TXADUtil.showXXL_STXW(getActivity(), new NativeExpressAD.NativeExpressADListener() {
+        TXADUtil.showCDTZX(getActivity(), new NativeExpressAD.NativeExpressADListener() {
             @Override
             public void onNoAD(com.qq.e.comm.util.AdError adError) {
                 LogUtil.DefalutLog(adError.getErrorMsg());

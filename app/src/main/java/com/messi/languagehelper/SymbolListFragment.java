@@ -214,7 +214,7 @@ public class SymbolListFragment extends BaseFragment {
     }
 
     private void showXunFeiDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext(),R.style.Theme_AppCompat_Light_Dialog_Alert);
         builder.setTitle("温馨提示");
         builder.setMessage("下载推荐页48个音标MP3，可离线学习。");
         builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {

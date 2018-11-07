@@ -70,7 +70,7 @@ public class ReadingsBySubjectActivity extends BaseActivity{
 		mTXADList = new ArrayList<NativeExpressADView>();
 		initSwipeRefresh();
 		listview = (RecyclerView) findViewById(R.id.listview);
-		mAdapter = new RcReadingListAdapter(avObjects);
+		mAdapter = new RcReadingListAdapter(avObjects,true);
 		mAdapter.setItems(avObjects);
 		mAdapter.setFooter(new Object());
 		hideFooterview();

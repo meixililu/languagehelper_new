@@ -87,29 +87,26 @@ public class XimalayaTagsFragment extends BaseFragment implements OnClickListene
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        super.onCreateView(inflater, container, savedInstanceState);
         LogUtil.DefalutLog("XimalayaTagsFragment---onCreateView");
-        view = inflater.inflate(R.layout.xmly_tags_fragment, container, false);
+        View view = inflater.inflate(R.layout.xmly_tags_fragment, container, false);
+        initViews(view);
         initSwipeRefresh(view);
-        listview = (RecyclerView)view.findViewById(R.id.listview);
-        getTagsData();
+        super.onCreateView(inflater, container, savedInstanceState);
         return view;
     }
 
     @Override
     public void loadDataOnStart() {
-        super.loadDataOnStart();
-        initData();
+        getTagsData();
     }
 
-    public void initData() {
+
+    private void initViews(View view) {
         list = new ArrayList<Tag>();
         mTXADList = new ArrayList<NativeExpressADView>();
         avObjects = new ArrayList<Album>();
         LogUtil.DefalutLog("type:" + type);
-    }
-
-    private void initViews() {
+        listview = (RecyclerView)view.findViewById(R.id.listview);
         mAdapter = new RcXmlyTagsAdapter(list, this);
         mAdapter.setItems(avObjects);
         mAdapter.setFooter(new Object());
@@ -136,7 +133,7 @@ public class XimalayaTagsFragment extends BaseFragment implements OnClickListene
                 int total = mLinearLayoutManager.getItemCount();
                 int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
                 isADInList(recyclerView, firstVisibleItem, visible);
-                if (!loading && hasMore) {
+                if (!loading && hasMore && isHasLoadData) {
                     if ((visible + firstVisibleItem) >= total) {
                         loadAD();
                         QueryTask();
@@ -207,7 +204,6 @@ public class XimalayaTagsFragment extends BaseFragment implements OnClickListene
 
     private void setTagsData() {
         initHotTag();
-        initViews();
         loadAD();
         QueryTask();
     }
@@ -217,6 +213,7 @@ public class XimalayaTagsFragment extends BaseFragment implements OnClickListene
         tag.setTagName("热门");
         tag.setKind("1");
         list.add(0, tag);
+        mAdapter.notifyDataSetChanged();
     }
 
     private void getTagsData() {
@@ -234,6 +231,7 @@ public class XimalayaTagsFragment extends BaseFragment implements OnClickListene
     }
 
     private void QueryTask() {
+        LogUtil.DefalutLog("XimalayaTagsFragment---QueryTask");
         loading = true;
         showProgressbar();
         Map<String, String> map = new HashMap<String, String>();
@@ -404,7 +402,7 @@ public class XimalayaTagsFragment extends BaseFragment implements OnClickListene
 
     private void RequestTagsData() {
         Map<String, String> map = new HashMap<String, String>();
-        map.put(DTransferConstants.CATEGORY_ID, XimalayaUtil.Category_Eng);
+        map.put(DTransferConstants.CATEGORY_ID, XimalayaUtil.Category_english);
         map.put(DTransferConstants.TYPE, "0");
         showProgressbar();
         CommonRequest.getTags(map, new IDataCallBack<TagList>() {
@@ -414,8 +412,8 @@ public class XimalayaTagsFragment extends BaseFragment implements OnClickListene
                 if (tagList != null) {
                     list.clear();
                     list.addAll(tagList.getTagList());
-                    saveData();
                     setTagsData();
+                    saveData();
                 }
             }
 

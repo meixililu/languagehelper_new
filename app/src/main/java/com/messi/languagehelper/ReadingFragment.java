@@ -58,6 +58,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 	private Reading mADObject;
 	private LinearLayoutManager mLinearLayoutManager;
 	private List<NativeExpressADView> mTXADList;
+	private boolean isPlayList;
 
 	public static Fragment newInstance(String category, String code){
 		ReadingFragment fragment = new ReadingFragment();
@@ -70,11 +71,24 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 		return fragment;
 	}
 
-	public static Fragment newInstanceBySource(String category, String source){
+	public static Fragment newInstance(String category, String code, boolean isPlayList){
+		ReadingFragment fragment = new ReadingFragment();
+		Bundle bundle = new Bundle();
+		bundle.putString("category",category);
+		bundle.putBoolean("isPlayList",isPlayList);
+		if(!TextUtils.isEmpty(code)){
+			bundle.putString("code",code);
+		}
+		fragment.setArguments(bundle);
+		return fragment;
+	}
+
+	public static Fragment newInstanceBySource(String category, String source, boolean isPlayList){
 		ReadingFragment fragment = new ReadingFragment();
 		Bundle bundle = new Bundle();
 		bundle.putString("category",category);
 		bundle.putString("source",source);
+		bundle.putBoolean("isPlayList",isPlayList);
 		fragment.setArguments(bundle);
 		return fragment;
 	}
@@ -111,6 +125,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 		this.type = mBundle.getString("type");
 		this.maxRandom = mBundle.getInt("maxRandom");
 		this.isNeedClear = mBundle.getBoolean("isNeedClear",false);
+		this.isPlayList = mBundle.getBoolean("isPlayList",false);
 	}
 
 	@Override
@@ -150,7 +165,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 		mTXADList = new ArrayList<NativeExpressADView>();
 		avObjects.addAll(DataBaseUtil.getInstance().getReadingList(Setings.page_size,category,"",code));
 		initSwipeRefresh(view);
-		mAdapter = new RcReadingListAdapter(avObjects);
+		mAdapter = new RcReadingListAdapter(avObjects,isPlayList);
 		mAdapter.setItems(avObjects);
 		mAdapter.setFooter(new Object());
 		hideFooterview();

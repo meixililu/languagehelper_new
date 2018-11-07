@@ -2,6 +2,7 @@ package com.messi.languagehelper;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.bottomnavigation.LabelVisibilityMode;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -18,8 +19,10 @@ public class CaricatureMainActivity extends AppCompatActivity {
     @BindView(R.id.navigation)
     BottomNavigationView navigation;
     private Fragment engFragment;
+    private Fragment categoryFragment;
     private Fragment dashboardFragment;
     private Fragment radioHomeFragment;
+    private long exitTime = 0;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -29,15 +32,20 @@ public class CaricatureMainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     hideAllFragment();
-                    getSupportFragmentManager().beginTransaction().show(engFragment).commit();;
+                    getSupportFragmentManager().beginTransaction().show(engFragment).commit();
+                    return true;
+                case R.id.navigation_category:
+                    hideAllFragment();
+                    getSupportFragmentManager().beginTransaction().show(categoryFragment).commit();
                     return true;
                 case R.id.navigation_dashboard:
                     hideAllFragment();
-                    getSupportFragmentManager().beginTransaction().show(dashboardFragment).commit();;
+                    getSupportFragmentManager().beginTransaction().show(dashboardFragment).commit();
+                    dashboardFragment.setUserVisibleHint(true);
                     return true;
                 case R.id.navigation_history:
                     hideAllFragment();
-                    getSupportFragmentManager().beginTransaction().show(radioHomeFragment).commit();;
+                    getSupportFragmentManager().beginTransaction().show(radioHomeFragment).commit();
                     return true;
             }
             return false;
@@ -54,13 +62,16 @@ public class CaricatureMainActivity extends AppCompatActivity {
     }
 
     private void initFragment(){
+        navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         engFragment = CaricatureHomeFragment.newInstance();
+        categoryFragment = CaricatureCategoryFragment.newInstance();
         dashboardFragment = CaricatureWebListFragment.newInstance();
         radioHomeFragment = CaricatureBHFragment.getInstance();
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.content, engFragment)
+                .add(R.id.content, categoryFragment)
                 .add(R.id.content, dashboardFragment)
                 .add(R.id.content, radioHomeFragment)
                 .commit();
@@ -75,9 +86,7 @@ public class CaricatureMainActivity extends AppCompatActivity {
                 .hide(dashboardFragment)
                 .hide(radioHomeFragment)
                 .hide(engFragment)
+                .hide(categoryFragment)
                 .commit();
     }
-
-
-
 }

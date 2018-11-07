@@ -7,8 +7,6 @@ import android.support.v4.view.ViewPager;
 import com.messi.languagehelper.adapter.SymbolAdapter;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 
-import cn.jzvd.Jzvd;
-
 public class SymbolActivity extends BaseActivity implements FragmentProgressbarListener {
 
     private TabLayout tablayout;
@@ -31,19 +29,5 @@ public class SymbolActivity extends BaseActivity implements FragmentProgressbarL
         viewpager.setAdapter(pageAdapter);
         viewpager.setOffscreenPageLimit(4);
         tablayout.setupWithViewPager(viewpager);
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (Jzvd.backPress()) {
-            return;
-        }
-        super.onBackPressed();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Jzvd.releaseAllVideos();
     }
 }

@@ -16,7 +16,6 @@ public class CollectedActivity extends BaseActivity {
     private ViewPager viewPager;
     private SharedPreferences mSharedPreferences;
     private CollectedActivityAdapter mAdapter;
-    private Bundle bundle;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

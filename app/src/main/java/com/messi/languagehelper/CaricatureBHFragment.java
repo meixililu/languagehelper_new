@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import com.messi.languagehelper.adapter.CaricatureBHAdapter;
 
+
 public class CaricatureBHFragment extends BaseFragment{
 
     private TabLayout tablayout;

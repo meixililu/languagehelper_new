@@ -64,8 +64,7 @@ public class XmlyCategoryFragment extends BaseFragment {
 
     @Override
     public void onSwipeRefreshLayoutRefresh() {
-        super.onSwipeRefreshLayoutRefresh();
-        getTagsData();
+        QueryTask();
     }
 
     private void getTagsData() {

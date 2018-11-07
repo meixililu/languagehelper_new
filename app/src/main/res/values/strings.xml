@@ -36,6 +36,7 @@
     <string name="title_chinese_dic">中汉</string>
     <string name="title_study_category">学习</string>
     <string name="title_study">悦读</string>
+    <string name="title_xvideo">小视频</string>
     <string name="title_listen_fm">悦听</string>
     <string name="title_yuwen">语文</string>
     <string name="title_category">分类</string>
@@ -245,9 +246,6 @@
     <string name="practice_prompt_english">点击Start跟读英文</string>
     <string name="practice_prompt_cantonese">点击Start跟读粤语</string>
     <string name="practice_prompt_chinese">点击Start跟读中文</string>
-    <string name="cailing_ad_prompt">三块钱你买不了吃亏，买不了上当，只需三块钱，就能让电话另一头的TA拥有一次美好而有爱的等待，而不是平凡并且枯燥的嘟。。。嘟。。。嘟。。。还等什么呢，赶紧操作起来，为TA设置一段好玩又有新意的铃声吧! http://api.openspeech.cn/kyls/NTBhYTEyMTM=</string>
-    <string name="yuedu_ad_prompt">专注随身阅读30年! http://api.openspeech.cn/cmread/NTBhYTEyMTM=</string>
-    <string name="hotel_ad_prompt">专注开房30年! http://api.openspeech.cn/trip/NTBhYTEyMTM=</string>
     <string name="invite_friends_zyhy">哎呦，这个软件不错哦，小伙伴快来！ http://a.app.qq.com/o/simple.jsp?pkgname=com.messi.languagehelper</string>
     <string name="invite_friends_yyj">哎呦，这个软件不错哦，小伙伴快来！ http://a.app.qq.com/o/simple.jsp?pkgname=com.messi.learnenglish</string>
     <string name="invite_friends_yys">哎呦，这个软件不错哦，小伙伴快来！ http://a.app.qq.com/o/simple.jsp?pkgname=com.messi.cantonese.study</string>
@@ -275,8 +273,8 @@
     <string name="leisure_novel">小说</string>
     <string name="leisure_caricature">漫画</string>
     <string name="leisure_dvideo">短视频</string>
-    <string name="leisure_search">神马搜索</string>
-    <string name="leisure_wyyx">懒人听书</string>
+    <string name="leisure_search">热搜榜</string>
+    <string name="leisure_wyyx">搜一搜</string>
     <string name="foreign_website">英文网站</string>
     <string name="foreign_website_subtitle">一些不错的英文网站</string>
     <string name="leisuer_one">小白精选</string>
@@ -376,7 +374,7 @@
     <string name="search_hint">VOA|BBC|CNN</string>
     <string name="search_history"><![CDATA[历史&热门]]></string>
     <string name="learn_english_with_ai">跟ai学英语</string>
-    <string name="title_ai_chat">Ai聊天</string>
+    <string name="title_ai_chat">英语聊天</string>
     <string name="sent">发送</string>
     <string name="to_read">开始阅读</string>
     <string name="add_bookshelf">加入书架</string>
@@ -385,7 +383,7 @@
     <string name="title_ai_dialog_choice_course">情景选择</string>
     <string name="random_course">随机</string>
     <string name="start_to_fight">闯关</string>
-    <string name="title_tuling_ai">聊天机器人</string>
+    <string name="title_tuling_ai">小优陪聊</string>
     <string name="title_tuling_ai_des">中文语境下智能度最高的机器人</string>
     <string name="english_fm">英语FM</string>
     <string name="title_activity_main">MainActivity</string>
@@ -412,6 +410,11 @@
     <string name="click_to_skip">跳过</string>
     <string name="list_empty">空空的，快去添加图书吧</string>
     <string name="history_empty">什么也没有</string>
+    <string name="find_more">查看更多</string>
+    <string name="go_on">继续</string>
+    <string name="search_internet">搜全网</string>
+    <string name="search_novel">搜小说</string>
+    <string name="search_caricature">搜动漫</string>
 
 
 </resources>

@@ -28,7 +28,6 @@ import com.avos.avoscloud.AVAnalytics;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ShareUtil;
 
 
@@ -51,6 +50,8 @@ public class WebViewNoAdActivity extends BaseActivity{
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.web_view);
+		setStatusbarColor(R.color.white);
+		changeStatusBarTextColor(true);
 		initData();
 		initViews();
 	}
@@ -71,7 +72,6 @@ public class WebViewNoAdActivity extends BaseActivity{
 			getSupportActionBar().setTitle(title);
 		}
 		if (isHideToolbar) {
-			setStatusbarColor(R.color.black);
 			getSupportActionBar().hide();
 		}
 	}
@@ -235,15 +235,11 @@ public class WebViewNoAdActivity extends BaseActivity{
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case 0:  
-			if(Url.equals(Setings.CaiLingUrl)){
-				ShareUtil.shareText(WebViewNoAdActivity.this,WebViewNoAdActivity.this.getResources().getString(R.string.cailing_ad_prompt));
-			}else{
-				if(!TextUtils.isEmpty(ShareUrlMsg)){
-					ShareUtil.shareText(WebViewNoAdActivity.this, ShareUrlMsg);
-				}else {
-					ShareUtil.shareText(WebViewNoAdActivity.this,mWebView.getTitle() + " (share from:中英互译) " + Url);
-				}
+		case 0:
+			if(!TextUtils.isEmpty(ShareUrlMsg)){
+				ShareUtil.shareText(WebViewNoAdActivity.this, ShareUrlMsg);
+			}else {
+				ShareUtil.shareText(WebViewNoAdActivity.this,mWebView.getTitle() + " (share from:中英互译) " + Url);
 			}
 			AVAnalytics.onEvent(this, "webview_share_link");
 			break;
