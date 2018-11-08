@@ -72,7 +72,7 @@
                         />
                 </FrameLayout>
 
-                <RadioGroup
+                <LinearLayout
                     android:id="@+id/zh_yue_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -82,25 +82,23 @@
                     android:layout_marginTop="@dimen/padding_5"
                     android:layout_marginLeft="@dimen/padding_5"
                     >
-                    <RadioButton
+                    <TextView
                         android:id="@+id/rb_to_yue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:button="@null"
                         android:layout_marginLeft="@dimen/padding_10"
-                        android:textColor="@drawable/txt_color_gray_blue_selector"
+                        android:textColor="@color/load_blue"
                         android:text="中>粤"
                         />
-                    <RadioButton
+                    <TextView
                         android:id="@+id/rb_to_zh"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/padding_20"
-                        android:button="@null"
-                        android:textColor="@drawable/txt_color_gray_blue_selector"
+                        android:textColor="@color/text_grey"
                         android:text="粤>中"
                         />
-                </RadioGroup>
+                </LinearLayout>
 
                 <FrameLayout
                     android:id="@+id/clear_btn_layout"
@@ -169,32 +167,32 @@
                     android:layout_alignParentBottom="true"
                     android:orientation="horizontal" >
 
-                    <RadioButton
+                    <TextView
                         android:id="@+id/cb_speak_language_ch"
                         android:layout_width="0dp"
                         android:layout_height="36dp"
                         android:layout_weight="1"
                         android:layout_marginLeft="90dp"
                         android:layout_marginBottom="1dp"
-                        android:background="@drawable/checkbox_language_old_selector"
+                        android:background="@drawable/language_btn_bg_s"
                         android:button="@null"
                         android:checked="true"
                         android:gravity="center"
                         android:text="@string/chinese"
-                        android:textColor="@drawable/tc_black_to_white_selector" />
+                        android:textColor="@color/white_alph" />
 
-                    <RadioButton
+                    <TextView
                         android:id="@+id/cb_speak_language_en"
                         android:layout_width="0dp"
                         android:layout_height="36dp"
                         android:layout_weight="1"
                         android:layout_marginRight="90dp"
                         android:layout_marginBottom="1dp"
-                        android:background="@drawable/checkbox_language_old_selector"
+                        android:background="@drawable/language_btn_bg_n"
                         android:button="@null"
                         android:gravity="center"
                         android:text="@string/cantonese"
-                        android:textColor="@drawable/tc_black_to_white_selector" />
+                        android:textColor="@color/text_black_alph" />
                 </LinearLayout>
 
                 <LinearLayout

@@ -9,8 +9,8 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_awesome_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:layout_height="@dimen/actionBar"
+        android:background="@color/theme_color"
         app:popupTheme="@style/AppTheme.PopupOverlay"
         >
         <LinearLayout
@@ -23,14 +23,14 @@
                 android:id="@+id/tablayout"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="@dimen/actionBar"
                 app:tabMode="scrollable"
                 app:tabIndicatorColor="@color/white"
                 app:tabSelectedTextColor="@color/white"
                 app:tabTextColor="@color/white_alph_unselect"
                 app:tabTextAppearance="@style/TabLayoutTextStyle"
                 android:layout_marginLeft="@dimen/padding_5"
-                android:background="?attr/colorPrimary" />
+                android:background="@color/theme_color" />
             <LinearLayout
                 android:layout_width="20dp"
                 android:layout_height="20dp"

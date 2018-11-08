@@ -24,7 +24,7 @@
                 android:id="@+id/previous_btn"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="?attr/colorPrimary"
+                android:background="@color/theme_color"
                 android:visibility="gone"
                 android:foreground="@drawable/framelayout_selector">
                 <ImageView
@@ -46,7 +46,7 @@
                     android:id="@+id/start_btn"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:background="?attr/colorPrimary"
+                    android:background="@color/theme_color"
                     android:gravity="center"
                     android:text="@string/start"
                     android:textColor="@color/white"
@@ -95,7 +95,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:visibility="gone"
-                android:background="?attr/colorPrimary"
+                android:background="@color/theme_color"
                 android:foreground="@drawable/framelayout_selector">
 
                 <ImageView
@@ -106,116 +106,12 @@
             </FrameLayout>
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/speak_type"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/bottom"
-            android:background="@color/text_tint1"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:visibility="gone"
-            android:weightSum="3">
-
-            <FrameLayout
-                android:id="@+id/sentence_cover"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:foreground="@drawable/framelayout_selector"
-                android:padding="3dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:id="@+id/sentence_cb"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:clickable="false" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="7dp"
-                        android:gravity="left|center_vertical"
-                        android:text="@string/sentence"
-                        android:textColor="@color/text_grey"
-                        android:textSize="@dimen/small" />
-                </LinearLayout>
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/continuity_cover"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:foreground="@drawable/framelayout_selector"
-                android:padding="3dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="left|center_vertical"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:id="@+id/continuity_cb"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:clickable="false" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="7dp"
-                        android:gravity="left"
-                        android:text="@string/continuity"
-                        android:textColor="@color/text_grey"
-                        android:textSize="@dimen/small" />
-                </LinearLayout>
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/conversation_cover"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:foreground="@drawable/framelayout_selector"
-                android:padding="3dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:id="@+id/conversation_cb"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:clickable="false" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="7dp"
-                        android:gravity="left|center_vertical"
-                        android:text="@string/conversation"
-                        android:textColor="@color/text_grey"
-                        android:textSize="@dimen/small" />
-                </LinearLayout>
-            </FrameLayout>
-        </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/listview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@id/speak_type"
+            android:layout_above="@id/bottom"
             android:background="@color/white"
             android:fitsSystemWindows="true"
             />
@@ -226,7 +122,7 @@
             android:layout_height="match_parent"
             android:padding="@dimen/padding_10"
             android:orientation="vertical"
-            android:layout_above="@id/speak_type"
+            android:layout_above="@id/bottom"
             android:background="@color/white"
             >
             <com.facebook.drawee.view.SimpleDraweeView

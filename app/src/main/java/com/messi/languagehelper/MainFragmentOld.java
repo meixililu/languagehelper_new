@@ -18,7 +18,6 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVAnalytics;
@@ -56,7 +55,7 @@ public class MainFragmentOld extends BaseFragment implements OnClickListener, Or
     private FrameLayout clear_btn_layout;
     private Button voice_btn;
     private LinearLayout speak_round_layout;
-    private RadioButton cb_speak_language_ch, cb_speak_language_en;
+    private TextView cb_speak_language_ch, cb_speak_language_en;
     private TextView submit_btn;
     private TabLayout tablayout;
 
@@ -158,8 +157,8 @@ public class MainFragmentOld extends BaseFragment implements OnClickListener, Or
         input_et = (EditText) view.findViewById(R.id.input_et);
         submit_btn_cover = (FrameLayout) view.findViewById(R.id.submit_btn_cover);
         photo_tran_btn = (FrameLayout) view.findViewById(R.id.photo_tran_btn);
-        cb_speak_language_ch = (RadioButton) view.findViewById(R.id.cb_speak_language_ch);
-        cb_speak_language_en = (RadioButton) view.findViewById(R.id.cb_speak_language_en);
+        cb_speak_language_ch = (TextView) view.findViewById(R.id.cb_speak_language_ch);
+        cb_speak_language_en = (TextView) view.findViewById(R.id.cb_speak_language_en);
         speak_round_layout = (LinearLayout) view.findViewById(R.id.speak_round_layout);
         clear_btn_layout = (FrameLayout) view.findViewById(R.id.clear_btn_layout);
         record_layout = (LinearLayout) view.findViewById(R.id.record_layout);
@@ -239,11 +238,15 @@ public class MainFragmentOld extends BaseFragment implements OnClickListener, Or
 
     private void initLanguage() {
         if (PlayUtil.getSP().getString(KeyUtil.TranUserSelectLanguage, XFUtil.VoiceEngineMD).equals(XFUtil.VoiceEngineMD)) {
-            cb_speak_language_ch.setChecked(true);
-            cb_speak_language_en.setChecked(false);
+            cb_speak_language_ch.setBackgroundResource(R.drawable.language_btn_bg_s);
+            cb_speak_language_ch.setTextColor(getResources().getColor(R.color.white_alph));
+            cb_speak_language_en.setBackgroundResource(R.drawable.language_btn_bg_n);
+            cb_speak_language_en.setTextColor(getResources().getColor(R.color.text_black_alph));
         } else {
-            cb_speak_language_ch.setChecked(false);
-            cb_speak_language_en.setChecked(true);
+            cb_speak_language_ch.setBackgroundResource(R.drawable.language_btn_bg_n);
+            cb_speak_language_ch.setTextColor(getResources().getColor(R.color.text_black_alph));
+            cb_speak_language_en.setBackgroundResource(R.drawable.language_btn_bg_s);
+            cb_speak_language_en.setTextColor(getResources().getColor(R.color.white_alph));
         }
     }
 
@@ -262,13 +265,13 @@ public class MainFragmentOld extends BaseFragment implements OnClickListener, Or
             input_et.setText("");
             AVAnalytics.onEvent(getContext(), "tab1_clear_btn");
         } else if (v.getId() == R.id.cb_speak_language_ch) {
-            cb_speak_language_en.setChecked(false);
             Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.TranUserSelectLanguage, XFUtil.VoiceEngineMD);
+            initLanguage();
             ToastUtil.diaplayMesShort(getContext(), getContext().getResources().getString(R.string.speak_chinese));
             AVAnalytics.onEvent(getContext(), "tab1_zh_sbtn");
         } else if (v.getId() == R.id.cb_speak_language_en) {
-            cb_speak_language_ch.setChecked(false);
             Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.TranUserSelectLanguage, XFUtil.VoiceEngineEN);
+            initLanguage();
             ToastUtil.diaplayMesShort(getContext(), getContext().getResources().getString(R.string.speak_english));
             AVAnalytics.onEvent(getContext(), "tab1_en_sbtn");
         }

@@ -15,8 +15,8 @@
 	    android:id="@+id/my_awesome_toolbar"
 	    android:layout_height="wrap_content"
 	    android:layout_width="match_parent"
-	    android:minHeight="?attr/actionBarSize"
-	    android:background="?attr/colorPrimary" >
+	    android:minHeight="@dimen/actionBar"
+	    android:background="@color/theme_color" >
 	    <ProgressBar style="@style/CircularProgressWhite"
 	                android:id="@+id/progressBarCircularIndetermininate"
 	                android:layout_width="24dp"
@@ -28,7 +28,7 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
+            android:background="@color/theme_color"
             android:orientation="vertical" >
 
                 <FrameLayout
@@ -148,7 +148,7 @@
                     android:id="@+id/voice_btn"
                     android:layout_width="match_parent"
                     android:layout_height="47dp"
-                    android:background="?attr/colorPrimary"
+                    android:background="@color/theme_color"
                     android:textColor="@color/white"
                     android:gravity="center"
                     android:textStyle="bold"

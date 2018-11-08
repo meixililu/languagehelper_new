@@ -9,8 +9,8 @@
     <RelativeLayout
         android:id="@+id/my_awesome_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary">
+        android:layout_height="@dimen/actionBar"
+        android:background="@color/theme_color">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -61,12 +61,12 @@
             custom:arc_angle="270"
             custom:arc_bottom_text="@string/start_unlock"
             custom:arc_bottom_text_size="@dimen/middle"
-            custom:arc_finished_color="?attr/colorPrimary"
+            custom:arc_finished_color="@color/theme_color"
             custom:arc_progress="0"
             custom:arc_stroke_width="10sp"
             custom:arc_suffix_text=" "
             custom:arc_suffix_text_size="@dimen/big"
-            custom:arc_text_color="?attr/colorPrimary"
+            custom:arc_text_color="@color/theme_color"
             custom:arc_text_size="@dimen/title"
             custom:arc_unfinished_color="@color/text_grey1" />
 
@@ -78,7 +78,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="@dimen/padding_20"
             android:text=""
-            android:textColor="?attr/colorPrimary"
+            android:textColor="@color/theme_color"
             android:textSize="@dimen/big" />
 
         <FrameLayout

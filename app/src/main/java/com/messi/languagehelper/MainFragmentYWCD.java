@@ -15,7 +15,6 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVAnalytics;
@@ -49,7 +48,7 @@ public class MainFragmentYWCD extends BaseFragment implements OnClickListener, O
     private FrameLayout clear_btn_layout;
     private Button voice_btn;
     private LinearLayout speak_round_layout;
-    private RadioButton cb_speak_language_ch, cb_speak_language_en;
+    private TextView cb_speak_language_ch, cb_speak_language_en;
     private TextView submit_btn;
     private TabLayout tablayout;
 
@@ -151,8 +150,8 @@ public class MainFragmentYWCD extends BaseFragment implements OnClickListener, O
         input_et = (EditText) view.findViewById(R.id.input_et);
         submit_btn_cover = (FrameLayout) view.findViewById(R.id.submit_btn_cover);
         photo_tran_btn = (FrameLayout) view.findViewById(R.id.photo_tran_btn);
-        cb_speak_language_ch = (RadioButton) view.findViewById(R.id.cb_speak_language_ch);
-        cb_speak_language_en = (RadioButton) view.findViewById(R.id.cb_speak_language_en);
+        cb_speak_language_ch = (TextView) view.findViewById(R.id.cb_speak_language_ch);
+        cb_speak_language_en = (TextView) view.findViewById(R.id.cb_speak_language_en);
         speak_round_layout = (LinearLayout) view.findViewById(R.id.speak_round_layout);
         clear_btn_layout = (FrameLayout) view.findViewById(R.id.clear_btn_layout);
         record_layout = (LinearLayout) view.findViewById(R.id.record_layout);
@@ -160,17 +159,16 @@ public class MainFragmentYWCD extends BaseFragment implements OnClickListener, O
         voice_btn = (Button) view.findViewById(R.id.voice_btn);
         tablayout = (TabLayout) view.findViewById(R.id.tablayout);
         submit_btn = (TextView) view.findViewById(R.id.submit_btn);
-
+        cb_speak_language_ch.setVisibility(View.GONE);
+        cb_speak_language_en.setVisibility(View.GONE);
+        Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.TranUserSelectLanguage, XFUtil.VoiceEngineMD);
         photo_tran_btn.setOnClickListener(this);
         submit_btn_cover.setOnClickListener(this);
-        cb_speak_language_ch.setOnClickListener(this);
-        cb_speak_language_en.setOnClickListener(this);
         speak_round_layout.setOnClickListener(this);
         clear_btn_layout.setOnClickListener(this);
 
         initTablayout();
         initFragment();
-        initLanguage();
         setPomptAndShowFragment();
     }
 
@@ -230,16 +228,6 @@ public class MainFragmentYWCD extends BaseFragment implements OnClickListener, O
                 .commit();
     }
 
-    private void initLanguage() {
-        if (PlayUtil.getSP().getString(KeyUtil.TranUserSelectLanguage, XFUtil.VoiceEngineMD).equals(XFUtil.VoiceEngineMD)) {
-            cb_speak_language_ch.setChecked(true);
-            cb_speak_language_en.setChecked(false);
-        } else {
-            cb_speak_language_ch.setChecked(false);
-            cb_speak_language_en.setChecked(true);
-        }
-    }
-
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.submit_btn_cover) {
@@ -254,16 +242,6 @@ public class MainFragmentYWCD extends BaseFragment implements OnClickListener, O
         } else if (v.getId() == R.id.clear_btn_layout) {
             input_et.setText("");
             AVAnalytics.onEvent(getContext(), "tab1_clear_btn");
-        } else if (v.getId() == R.id.cb_speak_language_ch) {
-            cb_speak_language_en.setChecked(false);
-            Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.TranUserSelectLanguage, XFUtil.VoiceEngineMD);
-            ToastUtil.diaplayMesShort(getContext(), getContext().getResources().getString(R.string.speak_chinese));
-            AVAnalytics.onEvent(getContext(), "tab1_zh_sbtn");
-        } else if (v.getId() == R.id.cb_speak_language_en) {
-            cb_speak_language_ch.setChecked(false);
-            Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.TranUserSelectLanguage, XFUtil.VoiceEngineEN);
-            ToastUtil.diaplayMesShort(getContext(), getContext().getResources().getString(R.string.speak_english));
-            AVAnalytics.onEvent(getContext(), "tab1_en_sbtn");
         }
     }
 

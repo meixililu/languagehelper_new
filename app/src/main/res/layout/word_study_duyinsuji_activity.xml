@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:background="@color/light_green"
-        android:minHeight="?attr/actionBarSize" >
+        android:minHeight="@dimen/actionBar" >
         <ProgressBar style="@style/CircularProgressWhite"
             android:id="@+id/progressBarCircularIndetermininate"
             android:layout_width="24dp"

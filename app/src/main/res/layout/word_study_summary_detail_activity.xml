@@ -26,7 +26,7 @@
             <android.support.v7.widget.Toolbar
                 android:id="@+id/my_awesome_toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="@dimen/actionBar"
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/AppTheme.PopupOverlay" >
                 <ProgressBar style="@style/CircularProgressWhite"

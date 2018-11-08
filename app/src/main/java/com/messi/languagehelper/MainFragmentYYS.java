@@ -15,8 +15,6 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVAnalytics;
@@ -50,11 +48,11 @@ public class MainFragmentYYS extends BaseFragment implements OnClickListener, Or
     private FrameLayout clear_btn_layout;
     private Button voice_btn;
     private LinearLayout speak_round_layout;
-    private RadioButton cb_speak_language_ch, cb_speak_language_en;
+    private TextView cb_speak_language_ch, cb_speak_language_en;
     private TextView submit_btn;
     private TabLayout tablayout;
-    private RadioButton rb_to_yue,rb_to_zh;
-    private RadioGroup zh_yue_layout;
+    private TextView rb_to_yue,rb_to_zh;
+    private LinearLayout zh_yue_layout;
 
     public long lastSubmitTiem;
     public int currentTabIndex;
@@ -153,8 +151,8 @@ public class MainFragmentYYS extends BaseFragment implements OnClickListener, Or
         input_et = (EditText) view.findViewById(R.id.input_et);
         submit_btn_cover = (FrameLayout) view.findViewById(R.id.submit_btn_cover);
         photo_tran_btn = (FrameLayout) view.findViewById(R.id.photo_tran_btn);
-        cb_speak_language_ch = (RadioButton) view.findViewById(R.id.cb_speak_language_ch);
-        cb_speak_language_en = (RadioButton) view.findViewById(R.id.cb_speak_language_en);
+        cb_speak_language_ch = (TextView) view.findViewById(R.id.cb_speak_language_ch);
+        cb_speak_language_en = (TextView) view.findViewById(R.id.cb_speak_language_en);
         speak_round_layout = (LinearLayout) view.findViewById(R.id.speak_round_layout);
         clear_btn_layout = (FrameLayout) view.findViewById(R.id.clear_btn_layout);
         record_layout = (LinearLayout) view.findViewById(R.id.record_layout);
@@ -162,9 +160,9 @@ public class MainFragmentYYS extends BaseFragment implements OnClickListener, Or
         voice_btn = (Button) view.findViewById(R.id.voice_btn);
         tablayout = (TabLayout) view.findViewById(R.id.tablayout);
         submit_btn = (TextView) view.findViewById(R.id.submit_btn);
-        rb_to_yue = (RadioButton) view.findViewById(R.id.rb_to_yue);
-        rb_to_zh = (RadioButton) view.findViewById(R.id.rb_to_zh);
-        zh_yue_layout = (RadioGroup) view.findViewById(R.id.zh_yue_layout);
+        rb_to_yue = (TextView) view.findViewById(R.id.rb_to_yue);
+        rb_to_zh = (TextView) view.findViewById(R.id.rb_to_zh);
+        zh_yue_layout = (LinearLayout) view.findViewById(R.id.zh_yue_layout);
 
         photo_tran_btn.setOnClickListener(this);
         submit_btn_cover.setOnClickListener(this);
@@ -211,11 +209,15 @@ public class MainFragmentYYS extends BaseFragment implements OnClickListener, Or
     private void initTranslateSelected(){
         boolean IsTranslateYue = PlayUtil.getSP().getBoolean(KeyUtil.IsTranslateYueKey, true);
         if(IsTranslateYue){
-            rb_to_yue.setChecked(true);
-            rb_to_zh.setChecked(false);
+            rb_to_yue.setTextColor(getResources().getColor(R.color.load_blue));
+            rb_to_yue.setTag(1);
+            rb_to_zh.setTextColor(getResources().getColor(R.color.text_grey));
+            rb_to_zh.setTag(0);
         }else{
-            rb_to_yue.setChecked(false);
-            rb_to_zh.setChecked(true);
+            rb_to_yue.setTextColor(getResources().getColor(R.color.text_grey));
+            rb_to_yue.setTag(0);
+            rb_to_zh.setTextColor(getResources().getColor(R.color.load_blue));
+            rb_to_zh.setTag(1);
         }
     }
 
@@ -243,11 +245,19 @@ public class MainFragmentYYS extends BaseFragment implements OnClickListener, Or
 
     private void initLanguage() {
         if (PlayUtil.getSP().getString(KeyUtil.TranUserSelectLanguageYYS, XFUtil.VoiceEngineMD).equals(XFUtil.VoiceEngineMD)) {
-            cb_speak_language_ch.setChecked(true);
-            cb_speak_language_en.setChecked(false);
+            cb_speak_language_ch.setBackgroundResource(R.drawable.language_btn_bg_s);
+            cb_speak_language_ch.setTextColor(getResources().getColor(R.color.white_alph));
+            cb_speak_language_ch.setTag(1);
+            cb_speak_language_en.setBackgroundResource(R.drawable.language_btn_bg_n);
+            cb_speak_language_en.setTextColor(getResources().getColor(R.color.text_black_alph));
+            cb_speak_language_en.setTag(0);
         } else {
-            cb_speak_language_ch.setChecked(false);
-            cb_speak_language_en.setChecked(true);
+            cb_speak_language_ch.setBackgroundResource(R.drawable.language_btn_bg_n);
+            cb_speak_language_ch.setTextColor(getResources().getColor(R.color.text_black_alph));
+            cb_speak_language_ch.setTag(0);
+            cb_speak_language_en.setBackgroundResource(R.drawable.language_btn_bg_s);
+            cb_speak_language_en.setTextColor(getResources().getColor(R.color.white_alph));
+            cb_speak_language_en.setTag(1);
         }
     }
 
@@ -267,13 +277,13 @@ public class MainFragmentYYS extends BaseFragment implements OnClickListener, Or
             input_et.setText("");
             AVAnalytics.onEvent(getContext(), "tab1_clear_btn");
         } else if (v.getId() == R.id.cb_speak_language_ch) {
-            cb_speak_language_en.setChecked(false);
             Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.TranUserSelectLanguageYYS, XFUtil.VoiceEngineMD);
+            initLanguage();
             ToastUtil.diaplayMesShort(getContext(), getContext().getResources().getString(R.string.speak_chinese));
             AVAnalytics.onEvent(getContext(), "tab1_zh_sbtn");
         } else if (v.getId() == R.id.cb_speak_language_en) {
-            cb_speak_language_ch.setChecked(false);
             Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.TranUserSelectLanguageYYS, XFUtil.VoiceEngineHK);
+            initLanguage();
             ToastUtil.diaplayMesShort(getContext(), getContext().getResources().getString(R.string.speak_english));
             AVAnalytics.onEvent(getContext(), "tab1_en_sbtn");
         }
@@ -457,7 +467,7 @@ public class MainFragmentYYS extends BaseFragment implements OnClickListener, Or
 
     private void JudgeBtnTranslateLan(){
         LogUtil.DefalutLog("JudgeBtnTranslateLan");
-        if(rb_to_yue.isChecked()){
+        if( ((int)rb_to_yue.getTag()) == 1 ){
             LanguagehelperHttpClient.setTranslateLan(true);
         }else{
             LanguagehelperHttpClient.setTranslateLan(false);
@@ -466,7 +476,7 @@ public class MainFragmentYYS extends BaseFragment implements OnClickListener, Or
 
     private void JudgeSpeakTranslateLan(){
         LogUtil.DefalutLog("JudgeSpeakTranslateLan");
-        if(cb_speak_language_ch.isChecked()){
+        if( ((int)cb_speak_language_ch.getTag()) == 1 ){
             LanguagehelperHttpClient.setTranslateLan(true);
         }else{
             LanguagehelperHttpClient.setTranslateLan(false);

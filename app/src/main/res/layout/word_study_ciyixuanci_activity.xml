@@ -10,8 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"></android.support.v7.widget.Toolbar>
+        android:background="@color/theme_color"
+        android:minHeight="@dimen/actionBar"></android.support.v7.widget.Toolbar>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="?attr/colorPrimary"
+                android:background="@color/theme_color"
                 android:padding="@dimen/padding_5"
                 android:gravity="center"
                 android:textColor="@color/white"
@@ -133,7 +133,7 @@
                 android:gravity="center"
                 android:textSize="32sp"
                 android:textColor="@color/white"
-                android:background="?attr/colorPrimary"
+                android:background="@color/theme_color"
                 />
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/listview"

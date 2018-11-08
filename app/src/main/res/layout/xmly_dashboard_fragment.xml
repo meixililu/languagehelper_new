@@ -10,15 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="?attr/colorPrimary"
+        android:background="@color/theme_color"
         >
         <android.support.design.widget.TabLayout
             android:id="@+id/tabLayout"
             android:layout_width="0dp"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="@dimen/actionBar"
             android:layout_weight="1"
             app:tabMode="scrollable"
-            android:background="?attr/colorPrimary"
+            android:background="@color/theme_color"
             app:tabIndicatorColor="@color/white"
             />
         <FrameLayout

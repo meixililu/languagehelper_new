@@ -154,8 +154,8 @@
     <string name="fight_fail">闯关失败</string>
     <string name="xmly_fm">来源:喜马拉雅</string>
 
-    <string name="speak_english">请点击按钮说英语</string>
-    <string name="speak_chinese">请点击按钮说普通话</string>
+    <string name="speak_english">请点击话筒说英语</string>
+    <string name="speak_chinese">请点击话筒说普通话</string>
     <string name="network_error">网络错误，请稍后重试</string>
     <string name="network_offline">网络错误，请检测网络链接</string>
     <string name="no_result">没有查询到结果</string>

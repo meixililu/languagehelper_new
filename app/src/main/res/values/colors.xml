@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
+	<!--blue-->
+	<color name="theme_color">#2196F3</color>
+	<color name="theme_color_dark">#cc2196F3</color>
 
 	<color name="none">#00000000</color>
 	<color name="none_thin">#aa000000</color>

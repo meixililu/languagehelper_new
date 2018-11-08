@@ -10,8 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize" >
+        android:background="@color/theme_color"
+        android:minHeight="@dimen/actionBar" >
         <ProgressBar style="@style/CircularProgressWhite"
             android:id="@+id/progressBarCircularIndetermininate"
             android:layout_width="24dp"
@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="?attr/colorPrimary"
+            android:background="@color/theme_color"
             android:gravity="center"
             android:orientation="vertical">
             <ImageView
@@ -141,7 +141,7 @@
             android:gravity="center"
             android:textSize="32sp"
             android:textColor="@color/white"
-            android:background="?attr/colorPrimary"
+            android:background="@color/theme_color"
             />
         <android.support.v7.widget.RecyclerView
             android:id="@+id/listview"

@@ -11,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize">
+        android:background="@color/theme_color"
+        android:minHeight="@dimen/actionBar">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -31,7 +31,7 @@
             <FrameLayout
                 android:id="@+id/delete_btn"
                 android:layout_width="45dp"
-                android:layout_height="?attr/actionBarSize">
+                android:layout_height="@dimen/actionBar">
                 <ImageView
                     android:layout_width="22dp"
                     android:layout_height="22dp"
@@ -41,7 +41,7 @@
             <FrameLayout
                 android:id="@+id/volume_btn"
                 android:layout_width="45dp"
-                android:layout_height="?attr/actionBarSize">
+                android:layout_height="@dimen/actionBar">
 
                 <ImageView
                     android:id="@+id/volume_img"

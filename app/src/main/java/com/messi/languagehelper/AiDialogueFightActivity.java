@@ -13,7 +13,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -37,7 +36,6 @@ import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SDCardUtil;
-import com.messi.languagehelper.util.ScoreUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
@@ -59,20 +57,6 @@ public class AiDialogueFightActivity extends BaseActivity implements View.OnClic
 
     @BindView(R.id.listview)
     RecyclerView studylist_lv;
-    @BindView(R.id.sentence_cb)
-    RadioButton sentence_cb;
-    @BindView(R.id.sentence_cover)
-    FrameLayout sentence_cover;
-    @BindView(R.id.continuity_cb)
-    RadioButton continuity_cb;
-    @BindView(R.id.continuity_cover)
-    FrameLayout continuity_cover;
-    @BindView(R.id.conversation_cb)
-    RadioButton conversation_cb;
-    @BindView(R.id.conversation_cover)
-    FrameLayout conversation_cover;
-    @BindView(R.id.speak_type)
-    LinearLayout speak_type;
     @BindView(R.id.previous_btn)
     FrameLayout previous_btn;
     @BindView(R.id.start_btn)
@@ -117,6 +101,8 @@ public class AiDialogueFightActivity extends BaseActivity implements View.OnClic
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ai_dialogue_fight_activity);
+        setStatusbarColor(R.color.white);
+        changeStatusBarTextColor(true);
         ButterKnife.bind(this);
         initViews();
     }
@@ -144,9 +130,6 @@ public class AiDialogueFightActivity extends BaseActivity implements View.OnClic
         studylist_lv.setAdapter(mAdapter);
 
         selectedFlowType(2, false);
-        sentence_cover.setOnClickListener(this);
-        continuity_cover.setOnClickListener(this);
-        conversation_cover.setOnClickListener(this);
         previous_btn.setOnClickListener(this);
         conversationLayout.setOnClickListener(this);
         next_btn.setOnClickListener(this);
@@ -172,20 +155,14 @@ public class AiDialogueFightActivity extends BaseActivity implements View.OnClic
     }
 
     private void selectedFlowType(int selectedNum, boolean isReset) {
-        sentence_cb.setChecked(false);
-        continuity_cb.setChecked(false);
-        conversation_cb.setChecked(false);
         if (selectedNum == 0) {
             conversationLayout.setVisibility(View.GONE);
-            sentence_cb.setChecked(true);
             setSelected(position);
         } else if (selectedNum == 1) {
             conversationLayout.setVisibility(View.GONE);
-            continuity_cb.setChecked(true);
             setSelected(position);
         } else if (selectedNum == 2) {
             conversationLayout.setVisibility(View.VISIBLE);
-            conversation_cb.setChecked(true);
             userFirst = false;
             position = 0;
             setConversationContent();
@@ -209,43 +186,28 @@ public class AiDialogueFightActivity extends BaseActivity implements View.OnClic
     }
 
     private void previousItem() {
-        if (conversation_cb.isChecked() && position > 1) {
+        if (position > 1) {
             position -= 2;
             setDatas();
-        } else if (!conversation_cb.isChecked() && position > 0) {
-            position--;
-            setDatas();
-        } else {
+        }else {
             ToastUtil.diaplayMesShort(AiDialogueFightActivity.this, "到头了");
         }
         AVAnalytics.onEvent(AiDialogueFightActivity.this, "evaluationdetail_pg_previous_btn");
     }
 
     private void nextItem() {
-        if (conversation_cb.isChecked() && position < avObjects.size() - 2) {
+        if (position < avObjects.size() - 2) {
             position += 2;
             setDatas();
-        } else if (!conversation_cb.isChecked() && position < avObjects.size() - 1) {
-            position++;
-            setDatas();
-        } else {
-            if(conversation_cb.isChecked()){
-                userContent.setText("");
-                speakerContent.setText("");
-            }else {
-                ToastUtil.diaplayMesShort(AiDialogueFightActivity.this, "木有了");
-            }
+        }else {
+            userContent.setText("");
+            speakerContent.setText("");
         }
         AVAnalytics.onEvent(AiDialogueFightActivity.this, "evaluationdetail_pg_next_btn");
     }
 
     private void setDatas() {
-        if (conversation_cb.isChecked()) {
-            setConversationContent();
-        } else {
-            playOrStop(position);
-            studylist_lv.scrollToPosition(position);
-        }
+        setConversationContent();
     }
 
     private void setConversationContent() {
@@ -272,23 +234,15 @@ public class AiDialogueFightActivity extends BaseActivity implements View.OnClic
         try {
             if (recognizer != null) {
                 if (!recognizer.isListening()) {
-                    if (conversation_cb.isChecked()) {
-                        if (userFirst) {
-                            changeConversationLayout(true);
-                            startToRecord();
-                        } else {
-                            if (isNewIn) {
-                                changeConversationLayout(false);
-                                startToPlaySpeaker(position);
-                            } else {
-                                changeConversationLayout(true);
-                                startToRecord();
-                            }
-                        }
+                    if (userFirst) {
+                        changeConversationLayout(true);
+                        startToRecord();
                     } else {
                         if (isNewIn) {
+                            changeConversationLayout(false);
                             startToPlaySpeaker(position);
                         } else {
+                            changeConversationLayout(true);
                             startToRecord();
                         }
                     }
@@ -343,7 +297,7 @@ public class AiDialogueFightActivity extends BaseActivity implements View.OnClic
     private void onfinishPlay() {
         if (isFollow) {
             isFollow = false;
-            if(userFirst && conversation_cb.isChecked()){
+            if(userFirst){
                 if(position < avObjects.size()-2){
                     showNext();
                 }else {
@@ -351,7 +305,7 @@ public class AiDialogueFightActivity extends BaseActivity implements View.OnClic
                     finishRecord();
                     ToastUtil.diaplayMesShort(AiDialogueFightActivity.this, "很好，本节已完成！");
                 }
-            }else if(!userFirst && conversation_cb.isChecked() && position == avObjects.size()-1){
+            }else if(!userFirst && position == avObjects.size()-1){
                 changeRoles();
             } else {
                 showIatDialog();
@@ -540,12 +494,6 @@ public class AiDialogueFightActivity extends BaseActivity implements View.OnClic
                 LogUtil.DefalutLog("isLast---onResult:" + sbResult.toString());
                 hideProgressbar();
                 finishRecord();
-                if (!conversation_cb.isChecked()) {
-                    AVObject mSpeakItem = avObjects.get(position);
-                    UserSpeakBean bean = ScoreUtil.score(AiDialogueFightActivity.this, sbResult.toString(), getEnglishContent(mSpeakItem), 0);
-                    mSpeakItem.put(KeyUtil.UserSpeakBean, bean);
-                    mAdapter.notifyDataSetChanged();
-                }
                 sbResult.setLength(0);
                 playNext();
             }
@@ -600,30 +548,21 @@ public class AiDialogueFightActivity extends BaseActivity implements View.OnClic
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (continuity_cb.isChecked()) {
-                    if (position < avObjects.size() - 1) {
+                if (position < avObjects.size() - 2) {
+                    if(userFirst){
+                        changeConversationLayout(false);
+                        startToPlaySpeaker(position+1);
+                    }else {
                         showNext();
+                    }
+                } else {
+                    if(userFirst && position < avObjects.size() - 1){
+                        changeConversationLayout(false);
+                        startToPlaySpeaker(position+1);
+                    }else if (!userFirst) {
+                        changeRoles();
                     } else {
                         ToastUtil.diaplayMesShort(AiDialogueFightActivity.this, "很好，本节已完成！");
-                    }
-                } else if (conversation_cb.isChecked()) {
-                    if (position < avObjects.size() - 2) {
-                        if(userFirst){
-                            changeConversationLayout(false);
-                            startToPlaySpeaker(position+1);
-                        }else {
-                            showNext();
-                        }
-                    } else {
-                        if(userFirst && position < avObjects.size() - 1){
-                            changeConversationLayout(false);
-                            startToPlaySpeaker(position+1);
-                        }else if (!userFirst) {
-                            changeRoles();
-                        } else {
-                            ToastUtil.diaplayMesShort(AiDialogueFightActivity.this, "很好，本节已完成！");
-                        }
-
                     }
                 }
             }
@@ -645,18 +584,6 @@ public class AiDialogueFightActivity extends BaseActivity implements View.OnClic
         switch (view.getId()) {
             case R.id.start_btn_cover:
                 showIatDialog();
-                break;
-            case R.id.sentence_cover:
-                selectedFlowType(0, false);
-                AVAnalytics.onEvent(AiDialogueFightActivity.this, "evaluationdetail_pg_sentence_btn");
-                break;
-            case R.id.continuity_cover:
-                selectedFlowType(1, false);
-                AVAnalytics.onEvent(AiDialogueFightActivity.this, "evaluationdetail_pg_continuity_btn");
-                break;
-            case R.id.conversation_cover:
-                selectedFlowType(2, true);
-                AVAnalytics.onEvent(AiDialogueFightActivity.this, "evaluationdetail_pg_conversation_btn");
                 break;
             case R.id.previous_btn:
                 previousItem();

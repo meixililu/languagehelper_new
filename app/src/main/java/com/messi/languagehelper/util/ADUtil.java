@@ -146,7 +146,7 @@ public class ADUtil {
 	public static void getZYHYAd(Activity context){
 		try {
 			AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.AdList.AdList);
-			query.whereEqualTo(AVOUtil.AdList.isValid, "0");
+			query.whereEqualTo(AVOUtil.AdList.isValid, "1");
 			query.whereContains(AVOUtil.AdList.app, "zyhy");
 			query.addDescendingOrder(AVOUtil.AdList.createdAt);
 			query.limit(20);
