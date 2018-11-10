@@ -31,7 +31,7 @@ import com.messi.languagehelper.LeisureFragment;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.StudyFragment;
 import com.messi.languagehelper.TitleFragment;
-import com.messi.languagehelper.XimalayaTagsFragment;
+import com.messi.languagehelper.XimalayaDashboardFragment;
 import com.messi.languagehelper.YYJHomeFragment;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
@@ -39,7 +39,6 @@ import com.messi.languagehelper.util.AppUpdateUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TranslateUtil;
-import com.messi.languagehelper.util.XimalayaUtil;
 import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
 
 import butterknife.BindView;
@@ -121,8 +120,7 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 		navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 		mWordHomeFragment = TitleFragment.newInstance(YYJHomeFragment.getInstance(),R.string.title_home_tab);
 		practiceFragment = TitleFragment.newInstance(StudyFragment.getInstance(),R.string.title_study);
-		dashboardFragment = TitleFragment.newInstance(XimalayaTagsFragment.newInstance(XimalayaUtil.Category_english,"",null),
-				R.string.title_listen_fm);
+		dashboardFragment = XimalayaDashboardFragment.newInstance();;
 		radioHomeFragment = TitleFragment.newInstance(LeisureFragment.getInstance(),R.string.title_leisure);
 		getSupportFragmentManager()
 				.beginTransaction()

@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
-import com.google.gson.reflect.TypeToken;
 import com.iflytek.voiceads.AdError;
 import com.iflytek.voiceads.AdKeys;
 import com.iflytek.voiceads.IFLYNativeAd;
@@ -24,11 +23,9 @@ import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
-import com.messi.languagehelper.util.SaveData;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.util.ToastUtil;
-import com.messi.languagehelper.util.XimalayaUtil;
 import com.qq.e.ads.nativ.NativeExpressAD;
 import com.qq.e.ads.nativ.NativeExpressADView;
 import com.ximalaya.ting.android.opensdk.constants.DTransferConstants;
@@ -40,7 +37,6 @@ import com.ximalaya.ting.android.opensdk.model.tag.Tag;
 import com.ximalaya.ting.android.opensdk.model.tag.TagList;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -203,31 +199,13 @@ public class XimalayaTagsFragment extends BaseFragment implements OnClickListene
     }
 
     private void setTagsData() {
-        initHotTag();
         loadAD();
         QueryTask();
     }
 
-    private void initHotTag() {
-        Tag tag = new Tag();
-        tag.setTagName("热门");
-        tag.setKind("1");
-        list.add(0, tag);
-        mAdapter.notifyDataSetChanged();
-    }
-
     private void getTagsData() {
         showProgressbar();
-        Type type = new TypeToken<List<Tag>>() {
-        }.getType();
-        List<Tag> tagList = SaveData.getDataListFonJson(getContext(), "xmly_"+category, type);
-        if (tagList != null) {
-            list.clear();
-            list.addAll(tagList);
-            setTagsData();
-        } else {
-            RequestTagsData();
-        }
+        RequestTagsData();
     }
 
     private void QueryTask() {
@@ -402,7 +380,7 @@ public class XimalayaTagsFragment extends BaseFragment implements OnClickListene
 
     private void RequestTagsData() {
         Map<String, String> map = new HashMap<String, String>();
-        map.put(DTransferConstants.CATEGORY_ID, XimalayaUtil.Category_english);
+        map.put(DTransferConstants.CATEGORY_ID, category);
         map.put(DTransferConstants.TYPE, "0");
         showProgressbar();
         CommonRequest.getTags(map, new IDataCallBack<TagList>() {
@@ -412,8 +390,14 @@ public class XimalayaTagsFragment extends BaseFragment implements OnClickListene
                 if (tagList != null) {
                     list.clear();
                     list.addAll(tagList.getTagList());
+                    Tag tag = new Tag();
+                    tag.setTagName("热门");
+                    tag.setKind("1");
+                    list.add(0, tag);
+                    if(mAdapter != null){
+                        mAdapter.notifyDataSetChanged();
+                    }
                     setTagsData();
-                    saveData();
                 }
             }
 
@@ -423,10 +407,6 @@ public class XimalayaTagsFragment extends BaseFragment implements OnClickListene
                 LogUtil.DefalutLog("onError:" + i + "---mes:" + s);
             }
         });
-    }
-
-    private void saveData() {
-        SaveData.saveDataListAsJson(getContext(), "xmly_"+category, list);
     }
 
     @Override

@@ -54,7 +54,7 @@ public class XimalayaDashboardFragment extends BaseFragment implements OnClickLi
 		mTabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
 		mViewPager = (ViewPager) view.findViewById(viewpager);
 		search_btn = (FrameLayout) view.findViewById(R.id.search_btn);
-		mViewPager.setOffscreenPageLimit(8);
+		mViewPager.setOffscreenPageLimit(11);
 		XmlyAllAdapter allAdapter = new XmlyAllAdapter(getChildFragmentManager(),this);
 		mViewPager.setAdapter(allAdapter);
 		mTabLayout.setupWithViewPager(mViewPager);

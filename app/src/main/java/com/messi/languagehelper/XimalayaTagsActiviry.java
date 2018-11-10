@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-import com.google.gson.reflect.TypeToken;
 import com.iflytek.voiceads.AdError;
 import com.iflytek.voiceads.AdKeys;
 import com.iflytek.voiceads.IFLYNativeAd;
@@ -21,7 +20,6 @@ import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
-import com.messi.languagehelper.util.SaveData;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.util.ToastUtil;
@@ -36,7 +34,6 @@ import com.ximalaya.ting.android.opensdk.model.tag.Tag;
 import com.ximalaya.ting.android.opensdk.model.tag.TagList;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -182,30 +179,14 @@ public class XimalayaTagsActiviry extends BaseActivity implements OnClickListene
     }
 
     private void setTagsData(){
-        initHotTag();
         initViews();
         loadAD();
         QueryTask();
     }
 
-    private void initHotTag(){
-        Tag tag = new Tag();
-        tag.setTagName("热门");
-        tag.setKind("1");
-        list.add(0,tag);
-    }
-
     private void getTagsData() {
         showProgressbar();
-        Type type = new TypeToken<List<Tag>>() {}.getType();
-        List<Tag> tagList = SaveData.getDataListFonJson(this, "xmly_"+category, type);
-        if (tagList != null) {
-            list.clear();
-            list.addAll(tagList);
-            setTagsData();
-        } else {
-            RequestTagsData();
-        }
+        RequestTagsData();
     }
 
     private void QueryTask() {
@@ -388,7 +369,13 @@ public class XimalayaTagsActiviry extends BaseActivity implements OnClickListene
                 if (tagList != null) {
                     list.clear();
                     list.addAll(tagList.getTagList());
-                    saveData();
+                    Tag tag = new Tag();
+                    tag.setTagName("热门");
+                    tag.setKind("1");
+                    list.add(0,tag);
+                    if(mAdapter != null){
+                        mAdapter.notifyDataSetChanged();
+                    }
                     setTagsData();
                 }
             }
@@ -398,10 +385,6 @@ public class XimalayaTagsActiviry extends BaseActivity implements OnClickListene
                 LogUtil.DefalutLog("onError:" + i + "---mes:" + s);
             }
         });
-    }
-
-    private void saveData(){
-        SaveData.saveDataListAsJson(this, "xmly_"+category,list);
     }
 
     @Override
