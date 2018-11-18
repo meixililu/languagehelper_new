@@ -7,9 +7,9 @@ android {
 
     defaultConfig {
         //修改 Provider
-//        applicationId "com.messi.languagehelper"
+        applicationId "com.messi.languagehelper"
 //        applicationId "com.messi.languagehelper.google"
-        applicationId "com.messi.learnenglish"  //英语君
+//        applicationId "com.messi.learnenglish"  //英语君
 //        applicationId "com.messi.learnenglish.google"  //英语君
 //        applicationId "com.messi.cantonese.study"  //粤语说
 //        applicationId "com.messi.cantonese.study.google"  //粤语说
@@ -19,14 +19,14 @@ android {
         minSdkVersion 16
         targetSdkVersion 28
         //中英互译
-//        versionCode 43
-//        versionName "4.5.3"
+        versionCode 43
+        versionName "4.5.3"
         //粤语说
         //versionCode 7
         //versionName "1.6"
         //英语君
-        versionCode 9
-        versionName "1.6"
+//        versionCode 9
+//        versionName "1.6"
         //语文词典
         //versionCode 1
         //versionName "1.0"
@@ -82,8 +82,8 @@ dependencies {
     implementation 'org.jsoup:jsoup:1.11.3'
     implementation 'com.squareup.okhttp3:okhttp:3.11.0'
     implementation 'com.squareup.okio:okio:2.1.0'
-    implementation 'cn.leancloud.android:avoscloud-sdk:v4.7.3'
-    implementation 'cn.leancloud.android:avoscloud-statistics:v4.7.3'
+    implementation 'cn.leancloud.android:avoscloud-sdk:v4.7.7'
+    implementation 'cn.leancloud.android:avoscloud-statistics:v4.7.7'
     implementation 'cn.jzvd:jiaozivideoplayer:6.3.1'
     implementation 'com.facebook.fresco:fresco:1.9.0'
     implementation 'com.facebook.fresco:animated-gif:1.9.0'

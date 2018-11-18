@@ -29,6 +29,7 @@ public class XmlyMainForYYSFragment extends BaseFragment implements OnClickListe
 	private Fragment mFragment2;
 	private Fragment mFragment3;
 	private Fragment mFragment4;
+	private Fragment mFragment5;
 
 	public static Fragment newInstance(){
 		return new XmlyMainForYYSFragment();
@@ -57,6 +58,7 @@ public class XmlyMainForYYSFragment extends BaseFragment implements OnClickListe
 		}
 		currentTabIndex = PlayUtil.getSP().getInt(KeyUtil.XmlyMainForYYS,1);
 		mTabLayout.addTab(mTabLayout.newTab().setText(getText(R.string.title_category)));
+		mTabLayout.addTab(mTabLayout.newTab().setText(getText(R.string.title_juhe)));
 		mTabLayout.addTab(mTabLayout.newTab().setText(getText(R.string.title_cantonese)));
 		mTabLayout.addTab(mTabLayout.newTab().setText(getText(R.string.recommend)));
 		mTabLayout.addTab(mTabLayout.newTab().setText(getText(R.string.title_broadcast)));
@@ -81,6 +83,7 @@ public class XmlyMainForYYSFragment extends BaseFragment implements OnClickListe
 
 	private void initFragment(){
 		mFragment1 = XmlyCategoryFragment.getInstance();
+		mFragment5 = ReadingFragmentYYS.newInstance();
 		mFragment2 = XmlySearchAlbumForYYSFragment.newInstance("粤语");
 		mFragment3 = XmlyCategoryRecommendFragment.newInstance("","",this);
 		mFragment4 = XimalayaRadioHomeFragment.newInstance(this);
@@ -90,6 +93,7 @@ public class XmlyMainForYYSFragment extends BaseFragment implements OnClickListe
 				.add(R.id.content_layout,mFragment2)
 				.add(R.id.content_layout,mFragment3)
 				.add(R.id.content_layout, mFragment4)
+				.add(R.id.content_layout, mFragment5)
 				.commit();
 	}
 
@@ -100,6 +104,7 @@ public class XmlyMainForYYSFragment extends BaseFragment implements OnClickListe
 				.hide(mFragment2)
 				.hide(mFragment3)
 				.hide(mFragment4)
+				.hide(mFragment5)
 				.commit();
 	}
 
@@ -113,13 +118,17 @@ public class XmlyMainForYYSFragment extends BaseFragment implements OnClickListe
 				break;
 			case 1:
 				getChildFragmentManager()
-						.beginTransaction().show(mFragment2).commit();
+						.beginTransaction().show(mFragment5).commit();
 				break;
 			case 2:
 				getChildFragmentManager()
-						.beginTransaction().show(mFragment3).commit();
+						.beginTransaction().show(mFragment2).commit();
 				break;
 			case 3:
+				getChildFragmentManager()
+						.beginTransaction().show(mFragment3).commit();
+				break;
+			case 4:
 				getChildFragmentManager()
 						.beginTransaction().show(mFragment4).commit();
 				break;

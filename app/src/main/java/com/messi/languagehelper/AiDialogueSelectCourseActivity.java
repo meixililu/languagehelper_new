@@ -32,8 +32,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-import static com.androidquery.util.AQUtility.getContext;
-
 public class AiDialogueSelectCourseActivity extends BaseActivity implements View.OnClickListener{
 
     private static final int NUMBER_OF_COLUMNS = 2;
@@ -69,7 +67,7 @@ public class AiDialogueSelectCourseActivity extends BaseActivity implements View
         mAdapter.setFooter(new Object());
         mXFYSAD.setAdapter(mAdapter);
         hideFooterview();
-        layoutManager = new GridLayoutManager(getContext(), NUMBER_OF_COLUMNS);
+        layoutManager = new GridLayoutManager(AiDialogueSelectCourseActivity.this, NUMBER_OF_COLUMNS);
         HeaderSpanSizeLookup headerSpanSizeLookup = new HeaderSpanSizeLookup(mAdapter, layoutManager);
         layoutManager.setSpanSizeLookup(headerSpanSizeLookup);
         category_lv.setLayoutManager(layoutManager);
@@ -147,7 +145,7 @@ public class AiDialogueSelectCourseActivity extends BaseActivity implements View
             onSwipeRefreshLayoutFinish();
             if(avObject != null){
                 if(avObject.size() == 0){
-                    ToastUtil.diaplayMesShort(getContext(), "没有了！");
+                    ToastUtil.diaplayMesShort(AiDialogueSelectCourseActivity.this, "没有了！");
                     hasMore = false;
                     hideFooterview();
                 }else{

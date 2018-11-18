@@ -87,6 +87,11 @@ public class NativeADDataRefForZYHY extends NativeADDataRef {
     }
 
     @Override
+    public String getExplain() {
+        return null;
+    }
+
+    @Override
     public String getImage() {
         return img;
     }

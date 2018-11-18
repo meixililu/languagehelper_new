@@ -57,8 +57,7 @@ public class MainFragmentYYS extends BaseFragment implements OnClickListener, Or
     public long lastSubmitTiem;
     public int currentTabIndex;
     public MainTabTranZhYue mMainTabTran;
-    public ChineseDictionaryFragment mChDicFragment;
-    public EnDicFragment mEnDicFragment;
+    public WebViewForYYSFragment mChDicFragment;
 
     private LinearLayout record_layout;
     private ImageView record_anim_img;
@@ -186,8 +185,7 @@ public class MainFragmentYYS extends BaseFragment implements OnClickListener, Or
         }
         currentTabIndex = PlayUtil.getSP().getInt(KeyUtil.MainFragmentIndex,0);
         tablayout.addTab(tablayout.newTab().setText(getText(R.string.title_translate)));
-        tablayout.addTab(tablayout.newTab().setText(getText(R.string.title_chinese_dic)));
-        tablayout.addTab(tablayout.newTab().setText(getText(R.string.title_english_dic)));
+        tablayout.addTab(tablayout.newTab().setText(getText(R.string.title_yueyufayin)));
         tablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -223,13 +221,11 @@ public class MainFragmentYYS extends BaseFragment implements OnClickListener, Or
 
     private void initFragment(){
         mMainTabTran = MainTabTranZhYue.getInstance(mProgressbarListener);
-        mChDicFragment = ChineseDictionaryFragment.getInstance(mProgressbarListener);
-        mEnDicFragment = EnDicFragment.getInstance(mProgressbarListener);
+        mChDicFragment = WebViewForYYSFragment.getInstance(mProgressbarListener);
         getChildFragmentManager()
                 .beginTransaction()
                 .add(R.id.content_layout,mMainTabTran)
                 .add(R.id.content_layout,mChDicFragment)
-                .add(R.id.content_layout, mEnDicFragment)
                 .commit();
         hideAllFragment();
     }
@@ -239,7 +235,6 @@ public class MainFragmentYYS extends BaseFragment implements OnClickListener, Or
                 .beginTransaction()
                 .hide(mMainTabTran)
                 .hide(mChDicFragment)
-                .hide(mEnDicFragment)
                 .commit();
     }
 
@@ -286,6 +281,12 @@ public class MainFragmentYYS extends BaseFragment implements OnClickListener, Or
             initLanguage();
             ToastUtil.diaplayMesShort(getContext(), getContext().getResources().getString(R.string.speak_english));
             AVAnalytics.onEvent(getContext(), "tab1_en_sbtn");
+        }else if (v.getId() == R.id.rb_to_yue) {
+            Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.IsTranslateYueKey, true);
+            initTranslateSelected();
+        }else if (v.getId() == R.id.rb_to_zh) {
+            Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.IsTranslateYueKey, false);
+            initTranslateSelected();
         }
     }
 
@@ -307,13 +308,6 @@ public class MainFragmentYYS extends BaseFragment implements OnClickListener, Or
                 input_et.setHint(getString(R.string.input_et_hint_chinese));
                 getChildFragmentManager()
                         .beginTransaction().show(mChDicFragment).commit();
-                isChangeTabNeedSearch();
-                break;
-            case 2:
-                zh_yue_layout.setVisibility(View.GONE);
-                input_et.setHint(getString(R.string.input_et_hint_english));
-                getChildFragmentManager()
-                        .beginTransaction().show(mEnDicFragment).commit();
                 isChangeTabNeedSearch();
                 break;
         }
@@ -454,13 +448,6 @@ public class MainFragmentYYS extends BaseFragment implements OnClickListener, Or
                 break;
             case 1:
                 mChDicFragment.submit();
-                break;
-            case 2:
-                mEnDicFragment.submit();
-                break;
-            case 3:
-                break;
-            case 4:
                 break;
         }
     }

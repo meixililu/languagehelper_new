@@ -86,7 +86,13 @@ public class LeisureFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.leisure_fragment, null);
+        View view = null;
+        if (getContext().getPackageName().equals(Setings.application_id_yys) ||
+                getContext().getPackageName().equals(Setings.application_id_yys_google)) {
+            view = inflater.inflate(R.layout.leisure_for_yys_fragment, null);
+        } else {
+            view = inflater.inflate(R.layout.leisure_fragment, null);
+        }
         ButterKnife.bind(this, view);
         sp = Setings.getSharedPreferences(getContext());
         if(ADUtil.IsShowAD){

@@ -10,6 +10,7 @@ import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
@@ -399,11 +400,16 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
             }
         });
 
+        Fragment fragment = ReadingFragment.newInstanceByType("video", 2000,true);
+        if(getApplication().getPackageName().equals(Setings.application_id_yys) ||
+                getApplication().getPackageName().equals(Setings.application_id_yys_google)){
+            fragment = ReadingFragmentYYS.newInstance();
+        } else if(getApplication().getPackageName().equals(Setings.application_id_yycd)){
+            fragment = ReadingFragmentYYS.newInstance();
+        }
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.next_composition,
-                        ReadingFragment.newInstanceByType("video",
-                                2000,true))
+                .add(R.id.next_composition, fragment)
                 .commit();
     }
 

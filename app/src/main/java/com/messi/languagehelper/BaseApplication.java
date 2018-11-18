@@ -30,25 +30,28 @@ public class BaseApplication extends MultiDexApplication {
         super.onCreate();
         if(mInstance == null)  mInstance = this;
         initAVOS();
-
     }
 
     private void initAVOS(){
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND);
-                Fresco.initialize(BaseApplication.this);
-                AVOSCloud.initialize(BaseApplication.this, "3fg5ql3r45i3apx2is4j9on5q5rf6kapxce51t5bc0ffw2y4", "twhlgs6nvdt7z7sfaw76ujbmaw7l12gb8v6sdyjw1nzk9b1a");
-                YouDaoApplication.init(BaseApplication.this, Setings.YoudaoApiKey);
-                AVAnalytics.enableCrashReport(BaseApplication.this, true);
-                initLearnCloudChannel();
-            }
-        }).run();
-        CommonRequest.getInstanse().init(BaseApplication.this, "c779eeb1873325a487e2956a2077f2bc");
-        CommonRequest.getInstanse().setHttpConfig(null);
-        CommonRequest.getInstanse().setUseHttps(true);
-        LogUtil.DefalutLog("initXimalayaSDK");
+        try {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND);
+                    Fresco.initialize(BaseApplication.this);
+                    AVOSCloud.initialize(BaseApplication.this, "3fg5ql3r45i3apx2is4j9on5q5rf6kapxce51t5bc0ffw2y4", "twhlgs6nvdt7z7sfaw76ujbmaw7l12gb8v6sdyjw1nzk9b1a");
+                    YouDaoApplication.init(BaseApplication.this, Setings.YoudaoApiKey);
+                    AVAnalytics.enableCrashReport(BaseApplication.this, true);
+                    initLearnCloudChannel();
+                }
+            }).run();
+            CommonRequest.getInstanse().init(BaseApplication.this, "c779eeb1873325a487e2956a2077f2bc");
+            CommonRequest.getInstanse().setHttpConfig(null);
+            CommonRequest.getInstanse().setUseHttps(true);
+            LogUtil.DefalutLog("initXimalayaSDK");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void initLearnCloudChannel(){
