@@ -13,6 +13,8 @@ import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.ZipUtil;
 
+import java.util.HashMap;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -26,11 +28,12 @@ import io.reactivex.schedulers.Schedulers;
 
 public class OfflineDicDownloadActivity extends BaseActivity {
 
-    private final static String DicFileName = "localdict.datx";
-    private final static String SentenceFileName = "ce.zip";
-    private final static String minimalistUrl = "http://ac-3fg5ql3r.clouddn.com/bdf289ac24c248becf42.datx";
-    private final static String standarUrl = "http://ac-3fg5ql3r.clouddn.com/acf9b97ea30ef50f2501.datx";
-    private final static String sentenceUrl = "http://ac-3fg5ql3r.clouddn.com/a67d548bf365b3291489.zip";
+    private final static String TempFileName = "temp.zip";
+    private final static String minimalistUrl = "http://www.mzxbkj.com/dictres/localdictjjb.zip";
+    private final static String standarUrl = "http://www.mzxbkj.com/dictres/localdictxxb.zip";
+    private final static String sentenceUrl = "http://www.mzxbkj.com/dictres/ce.zip";
+    private final static String kuozhankuUrl = "http://www.mzxbkj.com/dictres/wordlib.zip";
+    private final static String hhUrl = "http://www.mzxbkj.com/dictres/hh.zip";
     @BindView(R.id.dic_minimalist_img)
     ImageView dicMinimalistImg;
     @BindView(R.id.dic_minimalist)
@@ -45,11 +48,19 @@ public class OfflineDicDownloadActivity extends BaseActivity {
     FrameLayout dicSentence;
     @BindView(R.id.number_progress_bar)
     NumberProgressBar numberProgressBar;
+    @BindView(R.id.kz_img)
+    ImageView kzImg;
+    @BindView(R.id.kz_layout)
+    FrameLayout kzLayout;
+    @BindView(R.id.hh_img)
+    ImageView hhImg;
+    @BindView(R.id.hh_layout)
+    FrameLayout hhLayout;
 
     //0 no dic, 1 minimalist, 2 standard
     private int status = 0;
-    private boolean isOfflineSentenceExist;
     private String mOfflineDicPath;
+    private HashMap<String,String> downloading;
 
     final ProgressListener progressListener = new ProgressListener() {
         @Override
@@ -91,14 +102,14 @@ public class OfflineDicDownloadActivity extends BaseActivity {
 
     private void init() {
         getSupportActionBar().setTitle(getResources().getString(R.string.title_offline_dic));
+        downloading = new HashMap<>();
         setImage();
     }
 
     private void setImage() {
         try {
             mOfflineDicPath = SDCardUtil.getDownloadPath(SDCardUtil.OfflineDicPath);
-            long size = SDCardUtil.getFileSize(mOfflineDicPath + DicFileName);
-            LogUtil.DefalutLog("size:" + size);
+            long size = SDCardUtil.getFileSize(mOfflineDicPath + "localdict.datx");
             if (size > 0) {
                 if (size > (6 * 1048576)) {
                     status = 2;
@@ -109,72 +120,111 @@ public class OfflineDicDownloadActivity extends BaseActivity {
                     dicMinimalistImg.setImageResource(R.drawable.ic_done);
                 }
             }
-            isOfflineSentenceExist = SDCardUtil.isFileExist(mOfflineDicPath+"c2e/");
-            if(isOfflineSentenceExist){
+            if (isSentenceExist()) {
                 dicSentenceImg.setImageResource(R.drawable.ic_done);
+            }
+            if (isHHExist()) {
+                hhImg.setImageResource(R.drawable.ic_done);
+            }
+            if (isKZExist()) {
+                kzImg.setImageResource(R.drawable.ic_done);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    @OnClick({R.id.dic_minimalist, R.id.dic_standard})
+    private boolean isSentenceExist(){
+        return SDCardUtil.isFileExist(mOfflineDicPath + "c2e/");
+    }
+
+    private boolean isHHExist(){
+        return SDCardUtil.isFileExist(mOfflineDicPath + "hh");
+    }
+
+    private boolean isKZExist(){
+        return SDCardUtil.isFileExist(mOfflineDicPath + "IrregularWords");
+    }
+
+    @OnClick({R.id.dic_minimalist, R.id.dic_standard,R.id.kz_layout, R.id.hh_layout,R.id.dic_sentence})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.dic_minimalist:
-                downloadMinimalistDic(minimalistUrl);
+                downloadMinimalistDic();
                 break;
             case R.id.dic_standard:
-                downloadStandardDic(standarUrl);
+                downloadStandardDic();
+                break;
+            case R.id.kz_layout:
+                downloadKZ();
+                break;
+            case R.id.hh_layout:
+                downloadHH();
+                break;
+            case R.id.dic_sentence:
+                downloadSentence();
                 break;
         }
     }
 
-    @OnClick(R.id.dic_sentence)
-    public void onViewClicked() {
-        downloadSentence(sentenceUrl);
-    }
-
-    private void downloadMinimalistDic(String url) {
+    private void downloadMinimalistDic() {
         if (status < 1) {
-            downloadFile(url,DicFileName);
+            downloadFile(minimalistUrl, TempFileName);
         } else {
-            ToastUtil.diaplayMesShort(this, "已经下载了精简版离线词典");
+            ToastUtil.diaplayMesShort(this, "已下载精简版离线词典");
         }
     }
 
-    private void downloadStandardDic(String url) {
+    private void downloadStandardDic() {
         if (status < 2) {
-            downloadFile(url,DicFileName);
+            downloadFile(standarUrl, TempFileName);
         } else {
-            ToastUtil.diaplayMesShort(this, "已经下载了标准版离线词典");
+            ToastUtil.diaplayMesShort(this, "已下载标准版离线词典");
         }
     }
 
-    private void downloadSentence(String url) {
-        if (!isOfflineSentenceExist) {
-            if(SDCardUtil.isFileExist(mOfflineDicPath+SentenceFileName)){
-                unzipFile();
-            }else{
-                downloadFile(url,SentenceFileName);
-            }
+    private void downloadSentence() {
+        if (!isSentenceExist()) {
+            downloadFile(sentenceUrl, TempFileName);
         } else {
-            ToastUtil.diaplayMesShort(this, "已经下载了离线句子翻译");
+            ToastUtil.diaplayMesShort(this, "已下载离线句子翻译");
         }
     }
 
-    private void downloadFile(final String url,final String fileName) {
+    private void downloadHH() {
+        if (!isHHExist()) {
+            downloadFile(hhUrl, TempFileName);
+        } else {
+            ToastUtil.diaplayMesShort(this, "已下载离线汉语词典");
+        }
+    }
+
+    private void downloadKZ() {
+        if (!isKZExist()) {
+            downloadFile(kuozhankuUrl, TempFileName);
+        } else {
+            ToastUtil.diaplayMesShort(this, "已下载离线词汇扩展包");
+        }
+    }
+
+    private void downloadFile(final String url, final String fileName) {
         Observable.create(new ObservableOnSubscribe<String>() {
             @Override
             public void subscribe(ObservableEmitter<String> e) throws Exception {
-                DownLoadUtil.downloadFile(OfflineDicDownloadActivity.this, url, SDCardUtil.OfflineDicPath,
-                        fileName, progressListener, "");
-                if(url.equals(sentenceUrl)){
-                    e.onNext("unzip");
-                    ZipUtil.Unzip(mOfflineDicPath+SentenceFileName, mOfflineDicPath, true);
-                    e.onNext("finish");
+                if(!downloading.containsKey(url)){
+                    boolean result = DownLoadUtil.downloadFile(OfflineDicDownloadActivity.this, url, SDCardUtil.OfflineDicPath,
+                            fileName, progressListener, "");
+                    downloading.put(url,"yes");
+                    if(result){
+                        e.onNext("unzip");
+                        ZipUtil.Unzip(mOfflineDicPath + fileName, mOfflineDicPath, true);
+                        e.onNext("finish");
+                        e.onComplete();
+                    }
+                    downloading.remove(url);
+                }else {
+                    LogUtil.DefalutLog("downloading");
                 }
-                e.onComplete();
             }
         })
                 .subscribeOn(Schedulers.io())
@@ -188,9 +238,11 @@ public class OfflineDicDownloadActivity extends BaseActivity {
                     public void onNext(String s) {
                         prompt(s);
                     }
+
                     @Override
                     public void onError(Throwable e) {
                     }
+
                     @Override
                     public void onComplete() {
                         setImage();
@@ -198,47 +250,14 @@ public class OfflineDicDownloadActivity extends BaseActivity {
                 });
     }
 
-    private void prompt(String s){
-        if(s.equals("unzip")){
-            ToastUtil.diaplayMesShort(OfflineDicDownloadActivity.this,"离线包下载完成，开始解压");
+    private void prompt(String s) {
+        if (s.equals("unzip")) {
+            ToastUtil.diaplayMesShort(OfflineDicDownloadActivity.this, "离线包下载完成，开始解压");
             showProgressbar();
-        }else if(s.equals("finish")){
-            ToastUtil.diaplayMesShort(OfflineDicDownloadActivity.this,"解压完成，可以使用离线翻译了");
+        } else if (s.equals("finish")) {
+            ToastUtil.diaplayMesShort(OfflineDicDownloadActivity.this, "解压完成，可以使用离线翻译了");
             hideProgressbar();
         }
-    }
-
-    private void unzipFile() {
-        Observable.create(new ObservableOnSubscribe<String>() {
-            @Override
-            public void subscribe(ObservableEmitter<String> e) throws Exception {
-                e.onNext("unzip");
-                ZipUtil.Unzip(mOfflineDicPath+SentenceFileName, mOfflineDicPath, true);
-                e.onNext("finish");
-                e.onComplete();
-            }
-        })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<String>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                    }
-
-                    @Override
-                    public void onNext(String s) {
-                        prompt(s);
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        setImage();
-                    }
-                });
     }
 
 }

@@ -67,6 +67,8 @@
     <string name="dic_minimalist">Minimalist</string>
     <string name="dic_normal">Standard</string>
     <string name="dic_sentence">Offline Sentence</string>
+    <string name="hh_offline">Offline Chinese</string>
+    <string name="kz_offline">Extended Lexicon</string>
     <string name="copy">Copy</string>
     <string name="voice">voice</string>
     <string name="background_color">Background Color</string>

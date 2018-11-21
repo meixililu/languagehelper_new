@@ -55,7 +55,7 @@ import okhttp3.FormBody;
 import okhttp3.Response;
 
 public class TranslateUtil {
-	
+
 	public static final String baidu_api = "baidu_api";
 	public static final String show_api = "show_api";
 	public static final String juhe_api = "juhe_api";
@@ -79,7 +79,7 @@ public class TranslateUtil {
 		mStackTransalte = getStackTransalte();
 		Translate(mActivity,mHandler);
 	}
-	
+
 	public static void Translate(Context mActivity, Handler mHandler) {
 		if(!mStackTransalte.isEmpty()){
 			TranslateApiBean bean = (TranslateApiBean) mStackTransalte.pop();
@@ -94,7 +94,7 @@ public class TranslateUtil {
 			sendMessage(mHandler,2);
 		}
 	}
-	
+
 	public static StackTransalte getStackTransalte(){
 		StackTransalte mStackTransalte = new StackTransalte();
 		for(TranslateApiBean bean : apiOrder){
@@ -104,7 +104,7 @@ public class TranslateUtil {
 		}
 		return mStackTransalte;
 	}
-	
+
 	public static void selectTranslateApi(Context mActivity, Handler mHandler, String method){
 		LogUtil.DefalutLog("selectTranslateApi:"+method);
 		if(method.equals(show_api)){
@@ -214,7 +214,7 @@ public class TranslateUtil {
 			}
 		});
 	}
-	
+
 	public static void Translate_youdao_web(final Context mActivity, final Handler mHandler) {
 		LanguagehelperHttpClient.get(Setings.YoudaoWeb + Setings.q + Setings.YoudaoWebEnd, new Callback() {
 			@Override
@@ -249,7 +249,7 @@ public class TranslateUtil {
 			}
 		});
 	}
-	
+
 	public static Dictionary getParseYoudaoWebHtml(String html){
 		StringBuilder sb = new StringBuilder();
 		StringBuilder sb_play = new StringBuilder();
@@ -272,14 +272,14 @@ public class TranslateUtil {
 			LogUtil.DefalutLog(error.text());
 			return null;
 		}
-		
+
 		Element feedback = doc.select("div.feedback").first();
 		if(feedback != null){
 			LogUtil.DefalutLog(feedback.text());
 			saveTranslateApiStatus(youdao_web,System.currentTimeMillis());
 			return null;
 		}
-		
+
 		Element symblo = doc.select("h2.wordbook-js > div.baav").first();
 		if(symblo != null){
 			addContent(symblo,sb);
@@ -304,7 +304,7 @@ public class TranslateUtil {
 			sb.append("\n");
 			addContentAll(title1,sb,sb_play);
 		}
-		
+
 		Elements containers = doc.select("div#tWebTrans > div.wt-container.wt-collapse");
 		if(containers != null){
 			for(Element item : containers){
@@ -344,7 +344,7 @@ public class TranslateUtil {
 				}
 			}
 		}
-		
+
 		Elements wordGroup = doc.select("div#eTransform > div#transformToggle > div#wordGroup > p");
 		if(wordGroup != null && wordGroup.size() > 0){
 			sb.append("\n");
@@ -354,7 +354,7 @@ public class TranslateUtil {
 				addContentAll(item,sb,sb_play);
 			}
 		}
-		
+
 		Element discriminate = doc.select("div#eTransform > div#transformToggle > div#discriminate > div.wt-container").first();
 		if(discriminate != null){
 			Element title = discriminate.select("div.title").first();
@@ -371,7 +371,7 @@ public class TranslateUtil {
 				}
 			}
 		}
-		
+
 		Elements examples = doc.select("div#examples > div#examplesToggle > div#bilingual > ul.ol > li");
 		if(examples != null && examples.size() > 0){
 			sb.append("\n");
@@ -388,7 +388,7 @@ public class TranslateUtil {
 				}
 			}
 		}
-		
+
 		Elements originalSounds = doc.select("div#examples > div#examplesToggle > div#originalSound > ul.ol > li");
 		if(originalSounds != null && originalSounds.size() > 0){
 			sb.append("\n");
@@ -405,7 +405,7 @@ public class TranslateUtil {
 				}
 			}
 		}
-		
+
 		if(sb.length() > 0){
 			mDictionary.setResult(sb.substring(0, sb.lastIndexOf("\n")));
 			mDictionary.setBackup1(sb_play.substring(0, sb_play.lastIndexOf("\n")));
@@ -415,7 +415,7 @@ public class TranslateUtil {
 			return null;
 		}
 	}
-	
+
 	public static void li_iteration(Element li,StringBuilder sb, StringBuilder sb_play){
 		if(!TextUtils.isEmpty(li.ownText().trim())){
 			addContentAll(li.ownText().trim(),sb,sb_play);
@@ -426,11 +426,11 @@ public class TranslateUtil {
 					li_iteration(lichild,sb,sb_play);
 				}else{
 					addContentAll(lichild,sb,sb_play);
-				} 
+				}
 			}
 		}
 	}
-	
+
 	public static void Translate_Biying_web(final Context mActivity, final Handler mHandler) {
 		LanguagehelperHttpClient.get(Setings.BingyingWeb + Setings.q, new Callback() {
 			@Override
@@ -466,7 +466,7 @@ public class TranslateUtil {
 			}
 		});
 	}
-	
+
 	public static Dictionary getParseBingyingWebHtml(String html){
 		StringBuilder sb = new StringBuilder();
 		StringBuilder sb_play = new StringBuilder();
@@ -491,7 +491,7 @@ public class TranslateUtil {
 				addContentAll(p1_11,sb,sb_play);
 			}
 		}
-		
+
 		Element symblo = doc.select("div.hd_p1_1").first();
 		if(symblo != null){
 			addContent(symblo,sb);
@@ -511,7 +511,7 @@ public class TranslateUtil {
 		if(fusu != null){
 			addContent(fusu,sb);
 		}
-		
+
 		Elements dapeis = doc.select("div.wd_div > div#thesaurusesid > div#colid > div.df_div2");
 		if(dapeis != null && dapeis.size() > 0){
 			sb.append("\n");
@@ -521,7 +521,7 @@ public class TranslateUtil {
 				addContentAll(item,sb,sb_play);
 			}
 		}
-		
+
 		Element authid = doc.select("div.df_div > div#defid > div#authid").first();
 		if(authid != null){
 			sb.append("\n");
@@ -531,7 +531,7 @@ public class TranslateUtil {
 			if(title != null){
 				addContentAll(title,sb,sb_play);
 			}
-			
+
 			Elements each_seg = authid.select("div.li_sen > div.each_seg");
 			for(Element item : each_seg){
 				Element type = item.select("div.li_pos > div.pos_lin > div.pos").first();
@@ -590,7 +590,7 @@ public class TranslateUtil {
 				}
 			}
 		}
-		
+
 		Elements se_lis = doc.select("div#sentenceCon > div#sentenceSeg > div.se_li");
 		if(se_lis != null && se_lis.size() > 0){
 			sb.append("\n");
@@ -607,7 +607,7 @@ public class TranslateUtil {
 				}
 			}
 		}
-		
+
 		if(sb.length() > 1){
 			mDictionary.setResult(sb.substring(0, sb.lastIndexOf("\n")));
 			mDictionary.setBackup1(sb_play.substring(0, sb_play.lastIndexOf("\n")));
@@ -617,26 +617,26 @@ public class TranslateUtil {
 			return null;
 		}
 	}
-	
+
 	public static void addContent(Element title,StringBuilder sb){
 		sb.append(title.text().trim());
 		sb.append("\n");
 	}
-	
+
 	public static void addContentAll(Element title,StringBuilder sb,StringBuilder sb_play){
 		sb.append(title.text().trim());
 		sb.append("\n");
 		sb_play.append(title.text().trim());
 		sb_play.append("\n");
 	}
-	
+
 	public static void addContentAll(String title,StringBuilder sb,StringBuilder sb_play){
 		sb.append(title);
 		sb.append("\n");
 		sb_play.append(title);
 		sb_play.append("\n");
 	}
-	
+
 	/**
 	 * if dictionary api fail baidu translate api
 	 */
@@ -680,14 +680,14 @@ public class TranslateUtil {
 			}
 		});
 	}
-	
+
 	public static void sendMessage(Handler mHandler,int result_code){
 		if (mHandler != null) {
 			Message msg = Message.obtain(mHandler, result_code);
 			mHandler.sendMessage(msg);
 		}
 	}
-	
+
 	public static void saveTranslateApiStatus(String name, long status){
 		if(apiOrder != null){
 			for(TranslateApiBean bean : apiOrder){
@@ -697,13 +697,29 @@ public class TranslateUtil {
 			}
 		}
 	}
-	
+
 	public static void saveTranslateApiOrder(SharedPreferences sp){
 		if(apiOrder != null){
 			String order = new Gson().toJson(apiOrder);
 			LogUtil.DefalutLog("saveTranslateApiOrder:"+order);
 			Setings.saveSharedPreferences(sp, KeyUtil.TranslateApiOrder, order);
 		}
+	}
+
+	public static String getHtmlContext(String html) {
+		StringBuilder sb = new StringBuilder();
+		Pattern p = Pattern.compile("<span class=\"dd\">([^</span>]*)");//匹配<title>开头，</title>结尾的文档
+		Matcher m = p.matcher(html);//开始编译
+		int count = 0;
+		while (m.find()) {
+			if (count > 0) {
+				sb.append("\n");
+			}
+			sb.append(m.group(1).trim());//获取被匹配的部分
+			count++;
+		}
+
+		return sb.toString();
 	}
 
 	public static void offlineTranslate(ObservableEmitter<Translate> e){
@@ -799,24 +815,24 @@ public class TranslateUtil {
 				});
 			}
 		})
-		.subscribeOn(Schedulers.io())
-		.observeOn(AndroidSchedulers.mainThread())
-		.subscribe(new Observer<record>() {
-			@Override
-			public void onSubscribe(Disposable d) {
-			}
-			@Override
-			public void onNext(record mResult) {
-				listener.OnFinishTranslate(mResult);
-			}
-			@Override
-			public void onError(Throwable e) {
-				Tran_HjApi(listener);
-			}
-			@Override
-			public void onComplete() {
-			}
-		});
+				.subscribeOn(Schedulers.io())
+				.observeOn(AndroidSchedulers.mainThread())
+				.subscribe(new Observer<record>() {
+					@Override
+					public void onSubscribe(Disposable d) {
+					}
+					@Override
+					public void onNext(record mResult) {
+						listener.OnFinishTranslate(mResult);
+					}
+					@Override
+					public void onError(Throwable e) {
+						Tran_HjApi(listener);
+					}
+					@Override
+					public void onComplete() {
+					}
+				});
 	}
 
 	private static void Tran_HjApi(final OnTranslateFinishListener listener) {
@@ -845,24 +861,24 @@ public class TranslateUtil {
 				});
 			}
 		})
-		.subscribeOn(Schedulers.io())
-		.observeOn(AndroidSchedulers.mainThread())
-		.subscribe(new Observer<record>() {
-			@Override
-			public void onSubscribe(Disposable d) {
-			}
-			@Override
-			public void onNext(record mResult) {
-				listener.OnFinishTranslate(mResult);
-			}
-			@Override
-			public void onError(Throwable e) {
-				Tran_Baidu(listener);
-			}
-			@Override
-			public void onComplete() {
-			}
-		});
+				.subscribeOn(Schedulers.io())
+				.observeOn(AndroidSchedulers.mainThread())
+				.subscribe(new Observer<record>() {
+					@Override
+					public void onSubscribe(Disposable d) {
+					}
+					@Override
+					public void onNext(record mResult) {
+						listener.OnFinishTranslate(mResult);
+					}
+					@Override
+					public void onError(Throwable e) {
+						Tran_Baidu(listener);
+					}
+					@Override
+					public void onComplete() {
+					}
+				});
 	}
 
 	private static void Tran_Baidu(final OnTranslateFinishListener listener) {
@@ -1142,5 +1158,5 @@ public class TranslateUtil {
 		LogUtil.DefalutLog("tran_js_newapi");
 		return currentDialogBean;
 	}
-	
+
 }
