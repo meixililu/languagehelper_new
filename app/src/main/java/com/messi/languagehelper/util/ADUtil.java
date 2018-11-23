@@ -147,7 +147,30 @@ public class ADUtil {
 		try {
 			AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.AdList.AdList);
 			query.whereEqualTo(AVOUtil.AdList.isValid, "1");
-			query.whereContains(AVOUtil.AdList.app, "zyhy");
+			if(context.getPackageName().equals(Setings.application_id_zyhy) ||
+					context.getPackageName().equals(Setings.application_id_zyhy_google)){
+				query.whereContains(AVOUtil.AdList.app, "zyhy");
+			}else if(context.getPackageName().equals(Setings.application_id_yys) ||
+					context.getPackageName().equals(Setings.application_id_yys_google)){
+				query.whereContains(AVOUtil.AdList.app, "yys");
+			}else if(context.getPackageName().equals(Setings.application_id_yyj) ||
+					context.getPackageName().equals(Setings.application_id_yyj_google)){
+				query.whereContains(AVOUtil.AdList.app, "yyj");
+			}else if(context.getPackageName().equals(Setings.application_id_ywcd)){
+				query.whereContains(AVOUtil.AdList.app, "ywcd");
+			}else if(context.getPackageName().equals(Setings.application_id_xbky)){
+				query.whereContains(AVOUtil.AdList.app, "xbky");
+			}else if(context.getPackageName().equals(Setings.application_id_xbtl)){
+				query.whereContains(AVOUtil.AdList.app, "xbtl");
+			}else if(context.getPackageName().equals(Setings.application_id_qmzj)){
+				query.whereContains(AVOUtil.AdList.app, "qmzj");
+			}else if(context.getPackageName().equals(Setings.application_id_zrhy)){
+				query.whereContains(AVOUtil.AdList.app, "zrhy");
+			}else if(context.getPackageName().equals(Setings.application_id_zhhy)){
+				query.whereContains(AVOUtil.AdList.app, "zhhy");
+			}else{
+				query.whereContains(AVOUtil.AdList.app, "zyhy");
+			}
 			query.addDescendingOrder(AVOUtil.AdList.createdAt);
 			query.limit(20);
 			List<AVObject> list = query.find();

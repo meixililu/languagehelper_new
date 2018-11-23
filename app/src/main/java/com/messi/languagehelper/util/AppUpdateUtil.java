@@ -57,9 +57,17 @@ public class AppUpdateUtil {
         }else if(mActivity.getPackageName().equals(Setings.application_id_yyj_google)){
             query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "yyj_google");
         }else if(mActivity.getPackageName().equals(Setings.application_id_ywcd)){
-            query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "yycd");
+            query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "ywcd");
         }else if(mActivity.getPackageName().equals(Setings.application_id_xbky)){
             query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "xbky");
+        }else if(mActivity.getPackageName().equals(Setings.application_id_xbtl)){
+            query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "xbtl");
+        }else if(mActivity.getPackageName().equals(Setings.application_id_qmzj)){
+            query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "qmzj");
+        }else if(mActivity.getPackageName().equals(Setings.application_id_zrhy)){
+            query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "zrhy");
+        }else if(mActivity.getPackageName().equals(Setings.application_id_zhhy)){
+            query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "zhhy");
         }else{
             query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "noupdate");
         }

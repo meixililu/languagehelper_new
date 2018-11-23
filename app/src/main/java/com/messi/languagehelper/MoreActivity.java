@@ -126,41 +126,33 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
         try {
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_VIEW);
-            if(getPackageName().equals(Setings.application_id_yyj) ||
-                    getPackageName().equals(Setings.application_id_yyj_google)){
-                intent.setData(Uri.parse("market://details?id=com.messi.learnenglish"));
-            } else if (getPackageName().equals(Setings.application_id_yys) ||
-                    getPackageName().equals(Setings.application_id_yys_google)) {
-                intent.setData(Uri.parse("market://details?id=com.messi.cantonese.study"));
-            } else if (getPackageName().equals(Setings.application_id_ywcd)) {
-                intent.setData(Uri.parse("market://details?id=com.messi.languagehelper.chinese"));
-            } else if (getPackageName().equals(Setings.application_id_xbky)) {
-                intent.setData(Uri.parse("market://details?id=com.messi.languagehelper.spoken"));
-            } else {
-                intent.setData(Uri.parse("market://details?id=com.messi.languagehelper"));
+            String pkgname = getPackageName();
+            if(getPackageName().equals(Setings.application_id_yyj_google)){
+                pkgname = Setings.application_id_yyj;
+            } else if (getPackageName().equals(Setings.application_id_yys_google)) {
+                pkgname = Setings.application_id_yys;
+            }  else if (getPackageName().equals(Setings.application_id_zyhy_google)) {
+                pkgname = Setings.application_id_zyhy;
             }
+            intent.setData(Uri.parse("market://details?id=" + pkgname));
             MoreActivity.this.startActivity(intent);
-            AVAnalytics.onEvent(MoreActivity.this, "more_pg_tocommendpg_btn");
+            AVAnalytics.onEvent(MoreActivity.this, "more_pg_commend");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     private void invite(){
-        if(getPackageName().equals(Setings.application_id_yyj) ||
-                getPackageName().equals(Setings.application_id_yyj_google)){
-            ShareUtil.shareText(MoreActivity.this, MoreActivity.this.getResources().getString(R.string.invite_friends_yyj));
-        }else if (getPackageName().equals(Setings.application_id_yys) ||
-                getPackageName().equals(Setings.application_id_yys_google)) {
-            ShareUtil.shareText(MoreActivity.this, MoreActivity.this.getResources().getString(R.string.invite_friends_yys));
-        } else if (getPackageName().equals(Setings.application_id_ywcd)) {
-            ShareUtil.shareText(MoreActivity.this, MoreActivity.this.getResources().getString(R.string.invite_friends_yycd));
-        } else if (getPackageName().equals(Setings.application_id_xbky)) {
-            ShareUtil.shareText(MoreActivity.this, MoreActivity.this.getResources().getString(R.string.invite_friends_xbky));
-        } else {
-            ShareUtil.shareText(MoreActivity.this, MoreActivity.this.getResources().getString(R.string.invite_friends_zyhy));
+        String pkgname = getPackageName();
+        if(getPackageName().equals(Setings.application_id_yyj_google)){
+            pkgname = Setings.application_id_yyj;
+        }else if (getPackageName().equals(Setings.application_id_yys_google)) {
+            pkgname = Setings.application_id_yys;
+        }else if (getPackageName().equals(Setings.application_id_zyhy_google)) {
+            pkgname = Setings.application_id_zyhy;
         }
-        AVAnalytics.onEvent(this, "more_pg_invite_btn", "邀请小伙伴", 1);
+        ShareUtil.shareText(this, getResources().getString(R.string.invite_friends_root) + pkgname);
+        AVAnalytics.onEvent(this, "more_pg_invite", "邀请小伙伴", 1);
     }
 
 }

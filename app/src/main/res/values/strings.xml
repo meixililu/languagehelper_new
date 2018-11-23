@@ -248,11 +248,7 @@
     <string name="practice_prompt_english">点击Start跟读英文</string>
     <string name="practice_prompt_cantonese">点击Start跟读粤语</string>
     <string name="practice_prompt_chinese">点击Start跟读中文</string>
-    <string name="invite_friends_zyhy">哎呦，这个软件不错哦，小伙伴快来！ http://a.app.qq.com/o/simple.jsp?pkgname=com.messi.languagehelper</string>
-    <string name="invite_friends_yyj">哎呦，这个软件不错哦，小伙伴快来！ http://a.app.qq.com/o/simple.jsp?pkgname=com.messi.learnenglish</string>
-    <string name="invite_friends_yys">哎呦，这个软件不错哦，小伙伴快来！ http://a.app.qq.com/o/simple.jsp?pkgname=com.messi.cantonese.study</string>
-    <string name="invite_friends_yycd">哎呦，这个软件不错哦，小伙伴快来！ http://a.app.qq.com/o/simple.jsp?pkgname=com.messi.languagehelper.chinese</string>
-    <string name="invite_friends_xbky">哎呦，这个软件不错哦，小伙伴快来！ http://a.app.qq.com/o/simple.jsp?pkgname=com.messi.languagehelper.spoken</string>
+    <string name="invite_friends_root">哎呦，这个软件不错哦，小伙伴快来！ http://a.app.qq.com/o/simple.jsp?pkgname=</string>
 
     <string name="dailysentence">每日一句</string>
     <string name="english_essay">励志语录</string>

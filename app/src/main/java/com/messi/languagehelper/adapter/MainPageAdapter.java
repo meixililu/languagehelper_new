@@ -99,7 +99,7 @@ public class MainPageAdapter extends FragmentPagerAdapter {
             if( position == 0 ){
                 return MainFragmentYWCD.getInstance(listener);
             }else if( position == 1 ){
-                return ReadingFragmentYWCD.newInstance(0);
+                return ReadingFragmentYWCD.newInstance(500);
             }else if( position == 2 ){
                 return XmlyMainForYWCDFragment.newInstance();
             }

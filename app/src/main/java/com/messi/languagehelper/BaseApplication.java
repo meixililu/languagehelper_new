@@ -71,6 +71,14 @@ public class BaseApplication extends MultiDexApplication {
             AVAnalytics.setAppChannel("ywcd");
         }else if(getPackageName().equals(Setings.application_id_xbky)){
             AVAnalytics.setAppChannel("xbky");
+        }else if(getPackageName().equals(Setings.application_id_xbtl)){
+            AVAnalytics.setAppChannel("xbtl");
+        }else if(getPackageName().equals(Setings.application_id_qmzj)){
+            AVAnalytics.setAppChannel("qmzj");
+        }else if(getPackageName().equals(Setings.application_id_zrhy)){
+            AVAnalytics.setAppChannel("zrhy");
+        }else if(getPackageName().equals(Setings.application_id_zhhy)){
+            AVAnalytics.setAppChannel("zhhy");
         }else{
             AVAnalytics.setAppChannel("other");
         }

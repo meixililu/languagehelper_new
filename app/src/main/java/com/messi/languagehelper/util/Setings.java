@@ -162,6 +162,10 @@ public class Setings {
 	public static final String application_id_yys_google = "com.messi.cantonese.study.google";
 	public static final String application_id_ywcd = "com.messi.languagehelper.chinese";
 	public static final String application_id_xbky = "com.messi.languagehelper.spoken";
+	public static final String application_id_xbtl = "com.messi.languagehelper.listen";
+	public static final String application_id_qmzj = "com.messi.languagehelper.qmzj";
+	public static final String application_id_zrhy = "com.messi.languagehelper_ja";
+	public static final String application_id_zhhy = "com.messi.languagehelper_korean";
 
 	public static String[] PERMISSIONS_STORAGE = {
 			Manifest.permission.WRITE_EXTERNAL_STORAGE,
