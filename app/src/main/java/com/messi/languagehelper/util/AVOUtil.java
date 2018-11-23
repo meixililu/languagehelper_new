@@ -458,6 +458,8 @@ public class AVOUtil {
 
 		public final static String ReadingYue = "ReadingYue";
 
+		public final static String ReadingYW = "ReadingYW";
+
 		public final static String type_id = "type_id";
 		
 		public final static String type_name = "type_name";

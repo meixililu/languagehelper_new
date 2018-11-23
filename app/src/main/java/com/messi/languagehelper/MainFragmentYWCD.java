@@ -1,9 +1,14 @@
 package com.messi.languagehelper;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
+import android.support.v4.widget.NestedScrollView;
+import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +20,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVAnalytics;
@@ -37,6 +43,10 @@ import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
 import com.mindorks.nybus.annotation.Subscribe;
+import com.yanzhenjie.permission.Action;
+import com.yanzhenjie.permission.AndPermission;
+
+import java.util.List;
 
 public class MainFragmentYWCD extends BaseFragment implements OnClickListener, OrcResultListener {
 
@@ -46,6 +56,8 @@ public class MainFragmentYWCD extends BaseFragment implements OnClickListener, O
     private FrameLayout submit_btn_cover;
     private FrameLayout photo_tran_btn;
     private FrameLayout clear_btn_layout;
+    private RelativeLayout layout_bottom;
+    private NestedScrollView top_layout;
     private Button voice_btn;
     private LinearLayout speak_round_layout;
     private TextView cb_speak_language_ch, cb_speak_language_en;
@@ -54,11 +66,9 @@ public class MainFragmentYWCD extends BaseFragment implements OnClickListener, O
 
     public long lastSubmitTiem;
     public int currentTabIndex;
-    public MainTabTran mMainTabTran;
-    public DictionaryFragmentOld mDictionaryFragmentOld;
     public ChineseDictionaryFragment mChDicFragment;
-    public JuhaiFragment mJuhaiFragment;
-    public EnDicFragment mEnDicFragment;
+    public Fragment pinyinFragment;
+    public Fragment bushouFragment;
 
     private LinearLayout record_layout;
     private ImageView record_anim_img;
@@ -123,7 +133,6 @@ public class MainFragmentYWCD extends BaseFragment implements OnClickListener, O
                 record_anim_img.setBackgroundResource(R.drawable.speak_voice_7);
             }
         }
-
     };
 
 
@@ -148,6 +157,8 @@ public class MainFragmentYWCD extends BaseFragment implements OnClickListener, O
         recognizer = SpeechRecognizer.createRecognizer(getContext(), null);
 
         input_et = (EditText) view.findViewById(R.id.input_et);
+        top_layout = (NestedScrollView) view.findViewById(R.id.top_layout);
+        layout_bottom = (RelativeLayout) view.findViewById(R.id.layout_bottom);
         submit_btn_cover = (FrameLayout) view.findViewById(R.id.submit_btn_cover);
         photo_tran_btn = (FrameLayout) view.findViewById(R.id.photo_tran_btn);
         cb_speak_language_ch = (TextView) view.findViewById(R.id.cb_speak_language_ch);
@@ -176,20 +187,15 @@ public class MainFragmentYWCD extends BaseFragment implements OnClickListener, O
         if(SystemUtil.lan.equals("en")){
             tablayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         }
-        currentTabIndex = PlayUtil.getSP().getInt(KeyUtil.MainFragmentIndex,0);
-        tablayout.addTab(tablayout.newTab().setText(getText(R.string.title_chinese_dic)));
+        currentTabIndex = 0;
         tablayout.addTab(tablayout.newTab().setText(getText(R.string.title_dictionary)));
-        tablayout.addTab(tablayout.newTab().setText(getText(R.string.title_translate)));
-        tablayout.addTab(tablayout.newTab().setText(getText(R.string.title_english_dic)));
-        tablayout.addTab(tablayout.newTab().setText(getText(R.string.title_sentence)));
+        tablayout.addTab(tablayout.newTab().setText(getText(R.string.ChDicPinyinList)));
+        tablayout.addTab(tablayout.newTab().setText(getText(R.string.ChDicBushouList)));
         tablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 currentTabIndex = tab.getPosition();
                 setPomptAndShowFragment();
-                Setings.saveSharedPreferences(PlayUtil.getSP(),
-                        KeyUtil.MainFragmentIndex,
-                        currentTabIndex);
             }
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
@@ -201,18 +207,14 @@ public class MainFragmentYWCD extends BaseFragment implements OnClickListener, O
     }
 
     private void initFragment(){
-        mMainTabTran = MainTabTran.getInstance(mProgressbarListener);
-        mDictionaryFragmentOld = DictionaryFragmentOld.getInstance(mProgressbarListener);
         mChDicFragment = ChineseDictionaryFragment.getInstance(mProgressbarListener);
-        mJuhaiFragment = JuhaiFragment.getInstance(mProgressbarListener);
-        mEnDicFragment = EnDicFragment.getInstance(mProgressbarListener);
+        pinyinFragment = ChPybsFragment.getInstance(ChPybsFragment.pinyin);
+        bushouFragment = ChPybsFragment.getInstance(ChPybsFragment.bushou);
         getChildFragmentManager()
                 .beginTransaction()
-                .add(R.id.content_layout,mMainTabTran)
-                .add(R.id.content_layout,mDictionaryFragmentOld)
                 .add(R.id.content_layout,mChDicFragment)
-                .add(R.id.content_layout, mJuhaiFragment)
-                .add(R.id.content_layout, mEnDicFragment)
+                .add(R.id.content_layout,pinyinFragment)
+                .add(R.id.content_layout,bushouFragment)
                 .commit();
         hideAllFragment();
     }
@@ -220,11 +222,9 @@ public class MainFragmentYWCD extends BaseFragment implements OnClickListener, O
     private void hideAllFragment(){
         getChildFragmentManager()
                 .beginTransaction()
-                .hide(mMainTabTran)
-                .hide(mDictionaryFragmentOld)
                 .hide(mChDicFragment)
-                .hide(mJuhaiFragment)
-                .hide(mEnDicFragment)
+                .hide(pinyinFragment)
+                .hide(bushouFragment)
                 .commit();
     }
 
@@ -251,36 +251,23 @@ public class MainFragmentYWCD extends BaseFragment implements OnClickListener, O
         submit_btn.setText(getString(R.string.query));
         switch (currentTabIndex){
             case 0:
+                top_layout.setVisibility(View.VISIBLE);
+                layout_bottom.setVisibility(View.VISIBLE);
                 input_et.setHint(getString(R.string.input_et_hint_chinese));
                 getChildFragmentManager()
                         .beginTransaction().show(mChDicFragment).commit();
-                isChangeTabNeedSearch();
                 break;
             case 1:
-                input_et.setHint(getString(R.string.input_et_hint_dictionary));
+                top_layout.setVisibility(View.GONE);
+                layout_bottom.setVisibility(View.GONE);
                 getChildFragmentManager()
-                        .beginTransaction().show(mDictionaryFragmentOld).commit();
-                isChangeTabNeedSearch();
+                        .beginTransaction().show(pinyinFragment).commit();
                 break;
             case 2:
-                input_et.setHint(getString(R.string.input_et_hint));
-                submit_btn.setText(getString(R.string.translate));
+                top_layout.setVisibility(View.GONE);
+                layout_bottom.setVisibility(View.GONE);
                 getChildFragmentManager()
-                        .beginTransaction().show(mMainTabTran).commit();
-                isChangeTabNeedSearch();
-
-                break;
-            case 3:
-                input_et.setHint(getString(R.string.input_et_hint_english));
-                getChildFragmentManager()
-                        .beginTransaction().show(mEnDicFragment).commit();
-                isChangeTabNeedSearch();
-                break;
-            case 4:
-                input_et.setHint(getString(R.string.input_et_hint_dictionary));
-                getChildFragmentManager()
-                        .beginTransaction().show(mJuhaiFragment).commit();
-                isChangeTabNeedSearch();
+                        .beginTransaction().show(bushouFragment).commit();
                 break;
         }
     }
@@ -317,25 +304,25 @@ public class MainFragmentYWCD extends BaseFragment implements OnClickListener, O
     }
 
     private void refresh() {
-        if (getContext() != null && mMainTabTran != null) {
-            refreshFragment();
-        }
+//        if (getContext() != null && mMainTabTran != null) {
+//            refreshFragment();
+//        }
     }
 
     private void refreshFragment(){
         switch (currentTabIndex){
             case 0:
                 break;
-            case 1:
-                mDictionaryFragmentOld.refresh();
-                break;
-            case 2:
-                mMainTabTran.refresh();
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
+//            case 1:
+//                mDictionaryFragmentOld.refresh();
+//                break;
+//            case 2:
+//                mMainTabTran.refresh();
+//                break;
+//            case 3:
+//                break;
+//            case 4:
+//                break;
         }
     }
 
@@ -349,11 +336,46 @@ public class MainFragmentYWCD extends BaseFragment implements OnClickListener, O
         ToastUtil.diaplayMesShort(getContext(), toastString);
     }
 
-    /**
-     * 显示转写对话框.
-     */
     public void showIatDialog() {
-        Setings.verifyStoragePermissions(getActivity(), Setings.PERMISSIONS_RECORD_AUDIO);
+        try{
+            AndPermission.with(getContext())
+                    .runtime()
+                    .permission(Setings.PERMISSIONS_RECORD_AUDIO)
+                    .onGranted(new Action<List<String>>() {
+                        @Override
+                        public void onAction(List<String> data) {
+                            showIat();
+                        }
+                    })
+                    .onDenied(new Action<List<String>>() {
+                        @Override
+                        public void onAction(List<String> data) {
+                            LogUtil.DefalutLog("onDenied");
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getContext(),R.style.Theme_AppCompat_Light_Dialog_Alert);
+                            builder.setTitle("温馨提示");
+                            builder.setMessage("需要授权才能使用。");
+                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    ActivityCompat.requestPermissions(
+                                            getActivity(),
+                                            Setings.PERMISSIONS_RECORD_AUDIO,
+                                            Setings.RequestCode
+                                    );
+                                }
+                            });
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
+                        }
+                    })
+                    .start();
+        }catch (Exception e){
+            e.printStackTrace();
+            showIat();
+        }
+    }
+
+    public void showIat() {
         if (!recognizer.isListening()) {
             record_layout.setVisibility(View.VISIBLE);
             input_et.setText("");
@@ -419,18 +441,18 @@ public class MainFragmentYWCD extends BaseFragment implements OnClickListener, O
             case 0:
                 mChDicFragment.submit();
                 break;
-            case 1:
-                mDictionaryFragmentOld.submit();
-                break;
-            case 2:
-                mMainTabTran.submit();
-                break;
-            case 3:
-                mEnDicFragment.submit();
-                break;
-            case 4:
-                mJuhaiFragment.submit();
-                break;
+//            case 1:
+//                mDictionaryFragmentOld.submit();
+//                break;
+//            case 2:
+//                mMainTabTran.submit();
+//                break;
+//            case 3:
+//                mEnDicFragment.submit();
+//                break;
+//            case 4:
+//                mJuhaiFragment.submit();
+//                break;
         }
     }
 

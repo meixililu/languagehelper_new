@@ -43,7 +43,7 @@ public class NotificationUtil {
             toClass = YYJMainActivity.class;
         }else if(mContext.getPackageName().equals(Setings.application_id_yyj_google)){
             toClass = YYJMainActivity.class;
-        }else if(mContext.getPackageName().equals(Setings.application_id_yycd)){
+        }else if(mContext.getPackageName().equals(Setings.application_id_ywcd)){
 
         }else if(mContext.getPackageName().equals(Setings.application_id_xbky)){
 

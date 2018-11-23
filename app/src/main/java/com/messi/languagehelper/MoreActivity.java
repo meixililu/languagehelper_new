@@ -75,7 +75,7 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
             offlineDicLayout.setVisibility(View.GONE);
             help_layout.setVisibility(View.GONE);
             help_layout_line.setVisibility(View.GONE);
-        } else if (getPackageName().equals(Setings.application_id_yycd)) {
+        } else if (getPackageName().equals(Setings.application_id_ywcd)) {
             offline_dic_layout_line.setVisibility(View.GONE);
             offlineDicLayout.setVisibility(View.GONE);
             help_layout.setVisibility(View.GONE);
@@ -132,7 +132,7 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
             } else if (getPackageName().equals(Setings.application_id_yys) ||
                     getPackageName().equals(Setings.application_id_yys_google)) {
                 intent.setData(Uri.parse("market://details?id=com.messi.cantonese.study"));
-            } else if (getPackageName().equals(Setings.application_id_yycd)) {
+            } else if (getPackageName().equals(Setings.application_id_ywcd)) {
                 intent.setData(Uri.parse("market://details?id=com.messi.languagehelper.chinese"));
             } else if (getPackageName().equals(Setings.application_id_xbky)) {
                 intent.setData(Uri.parse("market://details?id=com.messi.languagehelper.spoken"));
@@ -153,7 +153,7 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
         }else if (getPackageName().equals(Setings.application_id_yys) ||
                 getPackageName().equals(Setings.application_id_yys_google)) {
             ShareUtil.shareText(MoreActivity.this, MoreActivity.this.getResources().getString(R.string.invite_friends_yys));
-        } else if (getPackageName().equals(Setings.application_id_yycd)) {
+        } else if (getPackageName().equals(Setings.application_id_ywcd)) {
             ShareUtil.shareText(MoreActivity.this, MoreActivity.this.getResources().getString(R.string.invite_friends_yycd));
         } else if (getPackageName().equals(Setings.application_id_xbky)) {
             ShareUtil.shareText(MoreActivity.this, MoreActivity.this.getResources().getString(R.string.invite_friends_xbky));

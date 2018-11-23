@@ -56,7 +56,7 @@ public class AppUpdateUtil {
             query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "yyj");
         }else if(mActivity.getPackageName().equals(Setings.application_id_yyj_google)){
             query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "yyj_google");
-        }else if(mActivity.getPackageName().equals(Setings.application_id_yycd)){
+        }else if(mActivity.getPackageName().equals(Setings.application_id_ywcd)){
             query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "yycd");
         }else if(mActivity.getPackageName().equals(Setings.application_id_xbky)){
             query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "xbky");

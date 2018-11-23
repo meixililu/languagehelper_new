@@ -87,11 +87,13 @@ public class LeisureFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = null;
-        if (getContext().getPackageName().equals(Setings.application_id_yys) ||
-                getContext().getPackageName().equals(Setings.application_id_yys_google)) {
-            view = inflater.inflate(R.layout.leisure_for_yys_fragment, null);
-        } else {
+        if (getContext().getPackageName().equals(Setings.application_id_zyhy) ||
+                getContext().getPackageName().equals(Setings.application_id_zyhy_google) ||
+                getContext().getPackageName().equals(Setings.application_id_yyj) ||
+                getContext().getPackageName().equals(Setings.application_id_yyj_google)) {
             view = inflater.inflate(R.layout.leisure_fragment, null);
+        } else {
+            view = inflater.inflate(R.layout.leisure_for_yys_fragment, null);
         }
         ButterKnife.bind(this, view);
         sp = Setings.getSharedPreferences(getContext());

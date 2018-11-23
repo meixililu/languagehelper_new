@@ -159,7 +159,7 @@ public class XmlySearchActivity extends BaseActivity {
                 query.whereContains(AVOUtil.XmlySearchHot.app,"zyhy");
             }else if(getPackageName().equals(Setings.application_id_yyj_google)){
                 query.whereContains(AVOUtil.XmlySearchHot.app,"zyhy");
-            }else if(getPackageName().equals(Setings.application_id_yycd)){
+            }else if(getPackageName().equals(Setings.application_id_ywcd)){
                 query.whereContains(AVOUtil.XmlySearchHot.app,"yycd");
             }else if(getPackageName().equals(Setings.application_id_xbky)){
                 query.whereContains(AVOUtil.XmlySearchHot.app,"zyhy");
@@ -323,7 +323,7 @@ public class XmlySearchActivity extends BaseActivity {
                         object.put(AVOUtil.XmlySearchHot.app,"zyhy");
                     }else if(getPackageName().equals(Setings.application_id_yyj_google)){
                         object.put(AVOUtil.XmlySearchHot.app,"zyhy");
-                    }else if(getPackageName().equals(Setings.application_id_yycd)){
+                    }else if(getPackageName().equals(Setings.application_id_ywcd)){
                         object.put(AVOUtil.XmlySearchHot.app,"yycd");
                     }else if(getPackageName().equals(Setings.application_id_xbky)){
                         object.put(AVOUtil.XmlySearchHot.app,"zyhy");

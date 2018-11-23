@@ -105,7 +105,7 @@ public class TXADUtil {
             posId_CDT = "8030136520951889";
             posId_CDTZX = "2040548284049293";
             posId_SXT = "4010043370553533";
-        } else if (mContext.getPackageName().equals(Setings.application_id_yycd)) {
+        } else if (mContext.getPackageName().equals(Setings.application_id_ywcd)) {
 
         } else if (mContext.getPackageName().equals(Setings.application_id_xbky)) {
 

@@ -13,6 +13,7 @@ import com.messi.languagehelper.MainFragmentOld;
 import com.messi.languagehelper.MainFragmentYWCD;
 import com.messi.languagehelper.MainFragmentYYS;
 import com.messi.languagehelper.R;
+import com.messi.languagehelper.ReadingFragmentYWCD;
 import com.messi.languagehelper.StudyCategoryFragment;
 import com.messi.languagehelper.StudyFragment;
 import com.messi.languagehelper.XmlyMainForYWCDFragment;
@@ -53,11 +54,11 @@ public class MainPageAdapter extends FragmentPagerAdapter {
                     mContext.getResources().getString(R.string.title_listen_fm),
                     mContext.getResources().getString(R.string.title_leisure)
             };
-        }else if(mContext.getApplication().getPackageName().equals(Setings.application_id_yycd)){
+        }else if(mContext.getApplication().getPackageName().equals(Setings.application_id_ywcd)){
             CONTENT = new String[] {
                     mContext.getResources().getString(R.string.title_home_tab),
-                    mContext.getResources().getString(R.string.title_listen_fm),
-                    mContext.getResources().getString(R.string.title_leisure)
+                    mContext.getResources().getString(R.string.title_study_category),
+                    mContext.getResources().getString(R.string.title_listen_fm)
             };
         }else {
             CONTENT = new String[] {
@@ -67,7 +68,6 @@ public class MainPageAdapter extends FragmentPagerAdapter {
                     mContext.getResources().getString(R.string.title_leisure)
             };
         }
-
     }
 
     @Override
@@ -95,13 +95,13 @@ public class MainPageAdapter extends FragmentPagerAdapter {
             }else if( position == 3 ){
                 return LeisureFragment.getInstance();
             }
-        } else if(mContext.getApplication().getPackageName().equals(Setings.application_id_yycd)){
+        } else if(mContext.getApplication().getPackageName().equals(Setings.application_id_ywcd)){
             if( position == 0 ){
                 return MainFragmentYWCD.getInstance(listener);
             }else if( position == 1 ){
-                return XmlyMainForYWCDFragment.newInstance();
+                return ReadingFragmentYWCD.newInstance(0);
             }else if( position == 2 ){
-                return LeisureFragment.getInstance();
+                return XmlyMainForYWCDFragment.newInstance();
             }
         } else {
             if( position == 0 ){

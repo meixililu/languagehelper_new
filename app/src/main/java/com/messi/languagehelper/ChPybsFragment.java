@@ -64,8 +64,12 @@ public class ChPybsFragment extends BaseFragment {
         ButterKnife.bind(this, view);
         initSwipeRefresh(view);
         initViews();
-        RequestAsyncTask();
         return view;
+    }
+
+    @Override
+    public void loadDataOnStart() {
+        RequestAsyncTask();
     }
 
     private void initViews() {

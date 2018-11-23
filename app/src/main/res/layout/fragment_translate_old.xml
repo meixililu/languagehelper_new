@@ -23,6 +23,7 @@
             android:background="@color/bg_white" />
 
         <android.support.v4.widget.NestedScrollView
+            android:id="@+id/top_layout"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" >
 

@@ -87,6 +87,9 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 		tablayout = (TabLayout) findViewById(R.id.tablayout);
 		final MainPageAdapter mAdapter = new MainPageAdapter(this.getSupportFragmentManager(),this,
 				mSharedPreferences,this);
+		if(SystemUtil.lan.equals("en")){
+			tablayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+		}
 		viewPager.setAdapter(mAdapter);
 		viewPager.setOffscreenPageLimit(5);
 		tablayout.setupWithViewPager(viewPager);

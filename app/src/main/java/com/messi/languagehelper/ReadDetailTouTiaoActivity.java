@@ -404,8 +404,8 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         if(getApplication().getPackageName().equals(Setings.application_id_yys) ||
                 getApplication().getPackageName().equals(Setings.application_id_yys_google)){
             fragment = ReadingFragmentYYS.newInstance();
-        } else if(getApplication().getPackageName().equals(Setings.application_id_yycd)){
-            fragment = ReadingFragmentYYS.newInstance();
+        } else if(getApplication().getPackageName().equals(Setings.application_id_ywcd)){
+            fragment = ReadingFragmentYWCD.newInstance();
         }
         getSupportFragmentManager()
                 .beginTransaction()

@@ -24,7 +24,6 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="@dimen/actionBar"
-                app:tabMode="scrollable"
                 app:tabIndicatorColor="@color/white"
                 app:tabSelectedTextColor="@color/white"
                 app:tabTextColor="@color/white_alph_unselect"

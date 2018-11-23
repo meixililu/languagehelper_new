@@ -78,6 +78,10 @@ public class ChineseDictionaryFragment extends BaseFragment {
 
     private void init() {
         mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(getContext(), null);
+        if (getContext().getPackageName().equals(Setings.application_id_ywcd)) {
+            btnBushou.setVisibility(View.GONE);
+            btnPinyin.setVisibility(View.GONE);
+        }
     }
 
     private void play(String content) {

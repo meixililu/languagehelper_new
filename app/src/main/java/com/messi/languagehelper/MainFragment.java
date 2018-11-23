@@ -490,7 +490,6 @@ public class MainFragment extends BaseFragment implements OnClickListener, OrcRe
         ToastUtil.diaplayMesShort(getContext(), toastString);
     }
 
-
     public void showIatDialog() {
         try{
             AndPermission.with(getContext())
@@ -526,6 +525,7 @@ public class MainFragment extends BaseFragment implements OnClickListener, OrcRe
                     .start();
         }catch (Exception e){
             e.printStackTrace();
+            showIat();
         }
     }
 

@@ -160,7 +160,7 @@ public class Setings {
 	public static final String application_id_yyj_google = "com.messi.learnenglish.google";
 	public static final String application_id_yys = "com.messi.cantonese.study";
 	public static final String application_id_yys_google = "com.messi.cantonese.study.google";
-	public static final String application_id_yycd = "com.messi.languagehelper.chinese";
+	public static final String application_id_ywcd = "com.messi.languagehelper.chinese";
 	public static final String application_id_xbky = "com.messi.languagehelper.spoken";
 
 	public static String[] PERMISSIONS_STORAGE = {
