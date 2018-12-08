@@ -21,7 +21,7 @@ import java.lang.Override;
 public class ReadingDetailActivity_ViewBinding implements Unbinder {
   private ReadingDetailActivity target;
 
-  private View view7f080069;
+  private View view7f080067;
 
   @UiThread
   public ReadingDetailActivity_ViewBinding(ReadingDetailActivity target) {
@@ -44,7 +44,7 @@ public class ReadingDetailActivity_ViewBinding implements Unbinder {
     target.player_layout = Utils.findRequiredViewAsType(source, R.id.player_layout, "field 'player_layout'", LinearLayout.class);
     view = Utils.findRequiredView(source, R.id.btn_play, "field 'btn_play' and method 'onClick'");
     target.btn_play = Utils.castView(view, R.id.btn_play, "field 'btn_play'", ImageView.class);
-    view7f080069 = view;
+    view7f080067 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -77,7 +77,7 @@ public class ReadingDetailActivity_ViewBinding implements Unbinder {
     target.time_current = null;
     target.time_duration = null;
 
-    view7f080069.setOnClickListener(null);
-    view7f080069 = null;
+    view7f080067.setOnClickListener(null);
+    view7f080067 = null;
   }
 }

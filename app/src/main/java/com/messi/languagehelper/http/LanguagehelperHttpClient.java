@@ -145,6 +145,8 @@ public class LanguagehelperHttpClient {
 	}
 
 	public static Response postHjApi(Callback mCallback) {
+		//cn en jp(Japanese) kr(Korean) fr(French) de(German) th(Thai)
+		//es(Spaish) ru(Russian) pt(Portuguese) it(Italian)
 		String from = "";
 		String to = "";
 		if (StringUtils.isEnglish(Setings.q)) {
@@ -168,6 +170,7 @@ public class LanguagehelperHttpClient {
 	}
 
 	public static Response postIcibaNew(Callback mCallback) {
+		//zh  en  ja  ko  fr  de  es
 		String from = "";
 		String to = "";
 		if (StringUtils.isEnglish(Setings.q)) {

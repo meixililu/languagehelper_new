@@ -1,11 +1,12 @@
 package com.messi.languagehelper;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.CardView;
@@ -43,14 +44,16 @@ import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
 import com.mindorks.nybus.annotation.Subscribe;
-import com.yanzhenjie.permission.Action;
-import com.yanzhenjie.permission.AndPermission;
-
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import permissions.dispatcher.NeedsPermission;
+import permissions.dispatcher.OnPermissionDenied;
+import permissions.dispatcher.OnShowRationale;
+import permissions.dispatcher.PermissionRequest;
+import permissions.dispatcher.RuntimePermissions;
 
+@RuntimePermissions
 public class MainFragment extends BaseFragment implements OnClickListener, OrcResultListener {
 
     public static MainFragment mMainFragment;
@@ -395,9 +398,9 @@ public class MainFragment extends BaseFragment implements OnClickListener, OrcRe
             AVAnalytics.onEvent(getContext(), "tab1_submit_btn");
         } else if (v.getId() == R.id.action_photo_tran_btn) {
             resetImg();
-            showORCDialog();
+            MainFragmentPermissionsDispatcher.showORCDialogWithPermissionCheck(this);
         } else if (v.getId() == R.id.voice_btn_cover) {
-            showIatDialog();
+            MainFragmentPermissionsDispatcher.showIatDialogWithPermissionCheck(this);
             AVAnalytics.onEvent(getContext(), "tab1_speak_btn");
         } else if (v.getId() == R.id.clear_btn_layout) {
             input_et.setText("");
@@ -431,7 +434,8 @@ public class MainFragment extends BaseFragment implements OnClickListener, OrcRe
         }
     }
 
-    private void showORCDialog() {
+    @NeedsPermission(Manifest.permission.CAMERA)
+    public void showORCDialog() {
         actionLayout.setVisibility(View.GONE);
         if (mOrcHelper == null) {
             mOrcHelper = new OrcHelper(this, this, mProgressbarListener);
@@ -490,56 +494,58 @@ public class MainFragment extends BaseFragment implements OnClickListener, OrcRe
         ToastUtil.diaplayMesShort(getContext(), toastString);
     }
 
+    @NeedsPermission(Manifest.permission.RECORD_AUDIO)
     public void showIatDialog() {
-        try{
-            AndPermission.with(getContext())
-                    .runtime()
-                    .permission(Setings.PERMISSIONS_RECORD_AUDIO)
-                    .onGranted(new Action<List<String>>() {
-                        @Override
-                        public void onAction(List<String> data) {
-                            showIat();
-                        }
-                    })
-                    .onDenied(new Action<List<String>>() {
-                        @Override
-                        public void onAction(List<String> data) {
-                            LogUtil.DefalutLog("onDenied");
-                            AlertDialog.Builder builder = new AlertDialog.Builder(getContext(),R.style.Theme_AppCompat_Light_Dialog_Alert);
-                            builder.setTitle("温馨提示");
-                            builder.setMessage("需要授权才能使用。");
-                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    ActivityCompat.requestPermissions(
-                                            getActivity(),
-                                            Setings.PERMISSIONS_RECORD_AUDIO,
-                                            Setings.RequestCode
-                                    );
-                                }
-                            });
-                            AlertDialog dialog = builder.create();
-                            dialog.show();
-                        }
-                    })
-                    .start();
-        }catch (Exception e){
-            e.printStackTrace();
-            showIat();
-        }
+        showIat();
+    }
+
+    @OnShowRationale(Manifest.permission.RECORD_AUDIO)
+    public void showRationaleForRecord(final PermissionRequest request){
+        showRationaleDialog(request);
+    }
+
+    @OnShowRationale(Manifest.permission.CAMERA)
+    public void showRationaleFoCamera(final PermissionRequest request){
+        showRationaleDialog(request);
+    }
+
+    public void showRationaleDialog(PermissionRequest request){
+        new AlertDialog.Builder(getContext(),R.style.Theme_AppCompat_Light_Dialog_Alert)
+                .setTitle("温馨提示")
+                .setMessage("需要授权才能使用。")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        request.proceed();
+                    }
+                }).show();
+    }
+
+    @OnPermissionDenied(Manifest.permission.RECORD_AUDIO)
+    public void showRecordDenied(){
+        ToastUtil.diaplayMesShort(getContext(),"拒绝授权，将无法使用部分功能！");
+    }
+
+    @OnPermissionDenied(Manifest.permission.CAMERA)
+    public void showCameraDenied(){
+        ToastUtil.diaplayMesShort(getContext(),"拒绝授权，将无法使用部分功能！");
     }
 
     public void showIat() {
-        if (!recognizer.isListening()) {
-            record_layout.setVisibility(View.VISIBLE);
-            input_et.setText("");
-            voice_btn.setText(getActivity().getResources().getText(R.string.click_and_finish));
-            XFUtil.showSpeechRecognizer(getContext(), PlayUtil.getSP(), recognizer, recognizerListener,
-                    PlayUtil.getSP().getString(KeyUtil.TranUserSelectLanguage, XFUtil.VoiceEngineMD));
-        } else {
-            finishRecord();
-            recognizer.stopListening();
-            showProgressbar();
+        try {
+            if (!recognizer.isListening()) {
+                record_layout.setVisibility(View.VISIBLE);
+                input_et.setText("");
+                voice_btn.setText(getActivity().getResources().getText(R.string.click_and_finish));
+                XFUtil.showSpeechRecognizer(getContext(), PlayUtil.getSP(), recognizer, recognizerListener,
+                        PlayUtil.getSP().getString(KeyUtil.TranUserSelectLanguage, XFUtil.VoiceEngineMD));
+            } else {
+                finishRecord();
+                recognizer.stopListening();
+                showProgressbar();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -633,4 +639,9 @@ public class MainFragment extends BaseFragment implements OnClickListener, OrcRe
         input_et.setText(CameraUtil.getOcrResult(mBaiduOcrRoot));
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        MainFragmentPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults);
+    }
 }

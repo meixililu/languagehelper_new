@@ -8,6 +8,7 @@ import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVException;
@@ -134,7 +135,7 @@ public class AppUpdateUtil {
                         .create();
                 View view = dialog.getHolderView();
                 TextView updage_info = (TextView) view.findViewById(R.id.updage_info);
-                TextView cancel_btn = (TextView) view.findViewById(R.id.cancel_btn);
+                ImageView cancel_btn = (ImageView) view.findViewById(R.id.cancel_btn);
                 TextView update_btn = (TextView) view.findViewById(R.id.update_btn);
 
                 updage_info.setText(updateInfo);

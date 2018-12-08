@@ -1,16 +1,14 @@
 package com.messi.languagehelper.wxapi;
 
 
-import android.annotation.TargetApi;
+import android.Manifest;
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -18,6 +16,7 @@ import android.support.annotation.NonNull;
 import android.support.design.bottomnavigation.LabelVisibilityMode;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.Toast;
@@ -36,15 +35,23 @@ import com.messi.languagehelper.YYJHomeFragment;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.AppUpdateUtil;
+import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Setings;
+import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.TranslateUtil;
 import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.jzvd.Jzvd;
+import permissions.dispatcher.NeedsPermission;
+import permissions.dispatcher.OnPermissionDenied;
+import permissions.dispatcher.OnShowRationale;
+import permissions.dispatcher.PermissionRequest;
+import permissions.dispatcher.RuntimePermissions;
 
+@RuntimePermissions
 public class YYJMainActivity extends BaseActivity implements FragmentProgressbarListener {
 
 	private long exitTime = 0;
@@ -144,22 +151,11 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 				.commit();
 	}
 
-	private void initPermissions(){
-		if (Build.VERSION.SDK_INT >= 23) {
-			checkAndRequestPermission();
-		}
-	}
-
-	@TargetApi(Build.VERSION_CODES.M)
-	private void checkAndRequestPermission() {
-		Setings.verifyStoragePermissions(this, Setings.PERMISSIONS_STORAGE);
-	}
-
 	private void initSDKAndPermission(){
 		new Handler().postDelayed(new Runnable() {
 			@Override
 			public void run() {
-				initPermissions();
+				YYJMainActivityPermissionsDispatcher.showPermissionWithPermissionCheck(YYJMainActivity.this);
 			}
 		}, 1 * 1000);
 	}
@@ -215,22 +211,22 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 		Setings.musicSrv = null;
 	}
 
-	@Override
-	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-		switch (requestCode) {
-			case 10010:
-				if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-					AppUpdateUtil.checkUpdate(this);
-				} else {
-					Uri packageURI = Uri.parse("package:"+this.getPackageName());
-					Intent intent = new Intent(android.provider.Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES,packageURI);
-					startActivityForResult(intent, 10086);
-				}
-				break;
-
-		}
-	}
+//	@Override
+//	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+//		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//		switch (requestCode) {
+//			case 10010:
+//				if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+//					AppUpdateUtil.checkUpdate(this);
+//				} else {
+//					Uri packageURI = Uri.parse("package:"+this.getPackageName());
+//					Intent intent = new Intent(android.provider.Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES,packageURI);
+//					startActivityForResult(intent, 10086);
+//				}
+//				break;
+//
+//		}
+//	}
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -238,6 +234,38 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 		if (resultCode == RESULT_OK && requestCode == 10086) {
 			AppUpdateUtil.checkUpdate(this);
 		}
+	}
+
+	@NeedsPermission({Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_EXTERNAL_STORAGE,
+			Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.ACCESS_FINE_LOCATION})
+	void showPermission() {
+		LogUtil.DefalutLog("showPermission");
+	}
+
+	@Override
+	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+		YYJMainActivityPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults);
+	}
+
+	@OnShowRationale({Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_EXTERNAL_STORAGE,
+			Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.ACCESS_FINE_LOCATION})
+	void onShowRationale(final PermissionRequest request) {
+		new AlertDialog.Builder(this,R.style.Theme_AppCompat_Light_Dialog_Alert)
+				.setTitle("温馨提示")
+				.setMessage("需要授权才能使用。")
+				.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						request.proceed();
+					}
+				}).show();
+	}
+
+	@OnPermissionDenied({Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_EXTERNAL_STORAGE,
+			Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.ACCESS_FINE_LOCATION})
+	void onPerDenied() {
+		ToastUtil.diaplayMesShort(this,"没有授权，部分功能将无法使用！");
 	}
 
 }

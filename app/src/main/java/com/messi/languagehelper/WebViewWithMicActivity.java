@@ -1,5 +1,6 @@
 package com.messi.languagehelper;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
@@ -11,6 +12,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.PersistableBundle;
+import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
@@ -58,7 +60,13 @@ import com.qq.e.ads.nativ.NativeExpressADView;
 
 import java.util.List;
 
+import permissions.dispatcher.NeedsPermission;
+import permissions.dispatcher.OnPermissionDenied;
+import permissions.dispatcher.OnShowRationale;
+import permissions.dispatcher.PermissionRequest;
+import permissions.dispatcher.RuntimePermissions;
 
+@RuntimePermissions
 public class WebViewWithMicActivity extends BaseActivity implements View.OnClickListener{
 
 	private final String STATE_RESUME_WINDOW = "resumeWindow";
@@ -181,7 +189,7 @@ public class WebViewWithMicActivity extends BaseActivity implements View.OnClick
 		speak_round_layout.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				showIatDialog();
+				WebViewWithMicActivityPermissionsDispatcher.showIatDialogWithPermissionCheck(WebViewWithMicActivity.this);
 				AVAnalytics.onEvent(WebViewWithMicActivity.this, "WebViewWithMic_speak_btn");
 			}
 		});
@@ -519,8 +527,8 @@ public class WebViewWithMicActivity extends BaseActivity implements View.OnClick
 		}
 	}
 
+	@NeedsPermission(Manifest.permission.RECORD_AUDIO)
 	public void showIatDialog() {
-		Setings.verifyStoragePermissions(this, Setings.PERMISSIONS_RECORD_AUDIO);
 		if (recognizer != null) {
 			if (!recognizer.isListening()) {
 				record_layout.setVisibility(View.VISIBLE);
@@ -672,5 +680,29 @@ public class WebViewWithMicActivity extends BaseActivity implements View.OnClick
             ad_layout.setVisibility(View.GONE);
         }
     }
-	
+
+	@Override
+	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+		WebViewWithMicActivityPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults);
+	}
+
+	@OnShowRationale(Manifest.permission.RECORD_AUDIO)
+	void onShowRationale(final PermissionRequest request) {
+		new AlertDialog.Builder(this,R.style.Theme_AppCompat_Light_Dialog_Alert)
+				.setTitle("温馨提示")
+				.setMessage("需要授权才能使用。")
+				.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						request.proceed();
+					}
+				}).show();
+	}
+
+	@OnPermissionDenied(Manifest.permission.RECORD_AUDIO)
+	void onPerDenied() {
+		ToastUtil.diaplayMesShort(this,"拒绝录音权限，无法使用语音功能！");
+	}
+
 }

@@ -1,10 +1,11 @@
 package com.messi.languagehelper;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -48,16 +49,19 @@ import com.messi.languagehelper.util.XFUtil;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.Animator.AnimatorListener;
 import com.nineoldandroids.animation.ObjectAnimator;
-import com.yanzhenjie.permission.Action;
-import com.yanzhenjie.permission.AndPermission;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import permissions.dispatcher.NeedsPermission;
+import permissions.dispatcher.OnPermissionDenied;
+import permissions.dispatcher.OnShowRationale;
+import permissions.dispatcher.PermissionRequest;
+import permissions.dispatcher.RuntimePermissions;
 
+@RuntimePermissions
 public class PracticeActivity extends BaseActivity implements OnClickListener, PractisePlayUserPcmListener {
 
     @BindView(R.id.voice_btn_cover)
@@ -201,7 +205,7 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
         @Override
         public void onAnimationEnd(Animator animation) {
             record_animation_layout.setVisibility(View.GONE);
-            showIatDialog();
+            PracticeActivityPermissionsDispatcher.showIatDialogWithPermissionCheck(PracticeActivity.this);
         }
 
         @Override
@@ -266,7 +270,7 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.voice_btn_cover:
-                showIatDialog();
+                PracticeActivityPermissionsDispatcher.showIatDialogWithPermissionCheck(this);
                 AVAnalytics.onEvent(PracticeActivity.this, "practice_pg_speak_btn");
                 break;
             default:
@@ -302,44 +306,6 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
         record_question.setText(tempAnswer);
         isEnglish = StringUtils.isEnglish(tempQuestion);
         initSpeakLanguage();
-    }
-
-    public void showIatDialog() {
-        try{
-            AndPermission.with(this)
-                    .runtime()
-                    .permission(Setings.PERMISSIONS_RECORD_AUDIO)
-                    .onGranted(new Action<List<String>>() {
-                        @Override
-                        public void onAction(List<String> data) {
-                            showIat();
-                        }
-                    })
-                    .onDenied(new Action<List<String>>() {
-                        @Override
-                        public void onAction(List<String> data) {
-                            LogUtil.DefalutLog("onDenied");
-                            AlertDialog.Builder builder = new AlertDialog.Builder(PracticeActivity.this,R.style.Theme_AppCompat_Light_Dialog_Alert);
-                            builder.setTitle("温馨提示");
-                            builder.setMessage("需要授权才能使用。");
-                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    ActivityCompat.requestPermissions(
-                                            PracticeActivity.this,
-                                            Setings.PERMISSIONS_RECORD_AUDIO,
-                                            Setings.RequestCode
-                                    );
-                                }
-                            });
-                            AlertDialog dialog = builder.create();
-                            dialog.show();
-                        }
-                    })
-                    .start();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
     }
 
     public void showIat() {
@@ -505,6 +471,35 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
         }
     }
 
+    @NeedsPermission(Manifest.permission.RECORD_AUDIO)
+    void showIatDialog() {
+        showIat();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        PracticeActivityPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults);
+    }
+
+    @OnShowRationale(Manifest.permission.RECORD_AUDIO)
+    void onShowRationale(final PermissionRequest request) {
+        new AlertDialog.Builder(this,R.style.Theme_AppCompat_Light_Dialog_Alert)
+                .setTitle("温馨提示")
+                .setMessage("需要授权才能使用。")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        request.proceed();
+                    }
+                }).show();
+    }
+
+    @OnPermissionDenied(Manifest.permission.RECORD_AUDIO)
+    void onPerDenied() {
+        ToastUtil.diaplayMesShort(this,"拒绝录音权限，无法使用语音功能！");
+    }
+
     public class MyOnClickListener implements OnClickListener {
 
         private record mBean;
@@ -609,4 +604,5 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
             }
         }
     }
+
 }

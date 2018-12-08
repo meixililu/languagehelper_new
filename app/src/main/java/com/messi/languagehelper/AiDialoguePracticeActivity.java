@@ -1,10 +1,14 @@
 package com.messi.languagehelper;
 
+import android.Manifest;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -53,7 +57,13 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import permissions.dispatcher.NeedsPermission;
+import permissions.dispatcher.OnPermissionDenied;
+import permissions.dispatcher.OnShowRationale;
+import permissions.dispatcher.PermissionRequest;
+import permissions.dispatcher.RuntimePermissions;
 
+@RuntimePermissions
 public class AiDialoguePracticeActivity extends BaseActivity implements View.OnClickListener, SpokenEnglishPlayListener {
 
     @BindView(R.id.listview)
@@ -128,9 +138,9 @@ public class AiDialoguePracticeActivity extends BaseActivity implements View.OnC
         record_layout.setVisibility(View.VISIBLE);
     }
 
+    @NeedsPermission(Manifest.permission.RECORD_AUDIO)
     public void showIatDialog() {
         try {
-            Setings.verifyStoragePermissions(this, Setings.PERMISSIONS_RECORD_AUDIO);
             if (recognizer != null) {
                 if (!recognizer.isListening()) {
                     if (isNewIn) {
@@ -186,7 +196,7 @@ public class AiDialoguePracticeActivity extends BaseActivity implements View.OnC
     private void onfinishPlay() {
         if (isFollow) {
             isFollow = false;
-            showIatDialog();
+            AiDialoguePracticeActivityPermissionsDispatcher.showIatDialogWithPermissionCheck(this);
         }
     }
 
@@ -496,7 +506,7 @@ public class AiDialoguePracticeActivity extends BaseActivity implements View.OnC
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.start_btn_cover:
-                showIatDialog();
+                AiDialoguePracticeActivityPermissionsDispatcher.showIatDialogWithPermissionCheck(this);
                 break;
         }
     }
@@ -516,5 +526,29 @@ public class AiDialoguePracticeActivity extends BaseActivity implements View.OnC
                 avObjects.get(i).put(KeyUtil.PracticeItemIndex, "0");
             }
         }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        AiDialoguePracticeActivityPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults);
+    }
+
+    @OnShowRationale(Manifest.permission.RECORD_AUDIO)
+    void onShowRationale(final PermissionRequest request) {
+        new AlertDialog.Builder(this,R.style.Theme_AppCompat_Light_Dialog_Alert)
+                .setTitle("温馨提示")
+                .setMessage("需要授权才能使用。")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        request.proceed();
+                    }
+                }).show();
+    }
+
+    @OnPermissionDenied(Manifest.permission.RECORD_AUDIO)
+    void onPerDenied() {
+        ToastUtil.diaplayMesShort(this,"拒绝录音权限，无法使用语音功能！");
     }
 }

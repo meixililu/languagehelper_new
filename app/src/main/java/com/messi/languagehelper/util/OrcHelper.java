@@ -19,13 +19,9 @@ import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.impl.OrcResultListener;
-import com.yanzhenjie.permission.Action;
-import com.yanzhenjie.permission.AndPermission;
-import com.yanzhenjie.permission.Permission;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Created by luli on 06/07/2017.
@@ -71,23 +67,12 @@ public class OrcHelper {
     }
 
     public void getImageFromCamera() {
-        LogUtil.DefalutLog("check permission");
-        AndPermission.with(context)
-                .runtime()
-                .permission(Permission.Group.CAMERA)
-                .onGranted(new Action<List<String>>() {
-                    @Override
-                    public void onAction(List<String> data) {
-                        onPermissionYes();
-                    }
-                })
-                .onDenied(new Action<List<String>>() {
-                    @Override
-                    public void onAction(List<String> data) {
-                        onPermissionNo();
-                    }
-                })
-                .start();
+        LogUtil.DefalutLog("has permission");
+        try {
+            startCamera();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void startCamera() throws Exception{
@@ -110,20 +95,6 @@ public class OrcHelper {
                 ToastUtil.diaplayMesShort(context, "请确认已经插入SD卡");
             }
         }
-    }
-
-    private void onPermissionYes() {
-        LogUtil.DefalutLog("has permission");
-        try {
-            startCamera();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void onPermissionNo() {
-        LogUtil.DefalutLog("permission deny");
-        ToastUtil.diaplayMesShort(context, "不同意授权将无法使用拍照翻译！");
     }
 
     public void doCropPhoto(Uri uri) {

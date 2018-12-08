@@ -22,67 +22,69 @@ ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/Android
 INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-487:12
 INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-487:12
 INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-487:12
-MERGED from [com.android.support:multidex:1.0.3] /Users/luli/.gradle/caches/transforms-1/files-1.1/multidex-1.0.3.aar/c59feed1e72de053d067a595c6169566/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:design:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/5431fe06b164daeac8d30dffaab97382/AndroidManifest.xml:17:1-24:12
-MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c9b63a9817f5629f9fa89a8e3b67e7a6/AndroidManifest.xml:17:1-22:12
-MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/transitionseverywhere-1.7.0.aar/d421f30ff243ea75940d1778d57133a9/AndroidManifest.xml:2:1-14:12
-MERGED from [com.android.support:support-v4:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/e048b27da7156be491019a32b7b76bd5/AndroidManifest.xml:17:1-22:12
-MERGED from [com.karumi:headerrecyclerview:1.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/headerrecyclerview-1.1.0.aar/3eb6eb1f17aced2a0f9375a4fd29e71b/AndroidManifest.xml:17:1-26:12
-MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/8343fe6390cdb92bbaea3e229019eb2f/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:cardview-v7:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/a0b153973e2ed47e0cf7e9e153bc675c/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/3a77f1bf8321e36461b690aeff0ffd18/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/87fd7b5a9e4c8ca32ee8f390e03c493a/AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.android.exoplayer:exoplayer-ui:2.8.4] /Users/luli/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.8.4.aar/b0095aa7a75e9271c8f1654340fe0383/AndroidManifest.xml:17:1-24:12
-MERGED from [com.android.support:support-media-compat:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/6b56cd327ef247128cdcdbdcc0e63ab7/AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.android:flexbox:1.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/flexbox-1.0.0.aar/c2f465503024f38b94bd2ec4ea63402d/AndroidManifest.xml:17:1-27:12
-MERGED from [com.google.android.exoplayer:exoplayer-core:2.8.4] /Users/luli/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.8.4.aar/049c25eb54a0be01306172e5095991e1/AndroidManifest.xml:17:1-26:12
-MERGED from [com.jakewharton:butterknife:9.0.0-rc1] /Users/luli/.gradle/caches/transforms-1/files-1.1/butterknife-9.0.0-rc1.aar/13a71c8c0ba7351871fe943966ad0042/AndroidManifest.xml:2:1-7:12
-MERGED from [com.github.bumptech.glide:glide:4.7.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/glide-4.7.1.aar/08697d255b3b2c146321b4c6fe2249f9/AndroidManifest.xml:2:1-13:12
-MERGED from [cn.jzvd:jiaozivideoplayer:6.3.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/jiaozivideoplayer-6.3.1.aar/a05c5ab82d419160d9ff98bd582cc6e4/AndroidManifest.xml:2:1-13:12
-MERGED from [com.facebook.fresco:fresco:1.9.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/fresco-1.9.0.aar/3b28645e715675e06da6831809e95ded/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:animated-gif:1.9.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/animated-gif-1.9.0.aar/acd3ce0a0a8901f9aa120ba5846a5e74/AndroidManifest.xml:2:1-9:12
-MERGED from [com.mindorks.nybus:nybus-android:1.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/nybus-android-1.0.0.aar/4d9f58be5ab9d880ee2166347f77dfe5/AndroidManifest.xml:17:1-26:12
-MERGED from [io.reactivex.rxjava2:rxandroid:2.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/rxandroid-2.1.0.aar/056a3287adb8e142f0bf7660692b668c/AndroidManifest.xml:15:1-20:12
-MERGED from [com.orhanobut:dialogplus:1.11] /Users/luli/.gradle/caches/transforms-1/files-1.1/dialogplus-1.11.aar/bead07d74e604057b60f42be8165226b/AndroidManifest.xml:2:1-10:12
-MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/GreenDaoUpgradeHelper-v2.1.0.aar/daee272eba0d938cd9d3a136dcef95ea/AndroidManifest.xml:2:1-16:12
-MERGED from [com.github.lzyzsd:circleprogress:1.2.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/circleprogress-1.2.1.aar/40093a0de9caadc4e94d9be6e02069a4/AndroidManifest.xml:2:1-12:12
-MERGED from [com.daimajia.numberprogressbar:library:1.4] /Users/luli/.gradle/caches/transforms-1/files-1.1/library-1.4.aar/63b9295fa4e6fcf8eb6e49b995b572d1/AndroidManifest.xml:2:1-11:12
-MERGED from [com.yanzhenjie:permission:2.0.0-rc12] /Users/luli/.gradle/caches/transforms-1/files-1.1/permission-2.0.0-rc12.aar/97f8d0a4b49fdde0c7621be31363b4da/AndroidManifest.xml:17:1-43:12
-MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42] /Users/luli/.gradle/caches/transforms-1/files-1.1/BaseRecyclerViewAdapterHelper-2.9.42.aar/86a70ea13ccdac661010f1eb328761a7/AndroidManifest.xml:2:1-11:12
-MERGED from [com.yqritc:recyclerview-flexibledivider:1.4.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/recyclerview-flexibledivider-1.4.0.aar/a9a546bafc2a1bcadd90ede499876da4/AndroidManifest.xml:2:1-12:12
-MERGED from [com.android.support:support-fragment:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/e7229636754e3537bd4fd3a5998aeb4b/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-ui:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/5ad445c37d579a514fcb0e7916cc44fb/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-utils:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/11649edef6ee6f552d957c8df2696be7/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:transition:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/b6fb7854c677468db182f9d8d3b36ed3/AndroidManifest.xml:17:1-22:12
-MERGED from [com.jakewharton:butterknife-runtime:9.0.0-rc1] /Users/luli/.gradle/caches/transforms-1/files-1.1/butterknife-runtime-9.0.0-rc1.aar/77f985220a5c65284343e6123de2db4d/AndroidManifest.xml:2:1-7:12
-MERGED from [com.android.support:loader:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/ba1fc73db6302cbfb97c3edbde4157ce/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:viewpager:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/d3846cf05bd85c4124c43391d5736faa/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/1def9fc908375b07ac4c4aef4282c916/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:drawerlayout:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/6f892dacaa7bcbd6b571245b57da2c83/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/006db40cd92032c8240339b41e8917dd/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:customview:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/b4c63d6f559a56656de98b278dbbf3be/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/c512c42402f259b25b2e05995a7a2dd1/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/a341263e1c79caa28931b9baa8d934e4/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-compat:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/b27161d2ced4b0eb9228a7d71812e23a/AndroidManifest.xml:17:1-24:12
-MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/7d84c2dd4d46510a2d6fea0bc6277d8c/AndroidManifest.xml:17:1-25:12
-MERGED from [com.android.support:cursoradapter:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/83ba4872cbad1b0402002d01bcb6e55f/AndroidManifest.xml:17:1-22:12
-MERGED from [com.github.bumptech.glide:gifdecoder:4.7.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/gifdecoder-4.7.1.aar/27bbacb1f97aa979a9fa0ff5a2585933/AndroidManifest.xml:2:1-11:12
-MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/31f966041d9d90c4f8306a55e3014691/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:documentfile:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/3278cda2707d705dc3ec5c21745a699b/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/127467c5a81071460e38cdfb5c384bd5/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:print:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/71273a4766788b462038e4739b554089/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:interpolator:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/179d44476e290a9fa0b258f1737652b8/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/3a5fe36eb62bb216ac6e547ebf22b614/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/0654366df990aa41deb51402278f47bb/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.core:runtime:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/15eb7d66177b521fa99bb57ece4e0706/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/cce179a10775ea347c2b9ce9f7c7ae36/AndroidManifest.xml:17:1-22:12
-MERGED from [com.facebook.fresco:animated-base:1.9.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/animated-base-1.9.0.aar/f1b9076d3100e45882649ada6f935761/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:animated-drawable:1.9.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/animated-drawable-1.9.0.aar/991c231b3f2a2385a580f3fb8e3a8709/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:drawee:1.9.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/drawee-1.9.0.aar/d8e4819ed0b8512078a6ecbf89e84dff/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:imagepipeline:1.9.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.9.0.aar/0e0a39c91b58949cf30558e8bfe5c7f6/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:imagepipeline-base:1.9.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.9.0.aar/528b2c4b5af488348c01881eb383cee4/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:fbcore:1.9.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/fbcore-1.9.0.aar/f617ac7686ccee7e9ed1fff20557fe9a/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.soloader:soloader:0.3.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/soloader-0.3.0.aar/22f1f8a0a943f5875ef00df1cc995eac/AndroidManifest.xml:2:1-13:12
+MERGED from [io.objectbox:objectbox-android:2.2.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/objectbox-android-2.2.0.aar/7eb2022c51dfb59c1f9d2a8dd79ad3ac/AndroidManifest.xml:2:1-10:12
+MERGED from [com.android.support:multidex:1.0.3] /Users/luli/.gradle/caches/transforms-1/files-1.1/multidex-1.0.3.aar/efbd94ce902ef04f85ebe8be664b2402/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:design:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/f4c50f227581b8ae4b89945aec64ab3d/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/1cf91f21d71411f325b7700989b30810/AndroidManifest.xml:17:1-22:12
+MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/transitionseverywhere-1.7.0.aar/ba72715c9ab25abcc3a941a3fd7be762/AndroidManifest.xml:2:1-14:12
+MERGED from [com.android.support:support-v4:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/fd67bd42648a2f21dbb24234d9f972ba/AndroidManifest.xml:17:1-22:12
+MERGED from [com.karumi:headerrecyclerview:1.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/headerrecyclerview-1.1.0.aar/a74dd3bad7dc5a862af29febb4f465cb/AndroidManifest.xml:17:1-26:12
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/c66c4fe46d717d8e81e526759a0834fd/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/e12791fcd59b6047c624f7bb973ecab9/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/57886eda3c95645ffc91ad5c237302f0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/154f8135e88cbc7e1302eff27312e3b7/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.exoplayer:exoplayer-ui:2.9.2] /Users/luli/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.9.2.aar/1b52830817bc431aa26d8b16d139c24b/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:support-media-compat:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/8d0451a7f1899b2116190790e53c3008/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android:flexbox:1.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/flexbox-1.0.0.aar/3801002457f6fe2b01bdd9571e16da6d/AndroidManifest.xml:17:1-27:12
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.2] /Users/luli/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.9.2.aar/629754ce27ac2d4c77f3b48408efa4ba/AndroidManifest.xml:17:1-26:12
+MERGED from [com.jakewharton:butterknife:9.0.0-rc2] /Users/luli/.gradle/caches/transforms-1/files-1.1/butterknife-9.0.0-rc2.aar/c4a6cc9448e6aae5a9b02e1f0239f8db/AndroidManifest.xml:2:1-7:12
+MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/glide-4.8.0.aar/1afbfc817eaf3951e27721f572e191d1/AndroidManifest.xml:2:1-12:12
+MERGED from [cn.jzvd:jiaozivideoplayer:6.4.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/jiaozivideoplayer-6.4.1.aar/73bd9edbee1f60ce9908a7d12b376645/AndroidManifest.xml:2:1-13:12
+MERGED from [com.facebook.fresco:fresco:1.11.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/fresco-1.11.0.aar/7568f08e6e25d08ff491a41e43901cd0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:animated-gif:1.11.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/animated-gif-1.11.0.aar/ce3ec1ea51cca706777c452e4d1fc500/AndroidManifest.xml:2:1-9:12
+MERGED from [com.mindorks.nybus:nybus-android:1.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/nybus-android-1.0.0.aar/69ad08370cbf1939480802de1d23750b/AndroidManifest.xml:17:1-26:12
+MERGED from [io.reactivex.rxjava2:rxandroid:2.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/rxandroid-2.1.0.aar/480ec5083a998a656966336526bc965c/AndroidManifest.xml:15:1-20:12
+MERGED from [com.orhanobut:dialogplus:1.11] /Users/luli/.gradle/caches/transforms-1/files-1.1/dialogplus-1.11.aar/aab0989d6fd27edf6dcb90f9aab986be/AndroidManifest.xml:2:1-10:12
+MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/GreenDaoUpgradeHelper-v2.1.0.aar/da3c0ed02349891bb328d56f65adc2e3/AndroidManifest.xml:2:1-16:12
+MERGED from [com.github.lzyzsd:circleprogress:1.2.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/circleprogress-1.2.1.aar/ba97411854b09c1374cc4e63b8e7d4b7/AndroidManifest.xml:2:1-12:12
+MERGED from [com.daimajia.numberprogressbar:library:1.4] /Users/luli/.gradle/caches/transforms-1/files-1.1/library-1.4.aar/81eae5eb0f4c61d8fb6da88a62064dfa/AndroidManifest.xml:2:1-11:12
+MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42] /Users/luli/.gradle/caches/transforms-1/files-1.1/BaseRecyclerViewAdapterHelper-2.9.42.aar/24e301bb060b36772bd55a36c8368f41/AndroidManifest.xml:2:1-11:12
+MERGED from [com.yqritc:recyclerview-flexibledivider:1.4.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/recyclerview-flexibledivider-1.4.0.aar/c12e36fd4859af5164b287e800c3d7a3/AndroidManifest.xml:2:1-12:12
+MERGED from [com.github.hotchemi:permissionsdispatcher:3.3.2] /Users/luli/.gradle/caches/transforms-1/files-1.1/permissionsdispatcher-3.3.2.aar/43346ea3823d361bb3dd86973a58abef/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:animated-base:1.11.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/animated-base-1.11.0.aar/36533e39db3f87059babde6ced5dec5b/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:animated-drawable:1.11.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/animated-drawable-1.11.0.aar/6f80b667fa3f1ee49f9144b882b7ef25/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:drawee:1.11.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/drawee-1.11.0.aar/679d0963c78d84ad5d63a19278a3e275/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagefilters:1.11.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/nativeimagefilters-1.11.0.aar/b6a6120c04d294ab873be2cfb8235ec6/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:1.11.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.11.0.aar/082daf6fd4e9bc436ea8396cfcef3745/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:1.11.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.11.0.aar/4c75742daec4ddcbda7c295c929f01a6/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.5.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/f492c04854517c391d6c3a9d7562a535/AndroidManifest.xml:2:1-13:12
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/1c2e118f8849c0de4003b8bd4ea0bc14/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/5304897994bb68e70dcdb9c845c8f30e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/45dab4416d6d7ad995b5c101a5152d89/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/1e6501fc3a180b49f7d86c8e3b99321e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.jakewharton:butterknife-runtime:9.0.0-rc2] /Users/luli/.gradle/caches/transforms-1/files-1.1/butterknife-runtime-9.0.0-rc2.aar/d4e969d6ad598c34cf5b040a7cfc5ebf/AndroidManifest.xml:2:1-7:12
+MERGED from [com.android.support:loader:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/9b4cb3a8c543be8d200351feeaa3b0e8/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/58ab12243505f17cce192199fd7829cf/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/33b1695332ad0b6926d56d199e686bdb/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/a0bded8ce5504102ddef3c0662d2c546/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/5266f50d798df82ce596794ea726da21/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/ef09614597f615ee1e2c62432e2e37a4/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/6ea8eb885aeadc26343cc036c97e6486/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/4fe2e4c9375fee48280fb8ed4e8486f9/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/a9a4c3026df45d21742ff3c68bb18a43/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/41b4aec6f7497326a43dbf7c7e4f3caa/AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/0c652e283bb0383bf0a58aa458cf3d6e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/gifdecoder-4.8.0.aar/755f57a5ed8766dc09d235f6b34883d5/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:documentfile:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/75f3cce143121bfc46858feaf8d5ffd8/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/291a66d850bd077610044e941be3c78b/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/8d5ed5067eb195f90c8ef5fc0870fb5a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/6f948f076abefd68f61946e8283b70d4/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/8ca1095174a8c2836ea855fbdd6faa17/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/44771ae7d5c5e970f3d48888302fa936/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/bf798a0adaf8fd95e2ffa80ec7bf6263/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/4d78c2d60d0aebacade061747ad6e55a/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/01c2b3b98482d2654cf4beb93e3d711a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.fresco:fbcore:1.11.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/fbcore-1.11.0.aar/684cf74e3bc2c3fd56adf8797a25a3d6/AndroidManifest.xml:2:1-9:12
 INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-487:12
 INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-487:12
 INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:2:1-487:12
@@ -110,10 +112,10 @@ ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/Android
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:6:22-68
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:7:5-79
-MERGED from [com.google.android.exoplayer:exoplayer-core:2.8.4] /Users/luli/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.8.4.aar/049c25eb54a0be01306172e5095991e1/AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.exoplayer:exoplayer-core:2.8.4] /Users/luli/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.8.4.aar/049c25eb54a0be01306172e5095991e1/AndroidManifest.xml:24:5-79
-MERGED from [cn.jzvd:jiaozivideoplayer:6.3.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/jiaozivideoplayer-6.3.1.aar/a05c5ab82d419160d9ff98bd582cc6e4/AndroidManifest.xml:11:5-79
-MERGED from [cn.jzvd:jiaozivideoplayer:6.3.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/jiaozivideoplayer-6.3.1.aar/a05c5ab82d419160d9ff98bd582cc6e4/AndroidManifest.xml:11:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.2] /Users/luli/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.9.2.aar/629754ce27ac2d4c77f3b48408efa4ba/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.2] /Users/luli/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.9.2.aar/629754ce27ac2d4c77f3b48408efa4ba/AndroidManifest.xml:24:5-79
+MERGED from [cn.jzvd:jiaozivideoplayer:6.4.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/jiaozivideoplayer-6.4.1.aar/73bd9edbee1f60ce9908a7d12b376645/AndroidManifest.xml:11:5-79
+MERGED from [cn.jzvd:jiaozivideoplayer:6.4.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/jiaozivideoplayer-6.4.1.aar/73bd9edbee1f60ce9908a7d12b376645/AndroidManifest.xml:11:5-79
 	android:name
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:7:22-76
 uses-permission#android.permission.ACCESS_WIFI_STATE
@@ -180,26 +182,24 @@ ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/Android
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:26:19-67
 application
 ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:28:5-485:19
-MERGED from [com.android.support:design:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/5431fe06b164daeac8d30dffaab97382/AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:design:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/5431fe06b164daeac8d30dffaab97382/AndroidManifest.xml:22:5-20
-MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/transitionseverywhere-1.7.0.aar/d421f30ff243ea75940d1778d57133a9/AndroidManifest.xml:12:5-20
-MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/transitionseverywhere-1.7.0.aar/d421f30ff243ea75940d1778d57133a9/AndroidManifest.xml:12:5-20
-MERGED from [com.github.bumptech.glide:glide:4.7.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/glide-4.7.1.aar/08697d255b3b2c146321b4c6fe2249f9/AndroidManifest.xml:11:5-20
-MERGED from [com.github.bumptech.glide:glide:4.7.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/glide-4.7.1.aar/08697d255b3b2c146321b4c6fe2249f9/AndroidManifest.xml:11:5-20
-MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/GreenDaoUpgradeHelper-v2.1.0.aar/daee272eba0d938cd9d3a136dcef95ea/AndroidManifest.xml:11:5-14:19
-MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/GreenDaoUpgradeHelper-v2.1.0.aar/daee272eba0d938cd9d3a136dcef95ea/AndroidManifest.xml:11:5-14:19
-MERGED from [com.yanzhenjie:permission:2.0.0-rc12] /Users/luli/.gradle/caches/transforms-1/files-1.1/permission-2.0.0-rc12.aar/97f8d0a4b49fdde0c7621be31363b4da/AndroidManifest.xml:24:5-41:19
-MERGED from [com.yanzhenjie:permission:2.0.0-rc12] /Users/luli/.gradle/caches/transforms-1/files-1.1/permission-2.0.0-rc12.aar/97f8d0a4b49fdde0c7621be31363b4da/AndroidManifest.xml:24:5-41:19
-MERGED from [com.android.support:support-compat:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/b27161d2ced4b0eb9228a7d71812e23a/AndroidManifest.xml:22:5-94
-MERGED from [com.android.support:support-compat:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/b27161d2ced4b0eb9228a7d71812e23a/AndroidManifest.xml:22:5-94
-MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/7d84c2dd4d46510a2d6fea0bc6277d8c/AndroidManifest.xml:22:5-23:19
-MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/7d84c2dd4d46510a2d6fea0bc6277d8c/AndroidManifest.xml:22:5-23:19
-MERGED from [com.github.bumptech.glide:gifdecoder:4.7.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/gifdecoder-4.7.1.aar/27bbacb1f97aa979a9fa0ff5a2585933/AndroidManifest.xml:9:5-20
-MERGED from [com.github.bumptech.glide:gifdecoder:4.7.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/gifdecoder-4.7.1.aar/27bbacb1f97aa979a9fa0ff5a2585933/AndroidManifest.xml:9:5-20
-MERGED from [com.facebook.soloader:soloader:0.3.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/soloader-0.3.0.aar/22f1f8a0a943f5875ef00df1cc995eac/AndroidManifest.xml:11:5-20
-MERGED from [com.facebook.soloader:soloader:0.3.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/soloader-0.3.0.aar/22f1f8a0a943f5875ef00df1cc995eac/AndroidManifest.xml:11:5-20
+MERGED from [com.android.support:design:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/f4c50f227581b8ae4b89945aec64ab3d/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/f4c50f227581b8ae4b89945aec64ab3d/AndroidManifest.xml:22:5-20
+MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/transitionseverywhere-1.7.0.aar/ba72715c9ab25abcc3a941a3fd7be762/AndroidManifest.xml:12:5-20
+MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/transitionseverywhere-1.7.0.aar/ba72715c9ab25abcc3a941a3fd7be762/AndroidManifest.xml:12:5-20
+MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/glide-4.8.0.aar/1afbfc817eaf3951e27721f572e191d1/AndroidManifest.xml:10:5-20
+MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/glide-4.8.0.aar/1afbfc817eaf3951e27721f572e191d1/AndroidManifest.xml:10:5-20
+MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/GreenDaoUpgradeHelper-v2.1.0.aar/da3c0ed02349891bb328d56f65adc2e3/AndroidManifest.xml:11:5-14:19
+MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/GreenDaoUpgradeHelper-v2.1.0.aar/da3c0ed02349891bb328d56f65adc2e3/AndroidManifest.xml:11:5-14:19
+MERGED from [com.facebook.soloader:soloader:0.5.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/f492c04854517c391d6c3a9d7562a535/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.soloader:soloader:0.5.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/f492c04854517c391d6c3a9d7562a535/AndroidManifest.xml:11:5-20
+MERGED from [com.android.support:support-compat:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/a9a4c3026df45d21742ff3c68bb18a43/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/a9a4c3026df45d21742ff3c68bb18a43/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/41b4aec6f7497326a43dbf7c7e4f3caa/AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/41b4aec6f7497326a43dbf7c7e4f3caa/AndroidManifest.xml:22:5-23:19
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/gifdecoder-4.8.0.aar/755f57a5ed8766dc09d235f6b34883d5/AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/gifdecoder-4.8.0.aar/755f57a5ed8766dc09d235f6b34883d5/AndroidManifest.xml:9:5-20
 	android:appComponentFactory
-		ADDED from [com.android.support:support-compat:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/b27161d2ced4b0eb9228a7d71812e23a/AndroidManifest.xml:22:18-91
+		ADDED from [com.android.support:support-compat:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/a9a4c3026df45d21742ff3c68bb18a43/AndroidManifest.xml:22:18-91
 	android:supportsRtl
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:34:9-35
 	android:label
@@ -1066,128 +1066,132 @@ uses-sdk
 INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml
 INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml
-MERGED from [com.android.support:multidex:1.0.3] /Users/luli/.gradle/caches/transforms-1/files-1.1/multidex-1.0.3.aar/c59feed1e72de053d067a595c6169566/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:multidex:1.0.3] /Users/luli/.gradle/caches/transforms-1/files-1.1/multidex-1.0.3.aar/c59feed1e72de053d067a595c6169566/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:design:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/5431fe06b164daeac8d30dffaab97382/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:design:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/5431fe06b164daeac8d30dffaab97382/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c9b63a9817f5629f9fa89a8e3b67e7a6/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c9b63a9817f5629f9fa89a8e3b67e7a6/AndroidManifest.xml:20:5-44
-MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/transitionseverywhere-1.7.0.aar/d421f30ff243ea75940d1778d57133a9/AndroidManifest.xml:8:5-10:41
-MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/transitionseverywhere-1.7.0.aar/d421f30ff243ea75940d1778d57133a9/AndroidManifest.xml:8:5-10:41
-MERGED from [com.android.support:support-v4:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/e048b27da7156be491019a32b7b76bd5/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/e048b27da7156be491019a32b7b76bd5/AndroidManifest.xml:20:5-44
-MERGED from [com.karumi:headerrecyclerview:1.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/headerrecyclerview-1.1.0.aar/3eb6eb1f17aced2a0f9375a4fd29e71b/AndroidManifest.xml:22:5-24:41
-MERGED from [com.karumi:headerrecyclerview:1.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/headerrecyclerview-1.1.0.aar/3eb6eb1f17aced2a0f9375a4fd29e71b/AndroidManifest.xml:22:5-24:41
-MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/8343fe6390cdb92bbaea3e229019eb2f/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/8343fe6390cdb92bbaea3e229019eb2f/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cardview-v7:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/a0b153973e2ed47e0cf7e9e153bc675c/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cardview-v7:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/a0b153973e2ed47e0cf7e9e153bc675c/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/3a77f1bf8321e36461b690aeff0ffd18/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/3a77f1bf8321e36461b690aeff0ffd18/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/87fd7b5a9e4c8ca32ee8f390e03c493a/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/87fd7b5a9e4c8ca32ee8f390e03c493a/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.exoplayer:exoplayer-ui:2.8.4] /Users/luli/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.8.4.aar/b0095aa7a75e9271c8f1654340fe0383/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.exoplayer:exoplayer-ui:2.8.4] /Users/luli/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.8.4.aar/b0095aa7a75e9271c8f1654340fe0383/AndroidManifest.xml:20:5-22:41
-MERGED from [com.android.support:support-media-compat:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/6b56cd327ef247128cdcdbdcc0e63ab7/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/6b56cd327ef247128cdcdbdcc0e63ab7/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android:flexbox:1.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/flexbox-1.0.0.aar/c2f465503024f38b94bd2ec4ea63402d/AndroidManifest.xml:23:5-25:41
-MERGED from [com.google.android:flexbox:1.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/flexbox-1.0.0.aar/c2f465503024f38b94bd2ec4ea63402d/AndroidManifest.xml:23:5-25:41
-MERGED from [com.google.android.exoplayer:exoplayer-core:2.8.4] /Users/luli/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.8.4.aar/049c25eb54a0be01306172e5095991e1/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.exoplayer:exoplayer-core:2.8.4] /Users/luli/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.8.4.aar/049c25eb54a0be01306172e5095991e1/AndroidManifest.xml:20:5-22:41
-MERGED from [com.jakewharton:butterknife:9.0.0-rc1] /Users/luli/.gradle/caches/transforms-1/files-1.1/butterknife-9.0.0-rc1.aar/13a71c8c0ba7351871fe943966ad0042/AndroidManifest.xml:5:5-44
-MERGED from [com.jakewharton:butterknife:9.0.0-rc1] /Users/luli/.gradle/caches/transforms-1/files-1.1/butterknife-9.0.0-rc1.aar/13a71c8c0ba7351871fe943966ad0042/AndroidManifest.xml:5:5-44
-MERGED from [com.github.bumptech.glide:glide:4.7.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/glide-4.7.1.aar/08697d255b3b2c146321b4c6fe2249f9/AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.bumptech.glide:glide:4.7.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/glide-4.7.1.aar/08697d255b3b2c146321b4c6fe2249f9/AndroidManifest.xml:7:5-9:41
-MERGED from [cn.jzvd:jiaozivideoplayer:6.3.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/jiaozivideoplayer-6.3.1.aar/a05c5ab82d419160d9ff98bd582cc6e4/AndroidManifest.xml:7:5-9:41
-MERGED from [cn.jzvd:jiaozivideoplayer:6.3.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/jiaozivideoplayer-6.3.1.aar/a05c5ab82d419160d9ff98bd582cc6e4/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.fresco:fresco:1.9.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/fresco-1.9.0.aar/3b28645e715675e06da6831809e95ded/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fresco:1.9.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/fresco-1.9.0.aar/3b28645e715675e06da6831809e95ded/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:animated-gif:1.9.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/animated-gif-1.9.0.aar/acd3ce0a0a8901f9aa120ba5846a5e74/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:animated-gif:1.9.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/animated-gif-1.9.0.aar/acd3ce0a0a8901f9aa120ba5846a5e74/AndroidManifest.xml:5:5-7:41
-MERGED from [com.mindorks.nybus:nybus-android:1.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/nybus-android-1.0.0.aar/4d9f58be5ab9d880ee2166347f77dfe5/AndroidManifest.xml:22:5-24:41
-MERGED from [com.mindorks.nybus:nybus-android:1.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/nybus-android-1.0.0.aar/4d9f58be5ab9d880ee2166347f77dfe5/AndroidManifest.xml:22:5-24:41
-MERGED from [io.reactivex.rxjava2:rxandroid:2.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/rxandroid-2.1.0.aar/056a3287adb8e142f0bf7660692b668c/AndroidManifest.xml:18:5-43
-MERGED from [io.reactivex.rxjava2:rxandroid:2.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/rxandroid-2.1.0.aar/056a3287adb8e142f0bf7660692b668c/AndroidManifest.xml:18:5-43
-MERGED from [com.orhanobut:dialogplus:1.11] /Users/luli/.gradle/caches/transforms-1/files-1.1/dialogplus-1.11.aar/bead07d74e604057b60f42be8165226b/AndroidManifest.xml:6:5-8:41
-MERGED from [com.orhanobut:dialogplus:1.11] /Users/luli/.gradle/caches/transforms-1/files-1.1/dialogplus-1.11.aar/bead07d74e604057b60f42be8165226b/AndroidManifest.xml:6:5-8:41
-MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/GreenDaoUpgradeHelper-v2.1.0.aar/daee272eba0d938cd9d3a136dcef95ea/AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/GreenDaoUpgradeHelper-v2.1.0.aar/daee272eba0d938cd9d3a136dcef95ea/AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.lzyzsd:circleprogress:1.2.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/circleprogress-1.2.1.aar/40093a0de9caadc4e94d9be6e02069a4/AndroidManifest.xml:8:5-10:41
-MERGED from [com.github.lzyzsd:circleprogress:1.2.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/circleprogress-1.2.1.aar/40093a0de9caadc4e94d9be6e02069a4/AndroidManifest.xml:8:5-10:41
-MERGED from [com.daimajia.numberprogressbar:library:1.4] /Users/luli/.gradle/caches/transforms-1/files-1.1/library-1.4.aar/63b9295fa4e6fcf8eb6e49b995b572d1/AndroidManifest.xml:7:5-9:41
-MERGED from [com.daimajia.numberprogressbar:library:1.4] /Users/luli/.gradle/caches/transforms-1/files-1.1/library-1.4.aar/63b9295fa4e6fcf8eb6e49b995b572d1/AndroidManifest.xml:7:5-9:41
-MERGED from [com.yanzhenjie:permission:2.0.0-rc12] /Users/luli/.gradle/caches/transforms-1/files-1.1/permission-2.0.0-rc12.aar/97f8d0a4b49fdde0c7621be31363b4da/AndroidManifest.xml:20:5-22:41
-MERGED from [com.yanzhenjie:permission:2.0.0-rc12] /Users/luli/.gradle/caches/transforms-1/files-1.1/permission-2.0.0-rc12.aar/97f8d0a4b49fdde0c7621be31363b4da/AndroidManifest.xml:20:5-22:41
-MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42] /Users/luli/.gradle/caches/transforms-1/files-1.1/BaseRecyclerViewAdapterHelper-2.9.42.aar/86a70ea13ccdac661010f1eb328761a7/AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42] /Users/luli/.gradle/caches/transforms-1/files-1.1/BaseRecyclerViewAdapterHelper-2.9.42.aar/86a70ea13ccdac661010f1eb328761a7/AndroidManifest.xml:7:5-9:41
-MERGED from [com.yqritc:recyclerview-flexibledivider:1.4.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/recyclerview-flexibledivider-1.4.0.aar/a9a546bafc2a1bcadd90ede499876da4/AndroidManifest.xml:8:5-10:41
-MERGED from [com.yqritc:recyclerview-flexibledivider:1.4.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/recyclerview-flexibledivider-1.4.0.aar/a9a546bafc2a1bcadd90ede499876da4/AndroidManifest.xml:8:5-10:41
-MERGED from [com.android.support:support-fragment:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/e7229636754e3537bd4fd3a5998aeb4b/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/e7229636754e3537bd4fd3a5998aeb4b/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/5ad445c37d579a514fcb0e7916cc44fb/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/5ad445c37d579a514fcb0e7916cc44fb/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/11649edef6ee6f552d957c8df2696be7/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/11649edef6ee6f552d957c8df2696be7/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/b6fb7854c677468db182f9d8d3b36ed3/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/b6fb7854c677468db182f9d8d3b36ed3/AndroidManifest.xml:20:5-44
-MERGED from [com.jakewharton:butterknife-runtime:9.0.0-rc1] /Users/luli/.gradle/caches/transforms-1/files-1.1/butterknife-runtime-9.0.0-rc1.aar/77f985220a5c65284343e6123de2db4d/AndroidManifest.xml:5:5-44
-MERGED from [com.jakewharton:butterknife-runtime:9.0.0-rc1] /Users/luli/.gradle/caches/transforms-1/files-1.1/butterknife-runtime-9.0.0-rc1.aar/77f985220a5c65284343e6123de2db4d/AndroidManifest.xml:5:5-44
-MERGED from [com.android.support:loader:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/ba1fc73db6302cbfb97c3edbde4157ce/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:loader:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/ba1fc73db6302cbfb97c3edbde4157ce/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:viewpager:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/d3846cf05bd85c4124c43391d5736faa/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:viewpager:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/d3846cf05bd85c4124c43391d5736faa/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/1def9fc908375b07ac4c4aef4282c916/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/1def9fc908375b07ac4c4aef4282c916/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:drawerlayout:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/6f892dacaa7bcbd6b571245b57da2c83/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:drawerlayout:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/6f892dacaa7bcbd6b571245b57da2c83/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/006db40cd92032c8240339b41e8917dd/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/006db40cd92032c8240339b41e8917dd/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:customview:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/b4c63d6f559a56656de98b278dbbf3be/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:customview:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/b4c63d6f559a56656de98b278dbbf3be/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/c512c42402f259b25b2e05995a7a2dd1/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/c512c42402f259b25b2e05995a7a2dd1/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/a341263e1c79caa28931b9baa8d934e4/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/a341263e1c79caa28931b9baa8d934e4/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/b27161d2ced4b0eb9228a7d71812e23a/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/b27161d2ced4b0eb9228a7d71812e23a/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/7d84c2dd4d46510a2d6fea0bc6277d8c/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/7d84c2dd4d46510a2d6fea0bc6277d8c/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cursoradapter:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/83ba4872cbad1b0402002d01bcb6e55f/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cursoradapter:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/83ba4872cbad1b0402002d01bcb6e55f/AndroidManifest.xml:20:5-44
-MERGED from [com.github.bumptech.glide:gifdecoder:4.7.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/gifdecoder-4.7.1.aar/27bbacb1f97aa979a9fa0ff5a2585933/AndroidManifest.xml:5:5-7:41
-MERGED from [com.github.bumptech.glide:gifdecoder:4.7.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/gifdecoder-4.7.1.aar/27bbacb1f97aa979a9fa0ff5a2585933/AndroidManifest.xml:5:5-7:41
-MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/31f966041d9d90c4f8306a55e3014691/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/31f966041d9d90c4f8306a55e3014691/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:documentfile:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/3278cda2707d705dc3ec5c21745a699b/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:documentfile:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/3278cda2707d705dc3ec5c21745a699b/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/127467c5a81071460e38cdfb5c384bd5/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/127467c5a81071460e38cdfb5c384bd5/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:print:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/71273a4766788b462038e4739b554089/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:print:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/71273a4766788b462038e4739b554089/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:interpolator:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/179d44476e290a9fa0b258f1737652b8/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:interpolator:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/179d44476e290a9fa0b258f1737652b8/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/3a5fe36eb62bb216ac6e547ebf22b614/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/3a5fe36eb62bb216ac6e547ebf22b614/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/0654366df990aa41deb51402278f47bb/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/0654366df990aa41deb51402278f47bb/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/15eb7d66177b521fa99bb57ece4e0706/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/15eb7d66177b521fa99bb57ece4e0706/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/cce179a10775ea347c2b9ce9f7c7ae36/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/cce179a10775ea347c2b9ce9f7c7ae36/AndroidManifest.xml:20:5-44
-MERGED from [com.facebook.fresco:animated-base:1.9.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/animated-base-1.9.0.aar/f1b9076d3100e45882649ada6f935761/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:animated-base:1.9.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/animated-base-1.9.0.aar/f1b9076d3100e45882649ada6f935761/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:animated-drawable:1.9.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/animated-drawable-1.9.0.aar/991c231b3f2a2385a580f3fb8e3a8709/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:animated-drawable:1.9.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/animated-drawable-1.9.0.aar/991c231b3f2a2385a580f3fb8e3a8709/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:drawee:1.9.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/drawee-1.9.0.aar/d8e4819ed0b8512078a6ecbf89e84dff/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:drawee:1.9.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/drawee-1.9.0.aar/d8e4819ed0b8512078a6ecbf89e84dff/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline:1.9.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.9.0.aar/0e0a39c91b58949cf30558e8bfe5c7f6/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline:1.9.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.9.0.aar/0e0a39c91b58949cf30558e8bfe5c7f6/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-base:1.9.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.9.0.aar/528b2c4b5af488348c01881eb383cee4/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-base:1.9.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.9.0.aar/528b2c4b5af488348c01881eb383cee4/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fbcore:1.9.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/fbcore-1.9.0.aar/f617ac7686ccee7e9ed1fff20557fe9a/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fbcore:1.9.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/fbcore-1.9.0.aar/f617ac7686ccee7e9ed1fff20557fe9a/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.soloader:soloader:0.3.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/soloader-0.3.0.aar/22f1f8a0a943f5875ef00df1cc995eac/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.soloader:soloader:0.3.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/soloader-0.3.0.aar/22f1f8a0a943f5875ef00df1cc995eac/AndroidManifest.xml:7:5-9:41
+MERGED from [io.objectbox:objectbox-android:2.2.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/objectbox-android-2.2.0.aar/7eb2022c51dfb59c1f9d2a8dd79ad3ac/AndroidManifest.xml:6:5-8:41
+MERGED from [io.objectbox:objectbox-android:2.2.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/objectbox-android-2.2.0.aar/7eb2022c51dfb59c1f9d2a8dd79ad3ac/AndroidManifest.xml:6:5-8:41
+MERGED from [com.android.support:multidex:1.0.3] /Users/luli/.gradle/caches/transforms-1/files-1.1/multidex-1.0.3.aar/efbd94ce902ef04f85ebe8be664b2402/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:multidex:1.0.3] /Users/luli/.gradle/caches/transforms-1/files-1.1/multidex-1.0.3.aar/efbd94ce902ef04f85ebe8be664b2402/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:design:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/f4c50f227581b8ae4b89945aec64ab3d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/f4c50f227581b8ae4b89945aec64ab3d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/1cf91f21d71411f325b7700989b30810/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/1cf91f21d71411f325b7700989b30810/AndroidManifest.xml:20:5-44
+MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/transitionseverywhere-1.7.0.aar/ba72715c9ab25abcc3a941a3fd7be762/AndroidManifest.xml:8:5-10:41
+MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/transitionseverywhere-1.7.0.aar/ba72715c9ab25abcc3a941a3fd7be762/AndroidManifest.xml:8:5-10:41
+MERGED from [com.android.support:support-v4:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/fd67bd42648a2f21dbb24234d9f972ba/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/fd67bd42648a2f21dbb24234d9f972ba/AndroidManifest.xml:20:5-44
+MERGED from [com.karumi:headerrecyclerview:1.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/headerrecyclerview-1.1.0.aar/a74dd3bad7dc5a862af29febb4f465cb/AndroidManifest.xml:22:5-24:41
+MERGED from [com.karumi:headerrecyclerview:1.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/headerrecyclerview-1.1.0.aar/a74dd3bad7dc5a862af29febb4f465cb/AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/c66c4fe46d717d8e81e526759a0834fd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/c66c4fe46d717d8e81e526759a0834fd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/e12791fcd59b6047c624f7bb973ecab9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/e12791fcd59b6047c624f7bb973ecab9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/57886eda3c95645ffc91ad5c237302f0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/57886eda3c95645ffc91ad5c237302f0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/154f8135e88cbc7e1302eff27312e3b7/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/154f8135e88cbc7e1302eff27312e3b7/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.exoplayer:exoplayer-ui:2.9.2] /Users/luli/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.9.2.aar/1b52830817bc431aa26d8b16d139c24b/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-ui:2.9.2] /Users/luli/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.9.2.aar/1b52830817bc431aa26d8b16d139c24b/AndroidManifest.xml:20:5-22:41
+MERGED from [com.android.support:support-media-compat:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/8d0451a7f1899b2116190790e53c3008/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/8d0451a7f1899b2116190790e53c3008/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android:flexbox:1.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/flexbox-1.0.0.aar/3801002457f6fe2b01bdd9571e16da6d/AndroidManifest.xml:23:5-25:41
+MERGED from [com.google.android:flexbox:1.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/flexbox-1.0.0.aar/3801002457f6fe2b01bdd9571e16da6d/AndroidManifest.xml:23:5-25:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.2] /Users/luli/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.9.2.aar/629754ce27ac2d4c77f3b48408efa4ba/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.2] /Users/luli/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.9.2.aar/629754ce27ac2d4c77f3b48408efa4ba/AndroidManifest.xml:20:5-22:41
+MERGED from [com.jakewharton:butterknife:9.0.0-rc2] /Users/luli/.gradle/caches/transforms-1/files-1.1/butterknife-9.0.0-rc2.aar/c4a6cc9448e6aae5a9b02e1f0239f8db/AndroidManifest.xml:5:5-44
+MERGED from [com.jakewharton:butterknife:9.0.0-rc2] /Users/luli/.gradle/caches/transforms-1/files-1.1/butterknife-9.0.0-rc2.aar/c4a6cc9448e6aae5a9b02e1f0239f8db/AndroidManifest.xml:5:5-44
+MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/glide-4.8.0.aar/1afbfc817eaf3951e27721f572e191d1/AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/glide-4.8.0.aar/1afbfc817eaf3951e27721f572e191d1/AndroidManifest.xml:6:5-8:41
+MERGED from [cn.jzvd:jiaozivideoplayer:6.4.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/jiaozivideoplayer-6.4.1.aar/73bd9edbee1f60ce9908a7d12b376645/AndroidManifest.xml:7:5-9:41
+MERGED from [cn.jzvd:jiaozivideoplayer:6.4.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/jiaozivideoplayer-6.4.1.aar/73bd9edbee1f60ce9908a7d12b376645/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.fresco:fresco:1.11.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/fresco-1.11.0.aar/7568f08e6e25d08ff491a41e43901cd0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:1.11.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/fresco-1.11.0.aar/7568f08e6e25d08ff491a41e43901cd0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-gif:1.11.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/animated-gif-1.11.0.aar/ce3ec1ea51cca706777c452e4d1fc500/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-gif:1.11.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/animated-gif-1.11.0.aar/ce3ec1ea51cca706777c452e4d1fc500/AndroidManifest.xml:5:5-7:41
+MERGED from [com.mindorks.nybus:nybus-android:1.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/nybus-android-1.0.0.aar/69ad08370cbf1939480802de1d23750b/AndroidManifest.xml:22:5-24:41
+MERGED from [com.mindorks.nybus:nybus-android:1.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/nybus-android-1.0.0.aar/69ad08370cbf1939480802de1d23750b/AndroidManifest.xml:22:5-24:41
+MERGED from [io.reactivex.rxjava2:rxandroid:2.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/rxandroid-2.1.0.aar/480ec5083a998a656966336526bc965c/AndroidManifest.xml:18:5-43
+MERGED from [io.reactivex.rxjava2:rxandroid:2.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/rxandroid-2.1.0.aar/480ec5083a998a656966336526bc965c/AndroidManifest.xml:18:5-43
+MERGED from [com.orhanobut:dialogplus:1.11] /Users/luli/.gradle/caches/transforms-1/files-1.1/dialogplus-1.11.aar/aab0989d6fd27edf6dcb90f9aab986be/AndroidManifest.xml:6:5-8:41
+MERGED from [com.orhanobut:dialogplus:1.11] /Users/luli/.gradle/caches/transforms-1/files-1.1/dialogplus-1.11.aar/aab0989d6fd27edf6dcb90f9aab986be/AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/GreenDaoUpgradeHelper-v2.1.0.aar/da3c0ed02349891bb328d56f65adc2e3/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/GreenDaoUpgradeHelper-v2.1.0.aar/da3c0ed02349891bb328d56f65adc2e3/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.lzyzsd:circleprogress:1.2.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/circleprogress-1.2.1.aar/ba97411854b09c1374cc4e63b8e7d4b7/AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.lzyzsd:circleprogress:1.2.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/circleprogress-1.2.1.aar/ba97411854b09c1374cc4e63b8e7d4b7/AndroidManifest.xml:8:5-10:41
+MERGED from [com.daimajia.numberprogressbar:library:1.4] /Users/luli/.gradle/caches/transforms-1/files-1.1/library-1.4.aar/81eae5eb0f4c61d8fb6da88a62064dfa/AndroidManifest.xml:7:5-9:41
+MERGED from [com.daimajia.numberprogressbar:library:1.4] /Users/luli/.gradle/caches/transforms-1/files-1.1/library-1.4.aar/81eae5eb0f4c61d8fb6da88a62064dfa/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42] /Users/luli/.gradle/caches/transforms-1/files-1.1/BaseRecyclerViewAdapterHelper-2.9.42.aar/24e301bb060b36772bd55a36c8368f41/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42] /Users/luli/.gradle/caches/transforms-1/files-1.1/BaseRecyclerViewAdapterHelper-2.9.42.aar/24e301bb060b36772bd55a36c8368f41/AndroidManifest.xml:7:5-9:41
+MERGED from [com.yqritc:recyclerview-flexibledivider:1.4.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/recyclerview-flexibledivider-1.4.0.aar/c12e36fd4859af5164b287e800c3d7a3/AndroidManifest.xml:8:5-10:41
+MERGED from [com.yqritc:recyclerview-flexibledivider:1.4.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/recyclerview-flexibledivider-1.4.0.aar/c12e36fd4859af5164b287e800c3d7a3/AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.hotchemi:permissionsdispatcher:3.3.2] /Users/luli/.gradle/caches/transforms-1/files-1.1/permissionsdispatcher-3.3.2.aar/43346ea3823d361bb3dd86973a58abef/AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.hotchemi:permissionsdispatcher:3.3.2] /Users/luli/.gradle/caches/transforms-1/files-1.1/permissionsdispatcher-3.3.2.aar/43346ea3823d361bb3dd86973a58abef/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-base:1.11.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/animated-base-1.11.0.aar/36533e39db3f87059babde6ced5dec5b/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-base:1.11.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/animated-base-1.11.0.aar/36533e39db3f87059babde6ced5dec5b/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-drawable:1.11.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/animated-drawable-1.11.0.aar/6f80b667fa3f1ee49f9144b882b7ef25/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-drawable:1.11.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/animated-drawable-1.11.0.aar/6f80b667fa3f1ee49f9144b882b7ef25/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.11.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/drawee-1.11.0.aar/679d0963c78d84ad5d63a19278a3e275/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.11.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/drawee-1.11.0.aar/679d0963c78d84ad5d63a19278a3e275/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:1.11.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/nativeimagefilters-1.11.0.aar/b6a6120c04d294ab873be2cfb8235ec6/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:1.11.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/nativeimagefilters-1.11.0.aar/b6a6120c04d294ab873be2cfb8235ec6/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.11.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.11.0.aar/082daf6fd4e9bc436ea8396cfcef3745/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.11.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.11.0.aar/082daf6fd4e9bc436ea8396cfcef3745/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.11.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.11.0.aar/4c75742daec4ddcbda7c295c929f01a6/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.11.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.11.0.aar/4c75742daec4ddcbda7c295c929f01a6/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.5.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/f492c04854517c391d6c3a9d7562a535/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.soloader:soloader:0.5.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/f492c04854517c391d6c3a9d7562a535/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/1c2e118f8849c0de4003b8bd4ea0bc14/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/1c2e118f8849c0de4003b8bd4ea0bc14/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/5304897994bb68e70dcdb9c845c8f30e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/5304897994bb68e70dcdb9c845c8f30e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/45dab4416d6d7ad995b5c101a5152d89/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/45dab4416d6d7ad995b5c101a5152d89/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/1e6501fc3a180b49f7d86c8e3b99321e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/1e6501fc3a180b49f7d86c8e3b99321e/AndroidManifest.xml:20:5-44
+MERGED from [com.jakewharton:butterknife-runtime:9.0.0-rc2] /Users/luli/.gradle/caches/transforms-1/files-1.1/butterknife-runtime-9.0.0-rc2.aar/d4e969d6ad598c34cf5b040a7cfc5ebf/AndroidManifest.xml:5:5-44
+MERGED from [com.jakewharton:butterknife-runtime:9.0.0-rc2] /Users/luli/.gradle/caches/transforms-1/files-1.1/butterknife-runtime-9.0.0-rc2.aar/d4e969d6ad598c34cf5b040a7cfc5ebf/AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:loader:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/9b4cb3a8c543be8d200351feeaa3b0e8/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/9b4cb3a8c543be8d200351feeaa3b0e8/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/58ab12243505f17cce192199fd7829cf/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/58ab12243505f17cce192199fd7829cf/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/33b1695332ad0b6926d56d199e686bdb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/33b1695332ad0b6926d56d199e686bdb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/a0bded8ce5504102ddef3c0662d2c546/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/a0bded8ce5504102ddef3c0662d2c546/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/5266f50d798df82ce596794ea726da21/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/5266f50d798df82ce596794ea726da21/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/ef09614597f615ee1e2c62432e2e37a4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/ef09614597f615ee1e2c62432e2e37a4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/6ea8eb885aeadc26343cc036c97e6486/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/6ea8eb885aeadc26343cc036c97e6486/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/4fe2e4c9375fee48280fb8ed4e8486f9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/4fe2e4c9375fee48280fb8ed4e8486f9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/a9a4c3026df45d21742ff3c68bb18a43/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/a9a4c3026df45d21742ff3c68bb18a43/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/41b4aec6f7497326a43dbf7c7e4f3caa/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/41b4aec6f7497326a43dbf7c7e4f3caa/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/0c652e283bb0383bf0a58aa458cf3d6e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/0c652e283bb0383bf0a58aa458cf3d6e/AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/gifdecoder-4.8.0.aar/755f57a5ed8766dc09d235f6b34883d5/AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/gifdecoder-4.8.0.aar/755f57a5ed8766dc09d235f6b34883d5/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:documentfile:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/75f3cce143121bfc46858feaf8d5ffd8/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/75f3cce143121bfc46858feaf8d5ffd8/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/291a66d850bd077610044e941be3c78b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/291a66d850bd077610044e941be3c78b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/8d5ed5067eb195f90c8ef5fc0870fb5a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/8d5ed5067eb195f90c8ef5fc0870fb5a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/6f948f076abefd68f61946e8283b70d4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/6f948f076abefd68f61946e8283b70d4/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/8ca1095174a8c2836ea855fbdd6faa17/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/8ca1095174a8c2836ea855fbdd6faa17/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/44771ae7d5c5e970f3d48888302fa936/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/44771ae7d5c5e970f3d48888302fa936/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/bf798a0adaf8fd95e2ffa80ec7bf6263/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/bf798a0adaf8fd95e2ffa80ec7bf6263/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/4d78c2d60d0aebacade061747ad6e55a/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/4d78c2d60d0aebacade061747ad6e55a/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/01c2b3b98482d2654cf4beb93e3d711a/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/01c2b3b98482d2654cf4beb93e3d711a/AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.fresco:fbcore:1.11.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/fbcore-1.11.0.aar/684cf74e3bc2c3fd56adf8797a25a3d6/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:1.11.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/fbcore-1.11.0.aar/684cf74e3bc2c3fd56adf8797a25a3d6/AndroidManifest.xml:5:5-7:41
 INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml
 INJECTED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml
 	android:targetSdkVersion
@@ -1204,25 +1208,3 @@ ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/Android
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:46:17-51
 	android:name
 		ADDED from /Users/luli/AndroidStudioProjects/languagehelper/app/src/main/AndroidManifest.xml:45:17-67
-activity#com.yanzhenjie.permission.PermissionActivity
-ADDED from [com.yanzhenjie:permission:2.0.0-rc12] /Users/luli/.gradle/caches/transforms-1/files-1.1/permission-2.0.0-rc12.aar/97f8d0a4b49fdde0c7621be31363b4da/AndroidManifest.xml:25:9-30:75
-	android:launchMode
-		ADDED from [com.yanzhenjie:permission:2.0.0-rc12] /Users/luli/.gradle/caches/transforms-1/files-1.1/permission-2.0.0-rc12.aar/97f8d0a4b49fdde0c7621be31363b4da/AndroidManifest.xml:28:13-42
-	android:windowSoftInputMode
-		ADDED from [com.yanzhenjie:permission:2.0.0-rc12] /Users/luli/.gradle/caches/transforms-1/files-1.1/permission-2.0.0-rc12.aar/97f8d0a4b49fdde0c7621be31363b4da/AndroidManifest.xml:30:13-72
-	android:configChanges
-		ADDED from [com.yanzhenjie:permission:2.0.0-rc12] /Users/luli/.gradle/caches/transforms-1/files-1.1/permission-2.0.0-rc12.aar/97f8d0a4b49fdde0c7621be31363b4da/AndroidManifest.xml:27:13-74
-	android:theme
-		ADDED from [com.yanzhenjie:permission:2.0.0-rc12] /Users/luli/.gradle/caches/transforms-1/files-1.1/permission-2.0.0-rc12.aar/97f8d0a4b49fdde0c7621be31363b4da/AndroidManifest.xml:29:13-61
-	android:name
-		ADDED from [com.yanzhenjie:permission:2.0.0-rc12] /Users/luli/.gradle/caches/transforms-1/files-1.1/permission-2.0.0-rc12.aar/97f8d0a4b49fdde0c7621be31363b4da/AndroidManifest.xml:26:13-72
-provider#com.yanzhenjie.permission.FileProvider
-ADDED from [com.yanzhenjie:permission:2.0.0-rc12] /Users/luli/.gradle/caches/transforms-1/files-1.1/permission-2.0.0-rc12.aar/97f8d0a4b49fdde0c7621be31363b4da/AndroidManifest.xml:32:9-40:20
-	android:grantUriPermissions
-		ADDED from [com.yanzhenjie:permission:2.0.0-rc12] /Users/luli/.gradle/caches/transforms-1/files-1.1/permission-2.0.0-rc12.aar/97f8d0a4b49fdde0c7621be31363b4da/AndroidManifest.xml:36:13-47
-	android:authorities
-		ADDED from [com.yanzhenjie:permission:2.0.0-rc12] /Users/luli/.gradle/caches/transforms-1/files-1.1/permission-2.0.0-rc12.aar/97f8d0a4b49fdde0c7621be31363b4da/AndroidManifest.xml:34:13-67
-	android:exported
-		ADDED from [com.yanzhenjie:permission:2.0.0-rc12] /Users/luli/.gradle/caches/transforms-1/files-1.1/permission-2.0.0-rc12.aar/97f8d0a4b49fdde0c7621be31363b4da/AndroidManifest.xml:35:13-37
-	android:name
-		ADDED from [com.yanzhenjie:permission:2.0.0-rc12] /Users/luli/.gradle/caches/transforms-1/files-1.1/permission-2.0.0-rc12.aar/97f8d0a4b49fdde0c7621be31363b4da/AndroidManifest.xml:33:13-66

@@ -1,8 +1,12 @@
 package com.messi.languagehelper;
 
+import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -29,7 +33,13 @@ import com.messi.languagehelper.util.XFUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import permissions.dispatcher.NeedsPermission;
+import permissions.dispatcher.OnPermissionDenied;
+import permissions.dispatcher.OnShowRationale;
+import permissions.dispatcher.PermissionRequest;
+import permissions.dispatcher.RuntimePermissions;
 
+@RuntimePermissions
 public class KSearchActivity extends BaseActivity {
 
     @BindView(R.id.input_et)
@@ -195,8 +205,8 @@ public class KSearchActivity extends BaseActivity {
     /**
      * 显示转写对话框.
      */
+    @NeedsPermission(Manifest.permission.RECORD_AUDIO)
     public void showIatDialog() {
-        Setings.verifyStoragePermissions(this, Setings.PERMISSIONS_RECORD_AUDIO);
         if (recognizer != null) {
             if (!recognizer.isListening()) {
                 record_layout.setVisibility(View.VISIBLE);
@@ -251,7 +261,7 @@ public class KSearchActivity extends BaseActivity {
                 AVAnalytics.onEvent(KSearchActivity.this, "ksearch_caricature");
                 break;
             case R.id.speak_round_layout:
-                showIatDialog();
+                KSearchActivityPermissionsDispatcher.showIatDialogWithPermissionCheck(this);
                 AVAnalytics.onEvent(KSearchActivity.this, "ksearch_speak_btn");
                 break;
             case R.id.search_btn:
@@ -259,5 +269,29 @@ public class KSearchActivity extends BaseActivity {
                 AVAnalytics.onEvent(KSearchActivity.this, "ksearch_search_btn");
                 break;
         }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        KSearchActivityPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults);
+    }
+
+    @OnShowRationale(Manifest.permission.RECORD_AUDIO)
+    void onShowRationale(final PermissionRequest request) {
+        new AlertDialog.Builder(this,R.style.Theme_AppCompat_Light_Dialog_Alert)
+                .setTitle("温馨提示")
+                .setMessage("需要授权才能使用。")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        request.proceed();
+                    }
+                }).show();
+    }
+
+    @OnPermissionDenied(Manifest.permission.RECORD_AUDIO)
+    void onPerDenied() {
+        ToastUtil.diaplayMesShort(this,"拒绝录音权限，无法使用语音功能！");
     }
 }

@@ -1,5 +1,6 @@
 package com.messi.languagehelper;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,6 +8,7 @@ import android.graphics.Bitmap;
 import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.CardView;
@@ -43,7 +45,13 @@ import com.messi.languagehelper.util.XFUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import permissions.dispatcher.NeedsPermission;
+import permissions.dispatcher.OnPermissionDenied;
+import permissions.dispatcher.OnShowRationale;
+import permissions.dispatcher.PermissionRequest;
+import permissions.dispatcher.RuntimePermissions;
 
+@RuntimePermissions
 public class AiUCXYActivity extends BaseActivity {
 
     @BindView(R.id.input_et)
@@ -214,7 +222,7 @@ public class AiUCXYActivity extends BaseActivity {
                 changeInputType();
                 break;
             case R.id.voice_btn_cover:
-                showIatDialog();
+                AiUCXYActivityPermissionsDispatcher.showIatDialogWithPermissionCheck(this);
                 break;
 
         }
@@ -247,11 +255,8 @@ public class AiUCXYActivity extends BaseActivity {
         startActivity(intent);
     }
 
-    /**
-     * 显示转写对话框.
-     */
+    @NeedsPermission(Manifest.permission.RECORD_AUDIO)
     public void showIatDialog() {
-        Setings.verifyStoragePermissions(this, Setings.PERMISSIONS_RECORD_AUDIO);
         if (!recognizer.isListening()) {
             recordLayout.setVisibility(View.VISIBLE);
             inputEt.setText("");
@@ -365,5 +370,29 @@ public class AiUCXYActivity extends BaseActivity {
         if(mWebView != null){
             mWebView.destroy();
         }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        AiUCXYActivityPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults);
+    }
+
+    @OnShowRationale(Manifest.permission.RECORD_AUDIO)
+    void onShowRationale(final PermissionRequest request) {
+        new AlertDialog.Builder(this,R.style.Theme_AppCompat_Light_Dialog_Alert)
+                .setTitle("温馨提示")
+                .setMessage("需要授权才能使用。")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        request.proceed();
+                    }
+                }).show();
+    }
+
+    @OnPermissionDenied(Manifest.permission.RECORD_AUDIO)
+    void onPerDenied() {
+        ToastUtil.diaplayMesShort(this,"拒绝录音权限，无法使用语音功能！");
     }
 }

@@ -1,8 +1,12 @@
 package com.messi.languagehelper;
 
+import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -36,9 +40,6 @@ import com.ximalaya.ting.android.opensdk.model.track.Track;
 import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
 import com.ximalaya.ting.android.opensdk.player.service.IXmPlayerStatusListener;
 import com.ximalaya.ting.android.opensdk.player.service.XmPlayerException;
-import com.yanzhenjie.permission.Action;
-import com.yanzhenjie.permission.AndPermission;
-import com.yanzhenjie.permission.Permission;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.util.ArrayList;
@@ -49,7 +50,13 @@ import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import permissions.dispatcher.NeedsPermission;
+import permissions.dispatcher.OnPermissionDenied;
+import permissions.dispatcher.OnShowRationale;
+import permissions.dispatcher.PermissionRequest;
+import permissions.dispatcher.RuntimePermissions;
 
+@RuntimePermissions
 public class XimalayaRadioLocalActivity extends BaseActivity implements IXmPlayerStatusListener,LocationResultListener {
 
     @BindView(R.id.listview)
@@ -73,41 +80,7 @@ public class XimalayaRadioLocalActivity extends BaseActivity implements IXmPlaye
         ButterKnife.bind(this);
         registerBroadcast();
         initView();
-        getLocation();
-    }
-
-    private void getLocation(){
-        AndPermission.with(this)
-                .runtime()
-                .permission(Permission.Group.LOCATION)
-                .onGranted(new Action<List<String>>() {
-                    @Override
-                    public void onAction(List<String> data) {
-                        onPermissionYes();
-                    }
-                })
-                .onDenied(new Action<List<String>>() {
-                    @Override
-                    public void onAction(List<String> data) {
-                        onPermissionNo();
-                    }
-                })
-                .start();
-    }
-
-
-    public void onPermissionYes() {
-        LogUtil.DefalutLog("has permission");
-        try {
-            requestLocation();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void onPermissionNo() {
-        LogUtil.DefalutLog("permission deny");
-        toRadioProvince();
+        XimalayaRadioLocalActivityPermissionsDispatcher.needLocationWithPermissionCheck(this);
     }
 
     private void requestLocation(){
@@ -535,10 +508,52 @@ public class XimalayaRadioLocalActivity extends BaseActivity implements IXmPlaye
         toRadioProvince();
     }
 
+    public void onPermissionYes() {
+        LogUtil.DefalutLog("has permission");
+        try {
+            requestLocation();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void onPermissionNo() {
+        LogUtil.DefalutLog("permission deny");
+        toRadioProvince();
+    }
+
     private void toRadioProvince(){
         Intent intent = new Intent(this, XimalayaRadioProvinceActivity.class);
         intent.putExtra(KeyUtil.ActionbarTitle,getResources().getString(R.string.radio_province));
         startActivity(intent);
     }
 
+    @NeedsPermission({Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION})
+    void needLocation() {
+        onPermissionYes();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        XimalayaRadioLocalActivityPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults);
+    }
+
+    @OnShowRationale({Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION})
+    void onShowRationale(final PermissionRequest request) {
+        new AlertDialog.Builder(this,R.style.Theme_AppCompat_Light_Dialog_Alert)
+                .setTitle("温馨提示")
+                .setMessage("需要授权才能使用。")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        request.proceed();
+                    }
+                }).show();
+    }
+
+    @OnPermissionDenied({Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION})
+    void onPerDenied() {
+        onPermissionNo();
+    }
 }

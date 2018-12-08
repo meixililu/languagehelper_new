@@ -4,9 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -17,28 +15,21 @@ import android.net.Uri;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
-import android.support.v7.app.AlertDialog;
 import android.telephony.TelephonyManager;
 import android.view.View;
 
 import com.avos.avoscloud.AVAnalytics;
-import com.messi.languagehelper.BuildConfig;
 import com.messi.languagehelper.ImgShareActivity;
 import com.messi.languagehelper.ImgViewActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.dialog.PopDialog;
 import com.messi.languagehelper.dialog.PopDialog.PopViewItemOnclickListener;
 import com.messi.languagehelper.service.PlayerService;
-import com.yanzhenjie.permission.Action;
-import com.yanzhenjie.permission.AndPermission;
-import com.yanzhenjie.permission.Permission;
 
 import java.io.File;
 import java.util.HashMap;
-import java.util.List;
 import java.util.UUID;
 
 public class Setings {
@@ -404,96 +395,6 @@ public class Setings {
 		context.startActivity(intent); 
 	}
 
-	public static void verifyStoragePermissions(final Activity activity,final String[] permissions) {
-		try{
-			AndPermission.with(activity)
-					.runtime()
-					.permission(permissions)
-					.onGranted(new Action<List<String>>() {
-						@Override
-						public void onAction(List<String> data) {
-
-						}
-					})
-					.onDenied(new Action<List<String>>() {
-						@Override
-						public void onAction(List<String> data) {
-							LogUtil.DefalutLog("onDenied");
-							AlertDialog.Builder builder = new AlertDialog.Builder(activity,R.style.Theme_AppCompat_Light_Dialog_Alert);
-							builder.setTitle("温馨提示");
-							builder.setMessage("软件需要一些权限才能正常运行。");
-							builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-								@Override
-								public void onClick(DialogInterface dialog, int which) {
-									ActivityCompat.requestPermissions(
-											activity,
-											permissions,
-											RequestCode
-									);
-								}
-							});
-							AlertDialog dialog = builder.create();
-							dialog.show();
-						}
-					})
-					.start();
-		}catch (Exception e){
-			e.printStackTrace();
-		}
-	}
-
-	public static void uninstall(Context mContext){
-		Intent intent = new Intent();
-		intent.setAction(Intent.ACTION_VIEW);
-		intent.setData(Uri.parse("market://details?id=com.messi.languagehelper"));
-		mContext.startActivity(intent);
-	}
-	
-	public static void startPermissionManager(Context mContext){
-		gotoMiuiPermission(mContext);
-	}
-
-	/**
-	 * 跳转到miui的权限管理页面
-	 */
-	public static void gotoMiuiPermission(Context mContext) {
-		Intent i = new Intent("miui.intent.action.APP_PERM_EDITOR");
-		ComponentName componentName = new ComponentName("com.miui.securitycenter", "com.miui.permcenter.permissions.AppPermissionsEditorActivity");
-		i.setComponent(componentName);
-		i.putExtra("extra_pkgname", mContext.getPackageName());
-		try {
-			mContext.startActivity(i);
-		} catch (Exception e) {
-			e.printStackTrace();
-			gotoMeizuPermission(mContext);
-		}
-	}
-
-	public static void gotoMeizuPermission(Context mContext) {
-		Intent intent = new Intent("com.meizu.safe.security.SHOW_APPSEC");
-		intent.addCategory(Intent.CATEGORY_DEFAULT);
-		intent.putExtra("packageName", BuildConfig.APPLICATION_ID);
-		try {
-			mContext.startActivity(intent);
-		} catch (Exception e) {
-			e.printStackTrace();
-			gotoHuaweiPermission(mContext);
-		}
-	}
-
-	public static void gotoHuaweiPermission(Context mContext) {
-		try {
-			Intent intent = new Intent();
-			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			ComponentName comp = new ComponentName("com.huawei.systemmanager", "com.huawei.permissionmanager.ui.MainActivity");//华为权限管理
-			intent.setComponent(comp);
-			mContext.startActivity(intent);
-		} catch (Exception e) {
-			e.printStackTrace();
-			mContext.startActivity(getAppDetailSettingIntent(mContext));
-		}
-	}
-
 	public static Intent getAppDetailSettingIntent(Context mContext) {
 		Intent localIntent = new Intent();
 		localIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -522,22 +423,7 @@ public class Setings {
 				UUID deviceUuid = new UUID(androidId.hashCode(), ((long)tmDevice.hashCode() << 32) | tmSerial.hashCode());
 				uniqueId = deviceUuid.toString();
 			}else {
-				AndPermission.with(context)
-						.runtime()
-						.permission(Permission.Group.PHONE)
-						.onGranted(new Action<List<String>>() {
-							@Override
-							public void onAction(List<String> data) {
-
-							}
-						})
-						.onDenied(new Action<List<String>>() {
-							@Override
-							public void onAction(List<String> data) {
-
-							}
-						})
-						.start();
+				uniqueId = StringUtils.getRandomString(16);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -1,11 +1,12 @@
 package com.messi.languagehelper;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -40,11 +41,14 @@ import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
 import com.mindorks.nybus.annotation.Subscribe;
-import com.yanzhenjie.permission.Action;
-import com.yanzhenjie.permission.AndPermission;
 
-import java.util.List;
+import permissions.dispatcher.NeedsPermission;
+import permissions.dispatcher.OnPermissionDenied;
+import permissions.dispatcher.OnShowRationale;
+import permissions.dispatcher.PermissionRequest;
+import permissions.dispatcher.RuntimePermissions;
 
+@RuntimePermissions
 public class MainFragmentOld extends BaseFragment implements OnClickListener, OrcResultListener {
 
     public static MainFragmentOld mMainFragment;
@@ -257,9 +261,9 @@ public class MainFragmentOld extends BaseFragment implements OnClickListener, Or
             hideIME();
             AVAnalytics.onEvent(getContext(), "tab1_submit_btn");
         } else if (v.getId() == R.id.photo_tran_btn) {
-            showORCDialog();
+            MainFragmentOldPermissionsDispatcher.showORCDialogWithPermissionCheck(this);
         } else if (v.getId() == R.id.speak_round_layout) {
-            showIatDialog();
+            MainFragmentOldPermissionsDispatcher.showRecordWithPermissionCheck(this);
             AVAnalytics.onEvent(getContext(), "tab1_speak_btn");
         } else if (v.getId() == R.id.clear_btn_layout) {
             input_et.setText("");
@@ -325,7 +329,8 @@ public class MainFragmentOld extends BaseFragment implements OnClickListener, Or
         }
     }
 
-    private void showORCDialog() {
+    @NeedsPermission(Manifest.permission.CAMERA)
+    public void showORCDialog() {
         if (mOrcHelper == null) {
             mOrcHelper = new OrcHelper(this, this, mProgressbarListener);
         }
@@ -378,44 +383,6 @@ public class MainFragmentOld extends BaseFragment implements OnClickListener, Or
 
     private void showToast(String toastString) {
         ToastUtil.diaplayMesShort(getContext(), toastString);
-    }
-
-    public void showIatDialog() {
-        try{
-            AndPermission.with(getContext())
-                    .runtime()
-                    .permission(Setings.PERMISSIONS_RECORD_AUDIO)
-                    .onGranted(new Action<List<String>>() {
-                        @Override
-                        public void onAction(List<String> data) {
-                            showIat();
-                        }
-                    })
-                    .onDenied(new Action<List<String>>() {
-                        @Override
-                        public void onAction(List<String> data) {
-                            LogUtil.DefalutLog("onDenied");
-                            AlertDialog.Builder builder = new AlertDialog.Builder(getContext(),R.style.Theme_AppCompat_Light_Dialog_Alert);
-                            builder.setTitle("温馨提示");
-                            builder.setMessage("需要授权才能使用。");
-                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    ActivityCompat.requestPermissions(
-                                            getActivity(),
-                                            Setings.PERMISSIONS_RECORD_AUDIO,
-                                            Setings.RequestCode
-                                    );
-                                }
-                            });
-                            AlertDialog dialog = builder.create();
-                            dialog.show();
-                        }
-                    })
-                    .start();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
     }
 
     public void showIat() {
@@ -545,6 +512,49 @@ public class MainFragmentOld extends BaseFragment implements OnClickListener, Or
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         mOrcHelper.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @NeedsPermission(Manifest.permission.RECORD_AUDIO)
+    void showRecord() {
+        showIat();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        MainFragmentOldPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults);
+    }
+
+    @OnShowRationale(Manifest.permission.RECORD_AUDIO)
+    void onShowRationale(final PermissionRequest request) {
+        showRationaleDialog(request);
+    }
+
+    @OnShowRationale(Manifest.permission.CAMERA)
+    public void showRationaleFoCamera(final PermissionRequest request){
+        showRationaleDialog(request);
+    }
+
+    public void showRationaleDialog(PermissionRequest request){
+        new AlertDialog.Builder(getContext(),R.style.Theme_AppCompat_Light_Dialog_Alert)
+                .setTitle("温馨提示")
+                .setMessage("需要授权才能使用。")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        request.proceed();
+                    }
+                }).show();
+    }
+
+    @OnPermissionDenied(Manifest.permission.RECORD_AUDIO)
+    void onPerDenied() {
+        ToastUtil.diaplayMesShort(getContext(),"拒绝录音权限，无法使用语音功能！");
+    }
+
+    @OnPermissionDenied(Manifest.permission.CAMERA)
+    public void showCameraDenied(){
+        ToastUtil.diaplayMesShort(getContext(),"拒绝授权，将无法使用部分功能！");
     }
 }
 
