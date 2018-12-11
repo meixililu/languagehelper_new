@@ -1,7 +1,5 @@
 package com.messi.languagehelper.util;
 
-import android.Manifest;
-import android.app.Activity;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -9,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationCompat.Builder;
 import android.support.v4.content.FileProvider;
@@ -22,14 +19,14 @@ import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.impl.ProgressListener;
 
 import java.io.File;
-import java.io.IOException;
 
 import okhttp3.Response;
 
 public class AppDownloadUtil {
 
-	private Activity mContext;
-	private int record = -2;
+	private static final int NO_1 =0x1;
+
+	private Context mContext;
 	private String url;
 	private String ContentTitle;
 	private String Ticker;
@@ -39,8 +36,9 @@ public class AppDownloadUtil {
 	private String path;
 	private NotificationManager mNotifyManager;
 	private Builder mBuilder;
-	
-	public AppDownloadUtil(Activity mContext, String url, String appName, String AVObjectId, String path){
+	private int lastPercent = 0;
+
+	public AppDownloadUtil(Context mContext, String url, String appName, String AVObjectId, String path){
 		this.mContext = mContext;
 		this.url = url;
 		this.ContentTitle = appName + "下载通知";
@@ -50,7 +48,7 @@ public class AppDownloadUtil {
 		this.path = path;
 		this.appLocalFullName = getLocalFile(appFileName);
 	}
-	
+
 	public void DownloadFile(){
 		if(isFileExist()){
 			installApk(mContext,appLocalFullName);
@@ -58,38 +56,40 @@ public class AppDownloadUtil {
 			new Thread(new Runnable() {
 				@Override
 				public void run() {
-					mNotifyManager  = (NotificationManager)mContext.getSystemService(Context.NOTIFICATION_SERVICE);
-					createNotificationChannel();
-					mBuilder = new Builder(mContext,AVObjectId);
-					mBuilder.setContentTitle(ContentTitle)
-							.setContentText("开始下载")
-							.setSmallIcon(R.drawable.ic_get_app_white_36dp)
-							.setTicker(Ticker)
-							.setPriority(NotificationCompat.PRIORITY_DEFAULT)
-							.setAutoCancel(true);
-					Intent intent = new Intent (mContext, InstallActivity.class);
-					intent.addFlags (Intent.FLAG_ACTIVITY_NEW_TASK);
-					intent.putExtra(KeyUtil.Type,"install");
-					PendingIntent pend = PendingIntent.getActivity(mContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-					mBuilder.setContentIntent (pend);
-					mNotifyManager.notify(0, mBuilder.build());
 					try {
+						mNotifyManager = (NotificationManager)mContext.getSystemService(Context.NOTIFICATION_SERVICE);
+						createNotificationChannel();
+						mBuilder = new Builder(mContext,AVObjectId);
+						mBuilder.setContentTitle(ContentTitle)
+								.setContentText("开始下载")
+								.setSmallIcon(R.drawable.ic_get_app_white_36dp)
+								.setTicker(Ticker)
+								.setPriority(NotificationCompat.PRIORITY_DEFAULT)
+								.setAutoCancel(true);
+						Intent intent = new Intent (mContext, InstallActivity.class);
+						intent.addFlags (Intent.FLAG_ACTIVITY_NEW_TASK);
+						PendingIntent pend = PendingIntent.getActivity(mContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+						mBuilder.setContentIntent (pend);
+						mNotifyManager.notify(NO_1, mBuilder.build());
 						Response response = LanguagehelperHttpClient.get(url,progressListener);
 						if(response != null && response.isSuccessful()){
-							LogUtil.DefalutLog("---DownloadFile success");
+							LogUtil.DefalutLog("---DownloadFile success---");
 							DownLoadUtil.saveFile(mContext,path,appFileName,response.body().bytes());
-							PendingIntent pendUp = PendingIntent.getActivity(mContext, 0, getInstallApkIntent(mContext,appLocalFullName),
+							PendingIntent pendUp = PendingIntent.getActivity(mContext, 0,
+									getInstallApkIntent(mContext,appLocalFullName),
 									PendingIntent.FLAG_UPDATE_CURRENT);
 							mBuilder.setContentIntent (pendUp);
-				            mNotifyManager.notify(0, mBuilder.build());
-				            installApk(mContext,appLocalFullName);
-				            updateDownloadTime();
+							mBuilder.setContentText("下载完成");
+							mBuilder.setProgress(0,0,false);
+				            mNotifyManager.notify(NO_1, mBuilder.build());
+							installApk(mContext,appLocalFullName);
+							updateDownloadTime();
 						}else{
 							LogUtil.DefalutLog("---DownloadFile onFailure");
 							mBuilder.setContentText("下载失败,请稍后重试").setProgress(0,0,false);
-							mNotifyManager.notify(0, mBuilder.build());
+							mNotifyManager.notify(NO_1, mBuilder.build());
 						}
-					} catch (IOException e) {
+					} catch (Exception e) {
 						e.printStackTrace();
 					}
 				}
@@ -113,17 +113,18 @@ public class AppDownloadUtil {
 		@Override
 		public void update(long bytesRead, long contentLength, boolean done) {
 			try {
-				int percent = (int) ((100 * bytesRead) / contentLength);
-				if(percent != 100 && record != percent){
-					record = percent;
-					mBuilder.setProgress(100, percent, false);
-					mBuilder.setContentText("更新进度"+percent+"%");
-					mNotifyManager.notify(0, mBuilder.build());
-				}else {
-					if(done){
-						mBuilder.setContentText("下载完成").setProgress(0,0,false);
-						mNotifyManager.notify(0, mBuilder.build());
+				if(!done){
+					int percent = (int) ((100 * bytesRead) / contentLength);
+					if(percent - lastPercent > 8){
+						lastPercent = percent;
+						mBuilder.setProgress(100, percent, false);
+						mBuilder.setContentText("更新进度"+percent+"%");
+						mNotifyManager.notify(NO_1, mBuilder.build());
 					}
+				}else{
+					mBuilder.setProgress(0,0,false);
+					mBuilder.setContentText("下载完成");
+					mNotifyManager.notify(NO_1, mBuilder.build());
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -144,17 +145,11 @@ public class AppDownloadUtil {
 	} 
 	
 	/**安装apk**/
-	public void installApk(Activity mContext, String filePath){
-		if (Build.VERSION.SDK_INT >= 26) {
-			boolean installAllowed = mContext.getPackageManager().canRequestPackageInstalls();
-			if (installAllowed) {
-				mContext.startActivity(getInstallApkIntent(mContext,filePath));
-			} else {
-				ActivityCompat.requestPermissions(mContext, new String[]{Manifest.permission.REQUEST_INSTALL_PACKAGES}, 10010);
-			}
-		}else {
-			mContext.startActivity(getInstallApkIntent(mContext,filePath));
-		}
+	public void installApk(Context mContext, String filePath){
+		Intent intent = new Intent(mContext,InstallActivity.class);
+		intent.putExtra(KeyUtil.Type,InstallActivity.Action_Install_local);
+		intent.putExtra(KeyUtil.ApkPath,filePath);
+		mContext.startActivity(intent);
 	}
 	
 	public Intent getInstallApkIntent(Context mContext,String filePath){

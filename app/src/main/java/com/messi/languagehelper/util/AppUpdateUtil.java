@@ -1,13 +1,13 @@
 package com.messi.languagehelper.util;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
-import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,8 +17,6 @@ import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
 import com.messi.languagehelper.R;
-import com.orhanobut.dialogplus.DialogPlus;
-import com.orhanobut.dialogplus.ViewHolder;
 import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
 import com.ximalaya.ting.android.sdkdownloader.XmDownloadManager;
 
@@ -82,7 +80,7 @@ public class AppUpdateUtil {
                         public void run() {
                             showUpdateDialog(mActivity,mAVObject);
                         }
-                    }, 3700);
+                    }, 3900);
                 }
             }
         });
@@ -109,56 +107,55 @@ public class AppUpdateUtil {
     }
 
     public static void showUpdateDialog(final Activity mActivity,final AVObject mAVObject) {
-        String isValid = mAVObject.getString(AVOUtil.UpdateInfo.IsValid);
-        if(!TextUtils.isEmpty(isValid) && isValid.equals("3")){
-            int newVersionCode = mAVObject.getInt(AVOUtil.UpdateInfo.VersionCode);
-            int oldVersionCode = Setings.getVersion(mActivity);
-            if (newVersionCode > oldVersionCode) {
-                String updateInfo = mAVObject.getString(AVOUtil.UpdateInfo.AppUpdateInfo);
-                String downloadType = mAVObject.getString(AVOUtil.UpdateInfo.DownloadType);
-                String apkUrl = "";
-                if (downloadType.equals("apk")) {
-                    AVFile avFile = mAVObject.getAVFile(AVOUtil.UpdateInfo.Apk);
-                    apkUrl = avFile.getUrl();
-                } else {
-                    apkUrl = mAVObject.getString(AVOUtil.UpdateInfo.APPUrl);
+        try {
+            String isValid = mAVObject.getString(AVOUtil.UpdateInfo.IsValid);
+            if(!TextUtils.isEmpty(isValid) && isValid.equals("3")){
+                int newVersionCode = mAVObject.getInt(AVOUtil.UpdateInfo.VersionCode);
+                int oldVersionCode = Setings.getVersion(mActivity);
+                if (newVersionCode > oldVersionCode) {
+                    String updateInfo = mAVObject.getString(AVOUtil.UpdateInfo.AppUpdateInfo);
+                    String downloadType = mAVObject.getString(AVOUtil.UpdateInfo.DownloadType);
+                    String apkUrl = "";
+                    if (downloadType.equals("apk")) {
+                        AVFile avFile = mAVObject.getAVFile(AVOUtil.UpdateInfo.Apk);
+                        apkUrl = avFile.getUrl();
+                    } else {
+                        apkUrl = mAVObject.getString(AVOUtil.UpdateInfo.APPUrl);
+                    }
+                    final String downloadUrl = apkUrl;
+                    LogUtil.DefalutLog("apkUrl:" + apkUrl);
+
+                    View view = LayoutInflater.from(mActivity).inflate(R.layout.dialog_update_info,null);
+                    TextView updage_info = (TextView) view.findViewById(R.id.updage_info);
+                    ImageView cancel_btn = (ImageView) view.findViewById(R.id.cancel_btn);
+                    TextView update_btn = (TextView) view.findViewById(R.id.update_btn);
+                    final AlertDialog dialog = new AlertDialog.Builder(mActivity).create();
+                    dialog.setView(view);
+                    dialog.setCancelable(false);
+                    updage_info.setText(updateInfo);
+                    cancel_btn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    });
+                    update_btn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                            new AppDownloadUtil(mActivity,
+                                    downloadUrl,
+                                    mAVObject.getString(AVOUtil.UpdateInfo.AppName),
+                                    mAVObject.getObjectId(),
+                                    SDCardUtil.apkUpdatePath
+                            ).DownloadFile();
+                        }
+                    });
+                    dialog.show();
                 }
-                final String downloadUrl = apkUrl;
-                LogUtil.DefalutLog("apkUrl:" + apkUrl);
-
-                final DialogPlus dialog = DialogPlus.newDialog(mActivity)
-                        .setContentHolder(new ViewHolder(R.layout.dialog_update_info))
-                        .setCancelable(false)
-                        .setGravity(Gravity.BOTTOM)
-                        .setContentHeight(ViewGroup.LayoutParams.WRAP_CONTENT)
-                        .setOverlayBackgroundResource(R.color.none_alpha)
-                        .create();
-                View view = dialog.getHolderView();
-                TextView updage_info = (TextView) view.findViewById(R.id.updage_info);
-                ImageView cancel_btn = (ImageView) view.findViewById(R.id.cancel_btn);
-                TextView update_btn = (TextView) view.findViewById(R.id.update_btn);
-
-                updage_info.setText(updateInfo);
-                cancel_btn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                    }
-                });
-                update_btn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                        new AppDownloadUtil(mActivity,
-                                downloadUrl,
-                                mAVObject.getString(AVOUtil.UpdateInfo.AppName),
-                                mAVObject.getObjectId(),
-                                SDCardUtil.apkUpdatePath
-                        ).DownloadFile();
-                    }
-                });
-                dialog.show();
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

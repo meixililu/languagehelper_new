@@ -44,7 +44,6 @@ MERGED from [com.facebook.fresco:fresco:1.11.0] /Users/luli/.gradle/caches/trans
 MERGED from [com.facebook.fresco:animated-gif:1.11.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/animated-gif-1.11.0.aar/ce3ec1ea51cca706777c452e4d1fc500/AndroidManifest.xml:2:1-9:12
 MERGED from [com.mindorks.nybus:nybus-android:1.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/nybus-android-1.0.0.aar/69ad08370cbf1939480802de1d23750b/AndroidManifest.xml:17:1-26:12
 MERGED from [io.reactivex.rxjava2:rxandroid:2.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/rxandroid-2.1.0.aar/480ec5083a998a656966336526bc965c/AndroidManifest.xml:15:1-20:12
-MERGED from [com.orhanobut:dialogplus:1.11] /Users/luli/.gradle/caches/transforms-1/files-1.1/dialogplus-1.11.aar/aab0989d6fd27edf6dcb90f9aab986be/AndroidManifest.xml:2:1-10:12
 MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/GreenDaoUpgradeHelper-v2.1.0.aar/da3c0ed02349891bb328d56f65adc2e3/AndroidManifest.xml:2:1-16:12
 MERGED from [com.github.lzyzsd:circleprogress:1.2.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/circleprogress-1.2.1.aar/ba97411854b09c1374cc4e63b8e7d4b7/AndroidManifest.xml:2:1-12:12
 MERGED from [com.daimajia.numberprogressbar:library:1.4] /Users/luli/.gradle/caches/transforms-1/files-1.1/library-1.4.aar/81eae5eb0f4c61d8fb6da88a62064dfa/AndroidManifest.xml:2:1-11:12
@@ -1110,8 +1109,6 @@ MERGED from [com.mindorks.nybus:nybus-android:1.0.0] /Users/luli/.gradle/caches/
 MERGED from [com.mindorks.nybus:nybus-android:1.0.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/nybus-android-1.0.0.aar/69ad08370cbf1939480802de1d23750b/AndroidManifest.xml:22:5-24:41
 MERGED from [io.reactivex.rxjava2:rxandroid:2.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/rxandroid-2.1.0.aar/480ec5083a998a656966336526bc965c/AndroidManifest.xml:18:5-43
 MERGED from [io.reactivex.rxjava2:rxandroid:2.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/rxandroid-2.1.0.aar/480ec5083a998a656966336526bc965c/AndroidManifest.xml:18:5-43
-MERGED from [com.orhanobut:dialogplus:1.11] /Users/luli/.gradle/caches/transforms-1/files-1.1/dialogplus-1.11.aar/aab0989d6fd27edf6dcb90f9aab986be/AndroidManifest.xml:6:5-8:41
-MERGED from [com.orhanobut:dialogplus:1.11] /Users/luli/.gradle/caches/transforms-1/files-1.1/dialogplus-1.11.aar/aab0989d6fd27edf6dcb90f9aab986be/AndroidManifest.xml:6:5-8:41
 MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/GreenDaoUpgradeHelper-v2.1.0.aar/da3c0ed02349891bb328d56f65adc2e3/AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/luli/.gradle/caches/transforms-1/files-1.1/GreenDaoUpgradeHelper-v2.1.0.aar/da3c0ed02349891bb328d56f65adc2e3/AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.lzyzsd:circleprogress:1.2.1] /Users/luli/.gradle/caches/transforms-1/files-1.1/circleprogress-1.2.1.aar/ba97411854b09c1374cc4e63b8e7d4b7/AndroidManifest.xml:8:5-10:41

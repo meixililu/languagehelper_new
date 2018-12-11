@@ -223,32 +223,6 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 		Setings.musicSrv = null;
 	}
 
-	//	@Override
-//	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//		switch (requestCode) {
-//			case 10010:
-//				if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//					AppUpdateUtil.checkUpdate(this);
-//				} else {
-//					Uri packageURI = Uri.parse("package:"+this.getPackageName());
-//					Intent intent = new Intent(android.provider.Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES,packageURI);
-//					startActivityForResult(intent, 10086);
-//				}
-//				break;
-//
-//		}
-//	}
-
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		super.onActivityResult(requestCode, resultCode, data);
-		if (resultCode == RESULT_OK && requestCode == 10086) {
-			AppUpdateUtil.checkUpdate(this);
-		}
-	}
-
-
 	@NeedsPermission({Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_EXTERNAL_STORAGE,
 			Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.ACCESS_FINE_LOCATION})
 	void showPermission() {

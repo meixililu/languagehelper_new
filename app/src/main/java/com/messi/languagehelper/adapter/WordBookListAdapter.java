@@ -1,9 +1,9 @@
 package com.messi.languagehelper.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,14 +15,13 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.messi.languagehelper.BaseActivity;
+import com.messi.languagehelper.R;
 import com.messi.languagehelper.WordStudyViewAllActivity;
+import com.messi.languagehelper.bean.WordListItem;
+import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.SaveData;
 import com.messi.languagehelper.util.Setings;
-import com.messi.languagehelper.R;
-import com.messi.languagehelper.bean.WordListItem;
-import com.messi.languagehelper.util.KeyUtil;
-import com.orhanobut.dialogplus.DialogPlus;
 
 import java.util.List;
 
@@ -32,7 +31,7 @@ public class WordBookListAdapter extends BaseAdapter {
     private Context context;
     private List<WordListItem> avObjects;
     private String play_sign;
-    private DialogPlus dialog;
+    private AlertDialog dialog;
 
     public WordBookListAdapter(Context mContext, List<WordListItem> avObjects,String play_sign) {
         context = mContext;
@@ -88,14 +87,10 @@ public class WordBookListAdapter extends BaseAdapter {
     }
 
     private void showConfirmDialog(final WordListItem mAVObject){
-        dialog = DialogPlus.newDialog(context)
-                .setContentHolder(new com.orhanobut.dialogplus.ViewHolder(R.layout.dialog_word_study_book_confirm))
-                .setCancelable(true)
-                .setGravity(Gravity.CENTER)
-                .setContentHeight(ViewGroup.LayoutParams.WRAP_CONTENT)
-                .setOverlayBackgroundResource(R.color.none_alpha)
-                .create();
-        View view = dialog.getHolderView();
+        View view = mInflater.inflate(R.layout.dialog_word_study_book_confirm,null);
+        dialog = new AlertDialog.Builder(context).create();
+        dialog.setView(view);
+        dialog.setCancelable(true);
         ImageView dialog_close = (ImageView) view.findViewById(R.id.dialog_close);
         TextView dialog_title = (TextView) view.findViewById(R.id.dialog_title);
         TextView dialog_content = (TextView) view.findViewById(R.id.dialog_content);

@@ -1,17 +1,14 @@
 package com.messi.languagehelper.dialog;
 
 import android.app.Activity;
-import android.app.Dialog;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.Display;
-import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.iflytek.cloud.SpeechConstant;
@@ -26,12 +23,7 @@ import com.messi.languagehelper.task.MyThread;
 import com.messi.languagehelper.util.AudioTrackUtil;
 import com.messi.languagehelper.util.DictionaryHelper;
 import com.messi.languagehelper.util.SDCardUtil;
-import com.messi.languagehelper.util.ScreenUtil;
 import com.messi.languagehelper.util.XFUtil;
-import com.orhanobut.dialogplus.DialogPlus;
-import com.orhanobut.dialogplus.OnBackPressListener;
-import com.orhanobut.dialogplus.OnDismissListener;
-import com.orhanobut.dialogplus.ViewHolder;
 
 public class TranslateResultDialog implements DicHelperListener {
 	
@@ -41,7 +33,7 @@ public class TranslateResultDialog implements DicHelperListener {
 	private SharedPreferences mSharedPreferences;
 	private Thread mThread;
 	private MyThread mMyThread;
-	private DialogPlus dialog;
+	private AlertDialog dialog;
 
 	public TranslateResultDialog(Context context) {
 	    this.context = context;
@@ -59,34 +51,21 @@ public class TranslateResultDialog implements DicHelperListener {
 	}
 
 	public void createDialog() {
-		dialog = DialogPlus.newDialog(context)
-				.setContentHolder(new ViewHolder(R.layout.dialog_translate_result))
-				.setCancelable(true)
-				.setGravity(Gravity.BOTTOM)
-				.setContentHeight(ViewGroup.LayoutParams.WRAP_CONTENT)
-				.setOverlayBackgroundResource(android.R.color.transparent)
-				.setOnDismissListener(new OnDismissListener() {
-					@Override
-					public void onDismiss(DialogPlus dialog) {
-						if(mSpeechSynthesizer != null && mSpeechSynthesizer.isSpeaking()){
-							mSpeechSynthesizer.stopSpeaking();
-							mSpeechSynthesizer = null;
-						}
-					}
-				})
-				.create();
-		View view = dialog.getHolderView();
-		mMyThread = new MyThread();
-	    FrameLayout close_layout = (FrameLayout) view.findViewById(R.id.close_layout);
-		LinearLayout dic_result_layout = (LinearLayout) view.findViewById(R.id.dic_result_layout);
-
-		DictionaryHelper.addDicContentForDialog(context, dic_result_layout, bean, this);
-	    close_layout.setOnClickListener(new View.OnClickListener() {
+		View view = LayoutInflater.from(context).inflate(R.layout.dialog_translate_result,null);
+		dialog = new AlertDialog.Builder(context).create();
+		dialog.setView(view);
+		dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
 			@Override
-			public void onClick(View v) {
-				dialog.dismiss();
+			public void onDismiss(DialogInterface dialogInterface) {
+				if(mSpeechSynthesizer != null && mSpeechSynthesizer.isSpeaking()){
+					mSpeechSynthesizer.stopSpeaking();
+					mSpeechSynthesizer = null;
+				}
 			}
 		});
+		mMyThread = new MyThread();
+		LinearLayout dic_result_layout = (LinearLayout) view.findViewById(R.id.dic_result_layout);
+		DictionaryHelper.addDicContentForDialog(context, dic_result_layout, bean, this);
 	}
 
 	public void show(){
