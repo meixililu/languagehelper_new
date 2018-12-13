@@ -43,7 +43,9 @@ import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
-import com.mindorks.nybus.annotation.Subscribe;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import permissions.dispatcher.NeedsPermission;
 import permissions.dispatcher.OnPermissionDenied;
@@ -453,7 +455,7 @@ public class MainFragmentYWCD extends BaseFragment implements OnClickListener, O
         }
     }
 
-    @Subscribe
+    @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(FinishEvent event){
         LogUtil.DefalutLog("FinishEvent");
         autoClearAndautoPlay();

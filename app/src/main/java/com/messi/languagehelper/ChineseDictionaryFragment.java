@@ -23,7 +23,8 @@ import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ShareUtil;
 import com.messi.languagehelper.util.XFUtil;
-import com.mindorks.nybus.NYBus;
+
+import org.greenrobot.eventbus.EventBus;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -187,7 +188,7 @@ public class ChineseDictionaryFragment extends BaseFragment {
                         chdic_sv.scrollTo(0, 0);
                         question_tv.setText(Setings.q);
                         result_tv.setText(s);
-                        NYBus.get().post(new FinishEvent());
+                        EventBus.getDefault().post(new FinishEvent());
                     }
 
                     @Override

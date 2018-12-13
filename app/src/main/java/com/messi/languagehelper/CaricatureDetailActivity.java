@@ -22,7 +22,8 @@ import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFYSAD;
-import com.mindorks.nybus.NYBus;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.text.DecimalFormat;
 
@@ -166,7 +167,7 @@ public class CaricatureDetailActivity extends BaseActivity {
                 mAVObject,
                 mAVObject.getString(AVOUtil.Caricature.name),
                 System.currentTimeMillis());
-        NYBus.get().post(new CaricatureEventAddBookshelf());
+        EventBus.getDefault().post(new CaricatureEventAddBookshelf());
         ToastUtil.diaplayMesShort(this, getString(R.string.add_bookshelf_success));
     }
 

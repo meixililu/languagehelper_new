@@ -23,8 +23,9 @@ import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.TranslateUtil;
 import com.messi.languagehelper.views.DividerItemDecoration;
-import com.mindorks.nybus.NYBus;
 import com.youdao.sdk.ydtranslate.Translate;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -181,7 +182,7 @@ public class MainTabTran extends BaseFragment {
     }
 
     public void autoClearAndautoPlay() {
-        NYBus.get().post(new FinishEvent());
+        EventBus.getDefault().post(new FinishEvent());
         if (PlayUtil.getSP().getBoolean(KeyUtil.AutoPlayResult, false)) {
             new AutoPlayWaitTask().execute();
         }

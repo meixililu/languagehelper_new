@@ -112,9 +112,8 @@ dependencies {
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42'
     implementation 'com.yqritc:recyclerview-flexibledivider:1.4.0'
     implementation 'com.karumi:headerrecyclerview:1.1.0'
-    implementation 'org.greenrobot:greendao:3.2.2'
-    implementation 'com.mindorks.nybus:nybus-android:1.0.0'
     implementation 'org.greenrobot:eventbus:3.1.1'
+    implementation 'org.greenrobot:greendao:3.2.2'
     implementation 'com.github.hotchemi:permissionsdispatcher:3.3.2'
     annotationProcessor "com.github.hotchemi:permissionsdispatcher-processor:3.3.2"
     implementation 'com.facebook.soloader:soloader:0.5.1'

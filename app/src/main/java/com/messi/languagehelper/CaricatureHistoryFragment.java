@@ -20,7 +20,9 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
-import com.mindorks.nybus.annotation.Subscribe;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -102,7 +104,7 @@ public class CaricatureHistoryFragment extends BaseFragment implements View.OnCl
         });
     }
 
-    @Subscribe
+    @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(CaricatureEventHistory scode){
         LogUtil.DefalutLog("CaricatureEventHistory---onEvent");
         onSwipeRefreshLayoutRefresh();

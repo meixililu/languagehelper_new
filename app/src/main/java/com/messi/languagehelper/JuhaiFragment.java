@@ -18,9 +18,11 @@ import com.messi.languagehelper.util.HtmlParseUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
-import com.mindorks.nybus.NYBus;
-import com.mindorks.nybus.annotation.Subscribe;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -127,7 +129,7 @@ public class JuhaiFragment extends BaseFragment {
             beans.clear();
             beans.addAll(juhaiBeans);
             mAdapter.notifyDataSetChanged();
-            NYBus.get().post(new FinishEvent());
+            EventBus.getDefault().post(new FinishEvent());
         }else {
             ToastUtil.diaplayMesShort(getContext(),"未找到相关例句");
         }
@@ -179,7 +181,7 @@ public class JuhaiFragment extends BaseFragment {
         translateController();
     }
 
-    @Subscribe
+    @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(ProgressEvent event){
         LogUtil.DefalutLog("ProgressEvent");
         if(event.getStatus() == 0){

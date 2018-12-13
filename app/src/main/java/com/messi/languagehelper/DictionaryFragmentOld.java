@@ -33,9 +33,11 @@ import com.messi.languagehelper.util.StringUtils;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.TranslateUtil;
 import com.messi.languagehelper.views.DividerItemDecoration;
-import com.mindorks.nybus.NYBus;
-import com.mindorks.nybus.annotation.Subscribe;
 import com.youdao.sdk.ydtranslate.Translate;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -206,7 +208,7 @@ public class DictionaryFragmentOld extends BaseFragment implements
         mDictionaryBean = (Dictionary) Setings.dataMap.get(KeyUtil.DataMapKey);
         Setings.dataMap.clear();
         setBean();
-        NYBus.get().post(new FinishEvent());
+        EventBus.getDefault().post(new FinishEvent());
     }
 
     private void setBean() {
@@ -275,7 +277,7 @@ public class DictionaryFragmentOld extends BaseFragment implements
 
     }
 
-    @Subscribe
+    @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(ProgressEvent event){
         LogUtil.DefalutLog("ProgressEvent");
         if(event.getStatus() == 0){

@@ -6,7 +6,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.messi.languagehelper.R;
-import com.mindorks.nybus.NYBus;
+import com.messi.languagehelper.event.PybsEvent;
+
+import org.greenrobot.eventbus.EventBus;
 
 /**
  * Created by luli on 10/23/16.
@@ -37,7 +39,7 @@ public class RcPybsMenuItemViewHolder extends RecyclerView.ViewHolder {
     }
 
     private void onItemClick(String code){
-        NYBus.get().post(code);
+        EventBus.getDefault().post(new PybsEvent(code));
     }
 
 }

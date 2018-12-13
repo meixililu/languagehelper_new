@@ -13,7 +13,8 @@ import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.HtmlParseUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
-import com.mindorks.nybus.NYBus;
+
+import org.greenrobot.eventbus.EventBus;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -75,7 +76,7 @@ public class EnDicFragment extends BaseFragment {
                     public void onNext(String content) {
                         dic_content.setText(lastSearch+"\n"+content);
                         dic_scrollview.scrollTo(0,0);
-                        NYBus.get().post(new FinishEvent());
+                        EventBus.getDefault().post(new FinishEvent());
                     }
 
                     @Override

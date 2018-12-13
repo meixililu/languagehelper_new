@@ -14,7 +14,8 @@ import com.messi.languagehelper.R;
 import com.messi.languagehelper.event.ProgressEvent;
 import com.messi.languagehelper.task.PublicTask;
 import com.messi.languagehelper.task.PublicTask.PublicTaskListener;
-import com.mindorks.nybus.NYBus;
+
+import org.greenrobot.eventbus.EventBus;
 
 public class XFUtil {
 	
@@ -191,12 +192,12 @@ public class XFUtil {
 
 			@Override
 			public void onSpeakBegin() {
-				NYBus.get().post(new ProgressEvent(1));
+				EventBus.getDefault().post(new ProgressEvent(1));
 			}
 
 			@Override
 			public void onCompleted(SpeechError arg0) {
-				NYBus.get().post(new ProgressEvent(1));
+				EventBus.getDefault().post(new ProgressEvent(1));
 				if (arg0 != null) {
 					LogUtil.DefalutLog(arg0.getErrorDescription());
 				}
@@ -205,7 +206,7 @@ public class XFUtil {
 			@Override
 			public void onBufferProgress(int arg0, int arg1, int arg2, String arg3) {
 				if (arg0 < 10) {
-					NYBus.get().post(new ProgressEvent(0));
+					EventBus.getDefault().post(new ProgressEvent(0));
 				}
 			}
 

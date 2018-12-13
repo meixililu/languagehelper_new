@@ -17,8 +17,8 @@ import android.view.ViewGroup;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.mindorks.nybus.NYBus;
 
+import org.greenrobot.eventbus.EventBus;
 
 public class BaseFragment extends Fragment {
 	
@@ -89,7 +89,9 @@ public class BaseFragment extends Fragment {
 	public void onStart() {
 		super.onStart();
 		if(isRegisterBus){
-			NYBus.get().register(this);
+			if(!EventBus.getDefault().isRegistered(this)){
+				EventBus.getDefault().register(this);
+			}
 		}
 	}
 
@@ -100,10 +102,12 @@ public class BaseFragment extends Fragment {
 
 	@Override
 	public void onDestroyView() {
-		super.onDestroyView();
 		if (isRegisterBus) {
-			NYBus.get().unregister(this);
+			if(EventBus.getDefault().isRegistered(this)){
+				EventBus.getDefault().unregister(this);
+			}
 		}
+		super.onDestroyView();
 	}
 
 	/**

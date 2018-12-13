@@ -15,11 +15,14 @@ import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
 import com.messi.languagehelper.adapter.RcPybsListAdapter;
 import com.messi.languagehelper.adapter.RcPybsMenuAdapter;
+import com.messi.languagehelper.event.PybsEvent;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
-import com.mindorks.nybus.annotation.Subscribe;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -173,12 +176,12 @@ public class ChPybsFragment extends BaseFragment {
         });
     }
 
-    @Subscribe
-    public void onEvent(String scode){
-        if("所有".equals(scode)){
-            code = "";
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(PybsEvent scode){
+        if("全部".equals(scode.getCode())){
+            this.code = "";
         }else {
-            this.code = scode;
+            this.code = scode.getCode();
         }
         onSwipeRefreshLayoutRefresh();
     }

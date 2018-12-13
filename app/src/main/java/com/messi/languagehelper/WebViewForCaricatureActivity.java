@@ -30,7 +30,8 @@ import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.mindorks.nybus.NYBus;
+
+import org.greenrobot.eventbus.EventBus;
 
 
 public class WebViewForCaricatureActivity extends BaseActivity{
@@ -278,7 +279,7 @@ public class WebViewForCaricatureActivity extends BaseActivity{
 				AVOUtil.Caricature.Caricature,
 				mItem,
 				mItem.getString(AVOUtil.Caricature.name));
-		NYBus.get().post(new CaricatureEventHistory());
+		EventBus.getDefault().post(new CaricatureEventHistory());
 		mWebView.destroy();
 	}
 
