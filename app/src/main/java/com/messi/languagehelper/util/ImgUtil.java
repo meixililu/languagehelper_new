@@ -1,30 +1,17 @@
 package com.messi.languagehelper.util;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
-import android.util.Log;
-
-import com.messi.languagehelper.R;
 
 
 public class ImgUtil {
 
-    public static void toBitmap(Activity mContext, String path){
+    public static void toBitmap(Context mContext, String path, int resourseId){
         try {
             Bitmap srcBitmap= BitmapFactory.decodeFile(path);
-            int resourseId = R.drawable.qrcode_mh;
-//            if(mContext.getPackageName().equals(Setings.application_id_meixiu)){
-//                resourseId = R.drawable.qrcode;
-//            }else if (mContext.getPackageName().equals(Setings.application_id_meinv)) {
-//                resourseId = R.drawable.qrcode;
-//            } else if (mContext.getPackageName().equals(Setings.application_id_caricature)) {
-//                resourseId = R.drawable.qrcode_mh;
-//            } else if (mContext.getPackageName().equals(Setings.application_id_browser)) {
-//            }
             Bitmap waterBitmap = BitmapFactory.decodeResource(mContext.getResources(),resourseId);
 //            Bitmap newBitmap = createWaterMaskRightBottom(mContext,srcBitmap,waterBitmap,15,15);
             Bitmap newBitmap = WaterMask(srcBitmap,waterBitmap);
@@ -35,7 +22,18 @@ public class ImgUtil {
         }
     }
 
-    private static Bitmap createWaterMaskBitmap(Bitmap src, Bitmap watermark,
+    public static void addToBitmap(Context mContext, Bitmap srcBitmap, int resourseId){
+        try {
+            Bitmap waterBitmap = BitmapFactory.decodeResource(mContext.getResources(),resourseId);
+            Bitmap newBitmap = WaterMask(srcBitmap,waterBitmap);
+            String imgPath = SDCardUtil.saveBitmap(mContext, newBitmap, "share_img.png");
+            Setings.shareImg(mContext, imgPath);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static Bitmap createWaterMaskBitmap(Bitmap src, Bitmap watermark,
                                                 int paddingLeft, int paddingTop) {
         if (src == null) {
             return null;
@@ -69,8 +67,6 @@ public class ImgUtil {
     public static Bitmap WaterMask(Bitmap src, Bitmap watermark) {
         int w = src.getWidth();
         int h = src.getHeight();
-        Log.i("WaterMask", "原图宽: "+w);
-        Log.i("WaterMask", "原图高: "+h);
         // 设置原图想要的大小
         float newWidth = SystemUtil.SCREEN_WIDTH;
         float newHeight = h*(newWidth/w);
@@ -93,7 +89,7 @@ public class ImgUtil {
         float scaleheight = ((float) h1) / h2;
 
         Matrix matrix1 = new Matrix();
-        matrix1.postScale((float) 0.4, (float) 0.4);
+        matrix1.postScale((float) 0.3, (float) 0.3);
 
         watermark = Bitmap.createBitmap(watermark, 0, 0, w2, h2, matrix1, true);
         //获取新的水印图片的宽、高

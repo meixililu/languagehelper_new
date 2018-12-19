@@ -1,6 +1,24 @@
 package com.messi.languagehelper.adapter;
 
-import java.util.List;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.drawable.AnimationDrawable;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.support.v7.widget.RecyclerView;
+import android.text.ClipboardManager;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.FrameLayout;
+import android.widget.ImageButton;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.avos.avoscloud.AVAnalytics;
 import com.iflytek.cloud.SpeechConstant;
@@ -24,25 +42,7 @@ import com.messi.languagehelper.util.StringUtils;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.drawable.AnimationDrawable;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.support.v7.widget.RecyclerView;
-import android.text.ClipboardManager;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.FrameLayout;
-import android.widget.ImageButton;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import java.util.List;
 
 public class DictionaryRecyclerviewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -305,6 +305,11 @@ public class DictionaryRecyclerviewAdapter extends RecyclerView.Adapter<Recycler
 					e.printStackTrace();
 				}
 				AVAnalytics.onEvent(context, "favor_dic_share_for_text");
+			}
+
+			@Override
+			public void onThirdClick(View v) {
+
 			}
 		});
 		mPopDialog.show();

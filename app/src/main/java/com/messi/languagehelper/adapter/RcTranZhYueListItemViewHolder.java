@@ -44,7 +44,6 @@ public class RcTranZhYueListItemViewHolder extends RecyclerView.ViewHolder {
     public FrameLayout record_to_practice;
     public FrameLayout record_question_cover;
     public FrameLayout delete_btn;
-    public FrameLayout copy_btn;
     public FrameLayout collected_btn;
     public FrameLayout weixi_btn;
     public ImageButton voice_play;
@@ -75,7 +74,6 @@ public class RcTranZhYueListItemViewHolder extends RecyclerView.ViewHolder {
         collected_cb = (CheckBox) convertView.findViewById(R.id.collected_cb);
         voice_play_layout = (FrameLayout) convertView.findViewById(R.id.voice_play_layout);
         delete_btn = (FrameLayout) convertView.findViewById(R.id.delete_btn);
-        copy_btn = (FrameLayout) convertView.findViewById(R.id.copy_btn);
         collected_btn = (FrameLayout) convertView.findViewById(R.id.collected_btn);
         weixi_btn = (FrameLayout) convertView.findViewById(R.id.weixi_btn);
         play_content_btn_progressbar = (ProgressBar) convertView.findViewById(R.id.play_content_btn_progressbar);
@@ -126,17 +124,6 @@ public class RcTranZhYueListItemViewHolder extends RecyclerView.ViewHolder {
             @Override
             public void onClick(View v) {
                 deleteEntity(getLayoutPosition());
-            }
-        });
-        copy_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(mBean.getEnglish().contains("英[") || mBean.getEnglish().contains("美[")){
-                    Setings.copy(context,mBean.getChinese()+"\n"+mBean.getEnglish());
-                }else {
-                    Setings.copy(context,mBean.getEnglish());
-                }
-                AVAnalytics.onEvent(context, "tab1_tran_copy");
             }
         });
         weixi_btn.setOnClickListener(new View.OnClickListener() {

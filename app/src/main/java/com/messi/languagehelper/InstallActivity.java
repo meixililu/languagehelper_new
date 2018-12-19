@@ -50,6 +50,8 @@ public class InstallActivity extends Activity {
 			}else {
 				finish();
 			}
+		}else {
+			finish();
 		}
 	}
 

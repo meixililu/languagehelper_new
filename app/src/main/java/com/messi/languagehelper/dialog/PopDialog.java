@@ -36,7 +36,6 @@ public class PopDialog extends Dialog {
 	/**
 	 * 更改TextView的提示内容
 	 * @param context
-	 * @param theme
 	 * @param tempText
 	 */
 	public PopDialog(Context context, String[] tempText) {
@@ -51,14 +50,17 @@ public class PopDialog extends Dialog {
 	    setContentView(R.layout.select_popwindow);
 	    FrameLayout text1Cover = (FrameLayout) findViewById(R.id.select_popwindow_text1_cover);
 	    FrameLayout text2Cover = (FrameLayout) findViewById(R.id.select_popwindow_text2_cover);
+	    FrameLayout text3Cover = (FrameLayout) findViewById(R.id.select_popwindow_text3_cover);
 	    TextView text1 = (TextView) findViewById(R.id.select_popwindow_text1);
 	    TextView text2 = (TextView) findViewById(R.id.select_popwindow_text2);
+	    TextView text3 = (TextView) findViewById(R.id.select_popwindow_text3);
 	    text1Cover.setOnClickListener(onClickListener);
 	    text2Cover.setOnClickListener(onClickListener);
-		
-		if(tempText != null){
+		text3Cover.setOnClickListener(onClickListener);
+		if(tempText != null && tempText.length > 1){
 			text1.setText(tempText[0]);
 			text2.setText(tempText[1]);
+			text3.setText(tempText[2]);
 		}
 	}
 	
@@ -79,6 +81,12 @@ public class PopDialog extends Dialog {
 				 }					
 				 PopDialog.this.dismiss();
 				 break;
+			case R.id.select_popwindow_text3_cover:
+				 if(listener != null){
+					 listener.onThirdClick(v);
+				 }
+				 PopDialog.this.dismiss();
+				 break;
 			}
 		}
 	};
@@ -96,5 +104,6 @@ public class PopDialog extends Dialog {
 	public interface PopViewItemOnclickListener{
 		public void onFirstClick(View v);
 		public void onSecondClick(View v);
+		public void onThirdClick(View v);
 	}
 }

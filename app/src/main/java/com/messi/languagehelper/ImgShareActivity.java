@@ -2,37 +2,29 @@ package com.messi.languagehelper;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Typeface;
 import android.media.AudioManager;
 import android.media.SoundPool;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.content.FileProvider;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.View.MeasureSpec;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
 import com.avos.avoscloud.AVAnalytics;
+import com.messi.languagehelper.util.ImgUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.SDCardUtil;
-import com.messi.languagehelper.util.Setings;
+import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.ToastUtil;
-
-import java.io.File;
-import java.io.IOException;
 
 public class ImgShareActivity extends BaseActivity implements OnClickListener {
 
@@ -43,7 +35,7 @@ public class ImgShareActivity extends BaseActivity implements OnClickListener {
     private SeekBar seekbar;
     private EditText share_content;
     private FrameLayout share_btn_cover;
-    private LinearLayout parent_layout;
+    private ScrollView parent_layout;
     private String shareContent;
     private int mSoundId;
 
@@ -85,7 +77,7 @@ public class ImgShareActivity extends BaseActivity implements OnClickListener {
         style_5 = (FrameLayout) findViewById(R.id.style_5);
         seekbar = (SeekBar) findViewById(R.id.seekbar);
 
-        parent_layout = (LinearLayout) findViewById(R.id.parent_layout);
+        parent_layout = (ScrollView) findViewById(R.id.parent_layout);
         share_content = (EditText) findViewById(R.id.share_content);
         share_btn_cover = (FrameLayout) findViewById(R.id.share_btn_cover);
         mSoundPoll = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
@@ -127,36 +119,17 @@ public class ImgShareActivity extends BaseActivity implements OnClickListener {
         });
     }
 
-    private void shareWithImg() throws IOException {
-        share_content.setFocusable(false);
-        parent_layout.setDrawingCacheEnabled(true);
-        parent_layout.measure(MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED),
-                MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
-        parent_layout.layout(0, 0, parent_layout.getMeasuredWidth(), parent_layout.getMeasuredHeight());
-        parent_layout.buildDrawingCache();
-        Bitmap bitmap = parent_layout.getDrawingCache();
-        if (bitmap != null) {
-            String imgPath = SDCardUtil.saveBitmap(this, bitmap);
-            File file = new File(imgPath);
-            if (file != null && file.exists() && file.isFile()) {
-                Uri imageUri = null;
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    imageUri = FileProvider.getUriForFile(this, Setings.getProvider(this), file);
-                } else {
-                    imageUri = Uri.fromFile(file);
-                }
-                Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("image/png");
-                intent.putExtra(Intent.EXTRA_SUBJECT, this.getResources().getString(R.string.share));
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra(Intent.EXTRA_STREAM, imageUri);
-                this.startActivity(Intent.createChooser(intent, this.getResources().getString(R.string.share)));
-            }
-        } else {
-            LogUtil.DefalutLog("bitmap == null");
+    private void shareWithImg(){
+        int h = 0;
+        Bitmap bitmap;
+        for(int i = 0; i < parent_layout.getChildCount(); i++){
+            h += parent_layout.getChildAt(i).getHeight();
         }
-        share_content.setFocusable(true);
-        parent_layout.requestLayout();
+        bitmap = Bitmap.createBitmap(SystemUtil.SCREEN_WIDTH, h, Bitmap.Config.RGB_565);
+        Canvas canvas = new Canvas(bitmap);
+        canvas.drawColor(getResources().getColor(R.color.white));
+        parent_layout.draw(canvas);
+        ImgUtil.addToBitmap(this,bitmap,R.drawable.qr_zyhy);
     }
 
     @Override
@@ -236,24 +209,6 @@ public class ImgShareActivity extends BaseActivity implements OnClickListener {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-//		menu.add(0,0,0,this.getResources().getString(R.string.menu_share))
-//		.setIcon(R.drawable.icon_share)
-//		.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-//		switch (item.getItemId()) {
-//		case 0:  
-//			share();
-//			break;
-//		}
-        return super.onOptionsItemSelected(item);
     }
 
 }

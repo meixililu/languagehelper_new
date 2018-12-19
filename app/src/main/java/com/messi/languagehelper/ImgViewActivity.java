@@ -49,7 +49,7 @@ public class ImgViewActivity extends BaseActivity implements FragmentProgressbar
             if(msg.what == 1){
                 try {
                     sharePath = SDCardUtil.getDownloadPath(SDCardUtil.ImgPath)+shareImgName;
-                    ImgUtil.toBitmap(ImgViewActivity.this,sharePath);
+                    ImgUtil.toBitmap(ImgViewActivity.this,sharePath,R.drawable.qr_zyhy);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

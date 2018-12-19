@@ -22,7 +22,6 @@ import android.view.View;
 
 import com.avos.avoscloud.AVAnalytics;
 import com.messi.languagehelper.ImgShareActivity;
-import com.messi.languagehelper.ImgViewActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.dialog.PopDialog;
 import com.messi.languagehelper.dialog.PopDialog.PopViewItemOnclickListener;
@@ -332,7 +331,7 @@ public class Setings {
       ( i >> 24 & 0xFF) ;  
    	}
 
-	public static void shareImg(Activity mContext,String filePath){
+	public static void shareImg(Context mContext,String filePath){
 		File file = new File(filePath);
 		if (file != null && file.exists() && file.isFile()) {
 			Uri uri = null;
@@ -348,8 +347,8 @@ public class Setings {
 					intent.putExtra(Intent.EXTRA_STREAM, uri);
 					intent.putExtra(Intent.EXTRA_SUBJECT, mContext.getResources().getString(R.string.share));
 					intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-					mContext.startActivityForResult(Intent.createChooser(intent,
-							mContext.getResources().getString(R.string.share)), ImgViewActivity.ShareImgCode);
+					mContext.startActivity(Intent.createChooser(intent,
+							mContext.getResources().getString(R.string.share)));
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -360,21 +359,27 @@ public class Setings {
 	 * 分享
 	 */
 	public static void share(final Context context,final String dstString){
-		String[] tempText = new String[2];
+		String[] tempText = new String[3];
 		tempText[0] = context.getResources().getString(R.string.share_dialog_text_1);
 		tempText[1] = context.getResources().getString(R.string.share_dialog_text_2);
+		tempText[2] = context.getResources().getString(R.string.copy);
 		PopDialog mPopDialog = new PopDialog(context,tempText);
 		mPopDialog.setCanceledOnTouchOutside(true);
 		mPopDialog.setListener(new PopViewItemOnclickListener() {
 			@Override
-			public void onSecondClick(View v) {
-				toShareImageActivity(context,dstString);
-				AVAnalytics.onEvent(context, "share_img_btn");
-			}
-			@Override
 			public void onFirstClick(View v) {
 				toShareTextActivity(context,dstString);
-				AVAnalytics.onEvent(context, "share_text_btn");
+				AVAnalytics.onEvent(context, "share_text");
+			}
+			@Override
+			public void onSecondClick(View v) {
+				toShareImageActivity(context,dstString);
+				AVAnalytics.onEvent(context, "share_img");
+			}
+			@Override
+			public void onThirdClick(View v) {
+				Setings.copy(context, dstString);
+				AVAnalytics.onEvent(context, "share_copy");
 			}
 		});
 		mPopDialog.show();

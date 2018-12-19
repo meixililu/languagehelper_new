@@ -133,7 +133,7 @@
     <string name="nomore">没有了!</string>
 
     <string name="share_dialog_text_1">文字</string>
-    <string name="share_dialog_text_2">图片（推荐）</string>
+    <string name="share_dialog_text_2">图片</string>
     <string name="take_photo">拍照翻译</string>
     <string name="photo_album">相册选图</string>
 

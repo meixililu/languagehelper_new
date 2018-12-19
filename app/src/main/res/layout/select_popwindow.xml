@@ -42,7 +42,27 @@
                 android:layout_width="fill_parent"
                 android:layout_height="60dip"
                 android:gravity="center"
-                android:text="图片（推荐）"
+                android:text="图片"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/bigger" />
+        </FrameLayout>
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:src="@color/lightgrey" />
+
+        <FrameLayout
+            android:id="@+id/select_popwindow_text3_cover"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:foreground="@drawable/framelayout_selector" >
+
+            <TextView
+                android:id="@+id/select_popwindow_text3"
+                android:layout_width="fill_parent"
+                android:layout_height="60dip"
+                android:gravity="center"
+                android:text="@string/copy"
                 android:textColor="@color/text_black"
                 android:textSize="@dimen/bigger" />
         </FrameLayout>

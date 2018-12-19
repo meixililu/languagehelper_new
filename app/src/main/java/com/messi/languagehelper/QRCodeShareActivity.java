@@ -51,16 +51,16 @@ public class QRCodeShareActivity extends BaseActivity implements OnClickListener
 
     private void setImg(){
         if(getPackageName().equals(Setings.application_id_yyj)){
-            qrcode_img.setImageResource(R.drawable.yyj_qrcode);
+            qrcode_img.setImageResource(R.drawable.qr_yyj);
         }else if (getPackageName().equals(Setings.application_id_yys) ||
                 getPackageName().equals(Setings.application_id_yys_google)) {
-            qrcode_img.setImageResource(R.drawable.yys_qrcode);
+            qrcode_img.setImageResource(R.drawable.qr_yys);
         } else if (getPackageName().equals(Setings.application_id_ywcd)) {
             qrcode_img.setImageResource(R.drawable.qr_ywcd);
         } else if (getPackageName().equals(Setings.application_id_xbky)) {
 
         } else {
-            qrcode_img.setImageResource(R.drawable.qrcode);
+            qrcode_img.setImageResource(R.drawable.qr_zyhy);
         }
     }
 

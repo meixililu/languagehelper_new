@@ -75,7 +75,7 @@ public class CaricatureDetailActivity extends BaseActivity {
             if (msg.what == 1) {
                 try {
                     sharePath = SDCardUtil.getDownloadPath(SDCardUtil.ImgPath) + shareImgName;
-                    ImgUtil.toBitmap(CaricatureDetailActivity.this,sharePath);
+                    ImgUtil.toBitmap(CaricatureDetailActivity.this,sharePath,R.drawable.qr_jgmh);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
