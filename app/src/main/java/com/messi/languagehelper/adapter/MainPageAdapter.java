@@ -58,7 +58,8 @@ public class MainPageAdapter extends FragmentPagerAdapter {
             CONTENT = new String[] {
                     mContext.getResources().getString(R.string.title_home_tab),
                     mContext.getResources().getString(R.string.title_study_category),
-                    mContext.getResources().getString(R.string.title_listen_fm)
+                    mContext.getResources().getString(R.string.title_listen_fm),
+                    mContext.getResources().getString(R.string.title_leisure)
             };
         }else {
             CONTENT = new String[] {
@@ -102,6 +103,8 @@ public class MainPageAdapter extends FragmentPagerAdapter {
                 return ReadingFragmentYWCD.newInstance(500);
             }else if( position == 2 ){
                 return XmlyMainForYWCDFragment.newInstance();
+            }else if( position == 3 ){
+                return LeisureFragment.getInstance();
             }
         } else {
             if( position == 0 ){
