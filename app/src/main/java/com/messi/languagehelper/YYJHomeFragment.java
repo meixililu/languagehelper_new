@@ -8,8 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
+import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.KeyUtil;
 
 import butterknife.BindView;

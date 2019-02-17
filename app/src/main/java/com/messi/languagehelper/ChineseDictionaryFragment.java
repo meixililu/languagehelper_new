@@ -10,13 +10,13 @@ import android.widget.FrameLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.event.FinishEvent;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
+import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.HtmlParseUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.PlayUtil;

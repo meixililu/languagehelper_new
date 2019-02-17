@@ -14,7 +14,6 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.iflytek.cloud.RecognizerListener;
 import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechConstant;
@@ -27,6 +26,7 @@ import com.messi.languagehelper.bean.UserSpeakBean;
 import com.messi.languagehelper.impl.PracticeProgressListener;
 import com.messi.languagehelper.task.PublicTask;
 import com.messi.languagehelper.task.PublicTask.PublicTaskListener;
+import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AudioTrackUtil;
 import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KeyUtil;

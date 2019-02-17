@@ -19,7 +19,7 @@ import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
-import com.avos.avoscloud.AVAnalytics;
+import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.ImgUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;

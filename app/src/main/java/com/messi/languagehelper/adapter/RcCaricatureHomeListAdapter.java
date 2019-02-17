@@ -5,9 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.avos.avoscloud.AVObject;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.util.HeaderFooterRecyclerViewAdapter;
+
+import com.avos.avoscloud.AVObject;
 
 /**
  * Created by luli on 10/23/16.

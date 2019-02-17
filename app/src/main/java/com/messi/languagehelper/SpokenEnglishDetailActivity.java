@@ -16,7 +16,6 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVObject;
 import com.iflytek.cloud.RecognizerListener;
 import com.iflytek.cloud.RecognizerResult;
@@ -27,6 +26,7 @@ import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.bean.UserSpeakBean;
 import com.messi.languagehelper.task.MyThread;
+import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.AudioTrackUtil;
 import com.messi.languagehelper.util.DownLoadUtil;

@@ -15,9 +15,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.bumptech.glide.Glide;
 import com.messi.languagehelper.dao.SymbolListDao;
+import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.DownLoadUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.SDCardUtil;
@@ -222,7 +222,7 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
                     currentFileFullName = SDTeacherMp3FullName;
                     DownLoadUtil.downloadFile(this, SDTeacherMp3Url, audioPath, SDTeacherMp3Name, mHandler);
                 }
-                AVAnalytics.onEvent(SymbolDetailActivity.this, "symbol_pg_play_teacher_mp3", "音标详情音标外教播放", 1);
+                AVAnalytics.onEvent(SymbolDetailActivity.this, "symbol_pg_play_teacher_mp3");
                 break;
             default:
                 break;

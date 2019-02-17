@@ -7,11 +7,12 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVObject;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
+
+import com.avos.avoscloud.AVObject;
 
 /**
  * Created by luli on 10/23/16.

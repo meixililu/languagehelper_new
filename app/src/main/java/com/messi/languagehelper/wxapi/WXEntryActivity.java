@@ -21,7 +21,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SpeechUtility;
@@ -31,6 +30,7 @@ import com.messi.languagehelper.R;
 import com.messi.languagehelper.adapter.MainPageAdapter;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
+import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AppUpdateUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;

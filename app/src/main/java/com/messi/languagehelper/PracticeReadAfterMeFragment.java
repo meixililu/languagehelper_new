@@ -16,7 +16,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.iflytek.cloud.RecognizerListener;
 import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechConstant;
@@ -31,6 +30,7 @@ import com.messi.languagehelper.impl.PractisePlayUserPcmListener;
 import com.messi.languagehelper.task.MyThread;
 import com.messi.languagehelper.task.PublicTask;
 import com.messi.languagehelper.task.PublicTask.PublicTaskListener;
+import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AnimationUtil;
 import com.messi.languagehelper.util.AudioTrackUtil;
 import com.messi.languagehelper.util.JsonParser;

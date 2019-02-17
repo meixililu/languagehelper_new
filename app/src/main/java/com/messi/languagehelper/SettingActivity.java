@@ -9,8 +9,8 @@ import android.widget.FrameLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Setings;

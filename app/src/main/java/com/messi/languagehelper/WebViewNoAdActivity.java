@@ -24,8 +24,8 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.messi.languagehelper.util.ADUtil;
+import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.ShareUtil;

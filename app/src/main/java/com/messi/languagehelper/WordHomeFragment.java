@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.github.lzyzsd.circleprogress.ArcProgress;
 import com.messi.languagehelper.bean.WordListItem;
+import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.SaveData;
 

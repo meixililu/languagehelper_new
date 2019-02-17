@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Process;
 import android.support.multidex.MultiDexApplication;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVOSCloud;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.messi.languagehelper.dao.DaoMaster;
@@ -13,10 +12,12 @@ import com.messi.languagehelper.db.LHContract;
 import com.messi.languagehelper.db.SQLiteOpenHelper;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
+import com.umeng.commonsdk.UMConfigure;
 import com.ximalaya.ting.android.opensdk.datatrasfer.CommonRequest;
 import com.youdao.sdk.app.YouDaoApplication;
 
 import java.util.HashMap;
+
 
 public class BaseApplication extends MultiDexApplication {
 
@@ -39,9 +40,9 @@ public class BaseApplication extends MultiDexApplication {
                 public void run() {
                     Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND);
                     Fresco.initialize(BaseApplication.this);
-                    AVOSCloud.initialize(BaseApplication.this, "3fg5ql3r45i3apx2is4j9on5q5rf6kapxce51t5bc0ffw2y4", "twhlgs6nvdt7z7sfaw76ujbmaw7l12gb8v6sdyjw1nzk9b1a");
+                    AVOSCloud.initialize(mInstance,"3fg5ql3r45i3apx2is4j9on5q5rf6kapxce51t5bc0ffw2y4", "twhlgs6nvdt7z7sfaw76ujbmaw7l12gb8v6sdyjw1nzk9b1a");
+//                    AVOSCloud.setLogLevel(AVLogger.Level.DEBUG);
                     YouDaoApplication.init(BaseApplication.this, Setings.YoudaoApiKey);
-                    AVAnalytics.enableCrashReport(BaseApplication.this, true);
                     initLearnCloudChannel();
                 }
             }).run();
@@ -55,32 +56,35 @@ public class BaseApplication extends MultiDexApplication {
     }
 
     private void initLearnCloudChannel(){
+        UMConfigure.setLogEnabled(true);
+        Setings.appVersion = Setings.getVersion(getApplicationContext());
+        Setings.appChannel = Setings.getMetaData(getApplicationContext(),"UMENG_CHANNEL");
         if(getPackageName().equals(Setings.application_id_zyhy)){
-            AVAnalytics.setAppChannel("LeanCloud");
+            UMConfigure.init(mInstance,"5b7ed6a08f4a9d303c000060",Setings.appChannel,UMConfigure.DEVICE_TYPE_PHONE,"");
         }else if(getPackageName().equals(Setings.application_id_zyhy_google)){
-            AVAnalytics.setAppChannel("zyhy_google");
+            UMConfigure.init(mInstance,"5b7ed6a08f4a9d303c000060",Setings.appChannel,UMConfigure.DEVICE_TYPE_PHONE,"");
         }else if(getPackageName().equals(Setings.application_id_yys)){
-            AVAnalytics.setAppChannel("cantonese_study");
+            UMConfigure.init(mInstance,"5c1f3af4b465f53ecc00093b",Setings.appChannel,UMConfigure.DEVICE_TYPE_PHONE,"");
         }else if(getPackageName().equals(Setings.application_id_yys_google)){
-            AVAnalytics.setAppChannel("yys_google");
+            UMConfigure.init(mInstance,"5c1f3af4b465f53ecc00093b",Setings.appChannel,UMConfigure.DEVICE_TYPE_PHONE,"");
         }else if(getPackageName().equals(Setings.application_id_yyj)){
-            AVAnalytics.setAppChannel("learnEnglish");
+            UMConfigure.init(mInstance,"5c1f36d4f1f55655d1000f88",Setings.appChannel,UMConfigure.DEVICE_TYPE_PHONE,"");
         }else if(getPackageName().equals(Setings.application_id_yyj_google)){
-            AVAnalytics.setAppChannel("yyj_google");
+            UMConfigure.init(mInstance,"5c1f36d4f1f55655d1000f88",Setings.appChannel,UMConfigure.DEVICE_TYPE_PHONE,"");
         }else if(getPackageName().equals(Setings.application_id_ywcd)){
-            AVAnalytics.setAppChannel("ywcd");
+            UMConfigure.init(mInstance,"5c1f3b7bb465f5598b000f57",Setings.appChannel,UMConfigure.DEVICE_TYPE_PHONE,"");
         }else if(getPackageName().equals(Setings.application_id_xbky)){
-            AVAnalytics.setAppChannel("xbky");
+            UMConfigure.init(mInstance,"5c1f3b97f1f556949e0007b3",Setings.appChannel,UMConfigure.DEVICE_TYPE_PHONE,"");
         }else if(getPackageName().equals(Setings.application_id_xbtl)){
-            AVAnalytics.setAppChannel("xbtl");
+            UMConfigure.init(mInstance,"5c1f3bb9b465f54c9700043c",Setings.appChannel,UMConfigure.DEVICE_TYPE_PHONE,"");
         }else if(getPackageName().equals(Setings.application_id_qmzj)){
-            AVAnalytics.setAppChannel("qmzj");
+            UMConfigure.init(mInstance,"5c1f3be0f1f5566129000fcf",Setings.appChannel,UMConfigure.DEVICE_TYPE_PHONE,"");
         }else if(getPackageName().equals(Setings.application_id_zrhy)){
-            AVAnalytics.setAppChannel("zrhy");
+            UMConfigure.init(mInstance,"5c1f3c0bb465f5341a000778",Setings.appChannel,UMConfigure.DEVICE_TYPE_PHONE,"");
         }else if(getPackageName().equals(Setings.application_id_zhhy)){
-            AVAnalytics.setAppChannel("zhhy");
+            UMConfigure.init(mInstance,"5c1f3c2af1f5564f7a000035",Setings.appChannel,UMConfigure.DEVICE_TYPE_PHONE,"");
         }else{
-            AVAnalytics.setAppChannel("other");
+            UMConfigure.init(mInstance,"5b7ed6a08f4a9d303c000060",Setings.appChannel,UMConfigure.DEVICE_TYPE_PHONE,"");
         }
     }
 	/**

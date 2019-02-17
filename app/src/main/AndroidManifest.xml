@@ -60,11 +60,7 @@
             android:name="ProviderId"
             android:value="${applicationId}.provider" />
 
-        <!-- leancloud 统计 -->
-        <!--<meta-data-->
-            <!--android:name="leancloud"-->
-            <!--android:value="LeanCloud" />-->
-        <meta-data android:value="normal" android:name="UMENG_CHANNEL"/>
+        <meta-data android:value="tencent" android:name="UMENG_CHANNEL"/>
 
         <!-- 喜马拉雅fm -->
         <meta-data

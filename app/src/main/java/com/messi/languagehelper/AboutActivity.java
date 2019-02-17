@@ -3,7 +3,7 @@ package com.messi.languagehelper;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVAnalytics;
+import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.Setings;
 
 import butterknife.BindView;

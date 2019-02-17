@@ -20,7 +20,6 @@ import android.support.v4.content.FileProvider;
 import android.telephony.TelephonyManager;
 import android.view.View;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.messi.languagehelper.ImgShareActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.dialog.PopDialog;
@@ -32,6 +31,10 @@ import java.util.HashMap;
 import java.util.UUID;
 
 public class Setings {
+
+	public static int appVersion;
+
+	public static String appChannel;
 
 	public static final int RequestCode = 1;
 
@@ -100,7 +103,7 @@ public class Setings {
 
 	/**toutiao video parse api**/
 	public static final String TTParseApi = "http://service.iiilab.com/video/download/toutiao";
-	//	uc toutiao
+
 	public static final String XMNovel = "https://reader.browser.duokan.com/v2/#tab=store&mz=&_miui_orientation=portrait&_miui_fullscreen=1&source=browser-mz";
 	// uc search
 	public static final String DVideo = "https://hot.browser.miui.com/v7/#page=short-video-list&cid=rec&_miui_=";

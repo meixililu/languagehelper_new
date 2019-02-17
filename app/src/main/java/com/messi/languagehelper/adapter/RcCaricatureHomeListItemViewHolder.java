@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVObject;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.CaricatureDetailActivity;
@@ -18,6 +17,8 @@ import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.qq.e.ads.nativ.NativeExpressADView;
+
+import com.avos.avoscloud.AVObject;
 
 /**
  * Created by luli on 10/23/16.

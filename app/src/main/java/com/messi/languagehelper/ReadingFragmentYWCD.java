@@ -13,8 +13,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
 import com.iflytek.voiceads.AdError;
 import com.iflytek.voiceads.AdKeys;
 import com.iflytek.voiceads.IFLYNativeAd;
@@ -37,6 +35,9 @@ import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVQuery;
 
 public class ReadingFragmentYWCD extends BaseFragment implements OnClickListener{
 

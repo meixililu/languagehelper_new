@@ -9,7 +9,7 @@ import android.view.View.OnClickListener;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
-import com.avos.avoscloud.AVAnalytics;
+import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ShareUtil;
@@ -152,7 +152,7 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
             pkgname = Setings.application_id_zyhy;
         }
         ShareUtil.shareText(this, getResources().getString(R.string.invite_friends_root) + pkgname);
-        AVAnalytics.onEvent(this, "more_pg_invite", "邀请小伙伴", 1);
+        AVAnalytics.onEvent(this, "more_pg_invite");
     }
 
 }

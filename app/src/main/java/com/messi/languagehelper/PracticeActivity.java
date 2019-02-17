@@ -20,7 +20,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.iflytek.cloud.RecognizerListener;
 import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechConstant;
@@ -36,6 +35,7 @@ import com.messi.languagehelper.impl.PractisePlayUserPcmListener;
 import com.messi.languagehelper.task.MyThread;
 import com.messi.languagehelper.task.PublicTask;
 import com.messi.languagehelper.task.PublicTask.PublicTaskListener;
+import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AudioTrackUtil;
 import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KeyUtil;
@@ -598,9 +598,9 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
                 playLocalPcm(filepath, animationDrawable);
             }
             if (v.getId() == R.id.record_question_cover) {
-                AVAnalytics.onEvent(PracticeActivity.this, "practice_pg_play_question_btn", "口语练习页播放内容", 1);
+                AVAnalytics.onEvent(PracticeActivity.this, "practice_pg_play_question_btn");
             } else if (v.getId() == R.id.record_answer_cover) {
-                AVAnalytics.onEvent(PracticeActivity.this, "practice_pg_play_result_btn", "口语练习页播放结果", 1);
+                AVAnalytics.onEvent(PracticeActivity.this, "practice_pg_play_result_btn");
             }
         }
     }

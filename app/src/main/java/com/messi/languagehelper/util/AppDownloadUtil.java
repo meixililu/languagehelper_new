@@ -12,7 +12,6 @@ import android.support.v4.app.NotificationCompat.Builder;
 import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
 
-import com.avos.avoscloud.AVObject;
 import com.messi.languagehelper.InstallActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
@@ -20,6 +19,7 @@ import com.messi.languagehelper.impl.ProgressListener;
 
 import java.io.File;
 
+import com.avos.avoscloud.AVObject;
 import okhttp3.Response;
 
 public class AppDownloadUtil {

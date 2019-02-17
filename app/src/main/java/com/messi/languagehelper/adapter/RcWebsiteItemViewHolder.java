@@ -6,11 +6,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVObject;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.WebViewNoAdActivity;
+import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 

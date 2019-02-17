@@ -12,12 +12,12 @@ import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.messi.languagehelper.impl.PracticeProgressListener;
+import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -177,7 +177,7 @@ public class AiSpokenBasicActivity extends BaseActivity implements PracticeProgr
 					getResources().getString(R.string.practice_spoken_englist_finish));
 			FinishFragment mpramf = FinishFragment.newInstance(this);
 			setFragment(mpramf);
-			AVAnalytics.onEvent(this, "study_pg_finish", "口语练习完成", 1);
+			AVAnalytics.onEvent(this, "study_pg_finish");
 		}
 	}
 	

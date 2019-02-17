@@ -8,8 +8,8 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
+import com.messi.languagehelper.util.AVAnalytics;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

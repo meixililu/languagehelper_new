@@ -20,7 +20,6 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechSynthesizer;
@@ -32,6 +31,7 @@ import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.dialog.PopDialog;
 import com.messi.languagehelper.dialog.PopDialog.PopViewItemOnclickListener;
 import com.messi.languagehelper.task.MyThread;
+import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AudioTrackUtil;
 import com.messi.languagehelper.util.DictionaryUtil;
 import com.messi.languagehelper.util.KeyUtil;

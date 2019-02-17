@@ -21,10 +21,10 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ProgressBar;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.messi.languagehelper.util.AudioTrackUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.ScreenUtil;
+import com.umeng.analytics.MobclickAgent;
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -248,13 +248,13 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        AVAnalytics.onResume(this);
+        MobclickAgent.onResume(this);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        AVAnalytics.onPause(this);
+        MobclickAgent.onPause(this);
     }
 
     @Override

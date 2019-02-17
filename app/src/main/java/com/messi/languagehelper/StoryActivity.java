@@ -6,9 +6,9 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.messi.languagehelper.adapter.StoryAdapter;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
+import com.messi.languagehelper.util.AVAnalytics;
 
 import cn.jzvd.Jzvd;
 

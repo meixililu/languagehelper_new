@@ -13,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVObject;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.R;
@@ -34,6 +33,8 @@ import com.messi.languagehelper.util.Setings;
 import com.qq.e.ads.nativ.NativeExpressADView;
 
 import java.util.List;
+
+import com.avos.avoscloud.AVObject;
 
 /**
  * Created by luli on 10/23/16.

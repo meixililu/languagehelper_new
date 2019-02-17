@@ -19,7 +19,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
-import com.avos.avoscloud.AVAnalytics;
 import com.daimajia.numberprogressbar.NumberProgressBar;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.cloud.RecognizerListener;
@@ -34,6 +33,7 @@ import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.impl.OnFinishListener;
+import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AiUtil;
 import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KaiPinAdUIModelCustom;

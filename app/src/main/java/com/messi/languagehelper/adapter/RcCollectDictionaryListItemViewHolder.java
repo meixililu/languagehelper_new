@@ -13,12 +13,12 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.dao.Dictionary;
 import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AudioTrackUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.PlayUtil;

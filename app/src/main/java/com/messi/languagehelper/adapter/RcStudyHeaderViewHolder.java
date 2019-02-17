@@ -12,7 +12,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.messi.languagehelper.DailySentenceAndEssayActivity;
 import com.messi.languagehelper.R;
@@ -22,6 +21,7 @@ import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
+import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.DownLoadUtil;
 import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.LogUtil;
