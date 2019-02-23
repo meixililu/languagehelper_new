@@ -76,6 +76,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.aar'], dir: 'libs')
     configurations.all {
         exclude group: 'com.android.support', module: 'support-v13'
     }
@@ -118,6 +119,7 @@ dependencies {
     implementation 'com.github.hotchemi:permissionsdispatcher:3.3.2'
     annotationProcessor "com.github.hotchemi:permissionsdispatcher-processor:3.3.2"
     implementation 'com.facebook.soloader:soloader:0.5.1'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6'
     //    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     testImplementation 'junit:junit:4.12'
     //check tree dependencies: ./gradlew :app:dependencies

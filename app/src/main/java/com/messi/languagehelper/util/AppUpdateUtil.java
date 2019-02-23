@@ -17,6 +17,8 @@ import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
 import com.messi.languagehelper.R;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.WebFilter;
 import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
 import com.ximalaya.ting.android.sdkdownloader.XmDownloadManager;
 
@@ -32,13 +34,32 @@ public class AppUpdateUtil {
     public static void initXMLY(Activity mActivity){
         XmPlayerManager.getInstance(mActivity).init();
         XmPlayerManager.getInstance(mActivity).setCommonBusinessHandle(XmDownloadManager.getInstance());
-//		XmPlayerManager.getInstance(this).clearAllLocalHistory();
 
         DisplayMetrics dm = new DisplayMetrics();
         mActivity.getWindowManager().getDefaultDisplay().getMetrics(dm);
         SystemUtil.SCREEN_WIDTH = dm.widthPixels;
         SystemUtil.SCREEN_HEIGHT = dm.heightPixels;
         SystemUtil.screen = SystemUtil.SCREEN_WIDTH + "x" + SystemUtil.SCREEN_HEIGHT;
+    }
+
+    public static void getWebFilter(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.AdFilter.AdFilter);
+                query.whereContains(AVOUtil.AdFilter.category, "ca_novel");
+                List<AVObject> list = null;
+                try {
+                    list = query.find();
+                    if(list != null){
+                        List<WebFilter> beans = DataUtil.toWebFilter(list);
+                        BoxHelper.updateWebFilter(beans);
+                    }
+                } catch (AVException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
     public static void checkUpdate(final Activity mActivity) {
@@ -75,12 +96,6 @@ public class AppUpdateUtil {
                 if (avObjects != null && avObjects.size() > 0) {
                     final AVObject mAVObject = avObjects.get(0);
                     saveSetting(mActivity,mAVObject);
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            showUpdateDialog(mActivity,mAVObject);
-                        }
-                    }, 3900);
                 }
             }
         });
@@ -95,19 +110,34 @@ public class AppUpdateUtil {
         String ucsearch_url = mAVObject.getString(AVOUtil.UpdateInfo.ucsearch_url);
         String ad_ids = mAVObject.getString(AVOUtil.UpdateInfo.ad_ids);
         String no_ad_channel = mAVObject.getString(AVOUtil.UpdateInfo.no_ad_channel);
+        String adConf = mAVObject.getString(AVOUtil.UpdateInfo.adConf);
+        LogUtil.DefalutLog("adConf:"+adConf);
+
         Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.APP_Advertiser,app_advertiser);
         Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_DVideo,uctt_url);
         Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_Novel,wyyx_url);
         Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_UCSearch,ucsearch_url);
         Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.Ad_Ids,ad_ids);
         Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.No_Ad_Channel,no_ad_channel);
+        Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.AdConfig,adConf);
         Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.VersionCode,
                 mAVObject.getInt(AVOUtil.UpdateInfo.VersionCode));
-
+        Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.UpdateBean, mAVObject.toString());
     }
 
-    public static void showUpdateDialog(final Activity mActivity,final AVObject mAVObject) {
+    public static void isNeedUpdate(final Activity mActivity){
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                showUpdateDialog(mActivity);
+            }
+        }, 4000);
+    }
+
+    public static void showUpdateDialog(final Activity mActivity) {
         try {
+            SharedPreferences sp = Setings.getSharedPreferences(mActivity);
+            final AVObject mAVObject = AVObject.parseAVObject(sp.getString(KeyUtil.UpdateBean,""));
             String isValid = mAVObject.getString(AVOUtil.UpdateInfo.IsValid);
             if(!TextUtils.isEmpty(isValid) && isValid.equals("3")){
                 int newVersionCode = mAVObject.getInt(AVOUtil.UpdateInfo.VersionCode);

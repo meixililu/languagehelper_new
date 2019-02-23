@@ -310,7 +310,9 @@ public class AVOUtil {
 		public final static String APPUrl = "APPUrl";
 		
 		public final static String IsValid = "IsValid";
-		
+
+		public final static String adConf = "adConf";
+
 		public final static String DownloadTimes = "DownloadTimes";
 
 	}
@@ -698,6 +700,13 @@ public class AVOUtil {
 		public final static String createdAt = "createdAt";
 	}
 
+	public static class UtilKeys{
+		public final static String UtilKeys = "UtilKeys";
+		public final static String name = "name";
+		public final static String kvalue = "kvalue";
+		public final static String app_id = "app_id";
+	}
+
 	public static class XhDicSList{
 		public final static String XhDicSList = "XinhuaDicSlist";
 		public final static String name = "name";
@@ -710,6 +719,7 @@ public class AVOUtil {
 	public static class AdFilter{
 		public final static String AdFilter = "AdFilter";
 		public final static String name = "name";
+		public final static String category = "category";
 		public final static String filter = "filter";
 		public final static String ad_url = "ad_url";
 		public final static String isShowAd = "isShowAd";

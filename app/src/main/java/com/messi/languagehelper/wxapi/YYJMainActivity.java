@@ -109,7 +109,7 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 			initData();
 			initFragment();
 			initSDKAndPermission();
-			AppUpdateUtil.runCheckUpdateTask(this);
+			AppUpdateUtil.isNeedUpdate(this);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

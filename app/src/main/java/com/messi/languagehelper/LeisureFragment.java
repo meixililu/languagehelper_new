@@ -3,7 +3,6 @@ package com.messi.languagehelper;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.widget.NestedScrollView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,21 +11,11 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.iflytek.voiceads.AdError;
-import com.iflytek.voiceads.AdKeys;
-import com.iflytek.voiceads.IFLYNativeAd;
-import com.iflytek.voiceads.IFLYNativeListener;
-import com.iflytek.voiceads.NativeADDataRef;
-import com.messi.languagehelper.util.ADUtil;
+import com.messi.languagehelper.ViewModel.LeisureModel;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
-import com.messi.languagehelper.util.TXADUtil;
-import com.qq.e.ads.nativ.NativeExpressAD;
-import com.qq.e.ads.nativ.NativeExpressADView;
-
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -72,12 +61,9 @@ public class LeisureFragment extends BaseFragment {
     FrameLayout jdLayout;
     @BindView(R.id.root_view)
     NestedScrollView rootView;
-    private NativeADDataRef mNativeADDataRef;
-    private NativeExpressADView mTXADView;
-    private long lastLoadAd;
-    private boolean exposureXFAD;
-    private String currentAD = ADUtil.Advertiser;
+
     private SharedPreferences sp;
+    private LeisureModel mLeisureModel;
 
     public static LeisureFragment getInstance() {
         return new LeisureFragment();
@@ -97,13 +83,9 @@ public class LeisureFragment extends BaseFragment {
         }
         ButterKnife.bind(this, view);
         sp = Setings.getSharedPreferences(getContext());
-        if(ADUtil.IsShowAD){
-            if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
-                loadXFAD();
-            }else {
-                loadTXAD();
-            }
-        }
+        mLeisureModel = new LeisureModel(getActivity());
+        mLeisureModel.setViews(ad_sign,adImg,xx_ad_layout);
+        mLeisureModel.showAd();
         return view;
     }
 
@@ -111,162 +93,9 @@ public class LeisureFragment extends BaseFragment {
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         LogUtil.DefalutLog("LeisureFragment-setUserVisibleHint:" + isVisibleToUser);
+        mLeisureModel.setIsVisibleToUser(isVisibleToUser);
         if (isVisibleToUser) {
-            exposedAd();
-        }
-    }
-
-    private void loadXFAD() {
-        LogUtil.DefalutLog("loadAD---leisure---xiu xian da tu");
-        IFLYNativeAd nativeAd = new IFLYNativeAd(getContext(), ADUtil.MRYJYSNRLAd, new IFLYNativeListener() {
-            @Override
-            public void onConfirm() {
-            }
-
-            @Override
-            public void onCancel() {
-            }
-
-            @Override
-            public void onAdFailed(AdError arg0) {
-                LogUtil.DefalutLog("onAdFailed---" + arg0.getErrorCode() + "---" + arg0.getErrorDescription());
-                if (ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)) {
-                    loadTXAD();
-                } else {
-                    onXFADFaile();
-                }
-            }
-
-            @Override
-            public void onADLoaded(List<NativeADDataRef> adList) {
-                LogUtil.DefalutLog("onADLoaded---");
-                if (adList != null && adList.size() > 0) {
-                    currentAD = ADUtil.Advertiser_XF;
-                    exposureXFAD = false;
-                    mNativeADDataRef = adList.get(0);
-                    setAd();
-                }
-            }
-        });
-        nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
-        nativeAd.loadAd(1);
-    }
-
-    private void onXFADFaile() {
-        if (ADUtil.isHasLocalAd()) {
-            mNativeADDataRef = ADUtil.getRandomAd(getActivity());
-            setAd();
-        }else{
-            xx_ad_layout.setVisibility(View.GONE);
-        }
-    }
-
-    private void loadTXAD() {
-        TXADUtil.showCDT(getActivity(), new NativeExpressAD.NativeExpressADListener() {
-            @Override
-            public void onNoAD(com.qq.e.comm.util.AdError adError) {
-                LogUtil.DefalutLog(adError.getErrorMsg());
-                if (ADUtil.Advertiser.equals(ADUtil.Advertiser_TX)) {
-                    loadXFAD();
-                } else {
-                    onXFADFaile();
-                }
-            }
-
-            @Override
-            public void onADLoaded(List<NativeExpressADView> list) {
-                LogUtil.DefalutLog("onADLoaded");
-                if (list != null && list.size() > 0) {
-                    currentAD = ADUtil.Advertiser_TX;
-                    if (mTXADView != null) {
-                        mTXADView.destroy();
-                    }
-                    ad_sign.setVisibility(View.GONE);
-                    xx_ad_layout.setVisibility(View.VISIBLE);
-                    xx_ad_layout.removeAllViews();
-                    mTXADView = list.get(0);
-                    lastLoadAd = System.currentTimeMillis();
-                    xx_ad_layout.addView(mTXADView);
-                    mTXADView.render();
-                }
-            }
-
-            @Override
-            public void onRenderFail(NativeExpressADView nativeExpressADView) {
-                nativeExpressADView.render();
-                LogUtil.DefalutLog("onRenderFail");
-            }
-
-            @Override
-            public void onRenderSuccess(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onRenderSuccess");
-            }
-
-            @Override
-            public void onADExposure(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADExposure");
-            }
-
-            @Override
-            public void onADClicked(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADClicked");
-            }
-
-            @Override
-            public void onADClosed(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADClosed");
-            }
-
-            @Override
-            public void onADLeftApplication(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADLeftApplication");
-            }
-
-            @Override
-            public void onADOpenOverlay(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADOpenOverlay");
-            }
-
-            @Override
-            public void onADCloseOverlay(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADCloseOverlay");
-            }
-        });
-    }
-
-    private void setAd() {
-        if (mNativeADDataRef != null) {
-            lastLoadAd = System.currentTimeMillis();
-            ad_sign.setVisibility(View.VISIBLE);
-            adImg.setImageURI(mNativeADDataRef.getImage());
-            if (misVisibleToUser) {
-                exposedXFAD();
-            }
-        }
-    }
-
-    private void exposedXFAD() {
-        if (!exposureXFAD && mNativeADDataRef != null) {
-            exposureXFAD = mNativeADDataRef.onExposured(xx_ad_layout);
-            LogUtil.DefalutLog("exposedAd-exposureXFAD:" + exposureXFAD);
-        }
-    }
-
-    private void exposedAd() {
-        LogUtil.DefalutLog("exposedAd");
-        if (currentAD.equals(ADUtil.Advertiser_XF)) {
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    exposedXFAD();
-                }
-            }, 500);
-
-        }
-        if (misVisibleToUser && lastLoadAd > 0) {
-            if (System.currentTimeMillis() - lastLoadAd > 45000) {
-                loadTXAD();
-            }
+            mLeisureModel.exposedAd();
         }
     }
 
@@ -277,10 +106,7 @@ public class LeisureFragment extends BaseFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.xx_ad_layout:
-                if (mNativeADDataRef != null) {
-                    boolean onClicked = mNativeADDataRef.onClicked(view);
-                    LogUtil.DefalutLog("onClicked:" + onClicked);
-                }
+                mLeisureModel.onXFADClick();
                 break;
             case R.id.cailing_layout:
                 toShoppingActivity();
@@ -427,9 +253,7 @@ public class LeisureFragment extends BaseFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        if (mTXADView != null) {
-            mTXADView.destroy();
-        }
+        mLeisureModel.onDestroy();
     }
 
 }

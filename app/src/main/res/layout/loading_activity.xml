@@ -13,8 +13,8 @@
         android:layout_alignParentBottom="true"
         android:gravity="center"
         android:orientation="horizontal"
-        android:layout_marginTop="@dimen/padding_20"
-        android:layout_marginBottom="@dimen/padding_20"
+        android:layout_marginTop="@dimen/padding_15"
+        android:layout_marginBottom="@dimen/padding_15"
         >
 	    <ImageView 
 	        android:layout_width="45dp"
@@ -25,7 +25,7 @@
 	    <LinearLayout
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:layout_marginLeft="@dimen/padding_10"
+	        android:layout_marginLeft="@dimen/padding_15"
 	        android:orientation="vertical" >
 	        <TextView
 	            android:layout_width="match_parent"

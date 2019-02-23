@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: __local_aars__:/Users/luli/AndroidStudioProjects/languagehelper/app/libs/open_ad_sdk.aar:unspecified@jar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/fac35333166002041f09f6d5b50ed86a/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/fac35333166002041f09f6d5b50ed86a/jars/libs/openadsdk.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/fac35333166002041f09f6d5b50ed86a/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/fac35333166002041f09f6d5b50ed86a/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -136,9 +136,9 @@ public class Setings {
 
 	public static final int ca_psize = 12;
 	public static final int page_size = 10;
-	public static final String baidu_appid = "20151111000005006";	
-	public static final String baidu_secretkey = "91mGcsmdvX9HAaE8tXoI";	
-	public static final String client_id = "vCV6TTGRTI5QrckdYSKHQIhq";
+	public static String baidu_appid = "";
+	public static String baidu_secretkey = "";
+//	public static final String client_id = "vCV6TTGRTI5QrckdYSKHQIhq";
 	public static String yue = "yue";
 	public static String zh = "zh";
 	public static String from = "auto";	

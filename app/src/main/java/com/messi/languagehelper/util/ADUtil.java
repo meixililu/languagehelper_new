@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
@@ -30,6 +31,12 @@ import io.reactivex.schedulers.Schedulers;
 
 
 public class ADUtil {
+	public final static String GDT = "GDT";
+	public final static String BD = "BD";
+	public final static String CSJ = "CSJ";
+	public final static String XF = "XF";
+	public final static String XBKJ = "XBKJ";
+	public static String[] adConfigs = null;
 
 	public static String Advertiser_XF = "ad_xf";
 
@@ -61,6 +68,35 @@ public class ADUtil {
 	public static final boolean IsShowAdImmediately = false;
 	public static final int adCount = 1;
 	public static final int adInterval = 4500;
+
+	public static String BD_Kaiping = "6057037";
+
+	public static void initAdConfig(SharedPreferences sp){
+		String configStr = sp.getString(KeyUtil.AdConfig, "");
+		setAdConfig(configStr);
+	}
+
+	public static void setAdConfig(String config){
+		adConfigs = null;
+		adConfigs = config.split("#");
+	}
+
+	public static String getAdProvider(int position){
+		if(adConfigs != null && adConfigs.length > 0 && position < adConfigs.length){
+			if(GDT.equals(adConfigs[position])){
+				return GDT;
+			}else if(BD.equals(adConfigs[position])){
+				return BD;
+			}else if(CSJ.equals(adConfigs[position])){
+				return CSJ;
+			}else if(XF.equals(adConfigs[position])){
+				return XF;
+			}else if(XBKJ.equals(adConfigs[position])){
+				return XBKJ;
+			}
+		}
+		return "";
+	}
 
 	public static String randomAd(){
 		if(new Random().nextInt(2) > 0){
@@ -117,7 +153,7 @@ public class ADUtil {
 		}
 	}
 
-	public static void loadAd(final Activity context){
+	public static void loadAd(final Context context){
 		Observable.create(new ObservableOnSubscribe<String>() {
 			@Override
 			public void subscribe(ObservableEmitter<String> e) throws Exception {
@@ -143,7 +179,7 @@ public class ADUtil {
 				});
 	}
 
-	public static void getZYHYAd(Activity context){
+	public static void getZYHYAd(Context context){
 		try {
 			AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.AdList.AdList);
 			query.whereEqualTo(AVOUtil.AdList.isValid, "1");
@@ -185,7 +221,7 @@ public class ADUtil {
 		}
 	}
 
-	public static NativeADDataRef getRandomAd(Activity mActivity){
+	public static NativeADDataRef getRandomAd(Context mActivity){
 		if(localAd != null && localAd.size() > 0){
 			NativeADDataRefForZYHY mNad = (NativeADDataRefForZYHY)localAd.get( new Random().nextInt(localAd.size()) );
 			mNad.setContext(mActivity);
@@ -215,12 +251,11 @@ public class ADUtil {
 		}
 	}
 
-	public static void showDownloadAppDialog(final Activity mContext,final String url){
+	public static void showDownloadAppDialog(final Context mContext,final String url){
 		try{
 			AlertDialog.Builder builder = new AlertDialog.Builder(mContext,R.style.Theme_AppCompat_Light_Dialog_Alert);
-			String message = "是要安装试试吗？";
-			builder.setTitle("弱弱的问一下");
-			builder.setMessage(message);
+			builder.setTitle("");
+			builder.setMessage("是要安装吗？");
 			builder.setPositiveButton("是的", new DialogInterface.OnClickListener() {
 				@Override
 				public void onClick(DialogInterface dialog, int which) {

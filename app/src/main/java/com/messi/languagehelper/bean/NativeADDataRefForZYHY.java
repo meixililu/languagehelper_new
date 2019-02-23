@@ -1,9 +1,10 @@
 package com.messi.languagehelper.bean;
 
-import android.app.Activity;
+import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
 
+import com.avos.avoscloud.AVObject;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
@@ -11,15 +12,13 @@ import com.messi.languagehelper.util.LogUtil;
 
 import java.util.ArrayList;
 
-import com.avos.avoscloud.AVObject;
-
 /**
  * Created by luli on 14/12/2017.
  */
 
 public class NativeADDataRefForZYHY extends NativeADDataRef {
 
-    private Activity context;
+    private Context context;
     private String title;
     private String sub_title;
     private String type;
@@ -29,7 +28,7 @@ public class NativeADDataRefForZYHY extends NativeADDataRef {
     private String adObjectId;
     private ArrayList<String> imgs;
 
-    public NativeADDataRefForZYHY(Activity context,
+    public NativeADDataRefForZYHY(Context context,
                                   String title,
                                   String sub_title,
                                   String type,
@@ -49,7 +48,7 @@ public class NativeADDataRefForZYHY extends NativeADDataRef {
         this.adObjectId = adObjectId;
     }
 
-    public static NativeADDataRefForZYHY build(Activity context, AVObject adObject){
+    public static NativeADDataRefForZYHY build(Context context, AVObject adObject){
         return NativeADDataRefForZYHY.create()
                 .setContext(context)
                 .setTitile(adObject.getString(AVOUtil.AdList.title))
@@ -63,7 +62,7 @@ public class NativeADDataRefForZYHY extends NativeADDataRef {
                 .build();
     }
 
-    public void setContext(Activity context) {
+    public void setContext(Context context) {
         this.context = context;
     }
 
@@ -145,7 +144,7 @@ public class NativeADDataRefForZYHY extends NativeADDataRef {
 
 
     public static class ADBuilder{
-        private Activity context;
+        private Context context;
         private String title;
         private String sub_title;
         private String type;
@@ -155,7 +154,7 @@ public class NativeADDataRefForZYHY extends NativeADDataRef {
         private String ad_type;
         private String adObjectId;
 
-        public ADBuilder setContext(Activity context){
+        public ADBuilder setContext(Context context){
             this.context = context;
             return this;
         }

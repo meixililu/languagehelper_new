@@ -274,7 +274,8 @@ public class KeyUtil {
 	public static final String FilterName = "FilterName";
 	public static final String AVObjectKey = "AVObjectKey";
 	public static final String ApkPath = "ApkPath";
-
+	public static final String UpdateBean = "UpdateBean";
+	public static final String AdConfig = "AdConfig";
 
 
 

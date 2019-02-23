@@ -71,7 +71,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 			initData();
 			initViews();
 			initSDKAndPermission();
-			AppUpdateUtil.runCheckUpdateTask(this);
+			AppUpdateUtil.isNeedUpdate(this);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

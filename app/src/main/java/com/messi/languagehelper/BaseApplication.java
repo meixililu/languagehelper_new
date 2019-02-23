@@ -1,15 +1,16 @@
 package com.messi.languagehelper;
 
 import android.content.Context;
-import android.os.Process;
 import android.support.multidex.MultiDexApplication;
 
 import com.avos.avoscloud.AVOSCloud;
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.dao.DaoMaster;
 import com.messi.languagehelper.dao.DaoSession;
 import com.messi.languagehelper.db.LHContract;
 import com.messi.languagehelper.db.SQLiteOpenHelper;
+import com.messi.languagehelper.util.CSJADUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
 import com.umeng.commonsdk.UMConfigure;
@@ -34,28 +35,32 @@ public class BaseApplication extends MultiDexApplication {
     }
 
     private void initAVOS(){
-        try {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    BoxHelper.init(BaseApplication.this);
                     Fresco.initialize(BaseApplication.this);
                     AVOSCloud.initialize(mInstance,"3fg5ql3r45i3apx2is4j9on5q5rf6kapxce51t5bc0ffw2y4", "twhlgs6nvdt7z7sfaw76ujbmaw7l12gb8v6sdyjw1nzk9b1a");
-//                    AVOSCloud.setLogLevel(AVLogger.Level.DEBUG);
                     YouDaoApplication.init(BaseApplication.this, Setings.YoudaoApiKey);
-                    initLearnCloudChannel();
+                    initUmengChannel();
+                    initXMLY();
+                    CSJADUtil.init(BaseApplication.this);
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            }).run();
-            CommonRequest.getInstanse().init(BaseApplication.this, "c779eeb1873325a487e2956a2077f2bc");
-            CommonRequest.getInstanse().setHttpConfig(null);
-            CommonRequest.getInstanse().setUseHttps(true);
-            LogUtil.DefalutLog("initXimalayaSDK");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+            }
+        }).run();
     }
 
-    private void initLearnCloudChannel(){
+    private void initXMLY(){
+        CommonRequest.getInstanse().init(BaseApplication.this, "c779eeb1873325a487e2956a2077f2bc");
+        CommonRequest.getInstanse().setHttpConfig(null);
+        CommonRequest.getInstanse().setUseHttps(true);
+        LogUtil.DefalutLog("initXimalayaSDK");
+    }
+
+    private void initUmengChannel(){
         UMConfigure.setLogEnabled(true);
         Setings.appVersion = Setings.getVersion(getApplicationContext());
         Setings.appChannel = Setings.getMetaData(getApplicationContext(),"UMENG_CHANNEL");
@@ -87,6 +92,8 @@ public class BaseApplication extends MultiDexApplication {
             UMConfigure.init(mInstance,"5b7ed6a08f4a9d303c000060",Setings.appChannel,UMConfigure.DEVICE_TYPE_PHONE,"");
         }
     }
+
+
 	/**
      * 取得DaoMaster
      * @param context
