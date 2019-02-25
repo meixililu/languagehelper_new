@@ -78,28 +78,33 @@ public class KaipingModel {
     }
 
     public void getAd(){
-        String ad = ADUtil.getAdProvider(counter);
-        if(!TextUtils.isEmpty(ad)){
-            if(!sp.getBoolean(KeyUtil.IsTXADPermissionReady,false)){
+        try {
+            String ad = ADUtil.getAdProvider(counter);
+            if(!TextUtils.isEmpty(ad)){
+                if(!sp.getBoolean(KeyUtil.IsTXADPermissionReady,false)){
+                    if(ADUtil.GDT.equals(ad)){
+                        counter++;
+                        ad = ADUtil.getAdProvider(counter);
+                    }
+                }
+                LogUtil.DefalutLog("------ad-------"+ad);
                 if(ADUtil.GDT.equals(ad)){
-                    counter++;
-                    ad = ADUtil.getAdProvider(counter);
+                    loadTXAD();
+                }else if(ADUtil.BD.equals(ad)){
+                    loadBDAD();
+                }else if(ADUtil.CSJ.equals(ad)){
+                    loadCSJAD();
+                }else if(ADUtil.XF.equals(ad)){
+                    loadXFAD();
+                }else if(ADUtil.XBKJ.equals(ad)){
+                    loadXBKJ();
                 }
             }
-            LogUtil.DefalutLog("------ad-------"+ad);
-            if(ADUtil.GDT.equals(ad)){
-                loadTXAD();
-            }else if(ADUtil.BD.equals(ad)){
-                loadBDAD();
-            }else if(ADUtil.CSJ.equals(ad)){
-                loadCSJAD();
-            }else if(ADUtil.XF.equals(ad)){
-                loadXFAD();
-            }else if(ADUtil.XBKJ.equals(ad)){
-                loadXBKJ();
-            }
+            counter++;
+        } catch (Exception e) {
+            loadBDAD();
+            e.printStackTrace();
         }
-        counter++;
     }
 
     //启动页加载总时常，防止广告一直加载中等待过久

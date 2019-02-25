@@ -19,6 +19,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.messi.languagehelper.ViewModel.LeisureModel;
 import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.http.BgCallback;
@@ -32,7 +33,6 @@ import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TextHandlerUtil;
 import com.messi.languagehelper.util.TimeUtil;
-import com.messi.languagehelper.util.XFYSAD;
 import com.messi.languagehelper.util.utilLrc;
 import com.nineoldandroids.animation.ObjectAnimator;
 
@@ -51,15 +51,17 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
     @BindView(R.id.content)
     TextView content;
     @BindView(R.id.ad_sign)
-    TextView ad_img_sign;
-    @BindView(R.id.xx_layout)
+    TextView ad_sign;
+    @BindView(R.id.xx_ad_layout)
     FrameLayout xx_ad_layout;
+    @BindView(R.id.ad_layout)
+    FrameLayout ad_layout;
+    @BindView(R.id.ad_img)
+    SimpleDraweeView ad_img;
     @BindView(R.id.next_composition)
     LinearLayout next_composition;
     @BindView(R.id.scrollview)
     NestedScrollView scrollview;
-    @BindView(R.id.ad_img)
-    SimpleDraweeView ad_img;
     @BindView(R.id.player_layout)
     LinearLayout player_layout;
     @BindView(R.id.btn_play)
@@ -75,8 +77,8 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
     private List<Reading> mAVObjects;
     private SharedPreferences mSharedPreferences;
     private int index;
-    private XFYSAD mXFYSAD;
     private utilLrc mutilLrc;
+    private LeisureModel mLeisureModel;
 
     private Handler handler = new Handler();
 
@@ -116,11 +118,13 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
         scrollview.scrollTo(0, 0);
         TextHandlerUtil.handlerText(this, mProgressbar, content, mAVObject.getContent());
         if (!TextUtils.isEmpty(mAVObject.getImg_url())) {
-            ad_img_sign.setVisibility(View.GONE);
+            ad_sign.setVisibility(View.GONE);
             ad_img.setImageURI(Uri.parse(mAVObject.getImg_url()));
         }else {
-            mXFYSAD = new XFYSAD(this, xx_ad_layout, ADUtil.NewsDetail);
-            mXFYSAD.showAD();
+            mLeisureModel = new LeisureModel(this);
+            mLeisureModel.setXFADID(ADUtil.NewsDetail);
+            mLeisureModel.setViews(ad_sign,ad_img,xx_ad_layout,ad_layout);
+            mLeisureModel.showAd();
         }
         if(Setings.musicSrv.isSameMp3(mAVObject)){
             if(Setings.musicSrv.PlayerStatus == 1) {
@@ -314,6 +318,9 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
         unregisterBroadcast();
         if(handler != null){
             handler.removeCallbacks(mRunnable);
+        }
+        if(mLeisureModel != null){
+            mLeisureModel.onDestroy();
         }
     }
 

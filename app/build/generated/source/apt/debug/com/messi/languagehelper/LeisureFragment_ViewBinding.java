@@ -82,6 +82,7 @@ public class LeisureFragment_ViewBinding implements Unbinder {
         target.onViewClicked(p0);
       }
     });
+    target.ad_layout = Utils.findRequiredViewAsType(source, R.id.ad_layout, "field 'ad_layout'", FrameLayout.class);
     view = Utils.findRequiredView(source, R.id.cailing_layout, "field 'cailing_layout' and method 'onViewClicked'");
     target.cailing_layout = Utils.castView(view, R.id.cailing_layout, "field 'cailing_layout'", FrameLayout.class);
     view7f08007b = view;
@@ -214,6 +215,7 @@ public class LeisureFragment_ViewBinding implements Unbinder {
     target.yueduLayout = null;
     target.twistsLayout = null;
     target.xx_ad_layout = null;
+    target.ad_layout = null;
     target.cailing_layout = null;
     target.baidu_layout = null;
     target.app_layout = null;

@@ -72,12 +72,11 @@
             android:orientation="vertical" >
 
             <FrameLayout
-                android:id="@+id/xx_layout"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:id="@+id/xx_ad_layout"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
                 android:background="@color/white"
                 android:layout_margin="@dimen/padding_10">
-
                 <com.facebook.drawee.view.SimpleDraweeView
                     android:id="@+id/ad_img"
                     android:layout_width="match_parent"
@@ -86,25 +85,24 @@
                     fresco:placeholderImage="@color/text_tint"
                     fresco:placeholderImageScaleType="fitCenter"
                     fresco:viewAspectRatio="1.77" />
-
                 <TextView
                     android:id="@+id/ad_sign"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|left"
-                    android:paddingBottom="1dp"
-                    android:paddingLeft="1dp"
-                    android:text="广告"
+                    android:layout_gravity="bottom|right"
                     android:background="@color/none_alpha"
+                    android:visibility="gone"
+                    android:paddingBottom="1dp"
+                    android:paddingRight="1dp"
+                    android:text="广告"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/smaller_l"
-                    />
+                    android:textSize="@dimen/smaller" />
                 <FrameLayout
-                    android:id="@+id/xx_ad_layout"
+                    android:id="@+id/ad_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
-                    />
+                    android:background="@color/white"/>
             </FrameLayout>
 
             <TextView

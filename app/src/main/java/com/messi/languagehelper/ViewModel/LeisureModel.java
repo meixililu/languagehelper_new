@@ -1,45 +1,43 @@
 package com.messi.languagehelper.ViewModel;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
-import android.support.annotation.MainThread;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.baidu.mobads.SplashAd;
-import com.baidu.mobads.SplashAdListener;
+import com.baidu.mobads.AdView;
+import com.baidu.mobads.AdViewListener;
 import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdDislike;
 import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTSplashAd;
+import com.bytedance.sdk.openadsdk.TTBannerAd;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.AdError;
 import com.iflytek.voiceads.AdKeys;
 import com.iflytek.voiceads.IFLYNativeAd;
 import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
-import com.messi.languagehelper.event.KaipingPageEvent;
 import com.messi.languagehelper.util.ADUtil;
-import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.CSJADUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
+import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.TXADUtil;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
-import com.messi.languagehelper.wxapi.YYJMainActivity;
 import com.qq.e.ads.nativ.NativeExpressAD;
 import com.qq.e.ads.nativ.NativeExpressADView;
 
-import org.greenrobot.eventbus.EventBus;
+import org.json.JSONObject;
 
 import java.util.List;
 
 public class LeisureModel {
 
+    public static boolean misVisibleToUser;
     public int counter;
     public Activity mContext;
     public SharedPreferences sp;
@@ -47,10 +45,11 @@ public class LeisureModel {
     private NativeExpressADView mTXADView;
     private long lastLoadAd;
     private boolean exposureXFAD;
-    private boolean misVisibleToUser;
     private String currentAD;
+    private String XFADID = ADUtil.MRYJYSNRLAd;
 
     public FrameLayout xx_ad_layout;
+    public FrameLayout ad_layout;
     public TextView ad_sign;
     public SimpleDraweeView adImg;
     private static final int AD_TIME_OUT = 1500;
@@ -62,10 +61,11 @@ public class LeisureModel {
     }
 
     public void setViews(TextView ad_sign,SimpleDraweeView adImg,
-                         FrameLayout xx_ad_layout){
+                         FrameLayout xx_ad_layout,FrameLayout ad_layout){
+        this.adImg = adImg;
         this.ad_sign = ad_sign;
         this.xx_ad_layout = xx_ad_layout;
-        this.adImg = adImg;
+        this.ad_layout = ad_layout;
     }
 
     public void showAd(){
@@ -75,32 +75,38 @@ public class LeisureModel {
     }
 
     public void getAd(){
-        currentAD = ADUtil.getAdProvider(counter);
-        if(!TextUtils.isEmpty(currentAD)){
-            if(!sp.getBoolean(KeyUtil.IsTXADPermissionReady,false)){
+        try {
+            currentAD = ADUtil.getAdProvider(counter);
+            lastLoadAd = System.currentTimeMillis();
+            if(!TextUtils.isEmpty(currentAD)){
+                if(!sp.getBoolean(KeyUtil.IsTXADPermissionReady,false)){
+                    if(ADUtil.GDT.equals(currentAD)){
+                        counter++;
+                        currentAD = ADUtil.getAdProvider(counter);
+                    }
+                }
+                LogUtil.DefalutLog("------ad-------"+currentAD);
                 if(ADUtil.GDT.equals(currentAD)){
-                    counter++;
-                    currentAD = ADUtil.getAdProvider(counter);
+                    loadTXAD();
+                }else if(ADUtil.BD.equals(currentAD)){
+                    loadBDAD();
+                }else if(ADUtil.CSJ.equals(currentAD)){
+                    loadCSJAD();
+                }else if(ADUtil.XF.equals(currentAD)){
+                    loadXFAD();
+                }else if(ADUtil.XBKJ.equals(currentAD)){
+                    loadXBKJ();
                 }
             }
-            LogUtil.DefalutLog("------ad-------"+currentAD);
-            if(ADUtil.GDT.equals(currentAD)){
-                loadTXAD();
-            }else if(ADUtil.BD.equals(currentAD)){
-                loadBDAD();
-            }else if(ADUtil.CSJ.equals(currentAD)){
-                loadCSJAD();
-            }else if(ADUtil.XF.equals(currentAD)){
-                loadXFAD();
-            }else if(ADUtil.XBKJ.equals(currentAD)){
-                loadXBKJ();
-            }
+            counter++;
+        } catch (Exception e) {
+            loadTXAD();
+            e.printStackTrace();
         }
-        counter++;
     }
 
     public void loadXFAD() {
-        IFLYNativeAd nativeAd = new IFLYNativeAd(mContext, ADUtil.MRYJYSNRLAd, new IFLYNativeListener() {
+        IFLYNativeAd nativeAd = new IFLYNativeAd(mContext, XFADID, new IFLYNativeListener() {
             @Override
             public void onConfirm() {
             }
@@ -109,7 +115,7 @@ public class LeisureModel {
             }
             @Override
             public void onAdFailed(AdError arg0) {
-                LogUtil.DefalutLog("onAdFailed---" + arg0.getErrorCode() + "---" + arg0.getErrorDescription());
+                LogUtil.DefalutLog("LeisureModel-onAdFailed:" + arg0.getErrorCode() + "-" + arg0.getErrorDescription());
                 getAd();
             }
             @Override
@@ -128,12 +134,11 @@ public class LeisureModel {
     public void setAd(NativeADDataRef mADDataRef) {
         if (mADDataRef != null) {
             mNativeADDataRef = mADDataRef;
-            lastLoadAd = System.currentTimeMillis();
             ad_sign.setVisibility(View.VISIBLE);
+            adImg.setVisibility(View.VISIBLE);
+            ad_layout.setVisibility(View.GONE);
             adImg.setImageURI(mNativeADDataRef.getImage());
-            if (misVisibleToUser) {
-                exposedXFAD();
-            }
+            exposedXFAD();
         }
     }
 
@@ -153,18 +158,23 @@ public class LeisureModel {
 
     public void exposedAd() {
         LogUtil.DefalutLog("exposedAd");
-        if (currentAD.equals(ADUtil.Advertiser_XF)) {
+        if (ADUtil.XF.equals(currentAD)) {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     exposedXFAD();
                 }
             }, 500);
-
         }
         if (misVisibleToUser && lastLoadAd > 0) {
-            if (System.currentTimeMillis() - lastLoadAd > 45000) {
-                loadTXAD();
+            if (System.currentTimeMillis() - lastLoadAd > 16*1000) {
+                currentAD = ADUtil.getAdProvider(counter);
+                if(TextUtils.isEmpty(currentAD) ||
+                        ADUtil.XBKJ.equals(currentAD) ||
+                        ADUtil.XF.equals(currentAD)){
+                    counter = 0;
+                }
+                getAd();
             }
         }
     }
@@ -184,12 +194,9 @@ public class LeisureModel {
                     if (mTXADView != null) {
                         mTXADView.destroy();
                     }
-                    ad_sign.setVisibility(View.GONE);
-                    xx_ad_layout.setVisibility(View.VISIBLE);
-                    xx_ad_layout.removeAllViews();
+                    initFeiXFAD();
                     mTXADView = list.get(0);
-                    lastLoadAd = System.currentTimeMillis();
-                    xx_ad_layout.addView(mTXADView);
+                    ad_layout.addView(mTXADView);
                     mTXADView.render();
                 }
             }
@@ -218,6 +225,7 @@ public class LeisureModel {
             @Override
             public void onADClosed(NativeExpressADView nativeExpressADView) {
                 LogUtil.DefalutLog("onADClosed");
+                getAd();
             }
 
             @Override
@@ -243,104 +251,97 @@ public class LeisureModel {
         }
     }
 
-    SplashAdListener bdAdListener = new SplashAdListener() {
-        @Override
-        public void onAdPresent() {
-            LogUtil.DefalutLog("BDAD-onAdPresent");
-
-        }
-        @Override
-        public void onAdDismissed() {
-            LogUtil.DefalutLog("BDAD-onAdDismissed");
-
-        }
-        @Override
-        public void onAdFailed(String s) {
-            LogUtil.DefalutLog("BDAD-onAdFailed："+s);
-            getAd();
-        }
-        @Override
-        public void onAdClick() {
-            LogUtil.DefalutLog("BDAD-onAdClick");
-        }
-    };
-
     public void loadBDAD(){
-        SplashAd.setMaxVideoCacheCapacityMb(30);
-        new SplashAd(mContext,splash_container,bdAdListener,ADUtil.BD_Kaiping,true);
+        AdView adView = new AdView(mContext,"6063120");
+        adView.setListener(new AdViewListener(){
+            @Override
+            public void onAdReady(AdView adView) {
+            }
+            @Override
+            public void onAdShow(JSONObject jsonObject) {
+            }
+            @Override
+            public void onAdClick(JSONObject jsonObject) {
+            }
+            @Override
+            public void onAdFailed(String s) {
+                getAd();
+            }
+
+            @Override
+            public void onAdSwitch() {
+            }
+            @Override
+            public void onAdClose(JSONObject jsonObject) {
+                getAd();
+            }
+        });
+        initFeiXFAD();
+        int height = (int)(SystemUtil.SCREEN_WIDTH / 2);
+        LinearLayout.LayoutParams rllp = new LinearLayout.LayoutParams(SystemUtil.SCREEN_WIDTH, height);
+        ad_layout.addView(adView,rllp);
+    }
+
+    public void initFeiXFAD(){
+        ad_sign.setVisibility(View.GONE);
+        adImg.setVisibility(View.GONE);
+        ad_layout.setVisibility(View.VISIBLE);
+        ad_layout.removeAllViews();
     }
 
     public void loadCSJAD(){
+        LogUtil.DefalutLog("loadCSJAD");
         TTAdNative mTTAdNative = CSJADUtil.get().createAdNative(mContext);
         AdSlot adSlot = new AdSlot.Builder()
-                .setCodeId(CSJADUtil.CSJ_KPID)
+                .setCodeId(CSJADUtil.CSJ_BANNer2ID)
                 .setSupportDeepLink(true)
-                .setImageAcceptedSize(1080, 1920)
+                .setImageAcceptedSize(690, 388)
                 .build();
-        mTTAdNative.loadSplashAd(adSlot, new TTAdNative.SplashAdListener() {
+        mTTAdNative.loadBannerAd(adSlot, new TTAdNative.BannerAdListener() {
             @Override
-            @MainThread
-            public void onError(int code, String message) {
-                LogUtil.DefalutLog("CSJAD-onError:"+message);
+            public void onError(int i, String s) {
+                LogUtil.DefalutLog("loadCSJAD-onError:"+s);
                 getAd();
             }
-
             @Override
-            @MainThread
-            public void onTimeout() {
-                LogUtil.DefalutLog("CSJAD-onTimeout");
-                getAd();
-            }
-
-            @Override
-            @MainThread
-            public void onSplashAdLoad(TTSplashAd ad) {
-                LogUtil.DefalutLog("CSJAD-onSplashAdLoad");
+            public void onBannerAdLoad(TTBannerAd ad) {
                 if (ad == null) {
                     getAd();
                     return;
                 }
-                splash_container.addView(ad.getSplashView());
-                //设置SplashView的交互监听器
-                ad.setSplashInteractionListener(new TTSplashAd.AdInteractionListener() {
+                View bannerView = ad.getBannerView();
+                if (bannerView == null) {
+                    getAd();
+                    return;
+                }
+                //设置轮播的时间间隔  间隔在30s到120秒之间的值，不设置默认不轮播
+                ad.setSlideIntervalTime(30 * 1000);
+                initFeiXFAD();
+                int height = (int)(SystemUtil.SCREEN_WIDTH / 1.8);
+                LinearLayout.LayoutParams rllp = new LinearLayout.LayoutParams(SystemUtil.SCREEN_WIDTH, height);
+                ad_layout.addView(bannerView,rllp);
+                //设置广告互动监听回调
+                ad.setShowDislikeIcon(new TTAdDislike.DislikeInteractionCallback() {
                     @Override
-                    public void onAdClicked(View view, int type) {
-                        LogUtil.DefalutLog( "CSJAD-onAdClicked");
-                        onClickAd();
+                    public void onSelected(int position, String value) {
+                        getAd();
                     }
-
                     @Override
-                    public void onAdShow(View view, int type) {
-                        LogUtil.DefalutLog( "CSJAD-onAdShow");
-                        cancleRunable();
-                    }
-
-                    @Override
-                    public void onAdSkip() {
-                        LogUtil.DefalutLog( "CSJAD-onAdSkip");
-                        toNextPage();
-                    }
-
-                    @Override
-                    public void onAdTimeOver() {
-                        LogUtil.DefalutLog("CSJAD-onAdTimeOver");
-                        if(!notJump){
-                            toNextPage();
-                        }
+                    public void onCancel() {
                     }
                 });
             }
-        }, AD_TIME_OUT);
-    }
-
-    public void setIsVisibleToUser(boolean misVisibleToUser) {
-        this.misVisibleToUser = misVisibleToUser;
+        });
     }
 
     public void onDestroy(){
         if (mTXADView != null) {
             mTXADView.destroy();
         }
+    }
+
+    public void setXFADID(String XFADID) {
+        this.XFADID = XFADID;
     }
 
 }

@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.messi.languagehelper.ViewModel.LeisureModel;
+import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -31,6 +32,8 @@ public class LeisureFragment extends BaseFragment {
     FrameLayout twistsLayout;
     @BindView(R.id.xx_ad_layout)
     FrameLayout xx_ad_layout;
+    @BindView(R.id.ad_layout)
+    FrameLayout ad_layout;
     @BindView(R.id.cailing_layout)
     FrameLayout cailing_layout;
     @BindView(R.id.baidu_layout)
@@ -84,7 +87,8 @@ public class LeisureFragment extends BaseFragment {
         ButterKnife.bind(this, view);
         sp = Setings.getSharedPreferences(getContext());
         mLeisureModel = new LeisureModel(getActivity());
-        mLeisureModel.setViews(ad_sign,adImg,xx_ad_layout);
+        mLeisureModel.setXFADID(ADUtil.MRYJYSNRLAd);
+        mLeisureModel.setViews(ad_sign,adImg,xx_ad_layout,ad_layout);
         mLeisureModel.showAd();
         return view;
     }
@@ -93,9 +97,11 @@ public class LeisureFragment extends BaseFragment {
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         LogUtil.DefalutLog("LeisureFragment-setUserVisibleHint:" + isVisibleToUser);
-        mLeisureModel.setIsVisibleToUser(isVisibleToUser);
-        if (isVisibleToUser) {
-            mLeisureModel.exposedAd();
+        LeisureModel.misVisibleToUser = isVisibleToUser;
+        if(mLeisureModel != null){
+            if (isVisibleToUser) {
+                mLeisureModel.exposedAd();
+            }
         }
     }
 
@@ -253,7 +259,9 @@ public class LeisureFragment extends BaseFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        mLeisureModel.onDestroy();
+        if(mLeisureModel != mLeisureModel){
+            mLeisureModel.onDestroy();
+        }
     }
 
 }
