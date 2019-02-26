@@ -16,11 +16,8 @@ import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
-import com.iflytek.voiceads.AdError;
-import com.iflytek.voiceads.AdKeys;
-import com.iflytek.voiceads.IFLYNativeAd;
-import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
+import com.messi.languagehelper.ViewModel.XXLModel;
 import com.messi.languagehelper.adapter.RcStudyListAdapter;
 import com.messi.languagehelper.bean.ReadingCategory;
 import com.messi.languagehelper.dao.Reading;
@@ -28,16 +25,12 @@ import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.impl.TablayoutOnSelectedListener;
 import com.messi.languagehelper.service.PlayerService;
-import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Setings;
-import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.util.ToastUtil;
-import com.qq.e.ads.nativ.NativeExpressAD;
-import com.qq.e.ads.nativ.NativeExpressADView;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.util.ArrayList;
@@ -67,17 +60,12 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
     private List<AVObject> tempList;
     private int skip = 0;
     private int maxRandom;
-    private IFLYNativeAd nativeAd;
-    private boolean loading;
-    private boolean hasMore;
-    private Reading mADObject;
     private String category;
     private LinearLayoutManager mLinearLayoutManager;
     private List<ReadingCategory> categories;
     private boolean isNeedClear;
-    private boolean isAdAddToHead;
-    private List<NativeExpressADView> mTXADList;
     private Reading xvideoItem;
+    private XXLModel mXXLModel;
 
     public static StudyFragment getInstance() {
         return new StudyFragment();
@@ -100,19 +88,21 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
         View view = inflater.inflate(R.layout.study_fragment, null);
         ButterKnife.bind(this, view);
         initViews(view);
+        loadData();
         return view;
     }
 
     private void initViews(View view) {
         avObjects = new ArrayList<Reading>();
-        mTXADList = new ArrayList<NativeExpressADView>();
-        avObjects.addAll(DataBaseUtil.getInstance().getReadingList(Setings.page_size, "", "", ""));
-        skip = 0;
-        initSwipeRefresh(view);
         mAdapter = new RcStudyListAdapter(avObjects);
+        mXXLModel = new XXLModel(getActivity());
+        initSwipeRefresh(view);
+        avObjects.addAll(DataBaseUtil.getInstance().getReadingList(Setings.page_size, "", "", ""));
+        mXXLModel.setAdapter(avObjects,mAdapter);
         mAdapter.setItems(avObjects);
         mAdapter.setFooter(new Object());
         hideFooterview();
+        skip = 0;
         mLinearLayoutManager = new LinearLayoutManager(getContext());
         listview.setLayoutManager(mLinearLayoutManager);
         listview.addItemDecoration(
@@ -164,9 +154,8 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
                 int total = mLinearLayoutManager.getItemCount();
                 int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
                 isADInList(recyclerView, firstVisibleItem, visible);
-                if (!loading && hasMore) {
+                if (!mXXLModel.loading && mXXLModel.hasMore) {
                     if ((visible + firstVisibleItem) >= total) {
-                        loadAD();
                         QueryTask();
                         LogUtil.DefalutLog("StudyFragment-setListOnScrollListener-QueryTask");
                     }
@@ -176,22 +165,26 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
     }
 
     private void isADInList(RecyclerView view, int first, int vCount) {
-        if (avObjects.size() > 2) {
-            for (int i = first; i < (first + vCount); i++) {
-                if (i < avObjects.size() && i > 0) {
-                    Reading mAVObject = avObjects.get(i);
-                    if (mAVObject != null && mAVObject.isAd()) {
-                        if (!mAVObject.isAdShow()) {
-                            NativeADDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
-                            boolean isExposure = mNativeADDataRef.onExposured(view.getChildAt(i % vCount));
-                            LogUtil.DefalutLog("isExposure:" + isExposure);
-                            if(isExposure){
-                                mAVObject.setAdShow(isExposure);
+        try {
+            if (avObjects.size() > 2) {
+                for (int i = first; i < (first + vCount); i++) {
+                    if (i < avObjects.size() && i > 0) {
+                        Reading mAVObject = avObjects.get(i);
+                        if (mAVObject != null && mAVObject.isAd()) {
+                            if (!mAVObject.isAdShow() && mAVObject.getmNativeADDataRef() != null) {
+                                NativeADDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
+                                boolean isExposure = mNativeADDataRef.onExposured(view.getChildAt(i % vCount));
+                                LogUtil.DefalutLog("isExposure:" + isExposure);
+                                if(isExposure){
+                                    mAVObject.setAdShow(isExposure);
+                                }
                             }
                         }
                     }
                 }
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -214,11 +207,8 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
         }
     }
 
-    @Override
-    public void loadDataOnStart() {
-        super.loadDataOnStart();
+    public void loadData() {
         skip = 0;
-        loadAD();
         QueryTask();
         XVideoAsyncTask();
     }
@@ -231,24 +221,19 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
     }
 
     private void refresh() {
-        loadAD();
         hideFooterview();
         QueryTask();
         XVideoAsyncTask();
     }
 
     private void loadAD(){
-        if(ADUtil.IsShowAD){
-            if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
-                loadXFAD();
-            }else {
-                loadTXAD();
-            }
+        if(mXXLModel !=null ){
+            mXXLModel.showAd();
         }
     }
 
     private void QueryTask() {
-        loading = true;
+        mXXLModel.loading = true;
         showProgressbar();
         Observable.create(new ObservableOnSubscribe<String>() {
             @Override
@@ -297,20 +282,20 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
     }
 
     private void onFinishLoadData() {
-        loading = false;
-        hasMore = true;
+        mXXLModel.loading = false;
+        mXXLModel.hasMore = true;
         hideProgressbar();
         onSwipeRefreshLayoutFinish();
         if (tempList != null) {
             if (tempList.size() == 0) {
                 ToastUtil.diaplayMesShort(getContext(), "没有了！");
                 hideFooterview();
-                hasMore = false;
+                mXXLModel.hasMore = false;
             } else {
                 if (avObjects != null && mAdapter != null) {
                     if (isNeedClear || skip == 0) {
                         isNeedClear = false;
-                        isAdAddToHead = true;
+                        mXXLModel.isAdAddToHead = true;
                         changeDataToHead(tempList, avObjects);
                     }else {
                         changeData(tempList, avObjects);
@@ -322,141 +307,13 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
                             avObjects.add(0,xvideoItem);
                         }
                         xvideoItem = null;
-                        mAdapter.notifyDataSetChanged();
                     }
-                    if (addAD()) {
-                        mAdapter.notifyDataSetChanged();
-                    }
+                    mAdapter.notifyDataSetChanged();
                     skip += Setings.page_size;
                     showFooterview();
+                    loadAD();
                 }
             }
-        }
-    }
-
-    private void loadXFAD() {
-        nativeAd = new IFLYNativeAd(getContext(), ADUtil.XXLAD, new IFLYNativeListener() {
-            @Override
-            public void onConfirm() {
-            }
-
-            @Override
-            public void onCancel() {
-            }
-
-            @Override
-            public void onAdFailed(AdError arg0) {
-                LogUtil.DefalutLog("onAdFailed---" + arg0.getErrorCode() + "---" + arg0.getErrorDescription());
-                if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
-                    loadTXAD();
-                }else {
-                    onADFaile();
-                }
-            }
-
-            @Override
-            public void onADLoaded(List<NativeADDataRef> adList) {
-                LogUtil.DefalutLog("onADLoaded---");
-                if (adList != null && adList.size() > 0) {
-                    NativeADDataRef nad = adList.get(0);
-                    addXFAD(nad);
-                }
-            }
-        });
-        nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
-        nativeAd.loadAd(1);
-    }
-
-    private void addXFAD(NativeADDataRef nad){
-        mADObject = new Reading();
-        mADObject.setmNativeADDataRef(nad);
-        mADObject.setAd(true);
-        if (!loading) {
-            addAD();
-        }
-    }
-
-    private void onADFaile(){
-        if(ADUtil.isHasLocalAd()){
-            NativeADDataRef nad = ADUtil.getRandomAd(getActivity());
-            addXFAD(nad);
-        }
-    }
-
-    private void loadTXAD(){
-        TXADUtil.showXXL(getActivity(), new NativeExpressAD.NativeExpressADListener() {
-            @Override
-            public void onNoAD(com.qq.e.comm.util.AdError adError) {
-                LogUtil.DefalutLog("TX-onNoAD");
-                if(ADUtil.Advertiser.equals(ADUtil.Advertiser_TX)){
-                    loadXFAD();
-                }else {
-                    onADFaile();
-                }
-            }
-            @Override
-            public void onADLoaded(List<NativeExpressADView> list) {
-                LogUtil.DefalutLog("TX-onADLoaded");
-                if(list != null && list.size() > 0){
-                    mTXADList.add(list.get(0));
-                    mADObject = new Reading();
-                    mADObject.setmTXADView(list.get(0));
-                    if (!loading) {
-                        addAD();
-                    }
-                }
-            }
-            @Override
-            public void onRenderFail(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onRenderFail");
-            }
-            @Override
-            public void onRenderSuccess(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onRenderSuccess");
-            }
-            @Override
-            public void onADExposure(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADExposure");
-            }
-            @Override
-            public void onADClicked(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADClicked");
-            }
-            @Override
-            public void onADClosed(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADClosed");
-            }
-            @Override
-            public void onADLeftApplication(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADLeftApplication");
-            }
-            @Override
-            public void onADOpenOverlay(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADOpenOverlay");
-            }
-            @Override
-            public void onADCloseOverlay(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADCloseOverlay");
-            }
-        });
-    }
-
-    private boolean addAD() {
-        if (mADObject != null && avObjects != null && avObjects.size() > 0) {
-            int index = avObjects.size() - Setings.page_size + NumberUtil.randomNumberRange(1, 2);
-            if (index < 0) {
-                index = 0;
-            }
-            if(isAdAddToHead){
-                isAdAddToHead = false;
-                index = NumberUtil.randomNumberRange(1, 2);
-            }
-            avObjects.add(index, mADObject);
-            mAdapter.notifyDataSetChanged();
-            mADObject = null;
-            return false;
-        } else {
-            return true;
         }
     }
 
@@ -653,10 +510,8 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
     public void onDestroy() {
         super.onDestroy();
         unregisterBroadcast();
-        if(mTXADList != null){
-            for(NativeExpressADView adView : mTXADList){
-                adView.destroy();
-            }
+        if(mXXLModel != null){
+            mXXLModel.onDestroy();
         }
     }
 

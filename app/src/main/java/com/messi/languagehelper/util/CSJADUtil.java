@@ -12,8 +12,9 @@ public class CSJADUtil {
     public static String CSJ_APPID = "5002882";
     public static String CSJ_KPID = "802882204";
     public static String CSJ_BANNer2ID = "902882166";
+    public static String CSJ_XXL = "902882431";
 
-    private static boolean sInit;
+    public static boolean sInit;
 
     public static TTAdManager get() {
         if (!sInit) {

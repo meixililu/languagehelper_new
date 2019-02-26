@@ -1,6 +1,8 @@
 package com.messi.languagehelper.dao;
 
 import com.avos.avoscloud.AVObject;
+import com.baidu.mobads.AdView;
+import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.qq.e.ads.nativ.NativeExpressADView;
 
@@ -63,14 +65,46 @@ public class Reading {
     @Transient
     private NativeExpressADView mTXADView;
     @Transient
+    private TTFeedAd csjTTFeedAd;
+    @Transient
+    private AdView bdAdView;
+    @Transient
+    private int bdHeight;
+    @Transient
     private List<AVObject> xvideoList;
+
+    public AdView getBdAdView() {
+        return bdAdView;
+    }
+
+    public void setBdAdView(AdView bdAdView) {
+        this.bdAdView = bdAdView;
+    }
+
+    public TTFeedAd getCsjTTFeedAd() {
+        return csjTTFeedAd;
+    }
+
+    public void setCsjTTFeedAd(TTFeedAd csjTTFeedAd) {
+        this.csjTTFeedAd = csjTTFeedAd;
+    }
+
+    public int getBdHeight() {
+        return bdHeight;
+    }
+
+    public void setBdHeight(int bdHeight) {
+        this.bdHeight = bdHeight;
+    }
 
     public List<AVObject> getXvideoList() {
         return xvideoList;
     }
+
     public void setXvideoList(List<AVObject> xvideoList) {
         this.xvideoList = xvideoList;
     }
+
     public NativeExpressADView getmTXADView() {
         return mTXADView;
     }

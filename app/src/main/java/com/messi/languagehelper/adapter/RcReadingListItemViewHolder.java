@@ -13,6 +13,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.avos.avoscloud.AVObject;
+import com.baidu.mobads.AdView;
+import com.bytedance.sdk.openadsdk.TTAdConstant;
+import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.R;
@@ -30,11 +34,10 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.ScreenUtil;
 import com.messi.languagehelper.util.Setings;
+import com.messi.languagehelper.util.SystemUtil;
 import com.qq.e.ads.nativ.NativeExpressADView;
 
 import java.util.List;
-
-import com.avos.avoscloud.AVObject;
 
 /**
  * Created by luli on 10/23/16.
@@ -92,10 +95,13 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
     public void render(final Reading mAVObject) {
         list_item_img_parent.setClickable(false);
         ad_layout.setVisibility(View.GONE);
+        imgs_layout.setVisibility(View.GONE);
+        item_layout.setVisibility(View.GONE);
         videoplayer_cover.setVisibility(View.GONE);
         xvideo_layout.setVisibility(View.GONE);
+        title.setText("");
+        list_item_img_parent.setVisibility(View.GONE);
         if(!mAVObject.isAd()){
-            item_layout.setVisibility(View.VISIBLE);
             if(mAVObject.getmTXADView() != null){
                 NativeExpressADView adView = mAVObject.getmTXADView();
                 ad_layout.setVisibility(View.VISIBLE);
@@ -106,6 +112,25 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
                 }
                 ad_layout.addView(adView);
                 adView.render();
+            }else if(mAVObject.getBdAdView() != null){
+                AdView bdAdview = mAVObject.getBdAdView();
+                ad_layout.setVisibility(View.VISIBLE);
+                item_layout.setVisibility(View.GONE);
+                ad_layout.removeAllViews();
+                if (bdAdview.getParent() != null) {
+                    ((ViewGroup) bdAdview.getParent()).removeView(bdAdview);
+                }
+                int marginT = ScreenUtil.dip2px(context,8);
+                int marginB = ScreenUtil.dip2px(context,2);
+                int marginLR = ScreenUtil.dip2px(context,8);
+                LinearLayout.LayoutParams rllp = new LinearLayout.LayoutParams(SystemUtil.SCREEN_WIDTH-marginLR*2, mAVObject.getBdHeight());
+                rllp.setMargins(marginLR,marginT,marginLR,marginB);
+                ad_layout.addView(bdAdview,rllp);
+            }else if(mAVObject.getCsjTTFeedAd() != null){
+                ad_layout.setVisibility(View.VISIBLE);
+                item_layout.setVisibility(View.GONE);
+                ad_layout.removeAllViews();
+                getCSJDView(mAVObject.getCsjTTFeedAd());
             }else if(mAVObject.getXvideoList() != null){
                 xvideo_layout.setVisibility(View.VISIBLE);
                 xvideo_more_tv.setOnClickListener(new View.OnClickListener() {
@@ -116,7 +141,7 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
                 });
                 addXvideo(mAVObject.getXvideoList());
             }else {
-                imgs_layout.setVisibility(View.GONE);
+                item_layout.setVisibility(View.VISIBLE);
                 if(TextUtils.isEmpty(mAVObject.getStatus())){
                     title.setTextColor(context.getResources().getColor(R.color.text_dark));
                 }else {
@@ -209,7 +234,6 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
                 title.setText( mNativeADDataRef.getTitle() );
                 type_name.setText(mNativeADDataRef.getSubTitle());
                 source_name.setText("广告");
-
                 if(mNativeADDataRef.getImgUrls() != null && mNativeADDataRef.getImgUrls().size() > 2){
                     imgs_layout.setVisibility(View.VISIBLE);
                     list_item_img_parent.setVisibility(View.GONE);
@@ -218,7 +242,6 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
                     imgs_2.setImageURI(mNativeADDataRef.getImgUrls().get(1));
                     imgs_3.setImageURI(mNativeADDataRef.getImgUrls().get(2));
                 }else {
-                    imgs_layout.setVisibility(View.GONE);
                     list_item_img_parent.setVisibility(View.VISIBLE);
                     list_item_img.setVisibility(View.VISIBLE);
                     list_item_img.setImageURI(mNativeADDataRef.getImage());
@@ -325,5 +348,26 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
         Intent intent = new Intent(context, XVideoDetailActivity.class);
         intent.putExtra(KeyUtil.AVObjectKey, mAVObject.toString());
         context.startActivity(intent);
+    }
+
+    private void getCSJDView(TTFeedAd ad){
+        View view = null;
+        if (ad.getImageMode() == TTAdConstant.IMAGE_MODE_LARGE_IMG) {
+            view = LayoutInflater.from(context).inflate(R.layout.listitem_ad_large_pic,null);
+        } else if (ad.getImageMode() == TTAdConstant.IMAGE_MODE_GROUP_IMG) {
+            view = LayoutInflater.from(context).inflate(R.layout.listitem_ad_group_pic,null);
+        } else if (ad.getImageMode() == TTAdConstant.IMAGE_MODE_VIDEO) {
+            view = LayoutInflater.from(context).inflate(R.layout.listitem_ad_large_video,null);
+
+        }
+        if(view != null){
+//            int marginT = ScreenUtil.dip2px(context,8);
+//            int marginB = ScreenUtil.dip2px(context,2);
+//            int marginLR = ScreenUtil.dip2px(context,8);
+//            LinearLayout.LayoutParams rllp = new LinearLayout.LayoutParams(SystemUtil.SCREEN_WIDTH-marginLR*2, mAVObject.getBdHeight());
+//            rllp.setMargins(marginLR,marginT,marginLR,marginB);
+//            ad_layout.addView(view,rllp);
+            ad_layout.addView(view);
+        }
     }
 }

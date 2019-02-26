@@ -134,7 +134,6 @@
 	                android:gravity="left"
 	                android:textColor="@color/text_grey1"
 	                android:textSize="@dimen/small" />
-                
             </LinearLayout>
         </RelativeLayout>
 
@@ -205,10 +204,7 @@
 				android:orientation="horizontal"
 				/>
 		</HorizontalScrollView>
-
 	</LinearLayout>
-
-
 	<FrameLayout
 		android:id="@+id/ad_layout"
 		android:layout_width="match_parent"
@@ -217,5 +213,4 @@
 		android:paddingBottom="@dimen/padding_margin"
 		android:visibility="gone"
 		/>
-
 </FrameLayout>

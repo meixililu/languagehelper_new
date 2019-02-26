@@ -111,8 +111,7 @@ public class AppUpdateUtil {
         String ad_ids = mAVObject.getString(AVOUtil.UpdateInfo.ad_ids);
         String no_ad_channel = mAVObject.getString(AVOUtil.UpdateInfo.no_ad_channel);
         String adConf = mAVObject.getString(AVOUtil.UpdateInfo.adConf);
-        LogUtil.DefalutLog("adConf:"+adConf);
-
+        ADUtil.setAdConfig(adConf);
         Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.APP_Advertiser,app_advertiser);
         Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_DVideo,uctt_url);
         Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_Novel,wyyx_url);
