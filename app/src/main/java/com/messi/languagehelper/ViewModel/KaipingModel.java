@@ -3,6 +3,7 @@ package com.messi.languagehelper.ViewModel;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Handler;
 import android.support.annotation.MainThread;
 import android.text.TextUtils;
@@ -15,6 +16,8 @@ import com.baidu.mobads.SplashAdListener;
 import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.TTAdNative;
 import com.bytedance.sdk.openadsdk.TTSplashAd;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.AdError;
 import com.iflytek.voiceads.AdKeys;
@@ -173,7 +176,11 @@ public class KaipingModel {
     }
 
     public void setAD(final NativeADDataRef mNativeADDataRef) {
-        ad_img.setImageURI(mNativeADDataRef.getImage());
+        DraweeController mDraweeController = Fresco.newDraweeControllerBuilder()
+                .setAutoPlayAnimations(true)
+                .setUri(Uri.parse(mNativeADDataRef.getImage()))
+                .build();
+        ad_img.setController(mDraweeController);
         boolean loadingExposure = mNativeADDataRef.onExposured(ad_img);
         LogUtil.DefalutLog("loadingExposure：" + loadingExposure);
         ad_img.setOnClickListener(new View.OnClickListener() {

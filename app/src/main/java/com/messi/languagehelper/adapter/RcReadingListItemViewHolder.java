@@ -15,8 +15,6 @@ import android.widget.TextView;
 
 import com.avos.avoscloud.AVObject;
 import com.baidu.mobads.AdView;
-import com.bytedance.sdk.openadsdk.TTAdConstant;
-import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.R;
@@ -24,6 +22,7 @@ import com.messi.languagehelper.ReadDetailTouTiaoActivity;
 import com.messi.languagehelper.ReadingDetailActivity;
 import com.messi.languagehelper.ReadingDetailLrcActivity;
 import com.messi.languagehelper.ReadingVideoDetailActivity;
+import com.messi.languagehelper.ViewModel.XXLModel;
 import com.messi.languagehelper.WebViewForAdActivity;
 import com.messi.languagehelper.XVideoDetailActivity;
 import com.messi.languagehelper.XVideoHomeActivity;
@@ -120,9 +119,9 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
                 if (bdAdview.getParent() != null) {
                     ((ViewGroup) bdAdview.getParent()).removeView(bdAdview);
                 }
-                int marginT = ScreenUtil.dip2px(context,8);
-                int marginB = ScreenUtil.dip2px(context,2);
-                int marginLR = ScreenUtil.dip2px(context,8);
+                int marginT = ScreenUtil.dip2px(context,10);
+                int marginB = ScreenUtil.dip2px(context,3);
+                int marginLR = ScreenUtil.dip2px(context,10);
                 LinearLayout.LayoutParams rllp = new LinearLayout.LayoutParams(SystemUtil.SCREEN_WIDTH-marginLR*2, mAVObject.getBdHeight());
                 rllp.setMargins(marginLR,marginT,marginLR,marginB);
                 ad_layout.addView(bdAdview,rllp);
@@ -130,7 +129,7 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
                 ad_layout.setVisibility(View.VISIBLE);
                 item_layout.setVisibility(View.GONE);
                 ad_layout.removeAllViews();
-                getCSJDView(mAVObject.getCsjTTFeedAd());
+                XXLModel.getCSJDView(context,mAVObject.getCsjTTFeedAd(), ad_layout);
             }else if(mAVObject.getXvideoList() != null){
                 xvideo_layout.setVisibility(View.VISIBLE);
                 xvideo_more_tv.setOnClickListener(new View.OnClickListener() {
@@ -350,24 +349,4 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
         context.startActivity(intent);
     }
 
-    private void getCSJDView(TTFeedAd ad){
-        View view = null;
-        if (ad.getImageMode() == TTAdConstant.IMAGE_MODE_LARGE_IMG) {
-            view = LayoutInflater.from(context).inflate(R.layout.listitem_ad_large_pic,null);
-        } else if (ad.getImageMode() == TTAdConstant.IMAGE_MODE_GROUP_IMG) {
-            view = LayoutInflater.from(context).inflate(R.layout.listitem_ad_group_pic,null);
-        } else if (ad.getImageMode() == TTAdConstant.IMAGE_MODE_VIDEO) {
-            view = LayoutInflater.from(context).inflate(R.layout.listitem_ad_large_video,null);
-
-        }
-        if(view != null){
-//            int marginT = ScreenUtil.dip2px(context,8);
-//            int marginB = ScreenUtil.dip2px(context,2);
-//            int marginLR = ScreenUtil.dip2px(context,8);
-//            LinearLayout.LayoutParams rllp = new LinearLayout.LayoutParams(SystemUtil.SCREEN_WIDTH-marginLR*2, mAVObject.getBdHeight());
-//            rllp.setMargins(marginLR,marginT,marginLR,marginB);
-//            ad_layout.addView(view,rllp);
-            ad_layout.addView(view);
-        }
-    }
 }

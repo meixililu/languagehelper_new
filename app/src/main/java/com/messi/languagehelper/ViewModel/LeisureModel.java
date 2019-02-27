@@ -2,6 +2,7 @@ package com.messi.languagehelper.ViewModel;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
@@ -15,6 +16,8 @@ import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.TTAdDislike;
 import com.bytedance.sdk.openadsdk.TTAdNative;
 import com.bytedance.sdk.openadsdk.TTBannerAd;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.AdError;
 import com.iflytek.voiceads.AdKeys;
@@ -128,7 +131,11 @@ public class LeisureModel {
             ad_sign.setVisibility(View.VISIBLE);
             adImg.setVisibility(View.VISIBLE);
             ad_layout.setVisibility(View.GONE);
-            adImg.setImageURI(mNativeADDataRef.getImage());
+            DraweeController mDraweeController = Fresco.newDraweeControllerBuilder()
+                    .setAutoPlayAnimations(true)
+                    .setUri(Uri.parse(mNativeADDataRef.getImage()))
+                    .build();
+            adImg.setController(mDraweeController);
             exposedXFAD();
         }
     }

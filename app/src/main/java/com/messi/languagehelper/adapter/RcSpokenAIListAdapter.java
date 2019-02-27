@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.util.HeaderFooterRecyclerViewAdapter;
-import com.messi.languagehelper.util.XFYSAD;
 
 import java.util.List;
 
@@ -21,13 +20,10 @@ public class RcSpokenAIListAdapter extends HeaderFooterRecyclerViewAdapter<Recyc
 
     private List<Reading> avObjects;
     private Context mContext;
-    private XFYSAD mXFYSAD;
     private boolean isPlayList;
 
-    public RcSpokenAIListAdapter(List<Reading> avObjects,XFYSAD mXFYSAD,
-                                 Context mContext){
+    public RcSpokenAIListAdapter(List<Reading> avObjects,Context mContext){
         this.avObjects = avObjects;
-        this.mXFYSAD = mXFYSAD;
         this.mContext = mContext;
     }
 
@@ -35,7 +31,7 @@ public class RcSpokenAIListAdapter extends HeaderFooterRecyclerViewAdapter<Recyc
     protected RecyclerView.ViewHolder onCreateHeaderViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = getLayoutInflater(parent);
         View headerView = inflater.inflate(R.layout.spoken_ai_ad_header, parent, false);
-        return new RcSpokenAiHeaderViewHolder(headerView,mXFYSAD,mContext);
+        return new RcSpokenAiHeaderViewHolder(headerView,mContext);
     }
 
     @Override

@@ -13,11 +13,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
-import com.iflytek.voiceads.AdError;
-import com.iflytek.voiceads.AdKeys;
-import com.iflytek.voiceads.IFLYNativeAd;
-import com.iflytek.voiceads.IFLYNativeListener;
+import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVQuery;
 import com.iflytek.voiceads.NativeADDataRef;
+import com.messi.languagehelper.ViewModel.XXLModel;
 import com.messi.languagehelper.adapter.RcReadingListAdapter;
 import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
@@ -25,19 +24,12 @@ import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Setings;
-import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.util.ToastUtil;
-import com.qq.e.ads.nativ.NativeExpressAD;
-import com.qq.e.ads.nativ.NativeExpressADView;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
 
 public class ReadingFragmentYWCD extends BaseFragment implements OnClickListener{
 
@@ -49,12 +41,8 @@ public class ReadingFragmentYWCD extends BaseFragment implements OnClickListener
 	private String source;
 	private String quest;
 	private int maxRandom = 500;
-	private IFLYNativeAd nativeAd;
-	private boolean loading;
-	private boolean hasMore = true;
-	private Reading mADObject;
 	private LinearLayoutManager mLinearLayoutManager;
-	private List<NativeExpressADView> mTXADList;
+	private XXLModel mXXLModel;
 
 	public static Fragment newInstance(){
 		ReadingFragmentYWCD fragment = new ReadingFragmentYWCD();
@@ -96,7 +84,6 @@ public class ReadingFragmentYWCD extends BaseFragment implements OnClickListener
 		if(maxRandom > 100){
 			random();
 		}
-		loadAD();
 		new QueryTask().execute();
 		getMaxPageNumberBackground();
 	}
@@ -113,11 +100,12 @@ public class ReadingFragmentYWCD extends BaseFragment implements OnClickListener
 	private void initViews(View view){
 		listview = (RecyclerView) view.findViewById(R.id.listview);
 		avObjects = new ArrayList<Reading>();
-		mTXADList = new ArrayList<NativeExpressADView>();
+		mXXLModel = new XXLModel(getActivity());
 		initSwipeRefresh(view);
 		mAdapter = new RcReadingListAdapter(avObjects);
 		mAdapter.setItems(avObjects);
 		mAdapter.setFooter(new Object());
+		mXXLModel.setAdapter(avObjects,mAdapter);
 		hideFooterview();
 		mLinearLayoutManager = new LinearLayoutManager(getContext());
 		listview.setLayoutManager(mLinearLayoutManager);
@@ -145,9 +133,8 @@ public class ReadingFragmentYWCD extends BaseFragment implements OnClickListener
 				int total = mLinearLayoutManager.getItemCount();
 				int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
 				isADInList(recyclerView,firstVisibleItem,visible);
-				if(!loading && hasMore){
+				if(!mXXLModel.loading && mXXLModel.hasMore){
 					if ((visible + firstVisibleItem) >= total){
-						loadAD();
 						new QueryTask().execute();
 					}
 				}
@@ -185,7 +172,6 @@ public class ReadingFragmentYWCD extends BaseFragment implements OnClickListener
 	
 	@Override
 	public void onSwipeRefreshLayoutRefresh() {
-		loadAD();
 		hideFooterview();
 		random();
 		avObjects.clear();
@@ -195,10 +181,8 @@ public class ReadingFragmentYWCD extends BaseFragment implements OnClickListener
 
 	private void loadAD(){
 		if(ADUtil.IsShowAD){
-			if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
-				loadXFAD();
-			}else {
-				loadTXAD();
+			if (mXXLModel != null) {
+				mXXLModel.showAd();
 			}
 		}
 	}
@@ -208,7 +192,9 @@ public class ReadingFragmentYWCD extends BaseFragment implements OnClickListener
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			loading = true;
+			if(mXXLModel != null){
+				mXXLModel.loading = true;
+			}
 			showProgressbar();
 		}
 		
@@ -238,154 +224,34 @@ public class ReadingFragmentYWCD extends BaseFragment implements OnClickListener
 		@Override
 		protected void onPostExecute(List<AVObject> avObject) {
 			LogUtil.DefalutLog("onPostExecute---");
-			loading = false;
+			mXXLModel.loading = false;
 			hideProgressbar();
 			onSwipeRefreshLayoutFinish();
 			if(avObject != null){
 				if(avObject.size() == 0){
 					ToastUtil.diaplayMesShort(getContext(), "没有了！");
 					hideFooterview();
-					hasMore = false;
+					mXXLModel.hasMore = false;
 				}else{
 					if(avObjects != null && mAdapter != null){
 						if(skip == 0){
 							avObjects.clear();
 						}
 						StudyFragment.changeData(avObject,avObjects);
-						if(addAD()){
-							mAdapter.notifyDataSetChanged();
-						}
+						mAdapter.notifyDataSetChanged();
+						loadAD();
 						if(avObject.size() < Setings.page_size){
 							LogUtil.DefalutLog("avObject.size() < Settings.page_size");
 							hideFooterview();
-							hasMore = false;
+							mXXLModel.hasMore = false;
 						}else {
 							showFooterview();
-							hasMore = true;
+							mXXLModel.hasMore = true;
 						}
 					}
 				}
 				skip += Setings.page_size;
 			}
-		}
-	}
-	
-	private void loadXFAD(){
-		nativeAd = new IFLYNativeAd(getContext(), ADUtil.XXLAD, new IFLYNativeListener() {
-			@Override
-			public void onConfirm() {
-			}
-			@Override
-			public void onCancel() {
-			}
-			@Override
-			public void onAdFailed(AdError arg0) {
-				LogUtil.DefalutLog("onAdFailed---"+arg0.getErrorCode()+"---"+arg0.getErrorDescription());
-				if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
-					loadTXAD();
-				}else {
-					onADFaile();
-				}
-			}
-			@Override
-			public void onADLoaded(List<NativeADDataRef> adList) {
-				LogUtil.DefalutLog("onADLoaded---");
-				if(adList != null && adList.size() > 0){
-					NativeADDataRef nad = adList.get(0);
-					addXFAD(nad);
-				}
-			}
-		});
-		nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
-		nativeAd.loadAd(1);
-	}
-
-	private void addXFAD(NativeADDataRef nad){
-		mADObject = new Reading();
-		mADObject.setmNativeADDataRef(nad);
-		mADObject.setAd(true);
-		if (!loading) {
-			addAD();
-		}
-	}
-
-	private void onADFaile(){
-		if(ADUtil.isHasLocalAd()){
-			NativeADDataRef nad = ADUtil.getRandomAd(getActivity());
-			addXFAD(nad);
-		}
-	}
-
-	private void loadTXAD(){
-		TXADUtil.showXXL(getActivity(), new NativeExpressAD.NativeExpressADListener() {
-			@Override
-			public void onNoAD(com.qq.e.comm.util.AdError adError) {
-				LogUtil.DefalutLog(adError.getErrorMsg());
-				if(ADUtil.Advertiser.equals(ADUtil.Advertiser_TX)){
-					loadXFAD();
-				}else {
-					onADFaile();
-				}
-			}
-			@Override
-			public void onADLoaded(List<NativeExpressADView> list) {
-				LogUtil.DefalutLog("onADLoaded");
-				if(list != null && list.size() > 0){
-					mTXADList.add(list.get(0));
-					mADObject = new Reading();
-					mADObject.setmTXADView(list.get(0));
-					if (!loading) {
-						addAD();
-					}
-				}
-			}
-			@Override
-			public void onRenderFail(NativeExpressADView nativeExpressADView) {
-				LogUtil.DefalutLog("onRenderFail");
-			}
-			@Override
-			public void onRenderSuccess(NativeExpressADView nativeExpressADView) {
-				LogUtil.DefalutLog("onRenderSuccess");
-			}
-			@Override
-			public void onADExposure(NativeExpressADView nativeExpressADView) {
-				LogUtil.DefalutLog("onADExposure");
-			}
-			@Override
-			public void onADClicked(NativeExpressADView nativeExpressADView) {
-				LogUtil.DefalutLog("onADClicked");
-			}
-			@Override
-			public void onADClosed(NativeExpressADView nativeExpressADView) {
-				LogUtil.DefalutLog("onADClosed");
-			}
-			@Override
-			public void onADLeftApplication(NativeExpressADView nativeExpressADView) {
-				LogUtil.DefalutLog("onADLeftApplication");
-			}
-			@Override
-			public void onADOpenOverlay(NativeExpressADView nativeExpressADView) {
-				LogUtil.DefalutLog("onADOpenOverlay");
-			}
-			@Override
-			public void onADCloseOverlay(NativeExpressADView nativeExpressADView) {
-				LogUtil.DefalutLog("onADCloseOverlay");
-			}
-		});
-	}
-
-	private boolean addAD(){
-		if(mADObject != null && avObjects != null && avObjects.size() > 0){
-			int index = avObjects.size() - Setings.page_size + NumberUtil.randomNumberRange(1, 2);
-			if(index < 0){
-				index = 0;
-			}
-			avObjects.add(index,mADObject);
-			mAdapter.notifyDataSetChanged();
-			mADObject = null;
-			return false;
-		}else{
-			return true;
 		}
 	}
 
@@ -437,10 +303,8 @@ public class ReadingFragmentYWCD extends BaseFragment implements OnClickListener
 	public void onDestroy() {
 		super.onDestroy();
 		unregisterBroadcast();
-		if(mTXADList != null){
-			for(NativeExpressADView adView : mTXADList){
-				adView.destroy();
-			}
+		if(mXXLModel != null){
+			mXXLModel.onDestroy();
 		}
 	}
 }

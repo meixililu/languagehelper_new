@@ -1,5 +1,7 @@
 package com.messi.languagehelper.bean;
 
+import com.baidu.mobads.AdView;
+import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.qq.e.ads.nativ.NativeExpressADView;
 import com.ximalaya.ting.android.opensdk.model.album.Album;
@@ -14,6 +16,33 @@ public class AlbumForAd extends Album {
     private boolean isAdShow;
     private NativeADDataRef mNativeADDataRef;
     private NativeExpressADView mTXADView;
+    private TTFeedAd csjTTFeedAd;
+    private AdView bdAdView;
+    private int bdHeight;
+
+    public TTFeedAd getCsjTTFeedAd() {
+        return csjTTFeedAd;
+    }
+
+    public void setCsjTTFeedAd(TTFeedAd csjTTFeedAd) {
+        this.csjTTFeedAd = csjTTFeedAd;
+    }
+
+    public AdView getBdAdView() {
+        return bdAdView;
+    }
+
+    public void setBdAdView(AdView bdAdView) {
+        this.bdAdView = bdAdView;
+    }
+
+    public int getBdHeight() {
+        return bdHeight;
+    }
+
+    public void setBdHeight(int bdHeight) {
+        this.bdHeight = bdHeight;
+    }
 
     public NativeExpressADView getmTXADView() {
         return mTXADView;

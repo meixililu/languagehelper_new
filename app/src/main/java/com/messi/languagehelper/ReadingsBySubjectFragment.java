@@ -15,11 +15,8 @@ import android.widget.TextView;
 
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
-import com.iflytek.voiceads.AdError;
-import com.iflytek.voiceads.AdKeys;
-import com.iflytek.voiceads.IFLYNativeAd;
-import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
+import com.messi.languagehelper.ViewModel.XXLModel;
 import com.messi.languagehelper.adapter.RcSubjectReadingListAdapter;
 import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
@@ -28,12 +25,8 @@ import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Setings;
-import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.util.ToastUtil;
-import com.qq.e.ads.nativ.NativeExpressAD;
-import com.qq.e.ads.nativ.NativeExpressADView;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.util.ArrayList;
@@ -59,13 +52,9 @@ public class ReadingsBySubjectFragment extends BaseFragment {
     private String subjectName;
     private String level;
     private String recentKey;
-    private IFLYNativeAd nativeAd;
-    private boolean loading;
-    private boolean hasMore = true;
     private boolean hasMoreUp = true;
-    private Reading mADObject;
     private LinearLayoutManager mLinearLayoutManager;
-    private List<NativeExpressADView> mTXADList;
+    private XXLModel mXXLModel;
 
     public static Fragment newInstance(String category_2, String recentKey, String level) {
         ReadingsBySubjectFragment fragment = new ReadingsBySubjectFragment();
@@ -114,7 +103,6 @@ public class ReadingsBySubjectFragment extends BaseFragment {
             if(emptyTv != null){
                 emptyTv.setVisibility(View.GONE);
             }
-            loadAD();
             new QueryTask().execute();
         }
     }
@@ -148,11 +136,12 @@ public class ReadingsBySubjectFragment extends BaseFragment {
 
     private void initViews(View view) {
         avObjects = new ArrayList<Reading>();
-        mTXADList = new ArrayList<NativeExpressADView>();
+        mXXLModel = new XXLModel(getActivity());
         listview = (RecyclerView) view.findViewById(R.id.listview);
         mAdapter = new RcSubjectReadingListAdapter(avObjects,recentKey,true);
         mAdapter.setItems(avObjects);
         mAdapter.setFooter(new Object());
+        mXXLModel.setAdapter(avObjects,mAdapter);
         hideFooterview();
         mLinearLayoutManager = new LinearLayoutManager(getContext());
         listview.setLayoutManager(mLinearLayoutManager);
@@ -175,7 +164,7 @@ public class ReadingsBySubjectFragment extends BaseFragment {
                 int total = mLinearLayoutManager.getItemCount();
                 int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
                 isADInList(recyclerView, firstVisibleItem, visible);
-                if (!loading && hasMore) {
+                if (!mXXLModel.loading && mXXLModel.hasMore) {
                     if ((visible + firstVisibleItem) >= total) {
                         loadDataByType(false);
                     }
@@ -239,16 +228,13 @@ public class ReadingsBySubjectFragment extends BaseFragment {
 
     private void loadDataByType(boolean type){
         isLookUpData = type;
-        loadAD();
         new QueryTask().execute();
     }
 
     private void loadAD(){
         if(ADUtil.IsShowAD){
-            if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
-                loadXFAD();
-            }else {
-                loadTXAD();
+            if (mXXLModel != null) {
+                mXXLModel.showAd();
             }
         }
     }
@@ -259,7 +245,9 @@ public class ReadingsBySubjectFragment extends BaseFragment {
         protected void onPreExecute() {
             super.onPreExecute();
             showProgressbar();
-            loading = true;
+            if(mXXLModel != null){
+                mXXLModel.loading = true;
+            }
         }
 
         @Override
@@ -290,29 +278,28 @@ public class ReadingsBySubjectFragment extends BaseFragment {
         @Override
         protected void onPostExecute(List<AVObject> avObject) {
             emptyTv.setVisibility(View.GONE);
-            loading = false;
+            mXXLModel.loading = false;
             hideProgressbar();
             onSwipeRefreshLayoutFinish();
             if (avObject != null) {
                 if (avObject.size() == 0) {
                     ToastUtil.diaplayMesShort(getContext(), "没有了！");
                     if(!isLookUpData){
-                        hasMore = false;
+                        mXXLModel.hasMore = false;
                         hideFooterview();
                     }else {
                         hasMoreUp = false;
                     }
                 } else {
                     StudyFragment.changeData(avObject, avObjects, isLookUpData);
-                    if (addAD()) {
-                        mAdapter.notifyDataSetChanged();
-                    }
+                    mAdapter.notifyDataSetChanged();
+                    loadAD();
                     if(avObject.size() == Setings.page_size){
                         if(isLookUpData){
                             hasMoreUp = true;
                             skipUp += Setings.page_size;
                         }else {
-                            hasMore = true;
+                            mXXLModel.hasMore = true;
                             skip += Setings.page_size;
                             showFooterview();
                         }
@@ -320,7 +307,7 @@ public class ReadingsBySubjectFragment extends BaseFragment {
                         if(isLookUpData){
                             hasMoreUp = false;
                         }else {
-                            hasMore = false;
+                            mXXLModel.hasMore = false;
                             hideFooterview();
                         }
                     }
@@ -329,127 +316,6 @@ public class ReadingsBySubjectFragment extends BaseFragment {
             } else {
                 ToastUtil.diaplayMesShort(getContext(), "加载失败，下拉可刷新");
             }
-        }
-    }
-
-    private void loadXFAD() {
-        nativeAd = new IFLYNativeAd(getContext(), ADUtil.XXLAD, new IFLYNativeListener() {
-            @Override
-            public void onConfirm() {
-            }
-
-            @Override
-            public void onCancel() {
-            }
-
-            @Override
-            public void onAdFailed(AdError arg0) {
-                LogUtil.DefalutLog("onAdFailed---" + arg0.getErrorCode() + "---" + arg0.getErrorDescription());
-                if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
-                    loadTXAD();
-                }else {
-                    onADFaile();
-                }
-            }
-
-            @Override
-            public void onADLoaded(List<NativeADDataRef> adList) {
-                if (adList != null && adList.size() > 0) {
-                    NativeADDataRef nad = adList.get(0);
-                    addXFAD(nad);
-                }
-            }
-        });
-        nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
-        nativeAd.loadAd(1);
-    }
-
-    private void addXFAD(NativeADDataRef nad){
-        mADObject = new Reading();
-        mADObject.setmNativeADDataRef(nad);
-        mADObject.setAd(true);
-        if (!loading) {
-            addAD();
-        }
-    }
-
-    private void onADFaile(){
-        if(ADUtil.isHasLocalAd()){
-            NativeADDataRef nad = ADUtil.getRandomAd(getActivity());
-            addXFAD(nad);
-        }
-    }
-
-    private void loadTXAD(){
-        TXADUtil.showXXL(getActivity(), new NativeExpressAD.NativeExpressADListener() {
-            @Override
-            public void onNoAD(com.qq.e.comm.util.AdError adError) {
-                LogUtil.DefalutLog(adError.getErrorMsg());
-                if(ADUtil.Advertiser.equals(ADUtil.Advertiser_TX)){
-                    loadXFAD();
-                }else {
-                    onADFaile();
-                }
-            }
-            @Override
-            public void onADLoaded(List<NativeExpressADView> list) {
-                LogUtil.DefalutLog("onADLoaded");
-                if(list != null && list.size() > 0){
-                    mTXADList.add(list.get(0));
-                    mADObject = new Reading();
-                    mADObject.setmTXADView(list.get(0));
-                    if (!loading) {
-                        addAD();
-                    }
-                }
-            }
-            @Override
-            public void onRenderFail(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onRenderFail");
-            }
-            @Override
-            public void onRenderSuccess(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onRenderSuccess");
-            }
-            @Override
-            public void onADExposure(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADExposure");
-            }
-            @Override
-            public void onADClicked(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADClicked");
-            }
-            @Override
-            public void onADClosed(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADClosed");
-            }
-            @Override
-            public void onADLeftApplication(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADLeftApplication");
-            }
-            @Override
-            public void onADOpenOverlay(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADOpenOverlay");
-            }
-            @Override
-            public void onADCloseOverlay(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADCloseOverlay");
-            }
-        });
-    }
-
-    private boolean addAD() {
-        if (mADObject != null && avObjects != null && avObjects.size() > 0) {
-            int index = avObjects.size() - Setings.page_size + NumberUtil.randomNumberRange(1, 2);
-            if (index < 0) {
-                index = 0;
-            }
-            avObjects.add(index, mADObject);
-            mAdapter.notifyDataSetChanged();
-            mADObject = null;
-            return false;
-        } else {
-            return true;
         }
     }
 
@@ -466,10 +332,8 @@ public class ReadingsBySubjectFragment extends BaseFragment {
         super.onDestroy();
         unbinder.unbind();
         unregisterBroadcast();
-        if(mTXADList != null){
-            for(NativeExpressADView adView : mTXADList){
-                adView.destroy();
-            }
+        if(mXXLModel != null){
+            mXXLModel.onDestroy();
         }
     }
 

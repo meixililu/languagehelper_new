@@ -25,6 +25,7 @@ import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.impl.TablayoutOnSelectedListener;
 import com.messi.languagehelper.service.PlayerService;
+import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -157,7 +158,6 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
                 if (!mXXLModel.loading && mXXLModel.hasMore) {
                     if ((visible + firstVisibleItem) >= total) {
                         QueryTask();
-                        LogUtil.DefalutLog("StudyFragment-setListOnScrollListener-QueryTask");
                     }
                 }
             }
@@ -227,8 +227,10 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
     }
 
     private void loadAD(){
-        if(mXXLModel !=null ){
-            mXXLModel.showAd();
+        if(ADUtil.IsShowAD){
+            if (mXXLModel != null) {
+                mXXLModel.showAd();
+            }
         }
     }
 

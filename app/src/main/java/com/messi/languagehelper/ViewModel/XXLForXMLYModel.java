@@ -29,7 +29,7 @@ import com.iflytek.voiceads.IFLYNativeAd;
 import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.dao.Reading;
+import com.messi.languagehelper.bean.AlbumForAd;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.CSJADUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -39,13 +39,14 @@ import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.TXADUtil;
 import com.qq.e.ads.nativ.NativeExpressAD;
 import com.qq.e.ads.nativ.NativeExpressADView;
+import com.ximalaya.ting.android.opensdk.model.album.Album;
 
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class XXLModel {
+public class XXLForXMLYModel {
 
     public boolean loading;
     public boolean hasMore;
@@ -54,21 +55,21 @@ public class XXLModel {
     public int counter;
     public Activity mContext;
     public SharedPreferences sp;
-    public String XFADID = ADUtil.XXLAD;
+    public String XFADID;
     public IFLYNativeAd nativeAd;
-    public Reading mADObject;
+    public AlbumForAd mADObject;
     public List<NativeExpressADView> mTXADList;
 
-    private List<Reading> avObjects;
+    private List<Album> avObjects;
     private RecyclerView.Adapter mAdapter;
 
-    public XXLModel(Activity mContext){
+    public XXLForXMLYModel(Activity mContext){
         this.mContext = mContext;
         sp = Setings.getSharedPreferences(mContext);
         mTXADList = new ArrayList<NativeExpressADView>();
     }
 
-    public void setAdapter(List<Reading> avObjects,RecyclerView.Adapter mAdapter){
+    public void setAdapter(List<Album> avObjects,RecyclerView.Adapter mAdapter){
         this.avObjects = avObjects;
         this.mAdapter = mAdapter;
     }
@@ -108,7 +109,7 @@ public class XXLModel {
     }
 
     public void loadXFAD() {
-        IFLYNativeAd nativeAd = new IFLYNativeAd(mContext, XFADID, new IFLYNativeListener() {
+        IFLYNativeAd nativeAd = new IFLYNativeAd(mContext, ADUtil.XXLAD, new IFLYNativeListener() {
             @Override
             public void onConfirm() {
             }
@@ -137,7 +138,7 @@ public class XXLModel {
     }
 
     private void addXFAD(NativeADDataRef nad){
-        mADObject = new Reading();
+        mADObject = new AlbumForAd();
         mADObject.setmNativeADDataRef(nad);
         mADObject.setAd(true);
         addAD();
@@ -155,7 +156,7 @@ public class XXLModel {
                 LogUtil.DefalutLog("TX-onADLoaded");
                 if(list != null && list.size() > 0){
                     mTXADList.add(list.get(0));
-                    mADObject = new Reading();
+                    mADObject = new AlbumForAd();
                     mADObject.setmTXADView(list.get(0));
                     addAD();
                 }
@@ -232,7 +233,7 @@ public class XXLModel {
             }
         });
         int height = (int)(SystemUtil.SCREEN_WIDTH / 2.33);
-        mADObject = new Reading();
+        mADObject = new AlbumForAd();
         mADObject.setBdHeight(height);
         mADObject.setBdAdView(adView);
         addAD();
@@ -259,7 +260,7 @@ public class XXLModel {
                     onLoadAdFaile();
                     return;
                 }
-                mADObject = new Reading();
+                mADObject = new AlbumForAd();
                 mADObject.setCsjTTFeedAd(ads.get(0));
                 addAD();
             }

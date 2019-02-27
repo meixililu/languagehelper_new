@@ -11,14 +11,18 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.baidu.mobads.AdView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.R;
+import com.messi.languagehelper.ViewModel.XXLModel;
 import com.messi.languagehelper.XimalayaTrackListActivity;
 import com.messi.languagehelper.bean.AlbumForAd;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.ScreenUtil;
 import com.messi.languagehelper.util.StringUtils;
+import com.messi.languagehelper.util.SystemUtil;
 import com.qq.e.ads.nativ.NativeExpressADView;
 import com.ximalaya.ting.android.opensdk.model.album.Album;
 
@@ -54,11 +58,13 @@ public class RcXmlyTagsItemViewHolder extends RecyclerView.ViewHolder {
 
     public void render(final Album mAVObject) {
         ad_layout.setVisibility(View.GONE);
-        source_layout.setVisibility(View.VISIBLE);
+        source_layout.setVisibility(View.GONE);
+        list_item_img.setVisibility(View.GONE);
+        title.setText("");
+        sub_title.setText("");
         if (mAVObject instanceof AlbumForAd) {
             source_sign.setVisibility(View.GONE);
             if(((AlbumForAd) mAVObject).getmTXADView() != null){
-                source_layout.setVisibility(View.GONE);
                 NativeExpressADView adView = ((AlbumForAd) mAVObject).getmTXADView();
                 ad_layout.setVisibility(View.VISIBLE);
                 ad_layout.removeAllViews();
@@ -67,7 +73,26 @@ public class RcXmlyTagsItemViewHolder extends RecyclerView.ViewHolder {
                 }
                 ad_layout.addView(adView);
                 adView.render();
+            }else if(((AlbumForAd)mAVObject).getBdAdView() != null){
+                AdView bdAdview = ((AlbumForAd)mAVObject).getBdAdView();
+                ad_layout.setVisibility(View.VISIBLE);
+                ad_layout.removeAllViews();
+                if (bdAdview.getParent() != null) {
+                    ((ViewGroup) bdAdview.getParent()).removeView(bdAdview);
+                }
+                int marginT = ScreenUtil.dip2px(context,10);
+                int marginB = ScreenUtil.dip2px(context,3);
+                int marginLR = ScreenUtil.dip2px(context,10);
+                LinearLayout.LayoutParams rllp = new LinearLayout.LayoutParams(SystemUtil.SCREEN_WIDTH-marginLR*2, ((AlbumForAd)mAVObject).getBdHeight());
+                rllp.setMargins(marginLR,marginT,marginLR,marginB);
+                ad_layout.addView(bdAdview,rllp);
+            }else if(((AlbumForAd)mAVObject).getCsjTTFeedAd() != null){
+                ad_layout.setVisibility(View.VISIBLE);
+                ad_layout.removeAllViews();
+                XXLModel.getCSJDView(context,((AlbumForAd)mAVObject).getCsjTTFeedAd(), ad_layout);
             }else {
+                list_item_img.setVisibility(View.VISIBLE);
+                source_layout.setVisibility(View.VISIBLE);
                 final NativeADDataRef mNativeADDataRef = ((AlbumForAd) mAVObject).getmNativeADDataRef();
                 if (mNativeADDataRef != null) {
                     title.setText(mNativeADDataRef.getTitle());
@@ -87,6 +112,8 @@ public class RcXmlyTagsItemViewHolder extends RecyclerView.ViewHolder {
                 }
             }
         } else {
+            list_item_img.setVisibility(View.VISIBLE);
+            source_layout.setVisibility(View.VISIBLE);
             source_sign.setVisibility(View.VISIBLE);
             title.setText(mAVObject.getAlbumTitle());
             sub_title.setText(mAVObject.getAlbumIntro());

@@ -7,11 +7,8 @@ import android.support.v7.widget.RecyclerView;
 
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
-import com.iflytek.voiceads.AdError;
-import com.iflytek.voiceads.AdKeys;
-import com.iflytek.voiceads.IFLYNativeAd;
-import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
+import com.messi.languagehelper.ViewModel.XXLModel;
 import com.messi.languagehelper.adapter.RcReadingListAdapter;
 import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.service.PlayerService;
@@ -19,7 +16,6 @@ import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
@@ -35,10 +31,7 @@ public class SearchResultActivity extends BaseActivity{
 	private List<Reading> avObjects;
 	private int skip = 0;
 	private String quest;
-	private IFLYNativeAd nativeAd;
-	private boolean loading;
-	private boolean hasMore = true;
-	private Reading mADObject;
+	private XXLModel mXXLModel;
 	private LinearLayoutManager mLinearLayoutManager;
 
 	@Override
@@ -47,18 +40,19 @@ public class SearchResultActivity extends BaseActivity{
 		setContentView(R.layout.reading_activity);
 		registerBroadcast();
 		initViews();
-		loadAD();
 		new QueryTask().execute();
 	}
 
 	private void initViews(){
 		quest = getIntent().getStringExtra(KeyUtil.SearchKey);
+		mXXLModel = new XXLModel(this);
 		avObjects = new ArrayList<Reading>();
 		initSwipeRefresh();
 		listview = (RecyclerView) findViewById(R.id.listview);
 		mAdapter = new RcReadingListAdapter(avObjects);
 		mAdapter.setItems(avObjects);
 		mAdapter.setFooter(new Object());
+		mXXLModel.setAdapter(avObjects,mAdapter);
 		hideFooterview();
 		mLinearLayoutManager = new LinearLayoutManager(this);
 		listview.setLayoutManager(mLinearLayoutManager);
@@ -81,9 +75,8 @@ public class SearchResultActivity extends BaseActivity{
 				int total = mLinearLayoutManager.getItemCount();
 				int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
 				isADInList(recyclerView,firstVisibleItem,visible);
-				if(!loading && hasMore){
+				if(!mXXLModel.loading && mXXLModel.hasMore){
 					if ((visible + firstVisibleItem) >= total){
-						loadAD();
 						new QueryTask().execute();
 					}
 				}
@@ -132,12 +125,19 @@ public class SearchResultActivity extends BaseActivity{
 
 	@Override
 	public void onSwipeRefreshLayoutRefresh() {
-		loadAD();
 		hideFooterview();
 		skip = 0;
 		avObjects.clear();
 		mAdapter.notifyDataSetChanged();
 		new QueryTask().execute();
+	}
+
+	private void loadAD(){
+		if(ADUtil.IsShowAD){
+			if (mXXLModel != null) {
+				mXXLModel.showAd();
+			}
+		}
 	}
 
 	private class QueryTask extends AsyncTask<Void, Void, List<AVObject>> {
@@ -146,7 +146,9 @@ public class SearchResultActivity extends BaseActivity{
 		protected void onPreExecute() {
 			super.onPreExecute();
 			showProgressbar();
-			loading = true;
+			if(mXXLModel != null){
+				mXXLModel.loading = true;
+			}
 		}
 
 		@Override
@@ -179,83 +181,33 @@ public class SearchResultActivity extends BaseActivity{
 
 		@Override
 		protected void onPostExecute(List<AVObject> avObject) {
-			loading = false;
+			mXXLModel.loading = false;
 			hideProgressbar();
 			onSwipeRefreshLayoutFinish();
 			if(avObject != null){
 				if(avObject.size() == 0){
 					ToastUtil.diaplayMesShort(SearchResultActivity.this, "没有了！");
-					hasMore = false;
+					mXXLModel.hasMore = false;
 					hideFooterview();
 				}else{
 					if(skip == 0){
 						avObjects.clear();
 					}
 					StudyFragment.changeData(avObject,avObjects);
-					if(addAD()){
-						mAdapter.notifyDataSetChanged();
-					}
+					mAdapter.notifyDataSetChanged();
+					loadAD();
 					if(avObject.size() == Setings.page_size){
 						skip += Setings.page_size;
 						showFooterview();
-						hasMore = true;
+						mXXLModel.hasMore = true;
 					}else {
-						hasMore = false;
+						mXXLModel.hasMore = false;
 						hideFooterview();
 					}
 				}
 			}else{
 				ToastUtil.diaplayMesShort(SearchResultActivity.this, "加载失败，下拉可刷新");
 			}
-		}
-	}
-
-	private void loadAD(){
-		nativeAd = new IFLYNativeAd(this, ADUtil.XXLAD, new IFLYNativeListener() {
-			@Override
-			public void onConfirm() {
-			}
-
-			@Override
-			public void onCancel() {
-			}
-
-			@Override
-			public void onAdFailed(AdError arg0) {
-				LogUtil.DefalutLog("onAdFailed---"+arg0.getErrorCode()+"---"+arg0.getErrorDescription());
-				if(ADUtil.isHasLocalAd()){
-					onADLoaded(ADUtil.getRandomAdList(SearchResultActivity.this));
-				}
-			}
-			@Override
-			public void onADLoaded(List<NativeADDataRef> adList) {
-				if(adList != null && adList.size() > 0){
-					NativeADDataRef nad = adList.get(0);
-					mADObject = new Reading();
-					mADObject.setmNativeADDataRef(nad);
-					mADObject.setAd(true);
-					if(!loading){
-						addAD();
-					}
-				}
-			}
-		});
-		nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
-		nativeAd.loadAd(1);
-	}
-
-	private boolean addAD(){
-		if(mADObject != null && avObjects != null && avObjects.size() > 0){
-			int index = avObjects.size() - Setings.page_size + NumberUtil.randomNumberRange(1, 2);
-			if(index < 0){
-				index = 1;
-			}
-			avObjects.add(index,mADObject);
-			mAdapter.notifyDataSetChanged();
-			mADObject = null;
-			return false;
-		}else{
-			return true;
 		}
 	}
 
@@ -271,6 +223,9 @@ public class SearchResultActivity extends BaseActivity{
 	protected void onDestroy() {
 		super.onDestroy();
 		unregisterBroadcast();
+		if(mXXLModel != null){
+			mXXLModel.onDestroy();
+		}
 	}
 
 }
