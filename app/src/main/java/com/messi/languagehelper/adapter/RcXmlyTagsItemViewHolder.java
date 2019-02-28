@@ -142,10 +142,6 @@ public class RcXmlyTagsItemViewHolder extends RecyclerView.ViewHolder {
         intent.putExtra("track_count", mAVObject.getIncludeTrackCount());
         intent.putExtra(KeyUtil.ActionbarTitle, mAVObject.getAlbumTitle());
         context.startActivity(intent);
-//        if(TextUtils.isEmpty(item.getStatus())){
-//            item.setStatus("1");
-//            DataBaseUtil.getInstance().update(item);
-//        }
     }
 
 }

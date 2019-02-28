@@ -181,10 +181,8 @@ public class ReadingToolbarFragment extends BaseFragment implements OnClickListe
 	}
 
 	private void loadAD(){
-		if(ADUtil.IsShowAD){
-			if (mXXLModel != null) {
-				mXXLModel.showAd();
-			}
+		if (mXXLModel != null) {
+			mXXLModel.showAd();
 		}
 	}
 	

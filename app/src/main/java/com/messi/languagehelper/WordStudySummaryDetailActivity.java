@@ -25,7 +25,7 @@ public class WordStudySummaryDetailActivity extends BaseActivity {
     TextView title;
     @BindView(R.id.content)
     TextView content;
-    @BindView(R.id.xx_layout)
+    @BindView(R.id.xx_ad_layout)
     FrameLayout xx_ad_layout;
     @BindView(R.id.scrollview)
     NestedScrollView scrollview;
@@ -58,6 +58,6 @@ public class WordStudySummaryDetailActivity extends BaseActivity {
         TextHandlerUtil.handlerText(this, mProgressbar, content, mAVObject.getString(AVOUtil.HJWordStudyCList.word_des));
 
         mXFYSAD = new XFYSAD(this, xx_ad_layout, ADUtil.NewsDetail);
-        mXFYSAD.showAD();
+        mXFYSAD.showAd();
     }
 }

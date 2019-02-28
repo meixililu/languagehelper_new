@@ -17,11 +17,9 @@ import java.lang.Override;
 public class LeisureFragment_ViewBinding implements Unbinder {
   private LeisureFragment target;
 
-  private View view7f080376;
+  private View view7f080375;
 
   private View view7f080328;
-
-  private View view7f080374;
 
   private View view7f08007b;
 
@@ -57,7 +55,7 @@ public class LeisureFragment_ViewBinding implements Unbinder {
     target.ad_sign = Utils.findRequiredViewAsType(source, R.id.ad_sign, "field 'ad_sign'", TextView.class);
     view = Utils.findRequiredView(source, R.id.yuedu_layout, "field 'yueduLayout' and method 'onViewClicked'");
     target.yueduLayout = Utils.castView(view, R.id.yuedu_layout, "field 'yueduLayout'", FrameLayout.class);
-    view7f080376 = view;
+    view7f080375 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -73,15 +71,7 @@ public class LeisureFragment_ViewBinding implements Unbinder {
         target.onViewClicked(p0);
       }
     });
-    view = Utils.findRequiredView(source, R.id.xx_ad_layout, "field 'xx_ad_layout' and method 'onViewClicked'");
-    target.xx_ad_layout = Utils.castView(view, R.id.xx_ad_layout, "field 'xx_ad_layout'", FrameLayout.class);
-    view7f080374 = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.onViewClicked(p0);
-      }
-    });
+    target.xx_ad_layout = Utils.findRequiredViewAsType(source, R.id.xx_ad_layout, "field 'xx_ad_layout'", FrameLayout.class);
     target.ad_layout = Utils.findRequiredViewAsType(source, R.id.ad_layout, "field 'ad_layout'", FrameLayout.class);
     view = Utils.findRequiredView(source, R.id.cailing_layout, "field 'cailing_layout' and method 'onViewClicked'");
     target.cailing_layout = Utils.castView(view, R.id.cailing_layout, "field 'cailing_layout'", FrameLayout.class);
@@ -232,12 +222,10 @@ public class LeisureFragment_ViewBinding implements Unbinder {
     target.jdLayout = null;
     target.rootView = null;
 
-    view7f080376.setOnClickListener(null);
-    view7f080376 = null;
+    view7f080375.setOnClickListener(null);
+    view7f080375 = null;
     view7f080328.setOnClickListener(null);
     view7f080328 = null;
-    view7f080374.setOnClickListener(null);
-    view7f080374 = null;
     view7f08007b.setOnClickListener(null);
     view7f08007b = null;
     view7f080068.setOnClickListener(null);

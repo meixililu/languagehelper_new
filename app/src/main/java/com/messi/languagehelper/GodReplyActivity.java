@@ -5,6 +5,8 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.messi.languagehelper.ViewModel.LeisureModel;
 import com.messi.languagehelper.bean.TwistaItem;
 import com.messi.languagehelper.bean.TwistaResult;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
@@ -14,7 +16,6 @@ import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
-import com.messi.languagehelper.util.XFYSAD;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,11 +23,17 @@ import butterknife.OnClick;
 
 public class GodReplyActivity extends BaseActivity {
 
-    @BindView(R.id.xx_layout)
-    FrameLayout xxAdLayout;
+    @BindView(R.id.ad_layout)
+    FrameLayout ad_layout;
+    @BindView(R.id.xx_ad_layout)
+    FrameLayout xx_ad_layout;
+    @BindView(R.id.ad_sign)
+    TextView ad_sign;
+    @BindView(R.id.ad_img)
+    SimpleDraweeView adImg;
     @BindView(R.id.question)
     TextView question;
-    private XFYSAD mXFYSAD;
+    private LeisureModel mLeisureModel;
     private boolean isLoading;
 
     @Override
@@ -37,8 +44,10 @@ public class GodReplyActivity extends BaseActivity {
         setStatusbarColor(R.color.style5_color5);
         getSupportActionBar().setTitle(getResources().getString(R.string.leisuer_shenhuifu));
         requestData();
-        mXFYSAD = new XFYSAD(this, xxAdLayout, ADUtil.MRYJYSNRLAd);
-        mXFYSAD.showAD();
+        mLeisureModel = new LeisureModel(this);
+        mLeisureModel.setXFADID(ADUtil.MRYJYSNRLAd);
+        mLeisureModel.setViews(ad_sign,adImg,xx_ad_layout,ad_layout);
+        mLeisureModel.showAd();
     }
 
     private void requestData() {

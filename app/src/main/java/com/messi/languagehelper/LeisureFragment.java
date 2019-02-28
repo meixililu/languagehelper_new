@@ -105,15 +105,12 @@ public class LeisureFragment extends BaseFragment {
         }
     }
 
-    @OnClick({R.id.xx_ad_layout, R.id.cailing_layout, R.id.baidu_layout, R.id.sougou_layout, R.id.yuedu_layout,
+    @OnClick({R.id.cailing_layout, R.id.baidu_layout, R.id.sougou_layout, R.id.yuedu_layout,
             R.id.twists_layout, R.id.game_layout, R.id.shenhuifu_layout, R.id.news_layout, R.id.app_layout,
             R.id.invest_layout, R.id.wyyx_layout, R.id.search_layout,R.id.novel_layout, R.id.caricature_layout,
             R.id.jd_layout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.xx_ad_layout:
-                mLeisureModel.onXFADClick();
-                break;
             case R.id.cailing_layout:
                 toShoppingActivity();
                 break;

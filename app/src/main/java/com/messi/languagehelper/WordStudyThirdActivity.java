@@ -43,7 +43,7 @@ public class WordStudyThirdActivity extends BaseActivity {
             category_lv.setAdapter(mAdapter);
 
             mXFYSAD = new XFYSAD(this, headerView, ADUtil.SecondaryPage);
-            mXFYSAD.showAD();
+            mXFYSAD.showAd();
             mAdapter.notifyDataSetChanged();
         }
     }

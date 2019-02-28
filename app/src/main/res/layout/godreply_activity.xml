@@ -24,11 +24,10 @@
     </android.support.v7.widget.Toolbar>
 
     <FrameLayout
-        android:id="@+id/xx_layout"
+        android:id="@+id/xx_ad_layout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@color/style5_color5">
-
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/ad_img"
             android:layout_width="match_parent"
@@ -37,7 +36,6 @@
             fresco:placeholderImage="@color/text_tint"
             fresco:placeholderImageScaleType="fitCenter"
             fresco:viewAspectRatio="1.77" />
-
         <TextView
             android:id="@+id/ad_sign"
             android:layout_width="wrap_content"
@@ -50,10 +48,11 @@
             android:textColor="@color/white"
             android:textSize="@dimen/smaller" />
         <FrameLayout
-            android:id="@+id/xx_ad_layout"
+            android:id="@+id/ad_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="gone"
+            android:background="@color/white"
             />
     </FrameLayout>
 

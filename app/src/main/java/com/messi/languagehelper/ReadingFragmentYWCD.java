@@ -21,7 +21,6 @@ import com.messi.languagehelper.adapter.RcReadingListAdapter;
 import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
-import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
@@ -180,10 +179,8 @@ public class ReadingFragmentYWCD extends BaseFragment implements OnClickListener
 	}
 
 	private void loadAD(){
-		if(ADUtil.IsShowAD){
-			if (mXXLModel != null) {
-				mXXLModel.showAd();
-			}
+		if (mXXLModel != null) {
+			mXXLModel.showAd();
 		}
 	}
 	

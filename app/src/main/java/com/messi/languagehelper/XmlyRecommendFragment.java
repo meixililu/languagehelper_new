@@ -14,7 +14,6 @@ import com.messi.languagehelper.ViewModel.XXLForXMLYModel;
 import com.messi.languagehelper.adapter.RcXmlyRecommendAdapter;
 import com.messi.languagehelper.bean.AlbumForAd;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
-import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
@@ -165,10 +164,8 @@ public class XmlyRecommendFragment extends BaseFragment {
     }
 
     private void loadAD(){
-        if(ADUtil.IsShowAD){
-            if (mXXLModel != null) {
-                mXXLModel.showAd();
-            }
+        if (mXXLModel != null) {
+            mXXLModel.showAd();
         }
     }
 

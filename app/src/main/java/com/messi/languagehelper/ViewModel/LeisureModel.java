@@ -136,6 +136,12 @@ public class LeisureModel {
                     .setUri(Uri.parse(mNativeADDataRef.getImage()))
                     .build();
             adImg.setController(mDraweeController);
+            xx_ad_layout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onXFADClick();
+                }
+            });
             exposedXFAD();
         }
     }

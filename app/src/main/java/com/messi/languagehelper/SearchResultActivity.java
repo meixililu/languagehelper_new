@@ -133,10 +133,8 @@ public class SearchResultActivity extends BaseActivity{
 	}
 
 	private void loadAD(){
-		if(ADUtil.IsShowAD){
-			if (mXXLModel != null) {
-				mXXLModel.showAd();
-			}
+		if (mXXLModel != null) {
+			mXXLModel.showAd();
 		}
 	}
 

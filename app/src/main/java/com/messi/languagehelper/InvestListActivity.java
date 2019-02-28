@@ -1,7 +1,11 @@
 package com.messi.languagehelper;
 
-import java.util.ArrayList;
-import java.util.List;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ListView;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
@@ -11,12 +15,8 @@ import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.XFYSAD;
 
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.ListView;
+import java.util.ArrayList;
+import java.util.List;
 
 public class InvestListActivity extends BaseActivity implements OnClickListener{
 
@@ -44,7 +44,7 @@ public class InvestListActivity extends BaseActivity implements OnClickListener{
 		category_lv.setAdapter(mAdapter);
 		
 		mXFYSAD = new XFYSAD(this, headerView, ADUtil.SecondaryPage);
-		mXFYSAD.showAD();
+		mXFYSAD.showAd();
 		mAdapter.notifyDataSetChanged();
 	}
 	

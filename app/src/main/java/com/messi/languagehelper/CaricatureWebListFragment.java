@@ -100,7 +100,7 @@ public class CaricatureWebListFragment extends BaseFragment implements View.OnCl
         super.setUserVisibleHint(isVisibleToUser);
         if(isVisibleToUser && isHasLoadData && mXFYSAD != null){
             if(mXFYSAD.lastLoadAdTime > 0){
-                mXFYSAD.showAD();
+                mXFYSAD.showAd();
             }
         }
     }
@@ -110,7 +110,7 @@ public class CaricatureWebListFragment extends BaseFragment implements View.OnCl
         skip = 0;
         hasMore = true;
         RequestAsyncTask();
-        mXFYSAD.showAD();
+        mXFYSAD.showAd();
     }
 
 

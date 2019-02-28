@@ -14,7 +14,6 @@
         android:padding="@dimen/padding_5"
         android:background="@color/white"
         android:visibility="gone">
-
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/ad_img"
             android:layout_width="match_parent"
@@ -22,8 +21,8 @@
             fresco:actualImageScaleType="focusCrop"
             fresco:placeholderImage="@color/text_tint"
             fresco:placeholderImageScaleType="fitCenter"
+            android:visibility="gone"
             fresco:viewAspectRatio="1.77" />
-
         <TextView
             android:id="@+id/ad_sign"
             android:layout_width="wrap_content"
@@ -34,7 +33,15 @@
             android:paddingLeft="1dp"
             android:text="广告"
             android:textColor="@color/white"
+            android:visibility="gone"
             android:textSize="@dimen/smaller" />
+        <FrameLayout
+            android:id="@+id/ad_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:visibility="gone"
+            />
     </FrameLayout>
     <ImageView
         android:layout_width="match_parent"

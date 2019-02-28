@@ -145,11 +145,9 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 	}
 
 	private void loadAD(){
-        if(ADUtil.IsShowAD){
-            if (mXXLModel != null) {
-                mXXLModel.showAd();
-            }
-        }
+		if (mXXLModel != null) {
+			mXXLModel.showAd();
+		}
 	}
 
 	private class QueryTask extends AsyncTask<Void, Void, List<AVObject>> {

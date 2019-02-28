@@ -231,10 +231,8 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 	}
 
 	private void loadAD(){
-		if(ADUtil.IsShowAD){
-			if (mXXLModel != null) {
-				mXXLModel.showAd();
-			}
+		if (mXXLModel != null) {
+			mXXLModel.showAd();
 		}
 	}
 	

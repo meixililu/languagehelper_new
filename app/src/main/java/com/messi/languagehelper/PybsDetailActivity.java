@@ -32,7 +32,7 @@ public class PybsDetailActivity extends BaseActivity {
     TextView title;
     @BindView(R.id.content)
     TextView content;
-    @BindView(R.id.xx_layout)
+    @BindView(R.id.xx_ad_layout)
     FrameLayout xx_ad_layout;
     @BindView(R.id.scrollview)
     NestedScrollView scrollview;
@@ -80,7 +80,7 @@ public class PybsDetailActivity extends BaseActivity {
     private void LoadAD() {
         mXFYSAD = new XFYSAD(this, xx_ad_layout, ADUtil.NewsDetail);
         mXFYSAD.setDirectExPosure(true);
-        mXFYSAD.showAD();
+        mXFYSAD.showAd();
     }
 
     @Override
