@@ -79,7 +79,7 @@
             android:exported="false" />
 
         <!-- baidu ad  -->
-        <meta-data android:name="BaiduMobAd_APP_ID" android:value="f60acdfd" />
+        <!--<meta-data android:name="BaiduMobAd_APP_ID" android:value="f60acdfd" />-->
         <activity
             android:name="com.baidu.mobads.AppActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
@@ -317,6 +317,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".SymbolActivity"
+
             android:screenOrientation="portrait" />
         <activity
             android:name=".OfflineDicDownloadActivity"
@@ -427,6 +428,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".SymbolDetailActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait" />
         <activity
             android:name=".InvestmentActivity"

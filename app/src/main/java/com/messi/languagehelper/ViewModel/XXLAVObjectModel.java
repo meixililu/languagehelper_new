@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 
+import com.avos.avoscloud.AVObject;
 import com.baidu.mobads.AdView;
 import com.baidu.mobads.AdViewListener;
 import com.bytedance.sdk.openadsdk.AdSlot;
@@ -15,9 +16,9 @@ import com.iflytek.voiceads.AdKeys;
 import com.iflytek.voiceads.IFLYNativeAd;
 import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
-import com.messi.languagehelper.bean.AlbumForAd;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.CSJADUtil;
+import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Setings;
@@ -25,37 +26,35 @@ import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.TXADUtil;
 import com.qq.e.ads.nativ.NativeExpressAD;
 import com.qq.e.ads.nativ.NativeExpressADView;
-import com.ximalaya.ting.android.opensdk.model.album.Album;
 
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class XXLForXMLYModel {
+public class XXLAVObjectModel {
 
     public boolean loading;
     public boolean hasMore;
-    public boolean isAdAddToHead;
 
     public int counter;
     public Activity mContext;
     public SharedPreferences sp;
-    public String XFADID;
+    public String XFADID = ADUtil.XXLAD;
     public IFLYNativeAd nativeAd;
-    public AlbumForAd mADObject;
+    private AVObject mADObject;
     public List<NativeExpressADView> mTXADList;
 
-    private List<Album> avObjects;
+    private List<AVObject> avObjects;
     private RecyclerView.Adapter mAdapter;
 
-    public XXLForXMLYModel(Activity mContext){
+    public XXLAVObjectModel(Activity mContext){
         this.mContext = mContext;
         sp = Setings.getSharedPreferences(mContext);
         mTXADList = new ArrayList<NativeExpressADView>();
     }
 
-    public void setAdapter(List<Album> avObjects,RecyclerView.Adapter mAdapter){
+    public void setAdapter(List<AVObject> avObjects,RecyclerView.Adapter mAdapter){
         this.avObjects = avObjects;
         this.mAdapter = mAdapter;
     }
@@ -95,7 +94,7 @@ public class XXLForXMLYModel {
     }
 
     public void loadXFAD() {
-        IFLYNativeAd nativeAd = new IFLYNativeAd(mContext, ADUtil.XXLAD, new IFLYNativeListener() {
+        IFLYNativeAd nativeAd = new IFLYNativeAd(mContext, XFADID, new IFLYNativeListener() {
             @Override
             public void onConfirm() {
             }
@@ -124,14 +123,14 @@ public class XXLForXMLYModel {
     }
 
     private void addXFAD(NativeADDataRef nad){
-        mADObject = new AlbumForAd();
-        mADObject.setmNativeADDataRef(nad);
-        mADObject.setAd(true);
+        mADObject = new AVObject();
+        mADObject.put(KeyUtil.ADKey, nad);
+        mADObject.put(KeyUtil.ADIsShowKey, false);
         addAD();
     }
 
     private void loadTXAD() {
-        TXADUtil.showXXL(mContext, new NativeExpressAD.NativeExpressADListener() {
+        TXADUtil.showCDTZX(mContext, new NativeExpressAD.NativeExpressADListener() {
             @Override
             public void onNoAD(com.qq.e.comm.util.AdError adError) {
                 LogUtil.DefalutLog("TX-onNoAD");
@@ -142,8 +141,8 @@ public class XXLForXMLYModel {
                 LogUtil.DefalutLog("TX-onADLoaded");
                 if(list != null && list.size() > 0){
                     mTXADList.add(list.get(0));
-                    mADObject = new AlbumForAd();
-                    mADObject.setmTXADView(list.get(0));
+                    mADObject = new AVObject();
+                    mADObject.put(KeyUtil.TXADView, list.get(0));
                     addAD();
                 }
             }
@@ -219,9 +218,9 @@ public class XXLForXMLYModel {
             }
         });
         int height = (int)(SystemUtil.SCREEN_WIDTH / 2);
-        mADObject = new AlbumForAd();
-        mADObject.setBdHeight(height);
-        mADObject.setBdAdView(adView);
+        mADObject = new AVObject();
+        mADObject.put(KeyUtil.BDADView, adView);
+        mADObject.put(KeyUtil.BDADViewHeigh, height);
         addAD();
     }
 
@@ -246,8 +245,8 @@ public class XXLForXMLYModel {
                     onLoadAdFaile();
                     return;
                 }
-                mADObject = new AlbumForAd();
-                mADObject.setCsjTTFeedAd(ads.get(0));
+                mADObject = new AVObject();
+                mADObject.put(KeyUtil.CSJADView, ads.get(0));
                 addAD();
             }
         });
@@ -258,10 +257,6 @@ public class XXLForXMLYModel {
             int index = avObjects.size() - Setings.page_size + NumberUtil.randomNumberRange(1, 2);
             if (index < 0) {
                 index = 0;
-            }
-            if(isAdAddToHead){
-                isAdAddToHead = false;
-                index = NumberUtil.randomNumberRange(1, 2);
             }
             avObjects.add(index, mADObject);
             mAdapter.notifyDataSetChanged();

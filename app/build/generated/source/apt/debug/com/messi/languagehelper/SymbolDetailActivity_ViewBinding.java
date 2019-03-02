@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
-import cn.jzvd.JzvdStd;
+import com.google.android.exoplayer2.ui.PlayerView;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 
@@ -27,7 +27,7 @@ public class SymbolDetailActivity_ViewBinding implements Unbinder {
   public SymbolDetailActivity_ViewBinding(SymbolDetailActivity target, View source) {
     this.target = target;
 
-    target.videoplayer = Utils.findRequiredViewAsType(source, R.id.videoplayer, "field 'videoplayer'", JzvdStd.class);
+    target.simpleExoPlayerView = Utils.findRequiredViewAsType(source, R.id.videoplayer, "field 'simpleExoPlayerView'", PlayerView.class);
     target.symbol_en = Utils.findRequiredViewAsType(source, R.id.symbol_en, "field 'symbol_en'", TextView.class);
     target.symbol_des = Utils.findRequiredViewAsType(source, R.id.symbol_des, "field 'symbol_des'", TextView.class);
     target.symbol_play_img = Utils.findRequiredViewAsType(source, R.id.symbol_play_img, "field 'symbol_play_img'", ImageButton.class);
@@ -37,6 +37,7 @@ public class SymbolDetailActivity_ViewBinding implements Unbinder {
     target.teacher_cover = Utils.findRequiredViewAsType(source, R.id.teacher_cover, "field 'teacher_cover'", FrameLayout.class);
     target.symbol_info = Utils.findRequiredViewAsType(source, R.id.symbol_info, "field 'symbol_info'", TextView.class);
     target.content = Utils.findRequiredViewAsType(source, R.id.content, "field 'content'", LinearLayout.class);
+    target.appBar = Utils.findRequiredViewAsType(source, R.id.app_bar, "field 'appBar'", LinearLayout.class);
     target.error_txt = Utils.findRequiredViewAsType(source, R.id.error_txt, "field 'error_txt'", TextView.class);
   }
 
@@ -47,7 +48,7 @@ public class SymbolDetailActivity_ViewBinding implements Unbinder {
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
     this.target = null;
 
-    target.videoplayer = null;
+    target.simpleExoPlayerView = null;
     target.symbol_en = null;
     target.symbol_des = null;
     target.symbol_play_img = null;
@@ -57,6 +58,7 @@ public class SymbolDetailActivity_ViewBinding implements Unbinder {
     target.teacher_cover = null;
     target.symbol_info = null;
     target.content = null;
+    target.appBar = null;
     target.error_txt = null;
   }
 }

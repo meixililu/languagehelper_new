@@ -7,11 +7,13 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
@@ -22,7 +24,6 @@ import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
-import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
@@ -35,6 +36,8 @@ import java.util.List;
 public class SpokenAIFragment extends BaseFragment implements OnClickListener{
 
 	private RecyclerView listview;
+	private Toolbar mToolbar;
+	private ProgressBar progressBar;
 	private RcSpokenAIListAdapter mAdapter;
 	private List<Reading> avObjects;
 	private int skip = 0;
@@ -87,22 +90,20 @@ public class SpokenAIFragment extends BaseFragment implements OnClickListener{
 	}
 
 	@Override
-	public void loadDataOnStart() {
-		super.loadDataOnStart();
-		new QueryTask().execute();
-		getMaxPageNumberBackground();
-	}
-
-	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		super.onCreateView(inflater, container, savedInstanceState);
 		LogUtil.DefalutLog("onCreateView:"+category);
-		View view = inflater.inflate(R.layout.composition_fragment, container, false);
+		View view = inflater.inflate(R.layout.spoken_home, container, false);
 		initViews(view);
+		new QueryTask().execute();
+		getMaxPageNumberBackground();
 		return view;
 	}
 	
 	private void initViews(View view){
+		mToolbar = (Toolbar) view.findViewById(R.id.my_awesome_toolbar);
+		mToolbar.setTitle(R.string.spoken_english_practice);
+		progressBar = (ProgressBar) view.findViewById(R.id.progressBarCircularIndetermininate);
 		listview = (RecyclerView) view.findViewById(R.id.listview);
 		avObjects = new ArrayList<Reading>();
 		mXXLModel = new XXLModel(getActivity());
@@ -110,7 +111,7 @@ public class SpokenAIFragment extends BaseFragment implements OnClickListener{
 		initSwipeRefresh(view);
 		mAdapter = new RcSpokenAIListAdapter(avObjects,getContext());
 		mAdapter.setItems(avObjects);
-//		mAdapter.setHeader(new Object());
+		mAdapter.setHeader(new Object());
 		mAdapter.setFooter(new Object());
 		mXXLModel.setAdapter(avObjects,mAdapter);
 		hideFooterview();
@@ -200,7 +201,7 @@ public class SpokenAIFragment extends BaseFragment implements OnClickListener{
 			if(mXXLModel != null){
 				mXXLModel.loading = true;
 			}
-			showProgressbar();
+			progressBar.setVisibility(View.VISIBLE);
 		}
 		
 		@Override
@@ -234,7 +235,7 @@ public class SpokenAIFragment extends BaseFragment implements OnClickListener{
 			if(mXXLModel != null){
 				mXXLModel.loading = false;
 			}
-			hideProgressbar();
+			progressBar.setVisibility(View.GONE);
 			onSwipeRefreshLayoutFinish();
 			if(avObject != null){
 				if(avObject.size() == 0){
@@ -267,9 +268,9 @@ public class SpokenAIFragment extends BaseFragment implements OnClickListener{
 	@Override
 	public void updateUI(String music_action) {
 		if(music_action.equals(PlayerService.action_loading)){
-			showProgressbar();
+			progressBar.setVisibility(View.VISIBLE);
 		}else if(music_action.equals(PlayerService.action_finish_loading)){
-			hideProgressbar();
+			progressBar.setVisibility(View.GONE);
 		}else {
 			mAdapter.notifyDataSetChanged();
 		}

@@ -150,6 +150,8 @@ public class KeyUtil {
 
 	public static final String NewsType = "NewsType";
 
+	public static final String NewsSource = "NewsSource";
+
 	public static final String isReadingDetailGuideShow = "isReadingDetailGuideShow";
 
 	public static final String isAddRecentGuideShow = "isAddRecentGuideShow";
@@ -157,6 +159,12 @@ public class KeyUtil {
 	public static final String ADKey = "ADKey";
 
 	public static final String TXADView = "TXADView";
+
+	public static final String BDADView = "BDADView";
+
+	public static final String CSJADView = "CSJADView";
+
+	public static final String BDADViewHeigh = "BDADViewHeigh";
 
 	public static final String ADIsShowKey = "ADIsShowKey";
 

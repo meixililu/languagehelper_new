@@ -209,7 +209,6 @@ public class XFYSAD {
 	
 	private void setAdData(NativeADDataRef mNativeADDataRef){
 		try {
-			hideHeader(false);
 			ad_sign.setVisibility(View.VISIBLE);
 			ad_layout.setVisibility(View.GONE);
 			parentView.setVisibility(View.VISIBLE);
@@ -231,7 +230,7 @@ public class XFYSAD {
 	}
 
 	public void loadBDAD(){
-		AdView adView = new AdView(mContext,"6063120");
+		AdView adView = new AdView(mContext,"6070624");
 		adView.setListener(new AdViewListener(){
 			@Override
 			public void onAdReady(AdView adView) {

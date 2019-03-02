@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.multidex.MultiDexApplication;
 
 import com.avos.avoscloud.AVOSCloud;
+import com.baidu.mobads.AdView;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.dao.DaoMaster;
@@ -43,7 +44,7 @@ public class BaseApplication extends MultiDexApplication {
                     Fresco.initialize(BaseApplication.this);
                     AVOSCloud.initialize(mInstance,"3fg5ql3r45i3apx2is4j9on5q5rf6kapxce51t5bc0ffw2y4", "twhlgs6nvdt7z7sfaw76ujbmaw7l12gb8v6sdyjw1nzk9b1a");
                     YouDaoApplication.init(BaseApplication.this, Setings.YoudaoApiKey);
-                    initUmengChannel();
+                    initChannel();
                     initXMLY();
                     CSJADUtil.init(BaseApplication.this);
                 } catch (Exception e) {
@@ -60,13 +61,15 @@ public class BaseApplication extends MultiDexApplication {
         LogUtil.DefalutLog("initXimalayaSDK");
     }
 
-    private void initUmengChannel(){
+    private void initChannel(){
         UMConfigure.setLogEnabled(true);
         Setings.appVersion = Setings.getVersion(getApplicationContext());
         Setings.appChannel = Setings.getMetaData(getApplicationContext(),"UMENG_CHANNEL");
         if(getPackageName().equals(Setings.application_id_zyhy)){
+            AdView.setAppSid(getApplicationContext(),"f60acdfd");
             UMConfigure.init(mInstance,"5b7ed6a08f4a9d303c000060",Setings.appChannel,UMConfigure.DEVICE_TYPE_PHONE,"");
         }else if(getPackageName().equals(Setings.application_id_zyhy_google)){
+            AdView.setAppSid(getApplicationContext(),"f60acdfd");
             UMConfigure.init(mInstance,"5b7ed6a08f4a9d303c000060",Setings.appChannel,UMConfigure.DEVICE_TYPE_PHONE,"");
         }else if(getPackageName().equals(Setings.application_id_yys)){
             UMConfigure.init(mInstance,"5c1f3af4b465f53ecc00093b",Setings.appChannel,UMConfigure.DEVICE_TYPE_PHONE,"");
@@ -89,6 +92,7 @@ public class BaseApplication extends MultiDexApplication {
         }else if(getPackageName().equals(Setings.application_id_zhhy)){
             UMConfigure.init(mInstance,"5c1f3c2af1f5564f7a000035",Setings.appChannel,UMConfigure.DEVICE_TYPE_PHONE,"");
         }else{
+            AdView.setAppSid(getApplicationContext(),"f60acdfd");
             UMConfigure.init(mInstance,"5b7ed6a08f4a9d303c000060",Setings.appChannel,UMConfigure.DEVICE_TYPE_PHONE,"");
         }
     }

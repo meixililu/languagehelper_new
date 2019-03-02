@@ -87,7 +87,7 @@ public class XXLModel {
                 if(ADUtil.GDT.equals(currentAD)){
                     loadTXAD();
                 }else if(ADUtil.BD.equals(currentAD)){
-                    loadCSJAD();
+                    loadBDAD();
                 }else if(ADUtil.CSJ.equals(currentAD)){
                     loadCSJAD();
                 }else if(ADUtil.XF.equals(currentAD)){
@@ -202,7 +202,7 @@ public class XXLModel {
     }
 
     public void loadBDAD(){
-        AdView adView = new AdView(mContext,"6066400");
+        AdView adView = new AdView(mContext,"6070637");
         adView.setListener(new AdViewListener(){
             @Override
             public void onAdReady(AdView adView) {
@@ -231,7 +231,7 @@ public class XXLModel {
                 onLoadAdFaile();
             }
         });
-        int height = (int)(SystemUtil.SCREEN_WIDTH / 2.33);
+        int height = (int)(SystemUtil.SCREEN_WIDTH / 2);
         mADObject = new Reading();
         mADObject.setBdHeight(height);
         mADObject.setBdAdView(adView);

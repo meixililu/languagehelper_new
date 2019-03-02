@@ -71,14 +71,14 @@
                     </FrameLayout>
 
                     <LinearLayout
-                        android:id="@+id/ad_layout"
+                        android:id="@+id/xx_ad_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
-                        android:layout_marginLeft="40dp"
-                        android:layout_marginRight="40dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
                         android:layout_marginTop="80dp"
-                        android:padding="@dimen/padding_10"
+                        android:padding="@dimen/padding_5"
                         android:orientation="vertical"
                         android:visibility="gone"
                         >
@@ -93,6 +93,7 @@
                                 fresco:placeholderImageScaleType="fitCenter"
                                 fresco:actualImageScaleType="focusCrop"
                                 fresco:placeholderImage="@color/text_tint"
+                                android:visibility="gone"
                                 />
                             <ImageView
                                 android:id="@+id/ad_close"
@@ -100,6 +101,7 @@
                                 android:layout_height="30dp"
                                 android:layout_gravity="right|top"
                                 android:src="@drawable/clear_btn"
+                                android:visibility="gone"
                                 />
                         </FrameLayout>
                         <TextView
@@ -110,6 +112,7 @@
                             android:textSize="@dimen/middle"
                             android:textColor="@color/text_black"
                             android:gravity="center"
+                            android:visibility="gone"
                             />
                         <TextView
                             android:id="@+id/ad_btn"
@@ -118,12 +121,19 @@
                             android:layout_marginTop="@dimen/padding_7"
                             android:layout_marginLeft="@dimen/padding_20"
                             android:layout_marginRight="@dimen/padding_20"
+                            android:visibility="gone"
                             android:textSize="@dimen/middle"
                             android:textColor="@color/white"
                             android:padding="@dimen/padding_10"
                             android:background="@drawable/main_ic_seekbar_thumb_orange"
                             android:gravity="center"
                             android:text="查看详情"
+                            />
+                        <FrameLayout
+                            android:id="@+id/ad_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
                             />
                     </LinearLayout>
                 </RelativeLayout>

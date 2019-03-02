@@ -28,14 +28,13 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.google.android.exoplayer2.C;
+import com.google.android.exoplayer2.DefaultLoadControl;
+import com.google.android.exoplayer2.DefaultRenderersFactory;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
-import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
-import com.google.android.exoplayer2.trackselection.TrackSelection;
-import com.google.android.exoplayer2.trackselection.TrackSelector;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
@@ -219,10 +218,9 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     private void exoplaer(String media_url) {
         videoLayout.setVisibility(View.VISIBLE);
         titleTv.setText(mAVObject.getTitle());
-        TrackSelection.Factory videoTrackSelectionFactory =
-                new AdaptiveTrackSelection.Factory(new DefaultBandwidthMeter());
-        TrackSelector trackSelector = new DefaultTrackSelector(videoTrackSelectionFactory);
-        player = ExoPlayerFactory.newSimpleInstance(this, trackSelector);
+        player = ExoPlayerFactory.newSimpleInstance(this,
+                new DefaultRenderersFactory(this),
+                new DefaultTrackSelector(), new DefaultLoadControl());
         simpleExoPlayerView.setPlayer(player);
 
         boolean haveResumePosition = mResumeWindow != C.INDEX_UNSET;
@@ -440,6 +438,9 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
             player.setPlayWhenReady(false);
             player.release();
             player = null;
+        }
+        if(mFullScreenDialog != null){
+            mFullScreenDialog.dismiss();
         }
     }
 }

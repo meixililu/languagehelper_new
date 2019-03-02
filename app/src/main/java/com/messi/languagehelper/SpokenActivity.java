@@ -10,6 +10,7 @@ import android.widget.FrameLayout;
 
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.AVAnalytics;
+import com.messi.languagehelper.util.AVOUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -68,7 +69,7 @@ public class SpokenActivity extends BaseActivity implements FragmentProgressbarL
     private void initFragment(){
         navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        mWordHomeFragment = SpokenHomeFragment.getInstance();
+        mWordHomeFragment = SpokenAIFragment.newInstance(AVOUtil.Category.spoken_english,"");
         practiceFragment = AiDialogueCourseFragment.getInstance();
         dashboardFragment = SpokenCourseFragment.getInstance();
         radioHomeFragment = BusinessFragment.getInstance();

@@ -256,7 +256,7 @@
     <string name="ChDicBushouList">按部首</string>
     <string name="ChDicPinyinList">按拼音</string>
     <string name="spoken_english_practice">口语</string>
-    <string name="spoken_english_coach">教练</string>
+    <string name="spoken_english_coach">视频跟读</string>
     <string name="reading">阅读</string>
     <string name="examination">考题</string>
     <string name="simulation_dialogue">模拟对话</string>

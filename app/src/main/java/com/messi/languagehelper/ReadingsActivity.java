@@ -16,7 +16,6 @@ import com.messi.languagehelper.adapter.RcReadingListAdapter;
 import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.service.PlayerService;
-import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -36,6 +35,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 	private int maxRandom;
 	private String category;
 	private String type;
+	private String source;
 	private LinearLayoutManager mLinearLayoutManager;
 	private XXLModel mXXLModel;
 
@@ -52,6 +52,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 	private void initViews(){
 		category = getIntent().getStringExtra(KeyUtil.Category);
 		type = getIntent().getStringExtra(KeyUtil.NewsType);
+		source = getIntent().getStringExtra(KeyUtil.NewsSource);
 		avObjects = new ArrayList<Reading>();
 		mXXLModel = new XXLModel(this);
 		avObjects.addAll(DataBaseUtil.getInstance().getReadingList(Setings.page_size,category,type,""));
@@ -170,6 +171,9 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 			if(!TextUtils.isEmpty(type)){
 				query.whereEqualTo(AVOUtil.Reading.type, type);
 			}
+			if(!TextUtils.isEmpty(source)){
+				query.whereEqualTo(AVOUtil.Reading.source_name, source);
+			}
 			query.addDescendingOrder(AVOUtil.Reading.publish_time);
 			query.addDescendingOrder(AVOUtil.Reading.item_id);
 			query.skip(skip);
@@ -237,6 +241,9 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 					}
 					if(!TextUtils.isEmpty(type)){
 						query.whereEqualTo(AVOUtil.Reading.type, type);
+					}
+					if(!TextUtils.isEmpty(source)){
+						query.whereEqualTo(AVOUtil.Reading.source_name, source);
 					}
 					maxRandom = query.count();
 					maxRandom /= Setings.page_size;

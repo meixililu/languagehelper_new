@@ -1,37 +1,58 @@
 package com.messi.languagehelper;
 
+import android.app.Dialog;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.PersistableBundle;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
+import com.google.android.exoplayer2.C;
+import com.google.android.exoplayer2.DefaultLoadControl;
+import com.google.android.exoplayer2.DefaultRenderersFactory;
+import com.google.android.exoplayer2.ExoPlayerFactory;
+import com.google.android.exoplayer2.SimpleExoPlayer;
+import com.google.android.exoplayer2.source.ExtractorMediaSource;
+import com.google.android.exoplayer2.source.MediaSource;
+import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
+import com.google.android.exoplayer2.ui.PlayerView;
+import com.google.android.exoplayer2.upstream.DataSource;
+import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
+import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
+import com.google.android.exoplayer2.util.Util;
 import com.messi.languagehelper.dao.SymbolListDao;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.DownLoadUtil;
 import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Setings;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import cn.jzvd.Jzvd;
-import cn.jzvd.JzvdStd;
 
 public class SymbolDetailActivity extends BaseActivity implements OnClickListener {
 
+    private final String STATE_RESUME_WINDOW = "resumeWindow";
+    private final String STATE_RESUME_POSITION = "resumePosition";
+    private final String STATE_PLAYER_FULLSCREEN = "playerFullscreen";
+
     @BindView(R.id.videoplayer)
-    JzvdStd videoplayer;
+    PlayerView simpleExoPlayerView;
     @BindView(R.id.symbol_en)
     TextView symbol_en;
     @BindView(R.id.symbol_des)
@@ -50,10 +71,12 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
     TextView symbol_info;
     @BindView(R.id.content)
     LinearLayout content;
+    @BindView(R.id.app_bar)
+    LinearLayout appBar;
     @BindView(R.id.error_txt)
     TextView error_txt;
 
-
+    private SimpleExoPlayer player;
     private MediaPlayer mPlayer;
     private String audioPath;
     private SymbolListDao avObject;
@@ -63,30 +86,41 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
     private String currentFileFullName;
     private int loopTime;
 
+    private boolean mExoPlayerFullscreen = false;
+    private FrameLayout mFullScreenButton;
+    private ImageView mFullScreenIcon;
+    private Dialog mFullScreenDialog;
+    private int mResumeWindow;
+    private long mResumePosition;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.symbol_study_activity);
         ButterKnife.bind(this);
+        if (savedInstanceState != null) {
+            mResumeWindow = savedInstanceState.getInt(STATE_RESUME_WINDOW);
+            mResumePosition = savedInstanceState.getLong(STATE_RESUME_POSITION);
+            mExoPlayerFullscreen = savedInstanceState.getBoolean(STATE_PLAYER_FULLSCREEN);
+        }
         initData();
-        initViews();
         setData();
+        initFullscreenDialog();
+        initFullscreenButton();
     }
 
     private void initData() {
         mPlayer = new MediaPlayer();
         avObject = (SymbolListDao) Setings.dataMap.get(KeyUtil.DataMapKey);
         Setings.dataMap.clear();
+        symbol_cover.setOnClickListener(this);
+        teacher_cover.setOnClickListener(this);
         if (avObject != null) {
             audioPath = SDCardUtil.SymbolPath + avObject.getSDCode() + SDCardUtil.Delimiter;
         } else {
             finish();
         }
-    }
 
-    private void initViews() {
-        symbol_cover.setOnClickListener(this);
-        teacher_cover.setOnClickListener(this);
     }
 
     private void setData() {
@@ -94,32 +128,104 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
             symbol_en.setText(avObject.getSDName());
             symbol_des.setText(avObject.getSDDes());
             symbol_info.setText(avObject.getSDInfo());
-            if(!TextUtils.isEmpty(avObject.getBackup1())){
-                videoplayer.setVisibility(View.VISIBLE);
-                videoplayer.setUp(avObject.getBackup1(),"",JzvdStd.SCREEN_WINDOW_LIST);
-                if (!TextUtils.isEmpty(avObject.getBackup2())) {
-                    Glide.with(this)
-                            .load(avObject.getBackup2())
-                            .into(videoplayer.thumbImageView);
-                }
-            }
-
             SDAudioMp3Url = avObject.getSDAudioMp3Url();
             SDAudioMp3Name = SDAudioMp3Url.substring(SDAudioMp3Url.lastIndexOf("/") + 1);
             SDAudioMp3FullName = SDCardUtil.getDownloadPath(audioPath) + SDAudioMp3Name;
             if (!SDCardUtil.isFileExist(SDAudioMp3FullName)) {
                 DownLoadUtil.downloadFile(this, SDAudioMp3Url, audioPath, SDAudioMp3Name, null);
             }
-
             SDTeacherMp3Url = avObject.getSDTeacherMp3Url();
             SDTeacherMp3Name = SDTeacherMp3Url.substring(SDTeacherMp3Url.lastIndexOf("/") + 1);
             SDTeacherMp3FullName = SDCardUtil.getDownloadPath(audioPath) + SDTeacherMp3Name;
             if (!SDCardUtil.isFileExist(SDTeacherMp3FullName)) {
                 DownLoadUtil.downloadFile(this, SDTeacherMp3Url, audioPath, SDTeacherMp3Name, null);
             }
+            if(!TextUtils.isEmpty(avObject.getBackup1())){
+                simpleExoPlayerView.setVisibility(View.VISIBLE);
+                simpleExoPlayerView.setUseArtwork(true);
+                exoplaer(avObject.getBackup1());
+//                avObject.getBackup2()
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        outState.putInt(STATE_RESUME_WINDOW, mResumeWindow);
+        outState.putLong(STATE_RESUME_POSITION, mResumePosition);
+        outState.putBoolean(STATE_PLAYER_FULLSCREEN, mExoPlayerFullscreen);
+        super.onSaveInstanceState(outState, outPersistentState);
+    }
+
+    private void initFullscreenDialog() {
+        mFullScreenDialog = new Dialog(this, android.R.style.Theme_Black_NoTitleBar_Fullscreen) {
+            public void onBackPressed() {
+                if (mExoPlayerFullscreen) closeFullscreenDialog();
+                super.onBackPressed();
+            }
+        };
+    }
+
+    private void closeFullscreenDialog() {
+        LogUtil.DefalutLog("closeFullscreenDialog");
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        ((ViewGroup) simpleExoPlayerView.getParent()).removeView(simpleExoPlayerView);
+        appBar.addView(simpleExoPlayerView);
+        mExoPlayerFullscreen = false;
+        mFullScreenDialog.dismiss();
+        mFullScreenIcon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_fullscreen_grey600_24dp));
+    }
+
+    private void initFullscreenButton() {
+        mFullScreenIcon = simpleExoPlayerView.findViewById(R.id.exo_fullscreen_icon);
+        mFullScreenButton = simpleExoPlayerView.findViewById(R.id.exo_fullscreen_button);
+        mFullScreenButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!mExoPlayerFullscreen)
+                    openFullscreenDialog();
+                else
+                    closeFullscreenDialog();
+            }
+        });
+    }
+
+    private void exoplaer(String media_url) {
+        player = ExoPlayerFactory.newSimpleInstance(this,
+                new DefaultRenderersFactory(this),
+                new DefaultTrackSelector(), new DefaultLoadControl());
+        simpleExoPlayerView.setPlayer(player);
+
+        boolean haveResumePosition = mResumeWindow != C.INDEX_UNSET;
+        if (haveResumePosition) {
+            simpleExoPlayerView.getPlayer().seekTo(mResumeWindow, mResumePosition);
+        }
+
+        DefaultBandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
+        DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this,
+                Util.getUserAgent(this, "LanguageHelper"), bandwidthMeter);
+        MediaSource videoSource = new ExtractorMediaSource.Factory(dataSourceFactory)
+                .createMediaSource(Uri.parse(media_url));
+        player.prepare(videoSource);
+        player.setPlayWhenReady(false);
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+    }
+
+    private void openFullscreenDialog() {
+        LogUtil.DefalutLog("openFullscreenDialog");
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        ((ViewGroup) simpleExoPlayerView.getParent()).removeView(simpleExoPlayerView);
+        mFullScreenDialog.addContentView(simpleExoPlayerView,
+                new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        mFullScreenIcon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_fullscreen_exit_grey600_24dp));
+        mExoPlayerFullscreen = true;
+        mFullScreenDialog.show();
     }
 
     private Handler mHandler = new Handler() {
@@ -231,16 +337,15 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
 
     @Override
     public void onBackPressed() {
-        if (Jzvd.backPress()) {
-            return;
-        }
         super.onBackPressed();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Jzvd.releaseAllVideos();
+        if (player != null) {
+            player.setPlayWhenReady(false);
+        }
     }
 
     @Override
@@ -249,10 +354,22 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
         if (mHandler != null) {
             mHandler = null;
         }
+        releasePlayer();
         if (mPlayer != null) {
             mPlayer.stop();
             mPlayer.release();
             mPlayer = null;
+        }
+    }
+
+    public void releasePlayer() {
+        if (player != null) {
+            player.setPlayWhenReady(false);
+            player.release();
+            player = null;
+        }
+        if(mFullScreenDialog != null){
+            mFullScreenDialog.dismiss();
         }
     }
 
