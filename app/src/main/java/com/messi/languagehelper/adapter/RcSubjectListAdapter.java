@@ -39,7 +39,7 @@ public class RcSubjectListAdapter extends HeaderFooterRecyclerViewAdapter<Recycl
     @Override
     protected RecyclerView.ViewHolder onCreateItemViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = getLayoutInflater(parent);
-        View characterView = inflater.inflate(R.layout.studylist_item, parent, false);
+        View characterView = inflater.inflate(R.layout.subject_list_item, parent, false);
         return new RcSubjectListItemViewHolder(characterView,recentKey);
     }
 

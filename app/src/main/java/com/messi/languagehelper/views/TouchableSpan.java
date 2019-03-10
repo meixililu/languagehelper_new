@@ -1,26 +1,26 @@
 package com.messi.languagehelper.views;
 
-import com.messi.languagehelper.db.DataBaseUtil;
-import com.messi.languagehelper.util.NetworkUtil;
-import com.messi.languagehelper.util.StringUtils;
-import com.messi.languagehelper.R;
-import com.messi.languagehelper.dao.Dictionary;
-import com.messi.languagehelper.dialog.TranslateResultDialog;
-import com.messi.languagehelper.impl.FragmentProgressbarListener;
-import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.Setings;
-import com.messi.languagehelper.util.ToastUtil;
-import com.messi.languagehelper.util.TranslateUtil;
-import com.youdao.sdk.ydtranslate.Translate;
-
-import android.content.Context;
+import android.app.Activity;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextPaint;
 import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.ProgressBar;
+
+import com.messi.languagehelper.R;
+import com.messi.languagehelper.dao.Dictionary;
+import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.dialog.TranslateResultDialog;
+import com.messi.languagehelper.impl.FragmentProgressbarListener;
+import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NetworkUtil;
+import com.messi.languagehelper.util.Setings;
+import com.messi.languagehelper.util.StringUtils;
+import com.messi.languagehelper.util.ToastUtil;
+import com.messi.languagehelper.util.TranslateUtil;
+import com.youdao.sdk.ydtranslate.Translate;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
@@ -33,18 +33,18 @@ import io.reactivex.schedulers.Schedulers;
 public class TouchableSpan extends ClickableSpan {// extend ClickableSpan
 
 	private String word;
-	private Context context;
+	private Activity context;
 	private ProgressBar mProgressbar;
 	private FragmentProgressbarListener mProgressbarListener;
 
-	public TouchableSpan(Context context, ProgressBar mProgressbar, String string) {
+	public TouchableSpan(Activity context, ProgressBar mProgressbar, String string) {
 		super();
 		word = string;
 		this.mProgressbar = mProgressbar;
 		this.context = context;
 	}
 	
-	public TouchableSpan(Context context, FragmentProgressbarListener mProgressbarListener, String string) {
+	public TouchableSpan(Activity context, FragmentProgressbarListener mProgressbarListener, String string) {
 		super();
 		word = string;
 		this.mProgressbarListener = mProgressbarListener;
@@ -152,9 +152,13 @@ public class TouchableSpan extends ClickableSpan {// extend ClickableSpan
 	}
 
 	private void showDialog(Dictionary bean){
-		TranslateResultDialog dialog = new TranslateResultDialog(context, bean);
-		dialog.createDialog();
-		dialog.show();
+		try {
+			TranslateResultDialog dialog = new TranslateResultDialog(context, bean);
+			dialog.createDialog();
+			dialog.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	private void showProgressbar(){

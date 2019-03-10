@@ -54,18 +54,14 @@ public class TXADUtil {
                 initDefaultTXADID(mContext);
             }
 
-            String ad = sp.getString(KeyUtil.APP_Advertiser,ADUtil.Advertiser_XF);
+            String ad = sp.getString(KeyUtil.APP_Advertiser,KeyUtil.No_Ad);
             if(!ad.equals(KeyUtil.No_Ad)){
                 String noAdChannel = sp.getString(KeyUtil.No_Ad_Channel,"");
                 String channel = Setings.getMetaData(mContext,"UMENG_CHANNEL");
                 int versionCode = Setings.getVersion(mContext);
                 int lastCode = sp.getInt(KeyUtil.VersionCode,-1);
                 LogUtil.DefalutLog("lastCode:"+lastCode+"--noAdChannel:"+noAdChannel+"--channel:"+channel);
-                if(lastCode < 0){
-                    if("huawei".equals(channel)){
-                        ADUtil.IsShowAD = false;
-                    }
-                }else if(versionCode >= lastCode){
+                if(versionCode >= lastCode){
                     if(!TextUtils.isEmpty(noAdChannel) && !TextUtils.isEmpty(channel)){
                         if(noAdChannel.equals(channel)){
                             ADUtil.IsShowAD = false;

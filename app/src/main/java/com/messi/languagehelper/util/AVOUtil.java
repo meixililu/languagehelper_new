@@ -301,8 +301,6 @@ public class AVOUtil {
 
 		public final static String wyyx_url = "wyyx_url";
 
-		public final static String DownloadType = "DownloadType";//apk  url
-		
 		public final static String AppUpdateInfo = "AppUpdateInfo";
 		
 		public final static String AppSize = "AppSize";
@@ -312,6 +310,8 @@ public class AVOUtil {
 		public final static String IsValid = "IsValid";
 
 		public final static String adConf = "adConf";
+
+		public final static String trankey = "trankey";
 
 		public final static String DownloadTimes = "DownloadTimes";
 
@@ -698,13 +698,6 @@ public class AVOUtil {
 		public final static String code = "code";
 		public final static String type = "type";
 		public final static String createdAt = "createdAt";
-	}
-
-	public static class UtilKeys{
-		public final static String UtilKeys = "UtilKeys";
-		public final static String name = "name";
-		public final static String kvalue = "kvalue";
-		public final static String app_id = "app_id";
 	}
 
 	public static class XhDicSList{

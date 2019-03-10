@@ -84,7 +84,6 @@ public class XXLForXMLYModel {
                 }
             }
         } catch (Exception e) {
-            loadTXAD();
             e.printStackTrace();
         }
     }
@@ -106,7 +105,7 @@ public class XXLForXMLYModel {
 
             @Override
             public void onAdFailed(AdError arg0) {
-                LogUtil.DefalutLog("XXLModel-onAdFailed-" + arg0.getErrorCode() + "-" + arg0.getErrorDescription());
+                LogUtil.DefalutLog("XXLModel-onAdFailed");
                 onLoadAdFaile();
             }
 
@@ -205,7 +204,7 @@ public class XXLForXMLYModel {
             }
             @Override
             public void onAdFailed(String s) {
-                LogUtil.DefalutLog("BDAD-onAdFailed:"+s);
+                LogUtil.DefalutLog("BDAD-onAdFailed");
                 onLoadAdFaile();
             }
             @Override
@@ -236,7 +235,7 @@ public class XXLForXMLYModel {
         mTTAdNative.loadFeedAd(adSlot, new TTAdNative.FeedAdListener() {
             @Override
             public void onError(int i, String s) {
-                LogUtil.DefalutLog("loadCSJAD-onError:"+s);
+                LogUtil.DefalutLog("loadCSJAD-onError");
                 onLoadAdFaile();
             }
 

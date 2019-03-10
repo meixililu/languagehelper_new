@@ -1,6 +1,6 @@
 package com.messi.languagehelper.util;
 
-import android.content.Context;
+import android.app.Activity;
 import android.graphics.Color;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -14,7 +14,7 @@ import com.messi.languagehelper.views.TouchableSpan;
 
 public class TextHandlerUtil {
 
-    public static void handlerText(Context context, ProgressBar mProgressbar,
+    public static void handlerText(Activity context, ProgressBar mProgressbar,
                                    TextView contentTv, String text) {
         if (TextUtils.isEmpty(text)) {
             contentTv.setText(text);
@@ -54,7 +54,7 @@ public class TextHandlerUtil {
         contentTv.setHighlightColor(Color.TRANSPARENT);
     }
 
-    public static void handlerText(Context context, FragmentProgressbarListener mProgressbarListener,
+    public static void handlerText(Activity context, FragmentProgressbarListener mProgressbarListener,
                                    TextView contentTv, String text) {
         if (TextUtils.isEmpty(text)) {
             contentTv.setText(text);

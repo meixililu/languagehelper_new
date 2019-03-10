@@ -249,7 +249,7 @@ public class PlayerService extends Service {
     }
 
     public void pause(){
-        if(song != null){
+        if(song != null && mExoPlayer != null){
             PlayerStatus = 2;
             mExoPlayer.setPlayWhenReady(false);
             NotificationUtil.showNotification(this,action_start,song.getTitle(),
@@ -259,7 +259,7 @@ public class PlayerService extends Service {
     }
 
     public void restart(){
-        if(song != null){
+        if(song != null && mExoPlayer != null){
             PlayerStatus = 1;
             mExoPlayer.setPlayWhenReady(true);
             NotificationUtil.showNotification(this,action_pause,song.getTitle(),

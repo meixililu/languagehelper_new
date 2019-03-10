@@ -112,10 +112,8 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     }
 
     private void parseToutiaoHtml(){
-        LogUtil.DefalutLog(Url);
         String vid = Url.substring(Url.indexOf("group/")+6,Url.length()-1);
         String tempUrl = "http://www.365yg.com/a"+vid;
-        LogUtil.DefalutLog("tempUrl:"+tempUrl);
         LanguagehelperHttpClient.get(tempUrl,new UICallback(this){
             @Override
             public void onFailured() {
@@ -134,7 +132,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
                     crc32.update(videoid.getBytes());
                     long checksum = crc32.getValue();
                     String videoUrl = "http://i.snssdk.com" + videoid + "&s=" + checksum;
-                    LogUtil.DefalutLog("videoUrl:"+videoUrl);
+//                    LogUtil.DefalutLog("videoUrl:"+videoUrl);
                     parseToutiaoApi(videoUrl);
                 }catch (Exception e){
                     parseVideoUrl();
@@ -159,7 +157,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
                     String videoUrl = new String(
                             Base64.decode(toutiaoVideo.getData().getVideo_list().
                                             getVideo_1().getMain_url().getBytes(), Base64.DEFAULT));
-                    LogUtil.DefalutLog("videoUrl:"+videoUrl);
+//                    LogUtil.DefalutLog("videoUrl:"+videoUrl);
                     exoplaer(videoUrl);
                 }catch (Exception e){
                     parseVideoUrl();
@@ -182,7 +180,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
             @Override
             public void onResponsed(String responseString) {
                 try {
-                    LogUtil.DefalutLog("TTParseApi:" + responseString);
+//                    LogUtil.DefalutLog("TTParseApi:" + responseString);
                     if (JsonParser.isJson(responseString)) {
                         TTParseBean result = JSON.parseObject(responseString, TTParseBean.class);
                         if (result != null && result.getSucc() && result.getData() != null) {
@@ -261,7 +259,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     }
 
     private void openFullscreenDialog() {
-        LogUtil.DefalutLog("openFullscreenDialog");
+//        LogUtil.DefalutLog("openFullscreenDialog");
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         ((ViewGroup) simpleExoPlayerView.getParent()).removeView(simpleExoPlayerView);
         mFullScreenDialog.addContentView(simpleExoPlayerView,
@@ -272,7 +270,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     }
 
     private void closeFullscreenDialog() {
-        LogUtil.DefalutLog("closeFullscreenDialog");
+//        LogUtil.DefalutLog("closeFullscreenDialog");
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         ((ViewGroup) simpleExoPlayerView.getParent()).removeView(simpleExoPlayerView);
         video_ly.addView(simpleExoPlayerView);
@@ -302,9 +300,15 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
 
     private void initViews() {
         setStatusbarColor(R.color.black);
-        mAVObject = (Reading) Setings.dataMap.get(KeyUtil.DataMapKey);
+        Object data =  Setings.dataMap.get(KeyUtil.DataMapKey);
         Setings.dataMap.clear();
-        Setings.musicSrv.pause();
+        if(data instanceof Reading){
+            mAVObject = (Reading) data;
+        }else {
+            finish();
+            return;
+        }
+        Setings.MPlayerPause();
         Url = mAVObject.getSource_url();
         mWebView.requestFocus();//如果不设置，则在点击网页文本输入框时，不能弹出软键盘及不响应其他的一些事件。
         mWebView.getSettings().setJavaScriptEnabled(true);//如果访问的页面中有Javascript，则webview必须设置支持Javascript。
@@ -397,7 +401,10 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
                 dialog.show();
             }
         });
+        addVideoNewsList();
+    }
 
+    private void addVideoNewsList(){
         Fragment fragment = ReadingFragment.newInstanceByType("video", 2000,true);
         if(getApplication().getPackageName().equals(Setings.application_id_yys) ||
                 getApplication().getPackageName().equals(Setings.application_id_yys_google)){

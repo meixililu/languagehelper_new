@@ -105,14 +105,14 @@ public class KaipingModel {
             }
             counter++;
         } catch (Exception e) {
-            loadBDAD();
+            DelayToNextPage(1500);
             e.printStackTrace();
         }
     }
 
     //启动页加载总时常，防止广告一直加载中等待过久
     public void startTask() {
-        mHandler.postDelayed(m3Runnable, 5000);
+        mHandler.postDelayed(m3Runnable, 3500);
     }
 
     public Runnable m3Runnable = new Runnable() {
@@ -183,6 +183,12 @@ public class KaipingModel {
         ad_img.setController(mDraweeController);
         boolean loadingExposure = mNativeADDataRef.onExposured(ad_img);
         LogUtil.DefalutLog("loadingExposure：" + loadingExposure);
+        skip_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toNextPage();
+            }
+        });
         ad_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -212,7 +218,7 @@ public class KaipingModel {
 
                     @Override
                     public void onNoAD(com.qq.e.comm.util.AdError adError) {
-                        LogUtil.DefalutLog(adError.getErrorMsg());
+                        LogUtil.DefalutLog("loadTXAD-onNoAD");
                         getAd();
                     }
 

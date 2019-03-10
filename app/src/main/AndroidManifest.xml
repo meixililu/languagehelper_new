@@ -79,7 +79,6 @@
             android:exported="false" />
 
         <!-- baidu ad  -->
-        <!--<meta-data android:name="BaiduMobAd_APP_ID" android:value="f60acdfd" />-->
         <activity
             android:name="com.baidu.mobads.AppActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"

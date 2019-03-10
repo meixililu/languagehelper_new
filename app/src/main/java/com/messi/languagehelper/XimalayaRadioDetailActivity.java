@@ -131,8 +131,8 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
 
     private void initViews() {
         getProgramList();
-        if (Setings.musicSrv.isPlaying()) {
-            Setings.musicSrv.pause();
+        if (Setings.MPlayerIsPlaying()) {
+            Setings.MPlayerPause();
         }
         loadAD();
         itemImg.setImageURI(radio.getCoverUrlLarge());

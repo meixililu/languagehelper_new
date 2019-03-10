@@ -79,7 +79,7 @@ public class XVideoDetailActivity extends BaseActivity {
 
     private void initData() {
         try {
-            Setings.musicSrv.pause();
+            Setings.MPlayerPause();
             String serializedStr = getIntent().getStringExtra(KeyUtil.AVObjectKey);
             mAVObject = AVObject.parseAVObject(serializedStr);
             if (mAVObject == null) {

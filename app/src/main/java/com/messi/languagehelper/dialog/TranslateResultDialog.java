@@ -2,7 +2,6 @@ package com.messi.languagehelper.dialog;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -27,7 +26,7 @@ import com.messi.languagehelper.util.XFUtil;
 
 public class TranslateResultDialog implements DicHelperListener {
 	
-	private Context context;
+	private Activity context;
 	private Dictionary bean;
 	private SpeechSynthesizer mSpeechSynthesizer;
 	private SharedPreferences mSharedPreferences;
@@ -35,7 +34,7 @@ public class TranslateResultDialog implements DicHelperListener {
 	private MyThread mMyThread;
 	private AlertDialog dialog;
 
-	public TranslateResultDialog(Context context) {
+	public TranslateResultDialog(Activity context) {
 	    this.context = context;
 	}
 
@@ -43,7 +42,7 @@ public class TranslateResultDialog implements DicHelperListener {
 	 * 更改TextView的提示内容
 	 * @param context
 	 */
-	public TranslateResultDialog(Context context, Dictionary bean) {
+	public TranslateResultDialog(Activity context, Dictionary bean) {
 		this.context = context;
 		this.bean = bean;
 		mSharedPreferences = context.getSharedPreferences(context.getPackageName(), Activity.MODE_PRIVATE);
@@ -51,25 +50,33 @@ public class TranslateResultDialog implements DicHelperListener {
 	}
 
 	public void createDialog() {
-		View view = LayoutInflater.from(context).inflate(R.layout.dialog_translate_result,null);
-		dialog = new AlertDialog.Builder(context).create();
-		dialog.setView(view);
-		dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-			@Override
-			public void onDismiss(DialogInterface dialogInterface) {
-				if(mSpeechSynthesizer != null && mSpeechSynthesizer.isSpeaking()){
-					mSpeechSynthesizer.stopSpeaking();
-					mSpeechSynthesizer = null;
-				}
+		if(context instanceof Activity){
+			if(!((Activity)context).isFinishing()){
+				View view = LayoutInflater.from(context).inflate(R.layout.dialog_translate_result,null);
+				dialog = new AlertDialog.Builder(context).create();
+				dialog.setView(view);
+				dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+					@Override
+					public void onDismiss(DialogInterface dialogInterface) {
+						if(mSpeechSynthesizer != null && mSpeechSynthesizer.isSpeaking()){
+							mSpeechSynthesizer.stopSpeaking();
+							mSpeechSynthesizer = null;
+						}
+					}
+				});
+				mMyThread = new MyThread();
+				LinearLayout dic_result_layout = (LinearLayout) view.findViewById(R.id.dic_result_layout);
+				DictionaryHelper.addDicContentForDialog(context, dic_result_layout, bean, this);
 			}
-		});
-		mMyThread = new MyThread();
-		LinearLayout dic_result_layout = (LinearLayout) view.findViewById(R.id.dic_result_layout);
-		DictionaryHelper.addDicContentForDialog(context, dic_result_layout, bean, this);
+		}
 	}
 
 	public void show(){
-		dialog.show();
+		if(context instanceof Activity){
+			if(!((Activity)context).isFinishing()){
+				dialog.show();
+			}
+		}
 	}
 
 	@Override

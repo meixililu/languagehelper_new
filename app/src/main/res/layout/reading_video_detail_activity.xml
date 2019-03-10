@@ -12,19 +12,35 @@
         android:layout_height="wrap_content"
         android:background="@color/black">
         <LinearLayout
-            android:id="@+id/app_bar"
-            android:background="@color/black"
             android:layout_width="match_parent"
-            android:layout_height="223dp"
-            android:keepScreenOn="true"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:background="@color/white"
             >
-            <com.google.android.exoplayer2.ui.PlayerView
-                android:id="@+id/player_view"
+            <LinearLayout
+                android:id="@+id/app_bar"
                 android:background="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="223dp"
-                />
+                android:keepScreenOn="true"
+                android:orientation="vertical"
+                >
+                <com.google.android.exoplayer2.ui.PlayerView
+                    android:id="@+id/player_view"
+                    android:background="@color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="223dp"
+                    />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/padding_10"
+                android:maxLines="2"
+                android:textColor="@color/text_dark"
+                android:textSize="@dimen/biggerx"
+                android:layout_marginTop="@dimen/padding_7" />
         </LinearLayout>
         <LinearLayout
             android:id="@+id/back_btn"
@@ -40,62 +56,18 @@
         </LinearLayout>
     </FrameLayout>
 
-    <android.support.v4.widget.NestedScrollView
-        android:id="@+id/scrollview"
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/lightgrey"
+        android:layout_marginBottom="@dimen/padding_7"
+        ></View>
+    <LinearLayout
+        android:id="@+id/next_composition"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/white"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:fillViewport="true" >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:focusable="true"
-            android:focusableInTouchMode="false"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/text_dark"
-                android:paddingLeft="@dimen/padding_10"
-                android:paddingRight="@dimen/padding_10"
-                android:paddingTop="@dimen/padding_15"
-                android:paddingBottom="@dimen/padding_15"
-                android:textSize="@dimen/bigest"
-                android:background="@color/white"
-                android:gravity="left"
-                />
-
-            <TextView
-                android:id="@+id/content"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textIsSelectable="true"
-                android:lineSpacingExtra="3dp"
-                android:lineSpacingMultiplier="1.3"
-                android:padding="@dimen/padding_10"
-                android:paddingBottom="@dimen/padding_15"
-                android:background="@color/white"
-                android:textColor="@color/text_black"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
-                android:textSize="@dimen/biggerx" />
-
-            <LinearLayout
-                android:id="@+id/next_composition"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/padding_10"
-                android:background="@color/white"
-                android:orientation="vertical" >
-            </LinearLayout>
-        </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+        android:orientation="vertical"/>
 
 
 </LinearLayout>

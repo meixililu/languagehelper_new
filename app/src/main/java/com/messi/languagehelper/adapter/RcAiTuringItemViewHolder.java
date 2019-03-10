@@ -1,6 +1,6 @@
 package com.messi.languagehelper.adapter;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -34,7 +34,7 @@ import java.util.List;
 
 public class RcAiTuringItemViewHolder extends RecyclerView.ViewHolder {
 
-    private Context context;
+    private Activity context;
     public TextView ai_chat_machine;
     public TextView ai_chat_user;
     private ProgressBar mProgressbar;
@@ -49,7 +49,7 @@ public class RcAiTuringItemViewHolder extends RecyclerView.ViewHolder {
                                     ProgressBar mProgressbar,
                                     AiTuringActivity mAiChatActivity) {
         super(convertView);
-        this.context = convertView.getContext();
+        this.context = mAiChatActivity;
         this.beans = mBeans;
         this.mProgressbar = mProgressbar;
         this.mAdapter = mAdapter;

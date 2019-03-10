@@ -102,12 +102,18 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
 
     private void initData() {
         mSharedPreferences = this.getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
-        mAVObjects = (List<Reading>) Setings.dataMap.get(KeyUtil.DataMapKey);
         index = getIntent().getIntExtra(KeyUtil.IndexKey, 0);
-        mAVObject = mAVObjects.get(index);
+        Object data =  Setings.dataMap.get(KeyUtil.DataMapKey);
         Setings.dataMap.clear();
+        if(data instanceof List){
+            mAVObjects = (List<Reading>) data;
+            if(mAVObjects != null && mAVObjects.size() > index){
+                mAVObject = mAVObjects.get(index);
+            }
+        }
         if (mAVObject == null) {
             finish();
+            return;
         }
     }
 
@@ -126,7 +132,7 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
             mLeisureModel.setViews(ad_sign,ad_img,xx_ad_layout,ad_layout);
             mLeisureModel.showAd();
         }
-        if(Setings.musicSrv.isSameMp3(mAVObject)){
+        if(Setings.MPlayerIsSameMp3(mAVObject)){
             if(Setings.musicSrv.PlayerStatus == 1) {
                 btn_play.setImageResource(R.drawable.ic_pause_circle_outline_grey600_36dp);
                 handler.postDelayed(mRunnable,300);
@@ -164,28 +170,30 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
     }
 
     private void setSeekbarAndText(){
-        int currentPosition = Setings.musicSrv.getCurrentPosition();
-        int mDuration = Setings.musicSrv.getDuration();
-        LogUtil.DefalutLog("ContentPosition:"+currentPosition);
+        if(Setings.musicSrv != null){
+            int currentPosition = Setings.musicSrv.getCurrentPosition();
+            int mDuration = Setings.musicSrv.getDuration();
+            LogUtil.DefalutLog("ContentPosition:"+currentPosition);
 //        LogUtil.DefalutLog("Duration:"+mDuration);
-        if(mDuration > 0){
-            seekbar.setMax(mDuration);
-            time_duration.setText(TimeUtil.getDuration(mDuration / 1000));
-        }
-        seekbar.setProgress(currentPosition);
-        time_current.setText(TimeUtil.getDuration(currentPosition / 1000));
-        if(mutilLrc != null){
-            List<utilLrc.Statement> list = mutilLrc.getLrcList();
-            if(list != null && list.size() > 0){
-                if(content != null){
-                    content.setTextColor(getResources().getColor(R.color.green_500));
-                }
-                for(int i=0;i<list.size();i++){
-                    if(currentPosition < list.get(i).getTime()){
-                        if(i-1 >= 0){
-                            if(content != null){
-                                content.setText(list.get(i-1).getLyric());
-                                break;
+            if(mDuration > 0){
+                seekbar.setMax(mDuration);
+                time_duration.setText(TimeUtil.getDuration(mDuration / 1000));
+            }
+            seekbar.setProgress(currentPosition);
+            time_current.setText(TimeUtil.getDuration(currentPosition / 1000));
+            if(mutilLrc != null){
+                List<utilLrc.Statement> list = mutilLrc.getLrcList();
+                if(list != null && list.size() > 0){
+                    if(content != null){
+                        content.setTextColor(getResources().getColor(R.color.green_500));
+                    }
+                    for(int i=0;i<list.size();i++){
+                        if(currentPosition < list.get(i).getTime()){
+                            if(i-1 >= 0){
+                                if(content != null){
+                                    content.setText(list.get(i-1).getLyric());
+                                    break;
+                                }
                             }
                         }
                     }
@@ -296,7 +304,7 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
 
     @Override
     public void updateUI(String music_action) {
-        if(Setings.musicSrv.isSameMp3(mAVObject)){
+        if(Setings.MPlayerIsSameMp3(mAVObject)){
             if(music_action.equals(PlayerService.action_start)){
                 btn_play.setImageResource(R.drawable.ic_play_circle_outline_grey600_36dp);
                 handler.removeCallbacks(mRunnable);
@@ -331,13 +339,13 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) {
         handler.removeCallbacks(mRunnable);
-        Setings.musicSrv.pause();
+        Setings.MPlayerPause();
     }
 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
-        Setings.musicSrv.seekTo(seekBar.getProgress());
-        Setings.musicSrv.restart();
+        Setings.MPlayerSeekTo(seekBar.getProgress());
+        Setings.MPlayerRestart();
         handler.postDelayed(mRunnable,300);
     }
 }

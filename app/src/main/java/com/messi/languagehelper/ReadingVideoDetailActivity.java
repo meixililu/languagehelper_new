@@ -1,16 +1,14 @@
 package com.messi.languagehelper;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.widget.NestedScrollView;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,14 +18,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.exoplayer2.C;
+import com.google.android.exoplayer2.DefaultLoadControl;
+import com.google.android.exoplayer2.DefaultRenderersFactory;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
-import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
-import com.google.android.exoplayer2.trackselection.TrackSelection;
-import com.google.android.exoplayer2.trackselection.TrackSelector;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
@@ -35,13 +32,10 @@ import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
-import com.messi.languagehelper.util.TXADUtil;
-import com.messi.languagehelper.util.TextHandlerUtil;
-import com.qq.e.ads.nativ.NativeExpressAD;
-import com.qq.e.ads.nativ.NativeExpressADView;
 
 import java.util.List;
 
@@ -49,20 +43,16 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ReadingVideoDetailActivity extends BaseActivity {
+public class ReadingVideoDetailActivity extends BaseActivity implements FragmentProgressbarListener {
 
     private final String STATE_RESUME_WINDOW = "resumeWindow";
     private final String STATE_RESUME_POSITION = "resumePosition";
     private final String STATE_PLAYER_FULLSCREEN = "playerFullscreen";
 
-    @BindView(R.id.title)
+    @BindView(R.id.title_tv)
     TextView title;
-    @BindView(R.id.content)
-    TextView content;
     @BindView(R.id.next_composition)
     LinearLayout next_composition;
-    @BindView(R.id.scrollview)
-    NestedScrollView scrollview;
     @BindView(R.id.player_view)
     PlayerView simpleExoPlayerView;
     @BindView(R.id.app_bar)
@@ -73,8 +63,6 @@ public class ReadingVideoDetailActivity extends BaseActivity {
     private SimpleExoPlayer player;
     private Reading mAVObject;
     private List<Reading> mAVObjects;
-    private SharedPreferences mSharedPreferences;
-    private NativeExpressADView mTXADView;
     private int index;
 
     private boolean mExoPlayerFullscreen = false;
@@ -99,7 +87,6 @@ public class ReadingVideoDetailActivity extends BaseActivity {
         setData();
         initFullscreenDialog();
         initFullscreenButton();
-        loadTXADZTYW();
     }
 
     @Override
@@ -160,22 +147,22 @@ public class ReadingVideoDetailActivity extends BaseActivity {
     }
 
     private void initData() {
-        Setings.musicSrv.pause();
-        mSharedPreferences = this.getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
-        mAVObjects = (List<Reading>) Setings.dataMap.get(KeyUtil.DataMapKey);
+        Setings.MPlayerPause();
         index = getIntent().getIntExtra(KeyUtil.IndexKey, 0);
-        mAVObject = mAVObjects.get(index);
+        Object data =  Setings.dataMap.get(KeyUtil.DataMapKey);
         Setings.dataMap.clear();
-        if (mAVObject == null) {
-            finish();
+        if(data instanceof List){
+            mAVObjects = (List<Reading>) data;
+            if(mAVObjects != null && mAVObjects.size() > index){
+                mAVObject = mAVObjects.get(index);
+            }
         }
     }
 
     private void exoplaer(String media_url) {
-        TrackSelection.Factory videoTrackSelectionFactory =
-                new AdaptiveTrackSelection.Factory(new DefaultBandwidthMeter());
-        TrackSelector trackSelector = new DefaultTrackSelector(videoTrackSelectionFactory);
-        player = ExoPlayerFactory.newSimpleInstance(this, trackSelector);
+        player = ExoPlayerFactory.newSimpleInstance(this,
+                new DefaultRenderersFactory(this),
+                new DefaultTrackSelector(), new DefaultLoadControl());
         simpleExoPlayerView.setPlayer(player);
 
         boolean haveResumePosition = mResumeWindow != C.INDEX_UNSET;
@@ -193,70 +180,33 @@ public class ReadingVideoDetailActivity extends BaseActivity {
     }
 
     private void setData() {
+        if (mAVObject == null) {
+            finish();
+            return;
+        }
         title.setText(mAVObject.getTitle());
-        scrollview.scrollTo(0, 0);
-        TextHandlerUtil.handlerText(this, mProgressbar, content, mAVObject.getContent());
-
         simpleExoPlayerView.setVisibility(View.VISIBLE);
         simpleExoPlayerView.setUseArtwork(true);
         exoplaer(mAVObject.getMedia_url());
-
+        addVideoNewsList();
         if (TextUtils.isEmpty(mAVObject.getStatus())) {
             mAVObject.setStatus("1");
             DataBaseUtil.getInstance().update(mAVObject);
         }
     }
 
-    private void loadTXADZTYW(){
-        TXADUtil.showCDT(this, new NativeExpressAD.NativeExpressADListener() {
-            @Override
-            public void onNoAD(com.qq.e.comm.util.AdError adError) {
-                LogUtil.DefalutLog(adError.getErrorMsg());
-            }
-            @Override
-            public void onADLoaded(List<NativeExpressADView> list) {
-                LogUtil.DefalutLog("onADLoaded");
-                if(list != null && list.size() > 0){
-                    next_composition.setVisibility(View.VISIBLE);
-					next_composition.removeAllViews();
-					mTXADView = list.get(0);
-                    next_composition.addView(mTXADView);
-                    mTXADView.render();
-                }
-            }
-            @Override
-            public void onRenderFail(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onRenderFail");
-            }
-            @Override
-            public void onRenderSuccess(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onRenderSuccess");
-            }
-            @Override
-            public void onADExposure(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADExposure");
-            }
-            @Override
-            public void onADClicked(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADClicked");
-            }
-            @Override
-            public void onADClosed(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADClosed");
-            }
-            @Override
-            public void onADLeftApplication(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADLeftApplication");
-            }
-            @Override
-            public void onADOpenOverlay(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADOpenOverlay");
-            }
-            @Override
-            public void onADCloseOverlay(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADCloseOverlay");
-            }
-        });
+    private void addVideoNewsList(){
+        Fragment fragment = ReadingFragment.newInstanceByType("video", 2000,true);
+        if(getApplication().getPackageName().equals(Setings.application_id_yys) ||
+                getApplication().getPackageName().equals(Setings.application_id_yys_google)){
+            fragment = ReadingFragmentYYS.newInstance();
+        } else if(getApplication().getPackageName().equals(Setings.application_id_ywcd)){
+            fragment = ReadingFragmentYWCD.newInstance();
+        }
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.next_composition, fragment)
+                .commit();
     }
 
     private void collected() {
@@ -303,9 +253,6 @@ public class ReadingVideoDetailActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         releasePlayer();
-        if(mTXADView != null){
-            mTXADView.destroy();
-        }
     }
 
 }

@@ -23,7 +23,6 @@ import com.messi.languagehelper.util.AppUpdateUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TXADUtil;
-import com.messi.languagehelper.util.UtilKeys;
 import com.umeng.analytics.MobclickAgent;
 
 import org.greenrobot.eventbus.EventBus;
@@ -62,7 +61,6 @@ public class LoadingActivity extends AppCompatActivity {
             TXADUtil.initTXADID(this);
             init();
             ADUtil.loadAd(this);
-            UtilKeys.getTranBDKey();
         } catch (Exception e) {
             onException();
             e.printStackTrace();

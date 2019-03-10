@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVFile;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
@@ -110,8 +109,10 @@ public class AppUpdateUtil {
         String ucsearch_url = mAVObject.getString(AVOUtil.UpdateInfo.ucsearch_url);
         String ad_ids = mAVObject.getString(AVOUtil.UpdateInfo.ad_ids);
         String no_ad_channel = mAVObject.getString(AVOUtil.UpdateInfo.no_ad_channel);
+        String trankey = mAVObject.getString(AVOUtil.UpdateInfo.trankey);
         String adConf = mAVObject.getString(AVOUtil.UpdateInfo.adConf);
         ADUtil.setAdConfig(adConf);
+        initTranBdIdKey(trankey);
         Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.APP_Advertiser,app_advertiser);
         Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_DVideo,uctt_url);
         Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_Novel,wyyx_url);
@@ -122,6 +123,17 @@ public class AppUpdateUtil {
         Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.VersionCode,
                 mAVObject.getInt(AVOUtil.UpdateInfo.VersionCode));
         Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.UpdateBean, mAVObject.toString());
+    }
+
+    public static void initTranBdIdKey(String idkey){
+        if (!TextUtils.isEmpty(idkey)) {
+            String[] keys = idkey.split("#");
+            if(keys != null && keys.length > 1){
+                Setings.baidu_appid = keys[0];
+                Setings.baidu_secretkey = keys[1];
+                LogUtil.DefalutLog("baidu_appidkey:"+Setings.baidu_appid+"-"+Setings.baidu_secretkey);
+            }
+        }
     }
 
     public static void isNeedUpdate(final Activity mActivity){
@@ -143,14 +155,7 @@ public class AppUpdateUtil {
                 int oldVersionCode = Setings.getVersion(mActivity);
                 if (newVersionCode > oldVersionCode) {
                     String updateInfo = mAVObject.getString(AVOUtil.UpdateInfo.AppUpdateInfo);
-                    String downloadType = mAVObject.getString(AVOUtil.UpdateInfo.DownloadType);
-                    String apkUrl = "";
-                    if (downloadType.equals("apk")) {
-                        AVFile avFile = mAVObject.getAVFile(AVOUtil.UpdateInfo.Apk);
-                        apkUrl = avFile.getUrl();
-                    } else {
-                        apkUrl = mAVObject.getString(AVOUtil.UpdateInfo.APPUrl);
-                    }
+                    String apkUrl = mAVObject.getString(AVOUtil.UpdateInfo.APPUrl);
                     final String downloadUrl = apkUrl;
                     LogUtil.DefalutLog("apkUrl:" + apkUrl);
 

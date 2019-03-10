@@ -157,7 +157,7 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
 
     private void initViews() {
         if(Setings.musicSrv.isPlaying()){
-            Setings.musicSrv.pause();
+            Setings.MPlayerPause();
         }
         loadAD();
         itemImg.setImageURI(currentTrack.getCoverUrlLarge());

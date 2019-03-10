@@ -98,7 +98,6 @@ public class XMLYDetailModel {
             }
 
         } catch (Exception e) {
-            loadTXAD();
             e.printStackTrace();
         }
     }
@@ -120,7 +119,7 @@ public class XMLYDetailModel {
 
             @Override
             public void onAdFailed(AdError arg0) {
-                LogUtil.DefalutLog("XMLYDetailModel-onAdFailed:" + arg0.getErrorCode() + "-" + arg0.getErrorDescription());
+                LogUtil.DefalutLog("XMLYDetailModel-onAdFailed");
                 getAd();
             }
 
@@ -167,7 +166,7 @@ public class XMLYDetailModel {
         TXADUtil.showXXL_STXW(mContext, new NativeExpressAD.NativeExpressADListener() {
             @Override
             public void onNoAD(com.qq.e.comm.util.AdError adError) {
-                LogUtil.DefalutLog(adError.getErrorMsg());
+                LogUtil.DefalutLog("onNoAD");
                 getAd();
             }
             @Override
@@ -246,7 +245,7 @@ public class XMLYDetailModel {
             @Override
             public void onAdFailed(String s) {
                 getAd();
-                LogUtil.DefalutLog("BDAD-onAdFailed:"+s);
+                LogUtil.DefalutLog("BDAD-onAdFailed");
             }
             @Override
             public void onAdSwitch() {
@@ -287,7 +286,7 @@ public class XMLYDetailModel {
         mTTAdNative.loadBannerAd(adSlot, new TTAdNative.BannerAdListener() {
             @Override
             public void onError(int i, String s) {
-                LogUtil.DefalutLog("loadCSJAD-onError:"+s);
+                LogUtil.DefalutLog("loadCSJAD-onError");
                 getAd();
             }
             @Override

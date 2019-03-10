@@ -110,7 +110,6 @@ public class XFYSAD {
 			}
 			counter++;
 		} catch (Exception e) {
-			loadTXAD();
 			e.printStackTrace();
 		}
 	}
@@ -120,7 +119,6 @@ public class XFYSAD {
 		TXADUtil.showCDT(mContext, new NativeExpressAD.NativeExpressADListener() {
 			@Override
 			public void onNoAD(com.qq.e.comm.util.AdError adError) {
-				LogUtil.DefalutLog(adError.getErrorMsg());
 				getAd();
 			}
 
@@ -185,7 +183,6 @@ public class XFYSAD {
 			}
 			@Override
 			public void onAdFailed(AdError arg0) {
-				LogUtil.DefalutLog("onAdFailed---"+arg0.getErrorCode()+"---"+arg0.getErrorDescription());
 				getAd();
 			}
 			@Override
@@ -247,7 +244,7 @@ public class XFYSAD {
 			@Override
 			public void onAdFailed(String s) {
 				getAd();
-				LogUtil.DefalutLog("BDAD-onAdFailed:"+s);
+				LogUtil.DefalutLog("BDAD-onAdFailed:");
 			}
 			@Override
 			public void onAdSwitch() {
@@ -283,7 +280,7 @@ public class XFYSAD {
 		mTTAdNative.loadBannerAd(adSlot, new TTAdNative.BannerAdListener() {
 			@Override
 			public void onError(int i, String s) {
-				LogUtil.DefalutLog("loadCSJAD-onError:"+s);
+				LogUtil.DefalutLog("loadCSJAD-onError:");
 				getAd();
 			}
 			@Override
