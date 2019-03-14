@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
@@ -83,23 +82,5 @@ public class ListenActivity extends BaseActivity implements FragmentProgressbarL
                 .hide(mWordHomeFragment)
                 .commit();
     }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode == KeyEvent.KEYCODE_BACK){
-            if(navigation.getSelectedItemId() == R.id.navigation_home){
-                if(mWordHomeFragment.getCurrentPosition() > 0){
-                    boolean result = mWordHomeFragment.onKeyDown(keyCode,event);
-                    if(!result){
-                        return super.onKeyDown(keyCode, event);
-                    }else {
-                        return result;
-                    }
-                }
-            }
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-
 
 }

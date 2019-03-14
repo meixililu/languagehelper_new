@@ -284,6 +284,7 @@ public class KeyUtil {
 	public static final String ApkPath = "ApkPath";
 	public static final String UpdateBean = "UpdateBean";
 	public static final String AdConfig = "AdConfig";
+	public static final String ColorKey = "ColorKey";
 
 
 

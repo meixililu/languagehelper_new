@@ -4,66 +4,38 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.text.TextUtils;
 
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.ReadingsBySubjectFragment;
 import com.messi.languagehelper.SubjectFragment;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.Setings;
 
 import java.util.ArrayList;
 
 public class ListenSubjectAdapter extends FragmentPagerAdapter {
 
     private ArrayList<String> titleList = new ArrayList<String>();
-    private Context mContext;
-    private String category_2;
 
     public ListenSubjectAdapter(FragmentManager fm, Context mContext) {
         super(fm);
-        this.mContext = mContext;
-        category_2 = Setings.getSharedPreferences(mContext).getString(KeyUtil.RecentListen,"");
-        if(TextUtils.isEmpty(category_2)){
-            addTitle();
-            titleList.add(mContext.getResources().getString(R.string.recent));
-        }else {
-            titleList.add(mContext.getResources().getString(R.string.recent));
-            addTitle();
-        }
-    }
-
-    private void addTitle(){
         titleList.add(mContext.getResources().getString(R.string.beginner));
         titleList.add(mContext.getResources().getString(R.string.intermediate));
         titleList.add(mContext.getResources().getString(R.string.advanced));
     }
 
+    private void addTitle(){
+
+    }
+
     @Override
     public Fragment getItem(int position) {
-        if(TextUtils.isEmpty(category_2)){
-            if( position == 0 ){
-                return SubjectFragment.getInstance(AVOUtil.Category.listening,KeyUtil.RecentListen,"1");
-            }else if( position == 1 ){
-                return SubjectFragment.getInstance(AVOUtil.Category.listening,KeyUtil.RecentListen,"2");
-            }else if( position == 2 ){
-                return SubjectFragment.getInstance(AVOUtil.Category.listening,KeyUtil.RecentListen,"3");
-            }else if( position == 3 ){
-                return ReadingsBySubjectFragment.newInstance(category_2,KeyUtil.RecentListen,"");
-            }
-        }else {
-            if( position == 0 ){
-                return ReadingsBySubjectFragment.newInstance(category_2,KeyUtil.RecentListen,"");
-            }else if( position == 1 ){
-                return SubjectFragment.getInstance(AVOUtil.Category.listening,KeyUtil.RecentListen,"1");
-            }else if( position == 2 ){
-                return SubjectFragment.getInstance(AVOUtil.Category.listening,KeyUtil.RecentListen,"2");
-            }else if( position == 3 ){
-                return SubjectFragment.getInstance(AVOUtil.Category.listening,KeyUtil.RecentListen,"3");
-            }
+        if( position == 0 ){
+            return SubjectFragment.getInstance(AVOUtil.Category.listening,KeyUtil.RecentListen,"1");
+        }else if( position == 1 ){
+            return SubjectFragment.getInstance(AVOUtil.Category.listening,KeyUtil.RecentListen,"2");
+        }else if( position == 2 ){
+            return SubjectFragment.getInstance(AVOUtil.Category.listening,KeyUtil.RecentListen,"3");
         }
-
         return null;
     }
 

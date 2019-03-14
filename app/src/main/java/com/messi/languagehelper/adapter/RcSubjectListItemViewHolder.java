@@ -107,15 +107,34 @@ public class RcSubjectListItemViewHolder extends RecyclerView.ViewHolder {
         }else {
             normal_layout.setVisibility(View.VISIBLE);
             list_item_img.setVisibility(View.VISIBLE);
+            list_item_img.setImageResource(mAVObject.getInt(KeyUtil.ColorKey));
             title.setText( mAVObject.getString(AVOUtil.SubjectList.name) );
-            source_name.setText( mAVObject.getString(AVOUtil.SubjectList.category) );
-            type_name.setText( mAVObject.getString(AVOUtil.SubjectList.code) );
+            source_name.setText( getCategoryName(mAVObject.getString(AVOUtil.SubjectList.category)) );
+            type_name.setText( "听力课堂" );
             normal_layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View arg0) {
                     onItemClick(mAVObject);
                 }
             });
+        }
+    }
+    
+    private String getCategoryName(String category){
+        if ("listening".equals(category)) {
+            return "英语听力";
+        } else if ("spoken_english".equals(category)) {
+            return "英语口语";
+        } else if ("symbol".equals(category)) {
+            return "英语音标";
+        } else if ("story".equals(category)) {
+            return "英语故事";
+        } else if ("grammar".equals(category)) {
+            return "英语语法";
+        } else if ("word".equals(category)) {
+            return "英语单词";
+        } else {
+            return "英语学习";
         }
     }
 

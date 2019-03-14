@@ -17,13 +17,15 @@ import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
+import com.messi.languagehelper.ViewModel.XXLAVObjectModel;
 import com.messi.languagehelper.adapter.RcSubjectListAdapter;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
-import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.ColorUtil;
+import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
-import com.messi.languagehelper.util.XFYSAD;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
 
 import java.util.ArrayList;
@@ -41,15 +43,13 @@ public class SubjectFragment extends BaseFragment {
     Unbinder unbinder;
     private RcSubjectListAdapter mAdapter;
     private List<AVObject> avObjects;
-    private XFYSAD mXFYSAD;
     private int skip = 0;
-    private boolean loading;
-    private boolean hasMore = true;
     private GridLayoutManager layoutManager;
     private String category;
     private String recentKey;
     private String level;
     private String order;
+    private XXLAVObjectModel mXXLModel;
 
 
     public static SubjectFragment getInstance(String category, String recentKey, String level) {
@@ -98,16 +98,15 @@ public class SubjectFragment extends BaseFragment {
 
     private void initViews() {
         avObjects = new ArrayList<AVObject>();
-        mXFYSAD = new XFYSAD(getActivity(), ADUtil.SecondaryPage);
+        mXXLModel = new XXLAVObjectModel(getActivity());
     }
 
     private void initAdapter(){
         if(mAdapter == null && category_lv != null){
-            mAdapter = new RcSubjectListAdapter(mXFYSAD, recentKey);
+            mAdapter = new RcSubjectListAdapter(recentKey);
             mAdapter.setItems(avObjects);
-            mAdapter.setHeader(new Object());
             mAdapter.setFooter(new Object());
-            mXFYSAD.setAdapter(mAdapter);
+            mXXLModel.setAdapter(avObjects,mAdapter);
             hideFooterview();
             layoutManager = new GridLayoutManager(getContext(), NUMBER_OF_COLUMNS);
             HeaderSpanSizeLookup headerSpanSizeLookup = new HeaderSpanSizeLookup(mAdapter, layoutManager);
@@ -128,13 +127,19 @@ public class SubjectFragment extends BaseFragment {
                 int visible = layoutManager.getChildCount();
                 int total = layoutManager.getItemCount();
                 int firstVisibleItem = layoutManager.findFirstCompletelyVisibleItemPosition();
-                if (!loading && hasMore && isHasLoadData) {
+                if (!mXXLModel.loading && mXXLModel.hasMore && isHasLoadData) {
                     if ((visible + firstVisibleItem) >= total) {
                         new QueryTask().execute();
                     }
                 }
             }
         });
+    }
+
+    private void loadAD(){
+        if (mXXLModel != null) {
+            mXXLModel.showAd();
+        }
     }
 
     @Override
@@ -178,7 +183,9 @@ public class SubjectFragment extends BaseFragment {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            loading = true;
+            if(mXXLModel != null){
+                mXXLModel.loading = true;
+            }
             showProgressbar();
         }
 
@@ -197,7 +204,7 @@ public class SubjectFragment extends BaseFragment {
                 query.orderByAscending(AVOUtil.SubjectList.order);
             }
             query.skip(skip);
-            query.limit(20);
+            query.limit(Setings.page_size);
             try {
                 return query.find();
             } catch (AVException e) {
@@ -209,24 +216,25 @@ public class SubjectFragment extends BaseFragment {
         @Override
         protected void onPostExecute(List<AVObject> avObject) {
             super.onPostExecute(avObject);
-            loading = false;
+            mXXLModel.loading = false;
             hideProgressbar();
             onSwipeRefreshLayoutFinish();
             initAdapter();
             if (avObject != null) {
                 if (avObject.size() == 0) {
                     ToastUtil.diaplayMesShort(getContext(), "没有了！");
-                    hasMore = false;
+                    mXXLModel.hasMore = false;
                     hideFooterview();
                 } else {
                     if (avObjects != null && mAdapter != null) {
+                        addBgColor(avObject);
                         avObjects.addAll(avObject);
-                        if(avObject.size() == 20){
-                            skip += 20;
+                        if(avObject.size() == Setings.page_size){
+                            skip += Setings.page_size;
                             showFooterview();
-                            hasMore = true;
+                            mXXLModel.hasMore = true;
                         }else {
-                            hasMore = false;
+                            mXXLModel.hasMore = false;
                             hideFooterview();
                         }
                     }
@@ -235,8 +243,14 @@ public class SubjectFragment extends BaseFragment {
             if(mAdapter != null){
                 mAdapter.notifyDataSetChanged();
             }
+            loadAD();
         }
+    }
 
+    private void addBgColor(List<AVObject> avObject){
+        for (AVObject item : avObject){
+            item.put(KeyUtil.ColorKey, ColorUtil.getRadomColor());
+        }
     }
 
     private void hideFooterview() {
@@ -245,5 +259,13 @@ public class SubjectFragment extends BaseFragment {
 
     private void showFooterview() {
         mAdapter.showFooter();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if(mXXLModel != null){
+            mXXLModel.onDestroy();
+        }
     }
 }

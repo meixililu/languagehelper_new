@@ -74,7 +74,7 @@ public class XXLForXMLYModel {
                 if(ADUtil.GDT.equals(currentAD)){
                     loadTXAD();
                 }else if(ADUtil.BD.equals(currentAD)){
-                    loadBDAD();
+                    loadCSJAD();
                 }else if(ADUtil.CSJ.equals(currentAD)){
                     loadCSJAD();
                 }else if(ADUtil.XF.equals(currentAD)){

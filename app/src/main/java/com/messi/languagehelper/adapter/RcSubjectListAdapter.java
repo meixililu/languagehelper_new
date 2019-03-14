@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import com.avos.avoscloud.AVObject;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.util.HeaderFooterRecyclerViewAdapter;
-import com.messi.languagehelper.util.XFYSAD;
 
 /**
  * Created by luli on 10/23/16.
@@ -16,24 +15,10 @@ import com.messi.languagehelper.util.XFYSAD;
 
 public class RcSubjectListAdapter extends HeaderFooterRecyclerViewAdapter<RecyclerView.ViewHolder, Object, AVObject, Object> {
 
-    private XFYSAD mXFYSAD;
     private String recentKey;
 
-    public RcSubjectListAdapter(XFYSAD mXFYSAD,String recentKey){
+    public RcSubjectListAdapter(String recentKey){
         this.recentKey = recentKey;
-        this.mXFYSAD = mXFYSAD;
-    }
-
-    @Override
-    protected RecyclerView.ViewHolder onCreateHeaderViewHolder(ViewGroup parent, int viewType) {
-        LayoutInflater inflater = getLayoutInflater(parent);
-        View headerView = inflater.inflate(R.layout.xunfei_ysad_item, parent, false);
-        return new RcAdHeaderViewHolder(headerView,mXFYSAD);
-    }
-
-    @Override
-    protected void onBindHeaderViewHolder(RecyclerView.ViewHolder holder, int position) {
-        super.onBindHeaderViewHolder(holder, position);
     }
 
     @Override

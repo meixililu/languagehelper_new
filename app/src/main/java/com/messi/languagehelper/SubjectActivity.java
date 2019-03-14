@@ -10,12 +10,13 @@ import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
+import com.messi.languagehelper.ViewModel.XXLAVObjectModel;
 import com.messi.languagehelper.adapter.RcSubjectListAdapter;
-import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.ColorUtil;
 import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
-import com.messi.languagehelper.util.XFYSAD;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
 
 import java.util.ArrayList;
@@ -31,13 +32,11 @@ public class SubjectActivity extends BaseActivity {
     RecyclerView category_lv;
     private RcSubjectListAdapter mAdapter;
     private List<AVObject> avObjects;
-    private XFYSAD mXFYSAD;
     private int skip = 0;
-    private boolean loading;
-    private boolean hasMore = true;
     private GridLayoutManager layoutManager;
     private String code;
     private String recentKey;
+    private XXLAVObjectModel mXXLModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,16 +52,15 @@ public class SubjectActivity extends BaseActivity {
         code = getIntent().getStringExtra(KeyUtil.SubjectName);
         recentKey = getIntent().getStringExtra(KeyUtil.RecentKey);
         avObjects = new ArrayList<AVObject>();
-        mXFYSAD = new XFYSAD(this, ADUtil.SecondaryPage);
+        mXXLModel = new XXLAVObjectModel(this);
     }
 
     private void initAdapter() {
         if (mAdapter == null) {
-            mAdapter = new RcSubjectListAdapter(mXFYSAD, recentKey);
+            mAdapter = new RcSubjectListAdapter(recentKey);
             mAdapter.setItems(avObjects);
-            mAdapter.setHeader(new Object());
             mAdapter.setFooter(new Object());
-            mXFYSAD.setAdapter(mAdapter);
+            mXXLModel.setAdapter(avObjects,mAdapter);
             hideFooterview();
             layoutManager = new GridLayoutManager(this, NUMBER_OF_COLUMNS);
             HeaderSpanSizeLookup headerSpanSizeLookup = new HeaderSpanSizeLookup(mAdapter, layoutManager);
@@ -83,13 +81,19 @@ public class SubjectActivity extends BaseActivity {
                 int visible = layoutManager.getChildCount();
                 int total = layoutManager.getItemCount();
                 int firstVisibleItem = layoutManager.findFirstCompletelyVisibleItemPosition();
-                if (!loading && hasMore) {
+                if (!mXXLModel.loading && mXXLModel.hasMore) {
                     if ((visible + firstVisibleItem) >= total) {
                         new QueryTask().execute();
                     }
                 }
             }
         });
+    }
+
+    private void loadAD(){
+        if (mXXLModel != null) {
+            mXXLModel.showAd();
+        }
     }
 
     @Override
@@ -106,7 +110,9 @@ public class SubjectActivity extends BaseActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            loading = true;
+            if(mXXLModel != null){
+                mXXLModel.loading = true;
+            }
             showProgressbar();
         }
 
@@ -118,7 +124,7 @@ public class SubjectActivity extends BaseActivity {
             }
             query.orderByAscending(AVOUtil.SubjectList.order);
             query.skip(skip);
-            query.limit(20);
+            query.limit(Setings.page_size);
             try {
                 return query.find();
             } catch (AVException e) {
@@ -130,32 +136,40 @@ public class SubjectActivity extends BaseActivity {
         @Override
         protected void onPostExecute(List<AVObject> avObject) {
             super.onPostExecute(avObject);
-            loading = false;
+            mXXLModel.loading = false;
             hideProgressbar();
             onSwipeRefreshLayoutFinish();
             initAdapter();
             if (avObject != null) {
                 if (avObject.size() == 0) {
                     ToastUtil.diaplayMesShort(SubjectActivity.this, "没有了！");
-                    hasMore = false;
+                    mXXLModel.hasMore = false;
                     hideFooterview();
                 } else {
                     if (avObjects != null && mAdapter != null) {
+                        addBgColor(avObject);
                         avObjects.addAll(avObject);
-                        if (avObject.size() == 20) {
-                            skip += 20;
+                        if (avObject.size() == Setings.page_size) {
+                            skip += Setings.page_size;
                             showFooterview();
-                            hasMore = true;
+                            mXXLModel.hasMore = true;
                         } else {
-                            hasMore = false;
+                            mXXLModel.hasMore = false;
                             hideFooterview();
                         }
                     }
                 }
             }
             mAdapter.notifyDataSetChanged();
+            loadAD();
         }
 
+    }
+
+    private void addBgColor(List<AVObject> avObject){
+        for (AVObject item : avObject){
+            item.put(KeyUtil.ColorKey, ColorUtil.getRadomColor());
+        }
     }
 
     private void hideFooterview() {
@@ -164,5 +178,13 @@ public class SubjectActivity extends BaseActivity {
 
     private void showFooterview() {
         mAdapter.showFooter();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if(mXXLModel != null){
+            mXXLModel.onDestroy();
+        }
     }
 }

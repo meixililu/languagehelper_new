@@ -73,7 +73,7 @@ public class XXLAVObjectModel {
                 if(ADUtil.GDT.equals(currentAD)){
                     loadTXAD();
                 }else if(ADUtil.BD.equals(currentAD)){
-                    loadBDAD();
+                    loadCSJAD();
                 }else if(ADUtil.CSJ.equals(currentAD)){
                     loadCSJAD();
                 }else if(ADUtil.XF.equals(currentAD)){
@@ -130,7 +130,7 @@ public class XXLAVObjectModel {
     }
 
     private void loadTXAD() {
-        TXADUtil.showCDTZX(mContext, new NativeExpressAD.NativeExpressADListener() {
+        TXADUtil.showXXL(mContext, new NativeExpressAD.NativeExpressADListener() {
             @Override
             public void onNoAD(com.qq.e.comm.util.AdError adError) {
                 LogUtil.DefalutLog("TX-onNoAD");

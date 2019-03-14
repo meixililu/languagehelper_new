@@ -33,7 +33,7 @@ public class ListenCourseFragment extends BaseFragment{
 
         pageAdapter = new ListenSubjectAdapter(getChildFragmentManager(),getContext());
         viewpager.setAdapter(pageAdapter);
-        viewpager.setOffscreenPageLimit(5);
+        viewpager.setOffscreenPageLimit(3);
         tablayout.setupWithViewPager(viewpager);
     }
 }
