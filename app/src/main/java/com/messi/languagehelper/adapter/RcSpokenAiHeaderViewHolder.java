@@ -6,7 +6,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.messi.languagehelper.AiChatActivity;
 import com.messi.languagehelper.AiSpokenBasicActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.ReadingsActivity;
@@ -28,15 +27,8 @@ public class RcSpokenAiHeaderViewHolder extends RecyclerView.ViewHolder {
         LogUtil.DefalutLog("RcAdHeaderViewHolder---init");
         this.headerView = itemView;
         this.mContext = mContext;
-        FrameLayout ai_layout = (FrameLayout)itemView.findViewById(R.id.ai_layout);
         FrameLayout base_layout = (FrameLayout)itemView.findViewById(R.id.base_layout);
         FrameLayout video_layout = (FrameLayout)itemView.findViewById(R.id.video_layout);
-        ai_layout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                toActivity(AiChatActivity.class);
-            }
-        });
         base_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

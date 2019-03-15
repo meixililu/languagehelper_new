@@ -26,7 +26,7 @@ public class StoryActivity extends BaseActivity implements FragmentProgressbarLi
     }
 
     private void initViews(){
-        getSupportActionBar().setTitle(getResources().getString(R.string.title_english_story));
+        getSupportActionBar().setTitle(getResources().getString(R.string.title_grammer_story));
         tablayout = (TabLayout) findViewById(R.id.tablayout);
         viewpager = (ViewPager) findViewById(R.id.viewpager);
 

@@ -1,7 +1,6 @@
 package com.messi.languagehelper;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -24,7 +23,6 @@ import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.JsonParser;
-import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Setings;
@@ -146,11 +144,11 @@ public class StudyCategoryFragment extends BaseFragment {
                 AVAnalytics.onEvent(getContext(), "tab3_to_listening");
                 break;
             case R.id.en_examination_layout:
-                toExaminationActivity(getContext().getResources().getString(R.string.examination));
+                toActivity(AiChatActivity.class,null);
                 AVAnalytics.onEvent(getContext(), "tab3_to_examination");
                 break;
             case R.id.study_composition:
-                toActivity(CompositionActivity.class, null);
+                toActivity(ComExamActivity.class, null);
                 AVAnalytics.onEvent(getContext(), "tab3_to_composition");
                 break;
             case R.id.collected_layout:
@@ -182,12 +180,6 @@ public class StudyCategoryFragment extends BaseFragment {
                 AVAnalytics.onEvent(getContext(), "tab3_to_dailysentence");
                 break;
         }
-    }
-
-    private void toExaminationActivity(String title) {
-        Intent intent = new Intent(getContext(), ExaminationActivity.class);
-        intent.putExtra(KeyUtil.ActionbarTitle, title);
-        getContext().startActivity(intent);
     }
 
     private void QueryTask() {

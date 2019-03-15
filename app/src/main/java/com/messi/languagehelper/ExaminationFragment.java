@@ -5,14 +5,14 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.messi.languagehelper.adapter.ExaminationListAdapter;
-import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
@@ -23,7 +23,7 @@ import com.messi.languagehelper.util.Setings;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExaminationActivity extends BaseActivity implements FragmentProgressbarListener{
+public class ExaminationFragment extends BaseFragment {
 
 	private TabLayout tablayout;
 	private ViewPager viewpager;
@@ -31,19 +31,24 @@ public class ExaminationActivity extends BaseActivity implements FragmentProgres
 	private List<AVObject> avObjects;
 	private SharedPreferences spf;
 	private boolean isNeedSaveData;
-	
+
+	public static ExaminationFragment getInstance() {
+		return new ExaminationFragment();
+	}
+
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.joke_activity);
-		initViews();
-		initData(); 
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		super.onCreateView(inflater, container, savedInstanceState);
+		View view = inflater.inflate(R.layout.tablayout_fragment, container, false);
+		initViews(view);
+		initData();
+		return view;
 	}
 	
-	private void initViews(){
-		spf = Setings.getSharedPreferences(this);
-		tablayout = (TabLayout) findViewById(R.id.tablayout);
-		viewpager = (ViewPager) findViewById(R.id.viewpager);
+	private void initViews(View view){
+		spf = Setings.getSharedPreferences(getContext());
+		tablayout = (TabLayout) view.findViewById(R.id.tablayout);
+		viewpager = (ViewPager) view.findViewById(R.id.viewpager);
 		avObjects = new ArrayList<AVObject>();
 	}
 	
@@ -51,11 +56,11 @@ public class ExaminationActivity extends BaseActivity implements FragmentProgres
 		try {
 			long lastTimeSave = spf.getLong(KeyUtil.SaveLastTime_ExaminationType, 0);
 			if(System.currentTimeMillis() - lastTimeSave > 1000*60*60*24*10){
-				SaveData.deleteObject(this, "ExaminationActivity");
+				SaveData.deleteObject(getContext(), "ExaminationActivity");
 				LogUtil.DefalutLog("deleteObject   ExaminationActivity");
 				new QueryTask().execute();
 			}else{
-				List<String> listStr =  (ArrayList<String>) SaveData.getObject(this, "ExaminationActivity");
+				List<String> listStr =  (ArrayList<String>) SaveData.getObject(getContext(), "ExaminationActivity");
 				if(listStr == null || listStr.size() == 0){
 					LogUtil.DefalutLog("avObjects is null");
 					new QueryTask().execute();
@@ -108,42 +113,42 @@ public class ExaminationActivity extends BaseActivity implements FragmentProgres
 	}
 	
 	private void initTabTitle(){
-		pageAdapter = new ExaminationListAdapter(getSupportFragmentManager(),this,avObjects);
+		pageAdapter = new ExaminationListAdapter(getChildFragmentManager(),getContext(),avObjects);
 		viewpager.setAdapter(pageAdapter);
 		viewpager.setOffscreenPageLimit(5);
 		tablayout.setupWithViewPager(viewpager);
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.search, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-			case R.id.action_search:
-				toMoreActivity();
-				break;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+//	@Override
+//	public boolean onCreateOptionsMenu(Menu menu) {
+//		getMenuInflater().inflate(R.menu.search, menu);
+//		return true;
+//	}
+//
+//	@Override
+//	public boolean onOptionsItemSelected(MenuItem item) {
+//		switch (item.getItemId()) {
+//			case R.id.action_search:
+//				toMoreActivity();
+//				break;
+//		}
+//		return super.onOptionsItemSelected(item);
+//	}
 
 	private void toMoreActivity() {
 		toActivity(SearchActivity.class, null);
-		AVAnalytics.onEvent(this, "index_pg_to_morepg");
+		AVAnalytics.onEvent(getContext(), "index_pg_to_morepg");
 	}
 	
 	@Override
-	protected void onDestroy() {
+	public void onDestroy() {
 		super.onDestroy();
 		if(avObjects != null && isNeedSaveData){
 			List<String> listStr = new ArrayList<String>();
 			for(AVObject item : avObjects){
 				listStr.add(item.toString());
 			}
-			SaveData.saveObject(this, "ExaminationActivity", listStr);
+			SaveData.saveObject(getContext(), "ExaminationActivity", listStr);
 			Setings.saveSharedPreferences(spf, KeyUtil.SaveLastTime_ExaminationType,
 					System.currentTimeMillis());
 			LogUtil.DefalutLog("saveObject   ExaminationActivity");

@@ -4,71 +4,41 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.text.TextUtils;
 
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.ReadingsBySubjectFragment;
+import com.messi.languagehelper.SubjectByTypeFragment;
 import com.messi.languagehelper.SubjectFragment;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.Setings;
 
 import java.util.ArrayList;
 
 public class SpokenEnglishSubjectAdapter extends FragmentPagerAdapter {
 
     private ArrayList<String> titleList = new ArrayList<String>();
-    private Context mContext;
-    private String category_2;
 
     public SpokenEnglishSubjectAdapter(FragmentManager fm, Context mContext) {
         super(fm);
-        this.mContext = mContext;
-        category_2 = Setings.getSharedPreferences(mContext).getString(KeyUtil.RecentSpoken,"");
-        if(TextUtils.isEmpty(category_2)){
-            addTitle();
-            titleList.add(mContext.getResources().getString(R.string.recent));
-        }else {
-            titleList.add(mContext.getResources().getString(R.string.recent));
-            addTitle();
-        }
-    }
-
-    private void addTitle(){
         titleList.add(mContext.getResources().getString(R.string.new_concept));
         titleList.add(mContext.getResources().getString(R.string.beginner));
         titleList.add(mContext.getResources().getString(R.string.intermediate));
         titleList.add(mContext.getResources().getString(R.string.advanced));
+        titleList.add(mContext.getResources().getString(R.string.title_business));
     }
 
     @Override
     public Fragment getItem(int position) {
-        if(TextUtils.isEmpty(category_2)){
-            if( position == 0 ){
-                return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,KeyUtil.RecentSpoken,"0");
-            }else if( position == 1 ){
-                return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,KeyUtil.RecentSpoken,"2");
-            }else if( position == 2 ){
-                return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,KeyUtil.RecentSpoken,"2");
-            }else if( position == 3 ){
-                return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,KeyUtil.RecentSpoken,"3");
-            }else if( position == 4 ){
-                return ReadingsBySubjectFragment.newInstance(category_2,KeyUtil.RecentSpoken,"");
-            }
-        }else {
-            if( position == 0 ){
-                return ReadingsBySubjectFragment.newInstance(category_2,KeyUtil.RecentSpoken,"");
-            }else if( position == 1 ){
-                return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,KeyUtil.RecentSpoken,"0");
-            }else if( position == 2 ){
-                return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,KeyUtil.RecentSpoken,"1");
-            }else if( position == 3 ){
-                return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,KeyUtil.RecentSpoken,"2");
-            }else if( position == 4 ){
-                return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,KeyUtil.RecentSpoken,"3");
-            }
+        if( position == 0 ){
+            return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,KeyUtil.RecentSpoken,"0");
+        }else if( position == 1 ){
+            return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,KeyUtil.RecentSpoken,"2");
+        }else if( position == 2 ){
+            return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,KeyUtil.RecentSpoken,"2");
+        }else if( position == 3 ){
+            return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,KeyUtil.RecentSpoken,"3");
+        }else if( position == 4 ){
+            return SubjectByTypeFragment.getInstance(AVOUtil.Category.business,KeyUtil.RecentBusiness);
         }
-
         return null;
     }
 

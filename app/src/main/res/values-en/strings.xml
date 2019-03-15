@@ -63,6 +63,8 @@
     <string name="title_web_npr">NPR</string>
     <string name="title_web_AmericanLife">AmericanLife</string>
     <string name="title_composition">Composition</string>
+    <string name="title_com_exam">ComAndExam</string>
+    <string name="title_grammer_story">GrammerStory</string>
     <string name="title_sure">Sure</string>
     <string name="dic_minimalist">Minimalist</string>
     <string name="dic_normal">Standard</string>

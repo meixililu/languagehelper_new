@@ -24,7 +24,6 @@ public class SpokenActivity extends BaseActivity implements FragmentProgressbarL
     private Fragment mWordHomeFragment;
     private Fragment practiceFragment;
     private Fragment dashboardFragment;
-    private Fragment radioHomeFragment;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -47,11 +46,6 @@ public class SpokenActivity extends BaseActivity implements FragmentProgressbarL
                     getSupportFragmentManager().beginTransaction().show(dashboardFragment).commit();;
                     AVAnalytics.onEvent(SpokenActivity.this, "spoken_course");
                     return true;
-                case R.id.navigation_vovabulary:
-                    hideAllFragment();
-                    getSupportFragmentManager().beginTransaction().show(radioHomeFragment).commit();;
-                    AVAnalytics.onEvent(SpokenActivity.this, "spoken_bussiness");
-                    return true;
             }
             return false;
         }
@@ -61,24 +55,23 @@ public class SpokenActivity extends BaseActivity implements FragmentProgressbarL
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_spoken);
+        setContentView(R.layout.activity_bottom_tabs);
         ButterKnife.bind(this);
         initFragment();
     }
 
     private void initFragment(){
+        navigation.inflateMenu(R.menu.spoken_tabs);
         navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         mWordHomeFragment = SpokenAIFragment.newInstance(AVOUtil.Category.spoken_english,"");
         practiceFragment = AiDialogueCourseFragment.getInstance();
         dashboardFragment = SpokenCourseFragment.getInstance();
-        radioHomeFragment = BusinessFragment.getInstance();
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.content, mWordHomeFragment)
                 .add(R.id.content, practiceFragment)
                 .add(R.id.content, dashboardFragment)
-                .add(R.id.content, radioHomeFragment)
                 .commit();
         hideAllFragment();
         getSupportFragmentManager()
@@ -90,7 +83,6 @@ public class SpokenActivity extends BaseActivity implements FragmentProgressbarL
                 .beginTransaction()
                 .hide(dashboardFragment)
                 .hide(practiceFragment)
-                .hide(radioHomeFragment)
                 .hide(mWordHomeFragment)
                 .commit();
     }

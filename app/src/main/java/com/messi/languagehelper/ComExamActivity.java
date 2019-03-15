@@ -8,20 +8,18 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
-import com.messi.languagehelper.util.AVAnalytics;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ListenActivity extends BaseActivity implements FragmentProgressbarListener {
+public class ComExamActivity extends BaseActivity implements FragmentProgressbarListener {
 
     @BindView(R.id.content)
     FrameLayout content;
     @BindView(R.id.navigation)
     BottomNavigationView navigation;
-    private ListenHomeFragment mWordHomeFragment;
-    private Fragment dashboardFragment;
-    private Fragment radioHomeFragment;
+    private Fragment mExaminationFragment;
+    private Fragment mCompositionFragment;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -31,18 +29,11 @@ public class ListenActivity extends BaseActivity implements FragmentProgressbarL
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     hideAllFragment();
-                    getSupportFragmentManager().beginTransaction().show(mWordHomeFragment).commit();;
-                    AVAnalytics.onEvent(ListenActivity.this, "wordstudy_daily");
+                    getSupportFragmentManager().beginTransaction().show(mCompositionFragment).commit();;
                     return true;
-                case R.id.navigation_word_study:
+                case R.id.navigation_examination:
                     hideAllFragment();
-                    getSupportFragmentManager().beginTransaction().show(dashboardFragment).commit();;
-                    AVAnalytics.onEvent(ListenActivity.this, "wordstudy_course");
-                    return true;
-                case R.id.navigation_vovabulary:
-                    hideAllFragment();
-                    getSupportFragmentManager().beginTransaction().show(radioHomeFragment).commit();;
-                    AVAnalytics.onEvent(ListenActivity.this, "wordstudy_vocabulary");
+                    getSupportFragmentManager().beginTransaction().show(mExaminationFragment).commit();;
                     return true;
             }
             return false;
@@ -59,28 +50,25 @@ public class ListenActivity extends BaseActivity implements FragmentProgressbarL
     }
 
     private void initFragment(){
-        navigation.inflateMenu(R.menu.listen_tabs);
+        navigation.inflateMenu(R.menu.com_exam_tabs);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        mWordHomeFragment = ListenHomeFragment.getInstance();
-        dashboardFragment = ListenCourseFragment.getInstance();
-        radioHomeFragment = BroadcastFragment.getInstance();
+        mExaminationFragment = ExaminationFragment.getInstance();
+        mCompositionFragment = CompositionFragment.getInstance();
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.content, mWordHomeFragment)
-                .add(R.id.content, dashboardFragment)
-                .add(R.id.content, radioHomeFragment)
+                .add(R.id.content, mCompositionFragment)
+                .add(R.id.content, mExaminationFragment)
                 .commit();
         hideAllFragment();
         getSupportFragmentManager()
-                .beginTransaction().show(mWordHomeFragment).commit();
+                .beginTransaction().show(mExaminationFragment).commit();
     }
 
     private void hideAllFragment(){
         getSupportFragmentManager()
                 .beginTransaction()
-                .hide(dashboardFragment)
-                .hide(radioHomeFragment)
-                .hide(mWordHomeFragment)
+                .hide(mCompositionFragment)
+                .hide(mExaminationFragment)
                 .commit();
     }
 

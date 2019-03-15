@@ -277,6 +277,9 @@
             android:name=".XmlyActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".ComExamActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".AiTuringActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />

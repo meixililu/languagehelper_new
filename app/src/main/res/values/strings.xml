@@ -63,6 +63,8 @@
     <string name="title_web_npr">NPR</string>
     <string name="title_web_AmericanLife">AmericanLife</string>
     <string name="title_composition">作文</string>
+    <string name="title_com_exam">作文/考题</string>
+    <string name="title_grammer_story">语法/故事</string>
     <string name="title_ch_dictionary">汉语字典</string>
     <string name="title_dictionary_idiom">成语词典</string>
     <string name="dic_minimalist">精简版词典</string>
@@ -371,7 +373,7 @@
     <string name="title_course">课程</string>
     <string name="title_daily_word_study">每日一词</string>
     <string name="search_hint">VOA|BBC|CNN</string>
-    <string name="search_history"><![CDATA[历史&热门]]></string>
+    <string name="search_history">历史|热门</string>
     <string name="learn_english_with_ai">跟ai学英语</string>
     <string name="title_ai_chat">英语聊天</string>
     <string name="sent">发送</string>
