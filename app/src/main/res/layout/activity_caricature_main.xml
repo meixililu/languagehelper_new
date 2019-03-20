@@ -20,7 +20,6 @@
         android:layout_gravity="bottom"
         app:itemIconTint="@drawable/tab_color_selector"
         app:itemTextColor="@drawable/tab_color_selector"
-        android:background="@color/bg_white"
-        app:menu="@menu/caricature_main_tabs" />
+        android:background="@color/bg_white"/>
 
 </LinearLayout>

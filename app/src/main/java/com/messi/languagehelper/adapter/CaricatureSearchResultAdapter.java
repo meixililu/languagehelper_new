@@ -5,30 +5,36 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.messi.languagehelper.CaricatureBookShelfFragment;
-import com.messi.languagehelper.CaricatureHistoryFragment;
+import com.messi.languagehelper.CaricatureSearchResultFragment;
+import com.messi.languagehelper.MiaosouResultListFragment;
 import com.messi.languagehelper.R;
 
-public class CaricatureBHAdapter extends FragmentPagerAdapter {
+
+public class CaricatureSearchResultAdapter extends FragmentPagerAdapter {
 
     public static String[] CONTENT;
     private Context mContext;
+    private String search_text;
+    private String url;
 
-    public CaricatureBHAdapter(FragmentManager fm, Context mContext) {
+    public CaricatureSearchResultAdapter(FragmentManager fm, Context mContext,String search_text,
+                                         String url) {
         super(fm);
         this.mContext = mContext;
+        this.search_text = search_text;
+        this.url = url;
         CONTENT = new String[] {
-                mContext.getResources().getString(R.string.title_bookshelf),
-                mContext.getResources().getString(R.string.title_history)
+                mContext.getResources().getString(R.string.title_zhannei),
+                mContext.getResources().getString(R.string.title_zhanwai)
         };
     }
 
     @Override
     public Fragment getItem(int position) {
         if( position == 0 ){
-            return CaricatureBookShelfFragment.newInstance();
+            return CaricatureSearchResultFragment.getInstance(search_text);
         }else if( position == 1 ){
-            return CaricatureHistoryFragment.newInstance();
+            return MiaosouResultListFragment.newInstance(url);
         }
         return null;
     }

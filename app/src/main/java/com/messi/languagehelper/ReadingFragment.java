@@ -1,6 +1,6 @@
 package com.messi.languagehelper;
 
-import android.app.Activity;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -22,7 +22,6 @@ import com.messi.languagehelper.dao.Reading;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
-import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
@@ -118,12 +117,12 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 	}
 
 	@Override
-	public void onAttach(Activity activity) {
+	public void onAttach(Context activity) {
 		super.onAttach(activity);
 		LogUtil.DefalutLog("onAttach");
 		try {
 			mProgressbarListener = (FragmentProgressbarListener) activity;
-        } catch (ClassCastException e) {
+        } catch (Exception e) {
             throw new ClassCastException(activity.toString() + " must implement FragmentProgressbarListener");
         }
 	}

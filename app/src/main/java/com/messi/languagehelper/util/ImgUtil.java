@@ -1,10 +1,13 @@
 package com.messi.languagehelper.util;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
+
+import com.messi.languagehelper.R;
 
 
 public class ImgUtil {
@@ -12,6 +15,23 @@ public class ImgUtil {
     public static void toBitmap(Context mContext, String path, int resourseId){
         try {
             Bitmap srcBitmap= BitmapFactory.decodeFile(path);
+            Bitmap waterBitmap = BitmapFactory.decodeResource(mContext.getResources(),resourseId);
+//            Bitmap newBitmap = createWaterMaskRightBottom(mContext,srcBitmap,waterBitmap,15,15);
+            Bitmap newBitmap = WaterMask(srcBitmap,waterBitmap);
+            String imgPath = SDCardUtil.saveBitmap(mContext, newBitmap, "share_img.png");
+            Setings.shareImg(mContext, imgPath);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void toBitmap(Activity mContext, String path){
+        try {
+            Bitmap srcBitmap= BitmapFactory.decodeFile(path);
+            int resourseId = R.drawable.qr_zyhy;
+            if(mContext.getPackageName().equals(Setings.application_id_zyhy)){
+                resourseId = R.drawable.qr_zyhy;
+            }
             Bitmap waterBitmap = BitmapFactory.decodeResource(mContext.getResources(),resourseId);
 //            Bitmap newBitmap = createWaterMaskRightBottom(mContext,srcBitmap,waterBitmap,15,15);
             Bitmap newBitmap = WaterMask(srcBitmap,waterBitmap);

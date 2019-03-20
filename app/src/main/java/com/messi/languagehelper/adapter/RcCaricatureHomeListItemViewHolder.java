@@ -13,12 +13,10 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.CaricatureDetailActivity;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.box.CNWBean;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.qq.e.ads.nativ.NativeExpressADView;
-
-import com.avos.avoscloud.AVObject;
 
 /**
  * Created by luli on 10/23/16.
@@ -41,12 +39,12 @@ public class RcCaricatureHomeListItemViewHolder extends RecyclerView.ViewHolder 
         ad_layout = (LinearLayout) convertView.findViewById(R.id.ad_layout);
     }
 
-    public void render(final AVObject mAVObject) {
+    public void render(final CNWBean mAVObject) {
         ad_layout.setVisibility(View.GONE);
         img.setVisibility(View.VISIBLE);
-        final NativeADDataRef mNativeADDataRef = (NativeADDataRef) mAVObject.get(KeyUtil.ADKey);
+        final NativeADDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
         if(mNativeADDataRef == null){
-            NativeExpressADView mADView = (NativeExpressADView) mAVObject.get(KeyUtil.TXADView);
+            NativeExpressADView mADView = mAVObject.getmTXADView();
             if(mADView != null){
                 img.setVisibility(View.GONE);
                 ad_layout.setVisibility(View.VISIBLE);
@@ -57,8 +55,8 @@ public class RcCaricatureHomeListItemViewHolder extends RecyclerView.ViewHolder 
                 ad_layout.addView(mADView);
                 mADView.render();
             }else {
-                img.setImageURI(mAVObject.getString(AVOUtil.Caricature.book_img_url));
-                name.setText( mAVObject.getString(AVOUtil.Caricature.name));
+                img.setImageURI(mAVObject.getImg_url());
+                name.setText( mAVObject.getTitle());
                 cover.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View arg0) {
@@ -81,10 +79,10 @@ public class RcCaricatureHomeListItemViewHolder extends RecyclerView.ViewHolder 
 
     }
 
-    private void onItemClick(AVObject mAVObject){
+    private void onItemClick(CNWBean mAVObject){
         Intent intent = new Intent(context, CaricatureDetailActivity.class);
-        intent.putExtra(KeyUtil.AVObjectKey, mAVObject.toString());
-        intent.putExtra(KeyUtil.ActionbarTitle, mAVObject.getString(AVOUtil.Caricature.name));
+        intent.putExtra(KeyUtil.ObjectKey, mAVObject);
+        intent.putExtra(KeyUtil.ActionbarTitle, mAVObject.getTitle());
         context.startActivity(intent);
     }
 

@@ -5,8 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.avos.avoscloud.AVObject;
 import com.messi.languagehelper.R;
+import com.messi.languagehelper.box.CNWBean;
 import com.messi.languagehelper.util.HeaderFooterRecyclerViewAdapter;
 
 
@@ -14,7 +14,7 @@ import com.messi.languagehelper.util.HeaderFooterRecyclerViewAdapter;
  * Created by luli on 10/23/16.
  */
 
-public class RcCaricatureBookShelfAdapter extends HeaderFooterRecyclerViewAdapter<RecyclerView.ViewHolder, Object, AVObject, Object> {
+public class RcCaricatureBookShelfAdapter extends HeaderFooterRecyclerViewAdapter<RecyclerView.ViewHolder, Object, CNWBean, Object> {
 
     @Override
     protected RecyclerView.ViewHolder onCreateItemViewHolder(ViewGroup parent, int viewType) {
@@ -25,7 +25,7 @@ public class RcCaricatureBookShelfAdapter extends HeaderFooterRecyclerViewAdapte
 
     @Override
     protected void onBindItemViewHolder(RecyclerView.ViewHolder holder, int position) {
-        AVObject mAVObject = getItem(position);
+        CNWBean mAVObject = getItem(position);
         RcCaricatureBookshelfItemViewHolder itemViewHolder = (RcCaricatureBookshelfItemViewHolder)holder;
         itemViewHolder.render(mAVObject);
     }

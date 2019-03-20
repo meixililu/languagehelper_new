@@ -1,6 +1,5 @@
 package com.messi.languagehelper;
 
-import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.net.http.SslError;
@@ -9,9 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
-import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.webkit.SslErrorHandler;
@@ -22,17 +19,12 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVObject;
-import com.messi.languagehelper.db.DataBaseUtil;
-import com.messi.languagehelper.dialog.AdDialog;
-import com.messi.languagehelper.event.CaricatureEventHistory;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.CNWBean;
+import com.messi.languagehelper.box.WebFilter;
 import com.messi.languagehelper.util.ADUtil;
-import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-
-import org.greenrobot.eventbus.EventBus;
-
 
 public class WebViewForCaricatureActivity extends BaseActivity{
 	
@@ -48,14 +40,12 @@ public class WebViewForCaricatureActivity extends BaseActivity{
     private String filter_source_name;
     private String is_need_load_ad;
     private String adFilte;
-    private AVObject mItem;
+    private CNWBean mItem;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.web_view);
-		transparentStatusbar();
-		changeStatusBarTextColor(true);
 		try {
 			initData();
 			initViews();
@@ -65,32 +55,24 @@ public class WebViewForCaricatureActivity extends BaseActivity{
 	}
 	
 	private void initData() throws Exception{
-		String serializedStr = getIntent().getStringExtra(KeyUtil.AVObjectKey);
 		ToolbarBackgroundColor = getIntent().getIntExtra(KeyUtil.ToolbarBackgroundColorKey,0);
 		isReedPullDownRefresh = getIntent().getBooleanExtra(KeyUtil.IsReedPullDownRefresh, false);
 		isHideToolbar = getIntent().getBooleanExtra(KeyUtil.IsHideToolbar, false);
-		if(!TextUtils.isEmpty(serializedStr)){
-		    mItem = AVObject.parseAVObject(serializedStr);
-            AVObject temp = DataBaseUtil.getInstance().findByItemId(AVOUtil.Caricature.Caricature,mItem.getObjectId());
-            if (temp != null && mItem != null) {
-                LogUtil.DefalutLog("lasturl:"+temp.getString(AVOUtil.Caricature.lastUrl));
-                if(!TextUtils.isEmpty(temp.getString(AVOUtil.Caricature.lastUrl))){
-                    mItem.put(AVOUtil.Caricature.lastUrl,temp.getString(AVOUtil.Caricature.lastUrl));
-                }
-            }
-		}
-		if(mItem != null){
-			if(!TextUtils.isEmpty(mItem.getString(AVOUtil.Caricature.lastUrl))){
-				Url = mItem.getString(AVOUtil.Caricature.lastUrl);
+		mItem = getIntent().getParcelableExtra(KeyUtil.ObjectKey);
+		mItem = BoxHelper.getNewestData(mItem);
+		if (mItem != null) {
+			LogUtil.DefalutLog("lasturl:"+mItem.getLast_read_url());
+			if(!TextUtils.isEmpty(mItem.getLast_read_url())){
+				Url = mItem.getLast_read_url();
 			}else {
-				Url = mItem.getString(AVOUtil.Caricature.read_url);
+				Url = mItem.getRead_url();
 			}
 		}
 		if(ToolbarBackgroundColor != 0){
 			setToolbarBackground(ToolbarBackgroundColor);
 		}
 		if (isHideToolbar) {
-//			setStatusbarColor(R.color.black);
+			setStatusbarColor(R.color.black);
 			getSupportActionBar().hide();
 		}
 	}
@@ -171,40 +153,40 @@ public class WebViewForCaricatureActivity extends BaseActivity{
 
 			@Override
 			public void onReceivedSslError(WebView view,final SslErrorHandler handler, SslError error) {
-				final AlertDialog.Builder builder = new AlertDialog.Builder(WebViewForCaricatureActivity.this);
-				String message = "SSL Certificate error.";
-				switch (error.getPrimaryError()) {
-					case SslError.SSL_UNTRUSTED:
-						message = "The certificate authority is not trusted.";
-						break;
-					case SslError.SSL_EXPIRED:
-						message = "The certificate has expired.";
-						break;
-					case SslError.SSL_IDMISMATCH:
-						message = "The certificate Hostname mismatch.";
-						break;
-					case SslError.SSL_NOTYETVALID:
-						message = "The certificate is not yet valid.";
-						break;
-				}
-				message += " Do you want to continue anyway?";
-
-				builder.setTitle("SSL Certificate Error");
-				builder.setMessage(message);
-				builder.setPositiveButton("continue", new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						handler.proceed();
-					}
-				});
-				builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						handler.cancel();
-					}
-				});
-				final AlertDialog dialog = builder.create();
-				dialog.show();
+//				final AlertDialog.Builder builder = new AlertDialog.Builder(WebViewForCaricatureActivity.this);
+//				String message = "SSL Certificate error.";
+//				switch (error.getPrimaryError()) {
+//					case SslError.SSL_UNTRUSTED:
+//						message = "The certificate authority is not trusted.";
+//						break;
+//					case SslError.SSL_EXPIRED:
+//						message = "The certificate has expired.";
+//						break;
+//					case SslError.SSL_IDMISMATCH:
+//						message = "The certificate Hostname mismatch.";
+//						break;
+//					case SslError.SSL_NOTYETVALID:
+//						message = "The certificate is not yet valid.";
+//						break;
+//				}
+//				message += " Do you want to continue anyway?";
+//
+//				builder.setTitle("SSL Certificate Error");
+//				builder.setMessage(message);
+//				builder.setPositiveButton("continue", new DialogInterface.OnClickListener() {
+//					@Override
+//					public void onClick(DialogInterface dialog, int which) {
+//						handler.proceed();
+//					}
+//				});
+//				builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+//					@Override
+//					public void onClick(DialogInterface dialog, int which) {
+//						handler.cancel();
+//					}
+//				});
+//				final AlertDialog dialog = builder.create();
+//				dialog.show();
 			}
 		});
 		
@@ -239,34 +221,10 @@ public class WebViewForCaricatureActivity extends BaseActivity{
 	}
 
 	private void getFilter(){
-		AVObject object = DataBaseUtil.getInstance().findByItemKey(
-				AVOUtil.EnglishWebsite.EnglishWebsite,
-				mItem.getString(AVOUtil.Caricature.source_name));
-		if(object != null){
-			adFilte = object.getString(AVOUtil.EnglishWebsite.ad_filte);
+		WebFilter filter = BoxHelper.findWebFilterByName(mItem.getSource_name());
+		if(filter != null){
+			adFilte = filter.getAd_filter();
 			LogUtil.DefalutLog("adFilte:"+adFilte);
-		}
-	}
-
-	@Override
-	public boolean onKeyDown(final int keyCode,final KeyEvent event) {
-		if((keyCode == KeyEvent.KEYCODE_BACK) && mWebView.canGoBack()){
-			mWebView.goBack();
-			return true;
-		}else {
-			AdDialog dialog = new AdDialog(this);
-			dialog.setListener(new AdDialog.PopViewItemOnclickListener() {
-				@Override
-				public void onFirstClick(View v) {
-				}
-
-				@Override
-				public void onSecondClick(View v) {
-					finish();
-				}
-			});
-			dialog.show();
-			return true;
 		}
 	}
 	
@@ -274,13 +232,15 @@ public class WebViewForCaricatureActivity extends BaseActivity{
 	protected void onDestroy() {
 		super.onDestroy();
 		LogUtil.DefalutLog("Url:"+mWebView.getUrl());
-		mItem.put(AVOUtil.Caricature.lastUrl,mWebView.getUrl());
-		DataBaseUtil.getInstance().updateOrInsertAVObject(
-				AVOUtil.Caricature.Caricature,
-				mItem,
-				mItem.getString(AVOUtil.Caricature.name));
-		EventBus.getDefault().post(new CaricatureEventHistory());
-		mWebView.destroy();
+		if(!TextUtils.isEmpty(mWebView.getUrl()) && mItem.getCollected() > 100){
+			mItem.setHistory(System.currentTimeMillis());
+			mItem.setUpdateTime(System.currentTimeMillis());
+			mItem.setLast_read_url(mWebView.getUrl());
+			BoxHelper.updateCNWBean(mItem);
+		}
+		if(mWebView != null){
+			mWebView.destroy();
+		}
 	}
 
 	private void hideAd(final WebView view){

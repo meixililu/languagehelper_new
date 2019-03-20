@@ -96,7 +96,8 @@
     <string name="intermediate">中级</string>
     <string name="advanced">高级</string>
     <string name="new_concept">新概念</string>
-
+    <string name="title_zhannei">站内</string>
+    <string name="title_zhanwai">站外</string>
     <string name="menu_share">DIY分享</string>
     <string name="menu_settings">语速调节</string>
     <string name="app_name_share">App:中英互译</string>
@@ -122,7 +123,6 @@
     <string name="new_and_wrong">生词错词</string>
     <string name="query">查询</string>
     <string name="translate">翻译</string>
-    <string name="click_speak">翻译</string>
     <string name="start_to_follow">跟读</string>
     <string name="start">开始</string>
     <string name="listen">听</string>
@@ -133,7 +133,8 @@
     <string name="conversation">对话模式</string>
     <string name="loadmore">正在加载...</string>
     <string name="nomore">没有了!</string>
-
+    <string name="delete">删除</string>
+    <string name="empty">清空</string>
     <string name="share_dialog_text_1">文字</string>
     <string name="share_dialog_text_2">图片</string>
     <string name="take_photo">拍照翻译</string>
@@ -208,7 +209,7 @@
     <string name="wechat_long_click">微信长按有惊喜</string>
     <string name="favorite_success">收藏成功</string>
     <string name="favorite_cancle">取消收藏</string>
-
+    <string name="search_hot">热搜</string>
     <string name="dic_tab_juhai">句海</string>
     <string name="dic_tab_cidian">词典</string>
     <string name="dic_tab_shoucang">收藏</string>
@@ -271,7 +272,7 @@
     <string name="detail_total">总分</string>
     <string name="download">试一试</string>
 
-    <string name="leisure_novel">小说</string>
+    <string name="title_novel">小说</string>
     <string name="leisure_caricature">漫画</string>
     <string name="leisure_dvideo">短视频</string>
     <string name="leisure_search">热搜榜</string>
@@ -323,7 +324,7 @@
 
     <string name="invest_activity_title">使用场景和建议</string>
     <string name="feedback">反馈</string>
-    <string name="practice_finish">完成</string>
+    <string name="done">完成</string>
     <string name="practice_next">下一个</string>
     <string name="practice_next_level">下一关</string>
     <string name="practice_check">检查</string>
@@ -377,8 +378,10 @@
     <string name="learn_english_with_ai">跟ai学英语</string>
     <string name="title_ai_chat">英语聊天</string>
     <string name="sent">发送</string>
+    <string name="manage">管理</string>
     <string name="to_read">开始阅读</string>
     <string name="add_bookshelf">加入书架</string>
+    <string name="add_bookshelf_already">移出书架</string>
     <string name="title_speak_basic">口语基础</string>
     <string name="title_speak_dialog">口语对话</string>
     <string name="title_ai_dialog_choice_course">情景选择</string>

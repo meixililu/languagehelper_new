@@ -189,4 +189,15 @@ public class TXADUtil {
                 .build()); //
         nativeExpressAD.loadAD(1);
     }
+
+    public static void showXXLAD(Activity activity,int type,
+                                    NativeExpressAD.NativeExpressADListener listener){
+        if(type == 0){
+            showCDT(activity,listener);
+        }else if(type == 1){
+            showCDTZX(activity,listener);
+        }else if(type == 2){
+            showXXL(activity,listener);
+        }
+    }
 }

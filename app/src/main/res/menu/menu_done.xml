@@ -4,7 +4,7 @@
     <item
         android:id="@+id/action_add"
         android:orderInCategory="100"
-        android:title="@string/practice_finish"
+        android:title="@string/done"
         android:icon="@drawable/ic_add"
         app:showAsAction="always"
         android:showAsAction="always"

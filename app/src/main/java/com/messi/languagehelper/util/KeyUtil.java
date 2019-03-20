@@ -2,8 +2,9 @@ package com.messi.languagehelper.util;
 
 public class KeyUtil {
 
+	public static final String ObjectKey = "ObjectKey";
 	public static final String Study_Every = "study_every";
-	
+
 	public static final String Practice_FourInOne = "Practice_FourInOne";
 	
 	public static final String Practice_ReadAfterMe = "Practice_ReadAfterMe";
@@ -21,6 +22,8 @@ public class KeyUtil {
 	public static final String DialogBeanKey = "DialogBeanKey";
 
 	public static final String DownloadUrl = "DownloadUrl";
+
+	public static final String ImgUrl = "ImgUrl";
 
 	public static final String isHideMic = "isHideMic";
 
@@ -95,6 +98,8 @@ public class KeyUtil {
 	public static final String AiChatUserSelectLanguage = "AiChatUserSelectLanguage";
 
 	public static final String IsReedPullDownRefresh = "IsReedPullDownRefresh";
+
+	public static final String IsShowCollectedBtn = "IsShowCollectedBtn";
 
 	public static final String IsHideToolbar = "IsHideToolbar";
 
@@ -214,6 +219,8 @@ public class KeyUtil {
 
 	public static final String WordStudyPlan = "WordStudyPlan";
 
+	public static final String IsNeedWebViewGoback = "IsNeedWebViewGoback";
+
 	public static final String IsWordStudyPlaySound = "IsWordStudyPlaySound";
 
 	public static final String IsWordStudySpellPlaySound = "IsWordStudySpellPlaySound";
@@ -285,6 +292,8 @@ public class KeyUtil {
 	public static final String UpdateBean = "UpdateBean";
 	public static final String AdConfig = "AdConfig";
 	public static final String ColorKey = "ColorKey";
+	public static final String Caricature_version = "Caricature_version";
+	public static final String Caricature_channel = "Caricature_channel";
 
 
 

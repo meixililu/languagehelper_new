@@ -1,5 +1,6 @@
 package com.messi.languagehelper.util;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -196,5 +197,19 @@ public class NumberUtil {
 	private static void outputException(Exception e, String prompt){
 		LogUtil.ExceptionLog("ConversionUtil -- " + prompt);
 		e.printStackTrace();
+	}
+
+	public static String getNumberStr(double num){
+		String numStr = "" + num;
+		if(num > 100000000){
+			num = num / 100000000.0;
+			DecimalFormat df = new DecimalFormat("#.00");
+			numStr = df.format(num)+ "亿";
+		}else if(num > 10000){
+			num = num / 10000.0;
+			DecimalFormat df = new DecimalFormat("#.00");
+			numStr = df.format(num)+ "万";
+		}
+		return numStr;
 	}
 }

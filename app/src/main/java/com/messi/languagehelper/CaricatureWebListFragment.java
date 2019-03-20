@@ -3,11 +3,9 @@ package com.messi.languagehelper;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
@@ -15,7 +13,6 @@ import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.adapter.RcCaricatureSourceListAdapter;
-import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.ToastUtil;
@@ -25,12 +22,10 @@ import com.messi.languagehelper.views.DividerGridItemDecoration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CaricatureWebListFragment extends BaseFragment implements View.OnClickListener{
+public class CaricatureWebListFragment extends BaseFragment{
 
     private static final int NUMBER_OF_COLUMNS = 3;
     private RecyclerView category_lv;
-    private FrameLayout search_btn;
-    private Toolbar my_awesome_toolbar;
     private RcCaricatureSourceListAdapter mAdapter;
     private GridLayoutManager layoutManager;
     private List<AVObject> mList;
@@ -57,11 +52,7 @@ public class CaricatureWebListFragment extends BaseFragment implements View.OnCl
     private void initViews(View view) {
         mXFYSAD = new XFYSAD(getActivity(), ADUtil.SecondaryPage);
         mList = new ArrayList<AVObject>();
-        my_awesome_toolbar = (Toolbar) view.findViewById(R.id.my_awesome_toolbar);
         category_lv = (RecyclerView) view.findViewById(R.id.listview);
-        search_btn = (FrameLayout) view.findViewById(R.id.search_btn);
-        my_awesome_toolbar.setTitle(R.string.title_source);
-        search_btn.setOnClickListener(this);
         category_lv.setHasFixedSize(true);
         mAdapter = new RcCaricatureSourceListAdapter(mXFYSAD);
         layoutManager = new GridLayoutManager(getContext(), NUMBER_OF_COLUMNS);
@@ -121,7 +112,7 @@ public class CaricatureWebListFragment extends BaseFragment implements View.OnCl
         query.whereEqualTo(AVOUtil.EnglishWebsite.category, "caricature");
         query.orderByDescending(AVOUtil.EnglishWebsite.Order);
         query.skip(skip);
-        query.limit(30);
+        query.limit(50);
         query.findInBackground(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
@@ -146,23 +137,12 @@ public class CaricatureWebListFragment extends BaseFragment implements View.OnCl
                             hasMore = true;
                             showFooterview();
                         }
-                        saveData(list);
                     }
                 }else{
                     ToastUtil.diaplayMesShort(getContext(), "加载失败，下拉可刷新");
                 }
             }
         });
-    }
-
-    private void saveData(List<AVObject> list){
-        for (AVObject object : list){
-            DataBaseUtil.getInstance().updateOrInsertAVObject(
-                    AVOUtil.EnglishWebsite.EnglishWebsite,
-                    object,
-                    object.getString(AVOUtil.EnglishWebsite.Title),
-                    0);
-        }
     }
 
     private void hideFooterview(){
@@ -173,14 +153,4 @@ public class CaricatureWebListFragment extends BaseFragment implements View.OnCl
         mAdapter.showFooter();
     }
 
-    @Override
-    public void onClick(View view) {
-        if(view.getId() == R.id.search_btn){
-            toSearchActivity();
-        }
-    }
-
-    private void toSearchActivity(){
-        toActivity(CaricatureSearchActivity.class,null);
-    }
 }

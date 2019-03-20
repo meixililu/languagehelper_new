@@ -108,10 +108,9 @@ public class CaricatureSearchActivity extends BaseActivity {
             AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.CaricatureSearchHot.CaricatureSearchHot);
             query.orderByAscending(AVOUtil.CaricatureSearchHot.createdAt);
             query.orderByDescending(AVOUtil.CaricatureSearchHot.click_time);
-//            query.limit(50);
             try {
                 return query.find();
-            } catch (AVException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
             return null;

@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import com.avos.avoscloud.AVObject;
 import com.messi.languagehelper.R;
+import com.messi.languagehelper.box.CNWBean;
 import com.messi.languagehelper.impl.AdapterStringListener;
 import com.messi.languagehelper.util.HeaderFooterRecyclerViewAdapter;
 
@@ -16,12 +17,12 @@ import java.util.List;
  * Created by luli on 10/23/16.
  */
 
-public class RcCaricatureCategoryAdapter extends HeaderFooterRecyclerViewAdapter<RecyclerView.ViewHolder, Object, AVObject, Object> {
+public class RcCaricatureCategoryAdapter extends HeaderFooterRecyclerViewAdapter<RecyclerView.ViewHolder, Object, CNWBean, Object> {
 
     private List<AVObject> list;
     private AdapterStringListener listener;
 
-    public RcCaricatureCategoryAdapter(List<AVObject> list, AdapterStringListener listener){
+    public RcCaricatureCategoryAdapter(List<AVObject> list,AdapterStringListener listener){
         this.list = list;
         this.listener = listener;
     }
@@ -48,7 +49,7 @@ public class RcCaricatureCategoryAdapter extends HeaderFooterRecyclerViewAdapter
 
     @Override
     protected void onBindItemViewHolder(RecyclerView.ViewHolder holder, int position) {
-        AVObject mAVObject = getItem(position);
+        CNWBean mAVObject = getItem(position);
         RcCaricatureHomeListItemViewHolder itemViewHolder = (RcCaricatureHomeListItemViewHolder)holder;
         itemViewHolder.render(mAVObject);
     }

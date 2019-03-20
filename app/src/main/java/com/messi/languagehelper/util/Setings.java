@@ -39,6 +39,8 @@ public class Setings {
 
 	public static final int RequestCode = 1;
 
+	public static boolean IsShowNovel = false;
+
 	/**baidu translate api**/
 	public static String baiduTranslateUrl = "https://fanyi-api.baidu.com/api/trans/vip/translate";
 
@@ -118,6 +120,10 @@ public class Setings {
 	public static final String NovelSearchUrl = "https://www.owllook.net/search?wd={0}";
 
 	public static final String CaricatureSearchUrl = "https://nyaso.com/man/{0}.html";
+
+	public static final String NovelRank = "https://www.owllook.net/md/qidian";
+
+	public static final String NovelShort = "https://lnovel.cc/";
 
 	public static final String NPR_Url = "https://www.npr.org/";
 	public static final String AmericanLife_Url = "https://www.thisamericanlife.org/";

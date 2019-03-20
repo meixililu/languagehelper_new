@@ -1,24 +1,23 @@
 package com.messi.languagehelper;
 
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVObject;
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.adapter.RcCaricatureBookShelfAdapter;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.CNWBean;
 import com.messi.languagehelper.event.CaricatureEventAddBookshelf;
 import com.messi.languagehelper.util.AVOUtil;
-import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 
 import org.greenrobot.eventbus.Subscribe;
@@ -39,15 +38,16 @@ public class CaricatureBookShelfFragment extends BaseFragment implements View.On
 
     private static final int NUMBER_OF_COLUMNS = 3;
     private RecyclerView category_lv;
-    private CardView action_delete_all;
-    private CardView action_delete_btn;
+    private Toolbar my_awesome_toolbar;
+    private LinearLayout delete_layout;
     private TextView empty_tv;
+    private TextView empty_btn;
+    private TextView delete_btn;
+    private TextView manage_btn;
     private RcCaricatureBookShelfAdapter mAdapter;
     private GridLayoutManager layoutManager;
-    private List<AVObject> mList;
-    private int skip = 0;
+    private List<CNWBean> mList;
     private boolean loading;
-    private boolean hasMore = true;
     private boolean isDeleteModel;
 
     public static CaricatureBookShelfFragment newInstance(){
@@ -67,13 +67,18 @@ public class CaricatureBookShelfFragment extends BaseFragment implements View.On
 
     private void initViews(View view) {
         isRegisterBus = true;
-        mList = new ArrayList<AVObject>();
+        mList = new ArrayList<CNWBean>();
+        my_awesome_toolbar = (Toolbar) view.findViewById(R.id.my_awesome_toolbar);
         category_lv = (RecyclerView) view.findViewById(R.id.listview);
-        action_delete_btn = (CardView) view.findViewById(R.id.action_delete_btn);
-        action_delete_all = (CardView) view.findViewById(R.id.action_delete_all);
+        delete_layout = (LinearLayout) view.findViewById(R.id.delete_layout);
+        empty_btn = (TextView) view.findViewById(R.id.empty_btn);
+        delete_btn = (TextView) view.findViewById(R.id.delete_btn);
+        manage_btn = (TextView) view.findViewById(R.id.manage_btn);
         empty_tv = (TextView) view.findViewById(R.id.empty_tv);
-        action_delete_btn.setOnClickListener(this);
-        action_delete_all.setOnClickListener(this);
+        my_awesome_toolbar.setTitle(getString(R.string.collect));
+        manage_btn.setOnClickListener(this);
+        empty_btn.setOnClickListener(this);
+        delete_btn.setOnClickListener(this);
         category_lv.setHasFixedSize(true);
         mAdapter = new RcCaricatureBookShelfAdapter();
         layoutManager = new GridLayoutManager(getContext(), NUMBER_OF_COLUMNS);
@@ -83,24 +88,6 @@ public class CaricatureBookShelfFragment extends BaseFragment implements View.On
         mAdapter.setFooter(new Object());
         mAdapter.setItems(mList);
         category_lv.setAdapter(mAdapter);
-        setListOnScrollListener();
-    }
-
-    public void setListOnScrollListener() {
-        category_lv.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                int visible = layoutManager.getChildCount();
-                int total = layoutManager.getItemCount();
-                int firstVisibleItem = layoutManager.findFirstCompletelyVisibleItemPosition();
-                if (!loading && hasMore) {
-                    if ((visible + firstVisibleItem) >= total) {
-                        RequestAsyncTask();
-                    }
-                }
-            }
-        });
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -111,29 +98,27 @@ public class CaricatureBookShelfFragment extends BaseFragment implements View.On
 
     @Override
     public void onSwipeRefreshLayoutRefresh() {
-        skip = 0;
-        hasMore = true;
         RequestAsyncTask();
     }
 
     private void RequestAsyncTask(){
         showProgressbar();
         loading = true;
-        Observable.create(new ObservableOnSubscribe<List<AVObject>>() {
+        Observable.create(new ObservableOnSubscribe<List<CNWBean>>() {
             @Override
-            public void subscribe(ObservableEmitter<List<AVObject>> e) throws Exception {
+            public void subscribe(ObservableEmitter<List<CNWBean>> e) throws Exception {
                 e.onNext(getData());
             }
         })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<List<AVObject>>() {
+                .subscribe(new Observer<List<CNWBean>>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                     }
 
                     @Override
-                    public void onNext(List<AVObject> s) {
+                    public void onNext(List<CNWBean> s) {
                         onFinishLoadData(s);
                     }
 
@@ -148,50 +133,33 @@ public class CaricatureBookShelfFragment extends BaseFragment implements View.On
                 });
     }
 
-    private List<AVObject> getData(){
-        List<AVObject> list = DataBaseUtil.getInstance().getCaricaturesList(AVOUtil.Caricature.Caricature,
-                skip, Setings.ca_psize,false,true);
+    private List<CNWBean> getData(){
+        List<CNWBean> list = BoxHelper.getCollectedList(AVOUtil.Caricature.Caricature,
+                0, 0);
         return list;
     }
 
-    private void onFinishLoadData(List<AVObject> list) {
+    private void onFinishLoadData(List<CNWBean> list) {
         onSwipeRefreshLayoutFinish();
         hideProgressbar();
         loading = false;
         if(list != null){
-            if(list.size() == 0){
-                hasMore = false;
-                hideFooterview();
-            }else {
-                if(skip == 0){
-                    mList.clear();
-                }
-                initDeleteModel(list);
-                mList.addAll(list);
-                mAdapter.notifyDataSetChanged();
-                if(list.size() < Setings.ca_psize){
-                    hasMore = false;
-                    hideFooterview();
-                }else {
-                    skip += Setings.ca_psize;
-                    hasMore = true;
-                    showFooterview();
-                }
-            }
+            mList.clear();
+            initDeleteModel(list);
+            mList.addAll(list);
+            hideFooterview();
+            mAdapter.notifyDataSetChanged();
         }else{
             ToastUtil.diaplayMesShort(getContext(), "加载失败，下拉可刷新");
         }
         if(mList.size() > 0){
             empty_tv.setVisibility(View.GONE);
-            action_delete_btn.setVisibility(View.VISIBLE);
         }else {
-            action_delete_btn.setVisibility(View.GONE);
             empty_tv.setVisibility(View.VISIBLE);
         }
-
     }
 
-    private void initDeleteModel(List<AVObject> list){
+    private void initDeleteModel(List<CNWBean> list){
         if(isDeleteModel){
             setDeleteModel(list,"1");
         }else {
@@ -207,46 +175,56 @@ public class CaricatureBookShelfFragment extends BaseFragment implements View.On
         mAdapter.showFooter();
     }
 
-    private void setDeleteModel(List<AVObject> list, String status){
-        for(AVObject mAVObject : list){
-            mAVObject.put(KeyUtil.DeleteModel,status);
-            mAVObject.put(KeyUtil.isNeedDelete,"0");
+    private void setDeleteModel(List<CNWBean> list,String status){
+        for(CNWBean mAVObject : list){
+            mAVObject.setDelete_model(status);
+            mAVObject.setIs_need_delete("0");
         }
         mAdapter.notifyDataSetChanged();
     }
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.action_delete_btn) {
-            if(!isDeleteModel){
-                isDeleteModel = true;
-                action_delete_all.setVisibility(View.VISIBLE);
-                setDeleteModel(mList,"1");
-            }else {
-                deleteBooks();
-                isDeleteModel = false;
-                setDeleteModel(mList,"0");
-            }
-        } else if(view.getId() == R.id.action_delete_all) {
+        if (view.getId() == R.id.manage_btn) {
+            manageBtn();
+        } else if(view.getId() == R.id.empty_btn) {
             deleteAll();
+        } else if(view.getId() == R.id.delete_btn) {
+            deleteBooks();
         }
     }
 
-    private void deleteAll(){
-        DataBaseUtil.getInstance().clearAvobjectCollected(AVOUtil.Caricature.Caricature);
-        mList.clear();
-        mAdapter.notifyDataSetChanged();
+    private void manageBtn(){
+        if(!isDeleteModel){
+            delete_layout.setVisibility(View.VISIBLE);
+            manage_btn.setText(getString(R.string.done));
+            isDeleteModel = true;
+            setDeleteModel(mList,"1");
+        }else {
+            reset();
+        }
+    }
+
+    private void reset(){
+        delete_layout.setVisibility(View.GONE);
+        manage_btn.setText(getString(R.string.manage));
         isDeleteModel = false;
-        action_delete_all.setVisibility(View.GONE);
+        setDeleteModel(mList,"0");
+    }
+
+    private void deleteAll(){
+        BoxHelper.deleteAllData(AVOUtil.Caricature.Caricature);
+        mList.clear();
+        empty_tv.setVisibility(View.VISIBLE);
+        reset();
     }
 
     private void deleteBooks(){
-        List<AVObject> newList = new ArrayList<AVObject>();
-        for(AVObject mAVObject : mList){
-            if(!TextUtils.isEmpty(mAVObject.getString(KeyUtil.isNeedDelete))){
-                if("1".equals(mAVObject.getString(KeyUtil.isNeedDelete))){
-                    DataBaseUtil.getInstance().updateAVObjectCollected(AVOUtil.Caricature.Caricature,
-                            mAVObject,0);
+        List<CNWBean> newList = new ArrayList<CNWBean>();
+        for(CNWBean mAVObject : mList){
+            if(!TextUtils.isEmpty(mAVObject.getIs_need_delete())){
+                if("1".equals(mAVObject.getIs_need_delete())){
+                    BoxHelper.deleteCNWBean(mAVObject);
                 }else {
                     newList.add(mAVObject);
                 }
@@ -254,6 +232,6 @@ public class CaricatureBookShelfFragment extends BaseFragment implements View.On
         }
         mList.clear();
         mList.addAll(newList);
-        mAdapter.notifyDataSetChanged();
+        reset();
     }
 }

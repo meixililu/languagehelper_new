@@ -75,7 +75,7 @@
 			android:gravity="center"
 			android:textStyle="bold"
 			android:textSize="@dimen/big"
-			android:text="@string/practice_finish"
+			android:text="@string/done"
 			/>
 	</FrameLayout>
     
