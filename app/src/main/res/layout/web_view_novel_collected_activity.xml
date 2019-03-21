@@ -38,7 +38,7 @@
                     android:id="@+id/swipe_container"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                    <com.messi.languagehelper.meinv.view.VideoEnabledWebView
+                    <com.messi.languagehelper.views.VideoEnabledWebView
                         android:id="@+id/refreshable_webview"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent" />

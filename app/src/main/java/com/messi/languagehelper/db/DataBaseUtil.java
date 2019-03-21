@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import com.avos.avoscloud.AVObject;
 import com.messi.languagehelper.BaseApplication;
 import com.messi.languagehelper.R;
+import com.messi.languagehelper.box.CNWBean;
 import com.messi.languagehelper.dao.AiEntity;
 import com.messi.languagehelper.dao.AiEntityDao;
 import com.messi.languagehelper.dao.Avobject;
@@ -29,6 +30,7 @@ import com.messi.languagehelper.dao.WordDetailListItemDao;
 import com.messi.languagehelper.dao.record;
 import com.messi.languagehelper.dao.recordDao;
 import com.messi.languagehelper.dao.recordDao.Properties;
+import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.ColorUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
@@ -688,5 +690,50 @@ public class DataBaseUtil {
                 .where(AvobjectDao.Properties.History.ge(100))
                 .buildDelete();
         bd.executeDeleteWithoutDetachingEntities();
+    }
+
+
+    public void clearAvobject() {
+        mAvobjectDao.deleteAll();
+    }
+
+    public List<CNWBean> getAllAVObjectData(){
+        List<CNWBean> dataList = new ArrayList<CNWBean>();
+        List<Avobject> list = mAvobjectDao.loadAll();
+        if(list != null && list.size() > 0){
+            for(Avobject item : list){
+                LogUtil.DefalutLog("-------------------------------");
+                LogUtil.DefalutLog(item.getSerializedString());
+                LogUtil.DefalutLog("-------------------------------");
+                AVObject object = null;
+                try{
+                    object = AVObject.parseAVObject(item.getSerializedString());
+                }catch (Exception e){
+                    LogUtil.DefalutLog("---------------Exception----------------");
+                }
+                if(object != null){
+                    CNWBean bean = new CNWBean();
+                    bean.setTable(item.getTableName());
+                    bean.setTitle(object.getString(AVOUtil.Caricature.name));
+                    bean.setCategory(object.getString(AVOUtil.Caricature.category));
+                    bean.setTag(object.getString(AVOUtil.Caricature.tag));
+                    bean.setUpdate_des(object.getString(AVOUtil.Caricature.update));
+                    bean.setAuthor(object.getString(AVOUtil.Caricature.author));
+                    bean.setImg_url(object.getString(AVOUtil.Caricature.book_img_url));
+                    bean.setRead_url(object.getString(AVOUtil.Caricature.read_url));
+                    bean.setSource_url(object.getString(AVOUtil.Caricature.url));
+                    bean.setSource_name(object.getString(AVOUtil.Caricature.source_name));
+                    bean.setDes(object.getString(AVOUtil.Caricature.des));
+                    bean.setType(object.getString(AVOUtil.Caricature.type));
+                    bean.setCollected(item.getCollected());
+                    bean.setHistory(item.getHistory());
+                    bean.setItemId(item.getItemId());
+                    bean.setView(item.getView());
+                    bean.setUpdateTime(item.getUpdateTime());
+                    dataList.add(bean);
+                }
+            }
+        }
+        return dataList;
     }
 }

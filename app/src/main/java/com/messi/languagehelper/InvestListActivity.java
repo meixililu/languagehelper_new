@@ -4,7 +4,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.ListView;
 
 import com.avos.avoscloud.AVException;
@@ -18,7 +17,7 @@ import com.messi.languagehelper.util.XFYSAD;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InvestListActivity extends BaseActivity implements OnClickListener{
+public class InvestListActivity extends BaseActivity{
 
 	private ListView category_lv;
 	private InvestListAdapter mAdapter;
@@ -84,14 +83,6 @@ public class InvestListActivity extends BaseActivity implements OnClickListener{
 			hideProgressbar();
 			onSwipeRefreshLayoutFinish();
 			mAdapter.notifyDataSetChanged();
-		}
-	}
-
-	@Override
-	public void onClick(View v) {
-		switch(v.getId()){
-		default:
-			break;
 		}
 	}
 	

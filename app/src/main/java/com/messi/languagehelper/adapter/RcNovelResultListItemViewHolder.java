@@ -29,6 +29,7 @@ public class RcNovelResultListItemViewHolder extends RecyclerView.ViewHolder {
     private final TextView des;
     private final SimpleDraweeView img;
     private final LinearLayout ad_layout;
+    private final LinearLayout item_layout;
     private final LinearLayout content;
     private Context context;
 
@@ -40,11 +41,13 @@ public class RcNovelResultListItemViewHolder extends RecyclerView.ViewHolder {
         des = (TextView) convertView.findViewById(R.id.des);
         img = (SimpleDraweeView) convertView.findViewById(R.id.img);
         ad_layout = (LinearLayout) convertView.findViewById(R.id.ad_layout);
+        item_layout = (LinearLayout) convertView.findViewById(R.id.item_layout);
         content = (LinearLayout) convertView.findViewById(R.id.content);
     }
 
     public void render(final CNWBean mAVObject) {
         ad_layout.setVisibility(View.GONE);
+        item_layout.setVisibility(View.GONE);
         img.setVisibility(View.GONE);
         content.setVisibility(View.GONE);
         final NativeADDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
@@ -59,6 +62,7 @@ public class RcNovelResultListItemViewHolder extends RecyclerView.ViewHolder {
                 ad_layout.addView(mADView);
                 mADView.render();
             }else {
+                item_layout.setVisibility(View.VISIBLE);
                 content.setVisibility(View.VISIBLE);
                 name.setText( mAVObject.getTitle());
                 des.setText(mAVObject.getSub_title());
@@ -70,6 +74,7 @@ public class RcNovelResultListItemViewHolder extends RecyclerView.ViewHolder {
                 });
             }
         }else{
+            item_layout.setVisibility(View.VISIBLE);
             content.setVisibility(View.VISIBLE);
             img.setVisibility(View.VISIBLE);
             name.setText(mNativeADDataRef.getTitle());

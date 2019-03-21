@@ -179,11 +179,15 @@ public class MiaosouResultListFragment extends BaseFragment implements OnClickLi
     }
 
     private void showFooterview() {
-        mAdapter.showFooter();
+        if (mAdapter != null) {
+            mAdapter.showFooter();
+        }
     }
 
     private void hideFooterview() {
-        mAdapter.hideFooter();
+        if (mAdapter != null) {
+            mAdapter.hideFooter();
+        }
     }
 
     @Override

@@ -101,7 +101,7 @@ public class AppUpdateUtil {
     }
 
     public static void saveSetting(Activity mActivity,AVObject mAVObject){
-        SharedPreferences mSharedPreferences = Setings.getSharedPreferences(mActivity);
+        SharedPreferences sp = Setings.getSharedPreferences(mActivity);
         LogUtil.DefalutLog(mAVObject.getString(AVOUtil.UpdateInfo.AppName));
         String app_advertiser = mAVObject.getString(AVOUtil.UpdateInfo.ad_type);
         String wyyx_url = mAVObject.getString(AVOUtil.UpdateInfo.wyyx_url);
@@ -111,18 +111,22 @@ public class AppUpdateUtil {
         String no_ad_channel = mAVObject.getString(AVOUtil.UpdateInfo.no_ad_channel);
         String trankey = mAVObject.getString(AVOUtil.UpdateInfo.trankey);
         String adConf = mAVObject.getString(AVOUtil.UpdateInfo.adConf);
+        String Caricature_channel = mAVObject.getString(AVOUtil.UpdateInfo.Caricature_channel);
+        int Caricature_version = mAVObject.getInt(AVOUtil.UpdateInfo.Caricature_version);
         ADUtil.setAdConfig(adConf);
         initTranBdIdKey(trankey);
-        Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.APP_Advertiser,app_advertiser);
-        Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_DVideo,uctt_url);
-        Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_Novel,wyyx_url);
-        Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.Lei_UCSearch,ucsearch_url);
-        Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.Ad_Ids,ad_ids);
-        Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.No_Ad_Channel,no_ad_channel);
-        Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.AdConfig,adConf);
-        Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.VersionCode,
+        Setings.saveSharedPreferences(sp,KeyUtil.APP_Advertiser,app_advertiser);
+        Setings.saveSharedPreferences(sp,KeyUtil.Lei_DVideo,uctt_url);
+        Setings.saveSharedPreferences(sp,KeyUtil.Lei_Novel,wyyx_url);
+        Setings.saveSharedPreferences(sp,KeyUtil.Lei_UCSearch,ucsearch_url);
+        Setings.saveSharedPreferences(sp,KeyUtil.Ad_Ids,ad_ids);
+        Setings.saveSharedPreferences(sp,KeyUtil.No_Ad_Channel,no_ad_channel);
+        Setings.saveSharedPreferences(sp,KeyUtil.AdConfig,adConf);
+        Setings.saveSharedPreferences(sp,KeyUtil.VersionCode,
                 mAVObject.getInt(AVOUtil.UpdateInfo.VersionCode));
-        Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.UpdateBean, mAVObject.toString());
+        Setings.saveSharedPreferences(sp,KeyUtil.Caricature_version, Caricature_version);
+        Setings.saveSharedPreferences(sp,KeyUtil.Caricature_channel, Caricature_channel);
+        Setings.saveSharedPreferences(sp,KeyUtil.UpdateBean, mAVObject.toString());
     }
 
     public static void initTranBdIdKey(String idkey){

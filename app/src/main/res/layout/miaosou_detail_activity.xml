@@ -189,6 +189,12 @@
                         android:text="广告"
                         android:textColor="@color/white"
                         android:textSize="@dimen/smaller" />
+                    <FrameLayout
+                        android:id="@+id/ad_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        />
                 </FrameLayout>
             </LinearLayout>
 

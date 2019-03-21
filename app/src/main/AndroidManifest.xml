@@ -217,6 +217,21 @@
             android:name=".WebsiteListActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".WebViewForMiaosouActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MiaosouDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WebViewWithCollectedActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".NovelResultListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CNSearchActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".WebViewForAdActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -462,10 +477,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".QRCodeShareActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".KSearchActivity"
-            android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait" />
         <activity
             android:name=".AiSpokenBasicActivity"

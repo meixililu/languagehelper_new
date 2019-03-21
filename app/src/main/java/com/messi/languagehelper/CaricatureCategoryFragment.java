@@ -61,7 +61,6 @@ public class CaricatureCategoryFragment extends BaseFragment implements AdapterS
 
     private void Request(){
         RequestCategoryTask();
-        loadAD();
         RequestAsyncTask();
     }
 
@@ -95,7 +94,6 @@ public class CaricatureCategoryFragment extends BaseFragment implements AdapterS
                 isADInList(recyclerView, firstVisibleItem, visible);
                 if (!mXXLModel.loading && mXXLModel.hasMore) {
                     if ((visible + firstVisibleItem) >= total) {
-                        loadAD();
                         RequestAsyncTask();
                     }
                 }

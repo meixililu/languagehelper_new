@@ -75,7 +75,7 @@ public class CaricatureBookShelfFragment extends BaseFragment implements View.On
         delete_btn = (TextView) view.findViewById(R.id.delete_btn);
         manage_btn = (TextView) view.findViewById(R.id.manage_btn);
         empty_tv = (TextView) view.findViewById(R.id.empty_tv);
-        my_awesome_toolbar.setTitle(getString(R.string.collect));
+        my_awesome_toolbar.setTitle(getString(R.string.title_bookshelf));
         manage_btn.setOnClickListener(this);
         empty_btn.setOnClickListener(this);
         delete_btn.setOnClickListener(this);
@@ -93,7 +93,7 @@ public class CaricatureBookShelfFragment extends BaseFragment implements View.On
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(CaricatureEventAddBookshelf scode){
         LogUtil.DefalutLog("onEvent--CaricatureEventAddBookshelf");
-        onSwipeRefreshLayoutRefresh();
+        RequestAsyncTask();
     }
 
     @Override

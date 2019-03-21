@@ -85,9 +85,12 @@ public class XFYSAD {
 	public void showAd(){
 		if(ADUtil.IsShowAD){
 			if(System.currentTimeMillis() - lastLoadAdTime > 1000*30){
+				parentView.setVisibility(View.VISIBLE);
 				lastLoadAdTime = System.currentTimeMillis();
 				getAd();
 			}
+		}else {
+			parentView.setVisibility(View.GONE);
 		}
 	}
 	

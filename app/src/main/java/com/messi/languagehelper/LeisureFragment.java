@@ -184,7 +184,7 @@ public class LeisureFragment extends BaseFragment {
     }
 
     private void toKSearch() {
-        toActivity(KSearchActivity.class, null);
+        toActivity(CNSearchActivity.class, null);
         AVAnalytics.onEvent(getActivity(), "leisure_pg_to_ksearch");
     }
 

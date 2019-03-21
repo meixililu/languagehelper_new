@@ -315,6 +315,10 @@ public class AVOUtil {
 
 		public final static String DownloadTimes = "DownloadTimes";
 
+		public final static String Caricature_version = "Caricature_version";
+
+		public final static String Caricature_channel = "Caricature_channel";
+
 	}
 	
 	public static class SymbolDetail {

@@ -155,6 +155,8 @@ public class KeyUtil {
 
 	public static final String NewsType = "NewsType";
 
+	public static final String HasMoveCaricatureData = "HasMoveCaricatureData";
+
 	public static final String NewsSource = "NewsSource";
 
 	public static final String isReadingDetailGuideShow = "isReadingDetailGuideShow";

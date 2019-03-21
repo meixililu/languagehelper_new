@@ -31,19 +31,6 @@
                     android:textSize="@dimen/middle"
                     android:textColor="@drawable/txt_color_white_gray_selector"
                     />
-                <FrameLayout
-                    android:id="@+id/more_btn"
-                    android:layout_width="40dp"
-                    android:layout_height="@dimen/actionBar"
-                    android:foreground="@drawable/framelayout_selector"
-                    >
-                    <ImageView
-                        android:layout_width="27dp"
-                        android:layout_height="27dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_more_white"
-                        />
-                </FrameLayout>
             </LinearLayout>
 
         </android.support.v7.widget.Toolbar>

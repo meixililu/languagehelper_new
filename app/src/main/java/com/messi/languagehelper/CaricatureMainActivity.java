@@ -12,10 +12,10 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechUtility;
+import com.messi.languagehelper.db.MoveDataTask;
 import com.messi.languagehelper.util.AppUpdateUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -62,10 +62,10 @@ public class CaricatureMainActivity extends BaseActivity {
                     hideAllFragment();
                     getSupportFragmentManager().beginTransaction().show(radioHomeFragment).commit();
                     return true;
-                case R.id.navigation_novel:
-                    hideAllFragment();
-                    getSupportFragmentManager().beginTransaction().show(webviewFragment).commit();
-                    return true;
+//                case R.id.navigation_novel:
+//                    hideAllFragment();
+//                    getSupportFragmentManager().beginTransaction().show(webviewFragment).commit();
+//                    return true;
             }
             return false;
         }
@@ -79,8 +79,9 @@ public class CaricatureMainActivity extends BaseActivity {
         ButterKnife.bind(this);
         init();
         initFragment();
+        AppUpdateUtil.getWebFilter();
+        MoveDataTask.moveCaricatureData(this);
         initSDKAndPermission();
-        AppUpdateUtil.isNeedUpdate(this);
     }
 
     private void init(){
@@ -96,23 +97,19 @@ public class CaricatureMainActivity extends BaseActivity {
 
     private void initFragment(){
         SpeechUtility.createUtility(this, SpeechConstant.APPID + "=" + getString(R.string.app_id));
-        if(Setings.IsShowNovel){
-            navigation.inflateMenu(R.menu.caricature_main_novel_tabs);
-        }else {
-            navigation.inflateMenu(R.menu.caricature_main_tabs);
-        }
+        navigation.inflateMenu(R.menu.caricature_main_tabs);
         navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         engFragment = CaricatureHomeFragment.newInstance();
         categoryFragment = CaricatureCategoryMainFragment.getInstance();
         radioHomeFragment = CaricatureBookShelfFragment.newInstance();
-        webviewFragment = CaricatureNovelHomeFragment.getInstance();
+//        webviewFragment = CaricatureNovelHomeFragment.getInstance();
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.content, engFragment)
                 .add(R.id.content, categoryFragment)
                 .add(R.id.content, radioHomeFragment)
-                .add(R.id.content, webviewFragment)
+//                .add(R.id.content, webviewFragment)
                 .commit();
         hideAllFragment();
         getSupportFragmentManager()
@@ -125,19 +122,10 @@ public class CaricatureMainActivity extends BaseActivity {
                 .hide(radioHomeFragment)
                 .hide(engFragment)
                 .hide(categoryFragment)
-                .hide(webviewFragment)
+//                .hide(webviewFragment)
                 .commit();
     }
 
-    @Override
-    public void onBackPressed() {
-        if ((System.currentTimeMillis() - exitTime) > 2000) {
-            Toast.makeText(getApplicationContext(), this.getResources().getString(R.string.exit_program), Toast.LENGTH_SHORT).show();
-            exitTime = System.currentTimeMillis();
-        } else {
-            finish();
-        }
-    }
 
     private void initSDKAndPermission(){
         new Handler().postDelayed(new Runnable() {
