@@ -25,7 +25,6 @@ import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.impl.TablayoutOnSelectedListener;
 import com.messi.languagehelper.service.PlayerService;
-import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -267,8 +266,12 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
 
     private void getNetworkData() {
         AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.Reading.Reading);
-        if (!TextUtils.isEmpty(category)) {
-            query.whereEqualTo(AVOUtil.Reading.category, category);
+        if(!TextUtils.isEmpty(category)) {
+            if(category.equals("video")) {
+                query.whereEqualTo(AVOUtil.Reading.type, "video");
+            }else {
+                query.whereEqualTo(AVOUtil.Reading.category, category);
+            }
         }
         query.addDescendingOrder(AVOUtil.Reading.publish_time);
         query.skip(skip);
@@ -489,6 +492,7 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
     public static List<ReadingCategory> getTabItem(Context context) {
         List<ReadingCategory> readingCategories = new ArrayList<ReadingCategory>();
         readingCategories.add(new ReadingCategory(context.getString(R.string.recommend), ""));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.title_english_video), "video"));
         readingCategories.add(new ReadingCategory(context.getString(R.string.reading), "shuangyu_reading"));
         readingCategories.add(new ReadingCategory(context.getString(R.string.title_listening), "listening"));
         readingCategories.add(new ReadingCategory(context.getString(R.string.title_word_study_vocabulary), "word"));
