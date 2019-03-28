@@ -23,10 +23,6 @@ public class ListenSubjectAdapter extends FragmentPagerAdapter {
         titleList.add(mContext.getResources().getString(R.string.advanced));
     }
 
-    private void addTitle(){
-
-    }
-
     @Override
     public Fragment getItem(int position) {
         if( position == 0 ){

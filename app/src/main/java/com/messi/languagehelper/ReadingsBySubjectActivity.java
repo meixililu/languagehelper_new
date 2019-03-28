@@ -6,8 +6,9 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
@@ -29,9 +30,11 @@ import java.util.List;
 
 import cn.jzvd.Jzvd;
 
-public class ReadingsBySubjectActivity extends BaseActivity{
+public class ReadingsBySubjectActivity extends BaseActivity implements View.OnClickListener {
 
 	private RecyclerView listview;
+	private FrameLayout collect_btn;
+	private ImageView volume_img;
 	private RcReadingListAdapter mAdapter;
 	private List<Reading> avObjects;
 	private int skip = 0;
@@ -44,7 +47,7 @@ public class ReadingsBySubjectActivity extends BaseActivity{
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.reading_activity);
+		setContentView(R.layout.reading_by_subject_activity);
 		registerBroadcast();
 		initViews();
 		new QueryTask().execute();
@@ -58,6 +61,9 @@ public class ReadingsBySubjectActivity extends BaseActivity{
 		mXXLModel = new XXLModel(this);
 		initSwipeRefresh();
 		listview = (RecyclerView) findViewById(R.id.listview);
+		collect_btn = (FrameLayout) findViewById(R.id.collect_btn);
+		volume_img = (ImageView) findViewById(R.id.volume_img);
+		collect_btn.setOnClickListener(this);
 		mAdapter = new RcReadingListAdapter(avObjects,true);
 		mAdapter.setItems(avObjects);
 		mAdapter.setFooter(new Object());
@@ -149,6 +155,13 @@ public class ReadingsBySubjectActivity extends BaseActivity{
 		}
 	}
 
+	@Override
+	public void onClick(View v) {
+		if(v.getId() == R.id.collect_btn){
+			volume_img.setImageResource(R.drawable.ic_collected_white);
+		}
+	}
+
 	private class QueryTask extends AsyncTask<Void, Void, List<AVObject>> {
 
 		@Override
@@ -208,22 +221,6 @@ public class ReadingsBySubjectActivity extends BaseActivity{
 				ToastUtil.diaplayMesShort(ReadingsBySubjectActivity.this, "加载失败，下拉可刷新");
 			}
 		}
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.menu_done, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-			case R.id.action_add:
-				saveRecentKey();
-				break;
-		}
-		return super.onOptionsItemSelected(item);
 	}
 
 	private void saveRecentKey(){
