@@ -85,14 +85,22 @@ public class BoxHelper {
     }
 
     public static void deleteAllData(String table){
-        List<CNWBean> list = getCollectedList(table,0,0);
-        if(list != null && list.size() > 0){
-            getCNWBeanBox().remove(list);
+        try {
+            List<CNWBean> list = getCollectedList(table,0,0);
+            if(list != null && list.size() > 0){
+                getCNWBeanBox().remove(list);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     public static void deleteCNWBean(CNWBean bean){
-        getCNWBeanBox().remove(bean);
+        try {
+            getCNWBeanBox().remove(bean);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**WebFilter**/
@@ -116,5 +124,27 @@ public class BoxHelper {
 
     }
 
+    /**ReadingSubject**/
+    public static Box<ReadingSubject> getReadingSubjectBox(){
+        return getBoxStore().boxFor(ReadingSubject.class);
+    }
 
+    public static void saveReadingSubject(ReadingSubject item){
+        getReadingSubjectBox().put(item);
+    }
+
+    public static void removeReadingSubject(ReadingSubject item){
+        try {
+            getReadingSubjectBox().remove(item);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static ReadingSubject findReadingSubjectByName(String name){
+        QueryBuilder<ReadingSubject> query = getReadingSubjectBox().query();
+        query.equal(ReadingSubject_.name,name);
+        return query.build().findFirst();
+
+    }
 }

@@ -161,8 +161,6 @@ public class KeyUtil {
 
 	public static final String isReadingDetailGuideShow = "isReadingDetailGuideShow";
 
-	public static final String isAddRecentGuideShow = "isAddRecentGuideShow";
-
 	public static final String ADKey = "ADKey";
 
 	public static final String TXADView = "TXADView";

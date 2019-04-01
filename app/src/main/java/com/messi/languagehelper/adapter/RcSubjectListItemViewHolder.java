@@ -17,6 +17,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.ReadingsBySubjectActivity;
+import com.messi.languagehelper.SubjectActivity;
 import com.messi.languagehelper.ViewModel.XXLModel;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
@@ -142,9 +143,12 @@ public class RcSubjectListItemViewHolder extends RecyclerView.ViewHolder {
         Intent intent = new Intent(context,ReadingsBySubjectActivity.class);
         intent.putExtra(KeyUtil.ActionbarTitle, mAVObject.getString(AVOUtil.SubjectList.name));
         intent.putExtra(KeyUtil.SubjectName, mAVObject.getString(AVOUtil.SubjectList.name));
+        intent.putExtra(KeyUtil.ObjectKey, SubjectActivity.toReadingSubject(mAVObject));
         intent.putExtra(KeyUtil.LevelKey, mAVObject.getString(AVOUtil.SubjectList.level));
         intent.putExtra(KeyUtil.RecentKey, recentKey);
         context.startActivity(intent);
     }
+
+
 
 }
