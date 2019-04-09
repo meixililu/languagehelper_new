@@ -40,11 +40,9 @@ public class RcSubjectListItemViewHolder extends RecyclerView.ViewHolder {
     private final SimpleDraweeView list_item_img;
     private final FrameLayout ad_layout;
     private Context context;
-    private String recentKey;
 
-    public RcSubjectListItemViewHolder(View convertView,String recentKey) {
+    public RcSubjectListItemViewHolder(View convertView) {
         super(convertView);
-        this.recentKey = recentKey;
         this.context = convertView.getContext();
         layout_cover = (FrameLayout) itemView.findViewById(R.id.layout_cover);
         list_item_img = (SimpleDraweeView) itemView.findViewById(R.id.list_item_img);
@@ -145,7 +143,6 @@ public class RcSubjectListItemViewHolder extends RecyclerView.ViewHolder {
         intent.putExtra(KeyUtil.SubjectName, mAVObject.getString(AVOUtil.SubjectList.name));
         intent.putExtra(KeyUtil.ObjectKey, SubjectActivity.toReadingSubject(mAVObject));
         intent.putExtra(KeyUtil.LevelKey, mAVObject.getString(AVOUtil.SubjectList.level));
-        intent.putExtra(KeyUtil.RecentKey, recentKey);
         context.startActivity(intent);
     }
 

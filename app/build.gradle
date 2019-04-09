@@ -127,7 +127,6 @@ dependencies {
     //    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     testImplementation 'junit:junit:4.12'
     //check tree dependencies: ./gradlew :app:dependencies
-    implementation files('libs/TingPhoneOpenSDK_6.2.8.jar')
 }
 
 greendao {

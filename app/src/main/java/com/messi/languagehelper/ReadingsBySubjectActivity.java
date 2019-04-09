@@ -17,14 +17,16 @@ import com.messi.languagehelper.adapter.RcReadingListAdapter;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.ReadingSubject;
 import com.messi.languagehelper.dao.Reading;
+import com.messi.languagehelper.event.SubjectSubscribeEvent;
 import com.messi.languagehelper.service.PlayerService;
-import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +40,7 @@ public class ReadingsBySubjectActivity extends BaseActivity implements View.OnCl
 	private List<Reading> avObjects;
 	private int skip = 0;
 	private String subjectName;
+	private String objectId;
 	private ReadingSubject mReadingSubject;
 	private String level;
 	private LinearLayoutManager mLinearLayoutManager;
@@ -55,6 +58,7 @@ public class ReadingsBySubjectActivity extends BaseActivity implements View.OnCl
 	private void initViews(){
 		subjectName = getIntent().getStringExtra(KeyUtil.SubjectName);
 		mReadingSubject = getIntent().getParcelableExtra(KeyUtil.ObjectKey);
+		objectId = mReadingSubject.getObjectId();
 		level = getIntent().getStringExtra(KeyUtil.LevelKey);
 		avObjects = new ArrayList<Reading>();
 		mXXLModel = new XXLModel(this);
@@ -82,7 +86,7 @@ public class ReadingsBySubjectActivity extends BaseActivity implements View.OnCl
 	}
 
 	private void initCollectedButton(){
-		ReadingSubject temp = BoxHelper.findReadingSubjectByName(subjectName);
+		ReadingSubject temp = BoxHelper.findReadingSubjectByObjectId(objectId);
 	    if(temp != null){
 			mReadingSubject = temp;
             volume_img.setImageResource(R.drawable.ic_collected_white);
@@ -160,10 +164,8 @@ public class ReadingsBySubjectActivity extends BaseActivity implements View.OnCl
 	}
 
 	private void loadAD(){
-		if(ADUtil.IsShowAD){
-			if (mXXLModel != null) {
-				mXXLModel.showAd();
-			}
+		if (mXXLModel != null) {
+			mXXLModel.showAd();
 		}
 	}
 
@@ -180,15 +182,20 @@ public class ReadingsBySubjectActivity extends BaseActivity implements View.OnCl
 
     private void collectedOrUncollected(int tag){
         if(mReadingSubject != null){
+			SubjectSubscribeEvent event = new SubjectSubscribeEvent();
+			event.setObjectID(mReadingSubject.getObjectId());
             if(tag == 1){
                 BoxHelper.saveReadingSubject(mReadingSubject);
                 volume_img.setImageResource(R.drawable.ic_collected_white);
-				ToastUtil.diaplayMesShort(this,"已收藏");
+				ToastUtil.diaplayMesShort(this,"已订阅");
+				event.setType("subscribe");
             }else {
                 BoxHelper.removeReadingSubject(mReadingSubject);
                 volume_img.setImageResource(R.drawable.ic_uncollected_white);
-				ToastUtil.diaplayMesShort(this,"取消收藏");
+				ToastUtil.diaplayMesShort(this,"取消订阅");
+				event.setType("unsubscribe");
             }
+			EventBus.getDefault().post(event);
 			volume_img.setTag(tag);
         }
     }

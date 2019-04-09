@@ -1,69 +1,101 @@
 package com.messi.languagehelper;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 
-import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.ViewModel.XXLAVObjectModel;
 import com.messi.languagehelper.adapter.RcSubjectListAdapter;
+import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.ReadingSubject;
+import com.messi.languagehelper.event.SubjectSubscribeEvent;
+import com.messi.languagehelper.impl.FragmentProgressbarListener;
+import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.ColorUtil;
 import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
-public class SubjectActivity extends BaseActivity {
+public class SubjectSubscribeFragment extends BaseFragment {
 
     private static final int NUMBER_OF_COLUMNS = 1;
     @BindView(R.id.studycategory_lv)
     RecyclerView category_lv;
+    Unbinder unbinder;
     private RcSubjectListAdapter mAdapter;
     private List<AVObject> avObjects;
-    private int skip = 0;
     private GridLayoutManager layoutManager;
-    private String code;
-    private String recentKey;
     private XXLAVObjectModel mXXLModel;
+    private int skip;
+
+    public static SubjectSubscribeFragment getInstance() {
+        return new SubjectSubscribeFragment();
+    }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_subject);
-        ButterKnife.bind(this);
-        initSwipeRefresh();
-        initViews();
+    public void onAttach(Context activity) {
+        super.onAttach(activity);
+        try {
+            mProgressbarListener = (FragmentProgressbarListener) activity;
+        } catch (ClassCastException e) {
+            LogUtil.DefalutLog(" must implement FragmentProgressbarListener");
+        }
+    }
+
+    @Override
+    public void loadDataOnStart() {
+        super.loadDataOnStart();
         new QueryTask().execute();
     }
 
-    private void initViews() {
-        code = getIntent().getStringExtra(KeyUtil.SubjectName);
-        recentKey = getIntent().getStringExtra(KeyUtil.RecentKey);
-        avObjects = new ArrayList<AVObject>();
-        mXXLModel = new XXLAVObjectModel(this);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
+        View view = inflater.inflate(R.layout.symbol_list_fragment, container, false);
+        initSwipeRefresh(view);
+        unbinder = ButterKnife.bind(this, view);
+        initViews();
+        return view;
     }
 
-    private void initAdapter() {
-        if (mAdapter == null) {
+    private void initViews() {
+        isRegisterBus = true;
+        avObjects = new ArrayList<AVObject>();
+        mXXLModel = new XXLAVObjectModel(getActivity());
+    }
+
+    private void initAdapter(){
+        if(mAdapter == null && category_lv != null){
             mAdapter = new RcSubjectListAdapter();
             mAdapter.setItems(avObjects);
             mAdapter.setFooter(new Object());
             mXXLModel.setAdapter(avObjects,mAdapter);
             hideFooterview();
-            layoutManager = new GridLayoutManager(this, NUMBER_OF_COLUMNS);
+            layoutManager = new GridLayoutManager(getContext(), NUMBER_OF_COLUMNS);
             HeaderSpanSizeLookup headerSpanSizeLookup = new HeaderSpanSizeLookup(mAdapter, layoutManager);
             layoutManager.setSpanSizeLookup(headerSpanSizeLookup);
             category_lv.setLayoutManager(layoutManager);
@@ -82,7 +114,7 @@ public class SubjectActivity extends BaseActivity {
                 int visible = layoutManager.getChildCount();
                 int total = layoutManager.getItemCount();
                 int firstVisibleItem = layoutManager.findFirstCompletelyVisibleItemPosition();
-                if (!mXXLModel.loading && mXXLModel.hasMore) {
+                if (!mXXLModel.loading && mXXLModel.hasMore && isHasLoadData) {
                     if ((visible + firstVisibleItem) >= total) {
                         new QueryTask().execute();
                     }
@@ -106,6 +138,59 @@ public class SubjectActivity extends BaseActivity {
         new QueryTask().execute();
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.search, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_search:
+                toMoreActivity();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(SubjectSubscribeEvent event){
+        if(event != null && !TextUtils.isEmpty(event.getType()) &&
+                !TextUtils.isEmpty(event.getObjectID())){
+            if(event.getType().equals("subscribe")){
+                ReadingSubject mItem = BoxHelper.findReadingSubjectByObjectId(event.getObjectID());
+                if(mItem != null){
+                    avObjects.add(0,subjectItem(mItem));
+                }
+            }else {
+                removeItem(event.getObjectID());
+            }
+        }
+    }
+
+    private void removeItem(String oid){
+        AVObject temp = null;
+        for(AVObject item : avObjects){
+            if(oid.equals(item.getObjectId())){
+                temp = item;
+            }
+        }
+        avObjects.remove(temp);
+        mAdapter.notifyDataSetChanged();
+    }
+
+    private void toMoreActivity() {
+        toActivity(SearchActivity.class, null);
+        AVAnalytics.onEvent(getContext(), "subject_to_search");
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
+
     private class QueryTask extends AsyncTask<Void, Void, List<AVObject>> {
 
         @Override
@@ -119,19 +204,12 @@ public class SubjectActivity extends BaseActivity {
 
         @Override
         protected List<AVObject> doInBackground(Void... params) {
-            AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.SubjectList.SubjectList);
-            if (!TextUtils.isEmpty(code)) {
-                query.whereEqualTo(AVOUtil.SubjectList.code, code);
+            List<ReadingSubject> rList = BoxHelper.getReadingSubjectList(skip,Setings.page_size);
+            List<AVObject> avObjects = new ArrayList<AVObject>();
+            for (ReadingSubject item : rList){
+                avObjects.add(subjectItem(item));
             }
-            query.orderByAscending(AVOUtil.SubjectList.order);
-            query.skip(skip);
-            query.limit(Setings.page_size);
-            try {
-                return query.find();
-            } catch (AVException e) {
-                e.printStackTrace();
-            }
-            return null;
+            return avObjects;
         }
 
         @Override
@@ -143,28 +221,29 @@ public class SubjectActivity extends BaseActivity {
             initAdapter();
             if (avObject != null) {
                 if (avObject.size() == 0) {
-                    ToastUtil.diaplayMesShort(SubjectActivity.this, "没有了！");
+                    ToastUtil.diaplayMesShort(getContext(), "没有了！");
                     mXXLModel.hasMore = false;
                     hideFooterview();
                 } else {
                     if (avObjects != null && mAdapter != null) {
                         addBgColor(avObject);
                         avObjects.addAll(avObject);
-                        if (avObject.size() == Setings.page_size) {
-                            skip += Setings.page_size;
+                        skip += Setings.page_size;
+                        if(avObject.size() == Setings.page_size){
                             showFooterview();
                             mXXLModel.hasMore = true;
-                        } else {
+                        }else {
                             mXXLModel.hasMore = false;
                             hideFooterview();
                         }
                     }
                 }
             }
-            mAdapter.notifyDataSetChanged();
+            if(mAdapter != null){
+                mAdapter.notifyDataSetChanged();
+            }
             loadAD();
         }
-
     }
 
     private void addBgColor(List<AVObject> avObject){
@@ -189,13 +268,14 @@ public class SubjectActivity extends BaseActivity {
         }
     }
 
-    public static ReadingSubject toReadingSubject(AVObject mAVObject){
-        ReadingSubject item = new ReadingSubject();
-        item.setObjectId(mAVObject.getObjectId());
-        item.setCategory(mAVObject.getString(AVOUtil.SubjectList.category));
-        item.setCode(mAVObject.getString(AVOUtil.SubjectList.code));
-        item.setName(mAVObject.getString(AVOUtil.SubjectList.name));
-        item.setLevel(mAVObject.getString(AVOUtil.SubjectList.level));
-        return item;
+    public static AVObject subjectItem(ReadingSubject item){
+        AVObject mAVObject = new AVObject();
+        mAVObject.put(AVOUtil.SubjectList.category,item.getCategory());
+        mAVObject.put(AVOUtil.SubjectList.code,item.getCode());
+        mAVObject.put(AVOUtil.SubjectList.name,item.getName());
+        mAVObject.put(AVOUtil.SubjectList.level,item.getLevel());
+        mAVObject.put(KeyUtil.ColorKey, ColorUtil.getRadomColor());
+        mAVObject.setObjectId(item.getObjectId());
+        return mAVObject;
     }
 }

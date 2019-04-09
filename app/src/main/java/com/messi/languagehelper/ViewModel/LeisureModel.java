@@ -70,7 +70,10 @@ public class LeisureModel {
 
     public void showAd(){
         if(ADUtil.IsShowAD){
+            xx_ad_layout.setVisibility(View.VISIBLE);
             loadAD();
+        }else {
+            xx_ad_layout.setVisibility(View.GONE);
         }
     }
 

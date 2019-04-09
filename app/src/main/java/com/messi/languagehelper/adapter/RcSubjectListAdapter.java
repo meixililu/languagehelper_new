@@ -15,17 +15,11 @@ import com.messi.languagehelper.util.HeaderFooterRecyclerViewAdapter;
 
 public class RcSubjectListAdapter extends HeaderFooterRecyclerViewAdapter<RecyclerView.ViewHolder, Object, AVObject, Object> {
 
-    private String recentKey;
-
-    public RcSubjectListAdapter(String recentKey){
-        this.recentKey = recentKey;
-    }
-
     @Override
     protected RecyclerView.ViewHolder onCreateItemViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = getLayoutInflater(parent);
         View characterView = inflater.inflate(R.layout.subject_list_item, parent, false);
-        return new RcSubjectListItemViewHolder(characterView,recentKey);
+        return new RcSubjectListItemViewHolder(characterView);
     }
 
     @Override

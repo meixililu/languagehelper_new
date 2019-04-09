@@ -321,9 +321,6 @@
             android:name=".StoryActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".GrammarActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".AiDialoguePracticeYYSActivity"
             android:screenOrientation="portrait" />
         <activity

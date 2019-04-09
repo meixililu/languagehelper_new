@@ -160,7 +160,7 @@ public class StudyCategoryFragment extends BaseFragment {
                 AVAnalytics.onEvent(getContext(), "tab3_to_spoken_english");
                 break;
             case R.id.en_grammar:
-                toActivity(GrammarActivity.class, null);
+//                toActivity(GrammarActivity.class, null);
                 AVAnalytics.onEvent(getContext(), "tab3_to_grammar");
                 break;
             case R.id.en_story_layout:

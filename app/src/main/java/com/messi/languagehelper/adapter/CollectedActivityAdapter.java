@@ -1,7 +1,6 @@
 package com.messi.languagehelper.adapter;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -10,6 +9,7 @@ import com.messi.languagehelper.CollectedDictionaryFragment;
 import com.messi.languagehelper.CollectedTranslateFragment;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.ReadingCollectedListFragment;
+import com.messi.languagehelper.SubjectSubscribeFragment;
 
 public class CollectedActivityAdapter extends FragmentPagerAdapter {
 
@@ -18,6 +18,7 @@ public class CollectedActivityAdapter extends FragmentPagerAdapter {
     public CollectedActivityAdapter(FragmentManager fm,Context mContext) {
         super(fm);
         CONTENT = new String[] { 
+        		mContext.getResources().getString(R.string.recent),
         		mContext.getResources().getString(R.string.title_translate),
         		mContext.getResources().getString(R.string.title_dictionary),
         		mContext.getResources().getString(R.string.title_article_collected),
@@ -27,10 +28,12 @@ public class CollectedActivityAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if( position == 0 ){
-        	return new CollectedTranslateFragment();
+        	return SubjectSubscribeFragment.getInstance();
         }else if( position == 1 ){
-        	return new CollectedDictionaryFragment();
+        	return new CollectedTranslateFragment();
         }else if( position == 2 ){
+        	return new CollectedDictionaryFragment();
+        }else if( position == 3 ){
             return ReadingCollectedListFragment.newInstance();
         }
         return null;

@@ -156,8 +156,7 @@
 
     <string name="dic_tab_juhai">Sentences</string>
     <string name="dic_tab_cidian">Dictionary</string>
-    <string name="dic_tab_shoucang">Collected</string>
-    
+
     <string name="speak_english">please tap mic to speak english</string>
     <string name="speak_chinese">please tap mic to speak chinese</string>
     <string name="your_turn">Your Turn</string>

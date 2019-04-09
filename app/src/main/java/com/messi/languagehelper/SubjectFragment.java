@@ -103,7 +103,7 @@ public class SubjectFragment extends BaseFragment {
 
     private void initAdapter(){
         if(mAdapter == null && category_lv != null){
-            mAdapter = new RcSubjectListAdapter(recentKey);
+            mAdapter = new RcSubjectListAdapter();
             mAdapter.setItems(avObjects);
             mAdapter.setFooter(new Object());
             mXXLModel.setAdapter(avObjects,mAdapter);

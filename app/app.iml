@@ -162,7 +162,6 @@
     <orderEntry type="library" name="Gradle: com.facebook.fresco:animated-base:1.11.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.8.5@jar" level="project" />
     <orderEntry type="library" name="Gradle: __local_aars__:/Users/lilu/AndroidStudioProjects/languagehelper_new/app/libs/YoudaoBase.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:/Users/lilu/AndroidStudioProjects/languagehelper_new/app/libs/GDTUnionSDK.4.22.890.min.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: org.reactivestreams:reactive-streams:1.0.2@jar" level="project" />
     <orderEntry type="library" name="Gradle: pl.droidsonroids.gif:android-gif-drawable:1.2.6@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-core-ui:28.0.0@aar" level="project" />
@@ -226,6 +225,7 @@
     <orderEntry type="library" name="Gradle: com.android.support:print:28.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: org.greenrobot:essentials:3.0.0-RC1@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:versionedparcelable:28.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:/Users/lilu/AndroidStudioProjects/languagehelper_new/app/libs/GDTUnionSDK.4.24.894.min.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.alibaba:fastjson:1.2.37@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.yqritc:recyclerview-flexibledivider:1.4.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: junit:junit:4.12@jar" level="project" />

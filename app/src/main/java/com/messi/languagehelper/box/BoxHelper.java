@@ -141,10 +141,19 @@ public class BoxHelper {
         }
     }
 
-    public static ReadingSubject findReadingSubjectByName(String name){
+    public static ReadingSubject findReadingSubjectByObjectId(String oid){
         QueryBuilder<ReadingSubject> query = getReadingSubjectBox().query();
-        query.equal(ReadingSubject_.name,name);
+        query.equal(ReadingSubject_.objectId,oid);
         return query.build().findFirst();
+    }
 
+    public static List<ReadingSubject> getReadingSubjectList(int offset, int psize){
+        QueryBuilder<ReadingSubject> query = getReadingSubjectBox().query();
+        query.order(ReadingSubject_.id,QueryBuilder.DESCENDING);
+        if(psize > 0){
+            return query.build().find(offset,psize);
+        }else {
+            return query.build().find();
+        }
     }
 }

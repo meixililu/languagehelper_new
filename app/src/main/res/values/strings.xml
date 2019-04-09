@@ -46,7 +46,7 @@
     <string name="title_sougo_wechat">微信英语</string>
     <string name="title_reading">阅读基地</string>
     <string name="title_website">不错的学习网站</string>
-    <string name="title_favorite">我的收藏</string>
+    <string name="title_favorite">订阅/收藏</string>
     <string name="update_title">新版来了</string>
     <string name="update_info">更快、更好用！</string>
     <string name="title_dialog_select">选择场景</string>
@@ -212,7 +212,6 @@
     <string name="search_hot">热搜</string>
     <string name="dic_tab_juhai">句海</string>
     <string name="dic_tab_cidian">词典</string>
-    <string name="dic_tab_shoucang">收藏</string>
 
     <string name="click_where_unknow">点击单词即可查询词义：</string>
     <string name="close">关闭</string>

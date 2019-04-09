@@ -72,6 +72,7 @@ public class RcSubjectReadingListItemViewHolder extends RecyclerView.ViewHolder 
         this.context = itemView.getContext();
         this.avObjects = avObjects;
         this.isPlayList = isPlayList;
+        this.recentKey = recentKey;
         layout_cover = (FrameLayout) itemView.findViewById(R.id.layout_cover);
         list_item_img_parent = (FrameLayout) itemView.findViewById(R.id.list_item_img_parent);
         ad_layout = (FrameLayout) itemView.findViewById(R.id.ad_layout);

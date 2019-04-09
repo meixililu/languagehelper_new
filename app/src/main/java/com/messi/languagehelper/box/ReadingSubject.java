@@ -14,6 +14,7 @@ public class ReadingSubject implements Parcelable {
     @Id
     private long id;
     @Index
+    private String objectId;
     private String name;
     private String category;
     private String level;
@@ -27,6 +28,14 @@ public class ReadingSubject implements Parcelable {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getObjectId() {
+        return objectId;
+    }
+
+    public void setObjectId(String objectId) {
+        this.objectId = objectId;
     }
 
     public String getName() {
@@ -85,6 +94,7 @@ public class ReadingSubject implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeLong(this.id);
+        dest.writeString(this.objectId);
         dest.writeString(this.name);
         dest.writeString(this.category);
         dest.writeString(this.level);
@@ -98,6 +108,7 @@ public class ReadingSubject implements Parcelable {
 
     protected ReadingSubject(Parcel in) {
         this.id = in.readLong();
+        this.objectId = in.readString();
         this.name = in.readString();
         this.category = in.readString();
         this.level = in.readString();
@@ -106,7 +117,7 @@ public class ReadingSubject implements Parcelable {
         this.creat_time = in.readLong();
     }
 
-    public static final Parcelable.Creator<ReadingSubject> CREATOR = new Parcelable.Creator<ReadingSubject>() {
+    public static final Creator<ReadingSubject> CREATOR = new Creator<ReadingSubject>() {
         @Override
         public ReadingSubject createFromParcel(Parcel source) {
             return new ReadingSubject(source);

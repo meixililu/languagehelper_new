@@ -18,8 +18,8 @@ public class ComExamActivity extends BaseActivity implements FragmentProgressbar
     FrameLayout content;
     @BindView(R.id.navigation)
     BottomNavigationView navigation;
-    private Fragment mExaminationFragment;
     private Fragment mCompositionFragment;
+    private Fragment mExaminationFragment;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -52,8 +52,8 @@ public class ComExamActivity extends BaseActivity implements FragmentProgressbar
     private void initFragment(){
         navigation.inflateMenu(R.menu.com_exam_tabs);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        mExaminationFragment = ExaminationFragment.getInstance();
         mCompositionFragment = CompositionFragment.getInstance();
+        mExaminationFragment = ExaminationFragment.getInstance();
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.content, mCompositionFragment)
@@ -61,7 +61,7 @@ public class ComExamActivity extends BaseActivity implements FragmentProgressbar
                 .commit();
         hideAllFragment();
         getSupportFragmentManager()
-                .beginTransaction().show(mExaminationFragment).commit();
+                .beginTransaction().show(mCompositionFragment).commit();
     }
 
     private void hideAllFragment(){
