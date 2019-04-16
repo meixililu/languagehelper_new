@@ -72,7 +72,7 @@ public class ADUtil {
 	public static String BD_Kaiping = "6057037";
 
 	public static void initAdConfig(SharedPreferences sp){
-		String configStr = sp.getString(KeyUtil.AdConfig, "GDT#CSJ#BD#XF#XBKJ");
+		String configStr = sp.getString(KeyUtil.AdConfig, "CSJ#GDT#BD#XF#XBKJ");
 		setAdConfig(configStr);
 	}
 

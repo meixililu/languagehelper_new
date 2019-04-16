@@ -54,7 +54,7 @@ public class TXADUtil {
                 initDefaultTXADID(mContext);
             }
 
-            String ad = sp.getString(KeyUtil.APP_Advertiser,KeyUtil.No_Ad);
+            String ad = sp.getString(KeyUtil.APP_Advertiser,"");
             if(!ad.equals(KeyUtil.No_Ad)){
                 String noAdChannel = sp.getString(KeyUtil.No_Ad_Channel,"");
                 String channel = Setings.getMetaData(mContext,"UMENG_CHANNEL");

@@ -30,7 +30,9 @@ import com.alibaba.fastjson.JSON;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.DefaultRenderersFactory;
+import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.ExoPlayerFactory;
+import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
@@ -40,6 +42,7 @@ import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
+import com.messi.languagehelper.ViewModel.VideoADModel;
 import com.messi.languagehelper.bean.TTParseBean;
 import com.messi.languagehelper.bean.TTParseDataBean;
 import com.messi.languagehelper.bean.TTparseVideoBean;
@@ -64,7 +67,8 @@ import butterknife.OnClick;
 import okhttp3.FormBody;
 
 
-public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentProgressbarListener {
+public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentProgressbarListener,
+        Player.EventListener {
 
     private final String STATE_RESUME_WINDOW = "resumeWindow";
     private final String STATE_RESUME_POSITION = "resumePosition";
@@ -79,11 +83,13 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     @BindView(R.id.video_layout)
     LinearLayout videoLayout;
     @BindView(R.id.video_ly)
-    LinearLayout video_ly;
+    FrameLayout video_ly;
     @BindView(R.id.back_btn)
     LinearLayout backBtn;
     @BindView(R.id.next_composition)
     LinearLayout nextComposition;
+    @BindView(R.id.xx_ad_layout)
+    FrameLayout xx_ad_layout;
     private String Url;
     private Reading mAVObject;
     private SimpleExoPlayer player;
@@ -94,6 +100,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     private boolean mExoPlayerFullscreen = false;
     private int mResumeWindow;
     private long mResumePosition;
+    private VideoADModel mVideoADModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -231,8 +238,23 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
                 Util.getUserAgent(this, "LanguageHelper"), bandwidthMeter);
         MediaSource videoSource = new ExtractorMediaSource.Factory(dataSourceFactory)
                 .createMediaSource(Uri.parse(media_url));
+        player.addListener(this);
         player.prepare(videoSource);
         player.setPlayWhenReady(true);
+        LogUtil.DefalutLog("ACTION_setPlayWhenReady");
+    }
+
+    @Override
+    public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
+        LogUtil.DefalutLog("onPlayerStateChanged:"+playbackState+"-:playWhenReady:"+playWhenReady);
+        if(playWhenReady && playbackState == 4){
+            mVideoADModel.showAd();
+        }
+    }
+
+    @Override
+    public void onPlayerError(ExoPlaybackException error) {
+
     }
 
     private void showWebView(){
@@ -310,6 +332,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         }
         Setings.MPlayerPause();
         Url = mAVObject.getSource_url();
+        mVideoADModel = new VideoADModel(this,xx_ad_layout);
         mWebView.requestFocus();//如果不设置，则在点击网页文本输入框时，不能弹出软键盘及不响应其他的一些事件。
         mWebView.getSettings().setJavaScriptEnabled(true);//如果访问的页面中有Javascript，则webview必须设置支持Javascript。
         mWebView.getSettings().setUseWideViewPort(true);

@@ -13,6 +13,7 @@ public class CSJADUtil {
     public static String CSJ_KPID = "802882204";
     public static String CSJ_BANNer2ID = "902882166";
     public static String CSJ_XXL = "902882431";
+    public static String CSJ_VIDEO = "902882951";
 
     public static boolean sInit;
 

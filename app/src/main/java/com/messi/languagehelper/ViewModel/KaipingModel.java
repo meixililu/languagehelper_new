@@ -84,15 +84,15 @@ public class KaipingModel {
         try {
             String ad = ADUtil.getAdProvider(counter);
             if(!TextUtils.isEmpty(ad)){
-                if(!sp.getBoolean(KeyUtil.IsTXADPermissionReady,false)){
-                    if(ADUtil.GDT.equals(ad)){
-                        counter++;
-                        ad = ADUtil.getAdProvider(counter);
-                    }
-                }
+                counter++;
                 LogUtil.DefalutLog("------ad-------"+ad);
+                LogUtil.DefalutLog("counter:"+counter);
                 if(ADUtil.GDT.equals(ad)){
-                    loadTXAD();
+                    if(!sp.getBoolean(KeyUtil.IsTXADPermissionReady,false)){
+                        getAd();
+                    }else {
+                        loadTXAD();
+                    }
                 }else if(ADUtil.BD.equals(ad)){
                     loadBDAD();
                 }else if(ADUtil.CSJ.equals(ad)){
@@ -103,7 +103,6 @@ public class KaipingModel {
                     loadXBKJ();
                 }
             }
-            counter++;
         } catch (Exception e) {
             DelayToNextPage(1500);
             e.printStackTrace();

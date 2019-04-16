@@ -21,7 +21,6 @@ public class ListenActivity extends BaseActivity implements FragmentProgressbarL
     BottomNavigationView navigation;
     private ListenHomeFragment mWordHomeFragment;
     private Fragment dashboardFragment;
-    private Fragment radioHomeFragment;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -38,11 +37,6 @@ public class ListenActivity extends BaseActivity implements FragmentProgressbarL
                     hideAllFragment();
                     getSupportFragmentManager().beginTransaction().show(dashboardFragment).commit();;
                     AVAnalytics.onEvent(ListenActivity.this, "wordstudy_course");
-                    return true;
-                case R.id.navigation_vovabulary:
-                    hideAllFragment();
-                    getSupportFragmentManager().beginTransaction().show(radioHomeFragment).commit();;
-                    AVAnalytics.onEvent(ListenActivity.this, "wordstudy_vocabulary");
                     return true;
             }
             return false;
@@ -63,12 +57,10 @@ public class ListenActivity extends BaseActivity implements FragmentProgressbarL
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         mWordHomeFragment = ListenHomeFragment.getInstance();
         dashboardFragment = ListenCourseFragment.getInstance();
-        radioHomeFragment = BroadcastFragment.getInstance();
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.content, mWordHomeFragment)
                 .add(R.id.content, dashboardFragment)
-                .add(R.id.content, radioHomeFragment)
                 .commit();
         hideAllFragment();
         getSupportFragmentManager()
@@ -79,7 +71,6 @@ public class ListenActivity extends BaseActivity implements FragmentProgressbarL
         getSupportFragmentManager()
                 .beginTransaction()
                 .hide(dashboardFragment)
-                .hide(radioHomeFragment)
                 .hide(mWordHomeFragment)
                 .commit();
     }
