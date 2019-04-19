@@ -142,7 +142,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 	};
 
 	@Override
-	protected void onStart() {
+	public void onStart() {
 		super.onStart();
 		startMusicPlayerService();
 	}

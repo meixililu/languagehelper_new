@@ -62,6 +62,8 @@ public class Setings {
 
 	public static String EndicApi = "https://en.oxforddictionaries.com/definition/";
 
+	public static String YDOcrQuestion = "https://aidemo.youdao.com/ocr_question";
+
 	/**juhe dictionary api**/
 	public static String JuheYoudaoApiUrl = "http://japi.juhe.cn/youdao/dictionary.from?key=a8edec6297be9b017a106aec955974f6&word=";
 	/**youdao web translate for jsoup catch**/
@@ -440,20 +442,6 @@ public class Setings {
 		Intent intent = new Intent(context, ImgShareActivity.class); 
 		intent.putExtra(KeyUtil.ShareContentKey, dstString);
 		context.startActivity(intent); 
-	}
-
-	public static Intent getAppDetailSettingIntent(Context mContext) {
-		Intent localIntent = new Intent();
-		localIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		if (Build.VERSION.SDK_INT >= 9) {
-			localIntent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
-			localIntent.setData(Uri.fromParts("package", mContext.getPackageName(), null));
-		} else if (Build.VERSION.SDK_INT <= 8) {
-			localIntent.setAction(Intent.ACTION_VIEW);
-			localIntent.setClassName("com.android.settings", "com.android.settings.InstalledAppDetails");
-			localIntent.putExtra("com.android.settings.ApplicationPkgName", mContext.getPackageName());
-		}
-		return localIntent;
 	}
 
 	public static String getUUID(Context context){

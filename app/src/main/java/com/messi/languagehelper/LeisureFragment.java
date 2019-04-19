@@ -170,10 +170,8 @@ public class LeisureFragment extends BaseFragment {
     }
 
     private void toDVideo() {
-        Intent intent = new Intent(getContext(), WebViewFullscreenActivity.class);
-        intent.putExtra(KeyUtil.URL, getDVideoUrl());
-        intent.putExtra(KeyUtil.IsHideToolbar, true);
-        intent.putExtra(KeyUtil.IsReedPullDownRefresh, false);
+        Intent intent = new Intent(getContext(), PhotoSearchActivity.class);
+        intent.putExtra(KeyUtil.ActionbarTitle, getContext().getResources().getString(R.string.leisure_photo_search));
         getContext().startActivity(intent);
         AVAnalytics.onEvent(getActivity(), "leisure_pg_to_dvideo");
     }

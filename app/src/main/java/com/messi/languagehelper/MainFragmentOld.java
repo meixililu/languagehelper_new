@@ -54,7 +54,6 @@ import permissions.dispatcher.RuntimePermissions;
 public class MainFragmentOld extends BaseFragment implements OnClickListener, OrcResultListener {
 
     public static MainFragmentOld mMainFragment;
-    public static String base64;
     private EditText input_et;
     private FrameLayout submit_btn_cover;
     private FrameLayout photo_tran_btn;

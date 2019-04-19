@@ -5,7 +5,6 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSON;
-import com.messi.languagehelper.MainFragmentOld;
 import com.messi.languagehelper.bean.BaiduAccessToken;
 import com.messi.languagehelper.impl.ProgressListener;
 import com.messi.languagehelper.util.CameraUtil;
@@ -111,9 +110,18 @@ public class LanguagehelperHttpClient {
 
 	public static Response post(String url, RequestBody params, Callback mCallback) {
 		Request request = new Request.Builder()
-			.url(url)
-			.post(params)
-			.build();
+				.url(url)
+				.post(params)
+				.build();
+		return executePost(request,mCallback);
+	}
+
+	public static Response postWithHeader(String url, RequestBody params, Callback mCallback) {
+		Request request = new Request.Builder()
+				.header("User-Agent", Header)
+				.url(url)
+				.post(params)
+				.build();
 		return executePost(request,mCallback);
 	}
 
@@ -223,14 +231,9 @@ public class LanguagehelperHttpClient {
 			long BaiduAccessTokenCreateAt = PlayUtil.getSP().getLong(KeyUtil.BaiduAccessTokenCreateAt,(long)0);
 			boolean isExpired = System.currentTimeMillis() - BaiduAccessTokenCreateAt > BaiduAccessTokenExpires;
 			if(!TextUtils.isEmpty(BaiduAccessToken) && !isExpired){
-				File imageFile = new File(path);
-				File tempImage = new File(context.getCacheDir(), String.valueOf(System.currentTimeMillis()));
-				CameraUtil.resize(imageFile.getAbsolutePath(), tempImage.getAbsolutePath(), 1280, 1280);
-
-				MainFragmentOld.base64 = CameraUtil.encodeBase64File(tempImage);
-				LogUtil.DefalutLog(MainFragmentOld.base64);
+				String base64 = CameraUtil.getImageBase64(path,1280,1280,4000);
 				FormBody formBody = new FormBody.Builder()
-						.add("image", MainFragmentOld.base64)
+						.add("image", base64)
 						.build();
 				Request request = new Request.Builder()
 						.url(Setings.BaiduOCRUrl+"?access_token="+PlayUtil.getSP().getString(KeyUtil.BaiduAccessToken,""))

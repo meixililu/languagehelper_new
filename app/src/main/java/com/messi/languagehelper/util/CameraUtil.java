@@ -1,5 +1,15 @@
 package com.messi.languagehelper.util;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.media.ExifInterface;
+import android.os.Build;
+import android.util.Base64;
+
+import com.messi.languagehelper.bean.BDORCItem;
+import com.messi.languagehelper.bean.BaiduOcrRoot;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -7,17 +17,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URLEncoder;
-
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
-import android.media.ExifInterface;
-import android.util.Base64;
-
-import com.messi.languagehelper.bean.BDORCItem;
-import com.messi.languagehelper.bean.BaiduOcrRoot;
 
 public class CameraUtil {
 
@@ -95,6 +94,7 @@ public class CameraUtil {
 	}
 
 	public static String encodeBase64File(File file) throws Exception {
+		LogUtil.DefalutLog("encodeBase64File final size:"+file.length());
 		return new String(Base64.encode(File2byte(file),Base64.NO_WRAP));
 	}
 
@@ -119,7 +119,7 @@ public class CameraUtil {
 		{
 			e.printStackTrace();
 		}
-		catch (IOException e)
+		catch (Exception e)
 		{
 			e.printStackTrace();
 		}
@@ -139,7 +139,6 @@ public class CameraUtil {
 			if(rotation != 0) {
 				m.preRotate((float)ExifUtil.exifToDegrees(rotation));
 			}
-
 			int maxPreviewImageSize = Math.max(dstWidth, dstHeight);
 			int size = Math.min(options.outWidth, options.outHeight);
 			size = Math.min(size, maxPreviewImageSize);
@@ -150,7 +149,6 @@ public class CameraUtil {
 			options.inTargetDensity = size * options.inSampleSize;
 			Bitmap roughBitmap = BitmapFactory.decodeFile(inputPath, options);
 			FileOutputStream out = new FileOutputStream(outputPath);
-
 			try {
 				roughBitmap.compress(Bitmap.CompressFormat.JPEG, 80, out);
 			} catch (Exception var24) {
@@ -174,50 +172,55 @@ public class CameraUtil {
 		int inSampleSize = 1;
 		if(height > reqHeight || width > reqWidth) {
 			int halfHeight = height / 2;
-
 			for(int halfWidth = width / 2; halfHeight / inSampleSize >= reqHeight && halfWidth / inSampleSize >= reqWidth; inSampleSize *= 2) {
 				;
 			}
 		}
-
 		return inSampleSize;
 	}
 
-	public static String getImageBase64(String srcPath) {
-//		BitmapFactory.Options newOpts = new BitmapFactory.Options();
-//		//开始读入图片，此时把options.inJustDecodeBounds 设回true了
-//		newOpts.inJustDecodeBounds = true;
-//		Bitmap bitmap = BitmapFactory.decodeFile(srcPath,newOpts);//此时返回bm为空
-//
-//		newOpts.inJustDecodeBounds = false;
-//		int w = newOpts.outWidth;
-//		int h = newOpts.outHeight;
-//		//现在主流手机比较多是800*480分辨率，所以高和宽我们设置为
-//		float hh = 2048f;//这里设置高度为800f
-//		float ww = 2048f;//这里设置宽度为480f
-//		//缩放比。由于是固定比例缩放，只用高或者宽其中一个数据进行计算即可
-//		int be = 1;//be=1表示不缩放
-//		if (w > h && w > ww) {//如果宽度大的话根据宽度固定大小缩放
-//			be = (int) (newOpts.outWidth / ww);
-//		} else if (w < h && h > hh) {//如果高度高的话根据宽度固定大小缩放
-//			be = (int) (newOpts.outHeight / hh);
-//		}
-//		if (be <= 0)
-//			be = 1;
-//		newOpts.inSampleSize = be;//设置缩放比例
-		//重新读入图片，注意此时已经把options.inJustDecodeBounds 设回false了
-		LogUtil.DefalutLog("srcPath:"+srcPath);
-		Bitmap bitmap = BitmapFactory.decodeFile(srcPath);
+	public static String getImageBase64(String srcPath, float dstWidth, float dstHeight, int maxSize) {
+		BitmapFactory.Options newOpts = new BitmapFactory.Options();
+		newOpts.inJustDecodeBounds = true;
+		BitmapFactory.decodeFile(srcPath,newOpts);
+		newOpts.inJustDecodeBounds = false;
+		int w = newOpts.outWidth;
+		int h = newOpts.outHeight;
+		int be = 1;//be=1表示不缩放
+		if (w > h && w > dstWidth) {//如果宽度大的话根据宽度固定大小缩放
+			be = (int) (newOpts.outWidth / dstWidth);
+		} else if (w < h && h > dstHeight) {//如果高度高的话根据宽度固定大小缩放
+			be = (int) (newOpts.outHeight / dstHeight);
+		}
+		if (be <= 0)
+			be = 1;
+		newOpts.inSampleSize = be;//设置缩放比例
+		Bitmap bitmap = BitmapFactory.decodeFile(srcPath, newOpts);
+		return Base64.encodeToString(compressImage(bitmap,maxSize), Base64.NO_WRAP);
+	}
+
+	public static byte[] compressImage(Bitmap image,int size) {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);// 质量压缩方法，这里100表示不压缩，把压缩后的数据存放到baos中
-//		int options = 100;
-//		LogUtil.DefalutLog("orc_img_width:"+w+"---orc_img_height:"+h+"---be:"+be+"--size:"+(baos.toByteArray().length / 1024));
-//		while (baos.toByteArray().length / 1024 > 4000) {
-//			baos.reset();// 重置baos即清空baos
-//			bitmap.compress(Bitmap.CompressFormat.JPEG, options, baos);// 这里压缩options%，把压缩后的数据存放到baos中
-//			options -= 5;// 每次都减少5
-//		}
-		return Base64.encodeToString(baos.toByteArray(), Base64.DEFAULT);
+		image.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+		int options = 95;
+		while (baos.toByteArray().length / 1024 > size && options > 0) {
+			baos.reset();
+			image.compress(Bitmap.CompressFormat.JPEG, options, baos);
+			options -= 5;
+			LogUtil.DefalutLog("size："+(baos.toByteArray().length / 1024));
+		}
+		return baos.toByteArray();
+	}
+
+	public static int getBitmapSize(Bitmap bitmap) {
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {    //API 19
+			return bitmap.getAllocationByteCount();
+		}
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {//API 12
+			return bitmap.getByteCount();
+		}
+		// 在低版本中用一行的字节x高度
+		return bitmap.getRowBytes() * bitmap.getHeight();                //earlier version
 	}
 
 	public static void saveBitmap(Bitmap bitmap, String srcPath){

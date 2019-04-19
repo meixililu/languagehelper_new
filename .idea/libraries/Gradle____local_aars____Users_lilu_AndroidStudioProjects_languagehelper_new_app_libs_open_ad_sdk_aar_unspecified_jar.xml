@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: __local_aars__:/Users/lilu/AndroidStudioProjects/languagehelper_new/app/libs/open_ad_sdk.aar:unspecified@jar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/jars/classes.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/jars/libs/openadsdk.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/jars/libs/openadsdk.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

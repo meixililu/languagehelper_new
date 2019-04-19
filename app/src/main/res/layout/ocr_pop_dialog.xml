@@ -46,19 +46,25 @@
                 android:textColor="@color/text_black"
                 android:textSize="@dimen/bigger" />
         </FrameLayout>
-        <ImageView
-            android:layout_width="fill_parent"
-            android:layout_height="1px"
-            android:src="@color/lightgrey" />
-        <TextView
-            android:layout_width="fill_parent"
+        <LinearLayout
+            android:id="@+id/baidu_tag"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="3dp"
-            android:gravity="center"
-            android:text="OCR文字识别由百度提供"
-            android:textColor="@color/text_black"
-            android:textSize="@dimen/smaller" />
-
+            android:orientation="vertical"
+            >
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:src="@color/lightgrey" />
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:gravity="center"
+                android:text="OCR文字识别由百度提供"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/smaller" />
+        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>

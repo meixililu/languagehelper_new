@@ -49,88 +49,88 @@ INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:87:13-64
 manifest
-ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:1-535:12
-INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:1-535:12
-INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:1-535:12
-INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:1-535:12
-MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/Baidu_MobAds_SDK-release.aar/927d0a94fd5f563c45c0be8bfe9caa22/AndroidManifest.xml:2:1-20:12
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:2:1-87:12
-MERGED from [io.objectbox:objectbox-android:2.2.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/objectbox-android-2.2.0.aar/51b925a256257f7c79abf8c4a8f09109/AndroidManifest.xml:2:1-10:12
-MERGED from [com.android.support:multidex:1.0.3] /Users/lilu/.gradle/caches/transforms-1/files-1.1/multidex-1.0.3.aar/1973b976f2e4c9addb2751cd7d7cec85/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:design:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/6bf70062d3faf0fcad13d8e41799d02b/AndroidManifest.xml:17:1-24:12
-MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/3dc0c93935b50031c7c2073eb9724e5e/AndroidManifest.xml:17:1-22:12
-MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/transitionseverywhere-1.7.0.aar/fe3cd1858d95d0a85d6bc67a546e1577/AndroidManifest.xml:2:1-14:12
-MERGED from [com.android.support:support-v4:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/27721cb236ed414dccebed07e526c5d5/AndroidManifest.xml:17:1-22:12
-MERGED from [com.karumi:headerrecyclerview:1.1.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/headerrecyclerview-1.1.0.aar/35512ada7384c3bd1490d61dfadc4129/AndroidManifest.xml:17:1-26:12
-MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/0e6ef5ba88a30605c48aef0dd1484e6b/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:cardview-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/5dccafac1bfc99d715dd6e14dff5cf58/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/c3802b00c573e1dffa8da5e7ba398439/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/088283b8cd92bb982ed664f2282518cd/AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.android.exoplayer:exoplayer-ui:2.9.6] /Users/lilu/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.9.6.aar/a8eeec409aaf3efc0e9acd1baf1b4a93/AndroidManifest.xml:17:1-24:12
-MERGED from [com.android.support:support-media-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/99ccc3d0b25eeca9ec908803f3113b00/AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.android:flexbox:1.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/flexbox-1.0.0.aar/d8a8f1ac28a80804c14942897ddbdc21/AndroidManifest.xml:17:1-27:12
-MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.6] /Users/lilu/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.9.6.aar/426b361dc76c7ce1e93a36e8197899e2/AndroidManifest.xml:17:1-26:12
-MERGED from [com.jakewharton:butterknife:9.0.0-rc2] /Users/lilu/.gradle/caches/transforms-1/files-1.1/butterknife-9.0.0-rc2.aar/aea6895945851a14773e4ae073b7515d/AndroidManifest.xml:2:1-7:12
-MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/glide-4.8.0.aar/bbbfeb3d6f583dd7fbd84fc109f60763/AndroidManifest.xml:2:1-12:12
-MERGED from [cn.jzvd:jiaozivideoplayer:6.4.1] /Users/lilu/.gradle/caches/transforms-1/files-1.1/jiaozivideoplayer-6.4.1.aar/36b21e5cd5f33851c2eef4d36a0fffa7/AndroidManifest.xml:2:1-13:12
-MERGED from [com.facebook.fresco:fresco:1.11.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/fresco-1.11.0.aar/5246dd70f722005c7e212eab81cd9bf9/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:animated-gif:1.11.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/animated-gif-1.11.0.aar/55f2a36e087e50675c793860a8f8bb90/AndroidManifest.xml:2:1-9:12
-MERGED from [io.reactivex.rxjava2:rxandroid:2.1.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/rxandroid-2.1.0.aar/7aed83cbc521247d45859dac6c3ee00b/AndroidManifest.xml:15:1-20:12
-MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/GreenDaoUpgradeHelper-v2.1.0.aar/7a95786ae9157a58a58cf568a82ff3c5/AndroidManifest.xml:2:1-16:12
-MERGED from [com.github.lzyzsd:circleprogress:1.2.1] /Users/lilu/.gradle/caches/transforms-1/files-1.1/circleprogress-1.2.1.aar/f9974df5e6b70c720f29cf73194db5e0/AndroidManifest.xml:2:1-12:12
-MERGED from [com.daimajia.numberprogressbar:library:1.4] /Users/lilu/.gradle/caches/transforms-1/files-1.1/library-1.4.aar/c25266ab300f03fe259c0fe604d10c94/AndroidManifest.xml:2:1-11:12
-MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42] /Users/lilu/.gradle/caches/transforms-1/files-1.1/BaseRecyclerViewAdapterHelper-2.9.42.aar/a04ee19d1429a9b4ecb32f6c24d79dce/AndroidManifest.xml:2:1-11:12
-MERGED from [com.yqritc:recyclerview-flexibledivider:1.4.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/recyclerview-flexibledivider-1.4.0.aar/66b84489fc94696031eaee6ccd309199/AndroidManifest.xml:2:1-12:12
-MERGED from [com.github.hotchemi:permissionsdispatcher:3.3.2] /Users/lilu/.gradle/caches/transforms-1/files-1.1/permissionsdispatcher-3.3.2.aar/52ab4d276518ca32e626d75061b00258/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:animated-base:1.11.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/animated-base-1.11.0.aar/4a77b00fcea54c5e87c47b93190ddb23/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:animated-drawable:1.11.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/animated-drawable-1.11.0.aar/472c421ddd3cc9163e223418a9130937/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:drawee:1.11.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/drawee-1.11.0.aar/25a6f12aea76c4e9930b1bc8815835c8/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:nativeimagefilters:1.11.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/nativeimagefilters-1.11.0.aar/5043bd687b5581afca46d104f7d028a4/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:imagepipeline:1.11.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.11.0.aar/1ee301e737f1e205773bfcafe9f23b38/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:imagepipeline-base:1.11.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.11.0.aar/3e290d8865f2dbf372c72fe85c12017f/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.soloader:soloader:0.5.1] /Users/lilu/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/b760213fc504a038e5e41c49d3e3563a/AndroidManifest.xml:2:1-13:12
-MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.6] /Users/lilu/.gradle/caches/transforms-1/files-1.1/android-gif-drawable-1.2.6.aar/214c53ebb4ec7c87b185bca536be645b/AndroidManifest.xml:2:1-11:12
-MERGED from [com.android.support:support-fragment:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/70e291fb374ca1d28af42e763666ebf9/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-ui:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/b99d8e28d9a2effab2f0104f13416db4/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-utils:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/94661af0cad8ae9db62e00c594ac3946/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:transition:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/c16f330c54f4b92cdc79f76bc686aa97/AndroidManifest.xml:17:1-22:12
-MERGED from [com.jakewharton:butterknife-runtime:9.0.0-rc2] /Users/lilu/.gradle/caches/transforms-1/files-1.1/butterknife-runtime-9.0.0-rc2.aar/e8a60979a027d4664ed9301e22375f77/AndroidManifest.xml:2:1-7:12
-MERGED from [com.android.support:loader:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/14f9bf555800f6395cffc6e0756a96a4/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:viewpager:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/e0ee0c010df6b2e46b5b074d61eec1ff/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/6bf5db3b6a5c73f0cd8ece12dcd9d721/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:drawerlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/693ed4f112c5e0e1094e6fb14f5c3a75/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/eeeb7c3e7a37f32c5d8a41d231692721/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:customview:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/b5d359ed89be94f075710917147c9d61/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/755dee9ff28606eb0a25eb8298bac48d/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/9ce378d7c750e02f4b70b42205d20679/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/55551c231c63544fbee272dc3f4ff9a9/AndroidManifest.xml:17:1-24:12
-MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/3cca7792eff492fb8d340cdeeaa026c3/AndroidManifest.xml:17:1-25:12
-MERGED from [com.android.support:cursoradapter:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/179fc9b003963e8506a7461d4af24958/AndroidManifest.xml:17:1-22:12
-MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/gifdecoder-4.8.0.aar/351ac43bdaf983a163e8da6b91709df5/AndroidManifest.xml:2:1-11:12
-MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/lilu/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/5a014b97e72b4315a855889f89a5e4a0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:documentfile:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/f1c77028a3fd7744938b31b2b35517b4/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/f729e8dcb5bf30ef7a007cb720c73c89/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:print:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/a415876a5d2d0f7c0ceac9fb4e388037/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/lilu/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/dce655d1b4d479ac33b277bcb3dedbfe/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:interpolator:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/bfbce1c5c24e5f23879ab74ee60a0bde/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/lilu/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/2d8ba7696b7334f814787ead0d781640/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/lilu/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/e2ea8f91ff93c60ed8d9ab35b57004f8/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.core:runtime:1.1.1] /Users/lilu/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/fbcbf10e9cbb350b885becc5e8f9b6ab/AndroidManifest.xml:17:1-22:12
-MERGED from [com.facebook.fresco:fbcore:1.11.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/fbcore-1.11.0.aar/b361b723d1fd160912048985fc2d0016/AndroidManifest.xml:2:1-9:12
-INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:1-535:12
-INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:1-535:12
-INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:1-535:12
+ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:1-538:12
+INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:1-538:12
+INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:1-538:12
+INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:1-538:12
+MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/17356abef08fb4fe7736e7e0b351b602/AndroidManifest.xml:2:1-20:12
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:2:1-87:12
+MERGED from [io.objectbox:objectbox-android:2.2.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/df1fc7418f4cdf7c357cbbaf7230a1f0/AndroidManifest.xml:2:1-10:12
+MERGED from [com.android.support:multidex:1.0.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a4ae65971c77e0a84d3f90a51297aa7/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:design:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a65d2a8b9217ca836c6acc39aeb2c51f/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/0306d7d9df961ee263d913c2fe87b52c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/46b3299ec672af11ea10b9de45c8b1de/AndroidManifest.xml:2:1-14:12
+MERGED from [com.android.support:support-v4:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/584993399ce5d43bf6518f92ff136353/AndroidManifest.xml:17:1-22:12
+MERGED from [com.karumi:headerrecyclerview:1.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6381aba2f64813a16873c73218071e7d/AndroidManifest.xml:17:1-26:12
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d7f6e525d0b63709314432ae55f9ddb3/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fc3ddfc64fff052258288ab1f42934e5/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7838843a87ced57b0a2c688e4442b723/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a19cf851924d08494fadfcdae62e064b/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.exoplayer:exoplayer-ui:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/50ab0761f9dffe036841a0fe9b47ac97/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:support-media-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/75fbfbd68c35468c6de996658d8d2bd4/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android:flexbox:1.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2b4b8cc2508ef964d7793ee8cf10e898/AndroidManifest.xml:17:1-27:12
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/83a264ced402857e8731d8df32a3a4e8/AndroidManifest.xml:17:1-26:12
+MERGED from [com.jakewharton:butterknife:9.0.0-rc2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88cac7c1a619380d4b515d703c53f5fe/AndroidManifest.xml:2:1-7:12
+MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/49bfabfdda94b0f6cc890117596976ed/AndroidManifest.xml:2:1-12:12
+MERGED from [cn.jzvd:jiaozivideoplayer:6.4.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3da0cd5df5e59c42f1dc6a08b6d632b3/AndroidManifest.xml:2:1-13:12
+MERGED from [com.facebook.fresco:fresco:1.11.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/02c384627824935fbb380952e7dccb65/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:animated-gif:1.11.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8f1bc7109a3f18c89b67c5ceb924e767/AndroidManifest.xml:2:1-9:12
+MERGED from [io.reactivex.rxjava2:rxandroid:2.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/81e530528d3ddcd25740315f7d527f2e/AndroidManifest.xml:15:1-20:12
+MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3da468e6e95dbd3fe303a89ae655856f/AndroidManifest.xml:2:1-16:12
+MERGED from [com.github.lzyzsd:circleprogress:1.2.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d9abf5953eb427aa047c2c5ae028ecb6/AndroidManifest.xml:2:1-12:12
+MERGED from [com.daimajia.numberprogressbar:library:1.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a0c3e13fd896636b23b88d2fcce0f58a/AndroidManifest.xml:2:1-11:12
+MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42] /Users/lilu/.gradle/caches/transforms-2/files-2.1/34359741a1396c7d0b4f495b4e867680/AndroidManifest.xml:2:1-11:12
+MERGED from [com.yqritc:recyclerview-flexibledivider:1.4.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b96d58e58616bb1b4d7e493068a42965/AndroidManifest.xml:2:1-12:12
+MERGED from [com.github.hotchemi:permissionsdispatcher:3.3.2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ef4eb61a42fd4e3cc8f99714d745db65/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:animated-base:1.11.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6589d9e781c3accf0cebb66a22ab72d4/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:animated-drawable:1.11.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/647ef53419aae46ef36c1ffc533f7272/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:drawee:1.11.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f6c96327aab4539983b8eb34d94cabbd/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagefilters:1.11.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c24441b4b93e182946100e1a0e992922/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:1.11.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3694ed133e8d122dcb001ad69faa194/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:1.11.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/dc7648a86634a790156182be8fbdd4ef/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.5.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0fbdfe67e7e35966b0ff4331ce121f4/AndroidManifest.xml:2:1-13:12
+MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2adbb0d26952ff23bb332f01896ccb30/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8ce92397835ca3dbb57a01a792e1a0cd/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/188b4cf6e8dd03c05f004ba2a9be1565/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2d6bd5677430517fa4f78d315ea6f04a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d475f45bf2df5d82eaec32a285cc7216/AndroidManifest.xml:17:1-22:12
+MERGED from [com.jakewharton:butterknife-runtime:9.0.0-rc2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/912187db4c2be29e192fd16535eb6c23/AndroidManifest.xml:2:1-7:12
+MERGED from [com.android.support:loader:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/465a5d371cbdb8ce745386ea9087cda7/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a6c7377bfbec5efa94de9609e893e20/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/92229c2611024cbb5d47731284df843a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f92001b584e1a58a839d415ab7862dd9/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e5f1467514457a00c6f2be0874e46344/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/719e21c8934d38aa2153174dca6e36db/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/106472641d54eecc6b6d8537c6801644/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2b4222ff2cc466e92220ee9c52dfae0d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/47cb51c89ad4b232aa1e6de035a299c6/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/05fc57a44dc75769036cb1630d0db619/AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6963777def1108c71adb71138cda3908/AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/49a7a388e72d948d606f65ff7af68324/AndroidManifest.xml:2:1-11:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/62333eb47e572994ba0e65401124f1fe/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fc45b58e38d82d977fcae9f968da6bfe/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/376c29769362f92f5a4cab18c342932c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7cab90ea4ece3d29300868c12f1f0f07/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/15c5ecb2d0ba18367fe2c93996d3dbff/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/435719eaa2d9d879b258bf80dd443edf/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f53403c22cf3ef9fa58525b7504a7e8e/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6f2b94d27cb54f3ff398e10a942ecd00/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4f27e2ccd30da46f70109efeb0895e71/AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.fresco:fbcore:1.11.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5edfaa70c0ea4c90c81027b5b2b3e6a8/AndroidManifest.xml:2:1-9:12
+INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:1-538:12
+INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:1-538:12
+INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:1-538:12
 	package
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:3:5-39
 		INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:1-535:12
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:1-538:12
 		INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:1-535:12
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:1-538:12
 		INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:11-69
@@ -144,12 +144,12 @@ ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/And
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:6:22-68
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:7:5-79
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:12:5-79
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:12:5-79
-MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.6] /Users/lilu/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.9.6.aar/426b361dc76c7ce1e93a36e8197899e2/AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.6] /Users/lilu/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.9.6.aar/426b361dc76c7ce1e93a36e8197899e2/AndroidManifest.xml:24:5-79
-MERGED from [cn.jzvd:jiaozivideoplayer:6.4.1] /Users/lilu/.gradle/caches/transforms-1/files-1.1/jiaozivideoplayer-6.4.1.aar/36b21e5cd5f33851c2eef4d36a0fffa7/AndroidManifest.xml:11:5-79
-MERGED from [cn.jzvd:jiaozivideoplayer:6.4.1] /Users/lilu/.gradle/caches/transforms-1/files-1.1/jiaozivideoplayer-6.4.1.aar/36b21e5cd5f33851c2eef4d36a0fffa7/AndroidManifest.xml:11:5-79
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:12:5-79
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:12:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/83a264ced402857e8731d8df32a3a4e8/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/83a264ced402857e8731d8df32a3a4e8/AndroidManifest.xml:24:5-79
+MERGED from [cn.jzvd:jiaozivideoplayer:6.4.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3da0cd5df5e59c42f1dc6a08b6d632b3/AndroidManifest.xml:11:5-79
+MERGED from [cn.jzvd:jiaozivideoplayer:6.4.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3da0cd5df5e59c42f1dc6a08b6d632b3/AndroidManifest.xml:11:5-79
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:7:22-76
 uses-permission#android.permission.ACCESS_WIFI_STATE
@@ -166,19 +166,19 @@ ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/And
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:10:22-72
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:11:5-81
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:13:5-81
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:13:5-81
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:13:5-81
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:13:5-81
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:11:22-78
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:12:5-80
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:15:5-88
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:15:5-88
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:12:22-77
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:13:5-81
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:18:5-81
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:18:5-81
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:18:5-81
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:18:5-81
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:13:22-78
 uses-permission#android.permission.ACCESS_COARSE_UPDATES
@@ -187,8 +187,8 @@ ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/And
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:14:22-77
 uses-permission#android.permission.ACCESS_FINE_LOCATION
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:15:5-79
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:17:5-79
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:17:5-79
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:17:5-79
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:17:5-79
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:15:22-76
 uses-permission#android.permission.GET_ACCOUNTS
@@ -222,29 +222,29 @@ ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/And
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:26:19-67
 application
-ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:28:5-533:19
-MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/Baidu_MobAds_SDK-release.aar/927d0a94fd5f563c45c0be8bfe9caa22/AndroidManifest.xml:11:5-18:19
-MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/Baidu_MobAds_SDK-release.aar/927d0a94fd5f563c45c0be8bfe9caa22/AndroidManifest.xml:11:5-18:19
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:20:5-85:19
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:20:5-85:19
-MERGED from [com.android.support:design:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/6bf70062d3faf0fcad13d8e41799d02b/AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:design:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/6bf70062d3faf0fcad13d8e41799d02b/AndroidManifest.xml:22:5-20
-MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/transitionseverywhere-1.7.0.aar/fe3cd1858d95d0a85d6bc67a546e1577/AndroidManifest.xml:12:5-20
-MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/transitionseverywhere-1.7.0.aar/fe3cd1858d95d0a85d6bc67a546e1577/AndroidManifest.xml:12:5-20
-MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/glide-4.8.0.aar/bbbfeb3d6f583dd7fbd84fc109f60763/AndroidManifest.xml:10:5-20
-MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/glide-4.8.0.aar/bbbfeb3d6f583dd7fbd84fc109f60763/AndroidManifest.xml:10:5-20
-MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/GreenDaoUpgradeHelper-v2.1.0.aar/7a95786ae9157a58a58cf568a82ff3c5/AndroidManifest.xml:11:5-14:19
-MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/GreenDaoUpgradeHelper-v2.1.0.aar/7a95786ae9157a58a58cf568a82ff3c5/AndroidManifest.xml:11:5-14:19
-MERGED from [com.facebook.soloader:soloader:0.5.1] /Users/lilu/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/b760213fc504a038e5e41c49d3e3563a/AndroidManifest.xml:11:5-20
-MERGED from [com.facebook.soloader:soloader:0.5.1] /Users/lilu/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/b760213fc504a038e5e41c49d3e3563a/AndroidManifest.xml:11:5-20
-MERGED from [com.android.support:support-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/55551c231c63544fbee272dc3f4ff9a9/AndroidManifest.xml:22:5-94
-MERGED from [com.android.support:support-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/55551c231c63544fbee272dc3f4ff9a9/AndroidManifest.xml:22:5-94
-MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/3cca7792eff492fb8d340cdeeaa026c3/AndroidManifest.xml:22:5-23:19
-MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/3cca7792eff492fb8d340cdeeaa026c3/AndroidManifest.xml:22:5-23:19
-MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/gifdecoder-4.8.0.aar/351ac43bdaf983a163e8da6b91709df5/AndroidManifest.xml:9:5-20
-MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/gifdecoder-4.8.0.aar/351ac43bdaf983a163e8da6b91709df5/AndroidManifest.xml:9:5-20
+ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:28:5-536:19
+MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/17356abef08fb4fe7736e7e0b351b602/AndroidManifest.xml:11:5-18:19
+MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/17356abef08fb4fe7736e7e0b351b602/AndroidManifest.xml:11:5-18:19
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:20:5-85:19
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:20:5-85:19
+MERGED from [com.android.support:design:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a65d2a8b9217ca836c6acc39aeb2c51f/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a65d2a8b9217ca836c6acc39aeb2c51f/AndroidManifest.xml:22:5-20
+MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/46b3299ec672af11ea10b9de45c8b1de/AndroidManifest.xml:12:5-20
+MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/46b3299ec672af11ea10b9de45c8b1de/AndroidManifest.xml:12:5-20
+MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/49bfabfdda94b0f6cc890117596976ed/AndroidManifest.xml:10:5-20
+MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/49bfabfdda94b0f6cc890117596976ed/AndroidManifest.xml:10:5-20
+MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3da468e6e95dbd3fe303a89ae655856f/AndroidManifest.xml:11:5-14:19
+MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3da468e6e95dbd3fe303a89ae655856f/AndroidManifest.xml:11:5-14:19
+MERGED from [com.facebook.soloader:soloader:0.5.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0fbdfe67e7e35966b0ff4331ce121f4/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.soloader:soloader:0.5.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0fbdfe67e7e35966b0ff4331ce121f4/AndroidManifest.xml:11:5-20
+MERGED from [com.android.support:support-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/47cb51c89ad4b232aa1e6de035a299c6/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/47cb51c89ad4b232aa1e6de035a299c6/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/05fc57a44dc75769036cb1630d0db619/AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/05fc57a44dc75769036cb1630d0db619/AndroidManifest.xml:22:5-23:19
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/49a7a388e72d948d606f65ff7af68324/AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/49a7a388e72d948d606f65ff7af68324/AndroidManifest.xml:9:5-20
 	android:appComponentFactory
-		ADDED from [com.android.support:support-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/55551c231c63544fbee272dc3f4ff9a9/AndroidManifest.xml:22:18-91
+		ADDED from [com.android.support:support-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/47cb51c89ad4b232aa1e6de035a299c6/AndroidManifest.xml:22:18-91
 	android:supportsRtl
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:34:9-35
 	android:label
@@ -515,782 +515,788 @@ ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/And
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:209:13-49
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:208:13-57
-activity#com.messi.languagehelper.CaricatureDetailActivity
+activity#com.messi.languagehelper.PhotoSearchActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:210:9-212:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:212:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:211:13-53
-activity#com.messi.languagehelper.CaricatureMainActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:211:13-48
+activity#com.messi.languagehelper.CaricatureDetailActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:213:9-215:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:215:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:214:13-51
-activity#com.messi.languagehelper.WebsiteListActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:214:13-53
+activity#com.messi.languagehelper.CaricatureMainActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:216:9-218:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:218:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:217:13-48
-activity#com.messi.languagehelper.WebViewForMiaosouActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:217:13-51
+activity#com.messi.languagehelper.WebsiteListActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:219:9-221:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:221:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:220:13-54
-activity#com.messi.languagehelper.MiaosouDetailActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:220:13-48
+activity#com.messi.languagehelper.WebViewForMiaosouActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:222:9-224:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:224:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:223:13-50
-activity#com.messi.languagehelper.WebViewWithCollectedActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:223:13-54
+activity#com.messi.languagehelper.MiaosouDetailActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:225:9-227:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:227:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:226:13-57
-activity#com.messi.languagehelper.NovelResultListActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:226:13-50
+activity#com.messi.languagehelper.WebViewWithCollectedActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:228:9-230:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:230:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:229:13-52
-activity#com.messi.languagehelper.CNSearchActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:229:13-57
+activity#com.messi.languagehelper.NovelResultListActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:231:9-233:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:233:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:232:13-45
-activity#com.messi.languagehelper.WebViewForAdActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:232:13-52
+activity#com.messi.languagehelper.CNSearchActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:234:9-236:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:236:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:235:13-49
-activity#com.messi.languagehelper.ListenActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:235:13-45
+activity#com.messi.languagehelper.WebViewForAdActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:237:9-239:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:239:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:238:13-43
-activity#com.messi.languagehelper.SpokenActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:238:13-49
+activity#com.messi.languagehelper.ListenActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:240:9-242:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:242:13-49
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:241:13-43
-activity#com.messi.languagehelper.WordsActivity
+activity#com.messi.languagehelper.SpokenActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:243:9-245:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:245:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:244:13-42
-activity#com.messi.languagehelper.AdEnglishActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:244:13-43
+activity#com.messi.languagehelper.WordsActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:246:9-248:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:248:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:247:13-46
-activity#com.messi.languagehelper.ShoppingActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:247:13-42
+activity#com.messi.languagehelper.AdEnglishActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:249:9-251:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:251:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:250:13-45
-activity#com.messi.languagehelper.PybsDetailActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:250:13-46
+activity#com.messi.languagehelper.ShoppingActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:252:9-254:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:254:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:253:13-47
-activity#com.messi.languagehelper.PyBsActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:253:13-45
+activity#com.messi.languagehelper.PybsDetailActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:255:9-257:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:257:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:256:13-41
-activity#com.messi.languagehelper.XmlySearchResultActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:256:13-47
+activity#com.messi.languagehelper.PyBsActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:258:9-260:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:260:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:259:13-53
-activity#com.messi.languagehelper.XmlySearchActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:259:13-41
+activity#com.messi.languagehelper.XmlySearchResultActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:261:9-263:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:263:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:262:13-47
-activity#com.messi.languagehelper.XimalayaRadioProvinceActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:262:13-53
+activity#com.messi.languagehelper.XmlySearchActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:264:9-266:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:266:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:265:13-58
-activity#com.messi.languagehelper.XimalayaRadioLocalActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:265:13-47
+activity#com.messi.languagehelper.XimalayaRadioProvinceActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:267:9-269:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:269:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:268:13-55
-activity#com.messi.languagehelper.XimalayaRadioTypeListActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:268:13-58
+activity#com.messi.languagehelper.XimalayaRadioLocalActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:270:9-272:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:272:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:271:13-58
-activity#com.messi.languagehelper.XimalayaRadioCategoryListActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:271:13-55
+activity#com.messi.languagehelper.XimalayaRadioTypeListActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:273:9-275:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:275:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:274:13-62
-activity#com.messi.languagehelper.XimalayaRadioDetailActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:274:13-58
+activity#com.messi.languagehelper.XimalayaRadioCategoryListActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:276:9-278:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:278:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:277:13-56
-activity#com.messi.languagehelper.XmlyAlbumActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:277:13-62
+activity#com.messi.languagehelper.XimalayaRadioDetailActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:279:9-281:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:281:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:280:13-46
-activity#com.messi.languagehelper.XimalayaDetailActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:280:13-56
+activity#com.messi.languagehelper.XmlyAlbumActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:282:9-284:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:284:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:283:13-51
-activity#com.messi.languagehelper.XimalayaTrackListActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:283:13-46
+activity#com.messi.languagehelper.XimalayaDetailActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:285:9-287:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:287:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:286:13-54
-activity#com.messi.languagehelper.XimalayaTagsActiviry
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:286:13-51
+activity#com.messi.languagehelper.XimalayaTrackListActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:288:9-290:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:290:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:289:13-49
-activity#com.messi.languagehelper.XmlyActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:289:13-54
+activity#com.messi.languagehelper.XimalayaTagsActiviry
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:291:9-293:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:293:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:292:13-41
-activity#com.messi.languagehelper.ComExamActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:292:13-49
+activity#com.messi.languagehelper.XmlyActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:294:9-296:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:296:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:295:13-44
-activity#com.messi.languagehelper.AiTuringActivity
-ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:297:9-300:57
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:295:13-41
+activity#com.messi.languagehelper.ComExamActivity
+ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:297:9-299:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:299:13-49
-	android:windowSoftInputMode
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:300:13-54
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:298:13-45
-activity#com.messi.languagehelper.AiDialogueFightActivity
-ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:301:9-303:52
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:298:13-44
+activity#com.messi.languagehelper.AiTuringActivity
+ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:300:9-303:57
 	android:screenOrientation
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:303:13-49
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:302:13-49
+	android:windowSoftInputMode
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:303:13-54
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:302:13-52
-activity#com.messi.languagehelper.AiDialogueSelectCourseActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:301:13-45
+activity#com.messi.languagehelper.AiDialogueFightActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:304:9-306:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:306:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:305:13-59
-activity#com.messi.languagehelper.AiChatActivity
-ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:307:9-310:57
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:305:13-52
+activity#com.messi.languagehelper.AiDialogueSelectCourseActivity
+ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:307:9-309:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:309:13-49
-	android:windowSoftInputMode
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:310:13-54
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:308:13-43
-activity#com.messi.languagehelper.SearchResultActivity
-ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:311:9-313:52
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:308:13-59
+activity#com.messi.languagehelper.AiChatActivity
+ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:310:9-313:57
 	android:screenOrientation
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:313:13-49
-	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:312:13-49
-activity#com.messi.languagehelper.SearchActivity
+	android:windowSoftInputMode
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:313:13-54
+	android:name
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:311:13-43
+activity#com.messi.languagehelper.SearchResultActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:314:9-316:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:316:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:315:13-43
-activity#com.messi.languagehelper.SubjectActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:315:13-49
+activity#com.messi.languagehelper.SearchActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:317:9-319:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:319:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:318:13-44
-activity#com.messi.languagehelper.StoryActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:318:13-43
+activity#com.messi.languagehelper.SubjectActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:320:9-322:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:322:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:321:13-42
-activity#com.messi.languagehelper.AiDialoguePracticeYYSActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:321:13-44
+activity#com.messi.languagehelper.StoryActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:323:9-325:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:325:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:324:13-58
-activity#com.messi.languagehelper.AiDialogueFightYYSActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:324:13-42
+activity#com.messi.languagehelper.AiDialoguePracticeYYSActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:326:9-328:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:328:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:327:13-55
-activity#com.messi.languagehelper.ReadingsBySubjectActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:327:13-58
+activity#com.messi.languagehelper.AiDialogueFightYYSActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:329:9-331:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:331:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:330:13-54
-activity#com.messi.languagehelper.SymbolActivity
-ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:332:9-335:52
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:330:13-55
+activity#com.messi.languagehelper.ReadingsBySubjectActivity
+ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:332:9-334:52
 	android:screenOrientation
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:335:13-49
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:334:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:333:13-43
-activity#com.messi.languagehelper.OfflineDicDownloadActivity
-ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:336:9-338:52
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:333:13-54
+activity#com.messi.languagehelper.SymbolActivity
+ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:335:9-338:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:338:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:337:13-55
-activity#com.messi.languagehelper.WordStudyNewWordActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:336:13-43
+activity#com.messi.languagehelper.OfflineDicDownloadActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:339:9-341:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:341:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:340:13-53
-activity#com.messi.languagehelper.WordStudyFightActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:340:13-55
+activity#com.messi.languagehelper.WordStudyNewWordActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:342:9-344:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:344:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:343:13-51
-activity#com.messi.languagehelper.WordStudyDanCiPinXieActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:343:13-53
+activity#com.messi.languagehelper.WordStudyFightActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:345:9-347:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:347:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:346:13-57
-activity#com.messi.languagehelper.WordStudyDuYinSuJiActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:346:13-51
+activity#com.messi.languagehelper.WordStudyDanCiPinXieActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:348:9-350:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:350:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:349:13-55
-activity#com.messi.languagehelper.WordStudyViewAllActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:349:13-57
+activity#com.messi.languagehelper.WordStudyDuYinSuJiActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:351:9-353:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:353:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:352:13-53
-activity#com.messi.languagehelper.WordStudyPlanActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:352:13-55
+activity#com.messi.languagehelper.WordStudyViewAllActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:354:9-356:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:356:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:355:13-50
-activity#com.messi.languagehelper.GodReplyActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:355:13-53
+activity#com.messi.languagehelper.WordStudyPlanActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:357:9-359:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:359:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:358:13-45
-activity#com.messi.languagehelper.WordStudySummaryDetailActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:358:13-50
+activity#com.messi.languagehelper.GodReplyActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:360:9-362:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:362:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:361:13-59
-activity#com.messi.languagehelper.WordStudySummaryListActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:361:13-45
+activity#com.messi.languagehelper.WordStudySummaryDetailActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:363:9-365:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:365:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:364:13-57
-activity#com.messi.languagehelper.WordStudyCiYiXuanCiActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:364:13-59
+activity#com.messi.languagehelper.WordStudySummaryListActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:366:9-368:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:368:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:367:13-56
-activity#com.messi.languagehelper.WordStudyDanCiXuanYiActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:367:13-57
+activity#com.messi.languagehelper.WordStudyCiYiXuanCiActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:369:9-371:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:371:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:370:13-57
-activity#com.messi.languagehelper.WordStudyPlanDetailActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:370:13-56
+activity#com.messi.languagehelper.WordStudyDanCiXuanYiActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:372:9-374:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:374:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:373:13-56
-activity#com.messi.languagehelper.YiZhanDaoDiActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:373:13-57
+activity#com.messi.languagehelper.WordStudyPlanDetailActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:375:9-377:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:377:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:376:13-48
-activity#com.messi.languagehelper.BrainTwistsActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:376:13-56
+activity#com.messi.languagehelper.YiZhanDaoDiActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:378:9-380:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:380:13-49
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:379:13-48
-activity#com.messi.languagehelper.ReadingAndNewsActivity
+activity#com.messi.languagehelper.BrainTwistsActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:381:9-383:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:383:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:382:13-51
-activity#com.messi.languagehelper.ChPybsSListActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:382:13-48
+activity#com.messi.languagehelper.ReadingAndNewsActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:384:9-386:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:386:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:385:13-48
-activity#com.messi.languagehelper.InvestListActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:385:13-51
+activity#com.messi.languagehelper.ChPybsSListActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:387:9-389:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:389:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:388:13-47
-activity#com.messi.languagehelper.LearnCodingActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:388:13-48
+activity#com.messi.languagehelper.InvestListActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:390:9-392:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:392:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:391:13-48
-activity#com.messi.languagehelper.ExaminationActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:391:13-47
+activity#com.messi.languagehelper.LearnCodingActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:393:9-395:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:395:13-49
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:394:13-48
-activity#com.messi.languagehelper.WordStudyDuYinXuanCiActivity
+activity#com.messi.languagehelper.ExaminationActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:396:9-398:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:398:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:397:13-57
-activity#com.messi.languagehelper.ReadingJuheActivity
-ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:399:9-403:52
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:397:13-48
+activity#com.messi.languagehelper.WordStudyDuYinXuanCiActivity
+ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:399:9-401:52
 	android:screenOrientation
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:403:13-49
-	android:launchMode
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:402:13-44
-	android:exported
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:401:13-36
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:401:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:400:13-48
-activity#com.messi.languagehelper.WordStudySecondActivity
-ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:404:9-406:52
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:400:13-57
+activity#com.messi.languagehelper.ReadingJuheActivity
+ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:402:9-406:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:406:13-49
+	android:launchMode
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:405:13-44
+	android:exported
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:404:13-36
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:405:13-52
-activity#com.messi.languagehelper.CollectedActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:403:13-48
+activity#com.messi.languagehelper.WordStudySecondActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:407:9-409:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:409:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:408:13-46
-activity#com.messi.languagehelper.SettingActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:408:13-52
+activity#com.messi.languagehelper.CollectedActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:410:9-412:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:412:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:411:13-44
-activity#com.messi.languagehelper.ReadingDetailActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:411:13-46
+activity#com.messi.languagehelper.SettingActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:413:9-415:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:415:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:414:13-50
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:414:13-44
+activity#com.messi.languagehelper.ReadingDetailActivity
+ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:416:9-418:52
+	android:screenOrientation
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:418:13-49
+	android:name
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:417:13-50
 activity#com.messi.languagehelper.ReadingVideoDetailActivity
-ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:416:9-420:15
+ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:419:9-423:15
 	android:screenOrientation
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:419:13-49
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:422:13-49
 	android:configChanges
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:418:13-74
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:421:13-74
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:417:13-55
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:420:13-55
 activity#com.messi.languagehelper.ReadingsActivity
-ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:421:9-423:52
-	android:screenOrientation
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:423:13-49
-	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:422:13-45
-activity#com.messi.languagehelper.CompositionActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:424:9-426:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:426:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:425:13-48
-activity#com.messi.languagehelper.JokeActivity
-ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:427:9-430:52
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:425:13-45
+activity#com.messi.languagehelper.CompositionActivity
+ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:427:9-429:52
 	android:screenOrientation
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:430:13-49
-	android:configChanges
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:429:13-74
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:429:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:428:13-41
-activity#com.messi.languagehelper.WordStudyDanCiRenZhiActivity
-ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:431:9-433:52
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:428:13-48
+activity#com.messi.languagehelper.JokeActivity
+ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:430:9-433:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:433:13-49
+	android:configChanges
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:432:13-74
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:432:13-57
-activity#com.messi.languagehelper.WordStudyThirdActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:431:13-41
+activity#com.messi.languagehelper.WordStudyDanCiRenZhiActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:434:9-436:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:436:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:435:13-51
-activity#com.messi.languagehelper.PhotosTranslateActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:435:13-57
+activity#com.messi.languagehelper.WordStudyThirdActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:437:9-439:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:439:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:438:13-52
-activity#com.messi.languagehelper.MoreActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:438:13-51
+activity#com.messi.languagehelper.PhotosTranslateActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:440:9-442:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:442:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:441:13-41
-activity#com.messi.languagehelper.SymbolDetailActivity
-ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:443:9-446:52
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:441:13-52
+activity#com.messi.languagehelper.MoreActivity
+ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:443:9-445:52
 	android:screenOrientation
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:446:13-49
-	android:configChanges
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:445:13-74
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:445:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:444:13-49
-activity#com.messi.languagehelper.InvestmentActivity
-ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:447:9-449:52
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:444:13-41
+activity#com.messi.languagehelper.SymbolDetailActivity
+ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:446:9-449:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:449:13-49
+	android:configChanges
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:448:13-74
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:448:13-47
-activity#com.messi.languagehelper.SpokenEnglishDetailActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:447:13-49
+activity#com.messi.languagehelper.InvestmentActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:450:9-452:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:452:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:451:13-56
-activity#com.messi.languagehelper.AiDialoguePracticeActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:451:13-47
+activity#com.messi.languagehelper.SpokenEnglishDetailActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:453:9-455:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:455:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:454:13-55
-activity#com.messi.languagehelper.SpokenEndlishCategoryActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:454:13-56
+activity#com.messi.languagehelper.AiDialoguePracticeActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:456:9-458:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:458:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:457:13-58
-activity#com.messi.languagehelper.DialogPracticeActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:457:13-55
+activity#com.messi.languagehelper.SpokenEndlishCategoryActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:459:9-461:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:461:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:460:13-51
-activity#com.messi.languagehelper.StudyDialogActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:460:13-58
+activity#com.messi.languagehelper.DialogPracticeActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:462:9-464:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:464:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:463:13-48
-activity#com.messi.languagehelper.StudyDialogCategoryActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:463:13-51
+activity#com.messi.languagehelper.StudyDialogActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:465:9-467:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:467:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:466:13-56
-activity#com.messi.languagehelper.StudyDialogListActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:466:13-48
+activity#com.messi.languagehelper.StudyDialogCategoryActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:468:9-470:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:470:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:469:13-52
-activity#com.messi.languagehelper.AiUCXYActivity
-ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:471:9-474:52
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:469:13-56
+activity#com.messi.languagehelper.StudyDialogListActivity
+ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:471:9-473:52
 	android:screenOrientation
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:474:13-49
-	android:windowSoftInputMode
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:473:13-64
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:473:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:472:13-43
-activity#com.messi.languagehelper.QRCodeShareActivity
-ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:475:9-477:52
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:472:13-52
+activity#com.messi.languagehelper.AiUCXYActivity
+ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:474:9-477:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:477:13-49
+	android:windowSoftInputMode
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:476:13-64
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:476:13-48
-activity#com.messi.languagehelper.AiSpokenBasicActivity
-ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:478:9-481:70
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:475:13-43
+activity#com.messi.languagehelper.QRCodeShareActivity
+ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:478:9-480:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:480:13-49
+	android:name
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:479:13-48
+activity#com.messi.languagehelper.AiSpokenBasicActivity
+ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:481:9-484:70
+	android:screenOrientation
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:483:13-49
 	android:windowSoftInputMode
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:481:13-67
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:484:13-67
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:479:13-50
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:482:13-50
 activity#com.messi.languagehelper.WebViewActivity
-ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:482:9-485:20
+ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:485:9-488:20
 	android:screenOrientation
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:484:13-49
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:487:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:483:13-44
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:486:13-44
 activity#com.messi.languagehelper.WebViewFullscreenActivity
-ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:486:9-489:52
+ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:489:9-492:52
 	android:screenOrientation
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:489:13-49
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:492:13-49
 	android:configChanges
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:488:13-74
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:491:13-74
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:487:13-54
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:490:13-54
 activity#com.messi.languagehelper.WebViewWithMicActivity
-ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:490:9-493:52
-	android:screenOrientation
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:493:13-49
-	android:configChanges
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:492:13-74
-	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:491:13-51
-activity#com.messi.languagehelper.WebViewForNovelActivity
-ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:494:9-496:52
+ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:493:9-496:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:496:13-49
+	android:configChanges
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:495:13-74
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:495:13-52
-activity#com.messi.languagehelper.DailySentenceAndEssayActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:494:13-51
+activity#com.messi.languagehelper.WebViewForNovelActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:497:9-499:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:499:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:498:13-58
-activity#com.messi.languagehelper.AboutActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:498:13-52
+activity#com.messi.languagehelper.DailySentenceAndEssayActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:500:9-502:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:502:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:501:13-42
-activity#com.messi.languagehelper.WebViewNoAdActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:501:13-58
+activity#com.messi.languagehelper.AboutActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:503:9-505:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:505:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:504:13-48
-activity#com.messi.languagehelper.HelpActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:504:13-42
+activity#com.messi.languagehelper.WebViewNoAdActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:506:9-508:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:508:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:507:13-41
-activity#com.messi.languagehelper.PracticeYYSActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:507:13-48
+activity#com.messi.languagehelper.HelpActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:509:9-511:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:511:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:510:13-48
-activity#com.messi.languagehelper.PracticeActivity
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:510:13-41
+activity#com.messi.languagehelper.PracticeYYSActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:512:9-514:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:514:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:513:13-45
-activity#com.messi.languagehelper.ImgShareActivity
-ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:515:9-518:75
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:513:13-48
+activity#com.messi.languagehelper.PracticeActivity
+ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:515:9-517:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:517:13-49
-	android:windowSoftInputMode
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:518:13-72
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:516:13-45
+activity#com.messi.languagehelper.ImgShareActivity
+ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:518:9-521:75
+	android:screenOrientation
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:520:13-49
+	android:windowSoftInputMode
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:521:13-72
+	android:name
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:519:13-45
 activity#com.messi.languagehelper.wxapi.WXEntryActivity
-ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:519:9-525:57
+ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:522:9-528:57
 	android:screenOrientation
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:524:13-49
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:527:13-49
 	android:launchMode
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:523:13-44
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:526:13-44
 	android:windowSoftInputMode
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:525:13-54
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:528:13-54
 	android:exported
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:522:13-36
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:525:13-36
 	android:configChanges
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:521:13-74
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:524:13-74
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:520:13-50
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:523:13-50
 activity#com.messi.languagehelper.wxapi.YYJMainActivity
-ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:526:9-532:57
+ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:529:9-535:57
 	android:screenOrientation
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:531:13-49
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:534:13-49
 	android:launchMode
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:530:13-44
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:533:13-44
 	android:windowSoftInputMode
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:532:13-54
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:535:13-54
 	android:exported
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:529:13-36
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:532:13-36
 	android:configChanges
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:528:13-74
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:531:13-74
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:527:13-50
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:530:13-50
 uses-sdk
 INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml
 INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml
-MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/Baidu_MobAds_SDK-release.aar/927d0a94fd5f563c45c0be8bfe9caa22/AndroidManifest.xml:7:5-9:41
-MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/Baidu_MobAds_SDK-release.aar/927d0a94fd5f563c45c0be8bfe9caa22/AndroidManifest.xml:7:5-9:41
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:7:5-10:591
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:7:5-10:591
-MERGED from [io.objectbox:objectbox-android:2.2.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/objectbox-android-2.2.0.aar/51b925a256257f7c79abf8c4a8f09109/AndroidManifest.xml:6:5-8:41
-MERGED from [io.objectbox:objectbox-android:2.2.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/objectbox-android-2.2.0.aar/51b925a256257f7c79abf8c4a8f09109/AndroidManifest.xml:6:5-8:41
-MERGED from [com.android.support:multidex:1.0.3] /Users/lilu/.gradle/caches/transforms-1/files-1.1/multidex-1.0.3.aar/1973b976f2e4c9addb2751cd7d7cec85/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:multidex:1.0.3] /Users/lilu/.gradle/caches/transforms-1/files-1.1/multidex-1.0.3.aar/1973b976f2e4c9addb2751cd7d7cec85/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:design:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/6bf70062d3faf0fcad13d8e41799d02b/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:design:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/6bf70062d3faf0fcad13d8e41799d02b/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/3dc0c93935b50031c7c2073eb9724e5e/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/3dc0c93935b50031c7c2073eb9724e5e/AndroidManifest.xml:20:5-44
-MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/transitionseverywhere-1.7.0.aar/fe3cd1858d95d0a85d6bc67a546e1577/AndroidManifest.xml:8:5-10:41
-MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/transitionseverywhere-1.7.0.aar/fe3cd1858d95d0a85d6bc67a546e1577/AndroidManifest.xml:8:5-10:41
-MERGED from [com.android.support:support-v4:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/27721cb236ed414dccebed07e526c5d5/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/27721cb236ed414dccebed07e526c5d5/AndroidManifest.xml:20:5-44
-MERGED from [com.karumi:headerrecyclerview:1.1.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/headerrecyclerview-1.1.0.aar/35512ada7384c3bd1490d61dfadc4129/AndroidManifest.xml:22:5-24:41
-MERGED from [com.karumi:headerrecyclerview:1.1.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/headerrecyclerview-1.1.0.aar/35512ada7384c3bd1490d61dfadc4129/AndroidManifest.xml:22:5-24:41
-MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/0e6ef5ba88a30605c48aef0dd1484e6b/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/0e6ef5ba88a30605c48aef0dd1484e6b/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cardview-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/5dccafac1bfc99d715dd6e14dff5cf58/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cardview-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/5dccafac1bfc99d715dd6e14dff5cf58/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/c3802b00c573e1dffa8da5e7ba398439/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/c3802b00c573e1dffa8da5e7ba398439/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/088283b8cd92bb982ed664f2282518cd/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/088283b8cd92bb982ed664f2282518cd/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.exoplayer:exoplayer-ui:2.9.6] /Users/lilu/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.9.6.aar/a8eeec409aaf3efc0e9acd1baf1b4a93/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.exoplayer:exoplayer-ui:2.9.6] /Users/lilu/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.9.6.aar/a8eeec409aaf3efc0e9acd1baf1b4a93/AndroidManifest.xml:20:5-22:41
-MERGED from [com.android.support:support-media-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/99ccc3d0b25eeca9ec908803f3113b00/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/99ccc3d0b25eeca9ec908803f3113b00/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android:flexbox:1.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/flexbox-1.0.0.aar/d8a8f1ac28a80804c14942897ddbdc21/AndroidManifest.xml:23:5-25:41
-MERGED from [com.google.android:flexbox:1.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/flexbox-1.0.0.aar/d8a8f1ac28a80804c14942897ddbdc21/AndroidManifest.xml:23:5-25:41
-MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.6] /Users/lilu/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.9.6.aar/426b361dc76c7ce1e93a36e8197899e2/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.6] /Users/lilu/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.9.6.aar/426b361dc76c7ce1e93a36e8197899e2/AndroidManifest.xml:20:5-22:41
-MERGED from [com.jakewharton:butterknife:9.0.0-rc2] /Users/lilu/.gradle/caches/transforms-1/files-1.1/butterknife-9.0.0-rc2.aar/aea6895945851a14773e4ae073b7515d/AndroidManifest.xml:5:5-44
-MERGED from [com.jakewharton:butterknife:9.0.0-rc2] /Users/lilu/.gradle/caches/transforms-1/files-1.1/butterknife-9.0.0-rc2.aar/aea6895945851a14773e4ae073b7515d/AndroidManifest.xml:5:5-44
-MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/glide-4.8.0.aar/bbbfeb3d6f583dd7fbd84fc109f60763/AndroidManifest.xml:6:5-8:41
-MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/glide-4.8.0.aar/bbbfeb3d6f583dd7fbd84fc109f60763/AndroidManifest.xml:6:5-8:41
-MERGED from [cn.jzvd:jiaozivideoplayer:6.4.1] /Users/lilu/.gradle/caches/transforms-1/files-1.1/jiaozivideoplayer-6.4.1.aar/36b21e5cd5f33851c2eef4d36a0fffa7/AndroidManifest.xml:7:5-9:41
-MERGED from [cn.jzvd:jiaozivideoplayer:6.4.1] /Users/lilu/.gradle/caches/transforms-1/files-1.1/jiaozivideoplayer-6.4.1.aar/36b21e5cd5f33851c2eef4d36a0fffa7/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.fresco:fresco:1.11.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/fresco-1.11.0.aar/5246dd70f722005c7e212eab81cd9bf9/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fresco:1.11.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/fresco-1.11.0.aar/5246dd70f722005c7e212eab81cd9bf9/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:animated-gif:1.11.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/animated-gif-1.11.0.aar/55f2a36e087e50675c793860a8f8bb90/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:animated-gif:1.11.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/animated-gif-1.11.0.aar/55f2a36e087e50675c793860a8f8bb90/AndroidManifest.xml:5:5-7:41
-MERGED from [io.reactivex.rxjava2:rxandroid:2.1.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/rxandroid-2.1.0.aar/7aed83cbc521247d45859dac6c3ee00b/AndroidManifest.xml:18:5-43
-MERGED from [io.reactivex.rxjava2:rxandroid:2.1.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/rxandroid-2.1.0.aar/7aed83cbc521247d45859dac6c3ee00b/AndroidManifest.xml:18:5-43
-MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/GreenDaoUpgradeHelper-v2.1.0.aar/7a95786ae9157a58a58cf568a82ff3c5/AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/GreenDaoUpgradeHelper-v2.1.0.aar/7a95786ae9157a58a58cf568a82ff3c5/AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.lzyzsd:circleprogress:1.2.1] /Users/lilu/.gradle/caches/transforms-1/files-1.1/circleprogress-1.2.1.aar/f9974df5e6b70c720f29cf73194db5e0/AndroidManifest.xml:8:5-10:41
-MERGED from [com.github.lzyzsd:circleprogress:1.2.1] /Users/lilu/.gradle/caches/transforms-1/files-1.1/circleprogress-1.2.1.aar/f9974df5e6b70c720f29cf73194db5e0/AndroidManifest.xml:8:5-10:41
-MERGED from [com.daimajia.numberprogressbar:library:1.4] /Users/lilu/.gradle/caches/transforms-1/files-1.1/library-1.4.aar/c25266ab300f03fe259c0fe604d10c94/AndroidManifest.xml:7:5-9:41
-MERGED from [com.daimajia.numberprogressbar:library:1.4] /Users/lilu/.gradle/caches/transforms-1/files-1.1/library-1.4.aar/c25266ab300f03fe259c0fe604d10c94/AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42] /Users/lilu/.gradle/caches/transforms-1/files-1.1/BaseRecyclerViewAdapterHelper-2.9.42.aar/a04ee19d1429a9b4ecb32f6c24d79dce/AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42] /Users/lilu/.gradle/caches/transforms-1/files-1.1/BaseRecyclerViewAdapterHelper-2.9.42.aar/a04ee19d1429a9b4ecb32f6c24d79dce/AndroidManifest.xml:7:5-9:41
-MERGED from [com.yqritc:recyclerview-flexibledivider:1.4.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/recyclerview-flexibledivider-1.4.0.aar/66b84489fc94696031eaee6ccd309199/AndroidManifest.xml:8:5-10:41
-MERGED from [com.yqritc:recyclerview-flexibledivider:1.4.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/recyclerview-flexibledivider-1.4.0.aar/66b84489fc94696031eaee6ccd309199/AndroidManifest.xml:8:5-10:41
-MERGED from [com.github.hotchemi:permissionsdispatcher:3.3.2] /Users/lilu/.gradle/caches/transforms-1/files-1.1/permissionsdispatcher-3.3.2.aar/52ab4d276518ca32e626d75061b00258/AndroidManifest.xml:5:5-7:41
-MERGED from [com.github.hotchemi:permissionsdispatcher:3.3.2] /Users/lilu/.gradle/caches/transforms-1/files-1.1/permissionsdispatcher-3.3.2.aar/52ab4d276518ca32e626d75061b00258/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:animated-base:1.11.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/animated-base-1.11.0.aar/4a77b00fcea54c5e87c47b93190ddb23/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:animated-base:1.11.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/animated-base-1.11.0.aar/4a77b00fcea54c5e87c47b93190ddb23/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:animated-drawable:1.11.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/animated-drawable-1.11.0.aar/472c421ddd3cc9163e223418a9130937/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:animated-drawable:1.11.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/animated-drawable-1.11.0.aar/472c421ddd3cc9163e223418a9130937/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:drawee:1.11.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/drawee-1.11.0.aar/25a6f12aea76c4e9930b1bc8815835c8/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:drawee:1.11.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/drawee-1.11.0.aar/25a6f12aea76c4e9930b1bc8815835c8/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:nativeimagefilters:1.11.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/nativeimagefilters-1.11.0.aar/5043bd687b5581afca46d104f7d028a4/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:nativeimagefilters:1.11.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/nativeimagefilters-1.11.0.aar/5043bd687b5581afca46d104f7d028a4/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline:1.11.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.11.0.aar/1ee301e737f1e205773bfcafe9f23b38/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline:1.11.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.11.0.aar/1ee301e737f1e205773bfcafe9f23b38/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-base:1.11.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.11.0.aar/3e290d8865f2dbf372c72fe85c12017f/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-base:1.11.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.11.0.aar/3e290d8865f2dbf372c72fe85c12017f/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.soloader:soloader:0.5.1] /Users/lilu/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/b760213fc504a038e5e41c49d3e3563a/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.soloader:soloader:0.5.1] /Users/lilu/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/b760213fc504a038e5e41c49d3e3563a/AndroidManifest.xml:7:5-9:41
-MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.6] /Users/lilu/.gradle/caches/transforms-1/files-1.1/android-gif-drawable-1.2.6.aar/214c53ebb4ec7c87b185bca536be645b/AndroidManifest.xml:7:5-9:41
-MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.6] /Users/lilu/.gradle/caches/transforms-1/files-1.1/android-gif-drawable-1.2.6.aar/214c53ebb4ec7c87b185bca536be645b/AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:support-fragment:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/70e291fb374ca1d28af42e763666ebf9/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/70e291fb374ca1d28af42e763666ebf9/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/b99d8e28d9a2effab2f0104f13416db4/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/b99d8e28d9a2effab2f0104f13416db4/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/94661af0cad8ae9db62e00c594ac3946/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/94661af0cad8ae9db62e00c594ac3946/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/c16f330c54f4b92cdc79f76bc686aa97/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/c16f330c54f4b92cdc79f76bc686aa97/AndroidManifest.xml:20:5-44
-MERGED from [com.jakewharton:butterknife-runtime:9.0.0-rc2] /Users/lilu/.gradle/caches/transforms-1/files-1.1/butterknife-runtime-9.0.0-rc2.aar/e8a60979a027d4664ed9301e22375f77/AndroidManifest.xml:5:5-44
-MERGED from [com.jakewharton:butterknife-runtime:9.0.0-rc2] /Users/lilu/.gradle/caches/transforms-1/files-1.1/butterknife-runtime-9.0.0-rc2.aar/e8a60979a027d4664ed9301e22375f77/AndroidManifest.xml:5:5-44
-MERGED from [com.android.support:loader:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/14f9bf555800f6395cffc6e0756a96a4/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:loader:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/14f9bf555800f6395cffc6e0756a96a4/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:viewpager:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/e0ee0c010df6b2e46b5b074d61eec1ff/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:viewpager:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/e0ee0c010df6b2e46b5b074d61eec1ff/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/6bf5db3b6a5c73f0cd8ece12dcd9d721/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/6bf5db3b6a5c73f0cd8ece12dcd9d721/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:drawerlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/693ed4f112c5e0e1094e6fb14f5c3a75/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:drawerlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/693ed4f112c5e0e1094e6fb14f5c3a75/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/eeeb7c3e7a37f32c5d8a41d231692721/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/eeeb7c3e7a37f32c5d8a41d231692721/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:customview:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/b5d359ed89be94f075710917147c9d61/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:customview:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/b5d359ed89be94f075710917147c9d61/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/755dee9ff28606eb0a25eb8298bac48d/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/755dee9ff28606eb0a25eb8298bac48d/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/9ce378d7c750e02f4b70b42205d20679/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/9ce378d7c750e02f4b70b42205d20679/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/55551c231c63544fbee272dc3f4ff9a9/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/55551c231c63544fbee272dc3f4ff9a9/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/3cca7792eff492fb8d340cdeeaa026c3/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/3cca7792eff492fb8d340cdeeaa026c3/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cursoradapter:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/179fc9b003963e8506a7461d4af24958/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cursoradapter:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/179fc9b003963e8506a7461d4af24958/AndroidManifest.xml:20:5-44
-MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/gifdecoder-4.8.0.aar/351ac43bdaf983a163e8da6b91709df5/AndroidManifest.xml:5:5-7:41
-MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/gifdecoder-4.8.0.aar/351ac43bdaf983a163e8da6b91709df5/AndroidManifest.xml:5:5-7:41
-MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/lilu/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/5a014b97e72b4315a855889f89a5e4a0/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/lilu/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/5a014b97e72b4315a855889f89a5e4a0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:documentfile:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/f1c77028a3fd7744938b31b2b35517b4/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:documentfile:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/f1c77028a3fd7744938b31b2b35517b4/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/f729e8dcb5bf30ef7a007cb720c73c89/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/f729e8dcb5bf30ef7a007cb720c73c89/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:print:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/a415876a5d2d0f7c0ceac9fb4e388037/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:print:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/a415876a5d2d0f7c0ceac9fb4e388037/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/lilu/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/dce655d1b4d479ac33b277bcb3dedbfe/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/lilu/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/dce655d1b4d479ac33b277bcb3dedbfe/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:interpolator:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/bfbce1c5c24e5f23879ab74ee60a0bde/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:interpolator:28.0.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/bfbce1c5c24e5f23879ab74ee60a0bde/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/lilu/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/2d8ba7696b7334f814787ead0d781640/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/lilu/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/2d8ba7696b7334f814787ead0d781640/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/lilu/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/e2ea8f91ff93c60ed8d9ab35b57004f8/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/lilu/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/e2ea8f91ff93c60ed8d9ab35b57004f8/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.1] /Users/lilu/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/fbcbf10e9cbb350b885becc5e8f9b6ab/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.1] /Users/lilu/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/fbcbf10e9cbb350b885becc5e8f9b6ab/AndroidManifest.xml:20:5-44
-MERGED from [com.facebook.fresco:fbcore:1.11.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/fbcore-1.11.0.aar/b361b723d1fd160912048985fc2d0016/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fbcore:1.11.0] /Users/lilu/.gradle/caches/transforms-1/files-1.1/fbcore-1.11.0.aar/b361b723d1fd160912048985fc2d0016/AndroidManifest.xml:5:5-7:41
+MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/17356abef08fb4fe7736e7e0b351b602/AndroidManifest.xml:7:5-9:41
+MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/17356abef08fb4fe7736e7e0b351b602/AndroidManifest.xml:7:5-9:41
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:7:5-10:591
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:7:5-10:591
+MERGED from [io.objectbox:objectbox-android:2.2.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/df1fc7418f4cdf7c357cbbaf7230a1f0/AndroidManifest.xml:6:5-8:41
+MERGED from [io.objectbox:objectbox-android:2.2.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/df1fc7418f4cdf7c357cbbaf7230a1f0/AndroidManifest.xml:6:5-8:41
+MERGED from [com.android.support:multidex:1.0.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a4ae65971c77e0a84d3f90a51297aa7/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:multidex:1.0.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a4ae65971c77e0a84d3f90a51297aa7/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:design:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a65d2a8b9217ca836c6acc39aeb2c51f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a65d2a8b9217ca836c6acc39aeb2c51f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/0306d7d9df961ee263d913c2fe87b52c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/0306d7d9df961ee263d913c2fe87b52c/AndroidManifest.xml:20:5-44
+MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/46b3299ec672af11ea10b9de45c8b1de/AndroidManifest.xml:8:5-10:41
+MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/46b3299ec672af11ea10b9de45c8b1de/AndroidManifest.xml:8:5-10:41
+MERGED from [com.android.support:support-v4:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/584993399ce5d43bf6518f92ff136353/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/584993399ce5d43bf6518f92ff136353/AndroidManifest.xml:20:5-44
+MERGED from [com.karumi:headerrecyclerview:1.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6381aba2f64813a16873c73218071e7d/AndroidManifest.xml:22:5-24:41
+MERGED from [com.karumi:headerrecyclerview:1.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6381aba2f64813a16873c73218071e7d/AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d7f6e525d0b63709314432ae55f9ddb3/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d7f6e525d0b63709314432ae55f9ddb3/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fc3ddfc64fff052258288ab1f42934e5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fc3ddfc64fff052258288ab1f42934e5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7838843a87ced57b0a2c688e4442b723/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7838843a87ced57b0a2c688e4442b723/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a19cf851924d08494fadfcdae62e064b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a19cf851924d08494fadfcdae62e064b/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.exoplayer:exoplayer-ui:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/50ab0761f9dffe036841a0fe9b47ac97/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-ui:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/50ab0761f9dffe036841a0fe9b47ac97/AndroidManifest.xml:20:5-22:41
+MERGED from [com.android.support:support-media-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/75fbfbd68c35468c6de996658d8d2bd4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/75fbfbd68c35468c6de996658d8d2bd4/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android:flexbox:1.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2b4b8cc2508ef964d7793ee8cf10e898/AndroidManifest.xml:23:5-25:41
+MERGED from [com.google.android:flexbox:1.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2b4b8cc2508ef964d7793ee8cf10e898/AndroidManifest.xml:23:5-25:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/83a264ced402857e8731d8df32a3a4e8/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/83a264ced402857e8731d8df32a3a4e8/AndroidManifest.xml:20:5-22:41
+MERGED from [com.jakewharton:butterknife:9.0.0-rc2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88cac7c1a619380d4b515d703c53f5fe/AndroidManifest.xml:5:5-44
+MERGED from [com.jakewharton:butterknife:9.0.0-rc2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88cac7c1a619380d4b515d703c53f5fe/AndroidManifest.xml:5:5-44
+MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/49bfabfdda94b0f6cc890117596976ed/AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/49bfabfdda94b0f6cc890117596976ed/AndroidManifest.xml:6:5-8:41
+MERGED from [cn.jzvd:jiaozivideoplayer:6.4.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3da0cd5df5e59c42f1dc6a08b6d632b3/AndroidManifest.xml:7:5-9:41
+MERGED from [cn.jzvd:jiaozivideoplayer:6.4.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3da0cd5df5e59c42f1dc6a08b6d632b3/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.fresco:fresco:1.11.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/02c384627824935fbb380952e7dccb65/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:1.11.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/02c384627824935fbb380952e7dccb65/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-gif:1.11.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8f1bc7109a3f18c89b67c5ceb924e767/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-gif:1.11.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8f1bc7109a3f18c89b67c5ceb924e767/AndroidManifest.xml:5:5-7:41
+MERGED from [io.reactivex.rxjava2:rxandroid:2.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/81e530528d3ddcd25740315f7d527f2e/AndroidManifest.xml:18:5-43
+MERGED from [io.reactivex.rxjava2:rxandroid:2.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/81e530528d3ddcd25740315f7d527f2e/AndroidManifest.xml:18:5-43
+MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3da468e6e95dbd3fe303a89ae655856f/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3da468e6e95dbd3fe303a89ae655856f/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.lzyzsd:circleprogress:1.2.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d9abf5953eb427aa047c2c5ae028ecb6/AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.lzyzsd:circleprogress:1.2.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d9abf5953eb427aa047c2c5ae028ecb6/AndroidManifest.xml:8:5-10:41
+MERGED from [com.daimajia.numberprogressbar:library:1.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a0c3e13fd896636b23b88d2fcce0f58a/AndroidManifest.xml:7:5-9:41
+MERGED from [com.daimajia.numberprogressbar:library:1.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a0c3e13fd896636b23b88d2fcce0f58a/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42] /Users/lilu/.gradle/caches/transforms-2/files-2.1/34359741a1396c7d0b4f495b4e867680/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42] /Users/lilu/.gradle/caches/transforms-2/files-2.1/34359741a1396c7d0b4f495b4e867680/AndroidManifest.xml:7:5-9:41
+MERGED from [com.yqritc:recyclerview-flexibledivider:1.4.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b96d58e58616bb1b4d7e493068a42965/AndroidManifest.xml:8:5-10:41
+MERGED from [com.yqritc:recyclerview-flexibledivider:1.4.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b96d58e58616bb1b4d7e493068a42965/AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.hotchemi:permissionsdispatcher:3.3.2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ef4eb61a42fd4e3cc8f99714d745db65/AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.hotchemi:permissionsdispatcher:3.3.2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ef4eb61a42fd4e3cc8f99714d745db65/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-base:1.11.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6589d9e781c3accf0cebb66a22ab72d4/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-base:1.11.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6589d9e781c3accf0cebb66a22ab72d4/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-drawable:1.11.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/647ef53419aae46ef36c1ffc533f7272/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-drawable:1.11.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/647ef53419aae46ef36c1ffc533f7272/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.11.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f6c96327aab4539983b8eb34d94cabbd/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.11.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f6c96327aab4539983b8eb34d94cabbd/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:1.11.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c24441b4b93e182946100e1a0e992922/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:1.11.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c24441b4b93e182946100e1a0e992922/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.11.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3694ed133e8d122dcb001ad69faa194/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.11.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3694ed133e8d122dcb001ad69faa194/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.11.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/dc7648a86634a790156182be8fbdd4ef/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.11.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/dc7648a86634a790156182be8fbdd4ef/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.5.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0fbdfe67e7e35966b0ff4331ce121f4/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.soloader:soloader:0.5.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0fbdfe67e7e35966b0ff4331ce121f4/AndroidManifest.xml:7:5-9:41
+MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2adbb0d26952ff23bb332f01896ccb30/AndroidManifest.xml:7:5-9:41
+MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2adbb0d26952ff23bb332f01896ccb30/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8ce92397835ca3dbb57a01a792e1a0cd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8ce92397835ca3dbb57a01a792e1a0cd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/188b4cf6e8dd03c05f004ba2a9be1565/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/188b4cf6e8dd03c05f004ba2a9be1565/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2d6bd5677430517fa4f78d315ea6f04a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2d6bd5677430517fa4f78d315ea6f04a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d475f45bf2df5d82eaec32a285cc7216/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d475f45bf2df5d82eaec32a285cc7216/AndroidManifest.xml:20:5-44
+MERGED from [com.jakewharton:butterknife-runtime:9.0.0-rc2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/912187db4c2be29e192fd16535eb6c23/AndroidManifest.xml:5:5-44
+MERGED from [com.jakewharton:butterknife-runtime:9.0.0-rc2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/912187db4c2be29e192fd16535eb6c23/AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:loader:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/465a5d371cbdb8ce745386ea9087cda7/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/465a5d371cbdb8ce745386ea9087cda7/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a6c7377bfbec5efa94de9609e893e20/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a6c7377bfbec5efa94de9609e893e20/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/92229c2611024cbb5d47731284df843a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/92229c2611024cbb5d47731284df843a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f92001b584e1a58a839d415ab7862dd9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f92001b584e1a58a839d415ab7862dd9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e5f1467514457a00c6f2be0874e46344/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e5f1467514457a00c6f2be0874e46344/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/719e21c8934d38aa2153174dca6e36db/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/719e21c8934d38aa2153174dca6e36db/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/106472641d54eecc6b6d8537c6801644/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/106472641d54eecc6b6d8537c6801644/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2b4222ff2cc466e92220ee9c52dfae0d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2b4222ff2cc466e92220ee9c52dfae0d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/47cb51c89ad4b232aa1e6de035a299c6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/47cb51c89ad4b232aa1e6de035a299c6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/05fc57a44dc75769036cb1630d0db619/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/05fc57a44dc75769036cb1630d0db619/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6963777def1108c71adb71138cda3908/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6963777def1108c71adb71138cda3908/AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/49a7a388e72d948d606f65ff7af68324/AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/49a7a388e72d948d606f65ff7af68324/AndroidManifest.xml:5:5-7:41
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/62333eb47e572994ba0e65401124f1fe/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/62333eb47e572994ba0e65401124f1fe/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fc45b58e38d82d977fcae9f968da6bfe/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fc45b58e38d82d977fcae9f968da6bfe/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/376c29769362f92f5a4cab18c342932c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/376c29769362f92f5a4cab18c342932c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7cab90ea4ece3d29300868c12f1f0f07/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7cab90ea4ece3d29300868c12f1f0f07/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/15c5ecb2d0ba18367fe2c93996d3dbff/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/15c5ecb2d0ba18367fe2c93996d3dbff/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/435719eaa2d9d879b258bf80dd443edf/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/435719eaa2d9d879b258bf80dd443edf/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f53403c22cf3ef9fa58525b7504a7e8e/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f53403c22cf3ef9fa58525b7504a7e8e/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6f2b94d27cb54f3ff398e10a942ecd00/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6f2b94d27cb54f3ff398e10a942ecd00/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4f27e2ccd30da46f70109efeb0895e71/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4f27e2ccd30da46f70109efeb0895e71/AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.fresco:fbcore:1.11.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5edfaa70c0ea4c90c81027b5b2b3e6a8/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:1.11.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5edfaa70c0ea4c90c81027b5b2b3e6a8/AndroidManifest.xml:5:5-7:41
 INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml
 INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml
 	tools:overrideLibrary
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:10:9-588
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:10:9-588
 	android:targetSdkVersion
 		INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml
@@ -1306,114 +1312,114 @@ ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/And
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:46:17-67
 activity#com.baidu.mobads.production.rewardvideo.MobRewardVideoActivity
-ADDED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/Baidu_MobAds_SDK-release.aar/927d0a94fd5f563c45c0be8bfe9caa22/AndroidManifest.xml:12:9-17:20
+ADDED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/17356abef08fb4fe7736e7e0b351b602/AndroidManifest.xml:12:9-17:20
 	android:launchMode
-		ADDED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/Baidu_MobAds_SDK-release.aar/927d0a94fd5f563c45c0be8bfe9caa22/AndroidManifest.xml:15:13-44
+		ADDED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/17356abef08fb4fe7736e7e0b351b602/AndroidManifest.xml:15:13-44
 	android:configChanges
-		ADDED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/Baidu_MobAds_SDK-release.aar/927d0a94fd5f563c45c0be8bfe9caa22/AndroidManifest.xml:14:13-74
+		ADDED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/17356abef08fb4fe7736e7e0b351b602/AndroidManifest.xml:14:13-74
 	android:theme
-		ADDED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/Baidu_MobAds_SDK-release.aar/927d0a94fd5f563c45c0be8bfe9caa22/AndroidManifest.xml:16:13-72
+		ADDED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/17356abef08fb4fe7736e7e0b351b602/AndroidManifest.xml:16:13-72
 	android:name
-		ADDED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/Baidu_MobAds_SDK-release.aar/927d0a94fd5f563c45c0be8bfe9caa22/AndroidManifest.xml:13:13-90
+		ADDED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/17356abef08fb4fe7736e7e0b351b602/AndroidManifest.xml:13:13-90
 android:uses-permission#android.permission.READ_EXTERNAL_STORAGE
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:15:5-88
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:15:5-88
 activity#com.bytedance.sdk.openadsdk.activity.TTLandingPageActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:23:9-26:47
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:23:9-26:47
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:26:13-44
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:26:13-44
 	android:configChanges
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:25:13-74
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:25:13-74
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:24:13-86
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:24:13-86
 activity#com.bytedance.sdk.openadsdk.activity.TTVideoLandingPageActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:27:9-30:47
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:27:9-30:47
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:30:13-44
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:30:13-44
 	android:configChanges
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:29:13-74
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:29:13-74
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:28:13-91
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:28:13-91
 activity#com.bytedance.sdk.openadsdk.activity.TTRewardVideoActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:31:9-34:47
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:31:9-34:47
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:34:13-44
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:34:13-44
 	android:configChanges
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:33:13-74
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:33:13-74
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:32:13-86
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:32:13-86
 activity#com.bytedance.sdk.openadsdk.activity.TTFullScreenVideoActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:35:9-38:47
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:35:9-38:47
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:38:13-44
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:38:13-44
 	android:configChanges
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:37:13-74
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:37:13-74
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:36:13-90
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:36:13-90
 activity#com.bytedance.sdk.openadsdk.activity.TTDelegateActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:39:9-42:75
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:39:9-42:75
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:41:13-44
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:41:13-44
 	android:theme
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:42:13-72
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:42:13-72
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:40:13-83
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:40:13-83
 service#com.bytedance.sdk.openadsdk.multipro.aidl.BinderPoolService
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:44:9-95
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:44:9-95
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:44:18-92
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:44:18-92
 service#com.ss.android.socialbase.downloader.notification.DownloadNotificationService
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:45:9-113
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:45:9-113
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:45:18-110
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:45:18-110
 service#com.ss.android.socialbase.downloader.downloader.DownloadService
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:46:9-99
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:46:9-99
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:46:18-96
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:46:18-96
 service#com.ss.android.socialbase.downloader.downloader.IndependentProcessDownloadService
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:47:9-53:19
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:47:9-53:19
 	android:process
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:49:13-42
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:49:13-42
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:48:13-109
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:48:13-109
 intent-filter#action:name:com.ss.android.socialbase.downloader.remote
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:50:13-52:29
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:50:13-52:29
 action#com.ss.android.socialbase.downloader.remote
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:51:17-86
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:51:17-86
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:51:25-83
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:51:25-83
 service#com.ss.android.socialbase.downloader.impls.DownloadHandleService
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:54:9-100
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:54:9-100
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:54:18-97
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:54:18-97
 service#com.ss.android.socialbase.appdownloader.DownloadHandlerService
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:55:9-98
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:55:9-98
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:55:18-95
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:55:18-95
 activity#com.ss.android.socialbase.appdownloader.view.DownloadSizeLimitActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:71:9-74:59
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:71:9-74:59
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:73:13-44
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:73:13-44
 	android:theme
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:74:13-56
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:74:13-56
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:72:13-98
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:72:13-98
 activity#com.ss.android.socialbase.appdownloader.view.DownloadTaskDeleteActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:75:9-78:59
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:75:9-78:59
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:77:13-44
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:77:13-44
 	android:theme
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:78:13-56
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:78:13-56
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:76:13-99
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:76:13-99
 activity#com.ss.android.downloadlib.activity.TTDelegateActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:79:9-82:75
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:79:9-82:75
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:81:13-44
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:81:13-44
 	android:theme
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:82:13-72
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:82:13-72
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:80:13-82
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:80:13-82
 receiver#com.ss.android.downloadlib.core.download.DownloadReceiver
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:84:9-94
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:84:9-94
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/44d60107b8ce8fa7dc68d00d8955d23d/AndroidManifest.xml:84:19-91
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d858319e49a5cd41b89124d46b86dbf0/AndroidManifest.xml:84:19-91

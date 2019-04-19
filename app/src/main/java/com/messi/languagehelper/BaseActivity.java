@@ -26,6 +26,8 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.ScreenUtil;
 import com.umeng.analytics.MobclickAgent;
 
+import org.greenrobot.eventbus.EventBus;
+
 public class BaseActivity extends AppCompatActivity {
 
     public static final String UpdateMusicUIToStop = "com.messi.languagehelper.updateuito.stop";
@@ -34,6 +36,7 @@ public class BaseActivity extends AppCompatActivity {
     public ProgressBar mProgressbar;
     public SwipeRefreshLayout mSwipeRefreshLayout;
     private View mScrollable;
+    public boolean isRegisterBus;
 
     BroadcastReceiver activityReceiver = new BroadcastReceiver() {
         @Override
@@ -140,18 +143,6 @@ public class BaseActivity extends AppCompatActivity {
 
     public void updateUI(String music_action){}
 
-//	protected void startClipboardListener(){
-//		final ClipboardManager cm = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-//		cm.addPrimaryClipChangedListener(new ClipboardManager.OnPrimaryClipChangedListener() {
-//			@Override
-//			public void onPrimaryClipChanged() {
-//				ClipData data = cm.getPrimaryClip();
-//				ClipData.Item item = data.getItemAt(0);
-//				LogUtil.DefalutLog("clipboard:"+item.getText().toString());
-//			}
-//		});
-//	}
-
     protected void setToolbarBackground(int color) {
         if (toolbar != null) {
             toolbar.setBackgroundColor(this.getResources().getColor(color));
@@ -245,6 +236,35 @@ public class BaseActivity extends AppCompatActivity {
         final InputMethodManager imm = (InputMethodManager) this.getSystemService(Activity.INPUT_METHOD_SERVICE);
         imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, InputMethodManager.HIDE_NOT_ALWAYS);
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        try {
+            if(isRegisterBus){
+                if(!EventBus.getDefault().isRegistered(this)){
+                    EventBus.getDefault().register(this);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        try {
+            if (isRegisterBus) {
+                if(EventBus.getDefault().isRegistered(this)){
+                    EventBus.getDefault().unregister(this);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     protected void onResume() {
         super.onResume();

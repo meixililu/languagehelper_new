@@ -174,7 +174,7 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 	};
 
 	@Override
-	protected void onStart() {
+	public void onStart() {
 		super.onStart();
 		startMusicPlayerService();
 	}
