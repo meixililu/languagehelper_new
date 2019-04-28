@@ -19,11 +19,10 @@ import com.avos.avoscloud.AVQuery;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.ViewModel.XXLModel;
 import com.messi.languagehelper.adapter.RcReadingListAdapter;
-import com.messi.languagehelper.dao.Reading;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
-import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
@@ -101,7 +100,7 @@ public class ReadingToolbarFragment extends BaseFragment implements OnClickListe
 		toolbar_title.setText(title);
 		avObjects = new ArrayList<Reading>();
 		mXXLModel = new XXLModel(getActivity());
-		avObjects.addAll(DataBaseUtil.getInstance().getReadingList(Setings.page_size,category,"",code));
+		avObjects.addAll(BoxHelper.getReadingList(0,Setings.page_size,category,"",code));
 		initSwipeRefresh(view);
 		mAdapter = new RcReadingListAdapter(avObjects);
 		mAdapter.setItems(avObjects);
@@ -234,7 +233,7 @@ public class ReadingToolbarFragment extends BaseFragment implements OnClickListe
 						if(skip == 0){
 							avObjects.clear();
 						}
-						StudyFragment.changeData(avObject,avObjects);
+						StudyFragment.changeData(avObject,avObjects,false);
 						mAdapter.notifyDataSetChanged();
 						loadAD();
 						skip += Setings.page_size;

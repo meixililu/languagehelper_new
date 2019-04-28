@@ -18,7 +18,7 @@ import com.avos.avoscloud.AVQuery;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.ViewModel.XXLModel;
 import com.messi.languagehelper.adapter.RcSubjectReadingListAdapter;
-import com.messi.languagehelper.dao.Reading;
+import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.AVOUtil;

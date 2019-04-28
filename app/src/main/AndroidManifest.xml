@@ -208,6 +208,12 @@
             android:name=".WebViewForCaricatureActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".MomentsAddActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MomentsActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".PhotoSearchActivity"
             android:screenOrientation="portrait" />
         <activity

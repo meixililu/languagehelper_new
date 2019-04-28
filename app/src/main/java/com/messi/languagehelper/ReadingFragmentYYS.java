@@ -18,10 +18,9 @@ import com.avos.avoscloud.AVQuery;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.ViewModel.XXLModel;
 import com.messi.languagehelper.adapter.RcReadingListAdapter;
-import com.messi.languagehelper.dao.Reading;
+import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
-import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
@@ -235,7 +234,7 @@ public class ReadingFragmentYYS extends BaseFragment implements OnClickListener{
 						if(skip == 0){
 							avObjects.clear();
 						}
-						StudyFragment.changeData(avObject,avObjects);
+						StudyFragment.changeData(avObject,avObjects,false);
 						mAdapter.notifyDataSetChanged();
 						loadAD();
 						if(avObject.size() < Setings.page_size){

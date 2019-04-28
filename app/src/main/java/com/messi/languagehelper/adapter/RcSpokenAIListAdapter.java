@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.dao.Reading;
+import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.util.HeaderFooterRecyclerViewAdapter;
 
 import java.util.List;

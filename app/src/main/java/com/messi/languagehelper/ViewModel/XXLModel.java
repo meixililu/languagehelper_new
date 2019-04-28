@@ -5,7 +5,7 @@ import android.app.Activity;
 import com.baidu.mobads.AdView;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.iflytek.voiceads.NativeADDataRef;
-import com.messi.languagehelper.dao.Reading;
+import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.SystemUtil;

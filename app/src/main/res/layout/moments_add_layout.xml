@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_awesome_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/theme_color"
+        android:minHeight="@dimen/actionBar" >
+
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:id="@+id/parent_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/share_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:lineSpacingExtra="4dp"
+            android:lineSpacingMultiplier="1.4"
+            android:background="@color/none"
+            android:gravity="left|top"
+            android:hint="@string/moments_hint"
+            android:minLines="5"
+            android:padding="15dp"
+            android:textColor="@color/text_black"
+            android:textColorHint="@color/text_grey"
+            android:textSize="@dimen/bigger" />
+    </ScrollView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/padding_7"
+        android:paddingTop="@dimen/padding_7"
+        android:paddingRight="@dimen/padding_7">
+        <FrameLayout
+            android:id="@+id/share_btn_cover"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_5"
+            android:layout_marginBottom="@dimen/padding_5"
+            android:foreground="@drawable/framelayout_selector">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:background="@color/theme_color"
+                android:gravity="center"
+                android:text="@string/moments_add"
+                android:textColor="@color/white"
+                android:textSize="@dimen/big"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

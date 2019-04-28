@@ -51,6 +51,20 @@ public class SDCardUtil {
 			return "";
 		}
 	}
+
+	/**sdcard路径
+	 * @return
+	 */
+	public static String getDownloadPath(String sdCardPath,Context context,String Type) {
+		File SDdir = context.getExternalFilesDir(Type);
+		if (SDdir != null) {
+			String path = SDdir.getPath() + sdCardPath;
+			isFileExistsOrCreate(path);
+			return path;
+		} else {
+			return "";
+		}
+	}
 	
 	public static void isFileExistsOrCreate(String path){
 		File sdDir = new File(path);

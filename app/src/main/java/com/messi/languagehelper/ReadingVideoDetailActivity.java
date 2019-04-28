@@ -30,8 +30,8 @@ import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
-import com.messi.languagehelper.dao.Reading;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -191,7 +191,7 @@ public class ReadingVideoDetailActivity extends BaseActivity implements Fragment
         addVideoNewsList();
         if (TextUtils.isEmpty(mAVObject.getStatus())) {
             mAVObject.setStatus("1");
-            DataBaseUtil.getInstance().update(mAVObject);
+            BoxHelper.update(mAVObject);
         }
     }
 
@@ -219,7 +219,7 @@ public class ReadingVideoDetailActivity extends BaseActivity implements Fragment
             Intent intent = new Intent();
             setResult(RESULT_OK, intent);
         }
-        DataBaseUtil.getInstance().update(mAVObject);
+        BoxHelper.update(mAVObject);
     }
 
     @Override

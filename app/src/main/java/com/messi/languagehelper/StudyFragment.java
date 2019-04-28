@@ -20,8 +20,8 @@ import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.ViewModel.XXLModel;
 import com.messi.languagehelper.adapter.RcStudyListAdapter;
 import com.messi.languagehelper.bean.ReadingCategory;
-import com.messi.languagehelper.dao.Reading;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.impl.TablayoutOnSelectedListener;
 import com.messi.languagehelper.service.PlayerService;
@@ -63,7 +63,7 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
     private String category;
     private LinearLayoutManager mLinearLayoutManager;
     private List<ReadingCategory> categories;
-    private boolean isNeedClear;
+    private boolean isNeedClear = true;
     private Reading xvideoItem;
     private XXLModel mXXLModel;
 
@@ -97,7 +97,7 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
         mAdapter = new RcStudyListAdapter(avObjects);
         mXXLModel = new XXLModel(getActivity());
         initSwipeRefresh(view);
-        avObjects.addAll(DataBaseUtil.getInstance().getReadingList(Setings.page_size, "", "", ""));
+        avObjects.addAll(BoxHelper.getReadingList(0,Setings.page_size, "", "", ""));
         mXXLModel.setAdapter(avObjects,mAdapter);
         mAdapter.setItems(avObjects);
         mAdapter.setFooter(new Object());
@@ -298,11 +298,9 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
                 if (avObjects != null && mAdapter != null) {
                     if (isNeedClear || skip == 0) {
                         isNeedClear = false;
-                        mXXLModel.isAdAddToHead = true;
-                        changeDataToHead(tempList, avObjects);
-                    }else {
-                        changeData(tempList, avObjects);
+                        avObjects.clear();
                     }
+                    changeData(tempList, avObjects,false);
                     if(xvideoItem != null){
                         if(avObjects.size() > 9){
                             avObjects.add(NumberUtil.randomNumberRange(3,6),xvideoItem);
@@ -322,7 +320,8 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
 
     @Override
     public void onTabSelectedListener(ReadingCategory mReadingCategory) {
-        listview.scrollToPosition(1);
+        isNeedClear = true;
+        listview.scrollToPosition(0);
         category = mReadingCategory.getCategory();
         skip = 0;
         refresh();
@@ -351,136 +350,56 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
         onSwipeRefreshLayoutRefresh();
     }
 
-    public static void changeData(List<AVObject> avObjectlist, List<Reading> avObjects) {
-        for (AVObject item : avObjectlist) {
-            Reading mReading = new Reading();
-            mReading.setObject_id(item.getObjectId());
-            if(item.has(AVOUtil.Reading.category)){
-                mReading.setCategory(item.getString(AVOUtil.Reading.category));
-            }
-            if(item.has(AVOUtil.Reading.content)){
-                mReading.setContent(item.getString(AVOUtil.Reading.content));
-            }
-            if(item.has(AVOUtil.Reading.type_id)){
-                mReading.setType_id(item.getString(AVOUtil.Reading.type_id));
-            }
-            if(item.has(AVOUtil.Reading.type_name)){
-                mReading.setType_name(item.getString(AVOUtil.Reading.type_name));
-            }
-            if(item.has(AVOUtil.Reading.title)){
-                mReading.setTitle(item.getString(AVOUtil.Reading.title));
-            }
-            if(item.has(AVOUtil.Reading.item_id)){
-                mReading.setItem_id(String.valueOf(item.getNumber(AVOUtil.Reading.item_id)));
-            }
-            if(item.has(AVOUtil.Reading.img_url)){
-                mReading.setImg_url(item.getString(AVOUtil.Reading.img_url));
-            }
-            if(item.has(AVOUtil.Reading.publish_time)){
-                mReading.setPublish_time(String.valueOf(item.getDate(AVOUtil.Reading.publish_time).getTime()));
-            }
-            if(item.has(AVOUtil.Reading.img_type)){
-                mReading.setImg_type(item.getString(AVOUtil.Reading.img_type));
-            }
-            if(item.has(AVOUtil.Reading.source_name)){
-                mReading.setSource_name(item.getString(AVOUtil.Reading.source_name));
-            }
-            if(item.has(AVOUtil.Reading.source_url)){
-                mReading.setSource_url(item.getString(AVOUtil.Reading.source_url));
-            }
-            if(item.has(AVOUtil.Reading.type)){
-                mReading.setType(item.getString(AVOUtil.Reading.type));
-            }
-            if(item.has(AVOUtil.Reading.media_url)){
-                mReading.setMedia_url(item.getString(AVOUtil.Reading.media_url));
-            }
-            if(item.has(AVOUtil.Reading.content_type)){
-                mReading.setContent_type(item.getString(AVOUtil.Reading.content_type));
-            }
-            if(item.has(AVOUtil.Reading.lrc_url)){
-                mReading.setLrc_url(item.getString(AVOUtil.Reading.lrc_url));
-            }
-            DataBaseUtil.getInstance().saveOrGetStatus(mReading);
-            avObjects.add(mReading);
-        }
-    }
-
-    public static void changeDataToHead(List<AVObject> avObjectlist, List<Reading> avObjects) {
-        for (AVObject item : avObjectlist) {
-            Reading mReading = new Reading();
-            mReading.setObject_id(item.getObjectId());
-            if(item.has(AVOUtil.Reading.category)){
-                mReading.setCategory(item.getString(AVOUtil.Reading.category));
-            }
-            if(item.has(AVOUtil.Reading.content)){
-                mReading.setContent(item.getString(AVOUtil.Reading.content));
-            }
-            if(item.has(AVOUtil.Reading.type_id)){
-                mReading.setType_id(item.getString(AVOUtil.Reading.type_id));
-            }
-            if(item.has(AVOUtil.Reading.type_name)){
-                mReading.setType_name(item.getString(AVOUtil.Reading.type_name));
-            }
-            if(item.has(AVOUtil.Reading.title)){
-                mReading.setTitle(item.getString(AVOUtil.Reading.title));
-            }
-            if(item.has(AVOUtil.Reading.item_id)){
-                mReading.setItem_id(String.valueOf(item.getNumber(AVOUtil.Reading.item_id)));
-            }
-            if(item.has(AVOUtil.Reading.img_url)){
-                mReading.setImg_url(item.getString(AVOUtil.Reading.img_url));
-            }
-            if(item.has(AVOUtil.Reading.publish_time)){
-                mReading.setPublish_time(String.valueOf(item.getDate(AVOUtil.Reading.publish_time).getTime()));
-            }
-            if(item.has(AVOUtil.Reading.img_type)){
-                mReading.setImg_type(item.getString(AVOUtil.Reading.img_type));
-            }
-            if(item.has(AVOUtil.Reading.source_name)){
-                mReading.setSource_name(item.getString(AVOUtil.Reading.source_name));
-            }
-            if(item.has(AVOUtil.Reading.source_url)){
-                mReading.setSource_url(item.getString(AVOUtil.Reading.source_url));
-            }
-            if(item.has(AVOUtil.Reading.type)){
-                mReading.setType(item.getString(AVOUtil.Reading.type));
-            }
-            if(item.has(AVOUtil.Reading.media_url)){
-                mReading.setMedia_url(item.getString(AVOUtil.Reading.media_url));
-            }
-            if(item.has(AVOUtil.Reading.content_type)){
-                mReading.setContent_type(item.getString(AVOUtil.Reading.content_type));
-            }
-            if(item.has(AVOUtil.Reading.lrc_url)){
-                mReading.setLrc_url(item.getString(AVOUtil.Reading.lrc_url));
-            }
-            DataBaseUtil.getInstance().saveOrGetStatus(mReading);
-            avObjects.add(0,mReading);
-        }
-    }
-
     public static void changeData(List<AVObject> avObjectlist, List<Reading> avObjects, boolean isAddToHead) {
-
         for (AVObject item : avObjectlist) {
             Reading mReading = new Reading();
             mReading.setObject_id(item.getObjectId());
-            mReading.setCategory(item.getString(AVOUtil.Reading.category));
-            mReading.setContent(item.getString(AVOUtil.Reading.content));
-            mReading.setType_id(item.getString(AVOUtil.Reading.type_id));
-            mReading.setType_name(item.getString(AVOUtil.Reading.type_name));
-            mReading.setTitle(item.getString(AVOUtil.Reading.title));
-            mReading.setItem_id(String.valueOf(item.getNumber(AVOUtil.Reading.item_id)));
-            mReading.setImg_url(item.getString(AVOUtil.Reading.img_url));
+            if(item.has(AVOUtil.Reading.category)){
+                mReading.setCategory(item.getString(AVOUtil.Reading.category));
+            }
+            if(item.has(AVOUtil.Reading.content)){
+                mReading.setContent(item.getString(AVOUtil.Reading.content));
+            }
+            if(item.has(AVOUtil.Reading.type_id)){
+                mReading.setType_id(item.getString(AVOUtil.Reading.type_id));
+            }
+            if(item.has(AVOUtil.Reading.type_name)){
+                mReading.setType_name(item.getString(AVOUtil.Reading.type_name));
+            }
+            if(item.has(AVOUtil.Reading.title)){
+                mReading.setTitle(item.getString(AVOUtil.Reading.title));
+            }
+            if(item.has(AVOUtil.Reading.item_id)){
+                mReading.setItem_id(String.valueOf(item.getNumber(AVOUtil.Reading.item_id)));
+            }
+            if(item.has(AVOUtil.Reading.img_url)){
+                mReading.setImg_url(item.getString(AVOUtil.Reading.img_url));
+            }
             if(item.has(AVOUtil.Reading.publish_time)){
                 mReading.setPublish_time(String.valueOf(item.getDate(AVOUtil.Reading.publish_time).getTime()));
             }
-            mReading.setImg_type(item.getString(AVOUtil.Reading.img_type));
-            mReading.setSource_name(item.getString(AVOUtil.Reading.source_name));
-            mReading.setSource_url(item.getString(AVOUtil.Reading.source_url));
-            mReading.setType(item.getString(AVOUtil.Reading.type));
-            mReading.setMedia_url(item.getString(AVOUtil.Reading.media_url));
-            mReading.setContent_type(item.getString(AVOUtil.Reading.content_type));
-            DataBaseUtil.getInstance().saveOrGetStatus(mReading);
+            if(item.has(AVOUtil.Reading.img_type)){
+                mReading.setImg_type(item.getString(AVOUtil.Reading.img_type));
+            }
+            if(item.has(AVOUtil.Reading.source_name)){
+                mReading.setSource_name(item.getString(AVOUtil.Reading.source_name));
+            }
+            if(item.has(AVOUtil.Reading.source_url)){
+                mReading.setSource_url(item.getString(AVOUtil.Reading.source_url));
+            }
+            if(item.has(AVOUtil.Reading.type)){
+                mReading.setType(item.getString(AVOUtil.Reading.type));
+            }
+            if(item.has(AVOUtil.Reading.media_url)){
+                mReading.setMedia_url(item.getString(AVOUtil.Reading.media_url));
+            }
+            if(item.has(AVOUtil.Reading.content_type)){
+                mReading.setContent_type(item.getString(AVOUtil.Reading.content_type));
+            }
+            if(item.has(AVOUtil.Reading.lrc_url)){
+                mReading.setLrc_url(item.getString(AVOUtil.Reading.lrc_url));
+            }
+            BoxHelper.saveOrGetStatus(mReading);
             if (isAddToHead) {
                 avObjects.add(0, mReading);
             } else {

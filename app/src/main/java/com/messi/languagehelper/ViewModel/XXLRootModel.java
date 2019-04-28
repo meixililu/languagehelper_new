@@ -46,7 +46,6 @@ public abstract class XXLRootModel {
 
     public boolean loading;
     public boolean hasMore;
-    public boolean isAdAddToHead;
 
     public int counter;
     public Activity mContext;

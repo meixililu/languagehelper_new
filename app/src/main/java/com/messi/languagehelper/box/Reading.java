@@ -1,4 +1,4 @@
-package com.messi.languagehelper.dao;
+package com.messi.languagehelper.box;
 
 import com.avos.avoscloud.AVObject;
 import com.baidu.mobads.AdView;
@@ -6,12 +6,12 @@ import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.qq.e.ads.nativ.NativeExpressADView;
 
-import org.greenrobot.greendao.annotation.Entity;
-import org.greenrobot.greendao.annotation.Generated;
-import org.greenrobot.greendao.annotation.Id;
-import org.greenrobot.greendao.annotation.Transient;
-
 import java.util.List;
+
+import io.objectbox.annotation.Entity;
+import io.objectbox.annotation.Id;
+import io.objectbox.annotation.Index;
+import io.objectbox.annotation.Transient;
 
 /**
  * Created by luli on 04/05/2017.
@@ -19,16 +19,18 @@ import java.util.List;
 @Entity
 public class Reading {
 
-    @Id(autoincrement = true)
+    @Id
     private Long id;
+    @Index
+    private String object_id;
     private String title;
     private String source_url;
     private String content;
+    private String item_id;
     private String media_url;
     private String source_name;
     private String publish_time;
     private String type_name;
-    private String item_id;
     private String img_type;
     private String img_url;
     private String type;
@@ -37,7 +39,6 @@ public class Reading {
     private String level;
     private String content_type;
     private String img_urls;
-    private String object_id;
     private String status;
     private String isCollected;
     private long collected_time;
@@ -183,56 +184,6 @@ public class Reading {
 
     public void setmNativeADDataRef(NativeADDataRef mNativeADDataRef) {
         this.mNativeADDataRef = mNativeADDataRef;
-    }
-
-    @Generated(hash = 1011974711)
-    public Reading(Long id, String title, String source_url, String content,
-            String media_url, String source_name, String publish_time,
-            String type_name, String item_id, String img_type, String img_url,
-            String type, String category, String type_id, String level,
-            String content_type, String img_urls, String object_id, String status,
-            String isCollected, long collected_time, String isReadLater,
-            long read_later_time, int like, int unlike, int comments, int readed,
-            String lrc_url, String backup1, String backup2, String backup3,
-            String backup4, String backup5, int img_color) {
-        this.id = id;
-        this.title = title;
-        this.source_url = source_url;
-        this.content = content;
-        this.media_url = media_url;
-        this.source_name = source_name;
-        this.publish_time = publish_time;
-        this.type_name = type_name;
-        this.item_id = item_id;
-        this.img_type = img_type;
-        this.img_url = img_url;
-        this.type = type;
-        this.category = category;
-        this.type_id = type_id;
-        this.level = level;
-        this.content_type = content_type;
-        this.img_urls = img_urls;
-        this.object_id = object_id;
-        this.status = status;
-        this.isCollected = isCollected;
-        this.collected_time = collected_time;
-        this.isReadLater = isReadLater;
-        this.read_later_time = read_later_time;
-        this.like = like;
-        this.unlike = unlike;
-        this.comments = comments;
-        this.readed = readed;
-        this.lrc_url = lrc_url;
-        this.backup1 = backup1;
-        this.backup2 = backup2;
-        this.backup3 = backup3;
-        this.backup4 = backup4;
-        this.backup5 = backup5;
-        this.img_color = img_color;
-    }
-
-    @Generated(hash = 1633136157)
-    public Reading() {
     }
     public Long getId() {
         return this.id;

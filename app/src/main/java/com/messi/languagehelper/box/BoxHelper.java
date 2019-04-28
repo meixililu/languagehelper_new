@@ -1,7 +1,9 @@
 package com.messi.languagehelper.box;
 
 import android.text.TextUtils;
+
 import com.messi.languagehelper.BaseApplication;
+import com.messi.languagehelper.util.ColorUtil;
 import com.messi.languagehelper.util.LogUtil;
 
 import java.util.List;
@@ -156,4 +158,69 @@ public class BoxHelper {
             return query.build().find();
         }
     }
+
+    /** readings curd**/
+
+    public static Box<Reading> getReadingBox(){
+        return getBoxStore().boxFor(Reading.class);
+    }
+    public static long insert(Reading item){
+        return getReadingBox().put(item);
+    }
+
+
+    public static void update(Reading item){
+        List<Reading> datas = isDataExit(item.getObject_id());
+        if (datas.size() > 0) {
+            getReadingBox().put(item);
+        }
+    }
+
+    public static List<Reading> getReadingList(int offset,int limit, String category, String type, String code) {
+        QueryBuilder<Reading> qb = getReadingBox().query();
+        if(!TextUtils.isEmpty(category)){
+            qb.equal(Reading_.category,category);
+        }
+        if(!TextUtils.isEmpty(type)){
+            qb.equal(Reading_.type,type);
+        }
+        if(!TextUtils.isEmpty(code)){
+            if(!code.equals("1000")){
+                qb.equal(Reading_.type_id,code);
+            }
+        }
+        qb.order(Reading_.publish_time,QueryBuilder.DESCENDING);
+        return qb.build().find(offset,limit);
+    }
+
+    public static List<Reading> getReadingCollectedList(int page,int page_size) {
+        QueryBuilder<Reading> qb = getReadingBox().query();
+        qb.equal(Reading_.isCollected,"1");
+        qb.order(Reading_.collected_time);
+        return qb.build().find(page * page_size,page_size);
+    }
+
+    public static void saveOrGetStatus(Reading bean){
+        List<Reading> datas = isDataExit(bean.getObject_id());
+        if (datas.size() > 0) {
+            Reading localData = datas.get(0);
+            bean.setStatus(localData.getStatus());
+            bean.setIsCollected(localData.getIsCollected());
+            bean.setIsReadLater(localData.getIsReadLater());
+            bean.setImg_color(localData.getImg_color());
+            bean.setId(localData.getId());
+        }else {
+            bean.setImg_color(ColorUtil.getRadomColor());
+            insert(bean);
+        }
+    }
+
+    public static List<Reading> isDataExit(String oid){
+        return getReadingBox()
+                .query()
+                .equal(Reading_.object_id,oid)
+                .build()
+                .find();
+    }
+    /** readings curd**/
 }

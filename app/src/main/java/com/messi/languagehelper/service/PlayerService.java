@@ -29,7 +29,7 @@ import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
-import com.messi.languagehelper.dao.Reading;
+import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NotificationUtil;
 import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;

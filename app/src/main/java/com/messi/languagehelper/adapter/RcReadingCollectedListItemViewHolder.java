@@ -17,7 +17,7 @@ import com.messi.languagehelper.R;
 import com.messi.languagehelper.ReadingDetailActivity;
 import com.messi.languagehelper.ReadingDetailLrcActivity;
 import com.messi.languagehelper.WebViewActivity;
-import com.messi.languagehelper.dao.Reading;
+import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;

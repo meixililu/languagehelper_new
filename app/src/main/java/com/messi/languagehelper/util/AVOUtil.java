@@ -835,5 +835,22 @@ public class AVOUtil {
 		public final static String lastPosition = "lastPosition";
 	}
 
+	public static class Moments {
+		public final static String Moments = "Moments";
+		public final static String comments = "comments";
+		public final static String content = "content";
+		public final static String likes = "likes";
+		public final static String uid = "uid";
+		public final static String createdAt = "createdAt";
+	}
+
+	public static class MomentsComment {
+		public final static String MomentsComment = "MomentsComment";
+		public final static String momid = "momid";
+		public final static String content = "content";
+		public final static String uid = "uid";
+		public final static String createdAt = "createdAt";
+	}
+
 
 }

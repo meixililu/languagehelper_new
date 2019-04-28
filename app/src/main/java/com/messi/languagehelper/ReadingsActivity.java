@@ -13,8 +13,8 @@ import com.avos.avoscloud.AVQuery;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.ViewModel.XXLModel;
 import com.messi.languagehelper.adapter.RcReadingListAdapter;
-import com.messi.languagehelper.dao.Reading;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
@@ -55,7 +55,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 		source = getIntent().getStringExtra(KeyUtil.NewsSource);
 		avObjects = new ArrayList<Reading>();
 		mXXLModel = new XXLModel(this);
-		avObjects.addAll(DataBaseUtil.getInstance().getReadingList(Setings.page_size,category,type,""));
+		avObjects.addAll(BoxHelper.getReadingList(0,Setings.page_size,category,type,""));
 		initSwipeRefresh();
 		listview = (RecyclerView) findViewById(R.id.listview);
 		mAdapter = new RcReadingListAdapter(avObjects);
@@ -199,7 +199,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 					if(skip == 0){
 						avObjects.clear();
 					}
-					StudyFragment.changeData(avObject,avObjects);
+					StudyFragment.changeData(avObject,avObjects,false);
 					mAdapter.notifyDataSetChanged();
 					loadAD();
 					skip += Setings.page_size;

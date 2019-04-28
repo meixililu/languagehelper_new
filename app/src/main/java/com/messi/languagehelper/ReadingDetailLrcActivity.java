@@ -20,8 +20,8 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.messi.languagehelper.ViewModel.LeisureModel;
-import com.messi.languagehelper.dao.Reading;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.http.BgCallback;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.service.PlayerService;
@@ -145,7 +145,7 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
         }
         if(TextUtils.isEmpty(mAVObject.getStatus())){
             mAVObject.setStatus("1");
-            DataBaseUtil.getInstance().update(mAVObject);
+            BoxHelper.update(mAVObject);
         }
         scrollview.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
             @Override
@@ -268,7 +268,7 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
                     setResult(RESULT_OK, intent);
                 }
                 setMenuIcon(item);
-                DataBaseUtil.getInstance().update(mAVObject);
+                BoxHelper.update(mAVObject);
                 break;
         }
         return true;

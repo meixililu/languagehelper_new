@@ -40,6 +40,8 @@
     <string name="title_listen_fm">悦听</string>
     <string name="title_yuwen">语文</string>
     <string name="title_category">分类</string>
+    <string name="title_hotel">酒店</string>
+    <string name="title_moments">英语圈</string>
     <string name="title_leisure">休闲</string>
     <string name="title_instagram">图片分享社区</string>
     <string name="title_cailing">酷炫彩铃</string>
@@ -102,6 +104,7 @@
     <string name="menu_settings">语速调节</string>
     <string name="app_name_share">App:中英互译</string>
     <string name="share_text_hint">请输入分享内容</string>
+    <string name="moments_hint">请输入分享到英语圈的内容，仅限英文</string>
     <string name="input_et_hint_english">请输入需要查询的英文</string>
     <string name="input_et_hint_chinese">请输入需要查询的中文</string>
     <string name="input_et_hint_dictionary">请输入需要查询的中文或英文</string>
@@ -205,6 +208,7 @@
     <string name="voice">语音</string>
     <string name="copy">复制</string>
     <string name="share">分享</string>
+    <string name="moments_add">发布</string>
     <string name="share_buddy">分享给小伙伴</string>
     <string name="wechat_long_click">微信长按有惊喜</string>
     <string name="favorite_success">收藏成功</string>

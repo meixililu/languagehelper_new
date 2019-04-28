@@ -1,7 +1,6 @@
 package com.messi.languagehelper.db;
 
 import android.content.Context;
-import android.text.TextUtils;
 
 import com.avos.avoscloud.AVObject;
 import com.messi.languagehelper.BaseApplication;
@@ -16,8 +15,6 @@ import com.messi.languagehelper.dao.Dictionary;
 import com.messi.languagehelper.dao.DictionaryDao;
 import com.messi.languagehelper.dao.EveryDaySentence;
 import com.messi.languagehelper.dao.EveryDaySentenceDao;
-import com.messi.languagehelper.dao.Reading;
-import com.messi.languagehelper.dao.ReadingDao;
 import com.messi.languagehelper.dao.SymbolListDao;
 import com.messi.languagehelper.dao.SymbolListDaoDao;
 import com.messi.languagehelper.dao.TranRecordDao;
@@ -31,7 +28,6 @@ import com.messi.languagehelper.dao.record;
 import com.messi.languagehelper.dao.recordDao;
 import com.messi.languagehelper.dao.recordDao.Properties;
 import com.messi.languagehelper.util.AVOUtil;
-import com.messi.languagehelper.util.ColorUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
 
@@ -51,7 +47,6 @@ public class DataBaseUtil {
     private recordDao mrecordDao;
     private EveryDaySentenceDao mEveryDaySentenceDao;
     private DictionaryDao mDictionaryDao;
-    private ReadingDao mReadingDao;
     private SymbolListDaoDao mSymbolListDaoDao;
     private WordDetailListItemDao mWordDetailListItemDao;
     private AiEntityDao mAiEntityDao;
@@ -75,7 +70,6 @@ public class DataBaseUtil {
             instance.mDictionaryDao = instance.mDaoSession.getDictionaryDao();
             instance.mEveryDaySentenceDao = instance.mDaoSession.getEveryDaySentenceDao();
             instance.mSymbolListDaoDao = instance.mDaoSession.getSymbolListDaoDao();
-            instance.mReadingDao = instance.mDaoSession.getReadingDao();
             instance.mWordDetailListItemDao = instance.mDaoSession.getWordDetailListItemDao();
             instance.mAiEntityDao = instance.mDaoSession.getAiEntityDao();
             instance.mTranResultZhYueDao = instance.mDaoSession.getTranResultZhYueDao();
@@ -324,68 +318,6 @@ public class DataBaseUtil {
         }
     }
     /**Daily Sentence CURD**/
-
-    /** readings curd**/
-    public long insert(Reading item){
-        return mReadingDao.insert(item);
-    }
-
-    public void update(Reading item){
-        List<Reading> datas = isDataExit(item);
-        if (datas.size() > 0) {
-            mReadingDao.update(item);
-        }
-    }
-
-    public List<Reading> getReadingList(int limit, String category, String type, String code) {
-        QueryBuilder<Reading> qb = mReadingDao.queryBuilder();
-        if(!TextUtils.isEmpty(category)){
-            qb.where(ReadingDao.Properties.Category.eq(category));
-        }
-        if(!TextUtils.isEmpty(type)){
-            qb.where(ReadingDao.Properties.Type.eq(type));
-        }
-        if(!TextUtils.isEmpty(code)){
-            if(!code.equals("1000")){
-                qb.where(ReadingDao.Properties.Type_id.eq(code));
-            }
-        }
-        qb.orderDesc(ReadingDao.Properties.Publish_time);
-        qb.limit(limit);
-        return qb.list();
-    }
-
-    public List<Reading> getReadingCollectedList(int page,int page_size) {
-        QueryBuilder<Reading> qb = mReadingDao.queryBuilder();
-        qb.where(ReadingDao.Properties.IsCollected.eq("1"));
-        qb.offset(page * page_size);
-        qb.limit(page_size);
-        qb.orderDesc(ReadingDao.Properties.Collected_time);
-        return qb.list();
-    }
-
-    public void saveOrGetStatus(Reading bean){
-        List<Reading> datas = isDataExit(bean);
-        if (datas.size() > 0) {
-            Reading localData = datas.get(0);
-            bean.setStatus(localData.getStatus());
-            bean.setIsCollected(localData.getIsCollected());
-            bean.setIsReadLater(localData.getIsReadLater());
-            bean.setImg_color(localData.getImg_color());
-            bean.setId(localData.getId());
-        }else {
-            bean.setImg_color(ColorUtil.getRadomColor());
-            insert(bean);
-        }
-    }
-
-    public List<Reading> isDataExit(Reading bean){
-        return mReadingDao
-                .queryBuilder()
-                .where(ReadingDao.Properties.Object_id.eq(bean.getObject_id()))
-                .list();
-    }
-    /** readings curd**/
 
     /** word study **/
     public void saveList(List<WordDetailListItem> beans, boolean isNewWord){

@@ -16,7 +16,7 @@ import com.messi.languagehelper.ViewModel.XXLModel;
 import com.messi.languagehelper.adapter.RcReadingListAdapter;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.ReadingSubject;
-import com.messi.languagehelper.dao.Reading;
+import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.event.SubjectSubscribeEvent;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.AVOUtil;
@@ -243,7 +243,7 @@ public class ReadingsBySubjectActivity extends BaseActivity implements View.OnCl
 					if(skip == 0){
 						avObjects.clear();
 					}
-					StudyFragment.changeData(avObject,avObjects);
+					StudyFragment.changeData(avObject,avObjects,false);
 					mAdapter.notifyDataSetChanged();
 					loadAD();
 					if(avObject.size() == Setings.page_size){

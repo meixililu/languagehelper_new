@@ -16,6 +16,7 @@ import com.messi.languagehelper.bean.YoudaoPhotouestions;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.OrcSearchHelper;
 import com.messi.languagehelper.util.ToastUtil;
+import com.umeng.analytics.MobclickAgent;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -48,6 +49,7 @@ public class PhotoSearchActivity extends BaseActivity {
         setContentView(R.layout.photo_search_activity);
         ButterKnife.bind(this);
         isRegisterBus = true;
+        initProgressbar();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -62,6 +64,8 @@ public class PhotoSearchActivity extends BaseActivity {
             mOrcHelper = new OrcSearchHelper(this);
         }
         mOrcHelper.photoSelectDialog();
+        showProgressbar();
+        MobclickAgent.onEvent(this,"test_yd_photosearch");
     }
 
     @OnClick(R.id.camera_layout)
@@ -71,6 +75,7 @@ public class PhotoSearchActivity extends BaseActivity {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(YoudaoPhotoBean bean){
+        hideProgressbar();
         LogUtil.DefalutLog("YoudaoPhotoBean:"+bean.getErrorCode());
         content_tv.loadData("","","");
         if(bean != null && "0".equals(bean.getErrorCode())){
@@ -89,6 +94,12 @@ public class PhotoSearchActivity extends BaseActivity {
         }else {
             content_tv.loadData("sorry，没有找到！<br /><br />"+bean.getData().getText(),"","utf-8");
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        hideProgressbar();
+        super.onBackPressed();
     }
 
     @Override
@@ -127,5 +138,6 @@ public class PhotoSearchActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        hideProgressbar();
     }
 }

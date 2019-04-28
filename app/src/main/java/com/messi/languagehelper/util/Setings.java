@@ -15,21 +15,20 @@ import android.net.Uri;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
-import android.support.v4.content.ContextCompat;
+import android.provider.Settings;
 import android.support.v4.content.FileProvider;
-import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.messi.languagehelper.ImgShareActivity;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.dao.Reading;
+import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.dialog.PopDialog;
 import com.messi.languagehelper.dialog.PopDialog.PopViewItemOnclickListener;
 import com.messi.languagehelper.service.PlayerService;
 
 import java.io.File;
 import java.util.HashMap;
-import java.util.UUID;
 
 public class Setings {
 
@@ -445,22 +444,14 @@ public class Setings {
 	}
 
 	public static String getUUID(Context context){
-		String uniqueId = "1234567890";
+		String uniqueId = "sdfdsafdsafasdf455121sdfas";
 		try {
-			int permissionCheck = ContextCompat.checkSelfPermission(context,
-					Manifest.permission.READ_PHONE_STATE);
-			if(permissionCheck ==  PackageManager.PERMISSION_GRANTED){
-				final TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-				final String tmDevice, tmSerial, tmPhone, androidId;
-				tmDevice = "" + tm.getDeviceId();
-				tmSerial = "" + tm.getSimSerialNumber();
-				androidId = "" + android.provider.Settings.Secure.getString(context.getContentResolver(),android.provider.Settings.Secure.ANDROID_ID);
-				UUID deviceUuid = new UUID(androidId.hashCode(), ((long)tmDevice.hashCode() << 32) | tmSerial.hashCode());
-				uniqueId = deviceUuid.toString();
-			}else {
+			uniqueId = Settings.System.getString(context.getContentResolver(),Settings.Secure.ANDROID_ID);
+			if(TextUtils.isEmpty(uniqueId)){
 				uniqueId = StringUtils.getRandomString(16);
 			}
 		} catch (Exception e) {
+			uniqueId = StringUtils.getRandomString(16);
 			e.printStackTrace();
 		}
 		LogUtil.DefalutLog("uuid:"+uniqueId);

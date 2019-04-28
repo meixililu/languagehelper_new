@@ -8,6 +8,7 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 
 import java.util.Locale;
 import java.util.UUID;
@@ -25,7 +26,14 @@ public class SystemUtil {
 
     public static String lan = "";
 
+    public static String dev_id = "";
 
+    public static String getDev_id(Context context){
+        if (TextUtils.isEmpty(dev_id)){
+            dev_id = Setings.getUUID(context);
+        }
+        return dev_id;
+    }
     /**
      * 获取当前手机系统语言。
      *

@@ -19,8 +19,8 @@ import com.messi.languagehelper.ReadingDetailActivity;
 import com.messi.languagehelper.ReadingDetailLrcActivity;
 import com.messi.languagehelper.ReadingVideoDetailActivity;
 import com.messi.languagehelper.WebViewForAdActivity;
-import com.messi.languagehelper.dao.Reading;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
@@ -231,7 +231,7 @@ public class RcListenIntensiveListItemViewHolder extends RecyclerView.ViewHolder
         }
         if(TextUtils.isEmpty(item.getStatus())){
             item.setStatus("1");
-            DataBaseUtil.getInstance().update(item);
+            BoxHelper.update(item);
         }
     }
 

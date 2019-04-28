@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.android.exoplayer:exoplayer-ui:2.9.6@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/50ab0761f9dffe036841a0fe9b47ac97/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1b96e954b6c22b32275084725b62918a/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/50ab0761f9dffe036841a0fe9b47ac97/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/50ab0761f9dffe036841a0fe9b47ac97/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1b96e954b6c22b32275084725b62918a/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1b96e954b6c22b32275084725b62918a/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

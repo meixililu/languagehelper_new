@@ -13,8 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.messi.languagehelper.adapter.RcReadingCollectedListAdapter;
-import com.messi.languagehelper.dao.Reading;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.service.PlayerService;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
@@ -118,7 +118,7 @@ public class ReadingCollectedListFragment extends BaseFragment {
 		
 		@Override
 		protected List<Reading> doInBackground(Void... params) {
-			return DataBaseUtil.getInstance().getReadingCollectedList(page,pageSize);
+			return BoxHelper.getReadingCollectedList(page,pageSize);
 		}
 
 		@Override

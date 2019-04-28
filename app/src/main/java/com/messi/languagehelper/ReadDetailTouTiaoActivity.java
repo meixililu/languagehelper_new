@@ -27,6 +27,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.avos.avoscloud.AVCloudQueryResult;
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVQuery;
+import com.avos.avoscloud.CloudQueryCallback;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.DefaultRenderersFactory;
@@ -47,7 +51,7 @@ import com.messi.languagehelper.bean.TTParseBean;
 import com.messi.languagehelper.bean.TTParseDataBean;
 import com.messi.languagehelper.bean.TTparseVideoBean;
 import com.messi.languagehelper.bean.ToutiaoVideoBean;
-import com.messi.languagehelper.dao.Reading;
+import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
@@ -57,6 +61,7 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.StringUtils;
+import com.messi.languagehelper.util.ToastUtil;
 import com.ximalaya.ting.android.opensdk.util.DigestUtils;
 
 import java.util.zip.CRC32;
@@ -119,6 +124,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     }
 
     private void parseToutiaoHtml(){
+        LogUtil.DefalutLog("parseToutiaoHtml");
         String vid = Url.substring(Url.indexOf("group/")+6,Url.length()-1);
         String tempUrl = "http://www.365yg.com/a"+vid;
         LanguagehelperHttpClient.get(tempUrl,new UICallback(this){
@@ -131,6 +137,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
             }
             @Override
             public void onResponsed(String responseStr) {
+                LogUtil.DefalutLog("parseToutiaoHtml-responseStr:"+responseStr);
                 try{
                     String vid = responseStr.substring(responseStr.indexOf("videoId: '")+10,responseStr.indexOf("videoId: '")+42);
                     String randint = StringUtils.getRandomString(16);
@@ -139,7 +146,6 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
                     crc32.update(videoid.getBytes());
                     long checksum = crc32.getValue();
                     String videoUrl = "http://i.snssdk.com" + videoid + "&s=" + checksum;
-//                    LogUtil.DefalutLog("videoUrl:"+videoUrl);
                     parseToutiaoApi(videoUrl);
                 }catch (Exception e){
                     parseVideoUrl();
@@ -149,6 +155,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     }
 
     private void parseToutiaoApi(String url){
+        LogUtil.DefalutLog("parseToutiaoApi");
         LanguagehelperHttpClient.get(url,new UICallback(this){
             @Override
             public void onFailured() {
@@ -159,26 +166,47 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
             }
             @Override
             public void onResponsed(String responseStr) {
+                LogUtil.DefalutLog("parseToutiaoApi-responseStr:"+responseStr);
                 try{
                     ToutiaoVideoBean toutiaoVideo = JSON.parseObject(responseStr,ToutiaoVideoBean.class);
-                    String videoUrl = new String(
-                            Base64.decode(toutiaoVideo.getData().getVideo_list().
-                                            getVideo_1().getMain_url().getBytes(), Base64.DEFAULT));
-//                    LogUtil.DefalutLog("videoUrl:"+videoUrl);
-                    exoplaer(videoUrl);
+                    if(toutiaoVideo.getMessage().contains("未授权")){
+                        ToastUtil.diaplayMesShort(ReadDetailTouTiaoActivity.this,"sorry，视频不见了！");
+                        if(mAVObject != null){
+                            deleItemById(mAVObject.getObject_id());
+                        }
+                    }else {
+                        String videoUrl = new String(
+                                Base64.decode(toutiaoVideo.getData().getVideo_list().
+                                        getVideo_1().getMain_url().getBytes(), Base64.DEFAULT));
+                        exoplaer(videoUrl);
+                    }
                 }catch (Exception e){
+                    e.printStackTrace();
                     parseVideoUrl();
                 }
             }
         });
     }
 
+    private void deleItemById(String oid){
+        AVQuery.doCloudQueryInBackground("delete from Reading where objectId='"+oid+"'", new CloudQueryCallback<AVCloudQueryResult>() {
+            @Override
+            public void done(AVCloudQueryResult avCloudQueryResult, AVException e) {
+               if(e == null){
+                   LogUtil.DefalutLog("delete success");
+               }
+            }
+        });
+
+    }
+
     private void parseVideoUrl() {
+        LogUtil.DefalutLog("parseVideoUrl");
         showProgressbar();
         Long timestamp = System.currentTimeMillis();
         String sign = DigestUtils.md5Hex(Url + timestamp + Setings.TTParseClientSecretKey);
         FormBody formBody = new FormBody.Builder()
-                .add("link", Url)
+                .add("lin                                                                                                                                                                                                                                             k", Url)
                 .add("timestamp", timestamp + "")
                 .add("sign", sign)
                 .add("client", Setings.TTParseClientId)
@@ -186,8 +214,8 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         LanguagehelperHttpClient.post(Setings.TTParseApi, formBody, new UICallback(this) {
             @Override
             public void onResponsed(String responseString) {
+                LogUtil.DefalutLog("parseVideoUrl-responseString:" + responseString);
                 try {
-//                    LogUtil.DefalutLog("TTParseApi:" + responseString);
                     if (JsonParser.isJson(responseString)) {
                         TTParseBean result = JSON.parseObject(responseString, TTParseBean.class);
                         if (result != null && result.getSucc() && result.getData() != null) {
