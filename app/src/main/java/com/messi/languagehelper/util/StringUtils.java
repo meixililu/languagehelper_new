@@ -46,6 +46,25 @@ public class StringUtils {
 		}
 		return (double)count / arr.length  > 0.5;
 	}
+
+	public static boolean isAllEnglish(String charaString) {
+		char[] arr = charaString.toCharArray();
+		boolean count = true;
+		int word = 0;
+		for (int i = 0; i < arr.length; i++) {
+			if ((arr[i] > 0 && arr[i] < 127) || (arr[i] == 8217)) {
+				if((arr[i] >= 65 && arr[i] <= 90) || (arr[i] >= 97 && arr[i] <= 122)){
+					word++;
+				}
+			}else {
+				count = false;
+			}
+		}
+		if(word < (arr.length/2)){
+			count = false;
+		}
+		return count;
+	}
 	
 	public static boolean isChinese(String str) {
 		boolean result = true;

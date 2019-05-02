@@ -42,6 +42,7 @@
     <string name="title_category">分类</string>
     <string name="title_hotel">酒店</string>
     <string name="title_moments">英语圈</string>
+    <string name="title_moments_add">分享到英语圈</string>
     <string name="title_leisure">休闲</string>
     <string name="title_instagram">图片分享社区</string>
     <string name="title_cailing">酷炫彩铃</string>
@@ -53,6 +54,7 @@
     <string name="update_info">更快、更好用！</string>
     <string name="title_dialog_select">选择场景</string>
     <string name="title_settings">应用设置</string>
+    <string name="no_moments">暂无评论，快抢个沙发吧</string>
     <string name="title_setting">设置</string>
     <string name="title_offline_dic">离线词典</string>
     <string name="title_comments">吐槽评价</string>
@@ -109,6 +111,7 @@
     <string name="input_et_hint_chinese">请输入需要查询的中文</string>
     <string name="input_et_hint_dictionary">请输入需要查询的中文或英文</string>
     <string name="input_et_hint">请输入需要翻译的中文或英文</string>
+    <string name="input_comment_hint">写评论</string>
     <string name="input_et_zh_yue_hint">请输入需要翻译的中文或粤语</string>
     <string name="input_et_empty">请输入查询内容</string>
     <string name="ai_chat_input_hint">just say something</string>

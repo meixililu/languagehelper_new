@@ -4,9 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -15,9 +17,10 @@ import com.baidu.mobads.AdView;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.NativeADDataRef;
+import com.messi.languagehelper.MomentsComentActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.ViewModel.XXLModel;
-import com.messi.languagehelper.WebViewActivity;
+import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -35,6 +38,9 @@ public class RcMomentsListItemViewHolder extends RecyclerView.ViewHolder {
     private LinearLayout layout_cover;
     private FrameLayout ad_layout;
     private SimpleDraweeView list_item_img;
+    private ImageView comment;
+    private ImageView like;
+    private TextView like_num;
     private Context context;
 
     public RcMomentsListItemViewHolder(View convertView) {
@@ -44,6 +50,9 @@ public class RcMomentsListItemViewHolder extends RecyclerView.ViewHolder {
         layout_cover = (LinearLayout) convertView.findViewById(R.id.layout_cover);
         content = (TextView) convertView.findViewById(R.id.content);
         list_item_img = (SimpleDraweeView) convertView.findViewById(R.id.list_item_img);
+        comment = (ImageView) convertView.findViewById(R.id.comment);
+        like = (ImageView) convertView.findViewById(R.id.like);
+        like_num = (TextView) convertView.findViewById(R.id.like_num);
     }
 
     public void render(final AVObject mAVObject) {
@@ -96,20 +105,52 @@ public class RcMomentsListItemViewHolder extends RecyclerView.ViewHolder {
             XXLModel.getCSJDView(context,ad, ad_layout);
         }else {
             layout_cover.setVisibility(View.VISIBLE);
+            if(TextUtils.isEmpty(mAVObject.getString(KeyUtil.MomentLike))){
+                like.setImageResource(R.drawable.ic_favorite_border_black);
+            }else {
+                like.setImageResource(R.drawable.ic_favorite_red);
+            }
+            like_num.setText(String.valueOf(mAVObject.getNumber(AVOUtil.Moments.likes)));
             content.setText(mAVObject.getString(AVOUtil.Moments.content));
-            layout_cover.setOnClickListener(new View.OnClickListener() {
+            content.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     onItemClick(mAVObject);
+                }
+            });
+            comment.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onItemClick(mAVObject);
+                }
+            });
+            like.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(TextUtils.isEmpty(mAVObject.getString(KeyUtil.MomentLike))){
+                        BoxHelper.insertMomentLike(mAVObject.getObjectId());
+                        mAVObject.put(KeyUtil.MomentLike,KeyUtil.MomentLike);
+                        like.setImageResource(R.drawable.ic_favorite_red);
+                        mAVObject.increment(AVOUtil.Moments.likes);
+                        like_num.setText(String.valueOf(mAVObject.getNumber(AVOUtil.Moments.likes)));
+                        mAVObject.saveInBackground();
+                    }else {
+                        BoxHelper.deleteMomentLikes(mAVObject.getObjectId());
+                        mAVObject.put(KeyUtil.MomentLike,"");
+                        like.setImageResource(R.drawable.ic_favorite_border_black);
+                        mAVObject.put(AVOUtil.Moments.likes,mAVObject.getNumber(AVOUtil.Moments.likes).intValue()-1);
+                        like_num.setText(String.valueOf(mAVObject.getNumber(AVOUtil.Moments.likes)));
+                    }
                 }
             });
         }
     }
 
     private void onItemClick(AVObject mAVObject) {
-        Intent intent = new Intent(context, WebViewActivity.class);
+        Intent intent = new Intent(context, MomentsComentActivity.class);
         intent.putExtra(KeyUtil.ActionbarTitle, " ");
-        intent.putExtra(KeyUtil.URL, mAVObject.getString(AVOUtil.Joke.source_url));
+        intent.putExtra(KeyUtil.ContextKey, mAVObject.getString(AVOUtil.Moments.content));
+        intent.putExtra(KeyUtil.Id, mAVObject.getObjectId());
         context.startActivity(intent);
     }
 

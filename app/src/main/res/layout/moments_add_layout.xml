@@ -22,7 +22,7 @@
         android:background="@color/white"
         android:orientation="vertical">
 
-        <EditText
+        <android.support.v7.widget.AppCompatEditText
             android:id="@+id/share_content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -31,7 +31,7 @@
             android:background="@color/none"
             android:gravity="left|top"
             android:hint="@string/moments_hint"
-            android:minLines="5"
+            android:minLines="10"
             android:padding="15dp"
             android:textColor="@color/text_black"
             android:textColorHint="@color/text_grey"

@@ -4,6 +4,7 @@ import android.text.TextUtils;
 
 import com.messi.languagehelper.BaseApplication;
 import com.messi.languagehelper.util.ColorUtil;
+import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 
 import java.util.List;
@@ -223,4 +224,44 @@ public class BoxHelper {
                 .find();
     }
     /** readings curd**/
+    /** moments like**/
+    public static Box<MomentLikes> getMomentLikesBox(){
+        return getBoxStore().boxFor(MomentLikes.class);
+    }
+
+    public static long insertMomentLike(String mid){
+        List<MomentLikes> temp = getMomentLikesList(mid);
+        if(temp != null && temp.size() > 0){
+            return 0;
+        }else {
+            MomentLikes item = new MomentLikes();
+            item.setMoments_id(mid);
+            return getMomentLikesBox().put(item);
+        }
+    }
+
+    public static List<MomentLikes> getMomentLikesList(String mid){
+        return getMomentLikesBox()
+                .query()
+                .equal(MomentLikes_.moments_id,mid)
+                .build()
+                .find();
+    }
+
+    public static String isLike(String mid){
+        List<MomentLikes> temp = getMomentLikesList(mid);
+        if(temp != null && temp.size() > 0){
+            return KeyUtil.MomentLike;
+        }else {
+            return "";
+        }
+    }
+
+    public static void deleteMomentLikes(String mid){
+        List<MomentLikes> temp = getMomentLikesList(mid);
+        if(temp != null && temp.size() > 0){
+            getMomentLikesBox().remove(temp.get(0));
+        }
+    }
+    /** moments like**/
 }

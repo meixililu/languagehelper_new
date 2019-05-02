@@ -66,6 +66,9 @@
     <string name="title_duanzi_gif">Vidoe</string>
     <string name="title_web_npr">NPR</string>
     <string name="moments_add">Publish</string>
+    <string name="title_moments_add">Share Moments</string>
+    <string name="no_moments">To be the first one</string>
+    <string name="input_comment_hint">Comment</string>
     <string name="moments_hint">please input something,only english</string>
     <string name="title_web_AmericanLife">AmericanLife</string>
     <string name="title_composition">Composition</string>

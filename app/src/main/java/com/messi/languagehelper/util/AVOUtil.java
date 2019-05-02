@@ -852,5 +852,10 @@ public class AVOUtil {
 		public final static String createdAt = "createdAt";
 	}
 
+	public static class MomentsFilter {
+		public final static String MomentsFilter = "MomentsFilter";
+		public final static String uid = "uid";
+	}
+
 
 }

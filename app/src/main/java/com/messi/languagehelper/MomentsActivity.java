@@ -1,7 +1,9 @@
 package com.messi.languagehelper;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.LinearLayout;
@@ -11,6 +13,7 @@ import com.avos.avoscloud.AVQuery;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.ViewModel.XXLAVObjectModel;
 import com.messi.languagehelper.adapter.RcMomentsListAdapter;
+import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -62,7 +65,7 @@ public class MomentsActivity extends BaseActivity {
         listview.addItemDecoration(
                 new HorizontalDividerItemDecoration.Builder(this)
                         .colorResId(R.color.text_tint)
-                        .sizeResId(R.dimen.padding_12)
+                        .sizeResId(R.dimen.padding_10)
                         .build());
         listview.setAdapter(mAdapter);
         setListOnScrollListener();
@@ -123,7 +126,16 @@ public class MomentsActivity extends BaseActivity {
 
     @OnClick(R.id.moments_add)
     public void onClick() {
-        toActivity(MomentsAddActivity.class,null);
+        Intent intent = new Intent(this,MomentsAddActivity.class);
+        startActivityForResult(intent,20010);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 20010 && resultCode == RESULT_OK){
+            onSwipeRefreshLayoutRefresh();
+        }
     }
 
     private class QueryTask extends AsyncTask<Void, Void, List<AVObject>> {
@@ -163,6 +175,7 @@ public class MomentsActivity extends BaseActivity {
                     hideFooterview();
                 } else {
                     if (avObjects != null && mAdapter != null) {
+                        setLikeStatus(avObject);
                         avObjects.addAll(avObject);
                         mAdapter.notifyDataSetChanged();
                         loadAD();
@@ -177,6 +190,12 @@ public class MomentsActivity extends BaseActivity {
             } else {
                 mXXLModel.hasMore = true;
             }
+        }
+    }
+
+    private void setLikeStatus(List<AVObject> avObjects){
+        for (AVObject item : avObjects){
+            item.put(KeyUtil.MomentLike, BoxHelper.isLike(item.getObjectId()));
         }
     }
 
