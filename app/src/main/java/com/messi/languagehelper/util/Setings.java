@@ -135,7 +135,7 @@ public class Setings {
 
 	public static final String TTParseClientSecretKey = "95077da2aa9ade5058a41cd5bf96d9f8";
 	public static final String TTParseClientId = "dcc76daf232aee45";
-	public static final String Email = "meixililulu@163.com";
+	public static final String Email = "mzxbkj@163.com";
 	public static final String YoudaoApiKey = "64148bac216470a0";
 	public static final String BaiduORCAK = "rOpNTQojXriwz14ol8COWTok";
 	public static final String BaiduORCSK = "dh99lxHNNUGILNV0UwLx0xBeDVgAh7vN";
