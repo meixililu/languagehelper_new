@@ -122,7 +122,7 @@ dependencies {
     implementation 'com.umeng.umsdk:common:2.0.0'
     implementation 'com.github.hotchemi:permissionsdispatcher:3.3.2'
     annotationProcessor "com.github.hotchemi:permissionsdispatcher-processor:3.3.2"
-    implementation 'com.facebook.soloader:soloader:0.5.1'
+    implementation 'com.facebook.soloader:soloader:0.6.0'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6'
     //    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     testImplementation 'junit:junit:4.12'

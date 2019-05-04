@@ -103,9 +103,11 @@ public class LoadingActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        mKaipingModel.notJump = false;
-        if(mKaipingModel.isAdClicked) {
-            mKaipingModel.toNextPage();
+        if(mKaipingModel != null){
+            mKaipingModel.notJump = false;
+            if(mKaipingModel.isAdClicked) {
+                mKaipingModel.toNextPage();
+            }
         }
         MobclickAgent.onResume(this);
     }
@@ -113,7 +115,9 @@ public class LoadingActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        mKaipingModel.notJump = true;
+        if(mKaipingModel != null){
+            mKaipingModel.notJump = true;
+        }
         MobclickAgent.onPause(this);
     }
 

@@ -13,9 +13,6 @@ import io.objectbox.annotation.Id;
 import io.objectbox.annotation.Index;
 import io.objectbox.annotation.Transient;
 
-/**
- * Created by luli on 04/05/2017.
- */
 @Entity
 public class Reading {
 

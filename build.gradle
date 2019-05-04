@@ -3,6 +3,7 @@
 buildscript {
 
     ext.objectboxVersion = '2.3.4'
+//    2.2.0
 
     repositories {
         jcenter()

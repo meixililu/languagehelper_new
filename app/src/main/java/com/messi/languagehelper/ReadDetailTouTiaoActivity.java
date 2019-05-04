@@ -27,10 +27,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
-import com.avos.avoscloud.AVCloudQueryResult;
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.CloudQueryCallback;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.DefaultRenderersFactory;
@@ -189,14 +185,14 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     }
 
     private void deleItemById(String oid){
-        AVQuery.doCloudQueryInBackground("delete from Reading where objectId='"+oid+"'", new CloudQueryCallback<AVCloudQueryResult>() {
-            @Override
-            public void done(AVCloudQueryResult avCloudQueryResult, AVException e) {
-               if(e == null){
-                   LogUtil.DefalutLog("delete success");
-               }
-            }
-        });
+//        AVQuery.doCloudQueryInBackground("delete from Reading where objectId='"+oid+"'", new CloudQueryCallback<AVCloudQueryResult>() {
+//            @Override
+//            public void done(AVCloudQueryResult avCloudQueryResult, AVException e) {
+//               if(e == null){
+//                   LogUtil.DefalutLog("delete success");
+//               }
+//            }
+//        });
 
     }
 

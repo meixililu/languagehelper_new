@@ -9,6 +9,7 @@ import io.objectbox.annotation.Id;
 import io.objectbox.annotation.Index;
 
 @Entity
+//@Uid
 public class WebFilter implements Parcelable {
 
     @Id
