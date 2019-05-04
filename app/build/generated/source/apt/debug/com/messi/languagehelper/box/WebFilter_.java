@@ -18,7 +18,7 @@ public final class WebFilter_ implements EntityInfo<WebFilter> {
 
     public static final String __ENTITY_NAME = "WebFilter";
 
-    public static final int __ENTITY_ID = 4;
+    public static final int __ENTITY_ID = 1;
 
     public static final Class<WebFilter> __ENTITY_CLASS = WebFilter.class;
 

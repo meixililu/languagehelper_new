@@ -18,7 +18,7 @@ public final class CNWBean_ implements EntityInfo<CNWBean> {
 
     public static final String __ENTITY_NAME = "CNWBean";
 
-    public static final int __ENTITY_ID = 5;
+    public static final int __ENTITY_ID = 2;
 
     public static final Class<CNWBean> __ENTITY_CLASS = CNWBean.class;
 

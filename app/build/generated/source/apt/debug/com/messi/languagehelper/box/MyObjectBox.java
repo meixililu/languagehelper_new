@@ -29,19 +29,19 @@ public class MyObjectBox {
 
     private static byte[] getModel() {
         ModelBuilder modelBuilder = new ModelBuilder();
-        modelBuilder.lastEntityId(5, 9101467405356387670L);
-        modelBuilder.lastIndexId(5, 4730121429431316278L);
+        modelBuilder.lastEntityId(5, 2508500946353572578L);
+        modelBuilder.lastIndexId(5, 773016095715578220L);
         modelBuilder.lastRelationId(0, 0L);
 
         EntityBuilder entityBuilder;
 
         entityBuilder = modelBuilder.entity("ReadingSubject");
-        entityBuilder.id(1, 3110430987322842181L).lastPropertyId(8, 5255918259572070149L);
+        entityBuilder.id(3, 3110430987322842181L).lastPropertyId(8, 5255918259572070149L);
         entityBuilder.flags(io.objectbox.model.EntityFlags.USE_NO_ARG_CONSTRUCTOR);
         entityBuilder.property("id", PropertyType.Long).id(1, 2227665014556694129L)
             .flags(PropertyFlags.ID | PropertyFlags.NOT_NULL);
         entityBuilder.property("objectId", PropertyType.String).id(2, 2967640124154169069L)
-            .flags(PropertyFlags.INDEX_HASH).indexId(1, 6815057945743640498L);
+            .flags(PropertyFlags.INDEX_HASH).indexId(3, 6815057945743640498L);
         entityBuilder.property("name", PropertyType.String).id(3, 5821272637059367913L);
         entityBuilder.property("category", PropertyType.String).id(4, 7575922884050837893L);
         entityBuilder.property("level", PropertyType.String).id(5, 616399869417557875L);
@@ -52,21 +52,21 @@ public class MyObjectBox {
         entityBuilder.entityDone();
 
         entityBuilder = modelBuilder.entity("MomentLikes");
-        entityBuilder.id(2, 8533631915347739076L).lastPropertyId(2, 4608160211459173027L);
+        entityBuilder.id(4, 8533631915347739076L).lastPropertyId(2, 4608160211459173027L);
         entityBuilder.flags(io.objectbox.model.EntityFlags.USE_NO_ARG_CONSTRUCTOR);
         entityBuilder.property("id", PropertyType.Long).id(1, 8256135753634057432L)
             .flags(PropertyFlags.ID | PropertyFlags.NOT_NULL);
         entityBuilder.property("moments_id", PropertyType.String).id(2, 4608160211459173027L)
-            .flags(PropertyFlags.INDEX_HASH).indexId(2, 376579638095034348L);
+            .flags(PropertyFlags.INDEX_HASH).indexId(4, 376579638095034348L);
         entityBuilder.entityDone();
 
         entityBuilder = modelBuilder.entity("Reading");
-        entityBuilder.id(3, 2508500946353572578L).lastPropertyId(34, 1473431717324137965L);
+        entityBuilder.id(5, 2508500946353572578L).lastPropertyId(34, 1473431717324137965L);
         entityBuilder.flags(io.objectbox.model.EntityFlags.USE_NO_ARG_CONSTRUCTOR);
         entityBuilder.property("id", PropertyType.Long).id(1, 285723131730538682L)
             .flags(PropertyFlags.ID | PropertyFlags.NON_PRIMITIVE_TYPE);
         entityBuilder.property("object_id", PropertyType.String).id(2, 551212942247870413L)
-            .flags(PropertyFlags.INDEX_HASH).indexId(3, 773016095715578220L);
+            .flags(PropertyFlags.INDEX_HASH).indexId(5, 773016095715578220L);
         entityBuilder.property("title", PropertyType.String).id(3, 8823048486319672952L);
         entityBuilder.property("source_url", PropertyType.String).id(4, 4898235724899489399L);
         entityBuilder.property("content", PropertyType.String).id(5, 4869325399822336325L);
@@ -109,55 +109,55 @@ public class MyObjectBox {
         entityBuilder.entityDone();
 
         entityBuilder = modelBuilder.entity("WebFilter");
-        entityBuilder.id(4, 5500538743933815553L).lastPropertyId(5, 7718625854752669088L);
+        entityBuilder.id(1, 3496996332654680549L).lastPropertyId(5, 4087304507087629831L);
         entityBuilder.flags(io.objectbox.model.EntityFlags.USE_NO_ARG_CONSTRUCTOR);
-        entityBuilder.property("id", PropertyType.Long).id(1, 4128277972849984343L)
+        entityBuilder.property("id", PropertyType.Long).id(1, 2166657811223778543L)
             .flags(PropertyFlags.ID | PropertyFlags.NOT_NULL);
-        entityBuilder.property("name", PropertyType.String).id(2, 7989547669138751104L)
-            .flags(PropertyFlags.INDEX_HASH).indexId(4, 2862736417282652609L);
-        entityBuilder.property("ad_filter", PropertyType.String).id(3, 5190136206445423530L);
-        entityBuilder.property("ad_url", PropertyType.String).id(4, 3281496371539472813L);
-        entityBuilder.property("is_show_ad", PropertyType.String).id(5, 7718625854752669088L);
+        entityBuilder.property("name", PropertyType.String).id(2, 4380733867604384059L)
+            .flags(PropertyFlags.INDEX_HASH).indexId(1, 5945815078337994721L);
+        entityBuilder.property("ad_filter", PropertyType.String).id(3, 5196970846364399690L);
+        entityBuilder.property("ad_url", PropertyType.String).id(4, 3329399293496612082L);
+        entityBuilder.property("is_show_ad", PropertyType.String).id(5, 4087304507087629831L);
         entityBuilder.entityDone();
 
         entityBuilder = modelBuilder.entity("CNWBean");
-        entityBuilder.id(5, 9101467405356387670L).lastPropertyId(28, 6664834614984242674L);
+        entityBuilder.id(2, 1588007591114287449L).lastPropertyId(28, 4958165198420979623L);
         entityBuilder.flags(io.objectbox.model.EntityFlags.USE_NO_ARG_CONSTRUCTOR);
-        entityBuilder.property("id", PropertyType.Long).id(1, 4300758571960318129L)
+        entityBuilder.property("id", PropertyType.Long).id(1, 7038038043524837647L)
             .flags(PropertyFlags.ID | PropertyFlags.NOT_NULL);
-        entityBuilder.property("itemId", PropertyType.String).id(2, 4671342466873805094L)
-            .flags(PropertyFlags.INDEX_HASH).indexId(5, 4730121429431316278L);
-        entityBuilder.property("table", PropertyType.String).id(3, 2334734173721579018L);
-        entityBuilder.property("category", PropertyType.String).id(4, 6439377345625640570L);
-        entityBuilder.property("type", PropertyType.String).id(5, 8386164829639000418L);
-        entityBuilder.property("title", PropertyType.String).id(6, 6056363177970277161L);
-        entityBuilder.property("author", PropertyType.String).id(7, 8225347014988864118L);
-        entityBuilder.property("tag", PropertyType.String).id(8, 5539829523398325003L);
-        entityBuilder.property("des", PropertyType.String).id(9, 6499439810800628723L);
-        entityBuilder.property("is_free", PropertyType.String).id(10, 3566284307972443805L);
-        entityBuilder.property("sub_title", PropertyType.String).id(11, 22471460428764545L);
-        entityBuilder.property("update_des", PropertyType.String).id(12, 2479934081071762431L);
-        entityBuilder.property("img_url", PropertyType.String).id(13, 8452684285415597245L);
-        entityBuilder.property("imgs_url", PropertyType.String).id(14, 3332350349247580452L);
-        entityBuilder.property("read_url", PropertyType.String).id(15, 6668270976526764118L);
-        entityBuilder.property("last_read_url", PropertyType.String).id(16, 8690982588492250564L);
-        entityBuilder.property("source_url", PropertyType.String).id(17, 4874720511350300091L);
-        entityBuilder.property("source_name", PropertyType.String).id(18, 640840450169348637L);
-        entityBuilder.property("json_str", PropertyType.String).id(19, 103880576597182532L);
-        entityBuilder.property("key", PropertyType.String).id(20, 3864478255487301772L);
-        entityBuilder.property("collected", PropertyType.Long).id(21, 699645052678754399L)
+        entityBuilder.property("itemId", PropertyType.String).id(2, 2524512898384231795L)
+            .flags(PropertyFlags.INDEX_HASH).indexId(2, 7586579419349449235L);
+        entityBuilder.property("table", PropertyType.String).id(3, 2768999903678305748L);
+        entityBuilder.property("category", PropertyType.String).id(4, 8214678972461591553L);
+        entityBuilder.property("type", PropertyType.String).id(5, 2075167676901450736L);
+        entityBuilder.property("title", PropertyType.String).id(6, 4526464211455017248L);
+        entityBuilder.property("author", PropertyType.String).id(7, 2434538024279558200L);
+        entityBuilder.property("tag", PropertyType.String).id(8, 2209866864994209187L);
+        entityBuilder.property("des", PropertyType.String).id(9, 924947428896527519L);
+        entityBuilder.property("is_free", PropertyType.String).id(10, 8484523933627656383L);
+        entityBuilder.property("sub_title", PropertyType.String).id(11, 3518218467800882285L);
+        entityBuilder.property("update_des", PropertyType.String).id(12, 3366280876305008570L);
+        entityBuilder.property("img_url", PropertyType.String).id(13, 273740992621864706L);
+        entityBuilder.property("imgs_url", PropertyType.String).id(14, 9093910642256310693L);
+        entityBuilder.property("read_url", PropertyType.String).id(15, 1147015702527005590L);
+        entityBuilder.property("last_read_url", PropertyType.String).id(16, 7881756030252660093L);
+        entityBuilder.property("source_url", PropertyType.String).id(17, 576687549702454248L);
+        entityBuilder.property("source_name", PropertyType.String).id(18, 8963374591126106550L);
+        entityBuilder.property("json_str", PropertyType.String).id(19, 3515173974528838616L);
+        entityBuilder.property("key", PropertyType.String).id(20, 8928489627415165609L);
+        entityBuilder.property("collected", PropertyType.Long).id(21, 7240929029495409042L)
             .flags(PropertyFlags.NOT_NULL);
-        entityBuilder.property("history", PropertyType.Long).id(22, 5478647948232160166L)
+        entityBuilder.property("history", PropertyType.Long).id(22, 8869005392623960205L)
             .flags(PropertyFlags.NOT_NULL);
-        entityBuilder.property("view", PropertyType.Long).id(23, 2781151935150842787L)
+        entityBuilder.property("view", PropertyType.Long).id(23, 2077428430813608190L)
             .flags(PropertyFlags.NOT_NULL);
-        entityBuilder.property("ceateTime", PropertyType.Long).id(24, 8277745661749675975L)
+        entityBuilder.property("ceateTime", PropertyType.Long).id(24, 8335085192427932866L)
             .flags(PropertyFlags.NOT_NULL);
-        entityBuilder.property("updateTime", PropertyType.Long).id(25, 6044364342234880031L)
+        entityBuilder.property("updateTime", PropertyType.Long).id(25, 7946318109457714163L)
             .flags(PropertyFlags.NOT_NULL);
-        entityBuilder.property("backup1", PropertyType.String).id(26, 94291487984531236L);
-        entityBuilder.property("backup2", PropertyType.String).id(27, 5605063632734157539L);
-        entityBuilder.property("backup3", PropertyType.String).id(28, 6664834614984242674L);
+        entityBuilder.property("backup1", PropertyType.String).id(26, 8601297499929040182L);
+        entityBuilder.property("backup2", PropertyType.String).id(27, 7112001946371936872L);
+        entityBuilder.property("backup3", PropertyType.String).id(28, 4958165198420979623L);
         entityBuilder.entityDone();
 
         return modelBuilder.build();
