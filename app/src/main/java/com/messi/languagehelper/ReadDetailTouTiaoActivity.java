@@ -185,6 +185,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     }
 
     private void deleItemById(String oid){
+        showWebView();
 //        AVQuery.doCloudQueryInBackground("delete from Reading where objectId='"+oid+"'", new CloudQueryCallback<AVCloudQueryResult>() {
 //            @Override
 //            public void done(AVCloudQueryResult avCloudQueryResult, AVException e) {

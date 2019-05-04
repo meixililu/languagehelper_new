@@ -18,7 +18,7 @@ public final class MomentLikes_ implements EntityInfo<MomentLikes> {
 
     public static final String __ENTITY_NAME = "MomentLikes";
 
-    public static final int __ENTITY_ID = 2;
+    public static final int __ENTITY_ID = 4;
 
     public static final Class<MomentLikes> __ENTITY_CLASS = MomentLikes.class;
 

@@ -39,7 +39,7 @@ public class BaseApplication extends MultiDexApplication {
         new Thread(new Runnable() {
             @Override
             public void run() {
-//                try {
+                try {
                     Fresco.initialize(BaseApplication.this);
                     AVOSCloud.initialize(mInstance,"3fg5ql3r45i3apx2is4j9on5q5rf6kapxce51t5bc0ffw2y4", "twhlgs6nvdt7z7sfaw76ujbmaw7l12gb8v6sdyjw1nzk9b1a");
                     YouDaoApplication.init(BaseApplication.this, Setings.YoudaoApiKey);
@@ -47,9 +47,9 @@ public class BaseApplication extends MultiDexApplication {
                     initXMLY();
                     CSJADUtil.init(BaseApplication.this);
                     BoxHelper.init(BaseApplication.this);
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }).run();
     }

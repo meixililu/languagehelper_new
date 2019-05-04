@@ -18,7 +18,7 @@ public final class ReadingSubject_ implements EntityInfo<ReadingSubject> {
 
     public static final String __ENTITY_NAME = "ReadingSubject";
 
-    public static final int __ENTITY_ID = 1;
+    public static final int __ENTITY_ID = 3;
 
     public static final Class<ReadingSubject> __ENTITY_CLASS = ReadingSubject.class;
 
