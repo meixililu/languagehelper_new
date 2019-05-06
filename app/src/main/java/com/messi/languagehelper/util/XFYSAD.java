@@ -87,14 +87,14 @@ public class XFYSAD {
 			if(System.currentTimeMillis() - lastLoadAdTime > 1000*30){
 				parentView.setVisibility(View.VISIBLE);
 				lastLoadAdTime = System.currentTimeMillis();
-				getAd();
+				getXXLAd();
 			}
 		}else {
 			parentView.setVisibility(View.GONE);
 		}
 	}
 	
-	public void getAd(){
+	public void getXXLAd(){
 		try {
 			String currentAD = ADUtil.getAdProvider(counter);
 			if(!TextUtils.isEmpty(currentAD)){
@@ -111,10 +111,14 @@ public class XFYSAD {
 					loadXBKJ();
 				}
 			}
-			counter++;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void onLoadAdFaile(){
+		counter++;
+		getXXLAd();
 	}
 
 	private void loadTXAD(){
@@ -122,7 +126,7 @@ public class XFYSAD {
 		TXADUtil.showCDT(mContext, new NativeExpressAD.NativeExpressADListener() {
 			@Override
 			public void onNoAD(com.qq.e.comm.util.AdError adError) {
-				getAd();
+				onLoadAdFaile();
 			}
 
 			@Override
@@ -186,7 +190,7 @@ public class XFYSAD {
 			}
 			@Override
 			public void onAdFailed(AdError arg0) {
-				getAd();
+				onLoadAdFaile();
 			}
 			@Override
 			public void onADLoaded(List<NativeADDataRef> arg0) {
@@ -246,7 +250,7 @@ public class XFYSAD {
 			}
 			@Override
 			public void onAdFailed(String s) {
-				getAd();
+				onLoadAdFaile();
 				LogUtil.DefalutLog("BDAD-onAdFailed:");
 			}
 			@Override
@@ -255,7 +259,6 @@ public class XFYSAD {
 			}
 			@Override
 			public void onAdClose(JSONObject jsonObject) {
-				getAd();
 				LogUtil.DefalutLog("BDAD-onAdClose");
 			}
 		});
@@ -284,17 +287,17 @@ public class XFYSAD {
 			@Override
 			public void onError(int i, String s) {
 				LogUtil.DefalutLog("loadCSJAD-onError:");
-				getAd();
+				onLoadAdFaile();
 			}
 			@Override
 			public void onBannerAdLoad(TTBannerAd ad) {
 				if (ad == null) {
-					getAd();
+					onLoadAdFaile();
 					return;
 				}
 				View bannerView = ad.getBannerView();
 				if (bannerView == null) {
-					getAd();
+					onLoadAdFaile();
 					return;
 				}
 				//设置轮播的时间间隔  间隔在30s到120秒之间的值，不设置默认不轮播
@@ -307,7 +310,7 @@ public class XFYSAD {
 				ad.setShowDislikeIcon(new TTAdDislike.DislikeInteractionCallback() {
 					@Override
 					public void onSelected(int position, String value) {
-						getAd();
+						onLoadAdFaile();
 					}
 					@Override
 					public void onCancel() {

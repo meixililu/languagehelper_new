@@ -203,9 +203,13 @@ public class XmlyRecommendFragment extends BaseFragment {
                     if (skip > albumList.getTotalPage()) {
                         ToastUtil.diaplayMesShort(getContext(), "没有了！");
                         hideFooterview();
-                        mXXLModel.hasMore = false;
+                        if(mXXLModel != null){
+                            mXXLModel.hasMore = false;
+                        }
                     } else {
-                        mXXLModel.hasMore = true;
+                        if(mXXLModel != null){
+                            mXXLModel.hasMore = true;
+                        }
                         showFooterview();
                     }
                     max_page = albumList.getTotalPage();
@@ -221,7 +225,9 @@ public class XmlyRecommendFragment extends BaseFragment {
     }
 
     private void onFinishLoadData() {
-        mXXLModel.loading = false;
+        if(mXXLModel != null){
+            mXXLModel.loading = false;
+        }
         hideProgressbar();
         onSwipeRefreshLayoutFinish();
     }
