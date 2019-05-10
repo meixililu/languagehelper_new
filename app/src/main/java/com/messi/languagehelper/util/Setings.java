@@ -40,6 +40,8 @@ public class Setings {
 
 	public static boolean IsShowNovel = false;
 
+	public static String UmengAPPId = "551e3853fd98c5403800122c";
+
 	/**baidu translate api**/
 	public static String baiduTranslateUrl = "https://fanyi-api.baidu.com/api/trans/vip/translate";
 
@@ -249,7 +251,10 @@ public class Setings {
 	 * @return
 	 */
 	public static SharedPreferences getSharedPreferences(Context context){
-		return context.getSharedPreferences(context.getPackageName(), Activity.MODE_PRIVATE);
+		if(context != null){
+			return context.getSharedPreferences(context.getPackageName(), Activity.MODE_PRIVATE);
+		}
+		return null;
 	}
 	
 	/**

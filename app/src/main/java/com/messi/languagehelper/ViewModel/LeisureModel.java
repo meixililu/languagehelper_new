@@ -48,6 +48,7 @@ public class LeisureModel {
     private long lastLoadAd;
     private boolean exposureXFAD;
     private String currentAD;
+    private String BDADID = "6070635";
     private String XFADID = ADUtil.MRYJYSNRLAd;
 
     public FrameLayout xx_ad_layout;
@@ -262,7 +263,7 @@ public class LeisureModel {
     }
 
     public void loadBDAD(){
-        AdView adView = new AdView(mContext,"6070635");
+        AdView adView = new AdView(mContext,BDADID);
         adView.setListener(new AdViewListener(){
             @Override
             public void onAdReady(AdView adView) {

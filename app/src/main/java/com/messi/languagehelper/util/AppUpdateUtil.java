@@ -108,6 +108,8 @@ public class AppUpdateUtil {
         String uctt_url = mAVObject.getString(AVOUtil.UpdateInfo.uctt_url);
         String ucsearch_url = mAVObject.getString(AVOUtil.UpdateInfo.ucsearch_url);
         String ad_ids = mAVObject.getString(AVOUtil.UpdateInfo.ad_ids);
+        String ad_csj = mAVObject.getString(AVOUtil.UpdateInfo.ad_csj);
+        String ad_bd = mAVObject.getString(AVOUtil.UpdateInfo.ad_bd);
         String no_ad_channel = mAVObject.getString(AVOUtil.UpdateInfo.no_ad_channel);
         String trankey = mAVObject.getString(AVOUtil.UpdateInfo.trankey);
         String adConf = mAVObject.getString(AVOUtil.UpdateInfo.adConf);
@@ -115,11 +117,16 @@ public class AppUpdateUtil {
         int Caricature_version = mAVObject.getInt(AVOUtil.UpdateInfo.Caricature_version);
         ADUtil.setAdConfig(adConf);
         initTranBdIdKey(trankey);
+        TXADUtil.setADData(ad_ids);
+        CSJADUtil.setADData(ad_csj);
+        BDADUtil.setADData(ad_bd);
         Setings.saveSharedPreferences(sp,KeyUtil.APP_Advertiser,app_advertiser);
         Setings.saveSharedPreferences(sp,KeyUtil.Lei_DVideo,uctt_url);
         Setings.saveSharedPreferences(sp,KeyUtil.Lei_Novel,wyyx_url);
         Setings.saveSharedPreferences(sp,KeyUtil.Lei_UCSearch,ucsearch_url);
         Setings.saveSharedPreferences(sp,KeyUtil.Ad_Ids,ad_ids);
+        Setings.saveSharedPreferences(sp,KeyUtil.Ad_Csj,ad_csj);
+        Setings.saveSharedPreferences(sp,KeyUtil.Ad_Bd,ad_bd);
         Setings.saveSharedPreferences(sp,KeyUtil.No_Ad_Channel,no_ad_channel);
         Setings.saveSharedPreferences(sp,KeyUtil.AdConfig,adConf);
         Setings.saveSharedPreferences(sp,KeyUtil.VersionCode,
@@ -130,12 +137,12 @@ public class AppUpdateUtil {
     }
 
     public static void initTranBdIdKey(String idkey){
-        if (!TextUtils.isEmpty(idkey)) {
+        if (!TextUtils.isEmpty(idkey) && idkey.contains("#")) {
             String[] keys = idkey.split("#");
             if(keys != null && keys.length > 1){
                 Setings.baidu_appid = keys[0];
                 Setings.baidu_secretkey = keys[1];
-                LogUtil.DefalutLog("baidu_appidkey:"+Setings.baidu_appid+"-"+Setings.baidu_secretkey);
+//                LogUtil.DefalutLog("baidu_appidkey:"+Setings.baidu_appid+"-"+Setings.baidu_secretkey);
             }
         }
     }
@@ -161,7 +168,7 @@ public class AppUpdateUtil {
                     String updateInfo = mAVObject.getString(AVOUtil.UpdateInfo.AppUpdateInfo);
                     String apkUrl = mAVObject.getString(AVOUtil.UpdateInfo.APPUrl);
                     final String downloadUrl = apkUrl;
-                    LogUtil.DefalutLog("apkUrl:" + apkUrl);
+//                    LogUtil.DefalutLog("apkUrl:" + apkUrl);
 
                     View view = LayoutInflater.from(mActivity).inflate(R.layout.dialog_update_info,null);
                     TextView updage_info = (TextView) view.findViewById(R.id.updage_info);

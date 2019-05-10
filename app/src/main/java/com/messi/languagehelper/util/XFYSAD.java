@@ -47,6 +47,7 @@ public class XFYSAD {
 	private HeaderFooterRecyclerViewAdapter mAdapter;
 
 	public int counter;
+	public String BDADID = "6070635";
 
 	public XFYSAD(Activity mContext, View parentView, String adId){
 		this.mContext = mContext;
@@ -234,7 +235,7 @@ public class XFYSAD {
 	}
 
 	public void loadBDAD(){
-		AdView adView = new AdView(mContext,"6070624");
+		AdView adView = new AdView(mContext,BDADID);
 		adView.setListener(new AdViewListener(){
 			@Override
 			public void onAdReady(AdView adView) {

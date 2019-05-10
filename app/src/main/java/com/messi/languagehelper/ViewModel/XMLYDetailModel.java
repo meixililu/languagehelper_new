@@ -46,6 +46,7 @@ public class XMLYDetailModel {
     private long lastLoadAd;
     private String currentAD;
     private String XFADID = ADUtil.XXLAD;
+    public String BDADID = "6070553";
 
     public LinearLayout xx_ad_layout;
     public ImageView imgCover;
@@ -231,7 +232,7 @@ public class XMLYDetailModel {
     }
 
     public void loadBDAD(){
-        AdView adView = new AdView(mContext,"6070553");
+        AdView adView = new AdView(mContext,BDADID);
         adView.setListener(new AdViewListener(){
             @Override
             public void onAdReady(AdView adView) {

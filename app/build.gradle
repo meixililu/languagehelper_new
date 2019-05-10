@@ -24,8 +24,8 @@ android {
         versionCode 45
         versionName "4.5.5"
         //粤语说
-        //versionCode 7
-        //versionName "1.6"
+        //versionCode 9
+        //versionName "1.8"
         //英语君
 //        versionCode 9
 //        versionName "1.6"

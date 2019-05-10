@@ -19,103 +19,76 @@ import com.qq.e.ads.splash.SplashADListener;
 
 public class TXADUtil {
 
-    //zyhy 1106863330#8070635391202695#8020132381266427#9070133322784103#1090838321167493#7080330341367043
-    //yyj 1106957016#7080135419839958#1030736419937999#2000636429344052#9000337459847020#7090539489345031
-    //yys 1106957022#3040833560655805#5030230580451876#6080439550951887#5010330570751838#8030136520951889
-    public static String appId = "1106863330";
-    public static String posId_Kaiping = "8070635391202695";
-    public static String posId_XXL_STXW = "8020132381266427";
-    public static String posId_XXL_SWXT = "9070133322784103";
-    public static String posId_XXL_ZWYT = "1090838321167493";
-    public static String posId_CDT = "7080330341367043";
-    public static String posId_CDTZX = "3040234889434979";
-    public static String posId_SXT = "1010846350920692";
-    public static void initTXADID(Context mContext){
-        try {
-            ADUtil.IsShowAD = true;
-            SharedPreferences sp = Setings.getSharedPreferences(mContext);
-            String ids = sp.getString(KeyUtil.Ad_Ids,"");
-            if(!TextUtils.isEmpty(ids)){
-                String[] ides = ids.split("#");
-                if(ides.length >= 8){
-                    appId = ides[0];
-                    posId_Kaiping = ides[1];
-                    posId_XXL_STXW = ides[2];
-                    posId_XXL_SWXT = ides[3];
-                    posId_XXL_ZWYT = ides[4];
-                    posId_CDT = ides[5];
-                    posId_CDTZX = ides[6];
-                    posId_SXT = ides[7];
-                    LogUtil.DefalutLog("initTXADID:"+ids);
-                }else {
-                    initDefaultTXADID(mContext);
-                }
-            }else {
-                initDefaultTXADID(mContext);
-            }
+    public static String zyhy = "1106863330#8070635391202695#8020132381266427#9070133322784103#1090838321167493#7080330341367043#3040234889434979#1010846350920692";
+    public static String yys = "1106957022#3040833560655805#5030230580451876#6080439550951887#5010330570751838#8030136520951889#2040548284049293#4010043370553533";
+    public static String yyj = "1106957016#7080135419839958#1030736419937999#2000636429344052#9000337459847020#7090539489345031#1040346264248194#7060449300650596";
+    public static String ywcd = "1107933661#8020142786299103#8050747736694164#1050444716395115#7020143736598196#9090443766690187#4090045766994148#7060841776091179";
 
-            String ad = sp.getString(KeyUtil.APP_Advertiser,"");
-            if(!ad.equals(KeyUtil.No_Ad)){
-                String noAdChannel = sp.getString(KeyUtil.No_Ad_Channel,"");
-                String channel = Setings.getMetaData(mContext,"UMENG_CHANNEL");
-                int versionCode = Setings.getVersion(mContext);
-                int lastCode = sp.getInt(KeyUtil.VersionCode,-1);
-                LogUtil.DefalutLog("lastCode:"+lastCode+"--noAdChannel:"+noAdChannel+"--channel:"+channel);
-                if(versionCode >= lastCode){
-                    if(!TextUtils.isEmpty(noAdChannel) && !TextUtils.isEmpty(channel)){
-                        if(noAdChannel.equals(channel)){
-                            ADUtil.IsShowAD = false;
-                        }
-                    }
-                }
-            }else {
-                ADUtil.IsShowAD = false;
+    public static String TxAppId;
+    public static String TxAdKp;
+    public static String TxAdXXLSTXW;
+    public static String TxAdXXLSWXT;
+    public static String TxAdXXLZWYT;
+    public static String TxAdCDT;
+    public static String TxAdCDTZX;
+    public static String TxAdSXT;
+
+    public static void init(Context context){
+        try {
+            SharedPreferences sp = Setings.getSharedPreferences(context);
+            String idstr = "";
+            SystemUtil.PacketName = context.getPackageName();
+            if(SystemUtil.PacketName.equals(Setings.application_id_zyhy)){
+                idstr = zyhy;
+            }else if(SystemUtil.PacketName.equals(Setings.application_id_zyhy_google)){
+                idstr = zyhy;
+            }else if(SystemUtil.PacketName.equals(Setings.application_id_yys)){
+                idstr = yys;
+            }else if(SystemUtil.PacketName.equals(Setings.application_id_yys_google)){
+                idstr = yys;
+            }else if(SystemUtil.PacketName.equals(Setings.application_id_yyj)){
+                idstr = yyj;
+            }else if(SystemUtil.PacketName.equals(Setings.application_id_yyj_google)){
+                idstr = yyj;
+            }else if(SystemUtil.PacketName.equals(Setings.application_id_ywcd)){
+                idstr = ywcd;
+            }else if(SystemUtil.PacketName.equals(Setings.application_id_xbky)){
+
+            }else if(SystemUtil.PacketName.equals(Setings.application_id_xbtl)){
+
+            }else if(SystemUtil.PacketName.equals(Setings.application_id_qmzj)){
+
+            }else if(SystemUtil.PacketName.equals(Setings.application_id_zrhy)){
+
+            }else if(SystemUtil.PacketName.equals(Setings.application_id_zhhy)){
+
             }
-            LogUtil.DefalutLog("IsShowAD:"+ADUtil.IsShowAD);
+            if(sp != null && !TextUtils.isEmpty(idstr)){
+                setADData(sp.getString(KeyUtil.Ad_Ids,idstr));
+            }
         } catch (Exception e) {
-            initDefaultTXADID(mContext);
             e.printStackTrace();
         }
     }
 
-    private static void initDefaultTXADID(Context mContext){
-        LogUtil.DefalutLog("initDefaultTXADID");
-        if(mContext.getPackageName().equals(Setings.application_id_yyj) ||
-                mContext.getPackageName().equals(Setings.application_id_yyj_google)){
-            appId = "1106957016";
-            posId_Kaiping = "7080135419839958";
-            posId_XXL_STXW = "1030736419937999";
-            posId_XXL_SWXT = "2000636429344052";
-            posId_XXL_ZWYT = "9000337459847020";
-            posId_CDT = "7090539489345031";
-            posId_CDTZX = "1040346264248194";
-            posId_SXT = "7060449300650596";
-            LogUtil.DefalutLog("application_id_yyj");
-        }else if (mContext.getPackageName().equals(Setings.application_id_yys) ||
-                mContext.getPackageName().equals(Setings.application_id_yys_google)) {
-            appId = "1106957022";
-            posId_Kaiping = "3040833560655805";
-            posId_XXL_STXW = "5030230580451876";
-            posId_XXL_SWXT = "6080439550951887";
-            posId_XXL_ZWYT = "5010330570751838";
-            posId_CDT = "8030136520951889";
-            posId_CDTZX = "2040548284049293";
-            posId_SXT = "4010043370553533";
-        } else if (mContext.getPackageName().equals(Setings.application_id_ywcd)) {
-
-        } else if (mContext.getPackageName().equals(Setings.application_id_xbky)) {
-
-        } else {
-            //zyhy id
-            appId = "1106863330";
-            posId_Kaiping = "8070635391202695";
-            posId_XXL_STXW = "8020132381266427";
-            posId_XXL_SWXT = "9070133322784103";
-            posId_XXL_ZWYT = "1090838321167493";
-            posId_CDT = "7080330341367043";
-            posId_CDTZX = "3040234889434979";
-            posId_SXT = "1010846350920692";
-            LogUtil.DefalutLog("application_id_zyhy");
+    public static void setADData(String idstr){
+        try {
+            if(!TextUtils.isEmpty(idstr) && idstr.contains("#")){
+                String[] ides = idstr.split("#");
+                if(ides.length >= 8){
+                    TxAppId = ides[0];
+                    TxAdKp = ides[1];
+                    TxAdXXLSTXW = ides[2];
+                    TxAdXXLSWXT = ides[3];
+                    TxAdXXLZWYT = ides[4];
+                    TxAdCDT = ides[5];
+                    TxAdCDTZX = ides[6];
+                    TxAdSXT = ides[7];
+//                    LogUtil.DefalutLog("initTXADID:"+idstr);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -124,13 +97,13 @@ public class TXADUtil {
                                      View skipContainer,
                                      SplashADListener listener){
         SplashAD splashAD = new SplashAD(activity, adContainer, skipContainer,
-                appId, posId_Kaiping, listener, 3000);
+                TxAppId, TxAdKp, listener, 3000);
     }
 
     public static void showCDT(Activity activity,
                                           NativeExpressAD.NativeExpressADListener listener){
         NativeExpressAD nativeExpressAD = new NativeExpressAD(activity,
-                new ADSize(ADSize.FULL_WIDTH, ADSize.AUTO_HEIGHT), appId, posId_CDT, listener);
+                new ADSize(ADSize.FULL_WIDTH, ADSize.AUTO_HEIGHT), TxAppId, TxAdCDT, listener);
         nativeExpressAD.setVideoOption(new VideoOption.Builder()
                 .setAutoPlayPolicy(VideoOption.AutoPlayPolicy.WIFI) // WIFI环境下可以自动播放视频
                 .setAutoPlayMuted(true) // 自动播放时为静音
@@ -140,9 +113,9 @@ public class TXADUtil {
 
     public static void showCDTZX(Activity activity,
                                  NativeExpressAD.NativeExpressADListener listener){
-        LogUtil.DefalutLog("showCDTZX:"+posId_CDTZX);
+        LogUtil.DefalutLog("showCDTZX:"+ TxAdCDTZX);
         NativeExpressAD nativeExpressAD = new NativeExpressAD(activity,
-                new ADSize(ADSize.FULL_WIDTH, ADSize.AUTO_HEIGHT), appId, posId_CDTZX, listener);
+                new ADSize(ADSize.FULL_WIDTH, ADSize.AUTO_HEIGHT), TxAppId, TxAdCDTZX, listener);
         nativeExpressAD.setVideoOption(new VideoOption.Builder()
                 .setAutoPlayPolicy(VideoOption.AutoPlayPolicy.WIFI) // WIFI环境下可以自动播放视频
                 .setAutoPlayMuted(true) // 自动播放时为静音
@@ -153,14 +126,14 @@ public class TXADUtil {
     public static void showXXL(Activity activity,
                                NativeExpressAD.NativeExpressADListener listener){
         int num = NumberUtil.getRandomNumber(13);
-        String postID = posId_XXL_ZWYT;
+        String postID = TxAdXXLZWYT;
         if(num > 8){
-            postID = posId_XXL_SWXT;
+            postID = TxAdXXLSWXT;
         }else if(num > 3){
-            postID = posId_SXT;
+            postID = TxAdSXT;
         }
         NativeExpressAD nativeExpressAD = new NativeExpressAD(activity,
-                new ADSize(ADSize.FULL_WIDTH, ADSize.AUTO_HEIGHT), appId, postID, listener);
+                new ADSize(ADSize.FULL_WIDTH, ADSize.AUTO_HEIGHT), TxAppId, postID, listener);
         nativeExpressAD.setVideoOption(new VideoOption.Builder()
                 .setAutoPlayPolicy(VideoOption.AutoPlayPolicy.WIFI) // WIFI环境下可以自动播放视频
                 .setAutoPlayMuted(true)// 自动播放时为静音
@@ -171,7 +144,7 @@ public class TXADUtil {
     public static void showXXL_ZWYT(Activity activity,
                                NativeExpressAD.NativeExpressADListener listener){
         NativeExpressAD nativeExpressAD = new NativeExpressAD(activity,
-                new ADSize(ADSize.FULL_WIDTH, ADSize.AUTO_HEIGHT), appId, posId_XXL_ZWYT, listener);
+                new ADSize(ADSize.FULL_WIDTH, ADSize.AUTO_HEIGHT), TxAppId, TxAdXXLZWYT, listener);
         nativeExpressAD.setVideoOption(new VideoOption.Builder()
                 .setAutoPlayPolicy(VideoOption.AutoPlayPolicy.WIFI) // WIFI环境下可以自动播放视频
                 .setAutoPlayMuted(true) // 自动播放时为静音
@@ -182,7 +155,7 @@ public class TXADUtil {
     public static void showXXL_STXW(Activity activity,
                                     NativeExpressAD.NativeExpressADListener listener){
         NativeExpressAD nativeExpressAD = new NativeExpressAD(activity,
-                new ADSize(ADSize.FULL_WIDTH, ADSize.AUTO_HEIGHT), appId, posId_XXL_STXW, listener);
+                new ADSize(ADSize.FULL_WIDTH, ADSize.AUTO_HEIGHT), TxAppId, TxAdXXLSTXW, listener);
         nativeExpressAD.setVideoOption(new VideoOption.Builder()
                 .setAutoPlayPolicy(VideoOption.AutoPlayPolicy.WIFI) // WIFI环境下可以自动播放视频
                 .setAutoPlayMuted(true) // 自动播放时为静音

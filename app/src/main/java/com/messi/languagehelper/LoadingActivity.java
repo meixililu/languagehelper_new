@@ -22,7 +22,6 @@ import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AppUpdateUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.Setings;
-import com.messi.languagehelper.util.TXADUtil;
 import com.umeng.analytics.MobclickAgent;
 
 import org.greenrobot.eventbus.EventBus;
@@ -58,7 +57,6 @@ public class LoadingActivity extends AppCompatActivity {
 
             EventBus.getDefault().register(this);
             AppUpdateUtil.runCheckUpdateTask(this);
-            TXADUtil.initTXADID(this);
             init();
             ADUtil.loadAd(this);
         } catch (Exception e) {

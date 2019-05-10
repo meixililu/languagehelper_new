@@ -62,7 +62,7 @@ public class VideoADModel {
         LogUtil.DefalutLog("loadCSJAD-Video");
         TTAdNative mTTAdNative = CSJADUtil.get().createAdNative(mContext);
         AdSlot adSlot = new AdSlot.Builder()
-                .setCodeId(CSJADUtil.CSJ_VIDEO)
+                .setCodeId(CSJADUtil.CSJ_XXLSP)
                 .setSupportDeepLink(true)
                 .setImageAcceptedSize(690, 388)
                 .build();

@@ -71,29 +71,63 @@ public class ADUtil {
 
 	public static String BD_Kaiping = "6057037";
 
+	public static void initTXADID(Context mContext){
+		try {
+			ADUtil.IsShowAD = true;
+			SharedPreferences sp = Setings.getSharedPreferences(mContext);
+			String ad = sp.getString(KeyUtil.APP_Advertiser,"");
+			if(ad.equals(KeyUtil.No_Ad)){
+				ADUtil.IsShowAD = false;
+			}else {
+				String noAdChannel = sp.getString(KeyUtil.No_Ad_Channel,"");
+				String channel = Setings.getMetaData(mContext,"UMENG_CHANNEL");
+				int versionCode = Setings.getVersion(mContext);
+				int lastCode = sp.getInt(KeyUtil.VersionCode,-1);
+				LogUtil.DefalutLog("lastCode:"+lastCode+"--noAdChannel:"+noAdChannel+"--channel:"+channel);
+				if(versionCode >= lastCode){
+					if(!TextUtils.isEmpty(noAdChannel) && !TextUtils.isEmpty(channel)){
+						if(noAdChannel.equals(channel)){
+							ADUtil.IsShowAD = false;
+						}
+					}
+				}
+			}
+			LogUtil.DefalutLog("IsShowAD:"+ADUtil.IsShowAD);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+
 	public static void initAdConfig(SharedPreferences sp){
 		String configStr = sp.getString(KeyUtil.AdConfig, "CSJ#GDT#BD#XF#XBKJ");
 		setAdConfig(configStr);
 	}
 
 	public static void setAdConfig(String config){
-		adConfigs = null;
-		adConfigs = config.split("#");
+		if(!TextUtils.isEmpty(config) && config.contains("#")){
+			adConfigs = null;
+			adConfigs = config.split("#");
+		}
 	}
 
 	public static String getAdProvider(int position){
-		if(adConfigs != null && adConfigs.length > 0 && position < adConfigs.length){
-			if(GDT.equals(adConfigs[position])){
-				return GDT;
-			}else if(BD.equals(adConfigs[position])){
-				return BD;
-			}else if(CSJ.equals(adConfigs[position])){
-				return CSJ;
-			}else if(XF.equals(adConfigs[position])){
-				return XF;
-			}else if(XBKJ.equals(adConfigs[position])){
-				return XBKJ;
+		try {
+			if(adConfigs != null && adConfigs.length > 0 && position < adConfigs.length){
+				if(GDT.equals(adConfigs[position])){
+					return GDT;
+				}else if(BD.equals(adConfigs[position])){
+					return BD;
+				}else if(CSJ.equals(adConfigs[position])){
+					return CSJ;
+				}else if(XF.equals(adConfigs[position])){
+					return XF;
+				}else if(XBKJ.equals(adConfigs[position])){
+					return XBKJ;
+				}
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return "";
 	}

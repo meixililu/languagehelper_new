@@ -278,6 +278,8 @@ public class KeyUtil {
 	public static final String Lei_UCSearch = "Lei_UCSearch";
 
 	public static final String Ad_Ids = "Ad_Ids";
+	public static final String Ad_Csj = "ad_csj";
+	public static final String Ad_Bd = "ad_bd";
 	public static final String No_Ad_Channel = "no_ad_channel";
 	public static final String VersionCode = "VersionCode";
 	public static final String IsTXADPermissionReady = "IsTXADPermissionReady";
