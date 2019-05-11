@@ -348,7 +348,7 @@ public class WebViewFullscreenActivity extends BaseActivity{
 			if(!TextUtils.isEmpty(ShareUrlMsg)){
 				ShareUtil.shareText(WebViewFullscreenActivity.this, ShareUrlMsg);
 			}else {
-				ShareUtil.shareText(WebViewFullscreenActivity.this,mWebView.getTitle() + " (share from:中英互译) " + Url);
+				ShareUtil.shareText(WebViewFullscreenActivity.this,mWebView.getTitle() + " (share from:"+getString(R.string.app_name)+") " + Url);
 			}
 			AVAnalytics.onEvent(this, "webview_share_link");
 			break;

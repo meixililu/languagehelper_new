@@ -440,7 +440,7 @@ public class WebViewForAdActivity extends BaseActivity{
 			if(!TextUtils.isEmpty(ShareUrlMsg)){
 				ShareUtil.shareText(WebViewForAdActivity.this, ShareUrlMsg);
 			}else {
-				ShareUtil.shareText(WebViewForAdActivity.this,mWebView.getTitle() + " (share from:中英互译) " + Url);
+				ShareUtil.shareText(WebViewForAdActivity.this,mWebView.getTitle() + " (share from:"+getString(R.string.app_name)+") " + Url);
 			}
 			AVAnalytics.onEvent(this, "webview_share_link");
 			break;

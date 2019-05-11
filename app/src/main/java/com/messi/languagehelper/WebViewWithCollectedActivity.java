@@ -651,7 +651,7 @@ public class WebViewWithCollectedActivity extends BaseActivity implements OnClic
 				if(!TextUtils.isEmpty(ShareUrlMsg)){
 					ShareUtil.shareText(WebViewWithCollectedActivity.this, ShareUrlMsg);
 				}else {
-					ShareUtil.shareText(WebViewWithCollectedActivity.this,mWebView.getTitle() + " (share from:中英互译) " + Url);
+					ShareUtil.shareText(WebViewWithCollectedActivity.this,mWebView.getTitle() + " (share from:"+getString(R.string.app_name)+") " + Url);
 				}
 				AVAnalytics.onEvent(this, "webview_share_link");
 				break;

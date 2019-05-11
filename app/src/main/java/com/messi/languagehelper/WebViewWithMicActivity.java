@@ -586,7 +586,7 @@ public class WebViewWithMicActivity extends BaseActivity implements View.OnClick
 			if(!TextUtils.isEmpty(ShareUrlMsg)){
 				ShareUtil.shareText(WebViewWithMicActivity.this, ShareUrlMsg);
 			}else {
-				ShareUtil.shareText(WebViewWithMicActivity.this,mWebView.getTitle() + " (share from:中英互译) " + Url);
+				ShareUtil.shareText(WebViewWithMicActivity.this,mWebView.getTitle() + " (share from:"+getString(R.string.app_name)+") " + Url);
 			}
 			AVAnalytics.onEvent(this, "webview_share_link");
 			break;
