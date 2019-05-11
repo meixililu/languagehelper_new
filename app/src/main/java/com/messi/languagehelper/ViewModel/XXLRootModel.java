@@ -30,6 +30,7 @@ import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.util.ADUtil;
+import com.messi.languagehelper.util.BDADUtil;
 import com.messi.languagehelper.util.CSJADUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
@@ -51,7 +52,7 @@ public abstract class XXLRootModel {
     public Activity mContext;
     public SharedPreferences sp;
     public String XFADID = ADUtil.XXLAD;
-    public String BDADID = "6070637";
+    public String BDADID = BDADUtil.BD_BANNer;
     public String CSJADID = CSJADUtil.CSJ_XXL;
     public int TXADType = 2;
     public IFLYNativeAd nativeAd;

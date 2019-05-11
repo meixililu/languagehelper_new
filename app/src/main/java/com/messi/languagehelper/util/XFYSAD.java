@@ -47,7 +47,7 @@ public class XFYSAD {
 	private HeaderFooterRecyclerViewAdapter mAdapter;
 
 	public int counter;
-	public String BDADID = "6070635";
+	public String BDADID = BDADUtil.BD_BANNer;
 
 	public XFYSAD(Activity mContext, View parentView, String adId){
 		this.mContext = mContext;

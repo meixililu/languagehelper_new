@@ -13,11 +13,10 @@ public class BDADUtil {
 
     public static String BD_APPID;
     public static String BD_KPID;
-    public static String BD_XXL;
-    public static String BD_XXLSP;
+    public static String BD_BANNer_XXL;
     public static String BD_BANNer;
-    public static String BD_QPSP;
-    public static String BD_DrawXXLSP;
+    public static String BD_BANNer_XXL2;
+    public static String BD_SP;
 
     public static void init(Context context){
         try {
@@ -64,11 +63,10 @@ public class BDADUtil {
                 if(ids.length >= 6){
                     BD_APPID = ids[0];
                     BD_KPID = ids[1];
-                    BD_XXL = ids[2];
-                    BD_XXLSP = ids[3];
-                    BD_BANNer = ids[4];
-                    BD_QPSP = ids[5];
-                    BD_DrawXXLSP = ids[6];
+                    BD_BANNer_XXL = ids[2];
+                    BD_BANNer = ids[3];
+                    BD_BANNer_XXL2 = ids[4];
+                    BD_SP = ids[5];
                 }
 //                LogUtil.DefalutLog("initBDADID:"+idstr);
 

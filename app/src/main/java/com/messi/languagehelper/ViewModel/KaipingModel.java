@@ -27,6 +27,7 @@ import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.event.KaipingPageEvent;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVAnalytics;
+import com.messi.languagehelper.util.BDADUtil;
 import com.messi.languagehelper.util.CSJADUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -304,7 +305,7 @@ public class KaipingModel {
 
     public void loadBDAD(){
         SplashAd.setMaxVideoCacheCapacityMb(30);
-        new SplashAd(mContext,splash_container,bdAdListener,ADUtil.BD_Kaiping,true);
+        new SplashAd(mContext,splash_container,bdAdListener, BDADUtil.BD_KPID,true);
     }
 
     public void loadCSJAD(){

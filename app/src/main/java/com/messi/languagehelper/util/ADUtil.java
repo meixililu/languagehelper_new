@@ -69,8 +69,6 @@ public class ADUtil {
 	public static final int adCount = 1;
 	public static final int adInterval = 4500;
 
-	public static String BD_Kaiping = "6057037";
-
 	public static void initTXADID(Context mContext){
 		try {
 			ADUtil.IsShowAD = true;

@@ -25,6 +25,7 @@ import com.iflytek.voiceads.IFLYNativeAd;
 import com.iflytek.voiceads.IFLYNativeListener;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.util.ADUtil;
+import com.messi.languagehelper.util.BDADUtil;
 import com.messi.languagehelper.util.CSJADUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
@@ -48,7 +49,7 @@ public class LeisureModel {
     private long lastLoadAd;
     private boolean exposureXFAD;
     private String currentAD;
-    private String BDADID = "6070635";
+    private String BDADID = BDADUtil.BD_BANNer;
     private String XFADID = ADUtil.MRYJYSNRLAd;
 
     public FrameLayout xx_ad_layout;
