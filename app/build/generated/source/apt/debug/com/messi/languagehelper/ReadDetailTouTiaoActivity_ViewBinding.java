@@ -47,6 +47,7 @@ public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
     });
     target.nextComposition = Utils.findRequiredViewAsType(source, R.id.next_composition, "field 'nextComposition'", LinearLayout.class);
     target.xx_ad_layout = Utils.findRequiredViewAsType(source, R.id.xx_ad_layout, "field 'xx_ad_layout'", FrameLayout.class);
+    target.webview_layout = Utils.findRequiredViewAsType(source, R.id.webview_layout, "field 'webview_layout'", FrameLayout.class);
   }
 
   @Override
@@ -64,6 +65,7 @@ public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
     target.backBtn = null;
     target.nextComposition = null;
     target.xx_ad_layout = null;
+    target.webview_layout = null;
 
     view7f080063.setOnClickListener(null);
     view7f080063 = null;

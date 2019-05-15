@@ -9,9 +9,9 @@ android {
 
     defaultConfig {
         //修改 Provider
-        applicationId "com.messi.languagehelper"
+//        applicationId "com.messi.languagehelper"
 //        applicationId "com.messi.languagehelper.google"
-//        applicationId "com.messi.learnenglish"  //英语君
+        applicationId "com.messi.learnenglish"  //英语君
 //        applicationId "com.messi.learnenglish.google"  //英语君
 //        applicationId "com.messi.cantonese.study"  //粤语说
 //        applicationId "com.messi.cantonese.study.google"  //粤语说
@@ -21,14 +21,14 @@ android {
         minSdkVersion 16
         targetSdkVersion 28
         //中英互译
-        versionCode 45
-        versionName "4.5.5"
+//        versionCode 45
+//        versionName "4.5.5"
         //粤语说
-        //versionCode 9
+        //versionCode 11
         //versionName "1.8"
-        //英语君
-//        versionCode 9
-//        versionName "1.6"
+//        英语君
+        versionCode 9
+        versionName "1.6"
 //        语文词典
 //        versionCode 2
 //        versionName "1.0"

@@ -203,7 +203,7 @@
                         android:gravity="center"
                         android:lines="1"
                         android:layout_marginTop="@dimen/padding_5"
-                        android:text="@string/examination"
+                        android:text="@string/title_ai_chat"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/big" />
                 </LinearLayout>
@@ -282,7 +282,7 @@
                         android:gravity="center"
                         android:lines="1"
                         android:layout_marginTop="@dimen/padding_5"
-                        android:text="@string/title_grammar"
+                        android:text="@string/title_moments"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/big" />
                 </LinearLayout>
@@ -315,7 +315,7 @@
                         android:gravity="center"
                         android:layout_marginTop="@dimen/padding_5"
                         android:lines="1"
-                        android:text="@string/title_composition"
+                        android:text="@string/title_com_exam"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/big" />
                 </LinearLayout>
@@ -394,7 +394,7 @@
                         android:gravity="center"
                         android:lines="1"
                         android:layout_marginTop="@dimen/padding_5"
-                        android:text="@string/title_english_story"
+                        android:text="@string/title_grammer_story"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/big" />
                 </LinearLayout>

@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.baidu.mobads.AdSettings;
 import com.baidu.mobads.SplashAd;
 import com.baidu.mobads.SplashAdListener;
 import com.bytedance.sdk.openadsdk.AdSlot;
@@ -304,7 +305,7 @@ public class KaipingModel {
     };
 
     public void loadBDAD(){
-        SplashAd.setMaxVideoCacheCapacityMb(30);
+        AdSettings.setSupportHttps(false);
         new SplashAd(mContext,splash_container,bdAdListener, BDADUtil.BD_KPID,true);
     }
 

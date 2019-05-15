@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 
+import com.baidu.mobads.AdView;
+
 public class BDADUtil {
 
     public static String zyhy = "f60acdfd#6057037#6070553#6070635#6070637#6066399";
@@ -50,6 +52,7 @@ public class BDADUtil {
             }
             if(sp != null && !TextUtils.isEmpty(idstr)){
                 setADData(sp.getString(KeyUtil.Ad_Bd,idstr));
+                AdView.setAppSid(context,BD_APPID);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -69,7 +72,6 @@ public class BDADUtil {
                     BD_SP = ids[5];
                 }
 //                LogUtil.DefalutLog("initBDADID:"+idstr);
-
             }
         } catch (Exception e) {
             e.printStackTrace();

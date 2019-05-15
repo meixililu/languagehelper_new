@@ -91,6 +91,8 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     LinearLayout nextComposition;
     @BindView(R.id.xx_ad_layout)
     FrameLayout xx_ad_layout;
+    @BindView(R.id.webview_layout)
+    FrameLayout webview_layout;
     private String Url;
     private Reading mAVObject;
     private SimpleExoPlayer player;
@@ -284,6 +286,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
 
     private void showWebView(){
         videoLayout.setVisibility(View.GONE);
+        webview_layout.setVisibility(View.VISIBLE);
         mWebView.setVisibility(View.VISIBLE);
         mWebView.loadUrl(Url);
     }

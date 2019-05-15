@@ -116,6 +116,7 @@ public class AiChatActivity extends BaseActivity {
     public RcAiChatAdapter mAdapter;
     private SharedPreferences sp;
     private KaiPinAdUIModelCustom mKaiPinAdUIModel;
+    private boolean isSayHello;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -163,15 +164,19 @@ public class AiChatActivity extends BaseActivity {
     }
 
     private void sayHi() {
-        String sayHi = "say hello";
-        if (beans.size() > 0) {
-            AiEntity mAiEntity = beans.get(beans.size() - 1);
-            if (!sayHi.equals(mAiEntity.getContent())) {
+        if(!isSayHello){
+            isSayHello = true;
+            String sayHi = "say hello";
+            if (beans.size() > 0) {
+                AiEntity mAiEntity = beans.get(beans.size() - 1);
+                if (!sayHi.equals(mAiEntity.getContent())) {
+                    requestData(sayHi);
+                }
+            } else {
                 requestData(sayHi);
             }
-        } else {
-            requestData(sayHi);
         }
+
     }
 
     @Override

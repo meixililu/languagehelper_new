@@ -8,22 +8,28 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="290dp"
+        android:layout_height="wrap_content"
         android:background="@color/white">
 
-        <WebView
-            android:id="@+id/refreshable_webview"
+        <FrameLayout
+            android:id="@+id/webview_layout"
             android:layout_width="match_parent"
-            android:layout_margin="0dp"
+            android:layout_height="290dp"
             android:visibility="gone"
-            android:layout_height="290dp" />
+            android:background="@color/white">
+            <WebView
+                android:id="@+id/refreshable_webview"
+                android:layout_width="match_parent"
+                android:layout_margin="0dp"
+                android:visibility="gone"
+                android:layout_height="290dp" />
+        </FrameLayout>
 
         <LinearLayout
             android:id="@+id/video_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:visibility="gone"
             android:orientation="vertical">
             <FrameLayout
                 android:id="@+id/video_ly"
@@ -42,6 +48,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
+                    android:visibility="gone"
                     android:orientation="vertical"
                     >
                     <FrameLayout
@@ -64,11 +71,10 @@
                 android:id="@+id/title_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/padding_10"
+                android:padding="@dimen/padding_10"
                 android:maxLines="2"
                 android:textColor="@color/text_dark"
-                android:textSize="@dimen/biggerx"
-                android:layout_marginTop="@dimen/padding_7" />
+                android:textSize="@dimen/biggerx" />
         </LinearLayout>
 
         <LinearLayout
@@ -76,7 +82,6 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

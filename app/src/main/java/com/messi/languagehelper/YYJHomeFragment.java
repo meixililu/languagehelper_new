@@ -80,11 +80,11 @@ public class YYJHomeFragment extends BaseFragment {
                 AVAnalytics.onEvent(getContext(), "tab3_to_listening");
                 break;
             case R.id.en_examination_layout:
-                toExaminationActivity(getContext().getResources().getString(R.string.examination));
+                toActivity(AiChatActivity.class,null);
                 AVAnalytics.onEvent(getContext(), "tab3_to_examination");
                 break;
             case R.id.study_composition:
-                toActivity(CompositionActivity.class, null);
+                toActivity(ComExamActivity.class, null);
                 AVAnalytics.onEvent(getContext(), "tab3_to_composition");
                 break;
             case R.id.collected_layout:
@@ -96,7 +96,7 @@ public class YYJHomeFragment extends BaseFragment {
                 AVAnalytics.onEvent(getContext(), "tab3_to_spoken_english");
                 break;
             case R.id.en_grammar:
-//                toActivity(GrammarActivity.class, null);
+                toActivity(MomentsActivity.class, null);
                 AVAnalytics.onEvent(getContext(), "tab3_to_grammar");
                 break;
             case R.id.en_story_layout:
