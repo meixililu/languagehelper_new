@@ -81,6 +81,8 @@ public class LeisureFragment extends BaseFragment {
                 getContext().getPackageName().equals(Setings.application_id_yyj) ||
                 getContext().getPackageName().equals(Setings.application_id_yyj_google)) {
             view = inflater.inflate(R.layout.leisure_fragment, null);
+        } else if (getContext().getPackageName().equals(Setings.application_id_ywcd) ) {
+            view = inflater.inflate(R.layout.leisure_for_ywcd_fragment, null);
         } else {
             view = inflater.inflate(R.layout.leisure_for_yys_fragment, null);
         }
