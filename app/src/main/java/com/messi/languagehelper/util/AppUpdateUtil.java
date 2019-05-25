@@ -106,6 +106,7 @@ public class AppUpdateUtil {
         String app_advertiser = mAVObject.getString(AVOUtil.UpdateInfo.ad_type);
         String wyyx_url = mAVObject.getString(AVOUtil.UpdateInfo.wyyx_url);
         String uctt_url = mAVObject.getString(AVOUtil.UpdateInfo.uctt_url);
+        String yuey_url = mAVObject.getString(AVOUtil.UpdateInfo.yuey_url);
         String ucsearch_url = mAVObject.getString(AVOUtil.UpdateInfo.ucsearch_url);
         String ad_ids = mAVObject.getString(AVOUtil.UpdateInfo.ad_ids);
         String ad_csj = mAVObject.getString(AVOUtil.UpdateInfo.ad_csj);
@@ -123,6 +124,7 @@ public class AppUpdateUtil {
         Setings.saveSharedPreferences(sp,KeyUtil.APP_Advertiser,app_advertiser);
         Setings.saveSharedPreferences(sp,KeyUtil.Lei_DVideo,uctt_url);
         Setings.saveSharedPreferences(sp,KeyUtil.Lei_Novel,wyyx_url);
+        Setings.saveSharedPreferences(sp,KeyUtil.YueYUrl,yuey_url);
         Setings.saveSharedPreferences(sp,KeyUtil.Lei_UCSearch,ucsearch_url);
         Setings.saveSharedPreferences(sp,KeyUtil.Ad_Ids,ad_ids);
         Setings.saveSharedPreferences(sp,KeyUtil.Ad_Csj,ad_csj);

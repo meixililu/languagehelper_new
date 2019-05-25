@@ -1,6 +1,7 @@
 package com.messi.languagehelper;
 
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.net.http.SslError;
@@ -25,6 +26,7 @@ import com.avos.avoscloud.FindCallback;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
 
@@ -35,9 +37,11 @@ import java.util.List;
 
 public class WebViewForYYSFragment extends BaseFragment{
 
+	private String yuey_url = "http://www.yueyv.com/html5.asp?submit=&keyword=";
 	private WebView mWebView;
 	private String adFilte;
 	private String ad_url;
+	private SharedPreferences sp;
 
     public static WebViewForYYSFragment getInstance(FragmentProgressbarListener listener){
 		WebViewForYYSFragment mMainFragment = new WebViewForYYSFragment();
@@ -60,6 +64,7 @@ public class WebViewForYYSFragment extends BaseFragment{
 	}
 	
 	private void initViews(View view){
+		sp = Setings.getSharedPreferences(getContext());
 		mWebView = (WebView) view.findViewById(R.id.refreshable_webview);
 		mWebView.requestFocus();//如果不设置，则在点击网页文本输入框时，不能弹出软键盘及不响应其他的一些事件。
 		mWebView.getSettings().setJavaScriptEnabled(true);//如果访问的页面中有Javascript，则webview必须设置支持Javascript。
@@ -184,7 +189,7 @@ public class WebViewForYYSFragment extends BaseFragment{
 
 	public void submit() {
 		try {
-			String url = "http://m.yueyv.cn/?submit=&keyword=" + URLEncoder.encode(Setings.q,"gb2312");
+			String url = sp.getString(KeyUtil.YueYUrl,yuey_url) + URLEncoder.encode(Setings.q,"gb2312");
 			mWebView.loadUrl(url);
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();

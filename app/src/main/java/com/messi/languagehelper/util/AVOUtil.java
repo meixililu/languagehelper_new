@@ -301,6 +301,8 @@ public class AVOUtil {
 
 		public final static String uctt_url = "uctt_url";
 
+		public final static String yuey_url = "yuey_url";
+
 		public final static String ucsearch_url = "ucsearch_url";
 
 		public final static String wyyx_url = "wyyx_url";

@@ -275,6 +275,7 @@ public class KeyUtil {
 	public static final String APP_Advertiser = "APP_Advertiser";
 	public static final String Lei_DVideo = "Lei_DVideo";
 	public static final String Lei_Novel = "Lei_Novel";
+	public static final String YueYUrl = "YueYUrl";
 	public static final String Lei_UCSearch = "Lei_UCSearch";
 
 	public static final String Ad_Ids = "Ad_Ids";
