@@ -6,20 +6,15 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 
-import com.alibaba.fastjson.JSON;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.messi.languagehelper.bean.AiYueYuBean;
-import com.messi.languagehelper.bean.BaiduV2Bean;
 import com.messi.languagehelper.bean.DictionaryRootJuhe;
-import com.messi.languagehelper.bean.HjTranBean;
-import com.messi.languagehelper.bean.IcibaNew;
 import com.messi.languagehelper.bean.Root;
 import com.messi.languagehelper.bean.StackTransalte;
 import com.messi.languagehelper.bean.TranslateApiBean;
 import com.messi.languagehelper.dao.Dictionary;
 import com.messi.languagehelper.dao.TranResultZhYue;
-import com.messi.languagehelper.dao.record;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.http.BgCallback;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
@@ -61,6 +56,8 @@ public class TranslateUtil {
 	public static final String juhe_api = "juhe_api";
 	public static final String biying_web = "biying_web";
 	public static final String youdao_web = "youdao_web";
+
+	public static String OrderDic= "youdao_web";
 	public static List<TranslateApiBean> apiOrder;
 	public static StackTransalte mStackTransalte;
 	public static String translateDefaultOrder = "[{\"name\":\"baidu_api\",\"status\":\"1\"},{\"name\":\"show_api\",\"status\":\"1\"},{\"name\":\"juhe_api\",\"status\":\"1\"},{\"name\":\"biying_web\",\"status\":\"1\"},{\"name\":\"youdao_web\",\"status\":\"1\"}]";
@@ -106,6 +103,7 @@ public class TranslateUtil {
 	}
 
 	public static void selectTranslateApi(Context mActivity, Handler mHandler, String method){
+		method = show_api;
 		LogUtil.DefalutLog("selectTranslateApi:"+method);
 		if(method.equals(show_api)){
 			Translate_Showapi(mActivity, mHandler);
@@ -619,22 +617,30 @@ public class TranslateUtil {
 	}
 
 	public static void addContent(Element title,StringBuilder sb){
-		sb.append(title.text().trim());
-		sb.append("\n");
+		String text = title.text().trim();
+		if(!TextUtils.isEmpty(text)){
+			sb.append(text);
+			sb.append("\n");
+		}
 	}
 
 	public static void addContentAll(Element title,StringBuilder sb,StringBuilder sb_play){
-		sb.append(title.text().trim());
-		sb.append("\n");
-		sb_play.append(title.text().trim());
-		sb_play.append("\n");
+		String text = title.text().trim();
+		if(!TextUtils.isEmpty(text)){
+			sb.append(text);
+			sb.append("\n");
+			sb_play.append(text);
+			sb_play.append(",");
+		}
 	}
 
 	public static void addContentAll(String title,StringBuilder sb,StringBuilder sb_play){
-		sb.append(title);
-		sb.append("\n");
-		sb_play.append(title);
-		sb_play.append("\n");
+		if(!TextUtils.isEmpty(title)){
+			sb.append(title);
+			sb.append("\n");
+			sb_play.append(title);
+			sb_play.append("\n");
+		}
 	}
 
 	/**
@@ -786,145 +792,7 @@ public class TranslateUtil {
 	}
 
 	public static void Translate(final OnTranslateFinishListener listener) throws Exception{
-		Tran_Iciba(listener);
-	}
-
-	private static void Tran_Iciba(final OnTranslateFinishListener listener) {
-		Observable.create(new ObservableOnSubscribe<record>() {
-			@Override
-			public void subscribe(final ObservableEmitter<record> e) throws Exception {
-				LanguagehelperHttpClient.postIcibaNew(new BgCallback(){
-					@Override
-					public void onFailured() {
-						Tran_HjApi(listener);
-					}
-					@Override
-					public void onResponsed(String responseString) {
-						record result = null;
-						try {
-							result = tran_js_newapi(responseString);
-						} catch (Exception ec) {
-							ec.printStackTrace();
-						}
-						if(result != null){
-							e.onNext( result );
-						}else {
-							Tran_HjApi(listener);
-						}
-					}
-				});
-			}
-		})
-				.subscribeOn(Schedulers.io())
-				.observeOn(AndroidSchedulers.mainThread())
-				.subscribe(new Observer<record>() {
-					@Override
-					public void onSubscribe(Disposable d) {
-					}
-					@Override
-					public void onNext(record mResult) {
-						listener.OnFinishTranslate(mResult);
-					}
-					@Override
-					public void onError(Throwable e) {
-						Tran_HjApi(listener);
-					}
-					@Override
-					public void onComplete() {
-					}
-				});
-	}
-
-	private static void Tran_HjApi(final OnTranslateFinishListener listener) {
-		Observable.create(new ObservableOnSubscribe<record>() {
-			@Override
-			public void subscribe(final ObservableEmitter<record> e) throws Exception {
-				LanguagehelperHttpClient.postHjApi(new BgCallback(){
-					@Override
-					public void onFailured() {
-						Tran_Baidu(listener);
-					}
-					@Override
-					public void onResponsed(String responseString) {
-						record result = null;
-						try {
-							result = tran_hj_api(responseString);
-						} catch (Exception ec) {
-							ec.printStackTrace();
-						}
-						if(result != null){
-							e.onNext( result );
-						}else {
-							Tran_Baidu(listener);
-						}
-					}
-				});
-			}
-		})
-				.subscribeOn(Schedulers.io())
-				.observeOn(AndroidSchedulers.mainThread())
-				.subscribe(new Observer<record>() {
-					@Override
-					public void onSubscribe(Disposable d) {
-					}
-					@Override
-					public void onNext(record mResult) {
-						listener.OnFinishTranslate(mResult);
-					}
-					@Override
-					public void onError(Throwable e) {
-						Tran_Baidu(listener);
-					}
-					@Override
-					public void onComplete() {
-					}
-				});
-	}
-
-	private static void Tran_Baidu(final OnTranslateFinishListener listener) {
-		Observable.create(new ObservableOnSubscribe<record>() {
-			@Override
-			public void subscribe(final ObservableEmitter<record> e) throws Exception {
-				LanguagehelperHttpClient.postBaidu(new BgCallback(){
-					@Override
-					public void onFailured() {
-						e.onError(null);
-					}
-					@Override
-					public void onResponsed(String responseString) {
-						record result = null;
-						try {
-							result = tran_bd_api(responseString);
-						} catch (Exception ec) {
-							ec.printStackTrace();
-						}
-						if(result != null){
-							e.onNext( result );
-						}else {
-							e.onError(null);
-						}
-					}
-				});
-			}
-		})
-				.subscribeOn(Schedulers.io())
-				.observeOn(AndroidSchedulers.mainThread())
-				.subscribe(new Observer<record>() {
-					@Override
-					public void onSubscribe(Disposable d) {
-					}
-					@Override
-					public void onNext(record mResult) {
-						listener.OnFinishTranslate(mResult);
-					}
-					@Override
-					public void onError(Throwable e) {
-						listener.OnFinishTranslate(null);
-					}
-					@Override
-					public void onComplete() {
-					}
-				});
+		new TranslateHelper().Translate(listener);
 	}
 
 	public static void TranslateZhYue(OnTranZhYueFinishListener listener) throws Exception{
@@ -1023,25 +891,6 @@ public class TranslateUtil {
 				});
 	}
 
-	private static record tran_bd_api(String mResult) {
-		record currentDialogBean = null;
-		try {
-			if(!TextUtils.isEmpty(mResult)) {
-				if (JsonParser.isJson(mResult)) {
-					String dstString = JsonParser.getTranslateResult(mResult);
-					if (!dstString.contains("error_msg:")) {
-						currentDialogBean = new record(dstString, Setings.q);
-						LogUtil.DefalutLog("tran_bd_api http:"+dstString);
-					}
-				}
-			}
-		}catch (Exception e){
-			LogUtil.DefalutLog("tran_bd_api error");
-			e.printStackTrace();
-		}
-		return currentDialogBean;
-	}
-
 	private static TranResultZhYue tran_bd_api_zh_yue(String mResult) {
 		TranResultZhYue currentDialogBean = null;
 		try {
@@ -1076,87 +925,7 @@ public class TranslateUtil {
 		return currentDialogBean;
 	}
 
-	private static record tran_baiduv2_api(Response mResponse) throws Exception{
-		record currentDialogBean = null;
-		if(mResponse != null && mResponse.isSuccessful()) {
-			String mResult = mResponse.body().string();
-			LogUtil.DefalutLog("v2:"+mResult);
-			BaiduV2Bean mBaiduV2Bean = JSON.parseObject(mResult, BaiduV2Bean.class);
-			if (mBaiduV2Bean != null && mBaiduV2Bean.getTrans_result() != null &&
-					mBaiduV2Bean.getTrans_result().getStatus() == 0) {
-				currentDialogBean = new record(mBaiduV2Bean.getTrans_result().getData().get(0).getDst(), Setings.q);
-				LogUtil.DefalutLog("tran_baiduv2_api http:"+mBaiduV2Bean.getTrans_result().getData().get(0).getDst());
-			}
-		}
-		return currentDialogBean;
-	}
 
-	private static record tran_hj_api(String mResult) throws Exception{
-		record currentDialogBean = null;
-		if(!TextUtils.isEmpty(mResult)) {
-			if (JsonParser.isJson(mResult)) {
-				HjTranBean mHjTranBean = JSON.parseObject(mResult, HjTranBean.class);
-				if (mHjTranBean != null && mHjTranBean.getStatus() == 0
-						&& mHjTranBean.getData() != null
-						&& !TextUtils.isEmpty(mHjTranBean.getData().getContent())) {
-					currentDialogBean = new record(mHjTranBean.getData().getContent(), Setings.q);
-					LogUtil.DefalutLog("tran_hj_api http:"+mHjTranBean.getData().getContent());
-				}
-			}
-		}
-		return currentDialogBean;
-	}
 
-	private static record tran_js_newapi(String mResult) throws Exception{
-		record currentDialogBean = null;
-		if(!TextUtils.isEmpty(mResult)) {
-			if (JsonParser.isJson(mResult)) {
-				IcibaNew mIciba = JSON.parseObject(mResult, IcibaNew.class);
-				if (mIciba != null && mIciba.getContent() != null) {
-					if (mIciba.getStatus().equals("0")) {
-						StringBuilder sb = new StringBuilder();
-						StringBuilder sbplay = new StringBuilder();
-						if (!TextUtils.isEmpty(mIciba.getContent().getPh_en())) {
-							sb.append("英[");
-							sb.append(mIciba.getContent().getPh_en());
-							sb.append("]    ");
-						}
-						if (!TextUtils.isEmpty(mIciba.getContent().getPh_am())) {
-							sb.append("美[");
-							sb.append(mIciba.getContent().getPh_am());
-							sb.append("]");
-						}
-						if (sb.length() > 0) {
-							sb.append("\n");
-						}
-						if (mIciba.getContent().getWord_mean() != null) {
-							for (String item : mIciba.getContent().getWord_mean()) {
-								sb.append(item.trim());
-								sb.append("\n");
-								sbplay.append(item);
-								sbplay.append(",");
-							}
-						}
-						String resultStr = sbplay.toString();
-						resultStr = resultStr.replace("n.", "");
-						resultStr = resultStr.replace("adj.", "");
-						resultStr = resultStr.replace("adv.", "");
-						resultStr = resultStr.replace("vi.", "");
-						resultStr = resultStr.replace("vt.", "");
-						resultStr = resultStr.replace("v.", "");
-						currentDialogBean = new record(sb.substring(0, sb.lastIndexOf("\n")), Setings.q);
-						currentDialogBean.setBackup1(resultStr);
-						if (!TextUtils.isEmpty(mIciba.getContent().getPh_tts_mp3())) {
-							currentDialogBean.setBackup3(mIciba.getContent().getPh_tts_mp3());
-						}
-					} else if (mIciba.getStatus().equals("1")) {
-						currentDialogBean = new record(mIciba.getContent().getOut().replaceAll("<br/>", "").trim(), Setings.q);
-					}
-				}
-			}
-		}
-		LogUtil.DefalutLog("tran_js_newapi");
-		return currentDialogBean;
-	}
 
 }

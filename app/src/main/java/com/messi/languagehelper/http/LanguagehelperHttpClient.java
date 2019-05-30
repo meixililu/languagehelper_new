@@ -15,6 +15,7 @@ import com.messi.languagehelper.util.MD5;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.StringUtils;
+import com.messi.languagehelper.util.TranslateHelper;
 
 import java.io.File;
 import java.io.IOException;
@@ -170,10 +171,11 @@ public class LanguagehelperHttpClient {
 			.add("content", Setings.q)
 			.build();
 		Request request = new Request.Builder()
-			.url(url)
-			.header("User-Agent", Header)
-			.post(formBody)
-			.build();
+				.url(url)
+				.header("User-Agent", Header)
+				.header("Cookie", TranslateHelper.HJCookie)
+				.post(formBody)
+				.build();
 		return executePost(request,mCallback);
 	}
 

@@ -295,6 +295,8 @@ public class AVOUtil {
 
 		public final static String ad_bd = "ad_bd";
 
+		public final static String tran_order = "tran_order";
+
 		public final static String no_ad_channel = "no_ad_channel";
 
 		public final static String ad_type = "ad_type";
@@ -324,6 +326,8 @@ public class AVOUtil {
 		public final static String Caricature_version = "Caricature_version";
 
 		public final static String Caricature_channel = "Caricature_channel";
+
+		public final static String HjCookie = "HjCookie";
 
 	}
 	

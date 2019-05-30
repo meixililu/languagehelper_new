@@ -108,6 +108,7 @@ public class AppUpdateUtil {
         String uctt_url = mAVObject.getString(AVOUtil.UpdateInfo.uctt_url);
         String yuey_url = mAVObject.getString(AVOUtil.UpdateInfo.yuey_url);
         String ucsearch_url = mAVObject.getString(AVOUtil.UpdateInfo.ucsearch_url);
+        String tran_order = mAVObject.getString(AVOUtil.UpdateInfo.tran_order);
         String ad_ids = mAVObject.getString(AVOUtil.UpdateInfo.ad_ids);
         String ad_csj = mAVObject.getString(AVOUtil.UpdateInfo.ad_csj);
         String ad_bd = mAVObject.getString(AVOUtil.UpdateInfo.ad_bd);
@@ -116,8 +117,11 @@ public class AppUpdateUtil {
         String adConf = mAVObject.getString(AVOUtil.UpdateInfo.adConf);
         String Caricature_channel = mAVObject.getString(AVOUtil.UpdateInfo.Caricature_channel);
         int Caricature_version = mAVObject.getInt(AVOUtil.UpdateInfo.Caricature_version);
+        String HjCookie = mAVObject.getString(AVOUtil.UpdateInfo.HjCookie);
+        TranslateHelper.setHjCookie(HjCookie);
         ADUtil.setAdConfig(adConf);
         initTranBdIdKey(trankey);
+        initTranOrder(tran_order);
         TXADUtil.setADData(ad_ids);
         CSJADUtil.setADData(ad_csj);
         BDADUtil.setADData(ad_bd);
@@ -144,7 +148,20 @@ public class AppUpdateUtil {
             if(keys != null && keys.length > 1){
                 Setings.baidu_appid = keys[0];
                 Setings.baidu_secretkey = keys[1];
-//                LogUtil.DefalutLog("baidu_appidkey:"+Setings.baidu_appid+"-"+Setings.baidu_secretkey);
+            }
+        }
+    }
+
+    public static void initTranOrder(String orderStr){
+        if (!TextUtils.isEmpty(orderStr) && orderStr.contains("#")) {
+            String[] keys = orderStr.split("#");
+            if(keys != null && keys.length > 1){
+                if(!TextUtils.isEmpty(keys[0])){
+                    TranslateHelper.OrderTran = keys[0];
+                }
+                if(!TextUtils.isEmpty(keys[1])){
+                    TranslateUtil.OrderDic = keys[1];
+                }
             }
         }
     }
