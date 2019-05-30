@@ -256,11 +256,12 @@ public class ADUtil {
 	public static NativeADDataRef getRandomAd(Context mActivity){
 		if(localAd != null && localAd.size() > 0){
 			NativeADDataRefForZYHY mNad = (NativeADDataRefForZYHY)localAd.get( new Random().nextInt(localAd.size()) );
-			mNad.setContext(mActivity);
-			return mNad;
-		}else {
-			return null;
+			if(mNad != null){
+				mNad.setContext(mActivity);
+				return mNad;
+			}
 		}
+		return null;
 	}
 
 	public static List<NativeADDataRef> getRandomAdList(Activity mActivity){

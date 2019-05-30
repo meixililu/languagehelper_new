@@ -42,8 +42,8 @@ public class BaseApplication extends MultiDexApplication {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                SystemUtil.setPacketName(BaseApplication.this);
                 try {
+                    SystemUtil.setPacketName(BaseApplication.this);
                     Fresco.initialize(BaseApplication.this);
                 } catch (Exception e) {
                     e.printStackTrace();
