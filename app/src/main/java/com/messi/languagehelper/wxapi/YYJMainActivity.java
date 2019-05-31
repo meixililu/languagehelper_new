@@ -39,7 +39,7 @@ import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
-import com.messi.languagehelper.util.TranslateUtil;
+import com.messi.languagehelper.util.TranslateHelper;
 import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
 
 import butterknife.BindView;
@@ -120,6 +120,7 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 		mSharedPreferences = getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
 		mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
 		PlayUtil.initData(this, mSpeechSynthesizer, mSharedPreferences);
+		TranslateHelper.init(mSharedPreferences);
 	}
 
 	private void initFragment() {
@@ -200,15 +201,18 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		TranslateUtil.saveTranslateApiOrder(mSharedPreferences);
-		Jzvd.releaseAllVideos();
-		PlayUtil.onDestroy();
-		if (playIntent != null) {
-			stopService(playIntent);
+		try {
+			Jzvd.releaseAllVideos();
+			PlayUtil.onDestroy();
+			if (playIntent != null) {
+				stopService(playIntent);
+			}
+			unbindService(musicConnection);
+			XmPlayerManager.getInstance(this).release();
+			Setings.musicSrv = null;
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		unbindService(musicConnection);
-		XmPlayerManager.getInstance(this).release();
-		Setings.musicSrv = null;
 	}
 
 	@NeedsPermission({Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_EXTERNAL_STORAGE,

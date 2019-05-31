@@ -104,7 +104,9 @@ public class PhotoSearchActivity extends BaseActivity {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        mOrcHelper.onActivityResult(requestCode, resultCode, data);
+        if(mOrcHelper != null){
+            mOrcHelper.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
     @Override

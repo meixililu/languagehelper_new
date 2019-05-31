@@ -120,11 +120,11 @@ public class AppUpdateUtil {
         String HjCookie = mAVObject.getString(AVOUtil.UpdateInfo.HjCookie);
         TranslateHelper.setHjCookie(HjCookie);
         ADUtil.setAdConfig(adConf);
-        initTranBdIdKey(trankey);
-        initTranOrder(tran_order);
         TXADUtil.setADData(ad_ids);
         CSJADUtil.setADData(ad_csj);
         BDADUtil.setADData(ad_bd);
+        Setings.saveSharedPreferences(sp,KeyUtil.TranOrder,tran_order);
+        Setings.saveSharedPreferences(sp,KeyUtil.TranBDKey,trankey);
         Setings.saveSharedPreferences(sp,KeyUtil.APP_Advertiser,app_advertiser);
         Setings.saveSharedPreferences(sp,KeyUtil.Lei_DVideo,uctt_url);
         Setings.saveSharedPreferences(sp,KeyUtil.Lei_Novel,wyyx_url);
@@ -140,30 +140,6 @@ public class AppUpdateUtil {
         Setings.saveSharedPreferences(sp,KeyUtil.Caricature_version, Caricature_version);
         Setings.saveSharedPreferences(sp,KeyUtil.Caricature_channel, Caricature_channel);
         Setings.saveSharedPreferences(sp,KeyUtil.UpdateBean, mAVObject.toString());
-    }
-
-    public static void initTranBdIdKey(String idkey){
-        if (!TextUtils.isEmpty(idkey) && idkey.contains("#")) {
-            String[] keys = idkey.split("#");
-            if(keys != null && keys.length > 1){
-                Setings.baidu_appid = keys[0];
-                Setings.baidu_secretkey = keys[1];
-            }
-        }
-    }
-
-    public static void initTranOrder(String orderStr){
-        if (!TextUtils.isEmpty(orderStr) && orderStr.contains("#")) {
-            String[] keys = orderStr.split("#");
-            if(keys != null && keys.length > 1){
-                if(!TextUtils.isEmpty(keys[0])){
-                    TranslateHelper.OrderTran = keys[0];
-                }
-                if(!TextUtils.isEmpty(keys[1])){
-                    TranslateUtil.OrderDic = keys[1];
-                }
-            }
-        }
     }
 
     public static void isNeedUpdate(final Activity mActivity){

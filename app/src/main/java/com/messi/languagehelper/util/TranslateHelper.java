@@ -1,10 +1,13 @@
 package com.messi.languagehelper.util;
 
+import android.content.SharedPreferences;
 import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSON;
 import com.messi.languagehelper.bean.HjTranBean;
 import com.messi.languagehelper.bean.IcibaNew;
+import com.messi.languagehelper.bean.YoudaoApiBean;
+import com.messi.languagehelper.bean.YoudaoApiResult;
 import com.messi.languagehelper.dao.record;
 import com.messi.languagehelper.http.BgCallback;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
@@ -16,6 +19,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.util.List;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
@@ -26,20 +30,29 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.Request;
 import okhttp3.Response;
 
 public class TranslateHelper {
 
-    public static String OrderTran = "bingweb,youdaoweb,jscb,hujiang,baidu";
+    public static String OrderTran = "youdaoweb,bingweb,hujiangweb,youdaoapi,hujiangapi,baidu,jscb";
     public static final String youdaoweb = "youdaoweb";
+    public static final String youdaoapi = "youdaoapi";
     public static final String bingweb = "bingweb";
     public static final String jscb = "jscb";
-    public static final String hujiang = "hujiang";
+    public static final String hujiangapi = "hujiangapi";
+    public static final String hujiangweb = "hujiangweb";
     public static final String baidu = "baidu";
-    public static String HJCookie = "HJ_UID=d8c93333-bb13-8ce9-e6a8-84919213f184;";
+    public static String HJCookie = "";
     private int OrderTranCounter = 0;
     private String[] tranOrder;
     private OnTranslateFinishListener listener;
+
+    public static void init(SharedPreferences sp){
+        initTranBdIdKey(sp);
+        initTranOrder(sp);
+    }
 
     public void Translate(OnTranslateFinishListener listener) throws Exception{
         this.listener = listener;
@@ -53,19 +66,21 @@ public class TranslateHelper {
         LogUtil.DefalutLog("DoTranslateByMethod---"+method);
         if(!TextUtils.isEmpty(method)){
             if(youdaoweb.equals(method)){
-                Tran_youdao_web(e);
+                Tran_Youdao_Web(e);
             }else if(jscb.equals(method)){
                 Tran_Iciba(e);
+            }else if(youdaoapi.equals(method)){
+                Tran_Youdao_Api(e);
             }else if(bingweb.equals(method)){
-                if(getWordsCount() > 1){
-                    onFaileTranslate(e);
-                }else {
-                    Tran_bing_web(e);
-                }
-            }else if(hujiang.equals(method)){
-                Tran_HjApi(e);
+                Tran_Bing_Web(e);
+            }else if(hujiangapi.equals(method)){
+                Tran_Hj_Api(e);
+            }else if(hujiangweb.equals(method)){
+                Tran_Hj_Web(e);
             }else if(baidu.equals(method)){
                 Tran_Baidu(e);
+            }else {
+                onFaileTranslate(e);
             }
         }else {
             e.onError(null);
@@ -112,7 +127,7 @@ public class TranslateHelper {
     }
 
     private void Tran_Iciba(ObservableEmitter<record> e) {
-        LogUtil.DefalutLog("Result---Iciba");
+        LogUtil.DefalutLog("Result---Tran_Iciba");
         LanguagehelperHttpClient.postIcibaNew(new BgCallback(){
             @Override
             public void onFailured() {
@@ -138,8 +153,12 @@ public class TranslateHelper {
         });
     }
 
-    private void Tran_youdao_web(ObservableEmitter<record> e) {
-        LogUtil.DefalutLog("Result---youdaoweb");
+    private void Tran_Youdao_Web(ObservableEmitter<record> e) {
+        LogUtil.DefalutLog("Result---Tran_Youdao_Web");
+        if(isNotWord()){
+            onFaileTranslate(e);
+            return ;
+        }
         LanguagehelperHttpClient.get(Setings.YoudaoWeb + Setings.q + Setings.YoudaoWebEnd, new Callback() {
             @Override
             public void onFailure(Call call, IOException ioe) {
@@ -168,8 +187,12 @@ public class TranslateHelper {
         });
     }
 
-    private void Tran_bing_web(ObservableEmitter<record> e) {
-        LogUtil.DefalutLog("Result---bingyingweb");
+    private void Tran_Bing_Web(ObservableEmitter<record> e) {
+        LogUtil.DefalutLog("Result---Tran_Bing_Web");
+        if(isNotWord()){
+            onFaileTranslate(e);
+            return ;
+        }
         LanguagehelperHttpClient.get(Setings.BingyingWeb + Setings.q, new Callback() {
             @Override
             public void onFailure(Call call, IOException ioe) {
@@ -199,8 +222,76 @@ public class TranslateHelper {
         });
     }
 
-    private void Tran_HjApi(ObservableEmitter<record> e) {
-        LogUtil.DefalutLog("Result---HjWeb");
+    private void Tran_Hj_Web(ObservableEmitter<record> e) {
+        LogUtil.DefalutLog("Result---Tran_Hj_Web");
+        if(isNotWord()){
+            onFaileTranslate(e);
+            return ;
+        }
+        Request request = new Request.Builder()
+                .url(Setings.HjiangWeb + Setings.q)
+                .header("User-Agent", LanguagehelperHttpClient.Header)
+                .header("Cookie", TranslateHelper.HJCookie)
+                .build();
+        LanguagehelperHttpClient.get(request, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException ioe) {
+                onFaileTranslate(e);
+            }
+
+            @Override
+            public void onResponse(Call call, Response mResponse) throws IOException {
+                record result = null;
+                try {
+                    if (mResponse.isSuccessful()) {
+                        String responseString = mResponse.body().string();
+                        if (!TextUtils.isEmpty(responseString)) {
+                            result = getParseHjiangWebHtml(responseString);
+                        }
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }finally {
+                    if (result != null) {
+                        e.onNext( result );
+                    }else{
+                        onFaileTranslate(e);
+                    }
+                }
+            }
+        });
+    }
+
+    private void Tran_Youdao_Api(ObservableEmitter<record> e) {
+        LogUtil.DefalutLog("Result---Tran_Youdao_Api");
+        FormBody formBody = new FormBody.Builder()
+                .add("i", Setings.q)
+                .build();
+        LanguagehelperHttpClient.post(Setings.YoudaoApi,formBody,new BgCallback(){
+            @Override
+            public void onFailured() {
+                onFaileTranslate(e);
+            }
+            @Override
+            public void onResponsed(String responseString) {
+                record result = null;
+                try {
+                    result = parseYoudaoApiResult(responseString);
+                } catch (Exception ec) {
+                    ec.printStackTrace();
+                }finally {
+                    if(result != null){
+                        e.onNext( result );
+                    }else {
+                        onFaileTranslate(e);
+                    }
+                }
+            }
+        });
+    }
+
+    private void Tran_Hj_Api(ObservableEmitter<record> e) {
+        LogUtil.DefalutLog("Result---Tran_Hj_Api");
         LanguagehelperHttpClient.postHjApi(new BgCallback(){
             @Override
             public void onFailured() {
@@ -213,17 +304,19 @@ public class TranslateHelper {
                     result = tran_hj_api(responseString);
                 } catch (Exception ec) {
                     ec.printStackTrace();
-                }
-                if(result != null){
-                    e.onNext( result );
-                }else {
-                    onFaileTranslate(e);
+                }finally {
+                    if(result != null){
+                        e.onNext( result );
+                    }else {
+                        onFaileTranslate(e);
+                    }
                 }
             }
         });
     }
 
     private void Tran_Baidu(ObservableEmitter<record> e) {
+        LogUtil.DefalutLog("Result---Tran_Baidu");
         LanguagehelperHttpClient.postBaidu(new BgCallback(){
             @Override
             public void onFailured() {
@@ -236,11 +329,12 @@ public class TranslateHelper {
                     result = tran_bd_api(responseString);
                 } catch (Exception ec) {
                     ec.printStackTrace();
-                }
-                if(result != null){
-                    e.onNext( result );
-                }else {
-                    onFaileTranslate(e);
+                }finally {
+                    if(result != null){
+                        e.onNext( result );
+                    }else {
+                        onFaileTranslate(e);
+                    }
                 }
             }
         });
@@ -260,6 +354,34 @@ public class TranslateHelper {
             }
         }catch (Exception e){
             LogUtil.DefalutLog("tran_bd_api error");
+            e.printStackTrace();
+        }
+        return currentDialogBean;
+    }
+
+    private record parseYoudaoApiResult(String mResult){
+        record currentDialogBean = null;
+        try {
+            if(!TextUtils.isEmpty(mResult)) {
+                if (JsonParser.isJson(mResult)) {
+                    YoudaoApiBean bean = JSON.parseObject(mResult, YoudaoApiBean.class);
+                    if (bean != null && bean.getErrorCode() == 0 &&
+                            bean.getTranslateResult() != null) {
+                        List<List<YoudaoApiResult>> list = bean.getTranslateResult();
+                        if(list.size() > 0){
+                            List<YoudaoApiResult> item = list.get(0);
+                            if(item != null && item.size() > 0){
+                                YoudaoApiResult result = item.get(0);
+                                if (result != null && !TextUtils.isEmpty(result.getTgt())) {
+                                    currentDialogBean = new record(result.getTgt(), Setings.q);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }catch (Exception e){
+            LogUtil.DefalutLog("parseYoudaoApiResult error");
             e.printStackTrace();
         }
         return currentDialogBean;
@@ -438,9 +560,46 @@ public class TranslateHelper {
         }
     }
 
-    private int getWordsCount(){
+    public record getParseHjiangWebHtml(String html){
+        StringBuilder sb = new StringBuilder();
+        StringBuilder sb_play = new StringBuilder();
+        record mrecord = null;
+
+        Document doc = Jsoup.parse(html);
+        Element error = doc.select("div.word-notfound").first();
+        if(error != null){
+            LogUtil.DefalutLog(error.text());
+            return null;
+        }
+
+        Element symblo = doc.select("div.word-info > div.pronounces").first();
+        if(symblo != null){
+            TranslateUtil.addContent(symblo,sb);
+        }
+        Element translate = doc.select("div.simple").first();
+        if(translate != null){
+            for(Element li : translate.children()){
+                TranslateUtil.addContentAll(li,sb,sb_play);
+            }
+        }
+        if(sb.length() > 0){
+            String resutlStr = "";
+            if(sb.lastIndexOf("\n") > 0){
+                resutlStr = sb.substring(0, sb.lastIndexOf("\n"));
+            }else {
+                resutlStr = sb.toString();
+            }
+            mrecord = new record(resutlStr,Setings.q);
+            mrecord.setBackup1(sb_play.toString());
+            return mrecord;
+        }else{
+            return null;
+        }
+    }
+
+    private int getWordsCount(String content){
         int count = 0;
-        int len = Setings.q.length();
+        int len = content.length();
         for (int i = 0; i < len; i++) {
             char tem = Setings.q.charAt(i);
             if (tem == ' ') count++;
@@ -448,4 +607,44 @@ public class TranslateHelper {
         return count;
     }
 
+    private boolean isNotWord(){
+        if(getWordsCount(Setings.q.trim()) > 1){
+            return true;
+        }else if(StringUtils.isContainChinese(Setings.q.trim())){
+            return true;
+        }
+        return false;
+    }
+
+    public static void initTranOrder(SharedPreferences sp){
+        try {
+            String orderStr = sp.getString(KeyUtil.TranOrder,"");
+            if (!TextUtils.isEmpty(orderStr) && orderStr.contains("#")) {
+                String[] keys = orderStr.split("#");
+                if(keys != null && keys.length > 1){
+                    if(!TextUtils.isEmpty(keys[0])){
+                        TranslateHelper.OrderTran = keys[0];
+                    }
+                    if(!TextUtils.isEmpty(keys[1])){
+                        DictHelper.OrderDic = keys[1];
+                    }
+                }
+            }else {
+                OrderTran = "youdaoweb,bingweb,hujiangweb,youdaoapi,hujiangapi,baidu,jscb";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void initTranBdIdKey(SharedPreferences sp){
+        String idkey = sp.getString(KeyUtil.TranBDKey,"");
+        if (!TextUtils.isEmpty(idkey) && idkey.contains("#")) {
+            String[] keys = idkey.split("#");
+            if(keys != null && keys.length > 1){
+                Setings.baidu_appid = keys[0];
+                Setings.baidu_secretkey = keys[1];
+            }
+        }
+    }
 }

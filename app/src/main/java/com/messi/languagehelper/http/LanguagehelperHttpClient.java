@@ -78,6 +78,10 @@ public class LanguagehelperHttpClient {
 		client.newCall(request).enqueue(mCallback);
 	}
 
+	public static void get(Request request, Callback mCallback) {
+		client.newCall(request).enqueue(mCallback);
+	}
+
 	public static Response get(String url,ProgressListener progressListener) {
 		Response mResponse = null;
 		try {

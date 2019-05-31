@@ -1,6 +1,7 @@
 package com.messi.languagehelper.util;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,7 +56,9 @@ public class DictionaryHelper {
         FrameLayout dic_title_layout = (FrameLayout) view.findViewById(R.id.dic_title_layout);
         TextView title = (TextView) view.findViewById(R.id.dic_title);
         final CheckBox collect_btn = (CheckBox) view.findViewById(R.id.collected_cb);
-        title.setText(result.getWord_name().trim());
+        if(result != null && !TextUtils.isEmpty(result.getWord_name())){
+            title.setText(result.getWord_name());
+        }
         setIsCollected(collect_btn, result);
         collect_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,22 +117,26 @@ public class DictionaryHelper {
     }
 
     private static void updateCollectedStatus(Context mContext, CheckBox collected_cb, Dictionary mBean){
-        if (mBean.getIscollected().equals("0")) {
-            mBean.setIscollected("1");
-            ToastUtil.diaplayMesShort(mContext,mContext.getResources().getString(R.string.favorite_success));
-        } else {
-            mBean.setIscollected("0");
-            ToastUtil.diaplayMesShort(mContext,mContext.getResources().getString(R.string.favorite_cancle));
+        if(mBean != null && collected_cb != null){
+            if (mBean.getIscollected().equals("0")) {
+                mBean.setIscollected("1");
+                ToastUtil.diaplayMesShort(mContext,mContext.getResources().getString(R.string.favorite_success));
+            } else {
+                mBean.setIscollected("0");
+                ToastUtil.diaplayMesShort(mContext,mContext.getResources().getString(R.string.favorite_cancle));
+            }
+            setIsCollected(collected_cb,mBean);
+            DataBaseUtil.getInstance().update(mBean);
         }
-        setIsCollected(collected_cb,mBean);
-        DataBaseUtil.getInstance().update(mBean);
     }
 
-    private static void setIsCollected(CheckBox collected_cb,final Dictionary mBean){
-        if (mBean.getIscollected().equals("0")) {
-            collected_cb.setChecked(false);
-        } else {
-            collected_cb.setChecked(true);
+    private static void setIsCollected(CheckBox collected_cb, Dictionary mBean){
+        if(mBean != null && collected_cb != null){
+            if ("0".equals(mBean.getIscollected())) {
+                collected_cb.setChecked(false);
+            } else {
+                collected_cb.setChecked(true);
+            }
         }
     }
 

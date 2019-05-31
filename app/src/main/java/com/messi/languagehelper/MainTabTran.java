@@ -1,5 +1,6 @@
 package com.messi.languagehelper;
 
+import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -163,13 +164,17 @@ public class MainTabTran extends BaseFragment {
         TranslateUtil.Translate(new OnTranslateFinishListener() {
             @Override
             public void OnFinishTranslate(record mRecord) {
-                hideProgressbar();
-                if(mRecord == null){
-                    showToast(getContext().getResources().getString(R.string.network_error));
-                }else {
-                    currentDialogBean = mRecord;
-                    insertData();
-                    autoClearAndautoPlay();
+                try {
+                    hideProgressbar();
+                    if(mRecord == null){
+                        showToast(getContext().getResources().getString(R.string.network_error));
+                    }else {
+                        currentDialogBean = mRecord;
+                        insertData();
+                        autoClearAndautoPlay();
+                    }
+                } catch (Resources.NotFoundException e) {
+                    e.printStackTrace();
                 }
             }
         });
@@ -189,14 +194,20 @@ public class MainTabTran extends BaseFragment {
     }
 
     private void autoPlay() {
-        View mView = recent_used_lv.getChildAt(0);
-        final FrameLayout record_answer_cover = (FrameLayout) mView.findViewById(R.id.record_answer_cover);
-        record_answer_cover.post(new Runnable() {
-            @Override
-            public void run() {
-                record_answer_cover.performClick();
+        try {
+            View mView = recent_used_lv.getChildAt(0);
+            final FrameLayout record_answer_cover = (FrameLayout) mView.findViewById(R.id.record_answer_cover);
+            if(record_answer_cover != null){
+                record_answer_cover.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        record_answer_cover.performClick();
+                    }
+                });
             }
-        });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**

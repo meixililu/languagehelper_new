@@ -142,7 +142,7 @@ public class TouchableSpan extends ClickableSpan {// extend ClickableSpan
 	
 	private void RequestShowapiAsyncTask(){
 		showProgressbar();
-		TranslateUtil.Translate_init(context, mHandler);
+		TranslateUtil.Translate_init(mHandler);
 	}
 	
 	private void setData(){

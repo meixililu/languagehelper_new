@@ -525,7 +525,9 @@ public class MainFragmentYYS extends BaseFragment implements OnClickListener, Or
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        mOrcHelper.onActivityResult(requestCode, resultCode, data);
+        if(mOrcHelper != null){
+            mOrcHelper.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
     @NeedsPermission(Manifest.permission.RECORD_AUDIO)

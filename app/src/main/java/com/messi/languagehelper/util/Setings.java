@@ -49,6 +49,8 @@ public class Setings {
 
 	public static String HjTranslateUrl = "https://dict.hjenglish.com/v10/dict/translation";
 
+	public static String YoudaoApi = "http://fanyi.youdao.com/translate?doctype=json&vendor=youdaoweb&screen=1080x1920&network=wifi";
+
 	public static String IcibaTranslateNewUrl = "http://fy.iciba.com/ajax.php?a=fy";
 
 	public static String TranAiyueyuUrl = "https://yue.micblo.com/api.php";
@@ -73,7 +75,9 @@ public class Setings {
 	public static String YoudaoWebEnd = "/#keyfrom=dict.index";
 	
 	public static String BingyingWeb = "http://cn.bing.com/dict/";
-	
+
+	public static String HjiangWeb = "https://dict.hjenglish.com/w/";
+
 	/**showapi dictionary api**/
 	public static String ShowApiDictionaryUrl = "http://route.showapi.com/32-9";
 	

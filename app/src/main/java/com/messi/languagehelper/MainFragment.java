@@ -631,7 +631,9 @@ public class MainFragment extends BaseFragment implements OnClickListener, OrcRe
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        mOrcHelper.onActivityResult(requestCode, resultCode, data);
+        if(mOrcHelper != null){
+            mOrcHelper.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
     @Override

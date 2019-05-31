@@ -225,11 +225,15 @@ public class XmlyRecommendFragment extends BaseFragment {
     }
 
     private void onFinishLoadData() {
-        if(mXXLModel != null){
-            mXXLModel.loading = false;
+        try {
+            if(mXXLModel != null){
+                mXXLModel.loading = false;
+            }
+            hideProgressbar();
+            onSwipeRefreshLayoutFinish();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        hideProgressbar();
-        onSwipeRefreshLayoutFinish();
     }
 
     @Override

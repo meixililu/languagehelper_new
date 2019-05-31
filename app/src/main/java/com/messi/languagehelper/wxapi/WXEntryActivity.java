@@ -38,7 +38,7 @@ import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.ToastUtil;
-import com.messi.languagehelper.util.TranslateUtil;
+import com.messi.languagehelper.util.TranslateHelper;
 import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
 
 import java.util.Locale;
@@ -58,7 +58,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 	private ViewPager viewPager;
 
 	private long exitTime = 0;
-	private SharedPreferences mSharedPreferences;
+	private SharedPreferences sp;
 	private SpeechSynthesizer mSpeechSynthesizer;
 
 	private Intent playIntent;
@@ -79,21 +79,22 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 
 	private void initData(){
 		SpeechUtility.createUtility(this, SpeechConstant.APPID + "=" + getString(R.string.app_id));
-		mSharedPreferences = getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
+		sp = getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
 		mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
-		PlayUtil.initData(this, mSpeechSynthesizer, mSharedPreferences);
+		PlayUtil.initData(this, mSpeechSynthesizer, sp);
 		SystemUtil.lan = Locale.getDefault().getLanguage();
 		if (toolbar != null) {
 			getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 			getSupportActionBar().setTitle("");
 		}
+		TranslateHelper.init(sp);
 	}
 
 	private void initViews() {
 		viewPager = (ViewPager) findViewById(R.id.pager);
 		tablayout = (TabLayout) findViewById(R.id.tablayout);
 		final MainPageAdapter mAdapter = new MainPageAdapter(this.getSupportFragmentManager(),this,
-				mSharedPreferences,this);
+				sp,this);
 		if(SystemUtil.lan.equals("en")){
 			tablayout.setTabMode(TabLayout.MODE_SCROLLABLE);
 		}
@@ -156,7 +157,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 	}
 
 	private void setLastTimeSelectTab() {
-		int index = mSharedPreferences.getInt(KeyUtil.LastTimeSelectTab, 0);
+		int index = sp.getInt(KeyUtil.LastTimeSelectTab, 0);
 		viewPager.setCurrentItem(index);
 	}
 
@@ -205,22 +206,25 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 	private void saveSelectTab() {
 		int index = viewPager.getCurrentItem();
 		LogUtil.DefalutLog("WXEntryActivity---onDestroy---saveSelectTab---index:" + index);
-		Setings.saveSharedPreferences(mSharedPreferences, KeyUtil.LastTimeSelectTab, index);
+		Setings.saveSharedPreferences(sp, KeyUtil.LastTimeSelectTab, index);
 	}
 
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		saveSelectTab();
-		TranslateUtil.saveTranslateApiOrder(mSharedPreferences);
-		Jzvd.releaseAllVideos();
-		PlayUtil.onDestroy();
-		if (playIntent != null) {
-			stopService(playIntent);
+		try {
+			saveSelectTab();
+			Jzvd.releaseAllVideos();
+			PlayUtil.onDestroy();
+			if (playIntent != null) {
+				stopService(playIntent);
+			}
+			unbindService(musicConnection);
+			XmPlayerManager.getInstance(this).release();
+			Setings.musicSrv = null;
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		unbindService(musicConnection);
-		XmPlayerManager.getInstance(this).release();
-		Setings.musicSrv = null;
 	}
 
 	@NeedsPermission({Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_EXTERNAL_STORAGE,

@@ -469,7 +469,9 @@ public class MainFragmentYWCD extends BaseFragment implements OnClickListener, O
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        mOrcHelper.onActivityResult(requestCode, resultCode, data);
+        if(mOrcHelper != null){
+            mOrcHelper.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
     @NeedsPermission(Manifest.permission.RECORD_AUDIO)

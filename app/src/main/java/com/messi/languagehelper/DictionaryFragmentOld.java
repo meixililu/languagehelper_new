@@ -201,7 +201,7 @@ public class DictionaryFragmentOld extends BaseFragment implements
      */
     private void RequestTranslateApiTask() {
         showProgressbar();
-        TranslateUtil.Translate_init(getContext(), mHandler);
+        TranslateUtil.Translate_init(mHandler);
     }
 
     private void setData() {

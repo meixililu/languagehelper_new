@@ -135,7 +135,7 @@ public class ReadingDetailActivity extends BaseActivity implements SeekBar.OnSee
             }
             setSeekbarAndText();
         }
-        if(mAVObject.getType().equals("text")){
+        if("text".equals(mAVObject.getType())){
             player_layout.setVisibility(View.GONE);
         }
         if(TextUtils.isEmpty(mAVObject.getStatus())){
@@ -145,7 +145,7 @@ public class ReadingDetailActivity extends BaseActivity implements SeekBar.OnSee
         scrollview.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
             @Override
             public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                if(!mAVObject.getType().equals("text")){
+                if(!"text".equals(mAVObject.getType())){
                     if(scrollY - oldScrollY > 12){
                         if(player_layout.isShown()){
                            player_layout.setVisibility(View.GONE);
@@ -247,17 +247,17 @@ public class ReadingDetailActivity extends BaseActivity implements SeekBar.OnSee
     @Override
     public void updateUI(String music_action) {
         if(Setings.MPlayerIsSameMp3(mAVObject)){
-            if(music_action.equals(PlayerService.action_start)){
+            if(PlayerService.action_start.equals(music_action)){
                 btn_play.setImageResource(R.drawable.ic_play_circle_outline_grey600_36dp);
                 handler.removeCallbacks(mRunnable);
-            }else if (music_action.equals(PlayerService.action_pause)) {
+            }else if (PlayerService.action_pause.equals(music_action)) {
                 btn_play.setImageResource(R.drawable.ic_pause_circle_outline_grey600_36dp);
                 handler.postDelayed(mRunnable,300);
             }
         }
-        if(music_action.equals(PlayerService.action_loading)){
+        if(PlayerService.action_loading.equals(music_action)){
             showProgressbar();
-        }else if(music_action.equals(PlayerService.action_finish_loading)){
+        }else if(PlayerService.action_finish_loading.equals(music_action)){
             hideProgressbar();
         }
     }

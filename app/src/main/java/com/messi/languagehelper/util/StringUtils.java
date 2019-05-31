@@ -66,13 +66,26 @@ public class StringUtils {
 		return count;
 	}
 	
-	public static boolean isChinese(String str) {
+	public static boolean isAllChinese(String str) {
 		boolean result = true;
 		char[] ch = str.toCharArray();
 		for (int i = 0; i < ch.length; i++) {
 			char c = ch[i];
 			if (!isChinese(c)) {
 				result = false;
+				break;
+			}
+		}
+		return result;
+	}
+
+	public static boolean isContainChinese(String str) {
+		boolean result = false;
+		char[] ch = str.toCharArray();
+		for (int i = 0; i < ch.length; i++) {
+			char c = ch[i];
+			if (isChinese(c)) {
+				result = true;
 				break;
 			}
 		}

@@ -164,23 +164,27 @@ public class OrcHelper {
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == CameraUtil.REQUEST_CODE_PICK_IMAGE && resultCode == Activity.RESULT_OK) {
-            if(data != null){
-                Uri uri = data.getData();
-                if(uri != null){
-                    doCropPhoto(uri);
+        try {
+            if (requestCode == CameraUtil.REQUEST_CODE_PICK_IMAGE && resultCode == Activity.RESULT_OK) {
+                if(data != null){
+                    Uri uri = data.getData();
+                    if(uri != null){
+                        doCropPhoto(uri);
+                    }
                 }
+            } else if (requestCode == CameraUtil.REQUEST_CODE_CAPTURE_CAMEIA && resultCode == Activity.RESULT_OK) {
+                Uri contentUri = null;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+                    contentUri = FileProvider.getUriForFile(context, Setings.getProvider(context), new File(mCurrentPhotoPath));
+                }else {
+                    contentUri = Uri.fromFile(new File(mCurrentPhotoPath));
+                }
+                doCropPhoto(contentUri);
+            }else if (requestCode == CameraUtil.PHOTO_PICKED_WITH_DATA && resultCode == Activity.RESULT_OK) {
+                sendBaiduOCR();
             }
-        } else if (requestCode == CameraUtil.REQUEST_CODE_CAPTURE_CAMEIA && resultCode == Activity.RESULT_OK) {
-            Uri contentUri = null;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
-                contentUri = FileProvider.getUriForFile(context, Setings.getProvider(context), new File(mCurrentPhotoPath));
-            }else {
-                contentUri = Uri.fromFile(new File(mCurrentPhotoPath));
-            }
-            doCropPhoto(contentUri);
-        }else if (requestCode == CameraUtil.PHOTO_PICKED_WITH_DATA && resultCode == Activity.RESULT_OK) {
-            sendBaiduOCR();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
