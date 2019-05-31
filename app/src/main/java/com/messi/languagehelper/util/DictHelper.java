@@ -37,7 +37,7 @@ import okhttp3.Response;
 
 public class DictHelper {
 
-    public static String OrderDic= "youdaoweb,bingweb,hujiangweb,youdaoapi,hujiangapi,baidu,jscb";
+    public static String OrderDic= "youdaoweb,bingweb,hujiangweb,jscb,youdaoapi,hujiangapi,baidu";
     public static final String youdaoweb = "youdaoweb";
     public static final String youdaoapi = "youdaoapi";
     public static final String bingweb = "bingweb";
