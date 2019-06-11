@@ -58,7 +58,7 @@ public class ReadingCollectedListFragment extends BaseFragment {
 		listview = (RecyclerView) view.findViewById(R.id.listview);
 		avObjects = new ArrayList<Reading>();
 		initSwipeRefresh(view);
-		mAdapter = new RcReadingCollectedListAdapter(this,avObjects);
+		mAdapter = new RcReadingCollectedListAdapter(getContext(),avObjects);
 		mAdapter.setItems(avObjects);
 		mAdapter.setFooter(new Object());
 		hideFooterview();

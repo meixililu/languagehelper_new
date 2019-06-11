@@ -112,7 +112,7 @@ public class Setings {
 	public static final String AiTuringApiKey = "9cab5ca560c7403c84d035196b6f3500";
 
 	/**toutiao video parse api**/
-	public static final String TTParseApi = "http://service.iiilab.com/video/download/toutiao";
+	public static final String TTParseApi = "https://service.iiilab.com/video/download";
 
 	public static final String XMNovel = "https://reader.browser.duokan.com/v2/#tab=store&mz=&_miui_orientation=portrait&_miui_fullscreen=1&source=browser-mz";
 	// uc search

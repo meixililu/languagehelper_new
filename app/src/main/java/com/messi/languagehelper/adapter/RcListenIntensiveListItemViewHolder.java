@@ -15,10 +15,9 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.R;
+import com.messi.languagehelper.ReadDetailTouTiaoActivity;
 import com.messi.languagehelper.ReadingDetailActivity;
 import com.messi.languagehelper.ReadingDetailLrcActivity;
-import com.messi.languagehelper.ReadingVideoDetailActivity;
-import com.messi.languagehelper.WebViewForAdActivity;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.util.KeyUtil;
@@ -204,34 +203,33 @@ public class RcListenIntensiveListItemViewHolder extends RecyclerView.ViewHolder
 
     private void toDetailActivity(int position){
         Reading item = avObjects.get(position);
-        if(!TextUtils.isEmpty(item.getContent_type())){
-            Intent intent = new Intent(context, WebViewForAdActivity.class);
-            intent.putExtra(KeyUtil.URL, item.getSource_url());
-            intent.putExtra(KeyUtil.Type, item.getType());
-            intent.putExtra(KeyUtil.IsNeedGetFilter, true);
-            intent.putExtra(KeyUtil.FilterName, item.getSource_name());
-            intent.putExtra(KeyUtil.ActionbarTitle, " ");
-            intent.putExtra(KeyUtil.IsHideToolbar, true);
-            context.startActivity(intent);
-        }else {
-            Setings.dataMap.put(KeyUtil.DataMapKey, avObjects);
-            Class toDetail = null;
-            if(item.getType() != null && item.getType().equals("video") && !TextUtils.isEmpty(item.getMedia_url())){
-                toDetail = ReadingVideoDetailActivity.class;
+        Class toDetail = ReadingDetailActivity.class;
+        Intent intent = new Intent();
+        if(item != null){
+            if(!TextUtils.isEmpty(item.getType()) && "video".equals(item.getType())){
+                Setings.dataMap.put(KeyUtil.DataMapKey, item);
+                toDetail = ReadDetailTouTiaoActivity.class;
             }else {
+                Setings.dataMap.put(KeyUtil.DataMapKey, avObjects);
                 if(TextUtils.isEmpty(item.getLrc_url())){
                     toDetail = ReadingDetailActivity.class;
                 }else {
                     toDetail = ReadingDetailLrcActivity.class;
                 }
+                intent.putExtra(KeyUtil.IndexKey, position);
             }
-            Intent intent = new Intent(context,toDetail);
-            intent.putExtra(KeyUtil.IndexKey, position);
+            intent.setClass(context,toDetail);
             context.startActivity(intent);
+            updateStatus(item);
         }
-        if(TextUtils.isEmpty(item.getStatus())){
+    }
+
+    private void updateStatus(Reading item){
+        try {
             item.setStatus("1");
             BoxHelper.update(item);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

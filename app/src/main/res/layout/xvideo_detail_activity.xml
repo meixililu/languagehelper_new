@@ -33,7 +33,7 @@
         android:textColor="@color/white"
         android:paddingLeft="@dimen/padding_10"
         android:paddingRight="@dimen/padding_10"
-        android:paddingBottom="35dp"
+        android:paddingBottom="30dp"
         android:textSize="@dimen/big"
         android:gravity="left"
         android:layout_gravity="bottom|left"

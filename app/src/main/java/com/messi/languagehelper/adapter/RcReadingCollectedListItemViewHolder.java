@@ -1,8 +1,8 @@
 package com.messi.languagehelper.adapter;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
@@ -14,9 +14,9 @@ import com.bumptech.glide.Glide;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.R;
+import com.messi.languagehelper.ReadDetailTouTiaoActivity;
 import com.messi.languagehelper.ReadingDetailActivity;
 import com.messi.languagehelper.ReadingDetailLrcActivity;
-import com.messi.languagehelper.WebViewActivity;
 import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -41,10 +41,10 @@ public class RcReadingCollectedListItemViewHolder extends RecyclerView.ViewHolde
     private final FrameLayout list_item_img_parent;
     private final SimpleDraweeView list_item_img;
     private final JzvdStd videoplayer;
-    private Fragment context;
+    private Context context;
     private List<Reading> avObjects;
 
-    public RcReadingCollectedListItemViewHolder(Fragment context, View itemView, List<Reading> avObjects) {
+    public RcReadingCollectedListItemViewHolder(Context context, View itemView, List<Reading> avObjects) {
         super(itemView);
         this.avObjects = avObjects;
         this.context = context;
@@ -156,22 +156,23 @@ public class RcReadingCollectedListItemViewHolder extends RecyclerView.ViewHolde
 
     private void toDetailActivity(int position){
         Reading item = avObjects.get(position);
-        if(!TextUtils.isEmpty(item.getContent_type())){
-            Intent intent = new Intent(context.getContext(), WebViewActivity.class);
-            intent.putExtra(KeyUtil.URL, item.getSource_url());
-            intent.putExtra(KeyUtil.ActionbarTitle, " ");
-            context.startActivity(intent);
-        }else {
-            Setings.dataMap.put(KeyUtil.DataMapKey, avObjects);
-            Class toDetail = null;
-            if(TextUtils.isEmpty(item.getLrc_url())){
-                toDetail = ReadingDetailActivity.class;
+        Class toDetail = ReadingDetailActivity.class;
+        Intent intent = new Intent();
+        if(item != null){
+            if(!TextUtils.isEmpty(item.getType()) && "video".equals(item.getType())){
+                Setings.dataMap.put(KeyUtil.DataMapKey, item);
+                toDetail = ReadDetailTouTiaoActivity.class;
             }else {
-                toDetail = ReadingDetailLrcActivity.class;
+                Setings.dataMap.put(KeyUtil.DataMapKey, avObjects);
+                if(TextUtils.isEmpty(item.getLrc_url())){
+                    toDetail = ReadingDetailActivity.class;
+                }else {
+                    toDetail = ReadingDetailLrcActivity.class;
+                }
+                intent.putExtra(KeyUtil.IndexKey, position);
             }
-            Intent intent = new Intent(context.getContext(),toDetail);
-            intent.putExtra(KeyUtil.IndexKey, position);
-            context.startActivityForResult(intent,position);
+            intent.setClass(context,toDetail);
+            context.startActivity(intent);
         }
     }
 

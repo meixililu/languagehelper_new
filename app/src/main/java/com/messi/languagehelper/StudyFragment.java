@@ -209,7 +209,7 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
     public void loadData() {
         skip = 0;
         QueryTask();
-        XVideoAsyncTask();
+//        XVideoAsyncTask();
     }
 
     @Override
@@ -222,7 +222,7 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
     private void refresh() {
         hideFooterview();
         QueryTask();
-        XVideoAsyncTask();
+//        XVideoAsyncTask();
     }
 
     private void loadAD(){
@@ -272,6 +272,8 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
             }else {
                 query.whereEqualTo(AVOUtil.Reading.category, category);
             }
+        }else {
+            query.whereNotEqualTo(AVOUtil.Reading.type, "video");
         }
         query.addDescendingOrder(AVOUtil.Reading.publish_time);
         query.skip(skip);
@@ -439,7 +441,7 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
     }
 
     private void XVideoAsyncTask() {
-        getXVideoAsyncTask();
+//        getXVideoAsyncTask();
     }
 
     private void getXVideoAsyncTask(){

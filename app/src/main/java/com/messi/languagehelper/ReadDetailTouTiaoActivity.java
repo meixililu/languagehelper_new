@@ -2,28 +2,29 @@ package com.messi.languagehelper;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.net.http.SslError;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
-import android.util.Base64;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.SslErrorHandler;
-import android.webkit.WebSettings;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
@@ -45,22 +46,16 @@ import com.google.android.exoplayer2.util.Util;
 import com.messi.languagehelper.ViewModel.VideoADModel;
 import com.messi.languagehelper.bean.TTParseBean;
 import com.messi.languagehelper.bean.TTParseDataBean;
-import com.messi.languagehelper.bean.TTparseVideoBean;
-import com.messi.languagehelper.bean.ToutiaoVideoBean;
+import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
-import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
-import com.messi.languagehelper.util.StringUtils;
-import com.messi.languagehelper.util.ToastUtil;
 import com.ximalaya.ting.android.opensdk.util.DigestUtils;
-
-import java.util.zip.CRC32;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -77,14 +72,14 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
 
     @BindView(R.id.refreshable_webview)
     WebView mWebView;
+    @BindView(R.id.progressBarCircularIndetermininate)
+    ProgressBar mProgressBar;
     @BindView(R.id.player_view)
     PlayerView simpleExoPlayerView;
     @BindView(R.id.title_tv)
     TextView titleTv;
-    @BindView(R.id.video_layout)
-    LinearLayout videoLayout;
     @BindView(R.id.video_ly)
-    FrameLayout video_ly;
+    FrameLayout videoLayout;
     @BindView(R.id.back_btn)
     LinearLayout backBtn;
     @BindView(R.id.next_composition)
@@ -104,6 +99,9 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     private int mResumeWindow;
     private long mResumePosition;
     private VideoADModel mVideoADModel;
+    private int status;
+    private boolean isWVPSuccess;
+    private String[] interceptUrls;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -116,87 +114,120 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
             mExoPlayerFullscreen = savedInstanceState.getBoolean(STATE_PLAYER_FULLSCREEN);
         }
         initViews();
-        parseToutiaoHtml();
         initFullscreenDialog();
         initFullscreenButton();
     }
 
-    private void parseToutiaoHtml(){
-        LogUtil.DefalutLog("parseToutiaoHtml");
-        String vid = Url.substring(Url.indexOf("group/")+6,Url.length()-1);
-        String tempUrl = "http://www.365yg.com/a"+vid;
-        LanguagehelperHttpClient.get(tempUrl,new UICallback(this){
-            @Override
-            public void onFailured() {
+    private void initViews() {
+        SharedPreferences sp = Setings.getSharedPreferences(this);
+        String intercepts = sp.getString(KeyUtil.InterceptUrls,"");
+        LogUtil.DefalutLog("InterceptUrls:"+intercepts);
+        if(!TextUtils.isEmpty(intercepts)){
+            if(intercepts.contains(",")){
+                interceptUrls = intercepts.split(",");
+            }
+        }
+        setStatusbarColor(R.color.black);
+        Object data =  Setings.dataMap.get(KeyUtil.DataMapKey);
+        Setings.dataMap.clear();
+        if(data instanceof Reading){
+            mAVObject = (Reading) data;
+        }else {
+            finish();
+            return;
+        }
+        titleTv.setText(mAVObject.getTitle());
+        Setings.MPlayerPause();
+        Url = mAVObject.getSource_url();
+//        Url = "";
+        LogUtil.DefalutLog("Url:"+Url);
+        mVideoADModel = new VideoADModel(this,xx_ad_layout);
+        setWebView();
+        setData();
+        addVideoNewsList();
+    }
+
+    private void setData(){
+        if(!TextUtils.isEmpty(mAVObject.getContent_type())){
+            if(Url.contains("bilibili.com")){
                 parseVideoUrl();
+            }else {
+                mWebView.loadUrl(Url);
             }
+        }else {
+            exoplaer(mAVObject.getMedia_url());
+        }
+    }
+
+    private void setWebView(){
+        mWebView.requestFocus();
+        mWebView.setLayerType(View.LAYER_TYPE_HARDWARE,null);
+        mWebView.getSettings().setJavaScriptEnabled(true);
+        mWebView.setWebViewClient(new WebViewClient() {
+
             @Override
-            public void onFinished() {
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                super.onPageStarted(view, url, favicon);
+                LogUtil.DefalutLog("WebViewClient:onPageStarted");
             }
+
             @Override
-            public void onResponsed(String responseStr) {
-                LogUtil.DefalutLog("parseToutiaoHtml-responseStr:"+responseStr);
-                try{
-                    String vid = responseStr.substring(responseStr.indexOf("videoId: '")+10,responseStr.indexOf("videoId: '")+42);
-                    String randint = StringUtils.getRandomString(16);
-                    String videoid = "/video/urls/v/1/toutiao/mp4/"+vid+"?r="+randint;
-                    CRC32 crc32 = new CRC32();
-                    crc32.update(videoid.getBytes());
-                    long checksum = crc32.getValue();
-                    String videoUrl = "http://i.snssdk.com" + videoid + "&s=" + checksum;
-                    parseToutiaoApi(videoUrl);
-                }catch (Exception e){
+            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                super.onReceivedError(view, errorCode, description, failingUrl);
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                LogUtil.DefalutLog("WebViewClient:onPageFinished");
+                mProgressBar.setVisibility(View.GONE);
+                if(!isWVPSuccess){
                     parseVideoUrl();
                 }
+            }
+
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                LogUtil.DefalutLog("shouldOverrideUrlLoading:"+url);
+                if(url.contains("bilibili:")){
+                    return true;
+                }
+                return super.shouldOverrideUrlLoading(view, url);
+            }
+
+            @Override
+            public WebResourceResponse shouldInterceptRequest(final WebView view, String url) {
+                LogUtil.DefalutLog("shouldInterceptRequest:"+url);
+                interceptUrl(url);
+                return super.shouldInterceptRequest(view, url);
+            }
+
+            @Override
+            public void onReceivedSslError(WebView view, final SslErrorHandler handler, SslError error) {
+                OnReceivedSslError(handler);
             }
         });
     }
 
-    private void parseToutiaoApi(String url){
-        LogUtil.DefalutLog("parseToutiaoApi");
-        LanguagehelperHttpClient.get(url,new UICallback(this){
-            @Override
-            public void onFailured() {
-                parseVideoUrl();
+    private void interceptUrl(String url){
+        boolean isPlay = false;
+        if(interceptUrls != null){
+            for (String str : interceptUrls){
+                if(url.contains(str)){
+                    isWVPSuccess = true;
+                    isPlay = true;
+                    break;
+                }
             }
-            @Override
-            public void onFinished() {
-            }
-            @Override
-            public void onResponsed(String responseStr) {
-                LogUtil.DefalutLog("parseToutiaoApi-responseStr:"+responseStr);
-                try{
-                    ToutiaoVideoBean toutiaoVideo = JSON.parseObject(responseStr,ToutiaoVideoBean.class);
-                    if(toutiaoVideo.getMessage().contains("未授权")){
-                        ToastUtil.diaplayMesShort(ReadDetailTouTiaoActivity.this,"sorry，视频不见了！");
-                        if(mAVObject != null){
-                            deleItemById(mAVObject.getObject_id());
-                        }
-                    }else {
-                        String videoUrl = new String(
-                                Base64.decode(toutiaoVideo.getData().getVideo_list().
-                                        getVideo_1().getMain_url().getBytes(), Base64.DEFAULT));
-                        exoplaer(videoUrl);
+            if(isPlay){
+                ReadDetailTouTiaoActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        exoplaer(url);
                     }
-                }catch (Exception e){
-                    e.printStackTrace();
-                    parseVideoUrl();
-                }
+                });
             }
-        });
-    }
-
-    private void deleItemById(String oid){
-        showWebView();
-//        AVQuery.doCloudQueryInBackground("delete from Reading where objectId='"+oid+"'", new CloudQueryCallback<AVCloudQueryResult>() {
-//            @Override
-//            public void done(AVCloudQueryResult avCloudQueryResult, AVException e) {
-//               if(e == null){
-//                   LogUtil.DefalutLog("delete success");
-//               }
-//            }
-//        });
-
+        }
     }
 
     private void parseVideoUrl() {
@@ -205,7 +236,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         Long timestamp = System.currentTimeMillis();
         String sign = DigestUtils.md5Hex(Url + timestamp + Setings.TTParseClientSecretKey);
         FormBody formBody = new FormBody.Builder()
-                .add("lin                                                                                                                                                                                                                                             k", Url)
+                .add("link", Url)
                 .add("timestamp", timestamp + "")
                 .add("sign", sign)
                 .add("client", Setings.TTParseClientId)
@@ -214,30 +245,34 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
             @Override
             public void onResponsed(String responseString) {
                 LogUtil.DefalutLog("parseVideoUrl-responseString:" + responseString);
+                String videoUrl = "";
                 try {
                     if (JsonParser.isJson(responseString)) {
                         TTParseBean result = JSON.parseObject(responseString, TTParseBean.class);
                         if (result != null && result.getSucc() && result.getData() != null) {
-                            TTParseDataBean dataBean = result.getData();
-                            if (dataBean.getVideo() != null && dataBean.getVideo().size() > 0) {
-                                TTparseVideoBean videoBean = dataBean.getVideo().get(0);
-                                if (videoBean != null && !TextUtils.isEmpty(videoBean.getUrl())) {
-                                    exoplaer(videoBean.getUrl());
-                                }
+                            TTParseDataBean videoBean = result.getData();
+                            if (videoBean != null && !TextUtils.isEmpty(videoBean.getVideo())) {
+                                videoUrl = videoBean.getVideo();
                             }
-                        }
-                        if(!videoLayout.isShown()){
-                            showWebView();
                         }
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
+                }finally {
+                    if(!TextUtils.isEmpty(videoUrl)){
+                        exoplaer(videoUrl);
+                    }else {
+                        onFailured();
+                    }
                 }
             }
 
             @Override
             public void onFailured() {
-                showWebView();
+                isWVPSuccess = true;
+                webview_layout.setVisibility(View.VISIBLE);
+                videoLayout.setVisibility(View.GONE);
+                mWebView.loadUrl(Url);
             }
 
             @Override
@@ -248,27 +283,32 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     }
 
     private void exoplaer(String media_url) {
-        videoLayout.setVisibility(View.VISIBLE);
-        titleTv.setText(mAVObject.getTitle());
-        player = ExoPlayerFactory.newSimpleInstance(this,
-                new DefaultRenderersFactory(this),
-                new DefaultTrackSelector(), new DefaultLoadControl());
-        simpleExoPlayerView.setPlayer(player);
+        LogUtil.DefalutLog("status:"+status);
+        mProgressBar.setVisibility(View.GONE);
+        if(status == 0){
+            status = 1;
+            webview_layout.setVisibility(View.GONE);
+            videoLayout.setVisibility(View.VISIBLE);
+            player = ExoPlayerFactory.newSimpleInstance(this,
+                    new DefaultRenderersFactory(this),
+                    new DefaultTrackSelector(), new DefaultLoadControl());
+            simpleExoPlayerView.setPlayer(player);
 
-        boolean haveResumePosition = mResumeWindow != C.INDEX_UNSET;
-        if (haveResumePosition) {
-            simpleExoPlayerView.getPlayer().seekTo(mResumeWindow, mResumePosition);
+            boolean haveResumePosition = mResumeWindow != C.INDEX_UNSET;
+            if (haveResumePosition) {
+                simpleExoPlayerView.getPlayer().seekTo(mResumeWindow, mResumePosition);
+            }
+
+            DefaultBandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
+            DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this,
+                    Util.getUserAgent(this, "LanguageHelper"), bandwidthMeter);
+            MediaSource videoSource = new ExtractorMediaSource.Factory(dataSourceFactory)
+                    .createMediaSource(Uri.parse(media_url));
+            player.addListener(this);
+            player.prepare(videoSource);
+            player.setPlayWhenReady(true);
+            LogUtil.DefalutLog("ACTION_setPlayWhenReady");
         }
-
-        DefaultBandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
-        DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this,
-                Util.getUserAgent(this, "LanguageHelper"), bandwidthMeter);
-        MediaSource videoSource = new ExtractorMediaSource.Factory(dataSourceFactory)
-                .createMediaSource(Uri.parse(media_url));
-        player.addListener(this);
-        player.prepare(videoSource);
-        player.setPlayWhenReady(true);
-        LogUtil.DefalutLog("ACTION_setPlayWhenReady");
     }
 
     @Override
@@ -281,14 +321,6 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
 
     @Override
     public void onPlayerError(ExoPlaybackException error) {
-
-    }
-
-    private void showWebView(){
-        videoLayout.setVisibility(View.GONE);
-        webview_layout.setVisibility(View.VISIBLE);
-        mWebView.setVisibility(View.VISIBLE);
-        mWebView.loadUrl(Url);
     }
 
     @Override
@@ -309,7 +341,6 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     }
 
     private void openFullscreenDialog() {
-//        LogUtil.DefalutLog("openFullscreenDialog");
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         ((ViewGroup) simpleExoPlayerView.getParent()).removeView(simpleExoPlayerView);
         mFullScreenDialog.addContentView(simpleExoPlayerView,
@@ -320,10 +351,9 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     }
 
     private void closeFullscreenDialog() {
-//        LogUtil.DefalutLog("closeFullscreenDialog");
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         ((ViewGroup) simpleExoPlayerView.getParent()).removeView(simpleExoPlayerView);
-        video_ly.addView(simpleExoPlayerView);
+        videoLayout.addView(simpleExoPlayerView);
         mExoPlayerFullscreen = false;
         mFullScreenDialog.dismiss();
         mFullScreenIcon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_fullscreen_grey600_24dp));
@@ -348,113 +378,6 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         super.onConfigurationChanged(newConfig);
     }
 
-    private void initViews() {
-        setStatusbarColor(R.color.black);
-        Object data =  Setings.dataMap.get(KeyUtil.DataMapKey);
-        Setings.dataMap.clear();
-        if(data instanceof Reading){
-            mAVObject = (Reading) data;
-        }else {
-            finish();
-            return;
-        }
-        Setings.MPlayerPause();
-        Url = mAVObject.getSource_url();
-        mVideoADModel = new VideoADModel(this,xx_ad_layout);
-        mWebView.requestFocus();//如果不设置，则在点击网页文本输入框时，不能弹出软键盘及不响应其他的一些事件。
-        mWebView.getSettings().setJavaScriptEnabled(true);//如果访问的页面中有Javascript，则webview必须设置支持Javascript。
-        mWebView.getSettings().setUseWideViewPort(true);
-        mWebView.getSettings().setLoadWithOverviewMode(true);
-        mWebView.getSettings().setDomStorageEnabled(true);
-        mWebView.getSettings().setBlockNetworkImage(false);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            mWebView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
-        }
-        //当前页面加载
-        mWebView.setWebViewClient(new WebViewClient() {
-
-            @Override
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                super.onPageStarted(view, url, favicon);
-                LogUtil.DefalutLog("WebViewClient:onPageStarted");
-            }
-
-            @Override
-            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-                super.onReceivedError(view, errorCode, description, failingUrl);
-                LogUtil.DefalutLog("failingUrl:" + failingUrl);
-                if (failingUrl.contains("openapp.jdmobile") || failingUrl.contains("taobao")) {
-                    Uri uri = Uri.parse(failingUrl);
-                    view.loadUrl("");
-                    ADUtil.toAdActivity(ReadDetailTouTiaoActivity.this, uri);
-                    ReadDetailTouTiaoActivity.this.finish();
-                } else {
-                    view.loadUrl("");
-                }
-                LogUtil.DefalutLog("WebViewClient:onReceivedError---" + errorCode);
-            }
-
-            @Override
-            public void onPageFinished(WebView view, String url) {
-                super.onPageFinished(view, url);
-                LogUtil.DefalutLog("WebViewClient:onPageFinished");
-            }
-
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                if (url.contains("openapp.jdmobile") || url.contains("taobao")) {
-                    Uri uri = Uri.parse(url);
-                    view.loadUrl("");
-                    ADUtil.toAdActivity(ReadDetailTouTiaoActivity.this, uri);
-                    ReadDetailTouTiaoActivity.this.finish();
-                    return true;
-                } else if (url.contains("bilibili:")) {
-                    return true;
-                }
-                return super.shouldOverrideUrlLoading(view, url);
-            }
-
-            @Override
-            public void onReceivedSslError(WebView view, final SslErrorHandler handler, SslError error) {
-                final AlertDialog.Builder builder = new AlertDialog.Builder(ReadDetailTouTiaoActivity.this);
-                String message = "SSL Certificate error.";
-                switch (error.getPrimaryError()) {
-                    case SslError.SSL_UNTRUSTED:
-                        message = "The certificate authority is not trusted.";
-                        break;
-                    case SslError.SSL_EXPIRED:
-                        message = "The certificate has expired.";
-                        break;
-                    case SslError.SSL_IDMISMATCH:
-                        message = "The certificate Hostname mismatch.";
-                        break;
-                    case SslError.SSL_NOTYETVALID:
-                        message = "The certificate is not yet valid.";
-                        break;
-                }
-                message += " Do you want to continue anyway?";
-
-                builder.setTitle("SSL Certificate Error");
-                builder.setMessage(message);
-                builder.setPositiveButton("continue", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        handler.proceed();
-                    }
-                });
-                builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        handler.cancel();
-                    }
-                });
-                final AlertDialog dialog = builder.create();
-                dialog.show();
-            }
-        });
-        addVideoNewsList();
-    }
-
     private void addVideoNewsList(){
         Fragment fragment = ReadingFragment.newInstanceByType("video", 2000,true);
         if(getApplication().getPackageName().equals(Setings.application_id_yys) ||
@@ -469,10 +392,26 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
                 .commit();
     }
 
+    private void collected() {
+        if (TextUtils.isEmpty(mAVObject.getIsCollected())) {
+            mAVObject.setIsCollected("1");
+            mAVObject.setCollected_time(System.currentTimeMillis());
+        } else {
+            mAVObject.setIsCollected("");
+            mAVObject.setCollected_time(0);
+            Intent intent = new Intent();
+            setResult(RESULT_OK, intent);
+        }
+        BoxHelper.update(mAVObject);
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mWebView.destroy();
+        if(mWebView != null){
+            mWebView.destroy();
+        }
+        status = 1;
         releasePlayer();
     }
 
@@ -500,5 +439,27 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         if(mFullScreenDialog != null){
             mFullScreenDialog.dismiss();
         }
+    }
+
+    private void OnReceivedSslError(SslErrorHandler handler){
+        AlertDialog.Builder builder = new AlertDialog.Builder(ReadDetailTouTiaoActivity.this);
+        String message = "SSL Certificate error.";
+        message += " Do you want to continue anyway?";
+        builder.setTitle("SSL Certificate Error");
+        builder.setMessage(message);
+        builder.setPositiveButton("continue", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                handler.proceed();
+            }
+        });
+        builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                handler.cancel();
+            }
+        });
+        final AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }

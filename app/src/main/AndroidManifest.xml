@@ -67,6 +67,7 @@
 
         <meta-data android:value="tencent" android:name="UMENG_CHANNEL"/>
 
+        <meta-data android:name="android.max_aspect" android:value="2.1" />
         <!-- csj ad  -->
         <provider
             android:name="com.bytedance.sdk.openadsdk.TTFileProvider"
@@ -430,11 +431,6 @@
         <activity
             android:name=".ReadingDetailActivity"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".ReadingVideoDetailActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait"
-            />
         <activity
             android:name=".ReadingsActivity"
             android:screenOrientation="portrait" />

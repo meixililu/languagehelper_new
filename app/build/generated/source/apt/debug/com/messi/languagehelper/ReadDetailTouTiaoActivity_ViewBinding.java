@@ -7,6 +7,7 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
@@ -32,10 +33,10 @@ public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
 
     View view;
     target.mWebView = Utils.findRequiredViewAsType(source, R.id.refreshable_webview, "field 'mWebView'", WebView.class);
+    target.mProgressBar = Utils.findRequiredViewAsType(source, R.id.progressBarCircularIndetermininate, "field 'mProgressBar'", ProgressBar.class);
     target.simpleExoPlayerView = Utils.findRequiredViewAsType(source, R.id.player_view, "field 'simpleExoPlayerView'", PlayerView.class);
     target.titleTv = Utils.findRequiredViewAsType(source, R.id.title_tv, "field 'titleTv'", TextView.class);
-    target.videoLayout = Utils.findRequiredViewAsType(source, R.id.video_layout, "field 'videoLayout'", LinearLayout.class);
-    target.video_ly = Utils.findRequiredViewAsType(source, R.id.video_ly, "field 'video_ly'", FrameLayout.class);
+    target.videoLayout = Utils.findRequiredViewAsType(source, R.id.video_ly, "field 'videoLayout'", FrameLayout.class);
     view = Utils.findRequiredView(source, R.id.back_btn, "field 'backBtn' and method 'onViewClicked'");
     target.backBtn = Utils.castView(view, R.id.back_btn, "field 'backBtn'", LinearLayout.class);
     view7f080063 = view;
@@ -58,10 +59,10 @@ public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
     this.target = null;
 
     target.mWebView = null;
+    target.mProgressBar = null;
     target.simpleExoPlayerView = null;
     target.titleTv = null;
     target.videoLayout = null;
-    target.video_ly = null;
     target.backBtn = null;
     target.nextComposition = null;
     target.xx_ad_layout = null;

@@ -12,28 +12,50 @@ import java.util.List;
  */
 public class TTParseDataBean {
 
+    private String video;
     private String cover;
+    private int scheme;
     private String text;
-    private List<TTparseVideoBean> video;
+    private List<String> imgs;
+
+    public String getVideo() {
+        return video;
+    }
+
+    public void setVideo(String video) {
+        this.video = video;
+    }
+
+    public String getCover() {
+        return cover;
+    }
+
     public void setCover(String cover) {
-         this.cover = cover;
-     }
-     public String getCover() {
-         return cover;
-     }
+        this.cover = cover;
+    }
+
+    public int getScheme() {
+        return scheme;
+    }
+
+    public void setScheme(int scheme) {
+        this.scheme = scheme;
+    }
+
+    public String getText() {
+        return text;
+    }
 
     public void setText(String text) {
-         this.text = text;
-     }
-     public String getText() {
-         return text;
-     }
+        this.text = text;
+    }
 
-    public void setVideo(List<TTparseVideoBean> video) {
-         this.video = video;
-     }
-     public List<TTparseVideoBean> getVideo() {
-         return video;
-     }
+    public List<String> getImgs() {
+        return imgs;
+    }
+
+    public void setImgs(List<String> imgs) {
+        this.imgs = imgs;
+    }
 
 }

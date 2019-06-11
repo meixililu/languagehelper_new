@@ -175,9 +175,13 @@ public class BoxHelper {
 
 
     public static void update(Reading item){
-        List<Reading> datas = isDataExit(item.getObject_id());
-        if (datas.size() > 0) {
-            getReadingBox().put(item);
+        try {
+            List<Reading> datas = isDataExit(item.getObject_id());
+            if (datas.size() > 0) {
+                getReadingBox().put(item);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

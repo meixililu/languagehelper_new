@@ -25,7 +25,6 @@ import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 import com.messi.languagehelper.bean.TTParseBean;
 import com.messi.languagehelper.bean.TTParseDataBean;
-import com.messi.languagehelper.bean.TTparseVideoBean;
 import com.messi.languagehelper.bean.ToutiaoVideoBean;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
@@ -116,6 +115,7 @@ public class XVideoDetailActivity extends BaseActivity {
                     LogUtil.DefalutLog("videoUrl:"+videoUrl);
                     parseToutiaoApi(videoUrl);
                 }catch (Exception e){
+                    e.printStackTrace();
                     parseVideoUrl();
                 }
             }
@@ -141,6 +141,7 @@ public class XVideoDetailActivity extends BaseActivity {
                     LogUtil.DefalutLog("videoUrl:"+videoUrl);
                     exoplaer(videoUrl);
                 }catch (Exception e){
+                    e.printStackTrace();
                     parseVideoUrl();
                 }
             }
@@ -165,12 +166,9 @@ public class XVideoDetailActivity extends BaseActivity {
                     if (JsonParser.isJson(responseString)) {
                         TTParseBean result = JSON.parseObject(responseString, TTParseBean.class);
                         if (result != null && result.getSucc() && result.getData() != null) {
-                            TTParseDataBean dataBean = result.getData();
-                            if (dataBean.getVideo() != null && dataBean.getVideo().size() > 0) {
-                                TTparseVideoBean videoBean = dataBean.getVideo().get(0);
-                                if (videoBean != null && !TextUtils.isEmpty(videoBean.getUrl())) {
-                                    exoplaer(videoBean.getUrl());
-                                }
+                            TTParseDataBean videoBean = result.getData();
+                            if (videoBean != null && !TextUtils.isEmpty(videoBean.getVideo())) {
+                                exoplaer(videoBean.getVideo());
                             }
                         }
                     }

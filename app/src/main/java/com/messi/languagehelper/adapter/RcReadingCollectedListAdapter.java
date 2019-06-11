@@ -1,6 +1,6 @@
 package com.messi.languagehelper.adapter;
 
-import android.support.v4.app.Fragment;
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,9 +19,9 @@ import java.util.List;
 public class RcReadingCollectedListAdapter extends HeaderRecyclerViewAdapter<RecyclerView.ViewHolder, Object, Reading, Object> {
 
     private List<Reading> avObjects;
-    private Fragment context;
+    private Context context;
 
-    public RcReadingCollectedListAdapter(Fragment context, List<Reading> avObjects){
+    public RcReadingCollectedListAdapter(Context context, List<Reading> avObjects){
         this.context = context;
         this.avObjects = avObjects;
     }
