@@ -17,7 +17,10 @@ import com.messi.languagehelper.XVideoDetailActivity;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.Setings;
 import com.qq.e.ads.nativ.NativeExpressADView;
+
+import java.util.List;
 
 /**
  * Created by luli on 10/23/16.
@@ -30,10 +33,12 @@ public class RcXVideoListItemViewHolder extends RecyclerView.ViewHolder {
     private final LinearLayout ad_layout;
     private final SimpleDraweeView img;
     private Context context;
+    private List<AVObject> mAVObjects;
 
-    public RcXVideoListItemViewHolder(View convertView) {
+    public RcXVideoListItemViewHolder(View convertView,List<AVObject> mAVObjects) {
         super(convertView);
         this.context = convertView.getContext();
+        this.mAVObjects = mAVObjects;
         cover = (View) convertView.findViewById(R.id.layout_cover);
         name = (TextView) convertView.findViewById(R.id.name);
         img = (SimpleDraweeView) convertView.findViewById(R.id.img);
@@ -83,8 +88,9 @@ public class RcXVideoListItemViewHolder extends RecyclerView.ViewHolder {
     }
 
     private void onItemClick(AVObject mAVObject){
+        Setings.dataMap.put(KeyUtil.DataMapKey,mAVObjects);
         Intent intent = new Intent(context, XVideoDetailActivity.class);
-        intent.putExtra(KeyUtil.AVObjectKey, mAVObject.toString());
+        intent.putExtra(KeyUtil.PositionKey,mAVObjects.indexOf(mAVObject));
         context.startActivity(intent);
     }
 

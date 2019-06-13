@@ -19,11 +19,11 @@ import java.lang.Override;
 public class XimalayaDetailActivity_ViewBinding implements Unbinder {
   private XimalayaDetailActivity target;
 
-  private View view7f0801c8;
+  private View view7f0801c9;
+
+  private View view7f0801cd;
 
   private View view7f0801cc;
-
-  private View view7f0801cb;
 
   private View view7f080063;
 
@@ -48,7 +48,7 @@ public class XimalayaDetailActivity_ViewBinding implements Unbinder {
     target.playTimeDuration = Utils.findRequiredViewAsType(source, R.id.play_time_duration, "field 'playTimeDuration'", TextView.class);
     view = Utils.findRequiredView(source, R.id.play_btn, "field 'playBtn' and method 'onViewClicked'");
     target.playBtn = Utils.castView(view, R.id.play_btn, "field 'playBtn'", ImageView.class);
-    view7f0801c8 = view;
+    view7f0801c9 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -57,7 +57,7 @@ public class XimalayaDetailActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.play_previous, "field 'playPrevious' and method 'onViewClicked'");
     target.playPrevious = Utils.castView(view, R.id.play_previous, "field 'playPrevious'", ImageView.class);
-    view7f0801cc = view;
+    view7f0801cd = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -66,7 +66,7 @@ public class XimalayaDetailActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.play_next, "field 'playNext' and method 'onViewClicked'");
     target.playNext = Utils.castView(view, R.id.play_next, "field 'playNext'", ImageView.class);
-    view7f0801cb = view;
+    view7f0801cc = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -119,12 +119,12 @@ public class XimalayaDetailActivity_ViewBinding implements Unbinder {
     target.imgCover = null;
     target.backBtn = null;
 
-    view7f0801c8.setOnClickListener(null);
-    view7f0801c8 = null;
+    view7f0801c9.setOnClickListener(null);
+    view7f0801c9 = null;
+    view7f0801cd.setOnClickListener(null);
+    view7f0801cd = null;
     view7f0801cc.setOnClickListener(null);
     view7f0801cc = null;
-    view7f0801cb.setOnClickListener(null);
-    view7f0801cb = null;
     view7f080063.setOnClickListener(null);
     view7f080063 = null;
   }

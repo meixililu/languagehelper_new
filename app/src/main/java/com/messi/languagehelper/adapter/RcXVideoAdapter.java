@@ -9,6 +9,8 @@ import com.avos.avoscloud.AVObject;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.util.HeaderFooterRecyclerViewAdapter;
 
+import java.util.List;
+
 /**
  * Created by luli on 10/23/16.
  */
@@ -16,11 +18,17 @@ import com.messi.languagehelper.util.HeaderFooterRecyclerViewAdapter;
 public class RcXVideoAdapter extends HeaderFooterRecyclerViewAdapter<RecyclerView.ViewHolder, Object, AVObject, Object> {
 
 
+    private List<AVObject> mAVObjects;
+
+    public RcXVideoAdapter(List<AVObject> mAVObjects){
+        this.mAVObjects = mAVObjects;
+    }
+
     @Override
     protected RecyclerView.ViewHolder onCreateItemViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = getLayoutInflater(parent);
         View characterView = inflater.inflate(R.layout.xvideo_list_item, parent, false);
-        return new RcXVideoListItemViewHolder(characterView);
+        return new RcXVideoListItemViewHolder(characterView,mAVObjects);
     }
 
     @Override

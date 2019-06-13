@@ -62,7 +62,7 @@ public class XVideoSearchResultActivity extends BaseActivity{
         mTXADList = new ArrayList<NativeExpressADView>();
         category_lv = (RecyclerView) findViewById(R.id.listview);
         category_lv.setHasFixedSize(true);
-        mAdapter = new RcXVideoAdapter();
+        mAdapter = new RcXVideoAdapter(mList);
         layoutManager = new GridLayoutManager(this, NUMBER_OF_COLUMNS);
         HeaderSpanSizeLookup headerSpanSizeLookup = new HeaderSpanSizeLookup(mAdapter, layoutManager);
         layoutManager.setSpanSizeLookup(headerSpanSizeLookup);

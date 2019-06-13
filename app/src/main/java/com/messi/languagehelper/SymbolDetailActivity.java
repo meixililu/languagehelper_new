@@ -193,9 +193,7 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
     }
 
     private void exoplaer(String media_url) {
-        player = ExoPlayerFactory.newSimpleInstance(this,
-                new DefaultRenderersFactory(this),
-                new DefaultTrackSelector(), new DefaultLoadControl());
+        player = ExoPlayerFactory.newSimpleInstance(this);
         simpleExoPlayerView.setPlayer(player);
 
         boolean haveResumePosition = mResumeWindow != C.INDEX_UNSET;
@@ -203,9 +201,8 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
             simpleExoPlayerView.getPlayer().seekTo(mResumeWindow, mResumePosition);
         }
 
-        DefaultBandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
         DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this,
-                Util.getUserAgent(this, "LanguageHelper"), bandwidthMeter);
+                Util.getUserAgent(this, "LanguageHelper"));
         MediaSource videoSource = new ExtractorMediaSource.Factory(dataSourceFactory)
                 .createMediaSource(Uri.parse(media_url));
         player.prepare(videoSource);

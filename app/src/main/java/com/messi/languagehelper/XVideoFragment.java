@@ -89,7 +89,7 @@ public class XVideoFragment extends BaseFragment{
         mTXADList = new ArrayList<NativeExpressADView>();
         category_lv = (RecyclerView) view.findViewById(R.id.listview);
         category_lv.setHasFixedSize(true);
-        mAdapter = new RcXVideoAdapter();
+        mAdapter = new RcXVideoAdapter(mList);
         layoutManager = new GridLayoutManager(getContext(), NUMBER_OF_COLUMNS);
         HeaderSpanSizeLookup headerSpanSizeLookup = new HeaderSpanSizeLookup(mAdapter, layoutManager);
         layoutManager.setSpanSizeLookup(headerSpanSizeLookup);

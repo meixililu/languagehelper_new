@@ -6,8 +6,8 @@ import android.support.annotation.UiThread;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
@@ -21,6 +21,8 @@ public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
 
   private View view7f080063;
 
+  private View view7f080097;
+
   @UiThread
   public ReadDetailTouTiaoActivity_ViewBinding(ReadDetailTouTiaoActivity target) {
     this(target, target.getWindow().getDecorView());
@@ -33,7 +35,6 @@ public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
 
     View view;
     target.mWebView = Utils.findRequiredViewAsType(source, R.id.refreshable_webview, "field 'mWebView'", WebView.class);
-    target.mProgressBar = Utils.findRequiredViewAsType(source, R.id.progressBarCircularIndetermininate, "field 'mProgressBar'", ProgressBar.class);
     target.simpleExoPlayerView = Utils.findRequiredViewAsType(source, R.id.player_view, "field 'simpleExoPlayerView'", PlayerView.class);
     target.titleTv = Utils.findRequiredViewAsType(source, R.id.title_tv, "field 'titleTv'", TextView.class);
     target.videoLayout = Utils.findRequiredViewAsType(source, R.id.video_ly, "field 'videoLayout'", FrameLayout.class);
@@ -49,6 +50,15 @@ public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
     target.nextComposition = Utils.findRequiredViewAsType(source, R.id.next_composition, "field 'nextComposition'", LinearLayout.class);
     target.xx_ad_layout = Utils.findRequiredViewAsType(source, R.id.xx_ad_layout, "field 'xx_ad_layout'", FrameLayout.class);
     target.webview_layout = Utils.findRequiredViewAsType(source, R.id.webview_layout, "field 'webview_layout'", FrameLayout.class);
+    view = Utils.findRequiredView(source, R.id.collect_btn, "field 'collect_btn' and method 'onClick'");
+    target.collect_btn = Utils.castView(view, R.id.collect_btn, "field 'collect_btn'", ImageView.class);
+    view7f080097 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onClick();
+      }
+    });
   }
 
   @Override
@@ -59,7 +69,6 @@ public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
     this.target = null;
 
     target.mWebView = null;
-    target.mProgressBar = null;
     target.simpleExoPlayerView = null;
     target.titleTv = null;
     target.videoLayout = null;
@@ -67,8 +76,11 @@ public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
     target.nextComposition = null;
     target.xx_ad_layout = null;
     target.webview_layout = null;
+    target.collect_btn = null;
 
     view7f080063.setOnClickListener(null);
     view7f080063 = null;
+    view7f080097.setOnClickListener(null);
+    view7f080097 = null;
   }
 }

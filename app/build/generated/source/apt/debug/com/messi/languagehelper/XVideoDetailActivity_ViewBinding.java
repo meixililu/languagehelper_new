@@ -3,13 +3,12 @@ package com.messi.languagehelper;
 
 import android.support.annotation.CallSuper;
 import android.support.annotation.UiThread;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
-import com.google.android.exoplayer2.ui.PlayerView;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 
@@ -28,15 +27,14 @@ public class XVideoDetailActivity_ViewBinding implements Unbinder {
     this.target = target;
 
     View view;
-    target.simpleExoPlayerView = Utils.findRequiredViewAsType(source, R.id.player_view, "field 'simpleExoPlayerView'", PlayerView.class);
-    target.title = Utils.findRequiredViewAsType(source, R.id.title, "field 'title'", TextView.class);
-    view = Utils.findRequiredView(source, R.id.back_btn, "field 'backBtn' and method 'onViewClicked'");
-    target.backBtn = Utils.castView(view, R.id.back_btn, "field 'backBtn'", LinearLayout.class);
+    target.listview = Utils.findRequiredViewAsType(source, R.id.listview, "field 'listview'", RecyclerView.class);
+    view = Utils.findRequiredView(source, R.id.back_btn, "field 'back_btn' and method 'onClick'");
+    target.back_btn = Utils.castView(view, R.id.back_btn, "field 'back_btn'", LinearLayout.class);
     view7f080063 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
-        target.onViewClicked();
+        target.onClick();
       }
     });
   }
@@ -48,9 +46,8 @@ public class XVideoDetailActivity_ViewBinding implements Unbinder {
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
     this.target = null;
 
-    target.simpleExoPlayerView = null;
-    target.title = null;
-    target.backBtn = null;
+    target.listview = null;
+    target.back_btn = null;
 
     view7f080063.setOnClickListener(null);
     view7f080063 = null;

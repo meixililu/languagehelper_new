@@ -1,7 +1,6 @@
 package com.messi.languagehelper;
 
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
@@ -13,7 +12,6 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,23 +22,18 @@ import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.google.android.exoplayer2.C;
-import com.google.android.exoplayer2.DefaultLoadControl;
-import com.google.android.exoplayer2.DefaultRenderersFactory;
 import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
-import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DataSource;
-import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 import com.messi.languagehelper.ViewModel.VideoADModel;
@@ -51,6 +44,7 @@ import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
+import com.messi.languagehelper.util.DialogUtil;
 import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -72,8 +66,6 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
 
     @BindView(R.id.refreshable_webview)
     WebView mWebView;
-    @BindView(R.id.progressBarCircularIndetermininate)
-    ProgressBar mProgressBar;
     @BindView(R.id.player_view)
     PlayerView simpleExoPlayerView;
     @BindView(R.id.title_tv)
@@ -88,6 +80,8 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     FrameLayout xx_ad_layout;
     @BindView(R.id.webview_layout)
     FrameLayout webview_layout;
+    @BindView(R.id.collect_btn)
+    ImageView collect_btn;
     private String Url;
     private Reading mAVObject;
     private SimpleExoPlayer player;
@@ -102,6 +96,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     private int status;
     private boolean isWVPSuccess;
     private String[] interceptUrls;
+    private boolean isIntercept;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -120,48 +115,71 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
 
     private void initViews() {
         SharedPreferences sp = Setings.getSharedPreferences(this);
-        String intercepts = sp.getString(KeyUtil.InterceptUrls,"");
-        LogUtil.DefalutLog("InterceptUrls:"+intercepts);
-        if(!TextUtils.isEmpty(intercepts)){
-            if(intercepts.contains(",")){
+        String intercepts = sp.getString(KeyUtil.InterceptUrls, "");
+        LogUtil.DefalutLog("InterceptUrls:" + intercepts);
+        if (!TextUtils.isEmpty(intercepts)) {
+            if (intercepts.contains(",")) {
                 interceptUrls = intercepts.split(",");
             }
         }
         setStatusbarColor(R.color.black);
-        Object data =  Setings.dataMap.get(KeyUtil.DataMapKey);
+        Object data = Setings.dataMap.get(KeyUtil.DataMapKey);
         Setings.dataMap.clear();
-        if(data instanceof Reading){
+        if (data instanceof Reading) {
             mAVObject = (Reading) data;
-        }else {
+        } else {
             finish();
             return;
         }
         titleTv.setText(mAVObject.getTitle());
+        setCollected();
         Setings.MPlayerPause();
         Url = mAVObject.getSource_url();
-//        Url = "";
-        LogUtil.DefalutLog("Url:"+Url);
-        mVideoADModel = new VideoADModel(this,xx_ad_layout);
+        LogUtil.DefalutLog("Url:" + Url);
+        mVideoADModel = new VideoADModel(this, xx_ad_layout);
         setWebView();
         setData();
         addVideoNewsList();
     }
 
-    private void setData(){
-        if(!TextUtils.isEmpty(mAVObject.getContent_type())){
-            if(Url.contains("bilibili.com")){
+    private void setCollected() {
+        if (TextUtils.isEmpty(mAVObject.getIsCollected())) {
+            collect_btn.setImageResource(R.drawable.uncollected);
+        } else {
+            collect_btn.setImageResource(R.drawable.collect_d);
+        }
+    }
+
+    private void setData() {
+        if (!TextUtils.isEmpty(mAVObject.getContent_type())) {
+            if ("url_api".equals(mAVObject.getContent_type())) {
                 parseVideoUrl();
-            }else {
+            } else if ("url_media".equals(mAVObject.getContent_type())) {
+                exoplaer(mAVObject.getMedia_url());
+            } else if ("url".equals(mAVObject.getContent_type()) || "url_intercept".equals(mAVObject.getContent_type()) ) {
+                showProgressbar();
+                isIntercept = true;
                 mWebView.loadUrl(Url);
+            } else {
+                showWebView();
             }
-        }else {
+        } else {
             exoplaer(mAVObject.getMedia_url());
         }
     }
 
-    private void setWebView(){
+    private void showWebView(){
+        hideProgressbar();
+        isIntercept = false;
+        isWVPSuccess = true;
+        webview_layout.setVisibility(View.VISIBLE);
+        videoLayout.setVisibility(View.GONE);
+        mWebView.loadUrl(Url);
+    }
+
+    private void setWebView() {
         mWebView.requestFocus();
-        mWebView.setLayerType(View.LAYER_TYPE_HARDWARE,null);
+        mWebView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.setWebViewClient(new WebViewClient() {
 
@@ -180,16 +198,15 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
                 LogUtil.DefalutLog("WebViewClient:onPageFinished");
-                mProgressBar.setVisibility(View.GONE);
-                if(!isWVPSuccess){
+                if (!isWVPSuccess) {
                     parseVideoUrl();
                 }
             }
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                LogUtil.DefalutLog("shouldOverrideUrlLoading:"+url);
-                if(url.contains("bilibili:")){
+                LogUtil.DefalutLog("shouldOverrideUrlLoading:" + url);
+                if (url.contains("bilibili:")) {
                     return true;
                 }
                 return super.shouldOverrideUrlLoading(view, url);
@@ -197,35 +214,37 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
 
             @Override
             public WebResourceResponse shouldInterceptRequest(final WebView view, String url) {
-                LogUtil.DefalutLog("shouldInterceptRequest:"+url);
+                LogUtil.DefalutLog("shouldInterceptRequest:" + url);
                 interceptUrl(url);
                 return super.shouldInterceptRequest(view, url);
             }
 
             @Override
             public void onReceivedSslError(WebView view, final SslErrorHandler handler, SslError error) {
-                OnReceivedSslError(handler);
+                DialogUtil.OnReceivedSslError(ReadDetailTouTiaoActivity.this,handler);
             }
         });
     }
 
-    private void interceptUrl(String url){
-        boolean isPlay = false;
-        if(interceptUrls != null){
-            for (String str : interceptUrls){
-                if(url.contains(str)){
-                    isWVPSuccess = true;
-                    isPlay = true;
-                    break;
-                }
-            }
-            if(isPlay){
-                ReadDetailTouTiaoActivity.this.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        exoplaer(url);
+    private void interceptUrl(String url) {
+        if(isIntercept){
+            boolean isPlay = false;
+            if (interceptUrls != null) {
+                for (String str : interceptUrls) {
+                    if (url.contains(str)) {
+                        isWVPSuccess = true;
+                        isPlay = true;
+                        break;
                     }
-                });
+                }
+                if (isPlay) {
+                    ReadDetailTouTiaoActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            exoplaer(url);
+                        }
+                    });
+                }
             }
         }
     }
@@ -258,10 +277,10 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                }finally {
-                    if(!TextUtils.isEmpty(videoUrl)){
+                } finally {
+                    if (!TextUtils.isEmpty(videoUrl)) {
                         exoplaer(videoUrl);
-                    }else {
+                    } else {
                         onFailured();
                     }
                 }
@@ -269,10 +288,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
 
             @Override
             public void onFailured() {
-                isWVPSuccess = true;
-                webview_layout.setVisibility(View.VISIBLE);
-                videoLayout.setVisibility(View.GONE);
-                mWebView.loadUrl(Url);
+                showWebView();
             }
 
             @Override
@@ -283,15 +299,13 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     }
 
     private void exoplaer(String media_url) {
-        LogUtil.DefalutLog("status:"+status);
-        mProgressBar.setVisibility(View.GONE);
-        if(status == 0){
+        LogUtil.DefalutLog("status:" + status);
+        hideProgressbar();
+        if (status == 0) {
             status = 1;
             webview_layout.setVisibility(View.GONE);
             videoLayout.setVisibility(View.VISIBLE);
-            player = ExoPlayerFactory.newSimpleInstance(this,
-                    new DefaultRenderersFactory(this),
-                    new DefaultTrackSelector(), new DefaultLoadControl());
+            player = ExoPlayerFactory.newSimpleInstance(this);
             simpleExoPlayerView.setPlayer(player);
 
             boolean haveResumePosition = mResumeWindow != C.INDEX_UNSET;
@@ -299,9 +313,8 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
                 simpleExoPlayerView.getPlayer().seekTo(mResumeWindow, mResumePosition);
             }
 
-            DefaultBandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
             DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this,
-                    Util.getUserAgent(this, "LanguageHelper"), bandwidthMeter);
+                    Util.getUserAgent(this, "LanguageHelper"));
             MediaSource videoSource = new ExtractorMediaSource.Factory(dataSourceFactory)
                     .createMediaSource(Uri.parse(media_url));
             player.addListener(this);
@@ -313,8 +326,8 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
 
     @Override
     public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
-        LogUtil.DefalutLog("onPlayerStateChanged:"+playbackState+"-:playWhenReady:"+playWhenReady);
-        if(playWhenReady && playbackState == 4){
+        LogUtil.DefalutLog("onPlayerStateChanged:" + playbackState + "-:playWhenReady:" + playWhenReady);
+        if (playWhenReady && playbackState == Player.STATE_ENDED) {
             mVideoADModel.showAd();
         }
     }
@@ -378,12 +391,12 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         super.onConfigurationChanged(newConfig);
     }
 
-    private void addVideoNewsList(){
-        Fragment fragment = ReadingFragment.newInstanceByType("video", 2000,true);
-        if(getApplication().getPackageName().equals(Setings.application_id_yys) ||
-                getApplication().getPackageName().equals(Setings.application_id_yys_google)){
+    private void addVideoNewsList() {
+        Fragment fragment = ReadingFragment.newInstanceByType("video", 2000, true);
+        if (getApplication().getPackageName().equals(Setings.application_id_yys) ||
+                getApplication().getPackageName().equals(Setings.application_id_yys_google)) {
             fragment = ReadingFragmentYYS.newInstance();
-        } else if(getApplication().getPackageName().equals(Setings.application_id_ywcd)){
+        } else if (getApplication().getPackageName().equals(Setings.application_id_ywcd)) {
             fragment = ReadingFragmentYWCD.newInstance();
         }
         getSupportFragmentManager()
@@ -408,7 +421,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(mWebView != null){
+        if (mWebView != null) {
             mWebView.destroy();
         }
         status = 1;
@@ -436,30 +449,23 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
             player.release();
             player = null;
         }
-        if(mFullScreenDialog != null){
+        if (mFullScreenDialog != null) {
             mFullScreenDialog.dismiss();
         }
     }
 
-    private void OnReceivedSslError(SslErrorHandler handler){
-        AlertDialog.Builder builder = new AlertDialog.Builder(ReadDetailTouTiaoActivity.this);
-        String message = "SSL Certificate error.";
-        message += " Do you want to continue anyway?";
-        builder.setTitle("SSL Certificate Error");
-        builder.setMessage(message);
-        builder.setPositiveButton("continue", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                handler.proceed();
+    @OnClick(R.id.collect_btn)
+    public void onClick() {
+        if(mAVObject != null){
+            if(TextUtils.isEmpty(mAVObject.getIsCollected())){
+                mAVObject.setIsCollected("1");
+                mAVObject.setCollected_time(System.currentTimeMillis());
+            }else {
+                mAVObject.setIsCollected("");
+                mAVObject.setCollected_time(0);
             }
-        });
-        builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                handler.cancel();
-            }
-        });
-        final AlertDialog dialog = builder.create();
-        dialog.show();
+            setCollected();
+            BoxHelper.update(mAVObject);
+        }
     }
 }

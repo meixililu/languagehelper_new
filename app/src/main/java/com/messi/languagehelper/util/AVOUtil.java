@@ -811,6 +811,8 @@ public class AVOUtil {
 
 		public final static String media_url = "media_url";
 
+		public final static String type = "type";
+
 		public final static String play_count = "play_count";
 
 		public final static String publish_time = "publish_time";

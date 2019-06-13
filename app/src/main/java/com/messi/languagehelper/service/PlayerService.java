@@ -152,7 +152,7 @@ public class PlayerService extends Service {
             lastSongId = song.getObject_id();
             PlayerStatus = 1;
             if (mExoPlayer == null) {
-                mExoPlayer = ExoPlayerFactory.newSimpleInstance(this, new DefaultTrackSelector());
+                mExoPlayer = ExoPlayerFactory.newSimpleInstance(this);
                 mExoPlayer.addListener(mEventListener);
             }
             final AudioAttributes audioAttributes = new AudioAttributes.Builder()
@@ -160,11 +160,8 @@ public class PlayerService extends Service {
                     .setUsage(USAGE_MEDIA)
                     .build();
             mExoPlayer.setAudioAttributes(audioAttributes);
-            DataSource.Factory dataSourceFactory =
-                    new DefaultDataSourceFactory(
-                            this,
-                            Util.getUserAgent(this, "LanguageHelper"),
-                            null);
+            DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this,
+                            Util.getUserAgent(this, "LanguageHelper"));
             MediaSource mediaSource = new ExtractorMediaSource
                     .Factory(dataSourceFactory)
                     .createMediaSource(Uri.parse(song.getMedia_url()));

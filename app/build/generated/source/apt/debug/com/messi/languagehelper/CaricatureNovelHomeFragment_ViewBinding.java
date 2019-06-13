@@ -16,15 +16,15 @@ import java.lang.Override;
 public class CaricatureNovelHomeFragment_ViewBinding implements Unbinder {
   private CaricatureNovelHomeFragment target;
 
-  private View view7f08021b;
+  private View view7f08021e;
 
-  private View view7f08015d;
-
-  private View view7f080160;
+  private View view7f08015e;
 
   private View view7f080161;
 
-  private View view7f08015f;
+  private View view7f080162;
+
+  private View view7f080160;
 
   @UiThread
   public CaricatureNovelHomeFragment_ViewBinding(final CaricatureNovelHomeFragment target,
@@ -34,7 +34,7 @@ public class CaricatureNovelHomeFragment_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.search_btn, "field 'searchBtn' and method 'onViewClicked'");
     target.searchBtn = Utils.castView(view, R.id.search_btn, "field 'searchBtn'", FrameLayout.class);
-    view7f08021b = view;
+    view7f08021e = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -44,7 +44,7 @@ public class CaricatureNovelHomeFragment_ViewBinding implements Unbinder {
     target.myAwesomeToolbar = Utils.findRequiredViewAsType(source, R.id.my_awesome_toolbar, "field 'myAwesomeToolbar'", Toolbar.class);
     view = Utils.findRequiredView(source, R.id.layout_free_novel, "field 'layoutFreeNovel' and method 'onViewClicked'");
     target.layoutFreeNovel = Utils.castView(view, R.id.layout_free_novel, "field 'layoutFreeNovel'", FrameLayout.class);
-    view7f08015d = view;
+    view7f08015e = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -53,7 +53,7 @@ public class CaricatureNovelHomeFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.layout_rank_novel, "field 'layoutRankNovel' and method 'onViewClicked'");
     target.layoutRankNovel = Utils.castView(view, R.id.layout_rank_novel, "field 'layoutRankNovel'", FrameLayout.class);
-    view7f080160 = view;
+    view7f080161 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -62,7 +62,7 @@ public class CaricatureNovelHomeFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.layout_short_novel, "field 'layoutShortNovel' and method 'onViewClicked'");
     target.layoutShortNovel = Utils.castView(view, R.id.layout_short_novel, "field 'layoutShortNovel'", FrameLayout.class);
-    view7f080161 = view;
+    view7f080162 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -71,7 +71,7 @@ public class CaricatureNovelHomeFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.layout_novel_collected, "field 'layout_novel_collected' and method 'onViewClicked'");
     target.layout_novel_collected = Utils.castView(view, R.id.layout_novel_collected, "field 'layout_novel_collected'", FrameLayout.class);
-    view7f08015f = view;
+    view7f080160 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -96,15 +96,15 @@ public class CaricatureNovelHomeFragment_ViewBinding implements Unbinder {
     target.layout_novel_collected = null;
     target.mainContent = null;
 
-    view7f08021b.setOnClickListener(null);
-    view7f08021b = null;
-    view7f08015d.setOnClickListener(null);
-    view7f08015d = null;
-    view7f080160.setOnClickListener(null);
-    view7f080160 = null;
+    view7f08021e.setOnClickListener(null);
+    view7f08021e = null;
+    view7f08015e.setOnClickListener(null);
+    view7f08015e = null;
     view7f080161.setOnClickListener(null);
     view7f080161 = null;
-    view7f08015f.setOnClickListener(null);
-    view7f08015f = null;
+    view7f080162.setOnClickListener(null);
+    view7f080162 = null;
+    view7f080160.setOnClickListener(null);
+    view7f080160 = null;
   }
 }
