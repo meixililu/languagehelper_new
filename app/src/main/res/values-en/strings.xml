@@ -137,6 +137,7 @@
     <string name="take_photo">TakePhoto</string>
     <string name="photo_album">PhotoAlbum</string>
     <string name="network_offline">network unavailable</string>
+    <string name="check_detail">Check</string>
 
     <string name="next_unit">Next Unit</string>
     <string name="dancirenzhi">Word Study</string>

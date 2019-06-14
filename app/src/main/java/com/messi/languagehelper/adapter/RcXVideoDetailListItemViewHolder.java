@@ -20,7 +20,7 @@ import com.messi.languagehelper.util.AVOUtil;
 
 public class RcXVideoDetailListItemViewHolder extends RecyclerView.ViewHolder {
 
-    public TextView title;
+    public TextView title,btn_detail;
     public FrameLayout player_view_layout;
     public ImageView cover_img;
     public ProgressBar progress_bar;
@@ -31,13 +31,16 @@ public class RcXVideoDetailListItemViewHolder extends RecyclerView.ViewHolder {
         super(convertView);
         this.context = convertView.getContext();
         title = (TextView) convertView.findViewById(R.id.title);
+        btn_detail = (TextView) convertView.findViewById(R.id.btn_detail);
         player_view_layout = (FrameLayout) convertView.findViewById(R.id.player_view_layout);
         cover_img = (ImageView) convertView.findViewById(R.id.cover_img);
         progress_bar = (ProgressBar) convertView.findViewById(R.id.progress_bar);
     }
 
     public void render(final AVObject mAVObject) {
+        player_view_layout.removeAllViews();
         this.mAVObject = mAVObject;
+        btn_detail.setVisibility(View.GONE);
         progress_bar.setVisibility(View.VISIBLE);
         cover_img.setVisibility(View.VISIBLE);
         title.setText(mAVObject.getString(AVOUtil.XVideo.title));

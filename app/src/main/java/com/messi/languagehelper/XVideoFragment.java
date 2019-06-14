@@ -168,6 +168,7 @@ public class XVideoFragment extends BaseFragment{
     }
 
     private void RequestAsyncTask() {
+        skip = 0;
         showProgressbar();
         loading = true;
         AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.XVideo.XVideo);
@@ -337,6 +338,14 @@ public class XVideoFragment extends BaseFragment{
             return false;
         }else{
             return true;
+        }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if(mAdapter != null){
+            mAdapter.notifyDataSetChanged();
         }
     }
 

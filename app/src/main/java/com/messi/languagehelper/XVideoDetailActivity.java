@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
@@ -32,6 +33,7 @@ import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
+import com.messi.languagehelper.ViewModel.FullScreenVideoADModel;
 import com.messi.languagehelper.adapter.RcXVideoDetailListAdapter;
 import com.messi.languagehelper.adapter.RcXVideoDetailListItemViewHolder;
 import com.messi.languagehelper.bean.TTParseBean;
@@ -66,45 +68,68 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
     private AVObject mAVObject;
     private int position;
     private ImageView cover_img;
-    private String Url;
-    private String media_url;
+    private String Url = "";
+    private String media_url = "";
     private String type;
 
     private RcXVideoDetailListAdapter videoAdapter;
     private PlayerView player_view;
     private PagerSnapHelper snapHelper;
     private LinearLayoutManager layoutManager;
-    private WebView mWebView;
+    public WebView mWebView;
     private boolean isWVPSuccess;
     private String[] interceptUrls;
     private boolean isIntercept;
+    private boolean isAD;
+    private FullScreenVideoADModel mFSVADModel;
+    private boolean loading;
+    private boolean hasMore = true;
+
+    private String category;
+    private String keyword;
 
     private RecyclerView.OnScrollListener mListener = new RecyclerView.OnScrollListener(){
+
+        @Override
+        public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+            super.onScrolled(recyclerView, dx, dy);
+            LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
+            int visible = layoutManager.getChildCount();
+            int total = layoutManager.getItemCount();
+            int firstVisibleItem = layoutManager.findFirstCompletelyVisibleItemPosition();
+            LogUtil.DefalutLog("visible:"+visible+"-total:"+total+"-firstVisibleItem:"+firstVisibleItem);
+            if (!loading && hasMore) {
+                if ((visible + firstVisibleItem) >= total) {
+//                    loadAD();
+//                    RequestAsyncTask();
+                    LogUtil.DefalutLog("should load data");
+                }
+            }
+        }
+
         @Override
         public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
             switch (newState) {
                 case RecyclerView.SCROLL_STATE_IDLE://停止滚动
                     if(player != null){
-                        player.stop(true);
+                        player.stop();
                     }
+                    removeVideoView(player_view);
+                    removeVideoView(mWebView);
                     View view = snapHelper.findSnapView(layoutManager);
                     RcXVideoDetailListItemViewHolder viewHolder = (RcXVideoDetailListItemViewHolder)recyclerView.getChildViewHolder(view);
                     if(viewHolder != null){
                         mAVObject = viewHolder.mAVObject;
                         mProgressbar = viewHolder.progress_bar;
                         cover_img = viewHolder.cover_img;
-                        removeVideoView(player_view);
-                        viewHolder.player_view_layout.addView(player_view);
                         if(mAVObject != null){
-                            Url = "https://m.toutiao.com/group/"+mAVObject.getString(AVOUtil.XVideo.group_id)+"/";
-                            type = "url_api";
-//                            Url = mAVObject.getString(AVOUtil.XVideo.source_url);
-//                            type = mAVObject.getString(AVOUtil.XVideo.type);
+                            Url = mAVObject.getString(AVOUtil.XVideo.source_url);
+                            type = mAVObject.getString(AVOUtil.XVideo.type);
                             media_url = mAVObject.getString(AVOUtil.XVideo.media_url);
                             LogUtil.DefalutLog("Url:"+Url);
                             LogUtil.DefalutLog("type:"+type);
                             LogUtil.DefalutLog("media_url:"+media_url);
-                            setData();
+                            setData(viewHolder);
                         }
                     }
                     break;
@@ -131,6 +156,8 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
 
     private void initData() {
         try {
+            category = getIntent().getStringExtra(KeyUtil.Category);
+            keyword = getIntent().getStringExtra(KeyUtil.KeyWord);
             mAVObjects = new ArrayList<AVObject>();
             Setings.MPlayerPause();
             List<AVObject> list = (List<AVObject>) Setings.dataMap.get(KeyUtil.DataMapKey);
@@ -162,6 +189,7 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
             listview.setLayoutManager(layoutManager);
             listview.setAdapter(videoAdapter);
             listview.scrollToPosition(position);
+            mFSVADModel = new FullScreenVideoADModel(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -177,23 +205,34 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
         },350);
     }
 
-    private void setData() {
+    private void setData(RcXVideoDetailListItemViewHolder viewHolder) {
+        if(mAVObject.get(KeyUtil.ADKey) != null || mAVObject.get(KeyUtil.TXADView) != null){
+            mFSVADModel.setAd_layout(viewHolder.player_view_layout,viewHolder.title,viewHolder.btn_detail);
+            mFSVADModel.showAd();
+            hideCoverImg();
+            hideProgressbar();
+            return;
+        }
         if (!TextUtils.isEmpty(type)) {
             if ("url_api".equals(type)) {
+                viewHolder.player_view_layout.addView(player_view);
                 parseVideoUrl();
             } else if ("url_media".equals(type)) {
+                viewHolder.player_view_layout.addView(player_view);
                 exoplaer(media_url);
             } else if ("url_intercept".equals(type) ) {
+                viewHolder.player_view_layout.addView(player_view);
                 isIntercept = true;
                 mWebView.loadUrl(Url);
             } else {
-                hideCoverImg();
+                viewHolder.player_view_layout.addView(mWebView);
+                viewHolder.title.setText("");
                 isIntercept = false;
                 mWebView.loadUrl(Url);
             }
         } else {
-            isIntercept = true;
-            mWebView.loadUrl(Url);
+            viewHolder.player_view_layout.addView(player_view);
+            parseVideoUrl();
         }
     }
 
@@ -229,6 +268,14 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
                 super.onPageFinished(view, url);
                 LogUtil.DefalutLog("WebViewClient:onPageFinished");
                 hideProgressbar();
+                hideCoverImg();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mWebView.performClick();
+                    }
+                },300);
+
                 if (!isWVPSuccess) {
                     parseVideoUrl();
                 }
@@ -279,9 +326,12 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
     }
 
     private void parseVideoUrl() {
-        LogUtil.DefalutLog("parseVideoUrl");
+        LogUtil.DefalutLog("parseVideoUrl:"+Url);
+        if(TextUtils.isEmpty(Url)){
+            return;
+        }
         showProgressbar();
-        Long timestamp = System.currentTimeMillis();
+        long timestamp = System.currentTimeMillis();
         String sign = DigestUtils.md5Hex(Url + timestamp + Setings.TTParseClientSecretKey);
         FormBody formBody = new FormBody.Builder()
                 .add("link", Url)
@@ -378,7 +428,7 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
         }
     }
 
-    private void removeVideoView(PlayerView videoView) {
+    private void removeVideoView(View videoView) {
         ViewGroup parent = (ViewGroup) videoView.getParent();
         if (parent == null) {
             return;

@@ -124,7 +124,9 @@ public class KeyUtil {
 	public static final String AdFilter = "AdFilter";
 
 	public static final String ContextKey = "ContextKey";
-	
+
+	public static final String KeyWord = "KeyWord";
+
 	public static final String SDcardPathKey = "SDcardPathKey";
 
 	public static final String BundleKey = "BundleKey";
