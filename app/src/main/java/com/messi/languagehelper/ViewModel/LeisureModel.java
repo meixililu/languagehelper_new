@@ -1,6 +1,6 @@
 package com.messi.languagehelper.ViewModel;
 
-import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Handler;
@@ -42,7 +42,7 @@ public class LeisureModel {
 
     public static boolean misVisibleToUser;
     public int counter;
-    public Activity mContext;
+    public Context mContext;
     public SharedPreferences sp;
     private NativeADDataRef mNativeADDataRef;
     private NativeExpressADView mTXADView;
@@ -57,7 +57,7 @@ public class LeisureModel {
     public TextView ad_sign;
     public SimpleDraweeView adImg;
 
-    public LeisureModel(Activity mContext){
+    public LeisureModel(Context mContext){
         this.mContext = mContext;
         sp = Setings.getSharedPreferences(mContext);
     }

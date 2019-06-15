@@ -1,6 +1,6 @@
 package com.messi.languagehelper.ViewModel;
 
-import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -20,14 +20,14 @@ import java.util.List;
 public class VideoADModel {
 
     public int counter;
-    public Activity mContext;
+    public Context mContext;
     public SharedPreferences sp;
 
     public FrameLayout xx_ad_layout;
     public FrameLayout ad_layout;
     public ImageView ad_close_btn;
 
-    public VideoADModel(Activity mContext,FrameLayout xx_ad_layout){
+    public VideoADModel(Context mContext,FrameLayout xx_ad_layout){
         this.mContext = mContext;
         sp = Setings.getSharedPreferences(mContext);
         this.xx_ad_layout = xx_ad_layout;

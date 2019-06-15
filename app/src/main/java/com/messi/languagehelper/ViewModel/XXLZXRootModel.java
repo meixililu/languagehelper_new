@@ -42,7 +42,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class XXLRootModel {
+public abstract class XXLZXRootModel {
 
     public boolean loading;
     public boolean hasMore;
@@ -60,7 +60,7 @@ public abstract class XXLRootModel {
     public List avObjects;
     public RecyclerView.Adapter mAdapter;
 
-    public XXLRootModel(Context mContext){
+    public XXLZXRootModel(Context mContext){
         this.mContext = mContext;
         sp = Setings.getSharedPreferences(mContext);
         mTXADList = new ArrayList<NativeExpressADView>();
@@ -137,7 +137,7 @@ public abstract class XXLRootModel {
     public abstract void addXFAD(NativeADDataRef nad);
 
     public void loadTXAD() {
-        TXADUtil.showXXLAD(mContext,TXADType, new NativeExpressAD.NativeExpressADListener() {
+        TXADUtil.showCDTZX(mContext, new NativeExpressAD.NativeExpressADListener() {
             @Override
             public void onNoAD(com.qq.e.comm.util.AdError adError) {
                 LogUtil.DefalutLog("TX-onNoAD");

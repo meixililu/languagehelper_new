@@ -1,16 +1,16 @@
 package com.messi.languagehelper.adapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVObject;
-import com.bumptech.glide.Glide;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.util.AVOUtil;
 
@@ -22,7 +22,7 @@ public class RcXVideoDetailListItemViewHolder extends RecyclerView.ViewHolder {
 
     public TextView title,btn_detail;
     public FrameLayout player_view_layout;
-    public ImageView cover_img;
+    public SimpleDraweeView cover_img;
     public ProgressBar progress_bar;
     public Context context;
     public AVObject mAVObject;
@@ -33,7 +33,7 @@ public class RcXVideoDetailListItemViewHolder extends RecyclerView.ViewHolder {
         title = (TextView) convertView.findViewById(R.id.title);
         btn_detail = (TextView) convertView.findViewById(R.id.btn_detail);
         player_view_layout = (FrameLayout) convertView.findViewById(R.id.player_view_layout);
-        cover_img = (ImageView) convertView.findViewById(R.id.cover_img);
+        cover_img = (SimpleDraweeView) convertView.findViewById(R.id.cover_img);
         progress_bar = (ProgressBar) convertView.findViewById(R.id.progress_bar);
     }
 
@@ -45,9 +45,7 @@ public class RcXVideoDetailListItemViewHolder extends RecyclerView.ViewHolder {
         cover_img.setVisibility(View.VISIBLE);
         title.setText(mAVObject.getString(AVOUtil.XVideo.title));
         if(!TextUtils.isEmpty(mAVObject.getString(AVOUtil.XVideo.img_url))){
-            Glide.with(context)
-                    .load(mAVObject.getString(AVOUtil.XVideo.img_url))
-                    .into(cover_img);
+            cover_img.setImageURI(Uri.parse(mAVObject.getString(AVOUtil.XVideo.img_url)));
         }
     }
 

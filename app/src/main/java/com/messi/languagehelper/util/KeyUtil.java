@@ -19,6 +19,8 @@ public class KeyUtil {
 
 	public static final String Id = "Id";
 
+	public static final String VideoAD = "VideoAD";
+
 	public static final String DialogBeanKey = "DialogBeanKey";
 
 	public static final String DownloadUrl = "DownloadUrl";

@@ -1,6 +1,6 @@
 package com.messi.languagehelper.ViewModel;
 
-import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -41,7 +41,7 @@ public class XMLYDetailModel {
 
     public static boolean misVisibleToUser;
     public int counter;
-    public Activity mContext;
+    public Context mContext;
     public SharedPreferences sp;
     private NativeExpressADView mTXADView;
     private long lastLoadAd;
@@ -57,7 +57,7 @@ public class XMLYDetailModel {
     public TextView ad_btn;
     public FrameLayout ad_layout;
 
-    public XMLYDetailModel(Activity mContext){
+    public XMLYDetailModel(Context mContext){
         this.mContext = mContext;
         sp = Setings.getSharedPreferences(mContext);
     }

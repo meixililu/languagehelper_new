@@ -100,7 +100,7 @@ public class TXADUtil {
                 TxAppId, TxAdKp, listener, 3000);
     }
 
-    public static void showCDT(Activity activity,
+    public static void showCDT(Context activity,
                                           NativeExpressAD.NativeExpressADListener listener){
         NativeExpressAD nativeExpressAD = new NativeExpressAD(activity,
                 new ADSize(ADSize.FULL_WIDTH, ADSize.AUTO_HEIGHT), TxAppId, TxAdCDT, listener);
@@ -111,7 +111,7 @@ public class TXADUtil {
         nativeExpressAD.loadAD(1);
     }
 
-    public static void showCDTZX(Activity activity,
+    public static void showCDTZX(Context activity,
                                  NativeExpressAD.NativeExpressADListener listener){
         LogUtil.DefalutLog("showCDTZX:"+ TxAdCDTZX);
         NativeExpressAD nativeExpressAD = new NativeExpressAD(activity,
@@ -123,7 +123,7 @@ public class TXADUtil {
         nativeExpressAD.loadAD(1);
     }
 
-    public static void showXXL(Activity activity,
+    public static void showXXL(Context activity,
                                NativeExpressAD.NativeExpressADListener listener){
         int num = NumberUtil.getRandomNumber(13);
         String postID = TxAdXXLZWYT;
@@ -141,7 +141,7 @@ public class TXADUtil {
         nativeExpressAD.loadAD(1);
     }
 
-    public static void showXXL_ZWYT(Activity activity,
+    public static void showXXL_ZWYT(Context activity,
                                NativeExpressAD.NativeExpressADListener listener){
         NativeExpressAD nativeExpressAD = new NativeExpressAD(activity,
                 new ADSize(ADSize.FULL_WIDTH, ADSize.AUTO_HEIGHT), TxAppId, TxAdXXLZWYT, listener);
@@ -152,7 +152,7 @@ public class TXADUtil {
         nativeExpressAD.loadAD(1);
     }
 
-    public static void showXXL_STXW(Activity activity,
+    public static void showXXL_STXW(Context activity,
                                     NativeExpressAD.NativeExpressADListener listener){
         NativeExpressAD nativeExpressAD = new NativeExpressAD(activity,
                 new ADSize(ADSize.FULL_WIDTH, ADSize.AUTO_HEIGHT), TxAppId, TxAdXXLSTXW, listener);
@@ -163,7 +163,7 @@ public class TXADUtil {
         nativeExpressAD.loadAD(1);
     }
 
-    public static void showXXLAD(Activity activity,int type,
+    public static void showXXLAD(Context activity,int type,
                                     NativeExpressAD.NativeExpressADListener listener){
         if(type == 0){
             showCDT(activity,listener);

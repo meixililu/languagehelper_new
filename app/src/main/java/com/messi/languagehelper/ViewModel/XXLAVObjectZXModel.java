@@ -3,26 +3,28 @@ package com.messi.languagehelper.ViewModel;
 import android.content.Context;
 import android.text.TextUtils;
 
+import com.avos.avoscloud.AVObject;
 import com.baidu.mobads.AdView;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.iflytek.voiceads.NativeADDataRef;
-import com.messi.languagehelper.box.CNWBean;
 import com.messi.languagehelper.util.ADUtil;
+import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Setings;
+import com.messi.languagehelper.util.SystemUtil;
 import com.qq.e.ads.nativ.NativeExpressADView;
 
-public class XXLCNWBeanModel extends XXLRootModel{
+public class XXLAVObjectZXModel extends XXLZXRootModel{
 
-    public CNWBean mADObject;
+    private AVObject mADObject;
 
-    public XXLCNWBeanModel(Context mContext) {
+    public XXLAVObjectZXModel(Context mContext) {
         super(mContext);
         TXADType = 1;
     }
 
-    public XXLCNWBeanModel(Context mContext,int adType) {
+    public XXLAVObjectZXModel(Context mContext, int adType) {
         super(mContext);
         TXADType = adType;
     }
@@ -60,25 +62,29 @@ public class XXLCNWBeanModel extends XXLRootModel{
 
     @Override
     public void addXFAD(NativeADDataRef nad) {
-        mADObject = new CNWBean();
-        mADObject.setmNativeADDataRef(nad);
-        mADObject.setAdShow(false);
+        mADObject = new AVObject();
+        mADObject.put(KeyUtil.ADKey, nad);
+        mADObject.put(KeyUtil.ADIsShowKey, false);
     }
 
     @Override
     public void addTXAD(NativeExpressADView mADView) {
-        mADObject = new CNWBean();
-        mADObject.setmTXADView(mADView);
+        mADObject = new AVObject();
+        mADObject.put(KeyUtil.TXADView, mADView);
     }
 
     @Override
     public void addBDAD(AdView adView) {
-
+        int height = (int)(SystemUtil.SCREEN_WIDTH / 2);
+        mADObject = new AVObject();
+        mADObject.put(KeyUtil.BDADView, adView);
+        mADObject.put(KeyUtil.BDADViewHeigh, height);
     }
 
     @Override
     public void addCSJAD(TTFeedAd ad) {
-
+        mADObject = new AVObject();
+        mADObject.put(KeyUtil.CSJADView, ad);
     }
 
     @Override

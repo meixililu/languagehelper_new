@@ -1,19 +1,20 @@
 package com.messi.languagehelper.ViewModel;
 
 import android.app.Activity;
-import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.avos.avoscloud.AVObject;
 import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.TTAdNative;
 import com.bytedance.sdk.openadsdk.TTDrawFeedAd;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.CSJADUtil;
+import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.Setings;
+import com.messi.languagehelper.util.ViewUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,15 +22,14 @@ import java.util.List;
 public class FullScreenVideoADModel {
 
     public Activity mContext;
-    public SharedPreferences sp;
     public FrameLayout ad_layout;
     public TextView title;
+    private AVObject mAVObject;
 
     public TextView btn_detail;
 
     public FullScreenVideoADModel(Activity mContext){
         this.mContext = mContext;
-        sp = Setings.getSharedPreferences(mContext);
     }
 
     public void showAd(){
@@ -48,6 +48,18 @@ public class FullScreenVideoADModel {
 
     public void loadCSJAD(){
         LogUtil.DefalutLog("loadCSJAD-Video");
+        if(mAVObject.get(KeyUtil.VideoAD) != null){
+            Object object = mAVObject.get(KeyUtil.VideoAD);
+            if(object instanceof TTDrawFeedAd){
+                TTDrawFeedAd ad = (TTDrawFeedAd)object;
+                initAdViewAndAction(ad);
+            }
+        }else {
+            loadCSJADTask();
+        }
+    }
+
+    public void loadCSJADTask(){
         TTAdNative mTTAdNative = CSJADUtil.get().createAdNative(mContext);
         AdSlot adSlot = new AdSlot.Builder()
                 .setCodeId(CSJADUtil.CSJ_DrawXXLSP)
@@ -66,19 +78,22 @@ public class FullScreenVideoADModel {
                 if (list == null || list.isEmpty()) {
                     return;
                 }
-                for (TTDrawFeedAd ad : list) {
-                    ad.setActivityForDownloadApp(mContext);
-                    ad.setCanInterruptVideoPlay(true);
+                TTDrawFeedAd ad = list.get(0);
+                ad.setActivityForDownloadApp(mContext);
+                ad.setCanInterruptVideoPlay(true);
+                if(mAVObject != null){
+                    mAVObject.put(KeyUtil.VideoAD,ad);
                 }
-                if(ad_layout != null){
-                    ad_layout.addView(list.get(0).getAdView());
-                    initAdViewAndAction(list.get(0));
-                }
+                initAdViewAndAction(ad);
             }
         });
     }
 
-    private void initAdViewAndAction(TTDrawFeedAd ad){
+    public void initAdViewAndAction(TTDrawFeedAd ad){
+        if(ad_layout != null){
+            ViewUtil.removeParentView(ad.getAdView());
+            ad_layout.addView(ad.getAdView());
+        }
         if(title != null && btn_detail != null){
             title.setText(ad.getTitle());
             btn_detail.setText(ad.getButtonText());
@@ -107,10 +122,11 @@ public class FullScreenVideoADModel {
 
     }
 
-    public void setAd_layout(FrameLayout ad_layout,TextView title,TextView btn_detail) {
+    public void setAd_layout(AVObject mAVObject, FrameLayout ad_layout,TextView title,TextView btn_detail) {
         this.ad_layout = ad_layout;
         this.title = title;
         this.btn_detail = btn_detail;
+        this.mAVObject = mAVObject;
         btn_detail.setVisibility(View.VISIBLE);
     }
 

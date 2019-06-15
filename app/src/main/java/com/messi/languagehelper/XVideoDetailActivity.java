@@ -13,17 +13,16 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.alibaba.fastjson.JSON;
 import com.avos.avoscloud.AVObject;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
@@ -46,6 +45,7 @@ import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
+import com.messi.languagehelper.util.ViewUtil;
 import com.ximalaya.ting.android.opensdk.util.DigestUtils;
 
 import java.util.ArrayList;
@@ -67,7 +67,7 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
     private List<AVObject> mAVObjects;
     private AVObject mAVObject;
     private int position;
-    private ImageView cover_img;
+    private SimpleDraweeView cover_img;
     private String Url = "";
     private String media_url = "";
     private String type;
@@ -114,8 +114,8 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
                     if(player != null){
                         player.stop();
                     }
-                    removeVideoView(player_view);
-                    removeVideoView(mWebView);
+                    ViewUtil.removeParentView(player_view);
+                    ViewUtil.removeParentView(mWebView);
                     View view = snapHelper.findSnapView(layoutManager);
                     RcXVideoDetailListItemViewHolder viewHolder = (RcXVideoDetailListItemViewHolder)recyclerView.getChildViewHolder(view);
                     if(viewHolder != null){
@@ -207,7 +207,7 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
 
     private void setData(RcXVideoDetailListItemViewHolder viewHolder) {
         if(mAVObject.get(KeyUtil.ADKey) != null || mAVObject.get(KeyUtil.TXADView) != null){
-            mFSVADModel.setAd_layout(viewHolder.player_view_layout,viewHolder.title,viewHolder.btn_detail);
+            mFSVADModel.setAd_layout(mAVObject,viewHolder.player_view_layout,viewHolder.title,viewHolder.btn_detail);
             mFSVADModel.showAd();
             hideCoverImg();
             hideProgressbar();
@@ -425,17 +425,6 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
     private void hideCoverImg(){
         if(cover_img != null){
             cover_img.setVisibility(View.GONE);
-        }
-    }
-
-    private void removeVideoView(View videoView) {
-        ViewGroup parent = (ViewGroup) videoView.getParent();
-        if (parent == null) {
-            return;
-        }
-        int index = parent.indexOfChild(videoView);
-        if (index >= 0) {
-            parent.removeViewAt(index);
         }
     }
 

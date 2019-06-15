@@ -164,5 +164,16 @@ public class ViewUtil {
 		Bitmap bitmap = view.getDrawingCache();
 		return bitmap;
 	}
+
+	public static void removeParentView(View view) {
+		ViewGroup parent = (ViewGroup) view.getParent();
+		if (parent == null) {
+			return;
+		}
+		int index = parent.indexOfChild(view);
+		if (index >= 0) {
+			parent.removeViewAt(index);
+		}
+	}
 	
 }

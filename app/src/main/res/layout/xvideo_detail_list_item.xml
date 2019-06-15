@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black">
@@ -11,11 +12,15 @@
         android:keepScreenOn="true"
         android:background="@color/black" />
 
-    <ImageView
+    <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/cover_img"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
+        fresco:actualImageScaleType="centerCrop"
+        fresco:placeholderImage="@drawable/img_loading"
+        fresco:placeholderImageScaleType="fitCenter"
+        fresco:failureImage="@drawable/img_lost"
+        fresco:failureImageScaleType="fitCenter"
         />
 
     <ProgressBar

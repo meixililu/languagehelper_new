@@ -1,6 +1,6 @@
 package com.messi.languagehelper.ViewModel;
 
-import android.app.Activity;
+import android.content.Context;
 
 import com.avos.avoscloud.AVObject;
 import com.baidu.mobads.AdView;
@@ -16,7 +16,7 @@ public class XXLAVObjectModel extends XXLRootModel{
 
     private AVObject mADObject;
 
-    public XXLAVObjectModel(Activity mContext) {
+    public XXLAVObjectModel(Context mContext) {
         super(mContext);
     }
 

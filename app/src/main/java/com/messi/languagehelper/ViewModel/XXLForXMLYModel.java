@@ -1,6 +1,6 @@
 package com.messi.languagehelper.ViewModel;
 
-import android.app.Activity;
+import android.content.Context;
 
 import com.baidu.mobads.AdView;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
@@ -15,7 +15,7 @@ public class XXLForXMLYModel extends XXLRootModel{
 
     public AlbumForAd mADObject;
 
-    public XXLForXMLYModel(Activity mContext) {
+    public XXLForXMLYModel(Context mContext) {
         super(mContext);
     }
 
