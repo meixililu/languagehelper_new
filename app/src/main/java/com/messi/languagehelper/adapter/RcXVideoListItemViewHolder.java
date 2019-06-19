@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVObject;
+import com.bytedance.sdk.openadsdk.TTDrawFeedAd;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.NativeADDataRef;
 import com.messi.languagehelper.R;
@@ -34,6 +35,9 @@ public class RcXVideoListItemViewHolder extends RecyclerView.ViewHolder {
     private final SimpleDraweeView img;
     private Context context;
     private List<AVObject> mAVObjects;
+
+    private String category;
+    private String keyword;
 
     public RcXVideoListItemViewHolder(View convertView,List<AVObject> mAVObjects) {
         super(convertView);
@@ -62,6 +66,19 @@ public class RcXVideoListItemViewHolder extends RecyclerView.ViewHolder {
                 }
                 ad_layout.addView(mADView);
                 mADView.render();
+            }else if(mAVObject.get(KeyUtil.VideoAD) != null){
+                Object object = mAVObject.get(KeyUtil.VideoAD);
+                if(object instanceof TTDrawFeedAd){
+                    TTDrawFeedAd ad = (TTDrawFeedAd)object;
+                    img.setImageURI(ad.getVideoCoverImage().getImageUrl());
+                    name.setText(ad.getTitle());
+                    cover.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View arg0) {
+                            onItemClick(mAVObject);
+                        }
+                    });
+                }
             }else {
                 img.setImageURI(mAVObject.getString(AVOUtil.XVideo.img_url));
                 name.setText( mAVObject.getString(AVOUtil.XVideo.title));
@@ -91,6 +108,7 @@ public class RcXVideoListItemViewHolder extends RecyclerView.ViewHolder {
         Setings.dataMap.put(KeyUtil.DataMapKey,mAVObjects);
         Intent intent = new Intent(context, XVideoDetailActivity.class);
         intent.putExtra(KeyUtil.PositionKey,mAVObjects.indexOf(mAVObject));
+        intent.putExtra(KeyUtil.Category, category);
         context.startActivity(intent);
     }
 

@@ -150,7 +150,6 @@ public class XVideoFragment extends BaseFragment{
     }
 
     private void RequestAsyncTask() {
-        skip = 0;
         showProgressbar();
         if(mXXLModel != null){
             mXXLModel.loading = true;

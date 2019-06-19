@@ -815,6 +815,8 @@ public class AVOUtil {
 
 		public final static String play_count = "play_count";
 
+		public final static String createdAt = "createdAt";
+
 		public final static String publish_time = "publish_time";
 
 		public final static String source_name = "source_name";

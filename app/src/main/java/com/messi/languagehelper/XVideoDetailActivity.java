@@ -13,7 +13,6 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.WindowManager;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
@@ -21,7 +20,10 @@ import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 
 import com.alibaba.fastjson.JSON;
+import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVQuery;
+import com.avos.avoscloud.FindCallback;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.Player;
@@ -45,10 +47,13 @@ import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
+import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.ViewUtil;
 import com.ximalaya.ting.android.opensdk.util.DigestUtils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -65,7 +70,6 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
 
     private SimpleExoPlayer player;
     private List<AVObject> mAVObjects;
-    private AVObject mAVObject;
     private int position;
     private SimpleDraweeView cover_img;
     private String Url = "";
@@ -100,9 +104,7 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
             LogUtil.DefalutLog("visible:"+visible+"-total:"+total+"-firstVisibleItem:"+firstVisibleItem);
             if (!loading && hasMore) {
                 if ((visible + firstVisibleItem) >= total) {
-//                    loadAD();
-//                    RequestAsyncTask();
-                    LogUtil.DefalutLog("should load data");
+                    RequestAsyncTask();
                 }
             }
         }
@@ -119,13 +121,16 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
                     View view = snapHelper.findSnapView(layoutManager);
                     RcXVideoDetailListItemViewHolder viewHolder = (RcXVideoDetailListItemViewHolder)recyclerView.getChildViewHolder(view);
                     if(viewHolder != null){
-                        mAVObject = viewHolder.mAVObject;
                         mProgressbar = viewHolder.progress_bar;
                         cover_img = viewHolder.cover_img;
-                        if(mAVObject != null){
-                            Url = mAVObject.getString(AVOUtil.XVideo.source_url);
-                            type = mAVObject.getString(AVOUtil.XVideo.type);
-                            media_url = mAVObject.getString(AVOUtil.XVideo.media_url);
+                        if(viewHolder.mAVObject != null){
+                            if(!TextUtils.isEmpty(viewHolder.mAVObject.getString(AVOUtil.XVideo.group_id))){
+                                Url = "https://www.ixigua.com/i"+viewHolder.mAVObject.getString(AVOUtil.XVideo.group_id);
+                            }else {
+                                Url = viewHolder.mAVObject.getString(AVOUtil.XVideo.source_url);
+                            }
+                            type = viewHolder.mAVObject.getString(AVOUtil.XVideo.type);
+                            media_url = viewHolder.mAVObject.getString(AVOUtil.XVideo.media_url);
                             LogUtil.DefalutLog("Url:"+Url);
                             LogUtil.DefalutLog("type:"+type);
                             LogUtil.DefalutLog("media_url:"+media_url);
@@ -145,7 +150,7 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,  WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        transparentStatusbar();
         setContentView(R.layout.xvideo_detail_activity);
         setStatusbarColor(R.color.black);
         ButterKnife.bind(this);
@@ -175,6 +180,7 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
                     finish();
                 }
                 mAVObjects.add(mAVObject);
+                RequestAsyncTask();
             }
             player_view = (PlayerView)LayoutInflater.from(this).inflate(R.layout.xvideo_detail_list_playerview,null);
             player = ExoPlayerFactory.newSimpleInstance(this);
@@ -206,13 +212,15 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
     }
 
     private void setData(RcXVideoDetailListItemViewHolder viewHolder) {
-        if(mAVObject.get(KeyUtil.ADKey) != null || mAVObject.get(KeyUtil.TXADView) != null){
-            mFSVADModel.setAd_layout(mAVObject,viewHolder.player_view_layout,viewHolder.title,viewHolder.btn_detail);
+        if(viewHolder.mAVObject.get(KeyUtil.ADKey) != null || viewHolder.mAVObject.get(KeyUtil.TXADView) != null ||
+                viewHolder.mAVObject.get(KeyUtil.VideoAD) != null){
+            mFSVADModel.setAd_layout(viewHolder.mAVObject,viewHolder.player_view_layout,viewHolder.title,viewHolder.btn_detail);
             mFSVADModel.showAd();
             hideCoverImg();
             hideProgressbar();
             return;
         }
+        LogUtil.DefalutLog("type:"+type);
         if (!TextUtils.isEmpty(type)) {
             if ("url_api".equals(type)) {
                 viewHolder.player_view_layout.addView(player_view);
@@ -269,13 +277,6 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
                 LogUtil.DefalutLog("WebViewClient:onPageFinished");
                 hideProgressbar();
                 hideCoverImg();
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        mWebView.performClick();
-                    }
-                },300);
-
                 if (!isWVPSuccess) {
                     parseVideoUrl();
                 }
@@ -392,6 +393,62 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
         LogUtil.DefalutLog("onPlayerStateChanged:" + playbackState + "-:playWhenReady:" + playWhenReady);
         if (playWhenReady && playbackState == Player.STATE_READY) {
             hideCoverImg();
+        }
+    }
+
+    private void RequestAsyncTask() {
+        LogUtil.DefalutLog("should load data");
+        Date time = new Date();
+        if(mAVObjects != null && mAVObjects.size() > 0){
+            time = mAVObjects.get(mAVObjects.size()-1).getCreatedAt();
+        }
+        loading = true;
+        AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.XVideo.XVideo);
+        if(!TextUtils.isEmpty(category)){
+            query.whereEqualTo(AVOUtil.XVideo.category,category);
+        }
+        if(!TextUtils.isEmpty(keyword)){
+            final AVQuery<AVObject> priorityQuery = new AVQuery<>(AVOUtil.XVideo.XVideo);
+            priorityQuery.whereContains(AVOUtil.XVideo.title, keyword);
+
+            final AVQuery<AVObject> statusQuery = new AVQuery<>(AVOUtil.XVideo.XVideo);
+            statusQuery.whereContains(AVOUtil.XVideo.tag, keyword);
+
+            query = AVQuery.or(Arrays.asList(priorityQuery, statusQuery));
+        }
+        query.whereLessThan(AVOUtil.XVideo.createdAt,time);
+        query.orderByDescending(AVOUtil.XVideo.createdAt);
+        query.limit(Setings.page_size);
+        query.findInBackground(new FindCallback<AVObject>() {
+            @Override
+            public void done(List<AVObject> list, AVException e) {
+                loading = false;
+                if(list != null){
+                    if(list.size() == 0){
+                        hasMore = false;
+                    }else {
+                        mAVObjects.addAll(list);
+                        videoAdapter.notifyDataSetChanged();
+                        loadAD();
+                        if(list.size() < Setings.page_size){
+                            hasMore = false;
+                        }else {
+                            hasMore = true;
+                        }
+                    }
+                }else{
+                    ToastUtil.diaplayMesShort(XVideoDetailActivity.this, "加载失败，下拉可刷新");
+                }
+            }
+        });
+    }
+
+    private void loadAD(){
+        if(mFSVADModel != null){
+            LogUtil.DefalutLog("should load ad");
+            mFSVADModel.setAVObjects(mAVObjects);
+            mFSVADModel.setVideoAdapter(videoAdapter);
+            mFSVADModel.justLoadData();
         }
     }
 

@@ -10,7 +10,9 @@ import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.TTAdNative;
 import com.bytedance.sdk.openadsdk.TTDrawFeedAd;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.messi.languagehelper.adapter.RcXVideoDetailListAdapter;
 import com.messi.languagehelper.util.ADUtil;
+import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.CSJADUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -24,8 +26,11 @@ public class FullScreenVideoADModel {
     public Activity mContext;
     public FrameLayout ad_layout;
     public TextView title;
-    private AVObject mAVObject;
+    public AVObject mAVObject;
+    public List mAVObjects;
+    public boolean isShowAD;
 
+    private RcXVideoDetailListAdapter videoAdapter;
     public TextView btn_detail;
 
     public FullScreenVideoADModel(Activity mContext){
@@ -34,16 +39,14 @@ public class FullScreenVideoADModel {
 
     public void showAd(){
         if(ADUtil.IsShowAD){
-            loadAD();
+            isShowAD = true;
+            loadCSJAD();
         }
     }
 
-    public void loadAD(){
-        try {
-            loadCSJAD();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void justLoadData(){
+        isShowAD = false;
+        loadCSJADTask();
     }
 
     public void loadCSJAD(){
@@ -81,45 +84,56 @@ public class FullScreenVideoADModel {
                 TTDrawFeedAd ad = list.get(0);
                 ad.setActivityForDownloadApp(mContext);
                 ad.setCanInterruptVideoPlay(true);
-                if(mAVObject != null){
-                    mAVObject.put(KeyUtil.VideoAD,ad);
+                if(isShowAD){
+                    if(mAVObject != null){
+                        mAVObject.put(KeyUtil.VideoAD,ad);
+                        mAVObject.put(AVOUtil.XVideo.img_url,ad.getVideoCoverImage().getImageUrl());
+                        initAdViewAndAction(ad);
+                    }
+                }else {
+                    AVObject item = new AVObject();
+                    item.put(KeyUtil.VideoAD,ad);
+                    item.put(AVOUtil.XVideo.img_url,ad.getVideoCoverImage().getImageUrl());
+                    if(mAVObjects != null){
+                        mAVObjects.add(mAVObjects.size()-3,item);
+                    }
+                    if(videoAdapter != null){
+                        videoAdapter.notifyDataSetChanged();
+                    }
                 }
-                initAdViewAndAction(ad);
             }
         });
     }
 
     public void initAdViewAndAction(TTDrawFeedAd ad){
+        ViewUtil.removeParentView(ad.getAdView());
         if(ad_layout != null){
-            ViewUtil.removeParentView(ad.getAdView());
             ad_layout.addView(ad.getAdView());
+            if(title != null && btn_detail != null){
+                title.setText(ad.getTitle());
+                btn_detail.setText(ad.getButtonText());
+                List<View> clickViews = new ArrayList<>();
+                clickViews.add(title);
+                List<View> creativeViews = new ArrayList<>();
+                creativeViews.add(btn_detail);
+                ad.registerViewForInteraction(ad_layout, clickViews, creativeViews, new TTNativeAd.AdInteractionListener() {
+                    @Override
+                    public void onAdClicked(View view, TTNativeAd ad) {
+                        LogUtil.DefalutLog("onAdClicked");
+                    }
+
+                    @Override
+                    public void onAdCreativeClick(View view, TTNativeAd ad) {
+                        LogUtil.DefalutLog("onAdCreativeClick");
+                    }
+
+                    @Override
+                    public void onAdShow(TTNativeAd ad) {
+                        LogUtil.DefalutLog("onAdShow");
+                    }
+                });
+            }
         }
-        if(title != null && btn_detail != null){
-            title.setText(ad.getTitle());
-            btn_detail.setText(ad.getButtonText());
-            LogUtil.DefalutLog("img:"+ad.getVideoCoverImage().getImageUrl());
-            List<View> clickViews = new ArrayList<>();
-            clickViews.add(title);
-            List<View> creativeViews = new ArrayList<>();
-            creativeViews.add(btn_detail);
-            ad.registerViewForInteraction(ad_layout, clickViews, creativeViews, new TTNativeAd.AdInteractionListener() {
-                @Override
-                public void onAdClicked(View view, TTNativeAd ad) {
-                    LogUtil.DefalutLog("onAdClicked");
-                }
-
-                @Override
-                public void onAdCreativeClick(View view, TTNativeAd ad) {
-                    LogUtil.DefalutLog("onAdCreativeClick");
-                }
-
-                @Override
-                public void onAdShow(TTNativeAd ad) {
-                    LogUtil.DefalutLog("onAdShow");
-                }
-            });
-        }
-
     }
 
     public void setAd_layout(AVObject mAVObject, FrameLayout ad_layout,TextView title,TextView btn_detail) {
@@ -128,6 +142,14 @@ public class FullScreenVideoADModel {
         this.btn_detail = btn_detail;
         this.mAVObject = mAVObject;
         btn_detail.setVisibility(View.VISIBLE);
+    }
+
+    public void setAVObjects(List<AVObject> mAVObjects) {
+        this.mAVObjects = mAVObjects;
+    }
+
+    public void setVideoAdapter(RcXVideoDetailListAdapter videoAdapter) {
+        this.videoAdapter = videoAdapter;
     }
 
 }

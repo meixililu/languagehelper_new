@@ -340,6 +340,7 @@ public class RcSubjectReadingListItemViewHolder extends RecyclerView.ViewHolder 
     private void onItemClick(AVObject mAVObject){
         Intent intent = new Intent(context, XVideoDetailActivity.class);
         intent.putExtra(KeyUtil.AVObjectKey, mAVObject.toString());
+        intent.putExtra(KeyUtil.Category, "english");
         context.startActivity(intent);
     }
 
