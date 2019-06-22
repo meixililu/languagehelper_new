@@ -117,6 +117,7 @@ public class AppUpdateUtil {
         String interceptUrls = mAVObject.getString(AVOUtil.UpdateInfo.interceptUrls);
         String adConf = mAVObject.getString(AVOUtil.UpdateInfo.adConf);
         String Caricature_channel = mAVObject.getString(AVOUtil.UpdateInfo.Caricature_channel);
+        String domain = mAVObject.getString(AVOUtil.UpdateInfo.domain);
         int Caricature_version = mAVObject.getInt(AVOUtil.UpdateInfo.Caricature_version);
         String HjCookie = mAVObject.getString(AVOUtil.UpdateInfo.HjCookie);
         TranslateHelper.setHjCookie(HjCookie);
@@ -135,6 +136,7 @@ public class AppUpdateUtil {
         Setings.saveSharedPreferences(sp,KeyUtil.Ad_Ids,ad_ids);
         Setings.saveSharedPreferences(sp,KeyUtil.Ad_Csj,ad_csj);
         Setings.saveSharedPreferences(sp,KeyUtil.Ad_Bd,ad_bd);
+        Setings.saveSharedPreferences(sp,KeyUtil.LeanCloudIPAddress,domain);
         Setings.saveSharedPreferences(sp,KeyUtil.No_Ad_Channel,no_ad_channel);
         Setings.saveSharedPreferences(sp,KeyUtil.AdConfig,adConf);
         Setings.saveSharedPreferences(sp,KeyUtil.VersionCode,

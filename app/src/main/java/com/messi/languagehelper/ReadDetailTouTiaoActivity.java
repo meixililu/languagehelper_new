@@ -39,6 +39,7 @@ import com.google.android.exoplayer2.util.Util;
 import com.messi.languagehelper.ViewModel.VideoADModel;
 import com.messi.languagehelper.bean.TTParseBean;
 import com.messi.languagehelper.bean.TTParseDataBean;
+import com.messi.languagehelper.bean.ToutiaoWebRootBean;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
@@ -120,6 +121,8 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         if (!TextUtils.isEmpty(intercepts)) {
             if (intercepts.contains(",")) {
                 interceptUrls = intercepts.split(",");
+            }else {
+                interceptUrls = new String[]{intercepts};
             }
         }
         setStatusbarColor(R.color.black);
@@ -241,12 +244,62 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
                     ReadDetailTouTiaoActivity.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            exoplaer(url);
+                            if("今日头条".equals(mAVObject.getSource_name())){
+                                parseToutiaoWebApi(url);
+                            }else {
+                                exoplaer(url);
+                            }
                         }
                     });
                 }
             }
         }
+    }
+
+    private void parseToutiaoWebApi(String url){
+        LogUtil.DefalutLog("parseToutiaoWebApi:"+url);
+        LanguagehelperHttpClient.get(url,new UICallback(this){
+            @Override
+            public void onFailured() {
+                LogUtil.DefalutLog("parseToutiaoWebApi-onFailured");
+                parseVideoUrl();
+            }
+            @Override
+            public void onFinished() {
+            }
+            @Override
+            public void onResponsed(String responseString) {
+                String videoUrl = "";
+                try {
+                    if(!TextUtils.isEmpty(responseString)){
+                        int start = responseString.indexOf("{");
+                        int end = responseString.lastIndexOf("}");
+                        if(start > 0 && end > 0){
+                            String jstr = responseString.substring(start,end+1);
+                            LogUtil.DefalutLog("jstr:"+jstr);
+                            if(JsonParser.isJson(jstr)){
+                                ToutiaoWebRootBean result = JSON.parseObject(jstr, ToutiaoWebRootBean.class);
+                                if(result != null
+                                        && result.getData() != null
+                                        && result.getData().getVideo_list() != null
+                                        && result.getData().getVideo_list().getVideo_1() != null){
+                                    videoUrl = result.getData().getVideo_list().getVideo_1().getMain_url();
+                                }
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    videoUrl = "";
+                    e.printStackTrace();
+                } finally {
+                    if(!TextUtils.isEmpty(videoUrl)){
+                        exoplaer(videoUrl);
+                    }else {
+                        onFailured();
+                    }
+                }
+            }
+        });
     }
 
     private void parseVideoUrl() {

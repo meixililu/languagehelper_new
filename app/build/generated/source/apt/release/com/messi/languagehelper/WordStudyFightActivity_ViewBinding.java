@@ -20,17 +20,17 @@ import java.lang.Override;
 public class WordStudyFightActivity_ViewBinding implements Unbinder {
   private WordStudyFightActivity target;
 
-  private View view7f080112;
+  private View view7f080114;
 
-  private View view7f080380;
-
-  private View view7f080239;
-
-  private View view7f08023b;
+  private View view7f080384;
 
   private View view7f08023d;
 
   private View view7f08023f;
+
+  private View view7f080241;
+
+  private View view7f080243;
 
   @UiThread
   public WordStudyFightActivity_ViewBinding(WordStudyFightActivity target) {
@@ -52,7 +52,7 @@ public class WordStudyFightActivity_ViewBinding implements Unbinder {
     target.listview = Utils.findRequiredViewAsType(source, R.id.listview, "field 'listview'", RecyclerView.class);
     view = Utils.findRequiredView(source, R.id.finish_test_layout, "field 'finishTestLayout' and method 'onClick'");
     target.finishTestLayout = Utils.castView(view, R.id.finish_test_layout, "field 'finishTestLayout'", FrameLayout.class);
-    view7f080112 = view;
+    view7f080114 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -62,7 +62,7 @@ public class WordStudyFightActivity_ViewBinding implements Unbinder {
     target.resultLayout = Utils.findRequiredViewAsType(source, R.id.result_layout, "field 'resultLayout'", LinearLayout.class);
     view = Utils.findRequiredView(source, R.id.word_tv, "field 'wordTv' and method 'onClick'");
     target.wordTv = Utils.castView(view, R.id.word_tv, "field 'wordTv'", TextView.class);
-    view7f080380 = view;
+    view7f080384 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -72,7 +72,7 @@ public class WordStudyFightActivity_ViewBinding implements Unbinder {
     target.selection1 = Utils.findRequiredViewAsType(source, R.id.selection_1, "field 'selection1'", TextView.class);
     view = Utils.findRequiredView(source, R.id.selection_1_layout, "field 'selection1Layout' and method 'onClick'");
     target.selection1Layout = Utils.castView(view, R.id.selection_1_layout, "field 'selection1Layout'", FrameLayout.class);
-    view7f080239 = view;
+    view7f08023d = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -82,7 +82,7 @@ public class WordStudyFightActivity_ViewBinding implements Unbinder {
     target.selection2 = Utils.findRequiredViewAsType(source, R.id.selection_2, "field 'selection2'", TextView.class);
     view = Utils.findRequiredView(source, R.id.selection_2_layout, "field 'selection2Layout' and method 'onClick'");
     target.selection2Layout = Utils.castView(view, R.id.selection_2_layout, "field 'selection2Layout'", FrameLayout.class);
-    view7f08023b = view;
+    view7f08023f = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -92,7 +92,7 @@ public class WordStudyFightActivity_ViewBinding implements Unbinder {
     target.selection3 = Utils.findRequiredViewAsType(source, R.id.selection_3, "field 'selection3'", TextView.class);
     view = Utils.findRequiredView(source, R.id.selection_3_layout, "field 'selection3Layout' and method 'onClick'");
     target.selection3Layout = Utils.castView(view, R.id.selection_3_layout, "field 'selection3Layout'", FrameLayout.class);
-    view7f08023d = view;
+    view7f080241 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -102,7 +102,7 @@ public class WordStudyFightActivity_ViewBinding implements Unbinder {
     target.selection4 = Utils.findRequiredViewAsType(source, R.id.selection_4, "field 'selection4'", TextView.class);
     view = Utils.findRequiredView(source, R.id.selection_4_layout, "field 'selection4Layout' and method 'onClick'");
     target.selection4Layout = Utils.castView(view, R.id.selection_4_layout, "field 'selection4Layout'", FrameLayout.class);
-    view7f08023f = view;
+    view7f080243 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -140,17 +140,17 @@ public class WordStudyFightActivity_ViewBinding implements Unbinder {
     target.selection4Layout = null;
     target.fightResutlTv = null;
 
-    view7f080112.setOnClickListener(null);
-    view7f080112 = null;
-    view7f080380.setOnClickListener(null);
-    view7f080380 = null;
-    view7f080239.setOnClickListener(null);
-    view7f080239 = null;
-    view7f08023b.setOnClickListener(null);
-    view7f08023b = null;
+    view7f080114.setOnClickListener(null);
+    view7f080114 = null;
+    view7f080384.setOnClickListener(null);
+    view7f080384 = null;
     view7f08023d.setOnClickListener(null);
     view7f08023d = null;
     view7f08023f.setOnClickListener(null);
     view7f08023f = null;
+    view7f080241.setOnClickListener(null);
+    view7f080241 = null;
+    view7f080243.setOnClickListener(null);
+    view7f080243 = null;
   }
 }

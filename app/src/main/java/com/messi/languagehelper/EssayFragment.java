@@ -1,6 +1,6 @@
 package com.messi.languagehelper;
 
-import android.content.Context;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,9 +34,9 @@ public class EssayFragment extends BaseFragment {
     private EssayData mEssayData;
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
+    public void onAttach(Activity context) {
         try {
+            super.onAttach(context);
             mProgressbarListener = (FragmentProgressbarListener) context;
         } catch (Exception e) {
             throw new ClassCastException(context.toString() + " must implement FragmentProgressbarListener");

@@ -26,12 +26,12 @@ public class FullScreenVideoADModel {
     public Activity mContext;
     public FrameLayout ad_layout;
     public TextView title;
+    public TextView btn_detail;
     public AVObject mAVObject;
     public List mAVObjects;
     public boolean isShowAD;
 
     private RcXVideoDetailListAdapter videoAdapter;
-    public TextView btn_detail;
 
     public FullScreenVideoADModel(Activity mContext){
         this.mContext = mContext;
@@ -51,13 +51,7 @@ public class FullScreenVideoADModel {
 
     public void loadCSJAD(){
         LogUtil.DefalutLog("loadCSJAD-Video");
-        if(mAVObject.get(KeyUtil.VideoAD) != null){
-            Object object = mAVObject.get(KeyUtil.VideoAD);
-            if(object instanceof TTDrawFeedAd){
-                TTDrawFeedAd ad = (TTDrawFeedAd)object;
-                initAdViewAndAction(ad);
-            }
-        }else {
+        if(mAVObject.get(KeyUtil.VideoAD) == null){
             loadCSJADTask();
         }
     }
@@ -88,7 +82,7 @@ public class FullScreenVideoADModel {
                     if(mAVObject != null){
                         mAVObject.put(KeyUtil.VideoAD,ad);
                         mAVObject.put(AVOUtil.XVideo.img_url,ad.getVideoCoverImage().getImageUrl());
-                        initAdViewAndAction(ad);
+                        initAdViewAndAction(ad,ad_layout,title,btn_detail);
                     }
                 }else {
                     AVObject item = new AVObject();
@@ -105,7 +99,8 @@ public class FullScreenVideoADModel {
         });
     }
 
-    public void initAdViewAndAction(TTDrawFeedAd ad){
+    public static void initAdViewAndAction(TTDrawFeedAd ad,FrameLayout ad_layout,TextView title,TextView btn_detail){
+        btn_detail.setVisibility(View.VISIBLE);
         ViewUtil.removeParentView(ad.getAdView());
         if(ad_layout != null){
             ad_layout.addView(ad.getAdView());
@@ -141,7 +136,6 @@ public class FullScreenVideoADModel {
         this.title = title;
         this.btn_detail = btn_detail;
         this.mAVObject = mAVObject;
-        btn_detail.setVisibility(View.VISIBLE);
     }
 
     public void setAVObjects(List<AVObject> mAVObjects) {

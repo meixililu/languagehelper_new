@@ -16,7 +16,7 @@ import java.lang.Override;
 public class GodReplyActivity_ViewBinding implements Unbinder {
   private GodReplyActivity target;
 
-  private View view7f0801e1;
+  private View view7f0801e5;
 
   @UiThread
   public GodReplyActivity_ViewBinding(GodReplyActivity target) {
@@ -34,7 +34,7 @@ public class GodReplyActivity_ViewBinding implements Unbinder {
     target.adImg = Utils.findRequiredViewAsType(source, R.id.ad_img, "field 'adImg'", SimpleDraweeView.class);
     view = Utils.findRequiredView(source, R.id.question, "field 'question' and method 'onViewClicked'");
     target.question = Utils.castView(view, R.id.question, "field 'question'", TextView.class);
-    view7f0801e1 = view;
+    view7f0801e5 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -56,7 +56,7 @@ public class GodReplyActivity_ViewBinding implements Unbinder {
     target.adImg = null;
     target.question = null;
 
-    view7f0801e1.setOnClickListener(null);
-    view7f0801e1 = null;
+    view7f0801e5.setOnClickListener(null);
+    view7f0801e5 = null;
   }
 }

@@ -1,6 +1,7 @@
 package com.messi.languagehelper;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.multidex.MultiDexApplication;
 
 import com.avos.avoscloud.AVOSCloud;
@@ -13,6 +14,7 @@ import com.messi.languagehelper.db.SQLiteOpenHelper;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.BDADUtil;
 import com.messi.languagehelper.util.CSJADUtil;
+import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.SystemUtil;
@@ -49,6 +51,9 @@ public class BaseApplication extends MultiDexApplication {
                     e.printStackTrace();
                 }
                 try {
+                    SharedPreferences sp = Setings.getSharedPreferences(BaseApplication.this);
+                    String ipAddress = sp.getString(KeyUtil.LeanCloudIPAddress,"http://leancloud.mzxbkj.com");
+                    AVOSCloud.setServer(AVOSCloud.SERVER_TYPE.API, ipAddress);
                     AVOSCloud.initialize(BaseApplication.this,"3fg5ql3r45i3apx2is4j9on5q5rf6kapxce51t5bc0ffw2y4", "twhlgs6nvdt7z7sfaw76ujbmaw7l12gb8v6sdyjw1nzk9b1a");
                 } catch (Exception e) {
                     e.printStackTrace();
