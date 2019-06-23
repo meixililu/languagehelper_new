@@ -11,7 +11,6 @@ import com.messi.languagehelper.dao.DaoMaster;
 import com.messi.languagehelper.dao.DaoSession;
 import com.messi.languagehelper.db.LHContract;
 import com.messi.languagehelper.db.SQLiteOpenHelper;
-import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.BDADUtil;
 import com.messi.languagehelper.util.CSJADUtil;
 import com.messi.languagehelper.util.KeyUtil;
@@ -69,7 +68,6 @@ public class BaseApplication extends MultiDexApplication {
                 CSJADUtil.init(BaseApplication.this);
                 BDADUtil.init(BaseApplication.this);
                 BoxHelper.init(BaseApplication.this);
-                ADUtil.initTXADID(BaseApplication.this);
             }
         }).run();
     }

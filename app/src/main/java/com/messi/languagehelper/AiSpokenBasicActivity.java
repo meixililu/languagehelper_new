@@ -132,26 +132,34 @@ public class AiSpokenBasicActivity extends BaseActivity implements PracticeProgr
 	}
 
 	private void addFragment() {
-		String[]contents = studyContent[pageIndex].split("#");
-		String type = contents[contents.length-1];
-		getSupportActionBar().setTitle( getActionbarTitle(type) );
-		Fragment mpramf = getStudyType(type);
-		getSupportActionBar().setTitle(Section +
-				getResources().getString(R.string.practice_spoken_englist_style_studyevery));
-		fragmentManager.beginTransaction()
-				.add(R.id.page_content, mpramf)
-				.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-				.commit();
+		try {
+			String[]contents = studyContent[pageIndex].split("#");
+			String type = contents[contents.length-1];
+			getSupportActionBar().setTitle( getActionbarTitle(type) );
+			Fragment mpramf = getStudyType(type);
+			getSupportActionBar().setTitle(Section +
+					getResources().getString(R.string.practice_spoken_englist_style_studyevery));
+			fragmentManager.beginTransaction()
+					.add(R.id.page_content, mpramf)
+					.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+					.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	private void setFragment(Fragment mFragment) {
-		if (mContent != mFragment) {
-			mContent = mFragment;
-			fragmentManager
-					.beginTransaction()
-					.setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out)
-					.replace(R.id.page_content, mFragment) // 替换Fragment，实现切换
-					.commit();
+		try {
+			if (mContent != mFragment) {
+				mContent = mFragment;
+				fragmentManager
+						.beginTransaction()
+						.setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out)
+						.replace(R.id.page_content, mFragment) // 替换Fragment，实现切换
+						.commit();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -242,7 +250,12 @@ public class AiSpokenBasicActivity extends BaseActivity implements PracticeProgr
 			mSpeechSynthesizer = null;
 		}
 	}
-	
+
+	@Override
+	public void onBackPressed() {
+		this.finish();
+	}
+
 	@Override
 	public void onLoading() {
 		showProgressbar();

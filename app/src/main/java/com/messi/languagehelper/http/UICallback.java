@@ -1,7 +1,6 @@
 package com.messi.languagehelper.http;
 
 import android.app.Activity;
-import android.text.TextUtils;
 
 import java.io.IOException;
 
@@ -34,15 +33,25 @@ public class UICallback implements Callback {
 	public void onResponse(Call call,final Response mResponse) throws IOException {
 		if (mResponse != null && mResponse.isSuccessful()){
 			responseString = mResponse.body().string();
-		}
-		if(context != null && !TextUtils.isEmpty(responseString)){
-			context.runOnUiThread(new Runnable() {
-				@Override
-				public void run() {
-					onFinished();
-					onResponsed(responseString);
-				}
-			});
+			if(context != null){
+				context.runOnUiThread(new Runnable() {
+					@Override
+					public void run() {
+						onFinished();
+						onResponsed(responseString);
+					}
+				});
+			}
+		}else {
+			if(context != null){
+				context.runOnUiThread(new Runnable() {
+					@Override
+					public void run() {
+						onFinished();
+						onFailured();
+					}
+				});
+			}
 		}
 	}
 	

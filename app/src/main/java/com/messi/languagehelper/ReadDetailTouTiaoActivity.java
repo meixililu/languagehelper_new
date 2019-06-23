@@ -13,6 +13,7 @@ import android.os.PersistableBundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.SslErrorHandler;
@@ -39,6 +40,7 @@ import com.google.android.exoplayer2.util.Util;
 import com.messi.languagehelper.ViewModel.VideoADModel;
 import com.messi.languagehelper.bean.TTParseBean;
 import com.messi.languagehelper.bean.TTParseDataBean;
+import com.messi.languagehelper.bean.ToutiaoVideoBean;
 import com.messi.languagehelper.bean.ToutiaoWebRootBean;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Reading;
@@ -50,7 +52,12 @@ import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
+import com.messi.languagehelper.util.StringUtils;
 import com.ximalaya.ting.android.opensdk.util.DigestUtils;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.zip.CRC32;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -160,15 +167,101 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
             } else if ("url_media".equals(mAVObject.getContent_type())) {
                 exoplaer(mAVObject.getMedia_url());
             } else if ("url".equals(mAVObject.getContent_type()) || "url_intercept".equals(mAVObject.getContent_type()) ) {
-                showProgressbar();
-                isIntercept = true;
-                mWebView.loadUrl(Url);
+                if("今日头条".equals(mAVObject.getSource_name())){
+                    parseToutiaoHtml(Url);
+                }else {
+                    interceptUrl();
+                }
             } else {
                 showWebView();
             }
         } else {
             exoplaer(mAVObject.getMedia_url());
         }
+    }
+
+    private void interceptUrl(){
+        showProgressbar();
+        isIntercept = true;
+        mWebView.loadUrl(Url);
+    }
+
+    private void parseToutiaoHtml(String tempUrl){
+        LogUtil.DefalutLog("parseToutiaoHtml:"+tempUrl);
+        LanguagehelperHttpClient.get(tempUrl,new UICallback(this){
+            @Override
+            public void onFailured() {
+                interceptUrl();
+            }
+            @Override
+            public void onFinished() {
+            }
+            @Override
+            public void onResponsed(String responseStr) {
+//                LogUtil.DefalutLog("parseToutiaoHtml-responseStr:"+responseStr);
+                String vid = "";
+                String videoUrl = "";
+                try{
+                    String pattern = "\"vid\":\"(\\w*)\"";
+                    LogUtil.DefalutLog("pattern:"+pattern);
+                    Pattern idPattern = Pattern.compile(pattern);
+                    Matcher mMatcher = idPattern.matcher(responseStr);
+                    if(mMatcher.find()){
+                        vid = mMatcher.group(1);
+                    }
+                    LogUtil.DefalutLog("vid:"+vid);
+                    String randint = StringUtils.getRandomString(16);
+                    String videoid = "/video/urls/v/1/toutiao/mp4/"+vid+"?r="+randint;
+                    CRC32 crc32 = new CRC32();
+                    crc32.update(videoid.getBytes());
+                    long checksum = crc32.getValue();
+                    videoUrl = "http://i.snssdk.com" + videoid + "&s=" + checksum;
+                }catch (Exception e){
+                    e.printStackTrace();
+                }finally {
+                    if(!TextUtils.isEmpty(vid) && !TextUtils.isEmpty(videoUrl)){
+                        parseToutiaoApi(videoUrl);
+                    }else {
+                        onFailured();
+                    }
+                }
+            }
+        });
+    }
+
+    private void parseToutiaoApi(String url){
+        LogUtil.DefalutLog("parseToutiaoApi");
+        LanguagehelperHttpClient.get(url,new UICallback(this){
+            @Override
+            public void onFailured() {
+                interceptUrl();
+            }
+            @Override
+            public void onFinished() {
+            }
+            @Override
+            public void onResponsed(String responseStr) {
+                LogUtil.DefalutLog("parseToutiaoApi-responseStr:"+responseStr);
+                String videoUrl = "";
+                try{
+                    ToutiaoVideoBean toutiaoVideo = JSON.parseObject(responseStr,ToutiaoVideoBean.class);
+                    if(toutiaoVideo.getCode() == 0){
+                        videoUrl = new String(
+                                Base64.decode(toutiaoVideo.getData().getVideo_list().
+                                        getVideo_1().getMain_url().getBytes(), Base64.DEFAULT));
+                    }
+                }catch (Exception e){
+                    onFailured();
+                    e.printStackTrace();
+                }finally {
+                    if(!TextUtils.isEmpty(videoUrl)){
+                        exoplaer(videoUrl);
+                    }else {
+                        onFailured();
+                    }
+                }
+            }
+        });
     }
 
     private void showWebView(){
@@ -292,6 +385,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
                     videoUrl = "";
                     e.printStackTrace();
                 } finally {
+                    LogUtil.DefalutLog("parseToutiaoWebApi-videoUrl:"+videoUrl);
                     if(!TextUtils.isEmpty(videoUrl)){
                         exoplaer(videoUrl);
                     }else {
@@ -352,7 +446,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     }
 
     private void exoplaer(String media_url) {
-        LogUtil.DefalutLog("status:" + status);
+        LogUtil.DefalutLog("exoplaer---status:" + status);
         hideProgressbar();
         if (status == 0) {
             status = 1;

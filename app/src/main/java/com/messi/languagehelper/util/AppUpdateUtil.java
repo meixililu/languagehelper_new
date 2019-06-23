@@ -28,6 +28,7 @@ public class AppUpdateUtil {
     public static void runCheckUpdateTask(final Activity mActivity) {
         checkUpdate(mActivity);
         initXMLY(mActivity);
+        ADUtil.initTXADID(mActivity);
     }
 
     public static void initXMLY(Activity mActivity){
