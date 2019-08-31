@@ -15,6 +15,13 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+#穿山甲sdk
+#-keep class com.bytedance.sdk.openadsdk.** { *; }
+#-keep public interface com.bytedance.sdk.openadsdk.downloadnew.** {*;}
+#-keep class com.ss.sys.ces.* {*;}
+#穿山甲sdk
+
 -optimizationpasses 5
 
 -assumenosideeffects class android.util.Log {

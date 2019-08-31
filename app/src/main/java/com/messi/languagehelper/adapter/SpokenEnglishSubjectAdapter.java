@@ -31,7 +31,7 @@ public class SpokenEnglishSubjectAdapter extends FragmentPagerAdapter {
         if( position == 0 ){
             return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,KeyUtil.RecentSpoken,"0");
         }else if( position == 1 ){
-            return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,KeyUtil.RecentSpoken,"2");
+            return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,KeyUtil.RecentSpoken,"1");
         }else if( position == 2 ){
             return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,KeyUtil.RecentSpoken,"2");
         }else if( position == 3 ){

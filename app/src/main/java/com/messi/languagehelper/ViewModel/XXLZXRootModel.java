@@ -342,32 +342,6 @@ public abstract class XXLZXRootModel {
     public static void initCSJVideoItem(View view,TTFeedAd ttFeedAd, FrameLayout ad_layout){
         initBaseItem(view,ttFeedAd,ad_layout);
         FrameLayout videoView = (FrameLayout) view.findViewById(R.id.iv_listitem_video);
-        ttFeedAd.setVideoAdListener(new TTFeedAd.VideoAdListener() {
-            @Override
-            public void onVideoLoad(TTFeedAd ad) {
-                LogUtil.DefalutLog("CSJVideo-onVideoLoad");
-            }
-
-            @Override
-            public void onVideoError(int errorCode, int extraCode) {
-                LogUtil.DefalutLog("CSJVideo-onVideoError");
-            }
-
-            @Override
-            public void onVideoAdStartPlay(TTFeedAd ad) {
-                LogUtil.DefalutLog("CSJVideo-onVideoAdStartPlay");
-            }
-
-            @Override
-            public void onVideoAdPaused(TTFeedAd ad) {
-                LogUtil.DefalutLog("CSJVideo-onVideoAdPaused");
-            }
-
-            @Override
-            public void onVideoAdContinuePlay(TTFeedAd ad) {
-                LogUtil.DefalutLog("CSJVideo-onVideoAdContinuePlay");
-            }
-        });
         View video = ttFeedAd.getAdView();
         if (video != null) {
             if (video.getParent() != null) {

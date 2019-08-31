@@ -79,7 +79,7 @@ public class ChPybsFragment extends BaseFragment {
         isRegisterBus = true;
         mList = new ArrayList<AVObject>();
         menuAdapter = new RcPybsMenuAdapter();
-        if(type.equals(pinyin)){
+        if(!TextUtils.isEmpty(type) && pinyin.equals(type)){
             menuAdapter.setItems(Arrays.asList(type_py));
         }else {
             menuAdapter.setItems(Arrays.asList(type_bs));

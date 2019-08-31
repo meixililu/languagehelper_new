@@ -96,8 +96,9 @@ public class TXADUtil {
                                      ViewGroup adContainer,
                                      View skipContainer,
                                      SplashADListener listener){
-        SplashAD splashAD = new SplashAD(activity, adContainer, skipContainer,
+        SplashAD splashAD = new SplashAD(activity, skipContainer,
                 TxAppId, TxAdKp, listener, 3000);
+        splashAD.fetchAndShowIn(adContainer);
     }
 
     public static void showCDT(Context activity,

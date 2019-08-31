@@ -441,6 +441,9 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
 
     private void exoplaer(String media_url) {
         hideProgressbar();
+        if(player == null){
+            player = ExoPlayerFactory.newSimpleInstance(this);
+        }
         DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this,
                 Util.getUserAgent(this, "LanguageHelper"));
         MediaSource videoSource = new ExtractorMediaSource.Factory(dataSourceFactory)

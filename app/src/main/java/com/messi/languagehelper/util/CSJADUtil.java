@@ -34,8 +34,12 @@ public class CSJADUtil {
     }
 
     public static void init(Context context) {
-        initData(context);
-        doInit(context);
+        try {
+            initData(context);
+            doInit(context);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     //step1:接入网盟广告sdk的初始化操作，详情见接入文档和穿山甲平台说明
