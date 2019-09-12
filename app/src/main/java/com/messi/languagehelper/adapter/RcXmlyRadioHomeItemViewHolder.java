@@ -13,7 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.XimalayaRadioDetailActivity;
 import com.messi.languagehelper.bean.RadioForAd;
@@ -75,7 +75,7 @@ public class RcXmlyRadioHomeItemViewHolder extends RecyclerView.ViewHolder {
                 ad_layout.addView(adView);
                 adView.render();
             }else {
-                final NativeADDataRef mNativeADDataRef = ((RadioForAd) mAVObject).getmNativeADDataRef();
+                final NativeDataRef mNativeADDataRef = ((RadioForAd) mAVObject).getmNativeADDataRef();
                 if (mNativeADDataRef != null) {
                     music_play_img.setVisibility(View.GONE);
                     title.setText(mNativeADDataRef.getTitle());
@@ -83,11 +83,11 @@ public class RcXmlyRadioHomeItemViewHolder extends RecyclerView.ViewHolder {
                     type_name.setText("");
                     source_name.setCompoundDrawables(null, null, null, null);
                     source_name.setText("广告");
-                    list_item_img.setImageURI(mNativeADDataRef.getImage());
+                    list_item_img.setImageURI(mNativeADDataRef.getImgUrl());
                     layout_cover.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            boolean adClick = mNativeADDataRef.onClicked(v);
+                            boolean adClick = mNativeADDataRef.onClick(v);
                             LogUtil.DefalutLog("adClick:" + adClick);
                         }
                     });

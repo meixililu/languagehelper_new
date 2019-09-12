@@ -9,7 +9,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.WebViewActivity;
 import com.messi.languagehelper.bean.TXNewsItem;
@@ -42,7 +42,7 @@ public class RcNewsListItemViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void render(final TXNewsItem mAVObject) {
-        final NativeADDataRef mNativeADDataRef = (NativeADDataRef) mAVObject.getmNativeADDataRef();
+        final NativeDataRef mNativeADDataRef = (NativeDataRef) mAVObject.getmNativeADDataRef();
         if(mNativeADDataRef == null){
             title.setText( mAVObject.getTitle() );
             source_name.setText( mAVObject.getDescription() );
@@ -62,15 +62,15 @@ public class RcNewsListItemViewHolder extends RecyclerView.ViewHolder {
             });
         }else{
             title.setText( mNativeADDataRef.getTitle() );
-            type_name.setText(mNativeADDataRef.getSubTitle());
+            type_name.setText(mNativeADDataRef.getDesc());
             source_name.setText("广告");
             list_item_img_parent.setVisibility(View.VISIBLE);
             list_item_img.setVisibility(View.VISIBLE);
-            list_item_img.setImageURI(mNativeADDataRef.getImage());
+            list_item_img.setImageURI(mNativeADDataRef.getImgUrl());
             layout_cover.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    boolean onClicked = mNativeADDataRef.onClicked(v);
+                    boolean onClicked = mNativeADDataRef.onClick(v);
                     LogUtil.DefalutLog("onClicked:"+onClicked);
                 }
             });

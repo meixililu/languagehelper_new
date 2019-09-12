@@ -20,11 +20,11 @@ import com.bytedance.sdk.openadsdk.TTSplashAd;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.iflytek.voiceads.AdError;
-import com.iflytek.voiceads.AdKeys;
 import com.iflytek.voiceads.IFLYNativeAd;
-import com.iflytek.voiceads.IFLYNativeListener;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.config.AdError;
+import com.iflytek.voiceads.config.AdKeys;
+import com.iflytek.voiceads.conn.NativeDataRef;
+import com.iflytek.voiceads.listener.IFLYNativeListener;
 import com.messi.languagehelper.event.KaipingPageEvent;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVAnalytics;
@@ -39,8 +39,6 @@ import com.messi.languagehelper.wxapi.YYJMainActivity;
 import com.qq.e.ads.splash.SplashADListener;
 
 import org.greenrobot.eventbus.EventBus;
-
-import java.util.List;
 
 public class KaipingModel {
 
@@ -133,22 +131,22 @@ public class KaipingModel {
     public void loadXFAD() {
         IFLYNativeAd nativeAd = new IFLYNativeAd(mContext, ADUtil.KaiPingYSAD, mListener);
         nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
-        nativeAd.loadAd(1);
+        nativeAd.loadAd();
     }
 
     IFLYNativeListener mListener = new IFLYNativeListener() {
         @Override
         public void onAdFailed(AdError error) { // 广告请求失败
+            LogUtil.DefalutLog("KaipingModel-onAdFailed"+error.getErrorCode());
             getAd();
         }
 
         @Override
-        public void onADLoaded(List<NativeADDataRef> lst) { // 广告请求成功
+        public void onAdLoaded(NativeDataRef nativeDataRef) {
             cancleRunable();
             onAdReceive();
-            setADData(lst);
+            setADData(nativeDataRef);
         }
-
         @Override
         public void onCancel() { // 下载类广告，下载提示框取消
             toNextPage();
@@ -167,22 +165,21 @@ public class KaipingModel {
         DelayToNextPage(4000);
     }
 
-    public void setADData(List<NativeADDataRef> lst) {
-        if (lst != null && lst.size() > 0) {
-            final NativeADDataRef mNativeADDataRef = lst.get(0);
+    public void setADData(NativeDataRef mNativeADDataRef) {
+        if (mNativeADDataRef != null) {
             if (mNativeADDataRef != null) {
                 setAD(mNativeADDataRef);
             }
         }
     }
 
-    public void setAD(final NativeADDataRef mNativeADDataRef) {
+    public void setAD(final NativeDataRef mNativeADDataRef) {
         DraweeController mDraweeController = Fresco.newDraweeControllerBuilder()
                 .setAutoPlayAnimations(true)
-                .setUri(Uri.parse(mNativeADDataRef.getImage()))
+                .setUri(Uri.parse(mNativeADDataRef.getImgUrl()))
                 .build();
         ad_img.setController(mDraweeController);
-        boolean loadingExposure = mNativeADDataRef.onExposured(ad_img);
+        boolean loadingExposure = mNativeADDataRef.onExposure(ad_img);
         LogUtil.DefalutLog("loadingExposure：" + loadingExposure);
         skip_view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -194,8 +191,8 @@ public class KaipingModel {
             @Override
             public void onClick(View view) {
                 onClickAd();
-                boolean onClicked = mNativeADDataRef.onClicked(view);
-                LogUtil.DefalutLog("onClicked:" + onClicked);
+                boolean onClicked = mNativeADDataRef.onClick(view);
+                LogUtil.DefalutLog("onClick:" + onClicked);
             }
         });
     }

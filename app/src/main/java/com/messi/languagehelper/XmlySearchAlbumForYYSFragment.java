@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.ViewModel.XXLForXMLYModel;
 import com.messi.languagehelper.adapter.RcXmlySearchAlbumAdapter;
 import com.messi.languagehelper.bean.AlbumForAd;
@@ -128,8 +128,8 @@ public class XmlySearchAlbumForYYSFragment extends BaseFragment {
                     if (mAVObject instanceof AlbumForAd) {
                         if(((AlbumForAd) mAVObject).getmNativeADDataRef() != null){
                             if (!((AlbumForAd) mAVObject).isAdShow()) {
-                                NativeADDataRef mNativeADDataRef = ((AlbumForAd) mAVObject).getmNativeADDataRef();
-                                boolean isExposure = mNativeADDataRef.onExposured(view.getChildAt(i % vCount));
+                                NativeDataRef mNativeADDataRef = ((AlbumForAd) mAVObject).getmNativeADDataRef();
+                                boolean isExposure = mNativeADDataRef.onExposure(view.getChildAt(i % vCount));
                                 LogUtil.DefalutLog("isExposure:" + isExposure);
                                 ((AlbumForAd) mAVObject).setAdShow(isExposure);
                             }

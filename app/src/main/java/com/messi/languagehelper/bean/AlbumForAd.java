@@ -2,7 +2,7 @@ package com.messi.languagehelper.bean;
 
 import com.baidu.mobads.AdView;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.qq.e.ads.nativ.NativeExpressADView;
 import com.ximalaya.ting.android.opensdk.model.album.Album;
 
@@ -14,7 +14,7 @@ public class AlbumForAd extends Album {
 
     private boolean isAd;
     private boolean isAdShow;
-    private NativeADDataRef mNativeADDataRef;
+    private NativeDataRef mNativeADDataRef;
     private NativeExpressADView mTXADView;
     private TTFeedAd csjTTFeedAd;
     private AdView bdAdView;
@@ -66,11 +66,11 @@ public class AlbumForAd extends Album {
         isAdShow = adShow;
     }
 
-    public NativeADDataRef getmNativeADDataRef() {
+    public NativeDataRef getmNativeADDataRef() {
         return mNativeADDataRef;
     }
 
-    public void setmNativeADDataRef(NativeADDataRef mNativeADDataRef) {
+    public void setmNativeADDataRef(NativeDataRef mNativeADDataRef) {
         this.mNativeADDataRef = mNativeADDataRef;
     }
 }

@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.ViewModel.XXLCNWBeanModel;
 import com.messi.languagehelper.adapter.RcNovelResultListAdapter;
 import com.messi.languagehelper.box.CNWBean;
@@ -80,8 +80,8 @@ public class NovelResultListActivity extends BaseActivity implements OnClickList
                     CNWBean mAVObject = mList.get(i);
                     if(mAVObject != null && mAVObject.getmNativeADDataRef() != null){
                         if(!mAVObject.isAdShow()){
-                            NativeADDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
-                            boolean isExposure = mNativeADDataRef.onExposured(view.getChildAt(i%vCount));
+                            NativeDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
+                            boolean isExposure = mNativeADDataRef.onExposure(view.getChildAt(i%vCount));
                             mAVObject.setAdShow(isExposure);
                             LogUtil.DefalutLog("isExposure:"+isExposure);
                         }

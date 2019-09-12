@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.ViewModel.XXLAVObjectModel;
 import com.messi.languagehelper.adapter.RcMomentsListAdapter;
 import com.messi.languagehelper.box.BoxHelper;
@@ -96,8 +96,8 @@ public class MomentsActivity extends BaseActivity {
                     AVObject mAVObject = avObjects.get(i);
                     if (mAVObject != null && mAVObject.get(KeyUtil.ADKey) != null) {
                         if (!(Boolean) mAVObject.get(KeyUtil.ADIsShowKey)) {
-                            NativeADDataRef mNativeADDataRef = (NativeADDataRef) mAVObject.get(KeyUtil.ADKey);
-                            boolean isExposure = mNativeADDataRef.onExposured(view.getChildAt(i % vCount));
+                            NativeDataRef mNativeADDataRef = (NativeDataRef) mAVObject.get(KeyUtil.ADKey);
+                            boolean isExposure = mNativeADDataRef.onExposure(view.getChildAt(i % vCount));
                             LogUtil.DefalutLog("isExposure:" + isExposure);
                             if (isExposure) {
                                 mAVObject.put(KeyUtil.ADIsShowKey, isExposure);

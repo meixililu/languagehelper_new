@@ -1,6 +1,7 @@
 package com.messi.languagehelper.bean;
 
-import com.iflytek.voiceads.NativeADDataRef;
+
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.qq.e.ads.nativ.NativeExpressADView;
 import com.ximalaya.ting.android.opensdk.model.live.radio.Radio;
 
@@ -12,7 +13,7 @@ public class RadioForAd extends Radio {
 
     private boolean isAd;
     private boolean isAdShow;
-    private NativeADDataRef mNativeADDataRef;
+    private NativeDataRef mNativeADDataRef;
     private NativeExpressADView mTXADView;
 
     public NativeExpressADView getmTXADView() {
@@ -38,11 +39,11 @@ public class RadioForAd extends Radio {
         isAdShow = adShow;
     }
 
-    public NativeADDataRef getmNativeADDataRef() {
+    public NativeDataRef getmNativeADDataRef() {
         return mNativeADDataRef;
     }
 
-    public void setmNativeADDataRef(NativeADDataRef mNativeADDataRef) {
+    public void setmNativeADDataRef(NativeDataRef mNativeADDataRef) {
         this.mNativeADDataRef = mNativeADDataRef;
     }
 }

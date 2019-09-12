@@ -5,18 +5,21 @@ import android.text.TextUtils;
 import android.view.View;
 
 import com.avos.avoscloud.AVObject;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.bean.AdAudio;
+import com.iflytek.voiceads.bean.AudioMonitor;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.LogUtil;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by luli on 14/12/2017.
  */
 
-public class NativeADDataRefForZYHY extends NativeADDataRef {
+public class NativeADDataRefForZYHY extends NativeDataRef {
 
     private Context context;
     private String title;
@@ -67,8 +70,18 @@ public class NativeADDataRefForZYHY extends NativeADDataRef {
     }
 
     @Override
-    public String getAdtype() {
-        return "";
+    public String getRequestID() {
+        return null;
+    }
+
+    @Override
+    public int getTemplateID() {
+        return 0;
+    }
+
+    @Override
+    public int getActionType() {
+        return 0;
     }
 
     @Override
@@ -77,44 +90,43 @@ public class NativeADDataRefForZYHY extends NativeADDataRef {
     }
 
     @Override
+    public String getImgUrl() {
+        return null;
+    }
+
+    @Override
+    public String getIconUrl() {
+        return null;
+    }
+
+    @Override
     public String getTitle() {
         return title;
     }
 
     @Override
-    public String getSubTitle() {
-        return sub_title;
-    }
-
-    @Override
-    public String getExplain() {
+    public String getDesc() {
         return null;
     }
 
     @Override
-    public String getImage() {
-        return img;
+    public String getContent() {
+        return null;
     }
 
     @Override
-    public String getIcon() {
-        return "";
+    public String getBrand() {
+        return null;
     }
 
     @Override
-    public ArrayList<String> getImgUrls() {
-        return imgs;
+    public String getCtatext() {
+        return null;
     }
 
     @Override
-    public boolean onExposured(View view) {
-        LogUtil.DefalutLog("NativeADDataRefForZYHY---onExposured");
-        return true;
-    }
-
-    @Override
-    public boolean onClicked(View view) {
-        LogUtil.DefalutLog("NativeADDataRefForZYHY---onClicked");
+    public boolean onClick(View view) {
+        LogUtil.DefalutLog("NativeADDataRefForZYHY---onClick");
         if("app".equals(ad_type)){
             ADUtil.showDownloadAppDialog(context,url);
         }else {
@@ -126,10 +138,25 @@ public class NativeADDataRefForZYHY extends NativeADDataRef {
         }
         return false;
     }
+
+    @Override
+    public boolean onExposure(View view) {
+        LogUtil.DefalutLog("NativeADDataRefForZYHY---onExposure");
+        return true;
+    }
+
     @Override
     public boolean isExposured() {
         LogUtil.DefalutLog("NativeADDataRefForZYHY---isExposured");
         return true;
+    }
+
+    @Override
+    public void showIntroduce() {
+    }
+
+    @Override
+    public void downloadApp() {
     }
 
     private void updateDownloadTime(){
@@ -140,6 +167,81 @@ public class NativeADDataRefForZYHY extends NativeADDataRef {
 
     public static ADBuilder create(){
         return new ADBuilder();
+    }
+
+    @Override
+    public List<String> getImgList() {
+        return null;
+    }
+
+    @Override
+    public String getAppName() {
+        return null;
+    }
+
+    @Override
+    public int getDownloads() {
+        return 0;
+    }
+
+    @Override
+    public String getRating() {
+        return null;
+    }
+
+    @Override
+    public String getAppVer() {
+        return null;
+    }
+
+    @Override
+    public double getAppSize() {
+        return 0;
+    }
+
+    @Override
+    public String getPhone() {
+        return null;
+    }
+
+    @Override
+    public int getLikes() {
+        return 0;
+    }
+
+    @Override
+    public double getOriginalPrice() {
+        return 0;
+    }
+
+    @Override
+    public double getCurrentPrice() {
+        return 0;
+    }
+
+    @Override
+    public String getSponsored() {
+        return null;
+    }
+
+    @Override
+    public String getAddress() {
+        return null;
+    }
+
+    @Override
+    public ArrayList<String> getDisplayLabels() {
+        return null;
+    }
+
+    @Override
+    public AdAudio getAdAudio() {
+        return null;
+    }
+
+    @Override
+    public AudioMonitor getAudioMonitor() {
+        return null;
     }
 
 

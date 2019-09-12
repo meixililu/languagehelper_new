@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.WebViewActivity;
 import com.messi.languagehelper.bean.TXNewsItem;
@@ -65,7 +65,7 @@ public class NewsAdapter extends BaseAdapter {
 			holder = (ViewHolder) convertView.getTag();
 		}
 		final TXNewsItem mAVObject = avObjects.get(position);
-		final NativeADDataRef mNativeADDataRef = (NativeADDataRef) mAVObject.getmNativeADDataRef();
+		final NativeDataRef mNativeADDataRef = (NativeDataRef) mAVObject.getmNativeADDataRef();
 		if(mNativeADDataRef == null){
 			holder.title.setText( mAVObject.getTitle() );
 			holder.source_name.setText( mAVObject.getDescription() );
@@ -87,18 +87,18 @@ public class NewsAdapter extends BaseAdapter {
 				}
 			});
 		}else{
-			holder.title.setText( mNativeADDataRef.getSubTitle() );
-			holder.type_name.setText(mNativeADDataRef.getTitle());
+			holder.title.setText( mNativeADDataRef.getTitle() );
+			holder.type_name.setText(mNativeADDataRef.getDesc());
 			holder.source_name.setText("广告");
 			holder.list_item_img_parent.setVisibility(View.VISIBLE);
 			holder.list_item_img.setVisibility(View.VISIBLE);
 			Glide.with(context)
-			.load(mNativeADDataRef.getImage())
+			.load(mNativeADDataRef.getImgUrl())
 			.into(holder.list_item_img);
 			holder.layout_cover.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					boolean onClicked = mNativeADDataRef.onClicked(v);
+					boolean onClicked = mNativeADDataRef.onClick(v);
 					LogUtil.DefalutLog("onClicked:"+onClicked);
 				}
 			});

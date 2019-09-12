@@ -12,7 +12,7 @@ import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.ViewModel.XXLAVObjectZXModel;
 import com.messi.languagehelper.adapter.RcXVideoAdapter;
@@ -114,8 +114,8 @@ public class XVideoFragment extends BaseFragment{
                     AVObject mAVObject = mList.get(i);
                     if(mAVObject != null && mAVObject.get(KeyUtil.ADKey) != null){
                         if(!(Boolean) mAVObject.get(KeyUtil.ADIsShowKey)){
-                            NativeADDataRef mNativeADDataRef = (NativeADDataRef) mAVObject.get(KeyUtil.ADKey);
-                            boolean isExposure = mNativeADDataRef.onExposured(view.getChildAt(i%vCount));
+                            NativeDataRef mNativeADDataRef = (NativeDataRef) mAVObject.get(KeyUtil.ADKey);
+                            boolean isExposure = mNativeADDataRef.onExposure(view.getChildAt(i%vCount));
                             LogUtil.DefalutLog("isExposure:"+isExposure);
                             if(isExposure){
                                 mAVObject.put(KeyUtil.ADIsShowKey, isExposure);

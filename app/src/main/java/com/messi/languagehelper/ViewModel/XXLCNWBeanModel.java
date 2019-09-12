@@ -5,7 +5,7 @@ import android.text.TextUtils;
 
 import com.baidu.mobads.AdView;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.box.CNWBean;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -59,7 +59,7 @@ public class XXLCNWBeanModel extends XXLRootModel{
     }
 
     @Override
-    public void addXFAD(NativeADDataRef nad) {
+    public void addXFAD(NativeDataRef nad) {
         mADObject = new CNWBean();
         mADObject.setmNativeADDataRef(nad);
         mADObject.setAdShow(false);

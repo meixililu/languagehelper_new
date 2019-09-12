@@ -22,11 +22,11 @@ import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.iflytek.voiceads.AdError;
-import com.iflytek.voiceads.AdKeys;
 import com.iflytek.voiceads.IFLYNativeAd;
-import com.iflytek.voiceads.IFLYNativeListener;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.config.AdError;
+import com.iflytek.voiceads.config.AdKeys;
+import com.iflytek.voiceads.conn.NativeDataRef;
+import com.iflytek.voiceads.listener.IFLYNativeListener;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.BDADUtil;
@@ -115,26 +115,22 @@ public abstract class XXLRootModel {
             }
 
             @Override
-            public void onAdFailed(AdError arg0) {
-                LogUtil.DefalutLog("XXLModel-onAdFailed");
-                onLoadAdFaile();
+            public void onAdLoaded(NativeDataRef nativeDataRef) {
+                addXFAD(nativeDataRef);
+                addAD();
             }
 
             @Override
-            public void onADLoaded(List<NativeADDataRef> adList) {
-                LogUtil.DefalutLog("XXLModel-XFonADLoaded");
-                if (adList != null && adList.size() > 0) {
-                    NativeADDataRef nad = adList.get(0);
-                    addXFAD(nad);
-                    addAD();
-                }
+            public void onAdFailed(AdError arg0) {
+                LogUtil.DefalutLog("XXLModel-onAdFailed"+arg0.getErrorCode());
+                onLoadAdFaile();
             }
         });
         nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
-        nativeAd.loadAd(1);
+        nativeAd.loadAd();
     }
 
-    public abstract void addXFAD(NativeADDataRef nad);
+    public abstract void addXFAD(NativeDataRef nad);
 
     public void loadTXAD() {
         TXADUtil.showXXLAD(mContext,TXADType, new NativeExpressAD.NativeExpressADListener() {

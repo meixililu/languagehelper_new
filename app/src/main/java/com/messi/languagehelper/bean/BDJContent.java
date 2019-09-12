@@ -1,6 +1,7 @@
 package com.messi.languagehelper.bean;
 
-import com.iflytek.voiceads.NativeADDataRef;
+
+import com.iflytek.voiceads.conn.NativeDataRef;
 
 public class BDJContent {
 	private String create_time;
@@ -43,7 +44,7 @@ public class BDJContent {
 
 	private String width;
 
-	private NativeADDataRef mNativeADDataRef;
+	private NativeDataRef mNativeADDataRef;
 
 	private boolean isHasShowAD;
 
@@ -55,11 +56,11 @@ public class BDJContent {
 		isHasShowAD = hasShowAD;
 	}
 
-	public NativeADDataRef getmNativeADDataRef() {
+	public NativeDataRef getmNativeADDataRef() {
 		return mNativeADDataRef;
 	}
 
-	public void setmNativeADDataRef(NativeADDataRef mNativeADDataRef) {
+	public void setmNativeADDataRef(NativeDataRef mNativeADDataRef) {
 		this.mNativeADDataRef = mNativeADDataRef;
 	}
 

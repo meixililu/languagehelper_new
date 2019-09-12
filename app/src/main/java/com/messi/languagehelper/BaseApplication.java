@@ -6,6 +6,7 @@ import android.support.multidex.MultiDexApplication;
 
 import com.avos.avoscloud.AVOSCloud;
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.iflytek.voiceads.dex.DexLoader;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.dao.DaoMaster;
 import com.messi.languagehelper.dao.DaoSession;
@@ -59,6 +60,7 @@ public class BaseApplication extends MultiDexApplication {
                 }
                 try {
                     YouDaoApplication.init(BaseApplication.this, Setings.YoudaoApiKey);
+                    DexLoader.initIFLYADModule(BaseApplication.this);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

@@ -17,11 +17,11 @@ import com.bytedance.sdk.openadsdk.TTAdDislike;
 import com.bytedance.sdk.openadsdk.TTAdNative;
 import com.bytedance.sdk.openadsdk.TTBannerAd;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.iflytek.voiceads.AdError;
-import com.iflytek.voiceads.AdKeys;
 import com.iflytek.voiceads.IFLYNativeAd;
-import com.iflytek.voiceads.IFLYNativeListener;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.config.AdError;
+import com.iflytek.voiceads.config.AdKeys;
+import com.iflytek.voiceads.conn.NativeDataRef;
+import com.iflytek.voiceads.listener.IFLYNativeListener;
 import com.messi.languagehelper.R;
 import com.qq.e.ads.nativ.NativeExpressAD;
 import com.qq.e.ads.nativ.NativeExpressADView;
@@ -37,7 +37,7 @@ public class XFYSAD {
 	private FrameLayout ad_layout;
 	private TextView ad_sign;
 	private IFLYNativeAd nativeAd;
-	private NativeADDataRef mNativeADDataRef;
+	private NativeDataRef mNativeADDataRef;
 	private NativeExpressADView mTXADView;
 	private SimpleDraweeView ad_img;
 	private LayoutInflater mInflater;
@@ -195,16 +195,15 @@ public class XFYSAD {
 				onLoadAdFaile();
 			}
 			@Override
-			public void onADLoaded(List<NativeADDataRef> arg0) {
-				LogUtil.DefalutLog("---onADLoaded---");
-				if(arg0 != null && arg0.size() > 0){
-					mNativeADDataRef = arg0.get(0);
+			public void onAdLoaded(NativeDataRef nativeDataRef) {
+				if(nativeDataRef != null){
+					mNativeADDataRef = nativeDataRef;
 					setAdData(mNativeADDataRef);
 				}
 			}
 		});
 		nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
-		nativeAd.loadAd(ADUtil.adCount);
+		nativeAd.loadAd();
 	}
 
 	public void loadXBKJ() {
@@ -213,20 +212,20 @@ public class XFYSAD {
 		}
 	}
 	
-	private void setAdData(NativeADDataRef mNativeADDataRef){
+	private void setAdData(NativeDataRef mNativeADDataRef){
 		try {
 			ad_sign.setVisibility(View.VISIBLE);
 			ad_layout.setVisibility(View.GONE);
 			parentView.setVisibility(View.VISIBLE);
-			ad_img.setImageURI(mNativeADDataRef.getImage());
+			ad_img.setImageURI(mNativeADDataRef.getImgUrl());
 			if(isDirectExPosure){
-                exposure = mNativeADDataRef.onExposured(parentView);
+                exposure = mNativeADDataRef.onExposure(parentView);
                 LogUtil.DefalutLog("XFYSAD-setAdData-exposure:"+exposure);
             }
 			parentView.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    boolean click = mNativeADDataRef.onClicked(view);
+                    boolean click = mNativeADDataRef.onClick(view);
                     LogUtil.DefalutLog("XFYSAD-onClick:"+click);
                 }
             });
@@ -343,7 +342,7 @@ public class XFYSAD {
 
 	public void ExposureAD(){
 		if(!exposure){
-			exposure = mNativeADDataRef.onExposured(parentView);
+			exposure = mNativeADDataRef.onExposure(parentView);
 			LogUtil.DefalutLog("XFYSAD-ExposureAD-exposure:"+exposure);
 		}
 	}

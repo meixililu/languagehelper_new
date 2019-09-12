@@ -7,11 +7,11 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 
 import com.google.gson.reflect.TypeToken;
-import com.iflytek.voiceads.AdError;
-import com.iflytek.voiceads.AdKeys;
 import com.iflytek.voiceads.IFLYNativeAd;
-import com.iflytek.voiceads.IFLYNativeListener;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.config.AdError;
+import com.iflytek.voiceads.config.AdKeys;
+import com.iflytek.voiceads.conn.NativeDataRef;
+import com.iflytek.voiceads.listener.IFLYNativeListener;
 import com.messi.languagehelper.adapter.RcXmlyRadioProvinceAdapter;
 import com.messi.languagehelper.bean.RadioForAd;
 import com.messi.languagehelper.impl.AdapterStringListener;
@@ -184,8 +184,8 @@ public class XimalayaRadioProvinceActivity extends BaseActivity implements Adapt
                     if (mAVObject instanceof RadioForAd) {
                         if(((RadioForAd) mAVObject).getmNativeADDataRef() != null){
                             if (!((RadioForAd) mAVObject).isAdShow()) {
-                                NativeADDataRef mNativeADDataRef = ((RadioForAd) mAVObject).getmNativeADDataRef();
-                                boolean isExposure = mNativeADDataRef.onExposured(view.getChildAt(i % vCount));
+                                NativeDataRef mNativeADDataRef = ((RadioForAd) mAVObject).getmNativeADDataRef();
+                                boolean isExposure = mNativeADDataRef.onExposure(view.getChildAt(i % vCount));
                                 LogUtil.DefalutLog("isExposure:" + isExposure);
                                 if(isExposure){
                                     ((RadioForAd) mAVObject).setAdShow(isExposure);
@@ -317,20 +317,18 @@ public class XimalayaRadioProvinceActivity extends BaseActivity implements Adapt
                     onADFaile();
                 }
             }
-
             @Override
-            public void onADLoaded(List<NativeADDataRef> adList) {
-                if (adList != null && adList.size() > 0) {
-                    NativeADDataRef nad = adList.get(0);
-                    addXFAD(nad);
+            public void onAdLoaded(NativeDataRef nativeDataRef) {
+                if(nativeDataRef != null){
+                    addXFAD(nativeDataRef);
                 }
             }
         });
         nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
-        nativeAd.loadAd(1);
+        nativeAd.loadAd();
     }
 
-    private void addXFAD(NativeADDataRef nad){
+    private void addXFAD(NativeDataRef nad){
         mADObject = new RadioForAd();
         mADObject.setmNativeADDataRef(nad);
         mADObject.setAd(true);
@@ -341,7 +339,7 @@ public class XimalayaRadioProvinceActivity extends BaseActivity implements Adapt
 
     private void onADFaile(){
         if(ADUtil.isHasLocalAd()){
-            NativeADDataRef nad = ADUtil.getRandomAd(this);
+            NativeDataRef nad = ADUtil.getRandomAd(this);
             addXFAD(nad);
         }
     }

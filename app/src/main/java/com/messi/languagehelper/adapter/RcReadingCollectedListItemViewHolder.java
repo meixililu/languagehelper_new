@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.ReadDetailTouTiaoActivity;
 import com.messi.languagehelper.ReadingDetailActivity;
@@ -131,22 +131,22 @@ public class RcReadingCollectedListItemViewHolder extends RecyclerView.ViewHolde
                 }
             });
         }else{
-            final NativeADDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
+            final NativeDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
             if(mNativeADDataRef != null){
                 videoplayer.setVisibility(View.GONE);
                 music_play_img.setVisibility(View.GONE);
                 list_item_img_parent.setVisibility(View.VISIBLE);
                 list_item_img.setVisibility(View.VISIBLE);
-                title.setText( mNativeADDataRef.getSubTitle() );
-                type_name.setText(mNativeADDataRef.getTitle());
+                title.setText( mNativeADDataRef.getTitle() );
+                type_name.setText(mNativeADDataRef.getDesc());
                 source_name.setText("广告");
                 Glide.with(context)
-                        .load(mNativeADDataRef.getImage())
+                        .load(mNativeADDataRef.getImgUrl())
                         .into(list_item_img);
                 layout_cover.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        boolean onClicked = mNativeADDataRef.onClicked(v);
+                        boolean onClicked = mNativeADDataRef.onClick(v);
                         LogUtil.DefalutLog("onClicked:"+onClicked);
                     }
                 });

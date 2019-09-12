@@ -8,11 +8,11 @@ import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
-import com.iflytek.voiceads.AdError;
-import com.iflytek.voiceads.AdKeys;
 import com.iflytek.voiceads.IFLYNativeAd;
-import com.iflytek.voiceads.IFLYNativeListener;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.config.AdError;
+import com.iflytek.voiceads.config.AdKeys;
+import com.iflytek.voiceads.conn.NativeDataRef;
+import com.iflytek.voiceads.listener.IFLYNativeListener;
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.adapter.RcXVideoAdapter;
 import com.messi.languagehelper.util.ADUtil;
@@ -99,8 +99,8 @@ public class XVideoSearchResultActivity extends BaseActivity{
                     AVObject mAVObject = mList.get(i);
                     if(mAVObject != null && mAVObject.get(KeyUtil.ADKey) != null){
                         if(!(Boolean) mAVObject.get(KeyUtil.ADIsShowKey)){
-                            NativeADDataRef mNativeADDataRef = (NativeADDataRef) mAVObject.get(KeyUtil.ADKey);
-                            boolean isExposure = mNativeADDataRef.onExposured(view.getChildAt(i%vCount));
+                            NativeDataRef mNativeADDataRef = (NativeDataRef) mAVObject.get(KeyUtil.ADKey);
+                            boolean isExposure = mNativeADDataRef.onExposure(view.getChildAt(i%vCount));
                             LogUtil.DefalutLog("isExposure:"+isExposure);
                             if(isExposure){
                                 mAVObject.put(KeyUtil.ADIsShowKey, isExposure);
@@ -201,19 +201,17 @@ public class XVideoSearchResultActivity extends BaseActivity{
                 }
             }
             @Override
-            public void onADLoaded(List<NativeADDataRef> adList) {
-                LogUtil.DefalutLog("onADLoaded---");
-                if(adList != null && adList.size() > 0){
-                    NativeADDataRef nad = adList.get(0);
-                    addXFAD(nad);
+            public void onAdLoaded(NativeDataRef nativeDataRef) {
+                if(nativeDataRef != null){
+                    addXFAD(nativeDataRef);
                 }
             }
         });
         nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
-        nativeAd.loadAd(1);
+        nativeAd.loadAd();
     }
 
-    private void addXFAD(NativeADDataRef nad){
+    private void addXFAD(NativeDataRef nad){
         mADObject = new AVObject();
         mADObject.put(KeyUtil.ADKey, nad);
         mADObject.put(KeyUtil.ADIsShowKey, false);
@@ -224,7 +222,7 @@ public class XVideoSearchResultActivity extends BaseActivity{
 
     private void onADFaile(){
         if(ADUtil.isHasLocalAd()){
-            NativeADDataRef nad = ADUtil.getRandomAd(this);
+            NativeDataRef nad = ADUtil.getRandomAd(this);
             addXFAD(nad);
         }
     }

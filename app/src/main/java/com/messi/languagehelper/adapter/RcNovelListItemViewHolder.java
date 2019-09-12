@@ -12,7 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.WebViewWithCollectedActivity;
 import com.messi.languagehelper.box.CNWBean;
@@ -55,7 +55,7 @@ public class RcNovelListItemViewHolder extends RecyclerView.ViewHolder {
         ad_layout.setVisibility(View.GONE);
         img.setVisibility(View.GONE);
         content.setVisibility(View.GONE);
-        final NativeADDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
+        final NativeDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
         if(mNativeADDataRef == null){
             NativeExpressADView mADView = mAVObject.getmTXADView();
             if(mADView != null){
@@ -108,13 +108,13 @@ public class RcNovelListItemViewHolder extends RecyclerView.ViewHolder {
             content.setVisibility(View.VISIBLE);
             img.setVisibility(View.VISIBLE);
             name.setText(mNativeADDataRef.getTitle());
-            des.setText(mNativeADDataRef.getSubTitle()+"  广告");
+            des.setText(mNativeADDataRef.getDesc()+"  广告");
             img.setAspectRatio((float) 0.75);
-            img.setImageURI(Uri.parse(mNativeADDataRef.getImage()));
+            img.setImageURI(Uri.parse(mNativeADDataRef.getImgUrl()));
             img.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    boolean onClicked = mNativeADDataRef.onClicked(v);
+                    boolean onClicked = mNativeADDataRef.onClick(v);
                     LogUtil.DefalutLog("onClicked:"+onClicked);
                 }
             });

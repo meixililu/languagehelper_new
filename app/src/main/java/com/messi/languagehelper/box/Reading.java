@@ -3,7 +3,7 @@ package com.messi.languagehelper.box;
 import com.avos.avoscloud.AVObject;
 import com.baidu.mobads.AdView;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.qq.e.ads.nativ.NativeExpressADView;
 
 import java.util.List;
@@ -59,7 +59,7 @@ public class Reading {
     @Transient
     private boolean isAdShow;
     @Transient
-    private NativeADDataRef mNativeADDataRef;
+    private NativeDataRef mNativeADDataRef;
     @Transient
     private NativeExpressADView mTXADView;
     @Transient
@@ -175,11 +175,11 @@ public class Reading {
         isAd = ad;
     }
 
-    public NativeADDataRef getmNativeADDataRef() {
+    public NativeDataRef getmNativeADDataRef() {
         return mNativeADDataRef;
     }
 
-    public void setmNativeADDataRef(NativeADDataRef mNativeADDataRef) {
+    public void setmNativeADDataRef(NativeDataRef mNativeADDataRef) {
         this.mNativeADDataRef = mNativeADDataRef;
     }
     public Long getId() {

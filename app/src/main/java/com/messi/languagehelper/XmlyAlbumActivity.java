@@ -10,11 +10,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-import com.iflytek.voiceads.AdError;
-import com.iflytek.voiceads.AdKeys;
 import com.iflytek.voiceads.IFLYNativeAd;
-import com.iflytek.voiceads.IFLYNativeListener;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.config.AdError;
+import com.iflytek.voiceads.config.AdKeys;
+import com.iflytek.voiceads.conn.NativeDataRef;
+import com.iflytek.voiceads.listener.IFLYNativeListener;
 import com.messi.languagehelper.adapter.RcXmlyTagsAdapter;
 import com.messi.languagehelper.bean.AlbumForAd;
 import com.messi.languagehelper.util.ADUtil;
@@ -122,8 +122,8 @@ public class XmlyAlbumActivity extends BaseActivity implements OnClickListener{
 					if (mAVObject instanceof AlbumForAd) {
 						if(((AlbumForAd) mAVObject).getmNativeADDataRef() != null){
 							if(!((AlbumForAd)mAVObject).isAdShow()){
-								NativeADDataRef mNativeADDataRef = ((AlbumForAd)mAVObject).getmNativeADDataRef();
-								boolean isExposure = mNativeADDataRef.onExposured(view.getChildAt(i%vCount));
+								NativeDataRef mNativeADDataRef = ((AlbumForAd)mAVObject).getmNativeADDataRef();
+								boolean isExposure = mNativeADDataRef.onExposure(view.getChildAt(i%vCount));
 								LogUtil.DefalutLog("isExposure:"+isExposure);
 								if(isExposure){
 									((AlbumForAd)mAVObject).setAdShow(isExposure);
@@ -238,19 +238,17 @@ public class XmlyAlbumActivity extends BaseActivity implements OnClickListener{
 				}
 			}
 			@Override
-			public void onADLoaded(List<NativeADDataRef> adList) {
-				LogUtil.DefalutLog("onADLoaded---");
-				if(adList != null && adList.size() > 0){
-					NativeADDataRef nad = adList.get(0);
-					addXFAD(nad);
+			public void onAdLoaded(NativeDataRef nativeDataRef) {
+				if(nativeDataRef != null){
+					addXFAD(nativeDataRef);
 				}
 			}
 		});
 		nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
-		nativeAd.loadAd(1);
+		nativeAd.loadAd();
 	}
 
-	private void addXFAD(NativeADDataRef nad){
+	private void addXFAD(NativeDataRef nad){
 		mADObject = new AlbumForAd();
 		mADObject.setmNativeADDataRef(nad);
 		mADObject.setAd(true);
@@ -261,7 +259,7 @@ public class XmlyAlbumActivity extends BaseActivity implements OnClickListener{
 
 	private void onADFaile(){
 		if(ADUtil.isHasLocalAd()){
-			NativeADDataRef nad = ADUtil.getRandomAd(this);
+			NativeDataRef nad = ADUtil.getRandomAd(this);
 			addXFAD(nad);
 		}
 	}

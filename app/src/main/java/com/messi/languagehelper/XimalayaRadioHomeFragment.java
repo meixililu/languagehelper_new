@@ -10,11 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.gson.reflect.TypeToken;
-import com.iflytek.voiceads.AdError;
-import com.iflytek.voiceads.AdKeys;
 import com.iflytek.voiceads.IFLYNativeAd;
-import com.iflytek.voiceads.IFLYNativeListener;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.config.AdError;
+import com.iflytek.voiceads.config.AdKeys;
+import com.iflytek.voiceads.conn.NativeDataRef;
+import com.iflytek.voiceads.listener.IFLYNativeListener;
 import com.messi.languagehelper.adapter.RcXmlyRadioHomeAdapter;
 import com.messi.languagehelper.bean.RadioForAd;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
@@ -137,9 +137,9 @@ public class XimalayaRadioHomeFragment extends BaseFragment implements FragmentP
                     Radio mAVObject = radios.get(i);
                     if (mAVObject instanceof RadioForAd) {
                         if (!((RadioForAd) mAVObject).isAdShow()) {
-                            NativeADDataRef mNativeADDataRef = ((RadioForAd) mAVObject).getmNativeADDataRef();
+                            NativeDataRef mNativeADDataRef = ((RadioForAd) mAVObject).getmNativeADDataRef();
                             if(mNativeADDataRef != null){
-                                boolean isExposure = mNativeADDataRef.onExposured(view.getChildAt(i % vCount));
+                                boolean isExposure = mNativeADDataRef.onExposure(view.getChildAt(i % vCount));
                                 LogUtil.DefalutLog("isExposure:" + isExposure);
                                 if(isExposure){
                                     ((RadioForAd) mAVObject).setAdShow(isExposure);
@@ -273,21 +273,18 @@ public class XimalayaRadioHomeFragment extends BaseFragment implements FragmentP
                     onADFaile();
                 }
             }
-
             @Override
-            public void onADLoaded(List<NativeADDataRef> adList) {
-                LogUtil.DefalutLog("onADLoaded---");
-                if (adList != null && adList.size() > 0) {
-                    NativeADDataRef nad = adList.get(0);
-                    addXFAD(nad);
+            public void onAdLoaded(NativeDataRef nativeDataRef) {
+                if(nativeDataRef != null){
+                    addXFAD(nativeDataRef);
                 }
             }
         });
         nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
-        nativeAd.loadAd(1);
+        nativeAd.loadAd();
     }
 
-    private void addXFAD(NativeADDataRef nad){
+    private void addXFAD(NativeDataRef nad){
         mADObject = new RadioForAd();
         mADObject.setmNativeADDataRef(nad);
         mADObject.setAd(true);
@@ -298,7 +295,7 @@ public class XimalayaRadioHomeFragment extends BaseFragment implements FragmentP
 
     private void onADFaile(){
         if(ADUtil.isHasLocalAd()){
-            NativeADDataRef nad = ADUtil.getRandomAd(getActivity());
+            NativeDataRef nad = ADUtil.getRandomAd(getActivity());
             addXFAD(nad);
         }
     }

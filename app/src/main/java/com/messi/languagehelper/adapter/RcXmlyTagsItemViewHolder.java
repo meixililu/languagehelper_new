@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.baidu.mobads.AdView;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.ViewModel.XXLModel;
 import com.messi.languagehelper.XimalayaTrackListActivity;
@@ -93,7 +93,7 @@ public class RcXmlyTagsItemViewHolder extends RecyclerView.ViewHolder {
             }else {
                 list_item_img.setVisibility(View.VISIBLE);
                 source_layout.setVisibility(View.VISIBLE);
-                final NativeADDataRef mNativeADDataRef = ((AlbumForAd) mAVObject).getmNativeADDataRef();
+                final NativeDataRef mNativeADDataRef = ((AlbumForAd) mAVObject).getmNativeADDataRef();
                 if (mNativeADDataRef != null) {
                     title.setText(mNativeADDataRef.getTitle());
                     sub_title.setText("");
@@ -101,11 +101,11 @@ public class RcXmlyTagsItemViewHolder extends RecyclerView.ViewHolder {
                     type_name.setCompoundDrawables(null, null, null, null);
                     source_name.setCompoundDrawables(null, null, null, null);
                     source_name.setText("广告");
-                    list_item_img.setImageURI(mNativeADDataRef.getImage());
+                    list_item_img.setImageURI(mNativeADDataRef.getImgUrl());
                     layout_cover.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            boolean adClick = mNativeADDataRef.onClicked(v);
+                            boolean adClick = mNativeADDataRef.onClick(v);
                             LogUtil.DefalutLog("adClick:" + adClick);
                         }
                     });

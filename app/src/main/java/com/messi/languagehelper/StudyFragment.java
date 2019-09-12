@@ -16,7 +16,7 @@ import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.ViewModel.XXLModel;
 import com.messi.languagehelper.adapter.RcStudyListAdapter;
 import com.messi.languagehelper.bean.ReadingCategory;
@@ -171,8 +171,8 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
                         Reading mAVObject = avObjects.get(i);
                         if (mAVObject != null && mAVObject.isAd()) {
                             if (!mAVObject.isAdShow() && mAVObject.getmNativeADDataRef() != null) {
-                                NativeADDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
-                                boolean isExposure = mNativeADDataRef.onExposured(view.getChildAt(i % vCount));
+                                NativeDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
+                                boolean isExposure = mNativeADDataRef.onExposure(view.getChildAt(i % vCount));
                                 LogUtil.DefalutLog("isExposure:" + isExposure);
                                 if(isExposure){
                                     mAVObject.setAdShow(isExposure);
@@ -272,8 +272,6 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
             }else {
                 query.whereEqualTo(AVOUtil.Reading.category, category);
             }
-        }else {
-            query.whereNotEqualTo(AVOUtil.Reading.type, "video");
         }
         query.addDescendingOrder(AVOUtil.Reading.publish_time);
         query.skip(skip);

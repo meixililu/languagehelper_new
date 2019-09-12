@@ -1,12 +1,12 @@
 package com.messi.languagehelper.dao;
 
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.qq.e.ads.nativ.NativeExpressADView;
 
 import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Transient;
-import org.greenrobot.greendao.annotation.Generated;
 
 /**
  * Created by luli on 04/05/2017.
@@ -41,7 +41,7 @@ public class Avobject {
     @Transient
     private boolean isAdShow;
     @Transient
-    private NativeADDataRef mNativeADDataRef;
+    private NativeDataRef mNativeADDataRef;
     @Transient
     private NativeExpressADView mTXADView;
     @Generated(hash = 304265623)

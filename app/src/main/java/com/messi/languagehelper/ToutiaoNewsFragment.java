@@ -10,11 +10,11 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
 import com.alibaba.fastjson.JSON;
-import com.iflytek.voiceads.AdError;
-import com.iflytek.voiceads.AdKeys;
 import com.iflytek.voiceads.IFLYNativeAd;
-import com.iflytek.voiceads.IFLYNativeListener;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.config.AdError;
+import com.iflytek.voiceads.config.AdKeys;
+import com.iflytek.voiceads.conn.NativeDataRef;
+import com.iflytek.voiceads.listener.IFLYNativeListener;
 import com.messi.languagehelper.adapter.RcToutiaoListNewsAdapter;
 import com.messi.languagehelper.bean.ToutiaoNews;
 import com.messi.languagehelper.bean.ToutiaoNewsItem;
@@ -135,9 +135,9 @@ public class ToutiaoNewsFragment extends BaseFragment implements OnClickListener
                         ToutiaoNewsItem mAVObject = mWechatJXItem.get(i);
                         if (mAVObject != null && mAVObject.getmNativeADDataRef() != null) {
                             if (!mAVObject.isHasShowAD()) {
-                                NativeADDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
-                                boolean isShow = mNativeADDataRef.onExposured(view.getChildAt(i % vCount));
-                                LogUtil.DefalutLog("onExposured:"+isShow);
+                                NativeDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
+                                boolean isShow = mNativeADDataRef.onExposure(view.getChildAt(i % vCount));
+                                LogUtil.DefalutLog("onExposure:"+isShow);
                                 if(isShow){
                                     mAVObject.setHasShowAD(isShow);
                                 }
@@ -214,17 +214,14 @@ public class ToutiaoNewsFragment extends BaseFragment implements OnClickListener
             public void onAdFailed(AdError arg0) {
                 LogUtil.DefalutLog("onAdFailed---" + arg0.getErrorCode() + "---" + arg0.getErrorDescription());
                 if(ADUtil.isHasLocalAd()){
-                    onADLoaded(ADUtil.getRandomAdList(getActivity()));
+                    onAdLoaded(ADUtil.getRandomAdList(getActivity()));
                 }
             }
-
             @Override
-            public void onADLoaded(List<NativeADDataRef> adList) {
-                LogUtil.DefalutLog("onADLoaded---");
-                if (adList != null && adList.size() > 0) {
-                    NativeADDataRef nad = adList.get(0);
+            public void onAdLoaded(NativeDataRef nativeDataRef) {
+                if(nativeDataRef != null){
                     mADObject = new ToutiaoNewsItem();
-                    mADObject.setmNativeADDataRef(nad);
+                    mADObject.setmNativeADDataRef(nativeDataRef);
                     if (!loading) {
                         addAD();
                     }
@@ -232,7 +229,7 @@ public class ToutiaoNewsFragment extends BaseFragment implements OnClickListener
             }
         });
         nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
-        nativeAd.loadAd(1);
+        nativeAd.loadAd();
     }
 
     private boolean addAD() {

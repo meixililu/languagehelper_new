@@ -4,7 +4,7 @@ package com.messi.languagehelper.box;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.bean.MiaosouLinkBean;
 import com.qq.e.ads.nativ.NativeExpressADView;
 
@@ -61,7 +61,7 @@ public class CNWBean implements Parcelable {
     @Transient
     private boolean isAdShow;
     @Transient
-    private NativeADDataRef mNativeADDataRef;
+    private NativeDataRef mNativeADDataRef;
     @Transient
     private NativeExpressADView mTXADView;
     @Transient
@@ -331,11 +331,11 @@ public class CNWBean implements Parcelable {
         isAdShow = adShow;
     }
 
-    public NativeADDataRef getmNativeADDataRef() {
+    public NativeDataRef getmNativeADDataRef() {
         return mNativeADDataRef;
     }
 
-    public void setmNativeADDataRef(NativeADDataRef mNativeADDataRef) {
+    public void setmNativeADDataRef(NativeDataRef mNativeADDataRef) {
         this.mNativeADDataRef = mNativeADDataRef;
     }
 

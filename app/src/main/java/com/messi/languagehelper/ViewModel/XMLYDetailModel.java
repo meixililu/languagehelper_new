@@ -17,11 +17,11 @@ import com.bytedance.sdk.openadsdk.TTAdDislike;
 import com.bytedance.sdk.openadsdk.TTAdNative;
 import com.bytedance.sdk.openadsdk.TTBannerAd;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.iflytek.voiceads.AdError;
-import com.iflytek.voiceads.AdKeys;
 import com.iflytek.voiceads.IFLYNativeAd;
-import com.iflytek.voiceads.IFLYNativeListener;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.config.AdError;
+import com.iflytek.voiceads.config.AdKeys;
+import com.iflytek.voiceads.conn.NativeDataRef;
+import com.iflytek.voiceads.listener.IFLYNativeListener;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.BDADUtil;
 import com.messi.languagehelper.util.CSJADUtil;
@@ -127,20 +127,19 @@ public class XMLYDetailModel {
                 LogUtil.DefalutLog("XMLYDetailModel-onAdFailed");
                 getAd();
             }
-
             @Override
-            public void onADLoaded(List<NativeADDataRef> adList) {
-                LogUtil.DefalutLog("XMLYDetailModel-onADLoaded");
-                if (adList != null && adList.size() > 0) {
-                    setAd(adList.get(0));
+            public void onAdLoaded(NativeDataRef nativeDataRef) {
+                if(nativeDataRef != null){
+                    setAd(nativeDataRef);
                 }
             }
+
         });
         nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
-        nativeAd.loadAd(1);
+        nativeAd.loadAd();
     }
 
-    public void setAd(NativeADDataRef nad) {
+    public void setAd(NativeDataRef nad) {
         if (nad != null) {
             adImg.setVisibility(View.VISIBLE);
             adClose.setVisibility(View.VISIBLE);
@@ -148,14 +147,14 @@ public class XMLYDetailModel {
             ad_btn.setVisibility(View.VISIBLE);
             ad_layout.setVisibility(View.GONE);
             closeAdAuto();
-            adImg.setImageURI(nad.getImage());
+            adImg.setImageURI(nad.getImgUrl());
             adTitle.setText(nad.getTitle());
-            boolean isExposure = nad.onExposured(xx_ad_layout);
+            boolean isExposure = nad.onExposure(xx_ad_layout);
             LogUtil.DefalutLog("isExposure:" + isExposure);
             xx_ad_layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    nad.onClicked(xx_ad_layout);
+                    nad.onClick(xx_ad_layout);
                 }
             });
             adClose.setOnClickListener(new View.OnClickListener() {

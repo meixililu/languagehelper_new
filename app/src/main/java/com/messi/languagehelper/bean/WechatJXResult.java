@@ -1,6 +1,7 @@
 package com.messi.languagehelper.bean;
 
-import com.iflytek.voiceads.NativeADDataRef;
+
+import com.iflytek.voiceads.conn.NativeDataRef;
 
 public class WechatJXResult {
 
@@ -14,7 +15,7 @@ public class WechatJXResult {
 
 	private String url;
 
-	private NativeADDataRef mNativeADDataRef;
+	private NativeDataRef mNativeADDataRef;
 
 	private boolean isHasShowAD;
 
@@ -66,11 +67,11 @@ public class WechatJXResult {
 		this.url = url;
 	}
 
-	public NativeADDataRef getmNativeADDataRef() {
+	public NativeDataRef getmNativeADDataRef() {
 		return mNativeADDataRef;
 	}
 
-	public void setmNativeADDataRef(NativeADDataRef mNativeADDataRef) {
+	public void setmNativeADDataRef(NativeDataRef mNativeADDataRef) {
 		this.mNativeADDataRef = mNativeADDataRef;
 	}
 

@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.ViewModel.XXLModel;
 import com.messi.languagehelper.adapter.RcReadingListAdapter;
 import com.messi.languagehelper.box.BoxHelper;
@@ -149,8 +149,8 @@ public class ReadingToolbarFragment extends BaseFragment implements OnClickListe
 					Reading mAVObject = avObjects.get(i);
 					if(mAVObject != null && mAVObject.isAd()){
 						if(!mAVObject.isAdShow()){
-							NativeADDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
-							boolean isExposure = mNativeADDataRef.onExposured(view.getChildAt(i%vCount));
+							NativeDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
+							boolean isExposure = mNativeADDataRef.onExposure(view.getChildAt(i%vCount));
 							LogUtil.DefalutLog("isExposure:"+isExposure);
 							if(isExposure){
 								mAVObject.setAdShow(isExposure);

@@ -12,7 +12,7 @@ import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.ViewModel.XXLCNWBeanModel;
 import com.messi.languagehelper.adapter.RcCaricatureCategoryAdapter;
@@ -108,8 +108,8 @@ public class CaricatureCategoryFragment extends BaseFragment implements AdapterS
                     CNWBean mAVObject = mList.get(i);
                     if(mAVObject != null && mAVObject.getmNativeADDataRef() != null){
                         if(!mAVObject.isAdShow()){
-                            NativeADDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
-                            boolean isExposure = mNativeADDataRef.onExposured(view.getChildAt(i%vCount));
+                            NativeDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
+                            boolean isExposure = mNativeADDataRef.onExposure(view.getChildAt(i%vCount));
                             mAVObject.setAdShow(isExposure);
                             LogUtil.DefalutLog("isExposure:"+isExposure);
                         }

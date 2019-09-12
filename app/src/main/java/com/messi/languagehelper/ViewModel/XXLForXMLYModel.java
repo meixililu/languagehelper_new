@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.baidu.mobads.AdView;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.bean.AlbumForAd;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Setings;
@@ -20,7 +20,7 @@ public class XXLForXMLYModel extends XXLRootModel{
     }
 
     @Override
-    public void addXFAD(NativeADDataRef nad) {
+    public void addXFAD(NativeDataRef nad) {
         mADObject = new AlbumForAd();
         mADObject.setmNativeADDataRef(nad);
         mADObject.setAd(true);

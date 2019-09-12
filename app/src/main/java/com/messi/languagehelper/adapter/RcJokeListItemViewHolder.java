@@ -18,7 +18,7 @@ import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.ViewModel.XXLModel;
 import com.messi.languagehelper.WebViewActivity;
@@ -61,15 +61,15 @@ public class RcJokeListItemViewHolder extends RecyclerView.ViewHolder {
         ad_layout.setVisibility(View.GONE);
         des.setText("");
         if(mAVObject.get(KeyUtil.ADKey) != null) {
-            final NativeADDataRef mNativeADDataRef = (NativeADDataRef) mAVObject.get(KeyUtil.ADKey);
+            final NativeDataRef mNativeADDataRef = (NativeDataRef) mAVObject.get(KeyUtil.ADKey);
             des.setText(mNativeADDataRef.getTitle()+"  广告");
             list_item_img.setAspectRatio((float) 1.5);
             list_item_img.setVisibility(View.VISIBLE);
-            list_item_img.setImageURI(Uri.parse(mNativeADDataRef.getImage()));
+            list_item_img.setImageURI(Uri.parse(mNativeADDataRef.getImgUrl()));
             list_item_img.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    boolean onClicked = mNativeADDataRef.onClicked(v);
+                    boolean onClicked = mNativeADDataRef.onClick(v);
                     LogUtil.DefalutLog("onClicked:"+onClicked);
                 }
             });

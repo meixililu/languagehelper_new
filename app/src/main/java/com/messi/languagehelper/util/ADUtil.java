@@ -12,7 +12,7 @@ import android.text.TextUtils;
 
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.WebViewActivity;
 import com.messi.languagehelper.bean.NativeADDataRefForZYHY;
@@ -46,7 +46,7 @@ public class ADUtil {
 
 	public static boolean IsShowAD = true;
 
-	public static List<NativeADDataRef> localAd = new ArrayList<NativeADDataRef>();
+	public static List<NativeDataRef> localAd = new ArrayList<NativeDataRef>();
 
 	public static final String KaiPingADId = "E170E50B2CBFE09CFE53F6D0A446560C";
 	public static final String BannerADId = "A16A4713FB525DECF20126886F957534";
@@ -253,7 +253,7 @@ public class ADUtil {
 		}
 	}
 
-	public static NativeADDataRef getRandomAd(Context mActivity){
+	public static NativeDataRef getRandomAd(Context mActivity){
 		if(localAd != null && localAd.size() > 0){
 			NativeADDataRefForZYHY mNad = (NativeADDataRefForZYHY)localAd.get( new Random().nextInt(localAd.size()) );
 			if(mNad != null){
@@ -264,13 +264,11 @@ public class ADUtil {
 		return null;
 	}
 
-	public static List<NativeADDataRef> getRandomAdList(Activity mActivity){
+	public static NativeDataRef getRandomAdList(Activity mActivity){
 		if(localAd != null && localAd.size() > 0){
-			List<NativeADDataRef> list = new ArrayList<NativeADDataRef>();
 			NativeADDataRefForZYHY local = (NativeADDataRefForZYHY)localAd.get( new Random().nextInt(localAd.size()) );
 			local.setContext(mActivity);
-			list.add(local);
-			return list;
+			return local;
 		}else {
 			return null;
 		}

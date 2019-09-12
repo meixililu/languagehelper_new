@@ -115,7 +115,9 @@
             android:name="IFLYTEK_CHANNEL"
             android:value="messi" />
 
-        <service android:name="com.iflytek.voiceads.update.DownloadService" />
+        <service
+            android:name="com.iflytek.voiceads.download.DownloadService"
+            android:stopWithTask="true" />
 
         <activity
             android:name="com.iflytek.voiceads.request.IFLYBrowser"

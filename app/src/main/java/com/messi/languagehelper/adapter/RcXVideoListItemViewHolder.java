@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.avos.avoscloud.AVObject;
 import com.bytedance.sdk.openadsdk.TTDrawFeedAd;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.XVideoDetailActivity;
 import com.messi.languagehelper.util.AVOUtil;
@@ -53,7 +53,7 @@ public class RcXVideoListItemViewHolder extends RecyclerView.ViewHolder {
         ad_layout.setVisibility(View.GONE);
         img.setVisibility(View.VISIBLE);
         name.setVisibility(View.VISIBLE);
-        final NativeADDataRef mNativeADDataRef = (NativeADDataRef) mAVObject.get(KeyUtil.ADKey);
+        final NativeDataRef mNativeADDataRef = (NativeDataRef) mAVObject.get(KeyUtil.ADKey);
         if(mNativeADDataRef == null){
             NativeExpressADView mADView = (NativeExpressADView) mAVObject.get(KeyUtil.TXADView);
             if(mADView != null){
@@ -92,11 +92,11 @@ public class RcXVideoListItemViewHolder extends RecyclerView.ViewHolder {
         }else{
             name.setText(mNativeADDataRef.getTitle()+"  广告");
             img.setAspectRatio((float) 0.56);
-            img.setImageURI(Uri.parse(mNativeADDataRef.getImage()));
+            img.setImageURI(Uri.parse(mNativeADDataRef.getImgUrl()));
             img.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    boolean onClicked = mNativeADDataRef.onClicked(v);
+                    boolean onClicked = mNativeADDataRef.onClick(v);
                     LogUtil.DefalutLog("onClicked:"+onClicked);
                 }
             });

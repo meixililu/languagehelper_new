@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.avos.avoscloud.AVObject;
 import com.baidu.mobads.AdView;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -61,7 +61,7 @@ public class XXLAVObjectZXModel extends XXLZXRootModel{
     }
 
     @Override
-    public void addXFAD(NativeADDataRef nad) {
+    public void addXFAD(NativeDataRef nad) {
         mADObject = new AVObject();
         mADObject.put(KeyUtil.ADKey, nad);
         mADObject.put(KeyUtil.ADIsShowKey, false);

@@ -16,7 +16,7 @@ import android.widget.TextView;
 import com.avos.avoscloud.AVObject;
 import com.baidu.mobads.AdView;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.ReadDetailTouTiaoActivity;
 import com.messi.languagehelper.ReadingDetailActivity;
@@ -223,30 +223,30 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
             }
         }else{
             item_layout.setVisibility(View.VISIBLE);
-            final NativeADDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
+            final NativeDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
             if(mNativeADDataRef != null){
                 title.setTextColor(context.getResources().getColor(R.color.text_dark));
                 videoplayer_cover.setVisibility(View.GONE);
                 music_play_img.setVisibility(View.GONE);
                 title.setText( mNativeADDataRef.getTitle() );
-                type_name.setText(mNativeADDataRef.getSubTitle());
+                type_name.setText(mNativeADDataRef.getDesc());
                 source_name.setText("广告");
-                if(mNativeADDataRef.getImgUrls() != null && mNativeADDataRef.getImgUrls().size() > 2){
+                if(mNativeADDataRef.getImgList() != null && mNativeADDataRef.getImgList().size() > 2){
                     imgs_layout.setVisibility(View.VISIBLE);
                     list_item_img_parent.setVisibility(View.GONE);
                     list_item_img.setVisibility(View.GONE);
-                    imgs_1.setImageURI(mNativeADDataRef.getImgUrls().get(0));
-                    imgs_2.setImageURI(mNativeADDataRef.getImgUrls().get(1));
-                    imgs_3.setImageURI(mNativeADDataRef.getImgUrls().get(2));
+                    imgs_1.setImageURI(mNativeADDataRef.getImgList().get(0));
+                    imgs_2.setImageURI(mNativeADDataRef.getImgList().get(1));
+                    imgs_3.setImageURI(mNativeADDataRef.getImgList().get(2));
                 }else {
                     list_item_img_parent.setVisibility(View.VISIBLE);
                     list_item_img.setVisibility(View.VISIBLE);
-                    list_item_img.setImageURI(mNativeADDataRef.getImage());
+                    list_item_img.setImageURI(mNativeADDataRef.getImgUrl());
                 }
                 layout_cover.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        boolean adClick = mNativeADDataRef.onClicked(v);
+                        boolean adClick = mNativeADDataRef.onClick(v);
                         LogUtil.DefalutLog("adClick:"+adClick);
                     }
                 });

@@ -11,11 +11,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
-import com.iflytek.voiceads.AdError;
-import com.iflytek.voiceads.AdKeys;
 import com.iflytek.voiceads.IFLYNativeAd;
-import com.iflytek.voiceads.IFLYNativeListener;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.config.AdError;
+import com.iflytek.voiceads.config.AdKeys;
+import com.iflytek.voiceads.conn.NativeDataRef;
+import com.iflytek.voiceads.listener.IFLYNativeListener;
 import com.messi.languagehelper.adapter.RcXmlyTagsAdapter;
 import com.messi.languagehelper.bean.AlbumForAd;
 import com.messi.languagehelper.util.ADUtil;
@@ -132,8 +132,8 @@ public class XimalayaFragment extends BaseFragment implements OnClickListener{
 					Album mAVObject = avObjects.get(i);
 					if (mAVObject instanceof AlbumForAd) {
 						if(!((AlbumForAd)mAVObject).isAdShow()){
-							NativeADDataRef mNativeADDataRef = ((AlbumForAd)mAVObject).getmNativeADDataRef();
-							boolean isExposure = mNativeADDataRef.onExposured(view.getChildAt(i%vCount));
+							NativeDataRef mNativeADDataRef = ((AlbumForAd)mAVObject).getmNativeADDataRef();
+							boolean isExposure = mNativeADDataRef.onExposure(view.getChildAt(i%vCount));
 							LogUtil.DefalutLog("isExposure:"+isExposure);
 							if(isExposure){
 								((AlbumForAd)mAVObject).setAdShow(isExposure);
@@ -227,29 +227,28 @@ public class XimalayaFragment extends BaseFragment implements OnClickListener{
 			@Override
 			public void onCancel() {
 			}
+
 			@Override
-			public void onAdFailed(AdError arg0) {
-				LogUtil.DefalutLog("onAdFailed---"+arg0.getErrorCode()+"---"+arg0.getErrorDescription());
-				if(ADUtil.isHasLocalAd()){
-					onADLoaded(ADUtil.getRandomAdList(getActivity()));
-				}
-			}
-			@Override
-			public void onADLoaded(List<NativeADDataRef> adList) {
-				LogUtil.DefalutLog("onADLoaded---");
-				if(adList != null && adList.size() > 0){
-					NativeADDataRef nad = adList.get(0);
+			public void onAdLoaded(NativeDataRef nativeDataRef) {
+				if(nativeDataRef != null){
 					mADObject = new AlbumForAd();
-					mADObject.setmNativeADDataRef(nad);
+					mADObject.setmNativeADDataRef(nativeDataRef);
 					mADObject.setAd(true);
 					if(!loading){
 						addAD();
 					}
 				}
 			}
+			@Override
+			public void onAdFailed(AdError arg0) {
+				LogUtil.DefalutLog("onAdFailed---"+arg0.getErrorCode()+"---"+arg0.getErrorDescription());
+				if(ADUtil.isHasLocalAd()){
+					onAdLoaded(ADUtil.getRandomAdList(getActivity()));
+				}
+			}
 		});
 		nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
-		nativeAd.loadAd(1);
+		nativeAd.loadAd();
 	}
 
 	private boolean addAD(){

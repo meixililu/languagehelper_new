@@ -19,11 +19,11 @@ import com.bytedance.sdk.openadsdk.TTBannerAd;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.iflytek.voiceads.AdError;
-import com.iflytek.voiceads.AdKeys;
 import com.iflytek.voiceads.IFLYNativeAd;
-import com.iflytek.voiceads.IFLYNativeListener;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.config.AdError;
+import com.iflytek.voiceads.config.AdKeys;
+import com.iflytek.voiceads.conn.NativeDataRef;
+import com.iflytek.voiceads.listener.IFLYNativeListener;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.BDADUtil;
 import com.messi.languagehelper.util.CSJADUtil;
@@ -44,7 +44,7 @@ public class LeisureModel {
     public int counter;
     public Context mContext;
     public SharedPreferences sp;
-    private NativeADDataRef mNativeADDataRef;
+    private NativeDataRef mNativeADDataRef;
     private NativeExpressADView mTXADView;
     private long lastLoadAd;
     private boolean exposureXFAD;
@@ -121,19 +121,18 @@ public class LeisureModel {
                 getAd();
             }
             @Override
-            public void onADLoaded(List<NativeADDataRef> adList) {
-                LogUtil.DefalutLog("onADLoaded");
-                if (adList != null && adList.size() > 0) {
+            public void onAdLoaded(NativeDataRef nativeDataRef) {
+                if(nativeDataRef != null){
                     exposureXFAD = false;
-                    setAd(adList.get(0));
+                    setAd(nativeDataRef);
                 }
             }
         });
         nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
-        nativeAd.loadAd(1);
+        nativeAd.loadAd();
     }
 
-    public void setAd(NativeADDataRef mADDataRef) {
+    public void setAd(NativeDataRef mADDataRef) {
         if (mADDataRef != null) {
             mNativeADDataRef = mADDataRef;
             ad_sign.setVisibility(View.VISIBLE);
@@ -141,7 +140,7 @@ public class LeisureModel {
             ad_layout.setVisibility(View.GONE);
             DraweeController mDraweeController = Fresco.newDraweeControllerBuilder()
                     .setAutoPlayAnimations(true)
-                    .setUri(Uri.parse(mNativeADDataRef.getImage()))
+                    .setUri(Uri.parse(mNativeADDataRef.getImgUrl()))
                     .build();
             adImg.setController(mDraweeController);
             xx_ad_layout.setOnClickListener(new View.OnClickListener() {
@@ -156,14 +155,14 @@ public class LeisureModel {
 
     public void onXFADClick(){
         if (mNativeADDataRef != null) {
-            boolean onClicked = mNativeADDataRef.onClicked(xx_ad_layout);
+            boolean onClicked = mNativeADDataRef.onClick(xx_ad_layout);
             LogUtil.DefalutLog("onClicked:" + onClicked);
         }
     }
 
     public void exposedXFAD() {
         if (!exposureXFAD && mNativeADDataRef != null) {
-            exposureXFAD = mNativeADDataRef.onExposured(xx_ad_layout);
+            exposureXFAD = mNativeADDataRef.onExposure(xx_ad_layout);
             LogUtil.DefalutLog("exposedAd-exposureXFAD:" + exposureXFAD);
         }
     }

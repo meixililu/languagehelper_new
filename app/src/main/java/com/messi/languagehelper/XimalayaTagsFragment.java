@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.ViewModel.XXLForXMLYModel;
 import com.messi.languagehelper.adapter.RcXmlyTagsAdapter;
 import com.messi.languagehelper.bean.AlbumForAd;
@@ -135,8 +135,8 @@ public class XimalayaTagsFragment extends BaseFragment implements OnClickListene
                     if (mAVObject instanceof AlbumForAd) {
                         if(((AlbumForAd) mAVObject).getmNativeADDataRef() != null){
                             if (!((AlbumForAd) mAVObject).isAdShow()) {
-                                NativeADDataRef mNativeADDataRef = ((AlbumForAd) mAVObject).getmNativeADDataRef();
-                                boolean isExposure = mNativeADDataRef.onExposured(view.getChildAt(i % vCount));
+                                NativeDataRef mNativeADDataRef = ((AlbumForAd) mAVObject).getmNativeADDataRef();
+                                boolean isExposure = mNativeADDataRef.onExposure(view.getChildAt(i % vCount));
                                 LogUtil.DefalutLog("isExposure:" + isExposure);
                                 if(isExposure){
                                     ((AlbumForAd) mAVObject).setAdShow(isExposure);

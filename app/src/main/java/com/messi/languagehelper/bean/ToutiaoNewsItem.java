@@ -1,6 +1,7 @@
 package com.messi.languagehelper.bean;
 
-import com.iflytek.voiceads.NativeADDataRef;
+
+import com.iflytek.voiceads.conn.NativeDataRef;
 
 public class ToutiaoNewsItem {
 
@@ -24,7 +25,7 @@ public class ToutiaoNewsItem {
 
     private String realtype;
 
-    private NativeADDataRef mNativeADDataRef;
+    private NativeDataRef mNativeADDataRef;
 
     private boolean isHasShowAD;
 
@@ -36,11 +37,11 @@ public class ToutiaoNewsItem {
         isHasShowAD = hasShowAD;
     }
 
-    public NativeADDataRef getmNativeADDataRef() {
+    public NativeDataRef getmNativeADDataRef() {
         return mNativeADDataRef;
     }
 
-    public void setmNativeADDataRef(NativeADDataRef mNativeADDataRef) {
+    public void setmNativeADDataRef(NativeDataRef mNativeADDataRef) {
         this.mNativeADDataRef = mNativeADDataRef;
     }
 

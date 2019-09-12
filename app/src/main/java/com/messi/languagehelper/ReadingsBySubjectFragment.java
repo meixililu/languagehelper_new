@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.ViewModel.XXLModel;
 import com.messi.languagehelper.adapter.RcSubjectReadingListAdapter;
 import com.messi.languagehelper.box.Reading;
@@ -179,9 +179,9 @@ public class ReadingsBySubjectFragment extends BaseFragment {
                     Reading mAVObject = avObjects.get(i);
                     if (mAVObject != null && mAVObject.isAd()) {
                         if (!mAVObject.isAdShow()) {
-                            NativeADDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
-                            boolean isShow = mNativeADDataRef.onExposured(view.getChildAt(i % vCount));
-                            LogUtil.DefalutLog("onExposured:" + isShow);
+                            NativeDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
+                            boolean isShow = mNativeADDataRef.onExposure(view.getChildAt(i % vCount));
+                            LogUtil.DefalutLog("onExposure:" + isShow);
                             if(isShow){
                                 mAVObject.setAdShow(isShow);
                             }

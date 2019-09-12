@@ -14,7 +14,7 @@ import com.avos.avoscloud.AVObject;
 import com.baidu.mobads.AdView;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.iflytek.voiceads.NativeADDataRef;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.ReadingsBySubjectActivity;
 import com.messi.languagehelper.SubjectActivity;
@@ -63,15 +63,15 @@ public class RcSubjectListItemViewHolder extends RecyclerView.ViewHolder {
         if(mAVObject.get(KeyUtil.ADKey) != null) {
             normal_layout.setVisibility(View.VISIBLE);
             list_item_img.setVisibility(View.VISIBLE);
-            final NativeADDataRef mNativeADDataRef = (NativeADDataRef) mAVObject.get(KeyUtil.ADKey);
+            final NativeDataRef mNativeADDataRef = (NativeDataRef) mAVObject.get(KeyUtil.ADKey);
             title.setText(mNativeADDataRef.getTitle());
             source_name.setText("广告");
             list_item_img.setAspectRatio((float) 1.5);
-            list_item_img.setImageURI(Uri.parse(mNativeADDataRef.getImage()));
+            list_item_img.setImageURI(Uri.parse(mNativeADDataRef.getImgUrl()));
             layout_cover.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    boolean onClicked = mNativeADDataRef.onClicked(v);
+                    boolean onClicked = mNativeADDataRef.onClick(v);
                     LogUtil.DefalutLog("onClicked:"+onClicked);
                 }
             });
