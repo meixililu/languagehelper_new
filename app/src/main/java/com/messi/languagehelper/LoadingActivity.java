@@ -2,6 +2,7 @@ package com.messi.languagehelper;
 
 import android.Manifest;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -77,9 +78,25 @@ public class LoadingActivity extends AppCompatActivity {
         mSharedPreferences = getSharedPreferences(getPackageName(), MODE_PRIVATE);
         ADUtil.initAdConfig(mSharedPreferences);
         initPermissions();
-        mKaipingModel = new KaipingModel(this);
-        mKaipingModel.setViews(ad_source,skip_view,ad_img,splash_container);
-        mKaipingModel.showAd();
+        if(!mSharedPreferences.getBoolean(KeyUtil.PrivacyKey,false)){
+            Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.PrivacyKey,false);
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    startPrivacyActivity();
+                }
+            },1000);
+        }else {
+            mKaipingModel = new KaipingModel(this);
+            mKaipingModel.setViews(ad_source,skip_view,ad_img,splash_container);
+            mKaipingModel.showAd();
+        }
+    }
+
+    private void startPrivacyActivity(){
+        Intent intent = new Intent(this,LoadingPreActivity.class);
+        startActivity(intent);
+        this.finish();
     }
 
     @Subscribe

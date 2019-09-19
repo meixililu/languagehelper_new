@@ -63,7 +63,7 @@ public class GodReplyActivity extends BaseActivity {
                             if (mRoot.getNewslist() != null && mRoot.getNewslist().size() > 0) {
                                 TwistaItem mTwistaItem = mRoot.getNewslist().get(0);
                                 LogUtil.DefalutLog(mTwistaItem.getContent());
-                                question.setText(mTwistaItem.getContent());
+                                question.setText(mTwistaItem.getTitle()+"\n\n神回复：\n\n"+mTwistaItem.getContent());
                             }
                         } else {
                             ToastUtil.diaplayMesShort(GodReplyActivity.this, mRoot.getMsg());

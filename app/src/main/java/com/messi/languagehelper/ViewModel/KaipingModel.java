@@ -111,7 +111,7 @@ public class KaipingModel {
 
     //启动页加载总时常，防止广告一直加载中等待过久
     public void startTask() {
-        mHandler.postDelayed(m3Runnable, 3500);
+        mHandler.postDelayed(m3Runnable, 3700);
     }
 
     public Runnable m3Runnable = new Runnable() {
@@ -192,13 +192,14 @@ public class KaipingModel {
             public void onClick(View view) {
                 onClickAd();
                 boolean onClicked = mNativeADDataRef.onClick(view);
-                LogUtil.DefalutLog("onClick:" + onClicked);
+                LogUtil.DefalutLog("NativeDataRef-onClick:" + onClicked);
             }
         });
     }
 
     public void onClickAd() {
         isAdClicked = true;
+        notJump = true;
         cancleRunable();
         AVAnalytics.onEvent(mContext, "ad_click_kaiping");
     }
@@ -259,7 +260,9 @@ public class KaipingModel {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                toNextPage();
+                if(!notJump){
+                    toNextPage();
+                }
             }
         },delay);
     }

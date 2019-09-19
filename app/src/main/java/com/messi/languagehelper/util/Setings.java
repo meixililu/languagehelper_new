@@ -42,6 +42,10 @@ public class Setings {
 
 	public static String UmengAPPId = "551e3853fd98c5403800122c";
 
+	public static String PrivacyUrl = "http://www.apppark.cn/privacy.html";
+
+	public static String ServiceUrl = "https://www.appcan.cn/terms_service/lawstatement.html";
+
 	/**baidu translate api**/
 	public static String baiduTranslateUrl = "https://fanyi-api.baidu.com/api/trans/vip/translate";
 
@@ -93,9 +97,12 @@ public class Setings {
 	public static final String ToutiaoNewsUrl = "http://v.juhe.cn/toutiao/index";
 
 	/** BrainTwists **/
+
 	public static final String TXBrainTwistsApi = "http://api.tianapi.com/txapi/naowan/?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
 
-	public static final String TXGodreplyApi = "https://api.tianapi.com/txapi/godreply/?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
+	public static final String TXGodreplyApi = "http://api.tianapi.com/txapi/godreply/?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
+
+	public static final String TXEssayApi = "http://api.tianapi.com/txapi/ensentence/?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
 
 	public static final String TXYiZhanDaoDiApi = "http://api.tianapi.com/txapi/wenda/?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
 

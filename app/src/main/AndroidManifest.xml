@@ -189,6 +189,9 @@
             android:name=".XVideoHomeActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".LoadingPreActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".XVideoDetailActivity"
             android:screenOrientation="portrait" />
         <activity

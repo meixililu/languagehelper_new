@@ -59,14 +59,15 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/style5_color5"
         android:fillViewport="true"
         >
         <TextView
             android:id="@+id/question"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/padding_10"
             android:padding="@dimen/padding_10"
-            android:background="@color/style5_color5"
             android:textColor="@color/white"
             android:textSize="@dimen/biggerx" />
     </ScrollView>

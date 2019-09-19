@@ -1,5 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE resources [
+    <!ENTITY appname "中英互译">
+    ]>
 <resources>
-
     <string name="app_name">中英互译</string>
     <string name="app_des">告别说不出口的英语</string>
     <string name="title_about">关于我们</string>
@@ -100,6 +103,8 @@
     <string name="advanced">高级</string>
     <string name="new_concept">新概念</string>
     <string name="title_zhannei">站内</string>
+    <string name="title_agree">同意 进入</string>
+    <string name="title_disagree">不同意</string>
     <string name="title_zhanwai">站外</string>
     <string name="menu_share">DIY分享</string>
     <string name="menu_settings">语速调节</string>
@@ -145,6 +150,10 @@
     <string name="take_photo">拍照翻译</string>
     <string name="photo_album">相册选图</string>
     <string name="check_detail">查看详情</string>
+    <string name="privacy_1">查词翻译生词本同步等</string>
+    <string name="privacy_1_s">需要获取设备信息权限</string>
+    <string name="privacy_2">拍照翻译、离线翻译等</string>
+    <string name="privacy_2_s">需要访问SD卡权限</string>
 
     <string name="next_unit">下一单元</string>
     <string name="dancirenzhi">单词认知</string>
@@ -248,7 +257,8 @@
     <string name="textclickguidedialog_content">直接点击翻译内容或结果即可播放语音;语音播放速度可在应用设置里调节。</string>
 
     <string name="about_play_title">关于语音播报</string>
-    <string name="about_play_content">点击文字即可播放相应的内容，点击喇叭默认播放翻译的结果。</string>
+    <string name="title_privacy_policy">亲，感谢您一直以来的信任!!!\n\n根据相关政策，我们诚恳地告知您，为了给您提供更优质的服务，
+    也为了确保&appname;服务的正常运行，我们需要使用您的部分数据，请在使用前查看并同意隐私政策与服务条款。</string>
 
     <string name="about_speed_title">关于语音朗读速度</string>
     <string name="about_speed_content">可以在应用设置里面调节语音播放的速度。</string>

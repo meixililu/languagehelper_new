@@ -91,7 +91,7 @@ public class NativeADDataRefForZYHY extends NativeDataRef {
 
     @Override
     public String getImgUrl() {
-        return null;
+        return img;
     }
 
     @Override
@@ -106,7 +106,7 @@ public class NativeADDataRefForZYHY extends NativeDataRef {
 
     @Override
     public String getDesc() {
-        return null;
+        return sub_title;
     }
 
     @Override

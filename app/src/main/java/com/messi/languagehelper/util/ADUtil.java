@@ -98,7 +98,7 @@ public class ADUtil {
 
 
 	public static void initAdConfig(SharedPreferences sp){
-		String configStr = sp.getString(KeyUtil.AdConfig, "CSJ#GDT#BD#XF#XBKJ");
+		String configStr = sp.getString(KeyUtil.AdConfig, "CSJ#GDT#XF#BD#XBKJ");
 		setAdConfig(configStr);
 	}
 

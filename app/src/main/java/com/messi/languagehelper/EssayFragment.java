@@ -9,8 +9,8 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
-import com.messi.languagehelper.bean.EssayData;
-import com.messi.languagehelper.bean.EssayRoot;
+import com.messi.languagehelper.bean.TwistaItem;
+import com.messi.languagehelper.bean.TwistaResult;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
@@ -21,7 +21,6 @@ import com.messi.languagehelper.util.ToastUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import okhttp3.FormBody;
 
 public class EssayFragment extends BaseFragment {
 
@@ -31,7 +30,7 @@ public class EssayFragment extends BaseFragment {
     TextView answer;
     @BindView(R.id.answer_cover)
     FrameLayout answerCover;
-    private EssayData mEssayData;
+    TwistaItem mTwistaItem;
 
     @Override
     public void onAttach(Activity context) {
@@ -66,28 +65,21 @@ public class EssayFragment extends BaseFragment {
 
     private void requestData() {
         showProgressbar();
-        final FormBody formBody = new FormBody.Builder()
-                .add("showapi_appid", Setings.showapi_appid)
-                .add("showapi_sign", Setings.showapi_secret)
-                .add("showapi_timestamp", String.valueOf(System.currentTimeMillis()))
-                .add("showapi_res_gzip", "1")
-                .add("count", "1")
-                .build();
-        LanguagehelperHttpClient.post(Setings.EssayApi, formBody, new UICallback(getActivity()) {
+        LanguagehelperHttpClient.get(Setings.TXEssayApi, new UICallback(getActivity()) {
             @Override
             public void onResponsed(String responseString) {
                 try {
                     if (JsonParser.isJson(responseString)) {
-                        EssayRoot mRoot = JSON.parseObject(responseString, EssayRoot.class);
-                        if (mRoot != null && mRoot.getShowapi_res_code() == 0 && mRoot.getShowapi_res_body() != null) {
-                            if (mRoot.getShowapi_res_body().getData() != null && mRoot.getShowapi_res_body().getData().size() > 0) {
-                                mEssayData = mRoot.getShowapi_res_body().getData().get(0);
-                                question.setText(mEssayData.getEnglish());
+                        TwistaResult mRoot = JSON.parseObject(responseString, TwistaResult.class);
+                        if (mRoot.getCode() == 200) {
+                            if (mRoot.getNewslist() != null && mRoot.getNewslist().size() > 0) {
+                                mTwistaItem = mRoot.getNewslist().get(0);
+                                question.setText(mTwistaItem.getEn());
                                 answer.setText("轻触看中文");
                             }
 
                         } else {
-                            ToastUtil.diaplayMesShort(getContext(), mRoot.getShowapi_res_error());
+                            ToastUtil.diaplayMesShort(getContext(), "加载失败，请重试！");
                         }
                     }
                 } catch (Exception e) {
@@ -110,10 +102,10 @@ public class EssayFragment extends BaseFragment {
 
     @OnClick(R.id.answer_cover)
     public void onClick() {
-        if(mEssayData != null){
-            if (!mEssayData.isShowResult()) {
-                answer.setText(mEssayData.getChinese() + "\n\n\n" + "(轻触更新下一条)");
-                mEssayData.setShowResult(true);
+        if(mTwistaItem != null){
+            if (!mTwistaItem.isShowResult()) {
+                answer.setText(mTwistaItem.getZh() + "\n\n\n" + "(轻触更新下一条)");
+                mTwistaItem.setShowResult(true);
             } else {
                 requestData();
             }

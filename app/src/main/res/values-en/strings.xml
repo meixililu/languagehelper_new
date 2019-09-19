@@ -91,6 +91,8 @@
     <string name="font_style_bold">Bold</string>
     <string name="font_style_italic">Italic</string>
     <string name="examination">Examination</string>
+    <string name="title_agree">Agree</string>
+    <string name="title_disagree">Disagree</string>
     <string name="reading">Reading</string>
     <string name="foreign_website">Website</string>
     <string name="menu_share">DIY Share</string>

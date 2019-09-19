@@ -264,6 +264,7 @@ public class LeisureModel {
 
     public void loadBDAD(){
         AdView adView = new AdView(mContext,BDADID);
+        initFeiXFAD();
         adView.setListener(new AdViewListener(){
             @Override
             public void onAdReady(AdView adView) {
@@ -279,8 +280,8 @@ public class LeisureModel {
             }
             @Override
             public void onAdFailed(String s) {
+                LogUtil.DefalutLog("BDAD-onAdFailed:"+s);
                 getAd();
-                LogUtil.DefalutLog("BDAD-onAdFailed");
             }
             @Override
             public void onAdSwitch() {
@@ -292,7 +293,6 @@ public class LeisureModel {
                 LogUtil.DefalutLog("BDAD-onAdClose");
             }
         });
-        initFeiXFAD();
         int height = (int)(SystemUtil.SCREEN_WIDTH / 2);
         LinearLayout.LayoutParams rllp = new LinearLayout.LayoutParams(SystemUtil.SCREEN_WIDTH, height);
         ad_layout.addView(adView,rllp);
