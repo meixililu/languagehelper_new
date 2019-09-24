@@ -151,9 +151,13 @@
     <string name="photo_album">相册选图</string>
     <string name="check_detail">查看详情</string>
     <string name="privacy_1">查词翻译生词本同步等</string>
-    <string name="privacy_1_s">需要获取设备信息权限</string>
     <string name="privacy_2">拍照翻译、离线翻译等</string>
+    <string name="privacy_1_s">需要获取设备信息权限</string>
     <string name="privacy_2_s">需要访问SD卡权限</string>
+    <string name="privacy_1_yys">查词翻译生词本同步等</string>
+    <string name="privacy_2_yys">拍照识别等</string>
+    <string name="privacy_1_ywcd">查词生词本同步等</string>
+    <string name="privacy_2_ywcd">拍照识别等</string>
 
     <string name="next_unit">下一单元</string>
     <string name="dancirenzhi">单词认知</string>
@@ -325,7 +329,7 @@
         有些人说自己数学不好\n
         从何入手，我竟无言以对\n
         计算机专业，工作编程8年\n
-        如今自己创业，中英互译英语翻译学习神器\n
+        如今创业，中英互译英语翻译学习神器\n
         虽然我很想帮助那些人\n
         但仔细想想我能给出什么建议呢\n
         。。。华丽的分割线。。。\n
@@ -403,7 +407,7 @@
     <string name="title_ai_dialog_choice_course">情景选择</string>
     <string name="random_course">随机</string>
     <string name="start_to_fight">闯关</string>
-    <string name="title_tuling_ai">小优陪聊</string>
+    <string name="title_tuling_ai">AI聊天</string>
     <string name="title_tuling_ai_des">中文语境下智能度最高的机器人</string>
     <string name="english_fm">英语FM</string>
     <string name="title_activity_main">MainActivity</string>

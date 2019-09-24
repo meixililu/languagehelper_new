@@ -42,9 +42,9 @@ public class Setings {
 
 	public static String UmengAPPId = "551e3853fd98c5403800122c";
 
-	public static String PrivacyUrl = "http://www.apppark.cn/privacy.html";
+	public static String PrivacyUrl = "http://www.mzxbkj.com/pp/privacyzh.html";
 
-	public static String ServiceUrl = "https://www.appcan.cn/terms_service/lawstatement.html";
+	public static String ServiceUrl = "http://www.mzxbkj.com/pp/servicezh.html";
 
 	/**baidu translate api**/
 	public static String baiduTranslateUrl = "https://fanyi-api.baidu.com/api/trans/vip/translate";
@@ -71,8 +71,13 @@ public class Setings {
 
 	public static String YDOcrQuestion = "https://aidemo.youdao.com/ocr_question";
 
-	/**juhe dictionary api**/
-	public static String JuheYoudaoApiUrl = "http://japi.juhe.cn/youdao/dictionary.from?key=a8edec6297be9b017a106aec955974f6&word=";
+	/**tencent api**/
+	public static final String QQAPPID = "2109225639";
+	public static final String QQAPPKEY = "5H2dYDcfBTdrPjkm";
+	public static String QQImgOrcApi = "https://api.ai.qq.com/fcgi-bin/nlp/nlp_imagetranslate";
+	public static String QQTranAILabApi = "https://api.ai.qq.com/fcgi-bin/nlp/nlp_texttrans";
+	public static String QQTranFYJApi = "https://api.ai.qq.com/fcgi-bin/nlp/nlp_texttranslate";
+
 	/**youdao web translate for jsoup catch**/
 	public static String YoudaoWeb = "http://dict.youdao.com/w/";
 	

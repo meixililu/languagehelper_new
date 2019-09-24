@@ -41,21 +41,58 @@ public class LoadingPreActivity extends BaseActivity {
         setStatusbarColor(R.color.white);
         changeStatusBarTextColor(true);
         init();
+        initPrivacyList();
     }
 
     private void init(){
-        String privacyStr = getString(R.string.title_privacy_policy);
-        SpannableStringBuilder builder = new SpannableStringBuilder(privacyStr);
-        builder.setSpan(new ClickableText("隐私政策"),
-                privacyStr.lastIndexOf("隐"),
-                privacyStr.lastIndexOf("策")+1,
-                Spannable.SPAN_INCLUSIVE_INCLUSIVE);
-        builder.setSpan(new ClickableText("服务条款"),
-                privacyStr.lastIndexOf("服"),
-                privacyStr.lastIndexOf("款")+1,
-                Spannable.SPAN_INCLUSIVE_INCLUSIVE);
-        privacyPolicy.setText(builder);
-        privacyPolicy.setMovementMethod(LinkMovementMethod.getInstance());
+        try {
+            String privacyStr = getString(R.string.title_privacy_policy);
+            SpannableStringBuilder builder = new SpannableStringBuilder(privacyStr);
+            builder.setSpan(new ClickableText("隐私政策"),
+                    privacyStr.lastIndexOf("隐"),
+                    privacyStr.lastIndexOf("策")+1,
+                    Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+            builder.setSpan(new ClickableText("服务条款"),
+                    privacyStr.lastIndexOf("服"),
+                    privacyStr.lastIndexOf("款")+1,
+                    Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+            privacyPolicy.setText(builder);
+            privacyPolicy.setMovementMethod(LinkMovementMethod.getInstance());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void initPrivacyList(){
+        String privacyList1 = getString(R.string.privacy_1);
+        String privacyList2 = getString(R.string.privacy_2);
+        if(getPackageName().equals(Setings.application_id_zyhy)){
+            privacyList1 = getString(R.string.privacy_1);
+            privacyList2 = getString(R.string.privacy_2);
+        }else if(getPackageName().equals(Setings.application_id_yys)){
+            privacyList1 = getString(R.string.privacy_1_yys);
+            privacyList2 = getString(R.string.privacy_2_yys);
+        }else if(getPackageName().equals(Setings.application_id_yyj)){
+            privacyList1 = getString(R.string.privacy_1);
+            privacyList2 = getString(R.string.privacy_2);
+        }else if(getPackageName().equals(Setings.application_id_ywcd)){
+            privacyList1 = getString(R.string.privacy_1_ywcd);
+            privacyList2 = getString(R.string.privacy_2_ywcd);
+        }else if(getPackageName().equals(Setings.application_id_xbky)){
+
+        }else if(getPackageName().equals(Setings.application_id_xbtl)){
+
+        }else if(getPackageName().equals(Setings.application_id_qmzj)){
+
+        }else if(getPackageName().equals(Setings.application_id_zrhy)){
+
+        }else if(getPackageName().equals(Setings.application_id_zhhy)){
+
+        }else{
+
+        }
+        privacyTv1.setText(privacyList1);
+        privacyTv2.setText(privacyList2);
     }
 
     @OnClick({R.id.agree, R.id.no_agree})

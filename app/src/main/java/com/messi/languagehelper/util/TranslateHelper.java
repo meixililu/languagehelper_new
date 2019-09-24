@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import com.alibaba.fastjson.JSON;
 import com.messi.languagehelper.bean.HjTranBean;
 import com.messi.languagehelper.bean.IcibaNew;
+import com.messi.languagehelper.bean.QQTranAILabRoot;
 import com.messi.languagehelper.bean.YoudaoApiBean;
 import com.messi.languagehelper.bean.YoudaoApiResult;
 import com.messi.languagehelper.dao.record;
@@ -36,13 +37,14 @@ import okhttp3.Response;
 
 public class TranslateHelper {
 //  jscb,youdaoweb,bingweb,hujiangweb,youdaoapi,hujiangapi,baidu#youdaoweb,bingweb,hujiangweb,jscb,youdaoapi,hujiangapi,baidu
-    public static String OrderTran = "jscb,youdaoweb,bingweb,hujiangweb,youdaoapi,hujiangapi,baidu";
+    public static String OrderTran = "jscb,youdaoweb,bingweb,hujiangweb,youdaoapi,hujiangapi,qqfyj,baidu";
     public static final String youdaoweb = "youdaoweb";
     public static final String youdaoapi = "youdaoapi";
     public static final String bingweb = "bingweb";
     public static final String jscb = "jscb";
     public static final String hujiangapi = "hujiangapi";
     public static final String hujiangweb = "hujiangweb";
+    public static final String qqfyj = "qqfyj";
     public static final String baidu = "baidu";
     public static String HJCookie = "";
     private int OrderTranCounter = 0;
@@ -77,6 +79,8 @@ public class TranslateHelper {
                 Tran_Hj_Api(e);
             }else if(hujiangweb.equals(method)){
                 Tran_Hj_Web(e);
+            }else if(qqfyj.equals(method)){
+                Tran_QQFYJApi(e);
             }else if(baidu.equals(method)){
                 Tran_Baidu(e);
             }else {
@@ -149,6 +153,66 @@ public class TranslateHelper {
                     }
                 }
 
+            }
+        });
+    }
+
+    private void Tran_QQAILabApi(ObservableEmitter<record> e) {
+        LogUtil.DefalutLog("Result---Tran_QQAILAb");
+        LanguagehelperHttpClient.postTranQQAILabAPi(new BgCallback(){
+            @Override
+            public void onFailured() {
+                onFaileTranslate(e);
+            }
+            @Override
+            public void onResponsed(String responseString) {
+                LogUtil.DefalutLog("Tran_QQAILabApi:"+responseString);
+                record result = null;
+                try {
+                    QQTranAILabRoot root = JSON.parseObject(responseString,QQTranAILabRoot.class);
+                    if(root != null && root.getRet() == 0 && root.getData() != null){
+                        result = new record(root.getData().getTrans_text(), Setings.q);
+                    }
+                } catch (Exception ec) {
+                    result = null;
+                    ec.printStackTrace();
+                } finally {
+                    if(result != null){
+                        e.onNext( result );
+                    }else {
+                        onFaileTranslate(e);
+                    }
+                }
+            }
+        });
+    }
+
+    private void Tran_QQFYJApi(ObservableEmitter<record> e) {
+        LogUtil.DefalutLog("Result---Tran_QQFYJApi");
+        LanguagehelperHttpClient.postTranQQFYJAPi(new BgCallback(){
+            @Override
+            public void onFailured() {
+                onFaileTranslate(e);
+            }
+            @Override
+            public void onResponsed(String responseString) {
+                LogUtil.DefalutLog("Tran_QQFYJApi:"+responseString);
+                record result = null;
+                try {
+                    QQTranAILabRoot root = JSON.parseObject(responseString,QQTranAILabRoot.class);
+                    if(root != null && root.getRet() == 0 && root.getData() != null){
+                        result = new record(root.getData().getTarget_text(), Setings.q);
+                    }
+                } catch (Exception ec) {
+                    result = null;
+                    ec.printStackTrace();
+                } finally {
+                    if(result != null){
+                        e.onNext( result );
+                    }else {
+                        onFaileTranslate(e);
+                    }
+                }
             }
         });
     }
@@ -623,14 +687,14 @@ public class TranslateHelper {
                 String[] keys = orderStr.split("#");
                 if(keys != null && keys.length > 1){
                     if(!TextUtils.isEmpty(keys[0])){
-                        TranslateHelper.OrderTran = keys[0];
+                        OrderTran = keys[0];
                     }
                     if(!TextUtils.isEmpty(keys[1])){
                         DictHelper.OrderDic = keys[1];
                     }
                 }
             }else {
-                OrderTran = "youdaoweb,bingweb,hujiangweb,youdaoapi,hujiangapi,baidu,jscb";
+                OrderTran = "youdaoweb,qqfyj,bingweb,hujiangweb,youdaoapi,hujiangapi,baidu,jscb";
             }
         } catch (Exception e) {
             e.printStackTrace();

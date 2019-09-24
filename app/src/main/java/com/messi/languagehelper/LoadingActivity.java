@@ -79,7 +79,7 @@ public class LoadingActivity extends AppCompatActivity {
         ADUtil.initAdConfig(mSharedPreferences);
         initPermissions();
         if(!mSharedPreferences.getBoolean(KeyUtil.PrivacyKey,false)){
-            Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.PrivacyKey,false);
+            Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.PrivacyKey,true);
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {

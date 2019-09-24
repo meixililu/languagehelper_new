@@ -272,6 +272,8 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
             }else {
                 query.whereEqualTo(AVOUtil.Reading.category, category);
             }
+        }else {
+            query.whereNotEqualTo(AVOUtil.Reading.type, "video");
         }
         query.addDescendingOrder(AVOUtil.Reading.publish_time);
         query.skip(skip);

@@ -19,6 +19,10 @@ import com.messi.languagehelper.util.TranslateHelper;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.util.Comparator;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cache;
@@ -155,6 +159,83 @@ public class LanguagehelperHttpClient {
 			.add("sign", getBaiduTranslateSign(salt))
 			.build();
 		return post(Setings.baiduTranslateUrl,  formBody , mCallback);
+	}
+
+	public static Response postTranQQAILabAPi(Callback mCallback) {
+		String time_stamp = String.valueOf(System.currentTimeMillis()/1000);
+		String nonce_str = StringUtils.getRandomString(16);
+		String type = "0";//9中文转粤语 10粤语转中文
+
+		Map<String, String> map = null;
+		try {
+			map = new TreeMap<>(new Comparator<String>() {
+				@Override
+				public int compare(String str1, String str2) {
+					return str1.compareTo(str2);
+				}
+			});
+			map.put("app_id", URLEncoder.encode(Setings.QQAPPID,"UTF-8"));
+			map.put("nonce_str",URLEncoder.encode(nonce_str,"UTF-8"));
+			map.put("text",URLEncoder.encode(Setings.q,"UTF-8"));
+			map.put("time_stamp",URLEncoder.encode(String.valueOf(time_stamp),"UTF-8"));
+			map.put("type",URLEncoder.encode(type,"UTF-8"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		String sign = getSortData(map);
+		FormBody formBody = new FormBody.Builder()
+				.add("app_id", Setings.QQAPPID)
+				.add("time_stamp", time_stamp)
+				.add("nonce_str", nonce_str)
+				.add("sign", sign)
+				.add("type", type)
+				.add("text", Setings.q)
+				.build();
+		return post(Setings.QQTranAILabApi,  formBody , mCallback);
+	}
+
+	public static Response postTranQQFYJAPi(Callback mCallback) {
+		String time_stamp = String.valueOf(System.currentTimeMillis()/1000);
+		String nonce_str = StringUtils.getRandomString(16);
+		String source = "";
+		String target = "";
+		if (StringUtils.isEnglish(Setings.q)) {
+			source = "en";
+			target = "zh";
+		} else {
+			source = "zh";
+			target = "en";
+		}
+		Map<String, String> map = null;
+		try {
+			map = new TreeMap<>(new Comparator<String>() {
+				@Override
+				public int compare(String str1, String str2) {
+					return str1.compareTo(str2);
+				}
+			});
+			map.put("app_id", URLEncoder.encode(Setings.QQAPPID,"UTF-8"));
+			map.put("nonce_str",URLEncoder.encode(nonce_str,"UTF-8"));
+			map.put("text",URLEncoder.encode(Setings.q,"UTF-8"));
+			map.put("time_stamp",URLEncoder.encode(String.valueOf(time_stamp),"UTF-8"));
+			map.put("source",URLEncoder.encode(source,"UTF-8"));
+			map.put("target",URLEncoder.encode(target,"UTF-8"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		String sign = getSortData(map);
+		FormBody formBody = new FormBody.Builder()
+				.add("app_id", Setings.QQAPPID)
+				.add("time_stamp", time_stamp)
+				.add("nonce_str", nonce_str)
+				.add("sign", sign)
+				.add("source", source)
+				.add("target", target)
+				.add("text", Setings.q)
+				.build();
+		return post(Setings.QQTranFYJApi,  formBody , mCallback);
 	}
 
 	public static Response postHjApi(Callback mCallback) {
@@ -302,6 +383,20 @@ public class LanguagehelperHttpClient {
 	public static String getBaiduTranslateSign(long salt) {
 		String str = Setings.baidu_appid + Setings.q + salt + Setings.baidu_secretkey;
 		return MD5.encode(str);
+	}
+
+	public static String getSortData(Map<String, String> map){
+		String result = "";
+		if(map != null){
+			for(Map.Entry<String,String> entry : map.entrySet()){
+				result += entry.getKey() + "=" + entry.getValue() + "&";
+			}
+			result += "app_key="+ Setings.QQAPPKEY;
+			LogUtil.DefalutLog("result:"+result);
+			result = MD5.encode(result).toUpperCase();
+			LogUtil.DefalutLog("result:"+result);
+		}
+		return result;
 	}
 
 	public static void setTranslateLan(boolean isToYue){
