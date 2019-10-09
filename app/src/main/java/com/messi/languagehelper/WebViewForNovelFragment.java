@@ -354,7 +354,9 @@ public class WebViewForNovelFragment extends BaseFragment implements View.OnClic
 	@Override
 	public void onDestroyView() {
 		super.onDestroyView();
-		mWebView.destroy();
+		if (mWebView != null) {
+			mWebView.destroy();
+		}
 		if (mTXADView != null) {
 			mTXADView.destroy();
 		}

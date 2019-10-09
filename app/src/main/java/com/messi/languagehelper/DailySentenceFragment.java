@@ -14,7 +14,7 @@ import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.messi.languagehelper.adapter.RcDailySentenceListAdapter;
-import com.messi.languagehelper.dao.EveryDaySentence;
+import com.messi.languagehelper.box.EveryDaySentence;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;

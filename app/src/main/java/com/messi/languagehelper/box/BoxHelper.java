@@ -169,6 +169,7 @@ public class BoxHelper {
     public static Box<Reading> getReadingBox(){
         return getBoxStore().boxFor(Reading.class);
     }
+
     public static long insert(Reading item){
         return getReadingBox().put(item);
     }
@@ -272,4 +273,31 @@ public class BoxHelper {
         }
     }
     /** moments like**/
+
+    public static Box<EveryDaySentence> getEveryDaySentenceBox(){
+        return getBoxStore().boxFor(EveryDaySentence.class);
+    }
+
+    public static long insert(EveryDaySentence item){
+        return getEveryDaySentenceBox().put(item);
+    }
+
+    public static boolean isEveryDaySentenceExist(long mid){
+         int size = getEveryDaySentenceBox()
+                 .query()
+                 .equal(EveryDaySentence_.cid,mid)
+                 .build()
+                 .find()
+                 .size();
+        LogUtil.DefalutLog("isEveryDaySentenceExist---size:" + size);
+         return size > 0;
+    }
+
+    public static List<EveryDaySentence> getEveryDaySentenceList(int limit){
+        return getEveryDaySentenceBox()
+                .query()
+                .build()
+                .find(0,limit);
+    }
+
 }

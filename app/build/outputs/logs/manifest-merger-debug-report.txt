@@ -55,7 +55,7 @@ INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/
 INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:1-553:12
 MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a73bc177c5bbc105540633b9c849be4/Baidu_MobAds_SDK-release/AndroidManifest.xml:2:1-20:12
 MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b1fdf87d6150d48673ed97ad6d75064d/open_ad_sdk/AndroidManifest.xml:2:1-93:12
-MERGED from [GDTSDK.union.4.80.950.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1756ecb8a4428293363c117b0190c249/GDTSDK.union.4.80.950/AndroidManifest.xml:2:1-42:12
+MERGED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bcae8fae94d0a978f13f0434afac23a4/GDTSDK.union.4.90.960/AndroidManifest.xml:2:1-42:12
 MERGED from [io.objectbox:objectbox-android:2.3.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/95db5dc076b445b45162de239271feab/objectbox-android-2.3.4/AndroidManifest.xml:2:1-25:12
 MERGED from [com.android.support:multidex:1.0.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ed62541d6f3de760eaf5bf53d22feb7c/multidex-1.0.3/AndroidManifest.xml:17:1-22:12
 MERGED from [com.lxj:xpopup:1.8.10] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8d4590672a4b31200ad978cf3ff4f22e/xpopup-1.8.10/AndroidManifest.xml:2:1-11:12
@@ -143,8 +143,8 @@ INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:6:5-67
-MERGED from [GDTSDK.union.4.80.950.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1756ecb8a4428293363c117b0190c249/GDTSDK.union.4.80.950/AndroidManifest.xml:11:5-67
-MERGED from [GDTSDK.union.4.80.950.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1756ecb8a4428293363c117b0190c249/GDTSDK.union.4.80.950/AndroidManifest.xml:11:5-67
+MERGED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bcae8fae94d0a978f13f0434afac23a4/GDTSDK.union.4.90.960/AndroidManifest.xml:11:5-67
+MERGED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bcae8fae94d0a978f13f0434afac23a4/GDTSDK.union.4.90.960/AndroidManifest.xml:11:5-67
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:6:22-64
 uses-permission#android.permission.RECORD_AUDIO
@@ -155,8 +155,8 @@ uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:8:5-79
 MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b1fdf87d6150d48673ed97ad6d75064d/open_ad_sdk/AndroidManifest.xml:12:5-79
 MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b1fdf87d6150d48673ed97ad6d75064d/open_ad_sdk/AndroidManifest.xml:12:5-79
-MERGED from [GDTSDK.union.4.80.950.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1756ecb8a4428293363c117b0190c249/GDTSDK.union.4.80.950/AndroidManifest.xml:12:5-79
-MERGED from [GDTSDK.union.4.80.950.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1756ecb8a4428293363c117b0190c249/GDTSDK.union.4.80.950/AndroidManifest.xml:12:5-79
+MERGED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bcae8fae94d0a978f13f0434afac23a4/GDTSDK.union.4.90.960/AndroidManifest.xml:12:5-79
+MERGED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bcae8fae94d0a978f13f0434afac23a4/GDTSDK.union.4.90.960/AndroidManifest.xml:12:5-79
 MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c2c2d13d96e46008f90716b4ae2a79db/exoplayer-core-2.9.6/AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c2c2d13d96e46008f90716b4ae2a79db/exoplayer-core-2.9.6/AndroidManifest.xml:24:5-79
 MERGED from [cn.jzvd:jiaozivideoplayer:6.4.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/50bd4104e305db18ab5f47738cad8a3b/jiaozivideoplayer-6.4.3/AndroidManifest.xml:11:5-79
@@ -165,8 +165,8 @@ MERGED from [cn.jzvd:jiaozivideoplayer:6.4.3] /Users/lilu/.gradle/caches/transfo
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:8:22-76
 uses-permission#android.permission.ACCESS_WIFI_STATE
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:9:5-76
-MERGED from [GDTSDK.union.4.80.950.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1756ecb8a4428293363c117b0190c249/GDTSDK.union.4.80.950/AndroidManifest.xml:13:5-76
-MERGED from [GDTSDK.union.4.80.950.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1756ecb8a4428293363c117b0190c249/GDTSDK.union.4.80.950/AndroidManifest.xml:13:5-76
+MERGED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bcae8fae94d0a978f13f0434afac23a4/GDTSDK.union.4.90.960/AndroidManifest.xml:13:5-76
+MERGED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bcae8fae94d0a978f13f0434afac23a4/GDTSDK.union.4.90.960/AndroidManifest.xml:13:5-76
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:9:22-73
 uses-permission#android.permission.CHANGE_NETWORK_STATE
@@ -226,8 +226,8 @@ ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/And
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:21:22-62
 uses-permission#android.permission.REQUEST_INSTALL_PACKAGES
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:22:5-82
-MERGED from [GDTSDK.union.4.80.950.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1756ecb8a4428293363c117b0190c249/GDTSDK.union.4.80.950/AndroidManifest.xml:14:5-83
-MERGED from [GDTSDK.union.4.80.950.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1756ecb8a4428293363c117b0190c249/GDTSDK.union.4.80.950/AndroidManifest.xml:14:5-83
+MERGED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bcae8fae94d0a978f13f0434afac23a4/GDTSDK.union.4.90.960/AndroidManifest.xml:14:5-83
+MERGED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bcae8fae94d0a978f13f0434afac23a4/GDTSDK.union.4.90.960/AndroidManifest.xml:14:5-83
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:22:22-80
 uses-feature#android.hardware.camera
@@ -246,8 +246,8 @@ MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms
 MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a73bc177c5bbc105540633b9c849be4/Baidu_MobAds_SDK-release/AndroidManifest.xml:11:5-18:19
 MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b1fdf87d6150d48673ed97ad6d75064d/open_ad_sdk/AndroidManifest.xml:20:5-91:19
 MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b1fdf87d6150d48673ed97ad6d75064d/open_ad_sdk/AndroidManifest.xml:20:5-91:19
-MERGED from [GDTSDK.union.4.80.950.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1756ecb8a4428293363c117b0190c249/GDTSDK.union.4.80.950/AndroidManifest.xml:16:5-40:19
-MERGED from [GDTSDK.union.4.80.950.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1756ecb8a4428293363c117b0190c249/GDTSDK.union.4.80.950/AndroidManifest.xml:16:5-40:19
+MERGED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bcae8fae94d0a978f13f0434afac23a4/GDTSDK.union.4.90.960/AndroidManifest.xml:16:5-40:19
+MERGED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bcae8fae94d0a978f13f0434afac23a4/GDTSDK.union.4.90.960/AndroidManifest.xml:16:5-40:19
 MERGED from [io.objectbox:objectbox-android:2.3.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/95db5dc076b445b45162de239271feab/objectbox-android-2.3.4/AndroidManifest.xml:21:5-23:31
 MERGED from [io.objectbox:objectbox-android:2.3.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/95db5dc076b445b45162de239271feab/objectbox-android-2.3.4/AndroidManifest.xml:21:5-23:31
 MERGED from [com.android.support:design:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/55086599034dad7896e7bffc992a2c6e/design-28.0.0/AndroidManifest.xml:22:5-20
@@ -293,8 +293,8 @@ MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/lilu/.gradle/cac
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:31:9-40
 uses-library#org.apache.http.legacy
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:42:9-43:39
-MERGED from [GDTSDK.union.4.80.950.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1756ecb8a4428293363c117b0190c249/GDTSDK.union.4.80.950/AndroidManifest.xml:21:9-23:40
-MERGED from [GDTSDK.union.4.80.950.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1756ecb8a4428293363c117b0190c249/GDTSDK.union.4.80.950/AndroidManifest.xml:21:9-23:40
+MERGED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bcae8fae94d0a978f13f0434afac23a4/GDTSDK.union.4.90.960/AndroidManifest.xml:21:9-23:40
+MERGED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bcae8fae94d0a978f13f0434afac23a4/GDTSDK.union.4.90.960/AndroidManifest.xml:21:9-23:40
 	android:required
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:43:13-37
 	android:name
@@ -375,24 +375,24 @@ ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/And
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:123:13-68
 service#com.qq.e.comm.DownloadService
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:130:9-131:40
-MERGED from [GDTSDK.union.4.80.950.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1756ecb8a4428293363c117b0190c249/GDTSDK.union.4.80.950/AndroidManifest.xml:25:9-27:40
-MERGED from [GDTSDK.union.4.80.950.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1756ecb8a4428293363c117b0190c249/GDTSDK.union.4.80.950/AndroidManifest.xml:25:9-27:40
+MERGED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bcae8fae94d0a978f13f0434afac23a4/GDTSDK.union.4.90.960/AndroidManifest.xml:25:9-27:40
+MERGED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bcae8fae94d0a978f13f0434afac23a4/GDTSDK.union.4.90.960/AndroidManifest.xml:25:9-27:40
 	android:exported
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:131:13-37
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:130:18-62
 activity#com.qq.e.ads.ADActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:132:9-133:86
-MERGED from [GDTSDK.union.4.80.950.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1756ecb8a4428293363c117b0190c249/GDTSDK.union.4.80.950/AndroidManifest.xml:29:9-31:86
-MERGED from [GDTSDK.union.4.80.950.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1756ecb8a4428293363c117b0190c249/GDTSDK.union.4.80.950/AndroidManifest.xml:29:9-31:86
+MERGED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bcae8fae94d0a978f13f0434afac23a4/GDTSDK.union.4.90.960/AndroidManifest.xml:29:9-31:86
+MERGED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bcae8fae94d0a978f13f0434afac23a4/GDTSDK.union.4.90.960/AndroidManifest.xml:29:9-31:86
 	android:configChanges
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:133:13-83
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:132:19-57
 activity#com.qq.e.ads.PortraitADActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:134:9-136:86
-MERGED from [GDTSDK.union.4.80.950.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1756ecb8a4428293363c117b0190c249/GDTSDK.union.4.80.950/AndroidManifest.xml:32:9-35:52
-MERGED from [GDTSDK.union.4.80.950.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1756ecb8a4428293363c117b0190c249/GDTSDK.union.4.80.950/AndroidManifest.xml:32:9-35:52
+MERGED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bcae8fae94d0a978f13f0434afac23a4/GDTSDK.union.4.90.960/AndroidManifest.xml:32:9-35:52
+MERGED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bcae8fae94d0a978f13f0434afac23a4/GDTSDK.union.4.90.960/AndroidManifest.xml:32:9-35:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:135:13-49
 	android:configChanges
@@ -401,8 +401,8 @@ MERGED from [GDTSDK.union.4.80.950.aar] /Users/lilu/.gradle/caches/transforms-2/
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:134:19-65
 activity#com.qq.e.ads.LandscapeADActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:137:9-139:86
-MERGED from [GDTSDK.union.4.80.950.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1756ecb8a4428293363c117b0190c249/GDTSDK.union.4.80.950/AndroidManifest.xml:36:9-39:53
-MERGED from [GDTSDK.union.4.80.950.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1756ecb8a4428293363c117b0190c249/GDTSDK.union.4.80.950/AndroidManifest.xml:36:9-39:53
+MERGED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bcae8fae94d0a978f13f0434afac23a4/GDTSDK.union.4.90.960/AndroidManifest.xml:36:9-39:53
+MERGED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bcae8fae94d0a978f13f0434afac23a4/GDTSDK.union.4.90.960/AndroidManifest.xml:36:9-39:53
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:138:13-50
 	android:configChanges
@@ -1235,8 +1235,8 @@ MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms
 MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a73bc177c5bbc105540633b9c849be4/Baidu_MobAds_SDK-release/AndroidManifest.xml:7:5-9:41
 MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b1fdf87d6150d48673ed97ad6d75064d/open_ad_sdk/AndroidManifest.xml:7:5-10:591
 MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b1fdf87d6150d48673ed97ad6d75064d/open_ad_sdk/AndroidManifest.xml:7:5-10:591
-MERGED from [GDTSDK.union.4.80.950.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1756ecb8a4428293363c117b0190c249/GDTSDK.union.4.80.950/AndroidManifest.xml:7:5-9:41
-MERGED from [GDTSDK.union.4.80.950.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1756ecb8a4428293363c117b0190c249/GDTSDK.union.4.80.950/AndroidManifest.xml:7:5-9:41
+MERGED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bcae8fae94d0a978f13f0434afac23a4/GDTSDK.union.4.90.960/AndroidManifest.xml:7:5-9:41
+MERGED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bcae8fae94d0a978f13f0434afac23a4/GDTSDK.union.4.90.960/AndroidManifest.xml:7:5-9:41
 MERGED from [io.objectbox:objectbox-android:2.3.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/95db5dc076b445b45162de239271feab/objectbox-android-2.3.4/AndroidManifest.xml:8:5-10:41
 MERGED from [io.objectbox:objectbox-android:2.3.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/95db5dc076b445b45162de239271feab/objectbox-android-2.3.4/AndroidManifest.xml:8:5-10:41
 MERGED from [com.android.support:multidex:1.0.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ed62541d6f3de760eaf5bf53d22feb7c/multidex-1.0.3/AndroidManifest.xml:20:5-43
@@ -1508,11 +1508,11 @@ ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b
 	android:name
 		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b1fdf87d6150d48673ed97ad6d75064d/open_ad_sdk/AndroidManifest.xml:90:19-91
 meta-data#com.tencent.rdm.uuid
-ADDED from [GDTSDK.union.4.80.950.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1756ecb8a4428293363c117b0190c249/GDTSDK.union.4.80.950/AndroidManifest.xml:17:9-19:68
+ADDED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bcae8fae94d0a978f13f0434afac23a4/GDTSDK.union.4.90.960/AndroidManifest.xml:17:9-19:68
 	android:value
-		ADDED from [GDTSDK.union.4.80.950.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1756ecb8a4428293363c117b0190c249/GDTSDK.union.4.80.950/AndroidManifest.xml:19:13-65
+		ADDED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bcae8fae94d0a978f13f0434afac23a4/GDTSDK.union.4.90.960/AndroidManifest.xml:19:13-65
 	android:name
-		ADDED from [GDTSDK.union.4.80.950.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1756ecb8a4428293363c117b0190c249/GDTSDK.union.4.80.950/AndroidManifest.xml:18:13-48
+		ADDED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bcae8fae94d0a978f13f0434afac23a4/GDTSDK.union.4.90.960/AndroidManifest.xml:18:13-48
 meta-data#android.notch_support
 ADDED from [com.lxj:xpermission:1.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/11907ce88418d4ed3aab99df437e1f46/xpermission-1.0.1/AndroidManifest.xml:12:9-14:36
 	android:value

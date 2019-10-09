@@ -8,7 +8,6 @@ import org.greenrobot.greendao.database.Database;
 import org.greenrobot.greendao.identityscope.IdentityScopeType;
 import org.greenrobot.greendao.internal.DaoConfig;
 
-import com.messi.languagehelper.dao.EveryDaySentence;
 import com.messi.languagehelper.dao.TranRecord_jp;
 import com.messi.languagehelper.dao.TranRecord;
 import com.messi.languagehelper.dao.TranRecord_kor;
@@ -20,7 +19,6 @@ import com.messi.languagehelper.dao.AiEntity;
 import com.messi.languagehelper.dao.SymbolListDao;
 import com.messi.languagehelper.dao.record;
 
-import com.messi.languagehelper.dao.EveryDaySentenceDao;
 import com.messi.languagehelper.dao.TranRecord_jpDao;
 import com.messi.languagehelper.dao.TranRecordDao;
 import com.messi.languagehelper.dao.TranRecord_korDao;
@@ -41,7 +39,6 @@ import com.messi.languagehelper.dao.recordDao;
  */
 public class DaoSession extends AbstractDaoSession {
 
-    private final DaoConfig everyDaySentenceDaoConfig;
     private final DaoConfig tranRecord_jpDaoConfig;
     private final DaoConfig tranRecordDaoConfig;
     private final DaoConfig tranRecord_korDaoConfig;
@@ -53,7 +50,6 @@ public class DaoSession extends AbstractDaoSession {
     private final DaoConfig symbolListDaoDaoConfig;
     private final DaoConfig recordDaoConfig;
 
-    private final EveryDaySentenceDao everyDaySentenceDao;
     private final TranRecord_jpDao tranRecord_jpDao;
     private final TranRecordDao tranRecordDao;
     private final TranRecord_korDao tranRecord_korDao;
@@ -68,9 +64,6 @@ public class DaoSession extends AbstractDaoSession {
     public DaoSession(Database db, IdentityScopeType type, Map<Class<? extends AbstractDao<?, ?>>, DaoConfig>
             daoConfigMap) {
         super(db);
-
-        everyDaySentenceDaoConfig = daoConfigMap.get(EveryDaySentenceDao.class).clone();
-        everyDaySentenceDaoConfig.initIdentityScope(type);
 
         tranRecord_jpDaoConfig = daoConfigMap.get(TranRecord_jpDao.class).clone();
         tranRecord_jpDaoConfig.initIdentityScope(type);
@@ -102,7 +95,6 @@ public class DaoSession extends AbstractDaoSession {
         recordDaoConfig = daoConfigMap.get(recordDao.class).clone();
         recordDaoConfig.initIdentityScope(type);
 
-        everyDaySentenceDao = new EveryDaySentenceDao(everyDaySentenceDaoConfig, this);
         tranRecord_jpDao = new TranRecord_jpDao(tranRecord_jpDaoConfig, this);
         tranRecordDao = new TranRecordDao(tranRecordDaoConfig, this);
         tranRecord_korDao = new TranRecord_korDao(tranRecord_korDaoConfig, this);
@@ -114,7 +106,6 @@ public class DaoSession extends AbstractDaoSession {
         symbolListDaoDao = new SymbolListDaoDao(symbolListDaoDaoConfig, this);
         recordDao = new recordDao(recordDaoConfig, this);
 
-        registerDao(EveryDaySentence.class, everyDaySentenceDao);
         registerDao(TranRecord_jp.class, tranRecord_jpDao);
         registerDao(TranRecord.class, tranRecordDao);
         registerDao(TranRecord_kor.class, tranRecord_korDao);
@@ -128,7 +119,6 @@ public class DaoSession extends AbstractDaoSession {
     }
     
     public void clear() {
-        everyDaySentenceDaoConfig.clearIdentityScope();
         tranRecord_jpDaoConfig.clearIdentityScope();
         tranRecordDaoConfig.clearIdentityScope();
         tranRecord_korDaoConfig.clearIdentityScope();
@@ -139,10 +129,6 @@ public class DaoSession extends AbstractDaoSession {
         aiEntityDaoConfig.clearIdentityScope();
         symbolListDaoDaoConfig.clearIdentityScope();
         recordDaoConfig.clearIdentityScope();
-    }
-
-    public EveryDaySentenceDao getEveryDaySentenceDao() {
-        return everyDaySentenceDao;
     }
 
     public TranRecord_jpDao getTranRecord_jpDao() {

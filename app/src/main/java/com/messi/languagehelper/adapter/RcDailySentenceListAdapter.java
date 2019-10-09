@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.dao.EveryDaySentence;
+import com.messi.languagehelper.box.EveryDaySentence;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.HeaderFooterRecyclerViewAdapter;
 import com.messi.languagehelper.util.XFYSAD;

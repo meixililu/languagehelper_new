@@ -215,7 +215,9 @@ public class WebViewForYYSFragment extends BaseFragment{
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
-		mWebView.destroy();
+		if (mWebView != null) {
+			mWebView.destroy();
+		}
 	}
 
 	private void hideAd(final WebView view){

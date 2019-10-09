@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.messi.languagehelper.XmlyRecommendFragment;
+import com.messi.languagehelper.util.LogUtil;
 
 public class XmlyRecommendPageAdapter extends FragmentPagerAdapter {
 
@@ -25,6 +26,7 @@ public class XmlyRecommendPageAdapter extends FragmentPagerAdapter {
     }
 
     public void refreshByTags(String category, String tag_name) {
+        LogUtil.DefalutLog("XmlyRecommendPageAdapter-refreshByTags()");
         mFragment.refreshByTags(category,tag_name);
     }
 

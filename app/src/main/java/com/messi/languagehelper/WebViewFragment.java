@@ -209,7 +209,9 @@ public class WebViewFragment extends BaseFragment{
 
 	@Override
 	public void onDestroy() {
+		if (mWebView != null) {
+			mWebView.destroy();
+		}
 		super.onDestroy();
-		mWebView.destroy();
 	}
 }

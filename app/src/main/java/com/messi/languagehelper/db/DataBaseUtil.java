@@ -13,8 +13,6 @@ import com.messi.languagehelper.dao.AvobjectDao;
 import com.messi.languagehelper.dao.DaoSession;
 import com.messi.languagehelper.dao.Dictionary;
 import com.messi.languagehelper.dao.DictionaryDao;
-import com.messi.languagehelper.dao.EveryDaySentence;
-import com.messi.languagehelper.dao.EveryDaySentenceDao;
 import com.messi.languagehelper.dao.SymbolListDao;
 import com.messi.languagehelper.dao.SymbolListDaoDao;
 import com.messi.languagehelper.dao.TranRecordDao;
@@ -45,7 +43,6 @@ public class DataBaseUtil {
     private static Context appContext;
     private DaoSession mDaoSession;
     private recordDao mrecordDao;
-    private EveryDaySentenceDao mEveryDaySentenceDao;
     private DictionaryDao mDictionaryDao;
     private SymbolListDaoDao mSymbolListDaoDao;
     private WordDetailListItemDao mWordDetailListItemDao;
@@ -68,7 +65,6 @@ public class DataBaseUtil {
             instance.mDaoSession = BaseApplication.getDaoSession(appContext);
             instance.mrecordDao = instance.mDaoSession.getRecordDao();
             instance.mDictionaryDao = instance.mDaoSession.getDictionaryDao();
-            instance.mEveryDaySentenceDao = instance.mDaoSession.getEveryDaySentenceDao();
             instance.mSymbolListDaoDao = instance.mDaoSession.getSymbolListDaoDao();
             instance.mWordDetailListItemDao = instance.mDaoSession.getWordDetailListItemDao();
             instance.mAiEntityDao = instance.mDaoSession.getAiEntityDao();
@@ -288,36 +284,6 @@ public class DataBaseUtil {
         return mDictionaryDao.count();
     }
 
-    /**
-     * Daily Sentence CURD
-     **/
-    public long insert(EveryDaySentence bean) {
-        return mEveryDaySentenceDao.insert(bean);
-    }
-
-    public boolean isExist(long cid) {
-        QueryBuilder<EveryDaySentence> qb = mEveryDaySentenceDao.queryBuilder();
-        qb.where(EveryDaySentenceDao.Properties.Cid.eq(cid));
-        int size = qb.list().size();
-        LogUtil.DefalutLog("isExist---size:" + size);
-        return size > 0;
-    }
-
-    public List<EveryDaySentence> getDailySentenceList(int limit) {
-        QueryBuilder<EveryDaySentence> qb = mEveryDaySentenceDao.queryBuilder();
-        qb.orderDesc(EveryDaySentenceDao.Properties.Dateline);
-        qb.limit(limit);
-        return qb.list();
-    }
-
-    public void saveEveryDaySentenceList(List<EveryDaySentence> beans) {
-        for (EveryDaySentence item : beans) {
-            if (!isExist(item.getCid())) {
-                insert(item);
-            }
-        }
-    }
-    /**Daily Sentence CURD**/
 
     /** word study **/
     public void saveList(List<WordDetailListItem> beans, boolean isNewWord){

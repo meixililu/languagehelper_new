@@ -9,7 +9,6 @@ import com.messi.languagehelper.dao.AvobjectDao;
 import com.messi.languagehelper.dao.DaoMaster;
 import com.messi.languagehelper.dao.DaoMaster.OpenHelper;
 import com.messi.languagehelper.dao.DictionaryDao;
-import com.messi.languagehelper.dao.EveryDaySentenceDao;
 import com.messi.languagehelper.dao.SymbolListDaoDao;
 import com.messi.languagehelper.dao.TranRecordDao;
 import com.messi.languagehelper.dao.TranRecord_jpDao;
@@ -37,8 +36,7 @@ public class SQLiteOpenHelper extends OpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         try {
-            MigrationHelper.migrate(db, EveryDaySentenceDao.class,
-                    DictionaryDao.class, recordDao.class,
+            MigrationHelper.migrate(db, DictionaryDao.class, recordDao.class,
                     SymbolListDaoDao.class, WordDetailListItemDao.class, AiEntityDao.class,
                     TranResultZhYueDao.class, TranRecordDao.class, TranRecord_jpDao.class,
                     TranRecord_korDao.class, AvobjectDao.class);

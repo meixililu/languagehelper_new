@@ -1,6 +1,6 @@
 package com.messi.languagehelper;
 
-import android.app.Activity;
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,8 +15,8 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.messi.languagehelper.adapter.XmlyRecommendPageAdapter;
-import com.messi.languagehelper.dao.EveryDaySentence;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.EveryDaySentence;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
@@ -87,7 +87,7 @@ public class StudyCategoryFragment extends BaseFragment {
     }
 
     @Override
-    public void onAttach(Activity activity) {
+    public void onAttach(Context activity) {
         super.onAttach(activity);
         try {
             registerBroadcast();
@@ -233,6 +233,7 @@ public class StudyCategoryFragment extends BaseFragment {
     }
 
     private void onTabChange(CategoryRecommendAlbums dra){
+        LogUtil.DefalutLog("StudyFragment-onTabChange()");
         mAdapter.refreshByTags(XimalayaUtil.Category_english,dra.getTagName());
     }
 
@@ -241,20 +242,20 @@ public class StudyCategoryFragment extends BaseFragment {
     }
 
     private void getDailySentence(){
-        List<EveryDaySentence> mList = DataBaseUtil.getInstance().getDailySentenceList(1);
+        LogUtil.DefalutLog("StudyFragment-getDailySentence()");
+        List<EveryDaySentence> mList = BoxHelper.getEveryDaySentenceList(1);
         if(mList != null){
             if(mList.size() > 0){
                 mEveryDaySentence = mList.get(0);
+                setSentence();
             }
         }
-        setSentence();
-        LogUtil.DefalutLog("StudyFragment-getDailySentence()");
     }
 
     private void isLoadDailySentence(){
         String todayStr = TimeUtil.getTimeDateLong(System.currentTimeMillis());
         long cid = NumberUtil.StringToLong(todayStr);
-        boolean isExist = DataBaseUtil.getInstance().isExist(cid);
+        boolean isExist = BoxHelper.isEveryDaySentenceExist(cid);
         if(!isExist){
             requestDailysentence();
         }

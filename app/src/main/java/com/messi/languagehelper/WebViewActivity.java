@@ -302,8 +302,10 @@ public class WebViewActivity extends BaseActivity{
 	
 	@Override
 	protected void onDestroy() {
+		if (mWebView != null) {
+			mWebView.destroy();
+		}
 		super.onDestroy();
-		mWebView.destroy();
 	}
 
 	private void hideAd(final WebView view){

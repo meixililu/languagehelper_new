@@ -1,20 +1,20 @@
 package com.messi.languagehelper.util;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.json.JSONTokener;
+import android.text.TextUtils;
 
-import com.messi.languagehelper.dao.Dictionary;
 import com.messi.languagehelper.bean.DictionaryDataJuhe;
 import com.messi.languagehelper.bean.DictionaryResultJuhe;
 import com.messi.languagehelper.bean.DictionaryRootJuhe;
-import com.messi.languagehelper.dao.EveryDaySentence;
 import com.messi.languagehelper.bean.Root;
 import com.messi.languagehelper.bean.Showapi_res_body;
 import com.messi.languagehelper.bean.Web;
+import com.messi.languagehelper.box.EveryDaySentence;
+import com.messi.languagehelper.dao.Dictionary;
 import com.messi.languagehelper.db.DataBaseUtil;
 
-import android.text.TextUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.json.JSONTokener;
 
 
 public class JsonParser {
@@ -368,19 +368,6 @@ public class JsonParser {
 //					tags = jObject.getJSONArray("tags");
 //				}
 //			}
-			if(bean != null){
-				DataBaseUtil.getInstance().insert(bean);
-//				long everyDaySentenceId = bean.getId();
-//				if(everyDaySentenceId >= 0 && tags != null){
-//					for(int i=0; i<tags.length(); i++){
-//						Tag mTag = new Tag();
-//						JSONObject tag = tags.getJSONObject(i);
-//						mTag.setName(tag.getString("name"));
-//						mTag.setEveryDaySentenceId(everyDaySentenceId);
-//						DataBaseUtil.getInstance().insert(mTag);
-//					}
-//				}
-			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

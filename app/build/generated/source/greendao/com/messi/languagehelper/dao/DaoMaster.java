@@ -21,7 +21,6 @@ public class DaoMaster extends AbstractDaoMaster {
 
     /** Creates underlying database table using DAOs. */
     public static void createAllTables(Database db, boolean ifNotExists) {
-        EveryDaySentenceDao.createTable(db, ifNotExists);
         TranRecord_jpDao.createTable(db, ifNotExists);
         TranRecordDao.createTable(db, ifNotExists);
         TranRecord_korDao.createTable(db, ifNotExists);
@@ -36,7 +35,6 @@ public class DaoMaster extends AbstractDaoMaster {
 
     /** Drops underlying database table using DAOs. */
     public static void dropAllTables(Database db, boolean ifExists) {
-        EveryDaySentenceDao.dropTable(db, ifExists);
         TranRecord_jpDao.dropTable(db, ifExists);
         TranRecordDao.dropTable(db, ifExists);
         TranRecord_korDao.dropTable(db, ifExists);
@@ -65,7 +63,6 @@ public class DaoMaster extends AbstractDaoMaster {
 
     public DaoMaster(Database db) {
         super(db, SCHEMA_VERSION);
-        registerDaoClass(EveryDaySentenceDao.class);
         registerDaoClass(TranRecord_jpDao.class);
         registerDaoClass(TranRecordDao.class);
         registerDaoClass(TranRecord_korDao.class);

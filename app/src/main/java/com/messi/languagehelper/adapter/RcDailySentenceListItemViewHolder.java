@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.messi.languagehelper.PracticeActivity;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.dao.EveryDaySentence;
+import com.messi.languagehelper.box.EveryDaySentence;
 import com.messi.languagehelper.dao.record;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;

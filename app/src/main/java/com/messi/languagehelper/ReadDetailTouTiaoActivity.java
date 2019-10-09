@@ -446,7 +446,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     }
 
     private void exoplaer(String media_url) {
-        LogUtil.DefalutLog("exoplaer---status:" + status);
+        LogUtil.DefalutLog("exoplaer---media_url:" + media_url);
         hideProgressbar();
         if (status == 0) {
             status = 1;
@@ -567,10 +567,10 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
         if (mWebView != null) {
             mWebView.destroy();
         }
+        super.onDestroy();
         status = 1;
         releasePlayer();
     }

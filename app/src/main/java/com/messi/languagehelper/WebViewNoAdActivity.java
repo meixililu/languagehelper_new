@@ -260,7 +260,9 @@ public class WebViewNoAdActivity extends BaseActivity{
 	protected void onDestroy() {
 		super.onDestroy();
 		LogUtil.DefalutLog("Url:"+mWebView.getUrl());
-		mWebView.destroy();
+		if (mWebView != null) {
+			mWebView.destroy();
+		}
 	}
 
 	private void hideAd(final WebView view){

@@ -364,7 +364,9 @@ public class WebViewForNovelActivity extends BaseActivity implements View.OnClic
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		mWebView.destroy();
+		if (mWebView != null) {
+			mWebView.destroy();
+		}
 		if (mTXADView != null) {
 			mTXADView.destroy();
 		}

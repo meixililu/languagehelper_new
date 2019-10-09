@@ -1,15 +1,17 @@
-package com.messi.languagehelper.dao;
+package com.messi.languagehelper.box;
 
-import org.greenrobot.greendao.annotation.Entity;
-import org.greenrobot.greendao.annotation.Id;
-import org.greenrobot.greendao.annotation.Generated;
-import org.greenrobot.greendao.annotation.Transient;
+
+import io.objectbox.annotation.Entity;
+import io.objectbox.annotation.Id;
+import io.objectbox.annotation.Index;
+import io.objectbox.annotation.Transient;
 
 @Entity
 public class EveryDaySentence {
 
-    @Id(autoincrement = true)
+    @Id
     private Long id;
+    @Index
     private Long cid;
     private String sid;
     private String tts;
@@ -31,39 +33,6 @@ public class EveryDaySentence {
     private String backup3;
     @Transient
     private boolean isPlaying;
-
-    @Generated(hash = 603994386)
-    public EveryDaySentence(Long id, Long cid, String sid, String tts,
-            String tts_local_position, String content, String note, String love,
-            String translation, String picture, String picture2, String caption,
-            String dateline, String s_pv, String sp_pv, String fenxiang_img,
-            String fenxiang_img_local_position, String backup1, String backup2,
-            String backup3) {
-        this.id = id;
-        this.cid = cid;
-        this.sid = sid;
-        this.tts = tts;
-        this.tts_local_position = tts_local_position;
-        this.content = content;
-        this.note = note;
-        this.love = love;
-        this.translation = translation;
-        this.picture = picture;
-        this.picture2 = picture2;
-        this.caption = caption;
-        this.dateline = dateline;
-        this.s_pv = s_pv;
-        this.sp_pv = sp_pv;
-        this.fenxiang_img = fenxiang_img;
-        this.fenxiang_img_local_position = fenxiang_img_local_position;
-        this.backup1 = backup1;
-        this.backup2 = backup2;
-        this.backup3 = backup3;
-    }
-
-    @Generated(hash = 2087339357)
-    public EveryDaySentence() {
-    }
 
     public boolean isPlaying() {
 		return isPlaying;

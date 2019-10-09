@@ -43,6 +43,7 @@ public class XmlyRecommendFragment extends BaseFragment {
     private String tag_name;
     private LinearLayoutManager mLinearLayoutManager;
     private XXLForXMLYModel mXXLModel;
+    private boolean isNeedClear;
 
     public static XmlyRecommendFragment newInstance() {
         return new XmlyRecommendFragment();
@@ -88,8 +89,10 @@ public class XmlyRecommendFragment extends BaseFragment {
                 int total = mLinearLayoutManager.getItemCount();
                 int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
                 isADInList(recyclerView, firstVisibleItem, visible);
+                LogUtil.DefalutLog("visible:"+visible+"-first:"+firstVisibleItem+"-total:"+total);
                 if (!mXXLModel.loading && mXXLModel.hasMore) {
                     if ((visible + firstVisibleItem) >= total) {
+                        LogUtil.DefalutLog("QueryTask-setListOnScrollListener");
                         QueryTask();
                     }
                 }
@@ -99,7 +102,7 @@ public class XmlyRecommendFragment extends BaseFragment {
 
     private void isADInList(RecyclerView view, int first, int vCount) {
         try {
-            if (avObjects.size() > 3) {
+            if (avObjects != null && avObjects.size() > 3) {
                 for (int i = first; i < (first + vCount); i++) {
                     if (i < avObjects.size() && i > 0) {
                         Album mAVObject = avObjects.get(i);
@@ -141,12 +144,8 @@ public class XmlyRecommendFragment extends BaseFragment {
         this.tag_name = tag_name;
         skip = 1;
         hideFooterview();
-        if(avObjects != null){
-            avObjects.clear();
-        }
-        if(mAdapter != null){
-            mAdapter.notifyDataSetChanged();
-        }
+        isNeedClear = true;
+        LogUtil.DefalutLog("QueryTask-refreshByTags");
         QueryTask();
     }
 
@@ -154,12 +153,8 @@ public class XmlyRecommendFragment extends BaseFragment {
     public void onSwipeRefreshLayoutRefresh() {
         random();
         hideFooterview();
-        if(avObjects != null){
-            avObjects.clear();
-        }
-        if(mAdapter != null){
-            mAdapter.notifyDataSetChanged();
-        }
+        isNeedClear = true;
+        LogUtil.DefalutLog("QueryTask-onSwipeRefreshLayoutRefresh");
         QueryTask();
     }
 
@@ -179,6 +174,7 @@ public class XmlyRecommendFragment extends BaseFragment {
     }
 
     private void QueryTask() {
+        LogUtil.DefalutLog("QueryTask");
         if(mXXLModel != null){
             mXXLModel.loading = true;
         }
@@ -195,11 +191,14 @@ public class XmlyRecommendFragment extends BaseFragment {
             @Override
             public void onSuccess(@Nullable AlbumList albumList) {
                 onFinishLoadData();
-                if (albumList != null && albumList.getAlbums() != null) {
-                    avObjects.addAll(albumList.getAlbums());
+                if (albumList != null && albumList.getAlbums() != null && avObjects != null) {
                     loadAD();
+                    if(isNeedClear){
+                        isNeedClear = false;
+                        avObjects.clear();
+                    }
+                    avObjects.addAll(albumList.getAlbums());
                     skip += 1;
-                    mAdapter.notifyDataSetChanged();
                     if (skip > albumList.getTotalPage()) {
                         ToastUtil.diaplayMesShort(getContext(), "没有了！");
                         hideFooterview();
@@ -212,6 +211,7 @@ public class XmlyRecommendFragment extends BaseFragment {
                         }
                         showFooterview();
                     }
+                    mAdapter.notifyDataSetChanged();
                     max_page = albumList.getTotalPage();
                 }
             }

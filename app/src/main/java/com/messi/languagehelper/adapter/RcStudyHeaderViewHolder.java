@@ -16,8 +16,8 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.messi.languagehelper.DailySentenceAndEssayActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.bean.ReadingCategory;
-import com.messi.languagehelper.dao.EveryDaySentence;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.EveryDaySentence;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
@@ -104,7 +104,7 @@ public class RcStudyHeaderViewHolder extends RecyclerView.ViewHolder {
     }
 
     private void getDailySentence(){
-        List<EveryDaySentence> mList = DataBaseUtil.getInstance().getDailySentenceList(1);
+        List<EveryDaySentence> mList = BoxHelper.getEveryDaySentenceList(1);
         if(mList != null){
             if(mList.size() > 0){
                 mEveryDaySentence = mList.get(0);
@@ -117,7 +117,7 @@ public class RcStudyHeaderViewHolder extends RecyclerView.ViewHolder {
     private void isLoadDailySentence(){
         String todayStr = TimeUtil.getTimeDateLong(System.currentTimeMillis());
         long cid = NumberUtil.StringToLong(todayStr);
-        boolean isExist = DataBaseUtil.getInstance().isExist(cid);
+        boolean isExist = BoxHelper.isEveryDaySentenceExist(cid);
         if(!isExist){
             requestDailysentence();
         }
