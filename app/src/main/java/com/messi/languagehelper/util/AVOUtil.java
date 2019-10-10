@@ -858,6 +858,7 @@ public class AVOUtil {
 		public final static String comments = "comments";
 		public final static String content = "content";
 		public final static String likes = "likes";
+		public final static String background = "background";
 		public final static String uid = "uid";
 		public final static String createdAt = "createdAt";
 	}

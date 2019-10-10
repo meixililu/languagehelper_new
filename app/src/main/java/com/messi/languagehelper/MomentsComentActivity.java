@@ -17,7 +17,6 @@ import com.avos.avoscloud.SaveCallback;
 import com.messi.languagehelper.adapter.RcMomentsCommentListAdapter;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.StringUtils;
 import com.messi.languagehelper.util.SystemUtil;
@@ -62,6 +61,7 @@ public class MomentsComentActivity extends BaseActivity {
 
 
     private void initViews() {
+        getSupportActionBar().setTitle(getResources().getString(R.string.comment));
         content = getIntent().getStringExtra(KeyUtil.ContextKey);
         momid = getIntent().getStringExtra(KeyUtil.Id);
         avObjects = new ArrayList<AVObject>();
@@ -178,7 +178,6 @@ public class MomentsComentActivity extends BaseActivity {
 
         @Override
         protected void onPostExecute(List<AVObject> avObject) {
-            LogUtil.DefalutLog("onPostExecute---");
             hideProgressbar();
             onSwipeRefreshLayoutFinish();
             if (avObject != null) {

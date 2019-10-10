@@ -47,6 +47,7 @@
                 android:id="@+id/playbtn"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                app:fabCustomSize="50dp"
                 android:layout_marginTop="@dimen/padding_7"
                 android:src="@drawable/ic_play_white"
                 android:clickable="true"

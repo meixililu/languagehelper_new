@@ -147,6 +147,7 @@ public class RcMomentsListItemViewHolder extends RecyclerView.ViewHolder {
     }
 
     private void onItemClick(AVObject mAVObject) {
+        LogUtil.DefalutLog("onItemClick");
         Intent intent = new Intent(context, MomentsComentActivity.class);
         intent.putExtra(KeyUtil.ActionbarTitle, " ");
         intent.putExtra(KeyUtil.ContextKey, mAVObject.getString(AVOUtil.Moments.content));
