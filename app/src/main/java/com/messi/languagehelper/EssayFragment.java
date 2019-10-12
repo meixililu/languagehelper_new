@@ -1,6 +1,6 @@
 package com.messi.languagehelper;
 
-import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,7 +33,7 @@ public class EssayFragment extends BaseFragment {
     TwistaItem mTwistaItem;
 
     @Override
-    public void onAttach(Activity context) {
+    public void onAttach(Context context) {
         try {
             super.onAttach(context);
             mProgressbarListener = (FragmentProgressbarListener) context;
