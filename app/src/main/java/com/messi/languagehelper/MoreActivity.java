@@ -41,6 +41,11 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
     ImageView offline_dic_layout_line;
     @BindView(R.id.help_layout_line)
     ImageView help_layout_line;
+
+    @BindView(R.id.privacy_layout)
+    FrameLayout privacy_layout;
+    @BindView(R.id.terms_layout)
+    FrameLayout terms_layout;
     private SharedPreferences mSharedPreferences;
 
     @Override
@@ -62,6 +67,8 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
         qrcode_layout.setOnClickListener(this);
         setting_layout.setOnClickListener(this);
         offlineDicLayout.setOnClickListener(this);
+        privacy_layout.setOnClickListener(this);
+        terms_layout.setOnClickListener(this);
         if(!Setings.getSharedPreferences(this).getBoolean(KeyUtil.OfflineDicUnreadKey,true)){
             offlineDicUnreadDot.setVisibility(View.GONE);
         }
@@ -113,6 +120,12 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
             case R.id.invite_layout:
                 invite();
                 break;
+            case R.id.privacy_layout:
+                toPrivacyDetail(getString(R.string.title_privacy),Setings.PrivacyUrl);
+                break;
+            case R.id.terms_layout:
+                toPrivacyDetail(getString(R.string.title_terms),Setings.TermsUrl);
+                break;
             case R.id.qrcode_layout:
                 toActivity(QRCodeShareActivity.class, null);
                 AVAnalytics.onEvent(MoreActivity.this, "more_pg_qrcode_btn");
@@ -155,4 +168,10 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
         AVAnalytics.onEvent(this, "more_pg_invite");
     }
 
+    private void toPrivacyDetail(String title,String url){
+        Intent intent = new Intent(this,WebViewActivity.class);
+        intent.putExtra(KeyUtil.URL,url);
+        intent.putExtra(KeyUtil.ActionbarTitle,title);
+        startActivity(intent);
+    }
 }

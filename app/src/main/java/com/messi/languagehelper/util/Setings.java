@@ -44,7 +44,7 @@ public class Setings {
 
 	public static String PrivacyUrl = "http://www.mzxbkj.com/pp/privacyzh.html";
 
-	public static String ServiceUrl = "http://www.mzxbkj.com/pp/servicezh.html";
+	public static String TermsUrl = "http://www.mzxbkj.com/pp/servicezh.html";
 
 	/**baidu translate api**/
 	public static String baiduTranslateUrl = "https://fanyi-api.baidu.com/api/trans/vip/translate";

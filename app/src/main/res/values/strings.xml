@@ -66,6 +66,8 @@
     <string name="title_cantonese">粤语</string>
     <string name="title_duanzi">段子笑话</string>
     <string name="title_duanzi_mm">福利</string>
+    <string name="title_privacy">隐私政策</string>
+    <string name="title_terms">服务条款</string>
     <string name="title_duanzi_img">图片笑话</string>
     <string name="title_duanzi_gif">小视频</string>
     <string name="title_web_npr">NPR</string>
@@ -209,8 +211,8 @@
     <string name="clear_all_except_favorite">删除非收藏记录</string>
     <string name="clear_all_record">删除所有记录</string>
     <string name="clear_all">清空</string>
-    <string name="invite_friends">还不错，告诉小伙伴</string>
-    <string name="invite_friends_qrcode">二维码  扫一扫</string>
+    <string name="invite_friends">邀请好友</string>
+    <string name="invite_friends_qrcode">扫二维码</string>
     <string name="clear_success">清除成功</string>
 
     <string name="preference_key_tts_music">tts_music</string>

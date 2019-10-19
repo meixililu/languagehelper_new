@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/contentbg"
     android:orientation="vertical" >
 
@@ -13,8 +13,8 @@
         android:minHeight="@dimen/actionBar" />
 
     <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@color/app_background"
         android:fillViewport="true"
         android:scrollbars="none" >
@@ -357,6 +357,89 @@
                 android:layout_height="1dp"
                 android:background="@color/contentbg"
                 />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/padding_10"
+                android:background="@color/contentbg"
+                />
+            <FrameLayout
+                android:id="@+id/privacy_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:foreground="@drawable/framelayout_selector" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp"
+                    >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="56dp"
+                        android:layout_weight="1"
+                        android:background="@color/none"
+                        android:gravity="center_vertical"
+                        android:text="@string/title_privacy"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/big" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/expend_right"
+                        />
+                </LinearLayout>
+            </FrameLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/contentbg"
+                />
+            <FrameLayout
+                android:id="@+id/terms_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:foreground="@drawable/framelayout_selector" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp"
+                    >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="56dp"
+                        android:layout_weight="1"
+                        android:background="@color/none"
+                        android:gravity="center_vertical"
+                        android:text="@string/title_terms"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/big" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/expend_right"
+                        />
+                </LinearLayout>
+            </FrameLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/contentbg"
+                />
+
         </LinearLayout>
     </ScrollView>
 

@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.android.exoplayer:exoplayer-core:2.9.6@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c2c2d13d96e46008f90716b4ae2a79db/exoplayer-core-2.9.6/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/725ece13ff1bf7e343351c2a986386fd/exoplayer-core-2.9.6/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c2c2d13d96e46008f90716b4ae2a79db/exoplayer-core-2.9.6/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c2c2d13d96e46008f90716b4ae2a79db/exoplayer-core-2.9.6/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/725ece13ff1bf7e343351c2a986386fd/exoplayer-core-2.9.6/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/725ece13ff1bf7e343351c2a986386fd/exoplayer-core-2.9.6/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.android.exoplayer/exoplayer-core/2.9.6/eefed6b5cb5a9fe39659956405bd3b37686baa3e/exoplayer-core-2.9.6-javadoc.jar!/" />

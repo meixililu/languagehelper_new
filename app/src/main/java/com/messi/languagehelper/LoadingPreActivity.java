@@ -145,7 +145,7 @@ public class LoadingPreActivity extends BaseActivity {
         @Override
         public void onClick(@NonNull View widget) {
             if(text.equals("服务条款")){
-                toPrivacyDetail(text,Setings.ServiceUrl);
+                toPrivacyDetail(text,Setings.TermsUrl);
             }else if(text.equals("隐私政策")){
                 toPrivacyDetail(text,Setings.PrivacyUrl);
             }
