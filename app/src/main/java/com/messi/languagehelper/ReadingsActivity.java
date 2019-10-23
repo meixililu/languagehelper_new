@@ -36,6 +36,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 	private String category;
 	private String type;
 	private String source;
+	private String boutique_code;
 	private LinearLayoutManager mLinearLayoutManager;
 	private XXLModel mXXLModel;
 
@@ -53,6 +54,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 		category = getIntent().getStringExtra(KeyUtil.Category);
 		type = getIntent().getStringExtra(KeyUtil.NewsType);
 		source = getIntent().getStringExtra(KeyUtil.NewsSource);
+		boutique_code = getIntent().getStringExtra(KeyUtil.BoutiqueCode);
 		avObjects = new ArrayList<Reading>();
 		mXXLModel = new XXLModel(this);
 		avObjects.addAll(BoxHelper.getReadingList(0,Setings.page_size,category,type,""));
@@ -139,7 +141,11 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 	@Override
 	public void onSwipeRefreshLayoutRefresh() {
 		hideFooterview();
-		random();
+		if(TextUtils.isEmpty(boutique_code)){
+			skip = 0;
+		}else {
+			random();
+		}
 		avObjects.clear();
 		mAdapter.notifyDataSetChanged();
 		new QueryTask().execute();
@@ -174,8 +180,10 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 			if(!TextUtils.isEmpty(source)){
 				query.whereEqualTo(AVOUtil.Reading.source_name, source);
 			}
+			if(!TextUtils.isEmpty(boutique_code)){
+				query.whereEqualTo(AVOUtil.Reading.boutique_code, boutique_code);
+			}
 			query.addDescendingOrder(AVOUtil.Reading.publish_time);
-			query.addDescendingOrder(AVOUtil.Reading.item_id);
 			query.skip(skip);
 			query.limit(Setings.page_size);
 			try {
@@ -203,17 +211,17 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 					mAdapter.notifyDataSetChanged();
 					loadAD();
 					skip += Setings.page_size;
-					showFooterview();
+					if(avObject.size() < Setings.page_size){
+						mXXLModel.hasMore = false;
+						hideFooterview();
+					}else {
+						mXXLModel.hasMore = true;
+						showFooterview();
+					}
 				}
 			}else{
 				ToastUtil.diaplayMesShort(ReadingsActivity.this, "加载失败，下拉可刷新");
 			}
-			if(skip == maxRandom){
-				mXXLModel.hasMore = false;
-			}else {
-				mXXLModel.hasMore = true;
-			}
-
 		}
 	}
 
@@ -244,6 +252,9 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 					}
 					if(!TextUtils.isEmpty(source)){
 						query.whereEqualTo(AVOUtil.Reading.source_name, source);
+					}
+					if(!TextUtils.isEmpty(boutique_code)){
+						query.whereEqualTo(AVOUtil.Reading.boutique_code, boutique_code);
 					}
 					maxRandom = query.count();
 					maxRandom /= Setings.page_size;

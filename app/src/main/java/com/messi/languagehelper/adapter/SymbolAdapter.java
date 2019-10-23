@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.messi.languagehelper.BoutiquesFragment;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.ReadingFragment;
 import com.messi.languagehelper.SubjectFragment;
@@ -23,6 +24,7 @@ public class SymbolAdapter extends FragmentPagerAdapter {
         super(fm);
         this.mContext = mContext;
         titleList.add(mContext.getResources().getString(R.string.recommend));
+        titleList.add(mContext.getResources().getString(R.string.title_symbol));
         titleList.add(mContext.getResources().getString(R.string.title_study_category));
         titleList.add(mContext.getResources().getString(R.string.title_course));
     }
@@ -30,10 +32,12 @@ public class SymbolAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if( position == 0 ){
-            return SymbolListFragment.getInstance();
+            return BoutiquesFragment.getInstance("symbol");
         }else if( position == 1 ){
-            return ReadingFragment.newInstanceBySearchTitle("","音标");
+            return SymbolListFragment.getInstance();
         }else if( position == 2 ){
+            return ReadingFragment.newInstanceBySearchTitle("","音标");
+        }else if( position == 3 ){
             return SubjectFragment.getInstance(AVOUtil.Category.symbol,KeyUtil.RecentSymbol,"");
         }
         return null;

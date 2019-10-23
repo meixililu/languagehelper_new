@@ -498,6 +498,8 @@ public class AVOUtil {
 		
 		public final static String source_name = "source_name";
 
+		public final static String boutique_code = "boutique_code";
+
 		public final static String source_url = "source_url";
 
 		public final static String img = "img";
@@ -874,6 +876,40 @@ public class AVOUtil {
 	public static class MomentsFilter {
 		public final static String MomentsFilter = "MomentsFilter";
 		public final static String uid = "uid";
+	}
+
+	public static class Boutiques {
+
+		public final static String Boutiques = "Boutiques";
+
+		public final static String title = "title";
+
+		public final static String content = "content";
+
+		public final static String action = "action";
+
+		public final static String code = "code";
+
+		public final static String img_url = "img_url";
+
+		public final static String tag = "tag";
+
+		public final static String table_name = "table_name";
+
+		public final static String source_name = "source_name";
+
+		public final static String source_url = "source_url";
+
+		public final static String type = "type";
+
+		public final static String media_url = "media_url";
+
+		public final static String category = "category";
+
+		public final static String order = "order";
+
+		public final static String content_type = "content_type";
+
 	}
 
 

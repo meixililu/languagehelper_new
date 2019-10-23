@@ -2,24 +2,27 @@ package com.messi.languagehelper;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.widget.ListView;
 
 import com.avos.avoscloud.AVFile;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
-import com.messi.languagehelper.adapter.WordStudySecondAdapter;
+import com.messi.languagehelper.adapter.RcWordStudySecondAdapter;
 import com.messi.languagehelper.bean.WordListType;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
+import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class WordStudySecondActivity extends BaseActivity {
 
-	private ListView category_lv;
-	private WordStudySecondAdapter mAdapter;
+	private RecyclerView category_lv;
+	private RcWordStudySecondAdapter mAdapter;
+	private LinearLayoutManager mLinearLayoutManager;
 	private List<WordListType> mWordTypeList;
 	private String category_id;
 	private String play_sign;
@@ -38,8 +41,17 @@ public class WordStudySecondActivity extends BaseActivity {
 		play_sign = getIntent().getStringExtra(KeyUtil.WordStudyPlan);
 		if(!TextUtils.isEmpty(category_id)){
 			mWordTypeList = new ArrayList<WordListType>();
-			category_lv = (ListView) findViewById(R.id.studycategory_lv);
-			mAdapter = new WordStudySecondAdapter(this, mWordTypeList,play_sign);
+			category_lv = (RecyclerView) findViewById(R.id.listview);
+			mAdapter = new RcWordStudySecondAdapter(play_sign);
+			mAdapter.setItems(mWordTypeList);
+			mLinearLayoutManager = new LinearLayoutManager(this);
+			category_lv.setLayoutManager(mLinearLayoutManager);
+			category_lv.addItemDecoration(
+					new HorizontalDividerItemDecoration.Builder(this)
+							.colorResId(R.color.text_tint)
+							.sizeResId(R.dimen.padding_10)
+							.marginResId(R.dimen.padding_margin, R.dimen.padding_margin)
+							.build());
 			category_lv.setAdapter(mAdapter);
 			new QueryTask().execute();
 		}else{

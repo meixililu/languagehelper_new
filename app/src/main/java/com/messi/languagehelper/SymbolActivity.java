@@ -21,7 +21,7 @@ public class SymbolActivity extends BaseActivity implements FragmentProgressbarL
     }
 
     private void initViews() {
-        getSupportActionBar().setTitle(getResources().getString(R.string.title_symbol));
+        getSupportActionBar().setTitle(getResources().getString(R.string.title_initiate));
         tablayout = (TabLayout) findViewById(R.id.tablayout);
         viewpager = (ViewPager) findViewById(R.id.viewpager);
 
