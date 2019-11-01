@@ -1,21 +1,5 @@
 package com.messi.languagehelper.adapter;
 
-import java.util.List;
-
-import com.iflytek.cloud.SpeechConstant;
-import com.iflytek.cloud.SpeechError;
-import com.iflytek.cloud.SpeechSynthesizer;
-import com.iflytek.cloud.SynthesizerListener;
-import com.messi.languagehelper.R;
-import com.messi.languagehelper.WordStudyDanCiRenZhiActivity;
-import com.messi.languagehelper.dao.WordDetailListItem;
-import com.messi.languagehelper.task.MyThread;
-import com.messi.languagehelper.util.AudioTrackUtil;
-import com.messi.languagehelper.util.DownLoadUtil;
-import com.messi.languagehelper.util.SDCardUtil;
-import com.messi.languagehelper.util.ToastUtil;
-import com.messi.languagehelper.util.XFUtil;
-
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
@@ -31,6 +15,22 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechError;
+import com.iflytek.cloud.SpeechSynthesizer;
+import com.iflytek.cloud.SynthesizerListener;
+import com.messi.languagehelper.R;
+import com.messi.languagehelper.WordStudyDanCiRenZhiActivity;
+import com.messi.languagehelper.dao.WordDetailListItem;
+import com.messi.languagehelper.task.MyThread;
+import com.messi.languagehelper.util.AudioTrackUtil;
+import com.messi.languagehelper.util.DownLoadUtil;
+import com.messi.languagehelper.util.SDCardUtil;
+import com.messi.languagehelper.util.ToastUtil;
+import com.messi.languagehelper.util.XFUtil;
+
+import java.util.List;
 
 public class WordStudyDetailAdapter extends BaseAdapter {
 
@@ -63,7 +63,10 @@ public class WordStudyDetailAdapter extends BaseAdapter {
 	}
 
 	public int getCount() {
-		return avObjects.size();
+		if(avObjects != null){
+			return avObjects.size();
+		}
+		return 0;
 	}
 
 	public WordDetailListItem getItem(int position) {

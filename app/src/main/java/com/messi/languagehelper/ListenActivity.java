@@ -9,6 +9,7 @@ import android.widget.FrameLayout;
 
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.AVAnalytics;
+import com.messi.languagehelper.util.AVOUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -19,8 +20,9 @@ public class ListenActivity extends BaseActivity implements FragmentProgressbarL
     FrameLayout content;
     @BindView(R.id.navigation)
     BottomNavigationView navigation;
-    private ListenHomeFragment mWordHomeFragment;
+    private Fragment mWordHomeFragment;
     private Fragment dashboardFragment;
+    private Fragment jtFragment;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -31,6 +33,11 @@ public class ListenActivity extends BaseActivity implements FragmentProgressbarL
                 case R.id.navigation_home:
                     hideAllFragment();
                     getSupportFragmentManager().beginTransaction().show(mWordHomeFragment).commit();;
+                    AVAnalytics.onEvent(ListenActivity.this, "wordstudy_daily");
+                    return true;
+                case R.id.navigation_jingting:
+                    hideAllFragment();
+                    getSupportFragmentManager().beginTransaction().show(jtFragment).commit();;
                     AVAnalytics.onEvent(ListenActivity.this, "wordstudy_daily");
                     return true;
                 case R.id.navigation_word_study:
@@ -55,12 +62,23 @@ public class ListenActivity extends BaseActivity implements FragmentProgressbarL
     private void initFragment(){
         navigation.inflateMenu(R.menu.listen_tabs);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        mWordHomeFragment = ListenHomeFragment.getInstance();
+        mWordHomeFragment = new ReadingFragment.Builder()
+                .title(getString(R.string.title_listening))
+                .category(AVOUtil.Category.listening)
+                .isPlayList(true)
+                .build();
+        jtFragment = new ReadingFragment.Builder()
+                .title(getString(R.string.title_intensive_listening))
+                .category(AVOUtil.Category.listening)
+                .source("VOA慢速英语精听网")
+                .isPlayList(true)
+                .build();
         dashboardFragment = ListenCourseFragment.getInstance();
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.content, mWordHomeFragment)
                 .add(R.id.content, dashboardFragment)
+                .add(R.id.content, jtFragment)
                 .commit();
         hideAllFragment();
         getSupportFragmentManager()
@@ -72,6 +90,7 @@ public class ListenActivity extends BaseActivity implements FragmentProgressbarL
                 .beginTransaction()
                 .hide(dashboardFragment)
                 .hide(mWordHomeFragment)
+                .hide(jtFragment)
                 .commit();
     }
 

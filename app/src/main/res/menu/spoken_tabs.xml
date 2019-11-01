@@ -7,6 +7,11 @@
         android:title="@string/spoken_english_practice" />
 
     <item
+        android:id="@+id/navigation_shadow"
+        android:icon="@drawable/ic_subject_black_24dp"
+        android:title="@string/start_to_follow" />
+
+    <item
         android:id="@+id/navigation_practice"
         android:icon="@drawable/ic_group_black_24dp"
         android:title="@string/title_TranslatePractice" />

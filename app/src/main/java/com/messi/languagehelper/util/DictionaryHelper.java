@@ -28,9 +28,11 @@ public class DictionaryHelper {
                                      DicHelperListener listener){
         parentsLayout.removeAllViews();
         addTitle(mContext,parentsLayout,result,listener);
-        String[] re_contents = result.getResult().split("\n\n");
-        for (int i = 0;i<re_contents.length; i++){
-            addContent(mContext,parentsLayout,re_contents[i],i);
+        if(result != null){
+            String[] re_contents = result.getResult().split("\n\n");
+            for (int i = 0;i<re_contents.length; i++){
+                addContent(mContext,parentsLayout,re_contents[i],i);
+            }
         }
         getListFooterView(mContext,parentsLayout);
     }
@@ -39,13 +41,15 @@ public class DictionaryHelper {
                                      DicHelperListener listener){
         parentsLayout.removeAllViews();
         addTitle(mContext,parentsLayout,result,listener);
-        String[] re_contents = result.getResult().split("\n\n");
-        if(re_contents.length > 0){
-            if(re_contents[0].length() > 500){
-                LinearLayout.LayoutParams mParams = new LinearLayout.LayoutParams(MATCH_PARENT,ScreenUtil.dip2px(mContext, 400));
-                parentsLayout.setLayoutParams(mParams);
+        if(result != null){
+            String[] re_contents = result.getResult().split("\n\n");
+            if(re_contents.length > 0){
+                if(re_contents[0].length() > 500){
+                    LinearLayout.LayoutParams mParams = new LinearLayout.LayoutParams(MATCH_PARENT,ScreenUtil.dip2px(mContext, 400));
+                    parentsLayout.setLayoutParams(mParams);
+                }
+                addContent(mContext,parentsLayout,re_contents[0],0);
             }
-            addContent(mContext,parentsLayout,re_contents[0],0);
         }
     }
 

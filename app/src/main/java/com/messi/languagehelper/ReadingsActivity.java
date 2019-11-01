@@ -78,7 +78,11 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 	}
 
 	private void random(){
-		skip = (int) Math.round(Math.random()*maxRandom);
+		if(!TextUtils.isEmpty(boutique_code)){
+			skip = 0;
+		}else {
+			skip = (int) Math.round(Math.random()*maxRandom);
+		}
 	}
 
 	public void setListOnScrollListener(){
@@ -141,11 +145,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 	@Override
 	public void onSwipeRefreshLayoutRefresh() {
 		hideFooterview();
-		if(TextUtils.isEmpty(boutique_code)){
-			skip = 0;
-		}else {
-			random();
-		}
+		random();
 		avObjects.clear();
 		mAdapter.notifyDataSetChanged();
 		new QueryTask().execute();

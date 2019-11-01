@@ -27,17 +27,17 @@ public class RcSpokenAIListAdapter extends HeaderFooterRecyclerViewAdapter<Recyc
         this.mContext = mContext;
     }
 
-    @Override
-    protected RecyclerView.ViewHolder onCreateHeaderViewHolder(ViewGroup parent, int viewType) {
-        LayoutInflater inflater = getLayoutInflater(parent);
-        View headerView = inflater.inflate(R.layout.spoken_ai_ad_header, parent, false);
-        return new RcSpokenAiHeaderViewHolder(headerView,mContext);
-    }
-
-    @Override
-    protected void onBindHeaderViewHolder(RecyclerView.ViewHolder holder, int position) {
-        super.onBindHeaderViewHolder(holder, position);
-    }
+//    @Override
+//    protected RecyclerView.ViewHolder onCreateHeaderViewHolder(ViewGroup parent, int viewType) {
+//        LayoutInflater inflater = getLayoutInflater(parent);
+//        View headerView = inflater.inflate(R.layout.spoken_ai_ad_header, parent, false);
+//        return new RcSpokenAiHeaderViewHolder(headerView,mContext);
+//    }
+//
+//    @Override
+//    protected void onBindHeaderViewHolder(RecyclerView.ViewHolder holder, int position) {
+//        super.onBindHeaderViewHolder(holder, position);
+//    }
 
     @Override
     protected RecyclerView.ViewHolder onCreateItemViewHolder(ViewGroup parent, int viewType) {

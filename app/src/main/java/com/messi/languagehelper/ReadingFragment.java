@@ -7,11 +7,13 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
@@ -23,6 +25,7 @@ import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
@@ -34,27 +37,55 @@ import java.util.List;
 public class ReadingFragment extends BaseFragment implements OnClickListener{
 
 	private RecyclerView listview;
+	private Toolbar mToolbar;
+	private ProgressBar progressBar;
 	private RcReadingListAdapter mAdapter;
 	private List<Reading> avObjects;
 	private int skip = 0;
+	private int maxRandom;
+	private String title;
 	private String category;
 	private String code;
 	private String source;
 	private String quest;
 	private String type;
-	private int maxRandom;
+	private String boutique_code;
+	private boolean isPlayList;
 	private boolean isNeedClear = false;
 	private LinearLayoutManager mLinearLayoutManager;
-	private boolean isPlayList;
 	private XXLModel mXXLModel;
+
+	public static Fragment newInstance(Builder builder){
+		ReadingFragment fragment = new ReadingFragment();
+		Bundle bundle = new Bundle();
+		bundle.putString("category",builder.category);
+		bundle.putString(KeyUtil.ActionbarTitle,builder.title);
+		bundle.putString(KeyUtil.BoutiqueCode,builder.boutique_code);
+		bundle.putString("code",builder.code);
+		bundle.putString("source",builder.source);
+		bundle.putBoolean("isPlayList",builder.isPlayList);
+		bundle.putString("type",builder.type);
+		bundle.putString("quest",builder.quest);
+		bundle.putInt("maxRandom",builder.maxRandom);
+		bundle.putBoolean("isNeedClear",builder.isNeedClear);
+		fragment.setArguments(bundle);
+		return fragment;
+	}
 
 	public static Fragment newInstance(String category, String code){
 		ReadingFragment fragment = new ReadingFragment();
 		Bundle bundle = new Bundle();
 		bundle.putString("category",category);
-		if(!TextUtils.isEmpty(code)){
-			bundle.putString("code",code);
-		}
+		bundle.putString("code",code);
+		fragment.setArguments(bundle);
+		return fragment;
+	}
+
+	public static Fragment newInstanceByBoutiqueCode(String title,String boutique_code){
+		ReadingFragment fragment = new ReadingFragment();
+		Bundle bundle = new Bundle();
+		bundle.putString(KeyUtil.ActionbarTitle,title);
+		bundle.putString(KeyUtil.BoutiqueCode,boutique_code);
 		fragment.setArguments(bundle);
 		return fragment;
 	}
@@ -106,11 +137,13 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 		super.onCreate(savedInstanceState);
 		registerBroadcast();
 		Bundle mBundle = getArguments();
+		this.title = mBundle.getString(KeyUtil.ActionbarTitle);
 		this.category = mBundle.getString("category");
 		this.code = mBundle.getString("code");
 		this.source = mBundle.getString("source");
 		this.quest = mBundle.getString("quest");
 		this.type = mBundle.getString("type");
+		this.boutique_code = mBundle.getString(KeyUtil.BoutiqueCode);
 		this.maxRandom = mBundle.getInt("maxRandom");
 		this.isNeedClear = mBundle.getBoolean("isNeedClear",false);
 		this.isPlayList = mBundle.getBoolean("isPlayList",false);
@@ -141,13 +174,19 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		super.onCreateView(inflater, container, savedInstanceState);
 		LogUtil.DefalutLog("onCreateView:"+category);
-		View view = inflater.inflate(R.layout.composition_fragment, container, false);
+		View view = inflater.inflate(R.layout.reading_fragment, container, false);
 		initViews(view);
 		return view;
 	}
 	
 	private void initViews(View view){
 		listview = (RecyclerView) view.findViewById(R.id.listview);
+		mToolbar = (Toolbar) view.findViewById(R.id.my_awesome_toolbar);
+		progressBar = (ProgressBar) view.findViewById(R.id.progressBarCircularIndetermininate);
+		if(!TextUtils.isEmpty(title)){
+			mToolbar.setVisibility(View.VISIBLE);
+			mToolbar.setTitle(title);
+		}
 		avObjects = new ArrayList<Reading>();
 		mXXLModel = new XXLModel(getActivity());
 		avObjects.addAll(BoxHelper.getReadingList(0,Setings.page_size,category,"",code));
@@ -170,8 +209,11 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 	}
 
 	private void random(){
-		skip = (int) Math.round(Math.random()*maxRandom);
-		LogUtil.DefalutLog("skip:"+skip);
+		if(!TextUtils.isEmpty(boutique_code)){
+			skip = 0;
+		}else {
+			skip = (int) Math.round(Math.random()*maxRandom);
+		}
 	}
 	
 	public void setListOnScrollListener(){
@@ -240,10 +282,10 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
+			showProgressbar();
 			if(mXXLModel != null){
 				mXXLModel.loading = true;
 			}
-			showProgressbar();
 		}
 		
 		@Override
@@ -260,6 +302,9 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 			}
 			if(!TextUtils.isEmpty(type)){
 				query.whereEqualTo(AVOUtil.Reading.type, type);
+			}
+			if(!TextUtils.isEmpty(boutique_code)){
+				query.whereEqualTo(AVOUtil.Reading.boutique_code, boutique_code);
 			}
 			if(!TextUtils.isEmpty(code)){
 				if(!code.equals("1000")){
@@ -369,6 +414,21 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 			}
 		}).start();
 	}
+	@Override
+	public void showProgressbar(){
+		super.showProgressbar();
+		if(progressBar != null){
+			progressBar.setVisibility(View.VISIBLE);
+		}
+	}
+
+	@Override
+	public void hideProgressbar() {
+		super.hideProgressbar();
+		if(progressBar != null){
+			progressBar.setVisibility(View.GONE);
+		}
+	}
 
 	@Override
 	public void onDestroy() {
@@ -376,6 +436,63 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 		unregisterBroadcast();
 		if(mXXLModel != null){
 			mXXLModel.onDestroy();
+		}
+	}
+
+	public static class Builder {
+		private int maxRandom;
+		private String title;
+		private String category;
+		private String code;
+		private String source;
+		private String quest;
+		private String type;
+		private String boutique_code;
+		private boolean isPlayList;
+		private boolean isNeedClear = false;
+
+		public Builder maxRandom(int maxRandom) {
+			this.maxRandom = maxRandom;
+			return this;
+		}
+		public Builder title(String title) {
+			this.title = title;
+			return this;
+		}
+		public Builder category(String category) {
+			this.category = category;
+			return this;
+		}
+		public Builder code(String code) {
+			this.code = code;
+			return this;
+		}
+		public Builder source(String source) {
+			this.source = source;
+			return this;
+		}
+		public Builder quest(String quest) {
+			this.quest = quest;
+			return this;
+		}
+		public Builder type(String type) {
+			this.type = type;
+			return this;
+		}
+		public Builder boutique_code(String boutique_code) {
+			this.boutique_code = boutique_code;
+			return this;
+		}
+		public Builder isPlayList(boolean isPlayList) {
+			this.isPlayList = isPlayList;
+			return this;
+		}
+		public Builder isNeedClear(boolean isNeedClear) {
+			this.isNeedClear = isNeedClear;
+			return this;
+		}
+		public Fragment build(){
+			return ReadingFragment.newInstance(this);
 		}
 	}
 }

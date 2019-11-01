@@ -408,7 +408,7 @@
     <string name="add_bookshelf_already">移出书架</string>
     <string name="title_speak_basic">口语基础</string>
     <string name="title_speak_dialog">口语对话</string>
-    <string name="title_ai_dialog_choice_course">情景选择</string>
+    <string name="title_ai_dialog_choice_course">场景</string>
     <string name="random_course">随机</string>
     <string name="start_to_fight">闯关</string>
     <string name="title_tuling_ai">AI聊天</string>

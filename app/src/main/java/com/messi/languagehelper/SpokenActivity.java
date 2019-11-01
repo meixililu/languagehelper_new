@@ -24,6 +24,7 @@ public class SpokenActivity extends BaseActivity implements FragmentProgressbarL
     private Fragment mWordHomeFragment;
     private Fragment practiceFragment;
     private Fragment dashboardFragment;
+    private Fragment shadowFragment;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -35,6 +36,11 @@ public class SpokenActivity extends BaseActivity implements FragmentProgressbarL
                     hideAllFragment();
                     getSupportFragmentManager().beginTransaction().show(mWordHomeFragment).commit();;
                     AVAnalytics.onEvent(SpokenActivity.this, "spoken_home");
+                    return true;
+                case R.id.navigation_shadow:
+                    hideAllFragment();
+                    getSupportFragmentManager().beginTransaction().show(shadowFragment).commit();;
+                    AVAnalytics.onEvent(SpokenActivity.this, "spoken_shadow");
                     return true;
                 case R.id.navigation_practice:
                     hideAllFragment();
@@ -67,11 +73,16 @@ public class SpokenActivity extends BaseActivity implements FragmentProgressbarL
         mWordHomeFragment = SpokenAIFragment.newInstance(AVOUtil.Category.spoken_english,"");
         practiceFragment = AiDialogueCourseFragment.getInstance();
         dashboardFragment = SpokenCourseFragment.getInstance();
+        shadowFragment = new ReadingFragment.Builder()
+                .title(getString(R.string.start_to_follow))
+                .boutique_code("1000003")
+                .build();
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.content, mWordHomeFragment)
                 .add(R.id.content, practiceFragment)
                 .add(R.id.content, dashboardFragment)
+                .add(R.id.content, shadowFragment)
                 .commit();
         hideAllFragment();
         getSupportFragmentManager()
@@ -84,6 +95,7 @@ public class SpokenActivity extends BaseActivity implements FragmentProgressbarL
                 .hide(dashboardFragment)
                 .hide(practiceFragment)
                 .hide(mWordHomeFragment)
+                .hide(shadowFragment)
                 .commit();
     }
 

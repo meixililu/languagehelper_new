@@ -36,12 +36,12 @@ android {
         //小白口语
         //versionCode 1
         //versionName "1.0"
-        multiDexEnabled true
+//        multiDexEnabled true
         splits {
             abi {
                 enable true
                 reset()
-                include 'armeabi-v7a'
+//                include 'armeabi-v7a'
                 universalApk false
             }
         }
@@ -127,6 +127,7 @@ dependencies {
     annotationProcessor "com.github.hotchemi:permissionsdispatcher-processor:3.3.2"
     implementation 'com.facebook.soloader:soloader:0.6.0'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.0-beta-3'
     //    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     testImplementation 'junit:junit:4.12'
     //check tree dependencies: ./gradlew :app:dependencies

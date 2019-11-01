@@ -50,9 +50,9 @@ public class RcSpokenAiHeaderViewHolder extends RecyclerView.ViewHolder {
 
     private void toCoachActivity(){
         Intent intent = new Intent(mContext, ReadingsActivity.class);
-        intent.putExtra(KeyUtil.ActionbarTitle, "口语天堂");
+        intent.putExtra(KeyUtil.ActionbarTitle, "口语跟读");
         intent.putExtra(KeyUtil.Category, AVOUtil.Category.spoken_english);
-        intent.putExtra(KeyUtil.NewsSource,"口语天堂");
+        intent.putExtra(KeyUtil.BoutiqueCode,"1000003");
         mContext.startActivity(intent);
     }
 

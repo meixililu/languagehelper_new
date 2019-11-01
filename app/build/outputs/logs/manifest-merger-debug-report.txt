@@ -57,7 +57,7 @@ MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms
 MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b6e16d67f78c3fc689a642b030733b57/open_ad_sdk/AndroidManifest.xml:2:1-93:12
 MERGED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2f2937527c06e3a6c3f11c0484b1351b/GDTSDK.union.4.90.960/AndroidManifest.xml:2:1-42:12
 MERGED from [io.objectbox:objectbox-android:2.3.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/634a8af671d501a804bb79b5f6deebc9/objectbox-android-2.3.4/AndroidManifest.xml:2:1-25:12
-MERGED from [com.android.support:multidex:1.0.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/02897d18a5f5764feee91ba67c56a334/multidex-1.0.3/AndroidManifest.xml:17:1-22:12
+MERGED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5dbaef38c54851b67e814b4f190cad04/leakcanary-android-2.0-beta-3/AndroidManifest.xml:17:1-32:12
 MERGED from [com.lxj:xpopup:1.8.10] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89de6de1770446a564648fb98112994e/xpopup-1.8.10/AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:design:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/90939b1e3e9001f1e057fefacee1fbf2/design-28.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [com.lxj:easyadapter:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/65d8f9cdc7b8ce1fea93a2eedebdd2c4/easyadapter-1.1.1/AndroidManifest.xml:2:1-11:12
@@ -72,10 +72,12 @@ MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/lilu/.g
 MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1aa395d128b1831b48ada767c918d2b4/support-vector-drawable-28.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.exoplayer:exoplayer-ui:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/faf0c3c3df0415a5d67d18887841cd20/exoplayer-ui-2.9.6/AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:support-media-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8fb4416fb2b3874be22a11acf1a0aab8/support-media-compat-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:multidex:1.0.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/02897d18a5f5764feee91ba67c56a334/multidex-1.0.3/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android:flexbox:1.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/06af37d1a34aaa1c180ae2ca966d464e/flexbox-1.0.0/AndroidManifest.xml:17:1-27:12
 MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/725ece13ff1bf7e343351c2a986386fd/exoplayer-core-2.9.6/AndroidManifest.xml:17:1-26:12
 MERGED from [com.jakewharton:butterknife:9.0.0-rc2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f2616de9202119bf0b8cda7f64a822ca/butterknife-9.0.0-rc2/AndroidManifest.xml:2:1-7:12
 MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c201a0b4ad10112a6148f78d51096edb/glide-4.8.0/AndroidManifest.xml:2:1-12:12
+MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:17:1-72:12
 MERGED from [cn.jzvd:jiaozivideoplayer:6.4.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e258b684696bb00e24862ad768cd7ee/jiaozivideoplayer-6.4.3/AndroidManifest.xml:2:1-13:12
 MERGED from [com.facebook.fresco:fresco:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7105ccf7d53fb7c96dce2cccd4f77a/fresco-1.13.0/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:animated-gif:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/0c04be39f2e344efbaddb0cc80590589/animated-gif-1.13.0/AndroidManifest.xml:2:1-9:12
@@ -95,6 +97,8 @@ MERGED from [com.facebook.fresco:nativeimagetranscoder:1.13.0] /Users/lilu/.grad
 MERGED from [com.facebook.fresco:imagepipeline-base:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5bac63c7c101177ae06596266aeef8b7/imagepipeline-base-1.13.0/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7aa8bd6eaa6cc0609bffc4f81a42e374/soloader-0.6.0/AndroidManifest.xml:2:1-13:12
 MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/0718e61e5802b159d5c41b9b312bdd8f/android-gif-drawable-1.2.6/AndroidManifest.xml:2:1-11:12
+MERGED from [com.squareup.leakcanary:leakcanary-object-watcher-android-androidx:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2efc5bf6484c73b378077eb0bae6305f/leakcanary-object-watcher-android-androidx-2.0-beta-3/AndroidManifest.xml:2:1-7:12
+MERGED from [com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/58e0a6036407017c024f806f55df4e9e/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:2:1-14:12
 MERGED from [com.android.support:support-fragment:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/27d5b8143b3f451f954c4ed97a684f75/support-fragment-28.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-core-ui:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8618f3f46e97fececc17679adfb80c59/support-core-ui-28.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-core-utils:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6cee2f42072bfb714913e600ac4d70ab/support-core-utils-28.0.0/AndroidManifest.xml:17:1-22:12
@@ -181,11 +185,15 @@ uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:12:5-81
 MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b6e16d67f78c3fc689a642b030733b57/open_ad_sdk/AndroidManifest.xml:13:5-81
 MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b6e16d67f78c3fc689a642b030733b57/open_ad_sdk/AndroidManifest.xml:13:5-81
+MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:24:5-81
+MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:24:5-81
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:12:22-78
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:13:5-80
 MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b6e16d67f78c3fc689a642b030733b57/open_ad_sdk/AndroidManifest.xml:15:5-88
+MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:23:5-80
+MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:23:5-80
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:13:22-77
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
@@ -206,6 +214,8 @@ MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:16:22-76
 uses-permission#android.permission.FOREGROUND_SERVICE
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:17:5-77
+MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:26:5-77
+MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:26:5-77
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:17:22-74
 uses-permission#android.permission.GET_ACCOUNTS
@@ -250,6 +260,8 @@ MERGED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/
 MERGED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2f2937527c06e3a6c3f11c0484b1351b/GDTSDK.union.4.90.960/AndroidManifest.xml:16:5-40:19
 MERGED from [io.objectbox:objectbox-android:2.3.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/634a8af671d501a804bb79b5f6deebc9/objectbox-android-2.3.4/AndroidManifest.xml:21:5-23:31
 MERGED from [io.objectbox:objectbox-android:2.3.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/634a8af671d501a804bb79b5f6deebc9/objectbox-android-2.3.4/AndroidManifest.xml:21:5-23:31
+MERGED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5dbaef38c54851b67e814b4f190cad04/leakcanary-android-2.0-beta-3/AndroidManifest.xml:22:5-30:19
+MERGED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5dbaef38c54851b67e814b4f190cad04/leakcanary-android-2.0-beta-3/AndroidManifest.xml:22:5-30:19
 MERGED from [com.android.support:design:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/90939b1e3e9001f1e057fefacee1fbf2/design-28.0.0/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/90939b1e3e9001f1e057fefacee1fbf2/design-28.0.0/AndroidManifest.xml:22:5-20
 MERGED from [com.lxj:xpermission:1.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b5fc5d310333a9f10dfc99d254f3be9f/xpermission-1.0.1/AndroidManifest.xml:11:5-20:19
@@ -258,10 +270,14 @@ MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/lilu/.gradle/cac
 MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e2847b13fc590102300c3a2b7c40d873/transitionseverywhere-1.7.0/AndroidManifest.xml:12:5-20
 MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c201a0b4ad10112a6148f78d51096edb/glide-4.8.0/AndroidManifest.xml:10:5-20
 MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c201a0b4ad10112a6148f78d51096edb/glide-4.8.0/AndroidManifest.xml:10:5-20
+MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:28:5-70:19
+MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:28:5-70:19
 MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fa6c9cf2f008e8f8a46aecbe375ff27e/GreenDaoUpgradeHelper-v2.1.0/AndroidManifest.xml:11:5-14:19
 MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fa6c9cf2f008e8f8a46aecbe375ff27e/GreenDaoUpgradeHelper-v2.1.0/AndroidManifest.xml:11:5-14:19
 MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7aa8bd6eaa6cc0609bffc4f81a42e374/soloader-0.6.0/AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7aa8bd6eaa6cc0609bffc4f81a42e374/soloader-0.6.0/AndroidManifest.xml:11:5-20
+MERGED from [com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/58e0a6036407017c024f806f55df4e9e/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:7:5-12:19
+MERGED from [com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/58e0a6036407017c024f806f55df4e9e/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:7:5-12:19
 MERGED from [com.android.support:support-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/72a5132dc54b5541d5cc135c8fb42c84/support-compat-28.0.0/AndroidManifest.xml:22:5-94
 MERGED from [com.android.support:support-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/72a5132dc54b5541d5cc135c8fb42c84/support-compat-28.0.0/AndroidManifest.xml:22:5-94
 MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c896fb05075f28ff205bc2779249309b/versionedparcelable-28.0.0/AndroidManifest.xml:22:5-23:19
@@ -1239,8 +1255,8 @@ MERGED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/
 MERGED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2f2937527c06e3a6c3f11c0484b1351b/GDTSDK.union.4.90.960/AndroidManifest.xml:7:5-9:41
 MERGED from [io.objectbox:objectbox-android:2.3.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/634a8af671d501a804bb79b5f6deebc9/objectbox-android-2.3.4/AndroidManifest.xml:8:5-10:41
 MERGED from [io.objectbox:objectbox-android:2.3.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/634a8af671d501a804bb79b5f6deebc9/objectbox-android-2.3.4/AndroidManifest.xml:8:5-10:41
-MERGED from [com.android.support:multidex:1.0.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/02897d18a5f5764feee91ba67c56a334/multidex-1.0.3/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:multidex:1.0.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/02897d18a5f5764feee91ba67c56a334/multidex-1.0.3/AndroidManifest.xml:20:5-43
+MERGED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5dbaef38c54851b67e814b4f190cad04/leakcanary-android-2.0-beta-3/AndroidManifest.xml:20:5-44
+MERGED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5dbaef38c54851b67e814b4f190cad04/leakcanary-android-2.0-beta-3/AndroidManifest.xml:20:5-44
 MERGED from [com.lxj:xpopup:1.8.10] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89de6de1770446a564648fb98112994e/xpopup-1.8.10/AndroidManifest.xml:7:5-9:41
 MERGED from [com.lxj:xpopup:1.8.10] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89de6de1770446a564648fb98112994e/xpopup-1.8.10/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:design:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/90939b1e3e9001f1e057fefacee1fbf2/design-28.0.0/AndroidManifest.xml:20:5-44
@@ -1269,6 +1285,8 @@ MERGED from [com.google.android.exoplayer:exoplayer-ui:2.9.6] /Users/lilu/.gradl
 MERGED from [com.google.android.exoplayer:exoplayer-ui:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/faf0c3c3df0415a5d67d18887841cd20/exoplayer-ui-2.9.6/AndroidManifest.xml:20:5-22:41
 MERGED from [com.android.support:support-media-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8fb4416fb2b3874be22a11acf1a0aab8/support-media-compat-28.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-media-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8fb4416fb2b3874be22a11acf1a0aab8/support-media-compat-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:multidex:1.0.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/02897d18a5f5764feee91ba67c56a334/multidex-1.0.3/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:multidex:1.0.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/02897d18a5f5764feee91ba67c56a334/multidex-1.0.3/AndroidManifest.xml:20:5-43
 MERGED from [com.google.android:flexbox:1.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/06af37d1a34aaa1c180ae2ca966d464e/flexbox-1.0.0/AndroidManifest.xml:23:5-25:41
 MERGED from [com.google.android:flexbox:1.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/06af37d1a34aaa1c180ae2ca966d464e/flexbox-1.0.0/AndroidManifest.xml:23:5-25:41
 MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/725ece13ff1bf7e343351c2a986386fd/exoplayer-core-2.9.6/AndroidManifest.xml:20:5-22:41
@@ -1277,6 +1295,8 @@ MERGED from [com.jakewharton:butterknife:9.0.0-rc2] /Users/lilu/.gradle/caches/t
 MERGED from [com.jakewharton:butterknife:9.0.0-rc2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f2616de9202119bf0b8cda7f64a822ca/butterknife-9.0.0-rc2/AndroidManifest.xml:5:5-44
 MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c201a0b4ad10112a6148f78d51096edb/glide-4.8.0/AndroidManifest.xml:6:5-8:41
 MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c201a0b4ad10112a6148f78d51096edb/glide-4.8.0/AndroidManifest.xml:6:5-8:41
+MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:20:5-44
+MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:20:5-44
 MERGED from [cn.jzvd:jiaozivideoplayer:6.4.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e258b684696bb00e24862ad768cd7ee/jiaozivideoplayer-6.4.3/AndroidManifest.xml:7:5-9:41
 MERGED from [cn.jzvd:jiaozivideoplayer:6.4.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e258b684696bb00e24862ad768cd7ee/jiaozivideoplayer-6.4.3/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.fresco:fresco:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7105ccf7d53fb7c96dce2cccd4f77a/fresco-1.13.0/AndroidManifest.xml:5:5-7:41
@@ -1315,6 +1335,10 @@ MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/lilu/.gradle/caches/tr
 MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7aa8bd6eaa6cc0609bffc4f81a42e374/soloader-0.6.0/AndroidManifest.xml:7:5-9:41
 MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/0718e61e5802b159d5c41b9b312bdd8f/android-gif-drawable-1.2.6/AndroidManifest.xml:7:5-9:41
 MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/0718e61e5802b159d5c41b9b312bdd8f/android-gif-drawable-1.2.6/AndroidManifest.xml:7:5-9:41
+MERGED from [com.squareup.leakcanary:leakcanary-object-watcher-android-androidx:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2efc5bf6484c73b378077eb0bae6305f/leakcanary-object-watcher-android-androidx-2.0-beta-3/AndroidManifest.xml:5:5-44
+MERGED from [com.squareup.leakcanary:leakcanary-object-watcher-android-androidx:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2efc5bf6484c73b378077eb0bae6305f/leakcanary-object-watcher-android-androidx-2.0-beta-3/AndroidManifest.xml:5:5-44
+MERGED from [com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/58e0a6036407017c024f806f55df4e9e/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:5:5-44
+MERGED from [com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/58e0a6036407017c024f806f55df4e9e/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:5:5-44
 MERGED from [com.android.support:support-fragment:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/27d5b8143b3f451f954c4ed97a684f75/support-fragment-28.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-fragment:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/27d5b8143b3f451f954c4ed97a684f75/support-fragment-28.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-core-ui:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8618f3f46e97fececc17679adfb80c59/support-core-ui-28.0.0/AndroidManifest.xml:20:5-44
@@ -1513,6 +1537,18 @@ ADDED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/f
 		ADDED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2f2937527c06e3a6c3f11c0484b1351b/GDTSDK.union.4.90.960/AndroidManifest.xml:19:13-65
 	android:name
 		ADDED from [GDTSDK.union.4.90.960.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2f2937527c06e3a6c3f11c0484b1351b/GDTSDK.union.4.90.960/AndroidManifest.xml:18:13-48
+service#leakcanary.internal.HeapAnalyzerService
+ADDED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5dbaef38c54851b67e814b4f190cad04/leakcanary-android-2.0-beta-3/AndroidManifest.xml:23:9-29:19
+	android:exported
+		ADDED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5dbaef38c54851b67e814b4f190cad04/leakcanary-android-2.0-beta-3/AndroidManifest.xml:25:13-37
+	android:name
+		ADDED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5dbaef38c54851b67e814b4f190cad04/leakcanary-android-2.0-beta-3/AndroidManifest.xml:24:13-67
+intent-filter#action:name:leakcanary.ANALYSIS_ACTION
+ADDED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5dbaef38c54851b67e814b4f190cad04/leakcanary-android-2.0-beta-3/AndroidManifest.xml:26:13-28:29
+action#leakcanary.ANALYSIS_ACTION
+ADDED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5dbaef38c54851b67e814b4f190cad04/leakcanary-android-2.0-beta-3/AndroidManifest.xml:27:17-69
+	android:name
+		ADDED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5dbaef38c54851b67e814b4f190cad04/leakcanary-android-2.0-beta-3/AndroidManifest.xml:27:25-66
 meta-data#android.notch_support
 ADDED from [com.lxj:xpermission:1.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b5fc5d310333a9f10dfc99d254f3be9f/xpermission-1.0.1/AndroidManifest.xml:12:9-14:36
 	android:value
@@ -1525,3 +1561,67 @@ ADDED from [com.lxj:xpermission:1.0.1] /Users/lilu/.gradle/caches/transforms-2/f
 		ADDED from [com.lxj:xpermission:1.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b5fc5d310333a9f10dfc99d254f3be9f/xpermission-1.0.1/AndroidManifest.xml:19:13-72
 	android:name
 		ADDED from [com.lxj:xpermission:1.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b5fc5d310333a9f10dfc99d254f3be9f/xpermission-1.0.1/AndroidManifest.xml:18:13-78
+provider#leakcanary.internal.LeakCanaryFileProvider
+ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:29:9-37:20
+	android:grantUriPermissions
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:33:13-47
+	android:authorities
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:31:13-88
+	android:exported
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:32:13-37
+	android:name
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:30:13-70
+activity#leakcanary.internal.activity.LeakActivity
+ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:39:9-44:66
+	android:label
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:42:13-71
+	android:icon
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:41:13-52
+	android:theme
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:44:13-63
+	android:taskAffinity
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:43:13-76
+	android:name
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:40:13-69
+activity-alias#leakcanary.internal.activity.LeakLauncherActivity
+ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:46:9-59:26
+	android:enabled
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:48:13-66
+	android:label
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:50:13-71
+	android:targetActivity
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:51:13-79
+	android:icon
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:49:13-52
+	android:theme
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:53:13-63
+	android:taskAffinity
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:52:13-76
+	android:name
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:47:13-77
+activity#leakcanary.internal.RequestStoragePermissionActivity
+ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:61:9-67:68
+	android:label
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:65:13-82
+	android:excludeFromRecents
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:63:13-46
+	android:icon
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:64:13-52
+	android:theme
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:67:13-65
+	android:taskAffinity
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:66:13-76
+	android:name
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:62:13-80
+receiver#leakcanary.internal.NotificationReceiver
+ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:69:9-77
+	android:name
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:69:19-74
+provider#leakcanary.internal.AppWatcherInstaller
+ADDED from [com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/58e0a6036407017c024f806f55df4e9e/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:8:9-11:40
+	android:authorities
+		ADDED from [com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/58e0a6036407017c024f806f55df4e9e/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:10:13-72
+	android:exported
+		ADDED from [com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/58e0a6036407017c024f806f55df4e9e/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:11:13-37
+	android:name
+		ADDED from [com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/58e0a6036407017c024f806f55df4e9e/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:9:13-67

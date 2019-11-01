@@ -224,8 +224,10 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
 
     private void initData() {
         mBean = (record) Setings.dataMap.get(KeyUtil.DialogBeanKey);
+        if(mBean != null){
+            isEnglish = StringUtils.isEnglish(mBean.getEnglish());
+        }
         isNeedDelete = getIntent().getBooleanExtra(KeyUtil.IsNeedDelete, false);
-        isEnglish = StringUtils.isEnglish(mBean.getEnglish());
         mUserSpeakBeanList = new ArrayList<UserSpeakBean>();
         adapter = new RcPractiseListAdapter(this);
     }

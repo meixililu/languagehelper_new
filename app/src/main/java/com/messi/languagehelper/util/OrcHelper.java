@@ -44,20 +44,22 @@ public class OrcHelper {
     }
 
     public void photoSelectDialog(){
-        orc_api_retry_times = 2;
-        String[] titles = {context.getResources().getString(R.string.take_photo),context.getResources().getString(R.string.photo_album)};
-        OCRDialog mPhonoSelectDialog = new OCRDialog(context,titles);
-        mPhonoSelectDialog.setListener(new OCRDialog.PopViewItemOnclickListener() {
-            @Override
-            public void onSecondClick(View v) {
-                getImageFromAlbum();
-            }
-            @Override
-            public void onFirstClick(View v) {
-                getImageFromCamera();
-            }
-        });
-        mPhonoSelectDialog.show();
+        if(!context.isFinishing()){
+            orc_api_retry_times = 2;
+            String[] titles = {context.getResources().getString(R.string.take_photo),context.getResources().getString(R.string.photo_album)};
+            OCRDialog mPhonoSelectDialog = new OCRDialog(context,titles);
+            mPhonoSelectDialog.setListener(new OCRDialog.PopViewItemOnclickListener() {
+                @Override
+                public void onSecondClick(View v) {
+                    getImageFromAlbum();
+                }
+                @Override
+                public void onFirstClick(View v) {
+                    getImageFromCamera();
+                }
+            });
+            mPhonoSelectDialog.show();
+        }
     }
 
     public void getImageFromAlbum() {

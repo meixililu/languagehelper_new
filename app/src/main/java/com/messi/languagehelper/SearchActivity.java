@@ -74,22 +74,24 @@ public class SearchActivity extends BaseActivity {
         });
     }
 
-    private void addHistory(){
-        historyList.clear();
-        String history_str = Setings.getSharedPreferences(this).getString(KeyUtil.SearchHistory,"");
-        if (!TextUtils.isEmpty(history_str)) {
-            String[] hiss = history_str.split(",");
-            if(hiss.length > 0){
-                for (int i=0; i<6; i++){
-                    if(i < hiss.length) {
-                        if(!TextUtils.isEmpty(hiss[i])){
-                            AVObject avobj = new AVObject();
-                            avobj.put(AVOUtil.SearchHot.name, hiss[i]);
-                            historyList.add(avobj);
+    private void addHistory() {
+        if (avObjects != null && historyList != null) {
+            historyList.clear();
+            String history_str = Setings.getSharedPreferences(this).getString(KeyUtil.SearchHistory, "");
+            if (!TextUtils.isEmpty(history_str)) {
+                String[] hiss = history_str.split(",");
+                if (hiss.length > 0) {
+                    for (int i = 0; i < 6; i++) {
+                        if (i < hiss.length) {
+                            if (!TextUtils.isEmpty(hiss[i])) {
+                                AVObject avobj = new AVObject();
+                                avobj.put(AVOUtil.SearchHot.name, hiss[i]);
+                                historyList.add(avobj);
+                            }
                         }
                     }
+                    avObjects.addAll(0, historyList);
                 }
-                avObjects.addAll(0,historyList);
             }
         }
     }

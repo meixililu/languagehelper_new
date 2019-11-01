@@ -1,6 +1,6 @@
 package com.messi.languagehelper;
 
-import android.app.Activity;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -79,7 +79,7 @@ public class SpokenAIFragment extends BaseFragment implements OnClickListener{
 	}
 
 	@Override
-	public void onAttach(Activity activity) {
+	public void onAttach(Context activity) {
 		super.onAttach(activity);
 		LogUtil.DefalutLog("onAttach");
 		try {
@@ -111,7 +111,6 @@ public class SpokenAIFragment extends BaseFragment implements OnClickListener{
 		initSwipeRefresh(view);
 		mAdapter = new RcSpokenAIListAdapter(avObjects,getContext());
 		mAdapter.setItems(avObjects);
-		mAdapter.setHeader(new Object());
 		mAdapter.setFooter(new Object());
 		mXXLModel.setAdapter(avObjects,mAdapter);
 		hideFooterview();
