@@ -275,7 +275,7 @@ public class ADUtil {
 	}
 
 	public static boolean isHasLocalAd(){
-		if(localAd != null && localAd.size() > 0){
+		if(localAd != null && !localAd.isEmpty()){
 			return true;
 		}else {
 			return false;

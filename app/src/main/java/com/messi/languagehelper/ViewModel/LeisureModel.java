@@ -259,6 +259,8 @@ public class LeisureModel {
     public void loadXBKJ() {
         if (ADUtil.isHasLocalAd()) {
             setAd(ADUtil.getRandomAd(mContext));
+        }else {
+            ADUtil.loadAd(mContext);
         }
     }
 

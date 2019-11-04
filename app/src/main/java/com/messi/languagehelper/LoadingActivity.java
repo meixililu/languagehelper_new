@@ -59,7 +59,6 @@ public class LoadingActivity extends AppCompatActivity {
             EventBus.getDefault().register(this);
             AppUpdateUtil.runCheckUpdateTask(this);
             init();
-            ADUtil.loadAd(this);
         } catch (Exception e) {
             onException();
             e.printStackTrace();
