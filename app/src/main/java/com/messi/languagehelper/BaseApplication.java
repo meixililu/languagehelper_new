@@ -32,9 +32,9 @@ import java.util.HashMap;
 public class BaseApplication extends MultiDexApplication {
 
 	public static HashMap<String, Object> dataMap = new HashMap<String, Object>();
-	private static DaoMaster daoMaster;
-    private static DaoSession daoSession;
-    public static BaseApplication mInstance;
+    public static DaoMaster daoMaster;
+    public static DaoSession daoSession;
+    public static Context mInstance;
 
     @Override  
     public void onCreate() {  
@@ -43,37 +43,37 @@ public class BaseApplication extends MultiDexApplication {
     }
 
     private void init(){
-        if(mInstance == null)  mInstance = this;
+        if(mInstance == null)  mInstance = this.getApplicationContext();
         webviewSetPath(this);
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    SystemUtil.setPacketName(BaseApplication.this);
-                    Fresco.initialize(BaseApplication.this);
+                    SystemUtil.setPacketName(mInstance);
+                    Fresco.initialize(mInstance);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 try {
-                    SharedPreferences sp = Setings.getSharedPreferences(BaseApplication.this);
+                    SharedPreferences sp = Setings.getSharedPreferences(mInstance);
                     String ipAddress = sp.getString(KeyUtil.LeanCloudIPAddress,"http://leancloud.mzxbkj.com");
                     AVOSCloud.setServer(AVOSCloud.SERVER_TYPE.API, ipAddress);
-                    AVOSCloud.initialize(BaseApplication.this,"3fg5ql3r45i3apx2is4j9on5q5rf6kapxce51t5bc0ffw2y4", "twhlgs6nvdt7z7sfaw76ujbmaw7l12gb8v6sdyjw1nzk9b1a");
+                    AVOSCloud.initialize(mInstance,"3fg5ql3r45i3apx2is4j9on5q5rf6kapxce51t5bc0ffw2y4", "twhlgs6nvdt7z7sfaw76ujbmaw7l12gb8v6sdyjw1nzk9b1a");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 try {
-                    YouDaoApplication.init(BaseApplication.this, Setings.YoudaoApiKey);
-                    DexLoader.initIFLYADModule(BaseApplication.this);
+                    YouDaoApplication.init(mInstance, Setings.YoudaoApiKey);
+                    DexLoader.initIFLYADModule(mInstance);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 initChannel();
                 initXMLY();
-                TXADUtil.init(BaseApplication.this);
-                CSJADUtil.init(BaseApplication.this);
-                BDADUtil.init(BaseApplication.this);
-                BoxHelper.init(BaseApplication.this);
+                TXADUtil.init(mInstance);
+                CSJADUtil.init(mInstance);
+                BDADUtil.init(mInstance);
+                BoxHelper.init(mInstance);
             }
         }).run();
     }
@@ -81,7 +81,7 @@ public class BaseApplication extends MultiDexApplication {
     public void webviewSetPath(Context context) {
         try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                String processName = getProcessName(context);
+                String processName = getProcessName(context.getApplicationContext());
                 LogUtil.DefalutLog("appid:"+getApplicationInfo().packageName);
                 if (!getApplicationInfo().packageName.equals(processName)) {//判断不等于默认进程名称
                     WebView.setDataDirectorySuffix(processName);
@@ -94,7 +94,7 @@ public class BaseApplication extends MultiDexApplication {
 
     private void initXMLY(){
         try {
-            CommonRequest.getInstanse().init(BaseApplication.this, "c779eeb1873325a487e2956a2077f2bc");
+            CommonRequest.getInstanse().init(mInstance, "c779eeb1873325a487e2956a2077f2bc");
             CommonRequest.getInstanse().setHttpConfig(null);
             CommonRequest.getInstanse().setUseHttps(true);
             LogUtil.DefalutLog("initXimalayaSDK");

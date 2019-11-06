@@ -53,79 +53,79 @@ ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/And
 INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:1-553:12
 INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:1-553:12
 INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:1-553:12
-MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e1c838375d64e25d4193db6c30c00f6a/Baidu_MobAds_SDK-release/AndroidManifest.xml:2:1-20:12
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:2:1-112:12
-MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/dcc23ec7d2aa5c8c89ee8e628b3b92b5/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:2:1-36:12
-MERGED from [io.objectbox:objectbox-android:2.3.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/634a8af671d501a804bb79b5f6deebc9/objectbox-android-2.3.4/AndroidManifest.xml:2:1-25:12
-MERGED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5dbaef38c54851b67e814b4f190cad04/leakcanary-android-2.0-beta-3/AndroidManifest.xml:17:1-32:12
-MERGED from [com.android.support:multidex:1.0.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/02897d18a5f5764feee91ba67c56a334/multidex-1.0.3/AndroidManifest.xml:17:1-22:12
-MERGED from [com.lxj:xpopup:1.8.10] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89de6de1770446a564648fb98112994e/xpopup-1.8.10/AndroidManifest.xml:2:1-11:12
-MERGED from [com.android.support:design:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/90939b1e3e9001f1e057fefacee1fbf2/design-28.0.0/AndroidManifest.xml:17:1-24:12
-MERGED from [com.lxj:easyadapter:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/65d8f9cdc7b8ce1fea93a2eedebdd2c4/easyadapter-1.1.1/AndroidManifest.xml:2:1-11:12
-MERGED from [com.lxj:xpermission:1.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b5fc5d310333a9f10dfc99d254f3be9f/xpermission-1.0.1/AndroidManifest.xml:2:1-22:12
-MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/cdf5d5a838cb20e7f8714899dd35e1e6/appcompat-v7-28.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e2847b13fc590102300c3a2b7c40d873/transitionseverywhere-1.7.0/AndroidManifest.xml:2:1-14:12
-MERGED from [com.android.support:support-v4:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/836f5ad39a6f38d4fbfa079c1b7b58bc/support-v4-28.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.karumi:headerrecyclerview:1.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/75b1e3017f99e7287b9521393c111d36/headerrecyclerview-1.1.0/AndroidManifest.xml:17:1-26:12
-MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/885538ba74c4313ba8e2c569b743f759/recyclerview-v7-28.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:cardview-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a1a5adbbac300958d6b697fbcbbd568b/cardview-v7-28.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6f9370a09005a814ca09d5671b2b28a0/animated-vector-drawable-28.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1aa395d128b1831b48ada767c918d2b4/support-vector-drawable-28.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.android.exoplayer:exoplayer-ui:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/faf0c3c3df0415a5d67d18887841cd20/exoplayer-ui-2.9.6/AndroidManifest.xml:17:1-24:12
-MERGED from [com.android.support:support-media-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8fb4416fb2b3874be22a11acf1a0aab8/support-media-compat-28.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.android:flexbox:1.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/06af37d1a34aaa1c180ae2ca966d464e/flexbox-1.0.0/AndroidManifest.xml:17:1-27:12
-MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/725ece13ff1bf7e343351c2a986386fd/exoplayer-core-2.9.6/AndroidManifest.xml:17:1-26:12
-MERGED from [com.jakewharton:butterknife:9.0.0-rc2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f2616de9202119bf0b8cda7f64a822ca/butterknife-9.0.0-rc2/AndroidManifest.xml:2:1-7:12
-MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c201a0b4ad10112a6148f78d51096edb/glide-4.8.0/AndroidManifest.xml:2:1-12:12
-MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:17:1-72:12
-MERGED from [cn.jzvd:jiaozivideoplayer:6.4.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e258b684696bb00e24862ad768cd7ee/jiaozivideoplayer-6.4.3/AndroidManifest.xml:2:1-13:12
-MERGED from [com.facebook.fresco:fresco:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7105ccf7d53fb7c96dce2cccd4f77a/fresco-1.13.0/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:animated-gif:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/0c04be39f2e344efbaddb0cc80590589/animated-gif-1.13.0/AndroidManifest.xml:2:1-9:12
-MERGED from [io.reactivex.rxjava2:rxandroid:2.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c5e040d9736c713d782d8da696b27e5b/rxandroid-2.1.1/AndroidManifest.xml:15:1-20:12
-MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fa6c9cf2f008e8f8a46aecbe375ff27e/GreenDaoUpgradeHelper-v2.1.0/AndroidManifest.xml:2:1-16:12
-MERGED from [com.github.lzyzsd:circleprogress:1.2.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f25413ed494a904dab06da4e3a19afa5/circleprogress-1.2.1/AndroidManifest.xml:2:1-12:12
-MERGED from [com.daimajia.numberprogressbar:library:1.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/47bf86f0247d815b3f0750fe6cd0f538/library-1.4/AndroidManifest.xml:2:1-11:12
-MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b233226610f49c6e7d5718386d4b62fb/BaseRecyclerViewAdapterHelper-2.9.42/AndroidManifest.xml:2:1-11:12
-MERGED from [com.yqritc:recyclerview-flexibledivider:1.4.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/0b2c0b5dd4597c4be4a4b3dfc4e5726b/recyclerview-flexibledivider-1.4.0/AndroidManifest.xml:2:1-12:12
-MERGED from [com.github.hotchemi:permissionsdispatcher:3.3.2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b508d0fe49b57e43975f42685a68d72d/permissionsdispatcher-3.3.2/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:animated-base:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/463dd78c05a0a0e48c92f54d4007b53b/animated-base-1.13.0/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:animated-drawable:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/54422b667c172ecf7c1a34959382c6b6/animated-drawable-1.13.0/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:drawee:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/cde7b64ecd1d8bfa018d9062f56538cb/drawee-1.13.0/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:nativeimagefilters:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5c3dbc7f15e747390164148531bdde8b/nativeimagefilters-1.13.0/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:imagepipeline:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bb4482b1d7e3360216ea439ece890627/imagepipeline-1.13.0/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:nativeimagetranscoder:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5d0bd7509ced49e1c8bcc5e441ea0f16/nativeimagetranscoder-1.13.0/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:imagepipeline-base:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5bac63c7c101177ae06596266aeef8b7/imagepipeline-base-1.13.0/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7aa8bd6eaa6cc0609bffc4f81a42e374/soloader-0.6.0/AndroidManifest.xml:2:1-13:12
-MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/0718e61e5802b159d5c41b9b312bdd8f/android-gif-drawable-1.2.6/AndroidManifest.xml:2:1-11:12
-MERGED from [com.squareup.leakcanary:leakcanary-object-watcher-android-androidx:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2efc5bf6484c73b378077eb0bae6305f/leakcanary-object-watcher-android-androidx-2.0-beta-3/AndroidManifest.xml:2:1-7:12
-MERGED from [com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/58e0a6036407017c024f806f55df4e9e/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:2:1-14:12
-MERGED from [com.android.support:support-fragment:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/27d5b8143b3f451f954c4ed97a684f75/support-fragment-28.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-ui:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8618f3f46e97fececc17679adfb80c59/support-core-ui-28.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-utils:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6cee2f42072bfb714913e600ac4d70ab/support-core-utils-28.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:transition:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/256ff59f1151120b59ce40b9fdbbaa45/transition-28.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.jakewharton:butterknife-runtime:9.0.0-rc2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/124dbf4c1ec72d4394d8aceb485d624d/butterknife-runtime-9.0.0-rc2/AndroidManifest.xml:2:1-7:12
-MERGED from [com.android.support:loader:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8419adb22e82897bea1ff59fc1ed3dc1/loader-28.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:viewpager:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5d4c6ef0127d52200b81f53a7d37bb89/viewpager-28.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/eb664eb450f3507945d370a926797c46/coordinatorlayout-28.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:drawerlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9c2318d48432f30aa3e06261b6c22578/drawerlayout-28.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/db939bea5f38d75a6d6f5253e7070f67/slidingpanelayout-28.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:customview:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e99d39b4b53e3f88b75a09709c224336/customview-28.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2189a35b4483cdbf2480d318fbe2f39b/swiperefreshlayout-28.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/06e9aacc53bf2830c44a49657d1338e0/asynclayoutinflater-28.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/72a5132dc54b5541d5cc135c8fb42c84/support-compat-28.0.0/AndroidManifest.xml:17:1-24:12
-MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c896fb05075f28ff205bc2779249309b/versionedparcelable-28.0.0/AndroidManifest.xml:17:1-25:12
-MERGED from [com.android.support:cursoradapter:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/93ab62189c06ec623efb34de70a40dc9/cursoradapter-28.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/cc9d63badc31909648e7ede70ccbfd32/gifdecoder-4.8.0/AndroidManifest.xml:2:1-11:12
-MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/50ecd9d64497f197babca326c66d66bd/runtime-1.1.1/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:documentfile:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fd844254bad54271ab5b072a19000449/documentfile-28.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/47609e6c8f626537a99503e30c055a93/localbroadcastmanager-28.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:print:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c6f08b252bd1335f714dae28f764f181/print-28.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bc7cc78b01b632b8eaca65f7e9b5dcad/viewmodel-1.1.1/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:interpolator:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8fc5112d89eeacc4b39b75cdfa8679d1/interpolator-28.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/28845863f7ef68944425af33785f7a2a/livedata-1.1.1/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5e23b97d8a7c42eb368f662fa96822e6/livedata-core-1.1.1/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.core:runtime:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b13e96db227af629940837a37a46a385/runtime-1.1.1/AndroidManifest.xml:17:1-22:12
-MERGED from [com.facebook.fresco:fbcore:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f76368dbea10b967e98c6d8bf62ecc31/fbcore-1.13.0/AndroidManifest.xml:2:1-9:12
+MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d63be7d959dadde8f6bbf67d0573a3b4/Baidu_MobAds_SDK-release/AndroidManifest.xml:2:1-20:12
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:2:1-112:12
+MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a40684e1888c431fe92f62c52538c7f/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:2:1-36:12
+MERGED from [io.objectbox:objectbox-android:2.4.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/00daa331400f3e88d5d0e2467cbd9d96/objectbox-android-2.4.1/AndroidManifest.xml:2:1-25:12
+MERGED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5ac20d3c92e0f81b4bada195d9451f4e/leakcanary-android-2.0-beta-3/AndroidManifest.xml:17:1-32:12
+MERGED from [com.android.support:multidex:1.0.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c7194113532d918e947cad468d23536d/multidex-1.0.3/AndroidManifest.xml:17:1-22:12
+MERGED from [com.lxj:xpopup:1.8.10] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8b4050703a603442ee66c2bf1691e2f7/xpopup-1.8.10/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:design:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/909b8fe35aece2037bcfd8e47ed1b0fc/design-28.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.lxj:easyadapter:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/68de5ad493d798ecd93f7c393074d75f/easyadapter-1.1.1/AndroidManifest.xml:2:1-11:12
+MERGED from [com.lxj:xpermission:1.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4ebf7b734f88f8b9ffb7435e4540bfef/xpermission-1.0.1/AndroidManifest.xml:2:1-22:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/78afa21116972c8d614744f583eadccb/appcompat-v7-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2a167450e26c361c6ca26b5eec9df16d/transitionseverywhere-1.7.0/AndroidManifest.xml:2:1-14:12
+MERGED from [com.android.support:support-v4:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/676e06d498839993f62ab97c0355be98/support-v4-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.karumi:headerrecyclerview:1.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/024febb7eab72d63bbccbaa9e1547e17/headerrecyclerview-1.1.0/AndroidManifest.xml:17:1-26:12
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/29303ba15cdb6c42613b311b1e2f99a5/recyclerview-v7-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5cd3c388d507f77ad917f3d794acf5dc/cardview-v7-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8d859a81b3deb0069040d2e6acd37403/animated-vector-drawable-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/78337b0a5a408e8714f2e5889a038ca7/support-vector-drawable-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.exoplayer:exoplayer-ui:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/eb35c22624eb80a1158f0cc4f1529fce/exoplayer-ui-2.9.6/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:support-media-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1d667a43b34fc16a3225503bb4b6947e/support-media-compat-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android:flexbox:1.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/86d1cd359be42b8351395713f339a78a/flexbox-1.0.0/AndroidManifest.xml:17:1-27:12
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a715bd54cbf04b0b1637a47398679954/exoplayer-core-2.9.6/AndroidManifest.xml:17:1-26:12
+MERGED from [com.jakewharton:butterknife:9.0.0-rc2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4243a40a568e0e15926896c852c91d43/butterknife-9.0.0-rc2/AndroidManifest.xml:2:1-7:12
+MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fac28f653bb4990568de5910a01dc90a/glide-4.8.0/AndroidManifest.xml:2:1-12:12
+MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:17:1-72:12
+MERGED from [cn.jzvd:jiaozivideoplayer:6.4.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/acb65427de2337b5c3e47418fdc3cb03/jiaozivideoplayer-6.4.3/AndroidManifest.xml:2:1-13:12
+MERGED from [com.facebook.fresco:fresco:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2a028405c3edee0947dc7fa4ea182e03/fresco-1.13.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:animated-gif:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/01378fe95ab27a888992579f57b45b8d/animated-gif-1.13.0/AndroidManifest.xml:2:1-9:12
+MERGED from [io.reactivex.rxjava2:rxandroid:2.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/cfa9fa23b2d383630a40fd7606dcb6fe/rxandroid-2.1.1/AndroidManifest.xml:15:1-20:12
+MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9ea5ea6ef6c7d47e533badf5fe292773/GreenDaoUpgradeHelper-v2.1.0/AndroidManifest.xml:2:1-16:12
+MERGED from [com.github.lzyzsd:circleprogress:1.2.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3f0703339bfcbd81907628ee6df84464/circleprogress-1.2.1/AndroidManifest.xml:2:1-12:12
+MERGED from [com.daimajia.numberprogressbar:library:1.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/698617520dddaff6794812372886741a/library-1.4/AndroidManifest.xml:2:1-11:12
+MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2da1249c1fc3e9b3b9ea65b5fceb63ad/BaseRecyclerViewAdapterHelper-2.9.42/AndroidManifest.xml:2:1-11:12
+MERGED from [com.yqritc:recyclerview-flexibledivider:1.4.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/59370077241316e3567e9220cb310977/recyclerview-flexibledivider-1.4.0/AndroidManifest.xml:2:1-12:12
+MERGED from [com.github.hotchemi:permissionsdispatcher:3.3.2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7424da55f30b61dcf1f814850dae21f7/permissionsdispatcher-3.3.2/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:animated-base:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c37c96328bea7e8fa5b814d6991c1345/animated-base-1.13.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:animated-drawable:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8e254aeab8cf37613a4715d6372709f2/animated-drawable-1.13.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:drawee:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9d77725d752e64e53659230f80a09a76/drawee-1.13.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagefilters:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e1d041c9c1b284b79cbed77cc018ca2c/nativeimagefilters-1.13.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a20a0fb827c210008972b55e659945e8/imagepipeline-1.13.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagetranscoder:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a9952b6d55bd002a943288d125d0be02/nativeimagetranscoder-1.13.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e64fc60889d95617d3a4ee3ce406dc8f/imagepipeline-base-1.13.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9d964ed807db67c270eba9bc7d19fa7b/soloader-0.6.0/AndroidManifest.xml:2:1-13:12
+MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f9ed1e44dbe8e9db0ea0ca2301dd658b/android-gif-drawable-1.2.6/AndroidManifest.xml:2:1-11:12
+MERGED from [com.squareup.leakcanary:leakcanary-object-watcher-android-androidx:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8dfaa1b13d817c2d467fc540935924d3/leakcanary-object-watcher-android-androidx-2.0-beta-3/AndroidManifest.xml:2:1-7:12
+MERGED from [com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5edcbc1d3f4a23befc8af6e64f5100f1/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:2:1-14:12
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/57c1c641f9d203f07aae5eb653c10509/support-fragment-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a7b5f59f1ed33acbd0ac7e49f17253eb/support-core-ui-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3dd71dadc196589d8899e436a9481a9b/support-core-utils-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3db45172df465fcacb39dd6f8c073637/transition-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.jakewharton:butterknife-runtime:9.0.0-rc2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/24b5547779e04d363b1d0ba4a3629180/butterknife-runtime-9.0.0-rc2/AndroidManifest.xml:2:1-7:12
+MERGED from [com.android.support:loader:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8e24afe8faa526b6bc03bb5b2ba75768/loader-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9c04ee0e5849d677453ad864a3f8dc2c/viewpager-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/56b608c7604c6e790c171e4b755aa032/coordinatorlayout-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/81c8a532b10f18eea1a60b66347698de/drawerlayout-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/23daf889b95daf1d60e39d298db1d17b/slidingpanelayout-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/05390d43cb23bc08161640ec4f293c74/customview-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/300002f2a44efc2a79767d8a840c5259/swiperefreshlayout-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fb013362c51ae4a01e03b2992cca40b4/asynclayoutinflater-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e4933f16593e79b81fda8e4b0eaec5bc/support-compat-28.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7776ffc4cc6738306b8994255d90cd91/versionedparcelable-28.0.0/AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f4aac131fa178f3b1345625490712592/cursoradapter-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/79998192db08d0efd4938b67244d9e74/gifdecoder-4.8.0/AndroidManifest.xml:2:1-11:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d0a64d2d2bd501708c95af8309714aed/runtime-1.1.1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a70f84e7fe1c213dc6979314c1b96b4f/documentfile-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b8f514cb6b82527ce5a37b86d4929c9c/localbroadcastmanager-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ccad05c1d8ea0c2bdce059c9307fe2af/print-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/da50a623b38ea12c56e7d6af4f42e5e5/viewmodel-1.1.1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d75a7a9c5ab372af87916c3200528f5f/interpolator-28.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9501da38b355fffc31d20643a5881471/livedata-1.1.1/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8c95621911aea7ab41fd5488739afa7e/livedata-core-1.1.1/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/34b313ba1517594d8cc9579183636896/runtime-1.1.1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.fresco:fbcore:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5daf620a076c68e691d2007d70ab99eb/fbcore-1.13.0/AndroidManifest.xml:2:1-9:12
 INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:1-553:12
 INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:1-553:12
 INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:1-553:12
@@ -147,10 +147,10 @@ INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:6:5-67
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:20:5-67
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:20:5-67
-MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/dcc23ec7d2aa5c8c89ee8e628b3b92b5/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:12:5-67
-MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/dcc23ec7d2aa5c8c89ee8e628b3b92b5/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:12:5-67
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:20:5-67
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:20:5-67
+MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a40684e1888c431fe92f62c52538c7f/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:12:5-67
+MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a40684e1888c431fe92f62c52538c7f/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:12:5-67
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:6:22-64
 uses-permission#android.permission.RECORD_AUDIO
@@ -159,22 +159,22 @@ ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/And
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:7:22-68
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:8:5-79
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:13:5-79
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:13:5-79
-MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/dcc23ec7d2aa5c8c89ee8e628b3b92b5/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:13:5-79
-MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/dcc23ec7d2aa5c8c89ee8e628b3b92b5/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:13:5-79
-MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/725ece13ff1bf7e343351c2a986386fd/exoplayer-core-2.9.6/AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/725ece13ff1bf7e343351c2a986386fd/exoplayer-core-2.9.6/AndroidManifest.xml:24:5-79
-MERGED from [cn.jzvd:jiaozivideoplayer:6.4.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e258b684696bb00e24862ad768cd7ee/jiaozivideoplayer-6.4.3/AndroidManifest.xml:11:5-79
-MERGED from [cn.jzvd:jiaozivideoplayer:6.4.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e258b684696bb00e24862ad768cd7ee/jiaozivideoplayer-6.4.3/AndroidManifest.xml:11:5-79
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:13:5-79
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:13:5-79
+MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a40684e1888c431fe92f62c52538c7f/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:13:5-79
+MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a40684e1888c431fe92f62c52538c7f/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:13:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a715bd54cbf04b0b1637a47398679954/exoplayer-core-2.9.6/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a715bd54cbf04b0b1637a47398679954/exoplayer-core-2.9.6/AndroidManifest.xml:24:5-79
+MERGED from [cn.jzvd:jiaozivideoplayer:6.4.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/acb65427de2337b5c3e47418fdc3cb03/jiaozivideoplayer-6.4.3/AndroidManifest.xml:11:5-79
+MERGED from [cn.jzvd:jiaozivideoplayer:6.4.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/acb65427de2337b5c3e47418fdc3cb03/jiaozivideoplayer-6.4.3/AndroidManifest.xml:11:5-79
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:8:22-76
 uses-permission#android.permission.ACCESS_WIFI_STATE
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:9:5-76
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:19:5-76
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:19:5-76
-MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/dcc23ec7d2aa5c8c89ee8e628b3b92b5/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:14:5-76
-MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/dcc23ec7d2aa5c8c89ee8e628b3b92b5/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:14:5-76
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:19:5-76
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:19:5-76
+MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a40684e1888c431fe92f62c52538c7f/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:14:5-76
+MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a40684e1888c431fe92f62c52538c7f/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:14:5-76
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:9:22-73
 uses-permission#android.permission.CHANGE_NETWORK_STATE
@@ -183,23 +183,23 @@ ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/And
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:10:22-76
 uses-permission#android.permission.READ_PHONE_STATE
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:11:5-75
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:18:5-75
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:18:5-75
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:18:5-75
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:18:5-75
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:11:22-72
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:12:5-81
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:14:5-81
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:14:5-81
-MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:24:5-81
-MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:24:5-81
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:14:5-81
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:14:5-81
+MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:24:5-81
+MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:24:5-81
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:12:22-78
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:13:5-80
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:16:5-88
-MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:23:5-80
-MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:23:5-80
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:16:5-88
+MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:23:5-80
+MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:23:5-80
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:13:22-77
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
@@ -216,8 +216,8 @@ ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/And
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:16:22-76
 uses-permission#android.permission.FOREGROUND_SERVICE
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:17:5-77
-MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:26:5-77
-MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:26:5-77
+MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:26:5-77
+MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:26:5-77
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:17:22-74
 uses-permission#android.permission.GET_ACCOUNTS
@@ -238,8 +238,8 @@ ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/And
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:21:22-62
 uses-permission#android.permission.REQUEST_INSTALL_PACKAGES
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:22:5-82
-MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/dcc23ec7d2aa5c8c89ee8e628b3b92b5/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:11:5-83
-MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/dcc23ec7d2aa5c8c89ee8e628b3b92b5/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:11:5-83
+MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a40684e1888c431fe92f62c52538c7f/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:11:5-83
+MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a40684e1888c431fe92f62c52538c7f/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:11:5-83
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:22:22-80
 uses-feature#android.hardware.camera
@@ -254,49 +254,49 @@ ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/And
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:28:19-67
 application
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:30:5-551:19
-MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e1c838375d64e25d4193db6c30c00f6a/Baidu_MobAds_SDK-release/AndroidManifest.xml:11:5-18:19
-MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e1c838375d64e25d4193db6c30c00f6a/Baidu_MobAds_SDK-release/AndroidManifest.xml:11:5-18:19
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:22:5-110:19
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:22:5-110:19
-MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/dcc23ec7d2aa5c8c89ee8e628b3b92b5/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:16:5-34:19
-MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/dcc23ec7d2aa5c8c89ee8e628b3b92b5/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:16:5-34:19
-MERGED from [io.objectbox:objectbox-android:2.3.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/634a8af671d501a804bb79b5f6deebc9/objectbox-android-2.3.4/AndroidManifest.xml:21:5-23:31
-MERGED from [io.objectbox:objectbox-android:2.3.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/634a8af671d501a804bb79b5f6deebc9/objectbox-android-2.3.4/AndroidManifest.xml:21:5-23:31
-MERGED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5dbaef38c54851b67e814b4f190cad04/leakcanary-android-2.0-beta-3/AndroidManifest.xml:22:5-30:19
-MERGED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5dbaef38c54851b67e814b4f190cad04/leakcanary-android-2.0-beta-3/AndroidManifest.xml:22:5-30:19
-MERGED from [com.android.support:design:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/90939b1e3e9001f1e057fefacee1fbf2/design-28.0.0/AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:design:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/90939b1e3e9001f1e057fefacee1fbf2/design-28.0.0/AndroidManifest.xml:22:5-20
-MERGED from [com.lxj:xpermission:1.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b5fc5d310333a9f10dfc99d254f3be9f/xpermission-1.0.1/AndroidManifest.xml:11:5-20:19
-MERGED from [com.lxj:xpermission:1.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b5fc5d310333a9f10dfc99d254f3be9f/xpermission-1.0.1/AndroidManifest.xml:11:5-20:19
-MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e2847b13fc590102300c3a2b7c40d873/transitionseverywhere-1.7.0/AndroidManifest.xml:12:5-20
-MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e2847b13fc590102300c3a2b7c40d873/transitionseverywhere-1.7.0/AndroidManifest.xml:12:5-20
-MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c201a0b4ad10112a6148f78d51096edb/glide-4.8.0/AndroidManifest.xml:10:5-20
-MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c201a0b4ad10112a6148f78d51096edb/glide-4.8.0/AndroidManifest.xml:10:5-20
-MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:28:5-70:19
-MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:28:5-70:19
-MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fa6c9cf2f008e8f8a46aecbe375ff27e/GreenDaoUpgradeHelper-v2.1.0/AndroidManifest.xml:11:5-14:19
-MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fa6c9cf2f008e8f8a46aecbe375ff27e/GreenDaoUpgradeHelper-v2.1.0/AndroidManifest.xml:11:5-14:19
-MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7aa8bd6eaa6cc0609bffc4f81a42e374/soloader-0.6.0/AndroidManifest.xml:11:5-20
-MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7aa8bd6eaa6cc0609bffc4f81a42e374/soloader-0.6.0/AndroidManifest.xml:11:5-20
-MERGED from [com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/58e0a6036407017c024f806f55df4e9e/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:7:5-12:19
-MERGED from [com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/58e0a6036407017c024f806f55df4e9e/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:7:5-12:19
-MERGED from [com.android.support:support-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/72a5132dc54b5541d5cc135c8fb42c84/support-compat-28.0.0/AndroidManifest.xml:22:5-94
-MERGED from [com.android.support:support-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/72a5132dc54b5541d5cc135c8fb42c84/support-compat-28.0.0/AndroidManifest.xml:22:5-94
-MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c896fb05075f28ff205bc2779249309b/versionedparcelable-28.0.0/AndroidManifest.xml:22:5-23:19
-MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c896fb05075f28ff205bc2779249309b/versionedparcelable-28.0.0/AndroidManifest.xml:22:5-23:19
-MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/cc9d63badc31909648e7ede70ccbfd32/gifdecoder-4.8.0/AndroidManifest.xml:9:5-20
-MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/cc9d63badc31909648e7ede70ccbfd32/gifdecoder-4.8.0/AndroidManifest.xml:9:5-20
+MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d63be7d959dadde8f6bbf67d0573a3b4/Baidu_MobAds_SDK-release/AndroidManifest.xml:11:5-18:19
+MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d63be7d959dadde8f6bbf67d0573a3b4/Baidu_MobAds_SDK-release/AndroidManifest.xml:11:5-18:19
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:22:5-110:19
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:22:5-110:19
+MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a40684e1888c431fe92f62c52538c7f/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:16:5-34:19
+MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a40684e1888c431fe92f62c52538c7f/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:16:5-34:19
+MERGED from [io.objectbox:objectbox-android:2.4.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/00daa331400f3e88d5d0e2467cbd9d96/objectbox-android-2.4.1/AndroidManifest.xml:21:5-23:31
+MERGED from [io.objectbox:objectbox-android:2.4.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/00daa331400f3e88d5d0e2467cbd9d96/objectbox-android-2.4.1/AndroidManifest.xml:21:5-23:31
+MERGED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5ac20d3c92e0f81b4bada195d9451f4e/leakcanary-android-2.0-beta-3/AndroidManifest.xml:22:5-30:19
+MERGED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5ac20d3c92e0f81b4bada195d9451f4e/leakcanary-android-2.0-beta-3/AndroidManifest.xml:22:5-30:19
+MERGED from [com.android.support:design:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/909b8fe35aece2037bcfd8e47ed1b0fc/design-28.0.0/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/909b8fe35aece2037bcfd8e47ed1b0fc/design-28.0.0/AndroidManifest.xml:22:5-20
+MERGED from [com.lxj:xpermission:1.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4ebf7b734f88f8b9ffb7435e4540bfef/xpermission-1.0.1/AndroidManifest.xml:11:5-20:19
+MERGED from [com.lxj:xpermission:1.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4ebf7b734f88f8b9ffb7435e4540bfef/xpermission-1.0.1/AndroidManifest.xml:11:5-20:19
+MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2a167450e26c361c6ca26b5eec9df16d/transitionseverywhere-1.7.0/AndroidManifest.xml:12:5-20
+MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2a167450e26c361c6ca26b5eec9df16d/transitionseverywhere-1.7.0/AndroidManifest.xml:12:5-20
+MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fac28f653bb4990568de5910a01dc90a/glide-4.8.0/AndroidManifest.xml:10:5-20
+MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fac28f653bb4990568de5910a01dc90a/glide-4.8.0/AndroidManifest.xml:10:5-20
+MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:28:5-70:19
+MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:28:5-70:19
+MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9ea5ea6ef6c7d47e533badf5fe292773/GreenDaoUpgradeHelper-v2.1.0/AndroidManifest.xml:11:5-14:19
+MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9ea5ea6ef6c7d47e533badf5fe292773/GreenDaoUpgradeHelper-v2.1.0/AndroidManifest.xml:11:5-14:19
+MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9d964ed807db67c270eba9bc7d19fa7b/soloader-0.6.0/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9d964ed807db67c270eba9bc7d19fa7b/soloader-0.6.0/AndroidManifest.xml:11:5-20
+MERGED from [com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5edcbc1d3f4a23befc8af6e64f5100f1/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:7:5-12:19
+MERGED from [com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5edcbc1d3f4a23befc8af6e64f5100f1/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:7:5-12:19
+MERGED from [com.android.support:support-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e4933f16593e79b81fda8e4b0eaec5bc/support-compat-28.0.0/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e4933f16593e79b81fda8e4b0eaec5bc/support-compat-28.0.0/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7776ffc4cc6738306b8994255d90cd91/versionedparcelable-28.0.0/AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7776ffc4cc6738306b8994255d90cd91/versionedparcelable-28.0.0/AndroidManifest.xml:22:5-23:19
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/79998192db08d0efd4938b67244d9e74/gifdecoder-4.8.0/AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/79998192db08d0efd4938b67244d9e74/gifdecoder-4.8.0/AndroidManifest.xml:9:5-20
 	android:extractNativeLibs
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:38:9-41
-		REJECTED from [io.objectbox:objectbox-android:2.3.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/634a8af671d501a804bb79b5f6deebc9/objectbox-android-2.3.4/AndroidManifest.xml:22:9-42
+		REJECTED from [io.objectbox:objectbox-android:2.4.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/00daa331400f3e88d5d0e2467cbd9d96/objectbox-android-2.4.1/AndroidManifest.xml:22:9-42
 	android:appComponentFactory
-		ADDED from [com.android.support:support-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/72a5132dc54b5541d5cc135c8fb42c84/support-compat-28.0.0/AndroidManifest.xml:22:18-91
+		ADDED from [com.android.support:support-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e4933f16593e79b81fda8e4b0eaec5bc/support-compat-28.0.0/AndroidManifest.xml:22:18-91
 	android:supportsRtl
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:36:9-35
 	android:label
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:35:9-41
 	tools:targetApi
-		ADDED from [io.objectbox:objectbox-android:2.3.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/634a8af671d501a804bb79b5f6deebc9/objectbox-android-2.3.4/AndroidManifest.xml:23:9-28
+		ADDED from [io.objectbox:objectbox-android:2.4.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/00daa331400f3e88d5d0e2467cbd9d96/objectbox-android-2.4.1/AndroidManifest.xml:23:9-28
 	android:icon
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:33:9-43
 	android:allowBackup
@@ -311,8 +311,8 @@ MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/lilu/.gradle/cac
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:31:9-40
 uses-library#org.apache.http.legacy
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:42:9-43:39
-MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/dcc23ec7d2aa5c8c89ee8e628b3b92b5/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:17:9-19:40
-MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/dcc23ec7d2aa5c8c89ee8e628b3b92b5/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:17:9-19:40
+MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a40684e1888c431fe92f62c52538c7f/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:17:9-19:40
+MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a40684e1888c431fe92f62c52538c7f/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:17:9-19:40
 	android:required
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:43:13-37
 	android:name
@@ -393,24 +393,24 @@ ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/And
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:123:13-68
 service#com.qq.e.comm.DownloadService
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:130:9-131:40
-MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/dcc23ec7d2aa5c8c89ee8e628b3b92b5/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:20:9-22:40
-MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/dcc23ec7d2aa5c8c89ee8e628b3b92b5/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:20:9-22:40
+MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a40684e1888c431fe92f62c52538c7f/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:20:9-22:40
+MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a40684e1888c431fe92f62c52538c7f/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:20:9-22:40
 	android:exported
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:131:13-37
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:130:18-62
 activity#com.qq.e.ads.ADActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:132:9-133:86
-MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/dcc23ec7d2aa5c8c89ee8e628b3b92b5/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:23:9-25:86
-MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/dcc23ec7d2aa5c8c89ee8e628b3b92b5/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:23:9-25:86
+MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a40684e1888c431fe92f62c52538c7f/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:23:9-25:86
+MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a40684e1888c431fe92f62c52538c7f/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:23:9-25:86
 	android:configChanges
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:133:13-83
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:132:19-57
 activity#com.qq.e.ads.PortraitADActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:134:9-136:86
-MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/dcc23ec7d2aa5c8c89ee8e628b3b92b5/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:26:9-29:52
-MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/dcc23ec7d2aa5c8c89ee8e628b3b92b5/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:26:9-29:52
+MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a40684e1888c431fe92f62c52538c7f/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:26:9-29:52
+MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a40684e1888c431fe92f62c52538c7f/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:26:9-29:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:135:13-49
 	android:configChanges
@@ -419,8 +419,8 @@ MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transf
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:134:19-65
 activity#com.qq.e.ads.LandscapeADActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:137:9-139:86
-MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/dcc23ec7d2aa5c8c89ee8e628b3b92b5/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:30:9-33:53
-MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/dcc23ec7d2aa5c8c89ee8e628b3b92b5/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:30:9-33:53
+MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a40684e1888c431fe92f62c52538c7f/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:30:9-33:53
+MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a40684e1888c431fe92f62c52538c7f/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:30:9-33:53
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:138:13-50
 	android:configChanges
@@ -1249,156 +1249,156 @@ uses-sdk
 INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml
 INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml
-MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e1c838375d64e25d4193db6c30c00f6a/Baidu_MobAds_SDK-release/AndroidManifest.xml:7:5-9:41
-MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e1c838375d64e25d4193db6c30c00f6a/Baidu_MobAds_SDK-release/AndroidManifest.xml:7:5-9:41
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:8:5-11:591
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:8:5-11:591
-MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/dcc23ec7d2aa5c8c89ee8e628b3b92b5/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:7:5-9:41
-MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/dcc23ec7d2aa5c8c89ee8e628b3b92b5/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:7:5-9:41
-MERGED from [io.objectbox:objectbox-android:2.3.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/634a8af671d501a804bb79b5f6deebc9/objectbox-android-2.3.4/AndroidManifest.xml:8:5-10:41
-MERGED from [io.objectbox:objectbox-android:2.3.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/634a8af671d501a804bb79b5f6deebc9/objectbox-android-2.3.4/AndroidManifest.xml:8:5-10:41
-MERGED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5dbaef38c54851b67e814b4f190cad04/leakcanary-android-2.0-beta-3/AndroidManifest.xml:20:5-44
-MERGED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5dbaef38c54851b67e814b4f190cad04/leakcanary-android-2.0-beta-3/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:multidex:1.0.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/02897d18a5f5764feee91ba67c56a334/multidex-1.0.3/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:multidex:1.0.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/02897d18a5f5764feee91ba67c56a334/multidex-1.0.3/AndroidManifest.xml:20:5-43
-MERGED from [com.lxj:xpopup:1.8.10] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89de6de1770446a564648fb98112994e/xpopup-1.8.10/AndroidManifest.xml:7:5-9:41
-MERGED from [com.lxj:xpopup:1.8.10] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89de6de1770446a564648fb98112994e/xpopup-1.8.10/AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:design:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/90939b1e3e9001f1e057fefacee1fbf2/design-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:design:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/90939b1e3e9001f1e057fefacee1fbf2/design-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.lxj:easyadapter:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/65d8f9cdc7b8ce1fea93a2eedebdd2c4/easyadapter-1.1.1/AndroidManifest.xml:7:5-9:41
-MERGED from [com.lxj:easyadapter:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/65d8f9cdc7b8ce1fea93a2eedebdd2c4/easyadapter-1.1.1/AndroidManifest.xml:7:5-9:41
-MERGED from [com.lxj:xpermission:1.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b5fc5d310333a9f10dfc99d254f3be9f/xpermission-1.0.1/AndroidManifest.xml:7:5-9:41
-MERGED from [com.lxj:xpermission:1.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b5fc5d310333a9f10dfc99d254f3be9f/xpermission-1.0.1/AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/cdf5d5a838cb20e7f8714899dd35e1e6/appcompat-v7-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/cdf5d5a838cb20e7f8714899dd35e1e6/appcompat-v7-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e2847b13fc590102300c3a2b7c40d873/transitionseverywhere-1.7.0/AndroidManifest.xml:8:5-10:41
-MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e2847b13fc590102300c3a2b7c40d873/transitionseverywhere-1.7.0/AndroidManifest.xml:8:5-10:41
-MERGED from [com.android.support:support-v4:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/836f5ad39a6f38d4fbfa079c1b7b58bc/support-v4-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/836f5ad39a6f38d4fbfa079c1b7b58bc/support-v4-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.karumi:headerrecyclerview:1.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/75b1e3017f99e7287b9521393c111d36/headerrecyclerview-1.1.0/AndroidManifest.xml:22:5-24:41
-MERGED from [com.karumi:headerrecyclerview:1.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/75b1e3017f99e7287b9521393c111d36/headerrecyclerview-1.1.0/AndroidManifest.xml:22:5-24:41
-MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/885538ba74c4313ba8e2c569b743f759/recyclerview-v7-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/885538ba74c4313ba8e2c569b743f759/recyclerview-v7-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cardview-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a1a5adbbac300958d6b697fbcbbd568b/cardview-v7-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cardview-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a1a5adbbac300958d6b697fbcbbd568b/cardview-v7-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6f9370a09005a814ca09d5671b2b28a0/animated-vector-drawable-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6f9370a09005a814ca09d5671b2b28a0/animated-vector-drawable-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1aa395d128b1831b48ada767c918d2b4/support-vector-drawable-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1aa395d128b1831b48ada767c918d2b4/support-vector-drawable-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.exoplayer:exoplayer-ui:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/faf0c3c3df0415a5d67d18887841cd20/exoplayer-ui-2.9.6/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.exoplayer:exoplayer-ui:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/faf0c3c3df0415a5d67d18887841cd20/exoplayer-ui-2.9.6/AndroidManifest.xml:20:5-22:41
-MERGED from [com.android.support:support-media-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8fb4416fb2b3874be22a11acf1a0aab8/support-media-compat-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8fb4416fb2b3874be22a11acf1a0aab8/support-media-compat-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android:flexbox:1.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/06af37d1a34aaa1c180ae2ca966d464e/flexbox-1.0.0/AndroidManifest.xml:23:5-25:41
-MERGED from [com.google.android:flexbox:1.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/06af37d1a34aaa1c180ae2ca966d464e/flexbox-1.0.0/AndroidManifest.xml:23:5-25:41
-MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/725ece13ff1bf7e343351c2a986386fd/exoplayer-core-2.9.6/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/725ece13ff1bf7e343351c2a986386fd/exoplayer-core-2.9.6/AndroidManifest.xml:20:5-22:41
-MERGED from [com.jakewharton:butterknife:9.0.0-rc2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f2616de9202119bf0b8cda7f64a822ca/butterknife-9.0.0-rc2/AndroidManifest.xml:5:5-44
-MERGED from [com.jakewharton:butterknife:9.0.0-rc2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f2616de9202119bf0b8cda7f64a822ca/butterknife-9.0.0-rc2/AndroidManifest.xml:5:5-44
-MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c201a0b4ad10112a6148f78d51096edb/glide-4.8.0/AndroidManifest.xml:6:5-8:41
-MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c201a0b4ad10112a6148f78d51096edb/glide-4.8.0/AndroidManifest.xml:6:5-8:41
-MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:20:5-44
-MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:20:5-44
-MERGED from [cn.jzvd:jiaozivideoplayer:6.4.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e258b684696bb00e24862ad768cd7ee/jiaozivideoplayer-6.4.3/AndroidManifest.xml:7:5-9:41
-MERGED from [cn.jzvd:jiaozivideoplayer:6.4.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e258b684696bb00e24862ad768cd7ee/jiaozivideoplayer-6.4.3/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.fresco:fresco:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7105ccf7d53fb7c96dce2cccd4f77a/fresco-1.13.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fresco:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7105ccf7d53fb7c96dce2cccd4f77a/fresco-1.13.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:animated-gif:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/0c04be39f2e344efbaddb0cc80590589/animated-gif-1.13.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:animated-gif:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/0c04be39f2e344efbaddb0cc80590589/animated-gif-1.13.0/AndroidManifest.xml:5:5-7:41
-MERGED from [io.reactivex.rxjava2:rxandroid:2.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c5e040d9736c713d782d8da696b27e5b/rxandroid-2.1.1/AndroidManifest.xml:18:5-43
-MERGED from [io.reactivex.rxjava2:rxandroid:2.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c5e040d9736c713d782d8da696b27e5b/rxandroid-2.1.1/AndroidManifest.xml:18:5-43
-MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fa6c9cf2f008e8f8a46aecbe375ff27e/GreenDaoUpgradeHelper-v2.1.0/AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fa6c9cf2f008e8f8a46aecbe375ff27e/GreenDaoUpgradeHelper-v2.1.0/AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.lzyzsd:circleprogress:1.2.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f25413ed494a904dab06da4e3a19afa5/circleprogress-1.2.1/AndroidManifest.xml:8:5-10:41
-MERGED from [com.github.lzyzsd:circleprogress:1.2.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f25413ed494a904dab06da4e3a19afa5/circleprogress-1.2.1/AndroidManifest.xml:8:5-10:41
-MERGED from [com.daimajia.numberprogressbar:library:1.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/47bf86f0247d815b3f0750fe6cd0f538/library-1.4/AndroidManifest.xml:7:5-9:41
-MERGED from [com.daimajia.numberprogressbar:library:1.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/47bf86f0247d815b3f0750fe6cd0f538/library-1.4/AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b233226610f49c6e7d5718386d4b62fb/BaseRecyclerViewAdapterHelper-2.9.42/AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b233226610f49c6e7d5718386d4b62fb/BaseRecyclerViewAdapterHelper-2.9.42/AndroidManifest.xml:7:5-9:41
-MERGED from [com.yqritc:recyclerview-flexibledivider:1.4.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/0b2c0b5dd4597c4be4a4b3dfc4e5726b/recyclerview-flexibledivider-1.4.0/AndroidManifest.xml:8:5-10:41
-MERGED from [com.yqritc:recyclerview-flexibledivider:1.4.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/0b2c0b5dd4597c4be4a4b3dfc4e5726b/recyclerview-flexibledivider-1.4.0/AndroidManifest.xml:8:5-10:41
-MERGED from [com.github.hotchemi:permissionsdispatcher:3.3.2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b508d0fe49b57e43975f42685a68d72d/permissionsdispatcher-3.3.2/AndroidManifest.xml:5:5-7:41
-MERGED from [com.github.hotchemi:permissionsdispatcher:3.3.2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b508d0fe49b57e43975f42685a68d72d/permissionsdispatcher-3.3.2/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:animated-base:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/463dd78c05a0a0e48c92f54d4007b53b/animated-base-1.13.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:animated-base:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/463dd78c05a0a0e48c92f54d4007b53b/animated-base-1.13.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:animated-drawable:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/54422b667c172ecf7c1a34959382c6b6/animated-drawable-1.13.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:animated-drawable:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/54422b667c172ecf7c1a34959382c6b6/animated-drawable-1.13.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:drawee:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/cde7b64ecd1d8bfa018d9062f56538cb/drawee-1.13.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:drawee:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/cde7b64ecd1d8bfa018d9062f56538cb/drawee-1.13.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:nativeimagefilters:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5c3dbc7f15e747390164148531bdde8b/nativeimagefilters-1.13.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:nativeimagefilters:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5c3dbc7f15e747390164148531bdde8b/nativeimagefilters-1.13.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bb4482b1d7e3360216ea439ece890627/imagepipeline-1.13.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bb4482b1d7e3360216ea439ece890627/imagepipeline-1.13.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:nativeimagetranscoder:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5d0bd7509ced49e1c8bcc5e441ea0f16/nativeimagetranscoder-1.13.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:nativeimagetranscoder:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5d0bd7509ced49e1c8bcc5e441ea0f16/nativeimagetranscoder-1.13.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-base:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5bac63c7c101177ae06596266aeef8b7/imagepipeline-base-1.13.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-base:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5bac63c7c101177ae06596266aeef8b7/imagepipeline-base-1.13.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7aa8bd6eaa6cc0609bffc4f81a42e374/soloader-0.6.0/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7aa8bd6eaa6cc0609bffc4f81a42e374/soloader-0.6.0/AndroidManifest.xml:7:5-9:41
-MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/0718e61e5802b159d5c41b9b312bdd8f/android-gif-drawable-1.2.6/AndroidManifest.xml:7:5-9:41
-MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/0718e61e5802b159d5c41b9b312bdd8f/android-gif-drawable-1.2.6/AndroidManifest.xml:7:5-9:41
-MERGED from [com.squareup.leakcanary:leakcanary-object-watcher-android-androidx:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2efc5bf6484c73b378077eb0bae6305f/leakcanary-object-watcher-android-androidx-2.0-beta-3/AndroidManifest.xml:5:5-44
-MERGED from [com.squareup.leakcanary:leakcanary-object-watcher-android-androidx:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2efc5bf6484c73b378077eb0bae6305f/leakcanary-object-watcher-android-androidx-2.0-beta-3/AndroidManifest.xml:5:5-44
-MERGED from [com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/58e0a6036407017c024f806f55df4e9e/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:5:5-44
-MERGED from [com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/58e0a6036407017c024f806f55df4e9e/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:5:5-44
-MERGED from [com.android.support:support-fragment:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/27d5b8143b3f451f954c4ed97a684f75/support-fragment-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/27d5b8143b3f451f954c4ed97a684f75/support-fragment-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8618f3f46e97fececc17679adfb80c59/support-core-ui-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8618f3f46e97fececc17679adfb80c59/support-core-ui-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6cee2f42072bfb714913e600ac4d70ab/support-core-utils-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6cee2f42072bfb714913e600ac4d70ab/support-core-utils-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/256ff59f1151120b59ce40b9fdbbaa45/transition-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/256ff59f1151120b59ce40b9fdbbaa45/transition-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.jakewharton:butterknife-runtime:9.0.0-rc2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/124dbf4c1ec72d4394d8aceb485d624d/butterknife-runtime-9.0.0-rc2/AndroidManifest.xml:5:5-44
-MERGED from [com.jakewharton:butterknife-runtime:9.0.0-rc2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/124dbf4c1ec72d4394d8aceb485d624d/butterknife-runtime-9.0.0-rc2/AndroidManifest.xml:5:5-44
-MERGED from [com.android.support:loader:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8419adb22e82897bea1ff59fc1ed3dc1/loader-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:loader:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8419adb22e82897bea1ff59fc1ed3dc1/loader-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:viewpager:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5d4c6ef0127d52200b81f53a7d37bb89/viewpager-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:viewpager:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5d4c6ef0127d52200b81f53a7d37bb89/viewpager-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/eb664eb450f3507945d370a926797c46/coordinatorlayout-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/eb664eb450f3507945d370a926797c46/coordinatorlayout-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:drawerlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9c2318d48432f30aa3e06261b6c22578/drawerlayout-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:drawerlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9c2318d48432f30aa3e06261b6c22578/drawerlayout-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/db939bea5f38d75a6d6f5253e7070f67/slidingpanelayout-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/db939bea5f38d75a6d6f5253e7070f67/slidingpanelayout-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:customview:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e99d39b4b53e3f88b75a09709c224336/customview-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:customview:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e99d39b4b53e3f88b75a09709c224336/customview-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2189a35b4483cdbf2480d318fbe2f39b/swiperefreshlayout-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2189a35b4483cdbf2480d318fbe2f39b/swiperefreshlayout-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/06e9aacc53bf2830c44a49657d1338e0/asynclayoutinflater-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/06e9aacc53bf2830c44a49657d1338e0/asynclayoutinflater-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/72a5132dc54b5541d5cc135c8fb42c84/support-compat-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/72a5132dc54b5541d5cc135c8fb42c84/support-compat-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c896fb05075f28ff205bc2779249309b/versionedparcelable-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c896fb05075f28ff205bc2779249309b/versionedparcelable-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cursoradapter:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/93ab62189c06ec623efb34de70a40dc9/cursoradapter-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cursoradapter:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/93ab62189c06ec623efb34de70a40dc9/cursoradapter-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/cc9d63badc31909648e7ede70ccbfd32/gifdecoder-4.8.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/cc9d63badc31909648e7ede70ccbfd32/gifdecoder-4.8.0/AndroidManifest.xml:5:5-7:41
-MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/50ecd9d64497f197babca326c66d66bd/runtime-1.1.1/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/50ecd9d64497f197babca326c66d66bd/runtime-1.1.1/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:documentfile:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fd844254bad54271ab5b072a19000449/documentfile-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:documentfile:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fd844254bad54271ab5b072a19000449/documentfile-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/47609e6c8f626537a99503e30c055a93/localbroadcastmanager-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/47609e6c8f626537a99503e30c055a93/localbroadcastmanager-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:print:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c6f08b252bd1335f714dae28f764f181/print-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:print:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c6f08b252bd1335f714dae28f764f181/print-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bc7cc78b01b632b8eaca65f7e9b5dcad/viewmodel-1.1.1/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bc7cc78b01b632b8eaca65f7e9b5dcad/viewmodel-1.1.1/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:interpolator:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8fc5112d89eeacc4b39b75cdfa8679d1/interpolator-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:interpolator:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8fc5112d89eeacc4b39b75cdfa8679d1/interpolator-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/28845863f7ef68944425af33785f7a2a/livedata-1.1.1/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/28845863f7ef68944425af33785f7a2a/livedata-1.1.1/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5e23b97d8a7c42eb368f662fa96822e6/livedata-core-1.1.1/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5e23b97d8a7c42eb368f662fa96822e6/livedata-core-1.1.1/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b13e96db227af629940837a37a46a385/runtime-1.1.1/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b13e96db227af629940837a37a46a385/runtime-1.1.1/AndroidManifest.xml:20:5-44
-MERGED from [com.facebook.fresco:fbcore:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f76368dbea10b967e98c6d8bf62ecc31/fbcore-1.13.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fbcore:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f76368dbea10b967e98c6d8bf62ecc31/fbcore-1.13.0/AndroidManifest.xml:5:5-7:41
+MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d63be7d959dadde8f6bbf67d0573a3b4/Baidu_MobAds_SDK-release/AndroidManifest.xml:7:5-9:41
+MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d63be7d959dadde8f6bbf67d0573a3b4/Baidu_MobAds_SDK-release/AndroidManifest.xml:7:5-9:41
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:8:5-11:591
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:8:5-11:591
+MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a40684e1888c431fe92f62c52538c7f/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:7:5-9:41
+MERGED from [GDTSDK.unionNormal.4.100.970.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4a40684e1888c431fe92f62c52538c7f/GDTSDK.unionNormal.4.100.970/AndroidManifest.xml:7:5-9:41
+MERGED from [io.objectbox:objectbox-android:2.4.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/00daa331400f3e88d5d0e2467cbd9d96/objectbox-android-2.4.1/AndroidManifest.xml:8:5-10:41
+MERGED from [io.objectbox:objectbox-android:2.4.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/00daa331400f3e88d5d0e2467cbd9d96/objectbox-android-2.4.1/AndroidManifest.xml:8:5-10:41
+MERGED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5ac20d3c92e0f81b4bada195d9451f4e/leakcanary-android-2.0-beta-3/AndroidManifest.xml:20:5-44
+MERGED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5ac20d3c92e0f81b4bada195d9451f4e/leakcanary-android-2.0-beta-3/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:multidex:1.0.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c7194113532d918e947cad468d23536d/multidex-1.0.3/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:multidex:1.0.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c7194113532d918e947cad468d23536d/multidex-1.0.3/AndroidManifest.xml:20:5-43
+MERGED from [com.lxj:xpopup:1.8.10] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8b4050703a603442ee66c2bf1691e2f7/xpopup-1.8.10/AndroidManifest.xml:7:5-9:41
+MERGED from [com.lxj:xpopup:1.8.10] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8b4050703a603442ee66c2bf1691e2f7/xpopup-1.8.10/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:design:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/909b8fe35aece2037bcfd8e47ed1b0fc/design-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/909b8fe35aece2037bcfd8e47ed1b0fc/design-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.lxj:easyadapter:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/68de5ad493d798ecd93f7c393074d75f/easyadapter-1.1.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.lxj:easyadapter:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/68de5ad493d798ecd93f7c393074d75f/easyadapter-1.1.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.lxj:xpermission:1.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4ebf7b734f88f8b9ffb7435e4540bfef/xpermission-1.0.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.lxj:xpermission:1.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4ebf7b734f88f8b9ffb7435e4540bfef/xpermission-1.0.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/78afa21116972c8d614744f583eadccb/appcompat-v7-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/78afa21116972c8d614744f583eadccb/appcompat-v7-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2a167450e26c361c6ca26b5eec9df16d/transitionseverywhere-1.7.0/AndroidManifest.xml:8:5-10:41
+MERGED from [com.andkulikov:transitionseverywhere:1.7.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2a167450e26c361c6ca26b5eec9df16d/transitionseverywhere-1.7.0/AndroidManifest.xml:8:5-10:41
+MERGED from [com.android.support:support-v4:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/676e06d498839993f62ab97c0355be98/support-v4-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/676e06d498839993f62ab97c0355be98/support-v4-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.karumi:headerrecyclerview:1.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/024febb7eab72d63bbccbaa9e1547e17/headerrecyclerview-1.1.0/AndroidManifest.xml:22:5-24:41
+MERGED from [com.karumi:headerrecyclerview:1.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/024febb7eab72d63bbccbaa9e1547e17/headerrecyclerview-1.1.0/AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/29303ba15cdb6c42613b311b1e2f99a5/recyclerview-v7-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/29303ba15cdb6c42613b311b1e2f99a5/recyclerview-v7-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5cd3c388d507f77ad917f3d794acf5dc/cardview-v7-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5cd3c388d507f77ad917f3d794acf5dc/cardview-v7-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8d859a81b3deb0069040d2e6acd37403/animated-vector-drawable-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8d859a81b3deb0069040d2e6acd37403/animated-vector-drawable-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/78337b0a5a408e8714f2e5889a038ca7/support-vector-drawable-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/78337b0a5a408e8714f2e5889a038ca7/support-vector-drawable-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.exoplayer:exoplayer-ui:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/eb35c22624eb80a1158f0cc4f1529fce/exoplayer-ui-2.9.6/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-ui:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/eb35c22624eb80a1158f0cc4f1529fce/exoplayer-ui-2.9.6/AndroidManifest.xml:20:5-22:41
+MERGED from [com.android.support:support-media-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1d667a43b34fc16a3225503bb4b6947e/support-media-compat-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1d667a43b34fc16a3225503bb4b6947e/support-media-compat-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android:flexbox:1.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/86d1cd359be42b8351395713f339a78a/flexbox-1.0.0/AndroidManifest.xml:23:5-25:41
+MERGED from [com.google.android:flexbox:1.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/86d1cd359be42b8351395713f339a78a/flexbox-1.0.0/AndroidManifest.xml:23:5-25:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a715bd54cbf04b0b1637a47398679954/exoplayer-core-2.9.6/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a715bd54cbf04b0b1637a47398679954/exoplayer-core-2.9.6/AndroidManifest.xml:20:5-22:41
+MERGED from [com.jakewharton:butterknife:9.0.0-rc2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4243a40a568e0e15926896c852c91d43/butterknife-9.0.0-rc2/AndroidManifest.xml:5:5-44
+MERGED from [com.jakewharton:butterknife:9.0.0-rc2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4243a40a568e0e15926896c852c91d43/butterknife-9.0.0-rc2/AndroidManifest.xml:5:5-44
+MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fac28f653bb4990568de5910a01dc90a/glide-4.8.0/AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fac28f653bb4990568de5910a01dc90a/glide-4.8.0/AndroidManifest.xml:6:5-8:41
+MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:20:5-44
+MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:20:5-44
+MERGED from [cn.jzvd:jiaozivideoplayer:6.4.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/acb65427de2337b5c3e47418fdc3cb03/jiaozivideoplayer-6.4.3/AndroidManifest.xml:7:5-9:41
+MERGED from [cn.jzvd:jiaozivideoplayer:6.4.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/acb65427de2337b5c3e47418fdc3cb03/jiaozivideoplayer-6.4.3/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.fresco:fresco:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2a028405c3edee0947dc7fa4ea182e03/fresco-1.13.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2a028405c3edee0947dc7fa4ea182e03/fresco-1.13.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-gif:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/01378fe95ab27a888992579f57b45b8d/animated-gif-1.13.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-gif:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/01378fe95ab27a888992579f57b45b8d/animated-gif-1.13.0/AndroidManifest.xml:5:5-7:41
+MERGED from [io.reactivex.rxjava2:rxandroid:2.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/cfa9fa23b2d383630a40fd7606dcb6fe/rxandroid-2.1.1/AndroidManifest.xml:18:5-43
+MERGED from [io.reactivex.rxjava2:rxandroid:2.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/cfa9fa23b2d383630a40fd7606dcb6fe/rxandroid-2.1.1/AndroidManifest.xml:18:5-43
+MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9ea5ea6ef6c7d47e533badf5fe292773/GreenDaoUpgradeHelper-v2.1.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9ea5ea6ef6c7d47e533badf5fe292773/GreenDaoUpgradeHelper-v2.1.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.lzyzsd:circleprogress:1.2.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3f0703339bfcbd81907628ee6df84464/circleprogress-1.2.1/AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.lzyzsd:circleprogress:1.2.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3f0703339bfcbd81907628ee6df84464/circleprogress-1.2.1/AndroidManifest.xml:8:5-10:41
+MERGED from [com.daimajia.numberprogressbar:library:1.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/698617520dddaff6794812372886741a/library-1.4/AndroidManifest.xml:7:5-9:41
+MERGED from [com.daimajia.numberprogressbar:library:1.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/698617520dddaff6794812372886741a/library-1.4/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2da1249c1fc3e9b3b9ea65b5fceb63ad/BaseRecyclerViewAdapterHelper-2.9.42/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2da1249c1fc3e9b3b9ea65b5fceb63ad/BaseRecyclerViewAdapterHelper-2.9.42/AndroidManifest.xml:7:5-9:41
+MERGED from [com.yqritc:recyclerview-flexibledivider:1.4.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/59370077241316e3567e9220cb310977/recyclerview-flexibledivider-1.4.0/AndroidManifest.xml:8:5-10:41
+MERGED from [com.yqritc:recyclerview-flexibledivider:1.4.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/59370077241316e3567e9220cb310977/recyclerview-flexibledivider-1.4.0/AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.hotchemi:permissionsdispatcher:3.3.2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7424da55f30b61dcf1f814850dae21f7/permissionsdispatcher-3.3.2/AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.hotchemi:permissionsdispatcher:3.3.2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7424da55f30b61dcf1f814850dae21f7/permissionsdispatcher-3.3.2/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-base:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c37c96328bea7e8fa5b814d6991c1345/animated-base-1.13.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-base:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c37c96328bea7e8fa5b814d6991c1345/animated-base-1.13.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-drawable:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8e254aeab8cf37613a4715d6372709f2/animated-drawable-1.13.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-drawable:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8e254aeab8cf37613a4715d6372709f2/animated-drawable-1.13.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9d77725d752e64e53659230f80a09a76/drawee-1.13.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9d77725d752e64e53659230f80a09a76/drawee-1.13.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e1d041c9c1b284b79cbed77cc018ca2c/nativeimagefilters-1.13.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e1d041c9c1b284b79cbed77cc018ca2c/nativeimagefilters-1.13.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a20a0fb827c210008972b55e659945e8/imagepipeline-1.13.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a20a0fb827c210008972b55e659945e8/imagepipeline-1.13.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagetranscoder:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a9952b6d55bd002a943288d125d0be02/nativeimagetranscoder-1.13.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagetranscoder:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a9952b6d55bd002a943288d125d0be02/nativeimagetranscoder-1.13.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e64fc60889d95617d3a4ee3ce406dc8f/imagepipeline-base-1.13.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e64fc60889d95617d3a4ee3ce406dc8f/imagepipeline-base-1.13.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9d964ed807db67c270eba9bc7d19fa7b/soloader-0.6.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9d964ed807db67c270eba9bc7d19fa7b/soloader-0.6.0/AndroidManifest.xml:7:5-9:41
+MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f9ed1e44dbe8e9db0ea0ca2301dd658b/android-gif-drawable-1.2.6/AndroidManifest.xml:7:5-9:41
+MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f9ed1e44dbe8e9db0ea0ca2301dd658b/android-gif-drawable-1.2.6/AndroidManifest.xml:7:5-9:41
+MERGED from [com.squareup.leakcanary:leakcanary-object-watcher-android-androidx:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8dfaa1b13d817c2d467fc540935924d3/leakcanary-object-watcher-android-androidx-2.0-beta-3/AndroidManifest.xml:5:5-44
+MERGED from [com.squareup.leakcanary:leakcanary-object-watcher-android-androidx:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8dfaa1b13d817c2d467fc540935924d3/leakcanary-object-watcher-android-androidx-2.0-beta-3/AndroidManifest.xml:5:5-44
+MERGED from [com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5edcbc1d3f4a23befc8af6e64f5100f1/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:5:5-44
+MERGED from [com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5edcbc1d3f4a23befc8af6e64f5100f1/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/57c1c641f9d203f07aae5eb653c10509/support-fragment-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/57c1c641f9d203f07aae5eb653c10509/support-fragment-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a7b5f59f1ed33acbd0ac7e49f17253eb/support-core-ui-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a7b5f59f1ed33acbd0ac7e49f17253eb/support-core-ui-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3dd71dadc196589d8899e436a9481a9b/support-core-utils-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3dd71dadc196589d8899e436a9481a9b/support-core-utils-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3db45172df465fcacb39dd6f8c073637/transition-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3db45172df465fcacb39dd6f8c073637/transition-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.jakewharton:butterknife-runtime:9.0.0-rc2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/24b5547779e04d363b1d0ba4a3629180/butterknife-runtime-9.0.0-rc2/AndroidManifest.xml:5:5-44
+MERGED from [com.jakewharton:butterknife-runtime:9.0.0-rc2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/24b5547779e04d363b1d0ba4a3629180/butterknife-runtime-9.0.0-rc2/AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:loader:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8e24afe8faa526b6bc03bb5b2ba75768/loader-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8e24afe8faa526b6bc03bb5b2ba75768/loader-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9c04ee0e5849d677453ad864a3f8dc2c/viewpager-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9c04ee0e5849d677453ad864a3f8dc2c/viewpager-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/56b608c7604c6e790c171e4b755aa032/coordinatorlayout-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/56b608c7604c6e790c171e4b755aa032/coordinatorlayout-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/81c8a532b10f18eea1a60b66347698de/drawerlayout-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/81c8a532b10f18eea1a60b66347698de/drawerlayout-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/23daf889b95daf1d60e39d298db1d17b/slidingpanelayout-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/23daf889b95daf1d60e39d298db1d17b/slidingpanelayout-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/05390d43cb23bc08161640ec4f293c74/customview-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/05390d43cb23bc08161640ec4f293c74/customview-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/300002f2a44efc2a79767d8a840c5259/swiperefreshlayout-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/300002f2a44efc2a79767d8a840c5259/swiperefreshlayout-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fb013362c51ae4a01e03b2992cca40b4/asynclayoutinflater-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fb013362c51ae4a01e03b2992cca40b4/asynclayoutinflater-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e4933f16593e79b81fda8e4b0eaec5bc/support-compat-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e4933f16593e79b81fda8e4b0eaec5bc/support-compat-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7776ffc4cc6738306b8994255d90cd91/versionedparcelable-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7776ffc4cc6738306b8994255d90cd91/versionedparcelable-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f4aac131fa178f3b1345625490712592/cursoradapter-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f4aac131fa178f3b1345625490712592/cursoradapter-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/79998192db08d0efd4938b67244d9e74/gifdecoder-4.8.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/79998192db08d0efd4938b67244d9e74/gifdecoder-4.8.0/AndroidManifest.xml:5:5-7:41
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d0a64d2d2bd501708c95af8309714aed/runtime-1.1.1/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d0a64d2d2bd501708c95af8309714aed/runtime-1.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a70f84e7fe1c213dc6979314c1b96b4f/documentfile-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a70f84e7fe1c213dc6979314c1b96b4f/documentfile-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b8f514cb6b82527ce5a37b86d4929c9c/localbroadcastmanager-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b8f514cb6b82527ce5a37b86d4929c9c/localbroadcastmanager-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ccad05c1d8ea0c2bdce059c9307fe2af/print-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ccad05c1d8ea0c2bdce059c9307fe2af/print-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/da50a623b38ea12c56e7d6af4f42e5e5/viewmodel-1.1.1/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/da50a623b38ea12c56e7d6af4f42e5e5/viewmodel-1.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d75a7a9c5ab372af87916c3200528f5f/interpolator-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d75a7a9c5ab372af87916c3200528f5f/interpolator-28.0.0/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9501da38b355fffc31d20643a5881471/livedata-1.1.1/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9501da38b355fffc31d20643a5881471/livedata-1.1.1/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8c95621911aea7ab41fd5488739afa7e/livedata-core-1.1.1/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8c95621911aea7ab41fd5488739afa7e/livedata-core-1.1.1/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/34b313ba1517594d8cc9579183636896/runtime-1.1.1/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/34b313ba1517594d8cc9579183636896/runtime-1.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.fresco:fbcore:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5daf620a076c68e691d2007d70ab99eb/fbcore-1.13.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5daf620a076c68e691d2007d70ab99eb/fbcore-1.13.0/AndroidManifest.xml:5:5-7:41
 INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml
 INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml
 	tools:overrideLibrary
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:11:9-588
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:11:9-588
 	android:targetSdkVersion
 		INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml
@@ -1414,234 +1414,234 @@ ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/And
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:51:17-67
 activity#com.baidu.mobads.production.rewardvideo.MobRewardVideoActivity
-ADDED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e1c838375d64e25d4193db6c30c00f6a/Baidu_MobAds_SDK-release/AndroidManifest.xml:12:9-17:20
+ADDED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d63be7d959dadde8f6bbf67d0573a3b4/Baidu_MobAds_SDK-release/AndroidManifest.xml:12:9-17:20
 	android:launchMode
-		ADDED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e1c838375d64e25d4193db6c30c00f6a/Baidu_MobAds_SDK-release/AndroidManifest.xml:15:13-44
+		ADDED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d63be7d959dadde8f6bbf67d0573a3b4/Baidu_MobAds_SDK-release/AndroidManifest.xml:15:13-44
 	android:configChanges
-		ADDED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e1c838375d64e25d4193db6c30c00f6a/Baidu_MobAds_SDK-release/AndroidManifest.xml:14:13-74
+		ADDED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d63be7d959dadde8f6bbf67d0573a3b4/Baidu_MobAds_SDK-release/AndroidManifest.xml:14:13-74
 	android:theme
-		ADDED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e1c838375d64e25d4193db6c30c00f6a/Baidu_MobAds_SDK-release/AndroidManifest.xml:16:13-72
+		ADDED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d63be7d959dadde8f6bbf67d0573a3b4/Baidu_MobAds_SDK-release/AndroidManifest.xml:16:13-72
 	android:name
-		ADDED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e1c838375d64e25d4193db6c30c00f6a/Baidu_MobAds_SDK-release/AndroidManifest.xml:13:13-90
+		ADDED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d63be7d959dadde8f6bbf67d0573a3b4/Baidu_MobAds_SDK-release/AndroidManifest.xml:13:13-90
 android:uses-permission#android.permission.READ_EXTERNAL_STORAGE
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:16:5-88
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:16:5-88
 service#com.ss.android.socialbase.downloader.notification.DownloadNotificationService
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:25:9-113
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:25:9-113
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:25:18-110
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:25:18-110
 service#com.ss.android.socialbase.downloader.downloader.DownloadService
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:26:9-99
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:26:9-99
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:26:18-96
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:26:18-96
 service#com.ss.android.socialbase.downloader.downloader.IndependentProcessDownloadService
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:27:9-33:19
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:27:9-33:19
 	android:process
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:29:13-42
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:29:13-42
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:28:13-109
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:28:13-109
 intent-filter#action:name:com.ss.android.socialbase.downloader.remote
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:30:13-32:29
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:30:13-32:29
 action#com.ss.android.socialbase.downloader.remote
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:31:17-86
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:31:17-86
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:31:25-83
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:31:25-83
 service#com.ss.android.socialbase.downloader.impls.DownloadHandleService
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:34:9-100
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:34:9-100
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:34:18-97
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:34:18-97
 service#com.ss.android.socialbase.appdownloader.DownloadHandlerService
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:42:9-98
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:42:9-98
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:42:18-95
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:42:18-95
 activity#com.ss.android.socialbase.appdownloader.view.DownloadSizeLimitActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:58:9-61:59
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:58:9-61:59
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:60:13-44
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:60:13-44
 	android:theme
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:61:13-56
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:61:13-56
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:59:13-98
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:59:13-98
 activity#com.ss.android.socialbase.appdownloader.view.DownloadTaskDeleteActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:62:9-65:59
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:62:9-65:59
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:64:13-44
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:64:13-44
 	android:theme
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:65:13-56
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:65:13-56
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:63:13-99
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:63:13-99
 activity#com.ss.android.downloadlib.activity.TTDelegateActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:66:9-69:75
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:66:9-69:75
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:68:13-44
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:68:13-44
 	android:theme
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:69:13-72
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:69:13-72
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:67:13-82
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:67:13-82
 receiver#com.ss.android.downloadlib.core.download.DownloadReceiver
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:71:9-94
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:71:9-94
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:71:19-91
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:71:19-91
 receiver#com.bytedance.embedapplog.collector.Collector
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:72:9-75:39
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:72:9-75:39
 	android:enabled
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:74:13-35
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:74:13-35
 	android:exported
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:75:13-36
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:75:13-36
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:73:13-73
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:73:13-73
 activity#com.bytedance.sdk.openadsdk.activity.TTLandingPageActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:76:9-79:47
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:76:9-79:47
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:79:13-44
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:79:13-44
 	android:configChanges
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:78:13-74
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:78:13-74
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:77:13-86
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:77:13-86
 activity#com.bytedance.sdk.openadsdk.activity.TTPlayableLandingPageActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:80:9-83:47
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:80:9-83:47
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:83:13-44
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:83:13-44
 	android:configChanges
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:82:13-74
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:82:13-74
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:81:13-94
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:81:13-94
 activity#com.bytedance.sdk.openadsdk.activity.TTVideoLandingPageActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:84:9-87:47
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:84:9-87:47
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:87:13-44
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:87:13-44
 	android:configChanges
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:86:13-74
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:86:13-74
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:85:13-91
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:85:13-91
 activity#com.bytedance.sdk.openadsdk.activity.TTRewardVideoActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:88:9-91:47
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:88:9-91:47
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:91:13-44
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:91:13-44
 	android:configChanges
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:90:13-74
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:90:13-74
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:89:13-86
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:89:13-86
 activity#com.bytedance.sdk.openadsdk.activity.TTRewardExpressVideoActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:92:9-95:47
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:92:9-95:47
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:95:13-44
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:95:13-44
 	android:configChanges
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:94:13-74
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:94:13-74
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:93:13-93
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:93:13-93
 activity#com.bytedance.sdk.openadsdk.activity.TTFullScreenVideoActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:96:9-99:47
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:96:9-99:47
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:99:13-44
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:99:13-44
 	android:configChanges
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:98:13-74
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:98:13-74
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:97:13-90
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:97:13-90
 activity#com.bytedance.sdk.openadsdk.activity.TTFullScreenExpressVideoActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:100:9-103:47
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:100:9-103:47
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:103:13-44
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:103:13-44
 	android:configChanges
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:102:13-74
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:102:13-74
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:101:13-97
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:101:13-97
 activity#com.bytedance.sdk.openadsdk.activity.TTDelegateActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:104:9-107:75
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:104:9-107:75
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:106:13-44
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:106:13-44
 	android:theme
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:107:13-72
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:107:13-72
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:105:13-83
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:105:13-83
 service#com.bytedance.sdk.openadsdk.multipro.aidl.BinderPoolService
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:109:9-95
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:109:9-95
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ee9a49c963385052907f3d1341327c9e/open_ad_sdk/AndroidManifest.xml:109:18-92
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/AndroidManifest.xml:109:18-92
 service#leakcanary.internal.HeapAnalyzerService
-ADDED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5dbaef38c54851b67e814b4f190cad04/leakcanary-android-2.0-beta-3/AndroidManifest.xml:23:9-29:19
+ADDED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5ac20d3c92e0f81b4bada195d9451f4e/leakcanary-android-2.0-beta-3/AndroidManifest.xml:23:9-29:19
 	android:exported
-		ADDED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5dbaef38c54851b67e814b4f190cad04/leakcanary-android-2.0-beta-3/AndroidManifest.xml:25:13-37
+		ADDED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5ac20d3c92e0f81b4bada195d9451f4e/leakcanary-android-2.0-beta-3/AndroidManifest.xml:25:13-37
 	android:name
-		ADDED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5dbaef38c54851b67e814b4f190cad04/leakcanary-android-2.0-beta-3/AndroidManifest.xml:24:13-67
+		ADDED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5ac20d3c92e0f81b4bada195d9451f4e/leakcanary-android-2.0-beta-3/AndroidManifest.xml:24:13-67
 intent-filter#action:name:leakcanary.ANALYSIS_ACTION
-ADDED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5dbaef38c54851b67e814b4f190cad04/leakcanary-android-2.0-beta-3/AndroidManifest.xml:26:13-28:29
+ADDED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5ac20d3c92e0f81b4bada195d9451f4e/leakcanary-android-2.0-beta-3/AndroidManifest.xml:26:13-28:29
 action#leakcanary.ANALYSIS_ACTION
-ADDED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5dbaef38c54851b67e814b4f190cad04/leakcanary-android-2.0-beta-3/AndroidManifest.xml:27:17-69
+ADDED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5ac20d3c92e0f81b4bada195d9451f4e/leakcanary-android-2.0-beta-3/AndroidManifest.xml:27:17-69
 	android:name
-		ADDED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5dbaef38c54851b67e814b4f190cad04/leakcanary-android-2.0-beta-3/AndroidManifest.xml:27:25-66
+		ADDED from [com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5ac20d3c92e0f81b4bada195d9451f4e/leakcanary-android-2.0-beta-3/AndroidManifest.xml:27:25-66
 meta-data#android.notch_support
-ADDED from [com.lxj:xpermission:1.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b5fc5d310333a9f10dfc99d254f3be9f/xpermission-1.0.1/AndroidManifest.xml:12:9-14:36
+ADDED from [com.lxj:xpermission:1.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4ebf7b734f88f8b9ffb7435e4540bfef/xpermission-1.0.1/AndroidManifest.xml:12:9-14:36
 	android:value
-		ADDED from [com.lxj:xpermission:1.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b5fc5d310333a9f10dfc99d254f3be9f/xpermission-1.0.1/AndroidManifest.xml:14:13-33
+		ADDED from [com.lxj:xpermission:1.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4ebf7b734f88f8b9ffb7435e4540bfef/xpermission-1.0.1/AndroidManifest.xml:14:13-33
 	android:name
-		ADDED from [com.lxj:xpermission:1.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b5fc5d310333a9f10dfc99d254f3be9f/xpermission-1.0.1/AndroidManifest.xml:13:13-49
+		ADDED from [com.lxj:xpermission:1.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4ebf7b734f88f8b9ffb7435e4540bfef/xpermission-1.0.1/AndroidManifest.xml:13:13-49
 activity#com.lxj.xpermission.XPermission$PermissionActivity
-ADDED from [com.lxj:xpermission:1.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b5fc5d310333a9f10dfc99d254f3be9f/xpermission-1.0.1/AndroidManifest.xml:17:9-19:75
+ADDED from [com.lxj:xpermission:1.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4ebf7b734f88f8b9ffb7435e4540bfef/xpermission-1.0.1/AndroidManifest.xml:17:9-19:75
 	android:theme
-		ADDED from [com.lxj:xpermission:1.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b5fc5d310333a9f10dfc99d254f3be9f/xpermission-1.0.1/AndroidManifest.xml:19:13-72
+		ADDED from [com.lxj:xpermission:1.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4ebf7b734f88f8b9ffb7435e4540bfef/xpermission-1.0.1/AndroidManifest.xml:19:13-72
 	android:name
-		ADDED from [com.lxj:xpermission:1.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b5fc5d310333a9f10dfc99d254f3be9f/xpermission-1.0.1/AndroidManifest.xml:18:13-78
+		ADDED from [com.lxj:xpermission:1.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4ebf7b734f88f8b9ffb7435e4540bfef/xpermission-1.0.1/AndroidManifest.xml:18:13-78
 provider#leakcanary.internal.LeakCanaryFileProvider
-ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:29:9-37:20
+ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:29:9-37:20
 	android:grantUriPermissions
-		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:33:13-47
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:33:13-47
 	android:authorities
-		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:31:13-88
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:31:13-88
 	android:exported
-		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:32:13-37
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:32:13-37
 	android:name
-		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:30:13-70
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:30:13-70
 activity#leakcanary.internal.activity.LeakActivity
-ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:39:9-44:66
+ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:39:9-44:66
 	android:label
-		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:42:13-71
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:42:13-71
 	android:icon
-		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:41:13-52
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:41:13-52
 	android:theme
-		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:44:13-63
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:44:13-63
 	android:taskAffinity
-		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:43:13-76
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:43:13-76
 	android:name
-		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:40:13-69
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:40:13-69
 activity-alias#leakcanary.internal.activity.LeakLauncherActivity
-ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:46:9-59:26
+ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:46:9-59:26
 	android:enabled
-		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:48:13-66
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:48:13-66
 	android:label
-		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:50:13-71
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:50:13-71
 	android:targetActivity
-		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:51:13-79
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:51:13-79
 	android:icon
-		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:49:13-52
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:49:13-52
 	android:theme
-		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:53:13-63
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:53:13-63
 	android:taskAffinity
-		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:52:13-76
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:52:13-76
 	android:name
-		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:47:13-77
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:47:13-77
 activity#leakcanary.internal.RequestStoragePermissionActivity
-ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:61:9-67:68
+ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:61:9-67:68
 	android:label
-		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:65:13-82
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:65:13-82
 	android:excludeFromRecents
-		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:63:13-46
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:63:13-46
 	android:icon
-		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:64:13-52
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:64:13-52
 	android:theme
-		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:67:13-65
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:67:13-65
 	android:taskAffinity
-		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:66:13-76
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:66:13-76
 	android:name
-		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:62:13-80
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:62:13-80
 receiver#leakcanary.internal.NotificationReceiver
-ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:69:9-77
+ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:69:9-77
 	android:name
-		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f22e911428e37c10589d59fb00fed62b/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:69:19-74
+		ADDED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3d991b4adb2a82c1e26cffd654164157/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:69:19-74
 provider#leakcanary.internal.AppWatcherInstaller
-ADDED from [com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/58e0a6036407017c024f806f55df4e9e/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:8:9-11:40
+ADDED from [com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5edcbc1d3f4a23befc8af6e64f5100f1/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:8:9-11:40
 	android:authorities
-		ADDED from [com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/58e0a6036407017c024f806f55df4e9e/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:10:13-72
+		ADDED from [com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5edcbc1d3f4a23befc8af6e64f5100f1/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:10:13-72
 	android:exported
-		ADDED from [com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/58e0a6036407017c024f806f55df4e9e/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:11:13-37
+		ADDED from [com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5edcbc1d3f4a23befc8af6e64f5100f1/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:11:13-37
 	android:name
-		ADDED from [com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/58e0a6036407017c024f806f55df4e9e/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:9:13-67
+		ADDED from [com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5edcbc1d3f4a23befc8af6e64f5100f1/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:9:13-67

@@ -22,6 +22,7 @@ import android.widget.TextView;
 
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.ViewUtil;
 
 
 public class WebViewFragment extends BaseFragment{
@@ -209,9 +210,7 @@ public class WebViewFragment extends BaseFragment{
 
 	@Override
 	public void onDestroy() {
-		if (mWebView != null) {
-			mWebView.destroy();
-		}
 		super.onDestroy();
+		ViewUtil.destroyWebView(mWebView);
 	}
 }

@@ -37,6 +37,7 @@ import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.ShareUtil;
+import com.messi.languagehelper.util.ViewUtil;
 import com.messi.languagehelper.views.VideoEnabledWebChromeClient;
 import com.messi.languagehelper.views.VideoEnabledWebView;
 
@@ -368,9 +369,7 @@ public class WebViewFullscreenActivity extends BaseActivity{
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		if (mWebView != null) {
-			mWebView.destroy();
-		}
+		ViewUtil.destroyWebView(mWebView);
 	}
 
 	private void hideAd(final WebView view){

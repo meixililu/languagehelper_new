@@ -29,6 +29,7 @@ import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.TXADUtil;
+import com.messi.languagehelper.util.ViewUtil;
 import com.qq.e.ads.nativ.NativeExpressAD;
 import com.qq.e.ads.nativ.NativeExpressADView;
 
@@ -364,11 +365,10 @@ public class WebViewForNovelActivity extends BaseActivity implements View.OnClic
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		if (mWebView != null) {
-			mWebView.destroy();
-		}
+		ViewUtil.destroyWebView(mWebView);
 		if (mTXADView != null) {
 			mTXADView.destroy();
+			mTXADView = null;
 		}
 	}
 }

@@ -52,6 +52,7 @@ import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ShareUtil;
 import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.util.ToastUtil;
+import com.messi.languagehelper.util.ViewUtil;
 import com.messi.languagehelper.util.XFUtil;
 import com.messi.languagehelper.views.VideoEnabledWebChromeClient;
 import com.messi.languagehelper.views.VideoEnabledWebView;
@@ -606,9 +607,7 @@ public class WebViewWithMicActivity extends BaseActivity implements View.OnClick
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		if(mWebView != null){
-			mWebView.destroy();
-		}
+		ViewUtil.destroyWebView(mWebView);
 		if (recognizer != null) {
 			recognizer.destroy();
 			recognizer = null;

@@ -33,6 +33,7 @@ import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.TXADUtil;
+import com.messi.languagehelper.util.ViewUtil;
 import com.qq.e.ads.nativ.NativeExpressAD;
 import com.qq.e.ads.nativ.NativeExpressADView;
 
@@ -353,9 +354,7 @@ public class WebViewForMiaosouActivity extends BaseActivity implements OnClickLi
 			mAVObject.setUpdateTime(System.currentTimeMillis());
 			BoxHelper.updateCNWBean(mAVObject);
 		}
-		if(mWebView != null){
-			mWebView.destroy();
-		}
+		ViewUtil.destroyWebView(mWebView);
 	}
 
 	private void hideAd(final WebView view){

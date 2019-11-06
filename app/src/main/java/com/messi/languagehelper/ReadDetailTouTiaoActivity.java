@@ -53,6 +53,7 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.StringUtils;
+import com.messi.languagehelper.util.ViewUtil;
 import com.ximalaya.ting.android.opensdk.util.DigestUtils;
 
 import java.util.regex.Matcher;
@@ -567,10 +568,8 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
 
     @Override
     protected void onDestroy() {
-        if (mWebView != null) {
-            mWebView.destroy();
-        }
         super.onDestroy();
+        ViewUtil.destroyWebView(mWebView);
         status = 1;
         releasePlayer();
     }

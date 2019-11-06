@@ -40,6 +40,7 @@ import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
+import com.messi.languagehelper.util.ViewUtil;
 import com.messi.languagehelper.util.XFUtil;
 
 import butterknife.BindView;
@@ -367,9 +368,7 @@ public class AiUCXYActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(mWebView != null){
-            mWebView.destroy();
-        }
+        ViewUtil.destroyWebView(mWebView);
     }
 
     @Override

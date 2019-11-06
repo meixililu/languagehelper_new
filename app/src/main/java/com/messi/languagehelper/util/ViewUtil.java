@@ -9,6 +9,8 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.View.MeasureSpec;
 import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.webkit.WebView;
 import android.widget.AbsListView.LayoutParams;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
@@ -175,5 +177,23 @@ public class ViewUtil {
 			parent.removeViewAt(index);
 		}
 	}
-	
+
+	public static void destroyWebView(WebView mWebView){
+		try {
+			if (mWebView != null) {
+				ViewParent parent = mWebView.getParent();
+				if(parent != null){
+					((ViewGroup)parent).removeView(mWebView);
+				}
+				mWebView.stopLoading();
+				mWebView.getSettings().setJavaScriptEnabled(false);
+				mWebView.clearHistory();
+				mWebView.removeAllViews();
+				mWebView.destroy();
+				mWebView = null;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

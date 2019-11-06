@@ -29,6 +29,7 @@ import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.ShareUtil;
+import com.messi.languagehelper.util.ViewUtil;
 
 
 public class WebViewNoAdActivity extends BaseActivity{
@@ -259,10 +260,7 @@ public class WebViewNoAdActivity extends BaseActivity{
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		LogUtil.DefalutLog("Url:"+mWebView.getUrl());
-		if (mWebView != null) {
-			mWebView.destroy();
-		}
+		ViewUtil.destroyWebView(mWebView);
 	}
 
 	private void hideAd(final WebView view){

@@ -34,6 +34,7 @@ import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.ShareUtil;
+import com.messi.languagehelper.util.ViewUtil;
 
 import java.util.List;
 
@@ -302,10 +303,8 @@ public class WebViewActivity extends BaseActivity{
 	
 	@Override
 	protected void onDestroy() {
-		if (mWebView != null) {
-			mWebView.destroy();
-		}
 		super.onDestroy();
+		ViewUtil.destroyWebView(mWebView);
 	}
 
 	private void hideAd(final WebView view){

@@ -1,5 +1,6 @@
 package com.messi.languagehelper.box;
 
+import android.content.Context;
 import android.text.TextUtils;
 
 import com.messi.languagehelper.BaseApplication;
@@ -17,9 +18,9 @@ public class BoxHelper {
 
     public static BoxStore boxStore;
 
-    public static void init(BaseApplication app){
+    public static void init(Context appContext){
         try {
-            boxStore = MyObjectBox.builder().androidContext(app).build();
+            boxStore = MyObjectBox.builder().androidContext(appContext).build();
         } catch (Exception e) {
             e.printStackTrace();
         }

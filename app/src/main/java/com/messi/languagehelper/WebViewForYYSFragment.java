@@ -29,6 +29,7 @@ import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
+import com.messi.languagehelper.util.ViewUtil;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -215,9 +216,7 @@ public class WebViewForYYSFragment extends BaseFragment{
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
-		if (mWebView != null) {
-			mWebView.destroy();
-		}
+		ViewUtil.destroyWebView(mWebView);
 	}
 
 	private void hideAd(final WebView view){

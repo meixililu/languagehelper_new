@@ -25,6 +25,7 @@ import com.messi.languagehelper.box.WebFilter;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.ViewUtil;
 
 public class WebViewForCaricatureActivity extends BaseActivity{
 	
@@ -231,16 +232,13 @@ public class WebViewForCaricatureActivity extends BaseActivity{
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		LogUtil.DefalutLog("Url:"+mWebView.getUrl());
 		if(!TextUtils.isEmpty(mWebView.getUrl()) && mItem.getCollected() > 100){
 			mItem.setHistory(System.currentTimeMillis());
 			mItem.setUpdateTime(System.currentTimeMillis());
 			mItem.setLast_read_url(mWebView.getUrl());
 			BoxHelper.updateCNWBean(mItem);
 		}
-		if(mWebView != null){
-			mWebView.destroy();
-		}
+		ViewUtil.destroyWebView(mWebView);
 	}
 
 	private void hideAd(final WebView view){
