@@ -18,6 +18,7 @@ import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.service.PlayerService;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,7 +51,7 @@ public class ReadingCollectedListFragment extends BaseFragment {
 		super.onCreateView(inflater, container, savedInstanceState);
 		View view = inflater.inflate(R.layout.composition_fragment, container, false);
 		initViews(view);
-		new QueryTask().execute();
+		new QueryTask(this).execute();
 		return view;
 	}
 	
@@ -84,7 +85,7 @@ public class ReadingCollectedListFragment extends BaseFragment {
 				int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
 				if(!loading && hasMore){
 					if ((visible + firstVisibleItem) >= total){
-						new QueryTask().execute();
+						new QueryTask(ReadingCollectedListFragment.this).execute();
 					}
 				}
 			}
@@ -105,10 +106,16 @@ public class ReadingCollectedListFragment extends BaseFragment {
 		hideFooterview();
 		avObjects.clear();
 		mAdapter.notifyDataSetChanged();
-		new QueryTask().execute();
+		new QueryTask(this).execute();
 	}
 	
 	private class QueryTask extends AsyncTask<Void, Void, List<Reading>> {
+
+		private WeakReference<ReadingCollectedListFragment> mainActivity;
+
+		public QueryTask(ReadingCollectedListFragment mActivity){
+			mainActivity = new WeakReference<>(mActivity);
+		}
 
 		@Override
 		protected void onPreExecute() {
@@ -123,26 +130,28 @@ public class ReadingCollectedListFragment extends BaseFragment {
 
 		@Override
 		protected void onPostExecute(List<Reading> avObject) {
-			loading = false;
-			onSwipeRefreshLayoutFinish();
-			if(avObject != null){
-				if(avObject.size() == 0){
-					hideFooterview();
-					hasMore = false;
-				}else{
-					if(avObjects != null && mAdapter != null){
-						if(page == 0){
-							avObjects.clear();
-						}
-						avObjects.addAll(avObject);
-						mAdapter.notifyDataSetChanged();
-						if(avObject.size() == pageSize){
-							page += pageSize;
-							showFooterview();
-							hasMore = true;
-						}else {
-							hideFooterview();
-							hasMore = false;
+			if(mainActivity.get() != null){
+				loading = false;
+				onSwipeRefreshLayoutFinish();
+				if(avObject != null){
+					if(avObject.size() == 0){
+						hideFooterview();
+						hasMore = false;
+					}else{
+						if(avObjects != null && mAdapter != null){
+							if(page == 0){
+								avObjects.clear();
+							}
+							avObjects.addAll(avObject);
+							mAdapter.notifyDataSetChanged();
+							if(avObject.size() == pageSize){
+								page += pageSize;
+								showFooterview();
+								hasMore = true;
+							}else {
+								hideFooterview();
+								hasMore = false;
+							}
 						}
 					}
 				}

@@ -25,6 +25,7 @@ import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ViewUtil;
 
+import java.lang.ref.WeakReference;
 import java.util.List;
 
 import static com.messi.languagehelper.util.AVOUtil.PracticeDetail.PracticeDetail;
@@ -51,7 +52,7 @@ public class AiSpokenBasicActivity extends BaseActivity implements PracticeProgr
 		setContentView(R.layout.study_activity);
 		initData();
 		initViews();
-		new QueryTask().execute();
+		new QueryTask(this).execute();
 	}
 	
 	private void initData(){
@@ -70,7 +71,7 @@ public class AiSpokenBasicActivity extends BaseActivity implements PracticeProgr
 		error_txt.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				new QueryTask().execute();
+				new QueryTask(AiSpokenBasicActivity.this).execute();
 			}
 		});
 	}
@@ -81,6 +82,12 @@ public class AiSpokenBasicActivity extends BaseActivity implements PracticeProgr
 	}
 
 	private class QueryTask extends AsyncTask<Void, Void, Void> {
+
+		private WeakReference<AiSpokenBasicActivity> mainActivity;
+
+		public QueryTask(AiSpokenBasicActivity mActivity){
+			mainActivity = new WeakReference<>(mActivity);
+		}
 
 		@Override
 		protected void onPreExecute() {
@@ -109,20 +116,22 @@ public class AiSpokenBasicActivity extends BaseActivity implements PracticeProgr
 		@Override
 		protected void onPostExecute(Void result) {
 			super.onPostExecute(result);
-			hideProgressbar();
-			if(avObject != null){
-				String content = avObject.getString(AVOUtil.PracticeDetail.PDContent);
-				if(!TextUtils.isEmpty(content)){
-					vedioPath = SDCardUtil.PracticePath + avObject.getString(AVOUtil.PracticeDetail.PCCode)
-							+ SDCardUtil.Delimiter + avObject.getString(AVOUtil.PracticeDetail.PCLCode)
-							+ SDCardUtil.Delimiter;
-					studyContent = content.split("@");
-					setData();
+			if(mainActivity.get() != null){
+				hideProgressbar();
+				if(avObject != null){
+					String content = avObject.getString(AVOUtil.PracticeDetail.PDContent);
+					if(!TextUtils.isEmpty(content)){
+						vedioPath = SDCardUtil.PracticePath + avObject.getString(AVOUtil.PracticeDetail.PCCode)
+								+ SDCardUtil.Delimiter + avObject.getString(AVOUtil.PracticeDetail.PCLCode)
+								+ SDCardUtil.Delimiter;
+						studyContent = content.split("@");
+						setData();
+					}else{
+						error_txt.setVisibility(View.VISIBLE);
+					}
 				}else{
 					error_txt.setVisibility(View.VISIBLE);
 				}
-			}else{
-				error_txt.setVisibility(View.VISIBLE);
 			}
 		}
 	}

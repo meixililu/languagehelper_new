@@ -37,6 +37,7 @@ import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFYSAD;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -84,7 +85,7 @@ public class SymbolListFragment extends BaseFragment {
         setHasOptionsMenu(true);
         initSwipeRefresh(view);
         initViews(view);
-        new QueryTask().execute();
+        new QueryTask(this).execute();
         return view;
     }
 
@@ -109,7 +110,7 @@ public class SymbolListFragment extends BaseFragment {
     @Override
     public void onSwipeRefreshLayoutRefresh() {
         super.onSwipeRefreshLayoutRefresh();
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     private SymbolListDao changeDataType(AVObject avobject) {
@@ -151,6 +152,12 @@ public class SymbolListFragment extends BaseFragment {
 
     private class QueryTask extends AsyncTask<Void, Void, Void> {
 
+        private WeakReference<SymbolListFragment> mainActivity;
+
+        public QueryTask(SymbolListFragment mActivity){
+            mainActivity = new WeakReference<>(mActivity);
+        }
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -191,9 +198,11 @@ public class SymbolListFragment extends BaseFragment {
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-            hideProgressbar();
-            onSwipeRefreshLayoutFinish();
-            mAdapter.notifyDataSetChanged();
+            if(mainActivity.get() != null){
+                hideProgressbar();
+                onSwipeRefreshLayoutFinish();
+                mAdapter.notifyDataSetChanged();
+            }
         }
     }
 

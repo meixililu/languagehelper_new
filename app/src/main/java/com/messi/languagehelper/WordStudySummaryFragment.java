@@ -1,6 +1,6 @@
 package com.messi.languagehelper;
 
-import android.app.Activity;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -19,6 +19,7 @@ import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.XFYSAD;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class WordStudySummaryFragment extends BaseFragment {
     private XFYSAD mXFYSAD;
 
     @Override
-    public void onAttach(Activity activity) {
+    public void onAttach(Context activity) {
         super.onAttach(activity);
         try {
             mProgressbarListener = (FragmentProgressbarListener) activity;
@@ -52,7 +53,7 @@ public class WordStudySummaryFragment extends BaseFragment {
     public void loadDataOnStart() {
         super.loadDataOnStart();
         initViews();
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     private void initViews() {
@@ -74,7 +75,7 @@ public class WordStudySummaryFragment extends BaseFragment {
 
     @Override
     public void onSwipeRefreshLayoutRefresh() {
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     @Override
@@ -86,6 +87,12 @@ public class WordStudySummaryFragment extends BaseFragment {
     }
 
     private class QueryTask extends AsyncTask<Void, Void, Void> {
+
+        private WeakReference<WordStudySummaryFragment> mainActivity;
+
+        public QueryTask(WordStudySummaryFragment mActivity){
+            mainActivity = new WeakReference<>(mActivity);
+        }
 
         @Override
         protected void onPreExecute() {
@@ -114,9 +121,11 @@ public class WordStudySummaryFragment extends BaseFragment {
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-            hideProgressbar();
-            onSwipeRefreshLayoutFinish();
-            mAdapter.notifyDataSetChanged();
+            if(mainActivity.get() != null){
+                hideProgressbar();
+                onSwipeRefreshLayoutFinish();
+                mAdapter.notifyDataSetChanged();
+            }
         }
     }
 

@@ -20,6 +20,7 @@ import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SaveData;
 import com.messi.languagehelper.util.Setings;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,12 +55,12 @@ public class CompositionActivity extends BaseActivity implements FragmentProgres
 			if(System.currentTimeMillis() - lastTimeSave > 1000*60*60*24*10){
 				SaveData.deleteObject(this, "CompositionActivity");
 				LogUtil.DefalutLog("deleteObject   CompositionActivity");
-				new QueryTask().execute();
+				new QueryTask(this).execute();
 			}else{
 				List<String> listStr =  (ArrayList<String>) SaveData.getObject(this, "CompositionActivity");
 				if(listStr == null || listStr.size() == 0){
 					LogUtil.DefalutLog("avObjects is null");
-					new QueryTask().execute();
+					new QueryTask(this).execute();
 				}else{
 					LogUtil.DefalutLog("avObjects is not null");
 					for(String str : listStr){
@@ -69,12 +70,18 @@ public class CompositionActivity extends BaseActivity implements FragmentProgres
 				}
 			}
 		} catch (Exception e) {
-			new QueryTask().execute();
+			new QueryTask(CompositionActivity.this).execute();
 			e.printStackTrace();
 		}
 	}
 	
 	private class QueryTask extends AsyncTask<Void, Void, Void> {
+
+		private WeakReference<CompositionActivity> mainActivity;
+
+		public QueryTask(CompositionActivity mActivity){
+			mainActivity = new WeakReference<>(mActivity);
+		}
 
 		@Override
 		protected void onPreExecute() {
@@ -103,8 +110,10 @@ public class CompositionActivity extends BaseActivity implements FragmentProgres
 		@Override
 		protected void onPostExecute(Void result) {
 			super.onPostExecute(result);
-			hideProgressbar();
-			initTabTitle();
+			if(mainActivity.get() != null){
+				hideProgressbar();
+				initTabTitle();
+			}
 		}
 	}
 	

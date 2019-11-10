@@ -39,6 +39,7 @@ import com.qq.e.ads.nativ.NativeExpressADView;
 
 import org.json.JSONObject;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,7 +49,7 @@ public abstract class XXLRootModel {
     public boolean hasMore;
 
     public int counter;
-    public Context mContext;
+    public WeakReference<Context> mContext;
     public SharedPreferences sp;
     public String XFADID = ADUtil.XXLAD;
     public String BDADID = BDADUtil.BD_BANNer;
@@ -61,7 +62,7 @@ public abstract class XXLRootModel {
     public RecyclerView.Adapter mAdapter;
 
     public XXLRootModel(Context mContext){
-        this.mContext = mContext;
+        this.mContext = new WeakReference<>(mContext);
         sp = Setings.getSharedPreferences(mContext);
         mTXADList = new ArrayList<NativeExpressADView>();
     }
@@ -105,7 +106,7 @@ public abstract class XXLRootModel {
     }
 
     public void loadXFAD() {
-        IFLYNativeAd nativeAd = new IFLYNativeAd(mContext, XFADID, new IFLYNativeListener() {
+        IFLYNativeAd nativeAd = new IFLYNativeAd(getContext(), XFADID, new IFLYNativeListener() {
             @Override
             public void onConfirm() {
             }
@@ -133,7 +134,7 @@ public abstract class XXLRootModel {
     public abstract void addXFAD(NativeDataRef nad);
 
     public void loadTXAD() {
-        TXADUtil.showXXLAD(mContext,TXADType, new NativeExpressAD.NativeExpressADListener() {
+        TXADUtil.showXXLAD(getContext(),TXADType, new NativeExpressAD.NativeExpressADListener() {
             @Override
             public void onNoAD(com.qq.e.comm.util.AdError adError) {
                 LogUtil.DefalutLog("TX-onNoAD");
@@ -187,12 +188,12 @@ public abstract class XXLRootModel {
 
     public void loadXBKJ() {
         if (ADUtil.isHasLocalAd()) {
-            addXFAD(ADUtil.getRandomAd(mContext));
+            addXFAD(ADUtil.getRandomAd(getContext()));
         }
     }
 
     public void loadBDAD(){
-        AdView adView = new AdView(mContext,BDADID);
+        AdView adView = new AdView(getContext(),BDADID);
         adView.setListener(new AdViewListener(){
             @Override
             public void onAdReady(AdView adView) {
@@ -229,7 +230,7 @@ public abstract class XXLRootModel {
 
     public void loadCSJAD(){
         LogUtil.DefalutLog("loadCSJAD");
-        TTAdNative mTTAdNative = CSJADUtil.get().createAdNative(mContext);
+        TTAdNative mTTAdNative = CSJADUtil.get().createAdNative(getContext());
         AdSlot adSlot = new AdSlot.Builder()
                 .setCodeId(CSJADID)
                 .setSupportDeepLink(true)
@@ -378,6 +379,10 @@ public abstract class XXLRootModel {
         });
         ad_layout.removeAllViews();
         ad_layout.addView(view);
+    }
+
+    public Context getContext() {
+        return mContext.get();
     }
 
 }

@@ -23,6 +23,7 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.ScreenUtil;
 import com.messi.languagehelper.util.Setings;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,7 +51,7 @@ public class CaricatureSearchActivity extends BaseActivity {
         ButterKnife.bind(this);
         init();
         addHistory();
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     private void init() {
@@ -98,6 +99,12 @@ public class CaricatureSearchActivity extends BaseActivity {
 
     private class QueryTask extends AsyncTask<Void, Void,  List<AVObject>> {
 
+        private WeakReference<CaricatureSearchActivity> mainActivity;
+
+        public QueryTask(CaricatureSearchActivity mActivity){
+            mainActivity = new WeakReference<>(mActivity);
+        }
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -119,8 +126,8 @@ public class CaricatureSearchActivity extends BaseActivity {
         @Override
         protected void onPostExecute(List<AVObject> avObject) {
             super.onPostExecute(avObject);
-            if(avObject != null){
-                if(avObject.size() != 0){
+            if(mainActivity.get() != null && avObject != null){
+                if(!avObject.isEmpty()){
                     List<AVObject> avObjects = new ArrayList<AVObject>();
                     for (AVObject object : avObject){
                         boolean isAdd = true;
@@ -192,7 +199,7 @@ public class CaricatureSearchActivity extends BaseActivity {
                 KeyUtil.CaricatureSearchHistory,
                 "");
         auto_wrap_layout.removeAllViews();
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     private void search(String quest) {

@@ -20,6 +20,7 @@ import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,7 +73,7 @@ public class BoutiquesFragment extends BaseFragment {
 	@Override
 	public void loadDataOnStart() {
 		super.loadDataOnStart();
-		new QueryTask().execute();
+		new QueryTask(this).execute();
 	}
 	
 	private void init(View view){
@@ -104,7 +105,7 @@ public class BoutiquesFragment extends BaseFragment {
                 LogUtil.DefalutLog("visible:"+visible+"---total:"+total+"---firstVisibleItem:"+firstVisibleItem);
                 if(!loading && hasMore){
                     if ((visible + firstVisibleItem) >= total){
-                        new QueryTask().execute();
+                        new QueryTask(BoutiquesFragment.this).execute();
                     }
                 }
             }
@@ -115,10 +116,16 @@ public class BoutiquesFragment extends BaseFragment {
 	public void onSwipeRefreshLayoutRefresh() {
         hideFooterview();
         skip = 0;
-		new QueryTask().execute();
+		new QueryTask(this).execute();
 	}
 	
 	private class QueryTask extends AsyncTask<Void, Void, Void> {
+
+		private WeakReference<BoutiquesFragment> mainActivity;
+
+		public QueryTask(BoutiquesFragment mActivity){
+			mainActivity = new WeakReference<>(mActivity);
+		}
 
 		@Override
 		protected void onPreExecute() {
@@ -155,14 +162,16 @@ public class BoutiquesFragment extends BaseFragment {
 		@Override
 		protected void onPostExecute(Void result) {
 			super.onPostExecute(result);
-			hideProgressbar();
-			onSwipeRefreshLayoutFinish();
-			mAdapter.notifyDataSetChanged();
-			if(hasMore){
-			    showFooterview();
-            }else {
-			    hideFooterview();
-            }
+			if(mainActivity.get() != null){
+				hideProgressbar();
+				onSwipeRefreshLayoutFinish();
+				mAdapter.notifyDataSetChanged();
+				if(hasMore){
+					showFooterview();
+				}else {
+					hideFooterview();
+				}
+			}
 		}
 	}
 

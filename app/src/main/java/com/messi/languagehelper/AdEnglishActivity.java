@@ -14,6 +14,7 @@ import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,7 +42,7 @@ public class AdEnglishActivity extends BaseActivity {
         ButterKnife.bind(this);
         initSwipeRefresh();
         initViews();
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     private void initViews() {
@@ -76,7 +77,7 @@ public class AdEnglishActivity extends BaseActivity {
                 int firstVisibleItem = layoutManager.findFirstCompletelyVisibleItemPosition();
                 if (!loading && hasMore) {
                     if ((visible + firstVisibleItem) >= total) {
-                        new QueryTask().execute();
+                        new QueryTask(AdEnglishActivity.this).execute();
                     }
                 }
             }
@@ -89,10 +90,16 @@ public class AdEnglishActivity extends BaseActivity {
         skip = 0;
         avObjects.clear();
         mAdapter.notifyDataSetChanged();
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     private class QueryTask extends AsyncTask<Void, Void, List<AVObject>> {
+
+        private WeakReference<AdEnglishActivity> mainActivity;
+
+        public QueryTask(AdEnglishActivity mActivity){
+            mainActivity = new WeakReference<>(mActivity);
+        }
 
         @Override
         protected void onPreExecute() {
@@ -123,30 +130,32 @@ public class AdEnglishActivity extends BaseActivity {
         @Override
         protected void onPostExecute(List<AVObject> avObject) {
             super.onPostExecute(avObject);
-            loading = false;
-            hideProgressbar();
-            onSwipeRefreshLayoutFinish();
-            initAdapter();
-            if (avObject != null) {
-                if (avObject.size() == 0) {
-                    ToastUtil.diaplayMesShort(AdEnglishActivity.this, "没有了！");
-                    hasMore = false;
-                    hideFooterview();
-                } else {
-                    if (avObjects != null && mAdapter != null) {
-                        avObjects.addAll(avObject);
-                        if (avObject.size() == page_size) {
-                            skip += page_size;
-                            showFooterview();
-                            hasMore = true;
-                        } else {
-                            hasMore = false;
-                            hideFooterview();
+            if(mainActivity.get() != null){
+                loading = false;
+                hideProgressbar();
+                onSwipeRefreshLayoutFinish();
+                initAdapter();
+                if (avObject != null) {
+                    if (avObject.size() == 0) {
+                        ToastUtil.diaplayMesShort(AdEnglishActivity.this, "没有了！");
+                        hasMore = false;
+                        hideFooterview();
+                    } else {
+                        if (avObjects != null && mAdapter != null) {
+                            avObjects.addAll(avObject);
+                            if (avObject.size() == page_size) {
+                                skip += page_size;
+                                showFooterview();
+                                hasMore = true;
+                            } else {
+                                hasMore = false;
+                                hideFooterview();
+                            }
                         }
                     }
                 }
+                mAdapter.notifyDataSetChanged();
             }
-            mAdapter.notifyDataSetChanged();
         }
 
     }

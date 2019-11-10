@@ -15,12 +15,13 @@ import com.messi.languagehelper.util.CSJADUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
 
+import java.lang.ref.WeakReference;
 import java.util.List;
 
 public class VideoADModel {
 
     public int counter;
-    public Context mContext;
+    private WeakReference<Context> mContext;
     public SharedPreferences sp;
 
     public FrameLayout xx_ad_layout;
@@ -28,7 +29,7 @@ public class VideoADModel {
     public ImageView ad_close_btn;
 
     public VideoADModel(Context mContext,FrameLayout xx_ad_layout){
-        this.mContext = mContext;
+        this.mContext = new WeakReference<>(mContext);
         sp = Setings.getSharedPreferences(mContext);
         this.xx_ad_layout = xx_ad_layout;
         ad_layout = xx_ad_layout.findViewById(R.id.ad_layout);
@@ -60,7 +61,7 @@ public class VideoADModel {
 
     public void loadCSJAD(){
         LogUtil.DefalutLog("loadCSJAD-Video");
-        TTAdNative mTTAdNative = CSJADUtil.get().createAdNative(mContext);
+        TTAdNative mTTAdNative = CSJADUtil.get().createAdNative(getContext());
         AdSlot adSlot = new AdSlot.Builder()
                 .setCodeId(CSJADUtil.CSJ_XXLSP)
                 .setSupportDeepLink(true)
@@ -79,9 +80,13 @@ public class VideoADModel {
                     xx_ad_layout.setVisibility(View.GONE);
                     return;
                 }
-                XXLRootModel.getCSJDView(mContext,ads.get(0),ad_layout);
+                XXLRootModel.getCSJDView(getContext(),ads.get(0),ad_layout);
             }
         });
+    }
+
+    public Context getContext() {
+        return mContext.get();
     }
 
 }

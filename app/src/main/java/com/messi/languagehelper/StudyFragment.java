@@ -72,7 +72,7 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
     }
 
     @Override
-    public void onAttach(Activity activity) {
+    public void onAttach(Context activity) {
         super.onAttach(activity);
         try {
             registerBroadcast();

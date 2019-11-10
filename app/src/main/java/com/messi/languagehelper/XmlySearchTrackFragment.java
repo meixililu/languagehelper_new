@@ -1,6 +1,6 @@
 package com.messi.languagehelper;
 
-import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -54,7 +54,7 @@ public class XmlySearchTrackFragment extends BaseFragment implements OnClickList
     }
 
     @Override
-    public void onAttach(Activity activity) {
+    public void onAttach(Context activity) {
         super.onAttach(activity);
         try {
             mProgressbarListener = (FragmentProgressbarListener) activity;

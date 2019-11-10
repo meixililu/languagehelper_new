@@ -1,8 +1,5 @@
 package com.messi.languagehelper;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +11,10 @@ import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.messi.languagehelper.adapter.StudyDialogCategoryAdapter;
 import com.messi.languagehelper.util.AVOUtil;
+
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StudyDialogCategoryActivity extends BaseActivity implements OnClickListener{
 
@@ -28,7 +29,7 @@ public class StudyDialogCategoryActivity extends BaseActivity implements OnClick
 		setContentView(R.layout.invest_list_activity);
 		initSwipeRefresh();
 		initViews();
-		new QueryTask().execute();
+		new QueryTask(this).execute();
 	}
 	
 	private void initViews(){
@@ -42,10 +43,16 @@ public class StudyDialogCategoryActivity extends BaseActivity implements OnClick
 	@Override
 	public void onSwipeRefreshLayoutRefresh() {
 		super.onSwipeRefreshLayoutRefresh();
-		new QueryTask().execute();
+		new QueryTask(this).execute();
 	}
 	
 	private class QueryTask extends AsyncTask<Void, Void, Void> {
+
+		private WeakReference<StudyDialogCategoryActivity> mainActivity;
+
+		public QueryTask(StudyDialogCategoryActivity mActivity){
+			mainActivity = new WeakReference<>(mActivity);
+		}
 
 		@Override
 		protected void onPreExecute() {
@@ -73,9 +80,11 @@ public class StudyDialogCategoryActivity extends BaseActivity implements OnClick
 		@Override
 		protected void onPostExecute(Void result) {
 			super.onPostExecute(result);
-			hideProgressbar();
-			onSwipeRefreshLayoutFinish();
-			mAdapter.notifyDataSetChanged();
+			if(mainActivity.get() != null){
+				hideProgressbar();
+				onSwipeRefreshLayoutFinish();
+				mAdapter.notifyDataSetChanged();
+			}
 		}
 		
 	}

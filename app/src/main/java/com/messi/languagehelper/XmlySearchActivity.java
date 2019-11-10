@@ -29,6 +29,7 @@ import com.ximalaya.ting.android.opensdk.datatrasfer.IDataCallBack;
 import com.ximalaya.ting.android.opensdk.model.word.HotWord;
 import com.ximalaya.ting.android.opensdk.model.word.HotWordList;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -59,7 +60,7 @@ public class XmlySearchActivity extends BaseActivity {
         init();
         addHistory();
         getHotWords();
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     private void init() {
@@ -139,6 +140,12 @@ public class XmlySearchActivity extends BaseActivity {
 
     private class QueryTask extends AsyncTask<Void, Void,  List<AVObject>> {
 
+        private WeakReference<XmlySearchActivity> mainActivity;
+
+        public QueryTask(XmlySearchActivity mActivity){
+            mainActivity = new WeakReference<>(mActivity);
+        }
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -179,7 +186,7 @@ public class XmlySearchActivity extends BaseActivity {
         @Override
         protected void onPostExecute(List<AVObject> avObject) {
             super.onPostExecute(avObject);
-            if(avObject != null){
+            if(mainActivity.get() != null && avObject != null){
                 if(avObject.size() != 0){
                     List<AVObject> avObjects = new ArrayList<AVObject>();
                     for (AVObject object : avObject){
@@ -253,7 +260,7 @@ public class XmlySearchActivity extends BaseActivity {
                 "");
         auto_wrap_layout.removeAllViews();
         getHotWords();
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     private void search(String quest) {

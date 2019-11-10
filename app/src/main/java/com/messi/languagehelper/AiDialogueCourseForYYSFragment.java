@@ -1,6 +1,6 @@
 package com.messi.languagehelper;
 
-import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -25,6 +25,7 @@ import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFYSAD;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,7 +56,7 @@ public class AiDialogueCourseForYYSFragment extends BaseFragment implements View
     }
 
     @Override
-    public void onAttach(Activity activity) {
+    public void onAttach(Context activity) {
         super.onAttach(activity);
         try {
             mProgressbarListener = (FragmentProgressbarListener) activity;
@@ -78,7 +79,7 @@ public class AiDialogueCourseForYYSFragment extends BaseFragment implements View
     public void loadDataOnStart() {
         super.loadDataOnStart();
         skip = 0;
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     private void initViews(View view) {
@@ -113,7 +114,7 @@ public class AiDialogueCourseForYYSFragment extends BaseFragment implements View
                 LogUtil.DefalutLog("visible:"+visible+"---total:"+total+"---firstVisibleItem:"+firstVisibleItem);
                 if(!loading && hasMore){
                     if ((visible + firstVisibleItem) >= total){
-                        new QueryTask().execute();
+                        new QueryTask(AiDialogueCourseForYYSFragment.this).execute();
                     }
                 }
             }
@@ -127,7 +128,7 @@ public class AiDialogueCourseForYYSFragment extends BaseFragment implements View
         skip = 0;
         avObjects.clear();
         mAdapter.notifyDataSetChanged();
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     @Override
@@ -139,6 +140,12 @@ public class AiDialogueCourseForYYSFragment extends BaseFragment implements View
 
 
     private class QueryTask extends AsyncTask<Void, Void,  List<AVObject>> {
+
+        private WeakReference<AiDialogueCourseForYYSFragment> mainActivity;
+
+        public QueryTask(AiDialogueCourseForYYSFragment mActivity){
+            mainActivity = new WeakReference<>(mActivity);
+        }
 
         @Override
         protected void onPreExecute() {
@@ -165,24 +172,26 @@ public class AiDialogueCourseForYYSFragment extends BaseFragment implements View
         @Override
         protected void onPostExecute(List<AVObject> avObject) {
             super.onPostExecute(avObject);
-            loading = false;
-            hideProgressbar();
-            onSwipeRefreshLayoutFinish();
-            if(avObject != null){
-                if(avObject.size() == 0){
-                    ToastUtil.diaplayMesShort(getContext(), "没有了！");
-                    hasMore = false;
-                    hideFooterview();
-                }else{
-                    if(avObjects != null && mAdapter != null){
-                        avObjects.addAll(avObject);
-                        skip += 20;
-                        showFooterview();
-                        hasMore = true;
+            if(mainActivity.get() != null){
+                loading = false;
+                hideProgressbar();
+                onSwipeRefreshLayoutFinish();
+                if(avObject != null){
+                    if(avObject.size() == 0){
+                        ToastUtil.diaplayMesShort(getContext(), "没有了！");
+                        hasMore = false;
+                        hideFooterview();
+                    }else{
+                        if(avObjects != null && mAdapter != null){
+                            avObjects.addAll(avObject);
+                            skip += 20;
+                            showFooterview();
+                            hasMore = true;
+                        }
                     }
                 }
+                mAdapter.notifyDataSetChanged();
             }
-            mAdapter.notifyDataSetChanged();
         }
 
     }

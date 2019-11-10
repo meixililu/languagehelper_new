@@ -21,6 +21,7 @@ import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFYSAD;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,7 +53,7 @@ public class AiDialogueSelectCourseActivity extends BaseActivity implements View
         initSwipeRefresh();
         initViews();
         skip = 0;
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     private void initViews() {
@@ -88,7 +89,7 @@ public class AiDialogueSelectCourseActivity extends BaseActivity implements View
                 LogUtil.DefalutLog("visible:"+visible+"---total:"+total+"---firstVisibleItem:"+firstVisibleItem);
                 if(!loading && hasMore){
                     if ((visible + firstVisibleItem) >= total){
-                        new QueryTask().execute();
+                        new QueryTask(AiDialogueSelectCourseActivity.this).execute();
                     }
                 }
             }
@@ -102,7 +103,7 @@ public class AiDialogueSelectCourseActivity extends BaseActivity implements View
         skip = 0;
         avObjects.clear();
         mAdapter.notifyDataSetChanged();
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     @Override
@@ -114,6 +115,12 @@ public class AiDialogueSelectCourseActivity extends BaseActivity implements View
 
 
     private class QueryTask extends AsyncTask<Void, Void,  List<AVObject>> {
+
+        private WeakReference<AiDialogueSelectCourseActivity> mainActivity;
+
+        public QueryTask(AiDialogueSelectCourseActivity mActivity){
+            mainActivity = new WeakReference<>(mActivity);
+        }
 
         @Override
         protected void onPreExecute() {
@@ -140,24 +147,26 @@ public class AiDialogueSelectCourseActivity extends BaseActivity implements View
         @Override
         protected void onPostExecute(List<AVObject> avObject) {
             super.onPostExecute(avObject);
-            loading = false;
-            hideProgressbar();
-            onSwipeRefreshLayoutFinish();
-            if(avObject != null){
-                if(avObject.size() == 0){
-                    ToastUtil.diaplayMesShort(AiDialogueSelectCourseActivity.this, "没有了！");
-                    hasMore = false;
-                    hideFooterview();
-                }else{
-                    if(avObjects != null && mAdapter != null){
-                        avObjects.addAll(avObject);
-                        skip += 20;
-                        showFooterview();
-                        hasMore = true;
+            if(mainActivity.get() != null){
+                loading = false;
+                hideProgressbar();
+                onSwipeRefreshLayoutFinish();
+                if(avObject != null){
+                    if(avObject.size() == 0){
+                        ToastUtil.diaplayMesShort(AiDialogueSelectCourseActivity.this, "没有了！");
+                        hasMore = false;
+                        hideFooterview();
+                    }else{
+                        if(avObjects != null && mAdapter != null){
+                            avObjects.addAll(avObject);
+                            skip += 20;
+                            showFooterview();
+                            hasMore = true;
+                        }
                     }
                 }
+                mAdapter.notifyDataSetChanged();
             }
-            mAdapter.notifyDataSetChanged();
         }
 
     }

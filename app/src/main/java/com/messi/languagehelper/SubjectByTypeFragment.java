@@ -1,6 +1,6 @@
 package com.messi.languagehelper;
 
-import android.app.Activity;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -23,6 +23,7 @@ import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFYSAD;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +55,7 @@ public class SubjectByTypeFragment extends BaseFragment {
     }
 
     @Override
-    public void onAttach(Activity activity) {
+    public void onAttach(Context activity) {
         super.onAttach(activity);
         try {
             mProgressbarListener = (FragmentProgressbarListener) activity;
@@ -66,7 +67,7 @@ public class SubjectByTypeFragment extends BaseFragment {
     @Override
     public void loadDataOnStart() {
         super.loadDataOnStart();
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
 
@@ -120,7 +121,7 @@ public class SubjectByTypeFragment extends BaseFragment {
                 if (!loading && hasMore && isHasLoadData) {
                     if ((visible + firstVisibleItem) >= total) {
                         LogUtil.DefalutLog("setListOnScrollListener");
-                        new QueryTask().execute();
+                        new QueryTask(SubjectByTypeFragment.this).execute();
                     }
                 }
             }
@@ -133,7 +134,7 @@ public class SubjectByTypeFragment extends BaseFragment {
         skip = 0;
         avObjects.clear();
         mAdapter.notifyDataSetChanged();
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     @Override
@@ -143,6 +144,12 @@ public class SubjectByTypeFragment extends BaseFragment {
     }
 
     private class QueryTask extends AsyncTask<Void, Void, List<AVObject>> {
+
+        private WeakReference<SubjectByTypeFragment> mainActivity;
+
+        public QueryTask(SubjectByTypeFragment mActivity){
+            mainActivity = new WeakReference<>(mActivity);
+        }
 
         @Override
         protected void onPreExecute() {
@@ -171,30 +178,32 @@ public class SubjectByTypeFragment extends BaseFragment {
         @Override
         protected void onPostExecute(List<AVObject> avObject) {
             super.onPostExecute(avObject);
-            loading = false;
-            hideProgressbar();
-            onSwipeRefreshLayoutFinish();
-            initAdapter();
-            if (avObject != null) {
-                if (avObject.size() == 0) {
-                    ToastUtil.diaplayMesShort(getContext(), "没有了！");
-                    hasMore = false;
-                    hideFooterview();
-                } else {
-                    if (avObjects != null && mAdapter != null) {
-                        avObjects.addAll(avObject);
-                        if(avObject.size() == 20){
-                            skip += 20;
-                            showFooterview();
-                            hasMore = true;
-                        }else {
-                            hasMore = false;
-                            hideFooterview();
+            if(mainActivity.get() != null){
+                loading = false;
+                hideProgressbar();
+                onSwipeRefreshLayoutFinish();
+                initAdapter();
+                if (avObject != null) {
+                    if (avObject.size() == 0) {
+                        ToastUtil.diaplayMesShort(getContext(), "没有了！");
+                        hasMore = false;
+                        hideFooterview();
+                    } else {
+                        if (avObjects != null && mAdapter != null) {
+                            avObjects.addAll(avObject);
+                            if(avObject.size() == 20){
+                                skip += 20;
+                                showFooterview();
+                                hasMore = true;
+                            }else {
+                                hasMore = false;
+                                hideFooterview();
+                            }
                         }
                     }
                 }
+                mAdapter.notifyDataSetChanged();
             }
-            mAdapter.notifyDataSetChanged();
         }
 
     }

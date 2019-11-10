@@ -1,6 +1,6 @@
 package com.messi.languagehelper.util;
 
-import android.app.Activity;
+import android.content.Context;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -28,11 +28,12 @@ import com.qq.e.ads.nativ.NativeExpressADView;
 
 import org.json.JSONObject;
 
+import java.lang.ref.WeakReference;
 import java.util.List;
 
 public class XFYSAD {
-	
-	private Activity mContext;
+
+	private WeakReference<Context> mContext;
 	private View parentView;
 	private FrameLayout ad_layout;
 	private TextView ad_sign;
@@ -50,8 +51,8 @@ public class XFYSAD {
 	public int counter;
 	public String BDADID = BDADUtil.BD_BANNer;
 
-	public XFYSAD(Activity mContext, View parentView, String adId){
-		this.mContext = mContext;
+	public XFYSAD(Context mContext, View parentView, String adId){
+		this.mContext = new WeakReference<>(mContext);
 		this.parentView = parentView;
 		this.adId = adId;
 		mInflater = LayoutInflater.from(mContext);
@@ -61,8 +62,8 @@ public class XFYSAD {
 		ad_sign.setVisibility(View.GONE);
 	}
 
-	public XFYSAD(Activity mContext,String adId){
-		this.mContext = mContext;
+	public XFYSAD(Context mContext,String adId){
+		this.mContext = new WeakReference<>(mContext);
 		this.adId = adId;
 		mInflater = LayoutInflater.from(mContext);
 	}
@@ -125,7 +126,7 @@ public class XFYSAD {
 
 	private void loadTXAD(){
 		LogUtil.DefalutLog("---load TXAD Data---");
-		TXADUtil.showCDT(mContext, new NativeExpressAD.NativeExpressADListener() {
+		TXADUtil.showCDT(getContext(), new NativeExpressAD.NativeExpressADListener() {
 			@Override
 			public void onNoAD(com.qq.e.comm.util.AdError adError) {
 				onLoadAdFaile();
@@ -183,7 +184,7 @@ public class XFYSAD {
 	
 	private void loadXFAD(){
 		LogUtil.DefalutLog("---load XFAD Data---");
-		nativeAd = new IFLYNativeAd(mContext, adId, new IFLYNativeListener() {
+		nativeAd = new IFLYNativeAd(getContext(), adId, new IFLYNativeListener() {
 			@Override
 			public void onConfirm() {
 			}
@@ -208,7 +209,7 @@ public class XFYSAD {
 
 	public void loadXBKJ() {
 		if (ADUtil.isHasLocalAd()) {
-			setAdData(ADUtil.getRandomAd(mContext));
+			setAdData(ADUtil.getRandomAd(getContext()));
 		}
 	}
 	
@@ -235,7 +236,7 @@ public class XFYSAD {
 	}
 
 	public void loadBDAD(){
-		AdView adView = new AdView(mContext,BDADID);
+		AdView adView = new AdView(getContext(),BDADID);
 		adView.setListener(new AdViewListener(){
 			@Override
 			public void onAdReady(AdView adView) {
@@ -278,7 +279,7 @@ public class XFYSAD {
 
 	public void loadCSJAD(){
 		LogUtil.DefalutLog("loadCSJAD");
-		TTAdNative mTTAdNative = CSJADUtil.get().createAdNative(mContext);
+		TTAdNative mTTAdNative = CSJADUtil.get().createAdNative(getContext());
 		AdSlot adSlot = new AdSlot.Builder()
 				.setCodeId(CSJADUtil.CSJ_BANNer2ID)
 				.setSupportDeepLink(true)
@@ -355,4 +356,7 @@ public class XFYSAD {
 		this.mAdapter = adapter;
 	}
 
+	public Context getContext() {
+		return mContext.get();
+	}
 }

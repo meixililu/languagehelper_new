@@ -15,6 +15,7 @@ import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,7 +54,7 @@ public class WordStudySecondActivity extends BaseActivity {
 							.marginResId(R.dimen.padding_margin, R.dimen.padding_margin)
 							.build());
 			category_lv.setAdapter(mAdapter);
-			new QueryTask().execute();
+			new QueryTask(this).execute();
 		}else{
 			finish();
 		}
@@ -61,10 +62,16 @@ public class WordStudySecondActivity extends BaseActivity {
 	
 	@Override
 	public void onSwipeRefreshLayoutRefresh() {
-		new QueryTask().execute();
+		new QueryTask(this).execute();
 	}
 	
 	private class QueryTask extends AsyncTask<Void, Void, Void> {
+
+		private WeakReference<WordStudySecondActivity> mainActivity;
+
+		public QueryTask(WordStudySecondActivity mActivity){
+			mainActivity = new WeakReference<>(mActivity);
+		}
 
 		@Override
 		protected void onPreExecute() {
@@ -95,9 +102,11 @@ public class WordStudySecondActivity extends BaseActivity {
 		@Override
 		protected void onPostExecute(Void result) {
 			super.onPostExecute(result);
-			hideProgressbar();
-			onSwipeRefreshLayoutFinish();
-			mAdapter.notifyDataSetChanged();
+			if(mainActivity.get() != null){
+				hideProgressbar();
+				onSwipeRefreshLayoutFinish();
+				mAdapter.notifyDataSetChanged();
+			}
 		}
 	}
 	

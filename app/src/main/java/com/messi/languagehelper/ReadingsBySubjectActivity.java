@@ -28,6 +28,7 @@ import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,7 +53,7 @@ public class ReadingsBySubjectActivity extends BaseActivity implements View.OnCl
 		setContentView(R.layout.reading_by_subject_activity);
 		registerBroadcast();
 		initViews();
-		new QueryTask().execute();
+		new QueryTask(this).execute();
 	}
 
 	private void initViews(){
@@ -108,7 +109,7 @@ public class ReadingsBySubjectActivity extends BaseActivity implements View.OnCl
 				isADInList(recyclerView,firstVisibleItem,visible);
 				if(!mXXLModel.loading && mXXLModel.hasMore){
 					if ((visible + firstVisibleItem) >= total){
-						new QueryTask().execute();
+						new QueryTask(ReadingsBySubjectActivity.this).execute();
 					}
 				}
 			}
@@ -160,7 +161,7 @@ public class ReadingsBySubjectActivity extends BaseActivity implements View.OnCl
 		skip = 0;
 		avObjects.clear();
 		mAdapter.notifyDataSetChanged();
-		new QueryTask().execute();
+		new QueryTask(this).execute();
 	}
 
 	private void loadAD(){
@@ -202,6 +203,12 @@ public class ReadingsBySubjectActivity extends BaseActivity implements View.OnCl
 
 	private class QueryTask extends AsyncTask<Void, Void, List<AVObject>> {
 
+		private WeakReference<ReadingsBySubjectActivity> mainActivity;
+
+		public QueryTask(ReadingsBySubjectActivity mActivity){
+			mainActivity = new WeakReference<>(mActivity);
+		}
+
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
@@ -231,32 +238,34 @@ public class ReadingsBySubjectActivity extends BaseActivity implements View.OnCl
 
 		@Override
 		protected void onPostExecute(List<AVObject> avObject) {
-			mXXLModel.loading = false;
-			hideProgressbar();
-			onSwipeRefreshLayoutFinish();
-			if(avObject != null){
-				if(avObject.size() == 0){
-					ToastUtil.diaplayMesShort(ReadingsBySubjectActivity.this, "没有了！");
-					mXXLModel.hasMore = false;
-					hideFooterview();
-				}else{
-					if(skip == 0){
-						avObjects.clear();
-					}
-					StudyFragment.changeData(avObject,avObjects,false);
-					mAdapter.notifyDataSetChanged();
-					loadAD();
-					if(avObject.size() == Setings.page_size){
-						skip += Setings.page_size;
-						showFooterview();
-						mXXLModel.hasMore = true;
-					}else {
+			if(mainActivity.get() != null){
+				mXXLModel.loading = false;
+				hideProgressbar();
+				onSwipeRefreshLayoutFinish();
+				if(avObject != null){
+					if(avObject.size() == 0){
+						ToastUtil.diaplayMesShort(ReadingsBySubjectActivity.this, "没有了！");
 						mXXLModel.hasMore = false;
 						hideFooterview();
+					}else{
+						if(skip == 0){
+							avObjects.clear();
+						}
+						StudyFragment.changeData(avObject,avObjects,false);
+						mAdapter.notifyDataSetChanged();
+						loadAD();
+						if(avObject.size() == Setings.page_size){
+							skip += Setings.page_size;
+							showFooterview();
+							mXXLModel.hasMore = true;
+						}else {
+							mXXLModel.hasMore = false;
+							hideFooterview();
+						}
 					}
+				}else{
+					ToastUtil.diaplayMesShort(ReadingsBySubjectActivity.this, "加载失败，下拉可刷新");
 				}
-			}else{
-				ToastUtil.diaplayMesShort(ReadingsBySubjectActivity.this, "加载失败，下拉可刷新");
 			}
 		}
 	}

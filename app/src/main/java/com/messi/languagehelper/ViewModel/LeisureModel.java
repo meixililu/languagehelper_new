@@ -36,13 +36,14 @@ import com.qq.e.ads.nativ.NativeExpressADView;
 
 import org.json.JSONObject;
 
+import java.lang.ref.WeakReference;
 import java.util.List;
 
 public class LeisureModel {
 
     public static boolean misVisibleToUser;
     public int counter;
-    public Context mContext;
+    private WeakReference<Context> mContext;
     public SharedPreferences sp;
     private NativeDataRef mNativeADDataRef;
     private NativeExpressADView mTXADView;
@@ -58,7 +59,7 @@ public class LeisureModel {
     public SimpleDraweeView adImg;
 
     public LeisureModel(Context mContext){
-        this.mContext = mContext;
+        this.mContext = new WeakReference<>(mContext);
         sp = Setings.getSharedPreferences(mContext);
     }
 
@@ -108,7 +109,7 @@ public class LeisureModel {
     }
 
     public void loadXFAD() {
-        IFLYNativeAd nativeAd = new IFLYNativeAd(mContext, XFADID, new IFLYNativeListener() {
+        IFLYNativeAd nativeAd = new IFLYNativeAd(getContext(), XFADID, new IFLYNativeListener() {
             @Override
             public void onConfirm() {
             }
@@ -191,7 +192,7 @@ public class LeisureModel {
     }
 
     private void loadTXAD() {
-        TXADUtil.showCDT(mContext, new NativeExpressAD.NativeExpressADListener() {
+        TXADUtil.showCDT(getContext(), new NativeExpressAD.NativeExpressADListener() {
             @Override
             public void onNoAD(com.qq.e.comm.util.AdError adError) {
                 LogUtil.DefalutLog("loadTXAD0-onNoAD");
@@ -258,14 +259,14 @@ public class LeisureModel {
 
     public void loadXBKJ() {
         if (ADUtil.isHasLocalAd()) {
-            setAd(ADUtil.getRandomAd(mContext));
+            setAd(ADUtil.getRandomAd(getContext()));
         }else {
-            ADUtil.loadAd(mContext);
+            ADUtil.loadAd(getContext());
         }
     }
 
     public void loadBDAD(){
-        AdView adView = new AdView(mContext,BDADID);
+        AdView adView = new AdView(getContext(),BDADID);
         initFeiXFAD();
         adView.setListener(new AdViewListener(){
             @Override
@@ -309,7 +310,7 @@ public class LeisureModel {
 
     public void loadCSJAD(){
         LogUtil.DefalutLog("loadCSJAD");
-        TTAdNative mTTAdNative = CSJADUtil.get().createAdNative(mContext);
+        TTAdNative mTTAdNative = CSJADUtil.get().createAdNative(getContext());
         AdSlot adSlot = new AdSlot.Builder()
                 .setCodeId(CSJADUtil.CSJ_BANNer2ID)
                 .setSupportDeepLink(true)
@@ -360,6 +361,10 @@ public class LeisureModel {
 
     public void setXFADID(String XFADID) {
         this.XFADID = XFADID;
+    }
+
+    public Context getContext() {
+        return mContext.get();
     }
 
 }

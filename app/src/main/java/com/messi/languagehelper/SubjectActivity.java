@@ -20,6 +20,7 @@ import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +47,7 @@ public class SubjectActivity extends BaseActivity {
         ButterKnife.bind(this);
         initSwipeRefresh();
         initViews();
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     private void initViews() {
@@ -84,7 +85,7 @@ public class SubjectActivity extends BaseActivity {
                 int firstVisibleItem = layoutManager.findFirstCompletelyVisibleItemPosition();
                 if (!mXXLModel.loading && mXXLModel.hasMore) {
                     if ((visible + firstVisibleItem) >= total) {
-                        new QueryTask().execute();
+                        new QueryTask(SubjectActivity.this).execute();
                     }
                 }
             }
@@ -103,10 +104,16 @@ public class SubjectActivity extends BaseActivity {
         skip = 0;
         avObjects.clear();
         mAdapter.notifyDataSetChanged();
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     private class QueryTask extends AsyncTask<Void, Void, List<AVObject>> {
+
+        private WeakReference<SubjectActivity> mainActivity;
+
+        public QueryTask(SubjectActivity mActivity){
+            mainActivity = new WeakReference<>(mActivity);
+        }
 
         @Override
         protected void onPreExecute() {
@@ -137,32 +144,34 @@ public class SubjectActivity extends BaseActivity {
         @Override
         protected void onPostExecute(List<AVObject> avObject) {
             super.onPostExecute(avObject);
-            mXXLModel.loading = false;
-            hideProgressbar();
-            onSwipeRefreshLayoutFinish();
-            initAdapter();
-            if (avObject != null) {
-                if (avObject.size() == 0) {
-                    ToastUtil.diaplayMesShort(SubjectActivity.this, "没有了！");
-                    mXXLModel.hasMore = false;
-                    hideFooterview();
-                } else {
-                    if (avObjects != null && mAdapter != null) {
-                        addBgColor(avObject);
-                        avObjects.addAll(avObject);
-                        if (avObject.size() == Setings.page_size) {
-                            skip += Setings.page_size;
-                            showFooterview();
-                            mXXLModel.hasMore = true;
-                        } else {
-                            mXXLModel.hasMore = false;
-                            hideFooterview();
+            if(mainActivity.get() != null){
+                mXXLModel.loading = false;
+                hideProgressbar();
+                onSwipeRefreshLayoutFinish();
+                initAdapter();
+                if (avObject != null) {
+                    if (avObject.size() == 0) {
+                        ToastUtil.diaplayMesShort(SubjectActivity.this, "没有了！");
+                        mXXLModel.hasMore = false;
+                        hideFooterview();
+                    } else {
+                        if (avObjects != null && mAdapter != null) {
+                            addBgColor(avObject);
+                            avObjects.addAll(avObject);
+                            if (avObject.size() == Setings.page_size) {
+                                skip += Setings.page_size;
+                                showFooterview();
+                                mXXLModel.hasMore = true;
+                            } else {
+                                mXXLModel.hasMore = false;
+                                hideFooterview();
+                            }
                         }
                     }
                 }
+                mAdapter.notifyDataSetChanged();
+                loadAD();
             }
-            mAdapter.notifyDataSetChanged();
-            loadAD();
         }
 
     }

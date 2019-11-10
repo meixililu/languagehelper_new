@@ -40,10 +40,12 @@ import com.qq.e.ads.splash.SplashADListener;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.lang.ref.WeakReference;
+
 public class KaipingModel {
 
     public int counter;
-    public Activity mContext;
+    private WeakReference<Activity> mContext;
     public SharedPreferences sp;
     public boolean isAdClicked;
     public boolean isAdExposure;
@@ -58,7 +60,7 @@ public class KaipingModel {
 
 
     public KaipingModel(Activity mContext){
-        this.mContext = mContext;
+        this.mContext = new WeakReference<>(mContext);
         sp = Setings.getSharedPreferences(mContext);
         mHandler = new Handler();
     }
@@ -129,7 +131,7 @@ public class KaipingModel {
     }
 
     public void loadXFAD() {
-        IFLYNativeAd nativeAd = new IFLYNativeAd(mContext, ADUtil.KaiPingYSAD, mListener);
+        IFLYNativeAd nativeAd = new IFLYNativeAd(getContext(), ADUtil.KaiPingYSAD, mListener);
         nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
         nativeAd.loadAd();
     }
@@ -201,11 +203,11 @@ public class KaipingModel {
         isAdClicked = true;
         notJump = true;
         cancleRunable();
-        AVAnalytics.onEvent(mContext, "ad_click_kaiping");
+        AVAnalytics.onEvent(getContext(), "ad_click_kaiping");
     }
 
     public void loadTXAD() {
-        TXADUtil.showKaipingAD(mContext, splash_container, skip_view,
+        TXADUtil.showKaipingAD(getContext(), splash_container, skip_view,
                 new SplashADListener() {
                     @Override
                     public void onADDismissed() {
@@ -250,7 +252,7 @@ public class KaipingModel {
     public void loadXBKJ() {
         if (ADUtil.isHasLocalAd()) {
             onAdReceive();
-            setAD(ADUtil.getRandomAd(mContext));
+            setAD(ADUtil.getRandomAd(getContext()));
         } else {
             DelayToNextPage(1200);
         }
@@ -269,12 +271,12 @@ public class KaipingModel {
 
     public void toNextPage() {
         Class mclass = WXEntryActivity.class;
-        if(mContext.getPackageName().equals(Setings.application_id_yyj) ||
-                mContext.getPackageName().equals(Setings.application_id_yyj_google)){
+        if(getContext().getPackageName().equals(Setings.application_id_yyj) ||
+                getContext().getPackageName().equals(Setings.application_id_yyj_google)){
             mclass = YYJMainActivity.class;
         }
-        Intent intent = new Intent(mContext, mclass);
-        mContext.startActivity(intent);
+        Intent intent = new Intent(getContext(), mclass);
+        getContext().startActivity(intent);
         EventBus.getDefault().post(new KaipingPageEvent("finish"));
     }
 
@@ -306,11 +308,11 @@ public class KaipingModel {
 
     public void loadBDAD(){
         AdSettings.setSupportHttps(false);
-        new SplashAd(mContext,splash_container,bdAdListener, BDADUtil.BD_KPID,true);
+        new SplashAd(getContext(),splash_container,bdAdListener, BDADUtil.BD_KPID,true);
     }
 
     public void loadCSJAD(){
-        TTAdNative mTTAdNative = CSJADUtil.get().createAdNative(mContext);
+        TTAdNative mTTAdNative = CSJADUtil.get().createAdNative(getContext());
         AdSlot adSlot = new AdSlot.Builder()
                 .setCodeId(CSJADUtil.CSJ_KPID)
                 .setSupportDeepLink(true)
@@ -370,6 +372,10 @@ public class KaipingModel {
                 });
             }
         }, AD_TIME_OUT);
+    }
+
+    public Activity getContext() {
+        return mContext.get();
     }
 
 }

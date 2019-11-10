@@ -1,6 +1,7 @@
 package com.messi.languagehelper;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -68,7 +69,7 @@ public class NewsFragment extends BaseFragment implements OnClickListener {
     }
 
     @Override
-    public void onAttach(Activity activity) {
+    public void onAttach(Context activity) {
         super.onAttach(activity);
         try {
             mProgressbarListener = (FragmentProgressbarListener) activity;

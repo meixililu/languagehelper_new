@@ -20,6 +20,7 @@ import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SaveData;
 import com.messi.languagehelper.util.Setings;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,12 +59,12 @@ public class ExaminationFragment extends BaseFragment {
 			if(System.currentTimeMillis() - lastTimeSave > 1000*60*60*24*10){
 				SaveData.deleteObject(getContext(), "ExaminationActivity");
 				LogUtil.DefalutLog("deleteObject   ExaminationActivity");
-				new QueryTask().execute();
+				new QueryTask(this).execute();
 			}else{
 				List<String> listStr =  (ArrayList<String>) SaveData.getObject(getContext(), "ExaminationActivity");
 				if(listStr == null || listStr.size() == 0){
 					LogUtil.DefalutLog("avObjects is null");
-					new QueryTask().execute();
+					new QueryTask(this).execute();
 				}else{
 					LogUtil.DefalutLog("avObjects is not null");
 					for(String str : listStr){
@@ -73,12 +74,18 @@ public class ExaminationFragment extends BaseFragment {
 				}
 			}
 		} catch (Exception e) {
-			new QueryTask().execute();
+			new QueryTask(ExaminationFragment.this).execute();
 			e.printStackTrace();
 		}
 	}
 	
 	private class QueryTask extends AsyncTask<Void, Void, Void> {
+
+		private WeakReference<ExaminationFragment> mainActivity;
+
+		public QueryTask(ExaminationFragment mActivity){
+			mainActivity = new WeakReference<>(mActivity);
+		}
 
 		@Override
 		protected void onPreExecute() {
@@ -107,8 +114,10 @@ public class ExaminationFragment extends BaseFragment {
 		@Override
 		protected void onPostExecute(Void result) {
 			super.onPostExecute(result);
-			hideProgressbar();
-			initTabTitle();
+			if(mainActivity.get() != null){
+				hideProgressbar();
+				initTabTitle();
+			}
 		}
 	}
 	

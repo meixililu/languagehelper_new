@@ -21,6 +21,7 @@ import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +47,7 @@ public class MomentsActivity extends BaseActivity {
         setContentView(R.layout.moments_activity);
         ButterKnife.bind(this);
         initViews();
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
 
@@ -82,7 +83,7 @@ public class MomentsActivity extends BaseActivity {
                 isADInList(recyclerView, firstVisibleItem, visible);
                 if (!mXXLModel.loading && mXXLModel.hasMore) {
                     if ((visible + firstVisibleItem) >= total) {
-                        new QueryTask().execute();
+                        new QueryTask(MomentsActivity.this).execute();
                     }
                 }
             }
@@ -115,7 +116,7 @@ public class MomentsActivity extends BaseActivity {
         skip = 0;
         avObjects.clear();
         mAdapter.notifyDataSetChanged();
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     private void loadAD() {
@@ -139,6 +140,12 @@ public class MomentsActivity extends BaseActivity {
     }
 
     private class QueryTask extends AsyncTask<Void, Void, List<AVObject>> {
+
+        private WeakReference<MomentsActivity> mainActivity;
+
+        public QueryTask(MomentsActivity mActivity){
+            mainActivity = new WeakReference<>(mActivity);
+        }
 
         @Override
         protected void onPreExecute() {
@@ -165,30 +172,32 @@ public class MomentsActivity extends BaseActivity {
 
         @Override
         protected void onPostExecute(List<AVObject> avObject) {
-            LogUtil.DefalutLog("onPostExecute---");
-            mXXLModel.loading = false;
-            hideProgressbar();
-            onSwipeRefreshLayoutFinish();
-            if (avObject != null) {
-                if (avObject.size() == 0) {
-                    ToastUtil.diaplayMesShort(MomentsActivity.this, "没有了！");
-                    hideFooterview();
-                } else {
-                    if (avObjects != null && mAdapter != null) {
-                        setLikeStatus(avObject);
-                        avObjects.addAll(avObject);
-                        mAdapter.notifyDataSetChanged();
-                        loadAD();
-                        skip += Setings.page_size;
-                        showFooterview();
+            if(mainActivity.get() != null){
+                LogUtil.DefalutLog("onPostExecute---");
+                mXXLModel.loading = false;
+                hideProgressbar();
+                onSwipeRefreshLayoutFinish();
+                if (avObject != null) {
+                    if (avObject.size() == 0) {
+                        ToastUtil.diaplayMesShort(MomentsActivity.this, "没有了！");
+                        hideFooterview();
+                    } else {
+                        if (avObjects != null && mAdapter != null) {
+                            setLikeStatus(avObject);
+                            avObjects.addAll(avObject);
+                            mAdapter.notifyDataSetChanged();
+                            loadAD();
+                            skip += Setings.page_size;
+                            showFooterview();
+                        }
                     }
                 }
-            }
-            if (avObject.size() < Setings.page_size) {
-                mXXLModel.hasMore = false;
-                hideFooterview();
-            } else {
-                mXXLModel.hasMore = true;
+                if (avObject.size() < Setings.page_size) {
+                    mXXLModel.hasMore = false;
+                    hideFooterview();
+                } else {
+                    mXXLModel.hasMore = true;
+                }
             }
         }
     }

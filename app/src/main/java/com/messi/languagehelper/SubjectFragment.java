@@ -1,6 +1,6 @@
 package com.messi.languagehelper;
 
-import android.app.Activity;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -28,6 +28,7 @@ import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,7 +72,7 @@ public class SubjectFragment extends BaseFragment {
     }
 
     @Override
-    public void onAttach(Activity activity) {
+    public void onAttach(Context activity) {
         super.onAttach(activity);
         try {
             mProgressbarListener = (FragmentProgressbarListener) activity;
@@ -83,7 +84,7 @@ public class SubjectFragment extends BaseFragment {
     @Override
     public void loadDataOnStart() {
         super.loadDataOnStart();
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     @Override
@@ -129,7 +130,7 @@ public class SubjectFragment extends BaseFragment {
                 int firstVisibleItem = layoutManager.findFirstCompletelyVisibleItemPosition();
                 if (!mXXLModel.loading && mXXLModel.hasMore && isHasLoadData) {
                     if ((visible + firstVisibleItem) >= total) {
-                        new QueryTask().execute();
+                        new QueryTask(SubjectFragment.this).execute();
                     }
                 }
             }
@@ -148,7 +149,7 @@ public class SubjectFragment extends BaseFragment {
         skip = 0;
         avObjects.clear();
         mAdapter.notifyDataSetChanged();
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     @Override
@@ -179,6 +180,12 @@ public class SubjectFragment extends BaseFragment {
     }
 
     private class QueryTask extends AsyncTask<Void, Void, List<AVObject>> {
+
+        private WeakReference<SubjectFragment> mainActivity;
+
+        public QueryTask(SubjectFragment mActivity){
+            mainActivity = new WeakReference<>(mActivity);
+        }
 
         @Override
         protected void onPreExecute() {
@@ -216,34 +223,36 @@ public class SubjectFragment extends BaseFragment {
         @Override
         protected void onPostExecute(List<AVObject> avObject) {
             super.onPostExecute(avObject);
-            mXXLModel.loading = false;
-            hideProgressbar();
-            onSwipeRefreshLayoutFinish();
-            initAdapter();
-            if (avObject != null) {
-                if (avObject.size() == 0) {
-                    ToastUtil.diaplayMesShort(getContext(), "没有了！");
-                    mXXLModel.hasMore = false;
-                    hideFooterview();
-                } else {
-                    if (avObjects != null && mAdapter != null) {
-                        addBgColor(avObject);
-                        avObjects.addAll(avObject);
-                        if(avObject.size() == Setings.page_size){
-                            skip += Setings.page_size;
-                            showFooterview();
-                            mXXLModel.hasMore = true;
-                        }else {
-                            mXXLModel.hasMore = false;
-                            hideFooterview();
+            if(mainActivity.get() != null){
+                mXXLModel.loading = false;
+                hideProgressbar();
+                onSwipeRefreshLayoutFinish();
+                initAdapter();
+                if (avObject != null) {
+                    if (avObject.size() == 0) {
+                        ToastUtil.diaplayMesShort(getContext(), "没有了！");
+                        mXXLModel.hasMore = false;
+                        hideFooterview();
+                    } else {
+                        if (avObjects != null && mAdapter != null) {
+                            addBgColor(avObject);
+                            avObjects.addAll(avObject);
+                            if(avObject.size() == Setings.page_size){
+                                skip += Setings.page_size;
+                                showFooterview();
+                                mXXLModel.hasMore = true;
+                            }else {
+                                mXXLModel.hasMore = false;
+                                hideFooterview();
+                            }
                         }
                     }
                 }
+                if(mAdapter != null){
+                    mAdapter.notifyDataSetChanged();
+                }
+                loadAD();
             }
-            if(mAdapter != null){
-                mAdapter.notifyDataSetChanged();
-            }
-            loadAD();
         }
     }
 

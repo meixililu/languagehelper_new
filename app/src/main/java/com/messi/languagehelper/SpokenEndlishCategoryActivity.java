@@ -15,6 +15,7 @@ import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class SpokenEndlishCategoryActivity extends BaseActivity {
         setContentView(R.layout.spoken_englis_category_activity);
         initSwipeRefresh();
         initViews();
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     private void initViews() {
@@ -68,7 +69,7 @@ public class SpokenEndlishCategoryActivity extends BaseActivity {
                 int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
                 if (!loading && hasMore) {
                     if ((visible + firstVisibleItem) >= total) {
-                        new QueryTask().execute();
+                        new QueryTask(SpokenEndlishCategoryActivity.this).execute();
                     }
                 }
             }
@@ -90,10 +91,16 @@ public class SpokenEndlishCategoryActivity extends BaseActivity {
         hideFooterview();
         avObjects.clear();
         mAdapter.notifyDataSetChanged();
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     private class QueryTask extends AsyncTask<Void, Void, List<AVObject>> {
+
+        private WeakReference<SpokenEndlishCategoryActivity> mainActivity;
+
+        public QueryTask(SpokenEndlishCategoryActivity mActivity){
+            mainActivity = new WeakReference<>(mActivity);
+        }
 
         @Override
         protected void onPreExecute() {
@@ -121,30 +128,30 @@ public class SpokenEndlishCategoryActivity extends BaseActivity {
         @Override
         protected void onPostExecute(List<AVObject> avObject) {
             super.onPostExecute(avObject);
-            LogUtil.DefalutLog("SpokenEndlishCategoryActivity---onPostExecute");
-            loading = false;
-            hideProgressbar();
-            onSwipeRefreshLayoutFinish();
-            if (avObject != null) {
-                if (avObject.size() == 0) {
-                    ToastUtil.diaplayMesShort(SpokenEndlishCategoryActivity.this, "没有了！");
-                    hideFooterview();
-                } else {
-                    avObjects.addAll(avObject);
-                    mAdapter.notifyDataSetChanged();
-                    if (skip == 0 && avObject.size() < Setings.page_size) {
-                        hasMore = false;
+            if(mainActivity.get() != null){
+                LogUtil.DefalutLog("SpokenEndlishCategoryActivity---onPostExecute");
+                loading = false;
+                hideProgressbar();
+                onSwipeRefreshLayoutFinish();
+                if (avObject != null) {
+                    if (avObject.size() == 0) {
+                        ToastUtil.diaplayMesShort(SpokenEndlishCategoryActivity.this, "没有了！");
                         hideFooterview();
                     } else {
-                        showFooterview();
-                        skip += Setings.page_size;
+                        avObjects.addAll(avObject);
+                        mAdapter.notifyDataSetChanged();
+                        if (skip == 0 && avObject.size() < Setings.page_size) {
+                            hasMore = false;
+                            hideFooterview();
+                        } else {
+                            showFooterview();
+                            skip += Setings.page_size;
+                        }
                     }
+                } else {
+                    ToastUtil.diaplayMesShort(SpokenEndlishCategoryActivity.this, "加载失败，下拉可刷新");
                 }
-            } else {
-                ToastUtil.diaplayMesShort(SpokenEndlishCategoryActivity.this, "加载失败，下拉可刷新");
             }
-
-
         }
 
     }

@@ -1,6 +1,6 @@
 package com.messi.languagehelper;
 
-import android.app.Activity;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -19,6 +19,7 @@ import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.XFYSAD;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class WordStudyFirstFragment extends BaseFragment {
     private XFYSAD mXFYSAD;
 
     @Override
-    public void onAttach(Activity activity) {
+    public void onAttach(Context activity) {
         super.onAttach(activity);
         try {
             mProgressbarListener = (FragmentProgressbarListener) activity;
@@ -45,7 +46,7 @@ public class WordStudyFirstFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.word_study_list_fragment, container, false);
         initSwipeRefresh(view);
         initViews(view);
-        new QueryTask().execute();
+        new QueryTask(this).execute();
         return view;
     }
 
@@ -68,10 +69,16 @@ public class WordStudyFirstFragment extends BaseFragment {
 
     @Override
     public void onSwipeRefreshLayoutRefresh() {
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     private class QueryTask extends AsyncTask<Void, Void, Void> {
+
+        private WeakReference<WordStudyFirstFragment> mainActivity;
+
+        public QueryTask(WordStudyFirstFragment mActivity){
+            mainActivity = new WeakReference<>(mActivity);
+        }
 
         @Override
         protected void onPreExecute() {
@@ -99,9 +106,11 @@ public class WordStudyFirstFragment extends BaseFragment {
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-            hideProgressbar();
-            onSwipeRefreshLayoutFinish();
-            mAdapter.notifyDataSetChanged();
+            if(mainActivity.get() != null){
+                hideProgressbar();
+                onSwipeRefreshLayoutFinish();
+                mAdapter.notifyDataSetChanged();
+            }
         }
     }
 

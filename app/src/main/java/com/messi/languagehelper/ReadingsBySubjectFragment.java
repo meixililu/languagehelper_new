@@ -1,6 +1,6 @@
 package com.messi.languagehelper;
 
-import android.app.Activity;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -28,6 +28,7 @@ import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -82,7 +83,7 @@ public class ReadingsBySubjectFragment extends BaseFragment {
     }
 
     @Override
-    public void onAttach(Activity activity) {
+    public void onAttach(Context activity) {
         super.onAttach(activity);
         try {
             mProgressbarListener = (FragmentProgressbarListener) activity;
@@ -102,7 +103,7 @@ public class ReadingsBySubjectFragment extends BaseFragment {
             if(emptyTv != null){
                 emptyTv.setVisibility(View.GONE);
             }
-            new QueryTask().execute();
+            new QueryTask(this).execute();
         }
     }
 
@@ -227,7 +228,7 @@ public class ReadingsBySubjectFragment extends BaseFragment {
 
     private void loadDataByType(boolean type){
         isLookUpData = type;
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     private void loadAD(){
@@ -237,6 +238,12 @@ public class ReadingsBySubjectFragment extends BaseFragment {
     }
 
     private class QueryTask extends AsyncTask<Void, Void, List<AVObject>> {
+
+        private WeakReference<ReadingsBySubjectFragment> mainActivity;
+
+        public QueryTask(ReadingsBySubjectFragment mActivity){
+            mainActivity = new WeakReference<>(mActivity);
+        }
 
         @Override
         protected void onPreExecute() {
@@ -274,44 +281,46 @@ public class ReadingsBySubjectFragment extends BaseFragment {
 
         @Override
         protected void onPostExecute(List<AVObject> avObject) {
-            emptyTv.setVisibility(View.GONE);
-            mXXLModel.loading = false;
-            hideProgressbar();
-            onSwipeRefreshLayoutFinish();
-            if (avObject != null) {
-                if (avObject.size() == 0) {
-                    ToastUtil.diaplayMesShort(getContext(), "没有了！");
-                    if(!isLookUpData){
-                        mXXLModel.hasMore = false;
-                        hideFooterview();
-                    }else {
-                        hasMoreUp = false;
-                    }
-                } else {
-                    StudyFragment.changeData(avObject, avObjects, isLookUpData);
-                    mAdapter.notifyDataSetChanged();
-                    loadAD();
-                    if(avObject.size() == Setings.page_size){
-                        if(isLookUpData){
-                            hasMoreUp = true;
-                            skipUp += Setings.page_size;
-                        }else {
-                            mXXLModel.hasMore = true;
-                            skip += Setings.page_size;
-                            showFooterview();
-                        }
-                    }else {
-                        if(isLookUpData){
-                            hasMoreUp = false;
-                        }else {
+            if(mainActivity.get() != null){
+                emptyTv.setVisibility(View.GONE);
+                mXXLModel.loading = false;
+                hideProgressbar();
+                onSwipeRefreshLayoutFinish();
+                if (avObject != null) {
+                    if (avObject.size() == 0) {
+                        ToastUtil.diaplayMesShort(getContext(), "没有了！");
+                        if(!isLookUpData){
                             mXXLModel.hasMore = false;
                             hideFooterview();
+                        }else {
+                            hasMoreUp = false;
                         }
-                    }
+                    } else {
+                        StudyFragment.changeData(avObject, avObjects, isLookUpData);
+                        mAdapter.notifyDataSetChanged();
+                        loadAD();
+                        if(avObject.size() == Setings.page_size){
+                            if(isLookUpData){
+                                hasMoreUp = true;
+                                skipUp += Setings.page_size;
+                            }else {
+                                mXXLModel.hasMore = true;
+                                skip += Setings.page_size;
+                                showFooterview();
+                            }
+                        }else {
+                            if(isLookUpData){
+                                hasMoreUp = false;
+                            }else {
+                                mXXLModel.hasMore = false;
+                                hideFooterview();
+                            }
+                        }
 
+                    }
+                } else {
+                    ToastUtil.diaplayMesShort(getContext(), "加载失败，下拉可刷新");
                 }
-            } else {
-                ToastUtil.diaplayMesShort(getContext(), "加载失败，下拉可刷新");
             }
         }
     }

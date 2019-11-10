@@ -23,6 +23,7 @@ import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,7 +57,7 @@ public class MomentsComentActivity extends BaseActivity {
         setContentView(R.layout.moments_comment_activity);
         ButterKnife.bind(this);
         initViews();
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
 
@@ -91,7 +92,7 @@ public class MomentsComentActivity extends BaseActivity {
                 int total = mLinearLayoutManager.getItemCount();
                 int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
                 if ((visible + firstVisibleItem) >= total) {
-                    new QueryTask().execute();
+                    new QueryTask(MomentsComentActivity.this).execute();
                 }
             }
         });
@@ -131,7 +132,7 @@ public class MomentsComentActivity extends BaseActivity {
                         ToastUtil.diaplayMesShort(MomentsComentActivity.this,"发布成功");
                         skip = 0;
                         isNeedClear = true;
-                        new QueryTask().execute();
+                        new QueryTask(MomentsComentActivity.this).execute();
                         inputEt.setText("");
                     }else{
                         ToastUtil.diaplayMesShort(MomentsComentActivity.this,"发布失败，请重试！");
@@ -154,6 +155,12 @@ public class MomentsComentActivity extends BaseActivity {
     }
 
     private class QueryTask extends AsyncTask<Void, Void, List<AVObject>> {
+
+        private WeakReference<MomentsComentActivity> mainActivity;
+
+        public QueryTask(MomentsComentActivity mActivity){
+            mainActivity = new WeakReference<>(mActivity);
+        }
 
         @Override
         protected void onPreExecute() {
@@ -178,27 +185,29 @@ public class MomentsComentActivity extends BaseActivity {
 
         @Override
         protected void onPostExecute(List<AVObject> avObject) {
-            hideProgressbar();
-            onSwipeRefreshLayoutFinish();
-            if (avObject != null) {
-                if (avObject.size() == 0) {
-                    if(skip == 0){
-                        noComment.setVisibility(View.VISIBLE);
-                    }
-                    hideFooterview();
-                } else {
-                    if (avObjects != null && mAdapter != null) {
-                        noComment.setVisibility(View.GONE);
-                        if(isNeedClear){
-                            avObjects.clear();
+            if(mainActivity.get() != null){
+                hideProgressbar();
+                onSwipeRefreshLayoutFinish();
+                if (avObject != null) {
+                    if (avObject.size() == 0) {
+                        if(skip == 0){
+                            noComment.setVisibility(View.VISIBLE);
                         }
-                        avObjects.addAll(avObject);
-                        mAdapter.notifyDataSetChanged();
-                        skip += Setings.page_size;
-                        if (avObject.size() < Setings.page_size) {
-                            hideFooterview();
-                        }else {
-                            showFooterview();
+                        hideFooterview();
+                    } else {
+                        if (avObjects != null && mAdapter != null) {
+                            noComment.setVisibility(View.GONE);
+                            if(isNeedClear){
+                                avObjects.clear();
+                            }
+                            avObjects.addAll(avObject);
+                            mAdapter.notifyDataSetChanged();
+                            skip += Setings.page_size;
+                            if (avObject.size() < Setings.page_size) {
+                                hideFooterview();
+                            }else {
+                                showFooterview();
+                            }
                         }
                     }
                 }

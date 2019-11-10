@@ -14,6 +14,7 @@ import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.XFYSAD;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class InvestListActivity extends BaseActivity{
 		setContentView(R.layout.invest_list_activity);
 		initSwipeRefresh();
 		initViews();
-		new QueryTask().execute();
+		new QueryTask(this).execute();
 	}
 	
 	private void initViews(){
@@ -50,10 +51,16 @@ public class InvestListActivity extends BaseActivity{
 	@Override
 	public void onSwipeRefreshLayoutRefresh() {
 		super.onSwipeRefreshLayoutRefresh();
-		new QueryTask().execute();
+		new QueryTask(this).execute();
 	}
 	
 	private class QueryTask extends AsyncTask<Void, Void, Void> {
+
+		private WeakReference<InvestListActivity> mainActivity;
+
+		public QueryTask(InvestListActivity mActivity){
+			mainActivity = new WeakReference<>(mActivity);
+		}
 
 		@Override
 		protected void onPreExecute() {
@@ -80,9 +87,11 @@ public class InvestListActivity extends BaseActivity{
 		@Override
 		protected void onPostExecute(Void result) {
 			super.onPostExecute(result);
-			hideProgressbar();
-			onSwipeRefreshLayoutFinish();
-			mAdapter.notifyDataSetChanged();
+			if(mainActivity.get() != null){
+				hideProgressbar();
+				onSwipeRefreshLayoutFinish();
+				mAdapter.notifyDataSetChanged();
+			}
 		}
 	}
 	

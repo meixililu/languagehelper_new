@@ -1,7 +1,5 @@
 package com.messi.languagehelper;
 
-import java.util.List;
-
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -17,6 +15,9 @@ import com.avos.avoscloud.AVQuery;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.SDCardUtil;
+
+import java.lang.ref.WeakReference;
+import java.util.List;
 
 public class StudyDialogActivity extends BaseActivity implements OnClickListener{
 
@@ -39,7 +40,7 @@ public class StudyDialogActivity extends BaseActivity implements OnClickListener
 		setContentView(R.layout.study_dialog_activity);
 		initData();
 		initViews();
-		new QueryTask().execute();
+		new QueryTask(this).execute();
 	}
 	
 	private void initData(){
@@ -55,6 +56,12 @@ public class StudyDialogActivity extends BaseActivity implements OnClickListener
 	}
 
 	private class QueryTask extends AsyncTask<Void, Void, Void> {
+
+		private WeakReference<StudyDialogActivity> mainActivity;
+
+		public QueryTask(StudyDialogActivity mActivity){
+			mainActivity = new WeakReference<>(mActivity);
+		}
 
 		@Override
 		protected void onPreExecute() {
@@ -83,16 +90,18 @@ public class StudyDialogActivity extends BaseActivity implements OnClickListener
 		@Override
 		protected void onPostExecute(Void result) {
 			super.onPostExecute(result);
-			hideProgressbar();
-			if(avObject != null){
-				content = avObject.getString(AVOUtil.StudyDialogDetail.SDDContent);
-				if(!TextUtils.isEmpty(content)){
-					study_dialog_type.setVisibility(View.VISIBLE);
+			if(mainActivity.get() != null){
+				hideProgressbar();
+				if(avObject != null){
+					content = avObject.getString(AVOUtil.StudyDialogDetail.SDDContent);
+					if(!TextUtils.isEmpty(content)){
+						study_dialog_type.setVisibility(View.VISIBLE);
+					}else{
+						error_txt.setVisibility(View.VISIBLE);
+					}
 				}else{
 					error_txt.setVisibility(View.VISIBLE);
 				}
-			}else{
-				error_txt.setVisibility(View.VISIBLE);
 			}
 		}
 	}
@@ -102,7 +111,7 @@ public class StudyDialogActivity extends BaseActivity implements OnClickListener
 		switch(v.getId()){
 
 		case R.id.error_txt:
-			new QueryTask().execute();
+			new QueryTask(this).execute();
 			break;
 		default:
 			break;

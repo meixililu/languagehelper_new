@@ -14,6 +14,7 @@ import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.XFYSAD;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +38,7 @@ public class WordStudyPlanActivity extends BaseActivity {
         registerBroadcast(BaseActivity.ActivityClose);
         initSwipeRefresh();
         initViews();
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     private void initViews() {
@@ -58,6 +59,12 @@ public class WordStudyPlanActivity extends BaseActivity {
     }
 
     private class QueryTask extends AsyncTask<Void, Void, Void> {
+
+        private WeakReference<WordStudyPlanActivity> mainActivity;
+
+        public QueryTask(WordStudyPlanActivity mActivity){
+            mainActivity = new WeakReference<>(mActivity);
+        }
 
         @Override
         protected void onPreExecute() {
@@ -85,15 +92,17 @@ public class WordStudyPlanActivity extends BaseActivity {
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-            hideProgressbar();
-            onSwipeRefreshLayoutFinish();
-            mAdapter.notifyDataSetChanged();
+            if(mainActivity.get() != null){
+                hideProgressbar();
+                onSwipeRefreshLayoutFinish();
+                mAdapter.notifyDataSetChanged();
+            }
         }
     }
 
     @Override
     public void onSwipeRefreshLayoutRefresh() {
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     @Override

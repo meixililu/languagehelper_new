@@ -33,6 +33,7 @@ import com.messi.languagehelper.views.DividerGridItemDecoration;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,7 +70,7 @@ public class SubjectSubscribeFragment extends BaseFragment {
     @Override
     public void loadDataOnStart() {
         super.loadDataOnStart();
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     @Override
@@ -116,7 +117,7 @@ public class SubjectSubscribeFragment extends BaseFragment {
                 int firstVisibleItem = layoutManager.findFirstCompletelyVisibleItemPosition();
                 if (!mXXLModel.loading && mXXLModel.hasMore && isHasLoadData) {
                     if ((visible + firstVisibleItem) >= total) {
-                        new QueryTask().execute();
+                        new QueryTask(SubjectSubscribeFragment.this).execute();
                     }
                 }
             }
@@ -135,7 +136,7 @@ public class SubjectSubscribeFragment extends BaseFragment {
         skip = 0;
         avObjects.clear();
         mAdapter.notifyDataSetChanged();
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     @Override
@@ -193,6 +194,12 @@ public class SubjectSubscribeFragment extends BaseFragment {
 
     private class QueryTask extends AsyncTask<Void, Void, List<AVObject>> {
 
+        private WeakReference<SubjectSubscribeFragment> mainActivity;
+
+        public QueryTask(SubjectSubscribeFragment mActivity){
+            mainActivity = new WeakReference<>(mActivity);
+        }
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -215,34 +222,36 @@ public class SubjectSubscribeFragment extends BaseFragment {
         @Override
         protected void onPostExecute(List<AVObject> avObject) {
             super.onPostExecute(avObject);
-            mXXLModel.loading = false;
-            hideProgressbar();
-            onSwipeRefreshLayoutFinish();
-            initAdapter();
-            if (avObject != null) {
-                if (avObject.size() == 0) {
-                    ToastUtil.diaplayMesShort(getContext(), "没有了！");
-                    mXXLModel.hasMore = false;
-                    hideFooterview();
-                } else {
-                    if (avObjects != null && mAdapter != null) {
-                        addBgColor(avObject);
-                        avObjects.addAll(avObject);
-                        skip += Setings.page_size;
-                        if(avObject.size() == Setings.page_size){
-                            showFooterview();
-                            mXXLModel.hasMore = true;
-                        }else {
-                            mXXLModel.hasMore = false;
-                            hideFooterview();
+            if(mainActivity.get() != null){
+                mXXLModel.loading = false;
+                hideProgressbar();
+                onSwipeRefreshLayoutFinish();
+                initAdapter();
+                if (avObject != null) {
+                    if (avObject.size() == 0) {
+                        ToastUtil.diaplayMesShort(getContext(), "没有了！");
+                        mXXLModel.hasMore = false;
+                        hideFooterview();
+                    } else {
+                        if (avObjects != null && mAdapter != null) {
+                            addBgColor(avObject);
+                            avObjects.addAll(avObject);
+                            skip += Setings.page_size;
+                            if(avObject.size() == Setings.page_size){
+                                showFooterview();
+                                mXXLModel.hasMore = true;
+                            }else {
+                                mXXLModel.hasMore = false;
+                                hideFooterview();
+                            }
                         }
                     }
                 }
+                if(mAdapter != null){
+                    mAdapter.notifyDataSetChanged();
+                }
+                loadAD();
             }
-            if(mAdapter != null){
-                mAdapter.notifyDataSetChanged();
-            }
-            loadAD();
         }
     }
 

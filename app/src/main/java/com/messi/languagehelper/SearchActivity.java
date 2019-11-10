@@ -23,6 +23,7 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.ScreenUtil;
 import com.messi.languagehelper.util.Setings;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,7 +52,7 @@ public class SearchActivity extends BaseActivity {
         setContentView(R.layout.activity_search);
         ButterKnife.bind(this);
         init();
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     private void init() {
@@ -102,6 +103,12 @@ public class SearchActivity extends BaseActivity {
 
     private class QueryTask extends AsyncTask<Void, Void,  List<AVObject>> {
 
+        private WeakReference<SearchActivity> mainActivity;
+
+        public QueryTask(SearchActivity mActivity){
+            mainActivity = new WeakReference<>(mActivity);
+        }
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -123,8 +130,8 @@ public class SearchActivity extends BaseActivity {
         @Override
         protected void onPostExecute(List<AVObject> avObject) {
             super.onPostExecute(avObject);
-            if(avObject != null){
-                if(avObject.size() != 0){
+            if(mainActivity.get() != null && avObject != null){
+                if(!avObject.isEmpty()){
                     if(avObjects != null){
                         for(AVObject obj : avObject){
                             boolean isAdd = true;
@@ -196,7 +203,7 @@ public class SearchActivity extends BaseActivity {
                 "");
         historyList.clear();
         avObjects.clear();
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     private void search(String quest) {

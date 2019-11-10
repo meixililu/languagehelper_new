@@ -41,6 +41,7 @@ import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -125,7 +126,7 @@ public class CNSearchActivity extends BaseActivity {
         resetItems();
         if (position == 2) {
             if(searchList.size() == 0){
-                new QueryTask().execute();
+                new QueryTask(this).execute();
             }else {
                 setHotData();
             }
@@ -133,7 +134,7 @@ public class CNSearchActivity extends BaseActivity {
             search_internet.setBackgroundResource(R.drawable.bg_btn_orange_circle);
         } else if (position == 1) {
             if(novelList.size() == 0){
-                new QueryTask().execute();
+                new QueryTask(this).execute();
             }else {
                 setHotData();
             }
@@ -141,7 +142,7 @@ public class CNSearchActivity extends BaseActivity {
             search_novel.setBackgroundResource(R.drawable.bg_btn_orange_circle);
         } else {
             if(caricatureList.size() == 0){
-                new QueryTask().execute();
+                new QueryTask(this).execute();
             }else {
                 setHotData();
             }
@@ -189,6 +190,12 @@ public class CNSearchActivity extends BaseActivity {
 
     private class QueryTask extends AsyncTask<Void, Void,  List<AVObject>> {
 
+        private WeakReference<CNSearchActivity> mainActivity;
+
+        public QueryTask(CNSearchActivity mActivity){
+            mainActivity = new WeakReference<>(mActivity);
+        }
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -217,18 +224,20 @@ public class CNSearchActivity extends BaseActivity {
         @Override
         protected void onPostExecute(List<AVObject> avObject) {
             super.onPostExecute(avObject);
-            if(avObject != null){
-                if (position == 2) {
-                    searchList.clear();
-                    searchList.addAll(avObject);
-                }else if(position == 1){
-                    novelList.clear();
-                    novelList.addAll(avObject);
-                }else {
-                    caricatureList.clear();
-                    caricatureList.addAll(avObject);
+            if(mainActivity.get() != null){
+                if(avObject != null){
+                    if (position == 2) {
+                        searchList.clear();
+                        searchList.addAll(avObject);
+                    }else if(position == 1){
+                        novelList.clear();
+                        novelList.addAll(avObject);
+                    }else {
+                        caricatureList.clear();
+                        caricatureList.addAll(avObject);
+                    }
+                    setHotData();
                 }
-                setHotData();
             }
         }
     }
@@ -522,7 +531,7 @@ public class CNSearchActivity extends BaseActivity {
                 KeyUtil.CaricatureSearchHistory,
                 "");
         auto_wrap_layout.removeAllViews();
-        new QueryTask().execute();
+        new QueryTask(this).execute();
     }
 
     @Override

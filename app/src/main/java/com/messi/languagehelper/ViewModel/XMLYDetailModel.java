@@ -35,13 +35,14 @@ import com.qq.e.ads.nativ.NativeExpressADView;
 
 import org.json.JSONObject;
 
+import java.lang.ref.WeakReference;
 import java.util.List;
 
 public class XMLYDetailModel {
 
     public static boolean misVisibleToUser;
     public int counter;
-    public Context mContext;
+    private WeakReference<Context> mContext;
     public SharedPreferences sp;
     private NativeExpressADView mTXADView;
     private long lastLoadAd;
@@ -58,7 +59,7 @@ public class XMLYDetailModel {
     public FrameLayout ad_layout;
 
     public XMLYDetailModel(Context mContext){
-        this.mContext = mContext;
+        this.mContext = new WeakReference<>(mContext);
         sp = Setings.getSharedPreferences(mContext);
     }
 
@@ -113,7 +114,7 @@ public class XMLYDetailModel {
     }
 
     public void loadXFAD() {
-        IFLYNativeAd nativeAd = new IFLYNativeAd(mContext, XFADID, new IFLYNativeListener() {
+        IFLYNativeAd nativeAd = new IFLYNativeAd(getContext(), XFADID, new IFLYNativeListener() {
             @Override
             public void onConfirm() {
             }
@@ -167,7 +168,7 @@ public class XMLYDetailModel {
     }
 
     private void loadTXAD() {
-        TXADUtil.showXXL_STXW(mContext, new NativeExpressAD.NativeExpressADListener() {
+        TXADUtil.showXXL_STXW(getContext(), new NativeExpressAD.NativeExpressADListener() {
             @Override
             public void onNoAD(com.qq.e.comm.util.AdError adError) {
                 LogUtil.DefalutLog("onNoAD");
@@ -225,14 +226,14 @@ public class XMLYDetailModel {
 
     public void loadXBKJ() {
         if (ADUtil.isHasLocalAd()) {
-            setAd(ADUtil.getRandomAd(mContext));
+            setAd(ADUtil.getRandomAd(getContext()));
         }else {
             isShowAd(View.GONE);
         }
     }
 
     public void loadBDAD(){
-        AdView adView = new AdView(mContext,BDADID);
+        AdView adView = new AdView(getContext(),BDADID);
         adView.setListener(new AdViewListener(){
             @Override
             public void onAdReady(AdView adView) {
@@ -263,8 +264,8 @@ public class XMLYDetailModel {
         });
         initFeiXFAD();
         int height = (int)(SystemUtil.SCREEN_WIDTH / 1.5);
-        int margin = ScreenUtil.dip2px(mContext,70);
-        int margin1 = ScreenUtil.dip2px(mContext,40);
+        int margin = ScreenUtil.dip2px(getContext(),70);
+        int margin1 = ScreenUtil.dip2px(getContext(),40);
         LinearLayout.LayoutParams rllp = new LinearLayout.LayoutParams(SystemUtil.SCREEN_WIDTH-margin, height-margin1);
         ad_layout.addView(adView,rllp);
         closeAdAuto();
@@ -281,7 +282,7 @@ public class XMLYDetailModel {
 
     public void loadCSJAD(){
         LogUtil.DefalutLog("loadCSJAD");
-        TTAdNative mTTAdNative = CSJADUtil.get().createAdNative(mContext);
+        TTAdNative mTTAdNative = CSJADUtil.get().createAdNative(getContext());
         AdSlot adSlot = new AdSlot.Builder()
                 .setCodeId(CSJADUtil.CSJ_BANNer2ID)
                 .setSupportDeepLink(true)
@@ -306,7 +307,7 @@ public class XMLYDetailModel {
                 }
                 initFeiXFAD();
                 int height = (int)(SystemUtil.SCREEN_WIDTH / 1.77);
-                int margin = ScreenUtil.dip2px(mContext,70);
+                int margin = ScreenUtil.dip2px(getContext(),70);
                 LinearLayout.LayoutParams rllp = new LinearLayout.LayoutParams(SystemUtil.SCREEN_WIDTH-margin,
                         height);
                 ad_layout.addView(bannerView,rllp);
@@ -353,6 +354,10 @@ public class XMLYDetailModel {
 
     public void setXFADID(String XFADID) {
         this.XFADID = XFADID;
+    }
+
+    public Context getContext() {
+        return mContext.get();
     }
 
 }

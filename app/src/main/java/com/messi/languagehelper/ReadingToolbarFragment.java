@@ -1,6 +1,6 @@
 package com.messi.languagehelper;
 
-import android.app.Activity;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -29,6 +29,7 @@ import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,7 +69,7 @@ public class ReadingToolbarFragment extends BaseFragment implements OnClickListe
 	}
 
 	@Override
-	public void onAttach(Activity activity) {
+	public void onAttach(Context activity) {
 		super.onAttach(activity);
 		LogUtil.DefalutLog("onAttach");
 		try {
@@ -81,7 +82,7 @@ public class ReadingToolbarFragment extends BaseFragment implements OnClickListe
 	@Override
 	public void loadDataOnStart() {
 		super.loadDataOnStart();
-		new QueryTask().execute();
+		new QueryTask(this).execute();
 		getMaxPageNumberBackground();
 	}
 
@@ -135,7 +136,7 @@ public class ReadingToolbarFragment extends BaseFragment implements OnClickListe
 				isADInList(recyclerView,firstVisibleItem,visible);
 				if(!mXXLModel.loading && mXXLModel.hasMore){
 					if ((visible + firstVisibleItem) >= total){
-						new QueryTask().execute();
+						new QueryTask(ReadingToolbarFragment.this).execute();
 					}
 				}
 			}
@@ -176,7 +177,7 @@ public class ReadingToolbarFragment extends BaseFragment implements OnClickListe
 		random();
 		avObjects.clear();
 		mAdapter.notifyDataSetChanged();
-		new QueryTask().execute();
+		new QueryTask(this).execute();
 	}
 
 	private void loadAD(){
@@ -186,6 +187,12 @@ public class ReadingToolbarFragment extends BaseFragment implements OnClickListe
 	}
 	
 	private class QueryTask extends AsyncTask<Void, Void, List<AVObject>> {
+
+		private WeakReference<ReadingToolbarFragment> mainActivity;
+
+		public QueryTask(ReadingToolbarFragment mActivity){
+			mainActivity = new WeakReference<>(mActivity);
+		}
 
 		@Override
 		protected void onPreExecute() {
@@ -220,31 +227,33 @@ public class ReadingToolbarFragment extends BaseFragment implements OnClickListe
 
 		@Override
 		protected void onPostExecute(List<AVObject> avObject) {
-			LogUtil.DefalutLog("onPostExecute---");
-			mXXLModel.loading = false;
-			hideProgressbar();
-			onSwipeRefreshLayoutFinish();
-			if(avObject != null){
-				if(avObject.size() == 0){
-					ToastUtil.diaplayMesShort(getContext(), "没有了！");
-					hideFooterview();
-				}else{
-					if(avObjects != null && mAdapter != null){
-						if(skip == 0){
-							avObjects.clear();
+			if(mainActivity.get() != null){
+				LogUtil.DefalutLog("onPostExecute---");
+				mXXLModel.loading = false;
+				hideProgressbar();
+				onSwipeRefreshLayoutFinish();
+				if(avObject != null){
+					if(avObject.size() == 0){
+						ToastUtil.diaplayMesShort(getContext(), "没有了！");
+						hideFooterview();
+					}else{
+						if(avObjects != null && mAdapter != null){
+							if(skip == 0){
+								avObjects.clear();
+							}
+							StudyFragment.changeData(avObject,avObjects,false);
+							mAdapter.notifyDataSetChanged();
+							loadAD();
+							skip += Setings.page_size;
+							showFooterview();
 						}
-						StudyFragment.changeData(avObject,avObjects,false);
-						mAdapter.notifyDataSetChanged();
-						loadAD();
-						skip += Setings.page_size;
-						showFooterview();
 					}
 				}
-			}
-			if(skip == maxRandom){
-				mXXLModel.hasMore = false;
-			}else {
-				mXXLModel.hasMore = true;
+				if(skip == maxRandom){
+					mXXLModel.hasMore = false;
+				}else {
+					mXXLModel.hasMore = true;
+				}
 			}
 		}
 	}

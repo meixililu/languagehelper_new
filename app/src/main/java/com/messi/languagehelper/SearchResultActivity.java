@@ -19,6 +19,7 @@ import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -39,7 +40,7 @@ public class SearchResultActivity extends BaseActivity{
 		setContentView(R.layout.reading_activity);
 		registerBroadcast();
 		initViews();
-		new QueryTask().execute();
+		new QueryTask(this).execute();
 	}
 
 	private void initViews(){
@@ -76,7 +77,7 @@ public class SearchResultActivity extends BaseActivity{
 				isADInList(recyclerView,firstVisibleItem,visible);
 				if(!mXXLModel.loading && mXXLModel.hasMore){
 					if ((visible + firstVisibleItem) >= total){
-						new QueryTask().execute();
+						new QueryTask(SearchResultActivity.this).execute();
 					}
 				}
 			}
@@ -128,7 +129,7 @@ public class SearchResultActivity extends BaseActivity{
 		skip = 0;
 		avObjects.clear();
 		mAdapter.notifyDataSetChanged();
-		new QueryTask().execute();
+		new QueryTask(this).execute();
 	}
 
 	private void loadAD(){
@@ -138,6 +139,12 @@ public class SearchResultActivity extends BaseActivity{
 	}
 
 	private class QueryTask extends AsyncTask<Void, Void, List<AVObject>> {
+
+		private WeakReference<SearchResultActivity> mainActivity;
+
+		public QueryTask(SearchResultActivity mActivity){
+			mainActivity = new WeakReference<>(mActivity);
+		}
 
 		@Override
 		protected void onPreExecute() {
@@ -178,32 +185,34 @@ public class SearchResultActivity extends BaseActivity{
 
 		@Override
 		protected void onPostExecute(List<AVObject> avObject) {
-			mXXLModel.loading = false;
-			hideProgressbar();
-			onSwipeRefreshLayoutFinish();
-			if(avObject != null){
-				if(avObject.size() == 0){
-					ToastUtil.diaplayMesShort(SearchResultActivity.this, "没有了！");
-					mXXLModel.hasMore = false;
-					hideFooterview();
-				}else{
-					if(skip == 0){
-						avObjects.clear();
-					}
-					StudyFragment.changeData(avObject,avObjects,false);
-					mAdapter.notifyDataSetChanged();
-					loadAD();
-					if(avObject.size() == Setings.page_size){
-						skip += Setings.page_size;
-						showFooterview();
-						mXXLModel.hasMore = true;
-					}else {
+			if(mainActivity.get() != null){
+				mXXLModel.loading = false;
+				hideProgressbar();
+				onSwipeRefreshLayoutFinish();
+				if(avObject != null){
+					if(avObject.size() == 0){
+						ToastUtil.diaplayMesShort(SearchResultActivity.this, "没有了！");
 						mXXLModel.hasMore = false;
 						hideFooterview();
+					}else{
+						if(skip == 0){
+							avObjects.clear();
+						}
+						StudyFragment.changeData(avObject,avObjects,false);
+						mAdapter.notifyDataSetChanged();
+						loadAD();
+						if(avObject.size() == Setings.page_size){
+							skip += Setings.page_size;
+							showFooterview();
+							mXXLModel.hasMore = true;
+						}else {
+							mXXLModel.hasMore = false;
+							hideFooterview();
+						}
 					}
+				}else{
+					ToastUtil.diaplayMesShort(SearchResultActivity.this, "加载失败，下拉可刷新");
 				}
-			}else{
-				ToastUtil.diaplayMesShort(SearchResultActivity.this, "加载失败，下拉可刷新");
 			}
 		}
 	}
