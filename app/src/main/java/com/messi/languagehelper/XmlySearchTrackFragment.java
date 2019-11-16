@@ -216,6 +216,7 @@ public class XmlySearchTrackFragment extends BaseFragment implements OnClickList
     @Override
     public void onDestroy() {
         super.onDestroy();
+        XmPlayerManager.getInstance(getContext()).removePlayerStatusListener(this);
         unregisterBroadcast();
     }
 

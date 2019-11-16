@@ -22,7 +22,6 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.iflytek.cloud.SpeechConstant;
-import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SpeechUtility;
 import com.messi.languagehelper.BaseActivity;
 import com.messi.languagehelper.LeisureFragment;
@@ -56,7 +55,6 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 
 	private long exitTime = 0;
 	private SharedPreferences mSharedPreferences;
-	private SpeechSynthesizer mSpeechSynthesizer;
 	private Intent playIntent;
 
 	@BindView(R.id.content)
@@ -118,8 +116,7 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 	private void initData(){
 		SpeechUtility.createUtility(this, SpeechConstant.APPID + "=" + getString(R.string.app_id));
 		mSharedPreferences = getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
-		mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
-		PlayUtil.initData(this, mSpeechSynthesizer, mSharedPreferences);
+		PlayUtil.initData(this, mSharedPreferences);
 		TranslateHelper.init(mSharedPreferences);
 	}
 

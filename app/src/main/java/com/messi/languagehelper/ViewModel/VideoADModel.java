@@ -29,7 +29,7 @@ public class VideoADModel {
     public ImageView ad_close_btn;
 
     public VideoADModel(Context mContext,FrameLayout xx_ad_layout){
-        this.mContext = new WeakReference<>(mContext);
+        this.mContext = new WeakReference<>(mContext.getApplicationContext());
         sp = Setings.getSharedPreferences(mContext);
         this.xx_ad_layout = xx_ad_layout;
         ad_layout = xx_ad_layout.findViewById(R.id.ad_layout);

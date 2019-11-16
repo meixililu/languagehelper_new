@@ -60,4 +60,12 @@ public class WordStudySummaryDetailActivity extends BaseActivity {
         mXFYSAD = new XFYSAD(this, xx_ad_layout, ADUtil.NewsDetail);
         mXFYSAD.showAd();
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(mXFYSAD != null){
+            mXFYSAD.onDestroy();
+        }
+    }
 }

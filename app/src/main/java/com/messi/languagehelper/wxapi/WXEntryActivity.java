@@ -22,7 +22,6 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.iflytek.cloud.SpeechConstant;
-import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SpeechUtility;
 import com.messi.languagehelper.BaseActivity;
 import com.messi.languagehelper.MoreActivity;
@@ -59,7 +58,6 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 
 	private long exitTime = 0;
 	private SharedPreferences sp;
-	private SpeechSynthesizer mSpeechSynthesizer;
 
 	private Intent playIntent;
 
@@ -80,8 +78,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 	private void initData(){
 		SpeechUtility.createUtility(this, SpeechConstant.APPID + "=" + getString(R.string.app_id));
 		sp = getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
-		mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
-		PlayUtil.initData(this, mSpeechSynthesizer, sp);
+		PlayUtil.initData(this, sp);
 		SystemUtil.lan = Locale.getDefault().getLanguage();
 		if (toolbar != null) {
 			getSupportActionBar().setDisplayHomeAsUpEnabled(false);

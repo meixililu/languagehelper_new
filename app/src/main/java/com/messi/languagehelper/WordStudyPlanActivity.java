@@ -109,5 +109,8 @@ public class WordStudyPlanActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         unregisterBroadcast();
+        if(mXFYSAD != null){
+            mXFYSAD.onDestroy();
+        }
     }
 }

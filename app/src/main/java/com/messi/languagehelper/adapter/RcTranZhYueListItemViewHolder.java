@@ -249,7 +249,7 @@ public class RcTranZhYueListItemViewHolder extends RecyclerView.ViewHolder {
                     speaker = XFUtil.SpeakerHk;
                 }
             }
-            PlayUtil.play(filepath, speakContent, animationDrawable, speaker,
+            PlayUtil.play(filepath, speakContent, animationDrawable, speaker,null,
                     new SynthesizerListener() {
                         @Override
                         public void onSpeakResumed() {

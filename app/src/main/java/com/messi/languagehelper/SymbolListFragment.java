@@ -236,4 +236,12 @@ public class SymbolListFragment extends BaseFragment {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if(mXFYSAD != null){
+            mXFYSAD.onDestroy();
+        }
+    }
 }

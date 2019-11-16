@@ -32,10 +32,10 @@ public class PlayUtil {
     public static AnimationDrawable currentAnimationDrawable;
     public static OnFinishListener mOnFinishListener;
 
-    public static void initData(Context nContext,SpeechSynthesizer nSpeechSynthesizer,
+    public static void initData(Context nContext,
                                 SharedPreferences nSharedPreferences){
-        mContext = nContext;
-        mSpeechSynthesizer = nSpeechSynthesizer;
+        mContext = nContext.getApplicationContext();
+        mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(nContext.getApplicationContext(), null);
         mSharedPreferences = nSharedPreferences;
         mHandler = new Handler() {
             public void handleMessage(Message message) {
@@ -50,7 +50,24 @@ public class PlayUtil {
     public static void play(String nfilepath,
                             String nSpeakContent,
                             AnimationDrawable nDrawable,
+                            SpeechSynthesizer mSpeechSynthesizer,
+                            SynthesizerListener nSynthesizerListener
+                            ){
+        play(nfilepath,nSpeakContent,nDrawable,"",mSpeechSynthesizer,nSynthesizerListener);
+    }
+
+    public static void play(String nfilepath,
+                            String nSpeakContent,
+                            AnimationDrawable nDrawable,
+                            SynthesizerListener nSynthesizerListener){
+        play(nfilepath,nSpeakContent,nDrawable,"",null,nSynthesizerListener);
+    }
+
+    public static void play(String nfilepath,
+                            String nSpeakContent,
+                            AnimationDrawable nDrawable,
                             String speaker,
+                            SpeechSynthesizer mSpeechSynthesizer,
                             SynthesizerListener nSynthesizerListener
                             ){
         LogUtil.DefalutLog("PlayUtil-PlayerStatus:"+isPlaying);
@@ -62,61 +79,53 @@ public class PlayUtil {
         if(!isPlaying){
             filepath = nfilepath;
             speakContent = nSpeakContent+".";
-            if(TextUtils.isEmpty(speaker)){
-                startToPlay(nSynthesizerListener);
-            }else {
-                startToPlay(nSynthesizerListener,speaker);
-            }
+            toPlay(speaker,nSynthesizerListener,mSpeechSynthesizer);
         }else {
             stopPlay();
             if(!filepath.equals(nfilepath)){
                 filepath = nfilepath;
                 speakContent = nSpeakContent;
-                if(TextUtils.isEmpty(speaker)){
-                    startToPlay(nSynthesizerListener);
-                }else {
-                    startToPlay(nSynthesizerListener,speaker);
-                }
+                toPlay(speaker,nSynthesizerListener,mSpeechSynthesizer);
             }
         }
     }
 
-    public static void play(String nfilepath,
-                            String nSpeakContent,
-                            AnimationDrawable nDrawable,
-                            SynthesizerListener nSynthesizerListener){
-        play(nfilepath,nSpeakContent,nDrawable,"",nSynthesizerListener);
+    public static void toPlay(String speaker,
+                              SynthesizerListener nSynthesizerListener,
+                              SpeechSynthesizer mSpeechSynthesizer){
+        if(mSpeechSynthesizer != null){
+            startToPlay(nSynthesizerListener,speaker,mSpeechSynthesizer);
+        }else {
+            startToPlay(nSynthesizerListener,speaker);
+        }
     }
 
-    public static void startToPlay(SynthesizerListener nSynthesizerListener){
-        startToPlay(nSynthesizerListener,"");
-    }
-
-    public static void playOnline(String speaker,
-                                  String nSpeakContent,
-                                  SynthesizerListener nSynthesizerListener){
-
-        if(!mSpeechSynthesizer.isSpeaking()){
+    public static void startToPlay(SynthesizerListener nSynthesizerListener,
+                                   String speaker,
+                                   SpeechSynthesizer mSpeechSynthesizer){
+        if (!AudioTrackUtil.isFileExists(filepath)) {
+            mSpeechSynthesizer.setParameter(SpeechConstant.TTS_AUDIO_PATH, filepath);
             if(TextUtils.isEmpty(speaker)){
                 XFUtil.showSpeechSynthesizer(
                         mContext,
                         mSharedPreferences,
                         mSpeechSynthesizer,
-                        nSpeakContent,
+                        speakContent,
                         nSynthesizerListener);
             }else {
                 XFUtil.showSpeechSynthesizer(
                         mContext,
                         mSharedPreferences,
                         mSpeechSynthesizer,
-                        nSpeakContent,
+                        speakContent,
                         speaker,
                         nSynthesizerListener);
             }
-        }else {
-            mSpeechSynthesizer.stopSpeaking();
+        } else {
+            onStartPlay();
+            mMyThread.setDataUri(filepath);
+            mThread = AudioTrackUtil.startMyThread(mMyThread);
         }
-
     }
 
     public static void startToPlay(SynthesizerListener nSynthesizerListener,String speaker){
@@ -142,6 +151,32 @@ public class PlayUtil {
             onStartPlay();
             mMyThread.setDataUri(filepath);
             mThread = AudioTrackUtil.startMyThread(mMyThread);
+        }
+    }
+
+    public static void playOnline(String speaker,
+                                  String nSpeakContent,
+                                  SynthesizerListener nSynthesizerListener){
+
+        if(!mSpeechSynthesizer.isSpeaking()){
+            if(TextUtils.isEmpty(speaker)){
+                XFUtil.showSpeechSynthesizer(
+                        mContext,
+                        mSharedPreferences,
+                        mSpeechSynthesizer,
+                        nSpeakContent,
+                        nSynthesizerListener);
+            }else {
+                XFUtil.showSpeechSynthesizer(
+                        mContext,
+                        mSharedPreferences,
+                        mSpeechSynthesizer,
+                        nSpeakContent,
+                        speaker,
+                        nSynthesizerListener);
+            }
+        }else {
+            mSpeechSynthesizer.stopSpeaking();
         }
     }
 

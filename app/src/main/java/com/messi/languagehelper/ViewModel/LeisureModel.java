@@ -59,8 +59,8 @@ public class LeisureModel {
     public SimpleDraweeView adImg;
 
     public LeisureModel(Context mContext){
-        this.mContext = new WeakReference<>(mContext);
-        sp = Setings.getSharedPreferences(mContext);
+        this.mContext = new WeakReference<>(mContext.getApplicationContext());
+        sp = Setings.getSharedPreferences(mContext.getApplicationContext());
     }
 
     public void setViews(TextView ad_sign,SimpleDraweeView adImg,
@@ -356,6 +356,7 @@ public class LeisureModel {
     public void onDestroy(){
         if (mTXADView != null) {
             mTXADView.destroy();
+            mTXADView = null;
         }
     }
 

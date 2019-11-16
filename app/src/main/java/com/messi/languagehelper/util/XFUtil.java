@@ -215,5 +215,20 @@ public class XFUtil {
 			}
 		});
 	}
-	
+
+	public static void closeSpeechSynthesizer(SpeechSynthesizer mSpeechSynthesizer){
+		if(mSpeechSynthesizer != null){
+			mSpeechSynthesizer.stopSpeaking();
+			mSpeechSynthesizer.destroy();
+			mSpeechSynthesizer = null;
+		}
+	}
+
+	public static void closeSpeechRecognizer(SpeechRecognizer recognizer){
+		if(recognizer != null){
+			recognizer.stopListening();
+			recognizer.destroy();
+			recognizer = null;
+		}
+	}
 }

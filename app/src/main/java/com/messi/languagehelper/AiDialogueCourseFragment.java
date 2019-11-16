@@ -242,4 +242,12 @@ public class AiDialogueCourseFragment extends BaseFragment implements View.OnCli
     private void showFooterview(){
         mAdapter.showFooter();
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if(mXFYSAD != null){
+            mXFYSAD.onDestroy();
+        }
+    }
 }

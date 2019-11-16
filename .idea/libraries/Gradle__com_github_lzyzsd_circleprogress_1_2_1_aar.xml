@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.lzyzsd:circleprogress:1.2.1@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3f0703339bfcbd81907628ee6df84464/circleprogress-1.2.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3f0703339bfcbd81907628ee6df84464/circleprogress-1.2.1/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/62c77a55228e5e4ceff83136d92a4820/circleprogress-1.2.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/62c77a55228e5e4ceff83136d92a4820/circleprogress-1.2.1/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

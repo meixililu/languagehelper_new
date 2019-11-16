@@ -447,6 +447,7 @@ public class XimalayaRadioProvinceActivity extends BaseActivity implements Adapt
     protected void onDestroy() {
         super.onDestroy();
         unregisterBroadcast();
+        XmPlayerManager.getInstance(this).removePlayerStatusListener(this);
         if(mTXADList != null){
             for(NativeExpressADView adView : mTXADList){
                 adView.destroy();

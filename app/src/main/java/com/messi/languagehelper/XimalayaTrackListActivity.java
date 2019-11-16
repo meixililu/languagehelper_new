@@ -219,6 +219,7 @@ public class XimalayaTrackListActivity extends BaseActivity implements OnClickLi
     public void onDestroy() {
         super.onDestroy();
         unregisterBroadcast();
+        XmPlayerManager.getInstance(this).removePlayerStatusListener(this);
     }
 
     @OnClick({R.id.btn_sort, R.id.btn_download})

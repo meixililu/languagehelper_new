@@ -62,8 +62,8 @@ public abstract class XXLZXRootModel {
     public RecyclerView.Adapter mAdapter;
 
     public XXLZXRootModel(Context mContext){
-        this.mContext = new WeakReference<>(mContext);
-        sp = Setings.getSharedPreferences(mContext);
+        this.mContext = new WeakReference<>(mContext.getApplicationContext());
+        sp = Setings.getSharedPreferences(mContext.getApplicationContext());
         mTXADList = new ArrayList<NativeExpressADView>();
     }
 
@@ -265,6 +265,7 @@ public abstract class XXLZXRootModel {
             for(NativeExpressADView adView : mTXADList){
                 adView.destroy();
             }
+            mTXADList = null;
         }
     }
 

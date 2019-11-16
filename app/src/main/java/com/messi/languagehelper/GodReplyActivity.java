@@ -93,4 +93,13 @@ public class GodReplyActivity extends BaseActivity {
             requestData();
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(mLeisureModel != null){
+            mLeisureModel.onDestroy();
+            mLeisureModel = null;
+        }
+    }
 }

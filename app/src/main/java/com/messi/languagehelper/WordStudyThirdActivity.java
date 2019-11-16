@@ -57,6 +57,9 @@ public class WordStudyThirdActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if(mXFYSAD != null){
+            mXFYSAD.onDestroy();
+        }
         unregisterBroadcast();
     }
 }

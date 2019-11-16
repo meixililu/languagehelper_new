@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -52,10 +53,10 @@ public class XFYSAD {
 	public String BDADID = BDADUtil.BD_BANNer;
 
 	public XFYSAD(Context mContext, View parentView, String adId){
-		this.mContext = new WeakReference<>(mContext);
+		this.mContext = new WeakReference<>(mContext.getApplicationContext());
 		this.parentView = parentView;
 		this.adId = adId;
-		mInflater = LayoutInflater.from(mContext);
+		mInflater = LayoutInflater.from(mContext.getApplicationContext());
 		ad_img = (SimpleDraweeView)parentView.findViewById(R.id.ad_img);
 		ad_layout = (FrameLayout)parentView.findViewById(R.id.ad_layout);
 		ad_sign = (TextView)parentView.findViewById(R.id.ad_sign);
@@ -63,9 +64,9 @@ public class XFYSAD {
 	}
 
 	public XFYSAD(Context mContext,String adId){
-		this.mContext = new WeakReference<>(mContext);
+		this.mContext = new WeakReference<>(mContext.getApplicationContext());
 		this.adId = adId;
-		mInflater = LayoutInflater.from(mContext);
+		mInflater = LayoutInflater.from(mContext.getApplicationContext());
 	}
 
 	public void setParentView(View parentView){
@@ -358,5 +359,20 @@ public class XFYSAD {
 
 	public Context getContext() {
 		return mContext.get();
+	}
+
+	public void onDestroy(){
+		if(parentView != null){
+			((ViewGroup)parentView).removeAllViews();
+			parentView = null;
+		}
+		if(ad_layout != null){
+			ad_layout.removeAllViews();
+			ad_layout = null;
+		}
+		if(mTXADView != null){
+			mTXADView.destroy();
+			mTXADView = null;
+		}
 	}
 }

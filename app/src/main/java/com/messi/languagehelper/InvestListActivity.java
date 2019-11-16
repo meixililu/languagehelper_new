@@ -94,5 +94,12 @@ public class InvestListActivity extends BaseActivity{
 			}
 		}
 	}
-	
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		if(mXFYSAD != null){
+			mXFYSAD.onDestroy();
+		}
+	}
 }

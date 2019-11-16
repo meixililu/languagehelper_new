@@ -415,6 +415,7 @@ public class XmlySearchRadioFragment extends BaseFragment implements
     public void onDestroy() {
         super.onDestroy();
         unregisterBroadcast();
+        XmPlayerManager.getInstance(getContext()).removePlayerStatusListener(this);
         if(mTXADList != null){
             for(NativeExpressADView adView : mTXADList){
                 adView.destroy();

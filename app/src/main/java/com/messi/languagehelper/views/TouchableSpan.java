@@ -22,6 +22,8 @@ import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.TranslateUtil;
 import com.youdao.sdk.ydtranslate.Translate;
 
+import java.lang.ref.WeakReference;
+
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -33,22 +35,22 @@ import io.reactivex.schedulers.Schedulers;
 public class TouchableSpan extends ClickableSpan {// extend ClickableSpan
 
 	private String word;
-	private Activity context;
-	private ProgressBar mProgressbar;
+	private WeakReference<Activity> context;
+	private WeakReference<ProgressBar> mProgressbar;
 	private FragmentProgressbarListener mProgressbarListener;
 
 	public TouchableSpan(Activity context, ProgressBar mProgressbar, String string) {
 		super();
 		word = string;
-		this.mProgressbar = mProgressbar;
-		this.context = context;
+		this.mProgressbar = new WeakReference<>(mProgressbar) ;
+		this.context = new WeakReference<>(context);
 	}
 	
 	public TouchableSpan(Activity context, FragmentProgressbarListener mProgressbarListener, String string) {
 		super();
 		word = string;
 		this.mProgressbarListener = mProgressbarListener;
-		this.context = context;
+		this.context = new WeakReference<>(context);
 	}
 
 	public void onClick(View tv) {
@@ -67,14 +69,14 @@ public class TouchableSpan extends ClickableSpan {// extend ClickableSpan
 			if(msg.what == 1){
 				setData();
 			}else{
-				showToast(context.getResources().getString(R.string.network_error));
+				showToast(getContext().getResources().getString(R.string.network_error));
 			}
 		}
 	};
 
 	private void translateController(){
 		Setings.q = word;
-		if(NetworkUtil.isNetworkConnected(context)){
+		if(NetworkUtil.isNetworkConnected(getContext())){
 			LogUtil.DefalutLog("online");
 			RequestShowapiAsyncTask();
 		}else {
@@ -153,7 +155,7 @@ public class TouchableSpan extends ClickableSpan {// extend ClickableSpan
 
 	private void showDialog(Dictionary bean){
 		try {
-			TranslateResultDialog dialog = new TranslateResultDialog(context, bean);
+			TranslateResultDialog dialog = new TranslateResultDialog(getContext(), bean);
 			dialog.createDialog();
 			dialog.show();
 		} catch (Exception e) {
@@ -162,8 +164,8 @@ public class TouchableSpan extends ClickableSpan {// extend ClickableSpan
 	}
 
 	private void showProgressbar(){
-		if(mProgressbar != null){
-			mProgressbar.setVisibility(View.VISIBLE);
+		if(getProgressBar() != null){
+			getProgressBar().setVisibility(View.VISIBLE);
 		}
 		if(mProgressbarListener != null){
 			mProgressbarListener.showProgressbar();
@@ -171,8 +173,8 @@ public class TouchableSpan extends ClickableSpan {// extend ClickableSpan
 	}
 
 	private void hideProgressbar(){
-		if(mProgressbar != null){
-			mProgressbar.setVisibility(View.GONE);
+		if(getProgressBar() != null){
+			getProgressBar().setVisibility(View.GONE);
 		}
 		if(mProgressbarListener != null){
 			mProgressbarListener.hideProgressbar();
@@ -180,7 +182,14 @@ public class TouchableSpan extends ClickableSpan {// extend ClickableSpan
 	}
 	
 	private void showToast(String toastString) {
-		ToastUtil.diaplayMesShort(context, toastString);
+		ToastUtil.diaplayMesShort(getContext(), toastString);
 	}
-	
+
+	private Activity getContext(){
+		return context.get();
+	}
+
+	private ProgressBar getProgressBar(){
+		return mProgressbar.get();
+	}
 }

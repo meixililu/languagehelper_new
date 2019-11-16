@@ -551,4 +551,12 @@ public class AiDialoguePracticeActivity extends BaseActivity implements View.OnC
     void onPerDenied() {
         ToastUtil.diaplayMesShort(this,"拒绝录音权限，无法使用语音功能！");
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        XFUtil.closeSpeechRecognizer(recognizer);
+        XFUtil.closeSpeechSynthesizer(mSpeechSynthesizer);
+        AudioTrackUtil.closeMedia(mPlayer);
+    }
 }

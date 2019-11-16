@@ -153,4 +153,12 @@ public class CaricatureWebListFragment extends BaseFragment{
         mAdapter.showFooter();
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if(mXFYSAD != null){
+            mXFYSAD.onDestroy();
+        }
+    }
+
 }

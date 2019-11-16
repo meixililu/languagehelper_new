@@ -141,6 +141,9 @@ public class SubjectByTypeFragment extends BaseFragment {
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+        if(mXFYSAD != null){
+            mXFYSAD.onDestroy();
+        }
     }
 
     private class QueryTask extends AsyncTask<Void, Void, List<AVObject>> {

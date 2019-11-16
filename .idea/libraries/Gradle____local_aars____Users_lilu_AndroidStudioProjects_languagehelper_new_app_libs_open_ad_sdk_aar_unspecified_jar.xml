@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: __local_aars__:/Users/lilu/AndroidStudioProjects/languagehelper_new/app/libs/open_ad_sdk.aar:unspecified@jar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e3e67d546b2a468ca03e6c4b149b2131/open_ad_sdk/jars/libs/adhost.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b32bd19632cc9ec621b9899d782de7b5/open_ad_sdk/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b32bd19632cc9ec621b9899d782de7b5/open_ad_sdk/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b32bd19632cc9ec621b9899d782de7b5/open_ad_sdk/jars/libs/adhost.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

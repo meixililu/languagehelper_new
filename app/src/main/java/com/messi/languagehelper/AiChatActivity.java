@@ -25,6 +25,7 @@ import com.iflytek.cloud.RecognizerListener;
 import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechRecognizer;
+import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.adapter.RcAiChatAdapter;
 import com.messi.languagehelper.bean.AiResult;
@@ -117,6 +118,7 @@ public class AiChatActivity extends BaseActivity {
     private SharedPreferences sp;
     private KaiPinAdUIModelCustom mKaiPinAdUIModel;
     private boolean isSayHello;
+    private SpeechSynthesizer mSpeechSynthesizer;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -138,7 +140,8 @@ public class AiChatActivity extends BaseActivity {
     private void initData() {
         setActionBarTitle(getResources().getString(R.string.title_ai_chat));
         sp = Setings.getSharedPreferences(this);
-        recognizer = SpeechRecognizer.createRecognizer(this, null);
+        recognizer = SpeechRecognizer.createRecognizer(this.getApplicationContext(), null);
+        mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this.getApplicationContext(), null);
         beans = new ArrayList<AiEntity>();
         beans.addAll(DataBaseUtil.getInstance().getAiEntityList(AiUtil.Ai_Acobot));
         mAdapter = new RcAiChatAdapter(this, beans, mProgressbar);
@@ -382,7 +385,7 @@ public class AiChatActivity extends BaseActivity {
         }
         filepath = path + mAiEntity.getContent_video_id() + ".pcm";
         mAiEntity.setContent_video_path(filepath);
-        PlayUtil.play(filepath, mAiEntity.getContent(), null,
+        PlayUtil.play(filepath, mAiEntity.getContent(), null,mSpeechSynthesizer,
                 new SynthesizerListener() {
                     @Override
                     public void onSpeakResumed() {
@@ -505,4 +508,13 @@ public class AiChatActivity extends BaseActivity {
         ToastUtil.diaplayMesShort(this,"拒绝录音权限，无法使用语音功能！");
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(mSpeechSynthesizer != null){
+            mSpeechSynthesizer.stopSpeaking();
+            mSpeechSynthesizer.destroy();
+            mSpeechSynthesizer = null;
+        }
+    }
 }

@@ -389,10 +389,12 @@ public class XimalayaRadioHomeFragment extends BaseFragment implements FragmentP
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        XmPlayerManager.getInstance(getContext()).removePlayerStatusListener(this);
         if(mTXADList != null){
             for(NativeExpressADView adView : mTXADList){
                 adView.destroy();
             }
+            mTXADList = null;
         }
         unregisterBroadcast();
         unbinder.unbind();

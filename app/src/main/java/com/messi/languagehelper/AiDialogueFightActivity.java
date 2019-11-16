@@ -598,4 +598,12 @@ public class AiDialogueFightActivity extends BaseActivity implements View.OnClic
         onClick(next_btn);
         onClick(start_btn_cover);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        XFUtil.closeSpeechRecognizer(recognizer);
+        XFUtil.closeSpeechSynthesizer(mSpeechSynthesizer);
+        AudioTrackUtil.closeMedia(mPlayer);
+    }
 }

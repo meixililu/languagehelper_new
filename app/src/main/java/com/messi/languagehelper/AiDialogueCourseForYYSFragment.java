@@ -261,4 +261,12 @@ public class AiDialogueCourseForYYSFragment extends BaseFragment implements View
     private void showFooterview(){
         mAdapter.showFooter();
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if(mXFYSAD != null){
+            mXFYSAD.onDestroy();
+        }
+    }
 }

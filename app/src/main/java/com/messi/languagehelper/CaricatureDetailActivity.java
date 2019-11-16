@@ -187,4 +187,12 @@ public class CaricatureDetailActivity extends BaseActivity {
     public void onViewClicked() {
         shareImg();
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(mXFYSAD != null){
+            mXFYSAD.onDestroy();
+        }
+    }
 }

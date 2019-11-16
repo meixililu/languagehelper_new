@@ -114,4 +114,12 @@ public class WordStudyFirstFragment extends BaseFragment {
         }
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if(mXFYSAD != null){
+            mXFYSAD.onDestroy();
+        }
+    }
+
 }

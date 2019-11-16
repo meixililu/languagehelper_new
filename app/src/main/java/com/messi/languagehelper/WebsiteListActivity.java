@@ -141,4 +141,13 @@ public class WebsiteListActivity extends BaseActivity {
     private void showFooterview(){
         mAdapter.showFooter();
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(mXFYSAD != null){
+            mXFYSAD.onDestroy();
+        }
+    }
+
 }

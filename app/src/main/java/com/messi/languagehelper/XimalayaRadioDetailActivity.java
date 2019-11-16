@@ -170,6 +170,7 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
     public void onDestroy() {
         super.onDestroy();
         unregisterBroadcast();
+        XmPlayerManager.getInstance(this).removePlayerStatusListener(this);
         if(mXMLYDetailModel != null){
             mXMLYDetailModel.onDestroy();
         }

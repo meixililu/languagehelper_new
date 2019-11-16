@@ -236,4 +236,12 @@ public class AiDialogueSelectCourseActivity extends BaseActivity implements View
     private void showFooterview(){
         mAdapter.showFooter();
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(mXFYSAD != null){
+            mXFYSAD.onDestroy();
+        }
+    }
 }

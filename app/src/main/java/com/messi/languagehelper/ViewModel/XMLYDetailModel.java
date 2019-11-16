@@ -59,8 +59,8 @@ public class XMLYDetailModel {
     public FrameLayout ad_layout;
 
     public XMLYDetailModel(Context mContext){
-        this.mContext = new WeakReference<>(mContext);
-        sp = Setings.getSharedPreferences(mContext);
+        this.mContext = new WeakReference<>(mContext.getApplicationContext());
+        sp = Setings.getSharedPreferences(mContext.getApplicationContext());
     }
 
     public void setViews(TextView adTitle,SimpleDraweeView adImg,ImageView adClose,TextView ad_btn,
@@ -349,6 +349,7 @@ public class XMLYDetailModel {
     public void onDestroy(){
         if (mTXADView != null) {
             mTXADView.destroy();
+            mTXADView = null;
         }
     }
 

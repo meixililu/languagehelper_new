@@ -18,7 +18,6 @@ import com.messi.languagehelper.box.EveryDaySentence;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
-import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.XFYSAD;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
@@ -172,7 +171,9 @@ public class DailySentenceFragment extends BaseFragment implements OnClickListen
             mPlayer.release();
             mPlayer = null;
         }
-        LogUtil.DefalutLog("CollectedFragment-onDestroyView");
+        if(mXFYSAD != null){
+            mXFYSAD.onDestroy();
+        }
     }
 
 

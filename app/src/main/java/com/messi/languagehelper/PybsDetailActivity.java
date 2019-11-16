@@ -107,4 +107,12 @@ public class PybsDetailActivity extends BaseActivity {
         sb.append(content.getText().toString());
         Setings.share(this, sb.toString());
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(mXFYSAD != null){
+            mXFYSAD.onDestroy();
+        }
+    }
 }

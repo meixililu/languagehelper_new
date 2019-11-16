@@ -193,8 +193,11 @@ public class MiaosouDetailActivity extends BaseActivity {
     }
 
     @Override
-    public void onDestroy() {
+    protected void onDestroy() {
         super.onDestroy();
+        if(mXFYSAD != null){
+            mXFYSAD.onDestroy();
+        }
     }
 
     @OnClick({R.id.add_bookshelf, R.id.to_read, R.id.back_btn, R.id.share_img})

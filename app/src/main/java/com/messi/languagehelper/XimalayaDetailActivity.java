@@ -199,6 +199,7 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
         if(mXMLYDetailModel != null){
             mXMLYDetailModel.onDestroy();
         }
+        XmPlayerManager.getInstance(this).removePlayerStatusListener(this);
     }
 
     @OnClick({R.id.play_btn, R.id.play_previous, R.id.play_next,R.id.back_btn})
