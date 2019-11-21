@@ -130,7 +130,7 @@ public class RcSubjectReadingListItemViewHolder extends RecyclerView.ViewHolder 
                 ad_layout.setVisibility(View.VISIBLE);
                 item_layout.setVisibility(View.GONE);
                 ad_layout.removeAllViews();
-                XXLModel.getCSJDView(context,mAVObject.getCsjTTFeedAd(), ad_layout);
+                XXLModel.setCSJDView(context,mAVObject.getCsjTTFeedAd(), ad_layout);
             }else if(mAVObject.getXvideoList() != null){
                 xvideo_layout.setVisibility(View.VISIBLE);
                 xvideo_more_tv.setOnClickListener(new View.OnClickListener() {

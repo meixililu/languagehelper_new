@@ -62,8 +62,8 @@ public abstract class XXLRootModel {
     public RecyclerView.Adapter mAdapter;
 
     public XXLRootModel(Context mContext){
-        this.mContext = new WeakReference<>(mContext.getApplicationContext());
-        sp = Setings.getSharedPreferences(mContext.getApplicationContext());
+        this.mContext = new WeakReference<>(mContext);
+        sp = Setings.getSharedPreferences(mContext);
         mTXADList = new ArrayList<NativeExpressADView>();
     }
 
@@ -272,7 +272,7 @@ public abstract class XXLRootModel {
         this.XFADID = XFADID;
     }
 
-    public static void getCSJDView(Context context, TTFeedAd ad, FrameLayout ad_layout){
+    public static void setCSJDView(Context context, TTFeedAd ad, FrameLayout ad_layout){
         View view = null;
         if (ad.getImageMode() == TTAdConstant.IMAGE_MODE_LARGE_IMG) {
             view = LayoutInflater.from(context).inflate(R.layout.listitem_ad_large_pic,null);

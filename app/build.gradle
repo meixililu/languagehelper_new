@@ -131,6 +131,8 @@ dependencies {
     //    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     testImplementation 'junit:junit:4.12'
     //check tree dependencies: ./gradlew :app:dependencies
+    implementation files('libs/Msc.jar')
+    implementation files('libs/TingPhoneOpenSDK_7.0.18.jar')
 }
 
 greendao {

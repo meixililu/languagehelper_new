@@ -39,7 +39,7 @@ public class XXLCNWBeanModel extends XXLRootModel{
                     if(TXADType == 1){
                         loadXFAD();
                     }else {
-                        loadBDAD();
+                        loadTXAD();
                     }
                 }else if(ADUtil.CSJ.equals(currentAD)){
                     if(TXADType == 1){

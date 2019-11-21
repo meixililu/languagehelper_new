@@ -1,6 +1,7 @@
 package com.messi.languagehelper.util;
 
 import android.content.Context;
+import android.net.Uri;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -14,9 +15,10 @@ import android.widget.TextView;
 import com.baidu.mobads.AdView;
 import com.baidu.mobads.AdViewListener;
 import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAdDislike;
 import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTBannerAd;
+import com.bytedance.sdk.openadsdk.TTFeedAd;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.IFLYNativeAd;
 import com.iflytek.voiceads.config.AdError;
@@ -24,6 +26,7 @@ import com.iflytek.voiceads.config.AdKeys;
 import com.iflytek.voiceads.conn.NativeDataRef;
 import com.iflytek.voiceads.listener.IFLYNativeListener;
 import com.messi.languagehelper.R;
+import com.messi.languagehelper.ViewModel.XXLRootModel;
 import com.qq.e.ads.nativ.NativeExpressAD;
 import com.qq.e.ads.nativ.NativeExpressADView;
 
@@ -51,12 +54,15 @@ public class XFYSAD {
 
 	public int counter;
 	public String BDADID = BDADUtil.BD_BANNer;
+    private String CSJADID = CSJADUtil.CSJ_XXLSP;
+	private AdView adView;
+	private TTAdNative mTTAdNative;
 
 	public XFYSAD(Context mContext, View parentView, String adId){
-		this.mContext = new WeakReference<>(mContext.getApplicationContext());
+		this.mContext = new WeakReference<>(mContext);
 		this.parentView = parentView;
 		this.adId = adId;
-		mInflater = LayoutInflater.from(mContext.getApplicationContext());
+		mInflater = LayoutInflater.from(mContext);
 		ad_img = (SimpleDraweeView)parentView.findViewById(R.id.ad_img);
 		ad_layout = (FrameLayout)parentView.findViewById(R.id.ad_layout);
 		ad_sign = (TextView)parentView.findViewById(R.id.ad_sign);
@@ -64,9 +70,9 @@ public class XFYSAD {
 	}
 
 	public XFYSAD(Context mContext,String adId){
-		this.mContext = new WeakReference<>(mContext.getApplicationContext());
+		this.mContext = new WeakReference<>(mContext);
 		this.adId = adId;
-		mInflater = LayoutInflater.from(mContext.getApplicationContext());
+		mInflater = LayoutInflater.from(mContext);
 	}
 
 	public void setParentView(View parentView){
@@ -106,7 +112,7 @@ public class XFYSAD {
 				if(ADUtil.GDT.equals(currentAD)){
 					loadTXAD();
 				}else if(ADUtil.BD.equals(currentAD)){
-					loadBDAD();
+					loadTXAD();
 				}else if(ADUtil.CSJ.equals(currentAD)){
 					loadCSJAD();
 				}else if(ADUtil.XF.equals(currentAD)){
@@ -127,7 +133,7 @@ public class XFYSAD {
 
 	private void loadTXAD(){
 		LogUtil.DefalutLog("---load TXAD Data---");
-		TXADUtil.showCDT(getContext(), new NativeExpressAD.NativeExpressADListener() {
+		TXADUtil.showBigImg(getContext(), new NativeExpressAD.NativeExpressADListener() {
 			@Override
 			public void onNoAD(com.qq.e.comm.util.AdError adError) {
 				onLoadAdFaile();
@@ -216,28 +222,36 @@ public class XFYSAD {
 	
 	private void setAdData(NativeDataRef mNativeADDataRef){
 		try {
-			ad_sign.setVisibility(View.VISIBLE);
-			ad_layout.setVisibility(View.GONE);
-			parentView.setVisibility(View.VISIBLE);
-			ad_img.setImageURI(mNativeADDataRef.getImgUrl());
-			if(isDirectExPosure){
-                exposure = mNativeADDataRef.onExposure(parentView);
-                LogUtil.DefalutLog("XFYSAD-setAdData-exposure:"+exposure);
-            }
-			parentView.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    boolean click = mNativeADDataRef.onClick(view);
-                    LogUtil.DefalutLog("XFYSAD-onClick:"+click);
-                }
-            });
+			if(mNativeADDataRef != null){
+				ad_sign.setVisibility(View.VISIBLE);
+				parentView.setVisibility(View.VISIBLE);
+				ad_layout.setVisibility(View.GONE);
+				ad_img.setVisibility(View.VISIBLE);
+				DraweeController mDraweeController = Fresco.newDraweeControllerBuilder()
+						.setAutoPlayAnimations(true)
+						.setUri(Uri.parse(mNativeADDataRef.getImgUrl()))
+						.build();
+				ad_img.setController(mDraweeController);
+				if(isDirectExPosure){
+					exposure = mNativeADDataRef.onExposure(parentView);
+					LogUtil.DefalutLog("XFYSAD-setAdData-exposure:"+exposure);
+				}
+				parentView.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View view) {
+						boolean click = mNativeADDataRef.onClick(view);
+						LogUtil.DefalutLog("XFYSAD-onClick:"+click);
+					}
+				});
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	public void loadBDAD(){
-		AdView adView = new AdView(getContext(),BDADID);
+		initFeiXFAD();
+		adView = new AdView(getContext(),BDADID);
 		adView.setListener(new AdViewListener(){
 			@Override
 			public void onAdReady(AdView adView) {
@@ -253,8 +267,8 @@ public class XFYSAD {
 			}
 			@Override
 			public void onAdFailed(String s) {
+				LogUtil.DefalutLog("BDAD-onAdFailed:"+s);
 				onLoadAdFaile();
-				LogUtil.DefalutLog("BDAD-onAdFailed:");
 			}
 			@Override
 			public void onAdSwitch() {
@@ -265,7 +279,6 @@ public class XFYSAD {
 				LogUtil.DefalutLog("BDAD-onAdClose");
 			}
 		});
-		initFeiXFAD();
 		int height = (int)(SystemUtil.SCREEN_WIDTH / 2);
 		LinearLayout.LayoutParams rllp = new LinearLayout.LayoutParams(SystemUtil.SCREEN_WIDTH, height);
 		ad_layout.addView(adView,rllp);
@@ -278,51 +291,33 @@ public class XFYSAD {
 		ad_layout.removeAllViews();
 	}
 
-	public void loadCSJAD(){
-		LogUtil.DefalutLog("loadCSJAD");
-		TTAdNative mTTAdNative = CSJADUtil.get().createAdNative(getContext());
-		AdSlot adSlot = new AdSlot.Builder()
-				.setCodeId(CSJADUtil.CSJ_BANNer2ID)
-				.setSupportDeepLink(true)
-				.setImageAcceptedSize(690, 388)
-				.build();
-		mTTAdNative.loadBannerAd(adSlot, new TTAdNative.BannerAdListener() {
-			@Override
-			public void onError(int i, String s) {
-				LogUtil.DefalutLog("loadCSJAD-onError:");
-				onLoadAdFaile();
-			}
-			@Override
-			public void onBannerAdLoad(TTBannerAd ad) {
-				if (ad == null) {
-					onLoadAdFaile();
-					return;
-				}
-				View bannerView = ad.getBannerView();
-				if (bannerView == null) {
-					onLoadAdFaile();
-					return;
-				}
-				//设置轮播的时间间隔  间隔在30s到120秒之间的值，不设置默认不轮播
-				ad.setSlideIntervalTime(30 * 1000);
-				initFeiXFAD();
-				int height = (int)(SystemUtil.SCREEN_WIDTH / 1.8);
-				LinearLayout.LayoutParams rllp = new LinearLayout.LayoutParams(SystemUtil.SCREEN_WIDTH, height);
-				ad_layout.addView(bannerView,rllp);
-				//设置广告互动监听回调
-				ad.setShowDislikeIcon(new TTAdDislike.DislikeInteractionCallback() {
-					@Override
-					public void onSelected(int position, String value) {
-						onLoadAdFaile();
-					}
-					@Override
-					public void onCancel() {
-					}
-				});
-			}
-		});
-	}
+    public void loadCSJAD(){
+        LogUtil.DefalutLog("loadCSJAD");
+        TTAdNative mTTAdNative = CSJADUtil.get().createAdNative(getContext());
+        AdSlot adSlot = new AdSlot.Builder()
+                .setCodeId(CSJADID)
+                .setSupportDeepLink(true)
+                .setImageAcceptedSize(690, 388)
+                .build();
+        mTTAdNative.loadFeedAd(adSlot, new TTAdNative.FeedAdListener() {
+            @Override
+            public void onError(int i, String s) {
+                LogUtil.DefalutLog("loadCSJAD-onError");
+                onLoadAdFaile();
+            }
 
+            @Override
+            public void onFeedAdLoad(List<TTFeedAd> ads) {
+                if (ads == null || ads.isEmpty()) {
+                    onLoadAdFaile();
+                    return;
+                }
+                TTFeedAd mTTFeedAd = ads.get(0);
+                initFeiXFAD();
+                XXLRootModel.setCSJDView(getContext(),mTTFeedAd,ad_layout);
+            }
+        });
+    }
 
 	public void hideADView(){
 		try {
@@ -373,6 +368,19 @@ public class XFYSAD {
 		if(mTXADView != null){
 			mTXADView.destroy();
 			mTXADView = null;
+		}
+		if(mNativeADDataRef != null){
+			mNativeADDataRef = null;
+		}
+		if(mAdapter != null){
+			mAdapter = null;
+		}
+		if(mTTAdNative != null){
+			mTTAdNative = null;
+		}
+		if(adView != null){
+			adView.destroy();
+			adView = null;
 		}
 	}
 }

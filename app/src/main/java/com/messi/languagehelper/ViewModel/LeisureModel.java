@@ -13,9 +13,8 @@ import android.widget.TextView;
 import com.baidu.mobads.AdView;
 import com.baidu.mobads.AdViewListener;
 import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAdDislike;
 import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTBannerAd;
+import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -52,15 +51,19 @@ public class LeisureModel {
     private String currentAD;
     private String BDADID = BDADUtil.BD_BANNer;
     private String XFADID = ADUtil.MRYJYSNRLAd;
+    private String CSJADID = CSJADUtil.CSJ_XXLSP;
 
     public FrameLayout xx_ad_layout;
     public FrameLayout ad_layout;
     public TextView ad_sign;
     public SimpleDraweeView adImg;
 
+    private TTAdNative mTTAdNative;
+    private AdView adView;
+
     public LeisureModel(Context mContext){
-        this.mContext = new WeakReference<>(mContext.getApplicationContext());
-        sp = Setings.getSharedPreferences(mContext.getApplicationContext());
+        this.mContext = new WeakReference<>(mContext);
+        sp = Setings.getSharedPreferences(mContext);
     }
 
     public void setViews(TextView ad_sign,SimpleDraweeView adImg,
@@ -89,7 +92,7 @@ public class LeisureModel {
                 if(ADUtil.GDT.equals(currentAD)){
                     loadTXAD();
                 }else if(ADUtil.BD.equals(currentAD)){
-                    loadBDAD();
+                    loadTXAD();
                 }else if(ADUtil.CSJ.equals(currentAD)){
                     loadCSJAD();
                 }else if(ADUtil.XF.equals(currentAD)){
@@ -118,7 +121,7 @@ public class LeisureModel {
             }
             @Override
             public void onAdFailed(AdError arg0) {
-                LogUtil.DefalutLog("LeisureModel-onAdFailed");
+                LogUtil.DefalutLog("LeisureModel-onAdFailed:"+arg0.getErrorDescription());
                 getAd();
             }
             @Override
@@ -192,7 +195,7 @@ public class LeisureModel {
     }
 
     private void loadTXAD() {
-        TXADUtil.showCDT(getContext(), new NativeExpressAD.NativeExpressADListener() {
+        TXADUtil.showBigImg(getContext(), new NativeExpressAD.NativeExpressADListener() {
             @Override
             public void onNoAD(com.qq.e.comm.util.AdError adError) {
                 LogUtil.DefalutLog("loadTXAD0-onNoAD");
@@ -266,7 +269,7 @@ public class LeisureModel {
     }
 
     public void loadBDAD(){
-        AdView adView = new AdView(getContext(),BDADID);
+        adView = new AdView(getContext(),BDADID);
         initFeiXFAD();
         adView.setListener(new AdViewListener(){
             @Override
@@ -310,45 +313,28 @@ public class LeisureModel {
 
     public void loadCSJAD(){
         LogUtil.DefalutLog("loadCSJAD");
-        TTAdNative mTTAdNative = CSJADUtil.get().createAdNative(getContext());
+         mTTAdNative = CSJADUtil.get().createAdNative(getContext());
         AdSlot adSlot = new AdSlot.Builder()
-                .setCodeId(CSJADUtil.CSJ_BANNer2ID)
+                .setCodeId(CSJADID)
                 .setSupportDeepLink(true)
                 .setImageAcceptedSize(690, 388)
                 .build();
-        mTTAdNative.loadBannerAd(adSlot, new TTAdNative.BannerAdListener() {
+        mTTAdNative.loadFeedAd(adSlot, new TTAdNative.FeedAdListener() {
             @Override
             public void onError(int i, String s) {
                 LogUtil.DefalutLog("loadCSJAD-onError");
                 getAd();
             }
+
             @Override
-            public void onBannerAdLoad(TTBannerAd ad) {
-                if (ad == null) {
+            public void onFeedAdLoad(List<TTFeedAd> ads) {
+                if (ads == null || ads.isEmpty()) {
                     getAd();
                     return;
                 }
-                View bannerView = ad.getBannerView();
-                if (bannerView == null) {
-                    getAd();
-                    return;
-                }
-                //设置轮播的时间间隔  间隔在30s到120秒之间的值，不设置默认不轮播
-                ad.setSlideIntervalTime(30 * 1000);
+                TTFeedAd mTTFeedAd = ads.get(0);
                 initFeiXFAD();
-                int height = (int)(SystemUtil.SCREEN_WIDTH / 1.8);
-                LinearLayout.LayoutParams rllp = new LinearLayout.LayoutParams(SystemUtil.SCREEN_WIDTH, height);
-                ad_layout.addView(bannerView,rllp);
-                //设置广告互动监听回调
-                ad.setShowDislikeIcon(new TTAdDislike.DislikeInteractionCallback() {
-                    @Override
-                    public void onSelected(int position, String value) {
-                        getAd();
-                    }
-                    @Override
-                    public void onCancel() {
-                    }
-                });
+                XXLRootModel.setCSJDView(getContext(),mTTFeedAd,ad_layout);
             }
         });
     }
@@ -357,6 +343,21 @@ public class LeisureModel {
         if (mTXADView != null) {
             mTXADView.destroy();
             mTXADView = null;
+        }
+        if(xx_ad_layout != null){
+            xx_ad_layout.removeAllViews();
+            xx_ad_layout = null;
+        }
+        if(ad_layout != null){
+            ad_layout.removeAllViews();
+            ad_layout = null;
+        }
+        if(mTTAdNative != null){
+            mTTAdNative = null;
+        }
+        if(adView != null){
+            adView.destroy();
+            adView = null;
         }
     }
 

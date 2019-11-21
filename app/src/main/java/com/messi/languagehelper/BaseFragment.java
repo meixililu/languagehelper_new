@@ -107,6 +107,9 @@ public class BaseFragment extends Fragment {
 				EventBus.getDefault().unregister(this);
 			}
 		}
+		if(mProgressbarListener != null){
+			mProgressbarListener = null;
+		}
 		super.onDestroyView();
 	}
 

@@ -102,7 +102,7 @@ public class RcMomentsListItemViewHolder extends RecyclerView.ViewHolder {
             TTFeedAd ad = (TTFeedAd) mAVObject.get(KeyUtil.CSJADView);
             ad_layout.setVisibility(View.VISIBLE);
             ad_layout.removeAllViews();
-            XXLModel.getCSJDView(context,ad, ad_layout);
+            XXLModel.setCSJDView(context,ad, ad_layout);
         }else {
             layout_cover.setVisibility(View.VISIBLE);
             if(TextUtils.isEmpty(mAVObject.getString(KeyUtil.MomentLike))){

@@ -12,6 +12,7 @@ import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.LogUtil;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +22,7 @@ import java.util.List;
 
 public class NativeADDataRefForZYHY extends NativeDataRef {
 
-    private Context context;
+    private WeakReference<Context> context;
     private String title;
     private String sub_title;
     private String type;
@@ -40,7 +41,7 @@ public class NativeADDataRefForZYHY extends NativeDataRef {
                                   ArrayList<String> imgs,
                                   String ad_type,
                                   String adObjectId){
-        this.context = context;
+        this.context = new WeakReference<>(context);
         this.title = title;
         this.sub_title = sub_title;
         this.type = type;
@@ -66,7 +67,7 @@ public class NativeADDataRefForZYHY extends NativeDataRef {
     }
 
     public void setContext(Context context) {
-        this.context = context;
+        this.context = new WeakReference<>(context);
     }
 
     @Override
@@ -128,9 +129,9 @@ public class NativeADDataRefForZYHY extends NativeDataRef {
     public boolean onClick(View view) {
         LogUtil.DefalutLog("NativeADDataRefForZYHY---onClick");
         if("app".equals(ad_type)){
-            ADUtil.showDownloadAppDialog(context,url);
+            ADUtil.showDownloadAppDialog(getContext(),url);
         }else {
-            ADUtil.toAdView(context,type,url);
+            ADUtil.toAdView(getContext(),type,url);
         }
         if(!TextUtils.isEmpty(adObjectId)){
             updateDownloadTime();
@@ -295,6 +296,10 @@ public class NativeADDataRefForZYHY extends NativeDataRef {
         public NativeADDataRefForZYHY build(){
             return new NativeADDataRefForZYHY(context,title,sub_title,type,url,img,imgs,ad_type,adObjectId);
         }
+    }
+
+    private Context getContext(){
+        return context.get();
     }
 
 }

@@ -18,12 +18,13 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.ViewUtil;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FullScreenVideoADModel {
 
-    public Activity mContext;
+    public WeakReference<Activity> mContext;
     public FrameLayout ad_layout;
     public TextView title;
     public TextView btn_detail;
@@ -34,7 +35,7 @@ public class FullScreenVideoADModel {
     private RcXVideoDetailListAdapter videoAdapter;
 
     public FullScreenVideoADModel(Activity mContext){
-        this.mContext = mContext;
+        this.mContext = new WeakReference<>(mContext) ;
     }
 
     public void showAd(){
@@ -57,7 +58,7 @@ public class FullScreenVideoADModel {
     }
 
     public void loadCSJADTask(){
-        TTAdNative mTTAdNative = CSJADUtil.get().createAdNative(mContext);
+        TTAdNative mTTAdNative = CSJADUtil.get().createAdNative(getContext());
         AdSlot adSlot = new AdSlot.Builder()
                 .setCodeId(CSJADUtil.CSJ_DrawXXLSP)
                 .setSupportDeepLink(true)
@@ -76,7 +77,7 @@ public class FullScreenVideoADModel {
                     return;
                 }
                 TTDrawFeedAd ad = list.get(0);
-                ad.setActivityForDownloadApp(mContext);
+                ad.setActivityForDownloadApp(getContext());
                 ad.setCanInterruptVideoPlay(true);
                 if(isShowAD){
                     if(mAVObject != null){
@@ -144,6 +145,9 @@ public class FullScreenVideoADModel {
 
     public void setVideoAdapter(RcXVideoDetailListAdapter videoAdapter) {
         this.videoAdapter = videoAdapter;
+    }
+    public Activity getContext(){
+        return mContext.get();
     }
 
 }

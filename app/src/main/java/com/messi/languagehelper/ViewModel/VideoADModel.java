@@ -29,7 +29,7 @@ public class VideoADModel {
     public ImageView ad_close_btn;
 
     public VideoADModel(Context mContext,FrameLayout xx_ad_layout){
-        this.mContext = new WeakReference<>(mContext.getApplicationContext());
+        this.mContext = new WeakReference<>(mContext);
         sp = Setings.getSharedPreferences(mContext);
         this.xx_ad_layout = xx_ad_layout;
         ad_layout = xx_ad_layout.findViewById(R.id.ad_layout);
@@ -80,7 +80,7 @@ public class VideoADModel {
                     xx_ad_layout.setVisibility(View.GONE);
                     return;
                 }
-                XXLRootModel.getCSJDView(getContext(),ads.get(0),ad_layout);
+                XXLRootModel.setCSJDView(getContext(),ads.get(0),ad_layout);
             }
         });
     }

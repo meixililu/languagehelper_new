@@ -100,7 +100,7 @@ public class RcJokeListItemViewHolder extends RecyclerView.ViewHolder {
             TTFeedAd ad = (TTFeedAd) mAVObject.get(KeyUtil.CSJADView);
             ad_layout.setVisibility(View.VISIBLE);
             ad_layout.removeAllViews();
-            XXLModel.getCSJDView(context,ad, ad_layout);
+            XXLModel.setCSJDView(context,ad, ad_layout);
         }else {
             des.setText(StringUtils.fromHtml(mAVObject.getString(AVOUtil.Joke.text)));
             if (mAVObject.getString(AVOUtil.Joke.type).equals("1")) {

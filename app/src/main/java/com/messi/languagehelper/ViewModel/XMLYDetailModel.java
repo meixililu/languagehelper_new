@@ -59,8 +59,8 @@ public class XMLYDetailModel {
     public FrameLayout ad_layout;
 
     public XMLYDetailModel(Context mContext){
-        this.mContext = new WeakReference<>(mContext.getApplicationContext());
-        sp = Setings.getSharedPreferences(mContext.getApplicationContext());
+        this.mContext = new WeakReference<>(mContext);
+        sp = Setings.getSharedPreferences(mContext);
     }
 
     public void setViews(TextView adTitle,SimpleDraweeView adImg,ImageView adClose,TextView ad_btn,
@@ -93,7 +93,7 @@ public class XMLYDetailModel {
                 if(ADUtil.GDT.equals(currentAD)){
                     loadTXAD();
                 }else if(ADUtil.BD.equals(currentAD)){
-                    loadBDAD();
+                    loadTXAD2();
                 }else if(ADUtil.CSJ.equals(currentAD)){
                     loadCSJAD();
                 }else if(ADUtil.XF.equals(currentAD)){
@@ -217,6 +217,74 @@ public class XMLYDetailModel {
             public void onADOpenOverlay(NativeExpressADView nativeExpressADView) {
                 LogUtil.DefalutLog("onADOpenOverlay");
             }
+            @Override
+            public void onADCloseOverlay(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onADCloseOverlay");
+            }
+        });
+    }
+
+    private void loadTXAD2() {
+        TXADUtil.showBigImg(getContext(), new NativeExpressAD.NativeExpressADListener() {
+            @Override
+            public void onNoAD(com.qq.e.comm.util.AdError adError) {
+                LogUtil.DefalutLog("loadTXAD0-onNoAD");
+                getAd();
+            }
+
+            @Override
+            public void onADLoaded(List<NativeExpressADView> list) {
+                LogUtil.DefalutLog("onADLoaded");
+                if(list != null && list.size() > 0){
+                    if(mTXADView != null){
+                        mTXADView.destroy();
+                    }
+                    ad_layout.setVisibility(View.VISIBLE);
+                    ad_layout.removeAllViews();
+                    mTXADView = list.get(0);
+                    closeAdAuto();
+                    ad_layout.addView(mTXADView);
+                    mTXADView.render();
+                }
+            }
+
+            @Override
+            public void onRenderFail(NativeExpressADView nativeExpressADView) {
+                nativeExpressADView.render();
+                LogUtil.DefalutLog("onRenderFail");
+            }
+
+            @Override
+            public void onRenderSuccess(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onRenderSuccess");
+            }
+
+            @Override
+            public void onADExposure(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onADExposure");
+            }
+
+            @Override
+            public void onADClicked(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onADClicked");
+            }
+
+            @Override
+            public void onADClosed(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onADClosed");
+                getAd();
+            }
+
+            @Override
+            public void onADLeftApplication(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onADLeftApplication");
+            }
+
+            @Override
+            public void onADOpenOverlay(NativeExpressADView nativeExpressADView) {
+                LogUtil.DefalutLog("onADOpenOverlay");
+            }
+
             @Override
             public void onADCloseOverlay(NativeExpressADView nativeExpressADView) {
                 LogUtil.DefalutLog("onADCloseOverlay");

@@ -102,7 +102,7 @@ public class RcSubjectListItemViewHolder extends RecyclerView.ViewHolder {
             ad_layout.setVisibility(View.VISIBLE);
             TTFeedAd ad = (TTFeedAd) mAVObject.get(KeyUtil.CSJADView);
             ad_layout.removeAllViews();
-            XXLModel.getCSJDView(context,ad, ad_layout);
+            XXLModel.setCSJDView(context,ad, ad_layout);
         }else {
             normal_layout.setVisibility(View.VISIBLE);
             list_item_img.setVisibility(View.VISIBLE);

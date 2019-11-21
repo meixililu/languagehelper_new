@@ -89,7 +89,7 @@ public class RcXmlyTagsItemViewHolder extends RecyclerView.ViewHolder {
             }else if(((AlbumForAd)mAVObject).getCsjTTFeedAd() != null){
                 ad_layout.setVisibility(View.VISIBLE);
                 ad_layout.removeAllViews();
-                XXLModel.getCSJDView(context,((AlbumForAd)mAVObject).getCsjTTFeedAd(), ad_layout);
+                XXLModel.setCSJDView(context,((AlbumForAd)mAVObject).getCsjTTFeedAd(), ad_layout);
             }else {
                 list_item_img.setVisibility(View.VISIBLE);
                 source_layout.setVisibility(View.VISIBLE);

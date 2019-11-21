@@ -43,7 +43,7 @@ public class BaseApplication extends MultiDexApplication {
     }
 
     private void init(){
-        if(mInstance == null)  mInstance = this.getApplicationContext();
+        if(mInstance == null)  mInstance = this;
         webviewSetPath(this);
         new Thread(new Runnable() {
             @Override
