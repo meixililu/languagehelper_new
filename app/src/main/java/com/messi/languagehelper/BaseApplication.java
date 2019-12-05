@@ -94,7 +94,7 @@ public class BaseApplication extends MultiDexApplication {
 
     private void initXMLY(){
         try {
-            CommonRequest.getInstanse().init(mInstance, "c779eeb1873325a487e2956a2077f2bc");
+            CommonRequest.getInstanse().init(mInstance, Setings.XMLYAppSecret);
             CommonRequest.getInstanse().setHttpConfig(null);
             CommonRequest.getInstanse().setUseHttps(true);
             LogUtil.DefalutLog("initXimalayaSDK");

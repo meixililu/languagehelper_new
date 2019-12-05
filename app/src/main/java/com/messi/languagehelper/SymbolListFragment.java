@@ -10,6 +10,7 @@ import android.os.Message;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -17,6 +18,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVFile;
@@ -45,6 +47,8 @@ public class SymbolListFragment extends BaseFragment {
 
     private static final int NUMBER_OF_COLUMNS = 3;
     private RecyclerView category_lv;
+    private Toolbar mToolbar;
+    private ProgressBar progressBar;
     private RcSymbolListAdapter mAdapter;
     private List<SymbolListDao> mSymbolListDao;
     private XFYSAD mXFYSAD;
@@ -94,6 +98,9 @@ public class SymbolListFragment extends BaseFragment {
         mXFYSAD = new XFYSAD(getActivity(), ADUtil.SecondaryPage);
         mSymbolListDao = new ArrayList<SymbolListDao>();
         category_lv = (RecyclerView) view.findViewById(R.id.listview);
+        mToolbar = (Toolbar) view.findViewById(R.id.my_awesome_toolbar);
+        progressBar = (ProgressBar) view.findViewById(R.id.progressBarCircularIndetermininate);
+        mToolbar.setTitle(getString(R.string.title_symbol));
         category_lv.setHasFixedSize(true);
         mAdapter = new RcSymbolListAdapter(mSymbolListDao, mXFYSAD);
         GridLayoutManager layoutManager = new GridLayoutManager(getContext(), NUMBER_OF_COLUMNS);

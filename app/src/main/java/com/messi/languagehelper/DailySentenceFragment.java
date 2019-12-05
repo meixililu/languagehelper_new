@@ -138,7 +138,7 @@ public class DailySentenceFragment extends BaseFragment implements OnClickListen
         query.limit(30);
         try {
             List<AVObject> sentences = query.find();
-            if (sentences != null && sentences.size() > 0) {
+            if (sentences != null && !sentences.isEmpty()) {
                 beans.clear();
                 for (AVObject bean : sentences) {
                     beans.add(changeData(bean));

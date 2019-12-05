@@ -104,7 +104,7 @@ public class AiSpokenBasicActivity extends BaseActivity implements PracticeProgr
 			query.addAscendingOrder(AVOUtil.PracticeDetail.PCCode);
 			try {
 				List<AVObject> avObjects  = query.find();
-				if(avObjects != null && avObjects.size() > 0){
+				if(avObjects != null && !avObjects.isEmpty()){
 					avObject = avObjects.get(0);
 				}
 			} catch (AVException e) {

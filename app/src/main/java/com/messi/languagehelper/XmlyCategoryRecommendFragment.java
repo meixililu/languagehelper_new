@@ -76,7 +76,7 @@ public class XmlyCategoryRecommendFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.xmly_recommend_fragment, container, false);
+        View view = inflater.inflate(R.layout.xmly_category_recommend_fragment, container, false);
         initSwipeRefresh(view);
         unbinder = ButterKnife.bind(this, view);
         this.inflater = inflater;
@@ -98,7 +98,7 @@ public class XmlyCategoryRecommendFragment extends BaseFragment {
                 onFinishLoadData();
                 contentTv.removeAllViews();
                 final List<DiscoveryRecommendAlbums> list = discoveryRecommendAlbumsList.getDiscoveryRecommendAlbumses();
-                if(list != null && list.size() > 0){
+                if(list != null && !list.isEmpty()){
                     for (int i=0;i<list.size();i++){
                         if(i < 2){
                             setList(list.get(i));

@@ -9,7 +9,6 @@ import com.messi.languagehelper.R;
 import com.messi.languagehelper.ReadingFragment;
 import com.messi.languagehelper.SubjectFragment;
 import com.messi.languagehelper.util.AVOUtil;
-import com.messi.languagehelper.util.KeyUtil;
 
 import java.util.ArrayList;
 
@@ -28,7 +27,7 @@ public class VocabularyStudyAdapter extends FragmentPagerAdapter {
         if( position == 0 ){
             return ReadingFragment.newInstance(AVOUtil.Category.word,"");
         }else if( position == 1 ){
-            return SubjectFragment.getInstance(AVOUtil.Category.word,KeyUtil.RecentWord,"");
+            return SubjectFragment.getInstance(AVOUtil.Category.word,"");
         }
         return null;
     }

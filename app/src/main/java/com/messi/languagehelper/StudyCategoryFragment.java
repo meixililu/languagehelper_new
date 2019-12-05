@@ -34,7 +34,6 @@ import com.ximalaya.ting.android.opensdk.datatrasfer.IDataCallBack;
 import com.ximalaya.ting.android.opensdk.model.album.CategoryRecommendAlbums;
 import com.ximalaya.ting.android.opensdk.model.album.CategoryRecommendAlbumsList;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -204,8 +203,7 @@ public class StudyCategoryFragment extends BaseFragment {
 
     private void initTab(CategoryRecommendAlbumsList categoryRecommendAlbumsList) {
         mTabList = categoryRecommendAlbumsList.getCategoryRecommendAlbumses();
-        Collections.reverse(mTabList);
-        if(mTabList != null && mTabList.size() > 0){
+        if(mTabList != null && !mTabList.isEmpty()){
             mAdapter.refreshByTags(XimalayaUtil.Category_english,mTabList.get(0).getTagName());
         }
         for (CategoryRecommendAlbums dra : mTabList) {
@@ -233,7 +231,6 @@ public class StudyCategoryFragment extends BaseFragment {
     }
 
     private void onTabChange(CategoryRecommendAlbums dra){
-        LogUtil.DefalutLog("StudyFragment-onTabChange()");
         mAdapter.refreshByTags(XimalayaUtil.Category_english,dra.getTagName());
     }
 
@@ -245,7 +242,7 @@ public class StudyCategoryFragment extends BaseFragment {
         LogUtil.DefalutLog("StudyFragment-getDailySentence()");
         List<EveryDaySentence> mList = BoxHelper.getEveryDaySentenceList(1);
         if(mList != null){
-            if(mList.size() > 0){
+            if(!mList.isEmpty()){
                 mEveryDaySentence = mList.get(0);
                 setSentence();
             }
@@ -281,6 +278,27 @@ public class StudyCategoryFragment extends BaseFragment {
             daily_sentence_item_img.setImageURI(Uri.parse(mEveryDaySentence.getPicture2()));
         }
     }
+
+//    private void getXMLYRecommandData(){
+//        Map<String,String> map = new HashMap<>();
+//        map.put("page",String.valueOf(1));
+//        map.put("count",String.valueOf(10));
+//        CommonRequest.baseGetRequest(Setings.XMLYApiRoot + "/operation/recommend_albums", map, new IDataCallBack<AlbumList>() {
+//            @Override
+//            public void onSuccess(@Nullable AlbumList list) {
+//                LogUtil.DefalutLog("list:"+list.getAlbums());
+//            }
+//            @Override
+//            public void onError(int i, String s) {
+//                LogUtil.DefalutLog("onError:"+s);
+//            }
+//        }, new CommonRequest.IRequestCallBack<AlbumList>() {
+//            @Override
+//            public AlbumList success(String s) throws Exception {
+//                return JSON.parseObject(s,AlbumList.class);
+//            }
+//        });
+//    }
 
     @Override
     public void onDestroyView() {

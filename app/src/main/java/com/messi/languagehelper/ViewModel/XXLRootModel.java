@@ -266,6 +266,12 @@ public abstract class XXLRootModel {
             }
             mTXADList = null;
         }
+        if(mAdapter != null){
+            mAdapter = null;
+        }
+        if(avObjects != null){
+            avObjects = null;
+        }
     }
 
     public void setXFADID(String XFADID) {

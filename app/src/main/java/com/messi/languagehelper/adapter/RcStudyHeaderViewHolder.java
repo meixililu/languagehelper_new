@@ -106,7 +106,7 @@ public class RcStudyHeaderViewHolder extends RecyclerView.ViewHolder {
     private void getDailySentence(){
         List<EveryDaySentence> mList = BoxHelper.getEveryDaySentenceList(1);
         if(mList != null){
-            if(mList.size() > 0){
+            if(!mList.isEmpty()){
                 mEveryDaySentence = mList.get(0);
             }
         }

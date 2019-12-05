@@ -53,7 +53,7 @@ public class XmlyRecommendFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         LogUtil.DefalutLog("XmlyRecommendFragment---onCreateView");
-        view = inflater.inflate(R.layout.xmly_tags_fragment, container, false);
+        view = inflater.inflate(R.layout.xmly_recommend_fragment, container, false);
         initViews();
         initSwipeRefresh(view);
         return view;

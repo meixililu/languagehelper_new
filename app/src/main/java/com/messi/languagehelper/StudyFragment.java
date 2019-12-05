@@ -1,6 +1,5 @@
 package com.messi.languagehelper;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -28,7 +27,6 @@ import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
@@ -302,19 +300,19 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
                         isNeedClear = false;
                         avObjects.clear();
                     }
+                    loadAD();
                     changeData(tempList, avObjects,false);
-                    if(xvideoItem != null){
-                        if(avObjects.size() > 9){
-                            avObjects.add(NumberUtil.randomNumberRange(3,6),xvideoItem);
-                        }else {
-                            avObjects.add(0,xvideoItem);
-                        }
-                        xvideoItem = null;
-                    }
+//                    if(xvideoItem != null){
+//                        if(avObjects.size() > 9){
+//                            avObjects.add(NumberUtil.randomNumberRange(3,6),xvideoItem);
+//                        }else {
+//                            avObjects.add(0,xvideoItem);
+//                        }
+//                        xvideoItem = null;
+//                    }
                     mAdapter.notifyDataSetChanged();
                     skip += Setings.page_size;
                     showFooterview();
-                    loadAD();
                 }
             }
         }

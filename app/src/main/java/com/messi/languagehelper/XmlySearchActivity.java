@@ -311,7 +311,7 @@ public class XmlySearchActivity extends BaseActivity {
         query.findInBackground(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
-                if (list.size() > 0) {
+                if (!list.isEmpty()) {
                     AVObject mAVObject = list.get(0);
                     int times = mAVObject.getInt(AVOUtil.XmlySearchHot.click_time);
                     mAVObject.put(AVOUtil.XmlySearchHot.click_time,times+1);

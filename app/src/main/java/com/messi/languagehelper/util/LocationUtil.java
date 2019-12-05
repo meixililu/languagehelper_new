@@ -114,13 +114,13 @@ public class LocationUtil {
             @Override
             public void run() {
                 try {
-                    String uuid = Setings.getUUID(context);
+                    String uuid = Setings.getDeviceID(context);
                     AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.Location.Location);
                     query.whereEqualTo(AVOUtil.Location.uuid, uuid);
                     int count = query.count();
                     if(count == 0){
                         AVObject testObject = new AVObject(AVOUtil.Location.Location);
-                        testObject.put(AVOUtil.Location.uuid, Setings.getUUID(context));
+                        testObject.put(AVOUtil.Location.uuid, Setings.getDeviceID(context));
                         testObject.put(AVOUtil.Location.network, SystemUtil.getNetworkType(context));
                         testObject.put(AVOUtil.Location.screen, SystemUtil.screen);
                         testObject.put(AVOUtil.Location.address, mroot.getResult().getFormatted_address()+

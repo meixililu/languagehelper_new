@@ -6,9 +6,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
@@ -27,21 +30,33 @@ import java.util.List;
 public class BoutiquesFragment extends BaseFragment {
 
 	private RecyclerView category_lv;
+	private Toolbar mToolbar;
+	private ProgressBar progressBar;
 	private RcBoutiquesAdapter mAdapter;
 	private LinearLayoutManager mLinearLayoutManager;
 	private List<AVObject> avObjects;
 	private String category;
+	private String title;
     private int skip = 0;
     private boolean loading;
     private boolean hasMore = true;
 
 	public static BoutiquesFragment getInstance(String category){
-        BoutiquesFragment fragment = new BoutiquesFragment();
-        Bundle args = new Bundle();
-        args.putString(KeyUtil.Category,category);
-        fragment.setArguments(args);
-        return fragment;
-    }
+		BoutiquesFragment fragment = new BoutiquesFragment();
+		Bundle args = new Bundle();
+		args.putString(KeyUtil.Category,category);
+		fragment.setArguments(args);
+		return fragment;
+	}
+
+	public static BoutiquesFragment getInstance(String category,String title){
+		BoutiquesFragment fragment = new BoutiquesFragment();
+		Bundle args = new Bundle();
+		args.putString(KeyUtil.Category,category);
+		args.putString(KeyUtil.ActionbarTitle,title);
+		fragment.setArguments(args);
+		return fragment;
+	}
 
 	@Override
 	public void onAttach(Context activity) {
@@ -58,6 +73,7 @@ public class BoutiquesFragment extends BaseFragment {
 		super.onCreate(savedInstanceState);
 		if(getArguments() != null){
 			category = getArguments().getString(KeyUtil.Category);
+			title = getArguments().getString(KeyUtil.ActionbarTitle);
 		}
 	}
 
@@ -79,6 +95,12 @@ public class BoutiquesFragment extends BaseFragment {
 	private void init(View view){
 		avObjects = new ArrayList<AVObject>();
 		category_lv = (RecyclerView) view.findViewById(R.id.listview);
+		mToolbar = (Toolbar) view.findViewById(R.id.my_awesome_toolbar);
+		progressBar = (ProgressBar) view.findViewById(R.id.progressBarCircularIndetermininate);
+		if(!TextUtils.isEmpty(title)){
+			mToolbar.setVisibility(View.VISIBLE);
+			mToolbar.setTitle(title);
+		}
 		mAdapter = new RcBoutiquesAdapter();
         mAdapter.setFooter(new Object());
 		mAdapter.setItems(avObjects);
@@ -172,6 +194,22 @@ public class BoutiquesFragment extends BaseFragment {
 					hideFooterview();
 				}
 			}
+		}
+	}
+
+	@Override
+	public void showProgressbar() {
+		super.showProgressbar();
+		if(mToolbar != null && mToolbar.isShown()){
+			progressBar.setVisibility(View.VISIBLE);
+		}
+	}
+
+	@Override
+	public void hideProgressbar() {
+		super.hideProgressbar();
+		if(mToolbar != null && mToolbar.isShown()){
+			progressBar.setVisibility(View.GONE);
 		}
 	}
 

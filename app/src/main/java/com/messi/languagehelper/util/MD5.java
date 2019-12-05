@@ -14,14 +14,24 @@ public class MD5 {
 
     public static String encode(String val) {
         MessageDigest md5 = null;
-
         try {
             md5 = MessageDigest.getInstance("MD5");
         } catch (NoSuchAlgorithmException var3) {
             var3.printStackTrace();
         }
-
         md5.update(val.getBytes());
+        byte[] m = md5.digest();
+        return getString(m);
+    }
+
+    public static String encode(byte[] val) {
+        MessageDigest md5 = null;
+        try {
+            md5 = MessageDigest.getInstance("MD5");
+        } catch (NoSuchAlgorithmException var3) {
+            var3.printStackTrace();
+        }
+        md5.update(val);
         byte[] m = md5.digest();
         return getString(m);
     }

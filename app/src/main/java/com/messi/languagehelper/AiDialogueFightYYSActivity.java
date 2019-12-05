@@ -209,7 +209,7 @@ public class AiDialogueFightYYSActivity extends BaseActivity implements View.OnC
     }
 
     private void setConversationContent() {
-        if (avObjects.size() > 0) {
+        if (!avObjects.isEmpty()) {
             if (!userFirst) {
                 speakerContent.setText(getEnglishContent(avObjects.get(position)));
                 if ((position + 1) < avObjects.size()) {

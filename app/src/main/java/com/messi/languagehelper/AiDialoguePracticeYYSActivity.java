@@ -265,7 +265,7 @@ public class AiDialoguePracticeYYSActivity extends BaseActivity implements View.
         query.limit(20);
         try {
             List<AVObject> avObject = query.find();
-            if (avObject != null && avObject.size() > 0) {
+            if (avObject != null && !avObject.isEmpty()) {
                 if(avObject.size() == 0){
                     hasMore = false;
                 }else if(avObject.size() > 0) {

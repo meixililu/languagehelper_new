@@ -93,7 +93,7 @@ public class XmlySearchRadioFragment extends BaseFragment implements
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.xmly_tags_fragment, container, false);
+        View view = inflater.inflate(R.layout.xmly_search_reasult_fragment, container, false);
         initSwipeRefresh(view);
         listview = (RecyclerView)view.findViewById(R.id.listview);
         initData();

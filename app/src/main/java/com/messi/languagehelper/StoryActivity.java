@@ -1,73 +1,75 @@
 package com.messi.languagehelper;
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
-import android.view.Menu;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
 
-import com.messi.languagehelper.adapter.StoryAdapter;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
-import com.messi.languagehelper.util.AVAnalytics;
+import com.messi.languagehelper.util.AVOUtil;
 
-import cn.jzvd.Jzvd;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class StoryActivity extends BaseActivity implements FragmentProgressbarListener {
 
-    private TabLayout tablayout;
-    private ViewPager viewpager;
-    private StoryAdapter pageAdapter;
+    @BindView(R.id.content)
+    FrameLayout content;
+    @BindView(R.id.navigation)
+    BottomNavigationView navigation;
+    private Fragment mCompositionFragment;
+    private Fragment mExaminationFragment;
+
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.navigation_home:
+                    hideAllFragment();
+                    getSupportFragmentManager().beginTransaction().show(mCompositionFragment).commit();;
+                    return true;
+                case R.id.navigation_examination:
+                    hideAllFragment();
+                    getSupportFragmentManager().beginTransaction().show(mExaminationFragment).commit();;
+                    return true;
+            }
+            return false;
+        }
+
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.joke_activity);
-        initViews();
+        setContentView(R.layout.activity_bottom_tabs);
+        ButterKnife.bind(this);
+        initFragment();
     }
 
-    private void initViews(){
-        getSupportActionBar().setTitle(getResources().getString(R.string.title_grammer_story));
-        tablayout = (TabLayout) findViewById(R.id.tablayout);
-        viewpager = (ViewPager) findViewById(R.id.viewpager);
-
-        pageAdapter = new StoryAdapter(getSupportFragmentManager(),this);
-        viewpager.setAdapter(pageAdapter);
-        viewpager.setOffscreenPageLimit(2);
-        tablayout.setupWithViewPager(viewpager);
+    private void initFragment(){
+        navigation.inflateMenu(R.menu.tabs_grammer_story);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        mCompositionFragment = SubjectFragment.getInstance(AVOUtil.Category.grammar,"","",getResources().getString(R.string.title_grammar));
+        mExaminationFragment = SubjectFragment.getInstance(AVOUtil.Category.story,"","desc",getResources().getString(R.string.title_english_story));
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.content, mCompositionFragment)
+                .add(R.id.content, mExaminationFragment)
+                .commit();
+        hideAllFragment();
+        getSupportFragmentManager()
+                .beginTransaction().show(mCompositionFragment).commit();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.search, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_search:
-                toMoreActivity();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void toMoreActivity() {
-        toActivity(SearchActivity.class, null);
-        AVAnalytics.onEvent(this, "story_to_search");
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (Jzvd.backPress()) {
-            return;
-        }
-        super.onBackPressed();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Jzvd.releaseAllVideos();
+    private void hideAllFragment(){
+        getSupportFragmentManager()
+                .beginTransaction()
+                .hide(mCompositionFragment)
+                .hide(mExaminationFragment)
+                .commit();
     }
 }

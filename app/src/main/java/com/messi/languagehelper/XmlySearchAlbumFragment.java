@@ -86,7 +86,7 @@ public class XmlySearchAlbumFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        view = inflater.inflate(R.layout.xmly_tags_fragment, container, false);
+        view = inflater.inflate(R.layout.xmly_search_reasult_fragment, container, false);
         initSwipeRefresh(view);
         listview = (RecyclerView)view.findViewById(R.id.listview);
         avObjects = new ArrayList<Album>();
@@ -302,7 +302,7 @@ public class XmlySearchAlbumFragment extends BaseFragment {
             @Override
             public void onADLoaded(List<NativeExpressADView> list) {
                 LogUtil.DefalutLog("onADLoaded");
-                if(list != null && list.size() > 0){
+                if(list != null && !list.isEmpty()){
                     mTXADList.add(list.get(0));
                     mADObject = new AlbumForAd();
                     mADObject.setmTXADView(list.get(0));
@@ -347,7 +347,7 @@ public class XmlySearchAlbumFragment extends BaseFragment {
     }
 
     private boolean addAD() {
-        if (mADObject != null && avObjects != null && avObjects.size() > 0) {
+        if (mADObject != null && avObjects != null && !avObjects.isEmpty()) {
             int index = avObjects.size() - Setings.page_size + NumberUtil.randomNumberRange(1, 2);
             if (index < 0) {
                 index = 0;

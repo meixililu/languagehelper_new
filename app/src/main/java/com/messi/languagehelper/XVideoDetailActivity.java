@@ -464,7 +464,7 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
     private void RequestAsyncTask() {
         LogUtil.DefalutLog("should load data");
         Date time = new Date();
-        if(mAVObjects != null && mAVObjects.size() > 0){
+        if(mAVObjects != null && !mAVObjects.isEmpty()){
             time = mAVObjects.get(mAVObjects.size()-1).getCreatedAt();
         }
         loading = true;

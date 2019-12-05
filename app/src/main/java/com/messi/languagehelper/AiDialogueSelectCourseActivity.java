@@ -214,7 +214,7 @@ public class AiDialogueSelectCourseActivity extends BaseActivity implements View
             query.skip(random);
             query.limit(1);
             List<AVObject> list = query.find();
-            if(list != null && list.size() > 0){
+            if(list != null && !list.isEmpty()){
                 mAVObject = list.get(0);
             }
         } catch (AVException e) {

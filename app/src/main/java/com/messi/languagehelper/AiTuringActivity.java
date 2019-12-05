@@ -148,9 +148,9 @@ public class AiTuringActivity extends BaseActivity {
 
     @Override
     public void onSwipeRefreshLayoutRefresh() {
-        if(beans.size() > 0){
+        if(!beans.isEmpty()){
             List<AiEntity> list = DataBaseUtil.getInstance().getAiEntityList(beans.get(0).getId(), AiUtil.Ai_Turing);
-            if (list.size() > 0) {
+            if (!list.isEmpty()) {
                 beans.addAll(0, list);
                 mAdapter.notifyDataSetChanged();
                 contentLv.scrollToPosition(list.size());
@@ -271,7 +271,7 @@ public class AiTuringActivity extends BaseActivity {
         FormBody formBody = new FormBody.Builder()
                 .add("key", Setings.AiTuringApiKey)
                 .add("info", msg)
-                .add("userid", Setings.getUUID(this))
+                .add("userid", Setings.getDeviceID(this))
                 .build();
         LanguagehelperHttpClient.post(Setings.AiTuringApi, formBody, new UICallback(this) {
             @Override

@@ -29,13 +29,13 @@ public class SpokenEnglishSubjectAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if( position == 0 ){
-            return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,KeyUtil.RecentSpoken,"0");
+            return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,"0");
         }else if( position == 1 ){
-            return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,KeyUtil.RecentSpoken,"1");
+            return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,"1");
         }else if( position == 2 ){
-            return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,KeyUtil.RecentSpoken,"2");
+            return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,"2");
         }else if( position == 3 ){
-            return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,KeyUtil.RecentSpoken,"3");
+            return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,"3");
         }else if( position == 4 ){
             return SubjectByTypeFragment.getInstance(AVOUtil.Category.business,KeyUtil.RecentBusiness);
         }

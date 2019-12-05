@@ -125,7 +125,7 @@ public class JuhaiFragment extends BaseFragment {
 
     private void setData(List<JuhaiBean> juhaiBeans){
         hideProgressbar();
-        if(juhaiBeans != null && juhaiBeans.size() > 0){
+        if(juhaiBeans != null && !juhaiBeans.isEmpty()){
             beans.clear();
             beans.addAll(juhaiBeans);
             mAdapter.notifyDataSetChanged();

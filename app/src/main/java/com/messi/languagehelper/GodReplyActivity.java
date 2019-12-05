@@ -60,7 +60,7 @@ public class GodReplyActivity extends BaseActivity {
                     if (JsonParser.isJson(responseString)) {
                         TwistaResult mRoot = JSON.parseObject(responseString, TwistaResult.class);
                         if (mRoot.getCode() == 200) {
-                            if (mRoot.getNewslist() != null && mRoot.getNewslist().size() > 0) {
+                            if (mRoot.getNewslist() != null && !mRoot.getNewslist().isEmpty()) {
                                 TwistaItem mTwistaItem = mRoot.getNewslist().get(0);
                                 LogUtil.DefalutLog(mTwistaItem.getContent());
                                 question.setText(mTwistaItem.getTitle()+"\n\n神回复：\n\n"+mTwistaItem.getContent());

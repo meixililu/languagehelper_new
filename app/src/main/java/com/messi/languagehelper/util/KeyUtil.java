@@ -23,6 +23,8 @@ public class KeyUtil {
 
 	public static final String Id = "Id";
 
+	public static final String DeviceId = "DeviceId";
+
 	public static final String PrivacyKey = "PrivacyKey";
 
 	public static final String VideoAD = "VideoAD";

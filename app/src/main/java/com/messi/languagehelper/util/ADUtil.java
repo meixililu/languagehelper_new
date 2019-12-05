@@ -243,7 +243,7 @@ public class ADUtil {
 			query.limit(20);
 			List<AVObject> list = query.find();
 			localAd.clear();
-			if(list != null && list.size() > 0){
+			if(list != null && !list.isEmpty()){
 				for (AVObject object : list){
 					localAd.add( NativeADDataRefForZYHY.build(context,object) );
 				}
@@ -254,7 +254,7 @@ public class ADUtil {
 	}
 
 	public static NativeDataRef getRandomAd(Context mActivity){
-		if(localAd != null && localAd.size() > 0){
+		if(localAd != null && !localAd.isEmpty()){
 			NativeADDataRefForZYHY mNad = (NativeADDataRefForZYHY)localAd.get( new Random().nextInt(localAd.size()) );
 			if(mNad != null){
 				mNad.setContext(mActivity);
@@ -265,7 +265,7 @@ public class ADUtil {
 	}
 
 	public static NativeDataRef getRandomAdList(Activity mActivity){
-		if(localAd != null && localAd.size() > 0){
+		if(localAd != null && !localAd.isEmpty()){
 			NativeADDataRefForZYHY local = (NativeADDataRefForZYHY)localAd.get( new Random().nextInt(localAd.size()) );
 			local.setContext(mActivity);
 			return local;

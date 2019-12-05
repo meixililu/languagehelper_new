@@ -93,7 +93,7 @@ public class AppUpdateUtil {
         }
         query.findInBackground(new FindCallback<AVObject>() {
             public void done(List<AVObject> avObjects, AVException e) {
-                if (avObjects != null && avObjects.size() > 0) {
+                if (avObjects != null && !avObjects.isEmpty()) {
                     final AVObject mAVObject = avObjects.get(0);
                     saveSetting(mActivity,mAVObject);
                 }

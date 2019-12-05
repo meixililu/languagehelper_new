@@ -133,7 +133,7 @@ public class NovelResultListActivity extends BaseActivity implements OnClickList
     }
 
     private void setData(List<CNWBean> list){
-        if(list != null && list.size() > 0){
+        if(list != null && !list.isEmpty()){
             if(mList != null && mAdapter != null){
                 mList.clear();
                 mList.addAll(list);

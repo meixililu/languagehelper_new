@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -12,6 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
@@ -39,35 +41,39 @@ import butterknife.Unbinder;
 public class SubjectFragment extends BaseFragment {
 
     private static final int NUMBER_OF_COLUMNS = 1;
+
     @BindView(R.id.studycategory_lv)
     RecyclerView category_lv;
+    @BindView(R.id.my_awesome_toolbar)
+    Toolbar mToolbar;
+    @BindView(R.id.progressBarCircularIndetermininate)
+    ProgressBar progressBar;
+
     Unbinder unbinder;
     private RcSubjectListAdapter mAdapter;
     private List<AVObject> avObjects;
     private int skip = 0;
     private GridLayoutManager layoutManager;
     private String category;
-    private String recentKey;
+    private String title;
     private String level;
     private String order;
     private XXLAVObjectModel mXXLModel;
 
 
-    public static SubjectFragment getInstance(String category, String recentKey, String level) {
+    public static SubjectFragment getInstance(String category, String level) {
         SubjectFragment fragment = new SubjectFragment();
         fragment.category = category;
-        fragment.recentKey = recentKey;
         fragment.level = level;
         return fragment;
     }
 
-    public static SubjectFragment getInstance(String category, String recentKey,
-                                              String level, String order) {
+    public static SubjectFragment getInstance(String category, String level, String order, String title) {
         SubjectFragment fragment = new SubjectFragment();
         fragment.category = category;
-        fragment.recentKey = recentKey;
         fragment.level = level;
         fragment.order = order;
+        fragment.title = title;
         return fragment;
     }
 
@@ -91,8 +97,8 @@ public class SubjectFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.symbol_list_fragment, container, false);
-        initSwipeRefresh(view);
         unbinder = ButterKnife.bind(this, view);
+        initSwipeRefresh(view);
         initViews();
         return view;
     }
@@ -100,6 +106,10 @@ public class SubjectFragment extends BaseFragment {
     private void initViews() {
         avObjects = new ArrayList<AVObject>();
         mXXLModel = new XXLAVObjectModel(getActivity());
+        if(!TextUtils.isEmpty(title)){
+            mToolbar.setVisibility(View.VISIBLE);
+            mToolbar.setTitle(title);
+        }
     }
 
     private void initAdapter(){
@@ -171,12 +181,6 @@ public class SubjectFragment extends BaseFragment {
     private void toMoreActivity() {
         toActivity(SearchActivity.class, null);
         AVAnalytics.onEvent(getContext(), "subject_to_search");
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
     }
 
     private class QueryTask extends AsyncTask<Void, Void, List<AVObject>> {
@@ -262,6 +266,22 @@ public class SubjectFragment extends BaseFragment {
         }
     }
 
+    @Override
+    public void showProgressbar() {
+        super.showProgressbar();
+        if(mToolbar != null && mToolbar.isShown()){
+            progressBar.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public void hideProgressbar() {
+        super.hideProgressbar();
+        if(mToolbar != null && mToolbar.isShown()){
+            progressBar.setVisibility(View.GONE);
+        }
+    }
+
     private void hideFooterview() {
         mAdapter.hideFooter();
     }
@@ -275,6 +295,9 @@ public class SubjectFragment extends BaseFragment {
         super.onDestroy();
         if(mXXLModel != null){
             mXXLModel.onDestroy();
+        }
+        if(unbinder != null){
+            unbinder.unbind();
         }
     }
 }

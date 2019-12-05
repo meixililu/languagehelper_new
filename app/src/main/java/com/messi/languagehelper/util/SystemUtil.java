@@ -29,7 +29,7 @@ public class SystemUtil {
 
     public static String getDev_id(Context context){
         if (TextUtils.isEmpty(dev_id)){
-            dev_id = Setings.getUUID(context);
+            dev_id = Setings.getDeviceID(context);
         }
         return dev_id;
     }

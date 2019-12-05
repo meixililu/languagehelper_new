@@ -231,7 +231,7 @@ public class WechatJXFragment extends BaseFragment implements OnClickListener {
     }
 
     private boolean addAD() {
-        if (mADObject != null && mWechatJXItem != null && mWechatJXItem.size() > 0) {
+        if (mADObject != null && mWechatJXItem != null && !mWechatJXItem.isEmpty()) {
             int index = mWechatJXItem.size() - 15 + NumberUtil.randomNumberRange(1, 2);
             if (index < 0) {
                 index = 0;

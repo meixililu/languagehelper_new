@@ -408,4 +408,14 @@ public class LanguagehelperHttpClient {
 			Setings.to = Setings.zh;
 		}
 	}
+
+	private static String getPara(TreeMap<String,String> map){
+		StringBuilder sb = new StringBuilder();
+		for (Map.Entry entry : map.entrySet()) {
+			sb = sb.append(entry.getKey()).append("=").append(entry.getValue()).append("&");
+		}
+		String para = sb.substring(0,sb.lastIndexOf("&"));
+		LogUtil.DefalutLog("pinjie para:"+para);
+		return para;
+	}
 }

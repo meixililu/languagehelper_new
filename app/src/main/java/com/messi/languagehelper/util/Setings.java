@@ -20,6 +20,7 @@ import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
 import android.view.View;
 
+import com.messi.languagehelper.BaseApplication;
 import com.messi.languagehelper.ImgShareActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.box.Reading;
@@ -70,6 +71,8 @@ public class Setings {
 	public static String EndicApi = "https://en.oxforddictionaries.com/definition/";
 
 	public static String YDOcrQuestion = "https://aidemo.youdao.com/ocr_question";
+
+	public static String XMLYApiRoot = "https://api.ximalaya.com";
 
 	/**tencent api**/
 	public static final String QQAPPID = "2109225639";
@@ -151,6 +154,7 @@ public class Setings {
 	public static boolean isMainFragmentNeedRefresh;
 	public static boolean isDictionaryFragmentNeedRefresh;
 
+	public static final String XMLYAppSecret = "c779eeb1873325a487e2956a2077f2bc";
 	public static final String TTParseClientSecretKey = "95077da2aa9ade5058a41cd5bf96d9f8";
 	public static final String TTParseClientId = "dcc76daf232aee45";
 	public static final String Email = "mzxbkj@163.com";
@@ -464,18 +468,31 @@ public class Setings {
 		context.startActivity(intent); 
 	}
 
-	public static String getUUID(Context context){
-		String uniqueId = "sdfdsafdsafasdf455121sdfas";
+	public static String getDeviceID(Context context){
+		if(context == null){
+			context = BaseApplication.mInstance;
+		}
+		SharedPreferences sp = Setings.getSharedPreferences(context);
+		String device_id = sp.getString(KeyUtil.DeviceId,"");
+		if(TextUtils.isEmpty(device_id)){
+			device_id = getTryToGetDeviceId(context);
+			if(TextUtils.isEmpty(device_id)){
+				device_id = StringUtils.getRandomString(32);
+			}
+		}
+		Setings.saveSharedPreferences(sp,KeyUtil.DeviceId,device_id);
+		LogUtil.DefalutLog("device_id:"+device_id);
+		return device_id;
+	}
+
+	public static String getTryToGetDeviceId(Context context){
+		String uniqueId = "";
 		try {
 			uniqueId = Settings.System.getString(context.getContentResolver(),Settings.Secure.ANDROID_ID);
-			if(TextUtils.isEmpty(uniqueId)){
-				uniqueId = StringUtils.getRandomString(16);
-			}
 		} catch (Exception e) {
-			uniqueId = StringUtils.getRandomString(16);
+			uniqueId = "";
 			e.printStackTrace();
 		}
-		LogUtil.DefalutLog("uuid:"+uniqueId);
 		return uniqueId;
 	}
 

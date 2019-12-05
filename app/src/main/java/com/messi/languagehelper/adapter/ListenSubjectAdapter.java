@@ -28,11 +28,11 @@ public class ListenSubjectAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if( position == 0 ){
-            return SubjectFragment.getInstance(AVOUtil.Category.listening,KeyUtil.RecentListen,"1");
+            return SubjectFragment.getInstance(AVOUtil.Category.listening,"1");
         }else if( position == 1 ){
-            return SubjectFragment.getInstance(AVOUtil.Category.listening,KeyUtil.RecentListen,"2");
+            return SubjectFragment.getInstance(AVOUtil.Category.listening,"2");
         }else if( position == 2 ){
-            return SubjectFragment.getInstance(AVOUtil.Category.listening,KeyUtil.RecentListen,"3");
+            return SubjectFragment.getInstance(AVOUtil.Category.listening,"3");
         }else if( position == 3 ){
             return SubjectByTypeFragment.getInstance(AVOUtil.Category.broadcast,KeyUtil.RecentBroadcast);
         }

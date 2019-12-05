@@ -2,6 +2,7 @@ package com.messi.languagehelper;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -12,7 +13,6 @@ import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.ViewModel.XXLForXMLYModel;
 import com.messi.languagehelper.adapter.RcXmlyTagsAdapter;
 import com.messi.languagehelper.bean.AlbumForAd;
-import com.messi.languagehelper.impl.AdapterStringListener;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
@@ -35,10 +35,12 @@ import java.util.Random;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class XimalayaTagsActiviry extends BaseActivity implements OnClickListener,AdapterStringListener {
+public class XimalayaTagsActiviry extends BaseActivity implements OnClickListener {
 
     @BindView(R.id.listview)
     RecyclerView listview;
+    @BindView(R.id.tablayout)
+    TabLayout tablayout;
     private RcXmlyTagsAdapter mAdapter;
     private List<Album> avObjects;
     private int skip = 1;
@@ -47,7 +49,6 @@ public class XimalayaTagsActiviry extends BaseActivity implements OnClickListene
     private String category;
     private String tag_name;
     private LinearLayoutManager mLinearLayoutManager;
-    private List<Tag> list;
     private XXLForXMLYModel mXXLModel;
 
     @Override
@@ -56,14 +57,15 @@ public class XimalayaTagsActiviry extends BaseActivity implements OnClickListene
         setContentView(R.layout.ximalaya_tags_activity);
         ButterKnife.bind(this);
         initData();
+        initViews();
         getTagsData();
+        QueryTask();
     }
 
     public void initData() {
         category = getIntent().getStringExtra(KeyUtil.Category);
         String title = getIntent().getStringExtra(KeyUtil.ActionbarTitle);
         getSupportActionBar().setTitle(title);
-        list = new ArrayList<Tag>();
         avObjects = new ArrayList<Album>();
         LogUtil.DefalutLog("type:" + type);
     }
@@ -71,10 +73,9 @@ public class XimalayaTagsActiviry extends BaseActivity implements OnClickListene
     private void initViews() {
         initSwipeRefresh();
         mXXLModel = new XXLForXMLYModel(this);
-        mAdapter = new RcXmlyTagsAdapter(list,this);
+        mAdapter = new RcXmlyTagsAdapter();
         mAdapter.setItems(avObjects);
         mAdapter.setFooter(new Object());
-        mAdapter.setHeader(new Object());
         mXXLModel.setAdapter(avObjects,mAdapter);
         hideFooterview();
         mLinearLayoutManager = new LinearLayoutManager(this);
@@ -161,11 +162,6 @@ public class XimalayaTagsActiviry extends BaseActivity implements OnClickListene
         LogUtil.DefalutLog("random:" + skip);
     }
 
-    private void setTagsData(){
-        initViews();
-        QueryTask();
-    }
-
     private void getTagsData() {
         showProgressbar();
         RequestTagsData();
@@ -228,22 +224,43 @@ public class XimalayaTagsActiviry extends BaseActivity implements OnClickListene
             public void onSuccess(@Nullable TagList tagList) {
                 hideProgressbar();
                 if (tagList != null) {
-                    list.clear();
-                    list.addAll(tagList.getTagList());
+                    List<Tag> tags = tagList.getTagList();
                     Tag tag = new Tag();
                     tag.setTagName("热门");
                     tag.setKind("1");
-                    list.add(0,tag);
-                    if(mAdapter != null){
-                        mAdapter.notifyDataSetChanged();
-                    }
-                    setTagsData();
+                    tags.add(0, tag);
+                    initTab(tags);
                 }
             }
             @Override
             public void onError(int i, String s) {
                 hideProgressbar();
                 LogUtil.DefalutLog("onError:" + i + "---mes:" + s);
+            }
+        });
+    }
+
+    private void initTab(List<Tag> mTabList) {
+        for (Tag dra : mTabList) {
+            if(!TextUtils.isEmpty(dra.getTagName())){
+                tablayout.addTab(tablayout.newTab().setText(dra.getTagName()));
+            }else {
+                tablayout.addTab(tablayout.newTab().setText("精选"));
+            }
+        }
+        tablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                OnItemClick(mTabList.get(tab.getPosition()).getTagName());
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                OnItemClick(mTabList.get(tab.getPosition()).getTagName());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
             }
         });
     }
@@ -268,7 +285,6 @@ public class XimalayaTagsActiviry extends BaseActivity implements OnClickListene
         }
     }
 
-    @Override
     public void OnItemClick(String item) {
         type = 1;
         skip = 1;

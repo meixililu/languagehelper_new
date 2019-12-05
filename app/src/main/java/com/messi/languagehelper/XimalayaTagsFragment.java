@@ -2,6 +2,7 @@ package com.messi.languagehelper;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,7 +16,6 @@ import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.ViewModel.XXLForXMLYModel;
 import com.messi.languagehelper.adapter.RcXmlyTagsAdapter;
 import com.messi.languagehelper.bean.AlbumForAd;
-import com.messi.languagehelper.impl.AdapterStringListener;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
@@ -35,9 +35,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-public class XimalayaTagsFragment extends BaseFragment implements OnClickListener, AdapterStringListener {
+public class XimalayaTagsFragment extends BaseFragment implements OnClickListener {
 
     private RecyclerView listview;
+    TabLayout tablayout;
     private View view;
     private RcXmlyTagsAdapter mAdapter;
     private List<Album> avObjects;
@@ -47,7 +48,6 @@ public class XimalayaTagsFragment extends BaseFragment implements OnClickListene
     private String category;
     private String tag_name;
     private LinearLayoutManager mLinearLayoutManager;
-    private List<Tag> list;
     private XXLForXMLYModel mXXLModel;
 
     public static Fragment newInstance(String category, String tag_name, FragmentProgressbarListener listener) {
@@ -82,19 +82,19 @@ public class XimalayaTagsFragment extends BaseFragment implements OnClickListene
     @Override
     public void loadDataOnStart() {
         getTagsData();
+        QueryTask();
     }
 
 
     private void initViews(View view) {
-        list = new ArrayList<Tag>();
         mXXLModel = new XXLForXMLYModel(getActivity());
         avObjects = new ArrayList<Album>();
         LogUtil.DefalutLog("type:" + type);
         listview = (RecyclerView)view.findViewById(R.id.listview);
-        mAdapter = new RcXmlyTagsAdapter(list, this);
+        tablayout = (TabLayout)view.findViewById(R.id.tablayout);
+        mAdapter = new RcXmlyTagsAdapter();
         mAdapter.setItems(avObjects);
         mAdapter.setFooter(new Object());
-        mAdapter.setHeader(new Object());
         mXXLModel.setAdapter(avObjects,mAdapter);
         hideFooterview();
         mLinearLayoutManager = new LinearLayoutManager(getContext());
@@ -242,25 +242,44 @@ public class XimalayaTagsFragment extends BaseFragment implements OnClickListene
         CommonRequest.getTags(map, new IDataCallBack<TagList>() {
             @Override
             public void onSuccess(@Nullable TagList tagList) {
-                hideProgressbar();
                 if (tagList != null) {
-                    list.clear();
-                    list.addAll(tagList.getTagList());
+                    List<Tag> tags = tagList.getTagList();
                     Tag tag = new Tag();
                     tag.setTagName("热门");
                     tag.setKind("1");
-                    list.add(0, tag);
-                    if(mAdapter != null){
-                        mAdapter.notifyDataSetChanged();
-                    }
-                    QueryTask();
+                    tags.add(0, tag);
+                    initTab(tags);
                 }
             }
 
             @Override
             public void onError(int i, String s) {
-                hideProgressbar();
                 LogUtil.DefalutLog("onError:" + i + "---mes:" + s);
+            }
+        });
+    }
+
+    private void initTab(List<Tag> mTabList) {
+        for (Tag dra : mTabList) {
+            if(!TextUtils.isEmpty(dra.getTagName())){
+                tablayout.addTab(tablayout.newTab().setText(dra.getTagName()));
+            }else {
+                tablayout.addTab(tablayout.newTab().setText("精选"));
+            }
+        }
+        tablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                OnItemClick(mTabList.get(tab.getPosition()).getTagName());
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                OnItemClick(mTabList.get(tab.getPosition()).getTagName());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
             }
         });
     }
@@ -285,7 +304,7 @@ public class XimalayaTagsFragment extends BaseFragment implements OnClickListene
         }
     }
 
-    @Override
+
     public void OnItemClick(String item) {
         type = 1;
         skip = 1;
