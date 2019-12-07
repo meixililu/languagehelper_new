@@ -7,25 +7,17 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 
 import com.google.gson.reflect.TypeToken;
-import com.iflytek.voiceads.IFLYNativeAd;
-import com.iflytek.voiceads.config.AdError;
-import com.iflytek.voiceads.config.AdKeys;
 import com.iflytek.voiceads.conn.NativeDataRef;
-import com.iflytek.voiceads.listener.IFLYNativeListener;
+import com.messi.languagehelper.ViewModel.XXLForXMLYRadioModel;
 import com.messi.languagehelper.adapter.RcXmlyRadioProvinceAdapter;
 import com.messi.languagehelper.bean.RadioForAd;
 import com.messi.languagehelper.impl.AdapterStringListener;
 import com.messi.languagehelper.service.PlayerService;
-import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.SaveData;
 import com.messi.languagehelper.util.Setings;
-import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.util.ToastUtil;
-import com.qq.e.ads.nativ.NativeExpressAD;
-import com.qq.e.ads.nativ.NativeExpressADView;
 import com.ximalaya.ting.android.opensdk.constants.DTransferConstants;
 import com.ximalaya.ting.android.opensdk.datatrasfer.CommonRequest;
 import com.ximalaya.ting.android.opensdk.datatrasfer.IDataCallBack;
@@ -61,17 +53,13 @@ public class XimalayaRadioProvinceActivity extends BaseActivity implements Adapt
     private int skip = 1;
     private int max_page = 1;
     private String province;
-    private IFLYNativeAd nativeAd;
-    private RadioForAd mADObject;
-    private boolean loading;
-    private boolean hasMore = true;
     private LinearLayoutManager mLinearLayoutManager;
-    private List<NativeExpressADView> mTXADList;
+    private XXLForXMLYRadioModel mXXLModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ximalaya_tags_activity);
+        setContentView(R.layout.ximalaya_province_activity);
         ButterKnife.bind(this);
         registerBroadcast();
         initData();
@@ -81,12 +69,13 @@ public class XimalayaRadioProvinceActivity extends BaseActivity implements Adapt
     private void initData() {
         provinceList = new ArrayList<Province>();
         radios = new ArrayList<Radio>();
-        mTXADList = new ArrayList<NativeExpressADView>();
+        mXXLModel = new XXLForXMLYRadioModel(this);
         initSwipeRefresh();
         adapter = new RcXmlyRadioProvinceAdapter(provinceList,radios,this);
         adapter.setItems(radios);
         adapter.setHeader(new Object());
         adapter.setFooter(new Object());
+        mXXLModel.setAdapter(radios,adapter);
         hideFooterview();
         XmPlayerManager.getInstance(this).addPlayerStatusListener(this);
         initSwipeRefresh();
@@ -121,7 +110,6 @@ public class XimalayaRadioProvinceActivity extends BaseActivity implements Adapt
             province = String.valueOf(provinceList.get(0).getProvinceCode());
             adapter.notifyDataSetChanged();
             getRankRadios();
-            loadAD();
         }
     }
 
@@ -154,7 +142,6 @@ public class XimalayaRadioProvinceActivity extends BaseActivity implements Adapt
         radios.clear();
         adapter.notifyDataSetChanged();
         getRankRadios();
-        loadAD();
     }
 
     public void setListOnScrollListener() {
@@ -166,9 +153,8 @@ public class XimalayaRadioProvinceActivity extends BaseActivity implements Adapt
                 int total = mLinearLayoutManager.getItemCount();
                 int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
                 isADInList(recyclerView, firstVisibleItem, visible);
-                if (!loading && hasMore) {
+                if (!mXXLModel.loading && mXXLModel.hasMore) {
                     if ((visible + firstVisibleItem) >= total) {
-                        loadAD();
                         getRankRadios();
                     }
                 }
@@ -203,7 +189,9 @@ public class XimalayaRadioProvinceActivity extends BaseActivity implements Adapt
             finishLoading();
             return;
         }
-        loading = true;
+        if(mXXLModel != null){
+            mXXLModel.loading = true;
+        }
         showProgressbar();
         Map<String, String> map = new HashMap<String, String>();
         map.put(DTransferConstants.RADIOTYPE , "2");
@@ -218,15 +206,14 @@ public class XimalayaRadioProvinceActivity extends BaseActivity implements Adapt
                     initStatus(radioList.getRadios());
                     radios.addAll(radioList.getRadios());
                     skip += 1;
-                    if (addAD()) {
-                        adapter.notifyDataSetChanged();
-                    }
+                    adapter.notifyDataSetChanged();
+                    loadAD();
                     if (skip > radioList.getTotalPage()) {
                         ToastUtil.diaplayMesShort(XimalayaRadioProvinceActivity.this, "没有了！");
                         hideFooterview();
-                        hasMore = false;
+                        mXXLModel.hasMore = false;
                     } else {
-                        hasMore = true;
+                        mXXLModel.hasMore = true;
                         showFooterview();
                     }
                     max_page = radioList.getTotalPage();
@@ -266,7 +253,7 @@ public class XimalayaRadioProvinceActivity extends BaseActivity implements Adapt
     }
 
     private void finishLoading() {
-        loading = false;
+        mXXLModel.loading = false;
         hideProgressbar();
         onSwipeRefreshLayoutFinish();
     }
@@ -275,17 +262,12 @@ public class XimalayaRadioProvinceActivity extends BaseActivity implements Adapt
     public void onSwipeRefreshLayoutRefresh() {
         radios.clear();
         random();
-        loadAD();
         getRankRadios();
     }
 
     private void loadAD(){
-        if(ADUtil.IsShowAD){
-            if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
-                loadXFAD();
-            }else {
-                loadTXAD();
-            }
+        if (mXXLModel != null) {
+            mXXLModel.showAd();
         }
     }
 
@@ -296,125 +278,6 @@ public class XimalayaRadioProvinceActivity extends BaseActivity implements Adapt
             skip = 1;
         }
         LogUtil.DefalutLog("random:" + skip);
-    }
-
-    private void loadXFAD() {
-        nativeAd = new IFLYNativeAd(this, ADUtil.XXLAD, new IFLYNativeListener() {
-            @Override
-            public void onConfirm() {
-            }
-
-            @Override
-            public void onCancel() {
-            }
-
-            @Override
-            public void onAdFailed(AdError arg0) {
-                LogUtil.DefalutLog("onAdFailed---" + arg0.getErrorCode() + "---" + arg0.getErrorDescription());
-                if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
-                    loadTXAD();
-                }else {
-                    onADFaile();
-                }
-            }
-            @Override
-            public void onAdLoaded(NativeDataRef nativeDataRef) {
-                if(nativeDataRef != null){
-                    addXFAD(nativeDataRef);
-                }
-            }
-        });
-        nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
-        nativeAd.loadAd();
-    }
-
-    private void addXFAD(NativeDataRef nad){
-        mADObject = new RadioForAd();
-        mADObject.setmNativeADDataRef(nad);
-        mADObject.setAd(true);
-        if (!loading) {
-            addAD();
-        }
-    }
-
-    private void onADFaile(){
-        if(ADUtil.isHasLocalAd()){
-            NativeDataRef nad = ADUtil.getRandomAd(this);
-            addXFAD(nad);
-        }
-    }
-
-    private void loadTXAD(){
-        TXADUtil.showXXL_ZWYT(this, new NativeExpressAD.NativeExpressADListener() {
-            @Override
-            public void onNoAD(com.qq.e.comm.util.AdError adError) {
-                LogUtil.DefalutLog(adError.getErrorMsg());
-                if(ADUtil.Advertiser.equals(ADUtil.Advertiser_TX)){
-                    loadXFAD();
-                }else {
-                    onADFaile();
-                }
-            }
-            @Override
-            public void onADLoaded(List<NativeExpressADView> list) {
-                LogUtil.DefalutLog("onADLoaded");
-                if(list != null && list.size() > 0){
-                    mTXADList.add(list.get(0));
-                    mADObject = new RadioForAd();
-                    mADObject.setmTXADView(list.get(0));
-                    if (!loading) {
-                        addAD();
-                    }
-                }
-            }
-            @Override
-            public void onRenderFail(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onRenderFail");
-            }
-            @Override
-            public void onRenderSuccess(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onRenderSuccess");
-            }
-            @Override
-            public void onADExposure(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADExposure");
-            }
-            @Override
-            public void onADClicked(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADClicked");
-            }
-            @Override
-            public void onADClosed(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADClosed");
-            }
-            @Override
-            public void onADLeftApplication(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADLeftApplication");
-            }
-            @Override
-            public void onADOpenOverlay(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADOpenOverlay");
-            }
-            @Override
-            public void onADCloseOverlay(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADCloseOverlay");
-            }
-        });
-    }
-
-    private boolean addAD() {
-        if (mADObject != null && radios != null && radios.size() > 0) {
-            int index = radios.size() - Setings.page_size + NumberUtil.randomNumberRange(1, 2);
-            if (index < 0) {
-                index = 1;
-            }
-            radios.add(index, mADObject);
-            adapter.notifyDataSetChanged();
-            mADObject = null;
-            return false;
-        } else {
-            return true;
-        }
     }
 
     @Override
@@ -448,10 +311,8 @@ public class XimalayaRadioProvinceActivity extends BaseActivity implements Adapt
         super.onDestroy();
         unregisterBroadcast();
         XmPlayerManager.getInstance(this).removePlayerStatusListener(this);
-        if(mTXADList != null){
-            for(NativeExpressADView adView : mTXADList){
-                adView.destroy();
-            }
+        if(mXXLModel != null){
+            mXXLModel.onDestroy();
         }
     }
 

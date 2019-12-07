@@ -13,7 +13,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
 import com.iflytek.voiceads.conn.NativeDataRef;
-import com.messi.languagehelper.ViewModel.XXLForXMLYModel;
+import com.messi.languagehelper.ViewModel.XXLForXMLYAlbumModel;
 import com.messi.languagehelper.adapter.RcXmlyTagsAdapter;
 import com.messi.languagehelper.bean.AlbumForAd;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
@@ -48,7 +48,7 @@ public class XimalayaTagsFragment extends BaseFragment implements OnClickListene
     private String category;
     private String tag_name;
     private LinearLayoutManager mLinearLayoutManager;
-    private XXLForXMLYModel mXXLModel;
+    private XXLForXMLYAlbumModel mXXLModel;
 
     public static Fragment newInstance(String category, String tag_name, FragmentProgressbarListener listener) {
         XimalayaTagsFragment fragment = new XimalayaTagsFragment();
@@ -87,7 +87,7 @@ public class XimalayaTagsFragment extends BaseFragment implements OnClickListene
 
 
     private void initViews(View view) {
-        mXXLModel = new XXLForXMLYModel(getActivity());
+        mXXLModel = new XXLForXMLYAlbumModel(getActivity());
         avObjects = new ArrayList<Album>();
         LogUtil.DefalutLog("type:" + type);
         listview = (RecyclerView)view.findViewById(R.id.listview);

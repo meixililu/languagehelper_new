@@ -12,14 +12,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.baidu.mobads.AdView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.R;
+import com.messi.languagehelper.ViewModel.XXLModel;
 import com.messi.languagehelper.XimalayaRadioDetailActivity;
 import com.messi.languagehelper.bean.RadioForAd;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.ScreenUtil;
 import com.messi.languagehelper.util.StringUtils;
+import com.messi.languagehelper.util.SystemUtil;
 import com.qq.e.ads.nativ.NativeExpressADView;
 import com.ximalaya.ting.android.opensdk.model.live.radio.Radio;
 
@@ -61,11 +65,13 @@ public class RcXmlyRadioHomeItemViewHolder extends RecyclerView.ViewHolder {
 
     public void render(final Radio mAVObject) {
         ad_layout.setVisibility(View.GONE);
-        source_layout.setVisibility(View.VISIBLE);
+        source_layout.setVisibility(View.GONE);
+        list_item_img.setVisibility(View.GONE);
+        sub_title.setText("");
+        type_name.setText("");
         if (mAVObject instanceof RadioForAd) {
             source_tag.setVisibility(View.GONE);
             if(((RadioForAd) mAVObject).getmTXADView() != null){
-                source_layout.setVisibility(View.GONE);
                 NativeExpressADView adView = ((RadioForAd) mAVObject).getmTXADView();
                 ad_layout.setVisibility(View.VISIBLE);
                 ad_layout.removeAllViews();
@@ -74,13 +80,30 @@ public class RcXmlyRadioHomeItemViewHolder extends RecyclerView.ViewHolder {
                 }
                 ad_layout.addView(adView);
                 adView.render();
+            }else if(((RadioForAd)mAVObject).getBdAdView() != null){
+                AdView bdAdview = ((RadioForAd)mAVObject).getBdAdView();
+                ad_layout.setVisibility(View.VISIBLE);
+                ad_layout.removeAllViews();
+                if (bdAdview.getParent() != null) {
+                    ((ViewGroup) bdAdview.getParent()).removeView(bdAdview);
+                }
+                int marginT = ScreenUtil.dip2px(context,10);
+                int marginB = ScreenUtil.dip2px(context,3);
+                int marginLR = ScreenUtil.dip2px(context,10);
+                LinearLayout.LayoutParams rllp = new LinearLayout.LayoutParams(SystemUtil.SCREEN_WIDTH-marginLR*2, ((RadioForAd)mAVObject).getBdHeight());
+                rllp.setMargins(marginLR,marginT,marginLR,marginB);
+                ad_layout.addView(bdAdview,rllp);
+            }else if(((RadioForAd)mAVObject).getCsjTTFeedAd() != null){
+                ad_layout.setVisibility(View.VISIBLE);
+                ad_layout.removeAllViews();
+                XXLModel.setCSJDView(context,((RadioForAd)mAVObject).getCsjTTFeedAd(), ad_layout);
             }else {
+                source_layout.setVisibility(View.VISIBLE);
+                list_item_img.setVisibility(View.VISIBLE);
                 final NativeDataRef mNativeADDataRef = ((RadioForAd) mAVObject).getmNativeADDataRef();
                 if (mNativeADDataRef != null) {
                     music_play_img.setVisibility(View.GONE);
                     title.setText(mNativeADDataRef.getTitle());
-                    sub_title.setText("");
-                    type_name.setText("");
                     source_name.setCompoundDrawables(null, null, null, null);
                     source_name.setText("广告");
                     list_item_img.setImageURI(mNativeADDataRef.getImgUrl());
@@ -93,14 +116,15 @@ public class RcXmlyRadioHomeItemViewHolder extends RecyclerView.ViewHolder {
                     });
                 }
             }
-
         } else {
+            list_item_img.setVisibility(View.VISIBLE);
+            source_layout.setVisibility(View.VISIBLE);
             source_tag.setVisibility(View.VISIBLE);
+            music_play_img.setVisibility(View.VISIBLE);
             title.setText(mAVObject.getRadioName());
             sub_title.setText("正在直播：" + mAVObject.getProgramName());
             source_name.setText(StringUtils.numToStrTimes(mAVObject.getRadioPlayCount()));
             type_name.setText("");
-            music_play_img.setVisibility(View.VISIBLE);
             if(mAVObject.isActivityLive()){
                 music_play_img.setImageResource(R.drawable.jz_pause_normal);
             }else {

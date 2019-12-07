@@ -5,44 +5,44 @@ import android.content.Context;
 import com.baidu.mobads.AdView;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.iflytek.voiceads.conn.NativeDataRef;
-import com.messi.languagehelper.bean.AlbumForAd;
+import com.messi.languagehelper.bean.RadioForAd;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.SystemUtil;
 import com.qq.e.ads.nativ.NativeExpressADView;
 
-public class XXLForXMLYModel extends XXLRootModel{
+public class XXLForXMLYRadioModel extends XXLRootModel{
 
-    public AlbumForAd mADObject;
+    public RadioForAd mADObject;
 
-    public XXLForXMLYModel(Context mContext) {
+    public XXLForXMLYRadioModel(Context mContext) {
         super(mContext);
     }
 
     @Override
     public void addXFAD(NativeDataRef nad) {
-        mADObject = new AlbumForAd();
+        mADObject = new RadioForAd();
         mADObject.setmNativeADDataRef(nad);
         mADObject.setAd(true);
     }
 
     @Override
     public void addTXAD(NativeExpressADView mADView) {
-        mADObject = new AlbumForAd();
+        mADObject = new RadioForAd();
         mADObject.setmTXADView(mADView);
     }
 
     @Override
     public void addBDAD(AdView adView) {
         int height = (int)(SystemUtil.SCREEN_WIDTH / 2);
-        mADObject = new AlbumForAd();
+        mADObject = new RadioForAd();
         mADObject.setBdHeight(height);
         mADObject.setBdAdView(adView);
     }
 
     @Override
     public void addCSJAD(TTFeedAd ad) {
-        mADObject = new AlbumForAd();
+        mADObject = new RadioForAd();
         mADObject.setCsjTTFeedAd(ad);
     }
 

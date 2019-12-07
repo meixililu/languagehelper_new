@@ -14,14 +14,14 @@
         android:layout_height="0dp"
         android:layout_weight="1"/>
 
-    <!--<android.support.design.widget.BottomNavigationView-->
-        <!--android:id="@+id/navigation"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="bottom"-->
-        <!--app:itemIconTint="@drawable/tab_color_selector"-->
-        <!--app:itemTextColor="@drawable/tab_color_selector"-->
-        <!--android:background="@color/bg_white"-->
-        <!--app:menu="@menu/xmly_tabs" />-->
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:itemIconTint="@drawable/tab_color_selector"
+        app:itemTextColor="@drawable/tab_color_selector"
+        android:background="@color/bg_white"
+        app:menu="@menu/xmly_tabs" />
 
 </LinearLayout>

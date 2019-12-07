@@ -1,36 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/white"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_awesome_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/theme_color"
-        android:minHeight="@dimen/actionBar" >
-        <ProgressBar style="@style/CircularProgressWhite"
+        android:layout_height="@dimen/actionBar"
+        android:background="@color/theme_color">
+
+        <ProgressBar
             android:id="@+id/progressBarCircularIndetermininate"
+            style="@style/CircularProgressWhite"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_gravity="right"
+            android:layout_gravity="right|center_vertical"
             android:visibility="gone" />
     </android.support.v7.widget.Toolbar>
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/mswiperefreshlayout"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:background="@color/contentbg" >
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/contentbg">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/listview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
-            />
+            android:background="@color/white" />
+
     </android.support.v4.widget.SwipeRefreshLayout>
 
 </LinearLayout>

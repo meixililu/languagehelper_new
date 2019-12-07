@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import com.iflytek.voiceads.conn.NativeDataRef;
-import com.messi.languagehelper.ViewModel.XXLForXMLYModel;
+import com.messi.languagehelper.ViewModel.XXLForXMLYAlbumModel;
 import com.messi.languagehelper.adapter.RcXmlyTagsAdapter;
 import com.messi.languagehelper.bean.AlbumForAd;
 import com.messi.languagehelper.util.KeyUtil;
@@ -49,7 +49,7 @@ public class XimalayaTagsActiviry extends BaseActivity implements OnClickListene
     private String category;
     private String tag_name;
     private LinearLayoutManager mLinearLayoutManager;
-    private XXLForXMLYModel mXXLModel;
+    private XXLForXMLYAlbumModel mXXLModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -72,7 +72,7 @@ public class XimalayaTagsActiviry extends BaseActivity implements OnClickListene
 
     private void initViews() {
         initSwipeRefresh();
-        mXXLModel = new XXLForXMLYModel(this);
+        mXXLModel = new XXLForXMLYAlbumModel(this);
         mAdapter = new RcXmlyTagsAdapter();
         mAdapter.setItems(avObjects);
         mAdapter.setFooter(new Object());

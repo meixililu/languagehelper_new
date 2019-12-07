@@ -67,12 +67,7 @@ public class ListenActivity extends BaseActivity implements FragmentProgressbarL
                 .category(AVOUtil.Category.listening)
                 .isPlayList(true)
                 .build();
-        jtFragment = new ReadingFragment.Builder()
-                .title(getString(R.string.title_intensive_listening))
-                .category(AVOUtil.Category.listening)
-                .source("VOA慢速英语精听网")
-                .isPlayList(true)
-                .build();
+        jtFragment = XmlySearchAlbumFragment.newInstance("听力",getString(R.string.title_study_category));
         dashboardFragment = ListenCourseFragment.getInstance();
         getSupportFragmentManager()
                 .beginTransaction()

@@ -10,23 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.gson.reflect.TypeToken;
-import com.iflytek.voiceads.IFLYNativeAd;
-import com.iflytek.voiceads.config.AdError;
-import com.iflytek.voiceads.config.AdKeys;
 import com.iflytek.voiceads.conn.NativeDataRef;
-import com.iflytek.voiceads.listener.IFLYNativeListener;
+import com.messi.languagehelper.ViewModel.XXLForXMLYRadioModel;
 import com.messi.languagehelper.adapter.RcXmlyRadioHomeAdapter;
 import com.messi.languagehelper.bean.RadioForAd;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
-import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.SaveData;
-import com.messi.languagehelper.util.TXADUtil;
-import com.qq.e.ads.nativ.NativeExpressAD;
-import com.qq.e.ads.nativ.NativeExpressADView;
 import com.ximalaya.ting.android.opensdk.constants.DTransferConstants;
 import com.ximalaya.ting.android.opensdk.datatrasfer.CommonRequest;
 import com.ximalaya.ting.android.opensdk.datatrasfer.IDataCallBack;
@@ -58,14 +50,11 @@ public class XimalayaRadioHomeFragment extends BaseFragment implements FragmentP
     @BindView(R.id.listview)
     RecyclerView listview;
 
-    private IFLYNativeAd nativeAd;
-    private RadioForAd mADObject;
     private RcXmlyRadioHomeAdapter adapter;
-    private boolean loading;
     private List<Radio> radios;
     private List<RadioCategory> radioCategories;
     private LinearLayoutManager mLinearLayoutManager;
-    private List<NativeExpressADView> mTXADList;
+    private XXLForXMLYRadioModel mXXLModel;
 
     public static Fragment newInstance(FragmentProgressbarListener listener) {
         XimalayaRadioHomeFragment fragment = new XimalayaRadioHomeFragment();
@@ -79,17 +68,17 @@ public class XimalayaRadioHomeFragment extends BaseFragment implements FragmentP
         registerBroadcast();
         radios = new ArrayList<Radio>();
         radioCategories = new ArrayList<RadioCategory>();
-        mTXADList = new ArrayList<NativeExpressADView>();
+        mXXLModel = new XXLForXMLYRadioModel(getContext());
         adapter = new RcXmlyRadioHomeAdapter(radioCategories,radios);
         adapter.setItems(radios);
         adapter.setHeader(new Object());
+        mXXLModel.setAdapter(radios,adapter);
     }
 
     @Override
     public void loadDataOnStart() {
         super.loadDataOnStart();
         radios.clear();
-        loadAD();
         getTagsData();
         getRankRadios();
     }
@@ -188,7 +177,9 @@ public class XimalayaRadioHomeFragment extends BaseFragment implements FragmentP
     }
 
     private void getRankRadios() {
-        loading = true;
+        if(mXXLModel != null){
+            mXXLModel.loading = true;
+        }
         showProgressbar();
         Map<String, String> map = new HashMap<String, String>();
         map.put(DTransferConstants.RADIO_COUNT, "30");
@@ -199,9 +190,8 @@ public class XimalayaRadioHomeFragment extends BaseFragment implements FragmentP
                 if (radioList != null && radioList.getRadios() != null) {
                     radios.addAll(radioList.getRadios());
                     initStatus();
-                    if (addAD()) {
-                        adapter.notifyDataSetChanged();
-                    }
+                    adapter.notifyDataSetChanged();
+                    loadAD();
                 }
             }
             @Override
@@ -231,7 +221,7 @@ public class XimalayaRadioHomeFragment extends BaseFragment implements FragmentP
     }
 
     private void finishLoading(){
-        loading = false;
+        mXXLModel.loading = false;
         hideProgressbar();
         onSwipeRefreshLayoutFinish();
     }
@@ -239,134 +229,13 @@ public class XimalayaRadioHomeFragment extends BaseFragment implements FragmentP
     @Override
     public void onSwipeRefreshLayoutRefresh() {
         radios.clear();
-        loadAD();
         getTagsData();
         getRankRadios();
     }
 
     private void loadAD(){
-        if(ADUtil.IsShowAD){
-            if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
-                loadXFAD();
-            }else {
-                loadTXAD();
-            }
-        }
-    }
-
-    private void loadXFAD() {
-        nativeAd = new IFLYNativeAd(getContext(), ADUtil.XXLAD, new IFLYNativeListener() {
-            @Override
-            public void onConfirm() {
-            }
-
-            @Override
-            public void onCancel() {
-            }
-
-            @Override
-            public void onAdFailed(AdError arg0) {
-                LogUtil.DefalutLog("onAdFailed---" + arg0.getErrorCode() + "---" + arg0.getErrorDescription());
-                if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
-                    loadTXAD();
-                }else {
-                    onADFaile();
-                }
-            }
-            @Override
-            public void onAdLoaded(NativeDataRef nativeDataRef) {
-                if(nativeDataRef != null){
-                    addXFAD(nativeDataRef);
-                }
-            }
-        });
-        nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
-        nativeAd.loadAd();
-    }
-
-    private void addXFAD(NativeDataRef nad){
-        mADObject = new RadioForAd();
-        mADObject.setmNativeADDataRef(nad);
-        mADObject.setAd(true);
-        if (!loading) {
-            addAD();
-        }
-    }
-
-    private void onADFaile(){
-        if(ADUtil.isHasLocalAd()){
-            NativeDataRef nad = ADUtil.getRandomAd(getActivity());
-            addXFAD(nad);
-        }
-    }
-
-    private void loadTXAD(){
-        TXADUtil.showXXL_ZWYT(getActivity(), new NativeExpressAD.NativeExpressADListener() {
-            @Override
-            public void onNoAD(com.qq.e.comm.util.AdError adError) {
-                LogUtil.DefalutLog(adError.getErrorMsg());
-                if(ADUtil.Advertiser.equals(ADUtil.Advertiser_TX)){
-                    loadXFAD();
-                }else {
-                    onADFaile();
-                }
-            }
-            @Override
-            public void onADLoaded(List<NativeExpressADView> list) {
-                LogUtil.DefalutLog("onADLoaded");
-                if(list != null && list.size() > 0){
-                    mTXADList.add(list.get(0));
-                    mADObject = new RadioForAd();
-                    mADObject.setmTXADView(list.get(0));
-                    if (!loading) {
-                        addAD();
-                    }
-                }
-            }
-            @Override
-            public void onRenderFail(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onRenderFail");
-            }
-            @Override
-            public void onRenderSuccess(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onRenderSuccess");
-            }
-            @Override
-            public void onADExposure(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADExposure");
-            }
-            @Override
-            public void onADClicked(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADClicked");
-            }
-            @Override
-            public void onADClosed(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADClosed");
-            }
-            @Override
-            public void onADLeftApplication(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADLeftApplication");
-            }
-            @Override
-            public void onADOpenOverlay(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADOpenOverlay");
-            }
-            @Override
-            public void onADCloseOverlay(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADCloseOverlay");
-            }
-        });
-    }
-
-    private boolean addAD() {
-        if (mADObject != null && radios != null && radios.size() > 0) {
-            int index = NumberUtil.randomNumberRange(1, 2);
-            radios.add(index, mADObject);
-            adapter.notifyDataSetChanged();
-            mADObject = null;
-            return false;
-        } else {
-            return true;
+        if (mXXLModel != null) {
+            mXXLModel.showAd();
         }
     }
 
@@ -390,11 +259,8 @@ public class XimalayaRadioHomeFragment extends BaseFragment implements FragmentP
     public void onDestroyView() {
         super.onDestroyView();
         XmPlayerManager.getInstance(getContext()).removePlayerStatusListener(this);
-        if(mTXADList != null){
-            for(NativeExpressADView adView : mTXADList){
-                adView.destroy();
-            }
-            mTXADList = null;
+        if(mXXLModel != null){
+            mXXLModel.onDestroy();
         }
         unregisterBroadcast();
         unbinder.unbind();

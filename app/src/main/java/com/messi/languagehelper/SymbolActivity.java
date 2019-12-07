@@ -72,10 +72,11 @@ public class SymbolActivity extends BaseActivity implements FragmentProgressbarL
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         mWordHomeFragment = BoutiquesFragment.getInstance("symbol",getString(R.string.recommend));
         shadowFragment = SymbolListFragment.getInstance();
-        practiceFragment = new ReadingFragment.Builder()
-                .title(getString(R.string.title_study_category))
-                .quest("音标")
-                .build();
+        practiceFragment = XmlySearchAlbumFragment.newInstance("音标",getString(R.string.title_study_category));
+//        practiceFragment = new ReadingFragment.Builder()
+//                .title(getString(R.string.title_study_category))
+//                .quest("音标")
+//                .build();
         dashboardFragment = SubjectFragment.getInstance(AVOUtil.Category.symbol,"","",getString(R.string.title_course));
         getSupportFragmentManager()
                 .beginTransaction()

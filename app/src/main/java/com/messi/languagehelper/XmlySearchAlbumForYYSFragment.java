@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.iflytek.voiceads.conn.NativeDataRef;
-import com.messi.languagehelper.ViewModel.XXLForXMLYModel;
+import com.messi.languagehelper.ViewModel.XXLForXMLYAlbumModel;
 import com.messi.languagehelper.adapter.RcXmlySearchAlbumAdapter;
 import com.messi.languagehelper.bean.AlbumForAd;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
@@ -43,7 +43,7 @@ public class XmlySearchAlbumForYYSFragment extends BaseFragment {
     private int type = 1;
     private String search_text;
     private LinearLayoutManager mLinearLayoutManager;
-    private XXLForXMLYModel mXXLModel;
+    private XXLForXMLYAlbumModel mXXLModel;
 
     public static Fragment newInstance(String search_text) {
         XmlySearchAlbumForYYSFragment fragment = new XmlySearchAlbumForYYSFragment();
@@ -66,8 +66,7 @@ public class XmlySearchAlbumForYYSFragment extends BaseFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Bundle mBundle = getArguments();
-        this.search_text = mBundle.getString(KeyUtil.SearchKey);
+        this.search_text = getArguments().getString(KeyUtil.SearchKey);
     }
 
     @Nullable
@@ -84,7 +83,7 @@ public class XmlySearchAlbumForYYSFragment extends BaseFragment {
     private void initViews() {
         listview = (RecyclerView)view.findViewById(R.id.listview);
         avObjects = new ArrayList<Album>();
-        mXXLModel = new XXLForXMLYModel(getActivity());
+        mXXLModel = new XXLForXMLYAlbumModel(getActivity());
         mAdapter = new RcXmlySearchAlbumAdapter();
         mAdapter.setItems(avObjects);
         mAdapter.setFooter(new Object());

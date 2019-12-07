@@ -28,7 +28,7 @@ public class XmlySearchResultAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if( position == 0 ){
-            return XmlySearchAlbumFragment.newInstance(search_text);
+            return XmlySearchAlbumFragment.newInstance(search_text,"");
         }else if( position == 1 ){
             return XmlySearchTrackFragment.newInstance(search_text);
         }else if( position == 2 ){

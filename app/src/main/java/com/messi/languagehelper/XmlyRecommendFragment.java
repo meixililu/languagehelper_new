@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.iflytek.voiceads.conn.NativeDataRef;
-import com.messi.languagehelper.ViewModel.XXLForXMLYModel;
+import com.messi.languagehelper.ViewModel.XXLForXMLYAlbumModel;
 import com.messi.languagehelper.adapter.RcXmlyRecommendAdapter;
 import com.messi.languagehelper.bean.AlbumForAd;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
@@ -42,7 +42,7 @@ public class XmlyRecommendFragment extends BaseFragment {
     private String category;
     private String tag_name;
     private LinearLayoutManager mLinearLayoutManager;
-    private XXLForXMLYModel mXXLModel;
+    private XXLForXMLYAlbumModel mXXLModel;
     private boolean isNeedClear;
 
     public static XmlyRecommendFragment newInstance() {
@@ -61,7 +61,7 @@ public class XmlyRecommendFragment extends BaseFragment {
 
     private void initViews() {
         avObjects = new ArrayList<Album>();
-        mXXLModel = new XXLForXMLYModel(getActivity());
+        mXXLModel = new XXLForXMLYAlbumModel(getActivity());
         listview = (RecyclerView)view.findViewById(R.id.listview);
         mAdapter = new RcXmlyRecommendAdapter();
         mXXLModel.setAdapter(avObjects,mAdapter);

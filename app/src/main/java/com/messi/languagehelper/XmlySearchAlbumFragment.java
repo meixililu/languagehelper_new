@@ -6,27 +6,22 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
-import com.iflytek.voiceads.IFLYNativeAd;
-import com.iflytek.voiceads.config.AdError;
-import com.iflytek.voiceads.config.AdKeys;
 import com.iflytek.voiceads.conn.NativeDataRef;
-import com.iflytek.voiceads.listener.IFLYNativeListener;
+import com.messi.languagehelper.ViewModel.XXLForXMLYAlbumModel;
 import com.messi.languagehelper.adapter.RcXmlySearchAlbumAdapter;
 import com.messi.languagehelper.bean.AlbumForAd;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
-import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Setings;
-import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.util.ToastUtil;
-import com.qq.e.ads.nativ.NativeExpressAD;
-import com.qq.e.ads.nativ.NativeExpressADView;
 import com.ximalaya.ting.android.opensdk.constants.DTransferConstants;
 import com.ximalaya.ting.android.opensdk.datatrasfer.CommonRequest;
 import com.ximalaya.ting.android.opensdk.datatrasfer.IDataCallBack;
@@ -43,6 +38,8 @@ import java.util.Random;
 public class XmlySearchAlbumFragment extends BaseFragment {
 
     private RecyclerView listview;
+    private Toolbar mToolbar;
+    private ProgressBar mProgressBar;
     private View view;
     private RcXmlySearchAlbumAdapter mAdapter;
     private List<Album> avObjects;
@@ -50,17 +47,15 @@ public class XmlySearchAlbumFragment extends BaseFragment {
     private int max_page = 1;
     private int type = 1;
     private String search_text;
-    private IFLYNativeAd nativeAd;
-    private boolean loading;
-    private boolean hasMore = true;
-    private AlbumForAd mADObject;
+    private String title;
     private LinearLayoutManager mLinearLayoutManager;
-    private List<NativeExpressADView> mTXADList;
+    private XXLForXMLYAlbumModel mXXLModel;
 
-    public static Fragment newInstance(String search_text) {
+    public static Fragment newInstance(String search_text,String title) {
         XmlySearchAlbumFragment fragment = new XmlySearchAlbumFragment();
         Bundle bundle = new Bundle();
         bundle.putString(KeyUtil.SearchKey, search_text);
+        bundle.putString(KeyUtil.ActionbarTitle, title);
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -80,6 +75,7 @@ public class XmlySearchAlbumFragment extends BaseFragment {
         super.onCreate(savedInstanceState);
         Bundle mBundle = getArguments();
         this.search_text = mBundle.getString(KeyUtil.SearchKey);
+        this.title = mBundle.getString(KeyUtil.ActionbarTitle);
     }
 
     @Nullable
@@ -88,23 +84,29 @@ public class XmlySearchAlbumFragment extends BaseFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         view = inflater.inflate(R.layout.xmly_search_reasult_fragment, container, false);
         initSwipeRefresh(view);
-        listview = (RecyclerView)view.findViewById(R.id.listview);
-        avObjects = new ArrayList<Album>();
-        mTXADList = new ArrayList<NativeExpressADView>();
         initViews();
         return view;
     }
 
     @Override
     public void loadDataOnStart() {
-        loadAD();
         QueryTask();
     }
 
     private void initViews() {
+        listview = (RecyclerView)view.findViewById(R.id.listview);
+        mToolbar = (Toolbar)view.findViewById(R.id.my_awesome_toolbar);
+        mProgressBar = (ProgressBar)view.findViewById(R.id.progressBarCircularIndetermininate);
+        if(!TextUtils.isEmpty(title)){
+            mToolbar.setVisibility(View.VISIBLE);
+            mToolbar.setTitle(title);
+        }
+        avObjects = new ArrayList<Album>();
+        mXXLModel = new XXLForXMLYAlbumModel(getActivity());
         mAdapter = new RcXmlySearchAlbumAdapter();
         mAdapter.setItems(avObjects);
         mAdapter.setFooter(new Object());
+        mXXLModel.setAdapter(avObjects,mAdapter);
         hideFooterview();
         mLinearLayoutManager = new LinearLayoutManager(getContext());
         listview.setLayoutManager(mLinearLayoutManager);
@@ -127,9 +129,8 @@ public class XmlySearchAlbumFragment extends BaseFragment {
                 int total = mLinearLayoutManager.getItemCount();
                 int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
                 isADInList(recyclerView, firstVisibleItem, visible);
-                if (!loading && hasMore) {
+                if (!mXXLModel.loading && mXXLModel.hasMore) {
                     if ((visible + firstVisibleItem) >= total) {
-                        loadAD();
                         QueryTask();
                     }
                 }
@@ -169,7 +170,6 @@ public class XmlySearchAlbumFragment extends BaseFragment {
 
     @Override
     public void onSwipeRefreshLayoutRefresh() {
-        loadAD();
         random();
         hideFooterview();
         avObjects.clear();
@@ -178,12 +178,8 @@ public class XmlySearchAlbumFragment extends BaseFragment {
     }
 
     private void loadAD(){
-        if(ADUtil.IsShowAD){
-            if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
-                loadXFAD();
-            }else {
-                loadTXAD();
-            }
+        if (mXXLModel != null) {
+            mXXLModel.showAd();
         }
     }
 
@@ -197,7 +193,9 @@ public class XmlySearchAlbumFragment extends BaseFragment {
     }
 
     private void QueryTask() {
-        loading = true;
+        if(mXXLModel != null){
+            mXXLModel.loading = true;
+        }
         showProgressbar();
         Map<String, String> map = new HashMap<String, String>();
         map.put(DTransferConstants.SEARCH_KEY, search_text);
@@ -212,15 +210,14 @@ public class XmlySearchAlbumFragment extends BaseFragment {
                 if (albumList != null && albumList.getAlbums() != null) {
                     avObjects.addAll(albumList.getAlbums());
                     skip += 1;
-                    if (addAD()) {
-                        mAdapter.notifyDataSetChanged();
-                    }
+                    mAdapter.notifyDataSetChanged();
+                    loadAD();
                     if (skip > albumList.getTotalPage()) {
                         ToastUtil.diaplayMesShort(getContext().getApplicationContext(), "没有了！");
                         hideFooterview();
-                        hasMore = false;
+                        mXXLModel.hasMore = false;
                     } else {
-                        hasMore = true;
+                        mXXLModel.hasMore = true;
                         showFooterview();
                     }
                     max_page = albumList.getTotalPage();
@@ -235,129 +232,33 @@ public class XmlySearchAlbumFragment extends BaseFragment {
         });
     }
 
+    @Override
+    public void showProgressbar() {
+        super.showProgressbar();
+        if(mToolbar != null && mToolbar.isShown()){
+            mProgressBar.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public void hideProgressbar() {
+        super.hideProgressbar();
+        if(mToolbar != null && mToolbar.isShown()){
+            mProgressBar.setVisibility(View.GONE);
+        }
+    }
+
     private void onFinishLoadData() {
-        loading = false;
+        mXXLModel.loading = false;
         hideProgressbar();
         onSwipeRefreshLayoutFinish();
     }
 
-    private void loadXFAD() {
-        nativeAd = new IFLYNativeAd(getContext(), ADUtil.XXLAD, new IFLYNativeListener() {
-            @Override
-            public void onConfirm() {
-            }
-
-            @Override
-            public void onCancel() {
-            }
-
-            @Override
-            public void onAdLoaded(NativeDataRef nativeDataRef) {
-                if(nativeDataRef != null){
-                    addXFAD(nativeDataRef);
-                }
-            }
-
-            @Override
-            public void onAdFailed(AdError arg0) {
-                LogUtil.DefalutLog("onAdFailed---" + arg0.getErrorCode() + "---" + arg0.getErrorDescription());
-                if(ADUtil.Advertiser.equals(ADUtil.Advertiser_XF)){
-                    loadTXAD();
-                }else {
-                    onADFaile();
-                }
-            }
-        });
-        nativeAd.setParameter(AdKeys.DOWNLOAD_ALERT, "true");
-        nativeAd.loadAd();
-    }
-
-    private void addXFAD(NativeDataRef nad){
-        mADObject = new AlbumForAd();
-        mADObject.setmNativeADDataRef(nad);
-        mADObject.setAd(true);
-        if (!loading) {
-            addAD();
-        }
-    }
-
-    private void onADFaile(){
-        if(ADUtil.isHasLocalAd()){
-            NativeDataRef nad = ADUtil.getRandomAd(getActivity());
-            addXFAD(nad);
-        }
-    }
-
-    private void loadTXAD(){
-        TXADUtil.showXXL_ZWYT(getActivity(), new NativeExpressAD.NativeExpressADListener() {
-            @Override
-            public void onNoAD(com.qq.e.comm.util.AdError adError) {
-                LogUtil.DefalutLog(adError.getErrorMsg());
-                if(ADUtil.Advertiser.equals(ADUtil.Advertiser_TX)){
-                    loadXFAD();
-                }else {
-                    onADFaile();
-                }
-            }
-            @Override
-            public void onADLoaded(List<NativeExpressADView> list) {
-                LogUtil.DefalutLog("onADLoaded");
-                if(list != null && !list.isEmpty()){
-                    mTXADList.add(list.get(0));
-                    mADObject = new AlbumForAd();
-                    mADObject.setmTXADView(list.get(0));
-                    if (!loading) {
-                        addAD();
-                    }
-                }
-            }
-            @Override
-            public void onRenderFail(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onRenderFail");
-            }
-            @Override
-            public void onRenderSuccess(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onRenderSuccess");
-            }
-            @Override
-            public void onADExposure(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADExposure");
-            }
-            @Override
-            public void onADClicked(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADClicked");
-            }
-            @Override
-            public void onADClosed(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADClosed");
-            }
-            @Override
-            public void onADLeftApplication(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADLeftApplication");
-            }
-            @Override
-            public void onADOpenOverlay(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADOpenOverlay");
-            }
-            @Override
-            public void onADCloseOverlay(NativeExpressADView nativeExpressADView) {
-                LogUtil.DefalutLog("onADCloseOverlay");
-            }
-        });
-    }
-
-    private boolean addAD() {
-        if (mADObject != null && avObjects != null && !avObjects.isEmpty()) {
-            int index = avObjects.size() - Setings.page_size + NumberUtil.randomNumberRange(1, 2);
-            if (index < 0) {
-                index = 0;
-            }
-            avObjects.add(index, mADObject);
-            mAdapter.notifyDataSetChanged();
-            mADObject = null;
-            return false;
-        } else {
-            return true;
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if(mXXLModel != null){
+            mXXLModel.onDestroy();
         }
     }
 
@@ -366,17 +267,6 @@ public class XmlySearchAlbumFragment extends BaseFragment {
         super.onResume();
         if (mAdapter != null) {
             mAdapter.notifyDataSetChanged();
-        }
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if(mTXADList != null){
-            for(NativeExpressADView adView : mTXADList){
-                adView.destroy();
-            }
-            mTXADList = null;
         }
     }
 }
