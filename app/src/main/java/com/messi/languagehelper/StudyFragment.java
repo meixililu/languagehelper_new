@@ -412,10 +412,10 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
         List<ReadingCategory> readingCategories = new ArrayList<ReadingCategory>();
         readingCategories.add(new ReadingCategory(context.getString(R.string.recommend), ""));
         readingCategories.add(new ReadingCategory(context.getString(R.string.title_english_video), "video"));
-        readingCategories.add(new ReadingCategory(context.getString(R.string.reading), "shuangyu_reading"));
         readingCategories.add(new ReadingCategory(context.getString(R.string.title_listening), "listening"));
-        readingCategories.add(new ReadingCategory(context.getString(R.string.title_word_study_vocabulary), "word"));
         readingCategories.add(new ReadingCategory(context.getString(R.string.spoken_english_practice), "spoken_english"));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.reading), "shuangyu_reading"));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.title_word_study_vocabulary), "word"));
         readingCategories.add(new ReadingCategory(context.getString(R.string.title_composition), "composition"));
         readingCategories.add(new ReadingCategory(context.getString(R.string.examination), "examination"));
         readingCategories.add(new ReadingCategory(context.getString(R.string.title_english_story), "story"));
