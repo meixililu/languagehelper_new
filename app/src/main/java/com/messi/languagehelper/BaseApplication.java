@@ -94,9 +94,16 @@ public class BaseApplication extends MultiDexApplication {
 
     private void initXMLY(){
         try {
-            CommonRequest.getInstanse().init(mInstance, Setings.XMLYAppSecret);
-            CommonRequest.getInstanse().setHttpConfig(null);
-            CommonRequest.getInstanse().setUseHttps(true);
+            CommonRequest mXimalaya = CommonRequest.getInstanse();
+            if(getPackageName().equals(Setings.application_id_yys)){
+                Setings.XMLYAppAppKey = "e52a1a0372ff5d7dd81a672ef18ce41a";
+                Setings.XMLYAppSecret = "4d6ccaf67441973ea5bac086fc193b2d";
+            }
+            mXimalaya.setAppkey(Setings.XMLYAppAppKey);
+            mXimalaya.setPackid(getPackageName());
+            mXimalaya.setHttpConfig(null);
+            mXimalaya.setUseHttps(true);
+            mXimalaya.init(mInstance, Setings.XMLYAppSecret);
             LogUtil.DefalutLog("initXimalayaSDK");
         } catch (Exception e) {
             e.printStackTrace();

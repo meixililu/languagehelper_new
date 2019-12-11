@@ -99,14 +99,6 @@
                 android:resource="@xml/bd_file_paths" />
         </provider>
 
-        <!-- 喜马拉雅fm -->
-        <meta-data
-            android:name="app_key"
-            android:value="a167180a30ec21d09c1c78ccacdf5d43" />
-        <meta-data
-            android:name="pack_id"
-            android:value="com.messi.languagehelper" />
-
         <!-- 讯飞广告sdk -->
         <meta-data
             android:name="IFLYTEK_APPKEY_AD"

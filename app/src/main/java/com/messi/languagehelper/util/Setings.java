@@ -154,7 +154,8 @@ public class Setings {
 	public static boolean isMainFragmentNeedRefresh;
 	public static boolean isDictionaryFragmentNeedRefresh;
 
-	public static final String XMLYAppSecret = "c779eeb1873325a487e2956a2077f2bc";
+	public static String XMLYAppAppKey = "a167180a30ec21d09c1c78ccacdf5d43";
+	public static String XMLYAppSecret = "c779eeb1873325a487e2956a2077f2bc";
 	public static final String TTParseClientSecretKey = "95077da2aa9ade5058a41cd5bf96d9f8";
 	public static final String TTParseClientId = "dcc76daf232aee45";
 	public static final String Email = "mzxbkj@163.com";
