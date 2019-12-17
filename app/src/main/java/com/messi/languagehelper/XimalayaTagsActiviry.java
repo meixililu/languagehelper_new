@@ -189,7 +189,7 @@ public class XimalayaTagsActiviry extends BaseActivity implements OnClickListene
                     mAdapter.notifyDataSetChanged();
                     loadAD();
                     if (skip > albumList.getTotalPage()) {
-                        ToastUtil.diaplayMesShort(XimalayaTagsActiviry.this, "没有了！");
+//                        ToastUtil.diaplayMesShort(XimalayaTagsActiviry.this, "没有了！");
                         hideFooterview();
                         mXXLModel.hasMore = false;
                     } else {

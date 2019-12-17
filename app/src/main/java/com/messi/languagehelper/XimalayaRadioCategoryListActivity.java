@@ -140,7 +140,7 @@ public class XimalayaRadioCategoryListActivity extends BaseActivity implements I
                     adapter.notifyDataSetChanged();
                     loadAD();
                     if (skip > radioList.getTotalPage()) {
-                        ToastUtil.diaplayMesShort(XimalayaRadioCategoryListActivity.this, "没有了！");
+//                        ToastUtil.diaplayMesShort(XimalayaRadioCategoryListActivity.this, "没有了！");
                         hideFooterview();
                         mXXLModel.hasMore = false;
                     } else {

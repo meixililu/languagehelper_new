@@ -213,7 +213,7 @@ public class XmlySearchAlbumFragment extends BaseFragment {
                     mAdapter.notifyDataSetChanged();
                     loadAD();
                     if (skip > albumList.getTotalPage()) {
-                        ToastUtil.diaplayMesShort(getContext().getApplicationContext(), "没有了！");
+//                        ToastUtil.diaplayMesShort(getContext().getApplicationContext(), "没有了！");
                         hideFooterview();
                         mXXLModel.hasMore = false;
                     } else {

@@ -157,7 +157,7 @@ public class XimalayaTrackListActivity extends BaseActivity implements OnClickLi
                     skip += 1;
                     mAdapter.notifyDataSetChanged();
                     if (skip > trackList.getTotalPage()) {
-                        ToastUtil.diaplayMesShort(XimalayaTrackListActivity.this, "没有了！");
+//                        ToastUtil.diaplayMesShort(XimalayaTrackListActivity.this, "没有了！");
                         hideFooterview();
                         hasMore = false;
                     } else {

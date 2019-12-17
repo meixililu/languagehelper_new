@@ -18,7 +18,6 @@ import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
-import com.messi.languagehelper.util.ToastUtil;
 import com.ximalaya.ting.android.opensdk.constants.DTransferConstants;
 import com.ximalaya.ting.android.opensdk.datatrasfer.CommonRequest;
 import com.ximalaya.ting.android.opensdk.datatrasfer.IDataCallBack;
@@ -192,7 +191,7 @@ public class XmlySearchAlbumForYYSFragment extends BaseFragment {
                     mAdapter.notifyDataSetChanged();
                     loadAD();
                     if (skip > albumList.getTotalPage()) {
-                        ToastUtil.diaplayMesShort(getContext(), "没有了！");
+//                        ToastUtil.diaplayMesShort(getContext(), "没有了！");
                         hideFooterview();
                         mXXLModel.hasMore = false;
                     } else {

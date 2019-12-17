@@ -209,7 +209,7 @@ public class XimalayaTagsFragment extends BaseFragment implements OnClickListene
                     mAdapter.notifyDataSetChanged();
                     loadAD();
                     if (skip > albumList.getTotalPage()) {
-                        ToastUtil.diaplayMesShort(getContext(), "没有了！");
+//                        ToastUtil.diaplayMesShort(getContext(), "没有了！");
                         hideFooterview();
                         mXXLModel.hasMore = false;
                     } else {

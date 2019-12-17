@@ -168,7 +168,7 @@ public class XimalayaRadioLocalActivity extends BaseActivity implements IXmPlaye
                     adapter.notifyDataSetChanged();
                     loadAD();
                     if (skip > radioList.getTotalPage()) {
-                        ToastUtil.diaplayMesShort(XimalayaRadioLocalActivity.this, "没有了！");
+//                        ToastUtil.diaplayMesShort(XimalayaRadioLocalActivity.this, "没有了！");
                         hideFooterview();
                         mXXLModel.hasMore = false;
                     } else {

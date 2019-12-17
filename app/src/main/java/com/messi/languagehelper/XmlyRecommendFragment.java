@@ -200,7 +200,7 @@ public class XmlyRecommendFragment extends BaseFragment {
                     avObjects.addAll(albumList.getAlbums());
                     skip += 1;
                     if (skip > albumList.getTotalPage()) {
-                        ToastUtil.diaplayMesShort(getContext(), "没有了！");
+//                        ToastUtil.diaplayMesShort(getContext(), "没有了！");
                         hideFooterview();
                         if(mXXLModel != null){
                             mXXLModel.hasMore = false;

@@ -162,7 +162,7 @@ public class XmlySearchTrackFragment extends BaseFragment implements OnClickList
                     skip += 1;
                     mAdapter.notifyDataSetChanged();
                     if (skip > trackList.getTotalPage()) {
-                        ToastUtil.diaplayMesShort(getContext(), "没有了！");
+//                        ToastUtil.diaplayMesShort(getContext(), "没有了！");
                         hideFooterview();
                         hasMore = false;
                     } else {

@@ -196,7 +196,7 @@ public class XmlyAlbumActivity extends BaseActivity implements OnClickListener{
 						mAdapter.notifyDataSetChanged();
 					}
 					if(skip > albumList.getTotalPage()){
-						ToastUtil.diaplayMesShort(XmlyAlbumActivity.this, "没有了！");
+//						ToastUtil.diaplayMesShort(XmlyAlbumActivity.this, "没有了！");
 						hideFooterview();
 						hasMore = false;
 					}else {

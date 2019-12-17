@@ -178,7 +178,7 @@ public class XmlySearchRadioFragment extends BaseFragment implements
                     adapter.notifyDataSetChanged();
                     loadAD();
                     if (skip > radioList.getTotalPage()) {
-                        ToastUtil.diaplayMesShort(getContext(), "没有了！");
+//                        ToastUtil.diaplayMesShort(getContext(), "没有了！");
                         hideFooterview();
                         mXXLModel.hasMore = false;
                     } else {

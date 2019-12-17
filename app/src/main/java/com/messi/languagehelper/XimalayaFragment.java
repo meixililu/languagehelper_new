@@ -195,7 +195,7 @@ public class XimalayaFragment extends BaseFragment implements OnClickListener{
 						mAdapter.notifyDataSetChanged();
 					}
 					if(skip > albumList.getTotalPage()){
-						ToastUtil.diaplayMesShort(getContext(), "没有了！");
+//						ToastUtil.diaplayMesShort(getContext(), "没有了！");
 						hideFooterview();
 						hasMore = false;
 					}else {

@@ -209,7 +209,7 @@ public class XimalayaRadioProvinceActivity extends BaseActivity implements Adapt
                     adapter.notifyDataSetChanged();
                     loadAD();
                     if (skip > radioList.getTotalPage()) {
-                        ToastUtil.diaplayMesShort(XimalayaRadioProvinceActivity.this, "没有了！");
+//                        ToastUtil.diaplayMesShort(XimalayaRadioProvinceActivity.this, "没有了！");
                         hideFooterview();
                         mXXLModel.hasMore = false;
                     } else {
