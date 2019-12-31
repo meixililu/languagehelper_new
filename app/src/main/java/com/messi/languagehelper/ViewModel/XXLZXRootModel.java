@@ -32,6 +32,7 @@ import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.BDADUtil;
 import com.messi.languagehelper.util.CSJADUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TXADUtil;
 import com.qq.e.ads.nativ.NativeExpressAD;
@@ -144,7 +145,7 @@ public abstract class XXLZXRootModel {
             @Override
             public void onADLoaded(List<NativeExpressADView> list) {
                 LogUtil.DefalutLog("TX-onADLoaded");
-                if(list != null && list.size() > 0){
+                if(NullUtil.isNotEmpty(list) && NullUtil.isNotEmpty(mTXADList)){
                     mTXADList.add(list.get(0));
                     addTXAD(list.get(0));
                     addAD();

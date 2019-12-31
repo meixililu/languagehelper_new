@@ -27,6 +27,7 @@ import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.BDADUtil;
 import com.messi.languagehelper.util.CSJADUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.TXADUtil;
@@ -205,7 +206,7 @@ public class LeisureModel {
             @Override
             public void onADLoaded(List<NativeExpressADView> list) {
                 LogUtil.DefalutLog("onADLoaded");
-                if (list != null && list.size() > 0) {
+                if (NullUtil.isNotEmpty(list)) {
                     if (mTXADView != null) {
                         mTXADView.destroy();
                     }

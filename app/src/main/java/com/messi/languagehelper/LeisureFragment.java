@@ -84,7 +84,11 @@ public class LeisureFragment extends BaseFragment {
         } else if (getContext().getPackageName().equals(Setings.application_id_ywcd) ) {
             view = inflater.inflate(R.layout.leisure_for_ywcd_fragment, null);
         } else {
-            view = inflater.inflate(R.layout.leisure_for_yys_fragment, null);
+            if("baidu".equals(Setings.appChannel)){
+                view = inflater.inflate(R.layout.leisure_for_ywcd_fragment, null);
+            }else {
+                view = inflater.inflate(R.layout.leisure_for_yys_fragment, null);
+            }
         }
         ButterKnife.bind(this, view);
         sp = Setings.getSharedPreferences(getContext());

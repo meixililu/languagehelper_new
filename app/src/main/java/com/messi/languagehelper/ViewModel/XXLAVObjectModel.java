@@ -7,6 +7,7 @@ import com.baidu.mobads.AdView;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.SystemUtil;
@@ -49,7 +50,7 @@ public class XXLAVObjectModel extends XXLRootModel{
 
     @Override
     public boolean addAD() {
-        if (mADObject != null && avObjects != null && avObjects.size() > 0) {
+        if (mADObject != null && NullUtil.isNotEmpty(avObjects) && mAdapter != null) {
             int index = avObjects.size() - Setings.page_size + NumberUtil.randomNumberRange(1, 2);
             if (index < 0) {
                 index = 1;

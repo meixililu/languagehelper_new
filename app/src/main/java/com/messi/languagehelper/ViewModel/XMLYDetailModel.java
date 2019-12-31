@@ -26,6 +26,7 @@ import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.BDADUtil;
 import com.messi.languagehelper.util.CSJADUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.ScreenUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.SystemUtil;
@@ -177,7 +178,7 @@ public class XMLYDetailModel {
             @Override
             public void onADLoaded(List<NativeExpressADView> list) {
                 LogUtil.DefalutLog("onADLoaded");
-                if(list != null && list.size() > 0){
+                if(NullUtil.isNotEmpty(list)){
                     if(mTXADView != null){
                         mTXADView.destroy();
                     }
@@ -235,7 +236,7 @@ public class XMLYDetailModel {
             @Override
             public void onADLoaded(List<NativeExpressADView> list) {
                 LogUtil.DefalutLog("onADLoaded");
-                if(list != null && list.size() > 0){
+                if(NullUtil.isNotEmpty(list)){
                     if(mTXADView != null){
                         mTXADView.destroy();
                     }

@@ -111,7 +111,7 @@ public class AdEnglishActivity extends BaseActivity {
         @Override
         protected List<AVObject> doInBackground(Void... params) {
             AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.AdList.AdList);
-//            if (!TextUtils.isEmpty(code)) {
+//            if (!TextUtils.isNotEmpty(code)) {
 //                query.whereEqualTo(AVOUtil.SubjectList.code, code);
 //            }
             query.whereEqualTo(AVOUtil.AdList.subject, "english");

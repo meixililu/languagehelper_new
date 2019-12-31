@@ -364,7 +364,7 @@ public class JsonParser {
 				bean.setFenxiang_img(jObject.getString("fenxiang_img")); 
 			}
 //			if(jObject.has("tags")){
-//				if(!TextUtils.isEmpty(jObject.getString("tags"))){
+//				if(!TextUtils.isNotEmpty(jObject.getString("tags"))){
 //					tags = jObject.getJSONArray("tags");
 //				}
 //			}

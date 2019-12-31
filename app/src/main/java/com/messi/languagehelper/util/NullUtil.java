@@ -4,7 +4,7 @@ import java.util.List;
 
 public class NullUtil {
 
-    public static boolean isEmpty(List list){
+    public static boolean isNotEmpty(List list){
         return list != null && !list.isEmpty();
     }
 }

@@ -9,6 +9,7 @@ import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.box.CNWBean;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Setings;
 import com.qq.e.ads.nativ.NativeExpressADView;
@@ -83,7 +84,7 @@ public class XXLCNWBeanModel extends XXLRootModel{
 
     @Override
     public boolean addAD() {
-        if (mADObject != null && avObjects != null && avObjects.size() > 0) {
+        if (mADObject != null && NullUtil.isNotEmpty(avObjects) && mAdapter != null) {
             int index = avObjects.size() - Setings.page_size + NumberUtil.randomNumberRange(1, 2);
             if (index < 0) {
                 index = 0;
