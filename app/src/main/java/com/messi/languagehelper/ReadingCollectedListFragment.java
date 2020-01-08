@@ -12,7 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.messi.languagehelper.adapter.RcReadingCollectedListAdapter;
+import com.messi.languagehelper.adapter.RcStudyListAdapter;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.service.PlayerService;
@@ -27,7 +27,7 @@ import static android.app.Activity.RESULT_OK;
 public class ReadingCollectedListFragment extends BaseFragment {
 
 	private RecyclerView listview;
-	private RcReadingCollectedListAdapter mAdapter;
+	private RcStudyListAdapter mAdapter;
 	private List<Reading> avObjects;
 	private int page = 0;
 	private int pageSize = 30;
@@ -59,7 +59,7 @@ public class ReadingCollectedListFragment extends BaseFragment {
 		listview = (RecyclerView) view.findViewById(R.id.listview);
 		avObjects = new ArrayList<Reading>();
 		initSwipeRefresh(view);
-		mAdapter = new RcReadingCollectedListAdapter(getContext(),avObjects);
+		mAdapter = new RcStudyListAdapter(avObjects);
 		mAdapter.setItems(avObjects);
 		mAdapter.setFooter(new Object());
 		hideFooterview();

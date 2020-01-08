@@ -1,58 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@color/white"
-    android:orientation="vertical" >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical"
+    android:weightSum="10">
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/mswiperefreshlayout"
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent">
-    <ScrollView
+    <TextView
+        android:id="@+id/question"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="@color/app_background"
-        android:fillViewport="true"
-        android:scrollbars="none" >
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:background="@color/black"
+        android:paddingLeft="@dimen/padding_10"
+        android:paddingTop="20dp"
+        android:paddingRight="@dimen/padding_10"
+        android:textColor="@color/white"
+        android:textSize="@dimen/biggerx" />
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:weightSum="8"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/question"
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:textColor="@color/white"
-                android:paddingTop="20dp"
-                android:paddingRight="@dimen/padding_10"
-                android:paddingLeft="@dimen/padding_10"
-                android:background="@color/theme_color"
-                android:layout_weight="5"
-                android:textSize="@dimen/bigest" />
-
-            <FrameLayout
-                android:id="@+id/answer_cover"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="3"
-                android:foreground="@drawable/framelayout_selector"
-                >
-                <TextView
-                    android:id="@+id/answer"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="@dimen/padding_10"
-                    android:textColor="@color/text_grey"
-                    android:textSize="@dimen/bigger" />
-
-            </FrameLayout>
-
-
-        </LinearLayout>
-    </ScrollView>
-    </android.support.v4.widget.SwipeRefreshLayout>
+    <TextView
+        android:id="@+id/answer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:background="@color/bg_white"
+        android:padding="@dimen/padding_10"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/bigger" />
 </LinearLayout>

@@ -136,8 +136,8 @@
     <orderEntry type="library" name="Gradle: org.greenrobot:greendao:3.2.2@jar" level="project" />
     <orderEntry type="library" name="Gradle: org.greenrobot:greendao-api:3.2.2@jar" level="project" />
     <orderEntry type="library" name="Gradle: org.greenrobot:eventbus:3.1.1@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.umeng.umsdk:analytics:8.1.3@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.umeng.umsdk:common:2.1.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.umeng.umsdk:analytics:8.1.4@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.umeng.umsdk:common:2.1.8@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.hotchemi:permissionsdispatcher-annotation:3.3.2@jar" level="project" />
     <orderEntry type="library" name="Gradle: __local_aars__:/Users/lilu/AndroidStudioProjects/languagehelper_new/app/libs/Baidu_MobAds_SDK-release.aar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: __local_aars__:/Users/lilu/AndroidStudioProjects/languagehelper_new/app/libs/open_ad_sdk.aar:unspecified@jar" level="project" />
@@ -189,7 +189,7 @@
     <orderEntry type="library" name="Gradle: com.google.android:flexbox:1.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.exoplayer:exoplayer-core:2.9.6@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.exoplayer:exoplayer-ui:2.9.6@aar" level="project" />
-    <orderEntry type="library" name="Gradle: cn.jzvd:jiaozivideoplayer:6.4.3@aar" level="project" />
+    <orderEntry type="library" name="Gradle: cn.jzvd:jiaozivideoplayer:7.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.facebook.fresco:fresco:1.13.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.facebook.fresco:fbcore:1.13.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.facebook.fresco:drawee:1.13.0@aar" level="project" />

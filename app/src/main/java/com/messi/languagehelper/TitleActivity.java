@@ -40,6 +40,8 @@ public class TitleActivity extends BaseActivity {
                     .beginTransaction()
                     .add(R.id.contont_layout, fragment)
                     .commit();
+        }else {
+            finish();
         }
     }
 

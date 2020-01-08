@@ -32,7 +32,6 @@ import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.BDADUtil;
 import com.messi.languagehelper.util.CSJADUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TXADUtil;
 import com.qq.e.ads.nativ.NativeExpressAD;
@@ -144,8 +143,8 @@ public abstract class XXLZXRootModel {
             }
             @Override
             public void onADLoaded(List<NativeExpressADView> list) {
-                LogUtil.DefalutLog("TX-onADLoaded");
-                if(NullUtil.isNotEmpty(list) && NullUtil.isNotEmpty(mTXADList)){
+                LogUtil.DefalutLog("TX-onADLoaded:"+list.size());
+                if(list != null && list.size() > 0 && mTXADList != null){
                     mTXADList.add(list.get(0));
                     addTXAD(list.get(0));
                     addAD();
@@ -241,7 +240,7 @@ public abstract class XXLZXRootModel {
         mTTAdNative.loadFeedAd(adSlot, new TTAdNative.FeedAdListener() {
             @Override
             public void onError(int i, String s) {
-                LogUtil.DefalutLog("loadCSJAD-onError");
+                LogUtil.DefalutLog("loadCSJAD-onError:"+s);
                 onLoadAdFaile();
             }
 

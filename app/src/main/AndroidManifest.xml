@@ -371,9 +371,6 @@
             android:name=".WordStudyPlanActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".GodReplyActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".WordStudySummaryDetailActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -389,19 +386,10 @@
             android:name=".WordStudyPlanDetailActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".YiZhanDaoDiActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".BrainTwistsActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".ReadingAndNewsActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ChPybsSListActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".InvestListActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".LearnCodingActivity"
@@ -506,7 +494,7 @@
             android:name=".WebViewForNovelActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".DailySentenceAndEssayActivity"
+            android:name=".EmptyActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".AboutActivity"

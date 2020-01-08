@@ -131,7 +131,15 @@ public class BaseActivity extends AppCompatActivity {
                 }
             }
             String title = getIntent().getStringExtra(KeyUtil.ActionbarTitle);
-            setActionBarTitle(title);
+            if(!TextUtils.isEmpty(title)){
+                setActionBarTitle(title);
+            }else {
+                Bundle bundle = getIntent().getBundleExtra(KeyUtil.BundleKey);
+                if(bundle != null){
+                    title = bundle.getString(KeyUtil.ActionbarTitle);
+                    setActionBarTitle(title);
+                }
+            }
         }
     }
 

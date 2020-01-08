@@ -33,7 +33,7 @@
             android:textSize="@dimen/bigger"
             android:textColor="@color/text_dark"
             android:gravity="left"
-            android:text="@string/leisuer_two_content"
+            android:text=""
             />
     </android.support.v4.widget.NestedScrollView>
 

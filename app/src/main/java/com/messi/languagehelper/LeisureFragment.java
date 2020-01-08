@@ -12,6 +12,15 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.messi.languagehelper.ViewModel.LeisureModel;
+import com.messi.languagehelper.faxian.CharadesFragment;
+import com.messi.languagehelper.faxian.ConjectureFragment;
+import com.messi.languagehelper.faxian.EssayFragment;
+import com.messi.languagehelper.faxian.GodReplyFragment;
+import com.messi.languagehelper.faxian.HistoryFragment;
+import com.messi.languagehelper.faxian.ProverbFragment;
+import com.messi.languagehelper.faxian.RiddleFragment;
+import com.messi.languagehelper.faxian.TwistsFragment;
+import com.messi.languagehelper.faxian.YZDDFragment;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.KeyUtil;
@@ -50,8 +59,8 @@ public class LeisureFragment extends BaseFragment {
     FrameLayout sougou_layout;
     @BindView(R.id.shenhuifu_layout)
     FrameLayout shenhuifuLayout;
-    @BindView(R.id.wyyx_layout)
-    FrameLayout wyyx_layout;
+    @BindView(R.id.layout_riddle)
+    FrameLayout layout_riddle;
     @BindView(R.id.search_layout)
     FrameLayout search_layout;
     @BindView(R.id.ad_img)
@@ -62,6 +71,14 @@ public class LeisureFragment extends BaseFragment {
     FrameLayout caricatureLayout;
     @BindView(R.id.jd_layout)
     FrameLayout jdLayout;
+    @BindView(R.id.english_essay_layout)
+    FrameLayout english_essay_layout;
+    @BindView(R.id.layout_whyy)
+    FrameLayout layout_whyy;
+    @BindView(R.id.layout_conjecture)
+    FrameLayout layout_conjecture;
+    @BindView(R.id.layout_history)
+    FrameLayout layout_history;
     @BindView(R.id.root_view)
     NestedScrollView rootView;
 
@@ -113,8 +130,8 @@ public class LeisureFragment extends BaseFragment {
 
     @OnClick({R.id.cailing_layout, R.id.baidu_layout, R.id.sougou_layout, R.id.yuedu_layout,
             R.id.twists_layout, R.id.game_layout, R.id.shenhuifu_layout, R.id.news_layout, R.id.app_layout,
-            R.id.invest_layout, R.id.wyyx_layout, R.id.search_layout,R.id.novel_layout, R.id.caricature_layout,
-            R.id.jd_layout})
+            R.id.invest_layout, R.id.layout_riddle, R.id.search_layout,R.id.novel_layout, R.id.caricature_layout,
+            R.id.jd_layout,R.id.english_essay_layout,R.id.layout_whyy,R.id.layout_conjecture,R.id.layout_history})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.cailing_layout:
@@ -131,14 +148,13 @@ public class LeisureFragment extends BaseFragment {
                 AVAnalytics.onEvent(getActivity(), "leisure_pg_to_xvideo");
                 break;
             case R.id.twists_layout:
-                toActivity(BrainTwistsActivity.class, null);
-                AVAnalytics.onEvent(getActivity(), "leisure_pg_to_braintwists");
+                toTwists();
                 break;
             case R.id.game_layout:
-                toGameCenterActivity();
+                toYZDD();
                 break;
             case R.id.shenhuifu_layout:
-                toGodReplyActivity();
+                toGodReply();
                 break;
             case R.id.news_layout:
                 toEnglishRecommendWebsite();
@@ -147,10 +163,10 @@ public class LeisureFragment extends BaseFragment {
                 toChineseDictionaryActivity();
                 break;
             case R.id.invest_layout:
-                toInvestorListActivity();
+                toCharades();
                 break;
-            case R.id.wyyx_layout:
-                toKSearch();
+            case R.id.layout_riddle:
+                toRiddle();
                 break;
             case R.id.search_layout:
                 toUCSearch();
@@ -164,7 +180,82 @@ public class LeisureFragment extends BaseFragment {
             case R.id.jd_layout:
                 toDVideo();
                 break;
+            case R.id.english_essay_layout:
+                toEssay();
+                break;
+            case R.id.layout_conjecture:
+                toConjecture();
+                break;
+            case R.id.layout_history:
+                toHistory();
+                break;
+            case R.id.layout_whyy:
+                toProverb();
+                break;
         }
+    }
+
+    private void toHistory(){
+        Bundle bundle = new Bundle();
+        bundle.putString(KeyUtil.StyleKey,"black");
+        bundle.putSerializable(KeyUtil.FragmentName, HistoryFragment.class);
+        bundle.putString(KeyUtil.ActionbarTitle,getResources().getString(R.string.leisure_history));
+        toActivity(EmptyActivity.class,bundle);
+//        AVAnalytics.onEvent(getActivity(), "leisure_pg_to_god_reply");
+    }
+
+    private void toProverb(){
+        Bundle bundle = new Bundle();
+        bundle.putString(KeyUtil.StyleKey,"black");
+        bundle.putSerializable(KeyUtil.FragmentName, ProverbFragment.class);
+        bundle.putString(KeyUtil.ActionbarTitle,getResources().getString(R.string.leisure_whyy));
+        toActivity(EmptyActivity.class,bundle);
+//        AVAnalytics.onEvent(getActivity(), "leisure_pg_to_god_reply");
+    }
+
+    private void toRiddle(){
+        Bundle bundle = new Bundle();
+        bundle.putString(KeyUtil.StyleKey,"black");
+        bundle.putSerializable(KeyUtil.FragmentName, RiddleFragment.class);
+        bundle.putString(KeyUtil.ActionbarTitle,getResources().getString(R.string.leisure_riddle));
+        toActivity(EmptyActivity.class,bundle);
+//        AVAnalytics.onEvent(getActivity(), "leisure_pg_to_god_reply");
+    }
+
+    private void toConjecture(){
+        Bundle bundle = new Bundle();
+        bundle.putString(KeyUtil.StyleKey,"black");
+        bundle.putSerializable(KeyUtil.FragmentName, ConjectureFragment.class);
+        bundle.putString(KeyUtil.ActionbarTitle,getResources().getString(R.string.leisure_conjecture));
+        toActivity(EmptyActivity.class,bundle);
+//        AVAnalytics.onEvent(getActivity(), "leisure_pg_to_god_reply");
+    }
+
+
+    private void toTwists(){
+        Bundle bundle = new Bundle();
+        bundle.putString(KeyUtil.StyleKey,"black");
+        bundle.putSerializable(KeyUtil.FragmentName, TwistsFragment.class);
+        bundle.putString(KeyUtil.ActionbarTitle,getResources().getString(R.string.leisuer_twists));
+        toActivity(EmptyActivity.class,bundle);
+//        AVAnalytics.onEvent(getActivity(), "leisure_pg_to_god_reply");
+    }
+
+    private void toGodReply(){
+        Bundle bundle = new Bundle();
+        bundle.putString(KeyUtil.StyleKey,"black");
+        bundle.putSerializable(KeyUtil.FragmentName, GodReplyFragment.class);
+        bundle.putString(KeyUtil.ActionbarTitle,getResources().getString(R.string.leisuer_shenhuifu));
+        toActivity(EmptyActivity.class,bundle);
+//        AVAnalytics.onEvent(getActivity(), "leisure_pg_to_god_reply");
+    }
+
+    private void toEssay(){
+        Bundle bundle = new Bundle();
+        bundle.putString(KeyUtil.StyleKey,"black");
+        bundle.putSerializable(KeyUtil.FragmentName, EssayFragment.class);
+        bundle.putString(KeyUtil.ActionbarTitle,getResources().getString(R.string.english_essay));
+        toActivity(EmptyActivity.class,bundle);
     }
 
     private void toEnglishRecommendWebsite() {
@@ -192,19 +283,22 @@ public class LeisureFragment extends BaseFragment {
         AVAnalytics.onEvent(getActivity(), "leisure_pg_to_ksearch");
     }
 
-    private void toGodReplyActivity() {
-        toActivity(GodReplyActivity.class, null);
-        AVAnalytics.onEvent(getActivity(), "leisure_pg_to_god_reply");
+    private void toCharades() {
+        Bundle bundle = new Bundle();
+        bundle.putString(KeyUtil.StyleKey,"black");
+        bundle.putSerializable(KeyUtil.FragmentName, CharadesFragment.class);
+        bundle.putString(KeyUtil.ActionbarTitle,getResources().getString(R.string.leisuer_charades));
+        toActivity(EmptyActivity.class,bundle);
+//        AVAnalytics.onEvent(getActivity(), "leisure_pg_toinvestpg_btn");
     }
 
-    private void toInvestorListActivity() {
-        toActivity(InvestListActivity.class, null);
-        AVAnalytics.onEvent(getActivity(), "leisure_pg_toinvestpg_btn");
-    }
-
-    private void toGameCenterActivity() {
-        toActivity(YiZhanDaoDiActivity.class, null);
-        AVAnalytics.onEvent(getActivity(), "leisure_pg_toyizhandaodi_btn");
+    private void toYZDD() {
+        Bundle bundle = new Bundle();
+        bundle.putString(KeyUtil.StyleKey,"black");
+        bundle.putSerializable(KeyUtil.FragmentName, YZDDFragment.class);
+        bundle.putString(KeyUtil.ActionbarTitle,getResources().getString(R.string.leisuer_yizhandaodi));
+        toActivity(EmptyActivity.class,bundle);
+//        AVAnalytics.onEvent(getActivity(), "leisure_pg_toyizhandaodi_btn");
     }
 
     private void toShoppingActivity() {

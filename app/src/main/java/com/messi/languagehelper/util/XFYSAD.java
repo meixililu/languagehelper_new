@@ -302,7 +302,7 @@ public class XFYSAD {
         mTTAdNative.loadFeedAd(adSlot, new TTAdNative.FeedAdListener() {
             @Override
             public void onError(int i, String s) {
-                LogUtil.DefalutLog("loadCSJAD-onError");
+                LogUtil.DefalutLog("loadCSJAD-onError:"+s);
                 onLoadAdFaile();
             }
 

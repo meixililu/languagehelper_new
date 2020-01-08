@@ -3,7 +3,10 @@ package com.messi.languagehelper.util;
 public class KeyUtil {
 
 	public static final String ObjectKey = "ObjectKey";
+
 	public static final String Study_Every = "study_every";
+
+	public static final String StyleKey = "StyleKey";
 
 	public static final String Practice_FourInOne = "Practice_FourInOne";
 	
@@ -155,6 +158,8 @@ public class KeyUtil {
 	
 	public static final String ClassName = "ClassName";
 
+	public static final String FragmentName = "FragmentName";
+
 	public static final String SaveLastTime_CompositionActivity = "SaveLastTime_CompositionActivity";
 	
 	public static final String SaveLastTime_ReadingJuheActivity = "SaveLastTime_ReadingJuheActivity";
@@ -198,6 +203,8 @@ public class KeyUtil {
 	public static final String NotificationTitle = "NotificationTitle";
 
 	public static final String CodeKey = "CodeKey";
+
+	public static final String IsShowClickToNext = "IsShowClickToNext";
 
 	public static final String PermissionShowTimes = "PermissionShowTimes";
 

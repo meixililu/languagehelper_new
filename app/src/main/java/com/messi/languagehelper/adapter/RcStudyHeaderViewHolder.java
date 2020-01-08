@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.messi.languagehelper.DailySentenceAndEssayActivity;
+import com.messi.languagehelper.EmptyActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.bean.ReadingCategory;
 import com.messi.languagehelper.box.BoxHelper;
@@ -99,7 +99,7 @@ public class RcStudyHeaderViewHolder extends RecyclerView.ViewHolder {
     }
 
     private void toDailySentenceActivity(){
-        Intent intent = new Intent(mContext, DailySentenceAndEssayActivity.class);
+        Intent intent = new Intent(mContext, EmptyActivity.class);
         mContext.startActivity(intent);
     }
 

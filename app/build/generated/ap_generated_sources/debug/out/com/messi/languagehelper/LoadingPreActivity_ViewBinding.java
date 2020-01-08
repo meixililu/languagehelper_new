@@ -16,7 +16,7 @@ public class LoadingPreActivity_ViewBinding implements Unbinder {
 
   private View view7f08003c;
 
-  private View view7f0801c0;
+  private View view7f0801c3;
 
   @UiThread
   public LoadingPreActivity_ViewBinding(LoadingPreActivity target) {
@@ -40,7 +40,7 @@ public class LoadingPreActivity_ViewBinding implements Unbinder {
       }
     });
     view = Utils.findRequiredView(source, R.id.no_agree, "method 'onClick'");
-    view7f0801c0 = view;
+    view7f0801c3 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -62,7 +62,7 @@ public class LoadingPreActivity_ViewBinding implements Unbinder {
 
     view7f08003c.setOnClickListener(null);
     view7f08003c = null;
-    view7f0801c0.setOnClickListener(null);
-    view7f0801c0 = null;
+    view7f0801c3.setOnClickListener(null);
+    view7f0801c3 = null;
   }
 }

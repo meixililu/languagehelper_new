@@ -59,6 +59,7 @@ public class RcJokeListItemViewHolder extends RecyclerView.ViewHolder {
         list_item_img.setVisibility(View.GONE);
         videoplayer.setVisibility(View.GONE);
         ad_layout.setVisibility(View.GONE);
+        des.setVisibility(View.VISIBLE);
         des.setText("");
         if(mAVObject.get(KeyUtil.ADKey) != null) {
             final NativeDataRef mNativeADDataRef = (NativeDataRef) mAVObject.get(KeyUtil.ADKey);
@@ -116,9 +117,10 @@ public class RcJokeListItemViewHolder extends RecyclerView.ViewHolder {
                         .build();
                 list_item_img.setController(mDraweeController);
             }else if(mAVObject.getString(AVOUtil.Joke.type).equals("4")){
+                des.setVisibility(View.GONE);
                 videoplayer.setVisibility(View.VISIBLE);
                 videoplayer.setUp(mAVObject.getString(AVOUtil.Joke.video_url),
-                        "",JzvdStd.SCREEN_WINDOW_LIST);
+                        mAVObject.getString(AVOUtil.Joke.text));
                 if(!TextUtils.isEmpty(mAVObject.getString(AVOUtil.Joke.img))){
                     Glide.with(context)
                             .load(mAVObject.getString(AVOUtil.Joke.img))

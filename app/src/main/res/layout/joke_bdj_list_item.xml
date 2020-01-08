@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/padding_10">
+        android:paddingBottom="@dimen/padding_margin">
         <TextView
             android:id="@+id/des"
             android:layout_width="fill_parent"
@@ -36,7 +36,7 @@
         <cn.jzvd.JzvdStd
             android:id="@+id/videoplayer"
             android:layout_width="match_parent"
-            android:layout_height="230dp" />
+            android:layout_height="210dp" />
 
     </LinearLayout>
     <FrameLayout

@@ -279,7 +279,7 @@
     <string name="invite_friends_root">哎呦，这个软件不错哦，小伙伴快来！ http://a.app.qq.com/o/simple.jsp?pkgname=</string>
 
     <string name="dailysentence">每日一句</string>
-    <string name="english_essay">励志语录</string>
+    <string name="english_essay">英语格言</string>
     <string name="ChDicBushouList">按部首</string>
     <string name="ChDicPinyinList">按拼音</string>
     <string name="spoken_english_practice">口语</string>
@@ -301,6 +301,10 @@
     <string name="leisure_photo_search">拍照搜题</string>
     <string name="leisure_search">热搜榜</string>
     <string name="leisure_wyyx">搜一搜</string>
+    <string name="leisure_whyy">文化谚语</string>
+    <string name="leisure_history">简说历史</string>
+    <string name="leisure_conjecture">猜成语</string>
+    <string name="leisure_riddle">猜灯谜</string>
     <string name="foreign_website">英文网站</string>
     <string name="foreign_website_subtitle">一些不错的英文网站</string>
     <string name="leisuer_one">小白精选</string>
@@ -314,7 +318,7 @@
     <string name="leisuer_shenhuifu">神回复</string>
     <string name="leisuer_shenhuifu_des">神一样的评论</string>
     <string name="leisuer_twists_subtitle">放松一下你的大脑</string>
-    <string name="leisuer_invest">使用场景</string>
+    <string name="leisuer_charades">猜字谜</string>
     <string name="title_sure">确定</string>
     <string name="leisuer_invest_subtitle">提意见就是对软件投资</string>
 
@@ -324,27 +328,7 @@
     <string name="leisuer_duanzi">笑话段子</string>
     <string name="leisuer_duanzi_subtitle">各种笑话和段子</string>
 
-    <string name="leisuer_two">想学编程</string>
-    <string name="leisuer_two_subtitle">学编程，高薪就业</string>
-    <string name="leisuer_two_content">
-        最近遇到一些朋友，对编程感兴趣\n
-        却又不知道从何入手\n
-        有些人说自己不知道适不适合学\n
-        有些人说自己数学不好\n
-        从何入手，我竟无言以对\n
-        计算机专业，工作编程8年\n
-        如今创业，中英互译英语翻译学习神器\n
-        虽然我很想帮助那些人\n
-        但仔细想想我能给出什么建议呢\n
-        。。。华丽的分割线。。。\n
-        想了好几天，习惯什么事都自己上的我\n
-        决定搞个直播编程教学\n
-        课程来自哪里呢？\n
-        唯有总结哈佛，剑桥，MIT等大学计算机公开课\n
-        我觉得才是最好的教材\n
-        如果你想跟软件作者学编程\n
-        加作者微信：xbkj6868
-    </string>
+    <string name="leisuer_learn_to_code">学编程</string>
 
     <string name="invest_activity_title">使用场景和建议</string>
     <string name="feedback">反馈</string>
@@ -411,7 +395,7 @@
     <string name="title_ai_dialog_choice_course">场景</string>
     <string name="random_course">随机</string>
     <string name="start_to_fight">闯关</string>
-    <string name="title_tuling_ai">AI聊天</string>
+    <string name="title_tuling_ai">AI</string>
     <string name="title_tuling_ai_des">中文语境下智能度最高的机器人</string>
     <string name="english_fm">英语FM</string>
     <string name="title_activity_main">MainActivity</string>

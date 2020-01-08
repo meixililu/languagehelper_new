@@ -106,17 +106,25 @@ public class Setings {
 
 	/** BrainTwists **/
 
-	public static final String TXBrainTwistsApi = "http://api.tianapi.com/txapi/naowan/?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
+	public static final String TXBrainTwistsApi = "http://api.tianapi.com/txapi/naowan/index?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
 
-	public static final String TXGodreplyApi = "http://api.tianapi.com/txapi/godreply/?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
+	public static final String TXGodreplyApi = "http://api.tianapi.com/txapi/godreply/index?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
 
-	public static final String TXEssayApi = "http://api.tianapi.com/txapi/ensentence/?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
+	public static final String TXEssayApi = "http://api.tianapi.com/txapi/ensentence/index?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
 
-	public static final String TXYiZhanDaoDiApi = "http://api.tianapi.com/txapi/wenda/?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
+	public static final String TXYiZhanDaoDiApi = "http://api.tianapi.com/txapi/wenda/index?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
+
+	public static final String HistoryApi = "http://api.tianapi.com/txapi/pitlishi/index?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
+
+	public static final String CaizimiApi = "http://api.tianapi.com/txapi/zimi/index?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
+
+	public static final String WHYYApi = "http://api.tianapi.com/txapi/proverb/index?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
+
+	public static final String ConjectureApi = "http://api.tianapi.com/txapi/caichengyu/index?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
+
+	public static final String RiddleApi = "http://api.tianapi.com/txapi/riddle/index?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
 
 	public static final String TXNewsApi = "http://api.tianapi.com/";
-
-	public static final String EssayApi = "http://route.showapi.com/1211-1";
 
 	public static final String TXNewsApiEnd = "?key=18f7f9dbd7dfcd8ab45efdcfbc33826d&num=15&page=";
 

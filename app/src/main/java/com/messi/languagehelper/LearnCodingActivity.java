@@ -15,7 +15,7 @@ public class LearnCodingActivity extends BaseActivity {
     }
 
     private void init() {
-        getSupportActionBar().setTitle(getResources().getString(R.string.leisuer_two));
+        getSupportActionBar().setTitle(getResources().getString(R.string.leisuer_learn_to_code));
     }
 
 

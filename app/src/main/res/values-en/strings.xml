@@ -280,6 +280,10 @@
     <string name="leisure_photo_search">Photo Search</string>
     <string name="leisure_search">Search</string>
     <string name="leisure_wyyx">Search</string>
+    <string name="leisure_whyy">Proverb</string>
+    <string name="leisure_history">History</string>
+    <string name="leisure_conjecture">Conjecture</string>
+    <string name="leisure_riddle">Riddle</string>
 	<string name="leisuer_one">Competitive Products</string>
 	<string name="leisuer_one_subtitle">Hot-sold products</string>
     <string name="leisuer_sougou_wechat">Wechat English</string>
@@ -297,12 +301,11 @@
     <string name="leisuer_duanzi_subtitle">Make a funny</string>
     <string name="leisuer_gyt">Relax</string>
     <string name="leisuer_gyt_subtitle">Have fun</string>
-    <string name="leisuer_invest">Investor</string>
+    <string name="leisuer_charades">Charades</string>
     <string name="title_setting">Setting</string>
     <string name="leisuer_invest_subtitle">Invest your idea</string>
 
-	<string name="leisuer_two">Travel To China</string>
-	<string name="leisuer_two_subtitle">Travel To China Meizhou</string>
+	<string name="leisuer_learn_to_code">Learn to code</string>
 	<string name="download">Try it</string>
 	
 	<string name="invest_activity_title">Investors</string>
@@ -388,15 +391,6 @@
     <string name="xmly_track">Track</string>
     <string name="xmly_radio">Radio</string>
     <string name="click_to_skip">skip</string>
-    <string name="leisuer_two_content">
-        If you want to travel in China\n
-        If you want to teach English\n
-        If you want to learn Chinese\n
-        If you want to make friends with author\n
-        If you want to build a business with author\n
-        just add the author Wechat: xbkj6868\n
-        or email:mzxbkj@163.com
-    </string>
     <string name="list_empty">Bookshelf is empty</string>
     <string name="history_empty">nothing here</string>
     <string name="find_more">more</string>

@@ -234,6 +234,7 @@ public class RcSubjectReadingListItemViewHolder extends RecyclerView.ViewHolder 
                 title.setText( mNativeADDataRef.getTitle() );
                 type_name.setText(mNativeADDataRef.getDesc());
                 source_name.setText("广告");
+                mNativeADDataRef.onExposure(layout_cover);
                 if(mNativeADDataRef.getImgList() != null && mNativeADDataRef.getImgList().size() > 2){
                     imgs_layout.setVisibility(View.VISIBLE);
                     list_item_img_parent.setVisibility(View.GONE);

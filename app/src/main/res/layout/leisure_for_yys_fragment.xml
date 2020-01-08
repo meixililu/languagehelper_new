@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_view"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -72,7 +73,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/icon_0016" />
+                        app:srcCompat="@drawable/ic_icon_01" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -108,7 +109,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/icon_0019" />
+                        app:srcCompat="@drawable/ic_icon_02" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -143,7 +144,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/icon_0018" />
+                        app:srcCompat="@drawable/ic_icon_03" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -186,7 +187,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/icon_0017" />
+                        app:srcCompat="@drawable/ic_icon_04" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -222,7 +223,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/icon_0013" />
+                        app:srcCompat="@drawable/ic_icon_05" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -257,7 +258,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/icon_0015" />
+                        app:srcCompat="@drawable/ic_icon_06" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -301,7 +302,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/icon_0014" />
+                        app:srcCompat="@drawable/ic_icon_07" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -337,7 +338,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/icon_0012" />
+                        app:srcCompat="@drawable/ic_icon_08" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -372,7 +373,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/icon_0010" />
+                        app:srcCompat="@drawable/ic_icon_09" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -416,7 +417,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/icon_0011" />
+                        app:srcCompat="@drawable/ic_icon_10" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -452,7 +453,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/icon_0009" />
+                        app:srcCompat="@drawable/ic_icon_11" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -487,7 +488,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/icon_0006" />
+                        app:srcCompat="@drawable/ic_icon_18" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -496,7 +497,7 @@
                         android:background="@color/white"
                         android:gravity="center"
                         android:lines="1"
-                        android:text="@string/leisuer_two"
+                        android:text="@string/leisuer_learn_to_code"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/middle" />
                 </LinearLayout>
@@ -531,7 +532,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/icon_0007" />
+                        app:srcCompat="@drawable/ic_icon_12" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -566,7 +567,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/icon_0008" />
+                        app:srcCompat="@drawable/ic_icon_17" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -575,7 +576,7 @@
                         android:background="@color/white"
                         android:gravity="center"
                         android:lines="1"
-                        android:text="@string/leisuer_invest"
+                        android:text="@string/leisuer_learn_to_code"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/middle" />
                 </LinearLayout>
@@ -603,7 +604,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/icon_0020" />
+                        app:srcCompat="@drawable/ic_icon_01" />
 
                     <TextView
                         android:layout_width="fill_parent"

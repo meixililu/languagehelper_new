@@ -360,7 +360,7 @@ public class XMLYDetailModel {
         mTTAdNative.loadBannerAd(adSlot, new TTAdNative.BannerAdListener() {
             @Override
             public void onError(int i, String s) {
-                LogUtil.DefalutLog("loadCSJAD-onError");
+                LogUtil.DefalutLog("loadCSJAD-onError:"+s);
                 getAd();
             }
             @Override

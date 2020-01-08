@@ -24,7 +24,6 @@ import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TXADUtil;
-import com.messi.languagehelper.util.ToastUtil;
 import com.qq.e.ads.nativ.NativeExpressAD;
 import com.qq.e.ads.nativ.NativeExpressADView;
 import com.ximalaya.ting.android.opensdk.constants.DTransferConstants;
@@ -278,7 +277,7 @@ public class XmlyAlbumActivity extends BaseActivity implements OnClickListener{
 			@Override
 			public void onADLoaded(List<NativeExpressADView> list) {
 				LogUtil.DefalutLog("onADLoaded");
-				if(list != null && list.size() > 0){
+				if(list != null && list.size() > 0 && mTXADList != null){
 					mTXADList.add(list.get(0));
 					mADObject = new AlbumForAd();
 					mADObject.setmTXADView(list.get(0));

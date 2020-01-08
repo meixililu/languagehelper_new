@@ -241,7 +241,7 @@ public class XVideoSearchResultActivity extends BaseActivity{
             @Override
             public void onADLoaded(List<NativeExpressADView> list) {
                 LogUtil.DefalutLog("onADLoaded");
-                if(list != null && list.size() > 0){
+                if(list != null && list.size() > 0 && mTXADList != null){
                     mTXADList.add(list.get(0));
                     mADObject = new AVObject();
                     mADObject.put(KeyUtil.TXADView, list.get(0));

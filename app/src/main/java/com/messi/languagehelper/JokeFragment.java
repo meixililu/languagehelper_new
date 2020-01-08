@@ -103,7 +103,7 @@ public class JokeFragment extends BaseFragment implements OnClickListener {
         listview.addItemDecoration(
                         new HorizontalDividerItemDecoration.Builder(getContext())
                                 .colorResId(R.color.text_tint)
-                                .sizeResId(R.dimen.padding_15)
+                                .sizeResId(R.dimen.padding_10)
                                 .build());
         listview.setAdapter(mAdapter);
         setListOnScrollListener();

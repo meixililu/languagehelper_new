@@ -53,11 +53,12 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
     TabLayout tablayout;
     @BindView(R.id.search_btn)
     FrameLayout searchBtn;
+    private int maxVideo = 20000;
     private RcStudyListAdapter mAdapter;
     private List<Reading> avObjects;
     private List<AVObject> tempList;
     private int skip = 0;
-    private int maxRandom;
+    private int maxRandom = 3000;
     private String category;
     private LinearLayoutManager mLinearLayoutManager;
     private List<ReadingCategory> categories;
@@ -87,6 +88,7 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
         ButterKnife.bind(this, view);
         initViews(view);
         loadData();
+        getMaxPageNumberBackground();
         return view;
     }
 
@@ -113,14 +115,12 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
         setListOnScrollListener();
         categories = getTabItem(getContext());
         initTablayout();
-        getMaxPageNumberBackground();
     }
 
     private void initTablayout() {
         for (ReadingCategory item : categories) {
             tablayout.addTab(tablayout.newTab().setText(item.getName()));
         }
-        tablayout.getTabAt(0).select();
         tablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -136,11 +136,11 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
             public void onTabUnselected(TabLayout.Tab tab) {
             }
         });
+        tablayout.getTabAt(0).select();
     }
 
     private void random() {
         skip = (int) Math.round(Math.random() * maxRandom);
-        LogUtil.DefalutLog("skip:" + skip);
     }
 
     public void setListOnScrollListener() {
@@ -267,6 +267,7 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
         if(!TextUtils.isEmpty(category)) {
             if(category.equals("video")) {
                 query.whereEqualTo(AVOUtil.Reading.type, "video");
+                skip = (int) Math.round(Math.random() * maxVideo);
             }else {
                 query.whereEqualTo(AVOUtil.Reading.category, category);
             }
@@ -331,10 +332,6 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
     public void onTabReselectedListener(ReadingCategory mReadingCategory) {
         listview.scrollToPosition(1);
         onSwipeRefreshLayoutRefresh();
-    }
-
-    private void getMaxPageNumberBackground() {
-        maxRandom = (int) ((Math.random() * 1200));
     }
 
     private void hideFooterview() {
@@ -459,4 +456,22 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
             }
         });
     }
+
+    private void getMaxPageNumberBackground(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.Reading.Reading);
+                    query.whereEqualTo(AVOUtil.Reading.type, "video");
+                    query.addDescendingOrder(AVOUtil.Reading.publish_time);
+                    maxVideo = query.count()-300;
+                    LogUtil.DefalutLog("maxVideo:"+maxVideo);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
 }

@@ -102,6 +102,7 @@ public class RcXmlyTagsItemViewHolder extends RecyclerView.ViewHolder {
                     source_name.setCompoundDrawables(null, null, null, null);
                     source_name.setText("广告");
                     list_item_img.setImageURI(mNativeADDataRef.getImgUrl());
+                    mNativeADDataRef.onExposure(layout_cover);
                     layout_cover.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
