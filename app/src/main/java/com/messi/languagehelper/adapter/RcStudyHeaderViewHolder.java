@@ -111,7 +111,7 @@ public class RcStudyHeaderViewHolder extends RecyclerView.ViewHolder {
             }
         }
         setSentence();
-        LogUtil.DefalutLog("StudyFragment-getDailySentence()");
+        LogUtil.DefalutLog("StudyCategoryFragment-getDailySentence()");
     }
 
     private void isLoadDailySentence(){
@@ -121,11 +121,11 @@ public class RcStudyHeaderViewHolder extends RecyclerView.ViewHolder {
         if(!isExist){
             requestDailysentence();
         }
-        LogUtil.DefalutLog("StudyFragment-isLoadDailySentence()");
+        LogUtil.DefalutLog("StudyCategoryFragment-isLoadDailySentence()");
     }
 
     private void requestDailysentence(){
-        LogUtil.DefalutLog("StudyFragment-requestDailysentence()");
+        LogUtil.DefalutLog("StudyCategoryFragment-requestDailysentence()");
         LanguagehelperHttpClient.get(Setings.DailySentenceUrl, new UICallback(mContext){
             public void onResponsed(String responseString) {
                 if(JsonParser.isJson(responseString)){
@@ -137,7 +137,7 @@ public class RcStudyHeaderViewHolder extends RecyclerView.ViewHolder {
     }
 
     private void setSentence(){
-        LogUtil.DefalutLog("StudyFragment-setSentence()");
+        LogUtil.DefalutLog("StudyCategoryFragment-setSentence()");
         if(mEveryDaySentence != null){
             dailysentence_txt.setText(mEveryDaySentence.getContent());
             daily_sentence_item_img.setImageURI(Uri.parse(mEveryDaySentence.getPicture2()));

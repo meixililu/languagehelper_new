@@ -18,9 +18,9 @@ import java.lang.Override;
 public class WordStudyDuYinSuJiActivity_ViewBinding implements Unbinder {
   private WordStudyDuYinSuJiActivity target;
 
-  private View view7f0803c9;
+  private View view7f0803cd;
 
-  private View view7f08030a;
+  private View view7f08030c;
 
   private View view7f080117;
 
@@ -40,7 +40,7 @@ public class WordStudyDuYinSuJiActivity_ViewBinding implements Unbinder {
     target.wordPlayImg = Utils.findRequiredViewAsType(source, R.id.word_play_img, "field 'wordPlayImg'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.word_suji_layout, "field 'wordSujiLayout' and method 'onViewClicked'");
     target.wordSujiLayout = Utils.castView(view, R.id.word_suji_layout, "field 'wordSujiLayout'", FrameLayout.class);
-    view7f0803c9 = view;
+    view7f0803cd = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -50,7 +50,7 @@ public class WordStudyDuYinSuJiActivity_ViewBinding implements Unbinder {
     target.listview = Utils.findRequiredViewAsType(source, R.id.listview, "field 'listview'", RecyclerView.class);
     view = Utils.findRequiredView(source, R.id.try_again_layout, "field 'tryAgainLayout' and method 'onViewClicked'");
     target.tryAgainLayout = Utils.castView(view, R.id.try_again_layout, "field 'tryAgainLayout'", FrameLayout.class);
-    view7f08030a = view;
+    view7f08030c = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -87,10 +87,10 @@ public class WordStudyDuYinSuJiActivity_ViewBinding implements Unbinder {
     target.resultLayout = null;
     target.wordSymbol = null;
 
-    view7f0803c9.setOnClickListener(null);
-    view7f0803c9 = null;
-    view7f08030a.setOnClickListener(null);
-    view7f08030a = null;
+    view7f0803cd.setOnClickListener(null);
+    view7f0803cd = null;
+    view7f08030c.setOnClickListener(null);
+    view7f08030c = null;
     view7f080117.setOnClickListener(null);
     view7f080117 = null;
   }

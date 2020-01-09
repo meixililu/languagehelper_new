@@ -116,6 +116,10 @@ public class Setings {
 
 	public static final String HistoryApi = "http://api.tianapi.com/txapi/pitlishi/index?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
 
+	public static final String TongueTwisterApi = "http://api.tianapi.com/txapi/rkl/index?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
+
+	public static final String XHYApi = "http://api.tianapi.com/txapi/xiehou/index?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
+
 	public static final String CaizimiApi = "http://api.tianapi.com/txapi/zimi/index?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
 
 	public static final String WHYYApi = "http://api.tianapi.com/txapi/proverb/index?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";

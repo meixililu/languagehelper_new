@@ -243,7 +243,7 @@ public class StudyCategoryFragment extends BaseFragment {
     }
 
     private void getDailySentence(){
-        LogUtil.DefalutLog("StudyFragment-getDailySentence()");
+        LogUtil.DefalutLog("StudyCategoryFragment-getDailySentence()");
         List<EveryDaySentence> mList = BoxHelper.getEveryDaySentenceList(1);
         if(mList != null){
             if(!mList.isEmpty()){
@@ -260,11 +260,11 @@ public class StudyCategoryFragment extends BaseFragment {
         if(!isExist){
             requestDailysentence();
         }
-        LogUtil.DefalutLog("StudyFragment-isLoadDailySentence()");
+        LogUtil.DefalutLog("StudyCategoryFragment-isLoadDailySentence()");
     }
 
     private void requestDailysentence(){
-        LogUtil.DefalutLog("StudyFragment-requestDailysentence()");
+        LogUtil.DefalutLog("StudyCategoryFragment-requestDailysentence()");
         LanguagehelperHttpClient.get(Setings.DailySentenceUrl, new UICallback(getActivity()){
             public void onResponsed(String responseString) {
                 if(JsonParser.isJson(responseString)){
@@ -276,7 +276,7 @@ public class StudyCategoryFragment extends BaseFragment {
     }
 
     private void setSentence(){
-        LogUtil.DefalutLog("StudyFragment-setSentence()");
+        LogUtil.DefalutLog("StudyCategoryFragment-setSentence()");
         if(mEveryDaySentence != null){
             dailysentence_txt.setText(mEveryDaySentence.getContent());
             daily_sentence_item_img.setImageURI(Uri.parse(mEveryDaySentence.getPicture2()));

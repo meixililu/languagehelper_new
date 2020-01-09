@@ -17,13 +17,13 @@ import java.lang.Override;
 public class SettingActivity_ViewBinding implements Unbinder {
   private SettingActivity target;
 
+  private View view7f08026f;
+
   private View view7f08026d;
 
-  private View view7f08026b;
+  private View view7f080272;
 
-  private View view7f080270;
-
-  private View view7f08026f;
+  private View view7f080271;
 
   @UiThread
   public SettingActivity_ViewBinding(SettingActivity target) {
@@ -40,7 +40,7 @@ public class SettingActivity_ViewBinding implements Unbinder {
     target.settingAutoPlayCb = Utils.findRequiredViewAsType(source, R.id.setting_auto_play_cb, "field 'settingAutoPlayCb'", CheckBox.class);
     view = Utils.findRequiredView(source, R.id.setting_auto_play, "field 'settingAutoPlay' and method 'onViewClicked'");
     target.settingAutoPlay = Utils.castView(view, R.id.setting_auto_play, "field 'settingAutoPlay'", FrameLayout.class);
-    view7f08026d = view;
+    view7f08026f = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -50,7 +50,7 @@ public class SettingActivity_ViewBinding implements Unbinder {
     target.settingAutoClearCb = Utils.findRequiredViewAsType(source, R.id.setting_auto_clear_cb, "field 'settingAutoClearCb'", CheckBox.class);
     view = Utils.findRequiredView(source, R.id.setting_auto_clear, "field 'settingAutoClear' and method 'onViewClicked'");
     target.settingAutoClear = Utils.castView(view, R.id.setting_auto_clear, "field 'settingAutoClear'", FrameLayout.class);
-    view7f08026b = view;
+    view7f08026d = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -59,7 +59,7 @@ public class SettingActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.setting_clear_all_except_favorite, "field 'settingClearAllExceptFavorite' and method 'onViewClicked'");
     target.settingClearAllExceptFavorite = Utils.castView(view, R.id.setting_clear_all_except_favorite, "field 'settingClearAllExceptFavorite'", FrameLayout.class);
-    view7f080270 = view;
+    view7f080272 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -68,7 +68,7 @@ public class SettingActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.setting_clear_all, "field 'settingClearAll' and method 'onViewClicked'");
     target.settingClearAll = Utils.castView(view, R.id.setting_clear_all, "field 'settingClearAll'", FrameLayout.class);
-    view7f08026f = view;
+    view7f080271 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -93,13 +93,13 @@ public class SettingActivity_ViewBinding implements Unbinder {
     target.settingClearAllExceptFavorite = null;
     target.settingClearAll = null;
 
-    view7f08026d.setOnClickListener(null);
-    view7f08026d = null;
-    view7f08026b.setOnClickListener(null);
-    view7f08026b = null;
-    view7f080270.setOnClickListener(null);
-    view7f080270 = null;
     view7f08026f.setOnClickListener(null);
     view7f08026f = null;
+    view7f08026d.setOnClickListener(null);
+    view7f08026d = null;
+    view7f080272.setOnClickListener(null);
+    view7f080272 = null;
+    view7f080271.setOnClickListener(null);
+    view7f080271 = null;
   }
 }

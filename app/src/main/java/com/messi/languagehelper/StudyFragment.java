@@ -86,6 +86,7 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.study_fragment, null);
         ButterKnife.bind(this, view);
+        initSwipeRefresh(view);
         initViews(view);
         loadData();
         getMaxPageNumberBackground();
@@ -96,7 +97,6 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
         avObjects = new ArrayList<Reading>();
         mAdapter = new RcStudyListAdapter(avObjects);
         mXXLModel = new XXLModel(getActivity());
-        initSwipeRefresh(view);
         avObjects.addAll(BoxHelper.getReadingList(0,Setings.page_size, "", "", ""));
         mXXLModel.setAdapter(avObjects,mAdapter);
         mAdapter.setItems(avObjects);
@@ -136,7 +136,6 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
             public void onTabUnselected(TabLayout.Tab tab) {
             }
         });
-        tablayout.getTabAt(0).select();
     }
 
     private void random() {
@@ -330,7 +329,7 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
 
     @Override
     public void onTabReselectedListener(ReadingCategory mReadingCategory) {
-        listview.scrollToPosition(1);
+        listview.scrollToPosition(0);
         onSwipeRefreshLayoutRefresh();
     }
 

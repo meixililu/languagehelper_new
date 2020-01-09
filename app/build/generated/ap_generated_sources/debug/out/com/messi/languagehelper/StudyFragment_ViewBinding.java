@@ -16,7 +16,7 @@ import java.lang.Override;
 public class StudyFragment_ViewBinding implements Unbinder {
   private StudyFragment target;
 
-  private View view7f080244;
+  private View view7f080246;
 
   @UiThread
   public StudyFragment_ViewBinding(final StudyFragment target, View source) {
@@ -27,7 +27,7 @@ public class StudyFragment_ViewBinding implements Unbinder {
     target.tablayout = Utils.findRequiredViewAsType(source, R.id.tablayout, "field 'tablayout'", TabLayout.class);
     view = Utils.findRequiredView(source, R.id.search_btn, "field 'searchBtn' and method 'onViewClicked'");
     target.searchBtn = Utils.castView(view, R.id.search_btn, "field 'searchBtn'", FrameLayout.class);
-    view7f080244 = view;
+    view7f080246 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -47,7 +47,7 @@ public class StudyFragment_ViewBinding implements Unbinder {
     target.tablayout = null;
     target.searchBtn = null;
 
-    view7f080244.setOnClickListener(null);
-    view7f080244 = null;
+    view7f080246.setOnClickListener(null);
+    view7f080246 = null;
   }
 }

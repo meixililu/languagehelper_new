@@ -19,7 +19,9 @@ import com.messi.languagehelper.faxian.GodReplyFragment;
 import com.messi.languagehelper.faxian.HistoryFragment;
 import com.messi.languagehelper.faxian.ProverbFragment;
 import com.messi.languagehelper.faxian.RiddleFragment;
+import com.messi.languagehelper.faxian.TongueTwisterFragment;
 import com.messi.languagehelper.faxian.TwistsFragment;
+import com.messi.languagehelper.faxian.XHYFragment;
 import com.messi.languagehelper.faxian.YZDDFragment;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVAnalytics;
@@ -79,6 +81,10 @@ public class LeisureFragment extends BaseFragment {
     FrameLayout layout_conjecture;
     @BindView(R.id.layout_history)
     FrameLayout layout_history;
+    @BindView(R.id.layout_xiehouyu)
+    FrameLayout layout_xiehouyu;
+    @BindView(R.id.layout_tongue_twister)
+    FrameLayout layout_tongue_twister;
     @BindView(R.id.root_view)
     NestedScrollView rootView;
 
@@ -131,7 +137,8 @@ public class LeisureFragment extends BaseFragment {
     @OnClick({R.id.cailing_layout, R.id.baidu_layout, R.id.sougou_layout, R.id.yuedu_layout,
             R.id.twists_layout, R.id.game_layout, R.id.shenhuifu_layout, R.id.news_layout, R.id.app_layout,
             R.id.invest_layout, R.id.layout_riddle, R.id.search_layout,R.id.novel_layout, R.id.caricature_layout,
-            R.id.jd_layout,R.id.english_essay_layout,R.id.layout_whyy,R.id.layout_conjecture,R.id.layout_history})
+            R.id.jd_layout,R.id.english_essay_layout,R.id.layout_whyy,R.id.layout_conjecture,R.id.layout_history,
+            R.id.layout_xiehouyu,R.id.layout_tongue_twister})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.cailing_layout:
@@ -189,10 +196,34 @@ public class LeisureFragment extends BaseFragment {
             case R.id.layout_history:
                 toHistory();
                 break;
+            case R.id.layout_xiehouyu:
+                toXHY();
+                break;
+            case R.id.layout_tongue_twister:
+                toTongueTwister();
+                break;
             case R.id.layout_whyy:
                 toProverb();
                 break;
         }
+    }
+
+    private void toTongueTwister(){
+        Bundle bundle = new Bundle();
+        bundle.putString(KeyUtil.StyleKey,"black");
+        bundle.putSerializable(KeyUtil.FragmentName, TongueTwisterFragment.class);
+        bundle.putString(KeyUtil.ActionbarTitle,getResources().getString(R.string.leisuer_tongue_twister));
+        toActivity(EmptyActivity.class,bundle);
+//        AVAnalytics.onEvent(getActivity(), "leisure_pg_to_god_reply");
+    }
+
+    private void toXHY(){
+        Bundle bundle = new Bundle();
+        bundle.putString(KeyUtil.StyleKey,"black");
+        bundle.putSerializable(KeyUtil.FragmentName, XHYFragment.class);
+        bundle.putString(KeyUtil.ActionbarTitle,getResources().getString(R.string.leisuer_xhy));
+        toActivity(EmptyActivity.class,bundle);
+//        AVAnalytics.onEvent(getActivity(), "leisure_pg_to_god_reply");
     }
 
     private void toHistory(){

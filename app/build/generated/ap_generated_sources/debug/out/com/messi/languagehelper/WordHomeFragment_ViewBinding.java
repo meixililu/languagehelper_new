@@ -16,11 +16,11 @@ import java.lang.Override;
 public class WordHomeFragment_ViewBinding implements Unbinder {
   private WordHomeFragment target;
 
-  private View view7f0803c6;
+  private View view7f0803ca;
 
-  private View view7f0803c7;
+  private View view7f0803cb;
 
-  private View view7f0803c8;
+  private View view7f0803cc;
 
   @UiThread
   public WordHomeFragment_ViewBinding(final WordHomeFragment target, View source) {
@@ -29,7 +29,7 @@ public class WordHomeFragment_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.word_study_change_plan, "field 'wordStudyChangePlan' and method 'onViewClicked'");
     target.wordStudyChangePlan = Utils.castView(view, R.id.word_study_change_plan, "field 'wordStudyChangePlan'", FrameLayout.class);
-    view7f0803c6 = view;
+    view7f0803ca = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -39,7 +39,7 @@ public class WordHomeFragment_ViewBinding implements Unbinder {
     target.wordStudyBookName = Utils.findRequiredViewAsType(source, R.id.word_study_book_name, "field 'wordStudyBookName'", TextView.class);
     target.arcProgress = Utils.findRequiredViewAsType(source, R.id.arc_progress, "field 'arcProgress'", ArcProgress.class);
     view = Utils.findRequiredView(source, R.id.word_study_new_word, "method 'onViewClicked'");
-    view7f0803c7 = view;
+    view7f0803cb = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -47,7 +47,7 @@ public class WordHomeFragment_ViewBinding implements Unbinder {
       }
     });
     view = Utils.findRequiredView(source, R.id.word_study_plan, "method 'onViewClicked'");
-    view7f0803c8 = view;
+    view7f0803cc = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -67,11 +67,11 @@ public class WordHomeFragment_ViewBinding implements Unbinder {
     target.wordStudyBookName = null;
     target.arcProgress = null;
 
-    view7f0803c6.setOnClickListener(null);
-    view7f0803c6 = null;
-    view7f0803c7.setOnClickListener(null);
-    view7f0803c7 = null;
-    view7f0803c8.setOnClickListener(null);
-    view7f0803c8 = null;
+    view7f0803ca.setOnClickListener(null);
+    view7f0803ca = null;
+    view7f0803cb.setOnClickListener(null);
+    view7f0803cb = null;
+    view7f0803cc.setOnClickListener(null);
+    view7f0803cc = null;
   }
 }
