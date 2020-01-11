@@ -9,7 +9,7 @@
         android:id="@+id/my_awesome_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/style6_color1"
+        android:background="@color/theme_color"
         android:minHeight="@dimen/actionBar" >
         <ProgressBar style="@style/CircularProgressWhite"
             android:id="@+id/progressBarCircularIndetermininate"
@@ -18,25 +18,11 @@
             android:layout_gravity="right"
             android:visibility="gone" />
     </android.support.v7.widget.Toolbar>
-
-    <android.support.v4.widget.NestedScrollView
+    <LinearLayout
+        android:id="@+id/contont_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingTop="@dimen/padding_20"
-            android:paddingLeft="@dimen/padding_20"
-            android:lineSpacingExtra="3dp"
-            android:lineSpacingMultiplier="1.0"
-            android:textSize="@dimen/bigger"
-            android:textColor="@color/text_dark"
-            android:gravity="left"
-            android:text=""
-            />
-    </android.support.v4.widget.NestedScrollView>
-
-
-
+        android:background="@color/white"
+        android:orientation="vertical"
+        />
 </LinearLayout>

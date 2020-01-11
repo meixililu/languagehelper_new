@@ -69,13 +69,10 @@ public class SpokenActivity extends BaseActivity implements FragmentProgressbarL
         navigation.inflateMenu(R.menu.spoken_tabs);
         navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        mWordHomeFragment = XmlySearchAlbumFragment.newInstance("口语",getString(R.string.title_study_category));;
+        mWordHomeFragment = BoutiquesFragment.getInstance("spoken_english",getString(R.string.recommend));
         practiceFragment = AiDialogueCourseFragment.getInstance();
         dashboardFragment = SpokenCourseFragment.getInstance();
-        shadowFragment = new ReadingFragment.Builder()
-                .title(getString(R.string.start_to_follow))
-                .boutique_code("1000003")
-                .build();
+        shadowFragment = XmlySearchAlbumFragment.newInstance("口语",getString(R.string.title_study_category));
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.content, mWordHomeFragment)

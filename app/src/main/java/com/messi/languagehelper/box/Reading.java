@@ -37,6 +37,7 @@ public class Reading {
     private String content_type;
     private String img_urls;
     private String status;
+    private String vid;
     private String isCollected;
     private long collected_time;
     private String isReadLater;
@@ -381,5 +382,11 @@ public class Reading {
         this.lrc_url = lrc_url;
     }
 
+    public String getVid() {
+        return vid;
+    }
 
+    public void setVid(String vid) {
+        this.vid = vid;
+    }
 }

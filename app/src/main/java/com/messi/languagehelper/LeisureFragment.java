@@ -151,8 +151,7 @@ public class LeisureFragment extends BaseFragment {
                 toTuringActivity();
                 break;
             case R.id.yuedu_layout:
-                toActivity(XVideoHomeActivity.class, null);
-                AVAnalytics.onEvent(getActivity(), "leisure_pg_to_xvideo");
+                toXVedio();
                 break;
             case R.id.twists_layout:
                 toTwists();
@@ -167,7 +166,7 @@ public class LeisureFragment extends BaseFragment {
                 toEnglishRecommendWebsite();
                 break;
             case R.id.app_layout:
-                toChineseDictionaryActivity();
+                toLearnToCode();
                 break;
             case R.id.invest_layout:
                 toCharades();
@@ -289,6 +288,14 @@ public class LeisureFragment extends BaseFragment {
         toActivity(EmptyActivity.class,bundle);
     }
 
+    private void toXVedio() {
+        Intent intent = new Intent(getContext(), XVideoHomeActivity.class);
+        intent.putExtra(KeyUtil.Category, "英语");
+        intent.putExtra(KeyUtil.ActionbarTitle, getContext().getResources().getString(R.string.title_xvideo));
+        getContext().startActivity(intent);
+        AVAnalytics.onEvent(getActivity(), "leisure_pg_to_xvideo");
+    }
+
     private void toEnglishRecommendWebsite() {
         Intent intent = new Intent(getContext(), WebsiteListActivity.class);
         intent.putExtra(KeyUtil.Category, "english");
@@ -352,7 +359,7 @@ public class LeisureFragment extends BaseFragment {
         AVAnalytics.onEvent(getActivity(), "leisure_pg_to_uc_search");
     }
 
-    private void toChineseDictionaryActivity() {
+    private void toLearnToCode() {
         toActivity(LearnCodingActivity.class, null);
         AVAnalytics.onEvent(getActivity(), "leisure_pg_learn_coding");
     }

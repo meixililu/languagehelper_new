@@ -23,7 +23,6 @@
     <string name="title_english_story">Story</string>
     <string name="title_sougo_wechat">Wechat English</string>
     <string name="title_juhe">Synthesize</string>
-    <string name="title_help">Style</string>
     <string name="title_xvideo">Video</string>
     <string name="title_more">More</string>
     <string name="title_all_unit">Unit Choose</string>
@@ -298,19 +297,12 @@
     <string name="leisuer_yizhandaodi_des">Question and Answer</string>
 	<string name="leisuer_twists_subtitle">Chinese brain twists</string>
     <string name="leisuer_duanzi">Joke</string>
-    <string name="leisuer_duanzi_subtitle">Make a funny</string>
-    <string name="leisuer_gyt">Relax</string>
-    <string name="leisuer_gyt_subtitle">Have fun</string>
     <string name="leisuer_charades">Charades</string>
     <string name="leisuer_xhy">Two-part allegorical saying</string>
     <string name="leisuer_tongue_twister">Tongue Twister</string>
     <string name="title_setting">Setting</string>
-    <string name="leisuer_invest_subtitle">Invest your idea</string>
-
 	<string name="leisuer_learn_to_code">Learn to code</string>
 	<string name="download">Try it</string>
-	
-	<string name="invest_activity_title">Investors</string>
     <string name="search_hot">Hot</string>
 	<string name="practice_check">Check</string>
 	<string name="practice_next">Next</string>

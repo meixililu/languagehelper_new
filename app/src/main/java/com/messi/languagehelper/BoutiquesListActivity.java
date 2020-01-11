@@ -1,28 +1,20 @@
 package com.messi.languagehelper;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import android.os.PersistableBundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.ViewModel.XXLAVObjectModel;
-import com.messi.languagehelper.adapter.RcJokeListAdapter;
-import com.messi.languagehelper.impl.FragmentProgressbarListener;
+import com.messi.languagehelper.adapter.RcBoutiquesListAdapter;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
-import com.messi.languagehelper.util.ToastUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.lang.ref.WeakReference;
@@ -31,71 +23,39 @@ import java.util.List;
 
 import cn.jzvd.Jzvd;
 
-public class JokeFragment extends BaseFragment implements OnClickListener {
+public class BoutiquesListActivity extends BaseActivity {
 
     private RecyclerView listview;
-    private RcJokeListAdapter mAdapter;
+    private RcBoutiquesListAdapter mAdapter;
     private List<AVObject> avObjects;
     private int skip = 0;
-    private String category;
-    private int maxRandom;
+    private String bcdoe;
     private LinearLayoutManager mLinearLayoutManager;
     private XXLAVObjectModel mXXLModel;
 
-    public static JokeFragment newInstance(String category){
-        JokeFragment fragment = new JokeFragment();
-        Bundle bundle = new Bundle();
-        bundle.putString("category",category);
-        fragment.setArguments(bundle);
-        return fragment;
-    }
-
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Bundle mBundle = getArguments();
-        this.category = mBundle.getString("category");
-    }
-
-    @Override
-    public void onAttach(Context activity) {
-        super.onAttach(activity);
-        try {
-            mProgressbarListener = (FragmentProgressbarListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString() + " must implement FragmentProgressbarListener");
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.onCreateView(inflater,container,savedInstanceState);
-        View view = inflater.inflate(R.layout.joke_picture_fragment, container, false);
-        initViews(view);
-        return view;
-    }
-
-    @Override
-    public void loadDataOnStart() {
-        super.loadDataOnStart();
+        setContentView(R.layout.boutiques_list_activity);
+        initViews();
         new QueryTask(this).execute();
-        getMaxPageNumberBackground();
     }
 
-    private void initViews(View view) {
+    private void initViews() {
+        this.bcdoe = getIntent().getStringExtra(KeyUtil.BoutiqueCode);
         avObjects = new ArrayList<AVObject>();
-        mXXLModel = new XXLAVObjectModel(getActivity());
-        listview = (RecyclerView) view.findViewById(R.id.listview);
-        initSwipeRefresh(view);
-        mAdapter = new RcJokeListAdapter();
+        mXXLModel = new XXLAVObjectModel(this);
+        listview = (RecyclerView) findViewById(R.id.listview);
+        initSwipeRefresh();
+        mAdapter = new RcBoutiquesListAdapter();
         mAdapter.setItems(avObjects);
         mAdapter.setFooter(new Object());
         mXXLModel.setAdapter(avObjects,mAdapter);
         hideFooterview();
-        mLinearLayoutManager = new LinearLayoutManager(getContext());
+        mLinearLayoutManager = new LinearLayoutManager(this);
         listview.setLayoutManager(mLinearLayoutManager);
         listview.addItemDecoration(
-                        new HorizontalDividerItemDecoration.Builder(getContext())
+                        new HorizontalDividerItemDecoration.Builder(this)
                                 .colorResId(R.color.text_tint)
                                 .sizeResId(R.dimen.padding_10)
                                 .build());
@@ -114,7 +74,7 @@ public class JokeFragment extends BaseFragment implements OnClickListener {
                 isADInList(recyclerView, firstVisibleItem, visible);
                 if (!mXXLModel.loading && mXXLModel.hasMore) {
                     if ((visible + firstVisibleItem) >= total) {
-                        new QueryTask(JokeFragment.this).execute();
+                        new QueryTask(BoutiquesListActivity.this).execute();
                     }
                 }
             }
@@ -127,7 +87,7 @@ public class JokeFragment extends BaseFragment implements OnClickListener {
                 if(i < avObjects.size() && i > 0){
                     AVObject mAVObject = avObjects.get(i);
                     if(mAVObject != null && mAVObject.get(KeyUtil.ADKey) != null){
-                        if(!(Boolean) mAVObject.get(KeyUtil.ADIsShowKey) && misVisibleToUser){
+                        if(!(Boolean) mAVObject.get(KeyUtil.ADIsShowKey)){
                             NativeDataRef mNativeADDataRef = (NativeDataRef) mAVObject.get(KeyUtil.ADKey);
                             boolean isExposure = mNativeADDataRef.onExposure(view.getChildAt(i%vCount));
                             LogUtil.DefalutLog("isExposure:"+isExposure);
@@ -141,15 +101,11 @@ public class JokeFragment extends BaseFragment implements OnClickListener {
         }
     }
 
-    private void random(){
-        skip = (int) Math.round(Math.random()*maxRandom);
-        LogUtil.DefalutLog("skip:"+skip);
-    }
-
     @Override
     public void onSwipeRefreshLayoutRefresh() {
+        Jzvd.releaseAllVideos();
         hideFooterview();
-        random();
+        skip = 0;
         avObjects.clear();
         mAdapter.notifyDataSetChanged();
         new QueryTask(this).execute();
@@ -163,9 +119,9 @@ public class JokeFragment extends BaseFragment implements OnClickListener {
 
     private class QueryTask extends AsyncTask<Void, Void, List<AVObject>> {
 
-        private WeakReference<JokeFragment> mainActivity;
+        private WeakReference<BoutiquesListActivity> mainActivity;
 
-        public QueryTask(JokeFragment mActivity){
+        public QueryTask(BoutiquesListActivity mActivity){
             mainActivity = new WeakReference<>(mActivity);
         }
 
@@ -180,22 +136,9 @@ public class JokeFragment extends BaseFragment implements OnClickListener {
 
         @Override
         protected List<AVObject> doInBackground(Void... params) {
-            AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.Joke.Joke);
-            if(!TextUtils.isEmpty(category)){
-                if(category.equals("img")){
-                    query.whereNotEqualTo(AVOUtil.Joke.category,"103");
-                    query.whereEqualTo(AVOUtil.Joke.type, "1");
-                    query.whereEqualTo(AVOUtil.Joke.type, "3");
-                }else if(category.equals("video")){
-                    query.whereNotEqualTo(AVOUtil.Joke.category,"103");
-                    query.whereEqualTo(AVOUtil.Joke.type, "4");
-                }else if(category.equals("103")){
-                    query.whereEqualTo(AVOUtil.Joke.category,"103");
-                }
-            }else {
-                query.whereNotEqualTo(AVOUtil.Joke.category,"103");
-            }
-            query.addDescendingOrder(AVOUtil.Joke.createdAt);
+            AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.BoutiquesList.BoutiquesList);
+            query.whereEqualTo(AVOUtil.BoutiquesList.bcdoe, bcdoe);
+            query.addAscendingOrder(AVOUtil.BoutiquesList.order);
             query.skip(skip);
             query.limit(Setings.page_size);
             try {
@@ -209,14 +152,13 @@ public class JokeFragment extends BaseFragment implements OnClickListener {
         @Override
         protected void onPostExecute(List<AVObject> avObject) {
             if(mainActivity.get() != null){
-                LogUtil.DefalutLog("onPostExecute---");
                 mXXLModel.loading = false;
                 hideProgressbar();
                 onSwipeRefreshLayoutFinish();
                 if(avObject != null){
                     if(avObject.size() == 0){
-                        ToastUtil.diaplayMesShort(getContext(), "没有了！");
                         hideFooterview();
+                        mXXLModel.hasMore = false;
                     }else{
                         if(avObjects != null && mAdapter != null){
                             avObjects.addAll(avObject);
@@ -224,20 +166,12 @@ public class JokeFragment extends BaseFragment implements OnClickListener {
                             loadAD();
                             skip += Setings.page_size;
                             showFooterview();
+                            mXXLModel.hasMore = true;
                         }
                     }
                 }
-                if(skip == maxRandom){
-                    mXXLModel.hasMore = false;
-                }else {
-                    mXXLModel.hasMore = true;
-                }
             }
         }
-    }
-
-    @Override
-    public void onClick(View v) {
     }
 
     private void showFooterview() {
@@ -248,38 +182,17 @@ public class JokeFragment extends BaseFragment implements OnClickListener {
         mAdapter.hideFooter();
     }
 
-    private void getMaxPageNumberBackground(){
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.Joke.Joke);
-                    if(!TextUtils.isEmpty(category)){
-                        if(category.equals("img")){
-                            query.whereNotEqualTo(AVOUtil.Joke.category,"103");
-                            query.whereEqualTo(AVOUtil.Joke.type, "1");
-                            query.whereEqualTo(AVOUtil.Joke.type, "3");
-                        }else if(category.equals("video")){
-                            query.whereNotEqualTo(AVOUtil.Joke.category,"103");
-                            query.whereEqualTo(AVOUtil.Joke.type, "4");
-                        }else if(category.equals("103")){
-                            query.whereEqualTo(AVOUtil.Joke.category,"103");
-                        }
-                    }else {
-                        query.whereNotEqualTo(AVOUtil.Joke.category,"103");
-                    }
-                    maxRandom =  query.count() / Setings.page_size;
-                    LogUtil.DefalutLog("category:"+category+"---maxRandom:"+maxRandom);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
     }
 
-    public void onTabReselected(int index) {
-        listview.scrollToPosition(0);
-        onSwipeRefreshLayoutRefresh();
+    @Override
+    public void onBackPressed() {
+        if (Jzvd.backPress()) {
+            return;
+        }
+        super.onBackPressed();
     }
 
     @Override

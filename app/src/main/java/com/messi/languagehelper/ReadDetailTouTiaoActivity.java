@@ -56,8 +56,6 @@ import com.messi.languagehelper.util.StringUtils;
 import com.messi.languagehelper.util.ViewUtil;
 import com.ximalaya.ting.android.opensdk.util.DigestUtils;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.zip.CRC32;
 
 import butterknife.BindView;
@@ -168,8 +166,8 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
             } else if ("url_media".equals(mAVObject.getContent_type())) {
                 exoplaer(mAVObject.getMedia_url());
             } else if ("url".equals(mAVObject.getContent_type()) || "url_intercept".equals(mAVObject.getContent_type()) ) {
-                if("今日头条".equals(mAVObject.getSource_name())){
-                    parseToutiaoHtml(Url);
+                if("今日头条".equals(mAVObject.getSource_name()) && !TextUtils.isEmpty(mAVObject.getVid())){
+                    parseToutiaoHtml(mAVObject.getVid());
                 }else {
                     interceptUrl();
                 }
@@ -187,47 +185,23 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         mWebView.loadUrl(Url);
     }
 
-    private void parseToutiaoHtml(String tempUrl){
-        LogUtil.DefalutLog("parseToutiaoHtml:"+tempUrl);
-        LanguagehelperHttpClient.get(tempUrl,new UICallback(this){
-            @Override
-            public void onFailured() {
-                interceptUrl();
-            }
-            @Override
-            public void onFinished() {
-            }
-            @Override
-            public void onResponsed(String responseStr) {
-//                LogUtil.DefalutLog("parseToutiaoHtml-responseStr:"+responseStr);
-                String vid = "";
-                String videoUrl = "";
-                try{
-                    String pattern = "\"vid\":\"(\\w*)\"";
-                    LogUtil.DefalutLog("pattern:"+pattern);
-                    Pattern idPattern = Pattern.compile(pattern);
-                    Matcher mMatcher = idPattern.matcher(responseStr);
-                    if(mMatcher.find()){
-                        vid = mMatcher.group(1);
-                    }
-                    LogUtil.DefalutLog("vid:"+vid);
-                    String randint = StringUtils.getRandomString(16);
-                    String videoid = "/video/urls/v/1/toutiao/mp4/"+vid+"?r="+randint;
-                    CRC32 crc32 = new CRC32();
-                    crc32.update(videoid.getBytes());
-                    long checksum = crc32.getValue();
-                    videoUrl = "http://i.snssdk.com" + videoid + "&s=" + checksum;
-                }catch (Exception e){
-                    e.printStackTrace();
-                }finally {
-                    if(!TextUtils.isEmpty(vid) && !TextUtils.isEmpty(videoUrl)){
-                        parseToutiaoApi(videoUrl);
-                    }else {
-                        onFailured();
-                    }
-                }
-            }
-        });
+    private void parseToutiaoHtml(String vid){
+        LogUtil.DefalutLog("vid:"+vid);
+        String videoUrl = "";
+        try{
+//            String pattern = "\"vid\":\"(\\w*)\"";
+            String randint = StringUtils.getRandomString(16);
+            String videoid = "/video/urls/v/1/toutiao/mp4/"+vid+"?r="+randint;
+            CRC32 crc32 = new CRC32();
+            crc32.update(videoid.getBytes());
+            long checksum = crc32.getValue();
+            videoUrl = "http://i.snssdk.com" + videoid + "&s=" + checksum;
+            LogUtil.DefalutLog("videoid:"+videoid+"-videoUrl:"+videoUrl);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            parseToutiaoApi(videoUrl);
+        }
     }
 
     private void parseToutiaoApi(String url){
@@ -242,7 +216,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
             }
             @Override
             public void onResponsed(String responseStr) {
-                LogUtil.DefalutLog("parseToutiaoApi-responseStr:"+responseStr);
+//                LogUtil.DefalutLog("parseToutiaoApi-responseStr:"+responseStr);
                 String videoUrl = "";
                 try{
                     ToutiaoVideoBean toutiaoVideo = JSON.parseObject(responseStr,ToutiaoVideoBean.class);
@@ -302,10 +276,6 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                LogUtil.DefalutLog("shouldOverrideUrlLoading:" + url);
-                if (url.contains("bilibili:")) {
-                    return true;
-                }
                 return super.shouldOverrideUrlLoading(view, url);
             }
 
@@ -331,6 +301,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
                     if (url.contains(str)) {
                         isWVPSuccess = true;
                         isPlay = true;
+                        LogUtil.DefalutLog("interceptUrl contains");
                         break;
                     }
                 }
@@ -338,6 +309,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
                     ReadDetailTouTiaoActivity.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+                            LogUtil.DefalutLog("runOnUiThread");
                             if("今日头条".equals(mAVObject.getSource_name())){
                                 parseToutiaoWebApi(url);
                             }else {
@@ -399,6 +371,9 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
 
     private void parseVideoUrl() {
         LogUtil.DefalutLog("parseVideoUrl");
+        if(status == 1){
+            return;
+        }
         showProgressbar();
         Long timestamp = System.currentTimeMillis();
         String sign = DigestUtils.md5Hex(Url + timestamp + Setings.TTParseClientSecretKey);

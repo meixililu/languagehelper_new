@@ -204,11 +204,11 @@
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/caricature_layout"
+                android:id="@+id/english_essay_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="1px"
                 android:layout_weight="1"
+                android:layout_marginRight="1px"
                 android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
@@ -224,7 +224,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        app:srcCompat="@drawable/ic_icon_05" />
+                        app:srcCompat="@drawable/ic_icon_09" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -233,7 +233,7 @@
                         android:background="@color/white"
                         android:gravity="center"
                         android:lines="1"
-                        android:text="@string/leisure_caricature"
+                        android:text="@string/english_essay"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/middle" />
                 </LinearLayout>
@@ -282,12 +282,13 @@
             android:layout_marginBottom="1px"
             android:orientation="horizontal">
 
+
             <FrameLayout
-                android:id="@+id/novel_layout"
+                android:id="@+id/layout_history"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="1px"
                 android:layout_weight="1"
+                android:layout_marginRight="1px"
                 android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
@@ -303,7 +304,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        app:srcCompat="@drawable/ic_icon_07" />
+                        app:srcCompat="@drawable/ic_icon_19" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -312,7 +313,7 @@
                         android:background="@color/white"
                         android:gravity="center"
                         android:lines="1"
-                        android:text="@string/title_novel"
+                        android:text="@string/leisure_history"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/middle" />
                 </LinearLayout>
@@ -355,7 +356,7 @@
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/english_essay_layout"
+                android:id="@+id/layout_xiehouyu"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -374,7 +375,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        app:srcCompat="@drawable/ic_icon_09" />
+                        app:srcCompat="@drawable/ic_icon_20" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -383,7 +384,7 @@
                         android:background="@color/white"
                         android:gravity="center"
                         android:lines="1"
-                        android:text="@string/english_essay"
+                        android:text="@string/leisuer_xhy"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/middle" />
                 </LinearLayout>
@@ -512,42 +513,6 @@
             android:orientation="horizontal">
 
             <FrameLayout
-                android:id="@+id/shenhuifu_layout"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="1px"
-                android:layout_weight="1"
-                android:foreground="@drawable/framelayout_selector"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:paddingBottom="@dimen/padding_15"
-                    android:paddingTop="@dimen/padding_15">
-
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        app:srcCompat="@drawable/ic_icon_13" />
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_marginTop="@dimen/padding_5"
-                        android:background="@color/white"
-                        android:gravity="center"
-                        android:lines="1"
-                        android:text="@string/leisuer_shenhuifu"
-                        android:textColor="@color/text_black"
-                        android:textSize="@dimen/middle" />
-                </LinearLayout>
-            </FrameLayout>
-
-            <FrameLayout
                 android:id="@+id/layout_whyy"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -588,6 +553,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginRight="1px"
                 android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
@@ -613,6 +579,41 @@
                         android:gravity="center"
                         android:lines="1"
                         android:text="@string/leisure_conjecture"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/middle" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/app_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:foreground="@drawable/framelayout_selector"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/padding_15"
+                    android:paddingTop="@dimen/padding_15">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:srcCompat="@drawable/ic_icon_18" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="@dimen/padding_5"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:text="@string/leisuer_learn_to_code"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/middle" />
                 </LinearLayout>
@@ -697,126 +698,10 @@
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/app_layout"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginRight="1px"
-                android:foreground="@drawable/framelayout_selector"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:paddingBottom="@dimen/padding_15"
-                    android:paddingTop="@dimen/padding_15">
-
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        app:srcCompat="@drawable/ic_icon_18" />
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_marginTop="@dimen/padding_5"
-                        android:background="@color/white"
-                        android:gravity="center"
-                        android:lines="1"
-                        android:text="@string/leisuer_learn_to_code"
-                        android:textColor="@color/text_black"
-                        android:textSize="@dimen/middle" />
-                </LinearLayout>
-            </FrameLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="3"
-            android:orientation="horizontal">
-
-            <FrameLayout
-                android:id="@+id/layout_history"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginRight="1px"
-                android:foreground="@drawable/framelayout_selector"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:paddingBottom="@dimen/padding_15"
-                    android:paddingTop="@dimen/padding_15">
-
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        app:srcCompat="@drawable/ic_icon_19" />
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_marginTop="@dimen/padding_5"
-                        android:background="@color/white"
-                        android:gravity="center"
-                        android:lines="1"
-                        android:text="@string/leisure_history"
-                        android:textColor="@color/text_black"
-                        android:textSize="@dimen/middle" />
-                </LinearLayout>
-            </FrameLayout>
-            <FrameLayout
-                android:id="@+id/layout_xiehouyu"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginRight="1px"
-                android:foreground="@drawable/framelayout_selector"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:paddingBottom="@dimen/padding_15"
-                    android:paddingTop="@dimen/padding_15">
-
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        app:srcCompat="@drawable/ic_icon_20" />
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_marginTop="@dimen/padding_5"
-                        android:background="@color/white"
-                        android:gravity="center"
-                        android:lines="1"
-                        android:text="@string/leisuer_xhy"
-                        android:textColor="@color/text_black"
-                        android:textSize="@dimen/middle" />
-                </LinearLayout>
-            </FrameLayout>
-
-            <FrameLayout
                 android:id="@+id/layout_tongue_twister"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginRight="1px"
                 android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
@@ -832,7 +717,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        app:srcCompat="@drawable/ic_icon_10" />
+                        app:srcCompat="@drawable/ic_icon_05" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -849,6 +734,119 @@
 
         </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="5"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/novel_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="1px"
+            android:layout_weight="1"
+            android:foreground="@drawable/framelayout_selector"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/padding_15"
+                android:paddingTop="@dimen/padding_15">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:srcCompat="@drawable/ic_icon_07" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginTop="@dimen/padding_5"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:lines="1"
+                    android:text="@string/title_novel"
+                    android:textColor="@color/text_black"
+                    android:textSize="@dimen/middle" />
+            </LinearLayout>
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/shenhuifu_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="1px"
+            android:layout_weight="1"
+            android:foreground="@drawable/framelayout_selector"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/padding_15"
+                android:paddingTop="@dimen/padding_15">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:srcCompat="@drawable/ic_icon_13" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginTop="@dimen/padding_5"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:lines="1"
+                    android:text="@string/leisuer_shenhuifu"
+                    android:textColor="@color/text_black"
+                    android:textSize="@dimen/middle" />
+            </LinearLayout>
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/caricature_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="1px"
+            android:layout_weight="1"
+            android:foreground="@drawable/framelayout_selector"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/padding_15"
+                android:paddingTop="@dimen/padding_15">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:srcCompat="@drawable/ic_icon_05" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginTop="@dimen/padding_5"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:lines="1"
+                    android:text="@string/leisure_caricature"
+                    android:textColor="@color/text_black"
+                    android:textSize="@dimen/middle" />
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
     </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>

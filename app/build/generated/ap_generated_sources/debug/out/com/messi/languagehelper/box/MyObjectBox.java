@@ -113,7 +113,7 @@ public class MyObjectBox {
 
     private static void buildEntityReading(ModelBuilder modelBuilder) {
         EntityBuilder entityBuilder = modelBuilder.entity("Reading");
-        entityBuilder.id(5, 2508500946353572578L).lastPropertyId(34, 1473431717324137965L);
+        entityBuilder.id(5, 2508500946353572578L).lastPropertyId(35, 8429725476707112570L);
         entityBuilder.flags(io.objectbox.model.EntityFlags.USE_NO_ARG_CONSTRUCTOR);
 
         entityBuilder.property("id", PropertyType.Long).id(1, 285723131730538682L)
@@ -137,6 +137,7 @@ public class MyObjectBox {
         entityBuilder.property("content_type", PropertyType.String).id(17, 1266954597924058740L);
         entityBuilder.property("img_urls", PropertyType.String).id(18, 5818153007733697824L);
         entityBuilder.property("status", PropertyType.String).id(19, 6561638219100361649L);
+        entityBuilder.property("vid", PropertyType.String).id(35, 8429725476707112570L);
         entityBuilder.property("isCollected", PropertyType.String).id(20, 1891068367028050793L);
         entityBuilder.property("collected_time", PropertyType.Long).id(21, 7701890528733873333L)
                 .flags(PropertyFlags.NOT_NULL);

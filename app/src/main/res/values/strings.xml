@@ -39,7 +39,7 @@
     <string name="title_chinese_dic">中汉</string>
     <string name="title_study_category">学习</string>
     <string name="title_study">悦读</string>
-    <string name="title_xvideo">小视频</string>
+    <string name="title_xvideo">英语小视频</string>
     <string name="title_listen_fm">悦听</string>
     <string name="title_yuwen">语文</string>
     <string name="title_category">分类</string>
@@ -306,7 +306,6 @@
     <string name="leisure_conjecture">猜成语</string>
     <string name="leisure_riddle">猜灯谜</string>
     <string name="foreign_website">英文网站</string>
-    <string name="foreign_website_subtitle">一些不错的英文网站</string>
     <string name="leisuer_one">小白精选</string>
     <string name="leisuer_sougou_wechat">微信英语</string>
     <string name="leisuer_sougou_wechat_subtitle">微信公众号英语资料集合</string>
@@ -322,17 +321,8 @@
     <string name="leisuer_xhy">歇后语</string>
     <string name="leisuer_tongue_twister">绕口令</string>
     <string name="title_sure">确定</string>
-    <string name="leisuer_invest_subtitle">提意见就是对软件投资</string>
-
-    <string name="website_attention">提示：国外网站的打开速度稍微慢点</string>
-    <string name="leisuer_gyt">轻松一刻</string>
-    <string name="leisuer_gyt_subtitle">累了就到这里放松一下</string>
-    <string name="leisuer_duanzi">笑话段子</string>
-    <string name="leisuer_duanzi_subtitle">各种笑话和段子</string>
-
+    <string name="leisuer_duanzi">笑话</string>
     <string name="leisuer_learn_to_code">学编程</string>
-
-    <string name="invest_activity_title">使用场景和建议</string>
     <string name="feedback">反馈</string>
     <string name="done">完成</string>
     <string name="practice_next">下一个</string>

@@ -489,7 +489,9 @@ public class AVOUtil {
 		public final static String content = "content";
 		
 		public final static String item_id = "item_id";
-		
+
+		public final static String vid = "vid";
+
 		public final static String img_url = "img_url";
 		
 		public final static String publish_time = "publish_time";
@@ -909,6 +911,26 @@ public class AVOUtil {
 		public final static String order = "order";
 
 		public final static String content_type = "content_type";
+
+	}
+
+	public static class BoutiquesList {
+
+		public final static String BoutiquesList = "BoutiquesList";
+
+		public final static String title = "title";
+
+		public final static String des = "des";
+
+		public final static String bcdoe = "bcdoe";
+
+		public final static String img = "img";
+
+		public final static String media_url = "media_url";
+
+		public final static String order = "order";
+
+		public final static String source_url = "source_url";
 
 	}
 

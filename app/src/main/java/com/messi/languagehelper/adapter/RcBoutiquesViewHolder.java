@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.avos.avoscloud.AVObject;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.messi.languagehelper.BoutiquesListActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.ReadingsActivity;
 import com.messi.languagehelper.util.AVOUtil;
@@ -55,12 +56,19 @@ public class RcBoutiquesViewHolder extends RecyclerView.ViewHolder {
 
     private void onItemClick(AVObject mAVObject){
         String tableName = mAVObject.getString(AVOUtil.Boutiques.table_name);
+        Class toClass = null;
         if(!TextUtils.isEmpty(tableName) && "Reading".equals(tableName)){
-            Intent intent = new Intent(context, ReadingsActivity.class);
+            toClass = ReadingsActivity.class;
+        }else if(!TextUtils.isEmpty(tableName) && "BoutiquesList".equals(tableName)){
+            toClass = BoutiquesListActivity.class;
+        }
+        if(toClass != null){
+            Intent intent = new Intent(context, toClass);
             intent.putExtra(KeyUtil.ActionbarTitle, mAVObject.getString(AVOUtil.Boutiques.title));
             intent.putExtra(KeyUtil.BoutiqueCode, mAVObject.getString(AVOUtil.Boutiques.code));
             context.startActivity(intent);
         }
+
     }
 
 }

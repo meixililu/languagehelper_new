@@ -212,6 +212,10 @@
             android:name=".WebViewForCaricatureActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".BoutiquesListActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".MomentsAddActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -442,9 +446,6 @@
         <activity
             android:name=".SymbolDetailActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".InvestmentActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".SpokenEnglishDetailActivity"

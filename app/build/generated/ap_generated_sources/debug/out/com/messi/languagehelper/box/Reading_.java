@@ -88,50 +88,53 @@ public final class Reading_ implements EntityInfo<Reading> {
     public final static io.objectbox.Property<Reading> status =
         new io.objectbox.Property<>(__INSTANCE, 18, 19, String.class, "status");
 
+    public final static io.objectbox.Property<Reading> vid =
+        new io.objectbox.Property<>(__INSTANCE, 19, 35, String.class, "vid");
+
     public final static io.objectbox.Property<Reading> isCollected =
-        new io.objectbox.Property<>(__INSTANCE, 19, 20, String.class, "isCollected");
+        new io.objectbox.Property<>(__INSTANCE, 20, 20, String.class, "isCollected");
 
     public final static io.objectbox.Property<Reading> collected_time =
-        new io.objectbox.Property<>(__INSTANCE, 20, 21, long.class, "collected_time");
+        new io.objectbox.Property<>(__INSTANCE, 21, 21, long.class, "collected_time");
 
     public final static io.objectbox.Property<Reading> isReadLater =
-        new io.objectbox.Property<>(__INSTANCE, 21, 22, String.class, "isReadLater");
+        new io.objectbox.Property<>(__INSTANCE, 22, 22, String.class, "isReadLater");
 
     public final static io.objectbox.Property<Reading> read_later_time =
-        new io.objectbox.Property<>(__INSTANCE, 22, 23, long.class, "read_later_time");
+        new io.objectbox.Property<>(__INSTANCE, 23, 23, long.class, "read_later_time");
 
     public final static io.objectbox.Property<Reading> like =
-        new io.objectbox.Property<>(__INSTANCE, 23, 24, int.class, "like");
+        new io.objectbox.Property<>(__INSTANCE, 24, 24, int.class, "like");
 
     public final static io.objectbox.Property<Reading> unlike =
-        new io.objectbox.Property<>(__INSTANCE, 24, 25, int.class, "unlike");
+        new io.objectbox.Property<>(__INSTANCE, 25, 25, int.class, "unlike");
 
     public final static io.objectbox.Property<Reading> comments =
-        new io.objectbox.Property<>(__INSTANCE, 25, 26, int.class, "comments");
+        new io.objectbox.Property<>(__INSTANCE, 26, 26, int.class, "comments");
 
     public final static io.objectbox.Property<Reading> readed =
-        new io.objectbox.Property<>(__INSTANCE, 26, 27, int.class, "readed");
+        new io.objectbox.Property<>(__INSTANCE, 27, 27, int.class, "readed");
 
     public final static io.objectbox.Property<Reading> lrc_url =
-        new io.objectbox.Property<>(__INSTANCE, 27, 28, String.class, "lrc_url");
+        new io.objectbox.Property<>(__INSTANCE, 28, 28, String.class, "lrc_url");
 
     public final static io.objectbox.Property<Reading> backup1 =
-        new io.objectbox.Property<>(__INSTANCE, 28, 29, String.class, "backup1");
+        new io.objectbox.Property<>(__INSTANCE, 29, 29, String.class, "backup1");
 
     public final static io.objectbox.Property<Reading> backup2 =
-        new io.objectbox.Property<>(__INSTANCE, 29, 30, String.class, "backup2");
+        new io.objectbox.Property<>(__INSTANCE, 30, 30, String.class, "backup2");
 
     public final static io.objectbox.Property<Reading> backup3 =
-        new io.objectbox.Property<>(__INSTANCE, 30, 31, String.class, "backup3");
+        new io.objectbox.Property<>(__INSTANCE, 31, 31, String.class, "backup3");
 
     public final static io.objectbox.Property<Reading> backup4 =
-        new io.objectbox.Property<>(__INSTANCE, 31, 32, String.class, "backup4");
+        new io.objectbox.Property<>(__INSTANCE, 32, 32, String.class, "backup4");
 
     public final static io.objectbox.Property<Reading> backup5 =
-        new io.objectbox.Property<>(__INSTANCE, 32, 33, String.class, "backup5");
+        new io.objectbox.Property<>(__INSTANCE, 33, 33, String.class, "backup5");
 
     public final static io.objectbox.Property<Reading> img_color =
-        new io.objectbox.Property<>(__INSTANCE, 33, 34, int.class, "img_color");
+        new io.objectbox.Property<>(__INSTANCE, 34, 34, int.class, "img_color");
 
     @SuppressWarnings("unchecked")
     public final static io.objectbox.Property<Reading>[] __ALL_PROPERTIES = new io.objectbox.Property[]{
@@ -154,6 +157,7 @@ public final class Reading_ implements EntityInfo<Reading> {
         content_type,
         img_urls,
         status,
+        vid,
         isCollected,
         collected_time,
         isReadLater,
