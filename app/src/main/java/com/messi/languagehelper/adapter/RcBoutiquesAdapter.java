@@ -18,7 +18,7 @@ public class RcBoutiquesAdapter extends HeaderFooterRecyclerViewAdapter<Recycler
     @Override
     protected RecyclerView.ViewHolder onCreateItemViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = getLayoutInflater(parent);
-        View characterView = inflater.inflate(R.layout.word_study_root_list_item, parent, false);
+        View characterView = inflater.inflate(R.layout.boutiques_list_item, parent, false);
         return new RcBoutiquesViewHolder(characterView);
     }
 

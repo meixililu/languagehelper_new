@@ -278,7 +278,7 @@
     <string name="leisure_caricature">Caricature</string>
     <string name="leisure_photo_search">Photo Search</string>
     <string name="leisure_search">Search</string>
-    <string name="leisure_wyyx">Search</string>
+    <string name="leisure_ksearch">Search</string>
     <string name="leisure_whyy">Proverb</string>
     <string name="leisure_history">History</string>
     <string name="leisure_conjecture">Conjecture</string>
@@ -348,6 +348,7 @@
     <string name="title_broadcast">Broadcast</string>
     <string name="title_business">Business</string>
     <string name="title_course">Course</string>
+    <string name="title_level">Classify</string>
     <string name="title_daily_word_study">Vocabulary</string>
     <string name="search_hint">VOA | BBC | CNN</string>
     <string name="search_history"><![CDATA[History&Hot]]></string>

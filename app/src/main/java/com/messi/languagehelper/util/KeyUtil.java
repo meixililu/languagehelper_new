@@ -276,6 +276,8 @@ public class KeyUtil {
 
 	public static final String CaricatureSearchHistory = "CaricatureSearchHistory";
 
+	public static final String ShowCNK = "ShowCNK";
+
 	public static final String SearchHistory = "SearchHistory";
 
 	public static final String IsAiChatPlayVoice = "IsAiChatPlayVoice";

@@ -24,7 +24,6 @@ public class RcBoutiquesViewHolder extends RecyclerView.ViewHolder {
 
     private final FrameLayout layout_cover;
     private final TextView name;
-    private final TextView des;
     private final SimpleDraweeView list_item_img;
     private Context context;
 
@@ -33,13 +32,11 @@ public class RcBoutiquesViewHolder extends RecyclerView.ViewHolder {
         this.context = convertView.getContext();
         layout_cover = (FrameLayout) itemView.findViewById(R.id.layout_cover);
         name = (TextView) itemView.findViewById(R.id.name);
-        des = (TextView) itemView.findViewById(R.id.des);
         list_item_img = (SimpleDraweeView) itemView.findViewById(R.id.list_item_img);
     }
 
     public void render(final AVObject mAVObject) {
         name.setText( mAVObject.getString(AVOUtil.Boutiques.title) );
-        des.setText("");
         if(TextUtils.isEmpty(mAVObject.getString(AVOUtil.Boutiques.img_url))){
             list_item_img.setVisibility(View.GONE);;
         }else{

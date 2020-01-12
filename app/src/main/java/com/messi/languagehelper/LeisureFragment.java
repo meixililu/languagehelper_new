@@ -4,14 +4,18 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.widget.NestedScrollView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.messi.languagehelper.ViewModel.LeisureModel;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.CNWBean;
 import com.messi.languagehelper.faxian.CharadesFragment;
 import com.messi.languagehelper.faxian.ConjectureFragment;
 import com.messi.languagehelper.faxian.EssayFragment;
@@ -25,13 +29,24 @@ import com.messi.languagehelper.faxian.XHYFragment;
 import com.messi.languagehelper.faxian.YZDDFragment;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVAnalytics;
+import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.Setings;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class LeisureFragment extends BaseFragment {
 
@@ -85,6 +100,10 @@ public class LeisureFragment extends BaseFragment {
     FrameLayout layout_xiehouyu;
     @BindView(R.id.layout_tongue_twister)
     FrameLayout layout_tongue_twister;
+    @BindView(R.id.ksearch_layout)
+    FrameLayout ksearch_layout;
+    @BindView(R.id.cnk_layout)
+    LinearLayout cnk_layout;
     @BindView(R.id.root_view)
     NestedScrollView rootView;
 
@@ -119,6 +138,7 @@ public class LeisureFragment extends BaseFragment {
         mLeisureModel.setXFADID(ADUtil.MRYJYSNRLAd);
         mLeisureModel.setViews(ad_sign,adImg,xx_ad_layout,ad_layout);
         mLeisureModel.showAd();
+        showNovel();
         return view;
     }
 
@@ -138,7 +158,7 @@ public class LeisureFragment extends BaseFragment {
             R.id.twists_layout, R.id.game_layout, R.id.shenhuifu_layout, R.id.news_layout, R.id.app_layout,
             R.id.invest_layout, R.id.layout_riddle, R.id.search_layout,R.id.novel_layout, R.id.caricature_layout,
             R.id.jd_layout,R.id.english_essay_layout,R.id.layout_whyy,R.id.layout_conjecture,R.id.layout_history,
-            R.id.layout_xiehouyu,R.id.layout_tongue_twister})
+            R.id.layout_xiehouyu,R.id.layout_tongue_twister,R.id.ksearch_layout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.cailing_layout:
@@ -179,6 +199,9 @@ public class LeisureFragment extends BaseFragment {
                 break;
             case R.id.novel_layout:
                 toNovelActivity();
+                break;
+            case R.id.ksearch_layout:
+                toKSearch();
                 break;
             case R.id.caricature_layout:
                 toCaricatureActivity();
@@ -395,6 +418,59 @@ public class LeisureFragment extends BaseFragment {
         if(mLeisureModel != mLeisureModel){
             mLeisureModel.onDestroy();
         }
+    }
+
+    private void showNovel(){
+        Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(ObservableEmitter<String> e) throws Exception {
+                String result = "hide";
+                int type = sp.getInt(KeyUtil.ShowCNK,0);
+                if(type == 1){
+                    result = "show";
+                }else if(type == 2){
+                    result = "hide";
+                }else {
+                    String history_str = sp.getString(KeyUtil.CaricatureSearchHistory,"");
+                    if(!TextUtils.isEmpty(history_str)){
+                        result = "show";
+                    }else {
+                        List<CNWBean> list = BoxHelper.getCollectedList(AVOUtil.Caricature.Caricature,
+                                0, 5);
+                        if(NullUtil.isNotEmpty(list)){
+                            result = "show";
+                        }
+                    }
+                }
+                e.onNext(result);
+            }
+        })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                        if("show".equals(s)){
+                            Setings.saveSharedPreferences(sp,KeyUtil.ShowCNK,1);
+                            cnk_layout.setVisibility(View.VISIBLE);
+                        }else {
+                            Setings.saveSharedPreferences(sp,KeyUtil.ShowCNK,2);
+                            cnk_layout.setVisibility(View.GONE);
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                    }
+
+                    @Override
+                    public void onComplete() {
+                    }
+                });
     }
 
 }

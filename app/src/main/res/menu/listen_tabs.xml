@@ -12,8 +12,13 @@
         android:title="@string/title_study_category" />
 
     <item
+        android:id="@+id/navigation_video"
+        android:icon="@drawable/ic_subject_black_24dp"
+        android:title="@string/title_course" />
+
+    <item
         android:id="@+id/navigation_word_study"
         android:icon="@drawable/ic_store_black_24dp"
-        android:title="@string/title_course" />
+        android:title="@string/title_level" />
 
 </menu>

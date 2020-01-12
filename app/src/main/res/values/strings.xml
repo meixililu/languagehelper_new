@@ -300,7 +300,7 @@
     <string name="leisure_caricature">漫画</string>
     <string name="leisure_photo_search">拍照搜题</string>
     <string name="leisure_search">热搜榜</string>
-    <string name="leisure_wyyx">搜一搜</string>
+    <string name="leisure_ksearch">搜一搜</string>
     <string name="leisure_whyy">文化谚语</string>
     <string name="leisure_history">简说历史</string>
     <string name="leisure_conjecture">猜成语</string>
@@ -372,6 +372,7 @@
     <string name="title_broadcast">电台</string>
     <string name="title_business">行业</string>
     <string name="title_course">课程</string>
+    <string name="title_level">分级</string>
     <string name="title_daily_word_study">每日一词</string>
     <string name="search_hint">VOA|BBC|CNN</string>
     <string name="search_history">历史|热门</string>
