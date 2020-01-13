@@ -420,17 +420,24 @@ public class LeisureFragment extends BaseFragment {
         }
     }
 
+
+
     private void showNovel(){
-        Observable.create(new ObservableOnSubscribe<String>() {
-            @Override
-            public void subscribe(ObservableEmitter<String> e) throws Exception {
-                String result = "hide";
-                int type = sp.getInt(KeyUtil.ShowCNK,0);
-                if(type == 1){
-                    result = "show";
-                }else if(type == 2){
-                    result = "hide";
-                }else {
+        int type = sp.getInt(KeyUtil.ShowCNK,0);
+        if(type == 1) {
+            cnk_layout.setVisibility(View.VISIBLE);
+        }else if(type == 2){
+            cnk_layout.setVisibility(View.GONE);
+        }else {
+            showNovelBackground();
+        }
+    }
+
+    private void showNovelBackground(){
+            Observable.create(new ObservableOnSubscribe<String>() {
+                @Override
+                public void subscribe(ObservableEmitter<String> e) throws Exception {
+                    String result = "hide";
                     String history_str = sp.getString(KeyUtil.CaricatureSearchHistory,"");
                     if(!TextUtils.isEmpty(history_str)){
                         result = "show";
@@ -441,36 +448,35 @@ public class LeisureFragment extends BaseFragment {
                             result = "show";
                         }
                     }
+                    e.onNext(result);
                 }
-                e.onNext(result);
-            }
-        })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<String>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                    }
-
-                    @Override
-                    public void onNext(String s) {
-                        if("show".equals(s)){
-                            Setings.saveSharedPreferences(sp,KeyUtil.ShowCNK,1);
-                            cnk_layout.setVisibility(View.VISIBLE);
-                        }else {
-                            Setings.saveSharedPreferences(sp,KeyUtil.ShowCNK,2);
-                            cnk_layout.setVisibility(View.GONE);
+            })
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(new Observer<String>() {
+                        @Override
+                        public void onSubscribe(Disposable d) {
                         }
-                    }
 
-                    @Override
-                    public void onError(Throwable e) {
-                    }
+                        @Override
+                        public void onNext(String s) {
+                            if("show".equals(s)){
+                                Setings.saveSharedPreferences(sp,KeyUtil.ShowCNK,1);
+                                cnk_layout.setVisibility(View.VISIBLE);
+                            }else {
+                                Setings.saveSharedPreferences(sp,KeyUtil.ShowCNK,2);
+                                cnk_layout.setVisibility(View.GONE);
+                            }
+                        }
 
-                    @Override
-                    public void onComplete() {
-                    }
-                });
+                        @Override
+                        public void onError(Throwable e) {
+                        }
+
+                        @Override
+                        public void onComplete() {
+                        }
+                    });
     }
 
 }

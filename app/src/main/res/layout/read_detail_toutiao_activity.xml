@@ -32,13 +32,13 @@
             android:background="@color/white"
             android:keepScreenOn="true"
             android:orientation="vertical">
+<!--            app:resize_mode="zoom"-->
             <com.google.android.exoplayer2.ui.PlayerView
                 android:id="@+id/player_view"
                 android:layout_width="match_parent"
                 app:show_buffering="when_playing"
                 app:show_shuffle_button="true"
-                app:resize_mode="zoom"
-                android:layout_height="221dp"
+                android:layout_height="216dp"
                 android:background="@color/black" />
             <ProgressBar
                 android:id="@+id/progressBarCircularIndetermininate"
