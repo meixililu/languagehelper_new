@@ -16,7 +16,7 @@ import java.lang.Override;
 public class CaricatureNovelHomeFragment_ViewBinding implements Unbinder {
   private CaricatureNovelHomeFragment target;
 
-  private View view7f08024a;
+  private View view7f08024b;
 
   private View view7f080166;
 
@@ -34,7 +34,7 @@ public class CaricatureNovelHomeFragment_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.search_btn, "field 'searchBtn' and method 'onViewClicked'");
     target.searchBtn = Utils.castView(view, R.id.search_btn, "field 'searchBtn'", FrameLayout.class);
-    view7f08024a = view;
+    view7f08024b = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -96,8 +96,8 @@ public class CaricatureNovelHomeFragment_ViewBinding implements Unbinder {
     target.layout_novel_collected = null;
     target.mainContent = null;
 
-    view7f08024a.setOnClickListener(null);
-    view7f08024a = null;
+    view7f08024b.setOnClickListener(null);
+    view7f08024b = null;
     view7f080166.setOnClickListener(null);
     view7f080166 = null;
     view7f08016a.setOnClickListener(null);
