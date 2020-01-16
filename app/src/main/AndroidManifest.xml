@@ -65,8 +65,8 @@
             android:name="ProviderId"
             android:value="${applicationId}.provider" />
 
-        <!-- tencent  -->
-        <meta-data android:value="baidu" android:name="UMENG_CHANNEL"/>
+        <!-- tencent baidu  -->
+        <meta-data android:value="tencent" android:name="UMENG_CHANNEL"/>
 
         <meta-data android:name="android.max_aspect" android:value="2.1" />
         <!-- csj ad  -->

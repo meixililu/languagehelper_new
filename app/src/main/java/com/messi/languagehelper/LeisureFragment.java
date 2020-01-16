@@ -313,8 +313,13 @@ public class LeisureFragment extends BaseFragment {
 
     private void toXVedio() {
         Intent intent = new Intent(getContext(), XVideoHomeActivity.class);
-        intent.putExtra(KeyUtil.Category, "英语");
-        intent.putExtra(KeyUtil.ActionbarTitle, getContext().getResources().getString(R.string.title_xvideo));
+        if (getContext().getPackageName().equals(Setings.application_id_yys)){
+            intent.putExtra(KeyUtil.Category, "推荐");
+            intent.putExtra(KeyUtil.ActionbarTitle, getContext().getResources().getString(R.string.title_xvideo_yys));
+        }else {
+            intent.putExtra(KeyUtil.Category, "英语");
+            intent.putExtra(KeyUtil.ActionbarTitle, getContext().getResources().getString(R.string.title_xvideo));
+        }
         getContext().startActivity(intent);
         AVAnalytics.onEvent(getActivity(), "leisure_pg_to_xvideo");
     }
