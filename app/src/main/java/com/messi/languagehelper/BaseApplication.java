@@ -99,6 +99,10 @@ public class BaseApplication extends MultiDexApplication {
                 Setings.XMLYAppAppKey = "e52a1a0372ff5d7dd81a672ef18ce41a";
                 Setings.XMLYAppSecret = "4d6ccaf67441973ea5bac086fc193b2d";
             }
+//            else if(getPackageName().equals(Setings.application_id_yyj)){
+//                Setings.XMLYAppAppKey = "1c5edba74bbef3d22e010920c1e04aa5";
+//                Setings.XMLYAppSecret = "55eb5065bf697e31bf5f39a161b0a5d7";
+//            }
             mXimalaya.setAppkey(Setings.XMLYAppAppKey);
             mXimalaya.setPackid(getPackageName());
             mXimalaya.setHttpConfig(null);

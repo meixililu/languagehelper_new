@@ -54,11 +54,11 @@
             android:orientation="horizontal">
 
             <FrameLayout
-                android:id="@+id/cailing_layout"
+                android:id="@+id/layout_conjecture"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="1px"
                 android:layout_weight="1"
+                android:layout_marginRight="1px"
                 android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
@@ -74,7 +74,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        app:srcCompat="@drawable/ic_icon_01" />
+                        app:srcCompat="@drawable/ic_icon_15" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -83,7 +83,7 @@
                         android:background="@color/white"
                         android:gravity="center"
                         android:lines="1"
-                        android:text="@string/leisuer_one"
+                        android:text="@string/leisure_conjecture"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/middle" />
                 </LinearLayout>
@@ -168,7 +168,7 @@
             android:orientation="horizontal">
 
             <FrameLayout
-                android:id="@+id/yuedu_layout"
+                android:id="@+id/layout_tongue_twister"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="1px"
@@ -188,7 +188,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        app:srcCompat="@drawable/ic_icon_04" />
+                        app:srcCompat="@drawable/ic_icon_05" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -197,7 +197,7 @@
                         android:background="@color/white"
                         android:gravity="center"
                         android:lines="1"
-                        android:text="@string/title_xvideo"
+                        android:text="@string/leisuer_tongue_twister"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/middle" />
                 </LinearLayout>
@@ -513,6 +513,42 @@
             android:orientation="horizontal">
 
             <FrameLayout
+                android:id="@+id/invest_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="1px"
+                android:foreground="@drawable/framelayout_selector"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/padding_15"
+                    android:paddingTop="@dimen/padding_15">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:srcCompat="@drawable/ic_icon_17" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="@dimen/padding_5"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:text="@string/leisuer_charades"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/middle" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <FrameLayout
                 android:id="@+id/layout_whyy"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -548,41 +584,7 @@
                 </LinearLayout>
             </FrameLayout>
 
-            <FrameLayout
-                android:id="@+id/layout_conjecture"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginRight="1px"
-                android:foreground="@drawable/framelayout_selector"
-                android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:paddingBottom="@dimen/padding_15"
-                    android:paddingTop="@dimen/padding_15">
-
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        app:srcCompat="@drawable/ic_icon_15" />
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_marginTop="@dimen/padding_5"
-                        android:background="@color/white"
-                        android:gravity="center"
-                        android:lines="1"
-                        android:text="@string/leisure_conjecture"
-                        android:textColor="@color/text_black"
-                        android:textSize="@dimen/middle" />
-                </LinearLayout>
-            </FrameLayout>
 
             <FrameLayout
                 android:id="@+id/app_layout"
@@ -632,6 +634,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginRight="1px"
+                android:visibility="gone"
                 android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
@@ -661,47 +664,14 @@
                         android:textSize="@dimen/middle" />
                 </LinearLayout>
             </FrameLayout>
+
             <FrameLayout
-                android:id="@+id/invest_layout"
+                android:id="@+id/yuedu_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginRight="1px"
-                android:foreground="@drawable/framelayout_selector"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:paddingBottom="@dimen/padding_15"
-                    android:paddingTop="@dimen/padding_15">
-
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        app:srcCompat="@drawable/ic_icon_17" />
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_marginTop="@dimen/padding_5"
-                        android:background="@color/white"
-                        android:gravity="center"
-                        android:lines="1"
-                        android:text="@string/leisuer_charades"
-                        android:textColor="@color/text_black"
-                        android:textSize="@dimen/middle" />
-                </LinearLayout>
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/layout_tongue_twister"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:visibility="gone"
                 android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
@@ -717,7 +687,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        app:srcCompat="@drawable/ic_icon_05" />
+                        app:srcCompat="@drawable/ic_icon_04" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -726,11 +696,12 @@
                         android:background="@color/white"
                         android:gravity="center"
                         android:lines="1"
-                        android:text="@string/leisuer_tongue_twister"
+                        android:text="@string/title_xvideo_yys"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/middle" />
                 </LinearLayout>
             </FrameLayout>
+
 
         </LinearLayout>
 
@@ -818,7 +789,6 @@
                 android:id="@+id/ksearch_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="1px"
                 android:layout_weight="1"
                 android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
@@ -849,45 +819,80 @@
                         android:textSize="@dimen/middle" />
                 </LinearLayout>
             </FrameLayout>
-
-        </LinearLayout>
-
-        <FrameLayout
-            android:id="@+id/shenhuifu_layout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="1px"
-            android:layout_weight="1"
-            android:visibility="gone"
-            android:foreground="@drawable/framelayout_selector"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <FrameLayout
+                android:id="@+id/cailing_layout"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:paddingBottom="@dimen/padding_15"
-                android:paddingTop="@dimen/padding_15">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    app:srcCompat="@drawable/ic_icon_13" />
-
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_marginTop="@dimen/padding_5"
+                android:layout_marginRight="1px"
+                android:layout_weight="1"
+                android:visibility="gone"
+                android:foreground="@drawable/framelayout_selector"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:gravity="center"
-                    android:lines="1"
-                    android:text="@string/leisuer_shenhuifu"
-                    android:textColor="@color/text_black"
-                    android:textSize="@dimen/middle" />
-            </LinearLayout>
-        </FrameLayout>
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/padding_15"
+                    android:paddingTop="@dimen/padding_15">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:srcCompat="@drawable/ic_icon_01" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="@dimen/padding_5"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:text="@string/leisuer_one"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/middle" />
+                </LinearLayout>
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/shenhuifu_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="gone"
+                android:foreground="@drawable/framelayout_selector"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/padding_15"
+                    android:paddingTop="@dimen/padding_15">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:srcCompat="@drawable/ic_icon_13" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="@dimen/padding_5"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:text="@string/leisuer_shenhuifu"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/middle" />
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+
+
+
     </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>

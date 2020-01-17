@@ -334,11 +334,11 @@ ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/And
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:60:27-74
 meta-data#UMENG_CHANNEL
-ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:69:9-72
+ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:69:9-74
 	android:value
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:69:20-41
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:69:20-43
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:69:42-70
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:69:44-72
 meta-data#android.max_aspect
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:71:9-76
 	android:value
