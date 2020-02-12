@@ -114,6 +114,8 @@ public class BoutiquesFragment extends BaseFragment {
 						.marginResId(R.dimen.padding_margin, R.dimen.padding_margin)
 						.build());
 		category_lv.setAdapter(mAdapter);
+		setListOnScrollListener();
+
 	}
 
     public void setListOnScrollListener(){

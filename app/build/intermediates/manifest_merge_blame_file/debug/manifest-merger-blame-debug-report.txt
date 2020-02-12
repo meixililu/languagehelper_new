@@ -1,6 +1,6 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="com.messi.learnenglish"
+3    package="com.messi.languagehelper"
 4    android:versionCode="50"
 5    android:versionName="4.6.0" >
 6
@@ -104,7 +104,7 @@
 50        <provider
 51            android:name="android.support.v4.content.FileProvider"
 51-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:46:13-67
-52            android:authorities="com.messi.learnenglish.provider"
+52            android:authorities="com.messi.languagehelper.provider"
 52-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:47:13-60
 53            android:exported="false"
 53-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:48:13-37
@@ -139,7 +139,7 @@
 70        <meta-data
 71            android:name="ProviderId"
 71-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:65:13-38
-72            android:value="com.messi.learnenglish.provider" />
+72            android:value="com.messi.languagehelper.provider" />
 72-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:66:13-54
 73
 74        <!-- tencent baidu -->
@@ -159,7 +159,7 @@
 82        <provider
 83            android:name="com.bytedance.sdk.openadsdk.TTFileProvider"
 83-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:74:13-70
-84            android:authorities="com.messi.learnenglish.TTFileProvider"
+84            android:authorities="com.messi.languagehelper.TTFileProvider"
 84-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:75:13-66
 85            android:exported="false"
 85-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:76:13-37
@@ -175,7 +175,7 @@
 91        <provider
 92            android:name="com.bytedance.sdk.openadsdk.multipro.TTMultiProvider"
 92-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:84:13-80
-93            android:authorities="com.messi.learnenglish.TTMultiProvider"
+93            android:authorities="com.messi.languagehelper.TTMultiProvider"
 93-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:85:13-67
 94            android:exported="false" />
 94-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:86:13-37
@@ -193,7 +193,7 @@
 102        <provider
 103            android:name="com.baidu.mobads.openad.FileProvider"
 103-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:94:13-64
-104            android:authorities="com.messi.learnenglish.bd.provider"
+104            android:authorities="com.messi.languagehelper.bd.provider"
 104-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:95:13-63
 105            android:exported="false"
 105-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:96:13-37
@@ -1296,7 +1296,7 @@
 672-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5d83b1c62174dd3f6796a0d671258768/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:29:9-37:20
 673            android:name="leakcanary.internal.LeakCanaryFileProvider"
 673-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5d83b1c62174dd3f6796a0d671258768/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:30:13-70
-674            android:authorities="com.squareup.leakcanary.fileprovider.com.messi.learnenglish"
+674            android:authorities="com.squareup.leakcanary.fileprovider.com.messi.languagehelper"
 674-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5d83b1c62174dd3f6796a0d671258768/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:31:13-88
 675            android:exported="false"
 675-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5d83b1c62174dd3f6796a0d671258768/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:32:13-37
@@ -1318,7 +1318,7 @@
 684-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5d83b1c62174dd3f6796a0d671258768/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:41:13-52
 685            android:label="@string/leak_canary_display_activity_label"
 685-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5d83b1c62174dd3f6796a0d671258768/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:42:13-71
-686            android:taskAffinity="com.squareup.leakcanary.com.messi.learnenglish"
+686            android:taskAffinity="com.squareup.leakcanary.com.messi.languagehelper"
 686-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5d83b1c62174dd3f6796a0d671258768/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:43:13-76
 687            android:theme="@style/leak_canary_LeakCanary.Base" />
 687-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5d83b1c62174dd3f6796a0d671258768/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:44:13-63
@@ -1335,7 +1335,7 @@
 693-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5d83b1c62174dd3f6796a0d671258768/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:50:13-71
 694            android:targetActivity="leakcanary.internal.activity.LeakActivity"
 694-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5d83b1c62174dd3f6796a0d671258768/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:51:13-79
-695            android:taskAffinity="com.squareup.leakcanary.com.messi.learnenglish"
+695            android:taskAffinity="com.squareup.leakcanary.com.messi.languagehelper"
 695-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5d83b1c62174dd3f6796a0d671258768/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:52:13-76
 696            android:theme="@style/leak_canary_LeakCanary.Base" >
 696-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5d83b1c62174dd3f6796a0d671258768/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:53:13-63
@@ -1361,7 +1361,7 @@
 707-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5d83b1c62174dd3f6796a0d671258768/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:64:13-52
 708            android:label="@string/leak_canary_storage_permission_activity_label"
 708-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5d83b1c62174dd3f6796a0d671258768/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:65:13-82
-709            android:taskAffinity="com.squareup.leakcanary.com.messi.learnenglish"
+709            android:taskAffinity="com.squareup.leakcanary.com.messi.languagehelper"
 709-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5d83b1c62174dd3f6796a0d671258768/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:66:13-76
 710            android:theme="@style/leak_canary_Theme.Transparent" />
 710-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5d83b1c62174dd3f6796a0d671258768/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:67:13-65
@@ -1374,7 +1374,7 @@
 714-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/64be1c78c52cfa88ad22848e424cc2e8/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:8:9-11:40
 715            android:name="leakcanary.internal.AppWatcherInstaller"
 715-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/64be1c78c52cfa88ad22848e424cc2e8/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:9:13-67
-716            android:authorities="com.messi.learnenglish.leakcanary-installer"
+716            android:authorities="com.messi.languagehelper.leakcanary-installer"
 716-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/64be1c78c52cfa88ad22848e424cc2e8/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:10:13-72
 717            android:exported="false" />
 717-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/64be1c78c52cfa88ad22848e424cc2e8/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:11:13-37
