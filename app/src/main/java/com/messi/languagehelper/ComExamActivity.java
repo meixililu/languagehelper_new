@@ -20,6 +20,7 @@ public class ComExamActivity extends BaseActivity implements FragmentProgressbar
     BottomNavigationView navigation;
     private Fragment mCompositionFragment;
     private Fragment mExaminationFragment;
+    private Fragment courseFragment;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -34,6 +35,10 @@ public class ComExamActivity extends BaseActivity implements FragmentProgressbar
                 case R.id.navigation_examination:
                     hideAllFragment();
                     getSupportFragmentManager().beginTransaction().show(mExaminationFragment).commit();;
+                    return true;
+                case R.id.navigation_course:
+                    hideAllFragment();
+                    getSupportFragmentManager().beginTransaction().show(courseFragment).commit();;
                     return true;
             }
             return false;
@@ -54,14 +59,16 @@ public class ComExamActivity extends BaseActivity implements FragmentProgressbar
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         mCompositionFragment = CompositionFragment.getInstance();
         mExaminationFragment = ExaminationFragment.getInstance();
+        courseFragment = BoutiquesFragment.getInstance("examination",getString(R.string.selection));
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.content, mCompositionFragment)
                 .add(R.id.content, mExaminationFragment)
+                .add(R.id.content, courseFragment)
                 .commit();
         hideAllFragment();
         getSupportFragmentManager()
-                .beginTransaction().show(mCompositionFragment).commit();
+                .beginTransaction().show(courseFragment).commit();
     }
 
     private void hideAllFragment(){
@@ -69,6 +76,7 @@ public class ComExamActivity extends BaseActivity implements FragmentProgressbar
                 .beginTransaction()
                 .hide(mCompositionFragment)
                 .hide(mExaminationFragment)
+                .hide(courseFragment)
                 .commit();
     }
 

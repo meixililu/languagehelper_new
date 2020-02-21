@@ -39,6 +39,7 @@ public class Reading {
     private String status;
     private String vid;
     private String isCollected;
+    private String boutique_code;
     private long collected_time;
     private String isReadLater;
     private long read_later_time;
@@ -284,6 +285,14 @@ public class Reading {
     }
     public void setImg_urls(String img_urls) {
         this.img_urls = img_urls;
+    }
+
+    public String getBoutique_code() {
+        return boutique_code;
+    }
+
+    public void setBoutique_code(String boutique_code) {
+        this.boutique_code = boutique_code;
     }
 
     public String getIsCollected() {

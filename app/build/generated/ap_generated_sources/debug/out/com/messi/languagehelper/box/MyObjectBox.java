@@ -113,7 +113,7 @@ public class MyObjectBox {
 
     private static void buildEntityReading(ModelBuilder modelBuilder) {
         EntityBuilder entityBuilder = modelBuilder.entity("Reading");
-        entityBuilder.id(5, 2508500946353572578L).lastPropertyId(35, 8429725476707112570L);
+        entityBuilder.id(5, 2508500946353572578L).lastPropertyId(36, 5777419081988935434L);
         entityBuilder.flags(io.objectbox.model.EntityFlags.USE_NO_ARG_CONSTRUCTOR);
 
         entityBuilder.property("id", PropertyType.Long).id(1, 285723131730538682L)
@@ -139,6 +139,7 @@ public class MyObjectBox {
         entityBuilder.property("status", PropertyType.String).id(19, 6561638219100361649L);
         entityBuilder.property("vid", PropertyType.String).id(35, 8429725476707112570L);
         entityBuilder.property("isCollected", PropertyType.String).id(20, 1891068367028050793L);
+        entityBuilder.property("boutique_code", PropertyType.String).id(36, 5777419081988935434L);
         entityBuilder.property("collected_time", PropertyType.Long).id(21, 7701890528733873333L)
                 .flags(PropertyFlags.NOT_NULL);
         entityBuilder.property("isReadLater", PropertyType.String).id(22, 4326131630010840730L);

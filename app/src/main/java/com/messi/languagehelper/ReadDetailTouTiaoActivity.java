@@ -70,6 +70,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     private final String STATE_RESUME_WINDOW = "resumeWindow";
     private final String STATE_RESUME_POSITION = "resumePosition";
     private final String STATE_PLAYER_FULLSCREEN = "playerFullscreen";
+    private final String Hearder = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36";
 
     @BindView(R.id.refreshable_webview)
     WebView mWebView;
@@ -252,6 +253,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         mWebView.requestFocus();
         mWebView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
         mWebView.getSettings().setJavaScriptEnabled(true);
+//        mWebView.getSettings().setUserAgentString(Hearder);
         mWebView.setWebViewClient(new WebViewClient() {
 
             @Override
@@ -437,7 +439,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
             }
 
             DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this,
-                    Util.getUserAgent(this, "LanguageHelper"));
+                    Util.getUserAgent(this, Hearder));
             MediaSource videoSource = new ExtractorMediaSource.Factory(dataSourceFactory)
                     .createMediaSource(Uri.parse(media_url));
             player.addListener(this);
@@ -515,7 +517,12 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     }
 
     private void addVideoNewsList() {
-        Fragment fragment = ReadingFragment.newInstanceByType("video", 2000, true);
+        Fragment fragment = new ReadingFragment.Builder()
+                .type("video")
+                .maxRandom(2000)
+                .boutique_code(mAVObject.getBoutique_code())
+                .isNeedClear(true)
+                .build();
         if (getApplication().getPackageName().equals(Setings.application_id_yys) ||
                 getApplication().getPackageName().equals(Setings.application_id_yys_google)) {
             fragment = ReadingFragmentYYS.newInstance();

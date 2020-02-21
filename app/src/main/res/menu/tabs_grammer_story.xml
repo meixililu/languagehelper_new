@@ -2,6 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/navigation_course"
+        android:icon="@drawable/ic_group_black_24dp"
+        android:title="@string/selection" />
+    
+    <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/title_grammar" />
@@ -12,10 +17,7 @@
         android:icon="@drawable/ic_subject_black_24dp"
         android:title="@string/title_english_story" />
 
-    <item
-        android:id="@+id/navigation_course"
-        android:icon="@drawable/ic_group_black_24dp"
-        android:title="@string/title_course" />
+
 
 
 </menu>

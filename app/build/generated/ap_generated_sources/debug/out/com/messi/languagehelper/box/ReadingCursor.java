@@ -43,6 +43,7 @@ public final class ReadingCursor extends Cursor<Reading> {
     private final static int __ID_status = Reading_.status.id;
     private final static int __ID_vid = Reading_.vid.id;
     private final static int __ID_isCollected = Reading_.isCollected.id;
+    private final static int __ID_boutique_code = Reading_.boutique_code.id;
     private final static int __ID_collected_time = Reading_.collected_time.id;
     private final static int __ID_isReadLater = Reading_.isReadLater.id;
     private final static int __ID_read_later_time = Reading_.read_later_time.id;
@@ -139,38 +140,40 @@ public final class ReadingCursor extends Cursor<Reading> {
                 __id17, img_urls, __id18, status,
                 __id19, vid, __id20, isCollected);
 
+        String boutique_code = entity.getBoutique_code();
+        int __id21 = boutique_code != null ? __ID_boutique_code : 0;
         String isReadLater = entity.getIsReadLater();
-        int __id22 = isReadLater != null ? __ID_isReadLater : 0;
+        int __id23 = isReadLater != null ? __ID_isReadLater : 0;
         String lrc_url = entity.getLrc_url();
-        int __id28 = lrc_url != null ? __ID_lrc_url : 0;
+        int __id29 = lrc_url != null ? __ID_lrc_url : 0;
         String backup1 = entity.getBackup1();
-        int __id29 = backup1 != null ? __ID_backup1 : 0;
-        String backup2 = entity.getBackup2();
-        int __id30 = backup2 != null ? __ID_backup2 : 0;
+        int __id30 = backup1 != null ? __ID_backup1 : 0;
 
         collect400000(cursor, 0, 0,
-                __id22, isReadLater, __id28, lrc_url,
-                __id29, backup1, __id30, backup2);
+                __id21, boutique_code, __id23, isReadLater,
+                __id29, lrc_url, __id30, backup1);
 
+        String backup2 = entity.getBackup2();
+        int __id31 = backup2 != null ? __ID_backup2 : 0;
         String backup3 = entity.getBackup3();
-        int __id31 = backup3 != null ? __ID_backup3 : 0;
+        int __id32 = backup3 != null ? __ID_backup3 : 0;
         String backup4 = entity.getBackup4();
-        int __id32 = backup4 != null ? __ID_backup4 : 0;
+        int __id33 = backup4 != null ? __ID_backup4 : 0;
         String backup5 = entity.getBackup5();
-        int __id33 = backup5 != null ? __ID_backup5 : 0;
+        int __id34 = backup5 != null ? __ID_backup5 : 0;
 
-        collect313311(cursor, 0, 0,
-                __id31, backup3, __id32, backup4,
-                __id33, backup5, 0, null,
+        collect400000(cursor, 0, 0,
+                __id31, backup2, __id32, backup3,
+                __id33, backup4, __id34, backup5);
+
+        collect004000(cursor, 0, 0,
                 __ID_collected_time, entity.getCollected_time(), __ID_read_later_time, entity.getRead_later_time(),
-                __ID_like, entity.getLike(), __ID_unlike, entity.getUnlike(),
-                __ID_comments, entity.getComments(), __ID_readed, entity.getReaded(),
-                0, 0, 0, 0);
+                __ID_like, entity.getLike(), __ID_unlike, entity.getUnlike());
 
         Long id = entity.getId();
         long __assignedId = collect004000(cursor, id != null ? id: 0, PUT_FLAG_COMPLETE,
-                __ID_img_color, entity.getImg_color(), 0, 0,
-                0, 0, 0, 0);
+                __ID_comments, entity.getComments(), __ID_readed, entity.getReaded(),
+                __ID_img_color, entity.getImg_color(), 0, 0);
 
         entity.setId(__assignedId);
 

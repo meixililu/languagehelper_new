@@ -35,6 +35,7 @@ public class BoutiquesFragment extends BaseFragment {
 	private RcBoutiquesAdapter mAdapter;
 	private LinearLayoutManager mLinearLayoutManager;
 	private List<AVObject> avObjects;
+	private String type;
 	private String category;
 	private String title;
     private int skip = 0;
@@ -45,6 +46,14 @@ public class BoutiquesFragment extends BaseFragment {
 		BoutiquesFragment fragment = new BoutiquesFragment();
 		Bundle args = new Bundle();
 		args.putString(KeyUtil.Category,category);
+		fragment.setArguments(args);
+		return fragment;
+	}
+
+	public static BoutiquesFragment getInstanceByType(String type){
+		BoutiquesFragment fragment = new BoutiquesFragment();
+		Bundle args = new Bundle();
+		args.putString(KeyUtil.Type,type);
 		fragment.setArguments(args);
 		return fragment;
 	}
@@ -73,6 +82,7 @@ public class BoutiquesFragment extends BaseFragment {
 		super.onCreate(savedInstanceState);
 		if(getArguments() != null){
 			category = getArguments().getString(KeyUtil.Category);
+			type = getArguments().getString(KeyUtil.Type);
 			title = getArguments().getString(KeyUtil.ActionbarTitle);
 		}
 	}
@@ -161,7 +171,12 @@ public class BoutiquesFragment extends BaseFragment {
 		protected Void doInBackground(Void... params) {
 			try {
 				AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.Boutiques.Boutiques);
-				query.whereEqualTo(AVOUtil.Boutiques.category,category);
+				if(!TextUtils.isEmpty(category)){
+					query.whereEqualTo(AVOUtil.Boutiques.category,category);
+				}
+				if(!TextUtils.isEmpty(type)){
+					query.whereEqualTo(AVOUtil.Boutiques.type,type);
+				}
 				query.orderByAscending(AVOUtil.Boutiques.order);
                 query.skip(skip);
                 query.limit(Setings.page_size);
@@ -171,6 +186,7 @@ public class BoutiquesFragment extends BaseFragment {
                         avObjects.clear();
                     }
                     avObjects.addAll(items);
+					skip += Setings.page_size;
 				    if(items.size() == Setings.page_size){
 				        hasMore = true;
                     }else {

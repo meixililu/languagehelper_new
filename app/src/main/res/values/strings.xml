@@ -101,6 +101,7 @@
     <string name="prompt">提示</string>
     <string name="retry">重填</string>
     <string name="recommend">推荐</string>
+    <string name="selection">精选</string>
     <string name="recent_study_empty">赶紧去订阅课程吧</string>
     <string name="recent">订阅</string>
     <string name="beginner">初级</string>

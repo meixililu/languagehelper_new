@@ -69,10 +69,10 @@ public class SpokenActivity extends BaseActivity implements FragmentProgressbarL
         navigation.inflateMenu(R.menu.spoken_tabs);
         navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        mWordHomeFragment = XmlySearchAlbumFragment.newInstance("口语",getString(R.string.spoken_english_practice));
+        mWordHomeFragment = XmlySearchAlbumFragment.newInstance("口语",getString(R.string.title_study_category));
         practiceFragment = AiDialogueCourseFragment.getInstance();
         dashboardFragment = SpokenCourseFragment.getInstance();
-        shadowFragment = BoutiquesFragment.getInstance("spoken_english",getString(R.string.title_course));
+        shadowFragment = BoutiquesFragment.getInstance("spoken_english",getString(R.string.selection));
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.content, mWordHomeFragment)
@@ -82,7 +82,7 @@ public class SpokenActivity extends BaseActivity implements FragmentProgressbarL
                 .commit();
         hideAllFragment();
         getSupportFragmentManager()
-                .beginTransaction().show(mWordHomeFragment).commit();
+                .beginTransaction().show(shadowFragment).commit();
     }
 
     private void hideAllFragment(){

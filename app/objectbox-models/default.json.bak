@@ -270,7 +270,7 @@
     },
     {
       "id": "5:2508500946353572578",
-      "lastPropertyId": "34:1473431717324137965",
+      "lastPropertyId": "35:8429725476707112570",
       "name": "Reading",
       "properties": [
         {
@@ -452,6 +452,11 @@
           "name": "img_color",
           "type": 5,
           "flags": 4
+        },
+        {
+          "id": "35:8429725476707112570",
+          "name": "vid",
+          "type": 9
         }
       ],
       "relations": []

@@ -82,15 +82,6 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 		return fragment;
 	}
 
-	public static Fragment newInstanceByBoutiqueCode(String title,String boutique_code){
-		ReadingFragment fragment = new ReadingFragment();
-		Bundle bundle = new Bundle();
-		bundle.putString(KeyUtil.ActionbarTitle,title);
-		bundle.putString(KeyUtil.BoutiqueCode,boutique_code);
-		fragment.setArguments(bundle);
-		return fragment;
-	}
-
 	public static Fragment newInstance(String category, String code, boolean isPlayList){
 		ReadingFragment fragment = new ReadingFragment();
 		Bundle bundle = new Bundle();
@@ -103,32 +94,12 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 		return fragment;
 	}
 
-	public static Fragment newInstanceBySource(String category, String source, boolean isPlayList){
-		ReadingFragment fragment = new ReadingFragment();
-		Bundle bundle = new Bundle();
-		bundle.putString("category",category);
-		bundle.putString("source",source);
-		bundle.putBoolean("isPlayList",isPlayList);
-		fragment.setArguments(bundle);
-		return fragment;
-	}
-
 	public static Fragment newInstanceByType(String type,int maxRandom,boolean isNeedClear){
 		ReadingFragment fragment = new ReadingFragment();
 		Bundle bundle = new Bundle();
 		bundle.putString("type",type);
 		bundle.putInt("maxRandom",maxRandom);
 		bundle.putBoolean("isNeedClear",isNeedClear);
-		fragment.setArguments(bundle);
-		return fragment;
-	}
-
-
-	public static Fragment newInstanceBySearchTitle(String category, String quest){
-		ReadingFragment fragment = new ReadingFragment();
-		Bundle bundle = new Bundle();
-		bundle.putString("category",category);
-		bundle.putString("quest",quest);
 		fragment.setArguments(bundle);
 		return fragment;
 	}
