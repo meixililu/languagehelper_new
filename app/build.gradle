@@ -5,6 +5,10 @@ apply plugin: 'io.objectbox'
 
 android {
 
+    viewBinding {
+        enabled = true
+    }
+
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
 
@@ -72,6 +76,7 @@ android {
         jumboMode true
         preDexLibraries false
     }
+
 }
 
 repositories{

@@ -1,105 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical">
-
-    <RelativeLayout
+    <android.support.v7.widget.Toolbar
         android:id="@+id/my_awesome_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/actionBar"
-        android:background="@color/theme_color">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/title_words"
-            android:layout_centerVertical="true"
-            android:textColor="@color/white"
-            android:textSize="@dimen/biggerx"
-            android:layout_marginLeft="@dimen/padding_20"
-            />
+        android:layout_height="wrap_content"
+        android:background="@color/theme_color"
+        android:minHeight="@dimen/actionBar">
         <ProgressBar
             android:id="@+id/progressBarCircularIndetermininate"
             style="@style/CircularProgressWhite"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_centerVertical="true"
+            android:layout_gravity="right"
             android:visibility="gone" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/word_study_plan"
+    </android.support.v7.widget.Toolbar>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/mswiperefreshlayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
-
-        <FrameLayout
-            android:id="@+id/word_study_change_plan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:foreground="@drawable/framelayout_selector"
-            android:padding="@dimen/padding_20">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/change_books"
-                android:textColor="@color/text_grey1"
-                android:textSize="@dimen/small" />
-        </FrameLayout>
-
-        <com.github.lzyzsd.circleprogress.ArcProgress
-            android:id="@+id/arc_progress"
-            android:layout_width="135dp"
-            android:layout_height="135dp"
-            android:layout_centerInParent="true"
-            android:background="@color/white"
-            custom:arc_angle="270"
-            custom:arc_bottom_text="@string/start_unlock"
-            custom:arc_bottom_text_size="@dimen/middle"
-            custom:arc_finished_color="@color/theme_color"
-            custom:arc_progress="0"
-            custom:arc_stroke_width="10sp"
-            custom:arc_suffix_text=" "
-            custom:arc_suffix_text_size="@dimen/big"
-            custom:arc_text_color="@color/theme_color"
-            custom:arc_text_size="@dimen/title"
-            custom:arc_unfinished_color="@color/text_grey1" />
-
-        <TextView
-            android:id="@+id/word_study_book_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/arc_progress"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="@dimen/padding_20"
-            android:text=""
-            android:textColor="@color/theme_color"
-            android:textSize="@dimen/big" />
-
-        <FrameLayout
-            android:id="@+id/word_study_new_word"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:foreground="@drawable/framelayout_selector"
-            android:orientation="vertical"
-            android:padding="@dimen/padding_20">
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:background="@color/white"
-                android:gravity="center"
-                android:text="@string/new_and_wrong"
-                android:textColor="@color/text_black"
-                android:textSize="@dimen/middle" />
-        </FrameLayout>
-    </RelativeLayout>
-</LinearLayout>
+        android:layout_weight="1" >
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout >
 

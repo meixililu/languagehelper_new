@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@color/black">
 
-    <com.messi.languagehelper.meinv.view.ZoomableDraweeView
+    <com.messi.languagehelper.views.ZoomableDraweeView
         android:id="@+id/item_img"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

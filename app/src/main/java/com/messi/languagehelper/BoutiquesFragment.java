@@ -120,7 +120,7 @@ public class BoutiquesFragment extends BaseFragment {
 		category_lv.addItemDecoration(
 				new HorizontalDividerItemDecoration.Builder(getContext())
 						.colorResId(R.color.text_tint)
-						.sizeResId(R.dimen.padding_10)
+						.sizeResId(R.dimen.padding_7)
 						.marginResId(R.dimen.padding_margin, R.dimen.padding_margin)
 						.build());
 		category_lv.setAdapter(mAdapter);

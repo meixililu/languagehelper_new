@@ -116,13 +116,23 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
-        getActionBarToolbar();
+        getActionBarToolbar(null);
         initProgressbar();
     }
 
-    protected void getActionBarToolbar() {
+    @Override
+    public void setContentView(View view){
+        super.setContentView(view);
+        getActionBarToolbar(view);
+    }
+
+    protected void getActionBarToolbar(View view) {
         if (toolbar == null) {
-            toolbar = (Toolbar) findViewById(R.id.my_awesome_toolbar);
+            if (view != null) {
+                toolbar = (Toolbar) view.findViewById(R.id.my_awesome_toolbar);
+            } else {
+                toolbar = (Toolbar) findViewById(R.id.my_awesome_toolbar);
+            }
             if (toolbar != null) {
                 setSupportActionBar(toolbar);
                 getSupportActionBar().setDisplayHomeAsUpEnabled(true);

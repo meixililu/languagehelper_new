@@ -71,7 +71,7 @@ public class WordsActivity extends BaseActivity implements FragmentProgressbarLi
         navigation.inflateMenu(R.menu.words_tabs);
         navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        mWordHomeFragment = WordHomeFragment.getInstance();
+        mWordHomeFragment = new WordStudyFragment();
         xmlyFragment = XmlySearchAlbumFragment.newInstance("单词",getString(R.string.title_study_category));
         studyFragment = SubjectFragment.getInstance(AVOUtil.Category.word,"","",getString(R.string.title_course));
         radioHomeFragment = VocabularyFragment.getInstance();

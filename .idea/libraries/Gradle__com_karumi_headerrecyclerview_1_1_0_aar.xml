@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.karumi:headerrecyclerview:1.1.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/87992486ef17389e7bb2d1fbb675506f/headerrecyclerview-1.1.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/87992486ef17389e7bb2d1fbb675506f/headerrecyclerview-1.1.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/005826e7bb744fda689c6ca3e836eee7/headerrecyclerview-1.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/005826e7bb744fda689c6ca3e836eee7/headerrecyclerview-1.1.0/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.karumi/headerrecyclerview/1.1.0/901c1bd14643b6d5485014b6263e7e4141e9c77a/headerrecyclerview-1.1.0-javadoc.jar!/" />
