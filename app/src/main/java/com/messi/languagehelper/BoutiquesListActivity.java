@@ -9,9 +9,11 @@ import android.support.v7.widget.RecyclerView;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.iflytek.voiceads.conn.NativeDataRef;
-import com.messi.languagehelper.ViewModel.XXLAVObjectModel;
-import com.messi.languagehelper.adapter.RcBoutiquesListAdapter;
+import com.messi.languagehelper.ViewModel.XXLModel;
+import com.messi.languagehelper.adapter.RcReadingListAdapter;
+import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.DataUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
@@ -26,12 +28,12 @@ import cn.jzvd.Jzvd;
 public class BoutiquesListActivity extends BaseActivity {
 
     private RecyclerView listview;
-    private RcBoutiquesListAdapter mAdapter;
-    private List<AVObject> avObjects;
+    private RcReadingListAdapter mAdapter;
+    private List<Reading> avObjects;
     private int skip = 0;
     private String bcdoe;
     private LinearLayoutManager mLinearLayoutManager;
-    private XXLAVObjectModel mXXLModel;
+    private XXLModel mXXLModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,11 +45,11 @@ public class BoutiquesListActivity extends BaseActivity {
 
     private void initViews() {
         this.bcdoe = getIntent().getStringExtra(KeyUtil.BoutiqueCode);
-        avObjects = new ArrayList<AVObject>();
-        mXXLModel = new XXLAVObjectModel(this);
+        avObjects = new ArrayList<Reading>();
+        mXXLModel = new XXLModel(this);
         listview = (RecyclerView) findViewById(R.id.listview);
         initSwipeRefresh();
-        mAdapter = new RcBoutiquesListAdapter();
+        mAdapter = new RcReadingListAdapter(avObjects);
         mAdapter.setItems(avObjects);
         mAdapter.setFooter(new Object());
         mXXLModel.setAdapter(avObjects,mAdapter);
@@ -57,7 +59,8 @@ public class BoutiquesListActivity extends BaseActivity {
         listview.addItemDecoration(
                         new HorizontalDividerItemDecoration.Builder(this)
                                 .colorResId(R.color.text_tint)
-                                .sizeResId(R.dimen.padding_10)
+                                .sizeResId(R.dimen.list_divider_size)
+                                .marginResId(R.dimen.padding_margin, R.dimen.padding_margin)
                                 .build());
         listview.setAdapter(mAdapter);
         setListOnScrollListener();
@@ -85,14 +88,14 @@ public class BoutiquesListActivity extends BaseActivity {
         if(avObjects.size() > 3){
             for(int i=first;i< (first+vCount);i++){
                 if(i < avObjects.size() && i > 0){
-                    AVObject mAVObject = avObjects.get(i);
-                    if(mAVObject != null && mAVObject.get(KeyUtil.ADKey) != null){
-                        if(!(Boolean) mAVObject.get(KeyUtil.ADIsShowKey)){
-                            NativeDataRef mNativeADDataRef = (NativeDataRef) mAVObject.get(KeyUtil.ADKey);
-                            boolean isExposure = mNativeADDataRef.onExposure(view.getChildAt(i%vCount));
-                            LogUtil.DefalutLog("isExposure:"+isExposure);
-                            if(isExposure){
-                                mAVObject.put(KeyUtil.ADIsShowKey, isExposure);
+                    Reading mAVObject = avObjects.get(i);
+                    if(mAVObject != null && mAVObject.isAd()){
+                        if(!mAVObject.isAdShow()){
+                            NativeDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
+                            boolean isShow = mNativeADDataRef.onExposure(view.getChildAt(i%vCount));
+                            LogUtil.DefalutLog("onExposure:"+isShow);
+                            if(isShow){
+                                mAVObject.setAdShow(isShow);
                             }
                         }
                     }
@@ -161,12 +164,17 @@ public class BoutiquesListActivity extends BaseActivity {
                         mXXLModel.hasMore = false;
                     }else{
                         if(avObjects != null && mAdapter != null){
-                            avObjects.addAll(avObject);
+                            DataUtil.changeBoutiquesListToReading(avObject,avObjects,false);
                             mAdapter.notifyDataSetChanged();
                             loadAD();
                             skip += Setings.page_size;
-                            showFooterview();
-                            mXXLModel.hasMore = true;
+                            if(avObject.size() < Setings.page_size){
+                                mXXLModel.hasMore = false;
+                                hideFooterview();
+                            }else {
+                                mXXLModel.hasMore = true;
+                                showFooterview();
+                            }
                         }
                     }
                 }

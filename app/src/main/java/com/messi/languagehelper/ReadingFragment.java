@@ -25,6 +25,7 @@ import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.DataUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
@@ -321,7 +322,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 								isNeedClear = false;
 								avObjects.clear();
 							}
-							StudyFragment.changeData(avObject,avObjects,false);
+							DataUtil.changeDataToReading(avObject,avObjects,false);
 							mAdapter.notifyDataSetChanged();
 							loadAD();
 							if(avObject.size() < Setings.page_size){

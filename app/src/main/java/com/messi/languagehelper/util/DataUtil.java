@@ -3,6 +3,7 @@ package com.messi.languagehelper.util;
 import com.avos.avoscloud.AVObject;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.CNWBean;
+import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.box.WebFilter;
 
 import java.util.ArrayList;
@@ -59,5 +60,114 @@ public class DataUtil {
         return bean;
     }
 
+    public static void changeDataToReading(List<AVObject> avObjectlist, List<Reading> avObjects, boolean isAddToHead) {
+        for (AVObject item : avObjectlist) {
+            Reading mReading = new Reading();
+            mReading.setObject_id(item.getObjectId());
+            if(item.has(AVOUtil.Reading.category)){
+                mReading.setCategory(item.getString(AVOUtil.Reading.category));
+            }
+            if(item.has(AVOUtil.Reading.content)){
+                mReading.setContent(item.getString(AVOUtil.Reading.content));
+            }
+            if(item.has(AVOUtil.Reading.type_id)){
+                mReading.setType_id(item.getString(AVOUtil.Reading.type_id));
+            }
+            if(item.has(AVOUtil.Reading.type_name)){
+                mReading.setType_name(item.getString(AVOUtil.Reading.type_name));
+            }
+            if(item.has(AVOUtil.Reading.title)){
+                mReading.setTitle(item.getString(AVOUtil.Reading.title));
+            }
+            if(item.has(AVOUtil.Reading.vid)){
+                mReading.setVid(item.getString(AVOUtil.Reading.vid));
+            }
+            if(item.has(AVOUtil.Reading.item_id)){
+                mReading.setItem_id(String.valueOf(item.getNumber(AVOUtil.Reading.item_id)));
+            }
+            if(item.has(AVOUtil.Reading.img_url)){
+                mReading.setImg_url(item.getString(AVOUtil.Reading.img_url));
+            }
+            if(item.has(AVOUtil.Reading.publish_time)){
+                mReading.setPublish_time(String.valueOf(item.getDate(AVOUtil.Reading.publish_time).getTime()));
+            }
+            if(item.has(AVOUtil.Reading.img_type)){
+                mReading.setImg_type(item.getString(AVOUtil.Reading.img_type));
+            }
+            if(item.has(AVOUtil.Reading.source_name)){
+                mReading.setSource_name(item.getString(AVOUtil.Reading.source_name));
+            }
+            if(item.has(AVOUtil.Reading.source_url)){
+                mReading.setSource_url(item.getString(AVOUtil.Reading.source_url));
+            }
+            if(item.has(AVOUtil.Reading.type)){
+                mReading.setType(item.getString(AVOUtil.Reading.type));
+            }
+            if(item.has(AVOUtil.Reading.boutique_code)){
+                mReading.setBoutique_code(item.getString(AVOUtil.Reading.boutique_code));
+            }
+            if(item.has(AVOUtil.Reading.media_url)){
+                mReading.setMedia_url(item.getString(AVOUtil.Reading.media_url));
+            }
+            if(item.has(AVOUtil.Reading.content_type)){
+                mReading.setContent_type(item.getString(AVOUtil.Reading.content_type));
+            }
+            if(item.has(AVOUtil.Reading.lrc_url)){
+                mReading.setLrc_url(item.getString(AVOUtil.Reading.lrc_url));
+            }
+            BoxHelper.saveOrGetStatus(mReading);
+            if (isAddToHead) {
+                avObjects.add(0, mReading);
+            } else {
+                avObjects.add(mReading);
+            }
+        }
+    }
+
+    public static void changeBoutiquesListToReading(List<AVObject> avObjectlist, List<Reading> avObjects, boolean isAddToHead) {
+        for (AVObject item : avObjectlist) {
+            Reading mReading = new Reading();
+            mReading.setObject_id(item.getObjectId());
+            if(item.has(AVOUtil.BoutiquesList.bcdoe)){
+                mReading.setBoutique_code(item.getString(AVOUtil.BoutiquesList.bcdoe));
+            }
+            if(item.has(AVOUtil.BoutiquesList.des)){
+                mReading.setContent(item.getString(AVOUtil.BoutiquesList.des));
+            }
+            if(item.has(AVOUtil.BoutiquesList.type_name)){
+                mReading.setType_name(item.getString(AVOUtil.BoutiquesList.type_name));
+            }
+            if(item.has(AVOUtil.BoutiquesList.title)){
+                mReading.setTitle(item.getString(AVOUtil.BoutiquesList.title));
+            }
+            if(item.has(AVOUtil.BoutiquesList.content_type)){
+                mReading.setContent_type(item.getString(AVOUtil.BoutiquesList.content_type));
+            }
+            if(item.has(AVOUtil.BoutiquesList.vid)){
+                mReading.setVid(item.getString(AVOUtil.BoutiquesList.vid));
+            }
+            if(item.has(AVOUtil.BoutiquesList.img)){
+                mReading.setImg_url(item.getString(AVOUtil.BoutiquesList.img));
+            }
+            if(item.has(AVOUtil.BoutiquesList.source_name)){
+                mReading.setSource_name(item.getString(AVOUtil.BoutiquesList.source_name));
+            }
+            if(item.has(AVOUtil.BoutiquesList.source_url)){
+                mReading.setSource_url(item.getString(AVOUtil.BoutiquesList.source_url));
+            }
+            if(item.has(AVOUtil.BoutiquesList.type)){
+                mReading.setType(item.getString(AVOUtil.BoutiquesList.type));
+            }
+            if(item.has(AVOUtil.BoutiquesList.media_url)){
+                mReading.setMedia_url(item.getString(AVOUtil.BoutiquesList.media_url));
+            }
+            BoxHelper.saveOrGetStatus(mReading);
+            if (isAddToHead) {
+                avObjects.add(0, mReading);
+            } else {
+                avObjects.add(mReading);
+            }
+        }
+    }
 
 }

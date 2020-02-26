@@ -17,6 +17,7 @@ import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.DataUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
@@ -209,13 +210,13 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 				onSwipeRefreshLayoutFinish();
 				if(avObject != null){
 					if(avObject.size() == 0){
-						ToastUtil.diaplayMesShort(ReadingsActivity.this, "没有了！");
+						mXXLModel.hasMore = false;
 						hideFooterview();
 					}else{
 						if(skip == 0){
 							avObjects.clear();
 						}
-						StudyFragment.changeData(avObject,avObjects,false);
+						DataUtil.changeDataToReading(avObject,avObjects,false);
 						mAdapter.notifyDataSetChanged();
 						loadAD();
 						skip += Setings.page_size;

@@ -26,6 +26,7 @@ import com.messi.languagehelper.impl.TablayoutOnSelectedListener;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.DataUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
@@ -301,7 +302,7 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
                         avObjects.clear();
                     }
                     loadAD();
-                    changeData(tempList, avObjects,false);
+                    DataUtil.changeDataToReading(tempList, avObjects,false);
 //                    if(xvideoItem != null){
 //                        if(avObjects.size() > 9){
 //                            avObjects.add(NumberUtil.randomNumberRange(3,6),xvideoItem);
@@ -344,70 +345,6 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
     public void onTabReselected(int index) {
         listview.scrollToPosition(0);
         onSwipeRefreshLayoutRefresh();
-    }
-
-    public static void changeData(List<AVObject> avObjectlist, List<Reading> avObjects, boolean isAddToHead) {
-        for (AVObject item : avObjectlist) {
-            Reading mReading = new Reading();
-            mReading.setObject_id(item.getObjectId());
-            if(item.has(AVOUtil.Reading.category)){
-                mReading.setCategory(item.getString(AVOUtil.Reading.category));
-            }
-            if(item.has(AVOUtil.Reading.content)){
-                mReading.setContent(item.getString(AVOUtil.Reading.content));
-            }
-            if(item.has(AVOUtil.Reading.type_id)){
-                mReading.setType_id(item.getString(AVOUtil.Reading.type_id));
-            }
-            if(item.has(AVOUtil.Reading.type_name)){
-                mReading.setType_name(item.getString(AVOUtil.Reading.type_name));
-            }
-            if(item.has(AVOUtil.Reading.title)){
-                mReading.setTitle(item.getString(AVOUtil.Reading.title));
-            }
-            if(item.has(AVOUtil.Reading.vid)){
-                mReading.setVid(item.getString(AVOUtil.Reading.vid));
-            }
-            if(item.has(AVOUtil.Reading.item_id)){
-                mReading.setItem_id(String.valueOf(item.getNumber(AVOUtil.Reading.item_id)));
-            }
-            if(item.has(AVOUtil.Reading.img_url)){
-                mReading.setImg_url(item.getString(AVOUtil.Reading.img_url));
-            }
-            if(item.has(AVOUtil.Reading.publish_time)){
-                mReading.setPublish_time(String.valueOf(item.getDate(AVOUtil.Reading.publish_time).getTime()));
-            }
-            if(item.has(AVOUtil.Reading.img_type)){
-                mReading.setImg_type(item.getString(AVOUtil.Reading.img_type));
-            }
-            if(item.has(AVOUtil.Reading.source_name)){
-                mReading.setSource_name(item.getString(AVOUtil.Reading.source_name));
-            }
-            if(item.has(AVOUtil.Reading.source_url)){
-                mReading.setSource_url(item.getString(AVOUtil.Reading.source_url));
-            }
-            if(item.has(AVOUtil.Reading.type)){
-                mReading.setType(item.getString(AVOUtil.Reading.type));
-            }
-            if(item.has(AVOUtil.Reading.boutique_code)){
-                mReading.setBoutique_code(item.getString(AVOUtil.Reading.boutique_code));
-            }
-            if(item.has(AVOUtil.Reading.media_url)){
-                mReading.setMedia_url(item.getString(AVOUtil.Reading.media_url));
-            }
-            if(item.has(AVOUtil.Reading.content_type)){
-                mReading.setContent_type(item.getString(AVOUtil.Reading.content_type));
-            }
-            if(item.has(AVOUtil.Reading.lrc_url)){
-                mReading.setLrc_url(item.getString(AVOUtil.Reading.lrc_url));
-            }
-            BoxHelper.saveOrGetStatus(mReading);
-            if (isAddToHead) {
-                avObjects.add(0, mReading);
-            } else {
-                avObjects.add(mReading);
-            }
-        }
     }
 
     public static List<ReadingCategory> getTabItem(Context context) {

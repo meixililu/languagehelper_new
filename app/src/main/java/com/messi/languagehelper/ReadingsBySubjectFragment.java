@@ -22,6 +22,7 @@ import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.DataUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
@@ -296,7 +297,7 @@ public class ReadingsBySubjectFragment extends BaseFragment {
                             hasMoreUp = false;
                         }
                     } else {
-                        StudyFragment.changeData(avObject, avObjects, isLookUpData);
+                        DataUtil.changeDataToReading(avObject, avObjects, isLookUpData);
                         mAdapter.notifyDataSetChanged();
                         loadAD();
                         if(avObject.size() == Setings.page_size){

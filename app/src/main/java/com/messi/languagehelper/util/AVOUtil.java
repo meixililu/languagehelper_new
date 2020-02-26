@@ -932,6 +932,16 @@ public class AVOUtil {
 
 		public final static String source_url = "source_url";
 
+		public final static String source_name = "source_name";
+
+		public final static String type = "type";
+
+		public final static String type_name = "type_name";
+
+		public final static String vid = "vid";
+
+		public final static String content_type = "content_type";
+
 	}
 
 

@@ -2,7 +2,7 @@
 
 buildscript {
 
-    ext.objectboxVersion = '2.4.1'
+    ext.objectboxVersion = '2.5.1'
 
     repositories {
         jcenter()

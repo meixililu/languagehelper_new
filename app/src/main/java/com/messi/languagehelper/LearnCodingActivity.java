@@ -18,7 +18,7 @@ public class LearnCodingActivity extends BaseActivity implements FragmentProgres
 
     private void init() {
         getSupportActionBar().setTitle(getResources().getString(R.string.leisuer_learn_to_code));
-        Fragment fragment = BoutiquesFragment.getInstance("code");
+        Fragment fragment = BoutiquesFragment.getInstance("computer ");
         if(fragment != null){
             getSupportFragmentManager()
                     .beginTransaction()

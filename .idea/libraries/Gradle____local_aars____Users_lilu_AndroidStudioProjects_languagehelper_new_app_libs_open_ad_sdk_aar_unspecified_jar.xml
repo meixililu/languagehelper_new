@@ -1,10 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: __local_aars__:/Users/lilu/AndroidStudioProjects/languagehelper_new/app/libs/open_ad_sdk.aar:unspecified@jar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2c7125a243c270206b783d4451392e65/open_ad_sdk/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2c7125a243c270206b783d4451392e65/open_ad_sdk/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2c7125a243c270206b783d4451392e65/open_ad_sdk/jars/libs/threadpool-1.1.0-sources .jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2c7125a243c270206b783d4451392e65/open_ad_sdk/jars/libs/adhost.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fa340f867c1b801c005cba1115a12ba6/open_ad_sdk/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fa340f867c1b801c005cba1115a12ba6/open_ad_sdk/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fa340f867c1b801c005cba1115a12ba6/open_ad_sdk/jars/libs/adhost.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

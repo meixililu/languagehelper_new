@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: __local_aars__:/Users/lilu/AndroidStudioProjects/languagehelper_new/app/libs/Baidu_MobAds_SDK-release.aar:unspecified@jar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9d366c8b2f6218c4d9b2365f0d45b78e/Baidu_MobAds_SDK-release/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9d366c8b2f6218c4d9b2365f0d45b78e/Baidu_MobAds_SDK-release/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9d366c8b2f6218c4d9b2365f0d45b78e/Baidu_MobAds_SDK-release/jars/libs/Baidu_MobAds_SDK.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fbb9ef1f1175e08a20c301455583aae2/Baidu_MobAds_SDK-release/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fbb9ef1f1175e08a20c301455583aae2/Baidu_MobAds_SDK-release/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fbb9ef1f1175e08a20c301455583aae2/Baidu_MobAds_SDK-release/jars/libs/Baidu_MobAds_SDK.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

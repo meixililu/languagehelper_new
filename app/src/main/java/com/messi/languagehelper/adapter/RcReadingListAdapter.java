@@ -33,7 +33,7 @@ public class RcReadingListAdapter extends HeaderRecyclerViewAdapter<RecyclerView
     protected RecyclerView.ViewHolder onCreateItemViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = getLayoutInflater(parent);
         View characterView = inflater.inflate(R.layout.read_list_item, parent, false);
-        return new RcReadingListItemViewHolder(characterView,avObjects,isPlayList);
+        return new RcReadingListItemViewHolder(characterView, avObjects, isPlayList);
     }
 
     @Override
