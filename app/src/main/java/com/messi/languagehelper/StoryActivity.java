@@ -62,7 +62,10 @@ public class StoryActivity extends BaseActivity implements FragmentProgressbarLi
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         mCompositionFragment = SubjectFragment.getInstance(AVOUtil.Category.grammar,"","",getResources().getString(R.string.title_grammar));
         mExaminationFragment = SubjectFragment.getInstance(AVOUtil.Category.story,"","desc",getResources().getString(R.string.title_english_story));
-        courseFragment = BoutiquesFragment.getInstance("composition",getString(R.string.selection));
+        courseFragment = new BoutiquesFragment.Builder()
+                .category("composition")
+                .title(getString(R.string.selection))
+                .build();
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.content, mCompositionFragment)

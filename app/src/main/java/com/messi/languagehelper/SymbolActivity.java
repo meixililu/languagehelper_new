@@ -70,7 +70,10 @@ public class SymbolActivity extends BaseActivity implements FragmentProgressbarL
         navigation.inflateMenu(R.menu.tabs_symbol);
         navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        mWordHomeFragment = BoutiquesFragment.getInstance("symbol",getString(R.string.selection));
+        mWordHomeFragment = new BoutiquesFragment.Builder()
+                .category("symbol")
+                .title(getString(R.string.selection))
+                .build();
         shadowFragment = SymbolListFragment.getInstance();
         practiceFragment = XmlySearchAlbumFragment.newInstance("音标",getString(R.string.title_study_category));
         dashboardFragment = SubjectFragment.getInstance(AVOUtil.Category.symbol,"","",getString(R.string.title_course));

@@ -76,7 +76,10 @@ public class ListenActivity extends BaseActivity implements FragmentProgressbarL
                 .isPlayList(true)
                 .build();
         jtFragment = XmlySearchAlbumFragment.newInstance("听力",getString(R.string.title_study_category));
-        boutiquesFragment = BoutiquesFragment.getInstance("listening",getString(R.string.selection));
+        boutiquesFragment = new BoutiquesFragment.Builder()
+                .category("listening")
+                .title(getString(R.string.selection))
+                .build();
         dashboardFragment = ListenCourseFragment.getInstance();
         getSupportFragmentManager()
                 .beginTransaction()

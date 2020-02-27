@@ -212,10 +212,6 @@
             android:name=".WebViewForCaricatureActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".BoutiquesListActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".MomentsAddActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -226,6 +222,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".PhotoSearchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CollegeActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".CaricatureDetailActivity"
@@ -394,9 +393,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ChPybsSListActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".LearnCodingActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ExaminationActivity"

@@ -30,12 +30,16 @@ public class EmptyActivity extends BaseActivity implements FragmentProgressbarLi
         try {
             Fragment fragment = (Fragment) fName.newInstance();
             if(fragment != null){
+                if (bundle != null) {
+                    fragment.setArguments(bundle);
+                }
                 getSupportFragmentManager()
                         .beginTransaction()
                         .add(R.id.contont_layout, fragment)
                         .commit();
             }
         }catch (Exception e){
+            e.printStackTrace();
             LogUtil.DefalutLog("fragment not found.");
             finish();
         }

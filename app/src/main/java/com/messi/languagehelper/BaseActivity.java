@@ -37,6 +37,7 @@ public class BaseActivity extends AppCompatActivity {
     public SwipeRefreshLayout mSwipeRefreshLayout;
     private View mScrollable;
     public boolean isRegisterBus;
+    private View rootView;
 
     BroadcastReceiver activityReceiver = new BroadcastReceiver() {
         @Override
@@ -116,20 +117,22 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
-        getActionBarToolbar(null);
+        getActionBarToolbar();
         initProgressbar();
     }
 
     @Override
     public void setContentView(View view){
         super.setContentView(view);
-        getActionBarToolbar(view);
+        rootView = view;
+        getActionBarToolbar();
+        initProgressbar();
     }
 
-    protected void getActionBarToolbar(View view) {
+    protected void getActionBarToolbar() {
         if (toolbar == null) {
-            if (view != null) {
-                toolbar = (Toolbar) view.findViewById(R.id.my_awesome_toolbar);
+            if (rootView != null) {
+                toolbar = (Toolbar) rootView.findViewById(R.id.my_awesome_toolbar);
             } else {
                 toolbar = (Toolbar) findViewById(R.id.my_awesome_toolbar);
             }
@@ -187,7 +190,11 @@ public class BaseActivity extends AppCompatActivity {
 
     protected void initProgressbar() {
         if (mProgressbar == null) {
-            mProgressbar = (ProgressBar) findViewById(R.id.progressBarCircularIndetermininate);
+            if (rootView != null) {
+                mProgressbar = (ProgressBar) rootView.findViewById(R.id.progressBarCircularIndetermininate);
+            } else {
+                mProgressbar = (ProgressBar) findViewById(R.id.progressBarCircularIndetermininate);
+            }
         }
     }
 
@@ -196,7 +203,11 @@ public class BaseActivity extends AppCompatActivity {
      */
     protected void initSwipeRefresh() {
         if (mSwipeRefreshLayout == null) {
-            mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.mswiperefreshlayout);
+            if (rootView != null) {
+                mSwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.mswiperefreshlayout);
+            } else {
+                mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.mswiperefreshlayout);
+            }
             mSwipeRefreshLayout.setColorSchemeResources(R.color.holo_blue_bright,
                     R.color.holo_green_light,
                     R.color.holo_orange_light,
@@ -231,9 +242,6 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
-    protected int getScreenHeight() {
-        return findViewById(android.R.id.content).getHeight();
-    }
 
     protected void setScrollable(View s) {
         mScrollable = s;
@@ -308,8 +316,6 @@ public class BaseActivity extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode) {
             case KeyEvent.KEYCODE_VOLUME_UP:
-                AudioTrackUtil.adjustStreamVolume(BaseActivity.this, keyCode);
-                return true;
             case KeyEvent.KEYCODE_VOLUME_DOWN:
                 AudioTrackUtil.adjustStreamVolume(BaseActivity.this, keyCode);
                 return true;

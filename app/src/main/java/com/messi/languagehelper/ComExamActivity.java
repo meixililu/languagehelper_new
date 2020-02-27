@@ -59,7 +59,10 @@ public class ComExamActivity extends BaseActivity implements FragmentProgressbar
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         mCompositionFragment = CompositionFragment.getInstance();
         mExaminationFragment = ExaminationFragment.getInstance();
-        courseFragment = BoutiquesFragment.getInstance("examination",getString(R.string.selection));
+        courseFragment = new BoutiquesFragment.Builder()
+                .category("examination")
+                .title(getString(R.string.selection))
+                .build();
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.content, mCompositionFragment)

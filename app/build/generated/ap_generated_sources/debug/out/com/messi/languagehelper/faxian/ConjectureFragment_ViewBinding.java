@@ -15,7 +15,7 @@ import java.lang.Override;
 public class ConjectureFragment_ViewBinding implements Unbinder {
   private ConjectureFragment target;
 
-  private View view7f080210;
+  private View view7f080211;
 
   private View view7f080045;
 
@@ -26,7 +26,7 @@ public class ConjectureFragment_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.question, "field 'question' and method 'onViewClicked'");
     target.question = Utils.castView(view, R.id.question, "field 'question'", TextView.class);
-    view7f080210 = view;
+    view7f080211 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -54,8 +54,8 @@ public class ConjectureFragment_ViewBinding implements Unbinder {
     target.question = null;
     target.answer = null;
 
-    view7f080210.setOnClickListener(null);
-    view7f080210 = null;
+    view7f080211.setOnClickListener(null);
+    view7f080211 = null;
     view7f080045.setOnClickListener(null);
     view7f080045 = null;
   }

@@ -72,7 +72,10 @@ public class SpokenActivity extends BaseActivity implements FragmentProgressbarL
         mWordHomeFragment = XmlySearchAlbumFragment.newInstance("口语",getString(R.string.title_study_category));
         practiceFragment = AiDialogueCourseFragment.getInstance();
         dashboardFragment = SpokenCourseFragment.getInstance();
-        shadowFragment = BoutiquesFragment.getInstance("spoken_english",getString(R.string.selection));
+        shadowFragment = new BoutiquesFragment.Builder()
+                .category("spoken_english")
+                .title(getString(R.string.selection))
+                .build();
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.content, mWordHomeFragment)

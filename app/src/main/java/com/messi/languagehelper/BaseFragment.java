@@ -116,10 +116,16 @@ public class BaseFragment extends Fragment {
 	protected void initSwipeRefresh(View view){
 		if(mSwipeRefreshLayout == null){
 			mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.mswiperefreshlayout);
-			mSwipeRefreshLayout.setColorSchemeResources(R.color.holo_blue_bright, 
-		            R.color.holo_green_light, 
-		            R.color.holo_orange_light, 
-		            R.color.holo_red_light);
+		}
+		setSwipeOnRefresh();
+	}
+
+	protected void setSwipeOnRefresh(){
+		if(mSwipeRefreshLayout != null){
+			mSwipeRefreshLayout.setColorSchemeResources(R.color.holo_blue_bright,
+					R.color.holo_green_light,
+					R.color.holo_orange_light,
+					R.color.holo_red_light);
 			mSwipeRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
 				@Override
 				public void onRefresh() {

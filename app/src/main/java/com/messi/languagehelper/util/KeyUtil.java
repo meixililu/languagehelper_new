@@ -26,6 +26,8 @@ public class KeyUtil {
 
 	public static final String Id = "Id";
 
+	public static final String FragmentTitle = "Title";
+
 	public static final String DeviceId = "DeviceId";
 
 	public static final String PrivacyKey = "PrivacyKey";
@@ -62,9 +64,7 @@ public class KeyUtil {
 
 	public static final String Type = "Type";
 
-	public static final String DeleteModel = "DeleteModel";
-
-	public static final String isNeedDelete = "isNeedDelete";
+	public static final String OrderBy = "OrderBy";
 
 	public static final String List = "List";
 

@@ -914,6 +914,20 @@ public class AVOUtil {
 
 	}
 
+	public static class BoutiquesClass {
+
+		public final static String BoutiquesClass = "BoutiquesClass";
+
+		public final static String name = "name";
+
+		public final static String type = "type";
+
+		public final static String order = "order";
+
+		public final static String img = "img";
+
+	}
+
 	public static class BoutiquesList {
 
 		public final static String BoutiquesList = "BoutiquesList";

@@ -49,7 +49,6 @@ public class PhotoSearchActivity extends BaseActivity {
         setContentView(R.layout.photo_search_activity);
         ButterKnife.bind(this);
         isRegisterBus = true;
-        initProgressbar();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

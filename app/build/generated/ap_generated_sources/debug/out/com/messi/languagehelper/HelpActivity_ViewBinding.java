@@ -14,9 +14,9 @@ import java.lang.Override;
 public class HelpActivity_ViewBinding implements Unbinder {
   private HelpActivity target;
 
-  private View view7f0802b8;
+  private View view7f0802b9;
 
-  private View view7f0802bb;
+  private View view7f0802bc;
 
   @UiThread
   public HelpActivity_ViewBinding(HelpActivity target) {
@@ -30,7 +30,7 @@ public class HelpActivity_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.style_one, "field 'styleOne' and method 'onClick'");
     target.styleOne = Utils.castView(view, R.id.style_one, "field 'styleOne'", RelativeLayout.class);
-    view7f0802b8 = view;
+    view7f0802b9 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -39,7 +39,7 @@ public class HelpActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.style_two, "field 'styleTwo' and method 'onClick'");
     target.styleTwo = Utils.castView(view, R.id.style_two, "field 'styleTwo'", RelativeLayout.class);
-    view7f0802bb = view;
+    view7f0802bc = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -58,9 +58,9 @@ public class HelpActivity_ViewBinding implements Unbinder {
     target.styleOne = null;
     target.styleTwo = null;
 
-    view7f0802b8.setOnClickListener(null);
-    view7f0802b8 = null;
-    view7f0802bb.setOnClickListener(null);
-    view7f0802bb = null;
+    view7f0802b9.setOnClickListener(null);
+    view7f0802b9 = null;
+    view7f0802bc.setOnClickListener(null);
+    view7f0802bc = null;
   }
 }

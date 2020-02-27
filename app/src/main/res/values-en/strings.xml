@@ -72,6 +72,7 @@
     <string name="moments_add">Publish</string>
     <string name="title_moments_add">Share Moments</string>
     <string name="no_moments">To be the first one</string>
+    <string name="title_college_class">Class</string>
     <string name="input_comment_hint">Comment</string>
     <string name="moments_hint">please input something,only english</string>
     <string name="title_web_AmericanLife">AmericanLife</string>
@@ -285,7 +286,7 @@
     <string name="leisure_history">History</string>
     <string name="leisure_conjecture">Conjecture</string>
     <string name="leisure_riddle">Riddle</string>
-	<string name="leisuer_one">Competitive Products</string>
+	<string name="leisuer_one">Products</string>
 	<string name="leisuer_one_subtitle">Hot-sold products</string>
     <string name="leisuer_sougou_wechat">Wechat English</string>
     <string name="leisuer_sougou_wechat_subtitle">All the Wechat English</string>
@@ -303,7 +304,7 @@
     <string name="leisuer_xhy">Two-part allegorical saying</string>
     <string name="leisuer_tongue_twister">Tongue Twister</string>
     <string name="title_setting">Setting</string>
-	<string name="leisuer_learn_to_code">Learn to code</string>
+	<string name="leisuer_learn_to_code">School</string>
 	<string name="download">Try it</string>
     <string name="search_hot">Hot</string>
 	<string name="practice_check">Check</string>

@@ -22,15 +22,15 @@ public class WordStudyFightActivity_ViewBinding implements Unbinder {
 
   private View view7f080118;
 
-  private View view7f0803d5;
+  private View view7f0803d6;
 
-  private View view7f080268;
+  private View view7f080269;
 
-  private View view7f08026a;
+  private View view7f08026b;
 
-  private View view7f08026c;
+  private View view7f08026d;
 
-  private View view7f08026e;
+  private View view7f08026f;
 
   @UiThread
   public WordStudyFightActivity_ViewBinding(WordStudyFightActivity target) {
@@ -62,7 +62,7 @@ public class WordStudyFightActivity_ViewBinding implements Unbinder {
     target.resultLayout = Utils.findRequiredViewAsType(source, R.id.result_layout, "field 'resultLayout'", LinearLayout.class);
     view = Utils.findRequiredView(source, R.id.word_tv, "field 'wordTv' and method 'onClick'");
     target.wordTv = Utils.castView(view, R.id.word_tv, "field 'wordTv'", TextView.class);
-    view7f0803d5 = view;
+    view7f0803d6 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -72,7 +72,7 @@ public class WordStudyFightActivity_ViewBinding implements Unbinder {
     target.selection1 = Utils.findRequiredViewAsType(source, R.id.selection_1, "field 'selection1'", TextView.class);
     view = Utils.findRequiredView(source, R.id.selection_1_layout, "field 'selection1Layout' and method 'onClick'");
     target.selection1Layout = Utils.castView(view, R.id.selection_1_layout, "field 'selection1Layout'", FrameLayout.class);
-    view7f080268 = view;
+    view7f080269 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -82,7 +82,7 @@ public class WordStudyFightActivity_ViewBinding implements Unbinder {
     target.selection2 = Utils.findRequiredViewAsType(source, R.id.selection_2, "field 'selection2'", TextView.class);
     view = Utils.findRequiredView(source, R.id.selection_2_layout, "field 'selection2Layout' and method 'onClick'");
     target.selection2Layout = Utils.castView(view, R.id.selection_2_layout, "field 'selection2Layout'", FrameLayout.class);
-    view7f08026a = view;
+    view7f08026b = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -92,7 +92,7 @@ public class WordStudyFightActivity_ViewBinding implements Unbinder {
     target.selection3 = Utils.findRequiredViewAsType(source, R.id.selection_3, "field 'selection3'", TextView.class);
     view = Utils.findRequiredView(source, R.id.selection_3_layout, "field 'selection3Layout' and method 'onClick'");
     target.selection3Layout = Utils.castView(view, R.id.selection_3_layout, "field 'selection3Layout'", FrameLayout.class);
-    view7f08026c = view;
+    view7f08026d = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -102,7 +102,7 @@ public class WordStudyFightActivity_ViewBinding implements Unbinder {
     target.selection4 = Utils.findRequiredViewAsType(source, R.id.selection_4, "field 'selection4'", TextView.class);
     view = Utils.findRequiredView(source, R.id.selection_4_layout, "field 'selection4Layout' and method 'onClick'");
     target.selection4Layout = Utils.castView(view, R.id.selection_4_layout, "field 'selection4Layout'", FrameLayout.class);
-    view7f08026e = view;
+    view7f08026f = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -142,15 +142,15 @@ public class WordStudyFightActivity_ViewBinding implements Unbinder {
 
     view7f080118.setOnClickListener(null);
     view7f080118 = null;
-    view7f0803d5.setOnClickListener(null);
-    view7f0803d5 = null;
-    view7f080268.setOnClickListener(null);
-    view7f080268 = null;
-    view7f08026a.setOnClickListener(null);
-    view7f08026a = null;
-    view7f08026c.setOnClickListener(null);
-    view7f08026c = null;
-    view7f08026e.setOnClickListener(null);
-    view7f08026e = null;
+    view7f0803d6.setOnClickListener(null);
+    view7f0803d6 = null;
+    view7f080269.setOnClickListener(null);
+    view7f080269 = null;
+    view7f08026b.setOnClickListener(null);
+    view7f08026b = null;
+    view7f08026d.setOnClickListener(null);
+    view7f08026d = null;
+    view7f08026f.setOnClickListener(null);
+    view7f08026f = null;
   }
 }

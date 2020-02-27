@@ -388,7 +388,7 @@ public class LeisureFragment extends BaseFragment {
     }
 
     private void toLearnToCode() {
-        toActivity(LearnCodingActivity.class, null);
+        toActivity(CollegeActivity.class, null);
         AVAnalytics.onEvent(getActivity(), "leisure_pg_learn_coding");
     }
 

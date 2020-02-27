@@ -44,6 +44,7 @@
     <string name="title_listen_fm">悦听</string>
     <string name="title_yuwen">语文</string>
     <string name="title_category">分类</string>
+    <string name="title_college_class">学科</string>
     <string name="title_hotel">酒店</string>
     <string name="title_moments">英语圈</string>
     <string name="title_moments_add">分享到英语圈</string>
@@ -308,7 +309,7 @@
     <string name="leisure_conjecture">猜成语</string>
     <string name="leisure_riddle">猜灯谜</string>
     <string name="foreign_website">英文网站</string>
-    <string name="leisuer_one">小白精选</string>
+    <string name="leisuer_one">好书推荐</string>
     <string name="leisuer_sougou_wechat">微信英语</string>
     <string name="leisuer_sougou_wechat_subtitle">微信公众号英语资料集合</string>
     <string name="leisuer_reading">看一看</string>
@@ -324,7 +325,7 @@
     <string name="leisuer_tongue_twister">绕口令</string>
     <string name="title_sure">确定</string>
     <string name="leisuer_duanzi">笑话</string>
-    <string name="leisuer_learn_to_code">学编程</string>
+    <string name="leisuer_learn_to_code">小白课堂</string>
     <string name="feedback">反馈</string>
     <string name="done">完成</string>
     <string name="practice_next">下一个</string>

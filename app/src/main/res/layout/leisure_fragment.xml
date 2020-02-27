@@ -54,7 +54,7 @@
             android:orientation="horizontal">
 
             <FrameLayout
-                android:id="@+id/cailing_layout"
+                android:id="@+id/app_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="1px"
@@ -74,7 +74,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        app:srcCompat="@drawable/ic_icon_01" />
+                        app:srcCompat="@drawable/ic_icon_18" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -83,7 +83,7 @@
                         android:background="@color/white"
                         android:gravity="center"
                         android:lines="1"
-                        android:text="@string/leisuer_one"
+                        android:text="@string/leisuer_learn_to_code"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/middle" />
                 </LinearLayout>
@@ -585,7 +585,7 @@
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/app_layout"
+                android:id="@+id/cailing_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -604,7 +604,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        app:srcCompat="@drawable/ic_icon_18" />
+                        app:srcCompat="@drawable/ic_icon_01" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -613,7 +613,7 @@
                         android:background="@color/white"
                         android:gravity="center"
                         android:lines="1"
-                        android:text="@string/leisuer_learn_to_code"
+                        android:text="@string/leisuer_one"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/middle" />
                 </LinearLayout>
