@@ -41,7 +41,7 @@ public class CollegeActivity extends BaseActivity implements FragmentProgressbar
         binding.navigation.setOnNavigationItemSelectedListener(this::onNavigationItemSelected);
         mCategoryFragment = CollegeCategoryFragment.getInstance();
         mAllCourseFragment = new BoutiquesFragment.Builder()
-                .title(getString(R.string.selection))
+                .title(getString(R.string.title_all_fm))
                 .build();
         getSupportFragmentManager()
                 .beginTransaction()
