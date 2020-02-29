@@ -12,8 +12,8 @@ import com.messi.languagehelper.AiTuringActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.WebViewActivity;
 import com.messi.languagehelper.bean.PopMenuItem;
+import com.messi.languagehelper.box.Record;
 import com.messi.languagehelper.dao.AiEntity;
-import com.messi.languagehelper.dao.record;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.dialog.AiItemMenuDialog;
 import com.messi.languagehelper.impl.OnTranslateFinishListener;
@@ -125,7 +125,7 @@ public class RcAiTuringItemViewHolder extends RecyclerView.ViewHolder {
                             Setings.q = mBean.getContent();
                             TranslateUtil.Translate(new OnTranslateFinishListener() {
                                 @Override
-                                public void OnFinishTranslate(record mRecord) {
+                                public void OnFinishTranslate(Record mRecord) {
                                     if(mRecord == null){
                                         ToastUtil.diaplayMesShort(context,context.getResources().getString(R.string.network_error));
                                     }else {

@@ -67,7 +67,7 @@ public class MainTabTranZhYue extends BaseFragment {
         SharedPreferences sp = Setings.getSharedPreferences(getContext());
         if(!sp.getBoolean(KeyUtil.IsYYSHasTransafeData,false)){
             boolean isNeedTransfeData = false;
-            List<record> oldBeans = DataBaseUtil.getInstance().getDataListRecord(0, Setings.offset);
+            List<record> oldBeans = DataBaseUtil.getInstance().getDataListRecord();
             for(record bean : oldBeans){
                 if(!TextUtils.isEmpty(bean.getBackup3()) && "yue".equals(bean.getBackup3())){
                     isNeedTransfeData = true;
@@ -100,7 +100,7 @@ public class MainTabTranZhYue extends BaseFragment {
     private void init(View view) {
         recent_used_lv = (RecyclerView) view.findViewById(R.id.recent_used_lv);
         beans = new ArrayList<TranResultZhYue>();
-        beans.addAll(DataBaseUtil.getInstance().getDataListZhYue(0, Setings.offset));
+        beans.addAll(DataBaseUtil.getInstance().getDataListZhYue(0, Setings.RecordOffset));
         boolean IsHasShowBaiduMessage = PlayUtil.getSP().getBoolean(KeyUtil.IsHasShowBaiduMessage, false);
         if (!IsHasShowBaiduMessage) {
             initSample();
@@ -216,7 +216,7 @@ public class MainTabTranZhYue extends BaseFragment {
             @Override
             public void subscribe(ObservableEmitter<String> e) throws Exception {
                 beans.clear();
-                beans.addAll(DataBaseUtil.getInstance().getDataListZhYue(0, Setings.offset));
+                beans.addAll(DataBaseUtil.getInstance().getDataListZhYue(0, Setings.RecordOffset));
                 e.onComplete();
             }
         })

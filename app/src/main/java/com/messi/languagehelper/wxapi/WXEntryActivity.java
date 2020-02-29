@@ -14,9 +14,9 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -27,6 +27,7 @@ import com.messi.languagehelper.BaseActivity;
 import com.messi.languagehelper.MoreActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.adapter.MainPageAdapter;
+import com.messi.languagehelper.databinding.ContentFrameBinding;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.AVAnalytics;
@@ -53,19 +54,18 @@ import permissions.dispatcher.RuntimePermissions;
 @RuntimePermissions
 public class WXEntryActivity extends BaseActivity implements FragmentProgressbarListener {
 
-	private TabLayout tablayout;
-	private ViewPager viewPager;
-
 	private long exitTime = 0;
 	private SharedPreferences sp;
 
 	private Intent playIntent;
+	private ContentFrameBinding binding;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		try {
-			setContentView(R.layout.content_frame);
+			binding = ContentFrameBinding.inflate(LayoutInflater.from(this));
+			setContentView(binding.getRoot());
 			initData();
 			initViews();
 			initSDKAndPermission();
@@ -88,17 +88,15 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 	}
 
 	private void initViews() {
-		viewPager = (ViewPager) findViewById(R.id.pager);
-		tablayout = (TabLayout) findViewById(R.id.tablayout);
 		final MainPageAdapter mAdapter = new MainPageAdapter(this.getSupportFragmentManager(),this,
 				sp,this);
 		if(SystemUtil.lan.equals("en")){
-			tablayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+			binding.tablayout.setTabMode(TabLayout.MODE_SCROLLABLE);
 		}
-		viewPager.setAdapter(mAdapter);
-		viewPager.setOffscreenPageLimit(5);
-		tablayout.setupWithViewPager(viewPager);
-		tablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+		binding.pager.setAdapter(mAdapter);
+		binding.pager.setOffscreenPageLimit(5);
+		binding.tablayout.setupWithViewPager(binding.pager);
+		binding.tablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 			@Override
 			public void onTabSelected(TabLayout.Tab tab) {
 			}
@@ -118,12 +116,9 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 	}
 
 	private void initSDKAndPermission(){
-		new Handler().postDelayed(new Runnable() {
-			@Override
-			public void run() {
-				WXEntryActivityPermissionsDispatcher.showPermissionWithPermissionCheck(WXEntryActivity.this);
-			}
-		}, 1 * 1000);
+		new Handler().postDelayed(
+				() -> WXEntryActivityPermissionsDispatcher.showPermissionWithPermissionCheck(WXEntryActivity.this)
+		, 1 * 1000);
 	}
 
 	//connect to the service
@@ -155,7 +150,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 
 	private void setLastTimeSelectTab() {
 		int index = sp.getInt(KeyUtil.LastTimeSelectTab, 0);
-		viewPager.setCurrentItem(index);
+		binding.pager.setCurrentItem(index);
 	}
 
 	@Override
@@ -201,7 +196,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 	}
 
 	private void saveSelectTab() {
-		int index = viewPager.getCurrentItem();
+		int index = binding.pager.getCurrentItem();
 		LogUtil.DefalutLog("WXEntryActivity---onDestroy---saveSelectTab---index:" + index);
 		Setings.saveSharedPreferences(sp, KeyUtil.LastTimeSelectTab, index);
 	}

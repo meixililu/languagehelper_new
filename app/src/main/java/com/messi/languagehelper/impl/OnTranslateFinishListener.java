@@ -1,6 +1,6 @@
 package com.messi.languagehelper.impl;
 
-import com.messi.languagehelper.dao.record;
+import com.messi.languagehelper.box.Record;
 
 /**
  * Created by luli on 10/26/16.
@@ -8,6 +8,6 @@ import com.messi.languagehelper.dao.record;
 
 public interface OnTranslateFinishListener {
 
-    public void OnFinishTranslate(record mrecord);
+    public void OnFinishTranslate(Record mrecord);
 
 }

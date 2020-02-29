@@ -18,8 +18,8 @@ import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.PracticeActivity;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.dao.record;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.Record;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AudioTrackUtil;
 import com.messi.languagehelper.util.KeyUtil;
@@ -52,11 +52,11 @@ public class RcTranslateLiatItemViewHolder extends RecyclerView.ViewHolder {
     public FrameLayout voice_play_layout;
     public ProgressBar play_content_btn_progressbar;
 
-    private List<record> beans;
+    private List<Record> beans;
     private RcTranslateListAdapter mAdapter;
 
     public RcTranslateLiatItemViewHolder(View convertView,
-                                         List<record> mBeans,
+                                         List<Record> mBeans,
                                          RcTranslateListAdapter mAdapter) {
         super(convertView);
         this.context = convertView.getContext();
@@ -78,7 +78,7 @@ public class RcTranslateLiatItemViewHolder extends RecyclerView.ViewHolder {
         play_content_btn_progressbar = (ProgressBar) convertView.findViewById(R.id.play_content_btn_progressbar);
     }
 
-    public void render(final record mBean) {
+    public void render(final Record mBean) {
         AnimationDrawable animationDrawable = (AnimationDrawable) voice_play.getBackground();
         MyOnClickListener mMyOnClickListener = new MyOnClickListener(mBean,animationDrawable,voice_play,play_content_btn_progressbar,true);
         MyOnClickListener mQuestionOnClickListener = new MyOnClickListener(mBean,animationDrawable,voice_play,play_content_btn_progressbar,false);
@@ -157,9 +157,9 @@ public class RcTranslateLiatItemViewHolder extends RecyclerView.ViewHolder {
 
     public void deleteEntity(int position) {
         try{
-            record mBean = beans.remove(position);
+            Record mBean = beans.remove(position);
             mAdapter.notifyItemRemoved(position);
-            DataBaseUtil.getInstance().dele(mBean);
+            BoxHelper.remove(mBean);
             ToastUtil.diaplayMesShort(context,context.getResources().getString(R.string.dele_success));
             AVAnalytics.onEvent(context, "tab1_tran_delete");
         } catch (Exception e){
@@ -167,7 +167,7 @@ public class RcTranslateLiatItemViewHolder extends RecyclerView.ViewHolder {
         }
     }
 
-    private void updateCollectedStatus(record mBean){
+    private void updateCollectedStatus(Record mBean){
         if (mBean.getIscollected().equals("0")) {
             mBean.setIscollected("1");
             ToastUtil.diaplayMesShort(context,context.getResources().getString(R.string.favorite_success));
@@ -176,19 +176,19 @@ public class RcTranslateLiatItemViewHolder extends RecyclerView.ViewHolder {
             ToastUtil.diaplayMesShort(context,context.getResources().getString(R.string.favorite_cancle));
         }
         mAdapter.notifyDataSetChanged();
-        DataBaseUtil.getInstance().update(mBean);
+        BoxHelper.update(mBean);
     }
 
     public class MyOnClickListener implements View.OnClickListener {
 
-        private record mBean;
+        private Record mBean;
         private ImageButton voice_play;
         private AnimationDrawable animationDrawable;
         private ProgressBar play_content_btn_progressbar;
         private boolean isPlayResult;
         boolean isNotify = false;
 
-        private MyOnClickListener(record bean,AnimationDrawable mAnimationDrawable,ImageButton voice_play,
+        private MyOnClickListener(Record bean,AnimationDrawable mAnimationDrawable,ImageButton voice_play,
                                   ProgressBar progressbar, boolean isPlayResult){
             this.mBean = bean;
             this.voice_play = voice_play;
@@ -255,7 +255,7 @@ public class RcTranslateLiatItemViewHolder extends RecyclerView.ViewHolder {
                             if (arg0 != null) {
                                 ToastUtil.diaplayMesShort(context, arg0.getErrorDescription());
                             }
-                            DataBaseUtil.getInstance().update(mBean);
+                            BoxHelper.update(mBean);
                             PlayUtil.onFinishPlay();
                         }
                         @Override
@@ -265,14 +265,6 @@ public class RcTranslateLiatItemViewHolder extends RecyclerView.ViewHolder {
                         public void onEvent(int arg0, int arg1, int arg2, Bundle arg3) {
                         }
                     });
-
-            if (v.getId() == R.id.record_question_cover) {
-                AVAnalytics.onEvent(context, "tab1_tran_play_question");
-            } else if (v.getId() == R.id.record_answer_cover) {
-                AVAnalytics.onEvent(context, "tab1_tran_play_result");
-            } else if (v.getId() == R.id.voice_play_layout) {
-                AVAnalytics.onEvent(context, "tab1_tran_play_voice");
-            }
         }
     }
 }

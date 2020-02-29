@@ -7,16 +7,16 @@ import android.view.ViewGroup;
 
 import com.karumi.headerrecyclerview.HeaderRecyclerViewAdapter;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.dao.record;
+import com.messi.languagehelper.box.Record;
 import com.messi.languagehelper.util.ViewUtil;
 
 import java.util.List;
 
-public class RcTranslateListAdapter extends HeaderRecyclerViewAdapter<RecyclerView.ViewHolder, Object, record, Object> {
+public class RcTranslateListAdapter extends HeaderRecyclerViewAdapter<RecyclerView.ViewHolder, Object, Record, Object> {
 
-	private List<record> beans;
+	private List<Record> beans;
 
-	public RcTranslateListAdapter(List<record> beans){
+	public RcTranslateListAdapter(List<Record> beans){
 		this.beans = beans;
 	}
 
@@ -29,7 +29,7 @@ public class RcTranslateListAdapter extends HeaderRecyclerViewAdapter<RecyclerVi
 
 	@Override
 	protected void onBindItemViewHolder(RecyclerView.ViewHolder holder, int position) {
-		record mAVObject = getItem(position);
+		Record mAVObject = getItem(position);
 		RcTranslateLiatItemViewHolder mItemViewHolder = (RcTranslateLiatItemViewHolder)holder;
 		mItemViewHolder.render(mAVObject);
 	}
@@ -48,7 +48,7 @@ public class RcTranslateListAdapter extends HeaderRecyclerViewAdapter<RecyclerVi
 		return LayoutInflater.from(parent.getContext());
 	}
 
-	public void addEntity(int position, record entity) {
+	public void addEntity(int position, Record entity) {
 		beans.add(position, entity);
 		notifyItemInserted(position);
 	}

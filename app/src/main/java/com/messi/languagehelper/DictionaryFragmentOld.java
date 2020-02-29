@@ -98,7 +98,7 @@ public class DictionaryFragmentOld extends BaseFragment implements
     private void init() {
         isRegisterBus = true;
         beans = new ArrayList<Dictionary>();
-        beans.addAll(DataBaseUtil.getInstance().getDataListDictionary(0, Setings.offset));
+        beans.addAll(DataBaseUtil.getInstance().getDataListDictionary(0, Setings.RecordOffset));
         mAdapter = new RcDictionaryListAdapter(getContext(), beans, this);
 
         recent_used_lv.setHasFixedSize(true);
@@ -249,7 +249,7 @@ public class DictionaryFragmentOld extends BaseFragment implements
             @Override
             public void subscribe(ObservableEmitter<String> e) throws Exception {
                 beans.clear();
-                beans.addAll(DataBaseUtil.getInstance().getDataListDictionary(0, Setings.offset));
+                beans.addAll(DataBaseUtil.getInstance().getDataListDictionary(0, Setings.RecordOffset));
                 e.onComplete();
             }
         })

@@ -270,7 +270,7 @@
     },
     {
       "id": "5:2508500946353572578",
-      "lastPropertyId": "35:8429725476707112570",
+      "lastPropertyId": "36:5777419081988935434",
       "name": "Reading",
       "properties": [
         {
@@ -457,6 +457,11 @@
           "id": "35:8429725476707112570",
           "name": "vid",
           "type": 9
+        },
+        {
+          "id": "36:5777419081988935434",
+          "name": "boutique_code",
+          "type": 9
         }
       ],
       "relations": []
@@ -571,9 +576,85 @@
         }
       ],
       "relations": []
+    },
+    {
+      "id": "7:2299188868989635804",
+      "lastPropertyId": "13:5900058724758816266",
+      "name": "Record",
+      "properties": [
+        {
+          "id": "1:3622779869807933367",
+          "name": "id",
+          "type": 6,
+          "flags": 3
+        },
+        {
+          "id": "2:2680978039210277411",
+          "name": "english",
+          "type": 9
+        },
+        {
+          "id": "3:884082435267075603",
+          "name": "chinese",
+          "type": 9
+        },
+        {
+          "id": "4:5000480740313718976",
+          "name": "resultAudioPath",
+          "type": 9
+        },
+        {
+          "id": "5:5913073034574712234",
+          "name": "questionAudioPath",
+          "type": 9
+        },
+        {
+          "id": "6:6688460902990046095",
+          "name": "questionVoiceId",
+          "type": 9
+        },
+        {
+          "id": "7:575908343572342797",
+          "name": "resultVoiceId",
+          "type": 9
+        },
+        {
+          "id": "8:710434385512588605",
+          "name": "iscollected",
+          "type": 9
+        },
+        {
+          "id": "9:8288004112566859257",
+          "name": "visit_times",
+          "type": 5,
+          "flags": 2
+        },
+        {
+          "id": "10:1811036805093300432",
+          "name": "speak_speed",
+          "type": 5,
+          "flags": 2
+        },
+        {
+          "id": "11:2932319709700942493",
+          "name": "backup1",
+          "type": 9
+        },
+        {
+          "id": "12:1640133606806477691",
+          "name": "backup2",
+          "type": 9
+        },
+        {
+          "id": "13:5900058724758816266",
+          "name": "backup3",
+          "type": 9
+        }
+      ],
+      "relations": []
     }
   ],
-  "lastEntityId": "6:2540749559985781639",
+  "lastEntityId": "7:2299188868989635804",
   "lastIndexId": "6:8964642229373003809",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",

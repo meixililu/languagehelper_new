@@ -133,10 +133,10 @@ public class DataBaseUtil {
         mDictionaryDao.update(bean);
     }
 
-    public List<record> getDataListRecord(int offset, int maxResult) {
+    public List<record> getDataListRecord() {
         QueryBuilder<record> qb = mrecordDao.queryBuilder();
         qb.orderDesc(Properties.Id);
-        qb.limit(maxResult);
+//        qb.limit(maxResult);
         return qb.list();
     }
 
@@ -595,19 +595,21 @@ public class DataBaseUtil {
         mAvobjectDao.deleteAll();
     }
 
+    public void clearRecordData() {
+        mrecordDao.deleteAll();
+    }
+
     public List<CNWBean> getAllAVObjectData(){
         List<CNWBean> dataList = new ArrayList<CNWBean>();
         List<Avobject> list = mAvobjectDao.loadAll();
         if(list != null && list.size() > 0){
             for(Avobject item : list){
-                LogUtil.DefalutLog("-------------------------------");
-                LogUtil.DefalutLog(item.getSerializedString());
-                LogUtil.DefalutLog("-------------------------------");
                 AVObject object = null;
                 try{
                     object = AVObject.parseAVObject(item.getSerializedString());
                 }catch (Exception e){
                     LogUtil.DefalutLog("---------------Exception----------------");
+                    e.printStackTrace();
                 }
                 if(object != null){
                     CNWBean bean = new CNWBean();

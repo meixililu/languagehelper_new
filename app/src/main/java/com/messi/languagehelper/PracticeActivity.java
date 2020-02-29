@@ -29,8 +29,8 @@ import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.adapter.RcPractiseListAdapter;
 import com.messi.languagehelper.bean.UserSpeakBean;
-import com.messi.languagehelper.dao.record;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.Record;
 import com.messi.languagehelper.impl.PractisePlayUserPcmListener;
 import com.messi.languagehelper.task.MyThread;
 import com.messi.languagehelper.task.PublicTask;
@@ -94,7 +94,7 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
     @BindView(R.id.record_animation_layout)
     LinearLayout record_animation_layout;
 
-    private record mBean;
+    private Record mBean;
     private MyOnClickListener mAnswerOnClickListener, mQuestionOnClickListener;
     private SpeechSynthesizer mSpeechSynthesizer;
     private SpeechRecognizer recognizer;
@@ -223,7 +223,7 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
     }
 
     private void initData() {
-        mBean = (record) Setings.dataMap.get(KeyUtil.DialogBeanKey);
+        mBean = (Record) Setings.dataMap.get(KeyUtil.DialogBeanKey);
         if(mBean != null){
             isEnglish = StringUtils.isEnglish(mBean.getEnglish());
         }
@@ -469,7 +469,7 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
             recognizer = null;
         }
         if (isNeedDelete) {
-            DataBaseUtil.getInstance().dele(mBean);
+            BoxHelper.remove(mBean);
         }
     }
 
@@ -504,12 +504,12 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
 
     public class MyOnClickListener implements OnClickListener {
 
-        private record mBean;
+        private Record mBean;
         private ImageButton voice_play;
         private AnimationDrawable animationDrawable;
         private boolean isPlayResult;
 
-        private MyOnClickListener(record bean, ImageButton voice_play, boolean isPlayResult) {
+        private MyOnClickListener(Record bean, ImageButton voice_play, boolean isPlayResult) {
             this.mBean = bean;
             this.voice_play = voice_play;
             this.animationDrawable = (AnimationDrawable) voice_play.getBackground();
@@ -579,7 +579,7 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
                                 if (arg0 != null) {
                                     ToastUtil.diaplayMesShort(PracticeActivity.this, arg0.getErrorDescription());
                                 }
-                                DataBaseUtil.getInstance().update(mBean);
+                                BoxHelper.update(mBean);
                                 animationDrawable.setOneShot(true);
                                 animationDrawable.stop();
                                 animationDrawable.selectDrawable(0);

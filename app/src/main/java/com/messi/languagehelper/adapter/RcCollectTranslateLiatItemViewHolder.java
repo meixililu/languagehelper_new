@@ -19,8 +19,8 @@ import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.PracticeActivity;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.dao.record;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.Record;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AudioTrackUtil;
 import com.messi.languagehelper.util.KeyUtil;
@@ -54,12 +54,12 @@ public class RcCollectTranslateLiatItemViewHolder extends RecyclerView.ViewHolde
     public ProgressBar play_content_btn_progressbar;
     private Context context;
 
-    private List<record> beans;
+    private List<Record> beans;
     private SharedPreferences mSharedPreferences;
     private RcCollectTranslateListAdapter mAdapter;
 
     public RcCollectTranslateLiatItemViewHolder(View convertView,
-                                                List<record> mBeans,
+                                                List<Record> mBeans,
                                                 SharedPreferences mSharedPreferences,
                                                 RcCollectTranslateListAdapter mAdapter) {
         super(convertView);
@@ -83,7 +83,7 @@ public class RcCollectTranslateLiatItemViewHolder extends RecyclerView.ViewHolde
         play_content_btn_progressbar = (ProgressBar) convertView.findViewById(R.id.play_content_btn_progressbar);
     }
 
-    public void render(final record mBean) {
+    public void render(final Record mBean) {
         AnimationDrawable animationDrawable = (AnimationDrawable) voice_play.getBackground();
         MyOnClickListener mMyOnClickListener = new MyOnClickListener(mBean, animationDrawable, voice_play, play_content_btn_progressbar, true);
         MyOnClickListener mQuestionOnClickListener = new MyOnClickListener(mBean, animationDrawable, voice_play, play_content_btn_progressbar, false);
@@ -152,9 +152,9 @@ public class RcCollectTranslateLiatItemViewHolder extends RecyclerView.ViewHolde
 
     public void deleteEntity(int position) {
         try {
-            record mBean = beans.remove(position);
+            Record mBean = beans.remove(position);
             mAdapter.notifyItemRemoved(position);
-            DataBaseUtil.getInstance().dele(mBean);
+            BoxHelper.remove(mBean);
             Setings.isMainFragmentNeedRefresh = true;
             ToastUtil.diaplayMesShort(context, context.getResources().getString(R.string.dele_success));
             AVAnalytics.onEvent(context, "collect_tran_delete");
@@ -164,10 +164,10 @@ public class RcCollectTranslateLiatItemViewHolder extends RecyclerView.ViewHolde
     }
 
     private void updateCollectedStatus(int position) {
-        record mBean = beans.remove(position);
+        Record mBean = beans.remove(position);
         mAdapter.notifyItemRemoved(position);
         mBean.setIscollected("0");
-        DataBaseUtil.getInstance().update(mBean);
+        BoxHelper.update(mBean);
         Setings.isMainFragmentNeedRefresh = true;
         ToastUtil.diaplayMesShort(context, context.getResources().getString(R.string.favorite_cancle));
     }
@@ -175,13 +175,13 @@ public class RcCollectTranslateLiatItemViewHolder extends RecyclerView.ViewHolde
     public class MyOnClickListener implements View.OnClickListener {
 
         boolean isNotify = false;
-        private record mBean;
+        private Record mBean;
         private ImageButton voice_play;
         private AnimationDrawable animationDrawable;
         private ProgressBar play_content_btn_progressbar;
         private boolean isPlayResult;
 
-        private MyOnClickListener(record bean, AnimationDrawable mAnimationDrawable, ImageButton voice_play,
+        private MyOnClickListener(Record bean, AnimationDrawable mAnimationDrawable, ImageButton voice_play,
                                   ProgressBar progressbar, boolean isPlayResult) {
             this.mBean = bean;
             this.voice_play = voice_play;
@@ -248,7 +248,7 @@ public class RcCollectTranslateLiatItemViewHolder extends RecyclerView.ViewHolde
                         if (arg0 != null) {
                             ToastUtil.diaplayMesShort(context, arg0.getErrorDescription());
                         }
-                        DataBaseUtil.getInstance().update(mBean);
+                        BoxHelper.update(mBean);
                         PlayUtil.onFinishPlay();
                     }
 

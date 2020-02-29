@@ -33,6 +33,58 @@ public class BoxHelper {
         return boxStore;
     }
 
+    /**Record**/
+    public static Box<Record> getRecordBox(){
+        return getBoxStore().boxFor(Record.class);
+    }
+
+    public static long insert(Record bean) {
+        bean.setIscollected("0");
+        bean.setVisit_times(0);
+        bean.setSpeak_speed(50);
+        bean.setQuestionVoiceId(System.currentTimeMillis() + "");
+        bean.setResultVoiceId(System.currentTimeMillis() - 5 + "");
+        return getRecordBox().put(bean);
+    }
+
+    public static List<Record> getRecordList(int offset, int psize) {
+        QueryBuilder<Record> query = getRecordBox().query();
+        query.order(Record_.id,QueryBuilder.DESCENDING);
+        if(psize > 0){
+            return query.build().find(offset,psize);
+        }else {
+            return query.build().find();
+        }
+    }
+
+    public static List<Record> getCollectedRecordList(int offset, int psize, String type) {
+        QueryBuilder<Record> query = getRecordBox().query();
+        query.equal(Record_.iscollected,type);
+        query.order(Record_.id,QueryBuilder.DESCENDING);
+        if(psize > 0){
+            return query.build().find(offset,psize);
+        }else {
+            return query.build().find();
+        }
+    }
+
+    public static void update(Record bean) {
+        getRecordBox().put(bean);
+    }
+
+    public static void remove(Record bean) {
+        getRecordBox().remove(bean);
+    }
+
+    public static void removeNoCollectedRecordData(){
+        List<Record> list = getCollectedRecordList(0,0,"0");
+        getRecordBox().remove(list);
+    }
+
+    public static void removeAllRecordData() {
+        getRecordBox().removeAll();
+    }
+
     /**CNWBean**/
     public static Box<CNWBean> getCNWBeanBox(){
         return getBoxStore().boxFor(CNWBean.class);

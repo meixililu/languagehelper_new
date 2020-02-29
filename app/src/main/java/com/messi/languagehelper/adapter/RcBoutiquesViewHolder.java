@@ -55,6 +55,8 @@ public class RcBoutiquesViewHolder extends RecyclerView.ViewHolder {
         intent.putExtra(KeyUtil.ActionbarTitle, mAVObject.getString(AVOUtil.Boutiques.title));
         intent.putExtra(KeyUtil.BoutiqueCode, mAVObject.getString(AVOUtil.Boutiques.code));
         context.startActivity(intent);
+        mAVObject.increment(AVOUtil.Boutiques.views);
+        mAVObject.saveInBackground();
     }
 
 }

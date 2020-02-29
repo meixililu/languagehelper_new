@@ -8,18 +8,18 @@ import android.view.ViewGroup;
 
 import com.karumi.headerrecyclerview.HeaderRecyclerViewAdapter;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.dao.record;
+import com.messi.languagehelper.box.Record;
 
 import java.util.List;
 
-public class RcCollectTranslateListAdapter extends HeaderRecyclerViewAdapter<RecyclerView.ViewHolder, Object, record, Object> {
+public class RcCollectTranslateListAdapter extends HeaderRecyclerViewAdapter<RecyclerView.ViewHolder, Object, Record, Object> {
 
-	private List<record> beans;
+	private List<Record> beans;
 	private SharedPreferences mSharedPreferences;
 	private RcCollectTranslateLiatItemViewHolder mItemViewHolder;
 
 	public RcCollectTranslateListAdapter(SharedPreferences mSharedPreferences,
-										 List<record> beans){
+										 List<Record> beans){
 		this.beans = beans;
 		this.mSharedPreferences = mSharedPreferences;
 	}
@@ -33,7 +33,7 @@ public class RcCollectTranslateListAdapter extends HeaderRecyclerViewAdapter<Rec
 
 	@Override
 	protected void onBindItemViewHolder(RecyclerView.ViewHolder holder, int position) {
-		record mAVObject = getItem(position);
+		Record mAVObject = getItem(position);
 		mItemViewHolder = (RcCollectTranslateLiatItemViewHolder)holder;
 		mItemViewHolder.render(mAVObject);
 	}

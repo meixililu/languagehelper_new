@@ -910,6 +910,8 @@ public class AVOUtil {
 
 		public final static String order = "order";
 
+		public final static String views = "views";
+
 		public final static String content_type = "content_type";
 
 	}

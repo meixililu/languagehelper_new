@@ -23,6 +23,7 @@ import android.widget.ProgressBar;
 
 import com.messi.languagehelper.util.AudioTrackUtil;
 import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.ScreenUtil;
 import com.umeng.analytics.MobclickAgent;
 
@@ -192,6 +193,7 @@ public class BaseActivity extends AppCompatActivity {
         if (mProgressbar == null) {
             if (rootView != null) {
                 mProgressbar = (ProgressBar) rootView.findViewById(R.id.progressBarCircularIndetermininate);
+                LogUtil.DefalutLog("init mProgressbar");
             } else {
                 mProgressbar = (ProgressBar) findViewById(R.id.progressBarCircularIndetermininate);
             }

@@ -1,8 +1,8 @@
 package com.messi.languagehelper;
 
 import android.content.res.Resources;
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,14 +11,14 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.messi.languagehelper.adapter.RcTranslateListAdapter;
-import com.messi.languagehelper.dao.record;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.Record;
 import com.messi.languagehelper.event.FinishEvent;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
-import com.messi.languagehelper.impl.OnTranslateFinishListener;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NetworkUtil;
+import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
@@ -43,10 +43,13 @@ public class MainTabTran extends BaseFragment {
 
 
     private RecyclerView recent_used_lv;
-    private record currentDialogBean;
+    private Record currentDialogBean;
     private RcTranslateListAdapter mAdapter;
-    private List<record> beans;
+    private LinearLayoutManager mLinearLayoutManager;
+    private List<Record> beans;
     private String lastSearch;
+    private int skip;
+    private boolean noMoreData;
 
     public static MainTabTran getInstance(FragmentProgressbarListener listener) {
         MainTabTran mMainFragment = new MainTabTran();
@@ -64,8 +67,8 @@ public class MainTabTran extends BaseFragment {
 
     private void init(View view) {
         recent_used_lv = (RecyclerView) view.findViewById(R.id.recent_used_lv);
-        beans = new ArrayList<record>();
-        beans.addAll(DataBaseUtil.getInstance().getDataListRecord(0, Setings.offset));
+        beans = new ArrayList<Record>();
+        loadData();
         boolean IsHasShowBaiduMessage = PlayUtil.getSP().getBoolean(KeyUtil.IsHasShowBaiduMessage, false);
         if (!IsHasShowBaiduMessage) {
             initSample();
@@ -73,16 +76,49 @@ public class MainTabTran extends BaseFragment {
         }
         mAdapter = new RcTranslateListAdapter(beans);
         recent_used_lv.setHasFixedSize(true);
-        recent_used_lv.setLayoutManager(new LinearLayoutManager(getContext()));
+        mLinearLayoutManager = new LinearLayoutManager(getContext());
+        recent_used_lv.setLayoutManager(mLinearLayoutManager);
         recent_used_lv.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.abc_list_divider_mtrl_alpha)));
         mAdapter.setItems(beans);
         mAdapter.setFooter(new Object());
         recent_used_lv.setAdapter(mAdapter);
+        setListOnScrollListener();
+    }
+
+    public void setListOnScrollListener(){
+        recent_used_lv.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                int visible  = mLinearLayoutManager.getChildCount();
+                int total = mLinearLayoutManager.getItemCount();
+                int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
+                if(!noMoreData){
+                    if ((visible + firstVisibleItem) >= total){
+                        LogUtil.DefalutLog("should load more data");
+                        loadData();
+                    }
+                }
+            }
+        });
+    }
+
+    public void loadData(){
+        List<Record> list = BoxHelper.getRecordList(skip, Setings.RecordOffset);
+        if (NullUtil.isNotEmpty(list)) {
+            beans.addAll(list);
+            skip += Setings.RecordOffset;
+            if (mAdapter != null) {
+                mAdapter.notifyDataSetChanged();
+            }
+        }else {
+            noMoreData = true;
+        }
     }
 
     private void initSample() {
-        record sampleBean = new record("Click the mic to speak", "点击话筒说话");
-        DataBaseUtil.getInstance().insert(sampleBean);
+        Record sampleBean = new Record("Click the mic to speak", "点击话筒说话");
+        BoxHelper.insert(sampleBean);
         beans.add(0, sampleBean);
     }
 
@@ -148,7 +184,7 @@ public class MainTabTran extends BaseFragment {
                     sb.append(tran);
                     sb.append("\n");
                 }
-                currentDialogBean = new record(sb.substring(0, sb.lastIndexOf("\n")), Setings.q);
+                currentDialogBean = new Record(sb.substring(0, sb.lastIndexOf("\n")), Setings.q);
                 insertData();
                 autoClearAndautoPlay();
             }
@@ -161,35 +197,34 @@ public class MainTabTran extends BaseFragment {
      */
     private void RequestJinShanNewAsyncTask() throws Exception{
         showProgressbar();
-        TranslateUtil.Translate(new OnTranslateFinishListener() {
-            @Override
-            public void OnFinishTranslate(record mRecord) {
-                try {
-                    hideProgressbar();
-                    if(mRecord == null){
-                        showToast(getContext().getResources().getString(R.string.network_error));
-                    }else {
-                        currentDialogBean = mRecord;
-                        insertData();
-                        autoClearAndautoPlay();
-                    }
-                } catch (Resources.NotFoundException e) {
-                    e.printStackTrace();
-                }
+        TranslateUtil.Translate(mrecord -> onResult(mrecord));
+    }
+
+    private void onResult(Record mRecord){
+        try {
+            hideProgressbar();
+            if(mRecord == null){
+                showToast(getContext().getResources().getString(R.string.network_error));
+            }else {
+                currentDialogBean = mRecord;
+                insertData();
+                autoClearAndautoPlay();
             }
-        });
+        } catch (Resources.NotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public void insertData() {
         mAdapter.addEntity(0, currentDialogBean);
         recent_used_lv.scrollToPosition(0);
-        long newRowId = DataBaseUtil.getInstance().insert(currentDialogBean);
+        long newRowId = BoxHelper.insert(currentDialogBean);
     }
 
     public void autoClearAndautoPlay() {
         EventBus.getDefault().post(new FinishEvent());
         if (PlayUtil.getSP().getBoolean(KeyUtil.AutoPlayResult, false)) {
-            new AutoPlayWaitTask().execute();
+            delayAutoPlay();
         }
     }
 
@@ -237,7 +272,7 @@ public class MainTabTran extends BaseFragment {
             @Override
             public void subscribe(ObservableEmitter<String> e) throws Exception {
                 beans.clear();
-                beans.addAll(DataBaseUtil.getInstance().getDataListRecord(0, Setings.offset));
+                beans.addAll(BoxHelper.getRecordList(0, Setings.RecordOffset));
                 e.onComplete();
             }
         })
@@ -265,21 +300,8 @@ public class MainTabTran extends BaseFragment {
 
     }
 
-    class AutoPlayWaitTask extends AsyncTask<Void, Void, Void> {
-        @Override
-        protected Void doInBackground(Void... params) {
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-            autoPlay();
-        }
+    private void delayAutoPlay(){
+        new Handler().postDelayed(() -> autoPlay(),100);
     }
 
 

@@ -9,7 +9,7 @@ import com.messi.languagehelper.bean.IcibaNew;
 import com.messi.languagehelper.bean.QQTranAILabRoot;
 import com.messi.languagehelper.bean.YoudaoApiBean;
 import com.messi.languagehelper.bean.YoudaoApiResult;
-import com.messi.languagehelper.dao.record;
+import com.messi.languagehelper.box.Record;
 import com.messi.languagehelper.http.BgCallback;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.impl.OnTranslateFinishListener;
@@ -63,7 +63,7 @@ public class TranslateHelper {
         Tran_Task();
     }
 
-    private void DoTranslateByMethod(ObservableEmitter<record> e){
+    private void DoTranslateByMethod(ObservableEmitter<Record> e){
         String method = getTranslateMethod();
         LogUtil.DefalutLog("DoTranslateByMethod---"+method);
         if(!TextUtils.isEmpty(method)){
@@ -98,26 +98,26 @@ public class TranslateHelper {
         return "";
     }
 
-    private void onFaileTranslate(ObservableEmitter<record> e){
+    private void onFaileTranslate(ObservableEmitter<Record> e){
         OrderTranCounter++;
         DoTranslateByMethod(e);
     }
 
     private void Tran_Task() {
-        Observable.create(new ObservableOnSubscribe<record>() {
+        Observable.create(new ObservableOnSubscribe<Record>() {
             @Override
-            public void subscribe(ObservableEmitter<record> e) throws Exception {
+            public void subscribe(ObservableEmitter<Record> e) throws Exception {
                 DoTranslateByMethod(e);
             }
         })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<record>() {
+                .subscribe(new Observer<Record>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                     }
                     @Override
-                    public void onNext(record mResult) {
+                    public void onNext(Record mResult) {
                         listener.OnFinishTranslate(mResult);
                     }
                     @Override
@@ -130,7 +130,7 @@ public class TranslateHelper {
                 });
     }
 
-    private void Tran_Iciba(ObservableEmitter<record> e) {
+    private void Tran_Iciba(ObservableEmitter<Record> e) {
         LogUtil.DefalutLog("Result---Tran_Iciba");
         LanguagehelperHttpClient.postIcibaNew(new BgCallback(){
             @Override
@@ -139,7 +139,7 @@ public class TranslateHelper {
             }
             @Override
             public void onResponsed(String responseString) {
-                record result = null;
+                Record result = null;
                 try {
                     result = tran_js_newapi(responseString);
                 } catch (Exception ec) {
@@ -157,7 +157,7 @@ public class TranslateHelper {
         });
     }
 
-    private void Tran_QQAILabApi(ObservableEmitter<record> e) {
+    private void Tran_QQAILabApi(ObservableEmitter<Record> e) {
         LogUtil.DefalutLog("Result---Tran_QQAILAb");
         LanguagehelperHttpClient.postTranQQAILabAPi(new BgCallback(){
             @Override
@@ -167,11 +167,11 @@ public class TranslateHelper {
             @Override
             public void onResponsed(String responseString) {
                 LogUtil.DefalutLog("Tran_QQAILabApi:"+responseString);
-                record result = null;
+                Record result = null;
                 try {
                     QQTranAILabRoot root = JSON.parseObject(responseString,QQTranAILabRoot.class);
                     if(root != null && root.getRet() == 0 && root.getData() != null){
-                        result = new record(root.getData().getTrans_text(), Setings.q);
+                        result = new Record(root.getData().getTrans_text(), Setings.q);
                     }
                 } catch (Exception ec) {
                     result = null;
@@ -187,7 +187,7 @@ public class TranslateHelper {
         });
     }
 
-    private void Tran_QQFYJApi(ObservableEmitter<record> e) {
+    private void Tran_QQFYJApi(ObservableEmitter<Record> e) {
         LogUtil.DefalutLog("Result---Tran_QQFYJApi");
         LanguagehelperHttpClient.postTranQQFYJAPi(new BgCallback(){
             @Override
@@ -197,11 +197,11 @@ public class TranslateHelper {
             @Override
             public void onResponsed(String responseString) {
                 LogUtil.DefalutLog("Tran_QQFYJApi:"+responseString);
-                record result = null;
+                Record result = null;
                 try {
                     QQTranAILabRoot root = JSON.parseObject(responseString,QQTranAILabRoot.class);
                     if(root != null && root.getRet() == 0 && root.getData() != null){
-                        result = new record(root.getData().getTarget_text(), Setings.q);
+                        result = new Record(root.getData().getTarget_text(), Setings.q);
                     }
                 } catch (Exception ec) {
                     result = null;
@@ -217,7 +217,7 @@ public class TranslateHelper {
         });
     }
 
-    private void Tran_Youdao_Web(ObservableEmitter<record> e) {
+    private void Tran_Youdao_Web(ObservableEmitter<Record> e) {
         LogUtil.DefalutLog("Result---Tran_Youdao_Web");
         if(isNotWord()){
             onFaileTranslate(e);
@@ -230,7 +230,7 @@ public class TranslateHelper {
             }
             @Override
             public void onResponse(Call call, Response mResponse) throws IOException {
-                record result = null;
+                Record result = null;
                 try {
                     if (mResponse.isSuccessful()) {
                         String responseString = mResponse.body().string();
@@ -251,7 +251,7 @@ public class TranslateHelper {
         });
     }
 
-    private void Tran_Bing_Web(ObservableEmitter<record> e) {
+    private void Tran_Bing_Web(ObservableEmitter<Record> e) {
         LogUtil.DefalutLog("Result---Tran_Bing_Web");
         if(isNotWord()){
             onFaileTranslate(e);
@@ -265,7 +265,7 @@ public class TranslateHelper {
 
             @Override
             public void onResponse(Call call, Response mResponse) throws IOException {
-                record result = null;
+                Record result = null;
                 try {
                     if (mResponse.isSuccessful()) {
                         String responseString = mResponse.body().string();
@@ -286,7 +286,7 @@ public class TranslateHelper {
         });
     }
 
-    private void Tran_Hj_Web(ObservableEmitter<record> e) {
+    private void Tran_Hj_Web(ObservableEmitter<Record> e) {
         LogUtil.DefalutLog("Result---Tran_Hj_Web");
         if(isNotWord()){
             onFaileTranslate(e);
@@ -305,7 +305,7 @@ public class TranslateHelper {
 
             @Override
             public void onResponse(Call call, Response mResponse) throws IOException {
-                record result = null;
+                Record result = null;
                 try {
                     if (mResponse.isSuccessful()) {
                         String responseString = mResponse.body().string();
@@ -326,7 +326,7 @@ public class TranslateHelper {
         });
     }
 
-    private void Tran_Youdao_Api(ObservableEmitter<record> e) {
+    private void Tran_Youdao_Api(ObservableEmitter<Record> e) {
         LogUtil.DefalutLog("Result---Tran_Youdao_Api");
         FormBody formBody = new FormBody.Builder()
                 .add("i", Setings.q)
@@ -338,7 +338,7 @@ public class TranslateHelper {
             }
             @Override
             public void onResponsed(String responseString) {
-                record result = null;
+                Record result = null;
                 try {
                     result = parseYoudaoApiResult(responseString);
                 } catch (Exception ec) {
@@ -354,7 +354,7 @@ public class TranslateHelper {
         });
     }
 
-    private void Tran_Hj_Api(ObservableEmitter<record> e) {
+    private void Tran_Hj_Api(ObservableEmitter<Record> e) {
         LogUtil.DefalutLog("Result---Tran_Hj_Api");
         LanguagehelperHttpClient.postHjApi(new BgCallback(){
             @Override
@@ -363,7 +363,7 @@ public class TranslateHelper {
             }
             @Override
             public void onResponsed(String responseString) {
-                record result = null;
+                Record result = null;
                 try {
                     result = tran_hj_api(responseString);
                 } catch (Exception ec) {
@@ -379,7 +379,7 @@ public class TranslateHelper {
         });
     }
 
-    private void Tran_Baidu(ObservableEmitter<record> e) {
+    private void Tran_Baidu(ObservableEmitter<Record> e) {
         LogUtil.DefalutLog("Result---Tran_Baidu");
         LanguagehelperHttpClient.postBaidu(new BgCallback(){
             @Override
@@ -388,7 +388,7 @@ public class TranslateHelper {
             }
             @Override
             public void onResponsed(String responseString) {
-                record result = null;
+                Record result = null;
                 try {
                     result = tran_bd_api(responseString);
                 } catch (Exception ec) {
@@ -404,14 +404,14 @@ public class TranslateHelper {
         });
     }
 
-    private static record tran_bd_api(String mResult) {
-        record currentDialogBean = null;
+    private static Record tran_bd_api(String mResult) {
+        Record currentDialogBean = null;
         try {
             if(!TextUtils.isEmpty(mResult)) {
                 if (JsonParser.isJson(mResult)) {
                     String dstString = JsonParser.getTranslateResult(mResult);
                     if (!dstString.contains("error_msg:")) {
-                        currentDialogBean = new record(dstString, Setings.q);
+                        currentDialogBean = new Record(dstString, Setings.q);
                         LogUtil.DefalutLog("tran_bd_api http:"+dstString);
                     }
                 }
@@ -423,8 +423,8 @@ public class TranslateHelper {
         return currentDialogBean;
     }
 
-    private record parseYoudaoApiResult(String mResult){
-        record currentDialogBean = null;
+    private Record parseYoudaoApiResult(String mResult){
+        Record currentDialogBean = null;
         try {
             if(!TextUtils.isEmpty(mResult)) {
                 if (JsonParser.isJson(mResult)) {
@@ -437,7 +437,7 @@ public class TranslateHelper {
                             if(item != null && item.size() > 0){
                                 YoudaoApiResult result = item.get(0);
                                 if (result != null && !TextUtils.isEmpty(result.getTgt())) {
-                                    currentDialogBean = new record(result.getTgt(), Setings.q);
+                                    currentDialogBean = new Record(result.getTgt(), Setings.q);
                                 }
                             }
                         }
@@ -451,8 +451,8 @@ public class TranslateHelper {
         return currentDialogBean;
     }
 
-    private record tran_js_newapi(String mResult) throws Exception{
-        record currentDialogBean = null;
+    private Record tran_js_newapi(String mResult) throws Exception{
+        Record currentDialogBean = null;
         if(!TextUtils.isEmpty(mResult)) {
             if (JsonParser.isJson(mResult)) {
                 IcibaNew mIciba = JSON.parseObject(mResult, IcibaNew.class);
@@ -487,13 +487,13 @@ public class TranslateHelper {
                         }else {
                             resutlStr = sb.toString();
                         }
-                        currentDialogBean = new record(resutlStr, Setings.q);
+                        currentDialogBean = new Record(resutlStr, Setings.q);
                         currentDialogBean.setBackup1(sbplay.toString());
                         if (!TextUtils.isEmpty(mIciba.getContent().getPh_tts_mp3())) {
                             currentDialogBean.setBackup3(mIciba.getContent().getPh_tts_mp3());
                         }
                     } else if (mIciba.getStatus().equals("1")) {
-                        currentDialogBean = new record(mIciba.getContent().getOut().replaceAll("<br/>", "").trim(), Setings.q);
+                        currentDialogBean = new Record(mIciba.getContent().getOut().replaceAll("<br/>", "").trim(), Setings.q);
                     }
                 }
             }
@@ -502,15 +502,15 @@ public class TranslateHelper {
         return currentDialogBean;
     }
 
-    private record tran_hj_api(String mResult) throws Exception{
-        record currentDialogBean = null;
+    private Record tran_hj_api(String mResult) throws Exception{
+        Record currentDialogBean = null;
         if(!TextUtils.isEmpty(mResult)) {
             if (JsonParser.isJson(mResult)) {
                 HjTranBean mHjTranBean = JSON.parseObject(mResult, HjTranBean.class);
                 if (mHjTranBean != null && mHjTranBean.getStatus() == 0
                         && mHjTranBean.getData() != null
                         && !TextUtils.isEmpty(mHjTranBean.getData().getContent())) {
-                    currentDialogBean = new record(mHjTranBean.getData().getContent(), Setings.q);
+                    currentDialogBean = new Record(mHjTranBean.getData().getContent(), Setings.q);
                     LogUtil.DefalutLog("tran_hj_api http:"+mHjTranBean.getData().getContent());
                 }
             }
@@ -525,10 +525,10 @@ public class TranslateHelper {
         }
     }
 
-    public record getParseYoudaoWebHtml(String html){
+    public Record getParseYoudaoWebHtml(String html){
         StringBuilder sb = new StringBuilder();
         StringBuilder sb_play = new StringBuilder();
-        record mrecord = null;
+        Record mrecord = null;
 
         Document doc = Jsoup.parse(html);
         Element error = doc.select("div.error-wrapper").first();
@@ -565,7 +565,7 @@ public class TranslateHelper {
             }else {
                 resutlStr = sb.toString();
             }
-            mrecord = new record(resutlStr,Setings.q);
+            mrecord = new Record(resutlStr,Setings.q);
             mrecord.setBackup1(sb_play.toString());
             return mrecord;
         }else{
@@ -573,10 +573,10 @@ public class TranslateHelper {
         }
     }
 
-    public static record getParseBingyingWebHtml(String html){
+    public static Record getParseBingyingWebHtml(String html){
         StringBuilder sb = new StringBuilder();
         StringBuilder sb_play = new StringBuilder();
-        record mrecord = null;
+        Record mrecord = null;
 
         Document doc = Jsoup.parse(html);
         Element smt_hw = doc.select("div.smt_hw").first();
@@ -616,7 +616,7 @@ public class TranslateHelper {
             }else {
                 resutlStr = sb.toString();
             }
-            mrecord = new record(resutlStr,Setings.q);
+            mrecord = new Record(resutlStr,Setings.q);
             mrecord.setBackup1(sb_play.toString());
             return mrecord;
         }else{
@@ -624,10 +624,10 @@ public class TranslateHelper {
         }
     }
 
-    public record getParseHjiangWebHtml(String html){
+    public Record getParseHjiangWebHtml(String html){
         StringBuilder sb = new StringBuilder();
         StringBuilder sb_play = new StringBuilder();
-        record mrecord = null;
+        Record mrecord = null;
 
         Document doc = Jsoup.parse(html);
         Element error = doc.select("div.word-notfound").first();
@@ -653,7 +653,7 @@ public class TranslateHelper {
             }else {
                 resutlStr = sb.toString();
             }
-            mrecord = new record(resutlStr,Setings.q);
+            mrecord = new Record(resutlStr,Setings.q);
             mrecord.setBackup1(sb_play.toString());
             return mrecord;
         }else{

@@ -34,7 +34,6 @@ public class BoutiquesFragment extends BaseFragment {
 	private String type;
 	private String category;
 	private String title;
-	private boolean orderBy;
     private int skip = 0;
     private boolean loading;
     private boolean hasMore = true;
@@ -46,7 +45,6 @@ public class BoutiquesFragment extends BaseFragment {
 		args.putString(KeyUtil.Category,builder.category);
 		args.putString(KeyUtil.Type,builder.type);
 		args.putString(KeyUtil.FragmentTitle,builder.title);
-		args.putBoolean(KeyUtil.OrderBy,builder.orderBy);
 		fragment.setArguments(args);
 		return fragment;
 	}
@@ -68,7 +66,6 @@ public class BoutiquesFragment extends BaseFragment {
 			category = getArguments().getString(KeyUtil.Category);
 			type = getArguments().getString(KeyUtil.Type);
 			title = getArguments().getString(KeyUtil.FragmentTitle);
-			orderBy = getArguments().getBoolean(KeyUtil.OrderBy);
 		}
 	}
 
@@ -159,11 +156,8 @@ public class BoutiquesFragment extends BaseFragment {
 				if(!TextUtils.isEmpty(type)){
 					query.whereEqualTo(AVOUtil.Boutiques.type,type);
 				}
-				if (orderBy) {
-					query.orderByDescending(AVOUtil.Boutiques.order);
-				} else {
-					query.orderByAscending(AVOUtil.Boutiques.order);
-				}
+				query.orderByAscending(AVOUtil.Boutiques.order);
+				query.orderByDescending(AVOUtil.Boutiques.views);
                 query.skip(skip);
                 query.limit(Setings.page_size);
 				List<AVObject> items  = query.find();
@@ -230,7 +224,6 @@ public class BoutiquesFragment extends BaseFragment {
 		private String type;
 		private String category;
 		private String title;
-		private boolean orderBy;
 
 		public Builder() {
 		}
@@ -247,11 +240,6 @@ public class BoutiquesFragment extends BaseFragment {
 
 		public Builder title(String val) {
 			title = val;
-			return this;
-		}
-
-		public Builder orderBy(boolean val) {
-			orderBy = val;
 			return this;
 		}
 

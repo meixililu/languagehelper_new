@@ -19,8 +19,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.messi.languagehelper.adapter.RcCollectTranslateListAdapter;
-import com.messi.languagehelper.dao.record;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.Record;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.views.DividerItemDecoration;
@@ -42,13 +42,12 @@ public class CollectedTranslateFragment extends BaseFragment {
     private RecyclerView recent_used_lv;
     private LayoutInflater mInflater;
     private RcCollectTranslateListAdapter mAdapter;
-    private List<record> beans;
+    private List<Record> beans;
     private View view;
     // 缓存，保存当前的引擎参数到下一次启动应用程序使用.
     private SharedPreferences mSharedPreferences;
     private LinearLayoutManager mLinearLayoutManager;
-    private int page = 0;
-    private int page_size = 20;
+    private int skip = 0;
     private boolean loading;
     private boolean hasMore = true;
     private StringBuilder sb = new StringBuilder();
@@ -69,7 +68,7 @@ public class CollectedTranslateFragment extends BaseFragment {
         mLinearLayoutManager = new LinearLayoutManager(getActivity());
         recent_used_lv.setLayoutManager(mLinearLayoutManager);
         recent_used_lv.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.abc_list_divider_mtrl_alpha)));
-        beans = new ArrayList<record>();
+        beans = new ArrayList<Record>();
 
         mAdapter = new RcCollectTranslateListAdapter(mSharedPreferences, beans);
         mAdapter.setItems(beans);
@@ -97,12 +96,12 @@ public class CollectedTranslateFragment extends BaseFragment {
 
     private void QueryTask(){
         loading = true;
-        List<record> list = DataBaseUtil.getInstance().getTranCollectedListByPage(page, page_size);
+        List<Record> list = BoxHelper.getCollectedRecordList(skip, Setings.RecordOffset, "1");
         if(list.size() == 0){
             hasMore = false;
         }else {
             beans.addAll(list);
-            page += 1;
+            skip += Setings.RecordOffset;
             mAdapter.notifyDataSetChanged();
             hasMore = true;
         }
@@ -169,8 +168,8 @@ public class CollectedTranslateFragment extends BaseFragment {
 
     private String getData(){
         sb.setLength(0);
-        List<record> list = DataBaseUtil.getInstance().getAllCollectedData();
-        for(record item : list){
+        List<Record> list = BoxHelper.getCollectedRecordList(0, 0, "1");
+        for(Record item : list){
             sb.append(item.getChinese() + "\n" + item.getEnglish());
             sb.append("\n\n");
         }

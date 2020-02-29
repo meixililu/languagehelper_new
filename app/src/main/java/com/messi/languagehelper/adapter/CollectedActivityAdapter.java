@@ -19,9 +19,9 @@ public class CollectedActivityAdapter extends FragmentPagerAdapter {
         super(fm);
         CONTENT = new String[] { 
         		mContext.getResources().getString(R.string.recent),
+        		mContext.getResources().getString(R.string.title_article_collected),
         		mContext.getResources().getString(R.string.title_translate),
         		mContext.getResources().getString(R.string.title_dictionary),
-        		mContext.getResources().getString(R.string.title_article_collected),
         };
     }
 
@@ -30,11 +30,11 @@ public class CollectedActivityAdapter extends FragmentPagerAdapter {
         if( position == 0 ){
         	return SubjectSubscribeFragment.getInstance();
         }else if( position == 1 ){
-        	return new CollectedTranslateFragment();
-        }else if( position == 2 ){
-        	return new CollectedDictionaryFragment();
-        }else if( position == 3 ){
             return ReadingCollectedListFragment.newInstance();
+        }else if( position == 2 ){
+        	return new CollectedTranslateFragment();
+        }else if( position == 3 ){
+        	return new CollectedDictionaryFragment();
         }
         return null;
     }
