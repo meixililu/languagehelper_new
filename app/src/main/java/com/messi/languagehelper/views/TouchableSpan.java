@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.dao.Dictionary;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.Dictionary;
 import com.messi.languagehelper.dialog.TranslateResultDialog;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.KeyUtil;
@@ -134,7 +134,7 @@ public class TouchableSpan extends ClickableSpan {// extend ClickableSpan
 				}
 				mDictionaryBean.setWord_name(Setings.q);
 				mDictionaryBean.setResult(sb.substring(0, sb.lastIndexOf("\n")));
-				DataBaseUtil.getInstance().insert(mDictionaryBean);
+				BoxHelper.insert(mDictionaryBean);
 				showDialog(mDictionaryBean);
 			}
 		}else{
@@ -190,6 +190,9 @@ public class TouchableSpan extends ClickableSpan {// extend ClickableSpan
 	}
 
 	private ProgressBar getProgressBar(){
-		return mProgressbar.get();
+		if (mProgressbar != null) {
+			return mProgressbar.get();
+		}
+		return null;
 	}
 }

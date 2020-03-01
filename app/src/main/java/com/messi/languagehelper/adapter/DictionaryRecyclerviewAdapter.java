@@ -26,8 +26,8 @@ import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.ImgShareActivity;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.dao.Dictionary;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.Dictionary;
 import com.messi.languagehelper.dialog.PopDialog;
 import com.messi.languagehelper.dialog.PopDialog.PopViewItemOnclickListener;
 import com.messi.languagehelper.task.MyThread;
@@ -219,7 +219,7 @@ public class DictionaryRecyclerviewAdapter extends RecyclerView.Adapter<Recycler
 				holder.delete_btn.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						DataBaseUtil.getInstance().dele(mBean);
+						BoxHelper.remove(mBean);
 						beans.remove(mBean);
 						notifyDataSetChanged();
 						showToast(context.getResources().getString(R.string.dele_success));
@@ -344,7 +344,7 @@ public class DictionaryRecyclerviewAdapter extends RecyclerView.Adapter<Recycler
 			clickItemPosition = clickItemPosition+1;
 		}
 		notifyItemRemoved(clickItemPosition);
-		DataBaseUtil.getInstance().update(mBean);
+		BoxHelper.update(mBean);
 	}
 
 	public class MyOnClickListener implements OnClickListener {
@@ -442,7 +442,7 @@ public class DictionaryRecyclerviewAdapter extends RecyclerView.Adapter<Recycler
 									@Override
 									public void onCompleted(SpeechError arg0) {
 										LogUtil.DefalutLog("SynthesizerListener---onCompleted");
-										DataBaseUtil.getInstance().update(mBean);
+										BoxHelper.update(mBean);
 										animationDrawable.setOneShot(true);
 										animationDrawable.stop();
 										animationDrawable.selectDrawable(0);

@@ -15,8 +15,8 @@ import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.dao.Dictionary;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.Dictionary;
 import com.messi.languagehelper.impl.DicHelperListener;
 import com.messi.languagehelper.task.MyThread;
 import com.messi.languagehelper.util.AudioTrackUtil;
@@ -126,7 +126,7 @@ public class TranslateResultDialog implements DicHelperListener {
 							}
 							@Override
 							public void onCompleted(SpeechError arg0) {
-								DataBaseUtil.getInstance().update(mObject);
+								BoxHelper.update(mObject);
 							}
 							@Override
 							public void onBufferProgress(int arg0, int arg1, int arg2, String arg3) {

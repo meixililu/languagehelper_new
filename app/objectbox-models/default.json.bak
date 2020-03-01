@@ -652,9 +652,85 @@
         }
       ],
       "relations": []
+    },
+    {
+      "id": "8:4682402178279665778",
+      "lastPropertyId": "13:8017023710255767855",
+      "name": "TranResultZhYue",
+      "properties": [
+        {
+          "id": "1:966485390786207412",
+          "name": "id",
+          "type": 6,
+          "flags": 3
+        },
+        {
+          "id": "2:3527192576848670054",
+          "name": "english",
+          "type": 9
+        },
+        {
+          "id": "3:5833774742858936856",
+          "name": "chinese",
+          "type": 9
+        },
+        {
+          "id": "4:265904221198818351",
+          "name": "resultAudioPath",
+          "type": 9
+        },
+        {
+          "id": "5:7306545938294440408",
+          "name": "questionAudioPath",
+          "type": 9
+        },
+        {
+          "id": "6:8464473958152678",
+          "name": "questionVoiceId",
+          "type": 9
+        },
+        {
+          "id": "7:525050025254040979",
+          "name": "resultVoiceId",
+          "type": 9
+        },
+        {
+          "id": "8:8551248983494533992",
+          "name": "iscollected",
+          "type": 9
+        },
+        {
+          "id": "9:2032801358635142484",
+          "name": "visit_times",
+          "type": 5,
+          "flags": 2
+        },
+        {
+          "id": "10:157996006288648334",
+          "name": "speak_speed",
+          "type": 5,
+          "flags": 2
+        },
+        {
+          "id": "11:1708073692157171760",
+          "name": "backup1",
+          "type": 9
+        },
+        {
+          "id": "12:7956457746621751846",
+          "name": "backup2",
+          "type": 9
+        },
+        {
+          "id": "13:8017023710255767855",
+          "name": "backup3",
+          "type": 9
+        }
+      ],
+      "relations": []
     }
   ],
-  "lastEntityId": "7:2299188868989635804",
+  "lastEntityId": "8:4682402178279665778",
   "lastIndexId": "6:8964642229373003809",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",

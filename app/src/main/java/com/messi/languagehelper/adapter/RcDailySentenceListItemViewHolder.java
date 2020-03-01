@@ -14,9 +14,9 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.messi.languagehelper.PracticeActivity;
 import com.messi.languagehelper.R;
+import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.EveryDaySentence;
-import com.messi.languagehelper.dao.record;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.Record;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.DownLoadUtil;
@@ -183,8 +183,8 @@ public class RcDailySentenceListItemViewHolder extends RecyclerView.ViewHolder {
     }
 
     private void toViewImgActivity(EveryDaySentence mBean) {
-        record sampleBean = new record(mBean.getContent(), mBean.getNote());
-        DataBaseUtil.getInstance().insert(sampleBean);
+        Record sampleBean = new Record(mBean.getContent(), mBean.getNote());
+        BoxHelper.insert(sampleBean);
         Intent intent = new Intent(context, PracticeActivity.class);
         intent.putExtra(KeyUtil.IsNeedDelete, true);
         Setings.dataMap.put(KeyUtil.DialogBeanKey, sampleBean);

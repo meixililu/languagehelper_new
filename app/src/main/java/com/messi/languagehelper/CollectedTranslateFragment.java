@@ -69,7 +69,6 @@ public class CollectedTranslateFragment extends BaseFragment {
         recent_used_lv.setLayoutManager(mLinearLayoutManager);
         recent_used_lv.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.abc_list_divider_mtrl_alpha)));
         beans = new ArrayList<Record>();
-
         mAdapter = new RcCollectTranslateListAdapter(mSharedPreferences, beans);
         mAdapter.setItems(beans);
         recent_used_lv.setAdapter(mAdapter);

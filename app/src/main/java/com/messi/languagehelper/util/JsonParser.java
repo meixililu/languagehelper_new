@@ -8,9 +8,9 @@ import com.messi.languagehelper.bean.DictionaryRootJuhe;
 import com.messi.languagehelper.bean.Root;
 import com.messi.languagehelper.bean.Showapi_res_body;
 import com.messi.languagehelper.bean.Web;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.Dictionary;
 import com.messi.languagehelper.box.EveryDaySentence;
-import com.messi.languagehelper.dao.Dictionary;
-import com.messi.languagehelper.db.DataBaseUtil;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -104,7 +104,7 @@ public class JsonParser {
 			result_for_play = result_for_play.replace("adv.", "");
 			result_for_play = result_for_play.replace("prep.", "");
 			mDictionary.setBackup1(result_for_play);
-			DataBaseUtil.getInstance().insert(mDictionary);
+			BoxHelper.insert(mDictionary);
 		}
 		return mDictionary;
 	}
@@ -194,7 +194,7 @@ public class JsonParser {
 			result_for_play = result_for_play.replace("adv.", "");
 			result_for_play = result_for_play.replace("prep.", "");
 			mDictionary.setBackup1(result_for_play);
-			DataBaseUtil.getInstance().insert(mDictionary);
+			BoxHelper.insert(mDictionary);
 		}
 		return mDictionary;
 	}

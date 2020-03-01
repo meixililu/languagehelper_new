@@ -10,8 +10,6 @@ import com.karumi.headerrecyclerview.HeaderRecyclerViewAdapter;
 import com.messi.languagehelper.AiChatActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.dao.AiEntity;
-import com.messi.languagehelper.dao.record;
-import com.messi.languagehelper.util.ViewUtil;
 
 import java.util.List;
 

@@ -4,7 +4,6 @@ import android.content.Context;
 
 import com.avos.avoscloud.AVObject;
 import com.messi.languagehelper.BaseApplication;
-import com.messi.languagehelper.R;
 import com.messi.languagehelper.box.CNWBean;
 import com.messi.languagehelper.dao.AiEntity;
 import com.messi.languagehelper.dao.AiEntityDao;
@@ -27,7 +26,6 @@ import com.messi.languagehelper.dao.recordDao;
 import com.messi.languagehelper.dao.recordDao.Properties;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.Setings;
 
 import org.greenrobot.greendao.query.DeleteQuery;
 import org.greenrobot.greendao.query.QueryBuilder;
@@ -95,124 +93,129 @@ public class DataBaseUtil {
         mSymbolListDaoDao.update(bean);
     }
 
-    public long insert(Dictionary bean) {
-        bean.setIscollected("0");
-        bean.setVisit_times(0);
-        bean.setSpeak_speed(Setings.getSharedPreferences(appContext).getInt(appContext.getString(R.string.preference_key_tts_speed), 50));
-        bean.setQuestionVoiceId(System.currentTimeMillis() + "");
-        return mDictionaryDao.insert(bean);
-    }
+//    public long insert(Dictionary bean) {
+//        bean.setIscollected("0");
+//        bean.setVisit_times(0);
+//        bean.setSpeak_speed(Setings.getSharedPreferences(appContext).getInt(appContext.getString(R.string.preference_key_tts_speed), 50));
+//        bean.setQuestionVoiceId(System.currentTimeMillis() + "");
+//        return mDictionaryDao.insert(bean);
+//    }
 
-    public long insert(record bean) {
-        bean.setIscollected("0");
-        bean.setVisit_times(0);
-        bean.setSpeak_speed(Setings.getSharedPreferences(appContext).getInt(appContext.getString(R.string.preference_key_tts_speed), 50));
-        bean.setQuestionVoiceId(System.currentTimeMillis() + "");
-        bean.setResultVoiceId(System.currentTimeMillis() - 5 + "");
-        return mrecordDao.insert(bean);
-    }
+//    public long insert(record bean) {
+//        bean.setIscollected("0");
+//        bean.setVisit_times(0);
+//        bean.setSpeak_speed(Setings.getSharedPreferences(appContext).getInt(appContext.getString(R.string.preference_key_tts_speed), 50));
+//        bean.setQuestionVoiceId(System.currentTimeMillis() + "");
+//        bean.setResultVoiceId(System.currentTimeMillis() - 5 + "");
+//        return mrecordDao.insert(bean);
+//    }
 
-    public long insert(TranResultZhYue bean) {
-        bean.setIscollected("0");
-        bean.setVisit_times(0);
-        bean.setSpeak_speed(Setings.getSharedPreferences(appContext).getInt(appContext.getString(R.string.preference_key_tts_speed), 50));
-        bean.setQuestionVoiceId(System.currentTimeMillis() + "");
-        bean.setResultVoiceId(System.currentTimeMillis() - 5 + "");
-        return mTranResultZhYueDao.insert(bean);
-    }
+//    public long insert(TranResultZhYue bean) {
+//        bean.setIscollected("0");
+//        bean.setVisit_times(0);
+//        bean.setSpeak_speed(Setings.getSharedPreferences(appContext).getInt(appContext.getString(R.string.preference_key_tts_speed), 50));
+//        bean.setQuestionVoiceId(System.currentTimeMillis() + "");
+//        bean.setResultVoiceId(System.currentTimeMillis() - 5 + "");
+//        return mTranResultZhYueDao.insert(bean);
+//    }
 
-    public void update(record bean) {
-        mrecordDao.update(bean);
-    }
+//    public void update(record bean) {
+//        mrecordDao.update(bean);
+//    }
 
-    public void update(TranResultZhYue bean) {
-        mTranResultZhYueDao.update(bean);
-    }
-
-    public void update(Dictionary bean) {
-        mDictionaryDao.update(bean);
-    }
+//    public void update(TranResultZhYue bean) {
+//        mTranResultZhYueDao.update(bean);
+//    }
+//
+//    public void update(Dictionary bean) {
+//        mDictionaryDao.update(bean);
+//    }
 
     public List<record> getDataListRecord() {
         QueryBuilder<record> qb = mrecordDao.queryBuilder();
-        qb.orderDesc(Properties.Id);
+        qb.orderAsc(Properties.Id);
+        return qb.list();
+    }
+
+    public List<Dictionary> getDataListDictionary() {
+        QueryBuilder<Dictionary> qb = mDictionaryDao.queryBuilder();
+        qb.orderAsc(DictionaryDao.Properties.Id);
+        return qb.list();
+    }
+
+//    public List<TranResultZhYue> getDataListZhYue(int offset, int maxResult) {
+//        QueryBuilder<TranResultZhYue> qb = mTranResultZhYueDao.queryBuilder();
+//        qb.orderDesc(TranResultZhYueDao.Properties.Id);
 //        qb.limit(maxResult);
-        return qb.list();
-    }
+//        return qb.list();
+//    }
+//
+//    public List<Dictionary> getDataListDictionary(int offset, int maxResult) {
+//        QueryBuilder<Dictionary> qb = mDictionaryDao.queryBuilder();
+//        qb.orderDesc(DictionaryDao.Properties.Id);
+//        qb.limit(maxResult);
+//        return qb.list();
+//    }
 
-    public List<TranResultZhYue> getDataListZhYue(int offset, int maxResult) {
-        QueryBuilder<TranResultZhYue> qb = mTranResultZhYueDao.queryBuilder();
-        qb.orderDesc(TranResultZhYueDao.Properties.Id);
-        qb.limit(maxResult);
-        return qb.list();
-    }
+//    public List<Dictionary> getAllCollectedDictionaryData() {
+//        QueryBuilder<Dictionary> qb = mDictionaryDao.queryBuilder();
+//        qb.where(DictionaryDao.Properties.Iscollected.eq("1"));
+//        qb.orderDesc(DictionaryDao.Properties.Id);
+//        return qb.list();
+//    }
 
-    public List<Dictionary> getDataListDictionary(int offset, int maxResult) {
-        QueryBuilder<Dictionary> qb = mDictionaryDao.queryBuilder();
-        qb.orderDesc(DictionaryDao.Properties.Id);
-        qb.limit(maxResult);
-        return qb.list();
-    }
+//    public List<record> getAllCollectedData() {
+//        QueryBuilder<record> qb = mrecordDao.queryBuilder();
+//        qb.where(Properties.Iscollected.eq("1"));
+//        qb.orderDesc(Properties.Id);
+//        return qb.list();
+//    }
 
-    public List<Dictionary> getAllCollectedDictionaryData() {
-        QueryBuilder<Dictionary> qb = mDictionaryDao.queryBuilder();
-        qb.where(DictionaryDao.Properties.Iscollected.eq("1"));
-        qb.orderDesc(DictionaryDao.Properties.Id);
-        return qb.list();
-    }
+//    public List<record> getTranCollectedListByPage(int page, int page_size) {
+//        QueryBuilder<record> qb = mrecordDao.queryBuilder();
+//        qb.where(Properties.Iscollected.eq("1"));
+//        qb.orderDesc(Properties.Id);
+//        qb.offset(page * page_size);
+//        qb.limit(page_size);
+//        return qb.list();
+//    }
 
-    public List<record> getAllCollectedData() {
-        QueryBuilder<record> qb = mrecordDao.queryBuilder();
-        qb.where(Properties.Iscollected.eq("1"));
-        qb.orderDesc(Properties.Id);
-        return qb.list();
-    }
+//    public List<TranResultZhYue> getTranZhYueCollectedListByPage(int page, int page_size) {
+//        QueryBuilder<TranResultZhYue> qb = mTranResultZhYueDao.queryBuilder();
+//        qb.where(TranResultZhYueDao.Properties.Iscollected.eq("1"));
+//        qb.orderDesc(TranResultZhYueDao.Properties.Id);
+//        qb.offset(page * page_size);
+//        qb.limit(page_size);
+//        return qb.list();
+//    }
+//
+//    public List<Dictionary> getDataListDictionaryCollected(int offset, int maxResult) {
+//        QueryBuilder<Dictionary> qb = mDictionaryDao.queryBuilder();
+//        qb.where(DictionaryDao.Properties.Iscollected.eq("1"));
+//        qb.orderDesc(DictionaryDao.Properties.Id);
+//        qb.limit(maxResult);
+//        return qb.list();
+//    }
+//    public List<Dictionary> getDicCollectedListByPage(int page, int page_size) {
+//        QueryBuilder<Dictionary> qb = mDictionaryDao.queryBuilder();
+//        qb.where(DictionaryDao.Properties.Iscollected.eq("1"));
+//        qb.orderDesc(DictionaryDao.Properties.Id);
+//        qb.offset(page * page_size);
+//        qb.limit(page_size);
+//        return qb.list();
+//    }
 
-    public List<record> getTranCollectedListByPage(int page, int page_size) {
-        QueryBuilder<record> qb = mrecordDao.queryBuilder();
-        qb.where(Properties.Iscollected.eq("1"));
-        qb.orderDesc(Properties.Id);
-        qb.offset(page * page_size);
-        qb.limit(page_size);
-        return qb.list();
-    }
+//    public void dele(record bean) {
+//        mrecordDao.delete(bean);
+//    }
 
-    public List<TranResultZhYue> getTranZhYueCollectedListByPage(int page, int page_size) {
-        QueryBuilder<TranResultZhYue> qb = mTranResultZhYueDao.queryBuilder();
-        qb.where(TranResultZhYueDao.Properties.Iscollected.eq("1"));
-        qb.orderDesc(TranResultZhYueDao.Properties.Id);
-        qb.offset(page * page_size);
-        qb.limit(page_size);
-        return qb.list();
-    }
+//    public void dele(TranResultZhYue bean) {
+//        mTranResultZhYueDao.delete(bean);
+//    }
 
-    public List<Dictionary> getDataListDictionaryCollected(int offset, int maxResult) {
-        QueryBuilder<Dictionary> qb = mDictionaryDao.queryBuilder();
-        qb.where(DictionaryDao.Properties.Iscollected.eq("1"));
-        qb.orderDesc(DictionaryDao.Properties.Id);
-        qb.limit(maxResult);
-        return qb.list();
-    }
-    public List<Dictionary> getDicCollectedListByPage(int page, int page_size) {
-        QueryBuilder<Dictionary> qb = mDictionaryDao.queryBuilder();
-        qb.where(DictionaryDao.Properties.Iscollected.eq("1"));
-        qb.orderDesc(DictionaryDao.Properties.Id);
-        qb.offset(page * page_size);
-        qb.limit(page_size);
-        return qb.list();
-    }
-
-    public void dele(record bean) {
-        mrecordDao.delete(bean);
-    }
-
-    public void dele(TranResultZhYue bean) {
-        mTranResultZhYueDao.delete(bean);
-    }
-
-    public void dele(Dictionary bean) {
-        mDictionaryDao.delete(bean);
-    }
+//    public void dele(Dictionary bean) {
+//        mDictionaryDao.delete(bean);
+//    }
 
     public void clearExceptFavorite() {
         try {

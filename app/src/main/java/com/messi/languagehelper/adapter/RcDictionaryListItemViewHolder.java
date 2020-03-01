@@ -15,8 +15,8 @@ import android.widget.TextView;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.dao.Dictionary;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.Dictionary;
 import com.messi.languagehelper.impl.DictionaryTranslateListener;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AudioTrackUtil;
@@ -132,7 +132,7 @@ public class RcDictionaryListItemViewHolder extends RecyclerView.ViewHolder {
         try {
             Dictionary mBean = mBeans.remove(position);
             mAdapter.notifyItemRemoved(position);
-            DataBaseUtil.getInstance().dele(mBean);
+            BoxHelper.remove(mBean);
             ToastUtil.diaplayMesShort(context, context.getResources().getString(R.string.dele_success));
             AVAnalytics.onEvent(context, "tab2_delete_btn");
         } catch (Exception e) {
@@ -149,7 +149,7 @@ public class RcDictionaryListItemViewHolder extends RecyclerView.ViewHolder {
             ToastUtil.diaplayMesShort(context, context.getResources().getString(R.string.favorite_cancle));
         }
         mAdapter.notifyDataSetChanged();
-        DataBaseUtil.getInstance().update(mBean);
+        BoxHelper.update(mBean);
     }
 
     public class MyOnClickListener implements View.OnClickListener {
@@ -226,7 +226,7 @@ public class RcDictionaryListItemViewHolder extends RecyclerView.ViewHolder {
                             if (arg0 != null) {
                                 ToastUtil.diaplayMesShort(context, arg0.getErrorDescription());
                             }
-                            DataBaseUtil.getInstance().update(mBean);
+                            BoxHelper.update(mBean);
                             PlayUtil.onFinishPlay();
                         }
 

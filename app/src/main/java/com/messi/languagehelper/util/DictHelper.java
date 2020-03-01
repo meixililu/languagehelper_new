@@ -9,8 +9,8 @@ import com.messi.languagehelper.bean.HjTranBean;
 import com.messi.languagehelper.bean.IcibaNew;
 import com.messi.languagehelper.bean.YoudaoApiBean;
 import com.messi.languagehelper.bean.YoudaoApiResult;
-import com.messi.languagehelper.dao.Dictionary;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.Dictionary;
 import com.messi.languagehelper.http.BgCallback;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 
@@ -322,7 +322,7 @@ public class DictHelper {
                                 mDictionary.setType(KeyUtil.ResultTypeTranslate);
                                 mDictionary.setWord_name(Setings.q);
                                 mDictionary.setResult(dstString);
-                                DataBaseUtil.getInstance().insert(mDictionary);
+                                BoxHelper.insert(mDictionary);
                             }
                         }
                     }
@@ -506,7 +506,7 @@ public class DictHelper {
             mDictionary.setWord_name(Setings.q);
             mDictionary.setResult(sb.substring(0, sb.lastIndexOf("\n")));
             mDictionary.setBackup1(sb_play.toString());
-            DataBaseUtil.getInstance().insert(mDictionary);
+            BoxHelper.insert(mDictionary);
             return mDictionary;
         }else{
             return null;
@@ -565,7 +565,7 @@ public class DictHelper {
                         if (!TextUtils.isEmpty(mIciba.getContent().getPh_tts_mp3())) {
                             mDictionary.setBackup3(mIciba.getContent().getPh_tts_mp3());
                         }
-                        DataBaseUtil.getInstance().insert(mDictionary);
+                        BoxHelper.insert(mDictionary);
                     } else if (mIciba.getStatus().equals("1")) {
                         mDictionary = new Dictionary();
                         boolean isEnglish = StringUtils.isEnglish(Setings.q);
@@ -579,7 +579,7 @@ public class DictHelper {
                         }
                         mDictionary.setWord_name(Setings.q);
                         mDictionary.setResult(mIciba.getContent().getOut().replaceAll("<br/>", "").trim());
-                        DataBaseUtil.getInstance().insert(mDictionary);
+                        BoxHelper.insert(mDictionary);
                     }
                 }
             }
@@ -748,7 +748,7 @@ public class DictHelper {
             mDictionary.setWord_name(Setings.q);
             mDictionary.setResult(sb.substring(0, sb.lastIndexOf("\n")));
             mDictionary.setBackup1(sb_play.toString());
-            DataBaseUtil.getInstance().insert(mDictionary);
+            BoxHelper.insert(mDictionary);
             return mDictionary;
         }else{
             return null;
@@ -807,7 +807,7 @@ public class DictHelper {
             mDictionary.setWord_name(Setings.q);
             mDictionary.setResult(resutlStr);
             mDictionary.setBackup1(sb_play.toString());
-            DataBaseUtil.getInstance().insert(mDictionary);
+            BoxHelper.insert(mDictionary);
             return mDictionary;
         }else{
             return null;
@@ -870,7 +870,7 @@ public class DictHelper {
                                     mDictionary.setWord_name(Setings.q);
                                     mDictionary.setResult(result.getTgt());
                                     mDictionary.setBackup1(result.getTgt());
-                                    DataBaseUtil.getInstance().insert(mDictionary);
+                                    BoxHelper.insert(mDictionary);
                                 }
                             }
                         }
@@ -904,7 +904,7 @@ public class DictHelper {
                     mDictionary.setWord_name(Setings.q);
                     mDictionary.setResult(mHjTranBean.getData().getContent());
                     mDictionary.setBackup1(mHjTranBean.getData().getContent());
-                    DataBaseUtil.getInstance().insert(mDictionary);
+                    BoxHelper.insert(mDictionary);
                 }
             }
         }

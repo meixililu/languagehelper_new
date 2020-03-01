@@ -1,7 +1,7 @@
 package com.messi.languagehelper.impl;
 
 
-import com.messi.languagehelper.dao.TranResultZhYue;
+import com.messi.languagehelper.box.TranResultZhYue;
 
 /**
  * Created by luli on 10/26/16.

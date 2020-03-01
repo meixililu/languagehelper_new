@@ -15,8 +15,8 @@ import android.widget.LinearLayout;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.adapter.RcDictionaryListAdapter;
-import com.messi.languagehelper.dao.Dictionary;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.Dictionary;
 import com.messi.languagehelper.event.FinishEvent;
 import com.messi.languagehelper.event.ProgressEvent;
 import com.messi.languagehelper.impl.DicHelperListener;
@@ -26,6 +26,7 @@ import com.messi.languagehelper.util.DictionaryHelper;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NetworkUtil;
+import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Setings;
@@ -67,6 +68,9 @@ public class DictionaryFragmentOld extends BaseFragment implements
     private RcDictionaryListAdapter mAdapter;
     private List<Dictionary> beans;
     private String lastSearch;
+    private LinearLayoutManager mLinearLayoutManager;
+    private int skip;
+    private boolean noMoreData;
 
     private Handler mHandler = new Handler() {
         @Override
@@ -98,16 +102,48 @@ public class DictionaryFragmentOld extends BaseFragment implements
     private void init() {
         isRegisterBus = true;
         beans = new ArrayList<Dictionary>();
-        beans.addAll(DataBaseUtil.getInstance().getDataListDictionary(0, Setings.RecordOffset));
+        loadData();
         mAdapter = new RcDictionaryListAdapter(getContext(), beans, this);
-
         recent_used_lv.setHasFixedSize(true);
-        recent_used_lv.setLayoutManager(new LinearLayoutManager(getContext()));
+        mLinearLayoutManager = new LinearLayoutManager(getContext());
+        recent_used_lv.setLayoutManager(mLinearLayoutManager);
         recent_used_lv.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.abc_list_divider_mtrl_alpha)));
         mAdapter.setItems(beans);
         mAdapter.setFooter(new Object());
         recent_used_lv.setAdapter(mAdapter);
         isShowRecentList(true);
+        setListOnScrollListener();
+    }
+
+    public void setListOnScrollListener(){
+        recent_used_lv.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if(!noMoreData){
+                    int visible  = mLinearLayoutManager.getChildCount();
+                    int total = mLinearLayoutManager.getItemCount();
+                    int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
+                    if ((visible + firstVisibleItem) >= total){
+                        LogUtil.DefalutLog("should load more data");
+                        loadData();
+                    }
+                }
+            }
+        });
+    }
+
+    public void loadData(){
+        List<Dictionary> list = BoxHelper.getDictionaryList(skip, Setings.RecordOffset);
+        if (NullUtil.isNotEmpty(list)) {
+            beans.addAll(list);
+            skip += Setings.RecordOffset;
+            if (mAdapter != null) {
+                mAdapter.notifyDataSetChanged();
+            }
+        }else {
+            noMoreData = true;
+        }
     }
 
     public void refresh() {
@@ -188,7 +224,7 @@ public class DictionaryFragmentOld extends BaseFragment implements
                 mDictionaryBean.setWord_name(Setings.q);
                 mDictionaryBean.setResult(sb.substring(0, sb.lastIndexOf("\n")));
                 setBean();
-                DataBaseUtil.getInstance().insert(mDictionaryBean);
+                BoxHelper.insert(mDictionaryBean);
             }
         }else{
             showToast("没找到离线词典，请到更多页面下载！");
@@ -245,36 +281,10 @@ public class DictionaryFragmentOld extends BaseFragment implements
 
     private void reloadData() {
         showProgressbar();
-        Observable.create(new ObservableOnSubscribe<String>() {
-            @Override
-            public void subscribe(ObservableEmitter<String> e) throws Exception {
-                beans.clear();
-                beans.addAll(DataBaseUtil.getInstance().getDataListDictionary(0, Setings.RecordOffset));
-                e.onComplete();
-            }
-        })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<String>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                    }
-
-                    @Override
-                    public void onNext(String s) {
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        hideProgressbar();
-                        mAdapter.notifyDataSetChanged();
-                    }
-                });
-
+        beans.clear();
+        beans.addAll(BoxHelper.getDictionaryList(0, Setings.RecordOffset));
+        hideProgressbar();
+        mAdapter.notifyDataSetChanged();
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -334,7 +344,7 @@ public class DictionaryFragmentOld extends BaseFragment implements
                         if (arg0 != null) {
                             ToastUtil.diaplayMesShort(getContext(), arg0.getErrorDescription());
                         }
-                        DataBaseUtil.getInstance().update(mBean);
+                        BoxHelper.update(mBean);
                     }
 
                     @Override

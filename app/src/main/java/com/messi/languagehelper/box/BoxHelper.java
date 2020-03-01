@@ -81,8 +81,111 @@ public class BoxHelper {
         getRecordBox().remove(list);
     }
 
-    public static void removeAllRecordData() {
+    public static void removeAllRecord() {
         getRecordBox().removeAll();
+    }
+
+    /**Dictionary**/
+    public static Box<Dictionary> getDictionaryBox(){
+        return getBoxStore().boxFor(Dictionary.class);
+    }
+
+    public static long insert(Dictionary bean) {
+        bean.setIscollected("0");
+        bean.setVisit_times(0);
+        bean.setSpeak_speed(50);
+        bean.setQuestionVoiceId(System.currentTimeMillis() + "");
+        return getDictionaryBox().put(bean);
+    }
+
+    public static void update(Dictionary bean) {
+        getDictionaryBox().put(bean);
+    }
+
+    public static List<Dictionary> getDictionaryList(int offset, int psize) {
+        QueryBuilder<Dictionary> query = getDictionaryBox().query();
+        query.order(Dictionary_.id,QueryBuilder.DESCENDING);
+        if(psize > 0){
+            return query.build().find(offset,psize);
+        }else {
+            return query.build().find();
+        }
+    }
+
+    public static List<Dictionary> getCollectedDictionaryList(int offset, int psize, String type) {
+        QueryBuilder<Dictionary> query = getDictionaryBox().query();
+        query.equal(Dictionary_.iscollected,type);
+        query.order(Dictionary_.id,QueryBuilder.DESCENDING);
+        if(psize > 0){
+            return query.build().find(offset,psize);
+        }else {
+            return query.build().find();
+        }
+    }
+
+    public static void remove(Dictionary bean) {
+        getDictionaryBox().remove(bean);
+    }
+
+    public static void removeNoCollectedDictionaryBoxData(){
+        List<Dictionary> list = getCollectedDictionaryList(0,0,"0");
+        getDictionaryBox().remove(list);
+    }
+
+    public static void removeAllDictionary() {
+        getDictionaryBox().removeAll();
+    }
+
+    /**TranResultZhYue**/
+    public static Box<TranResultZhYue> getTranResultZhYueBox(){
+        return getBoxStore().boxFor(TranResultZhYue.class);
+    }
+
+    public static long insert(TranResultZhYue bean) {
+        bean.setIscollected("0");
+        bean.setVisit_times(0);
+        bean.setSpeak_speed(50);
+        bean.setQuestionVoiceId(System.currentTimeMillis() + "");
+        bean.setResultVoiceId(System.currentTimeMillis() - 5 + "");
+        return getTranResultZhYueBox().put(bean);
+    }
+
+    public static void update(TranResultZhYue bean) {
+        getTranResultZhYueBox().put(bean);
+    }
+
+    public static List<TranResultZhYue> getTranResultZhYueList(int offset, int psize) {
+        QueryBuilder<TranResultZhYue> query = getTranResultZhYueBox().query();
+        query.order(TranResultZhYue_.id,QueryBuilder.DESCENDING);
+        if(psize > 0){
+            return query.build().find(offset,psize);
+        }else {
+            return query.build().find();
+        }
+    }
+
+    public static List<TranResultZhYue> getCollectedTranResultZhYueList(int offset, int psize, String type) {
+        QueryBuilder<TranResultZhYue> query = getTranResultZhYueBox().query();
+        query.equal(TranResultZhYue_.iscollected,type);
+        query.order(TranResultZhYue_.id,QueryBuilder.DESCENDING);
+        if(psize > 0){
+            return query.build().find(offset,psize);
+        }else {
+            return query.build().find();
+        }
+    }
+
+    public static void remove(TranResultZhYue bean) {
+        getTranResultZhYueBox().remove(bean);
+    }
+
+    public static void removeNoCollectedTranResultZhYueData(){
+        List<TranResultZhYue> list = getCollectedTranResultZhYueList(0,0,"0");
+        getTranResultZhYueBox().remove(list);
+    }
+
+    public static void removeAllTranResultZhYue() {
+        getTranResultZhYueBox().removeAll();
     }
 
     /**CNWBean**/

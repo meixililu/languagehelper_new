@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.CardView;
@@ -316,35 +317,35 @@ public class MainFragment extends BaseFragment implements OnClickListener, OrcRe
         switch (currentTabIndex){
             case 0:
                 input_et.setHint(getString(R.string.input_et_hint));
-                getChildFragmentManager()
-                        .beginTransaction().show(mMainTabTran).commit();
+                showFragment(mMainTabTran);
                 isChangeTabNeedSearch();
                 break;
             case 1:
                 input_et.setHint(getString(R.string.input_et_hint_dictionary));
-                getChildFragmentManager()
-                        .beginTransaction().show(mDictionaryFragmentOld).commit();
+                showFragment(mDictionaryFragmentOld);
                 isChangeTabNeedSearch();
                 break;
             case 2:
                 input_et.setHint(getString(R.string.input_et_hint_dictionary));
-                getChildFragmentManager()
-                        .beginTransaction().show(mJuhaiFragment).commit();
+                showFragment(mJuhaiFragment);
                 isChangeTabNeedSearch();
                 break;
             case 3:
                 input_et.setHint(getString(R.string.input_et_hint_english));
-                getChildFragmentManager()
-                        .beginTransaction().show(mEnDicFragment).commit();
+                showFragment(mEnDicFragment);
                 isChangeTabNeedSearch();
                 break;
             case 4:
                 input_et.setHint(getString(R.string.input_et_hint_chinese));
-                getChildFragmentManager()
-                        .beginTransaction().show(mChDicFragment).commit();
+                showFragment(mChDicFragment);
                 isChangeTabNeedSearch();
                 break;
         }
+    }
+
+    private void showFragment(Fragment fragment){
+        getChildFragmentManager()
+                .beginTransaction().show(fragment).commit();
     }
 
     private void isChangeTabNeedSearch(){

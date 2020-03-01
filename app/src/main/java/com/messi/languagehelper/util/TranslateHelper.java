@@ -36,8 +36,8 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class TranslateHelper {
-//  jscb,youdaoweb,bingweb,hujiangweb,youdaoapi,hujiangapi,baidu#youdaoweb,bingweb,hujiangweb,jscb,youdaoapi,hujiangapi,baidu
-    public static String OrderTran = "jscb,youdaoweb,bingweb,hujiangweb,youdaoapi,hujiangapi,qqfyj,baidu";
+//  jscb,youdaoweb,bingweb,hujiangweb,qqfyj,hujiangapi,youdaoapi,baidu#youdaoweb,bingweb,hujiangweb,jscb,qqfyj,youdaoapi,hujiangapi,baidu
+    public static String OrderTran = "jscb,youdaoweb,bingweb,hujiangweb,hujiangapi,qqfyj,youdaoapi,baidu";
     public static final String youdaoweb = "youdaoweb";
     public static final String youdaoapi = "youdaoapi";
     public static final String bingweb = "bingweb";
@@ -694,7 +694,7 @@ public class TranslateHelper {
                     }
                 }
             }else {
-                OrderTran = "youdaoweb,qqfyj,bingweb,hujiangweb,youdaoapi,hujiangapi,baidu,jscb";
+                OrderTran = "jscb,youdaoweb,bingweb,hujiangweb,qqfyj,hujiangapi,baidu,youdaoapi";
             }
         } catch (Exception e) {
             e.printStackTrace();

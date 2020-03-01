@@ -188,7 +188,7 @@ public class Setings {
 	public static String to = "auto";	
 	public static String q = "";	
 	public static String role = "vimary";	
-	public static final int RecordOffset = 100;
+	public static final int RecordOffset = 50;
 
 	public static final String application_id_zyhy = "com.messi.languagehelper";
 	public static final String application_id_zyhy_google = "com.messi.languagehelper.google";

@@ -90,12 +90,11 @@ public class MainTabTran extends BaseFragment {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                int visible  = mLinearLayoutManager.getChildCount();
-                int total = mLinearLayoutManager.getItemCount();
-                int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
                 if(!noMoreData){
+                    int visible  = mLinearLayoutManager.getChildCount();
+                    int total = mLinearLayoutManager.getItemCount();
+                    int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
                     if ((visible + firstVisibleItem) >= total){
-                        LogUtil.DefalutLog("should load more data");
                         loadData();
                     }
                 }

@@ -1,26 +1,24 @@
 package com.messi.languagehelper;
 
-import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.messi.languagehelper.adapter.RcTranZhYueListAdapter;
-import com.messi.languagehelper.dao.TranResultZhYue;
-import com.messi.languagehelper.dao.record;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.TranResultZhYue;
 import com.messi.languagehelper.event.FinishEvent;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.impl.OnTranZhYueFinishListener;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NetworkUtil;
+import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
@@ -45,8 +43,11 @@ public class MainTabTranZhYue extends BaseFragment {
     private RecyclerView recent_used_lv;
     private TranResultZhYue currentDialogBean;
     private RcTranZhYueListAdapter mAdapter;
+    private LinearLayoutManager mLinearLayoutManager;
     private List<TranResultZhYue> beans;
     private String lastSearch;
+    private int skip;
+    private boolean noMoreData;
 
     public static MainTabTranZhYue getInstance(FragmentProgressbarListener listener) {
         MainTabTranZhYue mMainFragment = new MainTabTranZhYue();
@@ -64,43 +65,25 @@ public class MainTabTranZhYue extends BaseFragment {
     }
 
     private void initLowVersionData(){
-        SharedPreferences sp = Setings.getSharedPreferences(getContext());
-        if(!sp.getBoolean(KeyUtil.IsYYSHasTransafeData,false)){
-            boolean isNeedTransfeData = false;
-            List<record> oldBeans = DataBaseUtil.getInstance().getDataListRecord();
-            for(record bean : oldBeans){
-                if(!TextUtils.isEmpty(bean.getBackup3()) && "yue".equals(bean.getBackup3())){
-                    isNeedTransfeData = true;
-                }
-            }
-            if(isNeedTransfeData){
-                for(int i = oldBeans.size(); i >= 0; i--){
-                    record bean = oldBeans.get(i);
-                    TranResultZhYue mResult = new TranResultZhYue();
-                    mResult.setChinese(bean.getChinese());
-                    mResult.setEnglish(bean.getEnglish());
-                    mResult.setIscollected(bean.getIscollected());
-                    mResult.setQuestionAudioPath(bean.getQuestionAudioPath());
-                    mResult.setQuestionVoiceId(bean.getQuestionVoiceId());
-                    mResult.setResultAudioPath(bean.getResultAudioPath());
-                    mResult.setResultVoiceId(bean.getResultVoiceId());
-                    mResult.setSpeak_speed(bean.getSpeak_speed());
-                    mResult.setVisit_times(bean.getVisit_times());
-                    mResult.setBackup1(bean.getBackup1());
-                    mResult.setBackup2(bean.getBackup2());
-                    mResult.setBackup3(bean.getBackup3());
-                    DataBaseUtil.getInstance().insert(mResult);
-                }
-            }
-            DataBaseUtil.getInstance().clearAllTran();
-            Setings.saveSharedPreferences(sp,KeyUtil.IsYYSHasTransafeData,true);
-        }
+//        TranResultZhYue mResult = new TranResultZhYue();
+//        mResult.setChinese(bean.getChinese());
+//        mResult.setEnglish(bean.getEnglish());
+//        mResult.setIscollected(bean.getIscollected());
+//        mResult.setQuestionAudioPath(bean.getQuestionAudioPath());
+//        mResult.setQuestionVoiceId(bean.getQuestionVoiceId());
+//        mResult.setResultAudioPath(bean.getResultAudioPath());
+//        mResult.setResultVoiceId(bean.getResultVoiceId());
+//        mResult.setSpeak_speed(bean.getSpeak_speed());
+//        mResult.setVisit_times(bean.getVisit_times());
+//        mResult.setBackup1(bean.getBackup1());
+//        mResult.setBackup2(bean.getBackup2());
+//        mResult.setBackup3(bean.getBackup3());
     }
 
     private void init(View view) {
         recent_used_lv = (RecyclerView) view.findViewById(R.id.recent_used_lv);
         beans = new ArrayList<TranResultZhYue>();
-        beans.addAll(DataBaseUtil.getInstance().getDataListZhYue(0, Setings.RecordOffset));
+        loadData();
         boolean IsHasShowBaiduMessage = PlayUtil.getSP().getBoolean(KeyUtil.IsHasShowBaiduMessage, false);
         if (!IsHasShowBaiduMessage) {
             initSample();
@@ -108,16 +91,48 @@ public class MainTabTranZhYue extends BaseFragment {
         }
         mAdapter = new RcTranZhYueListAdapter(beans);
         recent_used_lv.setHasFixedSize(true);
-        recent_used_lv.setLayoutManager(new LinearLayoutManager(getContext()));
+        mLinearLayoutManager = new LinearLayoutManager(getContext());
+        recent_used_lv.setLayoutManager(mLinearLayoutManager);
         recent_used_lv.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.abc_list_divider_mtrl_alpha)));
         mAdapter.setItems(beans);
         mAdapter.setFooter(new Object());
         recent_used_lv.setAdapter(mAdapter);
+        setListOnScrollListener();
+    }
+
+    public void setListOnScrollListener(){
+        recent_used_lv.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if(!noMoreData){
+                    int visible  = mLinearLayoutManager.getChildCount();
+                    int total = mLinearLayoutManager.getItemCount();
+                    int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
+                    if ((visible + firstVisibleItem) >= total){
+                        loadData();
+                    }
+                }
+            }
+        });
+    }
+
+    public void loadData(){
+        List<TranResultZhYue> list = BoxHelper.getTranResultZhYueList(skip, Setings.RecordOffset);
+        if (NullUtil.isNotEmpty(list)) {
+            beans.addAll(list);
+            skip += Setings.RecordOffset;
+            if (mAdapter != null) {
+                mAdapter.notifyDataSetChanged();
+            }
+        }else {
+            noMoreData = true;
+        }
     }
 
     private void initSample() {
         TranResultZhYue sampleBean = new TranResultZhYue("点击咪讲嘢", "点击话筒说话","yue");
-        DataBaseUtil.getInstance().insert(sampleBean);
+        BoxHelper.insert(sampleBean);
         beans.add(0, sampleBean);
     }
 
@@ -160,13 +175,13 @@ public class MainTabTranZhYue extends BaseFragment {
     public void insertData() {
         mAdapter.addEntity(0, currentDialogBean);
         recent_used_lv.scrollToPosition(0);
-        long newRowId = DataBaseUtil.getInstance().insert(currentDialogBean);
+        long newRowId = BoxHelper.insert(currentDialogBean);
     }
 
     public void autoClearAndautoPlay() {
         EventBus.getDefault().post(new FinishEvent());
         if (PlayUtil.getSP().getBoolean(KeyUtil.AutoPlayResult, false)) {
-            new AutoPlayWaitTask().execute();
+            delayAutoPlay();
         }
     }
 
@@ -216,7 +231,7 @@ public class MainTabTranZhYue extends BaseFragment {
             @Override
             public void subscribe(ObservableEmitter<String> e) throws Exception {
                 beans.clear();
-                beans.addAll(DataBaseUtil.getInstance().getDataListZhYue(0, Setings.RecordOffset));
+                beans.addAll(BoxHelper.getTranResultZhYueList(0, Setings.RecordOffset));
                 e.onComplete();
             }
         })
@@ -244,23 +259,9 @@ public class MainTabTranZhYue extends BaseFragment {
 
     }
 
-    class AutoPlayWaitTask extends AsyncTask<Void, Void, Void> {
-        @Override
-        protected Void doInBackground(Void... params) {
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-            autoPlay();
-        }
+    private void delayAutoPlay(){
+        new Handler().postDelayed(() -> autoPlay(),100);
     }
-
 
 }
 

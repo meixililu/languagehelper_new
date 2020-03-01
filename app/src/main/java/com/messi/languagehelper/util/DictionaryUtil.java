@@ -1,6 +1,6 @@
 package com.messi.languagehelper.util;
 
-import com.messi.languagehelper.dao.Dictionary;
+import com.messi.languagehelper.box.Dictionary;
 
 public class DictionaryUtil {
 	

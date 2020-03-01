@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import com.karumi.headerrecyclerview.HeaderRecyclerViewAdapter;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.dao.Dictionary;
+import com.messi.languagehelper.box.Dictionary;
 import com.messi.languagehelper.impl.DictionaryTranslateListener;
 import com.messi.languagehelper.util.ViewUtil;
 

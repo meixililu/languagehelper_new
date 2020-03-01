@@ -176,7 +176,7 @@ public class KeyUtil {
 
 	public static final String HasMoveCaricatureData = "HasMoveCaricatureData";
 
-	public static final String HasMoveRecordData = "HasMoveRecordData";
+	public static final String HasMoveRDDatas = "HasMoveRDDatas";
 
 	public static final String NewsSource = "NewsSource";
 

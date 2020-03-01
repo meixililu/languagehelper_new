@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import com.karumi.headerrecyclerview.HeaderRecyclerViewAdapter;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.dao.TranResultZhYue;
+import com.messi.languagehelper.box.TranResultZhYue;
 import com.messi.languagehelper.util.ViewUtil;
 
 import java.util.List;

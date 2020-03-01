@@ -19,8 +19,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.messi.languagehelper.adapter.RcCollectDictionaryListAdapter;
-import com.messi.languagehelper.dao.Dictionary;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.Dictionary;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Setings;
@@ -49,7 +49,6 @@ public class CollectedDictionaryFragment extends BaseFragment {
     private SharedPreferences mSharedPreferences;
     private LinearLayoutManager mLinearLayoutManager;
     private int page = 0;
-    private int page_size = 20;
     private boolean loading;
     private boolean hasMore = true;
     private StringBuilder sb = new StringBuilder();
@@ -73,12 +72,10 @@ public class CollectedDictionaryFragment extends BaseFragment {
         mInflater = LayoutInflater.from(getActivity());
         mSharedPreferences = getActivity().getSharedPreferences(getActivity().getPackageName(), Activity.MODE_PRIVATE);
         recent_used_lv = (RecyclerView) view.findViewById(R.id.collected_listview);
-
         mLinearLayoutManager = new LinearLayoutManager(getActivity());
         recent_used_lv.setLayoutManager(mLinearLayoutManager);
         recent_used_lv.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.abc_list_divider_mtrl_alpha)));
         beans = new ArrayList<Dictionary>();
-
         mAdapter = new RcCollectDictionaryListAdapter(getActivity(), beans, mSharedPreferences);
         mAdapter.setItems(beans);
         recent_used_lv.setAdapter(mAdapter);
@@ -105,12 +102,12 @@ public class CollectedDictionaryFragment extends BaseFragment {
 
     private void QueryTask(){
         loading = true;
-        List<Dictionary> list = DataBaseUtil.getInstance().getDicCollectedListByPage(page, page_size);
+        List<Dictionary> list = BoxHelper.getCollectedDictionaryList(page, Setings.RecordOffset, "1");
         if(list.size() == 0){
             hasMore = false;
         }else {
             beans.addAll(list);
-            page += 1;
+            page += Setings.RecordOffset;
             mAdapter.notifyDataSetChanged();
             hasMore = true;
         }
@@ -176,7 +173,7 @@ public class CollectedDictionaryFragment extends BaseFragment {
 
     private String getData(){
         sb.setLength(0);
-        List<Dictionary> list = DataBaseUtil.getInstance().getAllCollectedDictionaryData();
+        List<Dictionary> list = BoxHelper.getCollectedDictionaryList(0,0, "1");
         for(Dictionary item : list){
             sb.append(item.getWord_name() + "\n" + item.getResult());
             sb.append("\n\n");

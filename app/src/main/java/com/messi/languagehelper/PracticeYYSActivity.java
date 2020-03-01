@@ -25,8 +25,8 @@ import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.adapter.RcPractiseListAdapter;
 import com.messi.languagehelper.bean.UserSpeakBean;
-import com.messi.languagehelper.dao.TranResultZhYue;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.TranResultZhYue;
 import com.messi.languagehelper.impl.PractisePlayUserPcmListener;
 import com.messi.languagehelper.task.MyThread;
 import com.messi.languagehelper.task.PublicTask;
@@ -455,7 +455,7 @@ public class PracticeYYSActivity extends BaseActivity implements OnClickListener
             recognizer = null;
         }
         if (isNeedDelete) {
-            DataBaseUtil.getInstance().dele(mBean);
+            BoxHelper.remove(mBean);
         }
     }
 
@@ -560,7 +560,7 @@ public class PracticeYYSActivity extends BaseActivity implements OnClickListener
                                 if (arg0 != null) {
                                     ToastUtil.diaplayMesShort(PracticeYYSActivity.this, arg0.getErrorDescription());
                                 }
-                                DataBaseUtil.getInstance().update(mBean);
+                                BoxHelper.update(mBean);
                                 animationDrawable.setOneShot(true);
                                 animationDrawable.stop();
                                 animationDrawable.selectDrawable(0);

@@ -5,7 +5,7 @@ import android.text.TextUtils;
 
 import com.google.gson.Gson;
 import com.messi.languagehelper.bean.AiYueYuBean;
-import com.messi.languagehelper.dao.TranResultZhYue;
+import com.messi.languagehelper.box.TranResultZhYue;
 import com.messi.languagehelper.http.BgCallback;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.impl.OnTranZhYueFinishListener;

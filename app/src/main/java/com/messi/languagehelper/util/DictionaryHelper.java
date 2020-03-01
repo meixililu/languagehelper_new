@@ -12,8 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.dao.Dictionary;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.Dictionary;
 import com.messi.languagehelper.impl.DicHelperListener;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
@@ -130,7 +130,7 @@ public class DictionaryHelper {
                 ToastUtil.diaplayMesShort(mContext,mContext.getResources().getString(R.string.favorite_cancle));
             }
             setIsCollected(collected_cb,mBean);
-            DataBaseUtil.getInstance().update(mBean);
+            BoxHelper.update(mBean);
         }
     }
 
