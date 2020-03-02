@@ -33,6 +33,7 @@ import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.StringUtils;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.TranslateUtil;
+import com.messi.languagehelper.util.ViewUtil;
 import com.messi.languagehelper.views.DividerItemDecoration;
 import com.youdao.sdk.ydtranslate.Translate;
 
@@ -71,6 +72,7 @@ public class DictionaryFragmentOld extends BaseFragment implements
     private LinearLayoutManager mLinearLayoutManager;
     private int skip;
     private boolean noMoreData;
+    private View view;
 
     private Handler mHandler = new Handler() {
         @Override
@@ -92,8 +94,12 @@ public class DictionaryFragmentOld extends BaseFragment implements
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        LogUtil.DefalutLog("DictionaryFragmentOld-onCreateView");
-        View view = inflater.inflate(R.layout.fragment_dictionary_old, null);
+        super.onCreateView(inflater,container,savedInstanceState);
+        if (view != null) {
+            ViewUtil.removeFromParentView(view);
+            return view;
+        }
+        view = inflater.inflate(R.layout.fragment_dictionary_old, null);
         ButterKnife.bind(this, view);
         init();
         return view;

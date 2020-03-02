@@ -22,6 +22,7 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ShareUtil;
+import com.messi.languagehelper.util.ViewUtil;
 import com.messi.languagehelper.util.XFUtil;
 
 import org.greenrobot.eventbus.EventBus;
@@ -61,6 +62,7 @@ public class ChineseDictionaryFragment extends BaseFragment {
     ScrollView chdic_sv;
 
     private SpeechSynthesizer mSpeechSynthesizer;
+    private View view;
 
     public static ChineseDictionaryFragment getInstance(FragmentProgressbarListener listener) {
         ChineseDictionaryFragment mMainFragment = new ChineseDictionaryFragment();
@@ -71,7 +73,11 @@ public class ChineseDictionaryFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater,container,savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_ch_dictionary, null);
+        if (view != null) {
+            ViewUtil.removeFromParentView(view);
+            return view;
+        }
+        view = inflater.inflate(R.layout.fragment_ch_dictionary, null);
         ButterKnife.bind(this, view);
         init();
         return view;

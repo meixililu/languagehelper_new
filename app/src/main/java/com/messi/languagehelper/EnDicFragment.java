@@ -4,20 +4,18 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ScrollView;
-import android.widget.TextView;
 
+import com.messi.languagehelper.databinding.FragmentEnDicBinding;
 import com.messi.languagehelper.event.FinishEvent;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.HtmlParseUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
+import com.messi.languagehelper.util.ViewUtil;
 
 import org.greenrobot.eventbus.EventBus;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -29,12 +27,8 @@ import okhttp3.Response;
 
 public class EnDicFragment extends BaseFragment {
 
-    @BindView(R.id.dic_content)
-    TextView dic_content;
-    @BindView(R.id.dic_scrollview)
-    ScrollView dic_scrollview;
-
     private String lastSearch;
+    private FragmentEnDicBinding binding;
 
     public static EnDicFragment getInstance(FragmentProgressbarListener listener) {
         EnDicFragment mMainFragment = new EnDicFragment();
@@ -45,9 +39,12 @@ public class EnDicFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater,container,savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_en_dic, null);
-        ButterKnife.bind(this, view);
-        return view;
+        if (binding != null && binding.getRoot() != null) {
+            ViewUtil.removeFromParentView(binding.getRoot());
+            return binding.getRoot();
+        }
+        binding = FragmentEnDicBinding.inflate(inflater);
+        return binding.getRoot();
     }
 
     private void translateController() {
@@ -74,8 +71,8 @@ public class EnDicFragment extends BaseFragment {
 
                     @Override
                     public void onNext(String content) {
-                        dic_content.setText(lastSearch+"\n"+content);
-                        dic_scrollview.scrollTo(0,0);
+                        binding.dicContent.setText(lastSearch+"\n"+content);
+                        binding.dicScrollview.scrollTo(0,0);
                         EventBus.getDefault().post(new FinishEvent());
                     }
 

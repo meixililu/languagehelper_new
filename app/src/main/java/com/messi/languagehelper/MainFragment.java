@@ -44,6 +44,7 @@ import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.ToastUtil;
+import com.messi.languagehelper.util.ViewUtil;
 import com.messi.languagehelper.util.XFUtil;
 
 import org.greenrobot.eventbus.Subscribe;
@@ -123,6 +124,7 @@ public class MainFragment extends BaseFragment implements OnClickListener, OrcRe
     public ChineseDictionaryFragment mChDicFragment;
     public JuhaiFragment mJuhaiFragment;
     public EnDicFragment mEnDicFragment;
+    private View view;
 
     RecognizerListener recognizerListener = new RecognizerListener() {
 
@@ -204,7 +206,12 @@ public class MainFragment extends BaseFragment implements OnClickListener, OrcRe
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_translate, null);
+        super.onCreateView(inflater,container,savedInstanceState);
+        if (view != null) {
+            ViewUtil.removeFromParentView(view);
+            return view;
+        }
+        view = inflater.inflate(R.layout.fragment_translate, null);
         ButterKnife.bind(this, view);
         init();
         return view;

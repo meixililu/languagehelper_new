@@ -2,13 +2,13 @@ package com.messi.languagehelper;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.messi.languagehelper.adapter.RcJuhaiListAdapter;
 import com.messi.languagehelper.bean.JuhaiBean;
+import com.messi.languagehelper.databinding.FragmentJuhaiBinding;
 import com.messi.languagehelper.event.FinishEvent;
 import com.messi.languagehelper.event.ProgressEvent;
 import com.messi.languagehelper.http.BgCallback;
@@ -18,6 +18,7 @@ import com.messi.languagehelper.util.HtmlParseUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
+import com.messi.languagehelper.util.ViewUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import org.greenrobot.eventbus.EventBus;
@@ -27,8 +28,6 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -39,13 +38,11 @@ import io.reactivex.schedulers.Schedulers;
 
 public class JuhaiFragment extends BaseFragment {
 
-
-    @BindView(R.id.recent_used_lv)
-    RecyclerView recent_used_lv;
-
     private List<JuhaiBean> beans;
     private RcJuhaiListAdapter mAdapter;
     private String lastSearch;
+    private View view;
+    private FragmentJuhaiBinding binding;
 
     public static JuhaiFragment getInstance(FragmentProgressbarListener listener) {
         JuhaiFragment mMainFragment = new JuhaiFragment();
@@ -56,8 +53,12 @@ public class JuhaiFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater,container,savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_juhai, null);
-        ButterKnife.bind(this, view);
+        if (view != null) {
+            ViewUtil.removeFromParentView(view);
+            return view;
+        }
+        binding = FragmentJuhaiBinding.inflate(inflater);
+        view = binding.getRoot();
         init();
         return view;
     }
@@ -66,8 +67,8 @@ public class JuhaiFragment extends BaseFragment {
         isRegisterBus = true;
         beans = new ArrayList<JuhaiBean>();
         mAdapter = new RcJuhaiListAdapter();
-        recent_used_lv.setLayoutManager(new LinearLayoutManager(getContext()));
-        recent_used_lv.addItemDecoration(
+        binding.recentUsedLv.setLayoutManager(new LinearLayoutManager(getContext()));
+        binding.recentUsedLv.addItemDecoration(
                 new HorizontalDividerItemDecoration.Builder(getContext())
                         .colorResId(R.color.text_tint)
                         .sizeResId(R.dimen.list_divider_size)
@@ -75,7 +76,7 @@ public class JuhaiFragment extends BaseFragment {
                         .build());
         mAdapter.setFooter(new Object());
         mAdapter.setItems(beans);
-        recent_used_lv.setAdapter(mAdapter);
+        binding.recentUsedLv.setAdapter(mAdapter);
     }
 
     private void translateController() {

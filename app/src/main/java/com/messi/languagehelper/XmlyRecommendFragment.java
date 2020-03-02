@@ -13,10 +13,11 @@ import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.ViewModel.XXLForXMLYAlbumModel;
 import com.messi.languagehelper.adapter.RcXmlyRecommendAdapter;
 import com.messi.languagehelper.bean.AlbumForAd;
+import com.messi.languagehelper.databinding.XmlyRecommendFragmentBinding;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
-import com.messi.languagehelper.util.ToastUtil;
+import com.messi.languagehelper.util.ViewUtil;
 import com.ximalaya.ting.android.opensdk.constants.DTransferConstants;
 import com.ximalaya.ting.android.opensdk.datatrasfer.CommonRequest;
 import com.ximalaya.ting.android.opensdk.datatrasfer.IDataCallBack;
@@ -32,7 +33,6 @@ import java.util.Random;
 
 public class XmlyRecommendFragment extends BaseFragment {
 
-    private RecyclerView listview;
     private View view;
     private RcXmlyRecommendAdapter mAdapter;
     private List<Album> avObjects;
@@ -44,6 +44,8 @@ public class XmlyRecommendFragment extends BaseFragment {
     private LinearLayoutManager mLinearLayoutManager;
     private XXLForXMLYAlbumModel mXXLModel;
     private boolean isNeedClear;
+    private XmlyRecommendFragmentBinding binding;
+
 
     public static XmlyRecommendFragment newInstance() {
         return new XmlyRecommendFragment();
@@ -52,8 +54,13 @@ public class XmlyRecommendFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        LogUtil.DefalutLog("XmlyRecommendFragment---onCreateView");
-        view = inflater.inflate(R.layout.xmly_recommend_fragment, container, false);
+        super.onCreateView(inflater,container,savedInstanceState);
+        if (view != null) {
+            ViewUtil.removeFromParentView(view);
+            return view;
+        }
+        binding = XmlyRecommendFragmentBinding.inflate(inflater);
+        view = binding.getRoot();
         initViews();
         initSwipeRefresh(view);
         return view;
@@ -62,26 +69,25 @@ public class XmlyRecommendFragment extends BaseFragment {
     private void initViews() {
         avObjects = new ArrayList<Album>();
         mXXLModel = new XXLForXMLYAlbumModel(getActivity());
-        listview = (RecyclerView)view.findViewById(R.id.listview);
         mAdapter = new RcXmlyRecommendAdapter();
         mXXLModel.setAdapter(avObjects,mAdapter);
         mAdapter.setItems(avObjects);
         mAdapter.setFooter(new Object());
         hideFooterview();
         mLinearLayoutManager = new LinearLayoutManager(getContext());
-        listview.setLayoutManager(mLinearLayoutManager);
-        listview.addItemDecoration(
+        binding.listview.setLayoutManager(mLinearLayoutManager);
+        binding.listview.addItemDecoration(
                 new HorizontalDividerItemDecoration.Builder(getContext())
                         .colorResId(R.color.text_tint)
                         .sizeResId(R.dimen.list_divider_size)
                         .marginResId(R.dimen.padding_margin, R.dimen.padding_margin)
                         .build());
-        listview.setAdapter(mAdapter);
+        binding.listview.setAdapter(mAdapter);
         setListOnScrollListener();
     }
 
     public void setListOnScrollListener() {
-        listview.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        binding.listview.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);

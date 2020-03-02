@@ -169,12 +169,18 @@ public class ViewUtil {
 
 	public static void removeParentView(View view) {
 		ViewGroup parent = (ViewGroup) view.getParent();
-		if (parent == null) {
-			return;
+		if (parent != null) {
+			int index = parent.indexOfChild(view);
+			if (index >= 0) {
+				parent.removeViewAt(index);
+			}
 		}
-		int index = parent.indexOfChild(view);
-		if (index >= 0) {
-			parent.removeViewAt(index);
+
+	}
+	public static void removeFromParentView(View view) {
+		ViewGroup parent = (ViewGroup) view.getParent();
+		if (parent != null) {
+			parent.removeView(view);
 		}
 	}
 

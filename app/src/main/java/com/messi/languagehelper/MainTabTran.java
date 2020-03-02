@@ -13,6 +13,7 @@ import android.widget.FrameLayout;
 import com.messi.languagehelper.adapter.RcTranslateListAdapter;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Record;
+import com.messi.languagehelper.databinding.MainTabTranBinding;
 import com.messi.languagehelper.event.FinishEvent;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.KeyUtil;
@@ -23,6 +24,7 @@ import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.TranslateUtil;
+import com.messi.languagehelper.util.ViewUtil;
 import com.messi.languagehelper.views.DividerItemDecoration;
 import com.youdao.sdk.ydtranslate.Translate;
 
@@ -41,8 +43,6 @@ import io.reactivex.schedulers.Schedulers;
 
 public class MainTabTran extends BaseFragment {
 
-
-    private RecyclerView recent_used_lv;
     private Record currentDialogBean;
     private RcTranslateListAdapter mAdapter;
     private LinearLayoutManager mLinearLayoutManager;
@@ -50,6 +50,8 @@ public class MainTabTran extends BaseFragment {
     private String lastSearch;
     private int skip;
     private boolean noMoreData;
+    private View view;
+    private MainTabTranBinding binding;
 
     public static MainTabTran getInstance(FragmentProgressbarListener listener) {
         MainTabTran mMainFragment = new MainTabTran();
@@ -59,14 +61,18 @@ public class MainTabTran extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.main_tab_tran, null);
-        LogUtil.DefalutLog("MainTabTran-onCreateView");
+        super.onCreateView(inflater,container,savedInstanceState);
+        if (view != null) {
+            ViewUtil.removeFromParentView(view);
+            return view;
+        }
+        binding = MainTabTranBinding.inflate(inflater);
+        view = binding.getRoot();
         init(view);
         return view;
     }
 
     private void init(View view) {
-        recent_used_lv = (RecyclerView) view.findViewById(R.id.recent_used_lv);
         beans = new ArrayList<Record>();
         loadData();
         boolean IsHasShowBaiduMessage = PlayUtil.getSP().getBoolean(KeyUtil.IsHasShowBaiduMessage, false);
@@ -75,18 +81,18 @@ public class MainTabTran extends BaseFragment {
             Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.IsHasShowBaiduMessage, true);
         }
         mAdapter = new RcTranslateListAdapter(beans);
-        recent_used_lv.setHasFixedSize(true);
+        binding.recentUsedLv.setHasFixedSize(true);
         mLinearLayoutManager = new LinearLayoutManager(getContext());
-        recent_used_lv.setLayoutManager(mLinearLayoutManager);
-        recent_used_lv.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.abc_list_divider_mtrl_alpha)));
+        binding.recentUsedLv.setLayoutManager(mLinearLayoutManager);
+        binding.recentUsedLv.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.abc_list_divider_mtrl_alpha)));
         mAdapter.setItems(beans);
         mAdapter.setFooter(new Object());
-        recent_used_lv.setAdapter(mAdapter);
+        binding.recentUsedLv.setAdapter(mAdapter);
         setListOnScrollListener();
     }
 
     public void setListOnScrollListener(){
-        recent_used_lv.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        binding.recentUsedLv.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
@@ -216,7 +222,7 @@ public class MainTabTran extends BaseFragment {
 
     public void insertData() {
         mAdapter.addEntity(0, currentDialogBean);
-        recent_used_lv.scrollToPosition(0);
+        binding.recentUsedLv.scrollToPosition(0);
         long newRowId = BoxHelper.insert(currentDialogBean);
     }
 
@@ -229,7 +235,7 @@ public class MainTabTran extends BaseFragment {
 
     private void autoPlay() {
         try {
-            View mView = recent_used_lv.getChildAt(0);
+            View mView = binding.recentUsedLv.getChildAt(0);
             final FrameLayout record_answer_cover = (FrameLayout) mView.findViewById(R.id.record_answer_cover);
             if(record_answer_cover != null){
                 record_answer_cover.post(new Runnable() {
