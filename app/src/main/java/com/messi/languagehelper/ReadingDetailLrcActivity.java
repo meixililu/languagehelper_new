@@ -34,7 +34,6 @@ import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TextHandlerUtil;
 import com.messi.languagehelper.util.TimeUtil;
 import com.messi.languagehelper.util.utilLrc;
-import com.nineoldandroids.animation.ObjectAnimator;
 
 import java.util.List;
 
@@ -134,7 +133,7 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
         }
         if(Setings.MPlayerIsSameMp3(mAVObject)){
             if(Setings.musicSrv.PlayerStatus == 1) {
-                btn_play.setImageResource(R.drawable.ic_pause_circle_outline_grey600_36dp);
+                btn_play.setImageResource(R.drawable.ic_pause_circle_outline);
                 handler.postDelayed(mRunnable,300);
                 downloadLrc();
             }
@@ -147,26 +146,6 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
             mAVObject.setStatus("1");
             BoxHelper.update(mAVObject);
         }
-        scrollview.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
-            @Override
-            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                if(!mAVObject.getType().equals("text")){
-                    if(scrollY - oldScrollY > 12){
-                        if(player_layout.isShown()){
-                           player_layout.setVisibility(View.GONE);
-                           ObjectAnimator mObjectAnimator = ObjectAnimator.ofFloat(player_layout, "alpha", 1, 0);
-                           mObjectAnimator.setDuration(500).start();
-                        }
-                    }else if(scrollY - oldScrollY < -8){
-                        if(!player_layout.isShown()){
-                            player_layout.setVisibility(View.VISIBLE);
-                            ObjectAnimator mObjectAnimator = ObjectAnimator.ofFloat(player_layout, "alpha", 0, 1);
-                            mObjectAnimator.setDuration(500).start();
-                        }
-                    }
-                }
-            }
-        });
     }
 
     private void setSeekbarAndText(){
@@ -306,10 +285,10 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
     public void updateUI(String music_action) {
         if(Setings.MPlayerIsSameMp3(mAVObject)){
             if(music_action.equals(PlayerService.action_start)){
-                btn_play.setImageResource(R.drawable.ic_play_circle_outline_grey600_36dp);
+                btn_play.setImageResource(R.drawable.ic_play_circle_outline);
                 handler.removeCallbacks(mRunnable);
             }else if (music_action.equals(PlayerService.action_pause)) {
-                btn_play.setImageResource(R.drawable.ic_pause_circle_outline_grey600_36dp);
+                btn_play.setImageResource(R.drawable.ic_pause_circle_outline);
                 handler.postDelayed(mRunnable,300);
             }
         }

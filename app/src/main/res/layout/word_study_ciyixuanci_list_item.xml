@@ -16,7 +16,7 @@
             android:id="@+id/title"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/padding_margin"
+            android:layout_marginBottom="@dimen/padding_2"
             android:gravity="left"
             android:textColor="@color/text_black"
             android:textSize="@dimen/biggerx" />
@@ -33,7 +33,7 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginBottom="@dimen/padding_margin"
+        android:layout_marginBottom="@dimen/padding_2"
         android:gravity="right"
         android:textColor="@color/material_color_red"
         android:textSize="@dimen/big"

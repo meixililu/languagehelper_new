@@ -78,7 +78,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginLeft="@dimen/padding_margin"
+            android:layout_marginLeft="@dimen/padding_2"
             android:gravity="left|bottom"
             android:hint="@string/input_comment_hint"
             android:textColor="@color/text_dark"

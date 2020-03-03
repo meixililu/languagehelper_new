@@ -243,7 +243,7 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
                 new HorizontalDividerItemDecoration.Builder(this)
                         .colorResId(R.color.text_tint)
                         .sizeResId(R.dimen.list_divider_size)
-                        .marginResId(R.dimen.padding_margin, R.dimen.padding_margin)
+                        .marginResId(R.dimen.padding_2, R.dimen.padding_2)
                         .build());
         adapter.setItems(mUserSpeakBeanList);
         recent_used_lv.setAdapter(adapter);

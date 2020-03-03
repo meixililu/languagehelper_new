@@ -85,7 +85,7 @@
             android:layout_height="wrap_content"
             android:foreground="@drawable/framelayout_selector"
             android:background="@color/white"
-            android:layout_margin="@dimen/padding_margin"
+            android:layout_margin="@dimen/padding_2"
             >
             <ImageView
                 android:layout_width="match_parent"

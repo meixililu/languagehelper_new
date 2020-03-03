@@ -78,7 +78,7 @@ public class WordStudyFragment extends BaseFragment {
 				new HorizontalDividerItemDecoration.Builder(getContext())
 						.colorResId(R.color.text_tint)
 						.sizeResId(R.dimen.padding_7)
-						.marginResId(R.dimen.padding_margin, R.dimen.padding_margin)
+						.marginResId(R.dimen.padding_2, R.dimen.padding_2)
 						.build());
 		category_lv.setAdapter(mAdapter);
 		setListOnScrollListener();

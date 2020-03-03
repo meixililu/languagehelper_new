@@ -3,6 +3,7 @@ package com.messi.languagehelper.wxapi;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.NotificationManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -201,14 +202,23 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 		try {
 			Jzvd.releaseAllVideos();
 			PlayUtil.onDestroy();
+			unbindService(musicConnection);
+			isBackgroundPlay();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void isBackgroundPlay(){
+		if(XmPlayerManager.getInstance(this).isPlaying() || Setings.MPlayerIsPlaying()){
+			LogUtil.DefalutLog("xmly or myplayer is playing.");
+		}else {
+			((NotificationManager) getSystemService(NOTIFICATION_SERVICE)).cancel(Setings.NOTIFY_ID);
 			if (playIntent != null) {
 				stopService(playIntent);
 			}
-			unbindService(musicConnection);
 			XmPlayerManager.getInstance(this).release();
 			Setings.musicSrv = null;
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
 	}
 

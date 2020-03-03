@@ -35,7 +35,7 @@
             android:layout_marginLeft="@dimen/padding_10"
             android:layout_marginRight="@dimen/padding_10"
             android:paddingLeft="@dimen/padding_20"
-            android:paddingRight="@dimen/padding_margin"
+            android:paddingRight="@dimen/padding_2"
             android:background="@drawable/bg_input_blue"
             >
             <EditText

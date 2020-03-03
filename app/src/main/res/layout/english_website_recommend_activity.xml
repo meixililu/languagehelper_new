@@ -38,9 +38,9 @@
         android:dividerHeight="1px"
         android:fadingEdge="none"
         android:listSelector="@color/none"
-        android:layout_marginTop="@dimen/padding_margin"
-        android:paddingLeft="@dimen/padding_margin"
-        android:paddingRight="@dimen/padding_margin"
+        android:layout_marginTop="@dimen/padding_2"
+        android:paddingLeft="@dimen/padding_2"
+        android:paddingRight="@dimen/padding_2"
         android:scrollbars="none" />
 	</android.support.v4.widget.SwipeRefreshLayout>
 </LinearLayout>

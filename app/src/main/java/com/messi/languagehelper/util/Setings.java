@@ -41,6 +41,8 @@ public class Setings {
 
 	public static boolean IsShowNovel = false;
 
+	public static final int NOTIFY_ID = 1;
+
 	public static String UmengAPPId = "551e3853fd98c5403800122c";
 
 	public static String PrivacyUrl = "http://www.mzxbkj.com/pp/privacyzh.html";

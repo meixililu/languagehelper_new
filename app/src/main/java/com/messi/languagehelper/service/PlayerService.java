@@ -1,6 +1,5 @@
 package com.messi.languagehelper.service;
 
-import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -31,7 +30,11 @@ import com.google.android.exoplayer2.util.Util;
 import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NotificationUtil;
+import com.ximalaya.ting.android.opensdk.model.PlayableModel;
+import com.ximalaya.ting.android.opensdk.model.track.Track;
 import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
+import com.ximalaya.ting.android.opensdk.player.service.IXmPlayerStatusListener;
+import com.ximalaya.ting.android.opensdk.player.service.XmPlayerException;
 
 import java.util.List;
 
@@ -53,7 +56,6 @@ public class PlayerService extends Service {
     public static final String action_next = "com.messi.languagehelper.music.next";
     public static final String action_previous = "com.messi.languagehelper.music.previous";
 
-    public static final int NOTIFY_ID = 1;
     private AudioManager mAudioManager;
     private WifiManager.WifiLock mWifiLock;
     private SimpleExoPlayer mExoPlayer;
@@ -65,7 +67,8 @@ public class PlayerService extends Service {
     private List<Reading> list;
     private int currentPosition;
     private final IBinder musicBind = new MusicBinder();
-    private final ExoPlayerEventListener mEventListener = new ExoPlayerEventListener();
+    private ExoPlayerEventListener mEventListener = new ExoPlayerEventListener();
+    private MyIXmPlayerStatusListener mMyIXmPlayerStatusListener = new MyIXmPlayerStatusListener();
 
     public class MusicBinder extends Binder {
         public PlayerService getService() {
@@ -89,6 +92,8 @@ public class PlayerService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        LogUtil.DefalutLog("PlayerService---onCreate---");
+//        Setings.musicSrv = this;
         initExoplayer();
     }
 
@@ -97,6 +102,7 @@ public class PlayerService extends Service {
         this.mAudioManager = (AudioManager) applicationContext.getSystemService(Context.AUDIO_SERVICE);
         this.mWifiLock = ((WifiManager) applicationContext.getSystemService(Context.WIFI_SERVICE))
                         .createWifiLock(WifiManager.WIFI_MODE_FULL, "uAmp_lock");
+        XmPlayerManager.getInstance(this).addPlayerStatusListener(mMyIXmPlayerStatusListener);
     }
 
     public void initPlayList(List<Reading> list,int position){
@@ -175,6 +181,7 @@ public class PlayerService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        LogUtil.DefalutLog("PlayerService---onStartCommand---");
         if (intent != null) {
             String action = intent.getAction();
             String type = intent.getStringExtra(MesType);
@@ -226,12 +233,20 @@ public class PlayerService extends Service {
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
+        LogUtil.DefalutLog("PlayerService---onBind---");
         return musicBind;
     }
 
     @Override
     public boolean onUnbind(Intent intent) {
-        ((NotificationManager) getSystemService(NOTIFICATION_SERVICE)).cancel(NOTIFY_ID);
+        LogUtil.DefalutLog("PlayerService---onUnbind---");
+        return false;
+    }
+
+    @Override
+    public void onDestroy() {
+        LogUtil.DefalutLog("PlayerService---onDestroy---");
+        super.onDestroy();
         if (mExoPlayer != null) {
             mExoPlayer.setPlayWhenReady(false);
             mExoPlayer.release();
@@ -241,7 +256,6 @@ public class PlayerService extends Service {
         if (mWifiLock.isHeld()) {
             mWifiLock.release();
         }
-        return false;
     }
 
     public void pause(){
@@ -371,6 +385,69 @@ public class PlayerService extends Service {
     public void seekTo(int position){
         if(mExoPlayer != null){
             mExoPlayer.seekTo(position);
+        }
+    }
+
+    private final class MyIXmPlayerStatusListener implements IXmPlayerStatusListener {
+
+        @Override
+        public void onPlayStart() {
+
+        }
+
+        @Override
+        public void onPlayPause() {
+
+        }
+
+        @Override
+        public void onPlayStop() {
+            NotificationUtil.sendBroadcast(PlayerService.this,action_start);
+        }
+
+        @Override
+        public void onSoundPlayComplete() {
+
+        }
+
+        @Override
+        public void onSoundPrepared() {
+
+        }
+
+        @Override
+        public void onSoundSwitch(PlayableModel playableModel, PlayableModel playableModel1) {
+            if (XmPlayerManager.getInstance(PlayerService.this).getCurrSound() instanceof Track) {
+                Track currentTrack = (Track) XmPlayerManager.getInstance(PlayerService.this).getCurrSound();
+                NotificationUtil.showNotification(PlayerService.this,action_pause,currentTrack.getTrackTitle(),
+                        NotificationUtil.mes_type_xmly);
+            }
+            NotificationUtil.sendBroadcast(PlayerService.this,action_pause);
+        }
+
+        @Override
+        public void onBufferingStart() {
+
+        }
+
+        @Override
+        public void onBufferingStop() {
+
+        }
+
+        @Override
+        public void onBufferProgress(int i) {
+
+        }
+
+        @Override
+        public void onPlayProgress(int i, int i1) {
+
+        }
+
+        @Override
+        public boolean onError(XmPlayerException e) {
+            return false;
         }
     }
 

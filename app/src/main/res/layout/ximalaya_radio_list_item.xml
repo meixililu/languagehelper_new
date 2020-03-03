@@ -118,7 +118,7 @@
 		android:id="@+id/ad_layout"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:padding="@dimen/padding_margin"
+		android:padding="@dimen/padding_2"
 		android:visibility="gone"
 		/>
 </FrameLayout>

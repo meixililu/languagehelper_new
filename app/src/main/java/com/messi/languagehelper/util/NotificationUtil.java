@@ -82,9 +82,9 @@ public class NotificationUtil {
                 .setOngoing(true)
                 .setContent(contentView)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .setAutoCancel(true)
+//                .setAutoCancel(true)
                 .build();
-        manager.notify(PlayerService.NOTIFY_ID, notification);
+        manager.notify(Setings.NOTIFY_ID, notification);
     }
 
     public static void sendBroadcast(Context mContext,String music_action){

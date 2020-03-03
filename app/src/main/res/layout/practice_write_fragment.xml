@@ -86,7 +86,7 @@
        	    android:layout_marginLeft="@dimen/padding_10"
        	    android:layout_marginRight="@dimen/padding_10"
        	    android:layout_marginBottom="@dimen/padding_10"
-       	    android:padding="@dimen/padding_margin"
+       	    android:padding="@dimen/padding_2"
        	    android:textColor="@color/text_dark"
        	    android:textSize="@dimen/bigest"
        	    android:gravity="left"

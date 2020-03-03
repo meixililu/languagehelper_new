@@ -29,15 +29,15 @@
             android:id="@+id/studylist_lv"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_marginTop="@dimen/padding_margin"
+            android:layout_marginTop="@dimen/padding_2"
             android:background="@color/none"
             android:cacheColorHint="@color/none"
             android:divider="@color/none"
             android:dividerHeight="1px"
             android:fadingEdge="none"
             android:listSelector="@color/none"
-            android:paddingLeft="@dimen/padding_margin"
-            android:paddingRight="@dimen/padding_margin"
+            android:paddingLeft="@dimen/padding_2"
+            android:paddingRight="@dimen/padding_2"
             android:scrollbars="none" />
     </android.support.v4.widget.SwipeRefreshLayout>
 

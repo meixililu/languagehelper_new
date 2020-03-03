@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/padding_margin">
+        android:paddingBottom="@dimen/padding_2">
         <TextView
             android:id="@+id/des"
             android:layout_width="fill_parent"

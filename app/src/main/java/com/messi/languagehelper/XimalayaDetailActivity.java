@@ -277,6 +277,7 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
 
     @Override
     public void onPlayStop() {
+
     }
 
     @Override

@@ -72,7 +72,7 @@ public class JuhaiFragment extends BaseFragment {
                 new HorizontalDividerItemDecoration.Builder(getContext())
                         .colorResId(R.color.text_tint)
                         .sizeResId(R.dimen.list_divider_size)
-                        .marginResId(R.dimen.padding_margin, R.dimen.padding_margin)
+                        .marginResId(R.dimen.padding_2, R.dimen.padding_2)
                         .build());
         mAdapter.setFooter(new Object());
         mAdapter.setItems(beans);

@@ -111,7 +111,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/padding_margin"
+                android:layout_marginTop="@dimen/padding_2"
                 android:background="@drawable/voice_play_white"
                 android:clickable="false"
                 android:scaleType="fitCenter"

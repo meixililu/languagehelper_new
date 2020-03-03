@@ -1,43 +1,30 @@
 package com.messi.languagehelper.adapter;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.messi.languagehelper.AiDialogueCourseForYYSFragment;
-import com.messi.languagehelper.LeisureFragment;
-import com.messi.languagehelper.MainFragment;
-import com.messi.languagehelper.MainFragmentOld;
-import com.messi.languagehelper.MainFragmentYWCD;
-import com.messi.languagehelper.MainFragmentYYS;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.ReadingFragmentYWCD;
-import com.messi.languagehelper.StudyCategoryFragment;
 import com.messi.languagehelper.StudyFragment;
-import com.messi.languagehelper.XmlyMainForYWCDFragment;
-import com.messi.languagehelper.XmlyMainForYYSFragment;
-import com.messi.languagehelper.YYJHomeFragment;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
-import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.FragmentUtil;
 import com.messi.languagehelper.util.Setings;
+
+import java.util.List;
 
 public class MainPageAdapter extends FragmentPagerAdapter {
 
 	public static String[] CONTENT;
 	private Context mContext;
-	private SharedPreferences mSharedPreferences;
-    private StudyFragment mfragment;
     private FragmentProgressbarListener listener;
+    private List<Fragment> fragments;
 
-    public MainPageAdapter(FragmentManager fm, Context mContext,
-                           SharedPreferences mSharedPreferences,
-                           FragmentProgressbarListener listener) {
+    public MainPageAdapter(FragmentManager fm, Context mContext,FragmentProgressbarListener listener) {
         super(fm);
         this.mContext = mContext.getApplicationContext();
+        this.fragments = FragmentUtil.getMainPageFragments(mContext,listener);
         this.listener = listener;
-        this.mSharedPreferences = mSharedPreferences;
         if(mContext.getPackageName().equals(Setings.application_id_yyj) ||
                 mContext.getPackageName().equals(Setings.application_id_yyj_google)){
             CONTENT = new String[] {
@@ -73,61 +60,16 @@ public class MainPageAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        if(mContext.getPackageName().equals(Setings.application_id_yyj) ||
-                mContext.getPackageName().equals(Setings.application_id_yyj_google)){
-            if( position == 0 ){
-                mfragment = StudyFragment.getInstance();
-                return mfragment;
-            }else if( position == 1 ){
-                return StudyCategoryFragment.getInstance();
-            }else if( position == 2 ){
-                return YYJHomeFragment.getInstance();
-            }else if( position == 3 ){
-                return LeisureFragment.getInstance();
-            }
-        } else if(mContext.getPackageName().equals(Setings.application_id_yys) ||
-                mContext.getPackageName().equals(Setings.application_id_yys_google)){
-            if( position == 0 ){
-                return MainFragmentYYS.getInstance(listener);
-            }else if( position == 1 ){
-                return AiDialogueCourseForYYSFragment.getInstance();
-            }else if( position == 2 ){
-                return XmlyMainForYYSFragment.newInstance();
-            }else if( position == 3 ){
-                return LeisureFragment.getInstance();
-            }
-        } else if(mContext.getPackageName().equals(Setings.application_id_ywcd)){
-            if( position == 0 ){
-                return MainFragmentYWCD.getInstance(listener);
-            }else if( position == 1 ){
-                return ReadingFragmentYWCD.newInstance(500);
-            }else if( position == 2 ){
-                return XmlyMainForYWCDFragment.newInstance();
-            }else if( position == 3 ){
-                return LeisureFragment.getInstance();
-            }
-        } else {
-            if( position == 0 ){
-                if(mSharedPreferences.getBoolean(KeyUtil.IsUseOldStyle,true)){
-                    return MainFragmentOld.getInstance(listener);
-                }else {
-                    return MainFragment.getInstance(listener);
-                }
-            }else if( position == 1 ){
-                return StudyCategoryFragment.getInstance();
-            }else if( position == 2 ){
-                mfragment = StudyFragment.getInstance();
-                return mfragment;
-            }else if( position == 3 ){
-                return LeisureFragment.getInstance();
-            }
+        if (fragments == null) {
+            fragments = FragmentUtil.getMainPageFragments(mContext,listener);
         }
-        return null;
+        return fragments.get(position);
     }
 
     public void onTabReselected(int index){
-        if(mfragment != null){
-            mfragment.onTabReselected(index);
+        Fragment fragment = fragments.get(index);
+        if (fragment instanceof StudyFragment) {
+            ((StudyFragment)fragment).onTabReselected(index);
         }
     }
 

@@ -258,7 +258,7 @@
         android:visibility="gone"
         custom:progress_current="0"
         custom:progress_max="100"
-        android:layout_marginBottom="@dimen/padding_margin"
+        android:layout_marginBottom="@dimen/padding_2"
         style="@style/NumberProgressBar_Passing_Green"
         />
 

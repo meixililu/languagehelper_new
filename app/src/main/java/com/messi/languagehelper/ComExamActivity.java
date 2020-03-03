@@ -1,62 +1,47 @@
 package com.messi.languagehelper;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.widget.FrameLayout;
 
+import com.messi.languagehelper.databinding.ActivityBottomTabsBinding;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class ComExamActivity extends BaseActivity implements FragmentProgressbarListener {
 
-    @BindView(R.id.content)
-    FrameLayout content;
-    @BindView(R.id.navigation)
-    BottomNavigationView navigation;
     private Fragment mCompositionFragment;
     private Fragment mExaminationFragment;
     private Fragment courseFragment;
+    private ActivityBottomTabsBinding binding;
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    hideAllFragment();
-                    getSupportFragmentManager().beginTransaction().show(mCompositionFragment).commit();;
-                    return true;
-                case R.id.navigation_examination:
-                    hideAllFragment();
-                    getSupportFragmentManager().beginTransaction().show(mExaminationFragment).commit();;
-                    return true;
-                case R.id.navigation_course:
-                    hideAllFragment();
-                    getSupportFragmentManager().beginTransaction().show(courseFragment).commit();;
-                    return true;
-            }
-            return false;
+    public boolean onNavigationItemSelected(MenuItem item) {
+                hideAllFragment();
+        switch (item.getItemId()) {
+            case R.id.navigation_home:
+                showFragment(mCompositionFragment);
+                return true;
+            case R.id.navigation_examination:
+                showFragment(mExaminationFragment);;
+                return true;
+            case R.id.navigation_course:
+                showFragment(courseFragment);;
+                return true;
         }
-
-    };
+        return false;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bottom_tabs);
-        ButterKnife.bind(this);
+        binding = ActivityBottomTabsBinding.inflate(LayoutInflater.from(this));
+        setContentView(binding.getRoot());
         initFragment();
     }
 
     private void initFragment(){
-        navigation.inflateMenu(R.menu.com_exam_tabs);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        binding.navigation.inflateMenu(R.menu.com_exam_tabs);
+        binding.navigation.setOnNavigationItemSelectedListener((item) -> onNavigationItemSelected(item));
         mCompositionFragment = CompositionFragment.getInstance();
         mExaminationFragment = ExaminationFragment.getInstance();
         courseFragment = new BoutiquesFragment.Builder()
@@ -70,8 +55,7 @@ public class ComExamActivity extends BaseActivity implements FragmentProgressbar
                 .add(R.id.content, courseFragment)
                 .commit();
         hideAllFragment();
-        getSupportFragmentManager()
-                .beginTransaction().show(courseFragment).commit();
+        showFragment(courseFragment);
     }
 
     private void hideAllFragment(){
@@ -81,6 +65,11 @@ public class ComExamActivity extends BaseActivity implements FragmentProgressbar
                 .hide(mExaminationFragment)
                 .hide(courseFragment)
                 .commit();
+    }
+
+    private void showFragment(Fragment fragment){
+        getSupportFragmentManager()
+                .beginTransaction().show(fragment).commit();
     }
 
 }

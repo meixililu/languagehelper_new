@@ -1,15 +1,15 @@
 package com.messi.languagehelper.adapter;
 
-import java.util.List;
+import android.content.Context;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 
 import com.avos.avoscloud.AVObject;
 import com.messi.languagehelper.ReadingFragment;
 import com.messi.languagehelper.util.AVOUtil;
 
-import android.content.Context;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import java.util.List;
 
 public class ExaminationListAdapter extends FragmentPagerAdapter {
 

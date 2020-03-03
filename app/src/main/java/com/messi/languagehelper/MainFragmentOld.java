@@ -53,7 +53,6 @@ import permissions.dispatcher.RuntimePermissions;
 @RuntimePermissions
 public class MainFragmentOld extends BaseFragment implements OnClickListener, OrcResultListener {
 
-    public static MainFragmentOld mMainFragment;
     private EditText input_et;
     private FrameLayout submit_btn_cover;
     private FrameLayout photo_tran_btn;
@@ -140,10 +139,8 @@ public class MainFragmentOld extends BaseFragment implements OnClickListener, Or
 
 
     public static MainFragmentOld getInstance(FragmentProgressbarListener listener) {
-        if (mMainFragment == null) {
-            mMainFragment = new MainFragmentOld();
-            mMainFragment.setmProgressbarListener(listener);
-        }
+        MainFragmentOld mMainFragment = new MainFragmentOld();
+        mMainFragment.setmProgressbarListener(listener);
         return mMainFragment;
     }
 

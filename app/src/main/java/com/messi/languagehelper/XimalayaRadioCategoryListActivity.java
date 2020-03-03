@@ -13,7 +13,6 @@ import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
-import com.messi.languagehelper.util.ToastUtil;
 import com.ximalaya.ting.android.opensdk.constants.DTransferConstants;
 import com.ximalaya.ting.android.opensdk.datatrasfer.CommonRequest;
 import com.ximalaya.ting.android.opensdk.datatrasfer.IDataCallBack;
@@ -75,7 +74,7 @@ public class XimalayaRadioCategoryListActivity extends BaseActivity implements I
                 new HorizontalDividerItemDecoration.Builder(this)
                         .colorResId(R.color.text_tint)
                         .sizeResId(R.dimen.list_divider_size)
-                        .marginResId(R.dimen.padding_margin, R.dimen.padding_margin)
+                        .marginResId(R.dimen.padding_2, R.dimen.padding_2)
                         .build());
         setListOnScrollListener();
     }

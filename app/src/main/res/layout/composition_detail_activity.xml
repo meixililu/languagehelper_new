@@ -76,7 +76,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
                 android:background="@color/white"
-                android:layout_margin="@dimen/padding_10">
+                android:layout_marginTop="@dimen/padding_10"
+                android:layout_marginLeft="@dimen/padding_10"
+                android:layout_marginRight="@dimen/padding_10"
+                android:layout_marginBottom="@dimen/padding_2"
+                >
                 <com.facebook.drawee.view.SimpleDraweeView
                     android:id="@+id/ad_img"
                     android:layout_width="match_parent"
@@ -105,6 +109,70 @@
                     android:background="@color/white"/>
             </FrameLayout>
 
+            <LinearLayout
+                android:id="@+id/player_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_white"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/padding_2"
+                android:paddingRight="@dimen/padding_2"
+                android:paddingTop="@dimen/padding_7"
+                android:paddingBottom="@dimen/padding_7"
+                android:layout_marginLeft="@dimen/padding_10"
+                android:layout_marginRight="@dimen/padding_10"
+                >
+                <ImageView
+                    android:id="@+id/btn_play"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="@dimen/padding_5"
+                    app:srcCompat="@drawable/ic_play_circle_outline"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:id="@+id/time_current"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="1dp"
+                        android:text="00:00"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/small"
+                        />
+                    <SeekBar
+                        android:id="@+id/seekbar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginTop="1dp"
+                        android:maxHeight="3dip"
+                        android:minHeight="3dip"
+                        android:paddingStart="3dp"
+                        android:paddingEnd="3dp"
+                        android:max="0"
+                        android:progress="0"
+                        style="@style/SeekbarBlackStyle"
+                        />
+                    <TextView
+                        android:id="@+id/time_duration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="@dimen/padding_5"
+                        android:text="xx:xx"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/small"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/content"
                 android:layout_width="match_parent"
@@ -113,7 +181,6 @@
                 android:lineSpacingExtra="3dp"
                 android:lineSpacingMultiplier="1.3"
                 android:padding="@dimen/padding_10"
-                android:paddingBottom="@dimen/padding_15"
                 android:background="@color/white"
                 android:textColor="@color/text_black"
                 android:focusable="false"
@@ -129,68 +196,5 @@
             </LinearLayout>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
-
-    <LinearLayout
-        android:id="@+id/player_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/bg_white"
-        android:orientation="horizontal"
-        android:padding="@dimen/padding_5"
-        android:layout_gravity="bottom"
-        >
-        <ImageView
-            android:id="@+id/btn_play"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_marginLeft="@dimen/padding_5"
-            android:src="@drawable/ic_play_circle_outline_grey600_36dp"
-            />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            >
-            <TextView
-                android:id="@+id/time_current"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="1dp"
-                android:text="00:00"
-                android:textColor="@color/text_black"
-                android:textSize="@dimen/small"
-                />
-            <SeekBar
-                android:id="@+id/seekbar"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginTop="1dp"
-                android:maxHeight="3dip"
-                android:minHeight="3dip"
-                android:paddingStart="3dp"
-                android:paddingEnd="3dp"
-                android:max="0"
-                android:progress="0"
-                style="@style/SeekbarBlackStyle"
-                />
-            <TextView
-                android:id="@+id/time_duration"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="@dimen/padding_5"
-                android:text="xx:xx"
-                android:textColor="@color/text_black"
-                android:textSize="@dimen/small"
-                />
-        </LinearLayout>
-
-    </LinearLayout>
-
-
 </android.support.design.widget.CoordinatorLayout>
 

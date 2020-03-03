@@ -3,6 +3,7 @@ package com.messi.languagehelper.wxapi;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.NotificationManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -56,7 +57,6 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 
 	private long exitTime = 0;
 	private SharedPreferences sp;
-
 	private Intent playIntent;
 	private ContentFrameBinding binding;
 
@@ -89,7 +89,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 
 	private void initViews() {
 		final MainPageAdapter mAdapter = new MainPageAdapter(this.getSupportFragmentManager(),this,
-				sp,this);
+				this);
 		if(SystemUtil.lan.equals("en")){
 			binding.tablayout.setTabMode(TabLayout.MODE_SCROLLABLE);
 		}
@@ -127,6 +127,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 		public void onServiceConnected(ComponentName name, IBinder service) {
 			PlayerService.MusicBinder binder = (PlayerService.MusicBinder) service;
 			Setings.musicSrv = binder.getService();
+			LogUtil.DefalutLog("WXEntryActivity---musicConnection---:"+Setings.musicSrv);
 		}
 
 		@Override
@@ -143,8 +144,8 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 	private void startMusicPlayerService() {
 		if (playIntent == null) {
 			playIntent = new Intent(this, PlayerService.class);
-			bindService(playIntent, musicConnection, Context.BIND_AUTO_CREATE);
 			startService(playIntent);
+			bindService(playIntent, musicConnection, Context.BIND_AUTO_CREATE);
 		}
 	}
 
@@ -202,20 +203,34 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 	}
 
 	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+//		super.onSaveInstanceState(outState);
+	}
+
+	@Override
 	protected void onDestroy() {
 		super.onDestroy();
 		try {
 			saveSelectTab();
 			Jzvd.releaseAllVideos();
 			PlayUtil.onDestroy();
+			unbindService(musicConnection);
+			isBackgroundPlay();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void isBackgroundPlay(){
+		if(XmPlayerManager.getInstance(this).isPlaying() || Setings.MPlayerIsPlaying()){
+			LogUtil.DefalutLog("xmly or myplayer is playing.");
+		}else {
+			((NotificationManager) getSystemService(NOTIFICATION_SERVICE)).cancel(Setings.NOTIFY_ID);
 			if (playIntent != null) {
 				stopService(playIntent);
 			}
-			unbindService(musicConnection);
 			XmPlayerManager.getInstance(this).release();
 			Setings.musicSrv = null;
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
 	}
 

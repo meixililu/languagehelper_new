@@ -55,7 +55,7 @@ public class NovelResultListActivity extends BaseActivity implements OnClickList
                 new HorizontalDividerItemDecoration.Builder(this)
                         .colorResId(R.color.text_tint)
                         .sizeResId(R.dimen.padding_10)
-                        .marginResId(R.dimen.padding_margin, R.dimen.padding_margin)
+                        .marginResId(R.dimen.padding_2, R.dimen.padding_2)
                         .build());
         category_lv.setAdapter(mAdapter);
         setListOnScrollListener();

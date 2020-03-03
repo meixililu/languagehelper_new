@@ -11,7 +11,7 @@
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_gravity="right"
-        android:layout_margin="@dimen/padding_margin"
+        android:layout_margin="@dimen/padding_2"
         android:src="@drawable/clear_btn"
         />
     <TextView

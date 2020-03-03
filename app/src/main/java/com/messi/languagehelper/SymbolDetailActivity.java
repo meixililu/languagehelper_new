@@ -233,7 +233,7 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
     private void playMp3(final String uriPath) {
         try {
             if (mPlayer.isPlaying()) {
-                play_img.setBackgroundResource(R.drawable.ic_play_circle_outline_grey600_36dp);
+                play_img.setImageResource(R.drawable.ic_play_circle_outline);
                 if (!uriPath.equals(currentFileFullName)) {
                     mPlayer.stop();
                     initUri(uriPath);
@@ -246,7 +246,7 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
                     initUri(uriPath);
                 } else {
                     if (uriPath.equals(SDTeacherMp3FullName)) {
-                        play_img.setBackgroundResource(R.drawable.ic_pause_circle_outline_grey600_36dp);
+                        play_img.setImageResource(R.drawable.ic_pause_circle_outline);
                     }
                     mPlayer.start();
                 }
@@ -260,7 +260,7 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
     private void initUri(final String uriPath) {
         try {
             if (uriPath.equals(SDTeacherMp3FullName)) {
-                play_img.setBackgroundResource(R.drawable.ic_pause_circle_outline_grey600_36dp);
+                play_img.setImageResource(R.drawable.ic_pause_circle_outline);
             }
             mPlayer.reset();
             Uri uri = Uri.parse(uriPath);
@@ -269,7 +269,7 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
                 @Override
                 public void onCompletion(MediaPlayer mp) {
                     if (uriPath.equals(SDTeacherMp3FullName)) {
-                        play_img.setBackgroundResource(R.drawable.ic_play_circle_outline_grey600_36dp);
+                        play_img.setImageResource(R.drawable.ic_play_circle_outline);
                     } else {
                         replay();
                     }
@@ -278,7 +278,7 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
             mPlayer.prepare();
             mPlayer.start();
             if (uriPath.equals(SDTeacherMp3FullName)) {
-                play_img.setBackgroundResource(R.drawable.ic_pause_circle_outline_grey600_36dp);
+                play_img.setImageResource(R.drawable.ic_pause_circle_outline);
             }
             currentFileFullName = uriPath;
         } catch (Exception e) {
