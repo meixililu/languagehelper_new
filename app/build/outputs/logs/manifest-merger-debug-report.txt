@@ -1166,12 +1166,12 @@ ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/And
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:503:13-49
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:502:13-48
-activity#com.messi.languagehelper.HelpActivity
+activity#com.messi.languagehelper.TranStyleActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:504:9-506:52
 	android:screenOrientation
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:506:13-49
 	android:name
-		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:505:13-41
+		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:505:13-46
 activity#com.messi.languagehelper.PracticeYYSActivity
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:507:9-509:52
 	android:screenOrientation

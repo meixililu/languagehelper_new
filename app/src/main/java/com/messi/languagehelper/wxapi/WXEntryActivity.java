@@ -154,6 +154,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 				startActivity(intent);
 			}
 		}
+		leaveTime = 0;
 	}
 
 	private void startMusicPlayerService() {
@@ -235,7 +236,6 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
-		leaveTime = System.currentTimeMillis();
 //		super.onSaveInstanceState(outState);
 		LogUtil.DefalutLog("WXEntryActivity---onSaveInstanceState");
 	}

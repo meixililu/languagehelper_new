@@ -224,13 +224,7 @@ public class KeyUtil {
 
 	public static final String IsAiChatShowKeybordLayout = "IsAiChatShowKeybordLayout";
 
-	public static final String IsShowDicKeyboardLayout = "IsShowDicKeyboardLayout";
-
-	public static final String DicUserSelectLanguage = "DicUserSelectLanguage";
-
 	public static final String IsUseOldStyle = "IsUseOldStyle";
-
-	public static final String IsFirstLoadStylePage = "IsFirstLoadStylePage";
 
 	public static final String BaiduAccessToken = "BaiduAccessToken";
 
@@ -252,21 +246,7 @@ public class KeyUtil {
 
 	public static final String isNewWordStudy = "isNewWordStudy";
 
-	public static final String OfflineDicUnreadKey = "OfflineDicUnreadKey";
-
 	public static final String RecentKey = "RecentKey";
-
-	public static final String RecentSymbol = "RecentSymbol";
-
-	public static final String RecentWord = "RecentWord";
-
-	public static final String RecentListen = "RecentListen";
-
-	public static final String RecentSpoken = "RecentSpoken";
-
-	public static final String RecentGrammar = "RecentGrammar";
-
-	public static final String RecentStory = "RecentStory";
 
 	public static final String RecentBroadcast = "RecentBroadcast";
 

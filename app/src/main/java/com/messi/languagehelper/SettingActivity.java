@@ -3,13 +3,14 @@ package com.messi.languagehelper;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatSeekBar;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.FrameLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.SDCardUtil;
@@ -25,7 +26,7 @@ public class SettingActivity extends BaseActivity implements SeekBar.OnSeekBarCh
     @BindView(R.id.seekbar_text)
     TextView seekbarText;
     @BindView(R.id.seekbar)
-    SeekBar seekbar;
+    AppCompatSeekBar seekbar;
     @BindView(R.id.setting_auto_play_cb)
     CheckBox settingAutoPlayCb;
     @BindView(R.id.setting_auto_play)
@@ -53,8 +54,6 @@ public class SettingActivity extends BaseActivity implements SeekBar.OnSeekBarCh
     private void init() {
         getSupportActionBar().setTitle(getString(R.string.title_settings));
         mSharedPreferences = getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
-        seekbarText = (TextView) findViewById(R.id.seekbar_text);
-        seekbar = (SeekBar) findViewById(R.id.seekbar);
         seekbar.setOnSeekBarChangeListener(this);
     }
 
@@ -94,12 +93,12 @@ public class SettingActivity extends BaseActivity implements SeekBar.OnSeekBarCh
             case R.id.setting_clear_all_except_favorite:
                 Setings.isMainFragmentNeedRefresh = true;
                 Setings.isDictionaryFragmentNeedRefresh = true;
-                DataBaseUtil.getInstance().clearExceptFavorite();
+                BoxHelper.clearExceptFavorite();
                 ToastUtil.diaplayMesShort(SettingActivity.this, this.getResources().getString(R.string.clear_success));
                 AVAnalytics.onEvent(this, "setting_pg_clear_all_except");
                 break;
             case R.id.setting_clear_all:
-                DataBaseUtil.getInstance().clearAllData();
+                BoxHelper.clearAllData();
                 Setings.isMainFragmentNeedRefresh = true;
                 Setings.isDictionaryFragmentNeedRefresh = true;
                 SDCardUtil.deleteOldFile();

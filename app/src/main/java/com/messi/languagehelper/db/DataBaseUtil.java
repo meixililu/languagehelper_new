@@ -17,7 +17,6 @@ import com.messi.languagehelper.dao.SymbolListDaoDao;
 import com.messi.languagehelper.dao.TranRecordDao;
 import com.messi.languagehelper.dao.TranRecord_jpDao;
 import com.messi.languagehelper.dao.TranRecord_korDao;
-import com.messi.languagehelper.dao.TranResultZhYue;
 import com.messi.languagehelper.dao.TranResultZhYueDao;
 import com.messi.languagehelper.dao.WordDetailListItem;
 import com.messi.languagehelper.dao.WordDetailListItemDao;
@@ -75,24 +74,6 @@ public class DataBaseUtil {
         return instance;
     }
 
-    public void insert(List<SymbolListDao> beans) {
-        for (SymbolListDao bean : beans) {
-            mSymbolListDaoDao.insert(bean);
-        }
-    }
-
-    public long getSymbolListSize() {
-        return mSymbolListDaoDao.count();
-    }
-
-    public List<SymbolListDao> getSymbolList() {
-        return mSymbolListDaoDao.loadAll();
-    }
-
-    public void update(SymbolListDao bean) {
-        mSymbolListDaoDao.update(bean);
-    }
-
 //    public long insert(Dictionary bean) {
 //        bean.setIscollected("0");
 //        bean.setVisit_times(0);
@@ -130,18 +111,6 @@ public class DataBaseUtil {
 //    public void update(Dictionary bean) {
 //        mDictionaryDao.update(bean);
 //    }
-
-    public List<record> getDataListRecord() {
-        QueryBuilder<record> qb = mrecordDao.queryBuilder();
-        qb.orderAsc(Properties.Id);
-        return qb.list();
-    }
-
-    public List<Dictionary> getDataListDictionary() {
-        QueryBuilder<Dictionary> qb = mDictionaryDao.queryBuilder();
-        qb.orderAsc(DictionaryDao.Properties.Id);
-        return qb.list();
-    }
 
 //    public List<TranResultZhYue> getDataListZhYue(int offset, int maxResult) {
 //        QueryBuilder<TranResultZhYue> qb = mTranResultZhYueDao.queryBuilder();
@@ -217,75 +186,106 @@ public class DataBaseUtil {
 //        mDictionaryDao.delete(bean);
 //    }
 
-    public void clearExceptFavorite() {
-        try {
-            clearTranslateExceptFavorite();
-            clearDictionaryExceptFavorite();
-            clearTranZhYueExceptFavorite();
-        } catch (Exception e) {
-            e.printStackTrace();
+//    public void clearExceptFavorite() {
+//        try {
+//            clearTranslateExceptFavorite();
+//            clearDictionaryExceptFavorite();
+//            clearTranZhYueExceptFavorite();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+
+    public List<record> getDataListRecord() {
+        QueryBuilder<record> qb = mrecordDao.queryBuilder();
+        qb.orderAsc(Properties.Id);
+        return qb.list();
+    }
+
+    public List<Dictionary> getDataListDictionary() {
+        QueryBuilder<Dictionary> qb = mDictionaryDao.queryBuilder();
+        qb.orderAsc(DictionaryDao.Properties.Id);
+        return qb.list();
+    }
+
+
+    public void insert(List<SymbolListDao> beans) {
+        for (SymbolListDao bean : beans) {
+            mSymbolListDaoDao.insert(bean);
         }
+    }
+
+    public long getSymbolListSize() {
+        return mSymbolListDaoDao.count();
+    }
+
+    public List<SymbolListDao> getSymbolList() {
+        return mSymbolListDaoDao.loadAll();
+    }
+
+    public void update(SymbolListDao bean) {
+        mSymbolListDaoDao.update(bean);
     }
 
     public void clearSymbolList() {
         mSymbolListDaoDao.deleteAll();
     }
 
-    public void clearTranslateExceptFavorite() {
-        QueryBuilder<record> qb = mrecordDao.queryBuilder();
-        DeleteQuery<record> bd = qb.where(Properties.Iscollected.eq("0")).buildDelete();
-        bd.executeDeleteWithoutDetachingEntities();
-    }
+//    public void clearTranslateExceptFavorite() {
+//        QueryBuilder<record> qb = mrecordDao.queryBuilder();
+//        DeleteQuery<record> bd = qb.where(Properties.Iscollected.eq("0")).buildDelete();
+//        bd.executeDeleteWithoutDetachingEntities();
+//    }
+//
+//    public void clearTranZhYueExceptFavorite() {
+//        QueryBuilder<TranResultZhYue> qb = mTranResultZhYueDao.queryBuilder();
+//        DeleteQuery<TranResultZhYue> bd = qb.where(TranResultZhYueDao.Properties.Iscollected.eq("0")).buildDelete();
+//        bd.executeDeleteWithoutDetachingEntities();
+//    }
+//
+//    public void clearDictionaryExceptFavorite() {
+//        QueryBuilder<Dictionary> qb = mDictionaryDao.queryBuilder();
+//        DeleteQuery<Dictionary> bd = qb.where(DictionaryDao.Properties.Iscollected.eq("0")).buildDelete();
+//        bd.executeDeleteWithoutDetachingEntities();
+//    }
 
-    public void clearTranZhYueExceptFavorite() {
-        QueryBuilder<TranResultZhYue> qb = mTranResultZhYueDao.queryBuilder();
-        DeleteQuery<TranResultZhYue> bd = qb.where(TranResultZhYueDao.Properties.Iscollected.eq("0")).buildDelete();
-        bd.executeDeleteWithoutDetachingEntities();
-    }
+//    public void clearAllTran() {
+//        clearAllTranslate();
+//    }
+//
+//    public void clearAllDic() {
+//        clearAllDictionary();
+//    }
 
-    public void clearDictionaryExceptFavorite() {
-        QueryBuilder<Dictionary> qb = mDictionaryDao.queryBuilder();
-        DeleteQuery<Dictionary> bd = qb.where(DictionaryDao.Properties.Iscollected.eq("0")).buildDelete();
-        bd.executeDeleteWithoutDetachingEntities();
-    }
-
-    public void clearAllTran() {
-        clearAllTranslate();
-    }
-
-    public void clearAllDic() {
-        clearAllDictionary();
-    }
-
-    public void clearAllTranslate() {
-        mrecordDao.deleteAll();
-    }
-
+//    public void clearAllTranslate() {
+//        mrecordDao.deleteAll();
+//    }
+//
     public void clearAllDictionary() {
         mDictionaryDao.deleteAll();
     }
+//
+//    public void clearAllTranZhYue() {
+//        mTranResultZhYueDao.deleteAll();
+//    }
+//
+//    public void clearAllData(){
+//        try {
+//            clearAllTranslate();
+//            clearAllDictionary();
+//            clearAllTranZhYue();
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//    }
 
-    public void clearAllTranZhYue() {
-        mTranResultZhYueDao.deleteAll();
-    }
-
-    public void clearAllData(){
-        try {
-            clearAllTranslate();
-            clearAllDictionary();
-            clearAllTranZhYue();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-
-    public long getRecordCount() {
-        return mrecordDao.count();
-    }
-
-    public long getDictionaryCount() {
-        return mDictionaryDao.count();
-    }
+//    public long getRecordCount() {
+//        return mrecordDao.count();
+//    }
+//
+//    public long getDictionaryCount() {
+//        return mDictionaryDao.count();
+//    }
 
 
     /** word study **/

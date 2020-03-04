@@ -3,10 +3,10 @@ package com.messi.languagehelper;
 
 import android.support.annotation.CallSuper;
 import android.support.annotation.UiThread;
+import android.support.v7.widget.AppCompatSeekBar;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.FrameLayout;
-import android.widget.SeekBar;
 import android.widget.TextView;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
@@ -36,7 +36,7 @@ public class SettingActivity_ViewBinding implements Unbinder {
 
     View view;
     target.seekbarText = Utils.findRequiredViewAsType(source, R.id.seekbar_text, "field 'seekbarText'", TextView.class);
-    target.seekbar = Utils.findRequiredViewAsType(source, R.id.seekbar, "field 'seekbar'", SeekBar.class);
+    target.seekbar = Utils.findRequiredViewAsType(source, R.id.seekbar, "field 'seekbar'", AppCompatSeekBar.class);
     target.settingAutoPlayCb = Utils.findRequiredViewAsType(source, R.id.setting_auto_play_cb, "field 'settingAutoPlayCb'", CheckBox.class);
     view = Utils.findRequiredView(source, R.id.setting_auto_play, "field 'settingAutoPlay' and method 'onViewClicked'");
     target.settingAutoPlay = Utils.castView(view, R.id.setting_auto_play, "field 'settingAutoPlay'", FrameLayout.class);

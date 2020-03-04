@@ -370,7 +370,7 @@
     <string name="style_select">选择您喜欢的界面风格</string>
     <string name="style_classic">经典</string>
     <string name="style_minimalist">极简</string>
-    <string name="restart_success">重启应用之后生效！</string>
+    <string name="restart_success">下次进入应用就看的见了！</string>
     <string name="title_grammar">语法</string>
     <string name="title_broadcast">电台</string>
     <string name="title_business">行业</string>

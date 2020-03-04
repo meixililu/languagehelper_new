@@ -35,8 +35,6 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
     FrameLayout setting_layout;
     @BindView(R.id.offline_dic_layout)
     FrameLayout offlineDicLayout;
-    @BindView(R.id.offline_dic_unread_dot)
-    ImageView offlineDicUnreadDot;
     @BindView(R.id.offline_dic_layout_line)
     ImageView offline_dic_layout_line;
     @BindView(R.id.help_layout_line)
@@ -69,9 +67,6 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
         offlineDicLayout.setOnClickListener(this);
         privacy_layout.setOnClickListener(this);
         terms_layout.setOnClickListener(this);
-        if(!Setings.getSharedPreferences(this).getBoolean(KeyUtil.OfflineDicUnreadKey,true)){
-            offlineDicUnreadDot.setVisibility(View.GONE);
-        }
         initVieds();
     }
 
@@ -102,15 +97,12 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
                 break;
             case R.id.offline_dic_layout:
                 toActivity(OfflineDicDownloadActivity.class, null);
-                offlineDicUnreadDot.setVisibility(View.GONE);
-                Setings.saveSharedPreferences(Setings.getSharedPreferences(this),
-                        KeyUtil.OfflineDicUnreadKey,false);
                 break;
             case R.id.comments_layout:
                 comment();
                 break;
             case R.id.help_layout:
-                toActivity(HelpActivity.class, null);
+                toActivity(TranStyleActivity.class, null);
                 AVAnalytics.onEvent(MoreActivity.this, "more_pg_tohelppg_btn");
                 break;
             case R.id.about_layout:

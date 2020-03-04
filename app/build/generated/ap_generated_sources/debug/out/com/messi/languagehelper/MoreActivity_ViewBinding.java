@@ -31,7 +31,6 @@ public class MoreActivity_ViewBinding implements Unbinder {
     target.qrcode_layout = Utils.findRequiredViewAsType(source, R.id.qrcode_layout, "field 'qrcode_layout'", FrameLayout.class);
     target.setting_layout = Utils.findRequiredViewAsType(source, R.id.setting_layout, "field 'setting_layout'", FrameLayout.class);
     target.offlineDicLayout = Utils.findRequiredViewAsType(source, R.id.offline_dic_layout, "field 'offlineDicLayout'", FrameLayout.class);
-    target.offlineDicUnreadDot = Utils.findRequiredViewAsType(source, R.id.offline_dic_unread_dot, "field 'offlineDicUnreadDot'", ImageView.class);
     target.offline_dic_layout_line = Utils.findRequiredViewAsType(source, R.id.offline_dic_layout_line, "field 'offline_dic_layout_line'", ImageView.class);
     target.help_layout_line = Utils.findRequiredViewAsType(source, R.id.help_layout_line, "field 'help_layout_line'", ImageView.class);
     target.privacy_layout = Utils.findRequiredViewAsType(source, R.id.privacy_layout, "field 'privacy_layout'", FrameLayout.class);
@@ -53,7 +52,6 @@ public class MoreActivity_ViewBinding implements Unbinder {
     target.qrcode_layout = null;
     target.setting_layout = null;
     target.offlineDicLayout = null;
-    target.offlineDicUnreadDot = null;
     target.offline_dic_layout_line = null;
     target.help_layout_line = null;
     target.privacy_layout = null;

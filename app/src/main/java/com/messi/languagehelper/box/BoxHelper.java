@@ -188,6 +188,27 @@ public class BoxHelper {
         getTranResultZhYueBox().removeAll();
     }
 
+    /**clear record dictionary tranzhyue**/
+    public static void clearExceptFavorite() {
+        try {
+            removeNoCollectedRecordData();
+            removeNoCollectedDictionaryBoxData();
+            removeNoCollectedTranResultZhYueData();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void clearAllData(){
+        try {
+            removeAllRecord();
+            removeAllDictionary();
+            removeAllTranResultZhYue();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     /**CNWBean**/
     public static Box<CNWBean> getCNWBeanBox(){
         return getBoxStore().boxFor(CNWBean.class);

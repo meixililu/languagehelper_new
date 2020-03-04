@@ -502,7 +502,7 @@
             android:name=".WebViewNoAdActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".HelpActivity"
+            android:name=".TranStyleActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".PracticeYYSActivity"
