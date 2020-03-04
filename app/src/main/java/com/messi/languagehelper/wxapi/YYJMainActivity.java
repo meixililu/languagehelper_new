@@ -164,7 +164,7 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 		@Override
 		public void onServiceConnected(ComponentName name, IBinder service) {
 			PlayerService.MusicBinder binder = (PlayerService.MusicBinder) service;
-			Setings.musicSrv = binder.getService();
+			PlayerService.musicSrv = binder.getService();
 		}
 
 		@Override
@@ -218,7 +218,7 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 				stopService(playIntent);
 			}
 			XmPlayerManager.getInstance(this).release();
-			Setings.musicSrv = null;
+			PlayerService.musicSrv = null;
 		}
 	}
 

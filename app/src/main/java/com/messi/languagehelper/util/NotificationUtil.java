@@ -19,7 +19,7 @@ import com.messi.languagehelper.wxapi.YYJMainActivity;
 
 import static android.content.Context.NOTIFICATION_SERVICE;
 import static com.messi.languagehelper.service.PlayerService.action_pause;
-import static com.messi.languagehelper.service.PlayerService.action_start;
+import static com.messi.languagehelper.service.PlayerService.action_restart;
 import static com.youdao.sdk.app.YouDaoApplication.getApplicationContext;
 
 /**
@@ -63,17 +63,24 @@ public class NotificationUtil {
         int img_id = R.drawable.ic_pause_grey;
         if(action.equals(action_pause)){
             img_id = R.drawable.ic_pause_grey;
-        }else if (action.equals(action_start)) {
+        }else if (action.equals(action_restart)) {
             img_id = R.drawable.ic_play_grey;
         } else {
 
         }
+        Intent intentClose = new Intent(mContext,PlayerService.class);
+        intentClose.setAction(PlayerService.action_close);
+        intentClose.putExtra(KeyUtil.MesType,NotificationUtil.mes_type_zyhy);
+        PendingIntent pIntentClose = PendingIntent.getService(getApplicationContext(), 0, intentClose,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+
         RemoteViews contentView = new RemoteViews(mContext.getPackageName(),R.layout.notification_layout);
         contentView.setTextViewText(R.id.notifi_title, title);
         contentView.setImageViewResource(R.id.notifi_action, img_id);
         contentView.setViewVisibility(R.id.notifi_previous, View.GONE);
         contentView.setViewVisibility(R.id.notifi_next, View.GONE);
         contentView.setOnClickPendingIntent(R.id.notifi_action, pIntentAction);
+        contentView.setOnClickPendingIntent(R.id.notifi_close, pIntentClose);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext,type);
         Notification notification = builder

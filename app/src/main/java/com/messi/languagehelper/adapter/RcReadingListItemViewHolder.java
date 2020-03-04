@@ -26,6 +26,7 @@ import com.messi.languagehelper.XVideoDetailActivity;
 import com.messi.languagehelper.XVideoHomeActivity;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Reading;
+import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -177,10 +178,10 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
                     }
                     if (!TextUtils.isEmpty(mAVObject.getMedia_url())) {
                         music_play_img.setVisibility(View.VISIBLE);
-                        if(Setings.musicSrv == null){
+                        if(PlayerService.musicSrv == null){
                             music_play_img.setImageResource(R.drawable.jz_click_play_selector);
-                        }else if(mAVObject.getObject_id().equals(Setings.musicSrv.lastSongId)){
-                            if(Setings.musicSrv.PlayerStatus == 1){
+                        }else if(mAVObject.getObject_id().equals(PlayerService.musicSrv.lastSongId)){
+                            if(PlayerService.musicSrv.PlayerStatus == 1){
                                 music_play_img.setImageResource(R.drawable.jz_click_pause_selector);
                             }else {
                                 music_play_img.setImageResource(R.drawable.jz_click_play_selector);
@@ -196,9 +197,9 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
                         @Override
                         public void onClick(View view) {
                             if(isPlayList){
-                                Setings.musicSrv.initPlayList(avObjects,avObjects.indexOf(mAVObject));
+                                PlayerService.musicSrv.initPlayList(avObjects,avObjects.indexOf(mAVObject));
                             }else {
-                                Setings.musicSrv.initAndPlay(mAVObject);
+                                PlayerService.musicSrv.initAndPlay(mAVObject);
                             }
                         }
                     });

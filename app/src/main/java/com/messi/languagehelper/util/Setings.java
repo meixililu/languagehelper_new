@@ -215,36 +215,36 @@ public class Setings {
 			Manifest.permission.RECORD_AUDIO
 	};
     public static HashMap<String, Object> dataMap = new HashMap<String, Object>();
-	public static PlayerService musicSrv;
+//	public static PlayerService musicSrv;
 
     public static void MPlayerPause(){
-    	if(musicSrv != null){
-			musicSrv.pause();
+    	if(PlayerService.musicSrv != null){
+			PlayerService.musicSrv.pause();
 		}
 	}
 
 	public static boolean MPlayerIsPlaying(){
-    	if(musicSrv != null){
-			return musicSrv.isPlaying();
+    	if(PlayerService.musicSrv != null){
+			return PlayerService.musicSrv.isPlaying();
 		}
 		return true;
 	}
 
 	public static void MPlayerRestart(){
-    	if(musicSrv != null){
-			musicSrv.restart();
+    	if(PlayerService.musicSrv != null){
+			PlayerService.musicSrv.restart();
 		}
 	}
 
 	public static void MPlayerSeekTo(int position){
-    	if(musicSrv != null){
-			musicSrv.seekTo(position);
+    	if(PlayerService.musicSrv != null){
+			PlayerService.musicSrv.seekTo(position);
 		}
 	}
 
 	public static boolean MPlayerIsSameMp3(Reading song){
-    	if(musicSrv != null){
-			return musicSrv.isSameMp3(song);
+    	if(PlayerService.musicSrv != null){
+			return PlayerService.musicSrv.isSameMp3(song);
 		}
 		return false;
 	}

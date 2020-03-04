@@ -137,6 +137,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="com.messi.languagehelper.music.start" />
+                <action android:name="com.messi.languagehelper.music.restart" />
                 <action android:name="com.messi.languagehelper.music.pause" />
                 <action android:name="com.messi.languagehelper.music.next" />
                 <action android:name="com.messi.languagehelper.music.previous" />

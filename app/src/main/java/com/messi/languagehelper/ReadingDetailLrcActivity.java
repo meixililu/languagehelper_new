@@ -132,7 +132,7 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
             mLeisureModel.showAd();
         }
         if(Setings.MPlayerIsSameMp3(mAVObject)){
-            if(Setings.musicSrv.PlayerStatus == 1) {
+            if(PlayerService.musicSrv.PlayerStatus == 1) {
                 btn_play.setImageResource(R.drawable.ic_pause_circle_outline);
                 handler.postDelayed(mRunnable,300);
                 downloadLrc();
@@ -149,11 +149,9 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
     }
 
     private void setSeekbarAndText(){
-        if(Setings.musicSrv != null){
-            int currentPosition = Setings.musicSrv.getCurrentPosition();
-            int mDuration = Setings.musicSrv.getDuration();
-            LogUtil.DefalutLog("ContentPosition:"+currentPosition);
-//        LogUtil.DefalutLog("Duration:"+mDuration);
+        if(PlayerService.musicSrv != null){
+            int currentPosition = PlayerService.musicSrv.getCurrentPosition();
+            int mDuration = PlayerService.musicSrv.getDuration();
             if(mDuration > 0){
                 seekbar.setMax(mDuration);
                 time_duration.setText(TimeUtil.getDuration(mDuration / 1000));
@@ -275,8 +273,8 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
 
     @OnClick(R.id.btn_play)
     public void onClick() {
-        if (Setings.musicSrv != null) {
-            Setings.musicSrv.initAndPlay(mAVObject);
+        if (PlayerService.musicSrv != null) {
+            PlayerService.musicSrv.initAndPlay(mAVObject);
         }
         downloadLrc();
     }
@@ -284,7 +282,7 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
     @Override
     public void updateUI(String music_action) {
         if(Setings.MPlayerIsSameMp3(mAVObject)){
-            if(music_action.equals(PlayerService.action_start)){
+            if(music_action.equals(PlayerService.action_restart)){
                 btn_play.setImageResource(R.drawable.ic_play_circle_outline);
                 handler.removeCallbacks(mRunnable);
             }else if (music_action.equals(PlayerService.action_pause)) {

@@ -31,7 +31,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static com.messi.languagehelper.service.PlayerService.action_pause;
-import static com.messi.languagehelper.service.PlayerService.action_start;
+import static com.messi.languagehelper.service.PlayerService.action_restart;
 
 public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerStatusListener, SeekBar.OnSeekBarChangeListener {
 
@@ -156,7 +156,7 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
     }
 
     private void initViews() {
-        if(Setings.musicSrv.isPlaying()){
+        if(PlayerService.musicSrv.isPlaying()){
             Setings.MPlayerPause();
         }
         loadAD();
@@ -180,7 +180,7 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
     @Override
     public void updateUI(String music_action) {
         LogUtil.DefalutLog("xima-updateUI:"+music_action);
-        if(music_action.equals(action_start)){
+        if(music_action.equals(action_restart)){
             playBtn.setImageResource(R.drawable.player_play_selector);
         }else if (music_action.equals(PlayerService.action_pause)) {
             playBtn.setImageResource(R.drawable.player_pause_selector);
@@ -229,9 +229,9 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
     }
 
     private void pause(){
-        NotificationUtil.showNotification(this,action_start,currentTrack.getTrackTitle(),
+        NotificationUtil.showNotification(this, action_restart,currentTrack.getTrackTitle(),
                 NotificationUtil.mes_type_xmly);
-        NotificationUtil.sendBroadcast(this,action_start);
+        NotificationUtil.sendBroadcast(this, action_restart);
         playBtn.setImageResource(R.drawable.player_play_selector);
         trackList.get(position).setUpdateStatus(false);
         XmPlayerManager.getInstance(this).pause();

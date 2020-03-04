@@ -1,5 +1,8 @@
 package com.messi.languagehelper.box;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.avos.avoscloud.AVObject;
 import com.baidu.mobads.AdView;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
@@ -14,7 +17,7 @@ import io.objectbox.annotation.Index;
 import io.objectbox.annotation.Transient;
 
 @Entity
-public class Reading {
+public class Reading implements Parcelable {
 
     @Id
     private Long id;
@@ -398,4 +401,112 @@ public class Reading {
     public void setVid(String vid) {
         this.vid = vid;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeValue(this.id);
+        dest.writeString(this.object_id);
+        dest.writeString(this.title);
+        dest.writeString(this.source_url);
+        dest.writeString(this.content);
+        dest.writeString(this.item_id);
+        dest.writeString(this.media_url);
+        dest.writeString(this.source_name);
+        dest.writeString(this.publish_time);
+        dest.writeString(this.type_name);
+        dest.writeString(this.img_type);
+        dest.writeString(this.img_url);
+        dest.writeString(this.type);
+        dest.writeString(this.category);
+        dest.writeString(this.type_id);
+        dest.writeString(this.level);
+        dest.writeString(this.content_type);
+        dest.writeString(this.img_urls);
+        dest.writeString(this.status);
+        dest.writeString(this.vid);
+        dest.writeString(this.isCollected);
+        dest.writeString(this.boutique_code);
+        dest.writeLong(this.collected_time);
+        dest.writeString(this.isReadLater);
+        dest.writeLong(this.read_later_time);
+        dest.writeInt(this.like);
+        dest.writeInt(this.unlike);
+        dest.writeInt(this.comments);
+        dest.writeInt(this.readed);
+        dest.writeString(this.lrc_url);
+        dest.writeString(this.backup1);
+        dest.writeString(this.backup2);
+        dest.writeString(this.backup3);
+        dest.writeString(this.backup4);
+        dest.writeString(this.backup5);
+        dest.writeInt(this.img_color);
+        dest.writeByte(this.isPlaying ? (byte) 1 : (byte) 0);
+        dest.writeByte(this.isAd ? (byte) 1 : (byte) 0);
+        dest.writeByte(this.isAdShow ? (byte) 1 : (byte) 0);
+        dest.writeInt(this.bdHeight);
+        dest.writeTypedList(this.xvideoList);
+    }
+
+    public Reading() {
+    }
+
+    protected Reading(Parcel in) {
+        this.id = (Long) in.readValue(Long.class.getClassLoader());
+        this.object_id = in.readString();
+        this.title = in.readString();
+        this.source_url = in.readString();
+        this.content = in.readString();
+        this.item_id = in.readString();
+        this.media_url = in.readString();
+        this.source_name = in.readString();
+        this.publish_time = in.readString();
+        this.type_name = in.readString();
+        this.img_type = in.readString();
+        this.img_url = in.readString();
+        this.type = in.readString();
+        this.category = in.readString();
+        this.type_id = in.readString();
+        this.level = in.readString();
+        this.content_type = in.readString();
+        this.img_urls = in.readString();
+        this.status = in.readString();
+        this.vid = in.readString();
+        this.isCollected = in.readString();
+        this.boutique_code = in.readString();
+        this.collected_time = in.readLong();
+        this.isReadLater = in.readString();
+        this.read_later_time = in.readLong();
+        this.like = in.readInt();
+        this.unlike = in.readInt();
+        this.comments = in.readInt();
+        this.readed = in.readInt();
+        this.lrc_url = in.readString();
+        this.backup1 = in.readString();
+        this.backup2 = in.readString();
+        this.backup3 = in.readString();
+        this.backup4 = in.readString();
+        this.backup5 = in.readString();
+        this.img_color = in.readInt();
+        this.isPlaying = in.readByte() != 0;
+        this.isAd = in.readByte() != 0;
+        this.isAdShow = in.readByte() != 0;
+        this.bdHeight = in.readInt();
+    }
+
+    public static final Parcelable.Creator<Reading> CREATOR = new Parcelable.Creator<Reading>() {
+        @Override
+        public Reading createFromParcel(Parcel source) {
+            return new Reading(source);
+        }
+
+        @Override
+        public Reading[] newArray(int size) {
+            return new Reading[size];
+        }
+    };
 }

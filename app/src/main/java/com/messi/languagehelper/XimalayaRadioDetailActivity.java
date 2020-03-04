@@ -40,7 +40,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static com.messi.languagehelper.service.PlayerService.action_pause;
-import static com.messi.languagehelper.service.PlayerService.action_start;
+import static com.messi.languagehelper.service.PlayerService.action_restart;
 
 public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlayerStatusListener {
 
@@ -154,7 +154,7 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
     @Override
     public void updateUI(String music_action) {
         LogUtil.DefalutLog("xima-updateUI:" + music_action);
-        if (music_action.equals(action_start)) {
+        if (music_action.equals(action_restart)) {
             playBtn.setImageResource(R.drawable.player_play_selector);
         } else if (music_action.equals(PlayerService.action_pause)) {
             playBtn.setImageResource(R.drawable.player_pause_selector);
@@ -197,9 +197,9 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
     }
 
     private void pause() {
-        NotificationUtil.showNotification(this, action_start, radio.getProgramName(),
+        NotificationUtil.showNotification(this, action_restart, radio.getProgramName(),
                 NotificationUtil.mes_type_xmly);
-        NotificationUtil.sendBroadcast(this, action_start);
+        NotificationUtil.sendBroadcast(this, action_restart);
         playBtn.setImageResource(R.drawable.player_play_selector);
         XmPlayerManager.getInstance(this).pause();
         if(mXMLYDetailModel != null){

@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechUtility;
 import com.messi.languagehelper.BaseActivity;
+import com.messi.languagehelper.LoadingActivity;
 import com.messi.languagehelper.MoreActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.adapter.MainPageAdapter;
@@ -55,10 +56,12 @@ import permissions.dispatcher.RuntimePermissions;
 @RuntimePermissions
 public class WXEntryActivity extends BaseActivity implements FragmentProgressbarListener {
 
-	private long exitTime = 0;
+	private long leaveTime = 0;
+	private long pressTime = 0;
 	private SharedPreferences sp;
 	private Intent playIntent;
 	private ContentFrameBinding binding;
+
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -126,8 +129,8 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 		@Override
 		public void onServiceConnected(ComponentName name, IBinder service) {
 			PlayerService.MusicBinder binder = (PlayerService.MusicBinder) service;
-			Setings.musicSrv = binder.getService();
-			LogUtil.DefalutLog("WXEntryActivity---musicConnection---:"+Setings.musicSrv);
+			PlayerService.musicSrv = binder.getService();
+			LogUtil.DefalutLog("WXEntryActivity---musicConnection---:"+PlayerService.musicSrv);
 		}
 
 		@Override
@@ -139,6 +142,18 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 	public void onStart() {
 		super.onStart();
 		startMusicPlayerService();
+		isNeedShowAD();
+		LogUtil.DefalutLog("WXEntryActivity---onStart");
+	}
+
+	public void isNeedShowAD(){
+		if (leaveTime > 10) {
+			if ((System.currentTimeMillis() - leaveTime) > 1000*60*3) {
+				leaveTime = 0;
+				Intent intent = new Intent(this, LoadingActivity.class);
+				startActivity(intent);
+			}
+		}
 	}
 
 	private void startMusicPlayerService() {
@@ -188,12 +203,28 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 
 	@Override
 	public void onBackPressed() {
-		if ((System.currentTimeMillis() - exitTime) > 2000) {
+		if ((System.currentTimeMillis() - pressTime) > 2000) {
 			Toast.makeText(getApplicationContext(), this.getResources().getString(R.string.exit_program), Toast.LENGTH_SHORT).show();
-			exitTime = System.currentTimeMillis();
+			pressTime = System.currentTimeMillis();
+		} else {
+			exitApp();
+		}
+	}
+
+	public void exitApp(){
+		if (Setings.MPlayerIsPlaying()) {
+			exitLikeHome();
 		} else {
 			finish();
 		}
+	}
+
+	public void exitLikeHome(){
+		leaveTime = System.currentTimeMillis();
+		Intent home = new Intent(Intent.ACTION_MAIN);
+		home.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		home.addCategory(Intent.CATEGORY_HOME);
+		startActivity(home);
 	}
 
 	private void saveSelectTab() {
@@ -204,7 +235,15 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
+		leaveTime = System.currentTimeMillis();
 //		super.onSaveInstanceState(outState);
+		LogUtil.DefalutLog("WXEntryActivity---onSaveInstanceState");
+	}
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+		LogUtil.DefalutLog("WXEntryActivity---onStop");
 	}
 
 	@Override
@@ -230,7 +269,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 				stopService(playIntent);
 			}
 			XmPlayerManager.getInstance(this).release();
-			Setings.musicSrv = null;
+			PlayerService.musicSrv = null;
 		}
 	}
 

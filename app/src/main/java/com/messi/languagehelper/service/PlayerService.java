@@ -1,5 +1,6 @@
 package com.messi.languagehelper.service;
 
+import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -28,8 +29,10 @@ import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 import com.messi.languagehelper.box.Reading;
+import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NotificationUtil;
+import com.messi.languagehelper.util.Setings;
 import com.ximalaya.ting.android.opensdk.model.PlayableModel;
 import com.ximalaya.ting.android.opensdk.model.track.Track;
 import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
@@ -51,11 +54,14 @@ public class PlayerService extends Service {
 
     public static final String action_loading = "com.messi.languagehelper.music.loading";
     public static final String action_finish_loading = "com.messi.languagehelper.music.finish.loading";
+    public static final String action_restart = "com.messi.languagehelper.music.restart";
     public static final String action_start = "com.messi.languagehelper.music.start";
     public static final String action_pause = "com.messi.languagehelper.music.pause";
     public static final String action_next = "com.messi.languagehelper.music.next";
     public static final String action_previous = "com.messi.languagehelper.music.previous";
+    public static final String action_close = "com.messi.languagehelper.music.close";
 
+    public static PlayerService musicSrv;
     private AudioManager mAudioManager;
     private WifiManager.WifiLock mWifiLock;
     private SimpleExoPlayer mExoPlayer;
@@ -93,7 +99,7 @@ public class PlayerService extends Service {
     public void onCreate() {
         super.onCreate();
         LogUtil.DefalutLog("PlayerService---onCreate---");
-//        Setings.musicSrv = this;
+        PlayerService.musicSrv = this;
         initExoplayer();
     }
 
@@ -123,8 +129,10 @@ public class PlayerService extends Service {
     }
 
     public void initAndPlay(Reading song){
-        isPlayList = false;
-        startToPlay(song);
+        if (song != null) {
+            isPlayList = false;
+            startToPlay(song);
+        }
     }
 
     private void startToPlay(Reading song){
@@ -189,17 +197,24 @@ public class PlayerService extends Service {
             LogUtil.DefalutLog("onStartCommand:"+action+"---MesType:"+type);
             if (!TextUtils.isEmpty(action)) {
                 if(NotificationUtil.mes_type_zyhy.equals(type)){
-                    if (action.equals(action_start)) {
+                    if (action.equals(action_restart)) {
                         restart();
+                    }else if(action.equals(action_start)) {
+                        Reading mReading = intent.getParcelableExtra("data");
+                        initAndPlay(mReading);
                     }else if(action.equals(action_pause)) {
                         pause();
                     }else if(action.equals(action_next)) {
 
                     }else if(action.equals(action_previous)) {
 
+                    }else if(action.equals(action_close)) {
+                        XmPlayerManager.getInstance(this).pause();
+                        pause();
+                        ((NotificationManager) getSystemService(NOTIFICATION_SERVICE)).cancel(Setings.NOTIFY_ID);
                     }
                 }else if(NotificationUtil.mes_type_xmly.equals(type)){
-                    if (action.equals(action_start)) {
+                    if (action.equals(action_restart)) {
                         xmly_play(title);
                     }else if(action.equals(action_pause)) {
                         xmly_pause(title);
@@ -222,8 +237,8 @@ public class PlayerService extends Service {
 
     public void xmly_pause(String title){
         XmPlayerManager.getInstance(this).pause();
-        NotificationUtil.showNotification(this,action_start,title, NotificationUtil.mes_type_xmly);
-        NotificationUtil.sendBroadcast(this,action_start);
+        NotificationUtil.showNotification(this, action_restart,title, NotificationUtil.mes_type_xmly);
+        NotificationUtil.sendBroadcast(this, action_restart);
     }
 
     public boolean isSameMp3(Reading song){
@@ -260,12 +275,16 @@ public class PlayerService extends Service {
 
     public void pause(){
         if(song != null && mExoPlayer != null){
-            PlayerStatus = 2;
-            mExoPlayer.setPlayWhenReady(false);
-            NotificationUtil.showNotification(this,action_start,song.getTitle(),
+            setPause();
+            NotificationUtil.showNotification(this, action_restart,song.getTitle(),
                     NotificationUtil.mes_type_zyhy);
         }
-        NotificationUtil.sendBroadcast(this,action_start);
+        NotificationUtil.sendBroadcast(this, action_restart);
+    }
+
+    public void setPause(){
+        PlayerStatus = 2;
+        mExoPlayer.setPlayWhenReady(false);
     }
 
     public void restart(){
@@ -324,9 +343,9 @@ public class PlayerService extends Service {
                 case Player.STATE_ENDED:
                     LogUtil.DefalutLog("STATE_ENDED:"+playWhenReady);
                     PlayerStatus = 0;
-                    NotificationUtil.showNotification(PlayerService.this,action_start,song.getTitle(),
+                    NotificationUtil.showNotification(PlayerService.this, action_restart,song.getTitle(),
                             NotificationUtil.mes_type_zyhy);
-                    NotificationUtil.sendBroadcast(PlayerService.this,action_start);
+                    NotificationUtil.sendBroadcast(PlayerService.this, action_restart);
                     if(isPlayList){
                         initPlayList(list,currentPosition);
                     }else {
@@ -402,7 +421,7 @@ public class PlayerService extends Service {
 
         @Override
         public void onPlayStop() {
-            NotificationUtil.sendBroadcast(PlayerService.this,action_start);
+            NotificationUtil.sendBroadcast(PlayerService.this, action_restart);
         }
 
         @Override
@@ -449,6 +468,21 @@ public class PlayerService extends Service {
         public boolean onError(XmPlayerException e) {
             return false;
         }
+    }
+
+    public static void initAndPlay(Context mContext, Reading data){
+        Intent intent = new Intent(mContext, PlayerService.class);
+        intent.setAction(action_start);
+        intent.putExtra(MesType,NotificationUtil.mes_type_zyhy);
+        intent.putExtra(KeyUtil.Data,data);
+        mContext.startService(intent);
+    }
+
+    public static void actionPause(Context mContext){
+        Intent intent = new Intent(mContext, PlayerService.class);
+        intent.putExtra(MesType,NotificationUtil.mes_type_zyhy);
+        intent.setAction(action_pause);
+        mContext.startService(intent);
     }
 
 }

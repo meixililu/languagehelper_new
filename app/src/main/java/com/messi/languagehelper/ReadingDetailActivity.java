@@ -26,7 +26,6 @@ import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TextHandlerUtil;
 import com.messi.languagehelper.util.TimeUtil;
@@ -128,7 +127,7 @@ public class ReadingDetailActivity extends BaseActivity implements SeekBar.OnSee
             mLeisureModel.showAd();
         }
         if(Setings.MPlayerIsSameMp3(mAVObject)){
-            if(Setings.musicSrv.PlayerStatus == 1) {
+            if(PlayerService.musicSrv.PlayerStatus == 1) {
                 btn_play.setImageResource(R.drawable.ic_pause_circle_outline);
                 handler.postDelayed(mRunnable,300);
             }
@@ -144,11 +143,9 @@ public class ReadingDetailActivity extends BaseActivity implements SeekBar.OnSee
     }
 
     private void setSeekbarAndText(){
-        if(Setings.musicSrv != null){
-            int currentPosition = Setings.musicSrv.getCurrentPosition();
-            int mDuration = Setings.musicSrv.getDuration();
-            LogUtil.DefalutLog("ContentPosition:"+currentPosition);
-            LogUtil.DefalutLog("Duration:"+mDuration);
+        if(PlayerService.musicSrv != null){
+            int currentPosition = PlayerService.musicSrv.getCurrentPosition();
+            int mDuration = PlayerService.musicSrv.getDuration();
             if(mDuration > 0){
                 seekbar.setMax(mDuration);
                 time_duration.setText(TimeUtil.getDuration(mDuration / 1000));
@@ -218,15 +215,15 @@ public class ReadingDetailActivity extends BaseActivity implements SeekBar.OnSee
 
     @OnClick(R.id.btn_play)
     public void onClick() {
-        if (Setings.musicSrv != null) {
-            Setings.musicSrv.initAndPlay(mAVObject);
+        if (PlayerService.musicSrv != null) {
+            PlayerService.musicSrv.initAndPlay(mAVObject);
         }
     }
 
     @Override
     public void updateUI(String music_action) {
         if(Setings.MPlayerIsSameMp3(mAVObject)){
-            if(PlayerService.action_start.equals(music_action)){
+            if(PlayerService.action_restart.equals(music_action)){
                 btn_play.setImageResource(R.drawable.ic_play_circle_outline);
                 handler.removeCallbacks(mRunnable);
             }else if (PlayerService.action_pause.equals(music_action)) {

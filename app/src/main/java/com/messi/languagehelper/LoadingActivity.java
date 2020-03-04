@@ -58,7 +58,6 @@ public class LoadingActivity extends AppCompatActivity {
 
             EventBus.getDefault().register(this);
             AppUpdateUtil.runCheckUpdateTask(this);
-//            ADUtil.IsShowAD = false;
             init();
         } catch (Exception e) {
             onException();
