@@ -54,16 +54,15 @@
                             />
                         <FrameLayout
                             android:id="@+id/back_btn"
-                            android:layout_width="80dp"
-                            android:layout_height="80dp">
+                            android:layout_width="70dp"
+                            android:layout_height="60dp">
                             <ImageView
                                 android:layout_width="25dp"
                                 android:layout_height="25dp"
                                 android:layout_gravity="bottom|right"
                                 android:layout_marginRight="@dimen/padding_30"
                                 android:layout_marginBottom="@dimen/padding_20"
-                                android:layout_marginTop="@dimen/padding_30"
-                                android:layout_marginLeft="@dimen/padding_20"
+                                android:layout_marginLeft="@dimen/padding_10"
                                 android:src="@drawable/ic_arrow_back"
                                 />
                         </FrameLayout>
@@ -77,7 +76,7 @@
                         android:background="@color/white"
                         android:layout_marginLeft="30dp"
                         android:layout_marginRight="30dp"
-                        android:layout_marginTop="80dp"
+                        android:layout_marginTop="60dp"
                         android:padding="@dimen/padding_5"
                         android:orientation="vertical"
                         android:visibility="gone"

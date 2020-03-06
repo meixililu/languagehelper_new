@@ -83,13 +83,16 @@ public class NotificationUtil {
         contentView.setOnClickPendingIntent(R.id.notifi_close, pIntentClose);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext,type);
+        if(img_id == R.drawable.ic_play_grey){
+            builder.setAutoCancel(true);
+        }else {
+            builder.setOngoing(true);
+        }
         Notification notification = builder
                 .setContentIntent(pendInt)
                 .setSmallIcon(R.mipmap.ic_launcher)
-                .setOngoing(true)
                 .setContent(contentView)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-//                .setAutoCancel(true)
                 .build();
         manager.notify(Setings.NOTIFY_ID, notification);
     }

@@ -121,8 +121,15 @@ public class PlayerService extends Service {
         XmPlayerManager.getInstance(this).addPlayerStatusListener(mMyIXmPlayerStatusListener);
     }
 
+    private void stopXMLYPlayer(){
+        if(XmPlayerManager.getInstance(this).isPlaying()){
+            XmPlayerManager.getInstance(this).pause();
+        }
+    }
+
     public void initPlayList(List<Reading> list,int position){
         LogUtil.DefalutLog("position:"+position+"---list:"+list.size());
+        stopXMLYPlayer();
         isPlayList = true;
         this.list = list;
         currentPosition = position;
@@ -145,6 +152,7 @@ public class PlayerService extends Service {
     }
 
     public void initAndPlay(Reading song){
+        stopXMLYPlayer();
         if (song != null) {
             if(isSameMp3(song)){
                 playOrPause();
@@ -159,9 +167,6 @@ public class PlayerService extends Service {
     }
 
     private void startToPlay(Reading song){
-        if(XmPlayerManager.getInstance(this).isPlaying()){
-            XmPlayerManager.getInstance(this).pause();
-        }
         if(!isSameMp3(song)){
             startExoplayer(song);;
         }else {

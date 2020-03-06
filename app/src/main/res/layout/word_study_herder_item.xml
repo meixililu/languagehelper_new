@@ -48,7 +48,7 @@
         android:layout_above="@id/arc_progress"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/padding_10"
-        android:text="四级"
+        android:text=""
         android:textColor="@color/theme_color"
         android:textSize="@dimen/big" />
 

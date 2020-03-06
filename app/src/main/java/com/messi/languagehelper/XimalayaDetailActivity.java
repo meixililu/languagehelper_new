@@ -322,7 +322,7 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
 
     @Override
     public void onPlayProgress(int currPos, int duration) {
-        LogUtil.DefalutLog("currPos:" + currPos + "---duration:" + duration);
+//        LogUtil.DefalutLog("currPos:" + currPos + "---duration:" + duration);
         playTimeCurrent.setText(TimeUtil.getDuration(currPos / 1000));
         seekbar.setProgress(currPos);
     }
