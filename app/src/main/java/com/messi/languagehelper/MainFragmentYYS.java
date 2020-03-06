@@ -352,7 +352,7 @@ public class MainFragmentYYS extends BaseFragment implements OnClickListener, Or
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        LogUtil.DefalutLog("MainFragment-setUserVisibleHint");
+        LogUtil.DefalutLog("MainFragmentYYS-setUserVisibleHint");
         if (isVisibleToUser) {
             refresh();
         }
@@ -360,23 +360,7 @@ public class MainFragmentYYS extends BaseFragment implements OnClickListener, Or
 
     private void refresh() {
         if (getContext() != null && mMainTabTran != null) {
-            refreshFragment();
-        }
-    }
-
-    private void refreshFragment(){
-        switch (currentTabIndex){
-            case 0:
-                mMainTabTran.refresh();
-                break;
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
+            mMainTabTran.refresh();
         }
     }
 

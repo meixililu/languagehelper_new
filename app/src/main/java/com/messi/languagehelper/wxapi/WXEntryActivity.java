@@ -141,9 +141,9 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 	@Override
 	public void onStart() {
 		super.onStart();
+		LogUtil.DefalutLog("WXEntryActivity---onStart");
 		startMusicPlayerService();
 		isNeedShowAD();
-		LogUtil.DefalutLog("WXEntryActivity---onStart");
 	}
 
 	public void isNeedShowAD(){

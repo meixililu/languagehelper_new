@@ -67,6 +67,9 @@ public class DataUtil {
             if(item.has(AVOUtil.Reading.category)){
                 mReading.setCategory(item.getString(AVOUtil.Reading.category));
             }
+            if(item.has(AVOUtil.Reading.category_2)){
+                mReading.setCategory_2(item.getString(AVOUtil.Reading.category_2));
+            }
             if(item.has(AVOUtil.Reading.content)){
                 mReading.setContent(item.getString(AVOUtil.Reading.content));
             }

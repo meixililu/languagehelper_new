@@ -15,6 +15,7 @@ import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Record;
 import com.messi.languagehelper.databinding.MainTabTranBinding;
 import com.messi.languagehelper.event.FinishEvent;
+import com.messi.languagehelper.event.TranAndDicRefreshEvent;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -29,6 +30,8 @@ import com.messi.languagehelper.views.DividerItemDecoration;
 import com.youdao.sdk.ydtranslate.Translate;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +53,7 @@ public class MainTabTran extends BaseFragment {
     private String lastSearch;
     private int skip;
     private boolean noMoreData;
+    private boolean isNeedRefresh;
     private View view;
     private MainTabTranBinding binding;
 
@@ -73,6 +77,7 @@ public class MainTabTran extends BaseFragment {
     }
 
     private void init(View view) {
+        isRegisterBus = true;
         beans = new ArrayList<Record>();
         loadData();
         boolean IsHasShowBaiduMessage = PlayUtil.getSP().getBoolean(KeyUtil.IsHasShowBaiduMessage, false);
@@ -125,14 +130,6 @@ public class MainTabTran extends BaseFragment {
         Record sampleBean = new Record("Click the mic to speak", "点击话筒说话");
         BoxHelper.insert(sampleBean);
         beans.add(0, sampleBean);
-    }
-
-    public void refresh() {
-        if (Setings.isMainFragmentNeedRefresh) {
-            Setings.isMainFragmentNeedRefresh = false;
-            reloadData();
-        }
-
     }
 
     private void translateController(){
@@ -265,44 +262,23 @@ public class MainTabTran extends BaseFragment {
         translateController();
     }
 
+    public void refresh() {
+        if (isNeedRefresh && mAdapter != null) {
+            mAdapter.notifyDataSetChanged();
+            isNeedRefresh = false;
+        }
+    }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
+    @Subscribe(threadMode = ThreadMode.BACKGROUND)
+    public void onEvent(TranAndDicRefreshEvent event){
+        reloadData();
+        LogUtil.DefalutLog("---TranAndDicRefreshEvent---onEvent");
     }
 
     private void reloadData() {
-        showProgressbar();
-        Observable.create(new ObservableOnSubscribe<String>() {
-            @Override
-            public void subscribe(ObservableEmitter<String> e) throws Exception {
-                beans.clear();
-                beans.addAll(BoxHelper.getRecordList(0, Setings.RecordOffset));
-                e.onComplete();
-            }
-        })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<String>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                    }
-
-                    @Override
-                    public void onNext(String s) {
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        hideProgressbar();
-                        mAdapter.notifyDataSetChanged();
-                    }
-                });
-
+        isNeedRefresh = true;
+        beans.clear();
+        beans.addAll(BoxHelper.getRecordList(0, Setings.RecordOffset));
     }
 
     private void delayAutoPlay(){

@@ -73,71 +73,74 @@ public final class Reading_ implements EntityInfo<Reading> {
     public final static io.objectbox.Property<Reading> category =
         new io.objectbox.Property<>(__INSTANCE, 13, 14, String.class, "category");
 
+    public final static io.objectbox.Property<Reading> category_2 =
+        new io.objectbox.Property<>(__INSTANCE, 14, 37, String.class, "category_2");
+
     public final static io.objectbox.Property<Reading> type_id =
-        new io.objectbox.Property<>(__INSTANCE, 14, 15, String.class, "type_id");
+        new io.objectbox.Property<>(__INSTANCE, 15, 15, String.class, "type_id");
 
     public final static io.objectbox.Property<Reading> level =
-        new io.objectbox.Property<>(__INSTANCE, 15, 16, String.class, "level");
+        new io.objectbox.Property<>(__INSTANCE, 16, 16, String.class, "level");
 
     public final static io.objectbox.Property<Reading> content_type =
-        new io.objectbox.Property<>(__INSTANCE, 16, 17, String.class, "content_type");
+        new io.objectbox.Property<>(__INSTANCE, 17, 17, String.class, "content_type");
 
     public final static io.objectbox.Property<Reading> img_urls =
-        new io.objectbox.Property<>(__INSTANCE, 17, 18, String.class, "img_urls");
+        new io.objectbox.Property<>(__INSTANCE, 18, 18, String.class, "img_urls");
 
     public final static io.objectbox.Property<Reading> status =
-        new io.objectbox.Property<>(__INSTANCE, 18, 19, String.class, "status");
+        new io.objectbox.Property<>(__INSTANCE, 19, 19, String.class, "status");
 
     public final static io.objectbox.Property<Reading> vid =
-        new io.objectbox.Property<>(__INSTANCE, 19, 35, String.class, "vid");
+        new io.objectbox.Property<>(__INSTANCE, 20, 35, String.class, "vid");
 
     public final static io.objectbox.Property<Reading> isCollected =
-        new io.objectbox.Property<>(__INSTANCE, 20, 20, String.class, "isCollected");
+        new io.objectbox.Property<>(__INSTANCE, 21, 20, String.class, "isCollected");
 
     public final static io.objectbox.Property<Reading> boutique_code =
-        new io.objectbox.Property<>(__INSTANCE, 21, 36, String.class, "boutique_code");
+        new io.objectbox.Property<>(__INSTANCE, 22, 36, String.class, "boutique_code");
 
     public final static io.objectbox.Property<Reading> collected_time =
-        new io.objectbox.Property<>(__INSTANCE, 22, 21, long.class, "collected_time");
+        new io.objectbox.Property<>(__INSTANCE, 23, 21, long.class, "collected_time");
 
     public final static io.objectbox.Property<Reading> isReadLater =
-        new io.objectbox.Property<>(__INSTANCE, 23, 22, String.class, "isReadLater");
+        new io.objectbox.Property<>(__INSTANCE, 24, 22, String.class, "isReadLater");
 
     public final static io.objectbox.Property<Reading> read_later_time =
-        new io.objectbox.Property<>(__INSTANCE, 24, 23, long.class, "read_later_time");
+        new io.objectbox.Property<>(__INSTANCE, 25, 23, long.class, "read_later_time");
 
     public final static io.objectbox.Property<Reading> like =
-        new io.objectbox.Property<>(__INSTANCE, 25, 24, int.class, "like");
+        new io.objectbox.Property<>(__INSTANCE, 26, 24, int.class, "like");
 
     public final static io.objectbox.Property<Reading> unlike =
-        new io.objectbox.Property<>(__INSTANCE, 26, 25, int.class, "unlike");
+        new io.objectbox.Property<>(__INSTANCE, 27, 25, int.class, "unlike");
 
     public final static io.objectbox.Property<Reading> comments =
-        new io.objectbox.Property<>(__INSTANCE, 27, 26, int.class, "comments");
+        new io.objectbox.Property<>(__INSTANCE, 28, 26, int.class, "comments");
 
     public final static io.objectbox.Property<Reading> readed =
-        new io.objectbox.Property<>(__INSTANCE, 28, 27, int.class, "readed");
+        new io.objectbox.Property<>(__INSTANCE, 29, 27, int.class, "readed");
 
     public final static io.objectbox.Property<Reading> lrc_url =
-        new io.objectbox.Property<>(__INSTANCE, 29, 28, String.class, "lrc_url");
+        new io.objectbox.Property<>(__INSTANCE, 30, 28, String.class, "lrc_url");
 
     public final static io.objectbox.Property<Reading> backup1 =
-        new io.objectbox.Property<>(__INSTANCE, 30, 29, String.class, "backup1");
+        new io.objectbox.Property<>(__INSTANCE, 31, 29, String.class, "backup1");
 
     public final static io.objectbox.Property<Reading> backup2 =
-        new io.objectbox.Property<>(__INSTANCE, 31, 30, String.class, "backup2");
+        new io.objectbox.Property<>(__INSTANCE, 32, 30, String.class, "backup2");
 
     public final static io.objectbox.Property<Reading> backup3 =
-        new io.objectbox.Property<>(__INSTANCE, 32, 31, String.class, "backup3");
+        new io.objectbox.Property<>(__INSTANCE, 33, 31, String.class, "backup3");
 
     public final static io.objectbox.Property<Reading> backup4 =
-        new io.objectbox.Property<>(__INSTANCE, 33, 32, String.class, "backup4");
+        new io.objectbox.Property<>(__INSTANCE, 34, 32, String.class, "backup4");
 
     public final static io.objectbox.Property<Reading> backup5 =
-        new io.objectbox.Property<>(__INSTANCE, 34, 33, String.class, "backup5");
+        new io.objectbox.Property<>(__INSTANCE, 35, 33, String.class, "backup5");
 
     public final static io.objectbox.Property<Reading> img_color =
-        new io.objectbox.Property<>(__INSTANCE, 35, 34, int.class, "img_color");
+        new io.objectbox.Property<>(__INSTANCE, 36, 34, int.class, "img_color");
 
     @SuppressWarnings("unchecked")
     public final static io.objectbox.Property<Reading>[] __ALL_PROPERTIES = new io.objectbox.Property[]{
@@ -155,6 +158,7 @@ public final class Reading_ implements EntityInfo<Reading> {
         img_url,
         type,
         category,
+        category_2,
         type_id,
         level,
         content_type,

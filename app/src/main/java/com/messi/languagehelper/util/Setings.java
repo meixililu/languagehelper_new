@@ -161,13 +161,6 @@ public class Setings {
 
 	public static final String NovelShort = "https://lnovel.cc/";
 
-	public static final String NPR_Url = "https://www.npr.org/";
-	public static final String AmericanLife_Url = "https://www.thisamericanlife.org/";
-
-	//应用静态常量：
-	public static boolean isMainFragmentNeedRefresh;
-	public static boolean isDictionaryFragmentNeedRefresh;
-
 	public static String XMLYAppAppKey = "a167180a30ec21d09c1c78ccacdf5d43";
 	public static String XMLYAppSecret = "c779eeb1873325a487e2956a2077f2bc";
 	public static final String TTParseClientSecretKey = "95077da2aa9ade5058a41cd5bf96d9f8";

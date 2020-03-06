@@ -35,6 +35,7 @@ public class Reading implements Parcelable {
     private String img_url;
     private String type;
     private String category;
+    private String category_2;
     private String type_id;
     private String level;
     private String content_type;
@@ -402,6 +403,14 @@ public class Reading implements Parcelable {
         this.vid = vid;
     }
 
+    public String getCategory_2() {
+        return category_2;
+    }
+
+    public void setCategory_2(String category_2) {
+        this.category_2 = category_2;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -423,6 +432,7 @@ public class Reading implements Parcelable {
         dest.writeString(this.img_url);
         dest.writeString(this.type);
         dest.writeString(this.category);
+        dest.writeString(this.category_2);
         dest.writeString(this.type_id);
         dest.writeString(this.level);
         dest.writeString(this.content_type);
@@ -470,6 +480,7 @@ public class Reading implements Parcelable {
         this.img_url = in.readString();
         this.type = in.readString();
         this.category = in.readString();
+        this.category_2 = in.readString();
         this.type_id = in.readString();
         this.level = in.readString();
         this.content_type = in.readString();

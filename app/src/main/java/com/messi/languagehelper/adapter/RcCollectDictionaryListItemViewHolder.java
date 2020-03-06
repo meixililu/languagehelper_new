@@ -18,6 +18,7 @@ import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Dictionary;
+import com.messi.languagehelper.event.TranAndDicRefreshEvent;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AudioTrackUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -25,6 +26,8 @@ import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
@@ -125,7 +128,7 @@ public class RcCollectDictionaryListItemViewHolder extends RecyclerView.ViewHold
             Dictionary mBean = mBeans.remove(position);
             mAdapter.notifyItemRemoved(position);
             BoxHelper.remove(mBean);
-            Setings.isDictionaryFragmentNeedRefresh = true;
+            EventBus.getDefault().post(new TranAndDicRefreshEvent());
             ToastUtil.diaplayMesShort(context, context.getResources().getString(R.string.dele_success));
             AVAnalytics.onEvent(context, "tab2_delete_btn");
         } catch (Exception e) {
@@ -138,7 +141,7 @@ public class RcCollectDictionaryListItemViewHolder extends RecyclerView.ViewHold
         mAdapter.notifyItemRemoved(position);
         mBean.setIscollected("0");
         BoxHelper.update(mBean);
-        Setings.isDictionaryFragmentNeedRefresh = true;
+        EventBus.getDefault().post(new TranAndDicRefreshEvent());
         ToastUtil.diaplayMesShort(context, context.getResources().getString(R.string.favorite_cancle));
     }
 

@@ -21,6 +21,7 @@ import com.messi.languagehelper.PracticeActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Record;
+import com.messi.languagehelper.event.TranAndDicRefreshEvent;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AudioTrackUtil;
 import com.messi.languagehelper.util.KeyUtil;
@@ -29,6 +30,8 @@ import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
@@ -155,7 +158,7 @@ public class RcCollectTranslateLiatItemViewHolder extends RecyclerView.ViewHolde
             Record mBean = beans.remove(position);
             mAdapter.notifyItemRemoved(position);
             BoxHelper.remove(mBean);
-            Setings.isMainFragmentNeedRefresh = true;
+            EventBus.getDefault().post(new TranAndDicRefreshEvent());
             ToastUtil.diaplayMesShort(context, context.getResources().getString(R.string.dele_success));
             AVAnalytics.onEvent(context, "collect_tran_delete");
         } catch (Exception e) {
@@ -168,7 +171,7 @@ public class RcCollectTranslateLiatItemViewHolder extends RecyclerView.ViewHolde
         mAdapter.notifyItemRemoved(position);
         mBean.setIscollected("0");
         BoxHelper.update(mBean);
-        Setings.isMainFragmentNeedRefresh = true;
+        EventBus.getDefault().post(new TranAndDicRefreshEvent());
         ToastUtil.diaplayMesShort(context, context.getResources().getString(R.string.favorite_cancle));
     }
 

@@ -11,11 +11,14 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.event.TranAndDicRefreshEvent;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
+
+import org.greenrobot.eventbus.EventBus;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -91,16 +94,14 @@ public class SettingActivity extends BaseActivity implements SeekBar.OnSeekBarCh
                 AVAnalytics.onEvent(this, "setting_pg_auto_play");
                 break;
             case R.id.setting_clear_all_except_favorite:
-                Setings.isMainFragmentNeedRefresh = true;
-                Setings.isDictionaryFragmentNeedRefresh = true;
                 BoxHelper.clearExceptFavorite();
+                EventBus.getDefault().post(new TranAndDicRefreshEvent());
                 ToastUtil.diaplayMesShort(SettingActivity.this, this.getResources().getString(R.string.clear_success));
                 AVAnalytics.onEvent(this, "setting_pg_clear_all_except");
                 break;
             case R.id.setting_clear_all:
                 BoxHelper.clearAllData();
-                Setings.isMainFragmentNeedRefresh = true;
-                Setings.isDictionaryFragmentNeedRefresh = true;
+                EventBus.getDefault().post(new TranAndDicRefreshEvent());
                 SDCardUtil.deleteOldFile();
                 ToastUtil.diaplayMesShort(SettingActivity.this, this.getResources().getString(R.string.clear_success));
                 AVAnalytics.onEvent(this, "setting_pg_clear_all");

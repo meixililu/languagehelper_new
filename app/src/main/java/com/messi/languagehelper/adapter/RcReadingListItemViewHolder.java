@@ -197,7 +197,8 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
                         @Override
                         public void onClick(View view) {
                             if(isPlayList){
-                                PlayerService.musicSrv.initPlayList(avObjects,avObjects.indexOf(mAVObject));
+                                PlayerService.musicSrv.initPlayList(avObjects,
+                                        avObjects.indexOf(mAVObject));
                             }else {
                                 PlayerService.musicSrv.initAndPlay(mAVObject);
                             }

@@ -143,7 +143,7 @@ public class ReadingDetailActivity extends BaseActivity implements SeekBar.OnSee
     }
 
     private void setSeekbarAndText(){
-        if(PlayerService.musicSrv != null){
+        if(Setings.MPlayerIsSameMp3(mAVObject)){
             int currentPosition = PlayerService.musicSrv.getCurrentPosition();
             int mDuration = PlayerService.musicSrv.getDuration();
             if(mDuration > 0){

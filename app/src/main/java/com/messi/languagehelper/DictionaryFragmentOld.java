@@ -19,6 +19,7 @@ import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Dictionary;
 import com.messi.languagehelper.event.FinishEvent;
 import com.messi.languagehelper.event.ProgressEvent;
+import com.messi.languagehelper.event.TranAndDicRefreshEvent;
 import com.messi.languagehelper.impl.DicHelperListener;
 import com.messi.languagehelper.impl.DictionaryTranslateListener;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
@@ -72,6 +73,7 @@ public class DictionaryFragmentOld extends BaseFragment implements
     private LinearLayoutManager mLinearLayoutManager;
     private int skip;
     private boolean noMoreData;
+    private boolean isNeedRefresh;
     private View view;
 
     private Handler mHandler = new Handler() {
@@ -149,13 +151,6 @@ public class DictionaryFragmentOld extends BaseFragment implements
             }
         }else {
             noMoreData = true;
-        }
-    }
-
-    public void refresh() {
-        if (Setings.isDictionaryFragmentNeedRefresh) {
-            Setings.isDictionaryFragmentNeedRefresh = false;
-            reloadData();
         }
     }
 
@@ -285,12 +280,23 @@ public class DictionaryFragmentOld extends BaseFragment implements
         setBean();
     }
 
+    public void refresh() {
+        if (isNeedRefresh && mAdapter != null) {
+            mAdapter.notifyDataSetChanged();
+            isNeedRefresh = false;
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.BACKGROUND)
+    public void onEvent(TranAndDicRefreshEvent event){
+        reloadData();
+        LogUtil.DefalutLog("---DictionaryFragmentOld---onEvent");
+    }
+
     private void reloadData() {
-        showProgressbar();
+        isNeedRefresh = true;
         beans.clear();
         beans.addAll(BoxHelper.getDictionaryList(0, Setings.RecordOffset));
-        hideProgressbar();
-        mAdapter.notifyDataSetChanged();
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -364,10 +370,5 @@ public class DictionaryFragmentOld extends BaseFragment implements
                     public void onEvent(int arg0, int arg1, int arg2, Bundle arg3) {
                     }
                 });
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
     }
 }

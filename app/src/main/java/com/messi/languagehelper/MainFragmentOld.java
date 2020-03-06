@@ -339,38 +339,23 @@ public class MainFragmentOld extends BaseFragment implements OnClickListener, Or
     @Override
     public void onResume() {
         super.onResume();
+        LogUtil.DefalutLog("MainFragmentOld-onResume");
         refresh();
     }
 
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        LogUtil.DefalutLog("MainFragment-setUserVisibleHint");
+        LogUtil.DefalutLog("MainFragmentOld-setUserVisibleHint");
         if (isVisibleToUser) {
             refresh();
         }
     }
 
     private void refresh() {
-        if (getContext() != null && mMainTabTran != null) {
-            refreshFragment();
-        }
-    }
-
-    private void refreshFragment(){
-        switch (currentTabIndex){
-            case 0:
-                mMainTabTran.refresh();
-                break;
-            case 1:
-                mDictionaryFragmentOld.refresh();
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
+        if (getContext() != null && mMainTabTran != null && mDictionaryFragmentOld != null) {
+            mMainTabTran.refresh();
+            mDictionaryFragmentOld.refresh();
         }
     }
 

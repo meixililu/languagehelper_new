@@ -13,6 +13,7 @@ import com.messi.languagehelper.adapter.RcTranZhYueListAdapter;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.TranResultZhYue;
 import com.messi.languagehelper.event.FinishEvent;
+import com.messi.languagehelper.event.TranAndDicRefreshEvent;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.impl.OnTranZhYueFinishListener;
 import com.messi.languagehelper.util.KeyUtil;
@@ -26,17 +27,11 @@ import com.messi.languagehelper.util.TranslateUtil;
 import com.messi.languagehelper.views.DividerItemDecoration;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
 
 public class MainTabTranZhYue extends BaseFragment {
 
@@ -48,6 +43,7 @@ public class MainTabTranZhYue extends BaseFragment {
     private String lastSearch;
     private int skip;
     private boolean noMoreData;
+    private boolean isNeedRefresh;
 
     public static MainTabTranZhYue getInstance(FragmentProgressbarListener listener) {
         MainTabTranZhYue mMainFragment = new MainTabTranZhYue();
@@ -57,27 +53,11 @@ public class MainTabTranZhYue extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        super.onCreateView(inflater,container,savedInstanceState);
         View view = inflater.inflate(R.layout.main_tab_tran, null);
         LogUtil.DefalutLog("MainTabTranZhYue-onCreateView");
-        initLowVersionData();
         init(view);
         return view;
-    }
-
-    private void initLowVersionData(){
-//        TranResultZhYue mResult = new TranResultZhYue();
-//        mResult.setChinese(bean.getChinese());
-//        mResult.setEnglish(bean.getEnglish());
-//        mResult.setIscollected(bean.getIscollected());
-//        mResult.setQuestionAudioPath(bean.getQuestionAudioPath());
-//        mResult.setQuestionVoiceId(bean.getQuestionVoiceId());
-//        mResult.setResultAudioPath(bean.getResultAudioPath());
-//        mResult.setResultVoiceId(bean.getResultVoiceId());
-//        mResult.setSpeak_speed(bean.getSpeak_speed());
-//        mResult.setVisit_times(bean.getVisit_times());
-//        mResult.setBackup1(bean.getBackup1());
-//        mResult.setBackup2(bean.getBackup2());
-//        mResult.setBackup3(bean.getBackup3());
     }
 
     private void init(View view) {
@@ -196,14 +176,6 @@ public class MainTabTranZhYue extends BaseFragment {
         });
     }
 
-    public void refresh() {
-        if (Setings.isMainFragmentNeedRefresh) {
-            Setings.isMainFragmentNeedRefresh = false;
-            reloadData();
-        }
-
-    }
-
     /**
      * toast message
      * @param toastString
@@ -219,44 +191,23 @@ public class MainTabTranZhYue extends BaseFragment {
         translateController();
     }
 
+    public void refresh() {
+        if (isNeedRefresh && mAdapter != null) {
+            mAdapter.notifyDataSetChanged();
+            isNeedRefresh = false;
+        }
+    }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
+    @Subscribe(threadMode = ThreadMode.BACKGROUND)
+    public void onEvent(TranAndDicRefreshEvent event){
+        reloadData();
+        LogUtil.DefalutLog("---TranAndDicRefreshEvent---onEvent");
     }
 
     private void reloadData() {
-        showProgressbar();
-        Observable.create(new ObservableOnSubscribe<String>() {
-            @Override
-            public void subscribe(ObservableEmitter<String> e) throws Exception {
-                beans.clear();
-                beans.addAll(BoxHelper.getTranResultZhYueList(0, Setings.RecordOffset));
-                e.onComplete();
-            }
-        })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<String>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                    }
-
-                    @Override
-                    public void onNext(String s) {
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        hideProgressbar();
-                        mAdapter.notifyDataSetChanged();
-                    }
-                });
-
+        isNeedRefresh = true;
+        beans.clear();
+        beans.addAll(BoxHelper.getTranResultZhYueList(0, Setings.RecordOffset));
     }
 
     private void delayAutoPlay(){
