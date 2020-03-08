@@ -4,7 +4,7 @@ import android.util.Log;
 
 public class LogUtil {
 	
-	public static boolean DEBUG = true;
+	public static boolean DEBUG = false;
 	
 	/**默认log，TAG�?SafeLottery
 	 * @param logContent
