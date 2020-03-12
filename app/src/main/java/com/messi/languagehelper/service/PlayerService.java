@@ -7,10 +7,10 @@ import android.content.Intent;
 import android.media.AudioManager;
 import android.net.Uri;
 import android.net.wifi.WifiManager;
-import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.os.RemoteException;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
@@ -32,6 +32,7 @@ import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
+import com.messi.languagehelper.aidl.IXBPlayer;
 import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.DataUtil;
@@ -52,7 +53,6 @@ import java.util.List;
 
 import static com.google.android.exoplayer2.C.CONTENT_TYPE_MUSIC;
 import static com.google.android.exoplayer2.C.USAGE_MEDIA;
-import static com.messi.languagehelper.util.KeyUtil.MesType;
 import static com.messi.languagehelper.util.KeyUtil.NotificationTitle;
 
 /**
@@ -70,7 +70,6 @@ public class PlayerService extends Service {
     public static final String action_previous = "com.messi.languagehelper.music.previous";
     public static final String action_close = "com.messi.languagehelper.music.close";
 
-    public static PlayerService musicSrv;
     private AudioManager mAudioManager;
     private WifiManager.WifiLock mWifiLock;
     private SimpleExoPlayer mExoPlayer;
@@ -82,15 +81,61 @@ public class PlayerService extends Service {
     private List<Reading> list;
     private long lastLoadDataTime;
     private int currentPosition;
-    private final IBinder musicBind = new MusicBinder();
     private ExoPlayerEventListener mEventListener = new ExoPlayerEventListener();
     private MyIXmPlayerStatusListener mMyIXmPlayerStatusListener = new MyIXmPlayerStatusListener();
 
-    public class MusicBinder extends Binder {
-        public PlayerService getService() {
-            return PlayerService.this;
+    public IBinder musicBind = new IXBPlayer.Stub(){
+
+        @Override
+        public void initAndPlay(Reading data) throws RemoteException {
+            PlayerService.this.initAndPlay(data);
         }
-    }
+
+        @Override
+        public void initPlayList(List<Reading> list, int position) throws RemoteException {
+            PlayerService.this.initPlayList(list,position);
+        }
+
+        @Override
+        public int getPlayStatus() throws RemoteException {
+            return PlayerStatus;
+        }
+
+        @Override
+        public int getCurrentPosition() throws RemoteException {
+            return getCPosition();
+        }
+
+        @Override
+        public int getDuration() throws RemoteException {
+            return getDurationNum();
+        }
+
+        @Override
+        public boolean MPlayerIsPlaying() throws RemoteException {
+            return isPlaying();
+        }
+
+        @Override
+        public void MPlayerPause() throws RemoteException {
+            pause();
+        }
+
+        @Override
+        public void MPlayerRestart() throws RemoteException {
+            restart();
+        }
+
+        @Override
+        public void MPlayerSeekTo(int position) throws RemoteException {
+            seekTo(position);
+        }
+
+        @Override
+        public boolean MPlayerIsSameMp3(String oid) throws RemoteException {
+            return isSameMp3(oid);
+        }
+    };
 
     private Handler mHandler = new Handler() {
         @Override
@@ -109,7 +154,6 @@ public class PlayerService extends Service {
     public void onCreate() {
         super.onCreate();
         LogUtil.DefalutLog("PlayerService---onCreate---");
-        PlayerService.musicSrv = this;
         initExoplayer();
     }
 
@@ -152,6 +196,7 @@ public class PlayerService extends Service {
     }
 
     public void initAndPlay(Reading song){
+        LogUtil.DefalutLog("initAndPlay---Reading:"+song);
         stopXMLYPlayer();
         if (song != null) {
             if(isSameMp3(song)){
@@ -216,7 +261,7 @@ public class PlayerService extends Service {
         LogUtil.DefalutLog("PlayerService---onStartCommand---");
         if (intent != null) {
             String action = intent.getAction();
-            String type = intent.getStringExtra(MesType);
+            String type = intent.getStringExtra(KeyUtil.MesType);
             String title = intent.getStringExtra(NotificationTitle);
             LogUtil.DefalutLog("onStartCommand:"+action+"---MesType:"+type);
             if (!TextUtils.isEmpty(action)) {
@@ -224,8 +269,7 @@ public class PlayerService extends Service {
                     if (action.equals(action_restart)) {
                         restart();
                     }else if(action.equals(action_start)) {
-                        Reading mReading = intent.getParcelableExtra("data");
-                        initAndPlay(mReading);
+
                     }else if(action.equals(action_pause)) {
                         pause();
                     }else if(action.equals(action_next)) {
@@ -267,6 +311,10 @@ public class PlayerService extends Service {
 
     public boolean isSameMp3(Reading song){
         return lastSongId.equals(song.getObject_id());
+    }
+
+    public boolean isSameMp3(String oid){
+        return lastSongId.equals(oid);
     }
 
     @Nullable
@@ -393,14 +441,14 @@ public class PlayerService extends Service {
         }
     }
 
-    public int getCurrentPosition(){
+    public int getCPosition(){
         if(mExoPlayer != null){
             return (int)mExoPlayer.getContentPosition();
         }
         return 0;
     }
 
-    public int getDuration(){
+    public int getDurationNum(){
         if(mExoPlayer != null){
             return (int)mExoPlayer.getDuration();
         }
@@ -474,21 +522,6 @@ public class PlayerService extends Service {
         public boolean onError(XmPlayerException e) {
             return false;
         }
-    }
-
-    public static void initAndPlay(Context mContext, Reading data){
-        Intent intent = new Intent(mContext, PlayerService.class);
-        intent.setAction(action_start);
-        intent.putExtra(MesType,NotificationUtil.mes_type_zyhy);
-        intent.putExtra(KeyUtil.Data,data);
-        mContext.startService(intent);
-    }
-
-    public static void actionPause(Context mContext){
-        Intent intent = new Intent(mContext, PlayerService.class);
-        intent.putExtra(MesType,NotificationUtil.mes_type_zyhy);
-        intent.setAction(action_pause);
-        mContext.startService(intent);
     }
 
     public void getData() throws Exception{

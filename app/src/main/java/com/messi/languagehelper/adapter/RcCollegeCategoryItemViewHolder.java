@@ -53,6 +53,8 @@ public class RcCollegeCategoryItemViewHolder extends RecyclerView.ViewHolder {
         args.putString(KeyUtil.ActionbarTitle,mAVObject.getString(AVOUtil.BoutiquesClass.name));
         intent.putExtra(KeyUtil.BundleKey,args);
         context.startActivity(intent);
+        mAVObject.increment(AVOUtil.BoutiquesClass.views);
+        mAVObject.saveInBackground();
     }
 
 }

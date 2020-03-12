@@ -1,5 +1,6 @@
 package com.messi.languagehelper.adapter;
 
+import android.os.RemoteException;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,7 +39,11 @@ public class RcSubjectReadingListAdapter extends HeaderRecyclerViewAdapter<Recyc
     protected void onBindItemViewHolder(RecyclerView.ViewHolder holder, int position) {
         Reading mAVObject = getItem(position);
         RcSubjectReadingListItemViewHolder itemViewHolder = (RcSubjectReadingListItemViewHolder)holder;
-        itemViewHolder.render(mAVObject);
+        try {
+            itemViewHolder.render(mAVObject);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

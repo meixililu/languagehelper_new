@@ -144,6 +144,8 @@ public class RcSubjectListItemViewHolder extends RecyclerView.ViewHolder {
         intent.putExtra(KeyUtil.ObjectKey, SubjectActivity.toReadingSubject(mAVObject));
         intent.putExtra(KeyUtil.LevelKey, mAVObject.getString(AVOUtil.SubjectList.level));
         context.startActivity(intent);
+        mAVObject.increment(AVOUtil.SubjectList.views);
+        mAVObject.saveInBackground();
     }
 
 

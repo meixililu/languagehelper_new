@@ -23,10 +23,8 @@ import android.view.View;
 import com.messi.languagehelper.BaseApplication;
 import com.messi.languagehelper.ImgShareActivity;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.dialog.PopDialog;
 import com.messi.languagehelper.dialog.PopDialog.PopViewItemOnclickListener;
-import com.messi.languagehelper.service.PlayerService;
 
 import java.io.File;
 import java.util.HashMap;
@@ -208,39 +206,6 @@ public class Setings {
 			Manifest.permission.RECORD_AUDIO
 	};
     public static HashMap<String, Object> dataMap = new HashMap<String, Object>();
-//	public static PlayerService musicSrv;
-
-    public static void MPlayerPause(){
-    	if(PlayerService.musicSrv != null){
-			PlayerService.musicSrv.pause();
-		}
-	}
-
-	public static boolean MPlayerIsPlaying(){
-    	if(PlayerService.musicSrv != null){
-			return PlayerService.musicSrv.isPlaying();
-		}
-		return true;
-	}
-
-	public static void MPlayerRestart(){
-    	if(PlayerService.musicSrv != null){
-			PlayerService.musicSrv.restart();
-		}
-	}
-
-	public static void MPlayerSeekTo(int position){
-    	if(PlayerService.musicSrv != null){
-			PlayerService.musicSrv.seekTo(position);
-		}
-	}
-
-	public static boolean MPlayerIsSameMp3(Reading song){
-    	if(PlayerService.musicSrv != null){
-			return PlayerService.musicSrv.isSameMp3(song);
-		}
-		return false;
-	}
 
     /**is today already do something
 	 * @param mSharedPreferences

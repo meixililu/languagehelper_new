@@ -44,6 +44,7 @@ import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.DialogUtil;
+import com.messi.languagehelper.util.IPlayerUtil;
 import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -152,7 +153,7 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
             category = getIntent().getStringExtra(KeyUtil.Category);
             keyword = getIntent().getStringExtra(KeyUtil.KeyWord);
             mAVObjects = new ArrayList<AVObject>();
-            Setings.MPlayerPause();
+            IPlayerUtil.MPlayerPause();
             List<AVObject> list = (List<AVObject>) Setings.dataMap.get(KeyUtil.DataMapKey);
             if(list != null){
                 mAVObjects.addAll(list);

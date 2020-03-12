@@ -14,10 +14,10 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.messi.languagehelper.ViewModel.XMLYDetailModel;
 import com.messi.languagehelper.service.PlayerService;
+import com.messi.languagehelper.util.IPlayerUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NotificationUtil;
-import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.StringUtils;
 import com.messi.languagehelper.util.ViewUtil;
 import com.ximalaya.ting.android.opensdk.constants.DTransferConstants;
@@ -131,8 +131,8 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
 
     private void initViews() {
         getProgramList();
-        if (Setings.MPlayerIsPlaying()) {
-            Setings.MPlayerPause();
+        if (IPlayerUtil.MPlayerIsPlaying()) {
+            IPlayerUtil.MPlayerPause();
         }
         loadAD();
         itemImg.setImageURI(radio.getCoverUrlLarge());

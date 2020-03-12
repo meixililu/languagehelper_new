@@ -31,10 +31,12 @@ import com.messi.languagehelper.StudyFragment;
 import com.messi.languagehelper.TitleFragment;
 import com.messi.languagehelper.XimalayaDashboardFragment;
 import com.messi.languagehelper.YYJHomeFragment;
+import com.messi.languagehelper.aidl.IXBPlayer;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AppUpdateUtil;
+import com.messi.languagehelper.util.IPlayerUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Setings;
@@ -163,8 +165,7 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 	private ServiceConnection musicConnection = new ServiceConnection() {
 		@Override
 		public void onServiceConnected(ComponentName name, IBinder service) {
-			PlayerService.MusicBinder binder = (PlayerService.MusicBinder) service;
-			PlayerService.musicSrv = binder.getService();
+			IPlayerUtil.musicSrv = IXBPlayer.Stub.asInterface(service);
 		}
 
 		@Override
@@ -197,20 +198,33 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 	}
 
 	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+//		super.onSaveInstanceState(outState);
+		LogUtil.DefalutLog("WXEntryActivity---onSaveInstanceState");
+	}
+
+	@Override
 	protected void onDestroy() {
 		super.onDestroy();
 		try {
 			Jzvd.releaseAllVideos();
 			PlayUtil.onDestroy();
-			unbindService(musicConnection);
+			UnbindService();
 			isBackgroundPlay();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
+	private void UnbindService(){
+		if (musicConnection != null && IPlayerUtil.musicSrv != null) {
+			unbindService(musicConnection);
+			musicConnection = null;
+		}
+	}
+
 	private void isBackgroundPlay(){
-		if(XmPlayerManager.getInstance(this).isPlaying() || Setings.MPlayerIsPlaying()){
+		if(XmPlayerManager.getInstance(this).isPlaying() || IPlayerUtil.MPlayerIsPlaying()){
 			LogUtil.DefalutLog("xmly or myplayer is playing.");
 		}else {
 			((NotificationManager) getSystemService(NOTIFICATION_SERVICE)).cancel(Setings.NOTIFY_ID);
@@ -218,7 +232,7 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 				stopService(playIntent);
 			}
 			XmPlayerManager.getInstance(this).release();
-			PlayerService.musicSrv = null;
+			IPlayerUtil.musicSrv = null;
 		}
 	}
 

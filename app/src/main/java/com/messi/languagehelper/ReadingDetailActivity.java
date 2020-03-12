@@ -25,6 +25,7 @@ import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.ADUtil;
+import com.messi.languagehelper.util.IPlayerUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TextHandlerUtil;
@@ -126,8 +127,8 @@ public class ReadingDetailActivity extends BaseActivity implements SeekBar.OnSee
             mLeisureModel.setViews(ad_sign,ad_img,xx_ad_layout,ad_layout);
             mLeisureModel.showAd();
         }
-        if(Setings.MPlayerIsSameMp3(mAVObject)){
-            if(PlayerService.musicSrv.PlayerStatus == 1) {
+        if(IPlayerUtil.MPlayerIsSameMp3(mAVObject)){
+            if(IPlayerUtil.getPlayStatus() == 1) {
                 btn_play.setImageResource(R.drawable.ic_pause_circle_outline);
                 handler.postDelayed(mRunnable,300);
             }
@@ -143,9 +144,9 @@ public class ReadingDetailActivity extends BaseActivity implements SeekBar.OnSee
     }
 
     private void setSeekbarAndText(){
-        if(Setings.MPlayerIsSameMp3(mAVObject)){
-            int currentPosition = PlayerService.musicSrv.getCurrentPosition();
-            int mDuration = PlayerService.musicSrv.getDuration();
+        if(IPlayerUtil.MPlayerIsSameMp3(mAVObject)){
+            int currentPosition = IPlayerUtil.getCurrentPosition();
+            int mDuration = IPlayerUtil.getDuration();
             if(mDuration > 0){
                 seekbar.setMax(mDuration);
                 time_duration.setText(TimeUtil.getDuration(mDuration / 1000));
@@ -215,14 +216,12 @@ public class ReadingDetailActivity extends BaseActivity implements SeekBar.OnSee
 
     @OnClick(R.id.btn_play)
     public void onClick() {
-        if (PlayerService.musicSrv != null) {
-            PlayerService.musicSrv.initAndPlay(mAVObject);
-        }
+        IPlayerUtil.initAndPlay(this,mAVObject);
     }
 
     @Override
     public void updateUI(String music_action) {
-        if(Setings.MPlayerIsSameMp3(mAVObject)){
+        if(IPlayerUtil.MPlayerIsSameMp3(mAVObject)){
             if(PlayerService.action_restart.equals(music_action)){
                 btn_play.setImageResource(R.drawable.ic_play_circle_outline);
                 handler.removeCallbacks(mRunnable);
@@ -270,13 +269,13 @@ public class ReadingDetailActivity extends BaseActivity implements SeekBar.OnSee
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) {
         handler.removeCallbacks(mRunnable);
-        Setings.MPlayerPause();
+        IPlayerUtil.MPlayerPause();
     }
 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
-        Setings.MPlayerSeekTo(seekBar.getProgress());
-        Setings.MPlayerRestart();
+        IPlayerUtil.MPlayerSeekTo(seekBar.getProgress());
+        IPlayerUtil.MPlayerRestart();
         handler.postDelayed(mRunnable,300);
     }
 }

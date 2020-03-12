@@ -48,6 +48,7 @@ import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.DialogUtil;
+import com.messi.languagehelper.util.IPlayerUtil;
 import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -143,7 +144,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         }
         titleTv.setText(mAVObject.getTitle());
         setCollected();
-        Setings.MPlayerPause();
+        IPlayerUtil.MPlayerPause();
         Url = mAVObject.getSource_url();
         LogUtil.DefalutLog("Url:" + Url);
         mVideoADModel = new VideoADModel(this, xx_ad_layout);

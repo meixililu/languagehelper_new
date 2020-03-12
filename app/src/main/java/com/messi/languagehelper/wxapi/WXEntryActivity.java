@@ -25,15 +25,16 @@ import android.widget.Toast;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechUtility;
 import com.messi.languagehelper.BaseActivity;
-import com.messi.languagehelper.LoadingActivity;
 import com.messi.languagehelper.MoreActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.adapter.MainPageAdapter;
+import com.messi.languagehelper.aidl.IXBPlayer;
 import com.messi.languagehelper.databinding.ContentFrameBinding;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AppUpdateUtil;
+import com.messi.languagehelper.util.IPlayerUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.PlayUtil;
@@ -56,7 +57,6 @@ import permissions.dispatcher.RuntimePermissions;
 @RuntimePermissions
 public class WXEntryActivity extends BaseActivity implements FragmentProgressbarListener {
 
-	private long leaveTime = 0;
 	private long pressTime = 0;
 	private SharedPreferences sp;
 	private Intent playIntent;
@@ -128,9 +128,8 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 	private ServiceConnection musicConnection = new ServiceConnection() {
 		@Override
 		public void onServiceConnected(ComponentName name, IBinder service) {
-			PlayerService.MusicBinder binder = (PlayerService.MusicBinder) service;
-			PlayerService.musicSrv = binder.getService();
-			LogUtil.DefalutLog("WXEntryActivity---musicConnection---:"+PlayerService.musicSrv);
+			IPlayerUtil.musicSrv = IXBPlayer.Stub.asInterface(service);
+			LogUtil.DefalutLog("WXEntryActivity---musicConnection---");
 		}
 
 		@Override
@@ -143,18 +142,6 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 		super.onStart();
 		LogUtil.DefalutLog("WXEntryActivity---onStart");
 		startMusicPlayerService();
-		isNeedShowAD();
-	}
-
-	public void isNeedShowAD(){
-		if (leaveTime > 10) {
-			if ((System.currentTimeMillis() - leaveTime) > 1000*60*3) {
-				leaveTime = 0;
-				Intent intent = new Intent(this, LoadingActivity.class);
-				startActivity(intent);
-			}
-		}
-		leaveTime = 0;
 	}
 
 	private void startMusicPlayerService() {
@@ -208,24 +195,8 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 			Toast.makeText(getApplicationContext(), this.getResources().getString(R.string.exit_program), Toast.LENGTH_SHORT).show();
 			pressTime = System.currentTimeMillis();
 		} else {
-			exitApp();
-		}
-	}
-
-	public void exitApp(){
-		if (Setings.MPlayerIsPlaying()) {
-			exitLikeHome();
-		} else {
 			finish();
 		}
-	}
-
-	public void exitLikeHome(){
-		leaveTime = System.currentTimeMillis();
-		Intent home = new Intent(Intent.ACTION_MAIN);
-		home.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-		home.addCategory(Intent.CATEGORY_HOME);
-		startActivity(home);
 	}
 
 	private void saveSelectTab() {
@@ -253,15 +224,22 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 			saveSelectTab();
 			Jzvd.releaseAllVideos();
 			PlayUtil.onDestroy();
-			unbindService(musicConnection);
+			UnbindService();
 			isBackgroundPlay();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
+	private void UnbindService(){
+		if (musicConnection != null && IPlayerUtil.musicSrv != null) {
+			unbindService(musicConnection);
+			musicConnection = null;
+		}
+	}
+
 	private void isBackgroundPlay(){
-		if(XmPlayerManager.getInstance(this).isPlaying() || Setings.MPlayerIsPlaying()){
+		if(XmPlayerManager.getInstance(this).isPlaying() || IPlayerUtil.MPlayerIsPlaying()){
 			LogUtil.DefalutLog("xmly or myplayer is playing.");
 		}else {
 			((NotificationManager) getSystemService(NOTIFICATION_SERVICE)).cancel(Setings.NOTIFY_ID);
@@ -269,7 +247,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 				stopService(playIntent);
 			}
 			XmPlayerManager.getInstance(this).release();
-			PlayerService.musicSrv = null;
+			IPlayerUtil.musicSrv = null;
 		}
 	}
 

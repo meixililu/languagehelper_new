@@ -72,6 +72,7 @@ public class CollegeCategoryFragment extends BaseFragment {
     private void QueryTask() {
         AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.BoutiquesClass.BoutiquesClass);
         query.orderByAscending(AVOUtil.BoutiquesClass.order);
+        query.orderByDescending(AVOUtil.BoutiquesClass.views);
         query.limit(30);
         query.findInBackground((new FindCallback<AVObject>() {
             @Override

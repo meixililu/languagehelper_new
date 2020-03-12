@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.messi.languagehelper.ViewModel.XMLYDetailModel;
 import com.messi.languagehelper.service.PlayerService;
+import com.messi.languagehelper.util.IPlayerUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NotificationUtil;
@@ -156,8 +157,8 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
     }
 
     private void initViews() {
-        if(PlayerService.musicSrv.isPlaying()){
-            Setings.MPlayerPause();
+        if(IPlayerUtil.MPlayerIsPlaying()){
+            IPlayerUtil.MPlayerPause();
         }
         loadAD();
         itemImg.setImageURI(currentTrack.getCoverUrlLarge());

@@ -214,6 +214,7 @@ public class SubjectFragment extends BaseFragment {
             }else {
                 query.orderByAscending(AVOUtil.SubjectList.order);
             }
+            query.orderByDescending(AVOUtil.SubjectList.views);
             query.skip(skip);
             query.limit(Setings.page_size);
             try {
