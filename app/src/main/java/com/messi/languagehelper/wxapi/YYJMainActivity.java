@@ -230,6 +230,7 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 			((NotificationManager) getSystemService(NOTIFICATION_SERVICE)).cancel(Setings.NOTIFY_ID);
 			if (playIntent != null) {
 				stopService(playIntent);
+				playIntent = null;
 			}
 			XmPlayerManager.getInstance(this).release();
 			IPlayerUtil.musicSrv = null;

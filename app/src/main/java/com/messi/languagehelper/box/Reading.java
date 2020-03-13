@@ -3,6 +3,7 @@ package com.messi.languagehelper.box;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.avos.avoscloud.AVObject;
 import com.baidu.mobads.AdView;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
@@ -58,22 +59,31 @@ public class Reading implements Parcelable {
     private String backup4;
     private String backup5;
     private int img_color;
+    @JSONField(serialize = false)
     @Transient
     private boolean isPlaying;
+    @JSONField(serialize = false)
     @Transient
     private boolean isAd;
+    @JSONField(serialize = false)
     @Transient
     private boolean isAdShow;
+    @JSONField(serialize = false)
     @Transient
     private NativeDataRef mNativeADDataRef;
+    @JSONField(serialize = false)
     @Transient
     private NativeExpressADView mTXADView;
+    @JSONField(serialize = false)
     @Transient
     private TTFeedAd csjTTFeedAd;
+    @JSONField(serialize = false)
     @Transient
     private AdView bdAdView;
+    @JSONField(serialize = false)
     @Transient
     private int bdHeight;
+    @JSONField(serialize = false)
     @Transient
     private List<AVObject> xvideoList;
 
@@ -418,7 +428,7 @@ public class Reading implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeValue(this.id);
+        dest.writeLong(this.id);
         dest.writeString(this.object_id);
         dest.writeString(this.title);
         dest.writeString(this.source_url);
@@ -466,7 +476,7 @@ public class Reading implements Parcelable {
     }
 
     protected Reading(Parcel in) {
-        this.id = (Long) in.readValue(Long.class.getClassLoader());
+        this.id = in.readLong();
         this.object_id = in.readString();
         this.title = in.readString();
         this.source_url = in.readString();

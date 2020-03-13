@@ -20,7 +20,6 @@ import com.messi.languagehelper.wxapi.YYJMainActivity;
 import static android.content.Context.NOTIFICATION_SERVICE;
 import static com.messi.languagehelper.service.PlayerService.action_pause;
 import static com.messi.languagehelper.service.PlayerService.action_restart;
-import static com.youdao.sdk.app.YouDaoApplication.getApplicationContext;
 
 /**
  * Created by luli on 22/11/2017.
@@ -34,6 +33,10 @@ public class NotificationUtil {
     public static void showNotification(Context mContext,String action,String title,String type){
         NotificationManager manager = (NotificationManager) mContext.getSystemService(NOTIFICATION_SERVICE);
         createNotificationChannel(manager,type);
+        manager.notify(Setings.NOTIFY_ID, getNotification(mContext,action,title,type));
+    }
+
+    public static Notification getNotification(Context mContext,String action,String title,String type){
         Class toClass = WXEntryActivity.class;
         if(mContext.getPackageName().equals(Setings.application_id_yys)){
             toClass = WXEntryActivity.class;
@@ -58,7 +61,7 @@ public class NotificationUtil {
         intentAction.setAction(action);
         intentAction.putExtra(KeyUtil.MesType,type);
         intentAction.putExtra(KeyUtil.NotificationTitle,title);
-        PendingIntent pIntentAction = PendingIntent.getService(getApplicationContext(), 0, intentAction,
+        PendingIntent pIntentAction = PendingIntent.getService(mContext.getApplicationContext(), 0, intentAction,
                 PendingIntent.FLAG_UPDATE_CURRENT);
         int img_id = R.drawable.ic_pause_grey;
         if(action.equals(action_pause)){
@@ -71,7 +74,7 @@ public class NotificationUtil {
         Intent intentClose = new Intent(mContext,PlayerService.class);
         intentClose.setAction(PlayerService.action_close);
         intentClose.putExtra(KeyUtil.MesType,NotificationUtil.mes_type_zyhy);
-        PendingIntent pIntentClose = PendingIntent.getService(getApplicationContext(), 0, intentClose,
+        PendingIntent pIntentClose = PendingIntent.getService(mContext.getApplicationContext(), 0, intentClose,
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
         RemoteViews contentView = new RemoteViews(mContext.getPackageName(),R.layout.notification_layout);
@@ -94,7 +97,7 @@ public class NotificationUtil {
                 .setContent(contentView)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .build();
-        manager.notify(Setings.NOTIFY_ID, notification);
+        return notification;
     }
 
     public static void sendBroadcast(Context mContext,String music_action){

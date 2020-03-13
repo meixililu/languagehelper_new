@@ -2,6 +2,7 @@ package com.messi.languagehelper.util;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -507,5 +508,21 @@ public class Setings {
 			e.printStackTrace();
 			return "x.x";
 		}
+	}
+
+	//Setings.isServiceRunningInForeground(this,PlayerService.class);
+	public static boolean isServiceRunningInForeground(Context context, Class<?> serviceClass) {
+		ActivityManager manager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+		for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+			if (serviceClass.getName().equals(service.service.getClassName())) {
+				if (service.foreground) {
+					LogUtil.DefalutLog("is foreground");
+					return true;
+				}else {
+					LogUtil.DefalutLog("not foreground");
+				}
+			}
+		}
+		return false;
 	}
 }

@@ -1,12 +1,10 @@
 package com.messi.languagehelper.aidl;
 
-import com.messi.languagehelper.box.Reading;
-
 interface IXBPlayer {
 
-    void initAndPlay(in Reading data);
+    void initAndPlay(String data);
 
-    void initPlayList(in List<Reading> list, int position);
+    void initPlayList(String lists, int position);
 
     int getPlayStatus();
 

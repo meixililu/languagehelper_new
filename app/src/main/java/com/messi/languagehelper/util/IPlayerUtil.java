@@ -1,8 +1,6 @@
 package com.messi.languagehelper.util;
 
-import android.content.Context;
-import android.os.RemoteException;
-
+import com.alibaba.fastjson.JSON;
 import com.messi.languagehelper.aidl.IXBPlayer;
 import com.messi.languagehelper.box.Reading;
 
@@ -98,21 +96,23 @@ public class IPlayerUtil {
         return false;
     }
 
-    public static void initAndPlay(Context mContext, Reading data){
+    public static void initAndPlay(Reading song){
         try {
-            LogUtil.DefalutLog("IPlayerUtil---initAndPlay---Reading:"+data);
+            LogUtil.DefalutLog("IPlayerUtil---initAndPlay---Reading:"+song);
+            String data = JSON.toJSONString(song);
             musicSrv.initAndPlay(data);
-        } catch (RemoteException e) {
+        } catch (Exception e) {
             LogUtil.DefalutLog("RemoteException---initAndPlay");
             e.printStackTrace();
         }
     }
 
-    public static void initPlayList(Context mContext, List<Reading> list, int position){
+    public static void initPlayList(List<Reading> list, int position){
         try {
             LogUtil.DefalutLog("IPlayerUtil---initPlayList---list:"+list);
-            musicSrv.initPlayList(list,position);
-        } catch (RemoteException e) {
+            String lists = JSON.toJSONString(list);
+            musicSrv.initPlayList(lists,position);
+        } catch (Exception e) {
             LogUtil.DefalutLog("RemoteException---initPlayList");
             e.printStackTrace();
         }

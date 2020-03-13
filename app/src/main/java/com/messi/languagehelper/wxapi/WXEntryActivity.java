@@ -3,6 +3,7 @@ package com.messi.languagehelper.wxapi;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.NotificationManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -245,6 +246,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 			((NotificationManager) getSystemService(NOTIFICATION_SERVICE)).cancel(Setings.NOTIFY_ID);
 			if (playIntent != null) {
 				stopService(playIntent);
+				playIntent = null;
 			}
 			XmPlayerManager.getInstance(this).release();
 			IPlayerUtil.musicSrv = null;
@@ -282,4 +284,5 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 	void onPerDenied() {
 		ToastUtil.diaplayMesShort(this,"没有授权，部分功能将无法使用！");
 	}
+
 }

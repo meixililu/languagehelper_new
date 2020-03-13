@@ -134,7 +134,7 @@
 
         <service
             android:name=".service.PlayerService"
-            android:process=":myPlayer"
+            android:process=":player"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.messi.languagehelper.music.start" />

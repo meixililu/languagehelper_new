@@ -197,10 +197,10 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
                         @Override
                         public void onClick(View view) {
                             if(isPlayList){
-                                IPlayerUtil.initPlayList(context,avObjects,
+                                IPlayerUtil.initPlayList(avObjects,
                                         avObjects.indexOf(mAVObject));
                             }else {
-                                IPlayerUtil.initAndPlay(context,mAVObject);
+                                IPlayerUtil.initAndPlay(mAVObject);
                             }
                         }
                     });

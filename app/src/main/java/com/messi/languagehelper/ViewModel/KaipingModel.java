@@ -246,6 +246,11 @@ public class KaipingModel {
                     public void onADExposure() {
                         LogUtil.DefalutLog("onADExposure");
                     }
+
+                    @Override
+                    public void onADLoaded(long l) {
+
+                    }
                 });
     }
 

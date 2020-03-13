@@ -1,17 +1,16 @@
 package com.messi.languagehelper.service;
 
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
-import android.net.Uri;
+import android.media.MediaPlayer;
 import android.net.wifi.WifiManager;
-import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.os.PowerManager;
 import android.os.RemoteException;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
@@ -22,19 +21,11 @@ import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
 import com.google.android.exoplayer2.ExoPlaybackException;
-import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.Player;
-import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.Timeline;
-import com.google.android.exoplayer2.audio.AudioAttributes;
-import com.google.android.exoplayer2.source.ExtractorMediaSource;
-import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
-import com.google.android.exoplayer2.upstream.DataSource;
-import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
-import com.google.android.exoplayer2.util.Util;
 import com.messi.languagehelper.aidl.IXBPlayer;
 import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.util.AVOUtil;
@@ -54,15 +45,16 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static com.google.android.exoplayer2.C.CONTENT_TYPE_MUSIC;
-import static com.google.android.exoplayer2.C.USAGE_MEDIA;
 import static com.messi.languagehelper.util.KeyUtil.NotificationTitle;
 
 /**
  * Created by luli on 05/05/2017.
  */
 
-public class PlayerService extends Service {
+public class PlayerServiceV2 extends Service implements
+        MediaPlayer.OnPreparedListener,
+        MediaPlayer.OnErrorListener,
+        MediaPlayer.OnCompletionListener{
 
     public static final String action_loading = "com.messi.languagehelper.music.loading";
     public static final String action_finish_loading = "com.messi.languagehelper.music.finish.loading";
@@ -75,18 +67,17 @@ public class PlayerService extends Service {
 
     private AudioManager mAudioManager;
     private WifiManager.WifiLock mWifiLock;
-    private SimpleExoPlayer mExoPlayer;
+    private MediaPlayer player;
     // 0 default, 1 playing, 2 pause
     public int PlayerStatus;
     public String lastSongId = "";
     private Reading song;
     private boolean isPlayList;
-    private boolean isForeground;
     private List<Reading> list;
     private long lastLoadDataTime;
     private int currentPosition;
-    private PlayerService.ExoPlayerEventListener mEventListener = new PlayerService.ExoPlayerEventListener();
-    private PlayerService.MyIXmPlayerStatusListener mMyIXmPlayerStatusListener = new PlayerService.MyIXmPlayerStatusListener();
+    private ExoPlayerEventListener mEventListener = new ExoPlayerEventListener();
+    private MyIXmPlayerStatusListener mMyIXmPlayerStatusListener = new MyIXmPlayerStatusListener();
 
     public IBinder musicBind = new IXBPlayer.Stub(){
 
@@ -146,7 +137,7 @@ public class PlayerService extends Service {
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            NotificationUtil.sendBroadcast(PlayerService.this,action_finish_loading);
+            NotificationUtil.sendBroadcast(PlayerServiceV2.this,action_finish_loading);
             LogUtil.DefalutLog("receive Handler:"+msg.what);
             if (msg.what == 1) {
                 if(song != null){
@@ -160,35 +151,21 @@ public class PlayerService extends Service {
     public void onCreate() {
         super.onCreate();
         LogUtil.DefalutLog("PlayerService---onCreate---");
-        initExoplayer();
+        initPlayer();
     }
 
-    private void initExoplayer(){
+    private void initPlayer(){
+        player = new MediaPlayer();
         Context applicationContext = this.getApplicationContext();
         this.mAudioManager = (AudioManager) applicationContext.getSystemService(Context.AUDIO_SERVICE);
         this.mWifiLock = ((WifiManager) applicationContext.getSystemService(Context.WIFI_SERVICE))
-                .createWifiLock(WifiManager.WIFI_MODE_FULL, "uAmp_lock");
+                        .createWifiLock(WifiManager.WIFI_MODE_FULL, "uAmp_lock");
         XmPlayerManager.getInstance(this).addPlayerStatusListener(mMyIXmPlayerStatusListener);
-        initForeground();
-    }
-
-    private void initForeground(){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            Notification notification = NotificationUtil.getNotification(this,
-                    action_restart,"告别说不出口的英语", NotificationUtil.mes_type_zyhy);
-            startForeground(Setings.NOTIFY_ID,notification);
-            isForeground = true;
-        }
-    }
-
-    private void checkIsForeground(){
-        if (!isForeground) {
-            initForeground();
-        }
-    }
-
-    private void clearNotification(){
-        ((NotificationManager) getSystemService(NOTIFICATION_SERVICE)).cancel(Setings.NOTIFY_ID);
+        player.setWakeMode(getApplicationContext(), PowerManager.PARTIAL_WAKE_LOCK);
+        player.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        player.setOnPreparedListener(this);
+        player.setOnCompletionListener(this);
+        player.setOnErrorListener(this);
     }
 
     private void stopXMLYPlayer(){
@@ -199,7 +176,6 @@ public class PlayerService extends Service {
 
     public void InitPlayList(List<Reading> list,int position){
         LogUtil.DefalutLog("position:"+position+"---list:"+list.size());
-        checkIsForeground();
         stopXMLYPlayer();
         isPlayList = true;
         this.list = list;
@@ -213,16 +189,12 @@ public class PlayerService extends Service {
                 InitPlayList(list,currentPosition);
             }
         }else {
-            loadMoreData();
-        }
-    }
-
-    private void loadMoreData(){
-        try {
-            LogUtil.DefalutLog("load more data");
-            getData();
-        } catch (Exception e) {
-            e.printStackTrace();
+            LogUtil.DefalutLog("finish play,load more data.");
+            try {
+                getData();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -259,30 +231,17 @@ public class PlayerService extends Service {
     }
 
     private void startExoplayer(Reading song){
-        try {
+        try{
             LogUtil.DefalutLog("startExoplayer:"+song.getMedia_url());
             this.song = song;
             lastSongId = song.getObject_id();
-            PlayerStatus = 1;
-            if (mExoPlayer == null) {
-                mExoPlayer = ExoPlayerFactory.newSimpleInstance(this);
-                mExoPlayer.addListener(mEventListener);
-            }
-            final AudioAttributes audioAttributes = new AudioAttributes.Builder()
-                    .setContentType(CONTENT_TYPE_MUSIC)
-                    .setUsage(USAGE_MEDIA)
-                    .build();
-            mExoPlayer.setAudioAttributes(audioAttributes);
-            DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this,
-                    Util.getUserAgent(this, "LanguageHelper"));
-            MediaSource mediaSource = new ExtractorMediaSource
-                    .Factory(dataSourceFactory)
-                    .createMediaSource(Uri.parse(song.getMedia_url()));
-
-            mExoPlayer.prepare(mediaSource);
-            mExoPlayer.setPlayWhenReady(true);
-            mWifiLock.acquire();
-        } catch (Exception e) {
+            setPlayingBroadcast();
+            player.reset();
+            player.setDataSource(song.getMedia_url());
+            player.prepareAsync();
+//            mWifiLock.acquire();
+        } catch(Exception e){
+            LogUtil.DefalutLog("MUSIC SERVICE Error setting data source");
             e.printStackTrace();
         }
     }
@@ -310,9 +269,7 @@ public class PlayerService extends Service {
                     }else if(action.equals(action_close)) {
                         XmPlayerManager.getInstance(this).pause();
                         pause();
-                        clearNotification();
-                        stopForeground(true);
-                        isForeground = false;
+                        ((NotificationManager) getSystemService(NOTIFICATION_SERVICE)).cancel(Setings.NOTIFY_ID);
                     }
                 }else if(NotificationUtil.mes_type_xmly.equals(type)){
                     if (action.equals(action_restart)) {
@@ -364,7 +321,7 @@ public class PlayerService extends Service {
     }
 
     public void pause(){
-        if(song != null && mExoPlayer != null){
+        if(song != null && player != null){
             setPause();
             NotificationUtil.showNotification(this, action_restart,song.getTitle(),
                     NotificationUtil.mes_type_zyhy);
@@ -374,24 +331,56 @@ public class PlayerService extends Service {
 
     public void setPause(){
         PlayerStatus = 2;
-        mExoPlayer.setPlayWhenReady(false);
+        player.pause();
     }
 
     public void restart(){
-        LogUtil.DefalutLog("song:"+song+"--mExoPlayer:"+mExoPlayer);
-        if(song != null && mExoPlayer != null){
+        if(song != null && player != null){
             PlayerStatus = 1;
-            mExoPlayer.setPlayWhenReady(true);
+            player.start();
             NotificationUtil.showNotification(this,action_pause,song.getTitle(),
                     NotificationUtil.mes_type_zyhy);
-        }else {
-            loadMoreData();
         }
         NotificationUtil.sendBroadcast(this,action_pause);
     }
 
     public boolean isPlaying(){
         return PlayerStatus == 1;
+    }
+
+    private void setPlayingBroadcast(){
+        PlayerStatus = 1;
+        NotificationUtil.showNotification(PlayerServiceV2.this,action_pause,song.getTitle(),
+                NotificationUtil.mes_type_zyhy);
+        NotificationUtil.sendBroadcast(PlayerServiceV2.this,action_pause);
+    }
+
+    private void setPauseBroadcast(){
+        PlayerStatus = 0;
+        NotificationUtil.sendBroadcast(PlayerServiceV2.this, action_restart);
+        NotificationUtil.showNotification(PlayerServiceV2.this, action_restart,song.getTitle(),
+                NotificationUtil.mes_type_zyhy);
+    }
+
+    @Override
+    public void onCompletion(MediaPlayer mp) {
+        setPauseBroadcast();
+        if(isPlayList){
+            InitPlayList(list,currentPosition);
+        }
+    }
+
+    @Override
+    public boolean onError(MediaPlayer mp, int what, int extra) {
+        setPauseBroadcast();
+        player.reset();
+        return false;
+    }
+
+    @Override
+    public void onPrepared(MediaPlayer mp) {
+        player.start();
+        setPlayingBroadcast();
     }
 
     private final class ExoPlayerEventListener implements Player.EventListener {
@@ -420,28 +409,19 @@ public class PlayerService extends Service {
                 case Player.STATE_BUFFERING:
                     LogUtil.DefalutLog("STATE_BUFFERING");
                     if(playWhenReady){
-                        NotificationUtil.showNotification(PlayerService.this,action_pause,song.getTitle(),
+                        NotificationUtil.showNotification(PlayerServiceV2.this,action_pause,song.getTitle(),
                                 NotificationUtil.mes_type_zyhy);
-                        NotificationUtil.sendBroadcast(PlayerService.this,action_pause);
+                        NotificationUtil.sendBroadcast(PlayerServiceV2.this,action_pause);
                     }
                 case Player.STATE_READY:
                     LogUtil.DefalutLog("STATE_READY");
                     if(playWhenReady){
-                        PlayerStatus = 1;
-                        NotificationUtil.showNotification(PlayerService.this,action_pause,song.getTitle(),
-                                NotificationUtil.mes_type_zyhy);
-                        NotificationUtil.sendBroadcast(PlayerService.this,action_pause);
+
                     }
                     break;
                 case Player.STATE_ENDED:
                     LogUtil.DefalutLog("STATE_ENDED:");
-                    PlayerStatus = 0;
-                    NotificationUtil.sendBroadcast(PlayerService.this, action_restart);
-                    NotificationUtil.showNotification(PlayerService.this, action_restart,song.getTitle(),
-                            NotificationUtil.mes_type_zyhy);
-                    if(isPlayList){
-                        InitPlayList(list,currentPosition);
-                    }
+
                     break;
             }
         }
@@ -478,22 +458,22 @@ public class PlayerService extends Service {
     }
 
     public int getCPosition(){
-        if(mExoPlayer != null){
-            return (int)mExoPlayer.getContentPosition();
+        if(player != null){
+            return (int)player.getCurrentPosition();
         }
         return 0;
     }
 
     public int getDurationNum(){
-        if(mExoPlayer != null){
-            return (int)mExoPlayer.getDuration();
+        if(player != null){
+            return (int)player.getDuration();
         }
         return 0;
     }
 
     public void seekTo(int position){
-        if(mExoPlayer != null){
-            mExoPlayer.seekTo(position);
+        if(player != null){
+            player.seekTo(position);
         }
     }
 
@@ -511,7 +491,7 @@ public class PlayerService extends Service {
 
         @Override
         public void onPlayStop() {
-            NotificationUtil.sendBroadcast(PlayerService.this, action_restart);
+            NotificationUtil.sendBroadcast(PlayerServiceV2.this, action_restart);
         }
 
         @Override
@@ -526,12 +506,12 @@ public class PlayerService extends Service {
 
         @Override
         public void onSoundSwitch(PlayableModel playableModel, PlayableModel playableModel1) {
-            if (XmPlayerManager.getInstance(PlayerService.this).getCurrSound() instanceof Track) {
-                Track currentTrack = (Track) XmPlayerManager.getInstance(PlayerService.this).getCurrSound();
-                NotificationUtil.showNotification(PlayerService.this,action_pause,currentTrack.getTrackTitle(),
+            if (XmPlayerManager.getInstance(PlayerServiceV2.this).getCurrSound() instanceof Track) {
+                Track currentTrack = (Track) XmPlayerManager.getInstance(PlayerServiceV2.this).getCurrSound();
+                NotificationUtil.showNotification(PlayerServiceV2.this,action_pause,currentTrack.getTrackTitle(),
                         NotificationUtil.mes_type_xmly);
             }
-            NotificationUtil.sendBroadcast(PlayerService.this,action_pause);
+            NotificationUtil.sendBroadcast(PlayerServiceV2.this,action_pause);
         }
 
         @Override
@@ -577,24 +557,16 @@ public class PlayerService extends Service {
                 }
                 query.addDescendingOrder(AVOUtil.Reading.publish_time);
             }
-            if (song == null) {
-                query.addDescendingOrder(AVOUtil.Reading.publish_time);
-            }
             query.limit(30);
             query.findInBackground(new FindCallback<AVObject>() {
                 @Override
                 public void done(List<AVObject> avObjects, AVException avException) {
                     LogUtil.DefalutLog("findInBackground---done:"+avObjects.size());
-                    if (NullUtil.isNotEmpty(avObjects)) {
-                        if (!NullUtil.isNotEmpty(list)) {
-                            list = new ArrayList<>();
-                        }
+                    if (NullUtil.isNotEmpty(avObjects) && NullUtil.isNotEmpty(list)) {
                         DataUtil.changeDataToReading(avObjects,list,false);
                         InitPlayList(list,currentPosition);
                     }else {
-                        if (mExoPlayer != null) {
-                            mExoPlayer.seekTo(0);
-                        }
+                        player.seekTo(0);
                     }
                 }
             });
@@ -603,22 +575,15 @@ public class PlayerService extends Service {
 
     @Override
     public void onDestroy() {
+        LogUtil.DefalutLog("PlayerService---onDestroy---");
         super.onDestroy();
-        try {
-            LogUtil.DefalutLog("PlayerService---onDestroy---");
-            stopForeground(true);
-            isForeground = false;
-            if (mExoPlayer != null) {
-                mExoPlayer.setPlayWhenReady(false);
-                mExoPlayer.release();
-                mExoPlayer.removeListener(mEventListener);
-                mExoPlayer = null;
-            }
-            if (mWifiLock.isHeld()) {
-                mWifiLock.release();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (player != null) {
+            player.stop();
+            player.release();
+            player = null;
+        }
+        if (mWifiLock.isHeld()) {
+            mWifiLock.release();
         }
     }
 

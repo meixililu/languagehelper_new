@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: __local_aars__:./app/libs/GDTSDK.unionNormal.4.176.1046.aar:unspecified@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a5d78b1c0dc882668fb4ea01d5d40f0e/GDTSDK.unionNormal.4.176.1046/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a5d78b1c0dc882668fb4ea01d5d40f0e/GDTSDK.unionNormal.4.176.1046/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

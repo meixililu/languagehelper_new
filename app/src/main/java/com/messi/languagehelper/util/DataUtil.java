@@ -1,13 +1,18 @@
 package com.messi.languagehelper.util;
 
+import android.text.TextUtils;
+
 import com.avos.avoscloud.AVObject;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.CNWBean;
 import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.box.WebFilter;
+import com.ximalaya.ting.android.opensdk.model.PlayableModel;
+import com.ximalaya.ting.android.opensdk.model.track.Track;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class DataUtil {
 
@@ -171,6 +176,32 @@ public class DataUtil {
                 avObjects.add(mReading);
             }
         }
+    }
+
+    public static List<Track> getTrackList(Reading reading){
+        Track track = new Track();
+        track.setKind(PlayableModel.KIND_TRACK);
+        track.setTrackTitle(reading.getTitle());
+        track.setPlayUrl32(reading.getMedia_url());
+        track.setDataId(-1 * UUID.randomUUID().hashCode());
+        List<Track> tracks = new ArrayList<Track>();
+        tracks.add(track);
+        return tracks;
+    }
+
+    public static List<Track> getTrackList(List<Reading> readings){
+        List<Track> tracks = new ArrayList<Track>();
+        for(Reading reading : readings){
+            if (!TextUtils.isEmpty(reading.getTitle())) {
+                Track track = new Track();
+                track.setKind(PlayableModel.KIND_TRACK);
+                track.setTrackTitle(reading.getTitle());
+                track.setPlayUrl32(reading.getMedia_url());
+                track.setDataId(-1 * UUID.randomUUID().hashCode());
+                tracks.add(track);
+            }
+        }
+        return tracks;
     }
 
 }

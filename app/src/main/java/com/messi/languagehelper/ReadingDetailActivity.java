@@ -216,7 +216,7 @@ public class ReadingDetailActivity extends BaseActivity implements SeekBar.OnSee
 
     @OnClick(R.id.btn_play)
     public void onClick() {
-        IPlayerUtil.initAndPlay(this,mAVObject);
+        IPlayerUtil.initAndPlay(mAVObject);
     }
 
     @Override

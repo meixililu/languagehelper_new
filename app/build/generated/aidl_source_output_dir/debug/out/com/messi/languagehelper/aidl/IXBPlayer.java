@@ -45,13 +45,8 @@ return true;
 case TRANSACTION_initAndPlay:
 {
 data.enforceInterface(descriptor);
-com.messi.languagehelper.box.Reading _arg0;
-if ((0!=data.readInt())) {
-_arg0 = com.messi.languagehelper.box.Reading.CREATOR.createFromParcel(data);
-}
-else {
-_arg0 = null;
-}
+java.lang.String _arg0;
+_arg0 = data.readString();
 this.initAndPlay(_arg0);
 reply.writeNoException();
 return true;
@@ -59,8 +54,8 @@ return true;
 case TRANSACTION_initPlayList:
 {
 data.enforceInterface(descriptor);
-java.util.List<com.messi.languagehelper.box.Reading> _arg0;
-_arg0 = data.createTypedArrayList(com.messi.languagehelper.box.Reading.CREATOR);
+java.lang.String _arg0;
+_arg0 = data.readString();
 int _arg1;
 _arg1 = data.readInt();
 this.initPlayList(_arg0, _arg1);
@@ -153,19 +148,13 @@ public java.lang.String getInterfaceDescriptor()
 {
 return DESCRIPTOR;
 }
-@Override public void initAndPlay(com.messi.languagehelper.box.Reading data) throws android.os.RemoteException
+@Override public void initAndPlay(java.lang.String data) throws android.os.RemoteException
 {
 android.os.Parcel _data = android.os.Parcel.obtain();
 android.os.Parcel _reply = android.os.Parcel.obtain();
 try {
 _data.writeInterfaceToken(DESCRIPTOR);
-if ((data!=null)) {
-_data.writeInt(1);
-data.writeToParcel(_data, 0);
-}
-else {
-_data.writeInt(0);
-}
+_data.writeString(data);
 mRemote.transact(Stub.TRANSACTION_initAndPlay, _data, _reply, 0);
 _reply.readException();
 }
@@ -174,13 +163,13 @@ _reply.recycle();
 _data.recycle();
 }
 }
-@Override public void initPlayList(java.util.List<com.messi.languagehelper.box.Reading> list, int position) throws android.os.RemoteException
+@Override public void initPlayList(java.lang.String lists, int position) throws android.os.RemoteException
 {
 android.os.Parcel _data = android.os.Parcel.obtain();
 android.os.Parcel _reply = android.os.Parcel.obtain();
 try {
 _data.writeInterfaceToken(DESCRIPTOR);
-_data.writeTypedList(list);
+_data.writeString(lists);
 _data.writeInt(position);
 mRemote.transact(Stub.TRANSACTION_initPlayList, _data, _reply, 0);
 _reply.readException();
@@ -331,8 +320,8 @@ static final int TRANSACTION_MPlayerRestart = (android.os.IBinder.FIRST_CALL_TRA
 static final int TRANSACTION_MPlayerSeekTo = (android.os.IBinder.FIRST_CALL_TRANSACTION + 8);
 static final int TRANSACTION_MPlayerIsSameMp3 = (android.os.IBinder.FIRST_CALL_TRANSACTION + 9);
 }
-public void initAndPlay(com.messi.languagehelper.box.Reading data) throws android.os.RemoteException;
-public void initPlayList(java.util.List<com.messi.languagehelper.box.Reading> list, int position) throws android.os.RemoteException;
+public void initAndPlay(java.lang.String data) throws android.os.RemoteException;
+public void initPlayList(java.lang.String lists, int position) throws android.os.RemoteException;
 public int getPlayStatus() throws android.os.RemoteException;
 public int getCurrentPosition() throws android.os.RemoteException;
 public int getDuration() throws android.os.RemoteException;

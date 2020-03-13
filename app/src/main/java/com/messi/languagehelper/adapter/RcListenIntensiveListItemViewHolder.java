@@ -145,7 +145,7 @@ public class RcListenIntensiveListItemViewHolder extends RecyclerView.ViewHolder
                     list_item_img_parent.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            IPlayerUtil.initAndPlay(context,mAVObject);
+                            IPlayerUtil.initAndPlay(mAVObject);
                         }
                     });
                 }else {

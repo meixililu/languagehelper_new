@@ -126,6 +126,10 @@ public class KaiPinAdUIModelCustom {
                     public void onADExposure() {
 
                     }
+                    @Override
+                    public void onADLoaded(long l) {
+
+                    }
                 });
     }
 

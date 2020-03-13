@@ -274,7 +274,7 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
 
     @OnClick(R.id.btn_play)
     public void onClick() {
-        IPlayerUtil.initAndPlay(this,mAVObject);
+        IPlayerUtil.initAndPlay(mAVObject);
         downloadLrc();
     }
 
