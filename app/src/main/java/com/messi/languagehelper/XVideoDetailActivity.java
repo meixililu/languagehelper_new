@@ -218,7 +218,6 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
             return;
         }
         LogUtil.DefalutLog("type:"+viewHolder.type);
-        viewHolder.type = "url_api";
         if(!TextUtils.isEmpty(viewHolder.mAVObject.getString(KeyUtil.VideoParseUrl))){
             viewHolder.player_view_layout.addView(player_view);
             exoplaer(viewHolder.mAVObject.getString(KeyUtil.VideoParseUrl));

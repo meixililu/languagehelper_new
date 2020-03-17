@@ -18,6 +18,7 @@ import com.messi.languagehelper.dao.WordDetailListItem;
 import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.NumberUtil;
+import com.messi.languagehelper.util.Setings;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.util.ArrayList;
@@ -196,6 +197,9 @@ public class WordStudyCiYiXuanCiActivity extends BaseActivity {
     }
 
     private void checkResultThenGoNext(TextView tv) {
+        if (Setings.isFastClick(this)) {
+            return;
+        }
         String text = tv.getText().toString();
         if (index < WordStudyPlanDetailActivity.itemList.size()) {
             if (!WordStudyPlanDetailActivity.itemList.get(position).getName().equals(text)) {

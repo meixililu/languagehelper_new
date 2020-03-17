@@ -397,6 +397,9 @@ public class WordStudyFightActivity extends BaseActivity implements OnFinishList
     }
 
     private void checkResultThenGoNext(TextView tv) {
+        if (Setings.isFastClick(this)) {
+            return;
+        }
         String text = tv.getText().toString();
         if (index < randomPlayIndex.size()) {
             if (index < WordStudyPlanDetailActivity.itemList.size()) {

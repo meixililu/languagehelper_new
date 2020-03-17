@@ -197,12 +197,7 @@ public class WordStudyDanCiXuanYiActivity extends BaseActivity implements OnFini
 
     private void playDelay() {
         if(mPlayer != null){
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    playSound();
-                }
-            }, 500);
+            new Handler().postDelayed(() -> playSound(),500);
         }
     }
 
@@ -385,6 +380,9 @@ public class WordStudyDanCiXuanYiActivity extends BaseActivity implements OnFini
     }
 
     private void checkResultThenGoNext(TextView tv) {
+        if (Setings.isFastClick(this)) {
+            return;
+        }
         String text = tv.getText().toString();
         if (index < WordStudyPlanDetailActivity.itemList.size()) {
             if (!WordStudyPlanDetailActivity.itemList.get(position).getDesc().equals(text)) {

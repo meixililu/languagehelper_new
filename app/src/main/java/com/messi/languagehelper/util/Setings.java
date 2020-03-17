@@ -183,6 +183,8 @@ public class Setings {
 	public static String q = "";	
 	public static String role = "vimary";	
 	public static final int RecordOffset = 50;
+	private static final int MIN_CLICK_DELAY_TIME = 350;
+	private static long lastClickTime;
 
 	public static final String application_id_zyhy = "com.messi.languagehelper";
 	public static final String application_id_zyhy_google = "com.messi.languagehelper.google";
@@ -524,5 +526,18 @@ public class Setings {
 			}
 		}
 		return false;
+	}
+
+	public static boolean isFastClick(Context context) {
+		boolean flag = false;
+		long curClickTime = System.currentTimeMillis();
+		if ((curClickTime - lastClickTime) <= MIN_CLICK_DELAY_TIME) {
+			flag = true;
+			if (context != null) {
+				ToastUtil.diaplayMesLong(context,"亲，你点太快了！");
+			}
+		}
+		lastClickTime = curClickTime;
+		return flag;
 	}
 }
