@@ -30,8 +30,8 @@ import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.adapter.RcWordStudyCiYiXuanCiAdapter;
 import com.messi.languagehelper.bean.WordListItem;
-import com.messi.languagehelper.dao.WordDetailListItem;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.WordDetailListItem;
 import com.messi.languagehelper.impl.OnFinishListener;
 import com.messi.languagehelper.util.DownLoadUtil;
 import com.messi.languagehelper.util.KaiPinAdUIModel;
@@ -198,22 +198,22 @@ public class WordStudyFightActivity extends BaseActivity implements OnFinishList
                     if(totalSum > tv_list.get(0)){
                         selection1.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(0)).getDesc());
                     }else {
-                        selection1.setText(DataBaseUtil.getInstance().getBench().getDesc());
+                        selection1.setText(BoxHelper.getBench().getDesc());
                     }
                     if(totalSum > tv_list.get(1)){
                         selection2.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(1)).getDesc());
                     }else {
-                        selection2.setText(DataBaseUtil.getInstance().getBench().getDesc());
+                        selection2.setText(BoxHelper.getBench().getDesc());
                     }
                     if(totalSum > tv_list.get(2)){
                         selection3.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(2)).getDesc());
                     }else {
-                        selection3.setText(DataBaseUtil.getInstance().getBench().getDesc());
+                        selection3.setText(BoxHelper.getBench().getDesc());
                     }
                     if(totalSum > tv_list.get(3)){
                         selection4.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(3)).getDesc());
                     }else {
-                        selection4.setText(DataBaseUtil.getInstance().getBench().getDesc());
+                        selection4.setText(BoxHelper.getBench().getDesc());
                     }
                 } else {
                     wordTv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
@@ -225,22 +225,22 @@ public class WordStudyFightActivity extends BaseActivity implements OnFinishList
                     if(totalSum > tv_list.get(0)){
                         selection1.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(0)).getName());
                     }else {
-                        selection1.setText(DataBaseUtil.getInstance().getBench().getName());
+                        selection1.setText(BoxHelper.getBench().getName());
                     }
                     if(totalSum > tv_list.get(1)){
                         selection2.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(1)).getName());
                     }else {
-                        selection2.setText(DataBaseUtil.getInstance().getBench().getName());
+                        selection2.setText(BoxHelper.getBench().getName());
                     }
                     if(totalSum > tv_list.get(2)){
                         selection3.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(2)).getName());
                     }else {
-                        selection3.setText(DataBaseUtil.getInstance().getBench().getName());
+                        selection3.setText(BoxHelper.getBench().getName());
                     }
                     if(totalSum > tv_list.get(3)){
                         selection4.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(3)).getName());
                     }else {
-                        selection4.setText(DataBaseUtil.getInstance().getBench().getName());
+                        selection4.setText(BoxHelper.getBench().getName());
                     }
                 }
             }
@@ -449,7 +449,7 @@ public class WordStudyFightActivity extends BaseActivity implements OnFinishList
                 resultList.add(item);
             }
         }
-        DataBaseUtil.getInstance().saveList(resultList,true);
+        BoxHelper.saveList(resultList,true);
         for (WordDetailListItem item : WordStudyPlanDetailActivity.itemList) {
             if (item.getSelect_time() == 0) {
                 resultList.add(item);
@@ -483,7 +483,7 @@ public class WordStudyFightActivity extends BaseActivity implements OnFinishList
                 if(item.getSelect_time() == 0){
                     list.add(item);
                 }
-                DataBaseUtil.getInstance().deleteList(list);
+                BoxHelper.deleteList(list);
             }
         }
     }

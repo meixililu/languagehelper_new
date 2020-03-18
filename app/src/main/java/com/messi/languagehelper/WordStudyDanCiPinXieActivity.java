@@ -26,8 +26,8 @@ import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.adapter.RcWordStudyCiYiXuanCiAdapter;
 import com.messi.languagehelper.adapter.WordStudySpellAdapter;
 import com.messi.languagehelper.bean.WordSpellCharacter;
-import com.messi.languagehelper.dao.WordDetailListItem;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.WordDetailListItem;
 import com.messi.languagehelper.impl.AdapterListener;
 import com.messi.languagehelper.impl.OnFinishListener;
 import com.messi.languagehelper.util.DownLoadUtil;
@@ -438,7 +438,7 @@ public class WordStudyDanCiPinXieActivity extends BaseActivity implements OnFini
                 resultList.add(item);
             }
         }
-        DataBaseUtil.getInstance().saveList(resultList,true);
+        BoxHelper.saveList(resultList,true);
         for (WordDetailListItem item : WordStudyPlanDetailActivity.itemList) {
             if (item.getSelect_time() == 0) {
                 resultList.add(item);

@@ -7,6 +7,7 @@ import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.CNWBean;
 import com.messi.languagehelper.box.Record;
 import com.messi.languagehelper.dao.Dictionary;
+import com.messi.languagehelper.dao.WordDetailListItem;
 import com.messi.languagehelper.dao.record;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -48,6 +49,7 @@ public class MoveDataTask {
                 public void run() {
                     doRecordDataChange();
                     doDictionaryDataChange();
+                    doWordDetailListItemDataChange();
                     Setings.saveSharedPreferences(sp,KeyUtil.HasMoveRDDatas,true);
                 }
             }).start();
@@ -72,6 +74,16 @@ public class MoveDataTask {
             DataBaseUtil.getInstance().clearAllDictionary();
         }
         LogUtil.DefalutLog("HasMoveDictionaryData finish");
+    }
+
+    public static void doWordDetailListItemDataChange(){
+        List<WordDetailListItem> dataList = DataBaseUtil.getInstance().getAllList();
+        LogUtil.DefalutLog("HasMoveWordDetailListItemData---start:"+dataList.size());
+        if(NullUtil.isNotEmpty(dataList)){
+            getWordDetailListItemList(dataList);
+            DataBaseUtil.getInstance().clearAllWordDetailListItem();
+        }
+        LogUtil.DefalutLog("HasMoveWordDetailListItemData finish");
     }
 
     public static void getRecordList(List<record> oList){
@@ -118,6 +130,29 @@ public class MoveDataTask {
             mRecord.setVisit_times(oItem.getVisit_times());
             mRecord.setSpeak_speed(oItem.getSpeak_speed());
             BoxHelper.update(mRecord);
+        }
+    }
+
+    public static void getWordDetailListItemList(List<WordDetailListItem> oList){
+        for (WordDetailListItem oItem : oList){
+            com.messi.languagehelper.box.WordDetailListItem item = new com.messi.languagehelper.box.WordDetailListItem();
+            item.setBackup1(oItem.getBackup1());
+            item.setBackup2(oItem.getBackup2());
+            item.setBackup3(oItem.getBackup3());
+            item.setClass_id(oItem.getClass_id());
+            item.setClass_title(oItem.getClass_title());
+            item.setCourse(oItem.getCourse());
+            item.setDesc(oItem.getDesc());
+            item.setExamples(oItem.getExamples());
+            item.setImg_url(oItem.getImg_url());
+            item.setIs_study(oItem.getIs_study());
+            item.setItem_id(oItem.getItem_id());
+            item.setMp3_sdpath(oItem.getMp3_sdpath());
+            item.setName(oItem.getName());
+            item.setNew_words(oItem.getNew_words());
+            item.setSymbol(oItem.getSymbol());
+            item.setSound(oItem.getSound());
+            BoxHelper.insertData(item);
         }
     }
 }

@@ -17,7 +17,7 @@ import android.widget.TextView;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.adapter.RcWordStudyCiYiXuanCiAdapter;
-import com.messi.languagehelper.dao.WordDetailListItem;
+import com.messi.languagehelper.box.WordDetailListItem;
 import com.messi.languagehelper.impl.OnFinishListener;
 import com.messi.languagehelper.util.DownLoadUtil;
 import com.messi.languagehelper.util.KeyUtil;

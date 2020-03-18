@@ -6,8 +6,8 @@ import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.messi.languagehelper.dao.WordDetailListItem;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.WordDetailListItem;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.ToastUtil;
 
@@ -53,7 +53,7 @@ public class WordStudyNewWordActivity extends BaseActivity {
     }
 
     private void init() {
-        int total = DataBaseUtil.getInstance().countNewWordNumber();
+        int total = BoxHelper.countNewWordNumber();
         if(total == 0){
             ToastUtil.diaplayMesLong(this,"没有需要挑战的生词");
             finish();
@@ -137,7 +137,7 @@ public class WordStudyNewWordActivity extends BaseActivity {
 
     private void loadData() {
         WordStudyPlanDetailActivity.itemList = new ArrayList<WordDetailListItem>();
-        WordStudyPlanDetailActivity.itemList.addAll(DataBaseUtil.getInstance().getNewWordList(page,pagesize) );
+        WordStudyPlanDetailActivity.itemList.addAll(BoxHelper.getNewWordList(page,pagesize) );
     }
 
     private void onFinishLoadData() {

@@ -23,8 +23,10 @@ public class MyObjectBox {
         builder.entity(ReadingSubject_.__INSTANCE);
         builder.entity(MomentLikes_.__INSTANCE);
         builder.entity(TranResultZhYue_.__INSTANCE);
+        builder.entity(WordDetailListItem_.__INSTANCE);
         builder.entity(Dictionary_.__INSTANCE);
         builder.entity(Reading_.__INSTANCE);
+        builder.entity(AiEntity_.__INSTANCE);
         builder.entity(Record_.__INSTANCE);
         builder.entity(WebFilter_.__INSTANCE);
         builder.entity(CNWBean_.__INSTANCE);
@@ -33,16 +35,18 @@ public class MyObjectBox {
 
     private static byte[] getModel() {
         ModelBuilder modelBuilder = new ModelBuilder();
-        modelBuilder.lastEntityId(9, 6838911499641689906L);
-        modelBuilder.lastIndexId(6, 8964642229373003809L);
+        modelBuilder.lastEntityId(11, 8894725922907501287L);
+        modelBuilder.lastIndexId(8, 2954847185003916394L);
         modelBuilder.lastRelationId(0, 0L);
 
         buildEntityEveryDaySentence(modelBuilder);
         buildEntityReadingSubject(modelBuilder);
         buildEntityMomentLikes(modelBuilder);
         buildEntityTranResultZhYue(modelBuilder);
+        buildEntityWordDetailListItem(modelBuilder);
         buildEntityDictionary(modelBuilder);
         buildEntityReading(modelBuilder);
+        buildEntityAiEntity(modelBuilder);
         buildEntityRecord(modelBuilder);
         buildEntityWebFilter(modelBuilder);
         buildEntityCNWBean(modelBuilder);
@@ -143,6 +147,37 @@ public class MyObjectBox {
         entityBuilder.entityDone();
     }
 
+    private static void buildEntityWordDetailListItem(ModelBuilder modelBuilder) {
+        EntityBuilder entityBuilder = modelBuilder.entity("WordDetailListItem");
+        entityBuilder.id(10, 5520583404938970285L).lastPropertyId(17, 8406401615325982418L);
+        entityBuilder.flags(io.objectbox.model.EntityFlags.USE_NO_ARG_CONSTRUCTOR);
+
+        entityBuilder.property("id", PropertyType.Long).id(1, 5536262299464011122L)
+                .flags(PropertyFlags.ID | PropertyFlags.NON_PRIMITIVE_TYPE);
+        entityBuilder.property("item_id", PropertyType.String).id(2, 6067960713186243414L);
+        entityBuilder.property("class_id", PropertyType.String).id(3, 4202399373662515236L)
+                .flags(PropertyFlags.INDEX_HASH).indexId(7, 4982277349408116855L);
+        entityBuilder.property("course", PropertyType.Int).id(4, 9143143455136014634L)
+                .flags(PropertyFlags.NON_PRIMITIVE_TYPE);
+        entityBuilder.property("class_title", PropertyType.String).id(5, 4255567185116938670L);
+        entityBuilder.property("desc", PropertyType.String).id(6, 3124864942665235801L);
+        entityBuilder.property("name", PropertyType.String).id(7, 3539775361740300911L)
+                .flags(PropertyFlags.INDEX_HASH).indexId(8, 2954847185003916394L);
+        entityBuilder.property("sound", PropertyType.String).id(8, 2119515828894997809L);
+        entityBuilder.property("symbol", PropertyType.String).id(9, 3988950402356991207L);
+        entityBuilder.property("examples", PropertyType.String).id(10, 6640013367239851092L);
+        entityBuilder.property("mp3_sdpath", PropertyType.String).id(11, 2090766195212357400L);
+        entityBuilder.property("img_url", PropertyType.String).id(12, 6345076305510957798L);
+        entityBuilder.property("new_words", PropertyType.String).id(13, 909346753189105032L);
+        entityBuilder.property("is_study", PropertyType.String).id(14, 7530004958251196410L);
+        entityBuilder.property("backup1", PropertyType.String).id(15, 4697637849037597874L);
+        entityBuilder.property("backup2", PropertyType.String).id(16, 485770395444591549L);
+        entityBuilder.property("backup3", PropertyType.String).id(17, 8406401615325982418L);
+
+
+        entityBuilder.entityDone();
+    }
+
     private static void buildEntityDictionary(ModelBuilder modelBuilder) {
         EntityBuilder entityBuilder = modelBuilder.entity("Dictionary");
         entityBuilder.id(9, 6838911499641689906L).lastPropertyId(21, 8449115134472958357L);
@@ -228,6 +263,37 @@ public class MyObjectBox {
         entityBuilder.property("backup5", PropertyType.String).id(33, 4132873096433260115L);
         entityBuilder.property("img_color", PropertyType.Int).id(34, 1473431717324137965L)
                 .flags(PropertyFlags.NOT_NULL);
+
+
+        entityBuilder.entityDone();
+    }
+
+    private static void buildEntityAiEntity(ModelBuilder modelBuilder) {
+        EntityBuilder entityBuilder = modelBuilder.entity("AiEntity");
+        entityBuilder.id(11, 8894725922907501287L).lastPropertyId(19, 1817635438217159979L);
+        entityBuilder.flags(io.objectbox.model.EntityFlags.USE_NO_ARG_CONSTRUCTOR);
+
+        entityBuilder.property("id", PropertyType.Long).id(1, 7970327623858342933L)
+                .flags(PropertyFlags.ID | PropertyFlags.NON_PRIMITIVE_TYPE);
+        entityBuilder.property("entity_type", PropertyType.String).id(2, 2367444971679165749L);
+        entityBuilder.property("content_type", PropertyType.String).id(3, 7932131476880775464L);
+        entityBuilder.property("role", PropertyType.String).id(4, 3347507820015877506L);
+        entityBuilder.property("content", PropertyType.String).id(5, 5707395739008308989L);
+        entityBuilder.property("content_video_id", PropertyType.String).id(6, 1541206873855323672L);
+        entityBuilder.property("content_video_path", PropertyType.String).id(7, 2489986953695638185L);
+        entityBuilder.property("img_url", PropertyType.String).id(8, 7777465472686390674L);
+        entityBuilder.property("link", PropertyType.String).id(9, 811145638257408868L);
+        entityBuilder.property("translate", PropertyType.String).id(10, 2211451054273878789L);
+        entityBuilder.property("ai_type", PropertyType.String).id(11, 4539946209856486146L);
+        entityBuilder.property("created", PropertyType.Long).id(12, 1004334341705689837L)
+                .flags(PropertyFlags.NON_PRIMITIVE_TYPE);
+        entityBuilder.property("backup1", PropertyType.String).id(13, 9142670773887643537L);
+        entityBuilder.property("backup2", PropertyType.String).id(14, 2021903329141346371L);
+        entityBuilder.property("backup3", PropertyType.String).id(15, 6133337627963246274L);
+        entityBuilder.property("backup4", PropertyType.String).id(16, 429618497646478542L);
+        entityBuilder.property("backup5", PropertyType.String).id(17, 8462812336103318081L);
+        entityBuilder.property("backup6", PropertyType.String).id(18, 5935471564974580967L);
+        entityBuilder.property("backup7", PropertyType.String).id(19, 1817635438217159979L);
 
 
         entityBuilder.entityDone();

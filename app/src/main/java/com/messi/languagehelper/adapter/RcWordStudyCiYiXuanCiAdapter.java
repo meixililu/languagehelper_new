@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import com.karumi.headerrecyclerview.HeaderRecyclerViewAdapter;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.dao.WordDetailListItem;
+import com.messi.languagehelper.box.WordDetailListItem;
 
 /**
  * Created by luli on 10/23/16.

@@ -5,31 +5,13 @@ import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ListView;
 
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.messi.languagehelper.adapter.WordStudyDetailAdapter;
-import com.messi.languagehelper.dao.WordDetailListItem;
-import com.messi.languagehelper.util.AVOUtil;
-import com.messi.languagehelper.util.ChangeDataTypeUtil;
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.SDCardUtil;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
 
 public class WordStudyDanCiRenZhiActivity extends BaseActivity implements OnClickListener {
 

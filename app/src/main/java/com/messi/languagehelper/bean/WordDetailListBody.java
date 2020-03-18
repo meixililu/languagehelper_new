@@ -1,6 +1,7 @@
 package com.messi.languagehelper.bean;
 
-import com.messi.languagehelper.dao.WordDetailListItem;
+
+import com.messi.languagehelper.box.WordDetailListItem;
 
 import java.util.List;
 

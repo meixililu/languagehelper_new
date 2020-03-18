@@ -17,7 +17,7 @@ import com.iflytek.cloud.SpeechSynthesizer;
 import com.messi.languagehelper.adapter.WordStudyUnitListAdapter;
 import com.messi.languagehelper.adapter.WordStudyViewAllAdapter;
 import com.messi.languagehelper.bean.WordListItem;
-import com.messi.languagehelper.dao.WordDetailListItem;
+import com.messi.languagehelper.box.WordDetailListItem;
 import com.messi.languagehelper.impl.AdapterListener;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.ChangeDataTypeUtil;

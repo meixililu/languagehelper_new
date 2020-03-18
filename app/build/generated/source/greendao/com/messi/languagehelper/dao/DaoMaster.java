@@ -28,7 +28,6 @@ public class DaoMaster extends AbstractDaoMaster {
         WordDetailListItemDao.createTable(db, ifNotExists);
         DictionaryDao.createTable(db, ifNotExists);
         AvobjectDao.createTable(db, ifNotExists);
-        AiEntityDao.createTable(db, ifNotExists);
         SymbolListDaoDao.createTable(db, ifNotExists);
         recordDao.createTable(db, ifNotExists);
     }
@@ -42,7 +41,6 @@ public class DaoMaster extends AbstractDaoMaster {
         WordDetailListItemDao.dropTable(db, ifExists);
         DictionaryDao.dropTable(db, ifExists);
         AvobjectDao.dropTable(db, ifExists);
-        AiEntityDao.dropTable(db, ifExists);
         SymbolListDaoDao.dropTable(db, ifExists);
         recordDao.dropTable(db, ifExists);
     }
@@ -70,7 +68,6 @@ public class DaoMaster extends AbstractDaoMaster {
         registerDaoClass(WordDetailListItemDao.class);
         registerDaoClass(DictionaryDao.class);
         registerDaoClass(AvobjectDao.class);
-        registerDaoClass(AiEntityDao.class);
         registerDaoClass(SymbolListDaoDao.class);
         registerDaoClass(recordDao.class);
     }

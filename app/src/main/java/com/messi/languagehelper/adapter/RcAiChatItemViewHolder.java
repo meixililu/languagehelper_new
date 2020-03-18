@@ -12,9 +12,9 @@ import com.messi.languagehelper.AiChatActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.WebViewActivity;
 import com.messi.languagehelper.bean.PopMenuItem;
+import com.messi.languagehelper.box.AiEntity;
+import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Record;
-import com.messi.languagehelper.dao.AiEntity;
-import com.messi.languagehelper.db.DataBaseUtil;
 import com.messi.languagehelper.dialog.AiItemMenuDialog;
 import com.messi.languagehelper.impl.OnTranslateFinishListener;
 import com.messi.languagehelper.impl.OnViewClickListener;
@@ -130,7 +130,7 @@ public class RcAiChatItemViewHolder extends RecyclerView.ViewHolder {
                                         ToastUtil.diaplayMesShort(context,context.getResources().getString(R.string.network_error));
                                     }else {
                                         mBean.setTranslate(mRecord.getEnglish());
-                                        DataBaseUtil.getInstance().update(mBean);
+                                        BoxHelper.insertOrUpdate(mBean);
                                         mAiChatActivity.mAdapter.notifyDataSetChanged();
                                     }
                                 }

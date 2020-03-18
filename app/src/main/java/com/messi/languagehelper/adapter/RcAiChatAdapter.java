@@ -9,7 +9,7 @@ import android.widget.ProgressBar;
 import com.karumi.headerrecyclerview.HeaderRecyclerViewAdapter;
 import com.messi.languagehelper.AiChatActivity;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.dao.AiEntity;
+import com.messi.languagehelper.box.AiEntity;
 
 import java.util.List;
 

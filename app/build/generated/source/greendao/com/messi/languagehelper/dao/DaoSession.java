@@ -15,7 +15,6 @@ import com.messi.languagehelper.dao.TranResultZhYue;
 import com.messi.languagehelper.dao.WordDetailListItem;
 import com.messi.languagehelper.dao.Dictionary;
 import com.messi.languagehelper.dao.Avobject;
-import com.messi.languagehelper.dao.AiEntity;
 import com.messi.languagehelper.dao.SymbolListDao;
 import com.messi.languagehelper.dao.record;
 
@@ -26,7 +25,6 @@ import com.messi.languagehelper.dao.TranResultZhYueDao;
 import com.messi.languagehelper.dao.WordDetailListItemDao;
 import com.messi.languagehelper.dao.DictionaryDao;
 import com.messi.languagehelper.dao.AvobjectDao;
-import com.messi.languagehelper.dao.AiEntityDao;
 import com.messi.languagehelper.dao.SymbolListDaoDao;
 import com.messi.languagehelper.dao.recordDao;
 
@@ -46,7 +44,6 @@ public class DaoSession extends AbstractDaoSession {
     private final DaoConfig wordDetailListItemDaoConfig;
     private final DaoConfig dictionaryDaoConfig;
     private final DaoConfig avobjectDaoConfig;
-    private final DaoConfig aiEntityDaoConfig;
     private final DaoConfig symbolListDaoDaoConfig;
     private final DaoConfig recordDaoConfig;
 
@@ -57,7 +54,6 @@ public class DaoSession extends AbstractDaoSession {
     private final WordDetailListItemDao wordDetailListItemDao;
     private final DictionaryDao dictionaryDao;
     private final AvobjectDao avobjectDao;
-    private final AiEntityDao aiEntityDao;
     private final SymbolListDaoDao symbolListDaoDao;
     private final recordDao recordDao;
 
@@ -86,9 +82,6 @@ public class DaoSession extends AbstractDaoSession {
         avobjectDaoConfig = daoConfigMap.get(AvobjectDao.class).clone();
         avobjectDaoConfig.initIdentityScope(type);
 
-        aiEntityDaoConfig = daoConfigMap.get(AiEntityDao.class).clone();
-        aiEntityDaoConfig.initIdentityScope(type);
-
         symbolListDaoDaoConfig = daoConfigMap.get(SymbolListDaoDao.class).clone();
         symbolListDaoDaoConfig.initIdentityScope(type);
 
@@ -102,7 +95,6 @@ public class DaoSession extends AbstractDaoSession {
         wordDetailListItemDao = new WordDetailListItemDao(wordDetailListItemDaoConfig, this);
         dictionaryDao = new DictionaryDao(dictionaryDaoConfig, this);
         avobjectDao = new AvobjectDao(avobjectDaoConfig, this);
-        aiEntityDao = new AiEntityDao(aiEntityDaoConfig, this);
         symbolListDaoDao = new SymbolListDaoDao(symbolListDaoDaoConfig, this);
         recordDao = new recordDao(recordDaoConfig, this);
 
@@ -113,7 +105,6 @@ public class DaoSession extends AbstractDaoSession {
         registerDao(WordDetailListItem.class, wordDetailListItemDao);
         registerDao(Dictionary.class, dictionaryDao);
         registerDao(Avobject.class, avobjectDao);
-        registerDao(AiEntity.class, aiEntityDao);
         registerDao(SymbolListDao.class, symbolListDaoDao);
         registerDao(record.class, recordDao);
     }
@@ -126,7 +117,6 @@ public class DaoSession extends AbstractDaoSession {
         wordDetailListItemDaoConfig.clearIdentityScope();
         dictionaryDaoConfig.clearIdentityScope();
         avobjectDaoConfig.clearIdentityScope();
-        aiEntityDaoConfig.clearIdentityScope();
         symbolListDaoDaoConfig.clearIdentityScope();
         recordDaoConfig.clearIdentityScope();
     }
@@ -157,10 +147,6 @@ public class DaoSession extends AbstractDaoSession {
 
     public AvobjectDao getAvobjectDao() {
         return avobjectDao;
-    }
-
-    public AiEntityDao getAiEntityDao() {
-        return aiEntityDao;
     }
 
     public SymbolListDaoDao getSymbolListDaoDao() {

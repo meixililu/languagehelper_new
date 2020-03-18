@@ -1,11 +1,7 @@
 package com.messi.languagehelper.util;
 
 import com.avos.avoscloud.AVObject;
-import com.messi.languagehelper.WordStudyPlanDetailActivity;
-import com.messi.languagehelper.dao.WordDetailListItem;
-import com.messi.languagehelper.db.DataBaseUtil;
-
-import java.util.List;
+import com.messi.languagehelper.box.WordDetailListItem;
 
 /**
  * Created by luli on 17/12/2016.

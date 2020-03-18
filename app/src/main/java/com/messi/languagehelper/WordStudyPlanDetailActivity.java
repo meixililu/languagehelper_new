@@ -14,8 +14,8 @@ import com.avos.avoscloud.AVQuery;
 import com.google.gson.Gson;
 import com.messi.languagehelper.adapter.WordStudyUnitListAdapter;
 import com.messi.languagehelper.bean.WordListItem;
-import com.messi.languagehelper.dao.WordDetailListItem;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.WordDetailListItem;
 import com.messi.languagehelper.impl.AdapterListener;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.ChangeDataTypeUtil;
@@ -156,7 +156,7 @@ public class WordStudyPlanDetailActivity extends BaseActivity implements Adapter
     private void loadData() {
         try {
             itemList.clear();
-            List<WordDetailListItem> items = DataBaseUtil.getInstance().getList(class_id,course_id);
+            List<WordDetailListItem> items = BoxHelper.getList(class_id,course_id);
             if(items.size() > 0){
                 itemList.addAll(items);
             }else {
@@ -170,7 +170,7 @@ public class WordStudyPlanDetailActivity extends BaseActivity implements Adapter
                         itemList.add(ChangeDataTypeUtil.changeData(mAVObject));
                     }
                 }
-                DataBaseUtil.getInstance().saveList(itemList,false);
+                BoxHelper.saveList(itemList,false);
             }
 
         } catch (Exception e) {

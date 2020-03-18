@@ -83,7 +83,6 @@ MERGED from [cn.jzvd:jiaozivideoplayer:7.1.0] /Users/lilu/.gradle/caches/transfo
 MERGED from [com.facebook.fresco:fresco:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a03b0e0c32d5a53ff27e26c943862f7f/fresco-1.13.0/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:animated-gif:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8fb85b5f003f5567af381af7b50324fa/animated-gif-1.13.0/AndroidManifest.xml:2:1-9:12
 MERGED from [io.reactivex.rxjava2:rxandroid:2.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7e2ed88c908455b170e6d878cde10957/rxandroid-2.1.1/AndroidManifest.xml:15:1-20:12
-MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/748c44ded98d59c8f2f81009bd790f2e/GreenDaoUpgradeHelper-v2.1.0/AndroidManifest.xml:2:1-16:12
 MERGED from [com.github.lzyzsd:circleprogress:1.2.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b1d7af3e19b0cd1af274cb91b89c7d50/circleprogress-1.2.1/AndroidManifest.xml:2:1-12:12
 MERGED from [com.daimajia.numberprogressbar:library:1.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7a9d31de92c96be362d00b9faa4e4f53/library-1.4/AndroidManifest.xml:2:1-11:12
 MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e11d72b230c6718fabfa4c71993e0eb/BaseRecyclerViewAdapterHelper-2.9.42/AndroidManifest.xml:2:1-11:12
@@ -275,8 +274,6 @@ MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/t
 MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c76674b3f95cd396b38776369f1f18d9/glide-4.8.0/AndroidManifest.xml:10:5-20
 MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7153b00cc8ab807bbed6d09147535919/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:28:5-70:19
 MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7153b00cc8ab807bbed6d09147535919/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:28:5-70:19
-MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/748c44ded98d59c8f2f81009bd790f2e/GreenDaoUpgradeHelper-v2.1.0/AndroidManifest.xml:11:5-14:19
-MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/748c44ded98d59c8f2f81009bd790f2e/GreenDaoUpgradeHelper-v2.1.0/AndroidManifest.xml:11:5-14:19
 MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8aaf3601bb47a14d2d6465bbc01a51b2/soloader-0.6.0/AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8aaf3601bb47a14d2d6465bbc01a51b2/soloader-0.6.0/AndroidManifest.xml:11:5-20
 MERGED from [com.android.support:support-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/cf6e482912c83404ee60d35c9b5dd01c/support-compat-28.0.0/AndroidManifest.xml:22:5-94
@@ -1284,8 +1281,6 @@ MERGED from [com.facebook.fresco:animated-gif:1.13.0] /Users/lilu/.gradle/caches
 MERGED from [com.facebook.fresco:animated-gif:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8fb85b5f003f5567af381af7b50324fa/animated-gif-1.13.0/AndroidManifest.xml:5:5-7:41
 MERGED from [io.reactivex.rxjava2:rxandroid:2.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7e2ed88c908455b170e6d878cde10957/rxandroid-2.1.1/AndroidManifest.xml:18:5-43
 MERGED from [io.reactivex.rxjava2:rxandroid:2.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7e2ed88c908455b170e6d878cde10957/rxandroid-2.1.1/AndroidManifest.xml:18:5-43
-MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/748c44ded98d59c8f2f81009bd790f2e/GreenDaoUpgradeHelper-v2.1.0/AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/748c44ded98d59c8f2f81009bd790f2e/GreenDaoUpgradeHelper-v2.1.0/AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.lzyzsd:circleprogress:1.2.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b1d7af3e19b0cd1af274cb91b89c7d50/circleprogress-1.2.1/AndroidManifest.xml:8:5-10:41
 MERGED from [com.github.lzyzsd:circleprogress:1.2.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b1d7af3e19b0cd1af274cb91b89c7d50/circleprogress-1.2.1/AndroidManifest.xml:8:5-10:41
 MERGED from [com.daimajia.numberprogressbar:library:1.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7a9d31de92c96be362d00b9faa4e4f53/library-1.4/AndroidManifest.xml:7:5-9:41

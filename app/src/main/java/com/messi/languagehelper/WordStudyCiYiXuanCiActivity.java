@@ -14,8 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.messi.languagehelper.adapter.RcWordStudyCiYiXuanCiAdapter;
-import com.messi.languagehelper.dao.WordDetailListItem;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.WordDetailListItem;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Setings;
@@ -123,22 +123,22 @@ public class WordStudyCiYiXuanCiActivity extends BaseActivity {
                 if(totalSum > tv_list.get(0)){
                     selection1.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(0)).getName());
                 }else {
-                    selection1.setText(DataBaseUtil.getInstance().getBench().getName());
+                    selection1.setText(BoxHelper.getBench().getName());
                 }
                 if(totalSum > tv_list.get(1)){
                     selection2.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(1)).getName());
                 }else {
-                    selection2.setText(DataBaseUtil.getInstance().getBench().getName());
+                    selection2.setText(BoxHelper.getBench().getName());
                 }
                 if(totalSum > tv_list.get(2)){
                     selection3.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(2)).getName());
                 }else {
-                    selection3.setText(DataBaseUtil.getInstance().getBench().getName());
+                    selection3.setText(BoxHelper.getBench().getName());
                 }
                 if(totalSum > tv_list.get(3)){
                     selection4.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(3)).getName());
                 }else {
-                    selection4.setText(DataBaseUtil.getInstance().getBench().getName());
+                    selection4.setText(BoxHelper.getBench().getName());
                 }
                 selection1.setTextColor(getResources().getColor(R.color.text_black1));
                 selection2.setTextColor(getResources().getColor(R.color.text_black1));
@@ -253,7 +253,7 @@ public class WordStudyCiYiXuanCiActivity extends BaseActivity {
                 resultList.add(item);
             }
         }
-        DataBaseUtil.getInstance().saveList(resultList,true);
+        BoxHelper.saveList(resultList,true);
         for (WordDetailListItem item : WordStudyPlanDetailActivity.itemList) {
             if (item.getSelect_time() == 0) {
                 resultList.add(item);

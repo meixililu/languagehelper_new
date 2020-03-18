@@ -28,8 +28,8 @@ import com.iflytek.cloud.SpeechRecognizer;
 import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.adapter.RcAiTuringAdapter;
 import com.messi.languagehelper.bean.AiTuringResult;
-import com.messi.languagehelper.dao.AiEntity;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.AiEntity;
+import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.util.AiUtil;
@@ -124,7 +124,7 @@ public class AiTuringActivity extends BaseActivity {
         sp = Setings.getSharedPreferences(this);
         recognizer = SpeechRecognizer.createRecognizer(this, null);
         beans = new ArrayList<AiEntity>();
-        beans.addAll(DataBaseUtil.getInstance().getAiEntityList(AiUtil.Ai_Turing));
+        beans.addAll(BoxHelper.getAiEntityList(AiUtil.Ai_Turing));
         mAdapter = new RcAiTuringAdapter(this, beans, mProgressbar);
         mAdapter.setItems(beans);
         mLinearLayoutManager = new LinearLayoutManager(this);
@@ -149,7 +149,7 @@ public class AiTuringActivity extends BaseActivity {
     @Override
     public void onSwipeRefreshLayoutRefresh() {
         if(!beans.isEmpty()){
-            List<AiEntity> list = DataBaseUtil.getInstance().getAiEntityList(beans.get(0).getId(), AiUtil.Ai_Turing);
+            List<AiEntity> list = BoxHelper.getAiEntityList(beans.get(0).getId(), AiUtil.Ai_Turing);
             if (!list.isEmpty()) {
                 beans.addAll(0, list);
                 mAdapter.notifyDataSetChanged();
@@ -192,7 +192,7 @@ public class AiTuringActivity extends BaseActivity {
     private void clear_all(){
         beans.clear();
         mAdapter.notifyDataSetChanged();
-        DataBaseUtil.getInstance().deleteAiEntity(AiUtil.Ai_Turing);
+        BoxHelper.deleteAiEntity(AiUtil.Ai_Turing);
     }
 
     private void submit() {
@@ -213,7 +213,7 @@ public class AiTuringActivity extends BaseActivity {
             contentLv.scrollToPosition(beans.size() - 1);
             requestData(inputEt.getText().toString().trim());
             inputEt.setText("");
-            DataBaseUtil.getInstance().insert(mAiEntity);
+            BoxHelper.insertOrUpdate(mAiEntity);
         }
     }
 
@@ -319,7 +319,7 @@ public class AiTuringActivity extends BaseActivity {
             if (sp.getBoolean(KeyUtil.IsAiTuringPlayVoice, true)) {
                 playVideo(mAiEntity);
             }
-            DataBaseUtil.getInstance().insert(mAiEntity);
+            BoxHelper.insertOrUpdate(mAiEntity);
         }
     }
 
@@ -356,7 +356,7 @@ public class AiTuringActivity extends BaseActivity {
                         if (arg0 != null) {
                             ToastUtil.diaplayMesShort(AiTuringActivity.this, arg0.getErrorDescription());
                         }
-                        DataBaseUtil.getInstance().update(mAiEntity);
+                        BoxHelper.insertOrUpdate(mAiEntity);
                         PlayUtil.onFinishPlay();
                     }
 

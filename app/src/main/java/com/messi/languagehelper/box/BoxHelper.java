@@ -8,7 +8,9 @@ import com.messi.languagehelper.util.ColorUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 import io.objectbox.Box;
 import io.objectbox.BoxStore;
@@ -476,5 +478,138 @@ public class BoxHelper {
                 .build()
                 .find(0,limit);
     }
+
+    /** AiEntity **/
+    public static Box<AiEntity> getAiEntityBox(){
+        return getBoxStore().boxFor(AiEntity.class);
+    }
+
+    public static long insertOrUpdate(AiEntity entity){
+        return getAiEntityBox().put(entity);
+    }
+
+    public static List<AiEntity> getAiEntityList(String type){
+        List<AiEntity> history = getAiEntityBox()
+                .query()
+                .equal(AiEntity_.ai_type,type)
+                .orderDesc(AiEntity_.id)
+                .build()
+                .find(0,30);
+        Collections.reverse(history);
+        return history;
+    }
+
+    public static List<AiEntity> getAiEntityList(long id,String type){
+        List<AiEntity> history = getAiEntityBox()
+                .query()
+                .equal(AiEntity_.ai_type,type)
+                .less(AiEntity_.id,id)
+                .orderDesc(AiEntity_.id)
+                .build()
+                .find(0,30);
+        Collections.reverse(history);
+        return history;
+    }
+
+    public static void deleteAiEntity(String type){
+        List<AiEntity> history = getAiEntityBox()
+                .query()
+                .equal(AiEntity_.ai_type,type)
+                .build()
+                .find();
+        getAiEntityBox().remove(history);
+    }
+    /** AiEntity end **/
+
+    /** word study **/
+    public static Box<WordDetailListItem> getWordDetailListItemBox(){
+        return getBoxStore().boxFor(WordDetailListItem.class);
+    }
+
+    public static void saveList(List<WordDetailListItem> beans, boolean isNewWord){
+        for(WordDetailListItem bean : beans){
+            saveOrUpdate(bean,isNewWord);
+        }
+    }
+
+    public static void saveOrUpdate(WordDetailListItem bean, boolean isNewWord){
+        List<WordDetailListItem> items = isDataExit(bean);
+        if(items.size() > 0){
+            if(isNewWord){
+                bean = items.get(0);
+                bean.setNew_words("1");
+            }
+        }else {
+            if(isNewWord){
+                bean.setNew_words("1");
+            }
+        }
+        insertData(bean);
+    }
+
+    public static List<WordDetailListItem> isDataExit(WordDetailListItem bean){
+        return getWordDetailListItemBox()
+                .query()
+                .equal(WordDetailListItem_.class_id,bean.getClass_id())
+                .equal(WordDetailListItem_.name,bean.getName())
+                .build()
+                .find();
+    }
+
+    public static long insertData(WordDetailListItem bean){
+        return getWordDetailListItemBox().put(bean);
+    }
+
+    public static List<WordDetailListItem> getNewWordList(int page, int page_size){
+        return getWordDetailListItemBox()
+                .query()
+                .equal(WordDetailListItem_.new_words,"1")
+                .build()
+                .find(page * page_size, page_size);
+    }
+
+    public static List<WordDetailListItem> getList(String class_id,int course_id){
+        return getWordDetailListItemBox()
+                .query()
+                .equal(WordDetailListItem_.class_id,class_id)
+                .equal(WordDetailListItem_.course,course_id)
+                .build()
+                .find();
+    }
+
+    public static WordDetailListItem getBench(){
+        long count = countWordDetailListItem();
+        int randomPage = new Random().nextInt((int)count);
+        return getWordDetailListItemBox()
+                .query()
+                .build()
+                .find(randomPage,1)
+                .get(0);
+    }
+
+    public static int countNewWordNumber(){
+        return (int)getWordDetailListItemBox()
+                .query()
+                .equal(WordDetailListItem_.new_words,"1")
+                .build()
+                .count();
+    }
+
+    public static int countWordDetailListItem(){
+        return (int)getWordDetailListItemBox()
+                .query()
+                .build()
+                .count();
+    }
+
+    public static void deleteList(List<WordDetailListItem> beans){
+        getWordDetailListItemBox().remove(beans);
+    }
+
+    public static void delete(WordDetailListItem bean){
+        getWordDetailListItemBox().remove(bean);
+    }
+
+    /** word study **/
 
 }

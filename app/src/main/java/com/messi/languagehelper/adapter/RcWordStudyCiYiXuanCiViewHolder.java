@@ -2,12 +2,11 @@ package com.messi.languagehelper.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.dao.WordDetailListItem;
+import com.messi.languagehelper.box.WordDetailListItem;
 
 /**
  * Created by luli on 10/23/16.

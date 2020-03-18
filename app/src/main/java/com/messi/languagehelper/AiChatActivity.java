@@ -29,8 +29,8 @@ import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.adapter.RcAiChatAdapter;
 import com.messi.languagehelper.bean.AiResult;
-import com.messi.languagehelper.dao.AiEntity;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.AiEntity;
+import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.impl.OnFinishListener;
@@ -143,7 +143,7 @@ public class AiChatActivity extends BaseActivity {
         recognizer = SpeechRecognizer.createRecognizer(this.getApplicationContext(), null);
         mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this.getApplicationContext(), null);
         beans = new ArrayList<AiEntity>();
-        beans.addAll(DataBaseUtil.getInstance().getAiEntityList(AiUtil.Ai_Acobot));
+        beans.addAll(BoxHelper.getAiEntityList(AiUtil.Ai_Acobot));
         mAdapter = new RcAiChatAdapter(this, beans, mProgressbar);
         mAdapter.setItems(beans);
         mLinearLayoutManager = new LinearLayoutManager(this);
@@ -185,7 +185,7 @@ public class AiChatActivity extends BaseActivity {
     @Override
     public void onSwipeRefreshLayoutRefresh() {
         if(beans.size() > 0){
-            List<AiEntity> list = DataBaseUtil.getInstance().getAiEntityList(beans.get(0).getId(), AiUtil.Ai_Acobot);
+            List<AiEntity> list = BoxHelper.getAiEntityList(beans.get(0).getId(), AiUtil.Ai_Acobot);
             if (list.size() > 0) {
                 beans.addAll(0, list);
                 mAdapter.notifyDataSetChanged();
@@ -231,7 +231,7 @@ public class AiChatActivity extends BaseActivity {
     private void clear_all(){
         beans.clear();
         mAdapter.notifyDataSetChanged();
-        DataBaseUtil.getInstance().deleteAiEntity(AiUtil.Ai_Acobot);
+        BoxHelper.deleteAiEntity(AiUtil.Ai_Acobot);
     }
 
     private void submit() {
@@ -247,7 +247,7 @@ public class AiChatActivity extends BaseActivity {
             contentLv.scrollToPosition(beans.size() - 1);
             requestData(inputEt.getText().toString().trim());
             inputEt.setText("");
-            DataBaseUtil.getInstance().insert(mAiEntity);
+            BoxHelper.insertOrUpdate(mAiEntity);
         }
     }
 
@@ -354,7 +354,7 @@ public class AiChatActivity extends BaseActivity {
             if (sp.getBoolean(KeyUtil.IsAiChatPlayVoice, true)) {
                 playVideo(mAiEntity);
             }
-            DataBaseUtil.getInstance().insert(mAiEntity);
+            BoxHelper.insertOrUpdate(mAiEntity);
         }
     }
 
@@ -410,7 +410,7 @@ public class AiChatActivity extends BaseActivity {
                         if (arg0 != null) {
                             ToastUtil.diaplayMesShort(AiChatActivity.this, arg0.getErrorDescription());
                         }
-                        DataBaseUtil.getInstance().update(mAiEntity);
+                        BoxHelper.insertOrUpdate(mAiEntity);
                         PlayUtil.onFinishPlay();
                     }
 
@@ -483,6 +483,14 @@ public class AiChatActivity extends BaseActivity {
         }
 
     };
+
+    @Override
+    public void onBackPressed() {
+        if (inputEt != null) {
+            hideIME(inputEt);
+        }
+        super.onBackPressed();
+    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
