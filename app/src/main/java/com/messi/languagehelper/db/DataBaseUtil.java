@@ -18,6 +18,7 @@ import com.messi.languagehelper.dao.record;
 import com.messi.languagehelper.dao.recordDao;
 import com.messi.languagehelper.dao.recordDao.Properties;
 import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.ContextUtil;
 import com.messi.languagehelper.util.LogUtil;
 
 import org.greenrobot.greendao.query.QueryBuilder;
@@ -47,7 +48,7 @@ public class DataBaseUtil {
         if (instance == null) {
             instance = new DataBaseUtil();
             if (appContext == null) {
-                appContext = BaseApplication.mInstance;
+                appContext = ContextUtil.get().getContext();
             }
             instance.mDaoSession = BaseApplication.getDaoSession(appContext);
             instance.mrecordDao = instance.mDaoSession.getRecordDao();

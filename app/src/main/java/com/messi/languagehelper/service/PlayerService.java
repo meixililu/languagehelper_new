@@ -174,14 +174,16 @@ public class PlayerService extends Service {
 
     private void initForeground(){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationUtil.getManager(this);
             Notification notification = NotificationUtil.getNotification(this,
                     action_restart,"告别说不出口的英语", NotificationUtil.mes_type_zyhy);
             startForeground(Setings.NOTIFY_ID,notification);
-            isForeground = true;
         }
+        isForeground = true;
     }
 
     private void checkIsForeground(){
+        LogUtil.DefalutLog("---checkIsForeground---");
         if (!isForeground) {
             initForeground();
         }
@@ -192,9 +194,7 @@ public class PlayerService extends Service {
     }
 
     private void stopXMLYPlayer(){
-        if(XmPlayerManager.getInstance(this).isPlaying()){
-            XmPlayerManager.getInstance(this).pause();
-        }
+        XmPlayerManager.getInstance(this).pause();
     }
 
     public void InitPlayList(List<Reading> list,int position){
@@ -278,7 +278,6 @@ public class PlayerService extends Service {
             MediaSource mediaSource = new ExtractorMediaSource
                     .Factory(dataSourceFactory)
                     .createMediaSource(Uri.parse(song.getMedia_url()));
-
             mExoPlayer.prepare(mediaSource);
             mExoPlayer.setPlayWhenReady(true);
             mWifiLock.acquire();

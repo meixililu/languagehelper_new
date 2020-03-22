@@ -27,13 +27,19 @@ import static com.messi.languagehelper.service.PlayerService.action_restart;
 
 public class NotificationUtil {
 
+    public static final String CHannelID = "xbkj";
     public static final String mes_type_zyhy = "zyhy";
     public static final String mes_type_xmly = "xmly";
 
     public static void showNotification(Context mContext,String action,String title,String type){
-        NotificationManager manager = (NotificationManager) mContext.getSystemService(NOTIFICATION_SERVICE);
-        createNotificationChannel(manager,type);
+        NotificationManager manager = getManager(mContext);
         manager.notify(Setings.NOTIFY_ID, getNotification(mContext,action,title,type));
+    }
+
+    public static NotificationManager getManager(Context mContext){
+        NotificationManager manager = (NotificationManager) mContext.getSystemService(NOTIFICATION_SERVICE);
+        createNotificationChannel(manager);
+        return manager;
     }
 
     public static Notification getNotification(Context mContext,String action,String title,String type){
@@ -85,7 +91,7 @@ public class NotificationUtil {
         contentView.setOnClickPendingIntent(R.id.notifi_action, pIntentAction);
         contentView.setOnClickPendingIntent(R.id.notifi_close, pIntentClose);
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext,type);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext,NotificationUtil.CHannelID);
         if(img_id == R.drawable.ic_play_grey){
             builder.setAutoCancel(true);
         }else {
@@ -106,9 +112,9 @@ public class NotificationUtil {
         mContext.sendBroadcast(broadcast);
     }
 
-    public static void createNotificationChannel(NotificationManager manager,String type) {
+    public static void createNotificationChannel(NotificationManager manager) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel(type,
+            NotificationChannel channel = new NotificationChannel(NotificationUtil.CHannelID,
                     "study", NotificationManager.IMPORTANCE_DEFAULT);
             channel.setDescription("play");
             manager.createNotificationChannel(channel);

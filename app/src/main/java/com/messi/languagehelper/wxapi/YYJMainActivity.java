@@ -10,6 +10,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -182,8 +183,12 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 	private void startMusicPlayerService() {
 		if (playIntent == null) {
 			playIntent = new Intent(this, PlayerService.class);
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+				startForegroundService(playIntent);
+			}else {
+				startService(playIntent);
+			}
 			bindService(playIntent, musicConnection, Context.BIND_AUTO_CREATE);
-			startService(playIntent);
 		}
 	}
 

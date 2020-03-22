@@ -26,6 +26,7 @@ import com.iflytek.voiceads.listener.IFLYNativeListener;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.BDADUtil;
 import com.messi.languagehelper.util.CSJADUtil;
+import com.messi.languagehelper.util.ContextUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.Setings;
@@ -62,9 +63,9 @@ public class LeisureModel {
     private TTAdNative mTTAdNative;
     private AdView adView;
 
-    public LeisureModel(Context mContext){
-        this.mContext = new WeakReference<>(mContext);
-        sp = Setings.getSharedPreferences(mContext);
+    public LeisureModel(){
+        this.mContext = new WeakReference<>(ContextUtil.get().getContext());
+        sp = Setings.getSharedPreferences();
     }
 
     public void setViews(TextView ad_sign,SimpleDraweeView adImg,

@@ -19,9 +19,9 @@ import java.lang.Override;
 public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
   private ReadDetailTouTiaoActivity target;
 
-  private View view7f080060;
+  private View view7f08006c;
 
-  private View view7f080099;
+  private View view7f0800a9;
 
   @UiThread
   public ReadDetailTouTiaoActivity_ViewBinding(ReadDetailTouTiaoActivity target) {
@@ -40,7 +40,7 @@ public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
     target.videoLayout = Utils.findRequiredViewAsType(source, R.id.video_ly, "field 'videoLayout'", FrameLayout.class);
     view = Utils.findRequiredView(source, R.id.back_btn, "field 'backBtn' and method 'onViewClicked'");
     target.backBtn = Utils.castView(view, R.id.back_btn, "field 'backBtn'", LinearLayout.class);
-    view7f080060 = view;
+    view7f08006c = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -52,7 +52,7 @@ public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
     target.webview_layout = Utils.findRequiredViewAsType(source, R.id.webview_layout, "field 'webview_layout'", FrameLayout.class);
     view = Utils.findRequiredView(source, R.id.collect_btn, "field 'collect_btn' and method 'onClick'");
     target.collect_btn = Utils.castView(view, R.id.collect_btn, "field 'collect_btn'", ImageView.class);
-    view7f080099 = view;
+    view7f0800a9 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -78,9 +78,9 @@ public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
     target.webview_layout = null;
     target.collect_btn = null;
 
-    view7f080060.setOnClickListener(null);
-    view7f080060 = null;
-    view7f080099.setOnClickListener(null);
-    view7f080099 = null;
+    view7f08006c.setOnClickListener(null);
+    view7f08006c = null;
+    view7f0800a9.setOnClickListener(null);
+    view7f0800a9 = null;
   }
 }

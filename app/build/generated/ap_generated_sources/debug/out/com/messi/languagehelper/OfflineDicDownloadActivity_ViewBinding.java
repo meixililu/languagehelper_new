@@ -16,15 +16,15 @@ import java.lang.Override;
 public class OfflineDicDownloadActivity_ViewBinding implements Unbinder {
   private OfflineDicDownloadActivity target;
 
-  private View view7f0800d3;
+  private View view7f0800e7;
 
-  private View view7f0800d9;
+  private View view7f0800ed;
 
-  private View view7f0800d7;
+  private View view7f0800eb;
 
-  private View view7f080160;
+  private View view7f080187;
 
-  private View view7f080133;
+  private View view7f080155;
 
   @UiThread
   public OfflineDicDownloadActivity_ViewBinding(OfflineDicDownloadActivity target) {
@@ -40,7 +40,7 @@ public class OfflineDicDownloadActivity_ViewBinding implements Unbinder {
     target.dicMinimalistImg = Utils.findRequiredViewAsType(source, R.id.dic_minimalist_img, "field 'dicMinimalistImg'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.dic_minimalist, "field 'dicMinimalist' and method 'onViewClicked'");
     target.dicMinimalist = Utils.castView(view, R.id.dic_minimalist, "field 'dicMinimalist'", FrameLayout.class);
-    view7f0800d3 = view;
+    view7f0800e7 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -50,7 +50,7 @@ public class OfflineDicDownloadActivity_ViewBinding implements Unbinder {
     target.dicStandardImg = Utils.findRequiredViewAsType(source, R.id.dic_standard_img, "field 'dicStandardImg'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.dic_standard, "field 'dicStandard' and method 'onViewClicked'");
     target.dicStandard = Utils.castView(view, R.id.dic_standard, "field 'dicStandard'", FrameLayout.class);
-    view7f0800d9 = view;
+    view7f0800ed = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -60,7 +60,7 @@ public class OfflineDicDownloadActivity_ViewBinding implements Unbinder {
     target.dicSentenceImg = Utils.findRequiredViewAsType(source, R.id.dic_sentence_img, "field 'dicSentenceImg'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.dic_sentence, "field 'dicSentence' and method 'onViewClicked'");
     target.dicSentence = Utils.castView(view, R.id.dic_sentence, "field 'dicSentence'", FrameLayout.class);
-    view7f0800d7 = view;
+    view7f0800eb = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -71,7 +71,7 @@ public class OfflineDicDownloadActivity_ViewBinding implements Unbinder {
     target.kzImg = Utils.findRequiredViewAsType(source, R.id.kz_img, "field 'kzImg'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.kz_layout, "field 'kzLayout' and method 'onViewClicked'");
     target.kzLayout = Utils.castView(view, R.id.kz_layout, "field 'kzLayout'", FrameLayout.class);
-    view7f080160 = view;
+    view7f080187 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -81,7 +81,7 @@ public class OfflineDicDownloadActivity_ViewBinding implements Unbinder {
     target.hhImg = Utils.findRequiredViewAsType(source, R.id.hh_img, "field 'hhImg'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.hh_layout, "field 'hhLayout' and method 'onViewClicked'");
     target.hhLayout = Utils.castView(view, R.id.hh_layout, "field 'hhLayout'", FrameLayout.class);
-    view7f080133 = view;
+    view7f080155 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -109,15 +109,15 @@ public class OfflineDicDownloadActivity_ViewBinding implements Unbinder {
     target.hhImg = null;
     target.hhLayout = null;
 
-    view7f0800d3.setOnClickListener(null);
-    view7f0800d3 = null;
-    view7f0800d9.setOnClickListener(null);
-    view7f0800d9 = null;
-    view7f0800d7.setOnClickListener(null);
-    view7f0800d7 = null;
-    view7f080160.setOnClickListener(null);
-    view7f080160 = null;
-    view7f080133.setOnClickListener(null);
-    view7f080133 = null;
+    view7f0800e7.setOnClickListener(null);
+    view7f0800e7 = null;
+    view7f0800ed.setOnClickListener(null);
+    view7f0800ed = null;
+    view7f0800eb.setOnClickListener(null);
+    view7f0800eb = null;
+    view7f080187.setOnClickListener(null);
+    view7f080187 = null;
+    view7f080155.setOnClickListener(null);
+    view7f080155 = null;
   }
 }

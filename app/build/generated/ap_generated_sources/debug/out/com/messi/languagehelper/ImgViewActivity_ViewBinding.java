@@ -15,11 +15,11 @@ import java.lang.Override;
 public class ImgViewActivity_ViewBinding implements Unbinder {
   private ImgViewActivity target;
 
-  private View view7f080095;
+  private View view7f0800a5;
 
-  private View view7f0800de;
+  private View view7f0800f4;
 
-  private View view7f08027e;
+  private View view7f0802b4;
 
   @UiThread
   public ImgViewActivity_ViewBinding(ImgViewActivity target) {
@@ -34,7 +34,7 @@ public class ImgViewActivity_ViewBinding implements Unbinder {
     target.itemImg = Utils.findRequiredViewAsType(source, R.id.item_img, "field 'itemImg'", ZoomableDraweeView.class);
     view = Utils.findRequiredView(source, R.id.close_img, "field 'closeImg' and method 'onViewClicked'");
     target.closeImg = Utils.castView(view, R.id.close_img, "field 'closeImg'", ImageView.class);
-    view7f080095 = view;
+    view7f0800a5 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -43,7 +43,7 @@ public class ImgViewActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.download_img, "field 'downloadImg' and method 'onViewClicked'");
     target.downloadImg = Utils.castView(view, R.id.download_img, "field 'downloadImg'", ImageView.class);
-    view7f0800de = view;
+    view7f0800f4 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -52,7 +52,7 @@ public class ImgViewActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.share_img, "field 'shareImg' and method 'onViewClicked'");
     target.shareImg = Utils.castView(view, R.id.share_img, "field 'shareImg'", ImageView.class);
-    view7f08027e = view;
+    view7f0802b4 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -73,11 +73,11 @@ public class ImgViewActivity_ViewBinding implements Unbinder {
     target.downloadImg = null;
     target.shareImg = null;
 
-    view7f080095.setOnClickListener(null);
-    view7f080095 = null;
-    view7f0800de.setOnClickListener(null);
-    view7f0800de = null;
-    view7f08027e.setOnClickListener(null);
-    view7f08027e = null;
+    view7f0800a5.setOnClickListener(null);
+    view7f0800a5 = null;
+    view7f0800f4.setOnClickListener(null);
+    view7f0800f4 = null;
+    view7f0802b4.setOnClickListener(null);
+    view7f0802b4 = null;
   }
 }

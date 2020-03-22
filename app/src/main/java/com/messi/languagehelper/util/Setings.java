@@ -21,7 +21,6 @@ import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
 import android.view.View;
 
-import com.messi.languagehelper.BaseApplication;
 import com.messi.languagehelper.ImgShareActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.dialog.PopDialog;
@@ -91,13 +90,8 @@ public class Setings {
 
 	public static String HjiangWeb = "https://dict.hjenglish.com/w/";
 
-	/**showapi dictionary api**/
-	public static String ShowApiDictionaryUrl = "http://route.showapi.com/32-9";
-	
 	/**jinshan daily sentence api**/
 	public static String DailySentenceUrl = "http://open.iciba.com/dsapi/";
-	
-	public static final String CaiLingUrl = "http://iring.diyring.cc/friendv2/135430af88bc3328#main";
 
 	public static final String CHDicBaiduApi = "http://hanyu.baidu.com/s?ptype=zici&wd=";
 
@@ -107,27 +101,7 @@ public class Setings {
 
 	/** BrainTwists **/
 
-	public static final String TXBrainTwistsApi = "http://api.tianapi.com/txapi/naowan/index?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
-
-	public static final String TXGodreplyApi = "http://api.tianapi.com/txapi/godreply/index?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
-
-	public static final String TXEssayApi = "http://api.tianapi.com/txapi/ensentence/index?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
-
-	public static final String TXYiZhanDaoDiApi = "http://api.tianapi.com/txapi/wenda/index?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
-
-	public static final String HistoryApi = "http://api.tianapi.com/txapi/pitlishi/index?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
-
-	public static final String TongueTwisterApi = "http://api.tianapi.com/txapi/rkl/index?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
-
-	public static final String XHYApi = "http://api.tianapi.com/txapi/xiehou/index?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
-
-	public static final String CaizimiApi = "http://api.tianapi.com/txapi/zimi/index?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
-
-	public static final String WHYYApi = "http://api.tianapi.com/txapi/proverb/index?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
-
-	public static final String ConjectureApi = "http://api.tianapi.com/txapi/caichengyu/index?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
-
-	public static final String RiddleApi = "http://api.tianapi.com/txapi/riddle/index?key=18f7f9dbd7dfcd8ab45efdcfbc33826d";
+	public static final String TXBaseApi = "http://api.tianapi.com/";
 
 	public static final String TXNewsApi = "http://api.tianapi.com/";
 
@@ -248,9 +222,13 @@ public class Setings {
 	 */
 	public static SharedPreferences getSharedPreferences(Context context){
 		if(context != null){
-			return context.getSharedPreferences(context.getPackageName(), Activity.MODE_PRIVATE);
+			return context.getSharedPreferences(ContextUtil.get().getContext().getPackageName(), Activity.MODE_PRIVATE);
 		}
 		return null;
+	}
+
+	public static SharedPreferences getSharedPreferences(){
+		return ContextUtil.get().getContext().getSharedPreferences(ContextUtil.get().getContext().getPackageName(), Activity.MODE_PRIVATE);
 	}
 	
 	/**
@@ -446,7 +424,7 @@ public class Setings {
 
 	public static String getDeviceID(Context context){
 		if(context == null){
-			context = BaseApplication.mInstance;
+			context = ContextUtil.get().getContext();
 		}
 		SharedPreferences sp = Setings.getSharedPreferences(context);
 		String device_id = sp.getString(KeyUtil.DeviceId,"");

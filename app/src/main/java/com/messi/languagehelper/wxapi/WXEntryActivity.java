@@ -3,7 +3,6 @@ package com.messi.languagehelper.wxapi;
 
 import android.Manifest;
 import android.app.Activity;
-import android.app.ActivityManager;
 import android.app.NotificationManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -11,6 +10,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -129,8 +129,8 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 	private ServiceConnection musicConnection = new ServiceConnection() {
 		@Override
 		public void onServiceConnected(ComponentName name, IBinder service) {
-			IPlayerUtil.musicSrv = IXBPlayer.Stub.asInterface(service);
 			LogUtil.DefalutLog("WXEntryActivity---musicConnection---");
+			IPlayerUtil.musicSrv = IXBPlayer.Stub.asInterface(service);
 		}
 
 		@Override
@@ -148,7 +148,11 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 	private void startMusicPlayerService() {
 		if (playIntent == null) {
 			playIntent = new Intent(this, PlayerService.class);
-			startService(playIntent);
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+				startForegroundService(playIntent);
+			}else {
+				startService(playIntent);
+			}
 			bindService(playIntent, musicConnection, Context.BIND_AUTO_CREATE);
 		}
 	}

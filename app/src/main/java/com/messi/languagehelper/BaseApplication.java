@@ -35,7 +35,6 @@ public class BaseApplication extends MultiDexApplication {
 	public static HashMap<String, Object> dataMap = new HashMap<String, Object>();
     public static DaoMaster daoMaster;
     public static DaoSession daoSession;
-    public static Context mInstance;
 
     @Override  
     public void onCreate() {  
@@ -44,37 +43,36 @@ public class BaseApplication extends MultiDexApplication {
     }
 
     private void init(){
-        if(mInstance == null)  mInstance = this;
         webviewSetPath(this);
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    SystemUtil.setPacketName(mInstance);
-                    Fresco.initialize(mInstance);
+                    SystemUtil.setPacketName();
+                    Fresco.initialize(BaseApplication.this);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 try {
-                    SharedPreferences sp = Setings.getSharedPreferences(mInstance);
+                    SharedPreferences sp = Setings.getSharedPreferences();
                     String ipAddress = sp.getString(KeyUtil.LeanCloudIPAddress,"http://leancloud.mzxbkj.com");
                     AVOSCloud.setServer(AVOSCloud.SERVER_TYPE.API, ipAddress);
-                    AVOSCloud.initialize(mInstance,"3fg5ql3r45i3apx2is4j9on5q5rf6kapxce51t5bc0ffw2y4", "twhlgs6nvdt7z7sfaw76ujbmaw7l12gb8v6sdyjw1nzk9b1a");
+                    AVOSCloud.initialize(BaseApplication.this,"3fg5ql3r45i3apx2is4j9on5q5rf6kapxce51t5bc0ffw2y4", "twhlgs6nvdt7z7sfaw76ujbmaw7l12gb8v6sdyjw1nzk9b1a");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 try {
-                    YouDaoApplication.init(mInstance, Setings.YoudaoApiKey);
-                    DexLoader.initIFLYADModule(mInstance);
+                    YouDaoApplication.init(BaseApplication.this, Setings.YoudaoApiKey);
+                    DexLoader.initIFLYADModule(BaseApplication.this);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 initChannel();
                 initXMLY();
-                TXADUtil.init(mInstance);
-                CSJADUtil.init(mInstance);
-                BDADUtil.init(mInstance);
-                BoxHelper.init(mInstance);
+                TXADUtil.init();
+                CSJADUtil.init();
+                BDADUtil.init(BaseApplication.this);
+                BoxHelper.init();
             }
         }).run();
     }
@@ -108,7 +106,7 @@ public class BaseApplication extends MultiDexApplication {
             mXimalaya.setPackid(getPackageName());
             mXimalaya.setHttpConfig(null);
             mXimalaya.setUseHttps(true);
-            mXimalaya.init(mInstance, Setings.XMLYAppSecret);
+            mXimalaya.init(BaseApplication.this, Setings.XMLYAppSecret);
             LogUtil.DefalutLog("initXimalayaSDK");
         } catch (Exception e) {
             e.printStackTrace();
@@ -121,7 +119,7 @@ public class BaseApplication extends MultiDexApplication {
             Setings.appVersion = Setings.getVersion(getApplicationContext());
             Setings.appChannel = Setings.getMetaData(getApplicationContext(),"UMENG_CHANNEL");
             setAPPData();
-            UMConfigure.init(mInstance,Setings.UmengAPPId,Setings.appChannel,UMConfigure.DEVICE_TYPE_PHONE,"");
+            UMConfigure.init(BaseApplication.this,Setings.UmengAPPId,Setings.appChannel,UMConfigure.DEVICE_TYPE_PHONE,"");
         } catch (Exception e) {
             e.printStackTrace();
         }

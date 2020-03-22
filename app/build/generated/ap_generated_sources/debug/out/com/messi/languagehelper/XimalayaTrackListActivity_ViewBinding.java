@@ -18,9 +18,9 @@ import java.lang.Override;
 public class XimalayaTrackListActivity_ViewBinding implements Unbinder {
   private XimalayaTrackListActivity target;
 
-  private View view7f080076;
+  private View view7f080084;
 
-  private View view7f080073;
+  private View view7f080081;
 
   @UiThread
   public XimalayaTrackListActivity_ViewBinding(XimalayaTrackListActivity target) {
@@ -39,7 +39,7 @@ public class XimalayaTrackListActivity_ViewBinding implements Unbinder {
     target.trackInfo = Utils.findRequiredViewAsType(source, R.id.track_info, "field 'trackInfo'", TextView.class);
     view = Utils.findRequiredView(source, R.id.btn_sort, "field 'btnSort' and method 'onViewClicked'");
     target.btnSort = Utils.castView(view, R.id.btn_sort, "field 'btnSort'", FrameLayout.class);
-    view7f080076 = view;
+    view7f080084 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -48,7 +48,7 @@ public class XimalayaTrackListActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.btn_download, "field 'btnDownload' and method 'onViewClicked'");
     target.btnDownload = Utils.castView(view, R.id.btn_download, "field 'btnDownload'", FrameLayout.class);
-    view7f080073 = view;
+    view7f080081 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -75,9 +75,9 @@ public class XimalayaTrackListActivity_ViewBinding implements Unbinder {
     target.imgSort = null;
     target.pageCount = null;
 
-    view7f080076.setOnClickListener(null);
-    view7f080076 = null;
-    view7f080073.setOnClickListener(null);
-    view7f080073 = null;
+    view7f080084.setOnClickListener(null);
+    view7f080084 = null;
+    view7f080081.setOnClickListener(null);
+    view7f080081 = null;
   }
 }

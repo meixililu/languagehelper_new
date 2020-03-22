@@ -133,8 +133,8 @@ public class LeisureFragment extends BaseFragment {
             }
         }
         ButterKnife.bind(this, view);
-        sp = Setings.getSharedPreferences(getContext());
-        mLeisureModel = new LeisureModel(getActivity());
+        sp = Setings.getSharedPreferences();
+        mLeisureModel = new LeisureModel();
         mLeisureModel.setXFADID(ADUtil.MRYJYSNRLAd);
         mLeisureModel.setViews(ad_sign,adImg,xx_ad_layout,ad_layout);
         mLeisureModel.showAd();

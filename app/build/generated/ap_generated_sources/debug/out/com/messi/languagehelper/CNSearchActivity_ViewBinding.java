@@ -20,17 +20,17 @@ import java.lang.Override;
 public class CNSearchActivity_ViewBinding implements Unbinder {
   private CNSearchActivity target;
 
-  private View view7f08029b;
+  private View view7f0802d2;
 
-  private View view7f080257;
+  private View view7f08028d;
 
-  private View view7f080254;
+  private View view7f08028a;
 
-  private View view7f08024f;
+  private View view7f080285;
 
-  private View view7f08024d;
+  private View view7f080283;
 
-  private View view7f080091;
+  private View view7f0800a1;
 
   @UiThread
   public CNSearchActivity_ViewBinding(CNSearchActivity target) {
@@ -47,7 +47,7 @@ public class CNSearchActivity_ViewBinding implements Unbinder {
     target.input_layout = Utils.findRequiredViewAsType(source, R.id.input_layout, "field 'input_layout'", LinearLayout.class);
     view = Utils.findRequiredView(source, R.id.speak_round_layout, "field 'speak_round_layout' and method 'onViewClicked'");
     target.speak_round_layout = Utils.castView(view, R.id.speak_round_layout, "field 'speak_round_layout'", LinearLayout.class);
-    view7f08029b = view;
+    view7f0802d2 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -57,7 +57,7 @@ public class CNSearchActivity_ViewBinding implements Unbinder {
     target.record_anim_img = Utils.findRequiredViewAsType(source, R.id.record_anim_img, "field 'record_anim_img'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.search_novel, "field 'search_novel' and method 'onViewClicked'");
     target.search_novel = Utils.castView(view, R.id.search_novel, "field 'search_novel'", TextView.class);
-    view7f080257 = view;
+    view7f08028d = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -66,7 +66,7 @@ public class CNSearchActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.search_internet, "field 'search_internet' and method 'onViewClicked'");
     target.search_internet = Utils.castView(view, R.id.search_internet, "field 'search_internet'", TextView.class);
-    view7f080254 = view;
+    view7f08028a = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -75,7 +75,7 @@ public class CNSearchActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.search_caricature, "field 'search_caricature' and method 'onViewClicked'");
     target.search_caricature = Utils.castView(view, R.id.search_caricature, "field 'search_caricature'", TextView.class);
-    view7f08024f = view;
+    view7f080285 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -85,7 +85,7 @@ public class CNSearchActivity_ViewBinding implements Unbinder {
     target.record_layout = Utils.findRequiredViewAsType(source, R.id.record_layout, "field 'record_layout'", LinearLayout.class);
     view = Utils.findRequiredView(source, R.id.search_btn, "field 'search_btn' and method 'onViewClicked'");
     target.search_btn = Utils.castView(view, R.id.search_btn, "field 'search_btn'", FrameLayout.class);
-    view7f08024d = view;
+    view7f080283 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -96,7 +96,7 @@ public class CNSearchActivity_ViewBinding implements Unbinder {
     target.hot_wrap_layout = Utils.findRequiredViewAsType(source, R.id.hot_wrap_layout, "field 'hot_wrap_layout'", FlexboxLayout.class);
     view = Utils.findRequiredView(source, R.id.clear_history, "field 'clearHistory' and method 'onViewClicked'");
     target.clearHistory = Utils.castView(view, R.id.clear_history, "field 'clearHistory'", FrameLayout.class);
-    view7f080091 = view;
+    view7f0800a1 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -126,17 +126,17 @@ public class CNSearchActivity_ViewBinding implements Unbinder {
     target.hot_wrap_layout = null;
     target.clearHistory = null;
 
-    view7f08029b.setOnClickListener(null);
-    view7f08029b = null;
-    view7f080257.setOnClickListener(null);
-    view7f080257 = null;
-    view7f080254.setOnClickListener(null);
-    view7f080254 = null;
-    view7f08024f.setOnClickListener(null);
-    view7f08024f = null;
-    view7f08024d.setOnClickListener(null);
-    view7f08024d = null;
-    view7f080091.setOnClickListener(null);
-    view7f080091 = null;
+    view7f0802d2.setOnClickListener(null);
+    view7f0802d2 = null;
+    view7f08028d.setOnClickListener(null);
+    view7f08028d = null;
+    view7f08028a.setOnClickListener(null);
+    view7f08028a = null;
+    view7f080285.setOnClickListener(null);
+    view7f080285 = null;
+    view7f080283.setOnClickListener(null);
+    view7f080283 = null;
+    view7f0800a1.setOnClickListener(null);
+    view7f0800a1 = null;
   }
 }
