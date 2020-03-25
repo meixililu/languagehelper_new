@@ -25,11 +25,11 @@ public class AiChatActivity_ViewBinding implements Unbinder {
 
   private View view7f080303;
 
-  private View view7f080403;
+  private View view7f08041e;
 
   private View view7f08016f;
 
-  private View view7f0803fc;
+  private View view7f080417;
 
   private View view7f0802d0;
 
@@ -61,7 +61,7 @@ public class AiChatActivity_ViewBinding implements Unbinder {
     target.volumeImg = Utils.findRequiredViewAsType(source, R.id.volume_img, "field 'volumeImg'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.volume_btn, "field 'volumeBtn' and method 'onViewClicked'");
     target.volumeBtn = Utils.castView(view, R.id.volume_btn, "field 'volumeBtn'", FrameLayout.class);
-    view7f080403 = view;
+    view7f08041e = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -81,7 +81,7 @@ public class AiChatActivity_ViewBinding implements Unbinder {
     target.voiceBtn = Utils.findRequiredViewAsType(source, R.id.voice_btn, "field 'voiceBtn'", TextView.class);
     view = Utils.findRequiredView(source, R.id.voice_btn_cover, "field 'voiceBtnCover' and method 'onViewClicked'");
     target.voiceBtnCover = Utils.castView(view, R.id.voice_btn_cover, "field 'voiceBtnCover'", CardView.class);
-    view7f0803fc = view;
+    view7f080417 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -151,12 +151,12 @@ public class AiChatActivity_ViewBinding implements Unbinder {
 
     view7f080303.setOnClickListener(null);
     view7f080303 = null;
-    view7f080403.setOnClickListener(null);
-    view7f080403 = null;
+    view7f08041e.setOnClickListener(null);
+    view7f08041e = null;
     view7f08016f.setOnClickListener(null);
     view7f08016f = null;
-    view7f0803fc.setOnClickListener(null);
-    view7f0803fc = null;
+    view7f080417.setOnClickListener(null);
+    view7f080417 = null;
     view7f0802d0.setOnClickListener(null);
     view7f0802d0 = null;
     view7f0800d5.setOnClickListener(null);

@@ -167,6 +167,7 @@ public class ADUtil {
 		try {
 			Intent intent = new Intent();
 			intent.setAction("android.intent.action.VIEW");
+			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			intent.setData(uri);
 			mContext.startActivity(intent);
 		} catch (Exception e) {

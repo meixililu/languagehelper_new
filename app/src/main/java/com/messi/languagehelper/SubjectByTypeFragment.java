@@ -18,7 +18,6 @@ import com.messi.languagehelper.adapter.RcSubjectTypeListAdapter;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
-import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFYSAD;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
@@ -117,10 +116,8 @@ public class SubjectByTypeFragment extends BaseFragment {
                 int visible = layoutManager.getChildCount();
                 int total = layoutManager.getItemCount();
                 int firstVisibleItem = layoutManager.findFirstCompletelyVisibleItemPosition();
-                LogUtil.DefalutLog("visible:" + visible + "---total:" + total + "---firstVisibleItem:" + firstVisibleItem);
                 if (!loading && hasMore && isHasLoadData) {
                     if ((visible + firstVisibleItem) >= total) {
-                        LogUtil.DefalutLog("setListOnScrollListener");
                         new QueryTask(SubjectByTypeFragment.this).execute();
                     }
                 }

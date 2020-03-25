@@ -102,7 +102,6 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
             int visible = layoutManager.getChildCount();
             int total = layoutManager.getItemCount();
             int firstVisibleItem = layoutManager.findFirstCompletelyVisibleItemPosition();
-            LogUtil.DefalutLog("visible:"+visible+"-total:"+total+"-firstVisibleItem:"+firstVisibleItem);
             if (!loading && hasMore) {
                 if ((visible + firstVisibleItem) >= total) {
                     RequestAsyncTask();

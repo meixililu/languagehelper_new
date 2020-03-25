@@ -86,7 +86,6 @@ public class AiDialogueSelectCourseActivity extends BaseActivity implements View
                 int visible  = layoutManager.getChildCount();
                 int total = layoutManager.getItemCount();
                 int firstVisibleItem = layoutManager.findFirstCompletelyVisibleItemPosition();
-                LogUtil.DefalutLog("visible:"+visible+"---total:"+total+"---firstVisibleItem:"+firstVisibleItem);
                 if(!loading && hasMore){
                     if ((visible + firstVisibleItem) >= total){
                         new QueryTask(AiDialogueSelectCourseActivity.this).execute();

@@ -1,8 +1,12 @@
 package com.messi.languagehelper;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.support.v4.widget.NestedScrollView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -12,8 +16,12 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.messi.languagehelper.ViewModel.LeisureModel;
+import com.iflytek.voiceads.conn.NativeDataRef;
+import com.messi.languagehelper.ViewModel.XXLRootModel;
+import com.messi.languagehelper.bean.ADBean;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.CNWBean;
 import com.messi.languagehelper.faxian.CharadesFragment;
@@ -30,10 +38,12 @@ import com.messi.languagehelper.faxian.YZDDFragment;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.ContextUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.Setings;
+import com.messi.languagehelper.viewmodels.SingleBigBannerViewModel;
 
 import java.util.List;
 
@@ -108,10 +118,43 @@ public class LeisureFragment extends BaseFragment {
     NestedScrollView rootView;
 
     private SharedPreferences sp;
-    private LeisureModel mLeisureModel;
+    private boolean exposureXFAD;
+    private SingleBigBannerViewModel viewModel;
+    private NativeDataRef mNativeADDataRef;
+    public long lastLoadAd;
 
     public static LeisureFragment getInstance() {
         return new LeisureFragment();
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        LogUtil.DefalutLog("LeisureFragment-setUserVisibleHint:" + isVisibleToUser);
+        if (isVisibleToUser) {
+            exposedAd();
+            changeAd();
+        }
+    }
+
+    private void changeAd(){
+        if (lastLoadAd > 0) {
+            if (System.currentTimeMillis() - lastLoadAd > 15*1000) {
+                if(viewModel != null){
+                    mNativeADDataRef = null;
+                    viewModel.loadData();
+                    lastLoadAd = System.currentTimeMillis();
+                }
+            }
+        }
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        viewModel = ViewModelProviders.of(getActivity()).get(SingleBigBannerViewModel.class);
+        viewModel.init();
+        lastLoadAd = System.currentTimeMillis();
     }
 
     @Override
@@ -133,25 +176,86 @@ public class LeisureFragment extends BaseFragment {
             }
         }
         ButterKnife.bind(this, view);
-        sp = Setings.getSharedPreferences();
-        mLeisureModel = new LeisureModel();
-        mLeisureModel.setXFADID(ADUtil.MRYJYSNRLAd);
-        mLeisureModel.setViews(ad_sign,adImg,xx_ad_layout,ad_layout);
-        mLeisureModel.showAd();
+        bandAd();
         showNovel();
         return view;
     }
 
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        LogUtil.DefalutLog("LeisureFragment-setUserVisibleHint:" + isVisibleToUser);
-        LeisureModel.misVisibleToUser = isVisibleToUser;
-        if(mLeisureModel != null){
-            if (isVisibleToUser) {
-                mLeisureModel.exposedAd();
-            }
+    private void bandAd(){
+        sp = Setings.getSharedPreferences();
+        if(ADUtil.IsShowAD){
+            xx_ad_layout.setVisibility(View.VISIBLE);
+            viewModel.getADBean().observe(this,adBean -> onReceiveAd(adBean));
+        }else {
+            xx_ad_layout.setVisibility(View.GONE);
         }
+    }
+
+    private void onReceiveAd(ADBean adBean){
+        LogUtil.DefalutLog("---onReceiveAd---");
+        if (adBean != null && adBean.getStatus() == 1) {
+            if(ADUtil.GDT.equals(adBean.getType())){
+                initFeiXFAD();
+                ad_layout.addView(adBean.getTXADView());
+                adBean.getTXADView().render();
+            }else if(ADUtil.CSJ.equals(adBean.getType())){
+                initFeiXFAD();
+                XXLRootModel.setCSJDView(ContextUtil.get().getContext(),adBean.getTTFeedAd(),ad_layout);
+            }else if(ADUtil.XF.equals(adBean.getType())){
+                exposureXFAD = false;
+                setAd(adBean.mNativeADDataRef);
+            }else if(ADUtil.XBKJ.equals(adBean.getType())){
+                setAd(adBean.getNativeADDataRef());
+            }
+        } else {
+            xx_ad_layout.setVisibility(View.GONE);
+        }
+    }
+
+
+
+    public void setAd(NativeDataRef mADDataRef) {
+        if (mADDataRef != null) {
+            mNativeADDataRef = mADDataRef;
+            ad_sign.setVisibility(View.VISIBLE);
+            adImg.setVisibility(View.VISIBLE);
+            ad_layout.setVisibility(View.GONE);
+            DraweeController mDraweeController = Fresco.newDraweeControllerBuilder()
+                    .setAutoPlayAnimations(true)
+                    .setUri(Uri.parse(mNativeADDataRef.getImgUrl()))
+                    .build();
+            adImg.setController(mDraweeController);
+            xx_ad_layout.setOnClickListener(view -> onXFADClick(mADDataRef));
+            exposedXFAD(mADDataRef);
+        }
+    }
+
+    public void onXFADClick(NativeDataRef mADDataRef){
+        if (mADDataRef != null) {
+            boolean onClicked = mADDataRef.onClick(xx_ad_layout);
+            LogUtil.DefalutLog("onClicked:" + onClicked);
+        }
+    }
+
+    public void exposedXFAD(NativeDataRef mADDataRef) {
+        if (!exposureXFAD) {
+            exposureXFAD = mADDataRef.onExposure(xx_ad_layout);
+            LogUtil.DefalutLog("exposedAd-exposureXFAD:" + exposureXFAD);
+        }
+    }
+
+    public void exposedAd() {
+        LogUtil.DefalutLog("exposedAd");
+        if (mNativeADDataRef != null) {
+            new Handler().postDelayed(() -> exposedXFAD(mNativeADDataRef),500);
+        }
+    }
+
+    public void initFeiXFAD(){
+        ad_sign.setVisibility(View.GONE);
+        adImg.setVisibility(View.GONE);
+        ad_layout.setVisibility(View.VISIBLE);
+        ad_layout.removeAllViews();
     }
 
     @OnClick({R.id.cailing_layout, R.id.baidu_layout, R.id.sougou_layout, R.id.yuedu_layout,
@@ -416,15 +520,6 @@ public class LeisureFragment extends BaseFragment {
     private String getUCSearchUrl(){
         return sp.getString(KeyUtil.Lei_UCSearch,Setings.UCSearch);
     }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        if(mLeisureModel != mLeisureModel){
-            mLeisureModel.onDestroy();
-        }
-    }
-
 
 
     private void showNovel(){

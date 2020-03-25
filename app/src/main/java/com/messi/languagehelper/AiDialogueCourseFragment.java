@@ -92,7 +92,6 @@ public class AiDialogueCourseFragment extends BaseFragment implements View.OnCli
                 int visible  = layoutManager.getChildCount();
                 int total = layoutManager.getItemCount();
                 int firstVisibleItem = layoutManager.findFirstCompletelyVisibleItemPosition();
-                LogUtil.DefalutLog("visible:"+visible+"---total:"+total+"---firstVisibleItem:"+firstVisibleItem);
                 if(!loading && hasMore){
                     if ((visible + firstVisibleItem) >= total){
                         new QueryTask(AiDialogueCourseFragment.this).execute();

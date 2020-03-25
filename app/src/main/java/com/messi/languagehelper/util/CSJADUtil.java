@@ -64,7 +64,6 @@ public class CSJADUtil {
                 .allowShowPageWhenScreenLock(true) //是否在锁屏场景支持展示广告落地页
                 .directDownloadNetworkType(TTAdConstant.NETWORK_STATE_WIFI) //允许直接下载的网络状态集合
                 .supportMultiProcess(false)
-//                .debug(true) //测试阶段打开，可以通过日志排查问题，上线时去除该调用
                 .build();
     }
 

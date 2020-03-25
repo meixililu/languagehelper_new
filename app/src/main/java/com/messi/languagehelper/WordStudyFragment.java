@@ -92,7 +92,6 @@ public class WordStudyFragment extends BaseFragment {
                 int visible  = mLinearLayoutManager.getChildCount();
                 int total = mLinearLayoutManager.getItemCount();
                 int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
-                LogUtil.DefalutLog("visible:"+visible+"---total:"+total+"---firstVisibleItem:"+firstVisibleItem);
                 if(!loading && hasMore){
                     if ((visible + firstVisibleItem) >= total){
                         new QueryTask(WordStudyFragment.this).execute();

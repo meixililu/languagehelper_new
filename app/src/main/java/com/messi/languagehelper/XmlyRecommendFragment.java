@@ -95,10 +95,8 @@ public class XmlyRecommendFragment extends BaseFragment {
                 int total = mLinearLayoutManager.getItemCount();
                 int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
                 isADInList(recyclerView, firstVisibleItem, visible);
-                LogUtil.DefalutLog("visible:"+visible+"-first:"+firstVisibleItem+"-total:"+total);
                 if (!mXXLModel.loading && mXXLModel.hasMore) {
                     if ((visible + firstVisibleItem) >= total) {
-                        LogUtil.DefalutLog("QueryTask-setListOnScrollListener");
                         QueryTask();
                     }
                 }
