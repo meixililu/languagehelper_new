@@ -1,5 +1,6 @@
 package com.messi.languagehelper.box;
 
+import android.content.Context;
 import android.text.TextUtils;
 
 import com.messi.languagehelper.util.ColorUtil;
@@ -19,9 +20,9 @@ public class BoxHelper {
 
     public static BoxStore boxStore;
 
-    public static void init(){
+    public static void init(Context context){
         try {
-            boxStore = MyObjectBox.builder().androidContext(ContextUtil.get().getContext()).build();
+            boxStore = MyObjectBox.builder().androidContext(context).build();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -29,7 +30,7 @@ public class BoxHelper {
 
     public static BoxStore getBoxStore(){
         if(boxStore == null){
-            init();
+            init(ContextUtil.get().getContext());
         }
         return boxStore;
     }

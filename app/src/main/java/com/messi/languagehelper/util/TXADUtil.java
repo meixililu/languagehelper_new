@@ -39,11 +39,11 @@ public class TXADUtil {
     public static String TxAdFCDT;
     public static String TxAdFCSWXT;
 
-    public static void init(){
+    public static void init(Context context){
         try {
-            SharedPreferences sp = Setings.getSharedPreferences();
+            SharedPreferences sp = Setings.getSharedPreferences(context);
             String idstr = "";
-            SystemUtil.PacketName = ContextUtil.get().getContext().getPackageName();
+            SystemUtil.PacketName = context.getPackageName();
             if(SystemUtil.PacketName.equals(Setings.application_id_zyhy)){
                 idstr = zyhy;
             }else if(SystemUtil.PacketName.equals(Setings.application_id_zyhy_google)){

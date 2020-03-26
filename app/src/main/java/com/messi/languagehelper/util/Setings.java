@@ -222,7 +222,7 @@ public class Setings {
 	 */
 	public static SharedPreferences getSharedPreferences(Context context){
 		if(context != null){
-			return context.getSharedPreferences(ContextUtil.get().getContext().getPackageName(), Activity.MODE_PRIVATE);
+			return context.getSharedPreferences(context.getPackageName(), Activity.MODE_PRIVATE);
 		}
 		return null;
 	}

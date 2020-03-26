@@ -34,8 +34,8 @@ public class SystemUtil {
         return dev_id;
     }
 
-    public static void setPacketName(){
-        PacketName = ContextUtil.get().getContext().getPackageName();
+    public static void setPacketName(Context context){
+        PacketName = context.getPackageName();
     }
     /**
      * 获取当前手机系统语言。

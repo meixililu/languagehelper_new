@@ -45,13 +45,13 @@ public class BaseApplication extends MultiDexApplication {
             @Override
             public void run() {
                 try {
-                    SystemUtil.setPacketName();
+                    SystemUtil.setPacketName(BaseApplication.this);
                     Fresco.initialize(BaseApplication.this);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 try {
-                    SharedPreferences sp = Setings.getSharedPreferences();
+                    SharedPreferences sp = Setings.getSharedPreferences(BaseApplication.this);
                     String ipAddress = sp.getString(KeyUtil.LeanCloudIPAddress,"http://leancloud.mzxbkj.com");
                     AVOSCloud.setServer(AVOSCloud.SERVER_TYPE.API, ipAddress);
                     AVOSCloud.initialize(BaseApplication.this,"3fg5ql3r45i3apx2is4j9on5q5rf6kapxce51t5bc0ffw2y4", "twhlgs6nvdt7z7sfaw76ujbmaw7l12gb8v6sdyjw1nzk9b1a");
@@ -66,10 +66,10 @@ public class BaseApplication extends MultiDexApplication {
                 }
                 initChannel();
                 initXMLY();
-                TXADUtil.init();
-                CSJADUtil.init();
+                TXADUtil.init(BaseApplication.this);
+                CSJADUtil.init(BaseApplication.this);
                 BDADUtil.init(BaseApplication.this);
-                BoxHelper.init();
+                BoxHelper.init(BaseApplication.this);
             }
         }).run();
     }
@@ -101,8 +101,6 @@ public class BaseApplication extends MultiDexApplication {
 //            }
             mXimalaya.setAppkey(Setings.XMLYAppAppKey);
             mXimalaya.setPackid(getPackageName());
-            mXimalaya.setHttpConfig(null);
-            mXimalaya.setUseHttps(true);
             mXimalaya.init(BaseApplication.this, Setings.XMLYAppSecret);
             LogUtil.DefalutLog("initXimalayaSDK");
         } catch (Exception e) {

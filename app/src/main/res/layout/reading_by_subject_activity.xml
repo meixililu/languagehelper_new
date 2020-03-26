@@ -1,56 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/white"
-    android:orientation="vertical" >
+    android:fitsSystemWindows="true">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/my_awesome_toolbar"
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/theme_color"
-        android:minHeight="@dimen/actionBar" >
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="right|center_vertical"
-            android:orientation="horizontal">
-            <ProgressBar style="@style/CircularProgressWhite"
-                android:id="@+id/progressBarCircularIndetermininate"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_gravity="center"
-                android:visibility="gone"/>
-
-            <FrameLayout
-                android:id="@+id/collect_btn"
-                android:layout_width="50dp"
-                android:layout_gravity="center"
-                android:layout_height="@dimen/actionBar">
-                <ImageView
-                    android:id="@+id/volume_img"
-                    android:layout_width="26dp"
-                    android:layout_height="26dp"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:expandedTitleMarginEnd="56dp"
+            app:expandedTitleMarginStart="40dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:expandedTitleTextAppearance="@style/TextAppearance.ExpandedTitle">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_collapseMode="parallax"
+                >
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/item_img"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="60dp"
+                    android:layout_centerHorizontal="true"
+                    fresco:placeholderImageScaleType="fitCenter"
+                    fresco:actualImageScaleType="focusCrop"
+                    fresco:placeholderImage="@color/text_tint"
+                    fresco:roundedCornerRadius="3dp"
+                    />
+                <TextView
+                    android:id="@+id/item_sign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/xmly_fm"
+                    android:layout_marginTop="@dimen/padding_5"
+                    android:layout_below="@id/item_img"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/smaller_l" />
+                <TextView
+                    android:id="@+id/track_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_uncollected_white" />
+                    android:layout_below="@id/item_sign"
+                    android:layout_marginTop="@dimen/padding_5"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/smaller_l"
+                    android:gravity="center"
+                    />
+                <TextView
+                    android:id="@+id/track_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/track_info"
+                    android:layout_marginTop="@dimen/padding_5"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/bigger"
+                    android:gravity="center"
+                    />
+            </RelativeLayout>
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/my_awesome_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/actionBar"
+                android:layout_alignParentTop="true"
+                app:layout_collapseMode="pin"
+                android:background="@color/theme_color"
+                app:popupTheme="@style/AppTheme.PopupOverlay" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:orientation="horizontal">
+                    <ProgressBar style="@style/CircularProgressWhite"
+                        android:id="@+id/progressBarCircularIndetermininate"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="right"
+                        android:visibility="gone" />
+                    <FrameLayout
+                        android:id="@+id/collect_btn"
+                        android:layout_width="50dp"
+                        android:layout_gravity="center"
+                        android:layout_height="@dimen/actionBar">
+                        <ImageView
+                            android:id="@+id/volume_img"
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_uncollected_white" />
+                    </FrameLayout>
+                </LinearLayout>
+
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.CollapsingToolbarLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/white"
+            >
+            <FrameLayout
+                android:id="@+id/btn_sort"
+                android:layout_width="55dp"
+                android:layout_height="45dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:foreground="@drawable/framelayout_selector_gray"
+                >
+                <ImageView
+                    android:id="@+id/img_sort"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/main_album_sort_asc"
+                    />
             </FrameLayout>
-        </LinearLayout>
-    </android.support.v7.widget.Toolbar>
+        </RelativeLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/text_grey1"
+            />
+    </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/mswiperefreshlayout"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:background="@color/contentbg" >
-
+        android:background="@color/contentbg"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
         <android.support.v7.widget.RecyclerView
             android:id="@+id/listview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
             />
     </android.support.v4.widget.SwipeRefreshLayout>
 
-</LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

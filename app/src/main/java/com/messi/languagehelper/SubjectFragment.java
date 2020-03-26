@@ -5,7 +5,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -13,7 +12,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
@@ -21,6 +19,7 @@ import com.avos.avoscloud.AVQuery;
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.ViewModel.XXLAVObjectModel;
 import com.messi.languagehelper.adapter.RcSubjectListAdapter;
+import com.messi.languagehelper.databinding.SymbolListFragmentBinding;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AVOUtil;
@@ -34,22 +33,10 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
-
 public class SubjectFragment extends BaseFragment {
 
     private static final int NUMBER_OF_COLUMNS = 1;
 
-    @BindView(R.id.studycategory_lv)
-    RecyclerView category_lv;
-    @BindView(R.id.my_awesome_toolbar)
-    Toolbar mToolbar;
-    @BindView(R.id.progressBarCircularIndetermininate)
-    ProgressBar progressBar;
-
-    Unbinder unbinder;
     private RcSubjectListAdapter mAdapter;
     private List<AVObject> avObjects;
     private int skip = 0;
@@ -59,7 +46,7 @@ public class SubjectFragment extends BaseFragment {
     private String level;
     private String order;
     private XXLAVObjectModel mXXLModel;
-
+    private SymbolListFragmentBinding binding;
 
     public static SubjectFragment getInstance(String category, String level) {
         SubjectFragment fragment = new SubjectFragment();
@@ -96,24 +83,23 @@ public class SubjectFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.symbol_list_fragment, container, false);
-        unbinder = ButterKnife.bind(this, view);
-        initSwipeRefresh(view);
+        binding = SymbolListFragmentBinding.inflate(inflater);
+        initSwipeRefresh(binding.getRoot());
         initViews();
-        return view;
+        return binding.getRoot();
     }
 
     private void initViews() {
         avObjects = new ArrayList<AVObject>();
         mXXLModel = new XXLAVObjectModel(getActivity());
         if(!TextUtils.isEmpty(title)){
-            mToolbar.setVisibility(View.VISIBLE);
-            mToolbar.setTitle(title);
+            binding.myAwesomeToolbar.setVisibility(View.VISIBLE);
+            binding.myAwesomeToolbar.setTitle(title);
         }
     }
 
     private void initAdapter(){
-        if(mAdapter == null && category_lv != null){
+        if(mAdapter == null && binding.studycategoryLv != null){
             mAdapter = new RcSubjectListAdapter();
             mAdapter.setItems(avObjects);
             mAdapter.setFooter(new Object());
@@ -122,16 +108,16 @@ public class SubjectFragment extends BaseFragment {
             layoutManager = new GridLayoutManager(getContext(), NUMBER_OF_COLUMNS);
             HeaderSpanSizeLookup headerSpanSizeLookup = new HeaderSpanSizeLookup(mAdapter, layoutManager);
             layoutManager.setSpanSizeLookup(headerSpanSizeLookup);
-            category_lv.setLayoutManager(layoutManager);
-            category_lv.addItemDecoration(new DividerGridItemDecoration(1));
-            category_lv.setAdapter(mAdapter);
+            binding.studycategoryLv.setLayoutManager(layoutManager);
+            binding.studycategoryLv.addItemDecoration(new DividerGridItemDecoration(1));
+            binding.studycategoryLv.setAdapter(mAdapter);
             setListOnScrollListener();
         }
     }
 
 
     public void setListOnScrollListener() {
-        category_lv.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        binding.studycategoryLv.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
@@ -270,16 +256,16 @@ public class SubjectFragment extends BaseFragment {
     @Override
     public void showProgressbar() {
         super.showProgressbar();
-        if(mToolbar != null && mToolbar.isShown()){
-            progressBar.setVisibility(View.VISIBLE);
+        if(binding != null && binding.myAwesomeToolbar.isShown()){
+            binding.progressBarCircularIndetermininate.setVisibility(View.VISIBLE);
         }
     }
 
     @Override
     public void hideProgressbar() {
         super.hideProgressbar();
-        if(mToolbar != null && mToolbar.isShown()){
-            progressBar.setVisibility(View.GONE);
+        if(binding != null && binding.myAwesomeToolbar.isShown()){
+            binding.progressBarCircularIndetermininate.setVisibility(View.GONE);
         }
     }
 
@@ -296,9 +282,6 @@ public class SubjectFragment extends BaseFragment {
         super.onDestroy();
         if(mXXLModel != null){
             mXXLModel.onDestroy();
-        }
-        if(unbinder != null){
-            unbinder.unbind();
         }
     }
 }

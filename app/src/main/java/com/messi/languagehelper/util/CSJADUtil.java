@@ -33,20 +33,20 @@ public class CSJADUtil {
         return TTAdSdk.getAdManager();
     }
 
-    public static void init() {
+    public static void init(Context context) {
         try {
-            initData();
-            doInit();
+            initData(context);
+            doInit(context);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     //step1:接入网盟广告sdk的初始化操作，详情见接入文档和穿山甲平台说明
-    private static void doInit() {
+    private static void doInit(Context context) {
         try {
             if (!sInit) {
-                TTAdSdk.init(ContextUtil.get().getContext(), buildConfig(ContextUtil.get().getContext()));
+                TTAdSdk.init(context, buildConfig(context));
                 sInit = true;
             }
         } catch (Exception e) {
@@ -67,10 +67,10 @@ public class CSJADUtil {
                 .build();
     }
 
-    public static void initData(){
-        SharedPreferences sp = Setings.getSharedPreferences();
+    public static void initData(Context context){
+        SharedPreferences sp = Setings.getSharedPreferences(context);
         String idstr = "";
-        SystemUtil.PacketName = ContextUtil.get().getContext().getPackageName();
+        SystemUtil.PacketName = context.getPackageName();
         if(SystemUtil.PacketName.equals(Setings.application_id_zyhy)){
             idstr = zyhy;
         }else if(SystemUtil.PacketName.equals(Setings.application_id_zyhy_google)){
