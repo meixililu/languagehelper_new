@@ -18,22 +18,16 @@ import java.util.List;
 public class RcReadingListAdapter extends HeaderRecyclerViewAdapter<RecyclerView.ViewHolder, Object, Reading, Object> {
 
     private List<Reading> avObjects;
-    private boolean isPlayList;
 
     public RcReadingListAdapter(List<Reading> avObjects){
         this.avObjects = avObjects;
-    }
-
-    public RcReadingListAdapter(List<Reading> avObjects,boolean isPlayList){
-        this.avObjects = avObjects;
-        this.isPlayList = isPlayList;
     }
 
     @Override
     protected RecyclerView.ViewHolder onCreateItemViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = getLayoutInflater(parent);
         View characterView = inflater.inflate(R.layout.read_list_item, parent, false);
-        return new RcReadingListItemViewHolder(characterView, avObjects, isPlayList);
+        return new RcReadingListItemViewHolder(characterView, avObjects);
     }
 
     @Override

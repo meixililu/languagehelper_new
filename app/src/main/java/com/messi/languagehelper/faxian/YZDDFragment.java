@@ -78,16 +78,18 @@ public class YZDDFragment extends BaseFragment {
 
     private void onDataChange(RespoData<TwistaItem> data){
         LogUtil.DefalutLog("TongueTwisterFragment---onDataChange");
-        if (data != null && data.getData() != null) {
-            mTwistaItem = data.getData();
-            if (mTwistaItem != null && !TextUtils.isEmpty(mTwistaItem.getQuest())) {
-                if (question != null && answer != null) {
-                    question.setText(mTwistaItem.getQuest());
-                    answer.setText("轻触看答案");
+        if (data != null) {
+            if (data.getData() != null) {
+                mTwistaItem = data.getData();
+                if (mTwistaItem != null && !TextUtils.isEmpty(mTwistaItem.getQuest())) {
+                    if (question != null && answer != null) {
+                        question.setText(mTwistaItem.getQuest());
+                        answer.setText("轻触看答案");
+                    }
                 }
+            } else {
+                ToastUtil.diaplayMesShort(getActivity(),data.getErrStr());
             }
-        } else {
-            ToastUtil.diaplayMesShort(getActivity(),data.getErrStr());
         }
     }
 

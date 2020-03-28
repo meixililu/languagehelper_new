@@ -54,7 +54,7 @@ public class CSJADUtil {
         }
     }
 
-    private static TTAdConfig buildConfig(Context context) {
+    private static TTAdConfig buildConfig(Context context) throws Exception {
         return new TTAdConfig.Builder()
                 .appId(CSJ_APPID)
                 .useTextureView(true) //使用TextureView控件播放视频,默认为SurfaceView,当有SurfaceView冲突的场景，可以使用TextureView

@@ -78,16 +78,18 @@ public class GodReplyFragment  extends BaseFragment {
 
     private void onDataChange(RespoData<TwistaItem> data){
         LogUtil.DefalutLog("TongueTwisterFragment---onDataChange");
-        if (data != null && data.getData() != null) {
-            mTwistaItem = data.getData();
-            if (mTwistaItem != null && !TextUtils.isEmpty(mTwistaItem.getTitle())) {
-                if (question != null && answer != null) {
-                    question.setText(mTwistaItem.getTitle());
-                    answer.setText("轻触看神回复");
+        if (data != null) {
+            if (data.getData() != null) {
+                mTwistaItem = data.getData();
+                if (mTwistaItem != null && !TextUtils.isEmpty(mTwistaItem.getTitle())) {
+                    if (question != null && answer != null) {
+                        question.setText(mTwistaItem.getTitle());
+                        answer.setText("轻触看神回复");
+                    }
                 }
+            } else {
+                ToastUtil.diaplayMesShort(getActivity(),data.getErrStr());
             }
-        } else {
-            ToastUtil.diaplayMesShort(getActivity(),data.getErrStr());
         }
     }
 

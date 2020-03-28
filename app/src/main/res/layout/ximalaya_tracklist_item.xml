@@ -11,8 +11,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:orientation="horizontal" >
@@ -26,18 +26,19 @@
 			>
 			<com.facebook.drawee.view.SimpleDraweeView
 				android:id="@+id/list_item_img"
-				android:layout_width="50dp"
-				android:layout_height="50dp"
+				android:layout_width="56dp"
+				android:layout_height="56dp"
 				fresco:placeholderImageScaleType="fitCenter"
 				fresco:actualImageScaleType="focusCrop"
 				fresco:placeholderImage="@color/text_tint"
 				fresco:roundAsCircle="true"
 				fresco:overlayImage="@color/none_alpha8"
+
 				/>
 			<ImageView
 				android:id="@+id/music_play_img"
-				android:layout_width="25dp"
-				android:layout_height="25dp"
+				android:layout_width="27dp"
+				android:layout_height="27dp"
 				android:layout_gravity="center"
 				android:src="@drawable/ic_play_white"/>
 		</FrameLayout>

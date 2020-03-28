@@ -26,9 +26,12 @@ public final class ReadingSubjectCursor extends Cursor<ReadingSubject> {
     private final static int __ID_objectId = ReadingSubject_.objectId.id;
     private final static int __ID_name = ReadingSubject_.name.id;
     private final static int __ID_category = ReadingSubject_.category.id;
+    private final static int __ID_source_name = ReadingSubject_.source_name.id;
+    private final static int __ID_source_url = ReadingSubject_.source_url.id;
     private final static int __ID_level = ReadingSubject_.level.id;
     private final static int __ID_code = ReadingSubject_.code.id;
     private final static int __ID_order = ReadingSubject_.order.id;
+    private final static int __ID_views = ReadingSubject_.views.id;
     private final static int __ID_creat_time = ReadingSubject_.creat_time.id;
 
     public ReadingSubjectCursor(io.objectbox.Transaction tx, long cursor, BoxStore boxStore) {
@@ -53,24 +56,28 @@ public final class ReadingSubjectCursor extends Cursor<ReadingSubject> {
         int __id2 = name != null ? __ID_name : 0;
         String category = entity.getCategory();
         int __id3 = category != null ? __ID_category : 0;
-        String level = entity.getLevel();
-        int __id4 = level != null ? __ID_level : 0;
+        String source_name = entity.getSource_name();
+        int __id4 = source_name != null ? __ID_source_name : 0;
 
         collect400000(cursor, 0, PUT_FLAG_FIRST,
                 __id1, objectId, __id2, name,
-                __id3, category, __id4, level);
+                __id3, category, __id4, source_name);
 
+        String source_url = entity.getSource_url();
+        int __id5 = source_url != null ? __ID_source_url : 0;
+        String level = entity.getLevel();
+        int __id6 = level != null ? __ID_level : 0;
         String code = entity.getCode();
-        int __id5 = code != null ? __ID_code : 0;
+        int __id7 = code != null ? __ID_code : 0;
         String order = entity.getOrder();
-        int __id6 = order != null ? __ID_order : 0;
+        int __id8 = order != null ? __ID_order : 0;
 
-        long __assignedId = collect313311(cursor, entity.getId(), PUT_FLAG_COMPLETE,
-                __id5, code, __id6, order,
-                0, null, 0, null,
-                __ID_creat_time, entity.getCreat_time(), 0, 0,
-                0, 0, 0, 0,
-                0, 0, 0, 0,
+        collect400000(cursor, 0, 0,
+                __id5, source_url, __id6, level,
+                __id7, code, __id8, order);
+
+        long __assignedId = collect004000(cursor, entity.getId(), PUT_FLAG_COMPLETE,
+                __ID_creat_time, entity.getCreat_time(), __ID_views, entity.getViews(),
                 0, 0, 0, 0);
 
         entity.setId(__assignedId);

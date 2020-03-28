@@ -88,7 +88,7 @@ public class MyObjectBox {
 
     private static void buildEntityReadingSubject(ModelBuilder modelBuilder) {
         EntityBuilder entityBuilder = modelBuilder.entity("ReadingSubject");
-        entityBuilder.id(3, 3110430987322842181L).lastPropertyId(8, 5255918259572070149L);
+        entityBuilder.id(3, 3110430987322842181L).lastPropertyId(11, 9127389154030167286L);
         entityBuilder.flags(io.objectbox.model.EntityFlags.USE_NO_ARG_CONSTRUCTOR);
 
         entityBuilder.property("id", PropertyType.Long).id(1, 2227665014556694129L)
@@ -97,9 +97,13 @@ public class MyObjectBox {
                 .flags(PropertyFlags.INDEX_HASH).indexId(3, 6815057945743640498L);
         entityBuilder.property("name", PropertyType.String).id(3, 5821272637059367913L);
         entityBuilder.property("category", PropertyType.String).id(4, 7575922884050837893L);
+        entityBuilder.property("source_name", PropertyType.String).id(9, 4210885046754564135L);
+        entityBuilder.property("source_url", PropertyType.String).id(10, 7768858810324117761L);
         entityBuilder.property("level", PropertyType.String).id(5, 616399869417557875L);
         entityBuilder.property("code", PropertyType.String).id(6, 8557705001234428064L);
         entityBuilder.property("order", PropertyType.String).id(7, 7453984672991539501L);
+        entityBuilder.property("views", PropertyType.Int).id(11, 9127389154030167286L)
+                .flags(PropertyFlags.NOT_NULL);
         entityBuilder.property("creat_time", PropertyType.Long).id(8, 5255918259572070149L)
                 .flags(PropertyFlags.NOT_NULL);
 

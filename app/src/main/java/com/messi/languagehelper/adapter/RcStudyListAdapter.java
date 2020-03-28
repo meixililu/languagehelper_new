@@ -18,7 +18,6 @@ import java.util.List;
 public class RcStudyListAdapter extends HeaderFooterRecyclerViewAdapter<RecyclerView.ViewHolder, Object, Reading, Object> {
 
     private List<Reading> avObjects;
-    private boolean isPlayList;
 
     public RcStudyListAdapter(List<Reading> avObjects){
         this.avObjects = avObjects;
@@ -28,7 +27,7 @@ public class RcStudyListAdapter extends HeaderFooterRecyclerViewAdapter<Recycler
     protected RecyclerView.ViewHolder onCreateItemViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = getLayoutInflater(parent);
         View characterView = inflater.inflate(R.layout.read_list_item, parent, false);
-        return new RcReadingListItemViewHolder(characterView,avObjects,isPlayList);
+        return new RcReadingListItemViewHolder(characterView,avObjects);
     }
 
     @Override

@@ -75,8 +75,6 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
     FrameLayout ad_layout;
     @BindView(R.id.img_cover)
     ImageView imgCover;
-    @BindView(R.id.back_btn)
-    FrameLayout backBtn;
     private List<Track> trackList;
     private Track currentTrack;
     private int position;
@@ -101,6 +99,7 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
         mXMLYDetailModel = new XMLYDetailModel(this);
         mXMLYDetailModel.setViews(adTitle,adImg,adClose,adBtn,xx_ad_layout,ad_layout,imgCover);
         currentTrack = trackList.get(position);
+        setActionBarTitle(currentTrack.getTrackTitle());
         setListPlayStatus();
         if (XmPlayerManager.getInstance(this).isPlaying()) {
             if (XmPlayerManager.getInstance(this).getCurrSound() instanceof Track) {
@@ -203,7 +202,7 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
         XmPlayerManager.getInstance(this).removePlayerStatusListener(this);
     }
 
-    @OnClick({R.id.play_btn, R.id.play_previous, R.id.play_next,R.id.back_btn})
+    @OnClick({R.id.play_btn, R.id.play_previous, R.id.play_next})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.play_btn:
@@ -214,9 +213,6 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
                 break;
             case R.id.play_next:
                 playNext();
-                break;
-            case R.id.back_btn:
-                onBackPressed();
                 break;
         }
     }

@@ -633,6 +633,8 @@ public class AVOUtil {
 		public final static String code = "code";
 		public final static String order = "order";
 		public final static String views = "views";
+		public final static String source_url = "source_url";
+		public final static String source_name = "source_name";
 	}
 
 	public static class SubjectType{

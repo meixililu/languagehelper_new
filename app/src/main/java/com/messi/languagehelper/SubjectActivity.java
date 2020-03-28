@@ -12,7 +12,6 @@ import com.avos.avoscloud.AVQuery;
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.ViewModel.XXLAVObjectModel;
 import com.messi.languagehelper.adapter.RcSubjectListAdapter;
-import com.messi.languagehelper.box.ReadingSubject;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.ColorUtil;
 import com.messi.languagehelper.util.KeyUtil;
@@ -196,15 +195,5 @@ public class SubjectActivity extends BaseActivity {
         if(mXXLModel != null){
             mXXLModel.onDestroy();
         }
-    }
-
-    public static ReadingSubject toReadingSubject(AVObject mAVObject){
-        ReadingSubject item = new ReadingSubject();
-        item.setObjectId(mAVObject.getObjectId());
-        item.setCategory(mAVObject.getString(AVOUtil.SubjectList.category));
-        item.setCode(mAVObject.getString(AVOUtil.SubjectList.code));
-        item.setName(mAVObject.getString(AVOUtil.SubjectList.name));
-        item.setLevel(mAVObject.getString(AVOUtil.SubjectList.level));
-        return item;
     }
 }

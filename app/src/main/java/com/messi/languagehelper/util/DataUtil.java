@@ -6,6 +6,7 @@ import com.avos.avoscloud.AVObject;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.CNWBean;
 import com.messi.languagehelper.box.Reading;
+import com.messi.languagehelper.box.ReadingSubject;
 import com.messi.languagehelper.box.WebFilter;
 import com.ximalaya.ting.android.opensdk.model.PlayableModel;
 import com.ximalaya.ting.android.opensdk.model.track.Track;
@@ -204,4 +205,16 @@ public class DataUtil {
         return tracks;
     }
 
+    public static ReadingSubject toReadingSubject(AVObject mAVObject){
+        ReadingSubject item = new ReadingSubject();
+        item.setObjectId(mAVObject.getObjectId());
+        item.setCategory(mAVObject.getString(AVOUtil.SubjectList.category));
+        item.setCode(mAVObject.getString(AVOUtil.SubjectList.code));
+        item.setName(mAVObject.getString(AVOUtil.SubjectList.name));
+        item.setLevel(mAVObject.getString(AVOUtil.SubjectList.level));
+        item.setViews(mAVObject.getInt(AVOUtil.SubjectList.views));
+        item.setSource_name(mAVObject.getString(AVOUtil.SubjectList.source_name));
+        item.setSource_url(mAVObject.getString(AVOUtil.SubjectList.source_url));
+        return item;
+    }
 }

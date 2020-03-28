@@ -8,12 +8,30 @@ public class RespoData<T> {
 
 	private String errStr;
 
+	private boolean isHideFooter;
+
+	public RespoData(){
+	}
+
 	public RespoData(T data){
 		this.data = data;
 	}
 
 	public RespoData(String errStr){
 		this.errStr = errStr;
+	}
+
+	public RespoData(int code,String errStr){
+		this.code = code;
+		this.errStr = errStr;
+	}
+
+	public boolean isHideFooter() {
+		return isHideFooter;
+	}
+
+	public void setHideFooter(boolean hideFooter) {
+		isHideFooter = hideFooter;
 	}
 
 	public T getData() {

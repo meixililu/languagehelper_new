@@ -62,13 +62,11 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
     private final SimpleDraweeView videoplayer_img;
     private Context context;
     private List<Reading> avObjects;
-    private boolean isPlayList;
 
-    public RcReadingListItemViewHolder(View itemView,List<Reading> avObjects,boolean isPlayList) {
+    public RcReadingListItemViewHolder(View itemView,List<Reading> avObjects) {
         super(itemView);
         this.context = itemView.getContext();
         this.avObjects = avObjects;
-        this.isPlayList = isPlayList;
         layout_cover = (FrameLayout) itemView.findViewById(R.id.layout_cover);
         list_item_img_parent = (FrameLayout) itemView.findViewById(R.id.list_item_img_parent);
         ad_layout = (FrameLayout) itemView.findViewById(R.id.ad_layout);
@@ -193,17 +191,8 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
                         music_play_img.setVisibility(View.GONE);
                     }
                     list_item_img_parent.setClickable(true);
-                    list_item_img_parent.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            if(isPlayList){
-                                IPlayerUtil.initPlayList(avObjects,
-                                        avObjects.indexOf(mAVObject));
-                            }else {
-                                IPlayerUtil.initAndPlay(mAVObject);
-                            }
-                        }
-                    });
+                    list_item_img_parent.setOnClickListener(view -> IPlayerUtil.initPlayList(
+                            avObjects,avObjects.indexOf(mAVObject)));
                 }else {
                     videoplayer_cover.setVisibility(View.GONE);
                     music_play_img.setVisibility(View.GONE);
@@ -216,12 +205,7 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
                         list_item_img.setVisibility(View.GONE);
                     }
                 }
-                layout_cover.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        toDetailActivity(avObjects.indexOf(mAVObject));
-                    }
-                });
+                layout_cover.setOnClickListener(view -> toDetailActivity(avObjects.indexOf(mAVObject)));
             }
         }else{
             item_layout.setVisibility(View.VISIBLE);

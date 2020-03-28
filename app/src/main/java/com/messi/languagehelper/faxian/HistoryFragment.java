@@ -74,16 +74,18 @@ public class HistoryFragment extends BaseFragment {
 
     private void onDataChange(RespoData<TwistaItem> data){
         LogUtil.DefalutLog("TongueTwisterFragment---onDataChange");
-        if (data != null && data.getData() != null) {
-            TwistaItem item = data.getData();
-            if (item != null && !TextUtils.isEmpty(item.getContent())) {
-                if (question != null && answer != null) {
-                    question.setText(Html.fromHtml(item.getContent()));
-                    answer.setText("轻触看下一个");
+        if (data != null) {
+            if (data.getData() != null) {
+                TwistaItem item = data.getData();
+                if (item != null && !TextUtils.isEmpty(item.getContent())) {
+                    if (question != null && answer != null) {
+                        question.setText(Html.fromHtml(item.getContent()));
+                        answer.setText("轻触看下一个");
+                    }
                 }
+            } else {
+                ToastUtil.diaplayMesShort(getActivity(),data.getErrStr());
             }
-        } else {
-            ToastUtil.diaplayMesShort(getActivity(),data.getErrStr());
         }
     }
 

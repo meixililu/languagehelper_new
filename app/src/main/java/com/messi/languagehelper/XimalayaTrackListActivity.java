@@ -81,6 +81,7 @@ public class XimalayaTrackListActivity extends BaseActivity implements OnClickLi
     }
 
     private void initViews() {
+        initSwipeRefresh();
         avObjects = new ArrayList<Track>();
         mAdapter = new RcXimalayaTrackListAdapter(avObjects);
         mAdapter.setItems(avObjects);
@@ -124,6 +125,10 @@ public class XimalayaTrackListActivity extends BaseActivity implements OnClickLi
         mAdapter.showFooter();
     }
 
+    @Override
+    public void onSwipeRefreshLayoutRefresh() {
+        Refresh();
+    }
 
     public void Refresh() {
         skip = 1;

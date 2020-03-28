@@ -20,8 +20,6 @@ public class XimalayaRadioDetailActivity_ViewBinding implements Unbinder {
 
   private View view7f080223;
 
-  private View view7f08006c;
-
   @UiThread
   public XimalayaRadioDetailActivity_ViewBinding(XimalayaRadioDetailActivity target) {
     this(target, target.getWindow().getDecorView());
@@ -53,15 +51,6 @@ public class XimalayaRadioDetailActivity_ViewBinding implements Unbinder {
     target.xx_ad_layout = Utils.findRequiredViewAsType(source, R.id.xx_ad_layout, "field 'xx_ad_layout'", LinearLayout.class);
     target.ad_layout = Utils.findRequiredViewAsType(source, R.id.ad_layout, "field 'ad_layout'", FrameLayout.class);
     target.imgCover = Utils.findRequiredViewAsType(source, R.id.img_cover, "field 'imgCover'", ImageView.class);
-    view = Utils.findRequiredView(source, R.id.back_btn, "field 'backBtn' and method 'onViewClicked'");
-    target.backBtn = Utils.castView(view, R.id.back_btn, "field 'backBtn'", FrameLayout.class);
-    view7f08006c = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.onViewClicked(p0);
-      }
-    });
     target.sourceName = Utils.findRequiredViewAsType(source, R.id.source_name, "field 'sourceName'", TextView.class);
     target.contentTv = Utils.findRequiredViewAsType(source, R.id.content_tv, "field 'contentTv'", LinearLayout.class);
   }
@@ -85,13 +74,10 @@ public class XimalayaRadioDetailActivity_ViewBinding implements Unbinder {
     target.xx_ad_layout = null;
     target.ad_layout = null;
     target.imgCover = null;
-    target.backBtn = null;
     target.sourceName = null;
     target.contentTv = null;
 
     view7f080223.setOnClickListener(null);
     view7f080223 = null;
-    view7f08006c.setOnClickListener(null);
-    view7f08006c = null;
   }
 }

@@ -69,8 +69,6 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
     FrameLayout ad_layout;
     @BindView(R.id.img_cover)
     ImageView imgCover;
-    @BindView(R.id.back_btn)
-    FrameLayout backBtn;
     @BindView(R.id.source_name)
     TextView sourceName;
     @BindView(R.id.content_tv)
@@ -93,6 +91,7 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
 
     private void initData() {
         radio = getIntent().getParcelableExtra(KeyUtil.XmlyRadio);
+        setActionBarTitle(radio.getRadioName());
         mXMLYDetailModel = new XMLYDetailModel(this);
         mXMLYDetailModel.setViews(adTitle,adImg,adClose,adBtn,xx_ad_layout,ad_layout,imgCover);
         if (XmPlayerManager.getInstance(this).isPlaying()) {
@@ -176,14 +175,11 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
         }
     }
 
-    @OnClick({R.id.play_btn, R.id.back_btn})
+    @OnClick({R.id.play_btn})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.play_btn:
                 playOrPause();
-                break;
-            case R.id.back_btn:
-                onBackPressed();
                 break;
         }
     }

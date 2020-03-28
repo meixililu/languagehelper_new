@@ -37,8 +37,8 @@ public class RcXimalayaTrackListItemViewHolder extends RecyclerView.ViewHolder {
     private final SimpleDraweeView list_item_img;
     private RecyclerView.Adapter mAdapter;
 
-    private Context context;
     private List<Track> trackList;
+    private Context context;
 
     public RcXimalayaTrackListItemViewHolder(View itemView,List<Track> trackList,RecyclerView.Adapter mAdapter) {
         super(itemView);
@@ -88,7 +88,6 @@ public class RcXimalayaTrackListItemViewHolder extends RecyclerView.ViewHolder {
         intent.putExtra(KeyUtil.PositionKey,position);
         Setings.dataMap.put(KeyUtil.List,trackList);
         context.startActivity(intent);
-
     }
 
 }

@@ -17,9 +17,12 @@ public class ReadingSubject implements Parcelable {
     private String objectId;
     private String name;
     private String category;
+    private String source_name;
+    private String source_url;
     private String level;
     private String code;
     private String order;
+    private int views;
     private long creat_time;
 
     public long getId() {
@@ -86,6 +89,31 @@ public class ReadingSubject implements Parcelable {
         this.creat_time = creat_time;
     }
 
+    public String getSource_name() {
+        return source_name;
+    }
+
+    public void setSource_name(String source_name) {
+        this.source_name = source_name;
+    }
+
+    public String getSource_url() {
+        return source_url;
+    }
+
+    public void setSource_url(String source_url) {
+        this.source_url = source_url;
+    }
+
+    public int getViews() {
+        return views;
+    }
+
+    public void setViews(int views) {
+        this.views = views;
+    }
+
+
     @Override
     public int describeContents() {
         return 0;
@@ -97,9 +125,12 @@ public class ReadingSubject implements Parcelable {
         dest.writeString(this.objectId);
         dest.writeString(this.name);
         dest.writeString(this.category);
+        dest.writeString(this.source_name);
+        dest.writeString(this.source_url);
         dest.writeString(this.level);
         dest.writeString(this.code);
         dest.writeString(this.order);
+        dest.writeInt(this.views);
         dest.writeLong(this.creat_time);
     }
 
@@ -111,9 +142,12 @@ public class ReadingSubject implements Parcelable {
         this.objectId = in.readString();
         this.name = in.readString();
         this.category = in.readString();
+        this.source_name = in.readString();
+        this.source_url = in.readString();
         this.level = in.readString();
         this.code = in.readString();
         this.order = in.readString();
+        this.views = in.readInt();
         this.creat_time = in.readLong();
     }
 

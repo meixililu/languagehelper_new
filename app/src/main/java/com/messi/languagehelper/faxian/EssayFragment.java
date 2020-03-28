@@ -78,16 +78,18 @@ public class EssayFragment extends BaseFragment {
 
     private void onDataChange(RespoData<TwistaItem> data){
         LogUtil.DefalutLog("TongueTwisterFragment---onDataChange");
-        if (data != null && data.getData() != null) {
-            mTwistaItem = data.getData();
-            if (mTwistaItem != null && !TextUtils.isEmpty(mTwistaItem.getEn())) {
-                if (question != null && answer != null) {
-                    question.setText(mTwistaItem.getEn());
-                    answer.setText("轻触看中文");
+        if (data != null) {
+            if (data.getData() != null) {
+                mTwistaItem = data.getData();
+                if (mTwistaItem != null && !TextUtils.isEmpty(mTwistaItem.getEn())) {
+                    if (question != null && answer != null) {
+                        question.setText(mTwistaItem.getEn());
+                        answer.setText("轻触看中文");
+                    }
                 }
+            } else {
+                ToastUtil.diaplayMesShort(getActivity(),data.getErrStr());
             }
-        } else {
-            ToastUtil.diaplayMesShort(getActivity(),data.getErrStr());
         }
     }
 

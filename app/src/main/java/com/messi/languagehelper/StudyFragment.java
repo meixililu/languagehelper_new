@@ -153,7 +153,7 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
                 int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
                 isADInList(recyclerView, firstVisibleItem, visible);
                 if (!mXXLModel.loading && mXXLModel.hasMore) {
-                    if ((visible + firstVisibleItem) >= total) {
+                    if ((visible + firstVisibleItem) >= total-1) {
                         QueryTask();
                     }
                 }

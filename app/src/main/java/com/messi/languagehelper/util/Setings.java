@@ -439,6 +439,24 @@ public class Setings {
 		return device_id;
 	}
 
+	public static String getCategoryName(String category){
+		if ("listening".equals(category)) {
+			return "英语听力";
+		} else if ("spoken_english".equals(category)) {
+			return "英语口语";
+		} else if ("symbol".equals(category)) {
+			return "英语音标";
+		} else if ("story".equals(category)) {
+			return "英语故事";
+		} else if ("grammar".equals(category)) {
+			return "英语语法";
+		} else if ("word".equals(category)) {
+			return "英语单词";
+		} else {
+			return "英语学习";
+		}
+	}
+
 	public static String getTryToGetDeviceId(Context context){
 		String uniqueId = "";
 		try {

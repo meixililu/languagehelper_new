@@ -164,7 +164,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 		mXXLModel = new XXLModel(getActivity());
 		avObjects.addAll(BoxHelper.getReadingList(0,Setings.page_size,category,"",code));
 		initSwipeRefresh(view);
-		mAdapter = new RcReadingListAdapter(avObjects,isPlayList);
+		mAdapter = new RcReadingListAdapter(avObjects);
 		mAdapter.setItems(avObjects);
 		mAdapter.setFooter(new Object());
 		mXXLModel.setAdapter(avObjects,mAdapter);

@@ -84,6 +84,7 @@
                     android:id="@+id/ad_img"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
                     fresco:actualImageScaleType="focusCrop"
                     fresco:placeholderImage="@color/text_tint"
                     fresco:placeholderImageScaleType="fitCenter"

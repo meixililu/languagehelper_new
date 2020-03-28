@@ -17,12 +17,13 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.ReadingsBySubjectActivity;
-import com.messi.languagehelper.SubjectActivity;
 import com.messi.languagehelper.ViewModel.XXLModel;
 import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.DataUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.ScreenUtil;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.SystemUtil;
 import com.qq.e.ads.nativ.NativeExpressADView;
 
@@ -108,8 +109,8 @@ public class RcSubjectListItemViewHolder extends RecyclerView.ViewHolder {
             list_item_img.setVisibility(View.VISIBLE);
             list_item_img.setImageResource(mAVObject.getInt(KeyUtil.ColorKey));
             title.setText( mAVObject.getString(AVOUtil.SubjectList.name) );
-            source_name.setText( getCategoryName(mAVObject.getString(AVOUtil.SubjectList.category)) );
-            type_name.setText( "听力课堂" );
+            source_name.setText(Setings.getCategoryName(mAVObject.getString(AVOUtil.SubjectList.category)) );
+            type_name.setText( mAVObject.getString(AVOUtil.SubjectList.source_name) );
             normal_layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View arg0) {
@@ -118,30 +119,12 @@ public class RcSubjectListItemViewHolder extends RecyclerView.ViewHolder {
             });
         }
     }
-    
-    private String getCategoryName(String category){
-        if ("listening".equals(category)) {
-            return "英语听力";
-        } else if ("spoken_english".equals(category)) {
-            return "英语口语";
-        } else if ("symbol".equals(category)) {
-            return "英语音标";
-        } else if ("story".equals(category)) {
-            return "英语故事";
-        } else if ("grammar".equals(category)) {
-            return "英语语法";
-        } else if ("word".equals(category)) {
-            return "英语单词";
-        } else {
-            return "英语学习";
-        }
-    }
 
     private void onItemClick(AVObject mAVObject){
         Intent intent = new Intent(context,ReadingsBySubjectActivity.class);
         intent.putExtra(KeyUtil.ActionbarTitle, mAVObject.getString(AVOUtil.SubjectList.name));
         intent.putExtra(KeyUtil.SubjectName, mAVObject.getString(AVOUtil.SubjectList.name));
-        intent.putExtra(KeyUtil.ObjectKey, SubjectActivity.toReadingSubject(mAVObject));
+        intent.putExtra(KeyUtil.ObjectKey, DataUtil.toReadingSubject(mAVObject));
         intent.putExtra(KeyUtil.LevelKey, mAVObject.getString(AVOUtil.SubjectList.level));
         context.startActivity(intent);
         mAVObject.increment(AVOUtil.SubjectList.views);

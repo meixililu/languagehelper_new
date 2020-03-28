@@ -8,6 +8,7 @@
         <item name="colorPrimaryDark">@color/theme_color_dark</item>
         <item name="colorAccent">@color/white</item>
         <item name="android:itemBackground">@drawable/bg_lightblue_blue_selector</item>
+
     </style>
 
     <style name="AppTheme.Launcher" parent="Theme.AppCompat.NoActionBar">

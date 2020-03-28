@@ -3,7 +3,9 @@ package com.messi.languagehelper;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.support.multidex.MultiDexApplication;
+import android.webkit.WebView;
 
 import com.avos.avoscloud.AVOSCloud;
 import com.facebook.drawee.backends.pipeline.Fresco;
@@ -41,52 +43,79 @@ public class BaseApplication extends MultiDexApplication {
     }
 
     private void init(){
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    SystemUtil.setPacketName(BaseApplication.this);
-                    Fresco.initialize(BaseApplication.this);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                try {
-                    SharedPreferences sp = Setings.getSharedPreferences(BaseApplication.this);
-                    String ipAddress = sp.getString(KeyUtil.LeanCloudIPAddress,"http://leancloud.mzxbkj.com");
-                    AVOSCloud.setServer(AVOSCloud.SERVER_TYPE.API, ipAddress);
-                    AVOSCloud.initialize(BaseApplication.this,"3fg5ql3r45i3apx2is4j9on5q5rf6kapxce51t5bc0ffw2y4", "twhlgs6nvdt7z7sfaw76ujbmaw7l12gb8v6sdyjw1nzk9b1a");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                try {
-                    YouDaoApplication.init(BaseApplication.this, Setings.YoudaoApiKey);
-                    DexLoader.initIFLYADModule(BaseApplication.this);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                initChannel();
-                initXMLY();
-                TXADUtil.init(BaseApplication.this);
-                CSJADUtil.init(BaseApplication.this);
-                BDADUtil.init(BaseApplication.this);
-                BoxHelper.init(BaseApplication.this);
-            }
-        }).run();
+        try {
+            new Thread(() -> initPartOne()).run();
+            new Thread(() -> initPartTwo()).run();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-//    public void webviewSetPath(Context context) {
-//        try {
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-//                String processName = getProcessName(context.getApplicationContext());
-//                LogUtil.DefalutLog("appid:"+getApplicationInfo().packageName);
-//                if (!getApplicationInfo().packageName.equals(processName)) {//判断不等于默认进程名称
-//                    WebView.setDataDirectorySuffix(processName);
-//                }
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
+    private void initPartOne(){
+        initAVOSCloud();
+        initAd();
+        initXMLY();
+    }
+     private void initPartTwo(){
+         initFresco();
+         initYouDao();
+         initUM();
+    }
+
+    private void initAVOSCloud(){
+        try {
+            SharedPreferences sp = Setings.getSharedPreferences(BaseApplication.this);
+            String ipAddress = sp.getString(KeyUtil.LeanCloudIPAddress,"http://leancloud.mzxbkj.com");
+            AVOSCloud.setServer(AVOSCloud.SERVER_TYPE.API, ipAddress);
+            AVOSCloud.initialize(BaseApplication.this,"3fg5ql3r45i3apx2is4j9on5q5rf6kapxce51t5bc0ffw2y4", "twhlgs6nvdt7z7sfaw76ujbmaw7l12gb8v6sdyjw1nzk9b1a");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void initFresco(){
+        try {
+            SystemUtil.setPacketName(BaseApplication.this);
+            Fresco.initialize(BaseApplication.this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void initAd(){
+        try {
+            TXADUtil.init(BaseApplication.this);
+            CSJADUtil.init(BaseApplication.this);
+            BDADUtil.init(BaseApplication.this);
+            BoxHelper.init(BaseApplication.this);
+            DexLoader.initIFLYADModule(BaseApplication.this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void initYouDao(){
+        try {
+            webviewSetPath(this);
+            YouDaoApplication.init(BaseApplication.this, Setings.YoudaoApiKey);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void webviewSetPath(Context context) {
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                String processName = getProcessName(context.getApplicationContext());
+                //判断不等于默认进程名称
+                if (!getApplicationInfo().packageName.equals(processName)) {
+                    WebView.setDataDirectorySuffix(processName);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     private void initXMLY(){
         try {
@@ -108,7 +137,7 @@ public class BaseApplication extends MultiDexApplication {
         }
     }
 
-    private void initChannel(){
+    private void initUM(){
         try {
 //            UMConfigure.setLogEnabled(true);
             Setings.appVersion = Setings.getVersion(getApplicationContext());
@@ -118,24 +147,6 @@ public class BaseApplication extends MultiDexApplication {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public static DaoMaster getDaoMaster(Context context) {
-        if (daoMaster == null) {
-            SQLiteOpenHelper helper = new SQLiteOpenHelper(context,LHContract.DATABASE_NAME, null);
-            daoMaster = new DaoMaster(helper.getWritableDatabase());
-        }
-        return daoMaster;
-    }
-
-    public static DaoSession getDaoSession(Context context) {
-        if (daoSession == null) {
-            if (daoMaster == null) {
-                daoMaster = getDaoMaster(context);
-            }
-            daoSession = daoMaster.newSession();
-        }
-        return daoSession;
     }
 
     public void setAPPData(){
@@ -172,6 +183,24 @@ public class BaseApplication extends MultiDexApplication {
         }else{
             Setings.UmengAPPId = "551e3853fd98c5403800122c";
         }
+    }
+
+    public static DaoMaster getDaoMaster(Context context) {
+        if (daoMaster == null) {
+            SQLiteOpenHelper helper = new SQLiteOpenHelper(context, LHContract.DATABASE_NAME, null);
+            daoMaster = new DaoMaster(helper.getWritableDatabase());
+        }
+        return daoMaster;
+    }
+
+    public static DaoSession getDaoSession(Context context) {
+        if (daoSession == null) {
+            if (daoMaster == null) {
+                daoMaster = getDaoMaster(context);
+            }
+            daoSession = daoMaster.newSession();
+        }
+        return daoSession;
     }
 
     public String getProcessName(Context context) {
