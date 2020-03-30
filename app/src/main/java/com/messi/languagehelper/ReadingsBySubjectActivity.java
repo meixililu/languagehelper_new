@@ -113,7 +113,7 @@ public class ReadingsBySubjectActivity extends BaseActivity implements View.OnCl
 				int total = mLinearLayoutManager.getItemCount();
 				int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
 				isADInList(recyclerView,firstVisibleItem,visible);
-				if ((visible + firstVisibleItem) >= total-1){
+				if ((visible + firstVisibleItem) >= total){
 					viewModel.loadData();
 				}
 			}

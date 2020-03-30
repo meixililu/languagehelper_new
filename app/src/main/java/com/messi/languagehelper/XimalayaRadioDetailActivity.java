@@ -98,14 +98,14 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
             if (XmPlayerManager.getInstance(this).getCurrSound() instanceof Radio) {
                 Radio mRadio = (Radio) XmPlayerManager.getInstance(this).getCurrSound();
                 if (mRadio.getDataId() != radio.getDataId()) {
-                    XmPlayerManager.getInstance(this).playRadio(radio);
+                    XmPlayerManager.getInstance(this).playLiveRadioForSDK(radio ,-1 , -1);
                     setToPlay();
                 } else {
                     playBtn.setImageResource(R.drawable.player_pause_selector);
                 }
             } else {
                 XmPlayerManager.getInstance(this).pause();
-                XmPlayerManager.getInstance(this).playRadio(radio);
+                XmPlayerManager.getInstance(this).playLiveRadioForSDK(radio ,-1 , -1);
                 setToPlay();
             }
         } else {

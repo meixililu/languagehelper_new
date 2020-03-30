@@ -33,6 +33,8 @@ public class ReadingListRepository {
     private String code;
     private String level;
     private boolean orderById;
+    private boolean isNeedClear = false;
+    private int maxRandom;
     private int skip;
     private int total;
     private boolean isDesc;
@@ -123,6 +125,10 @@ public class ReadingListRepository {
                         if(skip == 0){
                             list.clear();
                         }
+                        if(isNeedClear){
+                            isNeedClear = false;
+                            list.clear();
+                        }
                         DataUtil.changeDataToReading(avObject,list,false);
 //                        loadAD();
                         if(avObject.size() == Setings.page_size){
@@ -179,6 +185,7 @@ public class ReadingListRepository {
             @Override
             public void done(int count, AVException e) {
                 total = count;
+                maxRandom = count - 100;
                 mMutaCount.setValue(count);
             }
         });
@@ -298,5 +305,13 @@ public class ReadingListRepository {
 
     public void setDesc(boolean desc) {
         isDesc = desc;
+    }
+
+    public void setNeedClear(boolean needClear) {
+        isNeedClear = needClear;
+    }
+
+    public void setMaxRandom(int maxRandom) {
+        this.maxRandom = maxRandom;
     }
 }

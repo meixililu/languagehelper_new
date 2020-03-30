@@ -8,6 +8,7 @@ import com.messi.languagehelper.bean.RespoADData;
 import com.messi.languagehelper.bean.RespoData;
 import com.messi.languagehelper.repositories.ADXXLRepository;
 import com.messi.languagehelper.repositories.ReadingListRepository;
+import com.messi.languagehelper.repositories.XXLReadingRepository;
 
 public class ReadingListViewModel extends ViewModel {
 
@@ -25,7 +26,7 @@ public class ReadingListViewModel extends ViewModel {
         mMutaCount = mRepo.mMutaCount;
         isLoading.setValue(false);
 
-        mADRepo = new ADXXLRepository(mRepo.list);
+        mADRepo = new XXLReadingRepository(mRepo.list);
         mRespoADData = mADRepo.mRespoData;
         mRepo.setADXXLRepository(mADRepo);
     }

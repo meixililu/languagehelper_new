@@ -1,34 +1,19 @@
 package com.messi.languagehelper.repositories;
 
 import android.arch.lifecycle.MutableLiveData;
-import android.content.Context;
-import android.net.Uri;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import com.baidu.mobads.AdView;
 import com.baidu.mobads.AdViewListener;
 import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAdConstant;
 import com.bytedance.sdk.openadsdk.TTAdNative;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
-import com.bytedance.sdk.openadsdk.TTImage;
-import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.interfaces.DraweeController;
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.IFLYNativeAd;
 import com.iflytek.voiceads.config.AdError;
 import com.iflytek.voiceads.config.AdKeys;
 import com.iflytek.voiceads.conn.NativeDataRef;
 import com.iflytek.voiceads.listener.IFLYNativeListener;
-import com.messi.languagehelper.R;
 import com.messi.languagehelper.bean.RespoADData;
-import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.BDADUtil;
 import com.messi.languagehelper.util.CSJADUtil;
@@ -37,7 +22,6 @@ import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Setings;
-import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.TXADUtil;
 import com.qq.e.ads.nativ.NativeExpressAD;
 import com.qq.e.ads.nativ.NativeExpressADView;
@@ -47,7 +31,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ADXXLRepository {
+public abstract class ADXXLRepository<T> {
 
     public int counter;
     public String XFADID = ADUtil.XXLAD;
@@ -109,7 +93,7 @@ public class ADXXLRepository {
 
             @Override
             public void onAdLoaded(NativeDataRef nativeDataRef) {
-                addXFAD(nativeDataRef);
+                addAD(addXFAD(nativeDataRef));
             }
 
             @Override
@@ -122,12 +106,7 @@ public class ADXXLRepository {
         nativeAd.loadAd();
     }
 
-    public void addXFAD(NativeDataRef nad){
-        Reading mADObject = new Reading();
-        mADObject.setmNativeADDataRef(nad);
-        mADObject.setAd(true);
-        addAD(mADObject);
-    }
+    public abstract T addXFAD(NativeDataRef nad);
 
     public void loadTXAD() {
         TXADUtil.showXXLAD(ContextUtil.get().getContext(),TXADType, new NativeExpressAD.NativeExpressADListener() {
@@ -141,7 +120,7 @@ public class ADXXLRepository {
                 LogUtil.DefalutLog("TX-onADLoaded:"+list.size());
                 if(list != null && list.size() > 0 && mTXADList != null){
                     mTXADList.add(list.get(0));
-                    addTXAD(list.get(0));
+                    addAD(addTXAD(list.get(0)));
                 }
             }
             @Override
@@ -179,11 +158,7 @@ public class ADXXLRepository {
         });
     }
 
-    public void addTXAD(NativeExpressADView mADView){
-        Reading mADObject = new Reading();
-        mADObject.setmTXADView(mADView);
-        addAD(mADObject);
-    }
+    public abstract T addTXAD(NativeExpressADView mADView);
 
     public void loadXBKJ() {
         if (ADUtil.isHasLocalAd()) {
@@ -221,16 +196,10 @@ public class ADXXLRepository {
                 onLoadAdFaile();
             }
         });
-        addBDAD(adView);
+        addAD(addBDAD(adView));
     }
 
-    public void addBDAD(AdView adView){
-        int height = (int)(SystemUtil.SCREEN_WIDTH / 2);
-        Reading mADObject = new Reading();
-        mADObject.setBdHeight(height);
-        mADObject.setBdAdView(adView);
-        addAD(mADObject);
-    }
+    public abstract T addBDAD(AdView adView);
 
     public void loadCSJAD(){
         LogUtil.DefalutLog("loadCSJAD");
@@ -253,18 +222,14 @@ public class ADXXLRepository {
                     onLoadAdFaile();
                     return;
                 }
-                addCSJAD(ads.get(0));
+                addAD(addCSJAD(ads.get(0)));
             }
         });
     }
 
-    public void addCSJAD(TTFeedAd ad){
-        Reading mADObject = new Reading();
-        mADObject.setCsjTTFeedAd(ad);
-        addAD(mADObject);
-    }
+    public abstract T addCSJAD(TTFeedAd ad);
 
-    public void addAD(Reading mADObject){
+    public void addAD(T mADObject){
         if (mADObject != null && NullUtil.isNotEmpty(avObjects) && mRespoData != null) {
             int index = avObjects.size() - Setings.page_size + NumberUtil.randomNumberRange(1, 3);
             if (index < 0) {
@@ -287,116 +252,6 @@ public class ADXXLRepository {
 
     public void setXFADID(String XFADID) {
         this.XFADID = XFADID;
-    }
-
-    public static void setCSJDView(Context context, TTFeedAd ad, FrameLayout ad_layout){
-        View view = null;
-        if (ad.getImageMode() == TTAdConstant.IMAGE_MODE_LARGE_IMG) {
-            view = LayoutInflater.from(context).inflate(R.layout.listitem_ad_large_pic,null);
-            initCSJLargePicItem(view,ad,ad_layout);
-        } else if (ad.getImageMode() == TTAdConstant.IMAGE_MODE_GROUP_IMG) {
-            view = LayoutInflater.from(context).inflate(R.layout.listitem_ad_group_pic,null);
-            initCSJGroupPicItem(view,ad,ad_layout);
-        } else if (ad.getImageMode() == TTAdConstant.IMAGE_MODE_SMALL_IMG) {
-            view = LayoutInflater.from(context).inflate(R.layout.listitem_ad_small_pic,null);
-            initCSJSmallPicItem(view,ad,ad_layout);
-        } else if (ad.getImageMode() == TTAdConstant.IMAGE_MODE_VIDEO) {
-            view = LayoutInflater.from(context).inflate(R.layout.listitem_ad_large_video,null);
-            initCSJVideoItem(view,ad,ad_layout);
-        }
-    }
-
-    public static void initCSJGroupPicItem(View view,TTFeedAd ttFeedAd, FrameLayout ad_layout){
-        initBaseItem(view,ttFeedAd,ad_layout);
-        SimpleDraweeView mGroupImage1 = (SimpleDraweeView) view.findViewById(R.id.iv_listitem_image1);
-        SimpleDraweeView mGroupImage2 = (SimpleDraweeView) view.findViewById(R.id.iv_listitem_image2);
-        SimpleDraweeView mGroupImage3 = (SimpleDraweeView) view.findViewById(R.id.iv_listitem_image3);
-        if (ttFeedAd.getImageList() != null && ttFeedAd.getImageList().size() >= 3) {
-            TTImage image1 = ttFeedAd.getImageList().get(0);
-            TTImage image2 = ttFeedAd.getImageList().get(1);
-            TTImage image3 = ttFeedAd.getImageList().get(2);
-            if (image1 != null && image1.isValid()) {
-                mGroupImage1.setImageURI(image1.getImageUrl());
-            }
-            if (image2 != null && image2.isValid()) {
-                mGroupImage2.setImageURI(image2.getImageUrl());
-            }
-            if (image3 != null && image3.isValid()) {
-                mGroupImage3.setImageURI(image3.getImageUrl());
-            }
-        }
-    }
-
-    public static void initCSJLargePicItem(View view,TTFeedAd ttFeedAd, FrameLayout ad_layout){
-        initBaseItem(view,ttFeedAd,ad_layout);
-        SimpleDraweeView mGroupImage1 = (SimpleDraweeView) view.findViewById(R.id.iv_listitem_image);
-
-        if (ttFeedAd.getImageList() != null && !ttFeedAd.getImageList().isEmpty()) {
-            TTImage image1 = ttFeedAd.getImageList().get(0);
-            if (image1 != null && image1.isValid()) {
-                DraweeController mDraweeController = Fresco.newDraweeControllerBuilder()
-                        .setAutoPlayAnimations(true)
-                        .setUri(Uri.parse(image1.getImageUrl()))
-                        .build();
-                mGroupImage1.setController(mDraweeController);
-            }
-        }
-    }
-
-    public static void initCSJSmallPicItem(View view,TTFeedAd ttFeedAd, FrameLayout ad_layout){
-        initBaseItem(view,ttFeedAd,ad_layout);
-        SimpleDraweeView mGroupImage1 = (SimpleDraweeView) view.findViewById(R.id.iv_listitem_image);
-        if (ttFeedAd.getImageList() != null && !ttFeedAd.getImageList().isEmpty()) {
-            TTImage image1 = ttFeedAd.getImageList().get(0);
-            if (image1 != null && image1.isValid()) {
-                mGroupImage1.setImageURI(image1.getImageUrl());
-            }
-        }
-    }
-
-    public static void initCSJVideoItem(View view,TTFeedAd ttFeedAd, FrameLayout ad_layout){
-        initBaseItem(view,ttFeedAd,ad_layout);
-        FrameLayout videoView = (FrameLayout) view.findViewById(R.id.iv_listitem_video);
-        View video = ttFeedAd.getAdView();
-        if (video != null) {
-            if (video.getParent() != null) {
-                ((ViewGroup) video.getParent()).removeView(video);
-            }
-            videoView.removeAllViews();
-            videoView.addView(video);
-        }
-
-    }
-
-    public static void initBaseItem(View view, TTFeedAd ad, FrameLayout ad_layout){
-        TextView mTitle = (TextView) view.findViewById(R.id.tv_listitem_ad_title);
-        TextView mSource = (TextView) view.findViewById(R.id.tv_listitem_ad_source);
-        TextView mDescription = (TextView) view.findViewById(R.id.tv_listitem_ad_desc);
-        mTitle.setText(ad.getDescription() == null ? "" : ad.getDescription());
-        mDescription.setText(ad.getTitle());
-        mSource.setText("广告");
-        List<View> clickViewList = new ArrayList<>();
-        clickViewList.add(view);
-        List<View> creativeViewList = new ArrayList<>();
-        creativeViewList.add(mDescription);
-        ad.registerViewForInteraction((ViewGroup)view, clickViewList, creativeViewList, new TTNativeAd.AdInteractionListener() {
-            @Override
-            public void onAdClicked(View view, TTNativeAd ad) {
-                LogUtil.DefalutLog("CSJXXLAD-onAdClicked");
-            }
-
-            @Override
-            public void onAdCreativeClick(View view, TTNativeAd ad) {
-                LogUtil.DefalutLog("CSJXXLAD-onAdCreativeClick");
-            }
-
-            @Override
-            public void onAdShow(TTNativeAd ad) {
-                LogUtil.DefalutLog("CSJXXLAD-onAdShow");
-            }
-        });
-        ad_layout.removeAllViews();
-        ad_layout.addView(view);
     }
 
 }

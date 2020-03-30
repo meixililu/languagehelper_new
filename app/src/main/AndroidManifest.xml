@@ -358,7 +358,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".SymbolActivity"
-
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ReadingMp3DetailActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".OfflineDicDownloadActivity"

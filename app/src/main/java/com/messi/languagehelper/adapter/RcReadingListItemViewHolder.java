@@ -21,6 +21,7 @@ import com.messi.languagehelper.R;
 import com.messi.languagehelper.ReadDetailTouTiaoActivity;
 import com.messi.languagehelper.ReadingDetailActivity;
 import com.messi.languagehelper.ReadingDetailLrcActivity;
+import com.messi.languagehelper.ReadingMp3DetailActivity;
 import com.messi.languagehelper.ViewModel.XXLModel;
 import com.messi.languagehelper.XVideoDetailActivity;
 import com.messi.languagehelper.XVideoHomeActivity;
@@ -249,14 +250,18 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
             if(!TextUtils.isEmpty(item.getType()) && "video".equals(item.getType())){
                 Setings.dataMap.put(KeyUtil.DataMapKey, item);
                 toDetail = ReadDetailTouTiaoActivity.class;
+            }if(!TextUtils.isEmpty(item.getType()) && "mp3".equals(item.getType())){
+                Setings.dataMap.put(KeyUtil.DataMapKey, avObjects);
+                intent.putExtra(KeyUtil.IndexKey, position);
+                toDetail = ReadingMp3DetailActivity.class;
             }else {
                 Setings.dataMap.put(KeyUtil.DataMapKey, avObjects);
+                intent.putExtra(KeyUtil.IndexKey, position);
                 if(TextUtils.isEmpty(item.getLrc_url())){
                     toDetail = ReadingDetailActivity.class;
                 }else {
                     toDetail = ReadingDetailLrcActivity.class;
                 }
-                intent.putExtra(KeyUtil.IndexKey, position);
             }
             intent.setClass(context,toDetail);
             context.startActivity(intent);

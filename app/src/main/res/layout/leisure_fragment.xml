@@ -18,7 +18,6 @@
             android:id="@+id/xx_ad_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="190dp"
             android:background="@color/white">
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/ad_img"
@@ -44,6 +43,7 @@
             android:id="@+id/ad_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="180dp"
             android:visibility="gone"
             android:background="@color/white"/>
         </FrameLayout>
