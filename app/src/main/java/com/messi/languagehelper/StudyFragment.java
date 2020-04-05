@@ -125,12 +125,12 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
         tablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                onTabSelectedListener(categories.get(tab.getPosition()));
+                onTabSelectedListener(tab.getPosition(), categories.get(tab.getPosition()));
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-                onTabReselectedListener(categories.get(tab.getPosition()));
+                onTabReselectedListener(tab.getPosition(), categories.get(tab.getPosition()));
             }
 
             @Override
@@ -320,7 +320,7 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
     }
 
     @Override
-    public void onTabSelectedListener(ReadingCategory mReadingCategory) {
+    public void onTabSelectedListener(int pos, ReadingCategory mReadingCategory) {
         isNeedClear = true;
         listview.scrollToPosition(0);
         category = mReadingCategory.getCategory();
@@ -329,7 +329,7 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
     }
 
     @Override
-    public void onTabReselectedListener(ReadingCategory mReadingCategory) {
+    public void onTabReselectedListener(int pos, ReadingCategory mReadingCategory) {
         listview.scrollToPosition(0);
         onSwipeRefreshLayoutRefresh();
     }

@@ -4,7 +4,6 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -44,11 +43,12 @@ public class ReadingFragment extends BaseFragment{
 	private String quest;
 	private String type;
 	private String boutique_code;
+	private boolean withOutVideo;
 	private boolean isNeedClear = false;
 	private LinearLayoutManager mLinearLayoutManager;
 	private ReadingListViewModel viewModel;
 
-	public static Fragment newInstance(Builder builder){
+	public static ReadingFragment newInstance(Builder builder){
 		ReadingFragment fragment = new ReadingFragment();
 		Bundle bundle = new Bundle();
 		bundle.putString("category",builder.category);
@@ -61,11 +61,12 @@ public class ReadingFragment extends BaseFragment{
 		bundle.putString("quest",builder.quest);
 		bundle.putInt("maxRandom",builder.maxRandom);
 		bundle.putBoolean("isNeedClear",builder.isNeedClear);
+		bundle.putBoolean("withOutVideo",builder.withOutVideo);
 		fragment.setArguments(bundle);
 		return fragment;
 	}
 
-	public static Fragment newInstance(String category, String code){
+	public static ReadingFragment newInstance(String category, String code){
 		ReadingFragment fragment = new ReadingFragment();
 		Bundle bundle = new Bundle();
 		bundle.putString("category",category);
@@ -74,7 +75,7 @@ public class ReadingFragment extends BaseFragment{
 		return fragment;
 	}
 
-	public static Fragment newInstance(String category, String code, boolean isPlayList){
+	public static ReadingFragment newInstance(String category, String code, boolean isPlayList){
 		ReadingFragment fragment = new ReadingFragment();
 		Bundle bundle = new Bundle();
 		bundle.putString("category",category);
@@ -99,6 +100,7 @@ public class ReadingFragment extends BaseFragment{
 		this.type = mBundle.getString("type");
 		this.boutique_code = mBundle.getString(KeyUtil.BoutiqueCode);
 		this.isNeedClear = mBundle.getBoolean("isNeedClear",false);
+		this.withOutVideo = mBundle.getBoolean("withOutVideo",false);
 		this.maxRandom = mBundle.getInt("maxRandom");
 		viewModel = ViewModelProviders.of(getActivity()).get(ReadingListViewModel.class);
 		viewModel.init();
@@ -109,6 +111,7 @@ public class ReadingFragment extends BaseFragment{
 		viewModel.getRepo().setType(type);
 		viewModel.getRepo().setBoutique_code(boutique_code);
 		viewModel.getRepo().setNeedClear(isNeedClear);
+		viewModel.getRepo().setWithOutVideo(withOutVideo);
 	}
 
 	@Override
@@ -172,6 +175,12 @@ public class ReadingFragment extends BaseFragment{
 		viewModel.getReadingList().observe(this, data -> onDataChange(data));
 		viewModel.isShowProgressBar().observe(this, isShow -> isShowProgressBar(isShow));
 		viewModel.getAD().observe(this,data -> refreshAD(data));
+		viewModel.getCount().observe(this,count -> getTotalCount(count));
+	}
+
+	private void getTotalCount(int count){
+		LogUtil.DefalutLog("ViewModel---getTotalCount---count:"+count);
+		maxRandom = count;
 	}
 
 	private void refreshAD(RespoADData data){
@@ -179,7 +188,7 @@ public class ReadingFragment extends BaseFragment{
 		if (data != null) {
 			if (data.getCode() == 1) {
 				if(mAdapter != null){
-					mAdapter.notifyDataSetChanged();
+					mAdapter.notifyItemInserted(data.getPos());
 				}
 			}
 		}
@@ -190,7 +199,7 @@ public class ReadingFragment extends BaseFragment{
 		if (data != null) {
 			if (data.getCode() == 1) {
 				if(mAdapter != null){
-					mAdapter.notifyDataSetChanged();
+					mAdapter.notifyItemRangeInserted(data.getPositionStart(),data.getItemCount());
 				}
 			} else {
 				ToastUtil.diaplayMesShort(getActivity(),data.getErrStr());
@@ -220,6 +229,7 @@ public class ReadingFragment extends BaseFragment{
 		}else {
 			skip = (int) Math.round(Math.random()*maxRandom);
 		}
+		LogUtil.DefalutLog("random:"+skip+"--boutique_code:"+boutique_code);
 	}
 	
 	public void setListOnScrollListener(){
@@ -270,8 +280,6 @@ public class ReadingFragment extends BaseFragment{
 	public void onSwipeRefreshLayoutRefresh() {
 		hideFooterview();
 		random();
-		viewModel.getRepo().getList().clear();
-		mAdapter.notifyDataSetChanged();
 		viewModel.refresh(skip);
 	}
 
@@ -326,6 +334,7 @@ public class ReadingFragment extends BaseFragment{
 		private String type;
 		private String boutique_code;
 		private boolean isPlayList;
+		private boolean withOutVideo;
 		private boolean isNeedClear = false;
 
 		public Builder maxRandom(int maxRandom) {
@@ -364,11 +373,17 @@ public class ReadingFragment extends BaseFragment{
 			this.isPlayList = isPlayList;
 			return this;
 		}
-		public Builder isNeedClear(boolean isNeedClear) {
+
+        public Builder isWithOutVideo(boolean withOutVideo) {
+            this.withOutVideo = withOutVideo;
+            return this;
+        }
+
+        public Builder isNeedClear(boolean isNeedClear) {
 			this.isNeedClear = isNeedClear;
 			return this;
 		}
-		public Fragment build(){
+		public ReadingFragment build(){
 			return ReadingFragment.newInstance(this);
 		}
 	}

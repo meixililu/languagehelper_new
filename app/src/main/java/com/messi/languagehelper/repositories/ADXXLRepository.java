@@ -19,7 +19,6 @@ import com.messi.languagehelper.util.BDADUtil;
 import com.messi.languagehelper.util.CSJADUtil;
 import com.messi.languagehelper.util.ContextUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TXADUtil;
@@ -33,7 +32,10 @@ import java.util.List;
 
 public abstract class ADXXLRepository<T> {
 
+    public T mADObject;
     public int counter;
+    public boolean isLoading;
+    public boolean isShowAd;
     public String XFADID = ADUtil.XXLAD;
     public String BDADID = BDADUtil.BD_BANNer;
     public String CSJADID = CSJADUtil.CSJ_XXL;
@@ -48,8 +50,10 @@ public abstract class ADXXLRepository<T> {
         this.avObjects = avObjects;
     }
 
-    public void showAd(){
+    public void showAd(boolean isShowAd){
         if(ADUtil.IsShowAD){
+            isLoading = true;
+            this.isShowAd = isShowAd;
             getXXLAd();
         }
     }
@@ -70,6 +74,8 @@ public abstract class ADXXLRepository<T> {
                 }else {
                     loadTXAD();
                 }
+            }else {
+                isLoading = false;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -93,7 +99,8 @@ public abstract class ADXXLRepository<T> {
 
             @Override
             public void onAdLoaded(NativeDataRef nativeDataRef) {
-                addAD(addXFAD(nativeDataRef));
+                addXFAD(nativeDataRef);
+                addAD();
             }
 
             @Override
@@ -106,7 +113,7 @@ public abstract class ADXXLRepository<T> {
         nativeAd.loadAd();
     }
 
-    public abstract T addXFAD(NativeDataRef nad);
+    public abstract void addXFAD(NativeDataRef nad);
 
     public void loadTXAD() {
         TXADUtil.showXXLAD(ContextUtil.get().getContext(),TXADType, new NativeExpressAD.NativeExpressADListener() {
@@ -117,10 +124,11 @@ public abstract class ADXXLRepository<T> {
             }
             @Override
             public void onADLoaded(List<NativeExpressADView> list) {
-                LogUtil.DefalutLog("TX-onADLoaded:"+list.size());
+                LogUtil.DefalutLog("TX-onADLoaded");
                 if(list != null && list.size() > 0 && mTXADList != null){
                     mTXADList.add(list.get(0));
-                    addAD(addTXAD(list.get(0)));
+                    addTXAD(list.get(0));
+                    addAD();
                 }
             }
             @Override
@@ -158,7 +166,7 @@ public abstract class ADXXLRepository<T> {
         });
     }
 
-    public abstract T addTXAD(NativeExpressADView mADView);
+    public abstract void addTXAD(NativeExpressADView mADView);
 
     public void loadXBKJ() {
         if (ADUtil.isHasLocalAd()) {
@@ -196,10 +204,11 @@ public abstract class ADXXLRepository<T> {
                 onLoadAdFaile();
             }
         });
-        addAD(addBDAD(adView));
+        addBDAD(adView);
+        addAD();
     }
 
-    public abstract T addBDAD(AdView adView);
+    public abstract void addBDAD(AdView adView);
 
     public void loadCSJAD(){
         LogUtil.DefalutLog("loadCSJAD");
@@ -222,24 +231,15 @@ public abstract class ADXXLRepository<T> {
                     onLoadAdFaile();
                     return;
                 }
-                addAD(addCSJAD(ads.get(0)));
+                addCSJAD(ads.get(0));
+                addAD();
             }
         });
     }
 
-    public abstract T addCSJAD(TTFeedAd ad);
+    public abstract void addCSJAD(TTFeedAd ad);
 
-    public void addAD(T mADObject){
-        if (mADObject != null && NullUtil.isNotEmpty(avObjects) && mRespoData != null) {
-            int index = avObjects.size() - Setings.page_size + NumberUtil.randomNumberRange(1, 3);
-            if (index < 0) {
-                index = 0;
-            }
-            avObjects.add(index, mADObject);
-            RespoADData mData = new RespoADData(1);
-            mRespoData.setValue(mData);
-        }
-    }
+    public abstract void addAD();
 
     public void onDestroy(){
         if(mTXADList != null){
@@ -252,6 +252,18 @@ public abstract class ADXXLRepository<T> {
 
     public void setXFADID(String XFADID) {
         this.XFADID = XFADID;
+    }
+
+    public int getIndex(){
+        int index = 0;
+        if (avObjects != null) {
+            index = avObjects.size() - Setings.page_size + NumberUtil.randomNumberRange(1, 3);
+            if (index < 0) {
+                index = 0;
+            }
+        }
+        LogUtil.DefalutLog("insert list index:"+index);
+        return index;
     }
 
 }

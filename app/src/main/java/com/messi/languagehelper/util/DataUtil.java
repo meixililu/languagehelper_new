@@ -1,8 +1,11 @@
 package com.messi.languagehelper.util;
 
+import android.content.Context;
 import android.text.TextUtils;
 
 import com.avos.avoscloud.AVObject;
+import com.messi.languagehelper.R;
+import com.messi.languagehelper.bean.ReadingCategory;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.CNWBean;
 import com.messi.languagehelper.box.Reading;
@@ -216,5 +219,30 @@ public class DataUtil {
         item.setSource_name(mAVObject.getString(AVOUtil.SubjectList.source_name));
         item.setSource_url(mAVObject.getString(AVOUtil.SubjectList.source_url));
         return item;
+    }
+
+    public static List<ReadingCategory> getTabItem(Context context) {
+        List<ReadingCategory> readingCategories = new ArrayList<ReadingCategory>();
+        readingCategories.add(new ReadingCategory(context.getString(R.string.recommend), ""));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.title_english_video), "video"));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.title_listening), "listening"));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.spoken_english_practice), "spoken_english"));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.reading), "shuangyu_reading"));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.title_word_study_vocabulary), "word"));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.title_composition), "composition"));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.examination), "examination"));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.title_english_story), "story"));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.title_english_jokes), "jokes"));
+        return readingCategories;
+    }
+
+    public static List<ReadingCategory> getStudyTab(Context context) {
+        List<ReadingCategory> readingCategories = new ArrayList<ReadingCategory>();
+        readingCategories.add(new ReadingCategory(context.getString(R.string.recommend), "recommend"));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.title_english_video), "video"));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.selection), "jingxuan"));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.xmly_album), "zhuanji"));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.title_juhe), "zonghe"));
+        return readingCategories;
     }
 }

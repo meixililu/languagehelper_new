@@ -10,6 +10,10 @@ public class RespoData<T> {
 
 	private boolean isHideFooter;
 
+	private int positionStart;
+
+	private int itemCount;
+
 	public RespoData(){
 	}
 
@@ -24,6 +28,22 @@ public class RespoData<T> {
 	public RespoData(int code,String errStr){
 		this.code = code;
 		this.errStr = errStr;
+	}
+
+	public int getPositionStart() {
+		return positionStart;
+	}
+
+	public void setPositionStart(int positionStart) {
+		this.positionStart = positionStart;
+	}
+
+	public int getItemCount() {
+		return itemCount;
+	}
+
+	public void setItemCount(int itemCount) {
+		this.itemCount = itemCount;
 	}
 
 	public boolean isHideFooter() {

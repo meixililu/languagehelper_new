@@ -15,6 +15,7 @@ import com.messi.languagehelper.MainFragmentYYS;
 import com.messi.languagehelper.ReadingFragmentYWCD;
 import com.messi.languagehelper.StudyCategoryFragment;
 import com.messi.languagehelper.StudyFragment;
+import com.messi.languagehelper.StudyTabFragment;
 import com.messi.languagehelper.XmlyMainForYWCDFragment;
 import com.messi.languagehelper.XmlyMainForYYSFragment;
 import com.messi.languagehelper.YYJHomeFragment;
@@ -53,7 +54,7 @@ public class FragmentUtil {
                 fragments.add(MainFragment.getInstance(listener));
             }
             fragments.add(StudyCategoryFragment.getInstance());
-            fragments.add(StudyFragment.getInstance());
+            fragments.add(StudyTabFragment.getInstance());
             fragments.add(LeisureFragment.getInstance());
         }
         return fragments;

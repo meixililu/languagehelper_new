@@ -142,7 +142,7 @@ public abstract class XXLRootModel {
             }
             @Override
             public void onADLoaded(List<NativeExpressADView> list) {
-                LogUtil.DefalutLog("TX-onADLoaded:"+list.size());
+                LogUtil.DefalutLog("TX-onADLoaded");
                 if(list != null && list.size() > 0 && mTXADList != null){
                     mTXADList.add(list.get(0));
                     addTXAD(list.get(0));

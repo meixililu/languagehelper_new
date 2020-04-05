@@ -1,67 +1,73 @@
 package com.messi.languagehelper;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
-import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
-import com.messi.languagehelper.ViewModel.XXLAVObjectModel;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.adapter.RcSubjectListAdapter;
+import com.messi.languagehelper.bean.RespoADData;
+import com.messi.languagehelper.bean.RespoData;
 import com.messi.languagehelper.databinding.SymbolListFragmentBinding;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
-import com.messi.languagehelper.util.AVAnalytics;
-import com.messi.languagehelper.util.AVOUtil;
-import com.messi.languagehelper.util.ColorUtil;
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.Setings;
+import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.ToastUtil;
-import com.messi.languagehelper.views.DividerGridItemDecoration;
-
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.List;
+import com.messi.languagehelper.viewmodels.SubjectViewModel;
+import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 public class SubjectFragment extends BaseFragment {
 
-    private static final int NUMBER_OF_COLUMNS = 1;
-
     private RcSubjectListAdapter mAdapter;
-    private List<AVObject> avObjects;
-    private int skip = 0;
-    private GridLayoutManager layoutManager;
+    private LinearLayoutManager mLinearLayoutManager;
     private String category;
     private String title;
     private String level;
     private String order;
-    private XXLAVObjectModel mXXLModel;
     private SymbolListFragmentBinding binding;
+    private SubjectViewModel viewModel;
 
     public static SubjectFragment getInstance(String category, String level) {
         SubjectFragment fragment = new SubjectFragment();
-        fragment.category = category;
-        fragment.level = level;
+        Bundle bundle = new Bundle();
+        bundle.putString("category",category);
+        bundle.putString("level",level);
+        fragment.setArguments(bundle);
         return fragment;
     }
 
     public static SubjectFragment getInstance(String category, String level, String order, String title) {
         SubjectFragment fragment = new SubjectFragment();
-        fragment.category = category;
-        fragment.level = level;
-        fragment.order = order;
-        fragment.title = title;
+        Bundle bundle = new Bundle();
+        bundle.putString("category",category);
+        bundle.putString("level",level);
+        bundle.putString("order",order);
+        bundle.putString(KeyUtil.ActionbarTitle,title);
+        fragment.setArguments(bundle);
         return fragment;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Bundle mBundle = getArguments();
+        this.title = mBundle.getString(KeyUtil.ActionbarTitle);
+        this.category = mBundle.getString("category");
+        this.level = mBundle.getString("level");
+        this.order = mBundle.getString("order");
+        viewModel = ViewModelProviders.of(getActivity()).get(SubjectViewModel.class);
+        viewModel.init();
+        viewModel.getRepo().setCategory(category);
+        viewModel.getRepo().setLevel(level);
+        viewModel.getRepo().setOrder(order);
     }
 
     @Override
@@ -77,7 +83,8 @@ public class SubjectFragment extends BaseFragment {
     @Override
     public void loadDataOnStart() {
         super.loadDataOnStart();
-        new QueryTask(this).execute();
+        viewModel.loadData();
+        viewModel.count();
     }
 
     @Override
@@ -86,12 +93,12 @@ public class SubjectFragment extends BaseFragment {
         binding = SymbolListFragmentBinding.inflate(inflater);
         initSwipeRefresh(binding.getRoot());
         initViews();
+        initAdapter();
+        initViewModel();
         return binding.getRoot();
     }
 
     private void initViews() {
-        avObjects = new ArrayList<AVObject>();
-        mXXLModel = new XXLAVObjectModel(getActivity());
         if(!TextUtils.isEmpty(title)){
             binding.myAwesomeToolbar.setVisibility(View.VISIBLE);
             binding.myAwesomeToolbar.setTitle(title);
@@ -101,156 +108,108 @@ public class SubjectFragment extends BaseFragment {
     private void initAdapter(){
         if(mAdapter == null && binding.studycategoryLv != null){
             mAdapter = new RcSubjectListAdapter();
-            mAdapter.setItems(avObjects);
+            mAdapter.setItems(viewModel.getRepo().getList());
             mAdapter.setFooter(new Object());
-            mXXLModel.setAdapter(avObjects,mAdapter);
             hideFooterview();
-            layoutManager = new GridLayoutManager(getContext(), NUMBER_OF_COLUMNS);
-            HeaderSpanSizeLookup headerSpanSizeLookup = new HeaderSpanSizeLookup(mAdapter, layoutManager);
-            layoutManager.setSpanSizeLookup(headerSpanSizeLookup);
-            binding.studycategoryLv.setLayoutManager(layoutManager);
-            binding.studycategoryLv.addItemDecoration(new DividerGridItemDecoration(1));
+            mLinearLayoutManager = new LinearLayoutManager(getContext());
+            binding.studycategoryLv.setLayoutManager(mLinearLayoutManager);
+            binding.studycategoryLv.addItemDecoration(
+                    new HorizontalDividerItemDecoration.Builder(getContext())
+                            .colorResId(R.color.text_tint)
+                            .sizeResId(R.dimen.list_divider_size)
+                            .marginResId(R.dimen.padding_2, R.dimen.padding_2)
+                            .build());
             binding.studycategoryLv.setAdapter(mAdapter);
             setListOnScrollListener();
         }
     }
 
-
-    public void setListOnScrollListener() {
+    public void setListOnScrollListener(){
         binding.studycategoryLv.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                int visible = layoutManager.getChildCount();
-                int total = layoutManager.getItemCount();
-                int firstVisibleItem = layoutManager.findFirstCompletelyVisibleItemPosition();
-                if (!mXXLModel.loading && mXXLModel.hasMore && isHasLoadData) {
-                    if ((visible + firstVisibleItem) >= total) {
-                        new QueryTask(SubjectFragment.this).execute();
-                    }
+                int visible  = mLinearLayoutManager.getChildCount();
+                int total = mLinearLayoutManager.getItemCount();
+                int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
+                isADInList(recyclerView,firstVisibleItem,visible);
+                if ((visible + firstVisibleItem) >= total){
+                    viewModel.loadData();
                 }
             }
         });
     }
 
-    private void loadAD(){
-        if (mXXLModel != null) {
-            mXXLModel.showAd();
+    private void isADInList(RecyclerView view,int first, int vCount){
+        if(viewModel.getRepo().getList().size() > 3){
+            for(int i=first;i< (first+vCount);i++){
+                if(i < viewModel.getRepo().getList().size() && i > 0){
+                    AVObject mAVObject = viewModel.getRepo().getList().get(i);
+                    if(mAVObject != null && mAVObject.get(KeyUtil.ADKey) != null){
+                        if(!(Boolean) mAVObject.get(KeyUtil.ADIsShowKey)){
+                            NativeDataRef mNativeADDataRef = (NativeDataRef) mAVObject.get(KeyUtil.ADKey);
+                            boolean isExposure = mNativeADDataRef.onExposure(view.getChildAt(i%vCount));
+                            LogUtil.DefalutLog("isExposure:"+isExposure);
+                            if(isExposure){
+                                mAVObject.put(KeyUtil.ADIsShowKey, isExposure);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private void initViewModel(){
+        viewModel.getReadingList().observe(this, data -> onDataChange(data));
+        viewModel.isShowProgressBar().observe(this, isShow -> isShowProgressBar(isShow));
+        viewModel.getAD().observe(this,data -> refreshAD(data));
+    }
+
+    private void refreshAD(RespoADData data){
+        LogUtil.DefalutLog("ViewModel---refresh---ad");
+        if (data != null) {
+            if (data.getCode() == 1) {
+                if(mAdapter != null){
+                    mAdapter.notifyItemInserted(data.getPos());
+                }
+            }
+        }
+    }
+
+    private void onDataChange(RespoData data){
+        LogUtil.DefalutLog("ViewModel---onDataChange---");
+        if (data != null) {
+            if (data.getCode() == 1) {
+                if(mAdapter != null){
+                    mAdapter.notifyItemRangeInserted(data.getPositionStart(),data.getItemCount());
+                }
+            } else {
+                ToastUtil.diaplayMesShort(getActivity(),data.getErrStr());
+            }
+            if (data.isHideFooter()) {
+                hideFooterview();
+            }else {
+                showFooterview();
+            }
+        }else {
+            ToastUtil.diaplayMesShort(getActivity(),"网络异常，请检查网络连接。");
+        }
+    }
+
+    private void isShowProgressBar(Boolean isShow){
+        if (isShow) {
+            showProgressbar();
+        } else {
+            hideProgressbar();
+            onSwipeRefreshLayoutFinish();
         }
     }
 
     @Override
     public void onSwipeRefreshLayoutRefresh() {
         hideFooterview();
-        skip = 0;
-        avObjects.clear();
-        mAdapter.notifyDataSetChanged();
-        new QueryTask(this).execute();
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.search, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_search:
-                toMoreActivity();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void toMoreActivity() {
-        toActivity(SearchActivity.class, null);
-        AVAnalytics.onEvent(getContext(), "subject_to_search");
-    }
-
-    private class QueryTask extends AsyncTask<Void, Void, List<AVObject>> {
-
-        private WeakReference<SubjectFragment> mainActivity;
-
-        public QueryTask(SubjectFragment mActivity){
-            mainActivity = new WeakReference<>(mActivity);
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            if(mXXLModel != null){
-                mXXLModel.loading = true;
-            }
-            showProgressbar();
-        }
-
-        @Override
-        protected List<AVObject> doInBackground(Void... params) {
-            AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.SubjectList.SubjectList);
-            if (!TextUtils.isEmpty(category)) {
-                query.whereEqualTo(AVOUtil.SubjectList.category, category);
-            }
-            if (!TextUtils.isEmpty(level)) {
-                query.whereEqualTo(AVOUtil.SubjectList.level, level);
-            }
-            if(!TextUtils.isEmpty(order)){
-                query.orderByDescending(AVOUtil.SubjectList.order);
-            }else {
-                query.orderByAscending(AVOUtil.SubjectList.order);
-            }
-            query.orderByDescending(AVOUtil.SubjectList.views);
-            query.skip(skip);
-            query.limit(Setings.page_size);
-            try {
-                return query.find();
-            } catch (AVException e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(List<AVObject> avObject) {
-            super.onPostExecute(avObject);
-            if(mainActivity.get() != null){
-                mXXLModel.loading = false;
-                hideProgressbar();
-                onSwipeRefreshLayoutFinish();
-                initAdapter();
-                if (avObject != null) {
-                    if (avObject.size() == 0) {
-                        ToastUtil.diaplayMesShort(getContext(), "没有了！");
-                        mXXLModel.hasMore = false;
-                        hideFooterview();
-                    } else {
-                        if (avObjects != null && mAdapter != null) {
-                            addBgColor(avObject);
-                            avObjects.addAll(avObject);
-                            if(avObject.size() == Setings.page_size){
-                                skip += Setings.page_size;
-                                showFooterview();
-                                mXXLModel.hasMore = true;
-                            }else {
-                                mXXLModel.hasMore = false;
-                                hideFooterview();
-                            }
-                        }
-                    }
-                }
-                if(mAdapter != null){
-                    mAdapter.notifyDataSetChanged();
-                }
-                loadAD();
-            }
-        }
-    }
-
-    private void addBgColor(List<AVObject> avObject){
-        for (AVObject item : avObject){
-            item.put(KeyUtil.ColorKey, ColorUtil.getRadomColor());
-        }
+        viewModel.refresh();
     }
 
     @Override
@@ -270,18 +229,19 @@ public class SubjectFragment extends BaseFragment {
     }
 
     private void hideFooterview() {
-        mAdapter.hideFooter();
+        if (mAdapter != null) {
+            mAdapter.hideFooter();
+        }
     }
 
     private void showFooterview() {
-        mAdapter.showFooter();
+        if (mAdapter != null) {
+            mAdapter.showFooter();
+        }
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if(mXXLModel != null){
-            mXXLModel.onDestroy();
-        }
     }
 }

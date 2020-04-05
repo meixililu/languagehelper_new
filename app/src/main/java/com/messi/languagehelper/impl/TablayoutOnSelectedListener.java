@@ -8,8 +8,8 @@ import com.messi.languagehelper.bean.ReadingCategory;
 
 public interface TablayoutOnSelectedListener {
 
-    public void onTabSelectedListener(ReadingCategory mReadingCategory);
+    public void onTabSelectedListener(int pos,ReadingCategory mReadingCategory);
 
-    public void onTabReselectedListener(ReadingCategory mReadingCategory);
+    public void onTabReselectedListener(int pos,ReadingCategory mReadingCategory);
 
 }

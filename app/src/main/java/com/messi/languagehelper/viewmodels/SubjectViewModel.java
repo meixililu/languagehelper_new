@@ -6,47 +6,49 @@ import android.arch.lifecycle.ViewModel;
 
 import com.messi.languagehelper.bean.RespoADData;
 import com.messi.languagehelper.bean.RespoData;
-import com.messi.languagehelper.repositories.ReadingListRepository;
-import com.messi.languagehelper.repositories.XXLReadingRepository;
+import com.messi.languagehelper.repositories.SubjectRepository;
+import com.messi.languagehelper.repositories.XXLAVObjectRepository;
+import com.messi.languagehelper.util.LogUtil;
 
-public class ReadingListViewModel extends ViewModel {
+public class SubjectViewModel extends ViewModel {
 
     private MutableLiveData<Boolean> isLoading;
     private MutableLiveData<RespoData> mRespoData;
     private MutableLiveData<RespoADData> mRespoADData;
-    private MutableLiveData<Integer> mMutaCount;
-    private ReadingListRepository mRepo;
-    private XXLReadingRepository mADRepo;
+    private SubjectRepository mRepo;
+    private XXLAVObjectRepository mADRepo;
 
     public void init(){
-        mRepo = new ReadingListRepository();
+        mRepo = new SubjectRepository();
         mRespoData = mRepo.mRespoData;
         isLoading = mRepo.isLoading;
-        mMutaCount = mRepo.mMutaCount;
         isLoading.setValue(false);
 
-        mADRepo = new XXLReadingRepository(mRepo.list);
+        mADRepo = new XXLAVObjectRepository(mRepo.list);
         mRespoADData = mADRepo.mRespoData;
         mRepo.setADXXLRepository(mADRepo);
     }
 
-    public void refresh(int skip){
+    public void refresh(){
+        int skip = (int) Math.round(Math.random() * mRepo.getMaxRandom());
+        LogUtil.DefalutLog("skip:"+skip);
         mRepo.setNeedClear(true);
         mRepo.setHasMore(true);
         mRepo.setSkip(skip);
-        mRepo.getReadingList();
+        mRepo.getDataList();
     }
 
     public void loadAdPre(){
         if (mADRepo != null && mRepo != null && mRepo.isHasMore()) {
             if (mADRepo.mADObject == null && !mADRepo.isLoading) {
+                LogUtil.DefalutLog("SubjectViewModel---loadAdPre");
                 mADRepo.showAd(false);
             }
         }
     }
 
     public void loadData(){
-        mRepo.getReadingList();
+        mRepo.getDataList();
     }
 
     public void count(){
@@ -65,19 +67,15 @@ public class ReadingListViewModel extends ViewModel {
         return mRespoADData;
     }
 
-    public LiveData<Integer> getCount(){
-        return mMutaCount;
-    }
-
-    public ReadingListRepository getRepo(){
+    public SubjectRepository getRepo(){
         return mRepo;
     }
 
-//    @Override
-//    protected void onCleared() {
-//        super.onCleared();
-//        if (mADRepo != null) {
-//            mADRepo.onDestroy();
-//        }
-//    }
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+        if (mADRepo != null) {
+            mADRepo.onDestroy();
+        }
+    }
 }

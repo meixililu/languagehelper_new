@@ -32,6 +32,7 @@ public class ReadingListRepository {
     private String quest;
     private String code;
     private String level;
+    private boolean withOutVideo;
     private boolean orderById;
     private boolean isNeedClear = false;
     private int maxRandom;
@@ -40,7 +41,7 @@ public class ReadingListRepository {
     private boolean isDesc;
     private boolean hasMore = true;
     private boolean loading = false;
-    private ADXXLRepository mADXXLRepository;
+    private XXLReadingRepository mADXXLRepository;
 
     public ReadingListRepository(){
     }
@@ -55,13 +56,14 @@ public class ReadingListRepository {
         }
     }
 
-    private void loadAD(){
+    private void loadAD(boolean isShowAd){
         if (mADXXLRepository != null) {
-            mADXXLRepository.showAd();
+            mADXXLRepository.showAd(isShowAd);
         }
     }
 
     public void loadData() throws Exception{
+        LogUtil.DefalutLog("loadData---start");
         if(loading || !hasMore){
             return;
         }
@@ -97,6 +99,9 @@ public class ReadingListRepository {
                 query.whereEqualTo(AVOUtil.Reading.type_id, code);
             }
         }
+        if (withOutVideo) {
+            query.whereNotEqualTo(AVOUtil.Reading.type, "video");
+        }
         if (orderById) {
             if (isDesc) {
                 query.addDescendingOrder(AVOUtil.Reading.item_id);
@@ -111,7 +116,6 @@ public class ReadingListRepository {
         query.findInBackground(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> avObject, AVException avException) {
-                loadAD();
                 LogUtil.DefalutLog("loadData:"+avObject+"---AVException:"+avException);
                 isLoading.setValue(false);
                 loading = false;
@@ -129,8 +133,16 @@ public class ReadingListRepository {
                             isNeedClear = false;
                             list.clear();
                         }
+                        mData.setPositionStart(list.size());
+                        mData.setItemCount(avObject.size());
                         DataUtil.changeDataToReading(avObject,list,false);
-//                        loadAD();
+//                        if (mADXXLRepository.mADObject != null) {
+//                            list.add(mADXXLRepository.getIndex(), mADXXLRepository.mADObject);
+//                            mADXXLRepository.mADObject = null;
+//                            mData.setItemCount(avObject.size()+1);
+//                        }else {
+                            loadAD(true);
+//                        }
                         if(avObject.size() == Setings.page_size){
                             skip += Setings.page_size;
                             mData.setHideFooter(false);
@@ -185,8 +197,8 @@ public class ReadingListRepository {
             @Override
             public void done(int count, AVException e) {
                 total = count;
-                maxRandom = count - 100;
-                mMutaCount.setValue(count);
+                maxRandom = count/10;
+                mMutaCount.setValue(count/10);
             }
         });
     }
@@ -195,7 +207,7 @@ public class ReadingListRepository {
         return mADXXLRepository;
     }
 
-    public void setADXXLRepository(ADXXLRepository mADXXLRepository) {
+    public void setADXXLRepository(XXLReadingRepository mADXXLRepository) {
         this.mADXXLRepository = mADXXLRepository;
     }
 
@@ -265,6 +277,14 @@ public class ReadingListRepository {
 
     public void setQuest(String quest) {
         this.quest = quest;
+    }
+
+    public boolean isWithOutVideo() {
+        return withOutVideo;
+    }
+
+    public void setWithOutVideo(boolean withOutVideo) {
+        this.withOutVideo = withOutVideo;
     }
 
     public String getCode() {

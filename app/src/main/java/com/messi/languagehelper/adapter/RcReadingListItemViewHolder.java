@@ -250,7 +250,7 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
             if(!TextUtils.isEmpty(item.getType()) && "video".equals(item.getType())){
                 Setings.dataMap.put(KeyUtil.DataMapKey, item);
                 toDetail = ReadDetailTouTiaoActivity.class;
-            }if(!TextUtils.isEmpty(item.getType()) && "mp3".equals(item.getType())){
+            }else if(!TextUtils.isEmpty(item.getType()) && "mp3".equals(item.getType())){
                 Setings.dataMap.put(KeyUtil.DataMapKey, avObjects);
                 intent.putExtra(KeyUtil.IndexKey, position);
                 toDetail = ReadingMp3DetailActivity.class;

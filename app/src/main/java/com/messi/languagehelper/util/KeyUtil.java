@@ -44,7 +44,7 @@ public class KeyUtil {
 
 	public static final String MomentLike = "MomentLike";
 
-	public static final String IsFirstLoadPracticePage = "IsFirstLoadPracticePage";
+	public static final String StudyTabPosition = "StudyTabPosition";
 	
 	public static final String IsShowAnswerUnread = "IsShowAnswerUnread";
 	

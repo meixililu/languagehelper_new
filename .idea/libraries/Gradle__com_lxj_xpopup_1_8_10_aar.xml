@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.lxj:xpopup:1.8.10@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7c5c643a05f490d3ab7c78b177194963/xpopup-1.8.10/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7c5c643a05f490d3ab7c78b177194963/xpopup-1.8.10/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/eb892904376c74e6d080a7ba25093143/xpopup-1.8.10/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/eb892904376c74e6d080a7ba25093143/xpopup-1.8.10/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.lxj/xpopup/1.8.10/e91e981812fa05d31ed2eb8bd18a90b27a250599/xpopup-1.8.10-javadoc.jar!/" />
