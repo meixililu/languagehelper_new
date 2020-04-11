@@ -2,6 +2,8 @@ package com.messi.languagehelper.http;
 
 import android.app.Activity;
 
+import com.messi.languagehelper.util.LogUtil;
+
 import java.io.IOException;
 
 import okhttp3.Call;
@@ -20,6 +22,7 @@ public class UICallback implements Callback {
 
 	@Override
 	public void onFailure(Call call, IOException e) {
+		LogUtil.DefalutLog("onFailure:"+e.getMessage());
 		context.runOnUiThread(new Runnable() {
 			@Override
 			public void run() {

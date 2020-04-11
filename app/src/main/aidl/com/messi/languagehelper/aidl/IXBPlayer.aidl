@@ -2,7 +2,7 @@ package com.messi.languagehelper.aidl;
 
 interface IXBPlayer {
 
-    void initAndPlay(String data);
+    void initAndPlay(String data, boolean isPlayList);
 
     void initPlayList(String lists, int position);
 

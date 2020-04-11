@@ -3,10 +3,8 @@ package com.messi.languagehelper;
 
 import android.support.annotation.CallSuper;
 import android.support.annotation.UiThread;
-import android.support.design.widget.TabLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.FrameLayout;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
@@ -16,7 +14,7 @@ import java.lang.Override;
 public class StudyFragment_ViewBinding implements Unbinder {
   private StudyFragment target;
 
-  private View view7f080283;
+  private View view7f080287;
 
   @UiThread
   public StudyFragment_ViewBinding(final StudyFragment target, View source) {
@@ -24,10 +22,8 @@ public class StudyFragment_ViewBinding implements Unbinder {
 
     View view;
     target.listview = Utils.findRequiredViewAsType(source, R.id.listview, "field 'listview'", RecyclerView.class);
-    target.tablayout = Utils.findRequiredViewAsType(source, R.id.tablayout, "field 'tablayout'", TabLayout.class);
-    view = Utils.findRequiredView(source, R.id.search_btn, "field 'searchBtn' and method 'onViewClicked'");
-    target.searchBtn = Utils.castView(view, R.id.search_btn, "field 'searchBtn'", FrameLayout.class);
-    view7f080283 = view;
+    view = Utils.findRequiredView(source, R.id.search_btn, "method 'onViewClicked'");
+    view7f080287 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -44,10 +40,8 @@ public class StudyFragment_ViewBinding implements Unbinder {
     this.target = null;
 
     target.listview = null;
-    target.tablayout = null;
-    target.searchBtn = null;
 
-    view7f080283.setOnClickListener(null);
-    view7f080283 = null;
+    view7f080287.setOnClickListener(null);
+    view7f080287 = null;
   }
 }

@@ -8,6 +8,8 @@ import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
@@ -22,6 +24,8 @@ public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
   private View view7f08006c;
 
   private View view7f0800a9;
+
+  private View view7f080224;
 
   @UiThread
   public ReadDetailTouTiaoActivity_ViewBinding(ReadDetailTouTiaoActivity target) {
@@ -59,6 +63,16 @@ public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
         target.onClick();
       }
     });
+    target.progressbar = Utils.findRequiredViewAsType(source, R.id.progressbar, "field 'progressbar'", ProgressBar.class);
+    view = Utils.findRequiredView(source, R.id.play_background_btn, "field 'play_background_btn' and method 'onBackGroundClicked'");
+    target.play_background_btn = Utils.castView(view, R.id.play_background_btn, "field 'play_background_btn'", RelativeLayout.class);
+    view7f080224 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onBackGroundClicked();
+      }
+    });
   }
 
   @Override
@@ -77,10 +91,14 @@ public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
     target.xx_ad_layout = null;
     target.webview_layout = null;
     target.collect_btn = null;
+    target.progressbar = null;
+    target.play_background_btn = null;
 
     view7f08006c.setOnClickListener(null);
     view7f08006c = null;
     view7f0800a9.setOnClickListener(null);
     view7f0800a9 = null;
+    view7f080224.setOnClickListener(null);
+    view7f080224 = null;
   }
 }

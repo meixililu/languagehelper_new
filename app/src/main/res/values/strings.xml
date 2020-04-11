@@ -100,6 +100,7 @@
     <string name="updage_later">稍后</string>
     <string name="updage_now">更新</string>
     <string name="prompt">提示</string>
+    <string name="play_video_background">后台播放</string>
     <string name="retry">重填</string>
     <string name="recommend">推荐</string>
     <string name="selection">精选</string>

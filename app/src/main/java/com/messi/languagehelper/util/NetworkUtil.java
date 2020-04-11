@@ -47,6 +47,14 @@ public class NetworkUtil {
         return false;
     }
 
+    public static String getNetworkType(Context context) {
+        if (isWifiConnected(context)) {
+            return "wifi";
+        } else {
+            return "mobile";
+        }
+    }
+
 
     /**
      * 判断MOBILE网络是否可用

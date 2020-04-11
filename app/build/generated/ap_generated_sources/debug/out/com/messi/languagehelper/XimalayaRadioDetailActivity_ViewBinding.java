@@ -18,7 +18,7 @@ import java.lang.Override;
 public class XimalayaRadioDetailActivity_ViewBinding implements Unbinder {
   private XimalayaRadioDetailActivity target;
 
-  private View view7f080223;
+  private View view7f080225;
 
   @UiThread
   public XimalayaRadioDetailActivity_ViewBinding(XimalayaRadioDetailActivity target) {
@@ -37,7 +37,7 @@ public class XimalayaRadioDetailActivity_ViewBinding implements Unbinder {
     target.albumTitle = Utils.findRequiredViewAsType(source, R.id.album_title, "field 'albumTitle'", TextView.class);
     view = Utils.findRequiredView(source, R.id.play_btn, "field 'playBtn' and method 'onViewClicked'");
     target.playBtn = Utils.castView(view, R.id.play_btn, "field 'playBtn'", ImageView.class);
-    view7f080223 = view;
+    view7f080225 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -77,7 +77,7 @@ public class XimalayaRadioDetailActivity_ViewBinding implements Unbinder {
     target.sourceName = null;
     target.contentTv = null;
 
-    view7f080223.setOnClickListener(null);
-    view7f080223 = null;
+    view7f080225.setOnClickListener(null);
+    view7f080225 = null;
   }
 }

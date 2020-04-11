@@ -34,16 +34,21 @@ import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
+import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 import com.messi.languagehelper.aidl.IXBPlayer;
+import com.messi.languagehelper.bean.PVideoResult;
 import com.messi.languagehelper.box.Reading;
+import com.messi.languagehelper.httpservice.RetrofitApiService;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.DataUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NetworkUtil;
 import com.messi.languagehelper.util.NotificationUtil;
 import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.Setings;
+import com.messi.languagehelper.util.SignUtil;
 import com.ximalaya.ting.android.opensdk.model.PlayableModel;
 import com.ximalaya.ting.android.opensdk.model.track.Track;
 import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
@@ -53,6 +58,10 @@ import com.ximalaya.ting.android.opensdk.player.service.XmPlayerException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static com.google.android.exoplayer2.C.CONTENT_TYPE_MUSIC;
 import static com.google.android.exoplayer2.C.USAGE_MEDIA;
@@ -64,6 +73,7 @@ import static com.messi.languagehelper.util.KeyUtil.NotificationTitle;
 
 public class PlayerService extends Service {
 
+    private final String Hearder = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36";
     public static final String action_loading = "com.messi.languagehelper.music.loading";
     public static final String action_finish_loading = "com.messi.languagehelper.music.finish.loading";
     public static final String action_restart = "com.messi.languagehelper.music.restart";
@@ -91,13 +101,14 @@ public class PlayerService extends Service {
     public IBinder musicBind = new IXBPlayer.Stub(){
 
         @Override
-        public void initAndPlay(String song) throws RemoteException {
+        public void initAndPlay(String song, boolean isPlayList) throws RemoteException {
             Reading data = JSON.parseObject(song,Reading.class);
-            InitAndPlay(data);
+            InitAndPlay(data, isPlayList);
         }
 
         @Override
         public void initPlayList(String lists, int position) throws RemoteException {
+            isPlayList = true;
             List<Reading> list = JSON.parseArray(lists, Reading.class);
             InitPlayList(list,position);
         }
@@ -201,13 +212,12 @@ public class PlayerService extends Service {
         LogUtil.DefalutLog("position:"+position+"---list:"+list.size());
         checkIsForeground();
         stopXMLYPlayer();
-        isPlayList = true;
         this.list = list;
         currentPosition = position;
         if(list != null && list.size() > position){
             Reading item = list.get(position);
             currentPosition++;
-            if(item != null && "mp3".equals(item.getType())){
+            if(item != null){
                 startToPlay(item);
             }else {
                 InitPlayList(list,currentPosition);
@@ -226,20 +236,19 @@ public class PlayerService extends Service {
         }
     }
 
-    public void InitAndPlay(Reading song){
-        LogUtil.DefalutLog("initAndPlay---Reading:"+song);
+    public void InitAndPlay(Reading song, boolean isList){
+        LogUtil.DefalutLog("initAndPlay---isList:"+isList);
         stopXMLYPlayer();
         if (song != null) {
             if(isSameMp3(song)){
                 playOrPause();
             }else {
-                isPlayList = true;
+                isPlayList = isList;
                 List<Reading> list = new ArrayList<>();
                 list.add(song);
                 InitPlayList(list,0);
             }
         }
-
     }
 
     private void startToPlay(Reading song){
@@ -260,9 +269,20 @@ public class PlayerService extends Service {
 
     private void startExoplayer(Reading song){
         try {
-            LogUtil.DefalutLog("startExoplayer:"+song.getMedia_url());
+            LogUtil.DefalutLog("title:" + song.getTitle() +"---startExoplayer:"+song.getMedia_url());
+            if ("mp3".equals(song.getType()) && TextUtils.isEmpty(song.getMedia_url())) {
+                LogUtil.DefalutLog("mp3,media url is null.");
+                return;
+            }
             this.song = song;
             lastSongId = song.getObject_id();
+            if (TextUtils.isEmpty(song.getMedia_url()) || "media_url".equals(song.getMedia_url())) {
+                LogUtil.DefalutLog("title:" + song.getTitle() + "---parseUrl:"+song.getSource_url());
+                parseVideoUrl(song.getSource_url());
+                return;
+            }
+
+            String media_url = song.getMedia_url();
             PlayerStatus = 1;
             if (mExoPlayer == null) {
                 mExoPlayer = ExoPlayerFactory.newSimpleInstance(this);
@@ -273,11 +293,22 @@ public class PlayerService extends Service {
                     .setUsage(USAGE_MEDIA)
                     .build();
             mExoPlayer.setAudioAttributes(audioAttributes);
-            DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this,
-                    Util.getUserAgent(this, "LanguageHelper"));
-            MediaSource mediaSource = new ExtractorMediaSource
-                    .Factory(dataSourceFactory)
-                    .createMediaSource(Uri.parse(song.getMedia_url()));
+
+            MediaSource mediaSource = null;
+            if (media_url.contains("bilivideo")) {
+                DefaultHttpDataSourceFactory dataSourceFactory = new DefaultHttpDataSourceFactory(Hearder);
+                dataSourceFactory.getDefaultRequestProperties().set("range","bytes=0-");
+                dataSourceFactory.getDefaultRequestProperties().set("referer",song.getSource_url());
+                dataSourceFactory.getDefaultRequestProperties().set("user-agent",Hearder);
+                mediaSource = new ExtractorMediaSource.Factory(dataSourceFactory)
+                        .createMediaSource(Uri.parse(media_url));
+            } else {
+                DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this,
+                        Util.getUserAgent(this, Hearder));
+                mediaSource = new ExtractorMediaSource.Factory(dataSourceFactory)
+                        .createMediaSource(Uri.parse(media_url));
+            }
+
             mExoPlayer.prepare(mediaSource);
             mExoPlayer.setPlayWhenReady(true);
             mWifiLock.acquire();
@@ -440,6 +471,8 @@ public class PlayerService extends Service {
                             NotificationUtil.mes_type_zyhy);
                     if(isPlayList){
                         InitPlayList(list,currentPosition);
+                    }else {
+                        mExoPlayer.seekTo(0);
                     }
                     break;
             }
@@ -563,14 +596,20 @@ public class PlayerService extends Service {
         if ((System.currentTimeMillis() - lastLoadDataTime) > 1000*3) {
             lastLoadDataTime = System.currentTimeMillis();
             AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.Reading.Reading);
-            query.whereEqualTo(AVOUtil.Reading.type, "mp3");
+            query.whereEqualTo(AVOUtil.Reading.type, song.getType());
             if(song != null && !TextUtils.isEmpty(song.getCategory_2())){
                 query.whereEqualTo(AVOUtil.Reading.category_2, song.getCategory_2());
                 if(!TextUtils.isEmpty(song.getItem_id())){
                     query.whereGreaterThan(AVOUtil.Reading.item_id, Long.parseLong(song.getItem_id()));
                 }
                 query.addAscendingOrder(AVOUtil.Reading.item_id);
-            }else {
+            }else if (song != null && !TextUtils.isEmpty(song.getBoutique_code())) {
+                query.whereEqualTo(AVOUtil.Reading.boutique_code, song.getBoutique_code());
+                if(!TextUtils.isEmpty(song.getPublish_time())){
+                    query.whereLessThan(AVOUtil.Reading.publish_time, new Date(Long.parseLong(song.getPublish_time())));
+                }
+                query.addDescendingOrder(AVOUtil.Reading.publish_time);
+            } else {
                 if(song != null && !TextUtils.isEmpty(song.getPublish_time())){
                     query.whereLessThan(AVOUtil.Reading.publish_time, new Date(Long.parseLong(song.getPublish_time())));
                 }
@@ -618,6 +657,51 @@ public class PlayerService extends Service {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    private void parseVideoUrl(String sourceUrl) {
+        LogUtil.DefalutLog("service parseVideoUrl");
+        String timestamp = String.valueOf(System.currentTimeMillis());
+        String platform = "android";
+        String network = NetworkUtil.getNetworkType(this);
+        String sign = SignUtil.getMd5Sign(Setings.PVideoKey, timestamp, sourceUrl, platform, network);
+        RetrofitApiService service = RetrofitApiService.getRetrofitApiService(Setings.PVideoApi,
+                RetrofitApiService.class);
+        Call<PVideoResult> call = service.getPVideoApi(sourceUrl,network,platform,sign,timestamp);
+        call.enqueue(new Callback<PVideoResult>() {
+                 @Override
+                 public void onResponse(Call<PVideoResult> call, Response<PVideoResult> response) {
+                     LogUtil.DefalutLog("onResponse:");
+                     if (response.isSuccessful()) {
+                         PVideoResult mResult = response.body();
+                         if (mResult != null && !TextUtils.isEmpty(mResult.getUrl())) {
+                             if (song != null) {
+                                 song.setMedia_url(mResult.getUrl());
+                                 startExoplayer(song);
+                             } else {
+                                 playNext();
+                             }
+                         }else {
+                             playNext();
+                         }
+                     }else {
+                         playNext();
+                     }
+                 }
+
+                 @Override
+                 public void onFailure(Call<PVideoResult> call, Throwable t) {
+                     LogUtil.DefalutLog("onFailure:"+t.getMessage()+"---call:"+call.request().url());
+                     playNext();
+                 }
+             }
+        );
+    }
+
+    private void playNext(){
+        if(isPlayList){
+            InitPlayList(list,currentPosition);
         }
     }
 

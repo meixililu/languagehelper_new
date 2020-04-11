@@ -12,6 +12,7 @@
     <dimen name="small">12sp</dimen>
     <dimen name="smaller_l">10sp</dimen>
     <dimen name="smaller">8sp</dimen>
+    <dimen name="smallest">6sp</dimen>
     <dimen name="action_size">36sp</dimen>
 
     <dimen name="study_menu_item_height">48dp</dimen>

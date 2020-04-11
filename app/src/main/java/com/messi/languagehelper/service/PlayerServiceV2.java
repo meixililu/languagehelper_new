@@ -82,7 +82,7 @@ public class PlayerServiceV2 extends Service implements
     public IBinder musicBind = new IXBPlayer.Stub(){
 
         @Override
-        public void initAndPlay(String song) throws RemoteException {
+        public void initAndPlay(String song,boolean isPlayList) throws RemoteException {
             Reading data = JSON.parseObject(song,Reading.class);
             InitAndPlay(data);
         }

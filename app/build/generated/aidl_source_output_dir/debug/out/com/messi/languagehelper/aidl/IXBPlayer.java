@@ -47,7 +47,9 @@ case TRANSACTION_initAndPlay:
 data.enforceInterface(descriptor);
 java.lang.String _arg0;
 _arg0 = data.readString();
-this.initAndPlay(_arg0);
+boolean _arg1;
+_arg1 = (0!=data.readInt());
+this.initAndPlay(_arg0, _arg1);
 reply.writeNoException();
 return true;
 }
@@ -148,13 +150,14 @@ public java.lang.String getInterfaceDescriptor()
 {
 return DESCRIPTOR;
 }
-@Override public void initAndPlay(java.lang.String data) throws android.os.RemoteException
+@Override public void initAndPlay(java.lang.String data, boolean isPlayList) throws android.os.RemoteException
 {
 android.os.Parcel _data = android.os.Parcel.obtain();
 android.os.Parcel _reply = android.os.Parcel.obtain();
 try {
 _data.writeInterfaceToken(DESCRIPTOR);
 _data.writeString(data);
+_data.writeInt(((isPlayList)?(1):(0)));
 mRemote.transact(Stub.TRANSACTION_initAndPlay, _data, _reply, 0);
 _reply.readException();
 }
@@ -320,7 +323,7 @@ static final int TRANSACTION_MPlayerRestart = (android.os.IBinder.FIRST_CALL_TRA
 static final int TRANSACTION_MPlayerSeekTo = (android.os.IBinder.FIRST_CALL_TRANSACTION + 8);
 static final int TRANSACTION_MPlayerIsSameMp3 = (android.os.IBinder.FIRST_CALL_TRANSACTION + 9);
 }
-public void initAndPlay(java.lang.String data) throws android.os.RemoteException;
+public void initAndPlay(java.lang.String data, boolean isPlayList) throws android.os.RemoteException;
 public void initPlayList(java.lang.String lists, int position) throws android.os.RemoteException;
 public int getPlayStatus() throws android.os.RemoteException;
 public int getCurrentPosition() throws android.os.RemoteException;

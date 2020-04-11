@@ -6,7 +6,7 @@ import com.messi.languagehelper.R;
 import com.messi.languagehelper.bean.RespoData;
 import com.messi.languagehelper.bean.TwistaItem;
 import com.messi.languagehelper.bean.TwistaResult;
-import com.messi.languagehelper.httpservice.TXApiService;
+import com.messi.languagehelper.httpservice.RetrofitApiService;
 import com.messi.languagehelper.util.ContextUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
@@ -46,7 +46,7 @@ public class TwistaItemRepository {
                 .baseUrl(Setings.TXBaseApi)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        TXApiService service = retrofit.create(TXApiService.class);
+        RetrofitApiService service = retrofit.create(RetrofitApiService.class);
         Call<TwistaResult> call = service.getTwistaItem(apiType);
         call.enqueue(new Callback<TwistaResult>() {
             @Override

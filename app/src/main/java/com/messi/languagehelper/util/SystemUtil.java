@@ -27,6 +27,8 @@ public class SystemUtil {
 
     public static String dev_id = "";
 
+    public static String platform = "android";
+
     public static String getDev_id(Context context){
         if (TextUtils.isEmpty(dev_id)){
             dev_id = Setings.getDeviceID(context);

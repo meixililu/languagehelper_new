@@ -2,14 +2,12 @@ package com.messi.languagehelper;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
@@ -22,7 +20,6 @@ import com.messi.languagehelper.bean.ReadingCategory;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
-import com.messi.languagehelper.impl.TablayoutOnSelectedListener;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AVOUtil;
@@ -46,14 +43,10 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class StudyFragment extends BaseFragment implements TablayoutOnSelectedListener {
+public class StudyFragment extends BaseFragment {
 
     @BindView(R.id.listview)
     RecyclerView listview;
-    @BindView(R.id.tablayout)
-    TabLayout tablayout;
-    @BindView(R.id.search_btn)
-    FrameLayout searchBtn;
     private int maxVideo = 20000;
     private RcStudyListAdapter mAdapter;
     private List<Reading> avObjects;
@@ -114,29 +107,6 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
                         .build());
         listview.setAdapter(mAdapter);
         setListOnScrollListener();
-        categories = getTabItem(getContext());
-        initTablayout();
-    }
-
-    private void initTablayout() {
-        for (ReadingCategory item : categories) {
-            tablayout.addTab(tablayout.newTab().setText(item.getName()));
-        }
-        tablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                onTabSelectedListener(tab.getPosition(), categories.get(tab.getPosition()));
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-                onTabReselectedListener(tab.getPosition(), categories.get(tab.getPosition()));
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-            }
-        });
     }
 
     private void random() {
@@ -317,21 +287,6 @@ public class StudyFragment extends BaseFragment implements TablayoutOnSelectedLi
                 }
             }
         }
-    }
-
-    @Override
-    public void onTabSelectedListener(int pos, ReadingCategory mReadingCategory) {
-        isNeedClear = true;
-        listview.scrollToPosition(0);
-        category = mReadingCategory.getCategory();
-        skip = 0;
-        refresh();
-    }
-
-    @Override
-    public void onTabReselectedListener(int pos, ReadingCategory mReadingCategory) {
-        listview.scrollToPosition(0);
-        onSwipeRefreshLayoutRefresh();
     }
 
     private void hideFooterview() {

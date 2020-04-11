@@ -104,7 +104,7 @@ public class RcBoutiquesListItemViewHolder extends RecyclerView.ViewHolder {
             if(!TextUtils.isEmpty(mAVObject.getString(AVOUtil.BoutiquesList.img))){
                 Glide.with(context)
                         .load(mAVObject.getString(AVOUtil.BoutiquesList.img))
-                        .into(videoplayer.thumbImageView);
+                        .into(videoplayer.posterImageView);
             }
         }
     }

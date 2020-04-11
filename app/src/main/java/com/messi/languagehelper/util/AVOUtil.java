@@ -299,6 +299,8 @@ public class AVOUtil {
 
 		public final static String domain = "domain";
 
+		public final static String UseNewPVApi = "UseNewPVApi";
+
 		public final static String tran_order = "tran_order";
 
 		public final static String no_ad_channel = "no_ad_channel";

@@ -100,7 +100,18 @@ public class IPlayerUtil {
         try {
             LogUtil.DefalutLog("IPlayerUtil---initAndPlay---Reading:"+song);
             String data = JSON.toJSONString(song);
-            musicSrv.initAndPlay(data);
+            musicSrv.initAndPlay(data,true);
+        } catch (Exception e) {
+            LogUtil.DefalutLog("RemoteException---initAndPlay");
+            e.printStackTrace();
+        }
+    }
+
+    public static void initAndPlay(Reading song,boolean isPlayList){
+        try {
+            LogUtil.DefalutLog("IPlayerUtil---initAndPlay---Reading:"+song);
+            String data = JSON.toJSONString(song);
+            musicSrv.initAndPlay(data,isPlayList);
         } catch (Exception e) {
             LogUtil.DefalutLog("RemoteException---initAndPlay");
             e.printStackTrace();

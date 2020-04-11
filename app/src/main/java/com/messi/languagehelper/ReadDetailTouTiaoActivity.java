@@ -1,7 +1,6 @@
 package com.messi.languagehelper;
 
 import android.app.Dialog;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
@@ -23,6 +22,8 @@ import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
@@ -33,36 +34,42 @@ import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
+import com.google.android.exoplayer2.source.MergingMediaSource;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
+import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 import com.messi.languagehelper.ViewModel.VideoADModel;
-import com.messi.languagehelper.bean.TTParseBean;
-import com.messi.languagehelper.bean.TTParseDataBean;
+import com.messi.languagehelper.bean.PVideoResult;
 import com.messi.languagehelper.bean.ToutiaoVideoBean;
 import com.messi.languagehelper.bean.ToutiaoWebRootBean;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
+import com.messi.languagehelper.httpservice.RetrofitApiService;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.DialogUtil;
 import com.messi.languagehelper.util.IPlayerUtil;
 import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NetworkUtil;
 import com.messi.languagehelper.util.Setings;
+import com.messi.languagehelper.util.SignUtil;
 import com.messi.languagehelper.util.StringUtils;
+import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.ViewUtil;
-import com.ximalaya.ting.android.opensdk.util.DigestUtils;
 
 import java.util.zip.CRC32;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import okhttp3.FormBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentProgressbarListener,
@@ -71,7 +78,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     private final String STATE_RESUME_WINDOW = "resumeWindow";
     private final String STATE_RESUME_POSITION = "resumePosition";
     private final String STATE_PLAYER_FULLSCREEN = "playerFullscreen";
-    private final String Hearder = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36";
+    private final String Hearder = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36";
 
     @BindView(R.id.refreshable_webview)
     WebView mWebView;
@@ -91,6 +98,10 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     FrameLayout webview_layout;
     @BindView(R.id.collect_btn)
     ImageView collect_btn;
+    @BindView(R.id.progressbar)
+    ProgressBar progressbar;
+    @BindView(R.id.play_background_btn)
+    RelativeLayout play_background_btn;
     private String Url;
     private Reading mAVObject;
     private SimpleExoPlayer player;
@@ -103,7 +114,6 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     private long mResumePosition;
     private VideoADModel mVideoADModel;
     private int status;
-    private boolean isWVPSuccess;
     private String[] interceptUrls;
     private boolean isIntercept;
 
@@ -162,33 +172,31 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     }
 
     private void setData() {
-        if (!TextUtils.isEmpty(mAVObject.getContent_type())) {
-            if ("url_api".equals(mAVObject.getContent_type())) {
-                parseVideoUrl();
-            } else if ("url_media".equals(mAVObject.getContent_type())) {
-                exoplaer(mAVObject.getMedia_url());
-            } else if ("url".equals(mAVObject.getContent_type()) || "url_intercept".equals(mAVObject.getContent_type()) ) {
-                if("今日头条".equals(mAVObject.getSource_name()) && !TextUtils.isEmpty(mAVObject.getVid())){
-                    parseToutiaoHtml(mAVObject.getVid());
-                }else {
-                    interceptUrl();
-                }
-            } else {
-                showWebView();
-            }
-        } else {
+        if ("url_media".equals(mAVObject.getContent_type())) {
             exoplaer(mAVObject.getMedia_url());
+        }else if ("url".equals(mAVObject.getContent_type()) || "url_intercept".equals(mAVObject.getContent_type()) ) {
+            SharedPreferences sp = Setings.getSharedPreferences(this);
+            if (TextUtils.isEmpty(sp.getString(KeyUtil.UseNewPVApi,""))) {
+                interceptUrl();
+            } else {
+                parseVideoUrl();
+            }
+        } else if(!TextUtils.isEmpty(mAVObject.getVid())){
+            parseToutiaoHtml(mAVObject.getVid());
+        } else {
+            parseVideoUrl();
         }
     }
 
     private void interceptUrl(){
-        showProgressbar();
+        showBuffering();
         isIntercept = true;
         mWebView.loadUrl(Url);
     }
 
     private void parseToutiaoHtml(String vid){
         LogUtil.DefalutLog("vid:"+vid);
+        showBuffering();
         String videoUrl = "";
         try{
 //            String pattern = "\"vid\":\"(\\w*)\"";
@@ -242,9 +250,8 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     }
 
     private void showWebView(){
-        hideProgressbar();
+        hideBuffering();
         isIntercept = false;
-        isWVPSuccess = true;
         webview_layout.setVisibility(View.VISIBLE);
         videoLayout.setVisibility(View.GONE);
         mWebView.loadUrl(Url);
@@ -254,7 +261,9 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         mWebView.requestFocus();
         mWebView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
         mWebView.getSettings().setJavaScriptEnabled(true);
-//        mWebView.getSettings().setUserAgentString(Hearder);
+        if ("今日头条".equals(mAVObject.getSource_name()) || "西瓜视频".equals(mAVObject.getSource_name())) {
+            mWebView.getSettings().setUserAgentString(Hearder);
+        }
         mWebView.setWebViewClient(new WebViewClient() {
 
             @Override
@@ -272,9 +281,6 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
                 LogUtil.DefalutLog("WebViewClient:onPageFinished");
-                if (!isWVPSuccess) {
-                    parseVideoUrl();
-                }
             }
 
             @Override
@@ -302,7 +308,6 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
             if (interceptUrls != null) {
                 for (String str : interceptUrls) {
                     if (url.contains(str)) {
-                        isWVPSuccess = true;
                         isPlay = true;
                         LogUtil.DefalutLog("interceptUrl contains");
                         break;
@@ -313,7 +318,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
                         @Override
                         public void run() {
                             LogUtil.DefalutLog("runOnUiThread");
-                            if("今日头条".equals(mAVObject.getSource_name())){
+                            if("今日头条".equals(mAVObject.getSource_name()) || "西瓜视频".equals(mAVObject.getSource_name())){
                                 parseToutiaoWebApi(url);
                             }else {
                                 exoplaer(url);
@@ -377,77 +382,98 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         if(status == 1){
             return;
         }
-        showProgressbar();
-        Long timestamp = System.currentTimeMillis();
-        String sign = DigestUtils.md5Hex(Url + timestamp + Setings.TTParseClientSecretKey);
-        FormBody formBody = new FormBody.Builder()
-                .add("link", Url)
-                .add("timestamp", timestamp + "")
-                .add("sign", sign)
-                .add("client", Setings.TTParseClientId)
-                .build();
-        LanguagehelperHttpClient.post(Setings.TTParseApi, formBody, new UICallback(this) {
-            @Override
-            public void onResponsed(String responseString) {
-                LogUtil.DefalutLog("parseVideoUrl-responseString:" + responseString);
-                String videoUrl = "";
-                try {
-                    if (JsonParser.isJson(responseString)) {
-                        TTParseBean result = JSON.parseObject(responseString, TTParseBean.class);
-                        if (result != null && result.getSucc() && result.getData() != null) {
-                            TTParseDataBean videoBean = result.getData();
-                            if (videoBean != null && !TextUtils.isEmpty(videoBean.getVideo())) {
-                                videoUrl = videoBean.getVideo();
-                            }
+        showBuffering();
+        String timestamp = String.valueOf(System.currentTimeMillis());
+        String platform = SystemUtil.platform;
+        String network = NetworkUtil.getNetworkType(this);
+        String sign = SignUtil.getMd5Sign(Setings.PVideoKey, timestamp, Url, platform, network);
+        RetrofitApiService service = RetrofitApiService.getRetrofitApiService(Setings.PVideoApi,
+                RetrofitApiService.class);
+        Call<PVideoResult> call = service.getPVideoApi(Url,network,platform,sign,timestamp);
+        call.enqueue(new Callback<PVideoResult>() {
+                @Override
+                public void onResponse(Call<PVideoResult> call, Response<PVideoResult> response) {
+                    LogUtil.DefalutLog("onResponse:"+response+"---call:"+call);
+                    if (response.isSuccessful()) {
+                        PVideoResult mResult = response.body();
+                        if (mResult != null && !TextUtils.isEmpty(mResult.getUrl())) {
+                            onPVideoApiSuccess(mResult);
+                        } else {
+                            onPVideoApiFailured();
                         }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                    if (!TextUtils.isEmpty(videoUrl)) {
-                        exoplaer(videoUrl);
                     } else {
-                        onFailured();
+                        onPVideoApiFailured();
                     }
                 }
-            }
 
-            @Override
-            public void onFailured() {
-                showWebView();
+                @Override
+                public void onFailure(Call<PVideoResult> call, Throwable t) {
+                    LogUtil.DefalutLog("onFailure:"+t.getMessage()+"---call:"+call.request().url());
+                    onPVideoApiFailured();
+                }
             }
-
-            @Override
-            public void onFinished() {
-                hideProgressbar();
-            }
-        });
+        );
     }
 
-    private void exoplaer(String media_url) {
+    private void onPVideoApiSuccess(PVideoResult mResult){
+        LogUtil.DefalutLog("---onPVideoApiSuccess---");
+        exoplaer(mResult.getUrl(),mResult);
+    }
+
+    private void onPVideoApiFailured(){
+        LogUtil.DefalutLog("---onPVideoApiFailured---");
+        interceptUrl();
+    }
+
+    private void exoplaer(String media_url,PVideoResult mResult) {
         LogUtil.DefalutLog("exoplaer---media_url:" + media_url);
-        hideProgressbar();
+        hideBuffering();
         if (status == 0) {
+            mAVObject.setMedia_url(media_url);
             status = 1;
-            webview_layout.setVisibility(View.GONE);
             videoLayout.setVisibility(View.VISIBLE);
+            webview_layout.setVisibility(View.GONE);
+
             player = ExoPlayerFactory.newSimpleInstance(this);
             simpleExoPlayerView.setPlayer(player);
-
             boolean haveResumePosition = mResumeWindow != C.INDEX_UNSET;
             if (haveResumePosition) {
                 simpleExoPlayerView.getPlayer().seekTo(mResumeWindow, mResumePosition);
             }
 
-            DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this,
-                    Util.getUserAgent(this, Hearder));
-            MediaSource videoSource = new ExtractorMediaSource.Factory(dataSourceFactory)
-                    .createMediaSource(Uri.parse(media_url));
+            MediaSource mediaSource = null;
+            if (Url.contains("bilibili")) {
+                DefaultHttpDataSourceFactory dataSourceFactory = new DefaultHttpDataSourceFactory(Hearder);
+                dataSourceFactory.getDefaultRequestProperties().set("range","bytes=0-");
+                dataSourceFactory.getDefaultRequestProperties().set("referer",Url);
+                dataSourceFactory.getDefaultRequestProperties().set("user-agent",Hearder);
+                if (mResult != null && !TextUtils.isEmpty(mResult.getMp3Url())) {
+                    ExtractorMediaSource videoSource =
+                            new ExtractorMediaSource.Factory(dataSourceFactory)
+                                    .createMediaSource(Uri.parse(media_url));
+                    ExtractorMediaSource audioSource =
+                            new ExtractorMediaSource.Factory(dataSourceFactory)
+                            .createMediaSource(Uri.parse(mResult.getMp3Url()));
+                    mediaSource = new MergingMediaSource(videoSource,audioSource);
+                }else {
+                    mediaSource = new ExtractorMediaSource.Factory(dataSourceFactory)
+                            .createMediaSource(Uri.parse(media_url));
+                }
+            } else {
+                DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this,
+                        Util.getUserAgent(this, Hearder));
+                mediaSource = new ExtractorMediaSource.Factory(dataSourceFactory)
+                        .createMediaSource(Uri.parse(media_url));
+            }
             player.addListener(this);
-            player.prepare(videoSource);
+            player.prepare(mediaSource);
             player.setPlayWhenReady(true);
             LogUtil.DefalutLog("ACTION_setPlayWhenReady");
         }
+    }
+
+    private void exoplaer(String media_url) {
+        exoplaer(media_url,null);
     }
 
     @Override
@@ -512,6 +538,14 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         });
     }
 
+    public void showBuffering() {
+        progressbar.setVisibility(View.VISIBLE);
+    }
+
+    public void hideBuffering() {
+        progressbar.setVisibility(View.GONE);
+    }
+
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
@@ -536,19 +570,6 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
                 .commit();
     }
 
-    private void collected() {
-        if (TextUtils.isEmpty(mAVObject.getIsCollected())) {
-            mAVObject.setIsCollected("1");
-            mAVObject.setCollected_time(System.currentTimeMillis());
-        } else {
-            mAVObject.setIsCollected("");
-            mAVObject.setCollected_time(0);
-            Intent intent = new Intent();
-            setResult(RESULT_OK, intent);
-        }
-        BoxHelper.update(mAVObject);
-    }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -557,6 +578,15 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         releasePlayer();
     }
 
+    @OnClick(R.id.play_background_btn)
+    public void onBackGroundClicked() {
+        if (NetworkUtil.isWifiConnected(this)) {
+            IPlayerUtil.initAndPlay(mAVObject,true);
+        } else {
+            IPlayerUtil.initAndPlay(mAVObject,false);
+        }
+        onBackPressed();
+    }
 
     @Override
     protected void onPause() {
@@ -568,7 +598,6 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
 
     @OnClick(R.id.back_btn)
     public void onViewClicked() {
-        releasePlayer();
         onBackPressed();
     }
 

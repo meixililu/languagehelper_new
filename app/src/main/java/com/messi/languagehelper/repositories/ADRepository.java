@@ -50,7 +50,6 @@ public class ADRepository {
     public void loadAD(){
         try {
             currentAD = ADUtil.getAdProvider(counter);
-            currentAD = ADUtil.BD;
             if(!TextUtils.isEmpty(currentAD)){
                 LogUtil.DefalutLog("------ad-------"+currentAD);
                 if(ADUtil.GDT.equals(currentAD)){

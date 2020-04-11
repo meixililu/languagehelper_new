@@ -121,6 +121,7 @@ public class AppUpdateUtil {
         String domain = mAVObject.getString(AVOUtil.UpdateInfo.domain);
         int Caricature_version = mAVObject.getInt(AVOUtil.UpdateInfo.Caricature_version);
         String HjCookie = mAVObject.getString(AVOUtil.UpdateInfo.HjCookie);
+        String UseNewPVApi = mAVObject.getString(AVOUtil.UpdateInfo.UseNewPVApi);
         TranslateHelper.setHjCookie(HjCookie);
         ADUtil.setAdConfig(adConf);
         TXADUtil.setADData(ad_ids);
@@ -144,6 +145,7 @@ public class AppUpdateUtil {
                 mAVObject.getInt(AVOUtil.UpdateInfo.VersionCode));
         Setings.saveSharedPreferences(sp,KeyUtil.Caricature_version, Caricature_version);
         Setings.saveSharedPreferences(sp,KeyUtil.Caricature_channel, Caricature_channel);
+        Setings.saveSharedPreferences(sp,KeyUtil.UseNewPVApi, UseNewPVApi);
         Setings.saveSharedPreferences(sp,KeyUtil.UpdateBean, mAVObject.toString());
     }
 

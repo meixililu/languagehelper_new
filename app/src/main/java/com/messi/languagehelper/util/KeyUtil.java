@@ -293,7 +293,7 @@ public class KeyUtil {
 	public static final String VersionCode = "VersionCode";
 	public static final String IsTXADPermissionReady = "IsTXADPermissionReady";
 
-	public static final String IsYYSHasTransafeData = "IsYYSHasTransafeData";
+	public static final String UseNewPVApi = "UseNewPVApi";
 
 	public static final String No_Ad = "no_ad";
 	public static final String XmlyMainForYWCD = "XmlyMainForYWCD";

@@ -37,21 +37,23 @@ import com.google.android.exoplayer2.util.Util;
 import com.messi.languagehelper.ViewModel.FullScreenVideoADModel;
 import com.messi.languagehelper.adapter.RcXVideoDetailListAdapter;
 import com.messi.languagehelper.adapter.RcXVideoDetailListItemViewHolder;
-import com.messi.languagehelper.bean.TTParseBean;
-import com.messi.languagehelper.bean.TTParseDataBean;
+import com.messi.languagehelper.bean.PVideoResult;
 import com.messi.languagehelper.bean.ToutiaoWebRootBean;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
+import com.messi.languagehelper.httpservice.RetrofitApiService;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.DialogUtil;
 import com.messi.languagehelper.util.IPlayerUtil;
 import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NetworkUtil;
 import com.messi.languagehelper.util.Setings;
+import com.messi.languagehelper.util.SignUtil;
+import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.ViewUtil;
-import com.ximalaya.ting.android.opensdk.util.DigestUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -61,7 +63,9 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import okhttp3.FormBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class XVideoDetailActivity extends BaseActivity implements Player.EventListener {
 
@@ -390,52 +394,38 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
             return;
         }
         showProgressbar();
-        long timestamp = System.currentTimeMillis();
-        String sign = DigestUtils.md5Hex(url + timestamp + Setings.TTParseClientSecretKey);
-        FormBody formBody = new FormBody.Builder()
-                .add("link", url)
-                .add("timestamp", timestamp + "")
-                .add("sign", sign)
-                .add("client", Setings.TTParseClientId)
-                .build();
-        LanguagehelperHttpClient.post(Setings.TTParseApi, formBody, new UICallback(this) {
-            @Override
-            public void onResponsed(String responseString) {
-                LogUtil.DefalutLog("parseVideoUrl-responseString:" + responseString);
-                String videoUrl = "";
-                try {
-                    if (JsonParser.isJson(responseString)) {
-                        TTParseBean result = JSON.parseObject(responseString, TTParseBean.class);
-                        if (result != null && result.getSucc() && result.getData() != null) {
-                            TTParseDataBean videoBean = result.getData();
-                            if (videoBean != null && !TextUtils.isEmpty(videoBean.getVideo())) {
-                                videoUrl = videoBean.getVideo();
-                            }
-                        }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                    if (!TextUtils.isEmpty(videoUrl)) {
-                        if(mAVObject != null){
-                            mAVObject.put(KeyUtil.VideoParseUrl,videoUrl);
-                        }
-                        exoplaer(videoUrl);
-                    } else {
-                        onFailured();
-                    }
-                }
-            }
+        String timestamp = String.valueOf(System.currentTimeMillis());
+        String platform = SystemUtil.platform;
+        String network = NetworkUtil.getNetworkType(this);
+        String sign = SignUtil.getMd5Sign(Setings.PVideoKey, timestamp, url, platform, network);
+        RetrofitApiService service = RetrofitApiService.getRetrofitApiService(Setings.PVideoApi,
+                RetrofitApiService.class);
+        Call<PVideoResult> call = service.getPVideoApi(url,network,platform,sign,timestamp);
+        call.enqueue(new Callback<PVideoResult>() {
+                 @Override
+                 public void onResponse(Call<PVideoResult> call, Response<PVideoResult> response) {
+                     LogUtil.DefalutLog("onResponse:"+response+"---call:"+call);
+                     if (response.isSuccessful()) {
+                         PVideoResult mResult = response.body();
+                         if (mResult != null && !TextUtils.isEmpty(mResult.getUrl())) {
+                             if(mAVObject != null){
+                                 mAVObject.put(KeyUtil.VideoParseUrl,mResult.getUrl());
+                             }
+                             exoplaer(mResult.getUrl());
+                         }
+                     }else {
+                         hideProgressbar();
+                         ToastUtil.diaplayMesShort(XVideoDetailActivity.this,"视频不见了，换一个吧");
+                     }
+                 }
 
-            @Override
-            public void onFailured() {
-            }
-
-            @Override
-            public void onFinished() {
-                hideProgressbar();
-            }
-        });
+                 @Override
+                 public void onFailure(Call<PVideoResult> call, Throwable t) {
+                     LogUtil.DefalutLog("onFailure:"+t.getMessage()+"---call:"+call.request().url());
+                     hideProgressbar();
+                 }
+             }
+        );
     }
 
     private void exoplaer(String media_url) {

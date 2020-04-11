@@ -113,9 +113,6 @@ public class Setings {
 
 	public static final String AiTuringApiKey = "9cab5ca560c7403c84d035196b6f3500";
 
-	/**toutiao video parse api**/
-	public static final String TTParseApi = "https://service.iiilab.com/video/download";
-
 	public static final String XMNovel = "https://reader.browser.duokan.com/v2/#tab=store&mz=&_miui_orientation=portrait&_miui_fullscreen=1&source=browser-mz";
 	// uc search
 	public static final String DVideo = "https://hot.browser.miui.com/v7/#page=short-video-list&cid=rec&_miui_=";
@@ -132,12 +129,14 @@ public class Setings {
 
 	public static final String NovelRank = "https://www.owllook.net/md/qidian";
 
+	public static final String PVideoApi = "http://api.mzxbkj.com/";
+
 	public static final String NovelShort = "https://lnovel.cc/";
 
+	public static final String PVideoKey = "sfjsdlf342ds4rbmd24fsvh5fg56d";
 	public static String XMLYAppAppKey = "a167180a30ec21d09c1c78ccacdf5d43";
 	public static String XMLYAppSecret = "c779eeb1873325a487e2956a2077f2bc";
-	public static final String TTParseClientSecretKey = "95077da2aa9ade5058a41cd5bf96d9f8";
-	public static final String TTParseClientId = "dcc76daf232aee45";
+
 	public static final String Email = "mzxbkj@163.com";
 	public static final String YoudaoApiKey = "64148bac216470a0";
 	public static final String BaiduORCAK = "rOpNTQojXriwz14ol8COWTok";

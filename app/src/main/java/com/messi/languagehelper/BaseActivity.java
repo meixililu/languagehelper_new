@@ -233,12 +233,14 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     public void showProgressbar() {
+        LogUtil.DefalutLog("showProgressbar");
         if (mProgressbar != null) {
             mProgressbar.setVisibility(View.VISIBLE);
         }
     }
 
     public void hideProgressbar() {
+        LogUtil.DefalutLog("hideProgressbar");
         if (mProgressbar != null) {
             mProgressbar.setVisibility(View.GONE);
         }

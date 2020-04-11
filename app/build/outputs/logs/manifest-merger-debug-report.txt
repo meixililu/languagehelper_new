@@ -88,7 +88,7 @@ MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.6] /Users/lilu/.gra
 MERGED from [com.jakewharton:butterknife:9.0.0-rc2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fc63f4ab3999e2282f3f502f0fbc11de/butterknife-9.0.0-rc2/AndroidManifest.xml:2:1-7:12
 MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/92c5511c23ab6b8a5520b7db77ebf1a4/glide-4.8.0/AndroidManifest.xml:2:1-12:12
 MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e4670eeba8be9e410361c3fe302a2db0/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:17:1-72:12
-MERGED from [cn.jzvd:jiaozivideoplayer:7.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a59106f00ab983c775138a44d43905dd/jiaozivideoplayer-7.1.0/AndroidManifest.xml:2:1-13:12
+MERGED from [cn.jzvd:jiaozivideoplayer:7.2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bb97bdef6f7184826638536b8b4139fa/jiaozivideoplayer-7.2.3/AndroidManifest.xml:2:1-13:12
 MERGED from [com.facebook.fresco:fresco:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d7f7bd0863be91adc1ce15efe679cf05/fresco-1.13.0/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:animated-gif:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fa0cd839eaf0fb71d6299e0d64d75f2a/animated-gif-1.13.0/AndroidManifest.xml:2:1-9:12
 MERGED from [io.reactivex.rxjava2:rxandroid:2.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c94eae3e05f3473894b74886f28dd5c3/rxandroid-2.1.1/AndroidManifest.xml:15:1-20:12
@@ -176,8 +176,8 @@ MERGED from [GDTSDK.unionNormal.4.176.1046.aar] /Users/lilu/.gradle/caches/trans
 MERGED from [GDTSDK.unionNormal.4.176.1046.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7946797b3cec205ec99e17dcc835a530/GDTSDK.unionNormal.4.176.1046/AndroidManifest.xml:13:5-79
 MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7f183749afa6e1b38b042a248802cf4b/exoplayer-core-2.9.6/AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.6] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7f183749afa6e1b38b042a248802cf4b/exoplayer-core-2.9.6/AndroidManifest.xml:24:5-79
-MERGED from [cn.jzvd:jiaozivideoplayer:7.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a59106f00ab983c775138a44d43905dd/jiaozivideoplayer-7.1.0/AndroidManifest.xml:11:5-79
-MERGED from [cn.jzvd:jiaozivideoplayer:7.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a59106f00ab983c775138a44d43905dd/jiaozivideoplayer-7.1.0/AndroidManifest.xml:11:5-79
+MERGED from [cn.jzvd:jiaozivideoplayer:7.2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bb97bdef6f7184826638536b8b4139fa/jiaozivideoplayer-7.2.3/AndroidManifest.xml:11:5-79
+MERGED from [cn.jzvd:jiaozivideoplayer:7.2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bb97bdef6f7184826638536b8b4139fa/jiaozivideoplayer-7.2.3/AndroidManifest.xml:11:5-79
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:8:22-76
 uses-permission#android.permission.ACCESS_WIFI_STATE
@@ -1294,8 +1294,8 @@ MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/t
 MERGED from [com.github.bumptech.glide:glide:4.8.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/92c5511c23ab6b8a5520b7db77ebf1a4/glide-4.8.0/AndroidManifest.xml:6:5-8:41
 MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e4670eeba8be9e410361c3fe302a2db0/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:20:5-44
 MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/e4670eeba8be9e410361c3fe302a2db0/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:20:5-44
-MERGED from [cn.jzvd:jiaozivideoplayer:7.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a59106f00ab983c775138a44d43905dd/jiaozivideoplayer-7.1.0/AndroidManifest.xml:7:5-9:41
-MERGED from [cn.jzvd:jiaozivideoplayer:7.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a59106f00ab983c775138a44d43905dd/jiaozivideoplayer-7.1.0/AndroidManifest.xml:7:5-9:41
+MERGED from [cn.jzvd:jiaozivideoplayer:7.2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bb97bdef6f7184826638536b8b4139fa/jiaozivideoplayer-7.2.3/AndroidManifest.xml:7:5-9:41
+MERGED from [cn.jzvd:jiaozivideoplayer:7.2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bb97bdef6f7184826638536b8b4139fa/jiaozivideoplayer-7.2.3/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.fresco:fresco:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d7f7bd0863be91adc1ce15efe679cf05/fresco-1.13.0/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:fresco:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d7f7bd0863be91adc1ce15efe679cf05/fresco-1.13.0/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:animated-gif:1.13.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fa0cd839eaf0fb71d6299e0d64d75f2a/animated-gif-1.13.0/AndroidManifest.xml:5:5-7:41

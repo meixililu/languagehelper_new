@@ -180,7 +180,11 @@ public class ReadingFragment extends BaseFragment{
 
 	private void getTotalCount(int count){
 		LogUtil.DefalutLog("ViewModel---getTotalCount---count:"+count);
-		maxRandom = count;
+		if (count > 10000) {
+			maxRandom = 10000;
+		} else {
+			maxRandom = count;
+		}
 	}
 
 	private void refreshAD(RespoADData data){

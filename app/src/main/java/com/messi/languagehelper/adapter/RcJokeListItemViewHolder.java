@@ -124,7 +124,7 @@ public class RcJokeListItemViewHolder extends RecyclerView.ViewHolder {
                 if(!TextUtils.isEmpty(mAVObject.getString(AVOUtil.Joke.img))){
                     Glide.with(context)
                             .load(mAVObject.getString(AVOUtil.Joke.img))
-                            .into(videoplayer.thumbImageView);
+                            .into(videoplayer.posterImageView);
                 }
             }
             list_item_img.setOnClickListener(new View.OnClickListener() {
