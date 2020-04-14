@@ -6,39 +6,34 @@ import android.arch.lifecycle.ViewModel;
 
 import com.messi.languagehelper.bean.RespoADData;
 import com.messi.languagehelper.bean.RespoData;
-import com.messi.languagehelper.repositories.ReadingListRepository;
-import com.messi.languagehelper.repositories.XXLReadingRepository;
+import com.messi.languagehelper.repositories.BoutiquesListRepository;
+import com.messi.languagehelper.repositories.XXLAVObjectRepository;
 
-public class ReadingListViewModel extends ViewModel {
+public class BoutiquesViewModel extends ViewModel {
 
     private MutableLiveData<Boolean> isLoading;
     private MutableLiveData<RespoData> mRespoData;
     private MutableLiveData<RespoADData> mRespoADData;
-    private MutableLiveData<Integer> mMutaCount;
-    private ReadingListRepository mRepo;
-    private XXLReadingRepository mADRepo;
+    private BoutiquesListRepository mRepo;
+    private XXLAVObjectRepository mADRepo;
 
     public void init(){
-        mRepo = new ReadingListRepository();
+        mRepo = new BoutiquesListRepository();
         mRespoData = mRepo.mRespoData;
         isLoading = mRepo.isLoading;
-        mMutaCount = mRepo.mMutaCount;
         isLoading.setValue(false);
 
-        mADRepo = new XXLReadingRepository(mRepo.list);
+        mADRepo = new XXLAVObjectRepository(mRepo.getList());
         mRespoADData = mADRepo.mRespoData;
         mRepo.setADXXLRepository(mADRepo);
     }
 
-    public void refresh(int skip){
-        mRepo.setNeedClear(true);
-        mRepo.setHasMore(true);
-        mRepo.setSkip(skip);
-        mRepo.getReadingList();
+    public void loadData(){
+        mRepo.getDataList();
     }
 
-    public void loadData(){
-        mRepo.getReadingList();
+    public void refresh(){
+        mRepo.refresh();
     }
 
     public void count(){
@@ -57,19 +52,7 @@ public class ReadingListViewModel extends ViewModel {
         return mRespoADData;
     }
 
-    public LiveData<Integer> getCount(){
-        return mMutaCount;
-    }
-
-    public ReadingListRepository getRepo(){
+    public BoutiquesListRepository getRepo(){
         return mRepo;
     }
-
-//    @Override
-//    protected void onCleared() {
-//        super.onCleared();
-//        if (mADRepo != null) {
-//            mADRepo.onDestroy();
-//        }
-//    }
 }

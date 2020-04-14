@@ -255,7 +255,7 @@
 139            android:exported="false"
 139-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:129:13-37
 140            android:multiprocess="true" />
-140-->[GDTSDK.unionNormal.4.176.1046.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7946797b3cec205ec99e17dcc835a530/GDTSDK.unionNormal.4.176.1046/AndroidManifest.xml:22:13-40
+140-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2c4021ad578669e9c452af0589519955/GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:22:13-40
 141
 142        <activity
 142-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:130:9-131:86
@@ -264,7 +264,7 @@
 144            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
 144-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:131:13-83
 145            android:multiprocess="true" />
-145-->[GDTSDK.unionNormal.4.176.1046.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7946797b3cec205ec99e17dcc835a530/GDTSDK.unionNormal.4.176.1046/AndroidManifest.xml:26:13-40
+145-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2c4021ad578669e9c452af0589519955/GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:26:13-40
 146        <activity
 146-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:132:9-134:86
 147            android:name="com.qq.e.ads.PortraitADActivity"
@@ -272,7 +272,7 @@
 148            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
 148-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:134:13-83
 149            android:multiprocess="true"
-149-->[GDTSDK.unionNormal.4.176.1046.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7946797b3cec205ec99e17dcc835a530/GDTSDK.unionNormal.4.176.1046/AndroidManifest.xml:30:13-40
+149-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2c4021ad578669e9c452af0589519955/GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:30:13-40
 150            android:screenOrientation="portrait" />
 150-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:133:13-49
 151        <activity
@@ -282,7 +282,7 @@
 153            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
 153-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:137:13-83
 154            android:multiprocess="true"
-154-->[GDTSDK.unionNormal.4.176.1046.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7946797b3cec205ec99e17dcc835a530/GDTSDK.unionNormal.4.176.1046/AndroidManifest.xml:35:13-40
+154-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2c4021ad578669e9c452af0589519955/GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:35:13-40
 155            android:screenOrientation="landscape" />
 155-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:136:13-50
 156        <!-- 腾讯广告 -->
@@ -1088,208 +1088,208 @@
 555-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:537:13-49
 556            android:windowSoftInputMode="stateHidden" />
 556-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:538:13-54
-557        <activity
-557-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6d8d88012ec8aae68a5295216d565c52/Baidu_MobAds_SDK-release/AndroidManifest.xml:12:9-17:20
-558            android:name="com.baidu.mobads.production.rewardvideo.MobRewardVideoActivity"
-558-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6d8d88012ec8aae68a5295216d565c52/Baidu_MobAds_SDK-release/AndroidManifest.xml:13:13-90
-559            android:configChanges="screenSize|orientation|keyboardHidden"
-559-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6d8d88012ec8aae68a5295216d565c52/Baidu_MobAds_SDK-release/AndroidManifest.xml:14:13-74
-560            android:launchMode="singleTask"
-560-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6d8d88012ec8aae68a5295216d565c52/Baidu_MobAds_SDK-release/AndroidManifest.xml:15:13-44
-561            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-561-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6d8d88012ec8aae68a5295216d565c52/Baidu_MobAds_SDK-release/AndroidManifest.xml:16:13-72
-562        </activity>
-563
-564        <service android:name="com.ss.android.socialbase.downloader.notification.DownloadNotificationService" />
-564-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:25:9-113
-564-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:25:18-110
-565        <service android:name="com.ss.android.socialbase.downloader.downloader.DownloadService" />
-565-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:26:9-99
-565-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:26:18-96
-566        <service
-566-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:27:9-33:19
-567            android:name="com.ss.android.socialbase.downloader.downloader.IndependentProcessDownloadService"
-567-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:28:13-109
-568            android:process=":downloader" >
-568-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:29:13-42
-569            <intent-filter>
-569-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:30:13-32:29
-570                <action android:name="com.ss.android.socialbase.downloader.remote" />
-570-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:31:17-86
-570-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:31:25-83
-571            </intent-filter>
-572        </service>
-573        <service android:name="com.ss.android.socialbase.downloader.impls.DownloadHandleService" /> <!-- <receiver android:name="com.ss.android.socialbase.downloader.downloader.DownloadReceiver"> -->
-573-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:34:9-100
-573-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:34:18-97
-574        <!-- <intent-filter> -->
-575        <!-- <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/> -->
-576        <!-- </intent-filter> -->
-577        <!-- </receiver> -->
-578        <service
-578-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:42:9-46:72
-579            android:name="com.ss.android.socialbase.downloader.impls.RetryJobSchedulerService"
-579-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:43:13-95
-580            android:enabled="true"
-580-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:44:13-35
-581            android:exported="true"
-581-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:45:13-36
-582            android:permission="android.permission.BIND_JOB_SERVICE" /> <!-- 数据库更新service -->
-582-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:46:13-69
-583        <service android:name="com.ss.android.socialbase.downloader.downloader.SqlDownloadCacheService" /> <!-- APP DOWNLOADER START -->
-583-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:48:9-107
-583-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:48:18-104
-584        <service android:name="com.ss.android.socialbase.appdownloader.DownloadHandlerService" /> <!-- <receiver android:name="com.ss.android.socialbase.appdownloader.DownloadReceiver"> -->
-584-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:50:9-98
-584-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:50:18-95
+557        <!-- 用于激励视频可选广告的竖屏透明背景activity -->
+558        <activity
+558-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2c4021ad578669e9c452af0589519955/GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:37:9-41:64
+559            android:name="com.qq.e.ads.RewardvideoPortraitADActivity"
+559-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2c4021ad578669e9c452af0589519955/GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:38:13-70
+560            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+560-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2c4021ad578669e9c452af0589519955/GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:39:13-83
+561            android:multiprocess="true"
+561-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2c4021ad578669e9c452af0589519955/GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:40:13-40
+562            android:theme="@android:style/Theme.Translucent" /> <!-- 用于激励视频可选广告的横屏透明背景activity -->
+562-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2c4021ad578669e9c452af0589519955/GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:41:13-61
+563        <activity
+563-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2c4021ad578669e9c452af0589519955/GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:42:9-46:64
+564            android:name="com.qq.e.ads.RewardvideoLandscapeADActivity"
+564-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2c4021ad578669e9c452af0589519955/GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:43:13-71
+565            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+565-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2c4021ad578669e9c452af0589519955/GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:44:13-83
+566            android:multiprocess="true"
+566-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2c4021ad578669e9c452af0589519955/GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:45:13-40
+567            android:theme="@android:style/Theme.Translucent" />
+567-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2c4021ad578669e9c452af0589519955/GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:46:13-61
+568        <activity
+568-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6d8d88012ec8aae68a5295216d565c52/Baidu_MobAds_SDK-release/AndroidManifest.xml:12:9-17:20
+569            android:name="com.baidu.mobads.production.rewardvideo.MobRewardVideoActivity"
+569-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6d8d88012ec8aae68a5295216d565c52/Baidu_MobAds_SDK-release/AndroidManifest.xml:13:13-90
+570            android:configChanges="screenSize|orientation|keyboardHidden"
+570-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6d8d88012ec8aae68a5295216d565c52/Baidu_MobAds_SDK-release/AndroidManifest.xml:14:13-74
+571            android:launchMode="singleTask"
+571-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6d8d88012ec8aae68a5295216d565c52/Baidu_MobAds_SDK-release/AndroidManifest.xml:15:13-44
+572            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+572-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6d8d88012ec8aae68a5295216d565c52/Baidu_MobAds_SDK-release/AndroidManifest.xml:16:13-72
+573        </activity>
+574
+575        <service android:name="com.ss.android.socialbase.downloader.notification.DownloadNotificationService" />
+575-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:25:9-113
+575-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:25:18-110
+576        <service android:name="com.ss.android.socialbase.downloader.downloader.DownloadService" />
+576-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:26:9-99
+576-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:26:18-96
+577        <service
+577-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:27:9-33:19
+578            android:name="com.ss.android.socialbase.downloader.downloader.IndependentProcessDownloadService"
+578-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:28:13-109
+579            android:process=":downloader" >
+579-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:29:13-42
+580            <intent-filter>
+580-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:30:13-32:29
+581                <action android:name="com.ss.android.socialbase.downloader.remote" />
+581-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:31:17-86
+581-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:31:25-83
+582            </intent-filter>
+583        </service>
+584        <service android:name="com.ss.android.socialbase.downloader.impls.DownloadHandleService" /> <!-- <receiver android:name="com.ss.android.socialbase.downloader.downloader.DownloadReceiver"> -->
+584-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:34:9-100
+584-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:34:18-97
 585        <!-- <intent-filter> -->
-586        <!-- <action android:name="android.intent.action.BOOT_COMPLETED"/> -->
-587        <!-- <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/> -->
-588        <!-- <action android:name="android.ss.intent.action.DOWNLOAD_COMPLETE"/> -->
-589        <!-- </intent-filter> -->
-590        <!-- <intent-filter> -->
-591        <!-- <action android:name="android.intent.action.PACKAGE_ADDED"/> -->
-592        <!-- <action android:name="android.intent.action.PACKAGE_REPLACED"/> -->
-593        <!-- <data android:scheme="package"/> -->
-594        <!-- </intent-filter> -->
-595        <!-- <intent-filter> -->
-596        <!-- <action android:name="android.intent.action.MEDIA_MOUNTED"/> -->
-597        <!-- <data android:scheme="file"/> -->
-598        <!-- </intent-filter> -->
-599        <!-- </receiver> -->
-600        <activity
-600-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:66:9-69:59
-601            android:name="com.ss.android.socialbase.appdownloader.view.DownloadTaskDeleteActivity"
-601-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:67:13-99
-602            android:launchMode="singleTask"
-602-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:68:13-44
-603            android:theme="@android:style/Theme.Dialog" />
-603-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:69:13-56
-604        <activity
-604-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:70:9-73:59
-605            android:name="com.ss.android.socialbase.appdownloader.view.JumpUnknownSourceActivity"
-605-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:71:13-98
-606            android:launchMode="singleTask"
-606-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:72:13-44
-607            android:theme="@android:style/Theme.Dialog" />
-607-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:73:13-56
-608        <activity
-608-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:74:9-77:75
-609            android:name="com.ss.android.downloadlib.activity.TTDelegateActivity"
-609-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:75:13-82
-610            android:launchMode="singleTask"
-610-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:76:13-44
-611            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-611-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:77:13-72
-612
-613        <receiver android:name="com.ss.android.downloadlib.core.download.DownloadReceiver" /> <!-- 下面的activity和service必须注册 -->
-613-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:79:9-94
-613-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:79:19-91
-614        <activity
-614-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:80:9-83:45
-615            android:name="com.bytedance.sdk.openadsdk.activity.TTLandingPageActivity"
-615-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:81:13-86
-616            android:configChanges="keyboardHidden|orientation|screenSize"
-616-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:82:13-74
-617            android:launchMode="standard" />
-617-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:83:13-42
-618        <activity
-618-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:84:9-87:45
-619            android:name="com.bytedance.sdk.openadsdk.activity.TTPlayableLandingPageActivity"
-619-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:85:13-94
-620            android:configChanges="keyboardHidden|orientation|screenSize"
-620-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:86:13-74
-621            android:launchMode="standard" />
-621-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:87:13-42
-622        <activity
-622-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:88:9-91:45
-623            android:name="com.bytedance.sdk.openadsdk.activity.TTVideoLandingPageActivity"
-623-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:89:13-91
-624            android:configChanges="keyboardHidden|orientation|screenSize"
-624-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:90:13-74
-625            android:launchMode="standard" />
-625-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:91:13-42
-626        <activity
-626-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:92:9-95:45
-627            android:name="com.bytedance.sdk.openadsdk.activity.TTRewardVideoActivity"
-627-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:93:13-86
-628            android:configChanges="keyboardHidden|orientation|screenSize"
-628-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:94:13-74
-629            android:launchMode="standard" />
-629-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:95:13-42
-630        <activity
-630-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:96:9-99:45
-631            android:name="com.bytedance.sdk.openadsdk.activity.TTRewardExpressVideoActivity"
-631-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:97:13-93
-632            android:configChanges="keyboardHidden|orientation|screenSize"
-632-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:98:13-74
-633            android:launchMode="standard" />
-633-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:99:13-42
-634        <activity
-634-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:100:9-103:45
-635            android:name="com.bytedance.sdk.openadsdk.activity.TTFullScreenVideoActivity"
-635-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:101:13-90
-636            android:configChanges="keyboardHidden|orientation|screenSize"
-636-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:102:13-74
-637            android:launchMode="standard" />
-637-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:103:13-42
-638        <activity
-638-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:104:9-107:45
-639            android:name="com.bytedance.sdk.openadsdk.activity.TTFullScreenExpressVideoActivity"
-639-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:105:13-97
-640            android:configChanges="keyboardHidden|orientation|screenSize"
-640-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:106:13-74
-641            android:launchMode="standard" />
-641-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:107:13-42
-642        <activity
-642-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:108:9-111:75
-643            android:name="com.bytedance.sdk.openadsdk.activity.TTDelegateActivity"
-643-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:109:13-83
-644            android:launchMode="singleTask"
-644-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:110:13-44
-645            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-645-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:111:13-72
-646
-647        <service android:name="com.bytedance.sdk.openadsdk.multipro.aidl.BinderPoolService" />
-647-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:113:9-95
-647-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:113:18-92
-648
-649        <receiver
-649-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:115:9-118:39
-650            android:name="com.bytedance.embedapplog.collector.Collector"
-650-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:116:13-73
-651            android:enabled="true"
-651-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:117:13-35
-652            android:exported="true" />
-652-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:118:13-36
-653
-654        <service
-654-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:120:9-122:39
-655            android:name="com.bytedance.tea.crash.upload.CrashUploadService"
-655-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:121:13-77
-656            android:process=":npth" /> <!-- 用于激励视频可选广告的竖屏透明背景activity -->
-656-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:122:13-36
-657        <activity
-657-->[GDTSDK.unionNormal.4.176.1046.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7946797b3cec205ec99e17dcc835a530/GDTSDK.unionNormal.4.176.1046/AndroidManifest.xml:37:9-41:64
-658            android:name="com.qq.e.ads.RewardvideoPortraitADActivity"
-658-->[GDTSDK.unionNormal.4.176.1046.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7946797b3cec205ec99e17dcc835a530/GDTSDK.unionNormal.4.176.1046/AndroidManifest.xml:38:13-70
-659            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-659-->[GDTSDK.unionNormal.4.176.1046.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7946797b3cec205ec99e17dcc835a530/GDTSDK.unionNormal.4.176.1046/AndroidManifest.xml:39:13-83
-660            android:multiprocess="true"
-660-->[GDTSDK.unionNormal.4.176.1046.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7946797b3cec205ec99e17dcc835a530/GDTSDK.unionNormal.4.176.1046/AndroidManifest.xml:40:13-40
-661            android:theme="@android:style/Theme.Translucent" /> <!-- 用于激励视频可选广告的横屏透明背景activity -->
-661-->[GDTSDK.unionNormal.4.176.1046.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7946797b3cec205ec99e17dcc835a530/GDTSDK.unionNormal.4.176.1046/AndroidManifest.xml:41:13-61
-662        <activity
-662-->[GDTSDK.unionNormal.4.176.1046.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7946797b3cec205ec99e17dcc835a530/GDTSDK.unionNormal.4.176.1046/AndroidManifest.xml:42:9-46:64
-663            android:name="com.qq.e.ads.RewardvideoLandscapeADActivity"
-663-->[GDTSDK.unionNormal.4.176.1046.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7946797b3cec205ec99e17dcc835a530/GDTSDK.unionNormal.4.176.1046/AndroidManifest.xml:43:13-71
-664            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-664-->[GDTSDK.unionNormal.4.176.1046.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7946797b3cec205ec99e17dcc835a530/GDTSDK.unionNormal.4.176.1046/AndroidManifest.xml:44:13-83
-665            android:multiprocess="true"
-665-->[GDTSDK.unionNormal.4.176.1046.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7946797b3cec205ec99e17dcc835a530/GDTSDK.unionNormal.4.176.1046/AndroidManifest.xml:45:13-40
-666            android:theme="@android:style/Theme.Translucent" />
-666-->[GDTSDK.unionNormal.4.176.1046.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7946797b3cec205ec99e17dcc835a530/GDTSDK.unionNormal.4.176.1046/AndroidManifest.xml:46:13-61
-667
+586        <!-- <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/> -->
+587        <!-- </intent-filter> -->
+588        <!-- </receiver> -->
+589        <service
+589-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:42:9-46:72
+590            android:name="com.ss.android.socialbase.downloader.impls.RetryJobSchedulerService"
+590-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:43:13-95
+591            android:enabled="true"
+591-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:44:13-35
+592            android:exported="true"
+592-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:45:13-36
+593            android:permission="android.permission.BIND_JOB_SERVICE" /> <!-- 数据库更新service -->
+593-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:46:13-69
+594        <service android:name="com.ss.android.socialbase.downloader.downloader.SqlDownloadCacheService" /> <!-- APP DOWNLOADER START -->
+594-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:48:9-107
+594-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:48:18-104
+595        <service android:name="com.ss.android.socialbase.appdownloader.DownloadHandlerService" /> <!-- <receiver android:name="com.ss.android.socialbase.appdownloader.DownloadReceiver"> -->
+595-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:50:9-98
+595-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:50:18-95
+596        <!-- <intent-filter> -->
+597        <!-- <action android:name="android.intent.action.BOOT_COMPLETED"/> -->
+598        <!-- <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/> -->
+599        <!-- <action android:name="android.ss.intent.action.DOWNLOAD_COMPLETE"/> -->
+600        <!-- </intent-filter> -->
+601        <!-- <intent-filter> -->
+602        <!-- <action android:name="android.intent.action.PACKAGE_ADDED"/> -->
+603        <!-- <action android:name="android.intent.action.PACKAGE_REPLACED"/> -->
+604        <!-- <data android:scheme="package"/> -->
+605        <!-- </intent-filter> -->
+606        <!-- <intent-filter> -->
+607        <!-- <action android:name="android.intent.action.MEDIA_MOUNTED"/> -->
+608        <!-- <data android:scheme="file"/> -->
+609        <!-- </intent-filter> -->
+610        <!-- </receiver> -->
+611        <activity
+611-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:66:9-69:59
+612            android:name="com.ss.android.socialbase.appdownloader.view.DownloadTaskDeleteActivity"
+612-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:67:13-99
+613            android:launchMode="singleTask"
+613-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:68:13-44
+614            android:theme="@android:style/Theme.Dialog" />
+614-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:69:13-56
+615        <activity
+615-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:70:9-73:59
+616            android:name="com.ss.android.socialbase.appdownloader.view.JumpUnknownSourceActivity"
+616-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:71:13-98
+617            android:launchMode="singleTask"
+617-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:72:13-44
+618            android:theme="@android:style/Theme.Dialog" />
+618-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:73:13-56
+619        <activity
+619-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:74:9-77:75
+620            android:name="com.ss.android.downloadlib.activity.TTDelegateActivity"
+620-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:75:13-82
+621            android:launchMode="singleTask"
+621-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:76:13-44
+622            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+622-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:77:13-72
+623
+624        <receiver android:name="com.ss.android.downloadlib.core.download.DownloadReceiver" /> <!-- 下面的activity和service必须注册 -->
+624-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:79:9-94
+624-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:79:19-91
+625        <activity
+625-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:80:9-83:45
+626            android:name="com.bytedance.sdk.openadsdk.activity.TTLandingPageActivity"
+626-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:81:13-86
+627            android:configChanges="keyboardHidden|orientation|screenSize"
+627-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:82:13-74
+628            android:launchMode="standard" />
+628-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:83:13-42
+629        <activity
+629-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:84:9-87:45
+630            android:name="com.bytedance.sdk.openadsdk.activity.TTPlayableLandingPageActivity"
+630-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:85:13-94
+631            android:configChanges="keyboardHidden|orientation|screenSize"
+631-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:86:13-74
+632            android:launchMode="standard" />
+632-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:87:13-42
+633        <activity
+633-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:88:9-91:45
+634            android:name="com.bytedance.sdk.openadsdk.activity.TTVideoLandingPageActivity"
+634-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:89:13-91
+635            android:configChanges="keyboardHidden|orientation|screenSize"
+635-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:90:13-74
+636            android:launchMode="standard" />
+636-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:91:13-42
+637        <activity
+637-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:92:9-95:45
+638            android:name="com.bytedance.sdk.openadsdk.activity.TTRewardVideoActivity"
+638-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:93:13-86
+639            android:configChanges="keyboardHidden|orientation|screenSize"
+639-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:94:13-74
+640            android:launchMode="standard" />
+640-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:95:13-42
+641        <activity
+641-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:96:9-99:45
+642            android:name="com.bytedance.sdk.openadsdk.activity.TTRewardExpressVideoActivity"
+642-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:97:13-93
+643            android:configChanges="keyboardHidden|orientation|screenSize"
+643-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:98:13-74
+644            android:launchMode="standard" />
+644-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:99:13-42
+645        <activity
+645-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:100:9-103:45
+646            android:name="com.bytedance.sdk.openadsdk.activity.TTFullScreenVideoActivity"
+646-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:101:13-90
+647            android:configChanges="keyboardHidden|orientation|screenSize"
+647-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:102:13-74
+648            android:launchMode="standard" />
+648-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:103:13-42
+649        <activity
+649-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:104:9-107:45
+650            android:name="com.bytedance.sdk.openadsdk.activity.TTFullScreenExpressVideoActivity"
+650-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:105:13-97
+651            android:configChanges="keyboardHidden|orientation|screenSize"
+651-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:106:13-74
+652            android:launchMode="standard" />
+652-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:107:13-42
+653        <activity
+653-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:108:9-111:75
+654            android:name="com.bytedance.sdk.openadsdk.activity.TTDelegateActivity"
+654-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:109:13-83
+655            android:launchMode="singleTask"
+655-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:110:13-44
+656            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+656-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:111:13-72
+657
+658        <service android:name="com.bytedance.sdk.openadsdk.multipro.aidl.BinderPoolService" />
+658-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:113:9-95
+658-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:113:18-92
+659
+660        <receiver
+660-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:115:9-118:39
+661            android:name="com.bytedance.embedapplog.collector.Collector"
+661-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:116:13-73
+662            android:enabled="true"
+662-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:117:13-35
+663            android:exported="true" />
+663-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:118:13-36
+664
+665        <service
+665-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:120:9-122:39
+666            android:name="com.bytedance.tea.crash.upload.CrashUploadService"
+666-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:121:13-77
+667            android:process=":npth" />
+667-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c0876e5c9b16e37d1f5727e95ac54013/open_ad_sdk/AndroidManifest.xml:122:13-36
 668        <service
 668-->[com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bc15b0abe3506aa8ed74d1ee521efdaa/leakcanary-android-2.0-beta-3/AndroidManifest.xml:23:9-29:19
 669            android:name="leakcanary.internal.HeapAnalyzerService"

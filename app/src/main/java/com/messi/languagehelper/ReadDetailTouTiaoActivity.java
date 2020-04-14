@@ -1,5 +1,6 @@
 package com.messi.languagehelper;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
@@ -154,7 +155,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         }
         titleTv.setText(mAVObject.getTitle());
         setCollected();
-        IPlayerUtil.MPlayerPause();
+        IPlayerUtil.pauseAudioPlayer(this);
         Url = mAVObject.getSource_url();
         LogUtil.DefalutLog("Url:" + Url);
         mVideoADModel = new VideoADModel(this, xx_ad_layout);
@@ -505,6 +506,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         };
     }
 
+    @SuppressLint("SourceLockedOrientationActivity")
     private void openFullscreenDialog() {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         ((ViewGroup) simpleExoPlayerView.getParent()).removeView(simpleExoPlayerView);
@@ -515,6 +517,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         mFullScreenDialog.show();
     }
 
+    @SuppressLint("SourceLockedOrientationActivity")
     private void closeFullscreenDialog() {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         ((ViewGroup) simpleExoPlayerView.getParent()).removeView(simpleExoPlayerView);

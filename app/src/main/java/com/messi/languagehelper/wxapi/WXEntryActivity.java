@@ -2,6 +2,7 @@ package com.messi.languagehelper.wxapi;
 
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.NotificationManager;
 import android.content.ComponentName;
@@ -21,6 +22,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.iflytek.cloud.SpeechConstant;
@@ -63,7 +65,6 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 	private Intent playIntent;
 	private ContentFrameBinding binding;
 
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -80,6 +81,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 	}
 
 	private void initData(){
+		registerBroadcast();
 		SpeechUtility.createUtility(this, SpeechConstant.APPID + "=" + getString(R.string.app_id));
 		sp = getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
 		PlayUtil.initData(this, sp);
@@ -97,12 +99,14 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 		if(SystemUtil.lan.equals("en")){
 			binding.tablayout.setTabMode(TabLayout.MODE_SCROLLABLE);
 		}
+		binding.playbtnLayout.setOnClickListener(view -> onPlayBtnClick(view));
 		binding.pager.setAdapter(mAdapter);
 		binding.pager.setOffscreenPageLimit(5);
 		binding.tablayout.setupWithViewPager(binding.pager);
 		binding.tablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 			@Override
 			public void onTabSelected(TabLayout.Tab tab) {
+				initPlayerBtn(tab.getPosition());
 			}
 
 			@Override
@@ -117,6 +121,43 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 			}
 		});
 		setLastTimeSelectTab();
+	}
+
+	private void initPlayerBtn(int index){
+		try {
+			if (index == 1 || index == 2) {
+				binding.playbtnLayout.setVisibility(View.VISIBLE);
+				if (IPlayerUtil.MPlayerIsPlaying() || XmPlayerManager.getInstance(this).isPlaying()) {
+					binding.btnPlay.setImageResource(R.drawable.ic_pause_white);
+				} else {
+					binding.btnPlay.setImageResource(R.drawable.ic_play_white);
+				}
+			}else {
+				binding.playbtnLayout.setVisibility(View.GONE);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void onPlayBtnClick(View view){
+		if (IPlayerUtil.MPlayerIsPlaying() || XmPlayerManager.getInstance(this).isPlaying()) {
+			binding.btnPlay.setImageResource(R.drawable.ic_play_white);
+			IPlayerUtil.pauseAudioPlayer(this);
+		}else {
+			binding.btnPlay.setImageResource(R.drawable.ic_pause_white);
+			IPlayerUtil.restartAudioPlayer(this);
+		}
+	}
+
+	@Override
+	public void updateUI(String music_action) {
+		LogUtil.DefalutLog("updateUI---music_action");
+		if(PlayerService.action_restart.equals(music_action)){
+			binding.btnPlay.setImageResource(R.drawable.ic_play_white);
+		}else if (PlayerService.action_pause.equals(music_action)) {
+			binding.btnPlay.setImageResource(R.drawable.ic_pause_white);
+		}
 	}
 
 	private void initSDKAndPermission(){
@@ -210,6 +251,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 		Setings.saveSharedPreferences(sp, KeyUtil.LastTimeSelectTab, index);
 	}
 
+	@SuppressLint("MissingSuperCall")
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 //		super.onSaveInstanceState(outState);
@@ -226,6 +268,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 	protected void onDestroy() {
 		super.onDestroy();
 		try {
+			unregisterBroadcast();
 			saveSelectTab();
 			Jzvd.releaseAllVideos();
 			PlayUtil.onDestroy();
@@ -237,6 +280,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 	}
 
 	private void UnbindService(){
+		IPlayerUtil.setAppExit(true);
 		if (musicConnection != null && IPlayerUtil.musicSrv != null) {
 			unbindService(musicConnection);
 			musicConnection = null;

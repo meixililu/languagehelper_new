@@ -5,9 +5,9 @@
 
     <solid android:color="@color/speak_btn_bg"/>
 
-    <stroke android:width="4dp" android:color="@color/theme_color" />
+    <stroke android:width="5dp" android:color="@color/theme_color" />
 
-    <corners android:radius="20dp" />
+    <corners android:radius="30dp" />
 
 
 </shape>

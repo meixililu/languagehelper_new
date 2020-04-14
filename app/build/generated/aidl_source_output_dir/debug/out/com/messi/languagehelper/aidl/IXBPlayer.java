@@ -129,6 +129,32 @@ reply.writeNoException();
 reply.writeInt(((_result)?(1):(0)));
 return true;
 }
+case TRANSACTION_setLastPlayer:
+{
+data.enforceInterface(descriptor);
+java.lang.String _arg0;
+_arg0 = data.readString();
+this.setLastPlayer(_arg0);
+reply.writeNoException();
+return true;
+}
+case TRANSACTION_getLastPlayer:
+{
+data.enforceInterface(descriptor);
+java.lang.String _result = this.getLastPlayer();
+reply.writeNoException();
+reply.writeString(_result);
+return true;
+}
+case TRANSACTION_setAppExit:
+{
+data.enforceInterface(descriptor);
+boolean _arg0;
+_arg0 = (0!=data.readInt());
+this.setAppExit(_arg0);
+reply.writeNoException();
+return true;
+}
 default:
 {
 return super.onTransact(code, data, reply, flags);
@@ -311,6 +337,53 @@ _data.recycle();
 }
 return _result;
 }
+@Override public void setLastPlayer(java.lang.String player) throws android.os.RemoteException
+{
+android.os.Parcel _data = android.os.Parcel.obtain();
+android.os.Parcel _reply = android.os.Parcel.obtain();
+try {
+_data.writeInterfaceToken(DESCRIPTOR);
+_data.writeString(player);
+mRemote.transact(Stub.TRANSACTION_setLastPlayer, _data, _reply, 0);
+_reply.readException();
+}
+finally {
+_reply.recycle();
+_data.recycle();
+}
+}
+@Override public java.lang.String getLastPlayer() throws android.os.RemoteException
+{
+android.os.Parcel _data = android.os.Parcel.obtain();
+android.os.Parcel _reply = android.os.Parcel.obtain();
+java.lang.String _result;
+try {
+_data.writeInterfaceToken(DESCRIPTOR);
+mRemote.transact(Stub.TRANSACTION_getLastPlayer, _data, _reply, 0);
+_reply.readException();
+_result = _reply.readString();
+}
+finally {
+_reply.recycle();
+_data.recycle();
+}
+return _result;
+}
+@Override public void setAppExit(boolean isExit) throws android.os.RemoteException
+{
+android.os.Parcel _data = android.os.Parcel.obtain();
+android.os.Parcel _reply = android.os.Parcel.obtain();
+try {
+_data.writeInterfaceToken(DESCRIPTOR);
+_data.writeInt(((isExit)?(1):(0)));
+mRemote.transact(Stub.TRANSACTION_setAppExit, _data, _reply, 0);
+_reply.readException();
+}
+finally {
+_reply.recycle();
+_data.recycle();
+}
+}
 }
 static final int TRANSACTION_initAndPlay = (android.os.IBinder.FIRST_CALL_TRANSACTION + 0);
 static final int TRANSACTION_initPlayList = (android.os.IBinder.FIRST_CALL_TRANSACTION + 1);
@@ -322,6 +395,9 @@ static final int TRANSACTION_MPlayerPause = (android.os.IBinder.FIRST_CALL_TRANS
 static final int TRANSACTION_MPlayerRestart = (android.os.IBinder.FIRST_CALL_TRANSACTION + 7);
 static final int TRANSACTION_MPlayerSeekTo = (android.os.IBinder.FIRST_CALL_TRANSACTION + 8);
 static final int TRANSACTION_MPlayerIsSameMp3 = (android.os.IBinder.FIRST_CALL_TRANSACTION + 9);
+static final int TRANSACTION_setLastPlayer = (android.os.IBinder.FIRST_CALL_TRANSACTION + 10);
+static final int TRANSACTION_getLastPlayer = (android.os.IBinder.FIRST_CALL_TRANSACTION + 11);
+static final int TRANSACTION_setAppExit = (android.os.IBinder.FIRST_CALL_TRANSACTION + 12);
 }
 public void initAndPlay(java.lang.String data, boolean isPlayList) throws android.os.RemoteException;
 public void initPlayList(java.lang.String lists, int position) throws android.os.RemoteException;
@@ -333,4 +409,7 @@ public void MPlayerPause() throws android.os.RemoteException;
 public void MPlayerRestart() throws android.os.RemoteException;
 public void MPlayerSeekTo(int position) throws android.os.RemoteException;
 public boolean MPlayerIsSameMp3(java.lang.String oid) throws android.os.RemoteException;
+public void setLastPlayer(java.lang.String player) throws android.os.RemoteException;
+public java.lang.String getLastPlayer() throws android.os.RemoteException;
+public void setAppExit(boolean isExit) throws android.os.RemoteException;
 }

@@ -19,6 +19,7 @@ import com.messi.languagehelper.util.BDADUtil;
 import com.messi.languagehelper.util.CSJADUtil;
 import com.messi.languagehelper.util.ContextUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TXADUtil;
@@ -239,7 +240,18 @@ public abstract class ADXXLRepository<T> {
 
     public abstract void addCSJAD(TTFeedAd ad);
 
-    public abstract void addAD();
+    public void addAD(){
+        isLoading = false;
+        if (isShowAd) {
+            if (mADObject != null && NullUtil.isNotEmpty(avObjects) && mRespoData != null) {
+                int pos = getIndex();
+                avObjects.add(pos, mADObject);
+                RespoADData mData = new RespoADData(1,pos);
+                mRespoData.setValue(mData);
+                mADObject = null;
+            }
+        }
+    }
 
     public void onDestroy(){
         if(mTXADList != null){

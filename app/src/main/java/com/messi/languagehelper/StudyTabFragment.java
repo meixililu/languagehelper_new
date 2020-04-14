@@ -41,7 +41,6 @@ public class StudyTabFragment extends BaseFragment implements TablayoutOnSelecte
     public void onAttach(Context activity) {
         super.onAttach(activity);
         try {
-            registerBroadcast();
             mProgressbarListener = (FragmentProgressbarListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString() + " must implement FragmentProgressbarListener");

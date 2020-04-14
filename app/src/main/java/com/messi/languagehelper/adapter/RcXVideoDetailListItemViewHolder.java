@@ -65,7 +65,7 @@ public class RcXVideoDetailListItemViewHolder extends RecyclerView.ViewHolder {
         type = mAVObject.getString(AVOUtil.XVideo.type);
         media_url = mAVObject.getString(AVOUtil.XVideo.media_url);
         if(!TextUtils.isEmpty(mAVObject.getString(AVOUtil.XVideo.group_id))){
-            Url = "https://m.ixigua.com/i"+mAVObject.getString(AVOUtil.XVideo.group_id);
+            Url = "https://www.ixigua.com/i"+mAVObject.getString(AVOUtil.XVideo.group_id);
         }else {
             Url = mAVObject.getString(AVOUtil.XVideo.source_url);
         }

@@ -46,10 +46,31 @@
         </LinearLayout>
     </android.support.v7.widget.Toolbar>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/pager"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
 
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <RelativeLayout
+            android:id="@+id/playbtn_layout"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="-10dp"
+            android:background="@drawable/round_theme_bgl"
+            >
+            <ImageView
+                android:id="@+id/btn_play"
+                android:layout_width="27dp"
+                android:layout_height="27dp"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="7dp"
+                android:src="@drawable/ic_play_white" />
+        </RelativeLayout>
+    </RelativeLayout>
 </LinearLayout>
 

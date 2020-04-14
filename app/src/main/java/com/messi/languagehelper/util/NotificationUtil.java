@@ -34,6 +34,7 @@ public class NotificationUtil {
     public static void showNotification(Context mContext,String action,String title,String type){
         NotificationManager manager = getManager(mContext);
         manager.notify(Setings.NOTIFY_ID, getNotification(mContext,action,title,type));
+        setLastPlayer(type);
     }
 
     public static NotificationManager getManager(Context mContext){
@@ -121,5 +122,12 @@ public class NotificationUtil {
         }
     }
 
+    public static void setLastPlayer(String type){
+        if (NotificationUtil.mes_type_xmly.equals(type)) {
+            IPlayerUtil.setLastPlayer(IPlayerUtil.PlayerXMLY);
+        } else {
+            IPlayerUtil.setLastPlayer(IPlayerUtil.PlayerXBKJ);
+        }
+    }
 
 }

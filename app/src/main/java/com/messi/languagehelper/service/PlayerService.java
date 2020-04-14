@@ -42,6 +42,7 @@ import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.httpservice.RetrofitApiService;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.DataUtil;
+import com.messi.languagehelper.util.IPlayerUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NetworkUtil;
@@ -89,7 +90,9 @@ public class PlayerService extends Service {
     // 0 default, 1 playing, 2 pause
     public int PlayerStatus;
     public String lastSongId = "";
+    public String lastPlayer = IPlayerUtil.PlayerXBKJ;
     private Reading song;
+    private boolean isAppExit;
     private boolean isPlayList;
     private boolean isForeground;
     private List<Reading> list;
@@ -152,6 +155,21 @@ public class PlayerService extends Service {
         public boolean MPlayerIsSameMp3(String oid) throws RemoteException {
             return isSameMp3(oid);
         }
+
+        @Override
+        public void setLastPlayer(String player) throws RemoteException {
+            lastPlayer = player;
+        }
+
+        @Override
+        public String getLastPlayer() throws RemoteException {
+            return lastPlayer;
+        }
+
+        @Override
+        public void setAppExit(boolean isExit) throws RemoteException {
+            isAppExit = isExit;
+        }
     };
 
     private Handler mHandler = new Handler() {
@@ -209,6 +227,7 @@ public class PlayerService extends Service {
     }
 
     public void InitPlayList(List<Reading> list,int position){
+        lastPlayer = IPlayerUtil.PlayerXBKJ;
         LogUtil.DefalutLog("position:"+position+"---list:"+list.size());
         checkIsForeground();
         stopXMLYPlayer();
@@ -229,7 +248,6 @@ public class PlayerService extends Service {
 
     private void loadMoreData(){
         try {
-            LogUtil.DefalutLog("load more data");
             getData();
         } catch (Exception e) {
             e.printStackTrace();
@@ -343,6 +361,9 @@ public class PlayerService extends Service {
                         clearNotification();
                         stopForeground(true);
                         isForeground = false;
+                        if (isAppExit) {
+                            stopSelf();
+                        }
                     }
                 }else if(NotificationUtil.mes_type_xmly.equals(type)){
                     if (action.equals(action_restart)) {
@@ -395,16 +416,12 @@ public class PlayerService extends Service {
 
     public void pause(){
         if(song != null && mExoPlayer != null){
-            setPause();
+            PlayerStatus = 2;
+            mExoPlayer.setPlayWhenReady(false);
             NotificationUtil.showNotification(this, action_restart,song.getTitle(),
                     NotificationUtil.mes_type_zyhy);
         }
         NotificationUtil.sendBroadcast(this, action_restart);
-    }
-
-    public void setPause(){
-        PlayerStatus = 2;
-        mExoPlayer.setPlayWhenReady(false);
     }
 
     public void restart(){
@@ -594,16 +611,18 @@ public class PlayerService extends Service {
 
     public void getData() throws Exception{
         if ((System.currentTimeMillis() - lastLoadDataTime) > 1000*3) {
+            LogUtil.DefalutLog("load more data");
             lastLoadDataTime = System.currentTimeMillis();
             AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.Reading.Reading);
-            query.whereEqualTo(AVOUtil.Reading.type, song.getType());
             if(song != null && !TextUtils.isEmpty(song.getCategory_2())){
+                query.whereEqualTo(AVOUtil.Reading.type, song.getType());
                 query.whereEqualTo(AVOUtil.Reading.category_2, song.getCategory_2());
                 if(!TextUtils.isEmpty(song.getItem_id())){
                     query.whereGreaterThan(AVOUtil.Reading.item_id, Long.parseLong(song.getItem_id()));
                 }
                 query.addAscendingOrder(AVOUtil.Reading.item_id);
             }else if (song != null && !TextUtils.isEmpty(song.getBoutique_code())) {
+                query.whereEqualTo(AVOUtil.Reading.type, song.getType());
                 query.whereEqualTo(AVOUtil.Reading.boutique_code, song.getBoutique_code());
                 if(!TextUtils.isEmpty(song.getPublish_time())){
                     query.whereLessThan(AVOUtil.Reading.publish_time, new Date(Long.parseLong(song.getPublish_time())));
@@ -612,11 +631,10 @@ public class PlayerService extends Service {
             } else {
                 if(song != null && !TextUtils.isEmpty(song.getPublish_time())){
                     query.whereLessThan(AVOUtil.Reading.publish_time, new Date(Long.parseLong(song.getPublish_time())));
+                }else {
+                    query.whereEqualTo(AVOUtil.Reading.type, "mp3");
+                    query.addDescendingOrder(AVOUtil.Reading.publish_time);
                 }
-                query.addDescendingOrder(AVOUtil.Reading.publish_time);
-            }
-            if (song == null) {
-                query.addDescendingOrder(AVOUtil.Reading.publish_time);
             }
             query.limit(30);
             query.findInBackground(new FindCallback<AVObject>() {

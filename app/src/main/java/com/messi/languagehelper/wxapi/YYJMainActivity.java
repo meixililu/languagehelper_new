@@ -2,6 +2,7 @@ package com.messi.languagehelper.wxapi;
 
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.NotificationManager;
 import android.content.ComponentName;
@@ -202,6 +203,7 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 		}
 	}
 
+	@SuppressLint("MissingSuperCall")
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 //		super.onSaveInstanceState(outState);
@@ -222,6 +224,7 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 	}
 
 	private void UnbindService(){
+		IPlayerUtil.setAppExit(true);
 		if (musicConnection != null && IPlayerUtil.musicSrv != null) {
 			unbindService(musicConnection);
 			musicConnection = null;

@@ -15,7 +15,7 @@ import java.lang.Override;
 public class WordStudyNewWordActivity_ViewBinding implements Unbinder {
   private WordStudyNewWordActivity target;
 
-  private View view7f080263;
+  private View view7f080264;
 
   private View view7f0800fd;
 
@@ -41,7 +41,7 @@ public class WordStudyNewWordActivity_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.renzhi_layout, "field 'renzhiLayout' and method 'onClick'");
     target.renzhiLayout = Utils.castView(view, R.id.renzhi_layout, "field 'renzhiLayout'", FrameLayout.class);
-    view7f080263 = view;
+    view7f080264 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -119,8 +119,8 @@ public class WordStudyNewWordActivity_ViewBinding implements Unbinder {
     target.dancisujiLayout = null;
     target.pinxieLayout = null;
 
-    view7f080263.setOnClickListener(null);
-    view7f080263 = null;
+    view7f080264.setOnClickListener(null);
+    view7f080264 = null;
     view7f0800fd.setOnClickListener(null);
     view7f0800fd = null;
     view7f0800cf.setOnClickListener(null);

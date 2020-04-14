@@ -156,7 +156,7 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
             category = getIntent().getStringExtra(KeyUtil.Category);
             keyword = getIntent().getStringExtra(KeyUtil.KeyWord);
             mAVObjects = new ArrayList<AVObject>();
-            IPlayerUtil.MPlayerPause();
+            IPlayerUtil.pauseAudioPlayer(this);
             List<AVObject> list = (List<AVObject>) Setings.dataMap.get(KeyUtil.DataMapKey);
             if(list != null){
                 mAVObjects.addAll(list);

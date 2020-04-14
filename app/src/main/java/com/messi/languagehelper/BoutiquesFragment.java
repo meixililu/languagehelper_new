@@ -1,7 +1,7 @@
 package com.messi.languagehelper;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,30 +12,26 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
+import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.adapter.RcBoutiquesAdapter;
+import com.messi.languagehelper.bean.RespoADData;
+import com.messi.languagehelper.bean.RespoData;
 import com.messi.languagehelper.databinding.BoutiquesFragmentBinding;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
-import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.Setings;
+import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.ToastUtil;
+import com.messi.languagehelper.viewmodels.BoutiquesViewModel;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
-
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.List;
 
 public class BoutiquesFragment extends BaseFragment {
 
 	private RcBoutiquesAdapter mAdapter;
 	private LinearLayoutManager mLinearLayoutManager;
-	private List<AVObject> avObjects;
 	private String type;
 	private String category;
 	private String title;
-    private int skip = 0;
-    private boolean loading;
-    private boolean hasMore = true;
+    private BoutiquesViewModel viewModel;
     private BoutiquesFragmentBinding binding;
 
 	public static BoutiquesFragment getInstance(Builder builder) {
@@ -65,6 +61,10 @@ public class BoutiquesFragment extends BaseFragment {
 			category = getArguments().getString(KeyUtil.Category);
 			type = getArguments().getString(KeyUtil.Type);
 			title = getArguments().getString(KeyUtil.FragmentTitle);
+			viewModel = ViewModelProviders.of(getActivity()).get(BoutiquesViewModel.class);
+			viewModel.init();
+			viewModel.getRepo().setCategory(category);
+			viewModel.getRepo().setType(type);
 		}
 	}
 
@@ -80,18 +80,18 @@ public class BoutiquesFragment extends BaseFragment {
 	@Override
 	public void loadDataOnStart() {
 		super.loadDataOnStart();
-		new QueryTask(this).execute();
+		viewModel.loadData();
+		viewModel.count();
 	}
 	
 	private void init(View view){
-		avObjects = new ArrayList<AVObject>();
 		if(!TextUtils.isEmpty(title)){
 			binding.myAwesomeToolbar.setVisibility(View.VISIBLE);
 			binding.myAwesomeToolbar.setTitle(title);
 		}
 		mAdapter = new RcBoutiquesAdapter();
         mAdapter.setFooter(new Object());
-		mAdapter.setItems(avObjects);
+		mAdapter.setItems(viewModel.getRepo().getList());
         hideFooterview();
 		mLinearLayoutManager = new LinearLayoutManager(getContext());
 		binding.listview.setLayoutManager(mLinearLayoutManager);
@@ -103,7 +103,53 @@ public class BoutiquesFragment extends BaseFragment {
 						.build());
 		binding.listview.setAdapter(mAdapter);
 		setListOnScrollListener();
+		initViewModel();
+	}
 
+	private void initViewModel(){
+		viewModel.getReadingList().observe(this, data -> onDataChange(data));
+		viewModel.isShowProgressBar().observe(this, isShow -> isShowProgressBar(isShow));
+		viewModel.getAD().observe(this,data -> refreshAD(data));
+	}
+
+	private void refreshAD(RespoADData data){
+		LogUtil.DefalutLog("ViewModel---refresh---ad");
+		if (data != null) {
+			if (data.getCode() == 1) {
+				if(mAdapter != null){
+					mAdapter.notifyItemInserted(data.getPos());
+				}
+			}
+		}
+	}
+
+	private void onDataChange(RespoData data){
+		LogUtil.DefalutLog("ViewModel---onDataChange---");
+		if (data != null) {
+			if (data.getCode() == 1) {
+				if(mAdapter != null){
+					mAdapter.notifyItemRangeInserted(data.getPositionStart(),data.getItemCount());
+				}
+			} else {
+				ToastUtil.diaplayMesShort(getActivity(),data.getErrStr());
+			}
+			if (data.isHideFooter()) {
+				hideFooterview();
+			}else {
+				showFooterview();
+			}
+		}else {
+			ToastUtil.diaplayMesShort(getActivity(),"网络异常，请检查网络连接。");
+		}
+	}
+
+	private void isShowProgressBar(Boolean isShow){
+		if (isShow) {
+			showProgressbar();
+		} else {
+			hideProgressbar();
+			onSwipeRefreshLayoutFinish();
+		}
 	}
 
     public void setListOnScrollListener(){
@@ -114,83 +160,38 @@ public class BoutiquesFragment extends BaseFragment {
                 int visible  = mLinearLayoutManager.getChildCount();
                 int total = mLinearLayoutManager.getItemCount();
                 int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
-                if(!loading && hasMore){
-                    if ((visible + firstVisibleItem) >= total){
-                        new QueryTask(BoutiquesFragment.this).execute();
-                    }
+				isADInList(recyclerView,firstVisibleItem,visible);
+                if ((visible + firstVisibleItem) >= total){
+					viewModel.loadData();
                 }
             }
         });
     }
+
+	private void isADInList(RecyclerView view,int first, int vCount){
+		if(viewModel.getRepo().getList().size() > 3){
+			for(int i=first;i< (first+vCount);i++){
+				if(i < viewModel.getRepo().getList().size() && i > 0){
+					AVObject mAVObject = viewModel.getRepo().getList().get(i);
+					if(mAVObject != null && mAVObject.get(KeyUtil.ADKey) != null){
+						if(!(Boolean) mAVObject.get(KeyUtil.ADIsShowKey)){
+							NativeDataRef mNativeADDataRef = (NativeDataRef) mAVObject.get(KeyUtil.ADKey);
+							boolean isExposure = mNativeADDataRef.onExposure(view.getChildAt(i%vCount));
+							LogUtil.DefalutLog("isExposure:"+isExposure);
+							if(isExposure){
+								mAVObject.put(KeyUtil.ADIsShowKey, isExposure);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 	
 	@Override
 	public void onSwipeRefreshLayoutRefresh() {
         hideFooterview();
-        skip = 0;
-		new QueryTask(this).execute();
-	}
-	
-	private class QueryTask extends AsyncTask<Void, Void, Void> {
-
-		private WeakReference<BoutiquesFragment> mainActivity;
-
-		public QueryTask(BoutiquesFragment mActivity){
-			mainActivity = new WeakReference<>(mActivity);
-		}
-
-		@Override
-		protected void onPreExecute() {
-			super.onPreExecute();
-			showProgressbar();
-		}
-		
-		@Override
-		protected Void doInBackground(Void... params) {
-			try {
-				AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.Boutiques.Boutiques);
-				if(!TextUtils.isEmpty(category)){
-					query.whereEqualTo(AVOUtil.Boutiques.category,category);
-				}
-				if(!TextUtils.isEmpty(type)){
-					query.whereEqualTo(AVOUtil.Boutiques.type,type);
-				}
-				query.orderByAscending(AVOUtil.Boutiques.order);
-				query.orderByDescending(AVOUtil.Boutiques.views);
-                query.skip(skip);
-                query.limit(Setings.page_size);
-				List<AVObject> items  = query.find();
-				if(items != null){
-				    if(skip == 0){
-                        avObjects.clear();
-                    }
-                    avObjects.addAll(items);
-					skip += Setings.page_size;
-				    if(items.size() == Setings.page_size){
-				        hasMore = true;
-                    }else {
-				        hasMore = false;
-                    }
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return null;
-		}
-
-		@Override
-		protected void onPostExecute(Void result) {
-			super.onPostExecute(result);
-			if(mainActivity.get() != null){
-				hideProgressbar();
-				onSwipeRefreshLayoutFinish();
-				mAdapter.notifyDataSetChanged();
-				if(hasMore){
-					showFooterview();
-				}else {
-					hideFooterview();
-				}
-			}
-		}
+        viewModel.refresh();
 	}
 
 	@Override

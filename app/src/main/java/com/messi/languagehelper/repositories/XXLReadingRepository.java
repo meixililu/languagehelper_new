@@ -3,9 +3,7 @@ package com.messi.languagehelper.repositories;
 import com.baidu.mobads.AdView;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.iflytek.voiceads.conn.NativeDataRef;
-import com.messi.languagehelper.bean.RespoADData;
 import com.messi.languagehelper.box.Reading;
-import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.SystemUtil;
 import com.qq.e.ads.nativ.NativeExpressADView;
 
@@ -42,19 +40,5 @@ public class XXLReadingRepository  extends ADXXLRepository<Reading>{
     public void addCSJAD(TTFeedAd ad) {
         mADObject = new Reading();
         mADObject.setCsjTTFeedAd(ad);
-    }
-
-    @Override
-    public void addAD(){
-        isLoading = false;
-        if (isShowAd) {
-            if (mADObject != null && NullUtil.isNotEmpty(avObjects) && mRespoData != null) {
-                int pos = getIndex();
-                avObjects.add(pos, mADObject);
-                RespoADData mData = new RespoADData(1,pos);
-                mRespoData.setValue(mData);
-                mADObject = null;
-            }
-        }
     }
 }

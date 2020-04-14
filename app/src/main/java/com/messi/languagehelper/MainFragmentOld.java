@@ -134,9 +134,7 @@ public class MainFragmentOld extends BaseFragment implements OnClickListener, Or
                 record_anim_img.setBackgroundResource(R.drawable.speak_voice_7);
             }
         }
-
     };
-
 
     public static MainFragmentOld getInstance(FragmentProgressbarListener listener) {
         MainFragmentOld mMainFragment = new MainFragmentOld();

@@ -21,4 +21,10 @@ interface IXBPlayer {
     void MPlayerSeekTo(int position);
 
     boolean MPlayerIsSameMp3(String oid);
+
+    void setLastPlayer(String player);
+
+    String getLastPlayer();
+
+    void setAppExit(boolean isExit);
 }

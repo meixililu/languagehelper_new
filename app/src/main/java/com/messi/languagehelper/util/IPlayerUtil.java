@@ -1,12 +1,23 @@
 package com.messi.languagehelper.util;
 
+import android.content.Context;
+
 import com.alibaba.fastjson.JSON;
 import com.messi.languagehelper.aidl.IXBPlayer;
 import com.messi.languagehelper.box.Reading;
+import com.ximalaya.ting.android.opensdk.model.live.radio.Radio;
+import com.ximalaya.ting.android.opensdk.model.track.Track;
+import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
 
 import java.util.List;
 
+import static com.messi.languagehelper.service.PlayerService.action_pause;
+import static com.messi.languagehelper.service.PlayerService.action_restart;
+
 public class IPlayerUtil {
+
+    public static final String PlayerXMLY = "PlayerXMLY";
+    public static final String PlayerXBKJ = "PlayerXBKJ";
 
     public static IXBPlayer musicSrv;
 
@@ -19,6 +30,37 @@ public class IPlayerUtil {
             e.printStackTrace();
         }
         return 0;
+    }
+
+    public static String getLastPlayer() {
+        try {
+            if(musicSrv != null){
+                return musicSrv.getLastPlayer();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return PlayerXBKJ;
+    }
+
+    public static void setLastPlayer(String player) {
+        try {
+            if(musicSrv != null){
+                musicSrv.setLastPlayer(player);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void setAppExit(boolean isExit) {
+        try {
+            if(musicSrv != null){
+                musicSrv.setAppExit(isExit);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static int getCurrentPosition() {
@@ -58,7 +100,6 @@ public class IPlayerUtil {
             if(musicSrv != null){
                 return musicSrv.MPlayerIsPlaying();
             }
-            return true;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -109,18 +150,18 @@ public class IPlayerUtil {
 
     public static void initAndPlay(Reading song,boolean isPlayList){
         try {
-            LogUtil.DefalutLog("IPlayerUtil---initAndPlay---Reading:"+song);
+            LogUtil.DefalutLog("IPlayerUtil---initAndPlay---musicSrv:"+musicSrv);
             String data = JSON.toJSONString(song);
             musicSrv.initAndPlay(data,isPlayList);
         } catch (Exception e) {
-            LogUtil.DefalutLog("RemoteException---initAndPlay");
+            LogUtil.DefalutLog("RemoteException---initAndPlay--isPlayList");
             e.printStackTrace();
         }
     }
 
     public static void initPlayList(List<Reading> list, int position){
         try {
-            LogUtil.DefalutLog("IPlayerUtil---initPlayList---list:"+list);
+            LogUtil.DefalutLog("IPlayerUtil---initPlayList---musicSrv:"+musicSrv);
             String lists = JSON.toJSONString(list);
             musicSrv.initPlayList(lists,position);
         } catch (Exception e) {
@@ -129,4 +170,54 @@ public class IPlayerUtil {
         }
     }
 
+    public static void pauseAudioPlayer(Context context){
+        try {
+            if (IPlayerUtil.MPlayerIsPlaying()) {
+                MPlayerPause();
+            }
+            if (XmPlayerManager.getInstance(context).isPlaying()) {
+                String title = "告别说不出口的英语";
+                if (XmPlayerManager.getInstance(context).getCurrSound() instanceof Track) {
+                    Track mTrack = (Track) XmPlayerManager.getInstance(context).getCurrSound();
+                    title = mTrack.getTrackTitle();
+                }
+                if (XmPlayerManager.getInstance(context).getCurrSound() instanceof Radio) {
+                    Radio mRadio = (Radio) XmPlayerManager.getInstance(context).getCurrSound();
+                    title = mRadio.getRadioName();
+                }
+                NotificationUtil.showNotification(context, action_restart,title,
+                        NotificationUtil.mes_type_xmly);
+                NotificationUtil.sendBroadcast(context, action_restart);
+                XmPlayerManager.getInstance(context).pause();
+            }
+        }catch (Exception e){
+            LogUtil.DefalutLog("RemoteException---pauseAudioPlayer");
+            e.printStackTrace();
+        }
+    }
+
+    public static void restartAudioPlayer(Context context){
+        try {
+            if (IPlayerUtil.PlayerXBKJ.equals(IPlayerUtil.getLastPlayer())){
+                MPlayerRestart();
+            }else {
+                String title = "告别说不出口的英语";
+                if (XmPlayerManager.getInstance(context).getCurrSound() instanceof Track) {
+                    Track mTrack = (Track) XmPlayerManager.getInstance(context).getCurrSound();
+                    title = mTrack.getTrackTitle();
+                }
+                if (XmPlayerManager.getInstance(context).getCurrSound() instanceof Radio) {
+                    Radio mRadio = (Radio) XmPlayerManager.getInstance(context).getCurrSound();
+                    title = mRadio.getRadioName();
+                }
+                XmPlayerManager.getInstance(context).play();
+                NotificationUtil.sendBroadcast(context,action_pause);
+                NotificationUtil.showNotification(context,action_pause, title,
+                        NotificationUtil.mes_type_xmly);
+            }
+        }catch (Exception e){
+            LogUtil.DefalutLog("RemoteException---pauseAudioPlayer");
+            e.printStackTrace();
+        }
+    }
 }
