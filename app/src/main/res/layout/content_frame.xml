@@ -56,19 +56,19 @@
             android:layout_height="match_parent" />
         <RelativeLayout
             android:id="@+id/playbtn_layout"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="-10dp"
+            android:layout_marginBottom="-8dp"
             android:background="@drawable/round_theme_bgl"
             >
             <ImageView
                 android:id="@+id/btn_play"
-                android:layout_width="27dp"
-                android:layout_height="27dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_centerInParent="true"
-                android:layout_marginBottom="7dp"
+                android:layout_marginBottom="5dp"
                 android:src="@drawable/ic_play_white" />
         </RelativeLayout>
     </RelativeLayout>
