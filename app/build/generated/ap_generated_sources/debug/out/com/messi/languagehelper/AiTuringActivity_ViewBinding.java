@@ -25,11 +25,11 @@ public class AiTuringActivity_ViewBinding implements Unbinder {
 
   private View view7f080308;
 
-  private View view7f080422;
+  private View view7f080421;
 
   private View view7f08016f;
 
-  private View view7f08041b;
+  private View view7f08041a;
 
   private View view7f0800d5;
 
@@ -59,7 +59,7 @@ public class AiTuringActivity_ViewBinding implements Unbinder {
     target.volumeImg = Utils.findRequiredViewAsType(source, R.id.volume_img, "field 'volumeImg'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.volume_btn, "field 'volumeBtn' and method 'onViewClicked'");
     target.volumeBtn = Utils.castView(view, R.id.volume_btn, "field 'volumeBtn'", FrameLayout.class);
-    view7f080422 = view;
+    view7f080421 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -79,7 +79,7 @@ public class AiTuringActivity_ViewBinding implements Unbinder {
     target.voiceBtn = Utils.findRequiredViewAsType(source, R.id.voice_btn, "field 'voiceBtn'", TextView.class);
     view = Utils.findRequiredView(source, R.id.voice_btn_cover, "field 'voiceBtnCover' and method 'onViewClicked'");
     target.voiceBtnCover = Utils.castView(view, R.id.voice_btn_cover, "field 'voiceBtnCover'", CardView.class);
-    view7f08041b = view;
+    view7f08041a = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -137,12 +137,12 @@ public class AiTuringActivity_ViewBinding implements Unbinder {
 
     view7f080308.setOnClickListener(null);
     view7f080308 = null;
-    view7f080422.setOnClickListener(null);
-    view7f080422 = null;
+    view7f080421.setOnClickListener(null);
+    view7f080421 = null;
     view7f08016f.setOnClickListener(null);
     view7f08016f = null;
-    view7f08041b.setOnClickListener(null);
-    view7f08041b = null;
+    view7f08041a.setOnClickListener(null);
+    view7f08041a = null;
     view7f0800d5.setOnClickListener(null);
     view7f0800d5 = null;
   }

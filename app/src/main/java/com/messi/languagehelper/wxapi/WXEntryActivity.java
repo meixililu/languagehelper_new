@@ -42,12 +42,9 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Setings;
-import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.TranslateHelper;
 import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
-
-import java.util.Locale;
 
 import cn.jzvd.Jzvd;
 import permissions.dispatcher.NeedsPermission;
@@ -73,6 +70,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 			setContentView(binding.getRoot());
 			initData();
 			initViews();
+			setupTabIcons();
 			initSDKAndPermission();
 			AppUpdateUtil.isNeedUpdate(this);
 		} catch (Exception e) {
@@ -85,20 +83,18 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 		SpeechUtility.createUtility(this, SpeechConstant.APPID + "=" + getString(R.string.app_id));
 		sp = getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
 		PlayUtil.initData(this, sp);
-		SystemUtil.lan = Locale.getDefault().getLanguage();
-		if (toolbar != null) {
-			getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-			getSupportActionBar().setTitle("");
-		}
 		TranslateHelper.init(sp);
 	}
 
+	private void setupTabIcons() {
+		binding.tablayout.getTabAt(0).setIcon(getResources().getDrawable(R.drawable.ic_home_white_selector));
+		binding.tablayout.getTabAt(1).setIcon(getResources().getDrawable(R.drawable.ic_school_selector));
+		binding.tablayout.getTabAt(2).setIcon(getResources().getDrawable(R.drawable.ic_wb_cloudy_selector));
+		binding.tablayout.getTabAt(3).setIcon(getResources().getDrawable(R.drawable.ic_view_list_selector));
+	}
+
 	private void initViews() {
-		final MainPageAdapter mAdapter = new MainPageAdapter(this.getSupportFragmentManager(),this,
-				this);
-		if(SystemUtil.lan.equals("en")){
-			binding.tablayout.setTabMode(TabLayout.MODE_SCROLLABLE);
-		}
+		MainPageAdapter mAdapter = new MainPageAdapter(this.getSupportFragmentManager(),this, this);
 		binding.playbtnLayout.setOnClickListener(view -> onPlayBtnClick(view));
 		binding.pager.setAdapter(mAdapter);
 		binding.pager.setOffscreenPageLimit(5);
@@ -201,11 +197,12 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 	private void setLastTimeSelectTab() {
 		int index = sp.getInt(KeyUtil.LastTimeSelectTab, 0);
 		binding.pager.setCurrentItem(index);
+		initPlayerBtn(index);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.main, menu);
+//		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
 

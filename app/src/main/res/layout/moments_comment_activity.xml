@@ -11,7 +11,7 @@
         android:id="@+id/my_awesome_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/theme_color"
+        android:background="?attr/colorPrimary"
         android:minHeight="@dimen/actionBar">
     </android.support.v7.widget.Toolbar>
 
@@ -92,7 +92,7 @@
             android:background="@color/white"
             android:gravity="center"
             android:text="@string/moments_add"
-            android:textColor="@color/theme_color"
+            android:textColor="?attr/colorPrimary"
             android:textSize="@dimen/big" />
     </LinearLayout>
 

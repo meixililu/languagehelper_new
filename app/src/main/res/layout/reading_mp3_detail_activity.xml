@@ -19,7 +19,7 @@
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             android:theme="@style/AppTheme.AppBarOverlay"
-            app:contentScrim="@color/theme_color"
+            app:contentScrim="?attr/colorPrimary"
             app:expandedTitleMarginEnd="56dp"
             app:expandedTitleMarginStart="40dp"
             app:expandedTitleTextAppearance="@style/TextAppearance.ExpandedTitle"
@@ -40,7 +40,7 @@
                     android:paddingTop="@dimen/padding_15"
                     android:paddingBottom="@dimen/padding_15"
                     android:textColor="@color/white"
-                    android:background="@color/theme_color"
+                    android:background="?attr/colorPrimary"
                     android:textSize="@dimen/biggerx" />
 
                 <FrameLayout
@@ -164,7 +164,7 @@
                 android:id="@+id/my_awesome_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/actionBar"
-                android:background="@color/theme_color"
+                android:background="?attr/colorPrimary"
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/AppTheme.PopupOverlay">
 

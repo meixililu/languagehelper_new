@@ -16,7 +16,7 @@
             android:id="@+id/my_awesome_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/theme_color"
+            android:background="?attr/colorPrimary"
             android:minHeight="@dimen/actionBar" >
 
             <ProgressBar style="@style/CircularProgressWhite"
@@ -84,7 +84,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="47dp"
-                        android:background="@color/theme_color"
+                        android:background="?attr/colorPrimary"
                         android:textColor="@color/white"
                         android:gravity="center"
                         android:textStyle="bold"

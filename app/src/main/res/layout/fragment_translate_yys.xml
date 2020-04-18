@@ -68,7 +68,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_photo_camera_grey600_24dp"
+                        app:srcCompat="@drawable/ic_photo_camera_black"
                         />
                 </FrameLayout>
 
@@ -129,7 +129,7 @@
                         android:id="@+id/submit_btn"
                         android:layout_width="match_parent"
                         android:layout_height="36dp"
-                        android:background="@color/theme_color"
+                        android:background="?attr/colorPrimary"
                         android:textColor="@color/white"
                         android:gravity="center"
                         android:textSize="@dimen/middle"

@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="AppTheme" parent="AppTheme.Base" />
-
-    <style name="AppTheme.Base" parent="Theme.AppCompat.NoActionBar">
+    <style name="AppThemeBlue" parent="AppThemeBasic">
         <item name="colorPrimary">@color/theme_color</item>
         <item name="colorPrimaryDark">@color/theme_color_dark</item>
         <item name="colorAccent">@color/white</item>
         <item name="android:itemBackground">@drawable/bg_lightblue_blue_selector</item>
+    </style>
 
+    <style name="AppThemeGreen" parent="AppThemeBasic">
+        <item name="colorPrimary">@color/theme_color_green</item>
+        <item name="colorPrimaryDark">@color/theme_color_dark_green</item>
+        <item name="colorAccent">@color/white</item>
+        <item name="android:itemBackground">@drawable/bg_lightblue_blue_selector</item>
+    </style>
+
+    <style name="AppThemeBasic" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorAccent">@color/white</item>
+        <item name="android:itemBackground">@drawable/bg_lightblue_blue_selector</item>
     </style>
 
     <style name="AppTheme.Launcher" parent="Theme.AppCompat.NoActionBar">
@@ -79,5 +90,15 @@
         <item name="android:thumb">@drawable/seekbar_thumb</item>
         <item name="android:thumbOffset">0dp</item>
     </style>
+
+<!--    <style name="AppThemeBlue" parent="Theme.AppCompat.NoActionBar">-->
+<!--        <item name="android:windowDrawsSystemBarBackgrounds">true</item>-->
+<!--        <item name="android:statusBarColor">?attr/colorPrimary</item>-->
+<!--        <item name="android:windowContentTransitions">true</item>-->
+<!--        <item name="android:windowAllowEnterTransitionOverlap">true</item>-->
+<!--        <item name="android:windowAllowReturnTransitionOverlap">true</item>-->
+<!--        <item name="android:windowSharedElementEnterTransition">@android:transition/move</item>-->
+<!--        <item name="android:windowSharedElementExitTransition">@android:transition/move</item>-->
+<!--    </style>-->
 
 </resources>

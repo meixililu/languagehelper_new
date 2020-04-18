@@ -85,7 +85,7 @@
                 android:layout_height="@dimen/actionBar"
                 android:layout_alignParentTop="true"
                 app:layout_collapseMode="pin"
-                android:background="@color/theme_color"
+                android:background="?attr/colorPrimary"
                 app:popupTheme="@style/AppTheme.PopupOverlay" >
                 <ProgressBar style="@style/CircularProgressWhite"
                     android:id="@+id/progressBarCircularIndetermininate"

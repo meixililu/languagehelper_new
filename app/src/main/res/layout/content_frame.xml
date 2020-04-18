@@ -6,45 +6,30 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/my_awesome_toolbar"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/actionBar"
-        android:background="@color/theme_color"
-        app:popupTheme="@style/AppTheme.PopupOverlay"
+        android:layout_height="wrap_content"
         >
-        <LinearLayout
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tablayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            >
-            <android.support.design.widget.TabLayout
-                android:id="@+id/tablayout"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="@dimen/actionBar"
-                app:tabIndicatorColor="@color/white"
-                app:tabSelectedTextColor="@color/white"
-                app:tabTextColor="@color/white_alph_unselect"
-                app:tabTextAppearance="@style/TabLayoutTextStyle"
-                android:layout_marginLeft="@dimen/padding_5"
-                android:background="@color/theme_color" />
-            <LinearLayout
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:gravity="center"
-                android:orientation="horizontal">
-                <ProgressBar
-                    android:id="@+id/progressBarCircularIndetermininate"
-                    style="@style/CircularProgressWhite"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    />
-            </LinearLayout>
-        </LinearLayout>
-    </android.support.v7.widget.Toolbar>
+            android:layout_height="@dimen/actionBar"
+            android:background="?attr/colorPrimary"
+            app:tabIndicatorColor="@color/none"
+            app:tabSelectedTextColor="@color/white"
+            app:tabTextColor="@color/white_alph_unselect"
+            app:tabTextAppearance="@style/TabLayoutTextStyle"
+            />
+        <ProgressBar
+            android:id="@+id/progressBarCircularIndetermininate"
+            style="@style/CircularProgressWhite"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:visibility="gone"
+            />
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -56,19 +41,20 @@
             android:layout_height="match_parent" />
         <RelativeLayout
             android:id="@+id/playbtn_layout"
-            android:layout_width="54dp"
-            android:layout_height="54dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="-8dp"
             android:background="@drawable/round_theme_bgl"
+            android:visibility="gone"
             >
             <ImageView
                 android:id="@+id/btn_play"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_centerInParent="true"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="4dp"
                 android:src="@drawable/ic_play_white" />
         </RelativeLayout>
     </RelativeLayout>

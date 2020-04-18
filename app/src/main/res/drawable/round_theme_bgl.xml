@@ -3,11 +3,11 @@
     android:shape="oval"
 >
 
-    <solid android:color="@color/theme_color"/>
+    <solid android:color="?attr/colorPrimary"/>
 
-    <stroke android:width="6dp" android:color="@color/speak_btn_bg" />
+    <stroke android:width="4dp" android:color="@color/speak_btn_bg" />
 
-    <corners android:radius="20dp" />
+    <corners android:radius="24dp" />
 
 
 </shape>

@@ -103,7 +103,7 @@
     <string name="reading">Reading</string>
     <string name="foreign_website">Website</string>
     <string name="menu_share">DIY Share</string>
-    <string name="title_style">Style</string>
+    <string name="title_style">Theme</string>
     <string name="invite_friends_qrcode">QR Code</string>
     <string name="menu_settings">Play Speed</string>
     <string name="app_name_share">App:Translator</string>
@@ -345,6 +345,7 @@
     <string name="recognize_error">Recognize error,Retry Please！</string>
 	<string name="network_error">Network Error,Retry Later Please!</string>
     <string name="style_select">Select Style</string>
+    <string name="theme_color_select">Theme Color</string>
     <string name="style_classic">Classic</string>
     <string name="style_minimalist">Minimalist</string>
     <string name="restart_success">Reboot App</string>

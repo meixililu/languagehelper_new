@@ -12,7 +12,7 @@
 	    android:layout_height="wrap_content"
 	    android:layout_width="match_parent"
 	    android:minHeight="@dimen/actionBar"
-	    android:background="@color/theme_color" >
+	    android:background="?attr/colorPrimary" >
 	    <ProgressBar style="@style/CircularProgressWhite"
             android:id="@+id/progressBarCircularIndetermininate"
             android:layout_width="24dp"

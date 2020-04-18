@@ -10,7 +10,7 @@
         android:id="@+id/my_awesome_toolbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/actionBar"
-        android:background="@color/theme_color"
+        android:background="?attr/colorPrimary"
         android:visibility="gone"
         >
         <ProgressBar

@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:theme="@style/AppTheme.AppBarOverlay"
-            app:contentScrim="@color/theme_color"
+            app:contentScrim="?attr/colorPrimary"
             app:expandedTitleMarginEnd="56dp"
             app:expandedTitleMarginStart="40dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"

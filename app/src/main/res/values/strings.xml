@@ -26,7 +26,7 @@
     <string name="title_english_video">视频</string>
     <string name="title_english_story">故事</string>
     <string name="title_juhe">综合</string>
-    <string name="title_style">样式选择</string>
+    <string name="title_style">主题样式</string>
     <string name="title_more">更多</string>
     <string name="title_all_unit">单元选择</string>
     <string name="title_article_collected">文章</string>
@@ -369,6 +369,7 @@
     <string name="title_activity_main_test">MainActivityTest</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="style_select">选择您喜欢的界面风格</string>
+    <string name="theme_color_select">选择您喜欢的主题颜色</string>
     <string name="style_classic">经典</string>
     <string name="style_minimalist">极简</string>
     <string name="restart_success">下次进入应用就看的见了！</string>

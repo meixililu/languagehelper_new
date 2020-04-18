@@ -54,7 +54,6 @@ import permissions.dispatcher.RuntimePermissions;
 public class MainFragmentOld extends BaseFragment implements OnClickListener, OrcResultListener {
 
     private EditText input_et;
-    private FrameLayout submit_btn_cover;
     private FrameLayout photo_tran_btn;
     private FrameLayout clear_btn_layout;
     private Button voice_btn;
@@ -156,7 +155,6 @@ public class MainFragmentOld extends BaseFragment implements OnClickListener, Or
         recognizer = SpeechRecognizer.createRecognizer(getContext(), null);
 
         input_et = (EditText) view.findViewById(R.id.input_et);
-        submit_btn_cover = (FrameLayout) view.findViewById(R.id.submit_btn_cover);
         photo_tran_btn = (FrameLayout) view.findViewById(R.id.photo_tran_btn);
         cb_speak_language_ch = (TextView) view.findViewById(R.id.cb_speak_language_ch);
         cb_speak_language_en = (TextView) view.findViewById(R.id.cb_speak_language_en);
@@ -169,7 +167,7 @@ public class MainFragmentOld extends BaseFragment implements OnClickListener, Or
         submit_btn = (TextView) view.findViewById(R.id.submit_btn);
 
         photo_tran_btn.setOnClickListener(this);
-        submit_btn_cover.setOnClickListener(this);
+        submit_btn.setOnClickListener(this);
         cb_speak_language_ch.setOnClickListener(this);
         cb_speak_language_en.setOnClickListener(this);
         speak_round_layout.setOnClickListener(this);
@@ -253,7 +251,7 @@ public class MainFragmentOld extends BaseFragment implements OnClickListener, Or
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.submit_btn_cover) {
+        if (v.getId() == R.id.submit_btn) {
             submit();
             hideIME();
             AVAnalytics.onEvent(getContext(), "tab1_submit_btn");
@@ -399,7 +397,7 @@ public class MainFragmentOld extends BaseFragment implements OnClickListener, Or
      */
     private void hideIME() {
         final InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Activity.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(submit_btn_cover.getWindowToken(), 0);
+        imm.hideSoftInputFromWindow(submit_btn.getWindowToken(), 0);
     }
 
     /**

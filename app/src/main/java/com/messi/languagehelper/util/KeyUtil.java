@@ -16,7 +16,7 @@ public class KeyUtil {
 	
 	public static final String Practice_SpeakAfterMe = "Practice_SpeakAfterMe";
 	
-	public static final String Data = "Data";
+	public static final String APPTheme = "APPTheme";
 
 	public static final String LeanCloudIPAddress = "LeanCloudIPAddress";
 	

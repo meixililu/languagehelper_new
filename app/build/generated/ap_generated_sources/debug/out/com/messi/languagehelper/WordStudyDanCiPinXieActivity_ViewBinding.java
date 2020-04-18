@@ -24,11 +24,11 @@ public class WordStudyDanCiPinXieActivity_ViewBinding implements Unbinder {
 
   private View view7f080245;
 
-  private View view7f080425;
+  private View view7f080424;
 
-  private View view7f08042e;
+  private View view7f08042d;
 
-  private View view7f08035c;
+  private View view7f08035b;
 
   private View view7f080135;
 
@@ -67,7 +67,7 @@ public class WordStudyDanCiPinXieActivity_ViewBinding implements Unbinder {
     target.volumeImg = Utils.findRequiredViewAsType(source, R.id.volume_img, "field 'volumeImg'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.volume_layout, "field 'volumeLayout' and method 'onClick'");
     target.volumeLayout = Utils.castView(view, R.id.volume_layout, "field 'volumeLayout'", FrameLayout.class);
-    view7f080425 = view;
+    view7f080424 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -76,7 +76,7 @@ public class WordStudyDanCiPinXieActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.word_layout, "field 'wordLayout' and method 'onClick'");
     target.wordLayout = Utils.castView(view, R.id.word_layout, "field 'wordLayout'", RelativeLayout.class);
-    view7f08042e = view;
+    view7f08042d = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -87,7 +87,7 @@ public class WordStudyDanCiPinXieActivity_ViewBinding implements Unbinder {
     target.listview = Utils.findRequiredViewAsType(source, R.id.listview, "field 'listview'", RecyclerView.class);
     view = Utils.findRequiredView(source, R.id.try_again_layout, "field 'tryAgainLayout' and method 'onClick'");
     target.tryAgainLayout = Utils.castView(view, R.id.try_again_layout, "field 'tryAgainLayout'", FrameLayout.class);
-    view7f08035c = view;
+    view7f08035b = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -131,12 +131,12 @@ public class WordStudyDanCiPinXieActivity_ViewBinding implements Unbinder {
     view7f080270 = null;
     view7f080245.setOnClickListener(null);
     view7f080245 = null;
-    view7f080425.setOnClickListener(null);
-    view7f080425 = null;
-    view7f08042e.setOnClickListener(null);
-    view7f08042e = null;
-    view7f08035c.setOnClickListener(null);
-    view7f08035c = null;
+    view7f080424.setOnClickListener(null);
+    view7f080424 = null;
+    view7f08042d.setOnClickListener(null);
+    view7f08042d = null;
+    view7f08035b.setOnClickListener(null);
+    view7f08035b = null;
     view7f080135.setOnClickListener(null);
     view7f080135 = null;
   }

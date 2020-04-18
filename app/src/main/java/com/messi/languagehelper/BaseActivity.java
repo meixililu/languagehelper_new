@@ -5,7 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.res.Resources;
+import android.content.SharedPreferences;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
@@ -25,6 +25,7 @@ import com.messi.languagehelper.util.AudioTrackUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.ScreenUtil;
+import com.messi.languagehelper.util.Setings;
 import com.umeng.analytics.MobclickAgent;
 
 import org.greenrobot.eventbus.EventBus;
@@ -58,6 +59,7 @@ public class BaseActivity extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        setAppTheme();
         super.onCreate(savedInstanceState);
     }
 
@@ -88,6 +90,15 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
+    protected void setStatusbarColor(int color) {
+        try {
+            if (VERSION.SDK_INT >= 21) {
+                getWindow().setStatusBarColor(this.getResources().getColor(color));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public void registerBroadcast(){
         IntentFilter intentFilter = new IntentFilter();
@@ -105,15 +116,6 @@ public class BaseActivity extends AppCompatActivity {
         unregisterReceiver(activityReceiver);
     }
 
-    protected void setStatusbarColor(int color) {
-        try {
-            if (VERSION.SDK_INT >= 21) {
-                getWindow().setStatusBarColor(this.getResources().getColor(color));
-            }
-        } catch (Resources.NotFoundException e) {
-            e.printStackTrace();
-        }
-    }
 
     @Override
     public void setContentView(int layoutResID) {
@@ -325,6 +327,19 @@ public class BaseActivity extends AppCompatActivity {
                 return true;
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    public void setAppTheme(){
+        SharedPreferences sp = Setings.getSharedPreferences(this);
+        String apptheme = sp.getString(KeyUtil.APPTheme,"blue");
+        if ("blue".equals(apptheme)) {
+            setTheme(R.style.AppThemeBlue);
+        } else if ("green".equals(apptheme)) {
+            setTheme(R.style.AppThemeGreen);
+        } else {
+
+        }
+        
     }
 
 }

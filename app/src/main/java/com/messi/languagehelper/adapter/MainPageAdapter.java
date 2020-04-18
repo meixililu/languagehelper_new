@@ -80,6 +80,6 @@ public class MainPageAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return CONTENT[position].toUpperCase();
+        return null;
     }
 }

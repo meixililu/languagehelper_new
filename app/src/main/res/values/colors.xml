@@ -4,8 +4,8 @@
 	<!--blue-->
 	<color name="theme_color">#2196F3</color>
 	<color name="theme_color_dark">#cc2196F3</color>
-	<!--<color name="theme_color">#4CAF50</color>-->
-	<!--<color name="theme_color_dark">#aa4CAF50</color>-->
+	<color name="theme_color_green">#4CAF50</color>
+	<color name="theme_color_dark_green">#aa4CAF50</color>
 
 	<color name="none">#00000000</color>
 	<color name="none_thin">#aa000000</color>
@@ -24,7 +24,7 @@
     <color name="green">#77c924</color>
     <color name="green_500">#4CAF50</color>
     <color name="green_500_alpha">#aa4CAF50</color>
-    <color name="green_200">#A5D6A7</color>
+    <color name="green_200">#121216</color>
     <color name="green_light">#d3e8be</color>
     <color name="green_dark">#6cb51f</color>
 	<color name="blue">#ff0000ff</color>

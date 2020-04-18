@@ -18,7 +18,7 @@
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:contentScrim="@color/theme_color"
+            app:contentScrim="?attr/colorPrimary"
             android:theme="@style/AppTheme.AppBarOverlay"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:expandedTitleTextAppearance="@style/TextAppearance.ExpandedTitle">

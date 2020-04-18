@@ -24,7 +24,7 @@
                 android:id="@+id/previous_btn"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="@color/theme_color"
+                android:background="?attr/colorPrimary"
                 android:visibility="gone"
                 android:foreground="@drawable/framelayout_selector">
                 <ImageView
@@ -46,7 +46,7 @@
                     android:id="@+id/start_btn"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:background="@color/theme_color"
+                    android:background="?attr/colorPrimary"
                     android:gravity="center"
                     android:text="@string/start"
                     android:textColor="@color/white"
@@ -95,7 +95,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:visibility="gone"
-                android:background="@color/theme_color"
+                android:background="?attr/colorPrimary"
                 android:foreground="@drawable/framelayout_selector">
 
                 <ImageView

@@ -20,7 +20,7 @@ public class CaricatureDetailActivity_ViewBinding implements Unbinder {
 
   private View view7f080040;
 
-  private View view7f080337;
+  private View view7f080336;
 
   private View view7f08006c;
 
@@ -55,7 +55,7 @@ public class CaricatureDetailActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.to_read, "field 'toRead' and method 'onToReadClicked'");
     target.toRead = Utils.castView(view, R.id.to_read, "field 'toRead'", TextView.class);
-    view7f080337 = view;
+    view7f080336 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -108,8 +108,8 @@ public class CaricatureDetailActivity_ViewBinding implements Unbinder {
 
     view7f080040.setOnClickListener(null);
     view7f080040 = null;
-    view7f080337.setOnClickListener(null);
-    view7f080337 = null;
+    view7f080336.setOnClickListener(null);
+    view7f080336 = null;
     view7f08006c.setOnClickListener(null);
     view7f08006c = null;
     view7f0802b9.setOnClickListener(null);

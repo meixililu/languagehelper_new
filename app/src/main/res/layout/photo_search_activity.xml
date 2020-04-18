@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    android:orientation="vertical" >
+    android:orientation="vertical">
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_awesome_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/theme_color"
+        android:background="?attr/colorPrimary"
         android:minHeight="@dimen/actionBar">
         <ProgressBar style="@style/CircularProgressWhite"
             android:id="@+id/progressBarCircularIndetermininate"
@@ -55,7 +55,7 @@
             android:id="@+id/camera_btn"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:background="@drawable/ic_photo_camera_grey600_24dp"
+            app:srcCompat="@drawable/ic_photo_camera_black"
             android:clickable="false"
             android:gravity="center"
             android:orientation="horizontal"

@@ -50,7 +50,7 @@ public class LoadingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         try {
-            setTheme(R.style.AppTheme);
+            setTheme(R.style.AppThemeBlue);
             super.onCreate(savedInstanceState);
             TransparentStatusbar();
             setContentView(R.layout.loading_activity);
