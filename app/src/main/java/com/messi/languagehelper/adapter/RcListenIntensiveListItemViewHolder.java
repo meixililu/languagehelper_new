@@ -25,6 +25,7 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
 import com.qq.e.ads.nativ.NativeExpressADView;
+import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
 
 import java.util.List;
 
@@ -145,6 +146,7 @@ public class RcListenIntensiveListItemViewHolder extends RecyclerView.ViewHolder
                     list_item_img_parent.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+                            XmPlayerManager.getInstance(context).pause();
                             IPlayerUtil.initAndPlay(mAVObject);
                         }
                     });

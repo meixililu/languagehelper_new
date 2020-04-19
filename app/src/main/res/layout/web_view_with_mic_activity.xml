@@ -33,10 +33,12 @@
             android:id="@+id/nonVideoLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
+
             <android.support.v4.widget.SwipeRefreshLayout
                 android:id="@+id/swipe_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <com.messi.languagehelper.views.VideoEnabledWebView
                     android:id="@+id/refreshable_webview"
                     android:layout_width="fill_parent"
@@ -103,7 +105,7 @@
             android:id="@+id/voice_btn"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:background="@drawable/ic_voice_padded_normal"
+            android:background="@drawable/ic_mic_black"
             android:clickable="false"
             android:gravity="center"
             android:orientation="horizontal"

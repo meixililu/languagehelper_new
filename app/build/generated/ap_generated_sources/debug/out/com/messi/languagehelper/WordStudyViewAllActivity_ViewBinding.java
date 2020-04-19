@@ -17,7 +17,7 @@ import java.lang.Override;
 public class WordStudyViewAllActivity_ViewBinding implements Unbinder {
   private WordStudyViewAllActivity target;
 
-  private View view7f0802c0;
+  private View view7f0802bf;
 
   private View view7f0801f4;
 
@@ -33,7 +33,7 @@ public class WordStudyViewAllActivity_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.show_all_unit_layout, "field 'previousUnitLayout' and method 'onClick'");
     target.previousUnitLayout = Utils.castView(view, R.id.show_all_unit_layout, "field 'previousUnitLayout'", FrameLayout.class);
-    view7f0802c0 = view;
+    view7f0802bf = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -67,8 +67,8 @@ public class WordStudyViewAllActivity_ViewBinding implements Unbinder {
     target.transitionsContainer = null;
     target.studycategoryLv = null;
 
-    view7f0802c0.setOnClickListener(null);
-    view7f0802c0 = null;
+    view7f0802bf.setOnClickListener(null);
+    view7f0802bf = null;
     view7f0801f4.setOnClickListener(null);
     view7f0801f4 = null;
   }

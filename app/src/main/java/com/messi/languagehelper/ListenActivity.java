@@ -68,7 +68,7 @@ public class ListenActivity extends BaseActivity implements FragmentProgressbarL
 
     private void initFragment(){
         navigation.inflateMenu(R.menu.listen_tabs);
-        navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
+        navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         mWordHomeFragment = new ReadingFragment.Builder()
                 .title(getString(R.string.title_listening))

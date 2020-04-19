@@ -36,6 +36,7 @@ import com.messi.languagehelper.util.ScreenUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.SystemUtil;
 import com.qq.e.ads.nativ.NativeExpressADView;
+import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
 
 import java.util.List;
 
@@ -204,6 +205,7 @@ public class RcSubjectReadingListItemViewHolder extends RecyclerView.ViewHolder 
                                 IPlayerUtil.initPlayList(avObjects,
                                         avObjects.indexOf(mAVObject));
                             }else {
+                                XmPlayerManager.getInstance(context).pause();
                                 IPlayerUtil.initAndPlay(mAVObject);
                             }
                         }

@@ -553,7 +553,7 @@ public class WebViewWithMicActivity extends BaseActivity implements View.OnClick
 		record_layout.setVisibility(View.GONE);
 		record_anim_img.setBackgroundResource(R.drawable.speak_voice_1);
 		voice_btn.setText("");
-		voice_btn.setBackgroundResource(R.drawable.ic_voice_padded_normal);
+		voice_btn.setBackgroundResource(R.drawable.ic_mic_black);
 		speak_round_layout.setBackgroundResource(R.drawable.round_gray_bgl_old);
 	}
 

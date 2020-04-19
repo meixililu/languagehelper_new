@@ -237,15 +237,11 @@ public class MainFragmentOld extends BaseFragment implements OnClickListener, Or
 
     private void initLanguage() {
         if (PlayUtil.getSP().getString(KeyUtil.TranUserSelectLanguage, XFUtil.VoiceEngineMD).equals(XFUtil.VoiceEngineMD)) {
-            cb_speak_language_ch.setBackgroundResource(R.drawable.language_btn_bg_s);
-            cb_speak_language_ch.setTextColor(getResources().getColor(R.color.white_alph));
-            cb_speak_language_en.setBackgroundResource(R.drawable.language_btn_bg_n);
-            cb_speak_language_en.setTextColor(getResources().getColor(R.color.text_black_alph));
+            cb_speak_language_ch.setSelected(true);
+            cb_speak_language_en.setSelected(false);
         } else {
-            cb_speak_language_ch.setBackgroundResource(R.drawable.language_btn_bg_n);
-            cb_speak_language_ch.setTextColor(getResources().getColor(R.color.text_black_alph));
-            cb_speak_language_en.setBackgroundResource(R.drawable.language_btn_bg_s);
-            cb_speak_language_en.setTextColor(getResources().getColor(R.color.white_alph));
+            cb_speak_language_ch.setSelected(false);
+            cb_speak_language_en.setSelected(true);
         }
     }
 
@@ -388,7 +384,7 @@ public class MainFragmentOld extends BaseFragment implements OnClickListener, Or
         record_layout.setVisibility(View.GONE);
         record_anim_img.setBackgroundResource(R.drawable.speak_voice_1);
         voice_btn.setText("");
-        voice_btn.setBackgroundResource(R.drawable.ic_voice_padded_normal);
+        voice_btn.setBackgroundResource(R.drawable.ic_mic_black);
         speak_round_layout.setBackgroundResource(R.drawable.round_gray_bgl_old);
     }
 

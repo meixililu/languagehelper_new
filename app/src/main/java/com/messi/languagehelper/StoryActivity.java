@@ -58,7 +58,7 @@ public class StoryActivity extends BaseActivity implements FragmentProgressbarLi
 
     private void initFragment(){
         navigation.inflateMenu(R.menu.tabs_grammer_story);
-        navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
+        navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         mCompositionFragment = SubjectFragment.getInstance(AVOUtil.Category.grammar,"","",getResources().getString(R.string.title_grammar));
         mExaminationFragment = SubjectFragment.getInstance(AVOUtil.Category.story,"","desc",getResources().getString(R.string.title_english_story));

@@ -69,7 +69,7 @@ public class WordsActivity extends BaseActivity implements FragmentProgressbarLi
 
     private void initFragment(){
         navigation.inflateMenu(R.menu.words_tabs);
-        navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
+        navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         mWordHomeFragment = new WordStudyFragment();
         xmlyFragment = XmlySearchAlbumFragment.newInstance("单词",getString(R.string.title_study_category));

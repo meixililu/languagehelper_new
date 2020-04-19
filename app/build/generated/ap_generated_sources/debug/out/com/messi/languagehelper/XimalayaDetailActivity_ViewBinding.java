@@ -19,11 +19,11 @@ import java.lang.Override;
 public class XimalayaDetailActivity_ViewBinding implements Unbinder {
   private XimalayaDetailActivity target;
 
-  private View view7f080225;
-
-  private View view7f080229;
-
   private View view7f080228;
+
+  private View view7f080227;
+
+  private View view7f08022c;
 
   @UiThread
   public XimalayaDetailActivity_ViewBinding(XimalayaDetailActivity target) {
@@ -44,18 +44,10 @@ public class XimalayaDetailActivity_ViewBinding implements Unbinder {
     target.seekbar = Utils.findRequiredViewAsType(source, R.id.seekbar, "field 'seekbar'", SeekBar.class);
     target.playTimeCurrent = Utils.findRequiredViewAsType(source, R.id.play_time_current, "field 'playTimeCurrent'", TextView.class);
     target.playTimeDuration = Utils.findRequiredViewAsType(source, R.id.play_time_duration, "field 'playTimeDuration'", TextView.class);
-    view = Utils.findRequiredView(source, R.id.play_btn, "field 'playBtn' and method 'onViewClicked'");
-    target.playBtn = Utils.castView(view, R.id.play_btn, "field 'playBtn'", ImageView.class);
-    view7f080225 = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.onViewClicked(p0);
-      }
-    });
+    target.playBtn = Utils.findRequiredViewAsType(source, R.id.btn_play, "field 'playBtn'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.play_previous, "field 'playPrevious' and method 'onViewClicked'");
     target.playPrevious = Utils.castView(view, R.id.play_previous, "field 'playPrevious'", ImageView.class);
-    view7f080229 = view;
+    view7f080228 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -64,7 +56,7 @@ public class XimalayaDetailActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.play_next, "field 'playNext' and method 'onViewClicked'");
     target.playNext = Utils.castView(view, R.id.play_next, "field 'playNext'", ImageView.class);
-    view7f080228 = view;
+    view7f080227 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -78,6 +70,14 @@ public class XimalayaDetailActivity_ViewBinding implements Unbinder {
     target.xx_ad_layout = Utils.findRequiredViewAsType(source, R.id.xx_ad_layout, "field 'xx_ad_layout'", LinearLayout.class);
     target.ad_layout = Utils.findRequiredViewAsType(source, R.id.ad_layout, "field 'ad_layout'", FrameLayout.class);
     target.imgCover = Utils.findRequiredViewAsType(source, R.id.img_cover, "field 'imgCover'", ImageView.class);
+    view = Utils.findRequiredView(source, R.id.playbtn_layout, "method 'onViewClicked'");
+    view7f08022c = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onViewClicked(p0);
+      }
+    });
   }
 
   @Override
@@ -107,11 +107,11 @@ public class XimalayaDetailActivity_ViewBinding implements Unbinder {
     target.ad_layout = null;
     target.imgCover = null;
 
-    view7f080225.setOnClickListener(null);
-    view7f080225 = null;
-    view7f080229.setOnClickListener(null);
-    view7f080229 = null;
     view7f080228.setOnClickListener(null);
     view7f080228 = null;
+    view7f080227.setOnClickListener(null);
+    view7f080227 = null;
+    view7f08022c.setOnClickListener(null);
+    view7f08022c = null;
   }
 }

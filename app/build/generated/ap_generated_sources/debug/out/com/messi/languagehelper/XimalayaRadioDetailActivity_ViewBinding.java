@@ -18,7 +18,7 @@ import java.lang.Override;
 public class XimalayaRadioDetailActivity_ViewBinding implements Unbinder {
   private XimalayaRadioDetailActivity target;
 
-  private View view7f080225;
+  private View view7f08022c;
 
   @UiThread
   public XimalayaRadioDetailActivity_ViewBinding(XimalayaRadioDetailActivity target) {
@@ -35,15 +35,7 @@ public class XimalayaRadioDetailActivity_ViewBinding implements Unbinder {
     target.announcer_icon = Utils.findRequiredViewAsType(source, R.id.announcer_icon, "field 'announcer_icon'", SimpleDraweeView.class);
     target.announcer_info = Utils.findRequiredViewAsType(source, R.id.announcer_info, "field 'announcer_info'", TextView.class);
     target.albumTitle = Utils.findRequiredViewAsType(source, R.id.album_title, "field 'albumTitle'", TextView.class);
-    view = Utils.findRequiredView(source, R.id.play_btn, "field 'playBtn' and method 'onViewClicked'");
-    target.playBtn = Utils.castView(view, R.id.play_btn, "field 'playBtn'", ImageView.class);
-    view7f080225 = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.onViewClicked(p0);
-      }
-    });
+    target.playBtn = Utils.findRequiredViewAsType(source, R.id.btn_play, "field 'playBtn'", ImageView.class);
     target.adImg = Utils.findRequiredViewAsType(source, R.id.ad_img, "field 'adImg'", SimpleDraweeView.class);
     target.adClose = Utils.findRequiredViewAsType(source, R.id.ad_close, "field 'adClose'", ImageView.class);
     target.adTitle = Utils.findRequiredViewAsType(source, R.id.ad_title, "field 'adTitle'", TextView.class);
@@ -53,6 +45,14 @@ public class XimalayaRadioDetailActivity_ViewBinding implements Unbinder {
     target.imgCover = Utils.findRequiredViewAsType(source, R.id.img_cover, "field 'imgCover'", ImageView.class);
     target.sourceName = Utils.findRequiredViewAsType(source, R.id.source_name, "field 'sourceName'", TextView.class);
     target.contentTv = Utils.findRequiredViewAsType(source, R.id.content_tv, "field 'contentTv'", LinearLayout.class);
+    view = Utils.findRequiredView(source, R.id.playbtn_layout, "method 'onViewClicked'");
+    view7f08022c = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.onViewClicked(p0);
+      }
+    });
   }
 
   @Override
@@ -77,7 +77,7 @@ public class XimalayaRadioDetailActivity_ViewBinding implements Unbinder {
     target.sourceName = null;
     target.contentTv = null;
 
-    view7f080225.setOnClickListener(null);
-    view7f080225 = null;
+    view7f08022c.setOnClickListener(null);
+    view7f08022c = null;
   }
 }

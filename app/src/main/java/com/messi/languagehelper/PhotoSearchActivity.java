@@ -4,7 +4,6 @@ import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.webkit.WebView;
@@ -49,12 +48,6 @@ public class PhotoSearchActivity extends BaseActivity {
         setContentView(R.layout.photo_search_activity);
         ButterKnife.bind(this);
         isRegisterBus = true;
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                onClick();
-            }
-        },350);
     }
 
     @NeedsPermission(Manifest.permission.CAMERA)

@@ -55,7 +55,7 @@
             android:id="@+id/camera_btn"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            app:srcCompat="@drawable/ic_photo_camera_black"
+            android:background="@drawable/ic_photo_camera_black"
             android:clickable="false"
             android:gravity="center"
             android:orientation="horizontal"

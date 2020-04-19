@@ -55,7 +55,7 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
     TextView playTimeCurrent;
     @BindView(R.id.play_time_duration)
     TextView playTimeDuration;
-    @BindView(R.id.play_btn)
+    @BindView(R.id.btn_play)
     ImageView playBtn;
     @BindView(R.id.play_previous)
     ImageView playPrevious;
@@ -108,7 +108,7 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
                     XmPlayerManager.getInstance(this).playList(trackList, position);
                     setToPlay();
                 } else {
-                    playBtn.setImageResource(R.drawable.player_pause_selector);
+                    playBtn.setSelected(true);
                 }
             }else {
                 XmPlayerManager.getInstance(this).pause();
@@ -130,7 +130,7 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
                 NotificationUtil.showNotification(XimalayaDetailActivity.this,action_pause,
                         currentTrack.getTrackTitle(),
                         NotificationUtil.mes_type_xmly);
-                playBtn.setImageResource(R.drawable.player_pause_selector);
+                playBtn.setSelected(true);
             }
         }, 500);
     }
@@ -181,9 +181,9 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
     public void updateUI(String music_action) {
         LogUtil.DefalutLog("xima-updateUI:"+music_action);
         if(music_action.equals(action_restart)){
-            playBtn.setImageResource(R.drawable.player_play_selector);
+            playBtn.setSelected(false);
         }else if (music_action.equals(PlayerService.action_pause)) {
-            playBtn.setImageResource(R.drawable.player_pause_selector);
+            playBtn.setSelected(true);
         }
     }
 
@@ -202,10 +202,10 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
         XmPlayerManager.getInstance(this).removePlayerStatusListener(this);
     }
 
-    @OnClick({R.id.play_btn, R.id.play_previous, R.id.play_next})
+    @OnClick({R.id.playbtn_layout, R.id.play_previous, R.id.play_next})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.play_btn:
+            case R.id.playbtn_layout:
                 playOrPause();
                 break;
             case R.id.play_previous:
@@ -229,7 +229,7 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
         NotificationUtil.showNotification(this, action_restart,currentTrack.getTrackTitle(),
                 NotificationUtil.mes_type_xmly);
         NotificationUtil.sendBroadcast(this, action_restart);
-        playBtn.setImageResource(R.drawable.player_play_selector);
+        playBtn.setSelected(false);
         trackList.get(position).setUpdateStatus(false);
         XmPlayerManager.getInstance(this).pause();
         if(mXMLYDetailModel != null){
@@ -241,7 +241,7 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
         NotificationUtil.showNotification(this,action_pause,currentTrack.getTrackTitle(),
                 NotificationUtil.mes_type_xmly);
         NotificationUtil.sendBroadcast(this,action_pause);
-        playBtn.setImageResource(R.drawable.player_pause_selector);
+        playBtn.setSelected(true);
         trackList.get(position).setUpdateStatus(true);
         XmPlayerManager.getInstance(this).play();
     }
@@ -342,6 +342,6 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
     public void onStopTrackingTouch(SeekBar seekBar) {
         XmPlayerManager.getInstance(this).seekTo(seekBar.getProgress());
         XmPlayerManager.getInstance(this).play();
-        playBtn.setImageResource(R.drawable.player_pause_selector);
+        playBtn.setSelected(true);
     }
 }

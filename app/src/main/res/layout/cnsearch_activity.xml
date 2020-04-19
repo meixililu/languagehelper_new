@@ -221,7 +221,7 @@
             android:id="@+id/voice_btn"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:background="@drawable/ic_voice_padded_normal"
+            android:background="@drawable/ic_mic_black"
             android:clickable="false"
             android:gravity="center"
             android:orientation="horizontal"

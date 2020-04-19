@@ -53,7 +53,7 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
     TextView announcer_info;
     @BindView(R.id.album_title)
     TextView albumTitle;
-    @BindView(R.id.play_btn)
+    @BindView(R.id.btn_play)
     ImageView playBtn;
     @BindView(R.id.ad_img)
     SimpleDraweeView adImg;
@@ -101,7 +101,7 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
                     XmPlayerManager.getInstance(this).playLiveRadioForSDK(radio ,-1 , -1);
                     setToPlay();
                 } else {
-                    playBtn.setImageResource(R.drawable.player_pause_selector);
+                    playBtn.setSelected(true);
                 }
             } else {
                 XmPlayerManager.getInstance(this).pause();
@@ -123,7 +123,7 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
                 NotificationUtil.showNotification(XimalayaRadioDetailActivity.this, action_pause,
                         radio.getProgramName(),
                         NotificationUtil.mes_type_xmly);
-                playBtn.setImageResource(R.drawable.player_pause_selector);
+                playBtn.setSelected(true);
             }
         }, 500);
     }
@@ -154,9 +154,9 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
     public void updateUI(String music_action) {
         LogUtil.DefalutLog("xima-updateUI:" + music_action);
         if (music_action.equals(action_restart)) {
-            playBtn.setImageResource(R.drawable.player_play_selector);
+            playBtn.setSelected(false);
         } else if (music_action.equals(PlayerService.action_pause)) {
-            playBtn.setImageResource(R.drawable.player_pause_selector);
+            playBtn.setSelected(true);
         }
     }
 
@@ -175,10 +175,10 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
         }
     }
 
-    @OnClick({R.id.play_btn})
+    @OnClick({R.id.playbtn_layout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.play_btn:
+            case R.id.playbtn_layout:
                 playOrPause();
                 break;
         }
@@ -196,7 +196,7 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
         NotificationUtil.showNotification(this, action_restart, radio.getProgramName(),
                 NotificationUtil.mes_type_xmly);
         NotificationUtil.sendBroadcast(this, action_restart);
-        playBtn.setImageResource(R.drawable.player_play_selector);
+        playBtn.setSelected(false);
         XmPlayerManager.getInstance(this).pause();
         if(mXMLYDetailModel != null){
             mXMLYDetailModel.reLoadAD();
@@ -207,7 +207,7 @@ public class XimalayaRadioDetailActivity extends BaseActivity implements IXmPlay
         NotificationUtil.showNotification(this, action_pause, radio.getProgramName(),
                 NotificationUtil.mes_type_xmly);
         NotificationUtil.sendBroadcast(this, action_pause);
-        playBtn.setImageResource(R.drawable.player_pause_selector);
+        playBtn.setSelected(true);
         XmPlayerManager.getInstance(this).play();
     }
 

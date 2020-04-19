@@ -98,7 +98,7 @@ public class CaricatureMainActivity extends BaseActivity {
     private void initFragment(){
         SpeechUtility.createUtility(this, SpeechConstant.APPID + "=" + getString(R.string.app_id));
         navigation.inflateMenu(R.menu.caricature_main_tabs);
-        navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
+        navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         engFragment = CaricatureHomeFragment.newInstance();
         categoryFragment = CaricatureCategoryMainFragment.getInstance();

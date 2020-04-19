@@ -164,28 +164,35 @@
                         android:textSize="@dimen/smaller_l"
                         android:text="00:00"
                         />
-                    <ImageView
-                        android:id="@+id/play_btn"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/player_play_selector"
+                    <RelativeLayout
+                        android:id="@+id/playbtn_layout"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
                         android:layout_centerInParent="true"
-                        />
+                        android:background="@drawable/round_theme_no_border"
+                        >
+                        <ImageView
+                            android:id="@+id/btn_play"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/bg_btn_play_pause_selector" />
+                    </RelativeLayout>
                     <ImageView
                         android:id="@+id/play_previous"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_marginRight="40dp"
-                        android:layout_toLeftOf="@id/play_btn"
+                        android:layout_toLeftOf="@id/playbtn_layout"
                         android:src="@drawable/player_previous_selector"
                         android:layout_centerVertical="true"
                         />
                     <ImageView
                         android:id="@+id/play_next"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_marginLeft="40dp"
-                        android:layout_toRightOf="@id/play_btn"
+                        android:layout_toRightOf="@id/playbtn_layout"
                         android:src="@drawable/player_next_selector"
                         android:layout_centerVertical="true"
                         />

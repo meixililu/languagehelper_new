@@ -30,6 +30,7 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TextHandlerUtil;
 import com.messi.languagehelper.util.TimeUtil;
+import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
 
 import java.util.List;
 
@@ -127,7 +128,7 @@ public class ReadingMp3DetailActivity extends BaseActivity implements SeekBar.On
         }
         if(IPlayerUtil.MPlayerIsSameMp3(mAVObject)){
             if(IPlayerUtil.getPlayStatus() == 1) {
-                btn_play.setImageResource(R.drawable.player_pause_selector);
+                btn_play.setSelected(true);
                 handler.postDelayed(mRunnable,300);
             }
             setSeekbarAndText();
@@ -139,7 +140,7 @@ public class ReadingMp3DetailActivity extends BaseActivity implements SeekBar.On
             mAVObject.setStatus("1");
             BoxHelper.update(mAVObject);
         }
-        if (!IPlayerUtil.MPlayerIsPlaying()) {
+        if (!XmPlayerManager.getInstance(this).isPlaying() && !IPlayerUtil.MPlayerIsPlaying()) {
             onClick();
         }
     }
@@ -215,8 +216,9 @@ public class ReadingMp3DetailActivity extends BaseActivity implements SeekBar.On
         }
     }
 
-    @OnClick(R.id.btn_play)
+    @OnClick(R.id.playbtn_layout)
     public void onClick() {
+        XmPlayerManager.getInstance(this).pause();
         IPlayerUtil.initAndPlay(mAVObject);
     }
 
@@ -224,10 +226,10 @@ public class ReadingMp3DetailActivity extends BaseActivity implements SeekBar.On
     public void updateUI(String music_action) {
         if(IPlayerUtil.MPlayerIsSameMp3(mAVObject)){
             if(PlayerService.action_restart.equals(music_action)){
-                btn_play.setImageResource(R.drawable.player_play_selector);
+                btn_play.setSelected(false);
                 handler.removeCallbacks(mRunnable);
             }else if (PlayerService.action_pause.equals(music_action)) {
-                btn_play.setImageResource(R.drawable.player_pause_selector);
+                btn_play.setSelected(true);
                 handler.postDelayed(mRunnable,300);
             }
         }

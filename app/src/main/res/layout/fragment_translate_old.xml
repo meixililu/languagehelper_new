@@ -142,10 +142,10 @@
                         android:layout_weight="1"
                         android:layout_marginLeft="115dp"
                         android:paddingRight="20dp"
-                        android:background="@drawable/language_btn_bg_s"
+                        android:background="@drawable/bg_btn_lan_selector"
                         android:gravity="center"
                         android:text="@string/chinese"
-                        android:textColor="@color/white_alph" />
+                        android:textColor="@color/text_black_and_theme_selector" />
 
                     <TextView
                         android:id="@+id/cb_speak_language_en"
@@ -154,10 +154,10 @@
                         android:layout_weight="1"
                         android:layout_marginRight="115dp"
                         android:paddingLeft="20dp"
-                        android:background="@drawable/language_btn_bg_n"
+                        android:background="@drawable/bg_btn_lan_selector"
                         android:gravity="center"
                         android:text="@string/english"
-                        android:textColor="@color/text_black_alph" />
+                        android:textColor="@color/text_black_and_theme_selector" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -177,9 +177,9 @@
 
                         <Button
                             android:id="@+id/voice_btn"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:background="@drawable/ic_voice_padded_normal"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/ic_mic_black"
                             android:clickable="false"
                             android:gravity="center"
                             android:orientation="horizontal"

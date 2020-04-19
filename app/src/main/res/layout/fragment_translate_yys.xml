@@ -214,7 +214,7 @@
                             android:id="@+id/voice_btn"
                             android:layout_width="34dp"
                             android:layout_height="34dp"
-                            android:background="@drawable/ic_voice_padded_normal"
+                            android:background="@drawable/ic_mic_black"
                             android:clickable="false"
                             android:gravity="center"
                             android:orientation="horizontal"

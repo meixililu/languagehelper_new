@@ -21,7 +21,7 @@ import java.lang.Override;
 public class ReadingMp3DetailActivity_ViewBinding implements Unbinder {
   private ReadingMp3DetailActivity target;
 
-  private View view7f080083;
+  private View view7f08022c;
 
   @UiThread
   public ReadingMp3DetailActivity_ViewBinding(ReadingMp3DetailActivity target) {
@@ -42,18 +42,18 @@ public class ReadingMp3DetailActivity_ViewBinding implements Unbinder {
     target.ad_img = Utils.findRequiredViewAsType(source, R.id.ad_img, "field 'ad_img'", SimpleDraweeView.class);
     target.scrollview = Utils.findRequiredViewAsType(source, R.id.scrollview, "field 'scrollview'", NestedScrollView.class);
     target.player_layout = Utils.findRequiredViewAsType(source, R.id.player_layout, "field 'player_layout'", RelativeLayout.class);
-    view = Utils.findRequiredView(source, R.id.btn_play, "field 'btn_play' and method 'onClick'");
-    target.btn_play = Utils.castView(view, R.id.btn_play, "field 'btn_play'", ImageView.class);
-    view7f080083 = view;
+    target.btn_play = Utils.findRequiredViewAsType(source, R.id.btn_play, "field 'btn_play'", ImageView.class);
+    target.seekbar = Utils.findRequiredViewAsType(source, R.id.seekbar, "field 'seekbar'", SeekBar.class);
+    target.time_current = Utils.findRequiredViewAsType(source, R.id.time_current, "field 'time_current'", TextView.class);
+    target.time_duration = Utils.findRequiredViewAsType(source, R.id.time_duration, "field 'time_duration'", TextView.class);
+    view = Utils.findRequiredView(source, R.id.playbtn_layout, "method 'onClick'");
+    view7f08022c = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
         target.onClick();
       }
     });
-    target.seekbar = Utils.findRequiredViewAsType(source, R.id.seekbar, "field 'seekbar'", SeekBar.class);
-    target.time_current = Utils.findRequiredViewAsType(source, R.id.time_current, "field 'time_current'", TextView.class);
-    target.time_duration = Utils.findRequiredViewAsType(source, R.id.time_duration, "field 'time_duration'", TextView.class);
   }
 
   @Override
@@ -77,7 +77,7 @@ public class ReadingMp3DetailActivity_ViewBinding implements Unbinder {
     target.time_current = null;
     target.time_duration = null;
 
-    view7f080083.setOnClickListener(null);
-    view7f080083 = null;
+    view7f08022c.setOnClickListener(null);
+    view7f08022c = null;
   }
 }

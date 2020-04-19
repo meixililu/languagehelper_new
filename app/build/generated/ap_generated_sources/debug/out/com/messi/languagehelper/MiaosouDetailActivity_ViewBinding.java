@@ -20,11 +20,11 @@ public class MiaosouDetailActivity_ViewBinding implements Unbinder {
 
   private View view7f080040;
 
-  private View view7f080336;
+  private View view7f080335;
 
   private View view7f08006c;
 
-  private View view7f0802b9;
+  private View view7f0802b8;
 
   @UiThread
   public MiaosouDetailActivity_ViewBinding(MiaosouDetailActivity target) {
@@ -55,7 +55,7 @@ public class MiaosouDetailActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.to_read, "field 'toRead' and method 'onViewClicked'");
     target.toRead = Utils.castView(view, R.id.to_read, "field 'toRead'", TextView.class);
-    view7f080336 = view;
+    view7f080335 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -77,7 +77,7 @@ public class MiaosouDetailActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.share_img, "field 'shareImg' and method 'onViewClicked'");
     target.shareImg = Utils.castView(view, R.id.share_img, "field 'shareImg'", ImageView.class);
-    view7f0802b9 = view;
+    view7f0802b8 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -112,11 +112,11 @@ public class MiaosouDetailActivity_ViewBinding implements Unbinder {
 
     view7f080040.setOnClickListener(null);
     view7f080040 = null;
-    view7f080336.setOnClickListener(null);
-    view7f080336 = null;
+    view7f080335.setOnClickListener(null);
+    view7f080335 = null;
     view7f08006c.setOnClickListener(null);
     view7f08006c = null;
-    view7f0802b9.setOnClickListener(null);
-    view7f0802b9 = null;
+    view7f0802b8.setOnClickListener(null);
+    view7f0802b8 = null;
   }
 }

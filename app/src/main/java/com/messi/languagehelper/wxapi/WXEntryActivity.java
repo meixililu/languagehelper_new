@@ -124,9 +124,9 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 			if (index == 1 || index == 2) {
 				binding.playbtnLayout.setVisibility(View.VISIBLE);
 				if (IPlayerUtil.MPlayerIsPlaying() || XmPlayerManager.getInstance(this).isPlaying()) {
-					binding.btnPlay.setImageResource(R.drawable.ic_pause_white);
+					binding.btnPlay.setSelected(true);
 				} else {
-					binding.btnPlay.setImageResource(R.drawable.ic_play_white);
+					binding.btnPlay.setSelected(false);
 				}
 			}else {
 				binding.playbtnLayout.setVisibility(View.GONE);
@@ -138,10 +138,10 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 
 	public void onPlayBtnClick(View view){
 		if (IPlayerUtil.MPlayerIsPlaying() || XmPlayerManager.getInstance(this).isPlaying()) {
-			binding.btnPlay.setImageResource(R.drawable.ic_play_white);
+			binding.btnPlay.setSelected(false);
 			IPlayerUtil.pauseAudioPlayer(this);
 		}else {
-			binding.btnPlay.setImageResource(R.drawable.ic_pause_white);
+			binding.btnPlay.setSelected(true);
 			IPlayerUtil.restartAudioPlayer(this);
 		}
 	}
@@ -150,9 +150,9 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 	public void updateUI(String music_action) {
 		LogUtil.DefalutLog("updateUI---music_action");
 		if(PlayerService.action_restart.equals(music_action)){
-			binding.btnPlay.setImageResource(R.drawable.ic_play_white);
+			binding.btnPlay.setSelected(false);
 		}else if (PlayerService.action_pause.equals(music_action)) {
-			binding.btnPlay.setImageResource(R.drawable.ic_pause_white);
+			binding.btnPlay.setSelected(true);
 		}
 	}
 

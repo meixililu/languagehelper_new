@@ -129,13 +129,20 @@
                     android:layout_marginTop="@dimen/padding_15"
                     android:background="@color/white"
                     >
-                    <ImageView
-                        android:id="@+id/play_btn"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/player_play_selector"
+                    <RelativeLayout
+                        android:id="@+id/playbtn_layout"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
                         android:layout_centerInParent="true"
-                        />
+                        android:background="@drawable/round_theme_no_border"
+                        >
+                        <ImageView
+                            android:id="@+id/btn_play"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/bg_btn_play_pause_selector" />
+                    </RelativeLayout>
                 </RelativeLayout>
                 <View
                     android:layout_width="match_parent"

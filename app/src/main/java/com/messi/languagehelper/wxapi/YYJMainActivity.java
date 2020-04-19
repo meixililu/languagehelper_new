@@ -126,7 +126,7 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 	}
 
 	private void initFragment() {
-		navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
+		navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED);
 		navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 		mWordHomeFragment = TitleFragment.newInstance(YYJHomeFragment.getInstance(),R.string.title_home_tab);
 		practiceFragment = TitleFragment.newInstance(StudyFragment.getInstance(),R.string.title_study);

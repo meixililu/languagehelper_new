@@ -30,6 +30,7 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TextHandlerUtil;
 import com.messi.languagehelper.util.TimeUtil;
+import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
 
 import java.util.List;
 
@@ -216,6 +217,7 @@ public class ReadingDetailActivity extends BaseActivity implements SeekBar.OnSee
 
     @OnClick(R.id.btn_play)
     public void onClick() {
+        XmPlayerManager.getInstance(this).pause();
         IPlayerUtil.initAndPlay(mAVObject);
     }
 

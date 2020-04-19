@@ -55,7 +55,7 @@
                 android:layout_height="20dp"
                 android:layout_centerInParent="true"
                 android:layout_marginBottom="4dp"
-                android:src="@drawable/ic_play_white" />
+                android:src="@drawable/bg_btn_play_pause_selector" />
         </RelativeLayout>
     </RelativeLayout>
 </LinearLayout>
