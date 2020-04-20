@@ -3,7 +3,7 @@
     android:id="@+id/popview_item"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:foreground="@drawable/framelayout_selector" >
+    android:foreground="@color/framelayout_selector" >
     <TextView
         android:id="@+id/popview_item_tv"
         android:layout_width="fill_parent"

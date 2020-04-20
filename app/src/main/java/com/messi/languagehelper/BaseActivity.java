@@ -336,8 +336,24 @@ public class BaseActivity extends AppCompatActivity {
             setTheme(R.style.AppThemeBlue);
         } else if ("green".equals(apptheme)) {
             setTheme(R.style.AppThemeGreen);
+        } else if ("orange".equals(apptheme)) {
+            setTheme(R.style.AppThemeOrange);
+        } else if ("indigo".equals(apptheme)) {
+            setTheme(R.style.AppThemeIndigo);
+        } else if ("red".equals(apptheme)) {
+            setTheme(R.style.AppThemeRed);
+        }  else if ("purple".equals(apptheme)) {
+            setTheme(R.style.AppThemePurple);
+        }  else if ("gray".equals(apptheme)) {
+            setTheme(R.style.AppThemeGray);
+        }  else if ("cyan".equals(apptheme)) {
+            setTheme(R.style.AppThemeCyan);
+        }  else if ("teal".equals(apptheme)) {
+            setTheme(R.style.AppThemeTeal);
+        }  else if ("pink".equals(apptheme)) {
+            setTheme(R.style.AppThemePink);
         } else {
-
+            setTheme(R.style.AppThemeBlue);
         }
         
     }

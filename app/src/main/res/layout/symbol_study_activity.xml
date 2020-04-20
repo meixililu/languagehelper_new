@@ -66,7 +66,7 @@
                     android:layout_marginTop="@dimen/padding_7"
                     android:layout_marginRight="@dimen/padding_7"
                     android:background="@color/white"
-                    android:foreground="@drawable/framelayout_selector"
+                    android:foreground="@color/framelayout_selector"
                     android:padding="@dimen/padding_10">
 
                     <LinearLayout
@@ -120,7 +120,7 @@
                         android:id="@+id/teacher_cover"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:foreground="@drawable/framelayout_selector"
+                        android:foreground="@color/framelayout_selector"
                         android:paddingLeft="@dimen/padding_10"
                         android:paddingTop="@dimen/padding_10"
                         android:paddingRight="@dimen/padding_10"

@@ -74,7 +74,7 @@
                     android:layout_height="28dp"
                     android:layout_alignParentLeft="true"
                     android:layout_above="@id/submit_btn"
-                    android:foreground="@drawable/framelayout_selector"
+                    android:foreground="@color/framelayout_selector"
                     >
                     <ImageView
                         android:layout_width="wrap_content"
@@ -92,7 +92,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginLeft="@dimen/padding_10"
                     android:clickable="true"
-                    android:foreground="@drawable/framelayout_selector">
+                    android:foreground="@color/framelayout_selector">
 
                     <ImageView
                         android:layout_width="21dp"

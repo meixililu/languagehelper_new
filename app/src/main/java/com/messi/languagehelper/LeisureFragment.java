@@ -27,7 +27,6 @@ import com.messi.languagehelper.box.CNWBean;
 import com.messi.languagehelper.faxian.CharadesFragment;
 import com.messi.languagehelper.faxian.ConjectureFragment;
 import com.messi.languagehelper.faxian.EssayFragment;
-import com.messi.languagehelper.faxian.GodReplyFragment;
 import com.messi.languagehelper.faxian.HistoryFragment;
 import com.messi.languagehelper.faxian.ProverbFragment;
 import com.messi.languagehelper.faxian.RiddleFragment;
@@ -399,11 +398,7 @@ public class LeisureFragment extends BaseFragment {
     }
 
     private void toGodReply(){
-        Bundle bundle = new Bundle();
-        bundle.putString(KeyUtil.StyleKey,"black");
-        bundle.putSerializable(KeyUtil.FragmentName, GodReplyFragment.class);
-        bundle.putString(KeyUtil.ActionbarTitle,getResources().getString(R.string.leisuer_shenhuifu));
-        toActivity(EmptyActivity.class,bundle);
+        toActivity(MoreActivity.class,null);
 //        AVAnalytics.onEvent(getActivity(), "leisure_pg_to_god_reply");
     }
 

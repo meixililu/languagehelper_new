@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_5"
             android:layout_marginBottom="@dimen/padding_5"
-            android:foreground="@drawable/framelayout_selector">
+            android:foreground="@color/framelayout_selector">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="47dp"

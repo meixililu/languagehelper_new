@@ -18,7 +18,7 @@
             android:layout_width="50dp"
             android:layout_height="56dp"
             android:layout_gravity="right"
-            android:foreground="@drawable/framelayout_selector"
+            android:foreground="@color/framelayout_selector"
             >
             <ImageView
                 android:layout_width="24dp"
@@ -41,7 +41,7 @@
             android:id="@+id/layout_free_novel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:foreground="@drawable/framelayout_selector"
+            android:foreground="@color/framelayout_selector"
             android:background="@color/white"
             android:layout_marginBottom="@dimen/padding_5"
             >
@@ -55,7 +55,7 @@
             android:id="@+id/layout_rank_novel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:foreground="@drawable/framelayout_selector"
+            android:foreground="@color/framelayout_selector"
             android:background="@color/white"
             android:layout_marginBottom="@dimen/padding_5"
             >
@@ -69,7 +69,7 @@
             android:id="@+id/layout_short_novel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:foreground="@drawable/framelayout_selector"
+            android:foreground="@color/framelayout_selector"
             android:background="@color/white"
             android:layout_marginBottom="@dimen/padding_5"
             >
@@ -83,7 +83,7 @@
             android:id="@+id/layout_novel_collected"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:foreground="@drawable/framelayout_selector"
+            android:foreground="@color/framelayout_selector"
             android:background="@color/white"
             android:layout_margin="@dimen/padding_2"
             >

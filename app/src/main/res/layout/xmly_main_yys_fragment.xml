@@ -29,7 +29,7 @@
             android:layout_width="60dp"
             android:layout_height="40dp"
             android:layout_gravity="center_vertical"
-            android:foreground="@drawable/framelayout_selector"
+            android:foreground="@color/framelayout_selector"
             >
             <ImageView
                 android:layout_width="24dp"

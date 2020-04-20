@@ -159,7 +159,7 @@
                         android:layout_marginBottom="5dp"
                         android:layout_marginLeft="3dp"
                         android:layout_marginRight="5dp"
-                        android:foreground="@drawable/framelayout_selector"
+                        android:foreground="@color/framelayout_selector"
                         android:visibility="gone">
 
                         <TextView
@@ -211,10 +211,12 @@
             android:layout_width="match_parent"
             android:layout_height="42dp"
             app:tabIndicatorColor="@color/none"
-            app:tabSelectedTextColor="@color/text_dark"
+            android:layout_marginRight="@dimen/padding_12"
+            android:layout_marginLeft="@dimen/padding_12"
+            app:tabSelectedTextColor="?attr/colorPrimary"
             app:tabTextColor="@color/text_grey"
             app:tabTextAppearance="@style/MainTabTextStyle"
-            android:background="@color/bg_white" />
+            android:background="@color/white" />
         <LinearLayout
             android:id="@+id/content_layout"
             android:layout_width="match_parent"

@@ -18,7 +18,7 @@ import java.lang.Override;
 public class StudyCategoryFragment_ViewBinding implements Unbinder {
   private StudyCategoryFragment target;
 
-  private View view7f080312;
+  private View view7f080316;
 
   private View view7f0802f4;
 
@@ -36,7 +36,7 @@ public class StudyCategoryFragment_ViewBinding implements Unbinder {
 
   private View view7f080107;
 
-  private View view7f08043d;
+  private View view7f08045f;
 
   private View view7f0802f2;
 
@@ -47,7 +47,7 @@ public class StudyCategoryFragment_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.symbol_study_cover, "field 'symbolStudyCover' and method 'onViewClicked'");
     target.symbolStudyCover = Utils.castView(view, R.id.symbol_study_cover, "field 'symbolStudyCover'", FrameLayout.class);
-    view7f080312 = view;
+    view7f080316 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -129,7 +129,7 @@ public class StudyCategoryFragment_ViewBinding implements Unbinder {
     target.viewpager = Utils.findRequiredViewAsType(source, R.id.viewpager, "field 'viewpager'", ViewPager.class);
     view = Utils.findRequiredView(source, R.id.xmly_layout, "field 'xmlyLayout' and method 'onViewClicked'");
     target.xmlyLayout = Utils.castView(view, R.id.xmly_layout, "field 'xmlyLayout'", FrameLayout.class);
-    view7f08043d = view;
+    view7f08045f = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -173,8 +173,8 @@ public class StudyCategoryFragment_ViewBinding implements Unbinder {
     target.study_daily_sentence = null;
     target.daily_sentence_item_img = null;
 
-    view7f080312.setOnClickListener(null);
-    view7f080312 = null;
+    view7f080316.setOnClickListener(null);
+    view7f080316 = null;
     view7f0802f4.setOnClickListener(null);
     view7f0802f4 = null;
     view7f080105.setOnClickListener(null);
@@ -191,8 +191,8 @@ public class StudyCategoryFragment_ViewBinding implements Unbinder {
     view7f080106 = null;
     view7f080107.setOnClickListener(null);
     view7f080107 = null;
-    view7f08043d.setOnClickListener(null);
-    view7f08043d = null;
+    view7f08045f.setOnClickListener(null);
+    view7f08045f = null;
     view7f0802f2.setOnClickListener(null);
     view7f0802f2 = null;
   }

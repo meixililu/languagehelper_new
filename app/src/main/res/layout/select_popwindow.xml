@@ -14,7 +14,7 @@
             android:id="@+id/select_popwindow_text1_cover"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:foreground="@drawable/framelayout_selector" >
+            android:foreground="@color/framelayout_selector" >
 
             <TextView
                 android:id="@+id/select_popwindow_text1"
@@ -35,7 +35,7 @@
             android:id="@+id/select_popwindow_text2_cover"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:foreground="@drawable/framelayout_selector" >
+            android:foreground="@color/framelayout_selector" >
 
             <TextView
                 android:id="@+id/select_popwindow_text2"
@@ -55,7 +55,7 @@
             android:id="@+id/select_popwindow_text3_cover"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:foreground="@drawable/framelayout_selector" >
+            android:foreground="@color/framelayout_selector" >
 
             <TextView
                 android:id="@+id/select_popwindow_text3"

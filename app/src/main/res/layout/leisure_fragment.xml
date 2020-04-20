@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_view"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -19,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white">
+
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/ad_img"
                 android:layout_width="match_parent"
@@ -27,25 +27,27 @@
                 fresco:placeholderImage="@color/text_tint"
                 fresco:placeholderImageScaleType="fitCenter"
                 fresco:viewAspectRatio="1.77" />
+
             <TextView
                 android:id="@+id/ad_sign"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|right"
                 android:background="@color/none_alpha"
-                android:visibility="gone"
-                android:paddingBottom="1dp"
                 android:paddingRight="1dp"
+                android:paddingBottom="1dp"
                 android:text="广告"
                 android:textColor="@color/white"
-                android:textSize="@dimen/smaller" />
-        <FrameLayout
-            android:id="@+id/ad_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="180dp"
-            android:visibility="gone"
-            android:background="@color/white"/>
+                android:textSize="@dimen/smaller"
+                android:visibility="gone" />
+
+            <FrameLayout
+                android:id="@+id/ad_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:minHeight="180dp"
+                android:visibility="gone" />
         </FrameLayout>
 
         <LinearLayout
@@ -61,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="1px"
                 android:layout_weight="1"
-                android:foreground="@drawable/framelayout_selector"
+                android:foreground="@color/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -70,8 +72,8 @@
                     android:background="@color/white"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/padding_15"
-                    android:paddingTop="@dimen/padding_15">
+                    android:paddingTop="@dimen/padding_15"
+                    android:paddingBottom="@dimen/padding_15">
 
                     <ImageView
                         android:layout_width="40dp"
@@ -97,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="1px"
                 android:layout_weight="1"
-                android:foreground="@drawable/framelayout_selector"
+                android:foreground="@color/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -106,8 +108,8 @@
                     android:background="@color/white"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/padding_15"
-                    android:paddingTop="@dimen/padding_15">
+                    android:paddingTop="@dimen/padding_15"
+                    android:paddingBottom="@dimen/padding_15">
 
                     <ImageView
                         android:layout_width="40dp"
@@ -132,7 +134,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:foreground="@drawable/framelayout_selector"
+                android:foreground="@color/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -141,8 +143,8 @@
                     android:background="@color/white"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/padding_15"
-                    android:paddingTop="@dimen/padding_15">
+                    android:paddingTop="@dimen/padding_15"
+                    android:paddingBottom="@dimen/padding_15">
 
                     <ImageView
                         android:layout_width="40dp"
@@ -175,7 +177,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="1px"
                 android:layout_weight="1"
-                android:foreground="@drawable/framelayout_selector"
+                android:foreground="@color/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -184,8 +186,8 @@
                     android:background="@color/white"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/padding_15"
-                    android:paddingTop="@dimen/padding_15">
+                    android:paddingTop="@dimen/padding_15"
+                    android:paddingBottom="@dimen/padding_15">
 
                     <ImageView
                         android:layout_width="40dp"
@@ -209,9 +211,9 @@
                 android:id="@+id/english_essay_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginRight="1px"
-                android:foreground="@drawable/framelayout_selector"
+                android:layout_weight="1"
+                android:foreground="@color/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -220,8 +222,8 @@
                     android:background="@color/white"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/padding_15"
-                    android:paddingTop="@dimen/padding_15">
+                    android:paddingTop="@dimen/padding_15"
+                    android:paddingBottom="@dimen/padding_15">
 
                     <ImageView
                         android:layout_width="40dp"
@@ -246,7 +248,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:foreground="@drawable/framelayout_selector"
+                android:foreground="@color/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -255,8 +257,8 @@
                     android:background="@color/white"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/padding_15"
-                    android:paddingTop="@dimen/padding_15">
+                    android:paddingTop="@dimen/padding_15"
+                    android:paddingBottom="@dimen/padding_15">
 
                     <ImageView
                         android:layout_width="40dp"
@@ -289,9 +291,9 @@
                 android:id="@+id/layout_history"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginRight="1px"
-                android:foreground="@drawable/framelayout_selector"
+                android:layout_weight="1"
+                android:foreground="@color/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -300,8 +302,8 @@
                     android:background="@color/white"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/padding_15"
-                    android:paddingTop="@dimen/padding_15">
+                    android:paddingTop="@dimen/padding_15"
+                    android:paddingBottom="@dimen/padding_15">
 
                     <ImageView
                         android:layout_width="40dp"
@@ -325,9 +327,9 @@
                 android:id="@+id/jd_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginRight="1px"
-                android:foreground="@drawable/framelayout_selector"
+                android:layout_weight="1"
+                android:foreground="@color/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -336,8 +338,8 @@
                     android:background="@color/white"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/padding_15"
-                    android:paddingTop="@dimen/padding_15">
+                    android:paddingTop="@dimen/padding_15"
+                    android:paddingBottom="@dimen/padding_15">
 
                     <ImageView
                         android:layout_width="40dp"
@@ -362,7 +364,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:foreground="@drawable/framelayout_selector"
+                android:foreground="@color/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -371,8 +373,8 @@
                     android:background="@color/white"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/padding_15"
-                    android:paddingTop="@dimen/padding_15">
+                    android:paddingTop="@dimen/padding_15"
+                    android:paddingBottom="@dimen/padding_15">
 
                     <ImageView
                         android:layout_width="40dp"
@@ -406,7 +408,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="1px"
                 android:layout_weight="1"
-                android:foreground="@drawable/framelayout_selector"
+                android:foreground="@color/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -415,8 +417,8 @@
                     android:background="@color/white"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/padding_15"
-                    android:paddingTop="@dimen/padding_15">
+                    android:paddingTop="@dimen/padding_15"
+                    android:paddingBottom="@dimen/padding_15">
 
                     <ImageView
                         android:layout_width="40dp"
@@ -442,7 +444,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="1px"
                 android:layout_weight="1"
-                android:foreground="@drawable/framelayout_selector"
+                android:foreground="@color/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -451,8 +453,8 @@
                     android:background="@color/white"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/padding_15"
-                    android:paddingTop="@dimen/padding_15">
+                    android:paddingTop="@dimen/padding_15"
+                    android:paddingBottom="@dimen/padding_15">
 
                     <ImageView
                         android:layout_width="40dp"
@@ -477,7 +479,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:foreground="@drawable/framelayout_selector"
+                android:foreground="@color/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -486,8 +488,8 @@
                     android:background="@color/white"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/padding_15"
-                    android:paddingTop="@dimen/padding_15">
+                    android:paddingTop="@dimen/padding_15"
+                    android:paddingBottom="@dimen/padding_15">
 
                     <ImageView
                         android:layout_width="40dp"
@@ -520,7 +522,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="1px"
                 android:layout_weight="1"
-                android:foreground="@drawable/framelayout_selector"
+                android:foreground="@color/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -529,8 +531,8 @@
                     android:background="@color/white"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/padding_15"
-                    android:paddingTop="@dimen/padding_15">
+                    android:paddingTop="@dimen/padding_15"
+                    android:paddingBottom="@dimen/padding_15">
 
                     <ImageView
                         android:layout_width="40dp"
@@ -554,9 +556,9 @@
                 android:id="@+id/layout_conjecture"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginRight="1px"
-                android:foreground="@drawable/framelayout_selector"
+                android:layout_weight="1"
+                android:foreground="@color/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -565,8 +567,8 @@
                     android:background="@color/white"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/padding_15"
-                    android:paddingTop="@dimen/padding_15">
+                    android:paddingTop="@dimen/padding_15"
+                    android:paddingBottom="@dimen/padding_15">
 
                     <ImageView
                         android:layout_width="40dp"
@@ -591,7 +593,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:foreground="@drawable/framelayout_selector"
+                android:foreground="@color/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -600,8 +602,8 @@
                     android:background="@color/white"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/padding_15"
-                    android:paddingTop="@dimen/padding_15">
+                    android:paddingTop="@dimen/padding_15"
+                    android:paddingBottom="@dimen/padding_15">
 
                     <ImageView
                         android:layout_width="40dp"
@@ -632,9 +634,9 @@
                 android:id="@+id/news_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginRight="1px"
-                android:foreground="@drawable/framelayout_selector"
+                android:layout_weight="1"
+                android:foreground="@color/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -643,8 +645,8 @@
                     android:background="@color/white"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/padding_15"
-                    android:paddingTop="@dimen/padding_15">
+                    android:paddingTop="@dimen/padding_15"
+                    android:paddingBottom="@dimen/padding_15">
 
                     <ImageView
                         android:layout_width="40dp"
@@ -663,13 +665,14 @@
                         android:textSize="@dimen/middle" />
                 </LinearLayout>
             </FrameLayout>
+
             <FrameLayout
                 android:id="@+id/invest_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginRight="1px"
-                android:foreground="@drawable/framelayout_selector"
+                android:layout_weight="1"
+                android:foreground="@color/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -678,8 +681,8 @@
                     android:background="@color/white"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/padding_15"
-                    android:paddingTop="@dimen/padding_15">
+                    android:paddingTop="@dimen/padding_15"
+                    android:paddingBottom="@dimen/padding_15">
 
                     <ImageView
                         android:layout_width="40dp"
@@ -704,7 +707,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:foreground="@drawable/framelayout_selector"
+                android:foreground="@color/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -713,8 +716,8 @@
                     android:background="@color/white"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/padding_15"
-                    android:paddingTop="@dimen/padding_15">
+                    android:paddingTop="@dimen/padding_15"
+                    android:paddingBottom="@dimen/padding_15">
 
                     <ImageView
                         android:layout_width="40dp"
@@ -736,160 +739,167 @@
 
         </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/cnk_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="3"
-        android:visibility="gone"
-        android:orientation="horizontal">
-
-        <FrameLayout
-            android:id="@+id/novel_layout"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:id="@+id/cnk_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="1px"
-            android:layout_weight="1"
-            android:foreground="@drawable/framelayout_selector"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:paddingBottom="@dimen/padding_15"
-                android:paddingTop="@dimen/padding_15">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    app:srcCompat="@drawable/ic_icon_07" />
-
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_marginTop="@dimen/padding_5"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:lines="1"
-                    android:text="@string/title_novel"
-                    android:textColor="@color/text_black"
-                    android:textSize="@dimen/middle" />
-            </LinearLayout>
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/caricature_layout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="1px"
-            android:layout_weight="1"
-            android:foreground="@drawable/framelayout_selector"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:paddingBottom="@dimen/padding_15"
-                android:paddingTop="@dimen/padding_15">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    app:srcCompat="@drawable/ic_icon_05" />
-
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_marginTop="@dimen/padding_5"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:lines="1"
-                    android:text="@string/leisure_caricature"
-                    android:textColor="@color/text_black"
-                    android:textSize="@dimen/middle" />
-            </LinearLayout>
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/ksearch_layout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="1px"
-            android:layout_weight="1"
-            android:foreground="@drawable/framelayout_selector"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:paddingBottom="@dimen/padding_15"
-                android:paddingTop="@dimen/padding_15">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    app:srcCompat="@drawable/ic_icon_07" />
-
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_marginTop="@dimen/padding_5"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:lines="1"
-                    android:text="@string/leisure_ksearch"
-                    android:textColor="@color/text_black"
-                    android:textSize="@dimen/middle" />
-            </LinearLayout>
-        </FrameLayout>
-
-    </LinearLayout>
-
-        <FrameLayout
-            android:id="@+id/shenhuifu_layout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="1px"
-            android:layout_weight="1"
+            android:orientation="horizontal"
             android:visibility="gone"
-            android:foreground="@drawable/framelayout_selector"
-            android:orientation="vertical">
+            android:weightSum="3">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <FrameLayout
+                android:id="@+id/novel_layout"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:paddingBottom="@dimen/padding_15"
-                android:paddingTop="@dimen/padding_15">
+                android:layout_marginRight="1px"
+                android:layout_weight="1"
+                android:foreground="@color/framelayout_selector"
+                android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    app:srcCompat="@drawable/ic_icon_13" />
-
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_marginTop="@dimen/padding_5"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:gravity="center"
-                    android:lines="1"
-                    android:text="@string/leisuer_shenhuifu"
-                    android:textColor="@color/text_black"
-                    android:textSize="@dimen/middle" />
-            </LinearLayout>
-        </FrameLayout>
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/padding_15"
+                    android:paddingBottom="@dimen/padding_15">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:srcCompat="@drawable/ic_icon_07" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="@dimen/padding_5"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:text="@string/title_novel"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/middle" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/caricature_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="1px"
+                android:layout_weight="1"
+                android:foreground="@color/framelayout_selector"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/padding_15"
+                    android:paddingBottom="@dimen/padding_15">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:srcCompat="@drawable/ic_icon_08" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="@dimen/padding_5"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:text="@string/leisure_caricature"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/middle" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/ksearch_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="1px"
+                android:layout_weight="1"
+                android:foreground="@color/framelayout_selector"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/padding_15"
+                    android:paddingBottom="@dimen/padding_15">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:srcCompat="@drawable/ic_icon_07" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="@dimen/padding_5"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:text="@string/leisure_ksearch"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/middle" />
+                </LinearLayout>
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <FrameLayout
+                android:id="@+id/shenhuifu_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="1px"
+                android:layout_weight="1"
+                android:foreground="@color/framelayout_selector"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/padding_15"
+                    android:paddingBottom="@dimen/padding_15">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:srcCompat="@drawable/ic_icon_13" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="@dimen/padding_5"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:text="@string/title_setting"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/middle" />
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+
     </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>

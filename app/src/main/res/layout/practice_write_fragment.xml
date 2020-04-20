@@ -27,7 +27,7 @@
         android:id="@+id/tranlate_content"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-		android:foreground="@drawable/framelayout_selector"
+		android:foreground="@color/framelayout_selector"
         android:layout_below="@id/tranlate_title"
         >
 	    <TextView
@@ -57,7 +57,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_alignParentBottom="true"
-		android:foreground="@drawable/framelayout_selector"
+		android:foreground="@color/framelayout_selector"
 		android:layout_margin="@dimen/padding_5">
 		<TextView
 			android:id="@+id/check_btn"

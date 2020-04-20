@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:background="@color/white"
     android:paddingTop="@dimen/padding_2"
-    android:foreground="@drawable/framelayout_selector" >
+    android:foreground="@color/framelayout_selector" >
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/daily_sentence_list_item_img"

@@ -36,7 +36,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:foreground="@drawable/framelayout_selector"
+            android:foreground="@color/framelayout_selector"
             >
             <ImageView
                 android:layout_width="28dp"
@@ -49,7 +49,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:foreground="@drawable/framelayout_selector"
+            android:foreground="@color/framelayout_selector"
             >
             <ImageView
                 android:layout_width="32dp"

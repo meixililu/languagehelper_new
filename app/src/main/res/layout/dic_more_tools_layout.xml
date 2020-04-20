@@ -17,7 +17,7 @@
             android:id="@+id/setting_auto_clear"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:foreground="@drawable/framelayout_selector">
+            android:foreground="@color/framelayout_selector">
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -55,7 +55,7 @@
             android:id="@+id/setting_clear_all"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:foreground="@drawable/framelayout_selector"
+            android:foreground="@color/framelayout_selector"
             android:paddingBottom="15dp"
             android:paddingTop="15dp">
 

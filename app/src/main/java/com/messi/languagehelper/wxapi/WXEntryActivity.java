@@ -18,24 +18,19 @@ import android.os.IBinder;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AlertDialog;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechUtility;
 import com.messi.languagehelper.BaseActivity;
-import com.messi.languagehelper.MoreActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.adapter.MainPageAdapter;
 import com.messi.languagehelper.aidl.IXBPlayer;
 import com.messi.languagehelper.databinding.ContentFrameBinding;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
-import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AppUpdateUtil;
 import com.messi.languagehelper.util.IPlayerUtil;
 import com.messi.languagehelper.util.KeyUtil;
@@ -198,38 +193,6 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 		int index = sp.getInt(KeyUtil.LastTimeSelectTab, 0);
 		binding.pager.setCurrentItem(index);
 		initPlayerBtn(index);
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-//		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-			case R.id.action_more:
-				toMoreActivity();
-				break;
-		}
-		return true;
-	}
-
-	private void toMoreActivity() {
-		Intent intent = new Intent(this, MoreActivity.class);
-		startActivity(intent);
-		AVAnalytics.onEvent(this, "index_pg_to_morepg");
-	}
-
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		switch (keyCode) {
-			case KeyEvent.KEYCODE_MENU:
-				toMoreActivity();
-				return true;
-		}
-		return super.onKeyDown(keyCode, event);
 	}
 
 	@Override

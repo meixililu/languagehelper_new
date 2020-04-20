@@ -41,7 +41,7 @@
                 android:id="@+id/setting_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:foreground="@drawable/framelayout_selector" >
+                android:foreground="@color/framelayout_selector" >
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -81,7 +81,7 @@
                 android:id="@+id/offline_dic_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:foreground="@drawable/framelayout_selector" >
+                android:foreground="@color/framelayout_selector" >
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -127,7 +127,7 @@
                 android:id="@+id/costom_share_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:foreground="@drawable/framelayout_selector" >
+                android:foreground="@color/framelayout_selector" >
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -166,7 +166,7 @@
                 android:id="@+id/help_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:foreground="@drawable/framelayout_selector" >
+                android:foreground="@color/framelayout_selector" >
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -210,7 +210,7 @@
                 android:id="@+id/comments_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:foreground="@drawable/framelayout_selector" >
+                android:foreground="@color/framelayout_selector" >
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -247,7 +247,7 @@
                 android:id="@+id/about_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:foreground="@drawable/framelayout_selector" >
+                android:foreground="@color/framelayout_selector" >
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -286,7 +286,7 @@
                 android:id="@+id/qrcode_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:foreground="@drawable/framelayout_selector" >
+                android:foreground="@color/framelayout_selector" >
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -325,7 +325,7 @@
                 android:id="@+id/invite_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:foreground="@drawable/framelayout_selector" >
+                android:foreground="@color/framelayout_selector" >
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -369,7 +369,7 @@
                 android:id="@+id/privacy_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:foreground="@drawable/framelayout_selector" >
+                android:foreground="@color/framelayout_selector" >
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -407,7 +407,7 @@
                 android:id="@+id/terms_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:foreground="@drawable/framelayout_selector" >
+                android:foreground="@color/framelayout_selector" >
 
                 <LinearLayout
                     android:layout_width="fill_parent"

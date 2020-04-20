@@ -26,7 +26,7 @@
                 android:layout_height="50dp"
                 android:background="?attr/colorPrimary"
                 android:visibility="gone"
-                android:foreground="@drawable/framelayout_selector">
+                android:foreground="@color/framelayout_selector">
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/ai_chat_input"
                 android:layout_weight="1"
-                android:foreground="@drawable/framelayout_selector">
+                android:foreground="@color/framelayout_selector">
 
                 <TextView
                     android:id="@+id/start_btn"
@@ -96,7 +96,7 @@
                 android:layout_height="50dp"
                 android:visibility="gone"
                 android:background="?attr/colorPrimary"
-                android:foreground="@drawable/framelayout_selector">
+                android:foreground="@color/framelayout_selector">
 
                 <ImageView
                     android:layout_width="20dp"

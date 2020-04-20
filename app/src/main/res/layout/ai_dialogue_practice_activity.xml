@@ -30,7 +30,7 @@
                 android:id="@+id/start_to_fight"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
-                android:foreground="@drawable/framelayout_selector"
+                android:foreground="@color/framelayout_selector"
                 >
                 <TextView
                     android:layout_width="match_parent"
@@ -68,7 +68,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:foreground="@drawable/framelayout_selector">
+            android:foreground="@color/framelayout_selector">
 
             <TextView
                 android:id="@+id/start_btn"

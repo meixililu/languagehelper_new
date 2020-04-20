@@ -59,7 +59,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_below="@id/input_et"
-                    android:foreground="@drawable/framelayout_selector"
+                    android:foreground="@color/framelayout_selector"
                     android:paddingLeft="10dp"
                     android:paddingTop="2dp"
                     android:paddingRight="10dp"
@@ -108,7 +108,7 @@
                     android:layout_below="@id/input_et"
                     android:layout_marginRight="3px"
                     android:clickable="true"
-                    android:foreground="@drawable/framelayout_selector"
+                    android:foreground="@color/framelayout_selector"
                     android:padding="3dp" >
 
                     <ImageView
@@ -123,7 +123,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/clear_btn_layout"
-                    android:foreground="@drawable/framelayout_selector"
+                    android:foreground="@color/framelayout_selector"
                     >
                     <TextView
                         android:id="@+id/submit_btn"

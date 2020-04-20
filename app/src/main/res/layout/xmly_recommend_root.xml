@@ -16,7 +16,7 @@
         android:layout_height="50dp"
         android:background="@color/white"
         android:layout_marginBottom="1px"
-        android:foreground="@drawable/framelayout_selector">
+        android:foreground="@color/framelayout_selector">
 
         <TextView
             android:id="@+id/xmly_recommend_header_title"
@@ -47,7 +47,7 @@
         android:id="@+id/xmly_recommend_footer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:foreground="@drawable/framelayout_selector"
+        android:foreground="@color/framelayout_selector"
         >
         <TextView
             android:layout_width="match_parent"

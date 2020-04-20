@@ -20,7 +20,7 @@ public class MiaosouDetailActivity_ViewBinding implements Unbinder {
 
   private View view7f080040;
 
-  private View view7f080335;
+  private View view7f080357;
 
   private View view7f08006c;
 
@@ -55,7 +55,7 @@ public class MiaosouDetailActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.to_read, "field 'toRead' and method 'onViewClicked'");
     target.toRead = Utils.castView(view, R.id.to_read, "field 'toRead'", TextView.class);
-    view7f080335 = view;
+    view7f080357 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -112,8 +112,8 @@ public class MiaosouDetailActivity_ViewBinding implements Unbinder {
 
     view7f080040.setOnClickListener(null);
     view7f080040 = null;
-    view7f080335.setOnClickListener(null);
-    view7f080335 = null;
+    view7f080357.setOnClickListener(null);
+    view7f080357 = null;
     view7f08006c.setOnClickListener(null);
     view7f08006c = null;
     view7f0802b8.setOnClickListener(null);

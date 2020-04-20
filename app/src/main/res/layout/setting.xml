@@ -75,7 +75,7 @@
                 android:id="@+id/setting_auto_play"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:foreground="@drawable/framelayout_selector">
+                android:foreground="@color/framelayout_selector">
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -99,7 +99,7 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginRight="15dp"
-                        android:buttonTint="?attr/colorPrimary"
+                        android:theme="@style/MyCheckBox"
                         android:clickable="false"
                         android:focusable="false" />
                 </LinearLayout>
@@ -115,7 +115,7 @@
                 android:id="@+id/setting_auto_clear"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:foreground="@drawable/framelayout_selector">
+                android:foreground="@color/framelayout_selector">
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -139,7 +139,7 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginRight="15dp"
-                        android:buttonTint="?attr/colorPrimary"
+                        android:theme="@style/MyCheckBox"
                         android:clickable="false"
                         android:focusable="false" />
                 </LinearLayout>
@@ -157,7 +157,7 @@
                 android:id="@+id/setting_clear_all_except_favorite"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:foreground="@drawable/framelayout_selector"
+                android:foreground="@color/framelayout_selector"
                 android:paddingBottom="20dp"
                 android:paddingTop="20dp">
 
@@ -180,7 +180,7 @@
                 android:id="@+id/setting_clear_all"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:foreground="@drawable/framelayout_selector"
+                android:foreground="@color/framelayout_selector"
                 android:paddingBottom="20dp"
                 android:paddingTop="20dp">
 

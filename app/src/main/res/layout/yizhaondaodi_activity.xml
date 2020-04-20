@@ -46,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="3"
-                android:foreground="@drawable/framelayout_selector"
+                android:foreground="@color/framelayout_selector"
                 >
                 <TextView
                     android:id="@+id/answer"

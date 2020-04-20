@@ -20,7 +20,7 @@ import java.lang.Override;
 public class WordStudyDuYinXuanCiActivity_ViewBinding implements Unbinder {
   private WordStudyDuYinXuanCiActivity target;
 
-  private View view7f080430;
+  private View view7f080452;
 
   private View view7f0802a4;
 
@@ -30,7 +30,7 @@ public class WordStudyDuYinXuanCiActivity_ViewBinding implements Unbinder {
 
   private View view7f0802aa;
 
-  private View view7f08035a;
+  private View view7f08037c;
 
   private View view7f080135;
 
@@ -48,7 +48,7 @@ public class WordStudyDuYinXuanCiActivity_ViewBinding implements Unbinder {
     target.wordPlayImg = Utils.findRequiredViewAsType(source, R.id.word_play_img, "field 'wordPlayImg'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.word_play_layout, "field 'wordPlayLayout' and method 'onViewClicked'");
     target.wordPlayLayout = Utils.castView(view, R.id.word_play_layout, "field 'wordPlayLayout'", LinearLayout.class);
-    view7f080430 = view;
+    view7f080452 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -100,7 +100,7 @@ public class WordStudyDuYinXuanCiActivity_ViewBinding implements Unbinder {
     target.listview = Utils.findRequiredViewAsType(source, R.id.listview, "field 'listview'", RecyclerView.class);
     view = Utils.findRequiredView(source, R.id.try_again_layout, "field 'tryAgainLayout' and method 'onViewClicked'");
     target.tryAgainLayout = Utils.castView(view, R.id.try_again_layout, "field 'tryAgainLayout'", FrameLayout.class);
-    view7f08035a = view;
+    view7f08037c = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -147,8 +147,8 @@ public class WordStudyDuYinXuanCiActivity_ViewBinding implements Unbinder {
     target.progressBarCircularIndetermininate = null;
     target.myAwesomeToolbar = null;
 
-    view7f080430.setOnClickListener(null);
-    view7f080430 = null;
+    view7f080452.setOnClickListener(null);
+    view7f080452 = null;
     view7f0802a4.setOnClickListener(null);
     view7f0802a4 = null;
     view7f0802a6.setOnClickListener(null);
@@ -157,8 +157,8 @@ public class WordStudyDuYinXuanCiActivity_ViewBinding implements Unbinder {
     view7f0802a8 = null;
     view7f0802aa.setOnClickListener(null);
     view7f0802aa = null;
-    view7f08035a.setOnClickListener(null);
-    view7f08035a = null;
+    view7f08037c.setOnClickListener(null);
+    view7f08037c = null;
     view7f080135.setOnClickListener(null);
     view7f080135 = null;
   }

@@ -11,7 +11,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@color/none_alpha"
-        android:foreground="@drawable/framelayout_selector">
+        android:foreground="@color/framelayout_selector">
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/daily_sentence_item_img"

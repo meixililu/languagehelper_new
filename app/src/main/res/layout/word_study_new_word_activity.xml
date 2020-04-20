@@ -30,7 +30,7 @@
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="0dp"
         app:elevation="3dp"
-        android:foreground="@drawable/framelayout_selector"
+        android:foreground="@color/framelayout_selector"
         >
         <TextView
             android:layout_width="match_parent"
@@ -64,7 +64,7 @@
                     android:layout_height="80dp"
                     android:layout_marginBottom="@dimen/padding_10"
                     app:cardBackgroundColor="@color/white"
-                    android:foreground="@drawable/framelayout_selector"
+                    android:foreground="@color/framelayout_selector"
                     app:cardCornerRadius="@dimen/padding_5"
                     app:elevation="1dp"
                     >
@@ -101,7 +101,7 @@
                 android:layout_height="80dp"
                 android:layout_marginBottom="@dimen/padding_10"
                 app:cardBackgroundColor="@color/white"
-                android:foreground="@drawable/framelayout_selector"
+                android:foreground="@color/framelayout_selector"
                 app:cardCornerRadius="@dimen/padding_5"
                 app:elevation="1dp"
                 >
@@ -138,7 +138,7 @@
                 android:layout_height="80dp"
                 app:cardBackgroundColor="@color/white"
                 android:layout_marginBottom="@dimen/padding_10"
-                android:foreground="@drawable/framelayout_selector"
+                android:foreground="@color/framelayout_selector"
                 app:cardCornerRadius="@dimen/padding_5"
                 app:elevation="1dp"
                 >
@@ -174,7 +174,7 @@
                 android:layout_height="80dp"
                 android:layout_marginBottom="@dimen/padding_10"
                 app:cardBackgroundColor="@color/white"
-                android:foreground="@drawable/framelayout_selector"
+                android:foreground="@color/framelayout_selector"
                 app:cardCornerRadius="@dimen/padding_5"
                 app:elevation="1dp"
                 >
@@ -210,7 +210,7 @@
                 android:layout_height="80dp"
                 app:cardBackgroundColor="@color/white"
                 android:layout_marginBottom="@dimen/padding_10"
-                android:foreground="@drawable/framelayout_selector"
+                android:foreground="@color/framelayout_selector"
                 app:cardCornerRadius="@dimen/padding_5"
                 app:elevation="1dp"
                 >
@@ -246,7 +246,7 @@
                 android:layout_height="80dp"
                 app:cardBackgroundColor="@color/white"
                 android:layout_marginBottom="@dimen/padding_10"
-                android:foreground="@drawable/framelayout_selector"
+                android:foreground="@color/framelayout_selector"
                 app:cardCornerRadius="@dimen/padding_5"
                 app:elevation="1dp"
                 >

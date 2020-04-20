@@ -46,7 +46,7 @@
             android:id="@+id/selection_1_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:foreground="@drawable/framelayout_selector">
+            android:foreground="@color/framelayout_selector">
 
             <TextView
                 android:id="@+id/selection_1"
@@ -68,7 +68,7 @@
             android:id="@+id/selection_2_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:foreground="@drawable/framelayout_selector">
+            android:foreground="@color/framelayout_selector">
 
             <TextView
                 android:id="@+id/selection_2"
@@ -90,7 +90,7 @@
             android:id="@+id/selection_3_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:foreground="@drawable/framelayout_selector">
+            android:foreground="@color/framelayout_selector">
 
             <TextView
                 android:id="@+id/selection_3"
@@ -112,7 +112,7 @@
             android:id="@+id/selection_4_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:foreground="@drawable/framelayout_selector">
+            android:foreground="@color/framelayout_selector">
 
             <TextView
                 android:id="@+id/selection_4"
@@ -167,7 +167,7 @@
                 android:layout_marginRight="3dp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:foreground="@drawable/framelayout_selector"
+                android:foreground="@color/framelayout_selector"
                 >
                 <TextView
                     android:layout_width="match_parent"
@@ -187,7 +187,7 @@
                 android:layout_marginLeft="3dp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:foreground="@drawable/framelayout_selector"
+                android:foreground="@color/framelayout_selector"
                 >
                 <TextView
                     android:layout_width="match_parent"

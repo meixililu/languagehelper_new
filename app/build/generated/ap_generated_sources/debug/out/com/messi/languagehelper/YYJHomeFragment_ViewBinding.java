@@ -14,7 +14,7 @@ import java.lang.Override;
 public class YYJHomeFragment_ViewBinding implements Unbinder {
   private YYJHomeFragment target;
 
-  private View view7f080312;
+  private View view7f080316;
 
   private View view7f0802f4;
 
@@ -32,9 +32,9 @@ public class YYJHomeFragment_ViewBinding implements Unbinder {
 
   private View view7f080107;
 
-  private View view7f08043d;
+  private View view7f08045f;
 
-  private View view7f080355;
+  private View view7f080377;
 
   private View view7f0802f5;
 
@@ -45,7 +45,7 @@ public class YYJHomeFragment_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.symbol_study_cover, "field 'symbolStudyCover' and method 'onViewClicked'");
     target.symbolStudyCover = Utils.castView(view, R.id.symbol_study_cover, "field 'symbolStudyCover'", FrameLayout.class);
-    view7f080312 = view;
+    view7f080316 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -126,7 +126,7 @@ public class YYJHomeFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.xmly_layout, "field 'xmlyLayout' and method 'onViewClicked'");
     target.xmlyLayout = Utils.castView(view, R.id.xmly_layout, "field 'xmlyLayout'", FrameLayout.class);
-    view7f08043d = view;
+    view7f08045f = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -135,7 +135,7 @@ public class YYJHomeFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.translate_layout, "field 'translateLayout' and method 'onViewClicked'");
     target.translateLayout = Utils.castView(view, R.id.translate_layout, "field 'translateLayout'", FrameLayout.class);
-    view7f080355 = view;
+    view7f080377 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -173,8 +173,8 @@ public class YYJHomeFragment_ViewBinding implements Unbinder {
     target.translateLayout = null;
     target.studySetting = null;
 
-    view7f080312.setOnClickListener(null);
-    view7f080312 = null;
+    view7f080316.setOnClickListener(null);
+    view7f080316 = null;
     view7f0802f4.setOnClickListener(null);
     view7f0802f4 = null;
     view7f080105.setOnClickListener(null);
@@ -191,10 +191,10 @@ public class YYJHomeFragment_ViewBinding implements Unbinder {
     view7f080106 = null;
     view7f080107.setOnClickListener(null);
     view7f080107 = null;
-    view7f08043d.setOnClickListener(null);
-    view7f08043d = null;
-    view7f080355.setOnClickListener(null);
-    view7f080355 = null;
+    view7f08045f.setOnClickListener(null);
+    view7f08045f = null;
+    view7f080377.setOnClickListener(null);
+    view7f080377 = null;
     view7f0802f5.setOnClickListener(null);
     view7f0802f5 = null;
   }

@@ -26,7 +26,7 @@
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:layout_gravity="right"
-            android:foreground="@drawable/framelayout_selector"
+            android:foreground="@color/framelayout_selector"
             >
             <ImageView
                 android:layout_width="24dp"
