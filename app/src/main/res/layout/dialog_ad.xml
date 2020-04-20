@@ -57,7 +57,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:foreground="@color/framelayout_selector" >
+            android:foreground="@drawable/framelayout_selector" >
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="50dip"
@@ -75,7 +75,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:foreground="@color/framelayout_selector" >
+            android:foreground="@drawable/framelayout_selector" >
 
             <TextView
                 android:layout_width="fill_parent"

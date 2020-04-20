@@ -4,7 +4,7 @@
 	android:id="@+id/cover"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-	android:foreground="@color/framelayout_selector"
+	android:foreground="@drawable/framelayout_selector"
     android:background="@color/app_background"
     android:padding="@dimen/padding_10"
     >

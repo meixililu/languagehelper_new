@@ -14,7 +14,7 @@
 		        android:id="@+id/record_question_cover"
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
-		        android:foreground="@color/framelayout_selector"
+		        android:foreground="@drawable/framelayout_selector"
 		        >
 			    <TextView
 			        android:id="@+id/record_question"
@@ -42,7 +42,7 @@
 		        android:id="@+id/record_answer_cover"
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
-		        android:foreground="@color/framelayout_selector"
+		        android:foreground="@drawable/framelayout_selector"
 		        >
 			    <TextView
 			        android:id="@+id/record_answer"
@@ -90,7 +90,7 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:layout_weight="1"
-            android:foreground="@color/framelayout_selector"
+            android:foreground="@drawable/framelayout_selector"
             >
 
             <ImageButton
@@ -113,7 +113,7 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:foreground="@color/framelayout_selector"
+            android:foreground="@drawable/framelayout_selector"
             >
 
             <CheckBox
@@ -140,7 +140,7 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:foreground="@color/framelayout_selector"
+            android:foreground="@drawable/framelayout_selector"
             >
             <ImageButton
                 android:layout_width="@dimen/list_item_icon"
@@ -162,7 +162,7 @@
 			android:layout_width="0dp"
 			android:layout_height="fill_parent"
 			android:layout_weight="1"
-			android:foreground="@color/framelayout_selector"
+			android:foreground="@drawable/framelayout_selector"
 			>
 			<ImageButton
 				android:layout_width="13dp"
@@ -184,7 +184,7 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:foreground="@color/framelayout_selector"
+            android:foreground="@drawable/framelayout_selector"
             >
 
             <ImageButton

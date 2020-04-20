@@ -159,7 +159,7 @@
                     android:layout_marginRight="3dp"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
-                    android:foreground="@color/framelayout_selector"
+                    android:foreground="@drawable/framelayout_selector"
                     >
                     <TextView
                         android:layout_width="match_parent"
@@ -179,7 +179,7 @@
                     android:layout_marginLeft="3dp"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
-                    android:foreground="@color/framelayout_selector"
+                    android:foreground="@drawable/framelayout_selector"
                     >
                     <TextView
                         android:layout_width="match_parent"

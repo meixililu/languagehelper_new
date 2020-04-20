@@ -54,7 +54,7 @@
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:foreground="@color/framelayout_selector"
+                android:foreground="@drawable/framelayout_selector"
                 >
                 <ImageView
                     android:layout_width="24dp"
@@ -147,7 +147,7 @@
                     android:id="@+id/clear_history"
                     android:layout_width="50dp"
                     android:layout_height="38dp"
-                    android:foreground="@color/framelayout_selector"
+                    android:foreground="@drawable/framelayout_selector"
                     >
                     <ImageView
                         android:layout_width="24dp"

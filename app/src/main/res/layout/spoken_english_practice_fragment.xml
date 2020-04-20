@@ -38,7 +38,7 @@
         android:layout_height="50dp"
         android:orientation="vertical"
         android:padding="@dimen/padding_5"
-        android:foreground="@color/framelayout_selector"
+        android:foreground="@drawable/framelayout_selector"
         android:background="@color/ai_chat_input"
         >
         <TextView

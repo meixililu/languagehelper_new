@@ -24,7 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:foreground="@color/framelayout_selector"
+                android:foreground="@drawable/framelayout_selector"
                 android:paddingLeft="10dp"
                 android:paddingRight="3dp"
                 android:paddingTop="3dp"

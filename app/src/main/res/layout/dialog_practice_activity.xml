@@ -79,7 +79,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
-                    android:foreground="@color/framelayout_selector"
+                    android:foreground="@drawable/framelayout_selector"
                     android:layout_margin="@dimen/padding_5">
                     <TextView
                         android:layout_width="match_parent"

@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/padding_10"
     android:paddingBottom="@dimen/padding_10"
     android:orientation="vertical"
-    android:foreground="@color/framelayout_selector" >
+    android:foreground="@drawable/framelayout_selector" >
     <LinearLayout
         android:id="@+id/dic_result_layout"
         android:layout_width="match_parent"

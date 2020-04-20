@@ -63,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="1px"
                 android:layout_weight="1"
-                android:foreground="@color/framelayout_selector"
+                android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -99,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="1px"
                 android:layout_weight="1"
-                android:foreground="@color/framelayout_selector"
+                android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -134,7 +134,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:foreground="@color/framelayout_selector"
+                android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -177,7 +177,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="1px"
                 android:layout_weight="1"
-                android:foreground="@color/framelayout_selector"
+                android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -213,7 +213,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="1px"
                 android:layout_weight="1"
-                android:foreground="@color/framelayout_selector"
+                android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -248,7 +248,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:foreground="@color/framelayout_selector"
+                android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -293,7 +293,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="1px"
                 android:layout_weight="1"
-                android:foreground="@color/framelayout_selector"
+                android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -329,7 +329,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="1px"
                 android:layout_weight="1"
-                android:foreground="@color/framelayout_selector"
+                android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -364,7 +364,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:foreground="@color/framelayout_selector"
+                android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -408,7 +408,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="1px"
                 android:layout_weight="1"
-                android:foreground="@color/framelayout_selector"
+                android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -444,7 +444,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="1px"
                 android:layout_weight="1"
-                android:foreground="@color/framelayout_selector"
+                android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -479,7 +479,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:foreground="@color/framelayout_selector"
+                android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -522,7 +522,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="1px"
                 android:layout_weight="1"
-                android:foreground="@color/framelayout_selector"
+                android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -558,7 +558,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="1px"
                 android:layout_weight="1"
-                android:foreground="@color/framelayout_selector"
+                android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -593,7 +593,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:foreground="@color/framelayout_selector"
+                android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -636,7 +636,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="1px"
                 android:layout_weight="1"
-                android:foreground="@color/framelayout_selector"
+                android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -672,7 +672,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="1px"
                 android:layout_weight="1"
-                android:foreground="@color/framelayout_selector"
+                android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -707,7 +707,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:foreground="@color/framelayout_selector"
+                android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -753,7 +753,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="1px"
                 android:layout_weight="1"
-                android:foreground="@color/framelayout_selector"
+                android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -789,7 +789,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="1px"
                 android:layout_weight="1"
-                android:foreground="@color/framelayout_selector"
+                android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -825,7 +825,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="1px"
                 android:layout_weight="1"
-                android:foreground="@color/framelayout_selector"
+                android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -869,7 +869,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="1px"
                 android:layout_weight="1"
-                android:foreground="@color/framelayout_selector"
+                android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
 
                 <LinearLayout

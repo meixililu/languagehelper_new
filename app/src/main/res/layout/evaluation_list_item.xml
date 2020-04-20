@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
 	android:background="@color/ai_chat_background"
-    android:foreground="@color/framelayout_selector"
+    android:foreground="@drawable/framelayout_selector"
     android:paddingRight="10dp"
     android:paddingLeft="10dp"
 	android:paddingTop="@dimen/padding_15"

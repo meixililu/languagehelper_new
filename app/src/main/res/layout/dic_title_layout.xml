@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
-    android:foreground="@color/framelayout_selector"
+    android:foreground="@drawable/framelayout_selector"
     android:paddingLeft="10dp"
     android:paddingTop="6dp"
     android:paddingBottom="6dp"

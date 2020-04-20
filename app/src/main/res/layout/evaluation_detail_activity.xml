@@ -39,7 +39,7 @@
                 android:id="@+id/record_answer_cover"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:foreground="@color/framelayout_selector" >
+                android:foreground="@drawable/framelayout_selector" >
 
                     <TextView
                         android:id="@+id/evaluation_en_tv"
@@ -68,7 +68,7 @@
                 android:id="@+id/show_zh_img"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:foreground="@color/framelayout_selector"
+                android:foreground="@drawable/framelayout_selector"
                 >
                 <TextView
                     android:id="@+id/evaluation_zh_tv"
@@ -108,7 +108,7 @@
                     android:layout_width="50dp"
                     android:layout_height="45dp"
                     android:background="?attr/colorPrimary"
-                    android:foreground="@color/framelayout_selector"
+                    android:foreground="@drawable/framelayout_selector"
                     >
                     <ImageView
                         android:layout_width="20dp"
@@ -122,7 +122,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:foreground="@color/framelayout_selector"
+                    android:foreground="@drawable/framelayout_selector"
                     >
                     <TextView
                         android:id="@+id/start_btn"
@@ -141,7 +141,7 @@
                     android:layout_width="50dp"
                     android:layout_height="45dp"
                     android:background="?attr/colorPrimary"
-                    android:foreground="@color/framelayout_selector"
+                    android:foreground="@drawable/framelayout_selector"
                     >
                     <ImageView
                         android:layout_width="20dp"
@@ -165,7 +165,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:foreground="@color/framelayout_selector"
+                    android:foreground="@drawable/framelayout_selector"
                     android:orientation="horizontal">
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -224,7 +224,7 @@
                         android:layout_height="wrap_content"
                         android:padding="3dp"
                         android:layout_weight="1"
-                        android:foreground="@color/framelayout_selector" >
+                        android:foreground="@drawable/framelayout_selector" >
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -254,7 +254,7 @@
                         android:layout_height="wrap_content"
                         android:padding="3dp"
                         android:layout_weight="1"
-                        android:foreground="@color/framelayout_selector" >
+                        android:foreground="@drawable/framelayout_selector" >
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -283,7 +283,7 @@
                         android:layout_height="wrap_content"
                         android:padding="3dp"
                         android:layout_weight="1"
-                        android:foreground="@color/framelayout_selector" >
+                        android:foreground="@drawable/framelayout_selector" >
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
