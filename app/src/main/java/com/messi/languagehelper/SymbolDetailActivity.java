@@ -33,6 +33,7 @@ import com.google.android.exoplayer2.util.Util;
 import com.messi.languagehelper.dao.SymbolListDao;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.DownLoadUtil;
+import com.messi.languagehelper.util.IPlayerUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SDCardUtil;
@@ -188,6 +189,7 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
     }
 
     private void exoplaer(String media_url) {
+        IPlayerUtil.pauseAudioPlayer(this);
         player = ExoPlayerFactory.newSimpleInstance(this);
         simpleExoPlayerView.setPlayer(player);
 
@@ -314,6 +316,7 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
                 AVAnalytics.onEvent(SymbolDetailActivity.this, "symbol_pg_play_mp3");
                 break;
             case R.id.teacher_cover:
+                IPlayerUtil.pauseAudioPlayer(this);
                 if (SDCardUtil.isFileExist(SDTeacherMp3FullName)) {
                     playMp3(SDTeacherMp3FullName);
                 } else {

@@ -23,7 +23,6 @@ import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.JsonParser;
-import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Setings;
@@ -176,10 +175,7 @@ public class StudyCategoryFragment extends BaseFragment {
                 AVAnalytics.onEvent(getContext(), "tab3_to_ximalaya_home");
                 break;
             case R.id.study_daily_sentence:
-                Bundle bundle = new Bundle();
-                bundle.putSerializable(KeyUtil.FragmentName,DailySentenceFragment.class);
-                bundle.putString(KeyUtil.ActionbarTitle,getResources().getString(R.string.dailysentence));
-                toActivity(EmptyActivity.class,bundle);
+                toActivity(DailyEnglishActivity.class,null);
                 AVAnalytics.onEvent(getContext(), "tab3_to_dailysentence");
                 break;
         }

@@ -23,9 +23,9 @@ public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
 
   private View view7f08006c;
 
-  private View view7f0800a9;
+  private View view7f0800aa;
 
-  private View view7f080224;
+  private View view7f080227;
 
   @UiThread
   public ReadDetailTouTiaoActivity_ViewBinding(ReadDetailTouTiaoActivity target) {
@@ -56,7 +56,7 @@ public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
     target.webview_layout = Utils.findRequiredViewAsType(source, R.id.webview_layout, "field 'webview_layout'", FrameLayout.class);
     view = Utils.findRequiredView(source, R.id.collect_btn, "field 'collect_btn' and method 'onClick'");
     target.collect_btn = Utils.castView(view, R.id.collect_btn, "field 'collect_btn'", ImageView.class);
-    view7f0800a9 = view;
+    view7f0800aa = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -66,7 +66,7 @@ public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
     target.progressbar = Utils.findRequiredViewAsType(source, R.id.progressbar, "field 'progressbar'", ProgressBar.class);
     view = Utils.findRequiredView(source, R.id.play_background_btn, "field 'play_background_btn' and method 'onBackGroundClicked'");
     target.play_background_btn = Utils.castView(view, R.id.play_background_btn, "field 'play_background_btn'", RelativeLayout.class);
-    view7f080224 = view;
+    view7f080227 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -96,9 +96,9 @@ public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
 
     view7f08006c.setOnClickListener(null);
     view7f08006c = null;
-    view7f0800a9.setOnClickListener(null);
-    view7f0800a9 = null;
-    view7f080224.setOnClickListener(null);
-    view7f080224 = null;
+    view7f0800aa.setOnClickListener(null);
+    view7f0800aa = null;
+    view7f080227.setOnClickListener(null);
+    view7f080227 = null;
   }
 }

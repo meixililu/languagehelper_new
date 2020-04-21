@@ -141,18 +141,18 @@ public class IPlayerUtil {
         try {
             LogUtil.DefalutLog("IPlayerUtil---initAndPlay---Reading:"+song);
             String data = JSON.toJSONString(song);
-            musicSrv.initAndPlay(data,true);
+            musicSrv.initAndPlay(data,true,0);
         } catch (Exception e) {
             LogUtil.DefalutLog("RemoteException---initAndPlay");
             e.printStackTrace();
         }
     }
 
-    public static void initAndPlay(Reading song,boolean isPlayList){
+    public static void initAndPlay(Reading song,boolean isPlayList,long position){
         try {
             LogUtil.DefalutLog("IPlayerUtil---initAndPlay---musicSrv:"+musicSrv);
             String data = JSON.toJSONString(song);
-            musicSrv.initAndPlay(data,isPlayList);
+            musicSrv.initAndPlay(data, isPlayList, position);
         } catch (Exception e) {
             LogUtil.DefalutLog("RemoteException---initAndPlay--isPlayList");
             e.printStackTrace();

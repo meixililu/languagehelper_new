@@ -12,18 +12,18 @@
         >
 		    <FrameLayout 
 		        android:id="@+id/record_question_cover"
-		        android:layout_width="fill_parent"
+		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
 		        android:foreground="@drawable/framelayout_selector"
 		        >
 			    <TextView
 			        android:id="@+id/record_question"
-			        android:layout_width="fill_parent"
+			        android:layout_width="match_parent"
 			        android:layout_height="wrap_content"
 					android:lineSpacingExtra="7dp"
 			        android:paddingLeft="10dp"
 			        android:paddingTop="10dp"
-			        android:paddingBottom="3dp"
+			        android:paddingBottom="5dp"
 					android:textColor="@color/text_black"
 			        android:textSize="@dimen/bigger" />
 			    <ImageView 
@@ -40,13 +40,13 @@
 		
 		    <FrameLayout 
 		        android:id="@+id/record_answer_cover"
-		        android:layout_width="fill_parent"
+		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
 		        android:foreground="@drawable/framelayout_selector"
 		        >
 			    <TextView
 			        android:id="@+id/record_answer"
-			        android:layout_width="fill_parent"
+			        android:layout_width="match_parent"
 			        android:layout_height="wrap_content"
 					android:lineSpacingExtra="7dp"
 			        android:paddingLeft="10dp"
@@ -69,13 +69,13 @@
     </LinearLayout>
     
     <ImageView
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="1px"
         android:background="@color/line_color_gray" />
 
     <LinearLayout
         android:id="@+id/more_layout"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="1px"
         android:layout_marginLeft="1px"
@@ -86,7 +86,7 @@
         <FrameLayout
             android:id="@+id/weixi_btn"
             android:layout_width="0dp"
-            android:layout_height="fill_parent"
+            android:layout_height="match_parent"
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:layout_weight="1"
@@ -103,15 +103,15 @@
         
         <ImageView
             android:layout_width="1px"
-            android:layout_height="fill_parent"
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="3dp"
+            android:layout_height="match_parent"
+			android:layout_marginTop="6dp"
+			android:layout_marginBottom="6dp"
             android:background="@color/line_color_blue" />
 
         <FrameLayout
             android:id="@+id/collected_btn"
             android:layout_width="0dp"
-            android:layout_height="fill_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:foreground="@drawable/framelayout_selector"
             >
@@ -130,15 +130,15 @@
         
         <ImageView
             android:layout_width="1px"
-            android:layout_height="fill_parent"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
+            android:layout_height="match_parent"
+			android:layout_marginTop="6dp"
+			android:layout_marginBottom="6dp"
             android:background="@color/line_color_blue" />
         
         <FrameLayout
             android:id="@+id/delete_btn"
             android:layout_width="0dp"
-            android:layout_height="fill_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:foreground="@drawable/framelayout_selector"
             >
@@ -152,21 +152,21 @@
         
         <ImageView
             android:layout_width="1px"
-            android:layout_height="fill_parent"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
+            android:layout_height="match_parent"
+			android:layout_marginTop="6dp"
+			android:layout_marginBottom="6dp"
             android:background="@color/line_color_blue" />
 
 		<FrameLayout
 			android:id="@+id/record_to_practice"
 			android:layout_width="0dp"
-			android:layout_height="fill_parent"
+			android:layout_height="match_parent"
 			android:layout_weight="1"
 			android:foreground="@drawable/framelayout_selector"
 			>
 			<ImageButton
-				android:layout_width="13dp"
-				android:layout_height="13dp"
+				android:layout_width="11dp"
+				android:layout_height="11dp"
 				android:layout_gravity="center"
 				android:background="@drawable/ic_practise"
 				android:clickable="false" />
@@ -174,15 +174,15 @@
 
         <ImageView
             android:layout_width="1px"
-            android:layout_height="fill_parent"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
             android:background="@color/line_color_blue" />
         
         <FrameLayout
             android:id="@+id/voice_play_layout"
             android:layout_width="0dp"
-            android:layout_height="fill_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:foreground="@drawable/framelayout_selector"
             >

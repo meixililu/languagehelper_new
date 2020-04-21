@@ -244,7 +244,7 @@
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/search_layout"
+                android:id="@+id/layout_meiriyiju"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -263,7 +263,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        app:srcCompat="@drawable/ic_icon_06" />
+                        app:srcCompat="@drawable/ic_icon_11" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -272,7 +272,7 @@
                         android:background="@color/white"
                         android:gravity="center"
                         android:lines="1"
-                        android:text="@string/leisure_search"
+                        android:text="@string/dailysentence"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/middle" />
                 </LinearLayout>
@@ -360,7 +360,7 @@
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/layout_xiehouyu"
+                android:id="@+id/search_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -379,7 +379,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        app:srcCompat="@drawable/ic_icon_20" />
+                        app:srcCompat="@drawable/ic_icon_06" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -388,7 +388,7 @@
                         android:background="@color/white"
                         android:gravity="center"
                         android:lines="1"
-                        android:text="@string/leisuer_xhy"
+                        android:text="@string/leisure_search"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/middle" />
                 </LinearLayout>
@@ -439,10 +439,9 @@
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/layout_riddle"
+                android:id="@+id/layout_xiehouyu"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="1px"
                 android:layout_weight="1"
                 android:foreground="@drawable/framelayout_selector"
                 android:orientation="vertical">
@@ -459,7 +458,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        app:srcCompat="@drawable/ic_icon_11" />
+                        app:srcCompat="@drawable/ic_icon_20" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -468,7 +467,7 @@
                         android:background="@color/white"
                         android:gravity="center"
                         android:lines="1"
-                        android:text="@string/leisure_riddle"
+                        android:text="@string/leisuer_xhy"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/middle" />
                 </LinearLayout>
@@ -862,6 +861,41 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="3">
+
+            <FrameLayout
+                android:id="@+id/layout_riddle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:foreground="@drawable/framelayout_selector"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/padding_15"
+                    android:paddingBottom="@dimen/padding_15">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:srcCompat="@drawable/ic_icon_11" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="@dimen/padding_5"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:text="@string/leisure_riddle"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/middle" />
+                </LinearLayout>
+            </FrameLayout>
 
             <FrameLayout
                 android:id="@+id/shenhuifu_layout"

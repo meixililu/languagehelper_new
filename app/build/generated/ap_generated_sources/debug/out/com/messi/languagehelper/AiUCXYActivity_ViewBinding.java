@@ -23,11 +23,11 @@ import java.lang.Override;
 public class AiUCXYActivity_ViewBinding implements Unbinder {
   private AiUCXYActivity target;
 
-  private View view7f08030b;
+  private View view7f08030e;
 
-  private View view7f08016f;
+  private View view7f080171;
 
-  private View view7f08043b;
+  private View view7f08043e;
 
   @UiThread
   public AiUCXYActivity_ViewBinding(AiUCXYActivity target) {
@@ -42,7 +42,7 @@ public class AiUCXYActivity_ViewBinding implements Unbinder {
     target.inputEt = Utils.findRequiredViewAsType(source, R.id.input_et, "field 'inputEt'", AppCompatEditText.class);
     view = Utils.findRequiredView(source, R.id.submit_btn_cover, "field 'submitBtn' and method 'onViewClicked'");
     target.submitBtn = Utils.castView(view, R.id.submit_btn_cover, "field 'submitBtn'", CardView.class);
-    view7f08030b = view;
+    view7f08030e = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -55,7 +55,7 @@ public class AiUCXYActivity_ViewBinding implements Unbinder {
     target.inputTypeBtn = Utils.findRequiredViewAsType(source, R.id.input_type_btn, "field 'inputTypeBtn'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.input_type_layout, "field 'inputTypeLayout' and method 'onViewClicked'");
     target.inputTypeLayout = Utils.castView(view, R.id.input_type_layout, "field 'inputTypeLayout'", LinearLayout.class);
-    view7f08016f = view;
+    view7f080171 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -65,7 +65,7 @@ public class AiUCXYActivity_ViewBinding implements Unbinder {
     target.voiceBtn = Utils.findRequiredViewAsType(source, R.id.voice_btn, "field 'voiceBtn'", TextView.class);
     view = Utils.findRequiredView(source, R.id.voice_btn_cover, "field 'voiceBtnCover' and method 'onViewClicked'");
     target.voiceBtnCover = Utils.castView(view, R.id.voice_btn_cover, "field 'voiceBtnCover'", CardView.class);
-    view7f08043b = view;
+    view7f08043e = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -109,11 +109,11 @@ public class AiUCXYActivity_ViewBinding implements Unbinder {
     target.splash_container = null;
     target.skip_view = null;
 
-    view7f08030b.setOnClickListener(null);
-    view7f08030b = null;
-    view7f08016f.setOnClickListener(null);
-    view7f08016f = null;
-    view7f08043b.setOnClickListener(null);
-    view7f08043b = null;
+    view7f08030e.setOnClickListener(null);
+    view7f08030e = null;
+    view7f080171.setOnClickListener(null);
+    view7f080171 = null;
+    view7f08043e.setOnClickListener(null);
+    view7f08043e = null;
   }
 }

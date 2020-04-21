@@ -26,8 +26,8 @@ android {
         minSdkVersion 16
         targetSdkVersion 28
         //中英互译
-        versionCode 51
-        versionName "4.6.1"
+        versionCode 52
+        versionName "4.6.2"
         //粤语说
 //        versionCode 15
 //        versionName "2.2"

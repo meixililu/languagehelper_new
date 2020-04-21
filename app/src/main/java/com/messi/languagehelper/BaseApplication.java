@@ -96,7 +96,6 @@ public class BaseApplication extends MultiDexApplication {
 
     private void initYouDao(){
         try {
-            webviewSetPath(this);
             YouDaoApplication.init(BaseApplication.this, Setings.YoudaoApiKey);
         } catch (Exception e) {
             e.printStackTrace();

@@ -31,7 +31,7 @@ public class StudyTabFragment extends BaseFragment implements TablayoutOnSelecte
     private SubjectFragment subjectFragment;
     private BoutiquesFragment boutiquesFragment;
     private XmlyRecommendFragment mXmlyRecommendFragment;
-    private Fragment mReadingFragment;
+//    private Fragment mReadingFragment;
 
     public static StudyTabFragment getInstance() {
         return new StudyTabFragment();
@@ -91,14 +91,14 @@ public class StudyTabFragment extends BaseFragment implements TablayoutOnSelecte
                 .build();
         mXmlyRecommendFragment = XmlyRecommendFragment.newInstance();
         mXmlyRecommendFragment.refreshByTags(XimalayaUtil.Category_english,"");
-        mReadingFragment = new Fragment();
+//        mReadingFragment = new Fragment();
         getChildFragmentManager()
                 .beginTransaction()
                 .add(R.id.content_layout,studyFragment)
                 .add(R.id.content_layout,subjectFragment)
                 .add(R.id.content_layout, boutiquesFragment)
                 .add(R.id.content_layout, mXmlyRecommendFragment)
-                .add(R.id.content_layout,mReadingFragment)
+//                .add(R.id.content_layout,mReadingFragment)
                 .commit();
         hideAllFragment();
         showFragment(position);
@@ -120,9 +120,9 @@ public class StudyTabFragment extends BaseFragment implements TablayoutOnSelecte
             case 3:
                 fragment = subjectFragment;
                 break;
-            case 4:
-                fragment = mReadingFragment;
-                break;
+//            case 4:
+//                fragment = mReadingFragment;
+//                break;
         }
         getChildFragmentManager()
                 .beginTransaction().show(fragment).commit();
@@ -135,7 +135,7 @@ public class StudyTabFragment extends BaseFragment implements TablayoutOnSelecte
                 .hide(boutiquesFragment)
                 .hide(subjectFragment)
                 .hide(mXmlyRecommendFragment)
-                .hide(mReadingFragment)
+//                .hide(mReadingFragment)
                 .commit();
     }
 

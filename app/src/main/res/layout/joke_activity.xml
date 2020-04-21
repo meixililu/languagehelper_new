@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/tabs_heigh"
             android:background="@color/bg_white"
-            app:tabSelectedTextColor="@color/text_black"
+            app:tabSelectedTextColor="?attr/colorPrimary"
             app:tabTextColor="@color/text_grey1"
             app:tabIndicatorColor="@color/none"
             />

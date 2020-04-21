@@ -40,14 +40,14 @@
             <android.support.design.widget.TabLayout
                 android:id="@+id/tablayout"
                 android:layout_width="match_parent"
-                android:layout_height="42dp"
+                android:layout_height="@dimen/tabs_heigh"
                 android:background="@color/bg_white"
                 app:tabMode="scrollable"
                 app:tabPaddingStart="13dp"
                 app:tabPaddingEnd="13dp"
                 app:tabMaxWidth="210dp"
                 app:tabMinWidth="20dp"
-                app:tabSelectedTextColor="@color/text_black"
+                app:tabSelectedTextColor="?attr/colorPrimary"
                 app:tabTextColor="@color/text_grey1"
                 app:tabIndicatorColor="@color/none" />
         </LinearLayout>

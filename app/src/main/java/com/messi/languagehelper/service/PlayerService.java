@@ -97,15 +97,17 @@ public class PlayerService extends Service {
     private boolean isForeground;
     private List<Reading> list;
     private long lastLoadDataTime;
+    private long currentPlayPosition;
     private int currentPosition;
-    private PlayerService.ExoPlayerEventListener mEventListener = new PlayerService.ExoPlayerEventListener();
-    private PlayerService.MyIXmPlayerStatusListener mMyIXmPlayerStatusListener = new PlayerService.MyIXmPlayerStatusListener();
+    private ExoPlayerEventListener mEventListener = new ExoPlayerEventListener();
+    private MyIXmPlayerStatusListener mMyIXmPlayerStatusListener = new MyIXmPlayerStatusListener();
 
     public IBinder musicBind = new IXBPlayer.Stub(){
 
         @Override
-        public void initAndPlay(String song, boolean isPlayList) throws RemoteException {
+        public void initAndPlay(String song, boolean isPlayList, long cPosition) throws RemoteException {
             Reading data = JSON.parseObject(song,Reading.class);
+            currentPlayPosition = cPosition;
             InitAndPlay(data, isPlayList);
         }
 
@@ -326,7 +328,6 @@ public class PlayerService extends Service {
                 mediaSource = new ExtractorMediaSource.Factory(dataSourceFactory)
                         .createMediaSource(Uri.parse(media_url));
             }
-
             mExoPlayer.prepare(mediaSource);
             mExoPlayer.setPlayWhenReady(true);
             mWifiLock.acquire();
@@ -441,7 +442,7 @@ public class PlayerService extends Service {
         return PlayerStatus == 1;
     }
 
-    private final class ExoPlayerEventListener implements Player.EventListener {
+    public class ExoPlayerEventListener implements Player.EventListener {
 
         @Override
         public void onTimelineChanged(Timeline timeline, Object manifest, int reason) {
@@ -464,6 +465,7 @@ public class PlayerService extends Service {
             switch (playbackState) {
                 case Player.STATE_IDLE:
                     LogUtil.DefalutLog("STATE_IDLE");
+                    break;
                 case Player.STATE_BUFFERING:
                     LogUtil.DefalutLog("STATE_BUFFERING");
                     if(playWhenReady){
@@ -471,6 +473,7 @@ public class PlayerService extends Service {
                                 NotificationUtil.mes_type_zyhy);
                         NotificationUtil.sendBroadcast(PlayerService.this,action_pause);
                     }
+                    break;
                 case Player.STATE_READY:
                     LogUtil.DefalutLog("STATE_READY");
                     if(playWhenReady){
@@ -478,6 +481,11 @@ public class PlayerService extends Service {
                         NotificationUtil.showNotification(PlayerService.this,action_pause,song.getTitle(),
                                 NotificationUtil.mes_type_zyhy);
                         NotificationUtil.sendBroadcast(PlayerService.this,action_pause);
+                        if (currentPlayPosition > 0) {
+                            mExoPlayer.seekTo(currentPlayPosition);
+                            mExoPlayer.setPlayWhenReady(true);
+                            currentPlayPosition = 0;
+                        }
                     }
                     break;
                 case Player.STATE_ENDED:
@@ -645,6 +653,7 @@ public class PlayerService extends Service {
                         if (!NullUtil.isNotEmpty(list)) {
                             list = new ArrayList<>();
                         }
+                        isPlayList = true;
                         DataUtil.changeDataToReading(avObjects,list,false);
                         InitPlayList(list,currentPosition);
                     }else {

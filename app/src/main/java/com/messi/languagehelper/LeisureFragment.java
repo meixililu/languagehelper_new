@@ -211,8 +211,6 @@ public class LeisureFragment extends BaseFragment {
         }
     }
 
-
-
     public void setAd(NativeDataRef mADDataRef) {
         if (mADDataRef != null) {
             mNativeADDataRef = mADDataRef;
@@ -261,7 +259,7 @@ public class LeisureFragment extends BaseFragment {
             R.id.twists_layout, R.id.game_layout, R.id.shenhuifu_layout, R.id.news_layout, R.id.app_layout,
             R.id.invest_layout, R.id.layout_riddle, R.id.search_layout,R.id.novel_layout, R.id.caricature_layout,
             R.id.jd_layout,R.id.english_essay_layout,R.id.layout_whyy,R.id.layout_conjecture,R.id.layout_history,
-            R.id.layout_xiehouyu,R.id.layout_tongue_twister,R.id.ksearch_layout})
+            R.id.layout_xiehouyu,R.id.layout_tongue_twister,R.id.layout_meiriyiju,R.id.ksearch_layout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.cailing_layout:
@@ -309,6 +307,9 @@ public class LeisureFragment extends BaseFragment {
             case R.id.caricature_layout:
                 toCaricatureActivity();
                 break;
+            case R.id.layout_meiriyiju:
+                toMeiriyiju();
+                break;
             case R.id.jd_layout:
                 toDVideo();
                 break;
@@ -331,6 +332,13 @@ public class LeisureFragment extends BaseFragment {
                 toProverb();
                 break;
         }
+    }
+
+    private void toMeiriyiju(){
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(KeyUtil.FragmentName,DailySentenceFragment.class);
+        bundle.putString(KeyUtil.ActionbarTitle,getResources().getString(R.string.dailysentence));
+        toActivity(EmptyActivity.class,bundle);
     }
 
     private void toTongueTwister(){

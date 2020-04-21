@@ -583,10 +583,14 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
 
     @OnClick(R.id.play_background_btn)
     public void onBackGroundClicked() {
+        long CurrentPosition = 0;
+        if (player != null) {
+            CurrentPosition = player.getCurrentPosition();
+        }
         if (NetworkUtil.isWifiConnected(this)) {
-            IPlayerUtil.initAndPlay(mAVObject,true);
+            IPlayerUtil.initAndPlay(mAVObject,true, CurrentPosition);
         } else {
-            IPlayerUtil.initAndPlay(mAVObject,false);
+            IPlayerUtil.initAndPlay(mAVObject,false, CurrentPosition);
         }
         onBackPressed();
     }
