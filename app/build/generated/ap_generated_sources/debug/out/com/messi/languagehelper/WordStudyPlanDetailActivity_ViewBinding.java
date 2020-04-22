@@ -18,15 +18,15 @@ public class WordStudyPlanDetailActivity_ViewBinding implements Unbinder {
 
   private View view7f080078;
 
-  private View view7f080266;
+  private View view7f080267;
 
-  private View view7f0800fe;
+  private View view7f0800ff;
 
-  private View view7f0800d0;
+  private View view7f0800d1;
 
   private View view7f08009f;
 
-  private View view7f0800d1;
+  private View view7f0800d2;
 
   private View view7f080224;
 
@@ -52,7 +52,7 @@ public class WordStudyPlanDetailActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.renzhi_layout, "field 'renzhiLayout' and method 'onClick'");
     target.renzhiLayout = Utils.castView(view, R.id.renzhi_layout, "field 'renzhiLayout'", FrameLayout.class);
-    view7f080266 = view;
+    view7f080267 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -61,7 +61,7 @@ public class WordStudyPlanDetailActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.duyinxuanci_layout, "field 'duyinxuanciLayout' and method 'onClick'");
     target.duyinxuanciLayout = Utils.castView(view, R.id.duyinxuanci_layout, "field 'duyinxuanciLayout'", FrameLayout.class);
-    view7f0800fe = view;
+    view7f0800ff = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -70,7 +70,7 @@ public class WordStudyPlanDetailActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.danciceshi_layout, "field 'danciceshiLayout' and method 'onClick'");
     target.danciceshiLayout = Utils.castView(view, R.id.danciceshi_layout, "field 'danciceshiLayout'", CardView.class);
-    view7f0800d0 = view;
+    view7f0800d1 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -89,7 +89,7 @@ public class WordStudyPlanDetailActivity_ViewBinding implements Unbinder {
     target.unitList = Utils.findRequiredViewAsType(source, R.id.unit_list, "field 'unitList'", GridView.class);
     view = Utils.findRequiredView(source, R.id.dancisuji_layout, "field 'dancisujiLayout' and method 'onClick'");
     target.dancisujiLayout = Utils.castView(view, R.id.dancisuji_layout, "field 'dancisujiLayout'", CardView.class);
-    view7f0800d1 = view;
+    view7f0800d2 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -125,16 +125,16 @@ public class WordStudyPlanDetailActivity_ViewBinding implements Unbinder {
 
     view7f080078.setOnClickListener(null);
     view7f080078 = null;
-    view7f080266.setOnClickListener(null);
-    view7f080266 = null;
-    view7f0800fe.setOnClickListener(null);
-    view7f0800fe = null;
-    view7f0800d0.setOnClickListener(null);
-    view7f0800d0 = null;
-    view7f08009f.setOnClickListener(null);
-    view7f08009f = null;
+    view7f080267.setOnClickListener(null);
+    view7f080267 = null;
+    view7f0800ff.setOnClickListener(null);
+    view7f0800ff = null;
     view7f0800d1.setOnClickListener(null);
     view7f0800d1 = null;
+    view7f08009f.setOnClickListener(null);
+    view7f08009f = null;
+    view7f0800d2.setOnClickListener(null);
+    view7f0800d2 = null;
     view7f080224.setOnClickListener(null);
     view7f080224 = null;
   }

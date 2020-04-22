@@ -18,6 +18,8 @@ public class KeyUtil {
 	
 	public static final String APPTheme = "APPTheme";
 
+	public static final String IsShowDailyEnglishUnread = "IsShowDailyEnglishUnread";
+
 	public static final String LeanCloudIPAddress = "LeanCloudIPAddress";
 	
 	public static final String ShareContentKey = "ShareContentKey";
@@ -183,6 +185,8 @@ public class KeyUtil {
 	public static final String BoutiqueCode = "BoutiqueCode";
 
 	public static final String isReadingDetailGuideShow = "isReadingDetailGuideShow";
+
+	public static final String isDailyEnglishGuideShow = "isDailyEnglishGuideShow";
 
 	public static final String ADKey = "ADKey";
 

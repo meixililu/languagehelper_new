@@ -1,6 +1,7 @@
 package com.messi.languagehelper;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -23,6 +25,7 @@ import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.JsonParser;
+import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Setings;
@@ -71,6 +74,8 @@ public class StudyCategoryFragment extends BaseFragment {
     TabLayout tablayout;
     @BindView(R.id.dailysentence_txt)
     TextView dailysentence_txt;
+    @BindView(R.id.daily_sentence_unread_dot)
+    ImageView daily_sentence_unread_dot;
 
     @BindView(R.id.study_daily_sentence)
     FrameLayout study_daily_sentence;
@@ -80,6 +85,7 @@ public class StudyCategoryFragment extends BaseFragment {
     private List<CategoryRecommendAlbums> mTabList;
     private EveryDaySentence mEveryDaySentence;
     private XmlyRecommendPageAdapter mAdapter;
+    private SharedPreferences sp;
 
     public static StudyCategoryFragment getInstance() {
         return new StudyCategoryFragment();
@@ -101,12 +107,20 @@ public class StudyCategoryFragment extends BaseFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.study_category_fragment, null);
         ButterKnife.bind(this, view);
+        init();
+        return view;
+    }
+
+    private void init(){
+        sp = Setings.getSharedPreferences(getContext());
         mAdapter = new XmlyRecommendPageAdapter(getChildFragmentManager());
         viewpager.setAdapter(mAdapter);
         getDailySentence();
         isLoadDailySentence();
         QueryTask();
-        return view;
+        if (sp.getBoolean(KeyUtil.IsShowDailyEnglishUnread,true)) {
+            daily_sentence_unread_dot.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -175,10 +189,16 @@ public class StudyCategoryFragment extends BaseFragment {
                 AVAnalytics.onEvent(getContext(), "tab3_to_ximalaya_home");
                 break;
             case R.id.study_daily_sentence:
-                toActivity(DailyEnglishActivity.class,null);
-                AVAnalytics.onEvent(getContext(), "tab3_to_dailysentence");
+                toDailyEnglishActivity();
                 break;
         }
+    }
+
+    private void toDailyEnglishActivity(){
+        daily_sentence_unread_dot.setVisibility(View.GONE);
+        Setings.saveSharedPreferences(sp, KeyUtil.IsShowDailyEnglishUnread,false);
+        toActivity(DailyEnglishActivity.class,null);
+        AVAnalytics.onEvent(getContext(), "tab3_to_dailysentence");
     }
 
     private void QueryTask() {
