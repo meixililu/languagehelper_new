@@ -38,6 +38,7 @@ import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.databinding.DailyEnglishActivityBinding;
 import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.IPlayerUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NumberUtil;
@@ -78,6 +79,7 @@ public class DailyEnglishActivity extends BaseActivity implements View.OnClickLi
 
     private void initViews() {
         setActionBarTitle(this.getResources().getString(R.string.title_daily_english));
+        IPlayerUtil.pauseAudioPlayer(this);
         sb = new StringBuilder();
         mSharedPreferences = Setings.getSharedPreferences(this);
         mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
@@ -96,7 +98,7 @@ public class DailyEnglishActivity extends BaseActivity implements View.OnClickLi
             AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.Theme_AppCompat_Light_Dialog_Alert);
             builder.setTitle("");
             builder.setCancelable(false);
-            builder.setMessage("先听录音，然后拼写句子，每天练一练，不认识的单词点一下就懂了，英语水平涨涨涨，666！");
+            builder.setMessage("先听录音，然后拼写句子，不认识的单词就点一下，实在太长太难的可以换一个，每天练一练，英语水平蹭蹭蹭的涨，666！");
             builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
@@ -105,7 +107,7 @@ public class DailyEnglishActivity extends BaseActivity implements View.OnClickLi
             });
             AlertDialog dialog = builder.create();
             dialog.show();
-//            Setings.saveSharedPreferences(mSharedPreferences, KeyUtil.isDailyEnglishGuideShow, true);
+            Setings.saveSharedPreferences(mSharedPreferences, KeyUtil.isDailyEnglishGuideShow, true);
         }else {
             queryData();
         }
@@ -259,6 +261,9 @@ public class DailyEnglishActivity extends BaseActivity implements View.OnClickLi
     }
 
     private void playMp3(String media_url) {
+        if (isPlaying()) {
+            return;
+        }
         final AudioAttributes audioAttributes = new AudioAttributes.Builder()
                 .setContentType(CONTENT_TYPE_MUSIC)
                 .setUsage(USAGE_MEDIA)
@@ -270,6 +275,11 @@ public class DailyEnglishActivity extends BaseActivity implements View.OnClickLi
                 .createMediaSource(Uri.parse(media_url));
         mExoPlayer.prepare(mediaSource);
         mExoPlayer.setPlayWhenReady(true);
+    }
+
+    public boolean isPlaying() {
+        return (mExoPlayer.getPlaybackState() == Player.STATE_READY || mExoPlayer.getPlaybackState() == Player.STATE_BUFFERING)
+                && mExoPlayer.getPlayWhenReady();
     }
 
     @Override
@@ -326,15 +336,15 @@ public class DailyEnglishActivity extends BaseActivity implements View.OnClickLi
             LogUtil.DefalutLog("---onPlayerStateChanged---");
             switch (playbackState) {
                 case Player.STATE_IDLE:
-
                     break;
                 case Player.STATE_BUFFERING:
-
+                    showProgressbar();
                     break;
                 case Player.STATE_READY:
-
+                    hideProgressbar();
                     break;
                 case Player.STATE_ENDED:
+                    hideProgressbar();
                     onFinishPlay();
                     break;
             }

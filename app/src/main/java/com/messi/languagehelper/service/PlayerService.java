@@ -699,7 +699,7 @@ public class PlayerService extends Service {
         call.enqueue(new Callback<PVideoResult>() {
                  @Override
                  public void onResponse(Call<PVideoResult> call, Response<PVideoResult> response) {
-                     LogUtil.DefalutLog("onResponse:");
+                     LogUtil.DefalutLog("onResponse:"+response);
                      if (response.isSuccessful()) {
                          PVideoResult mResult = response.body();
                          if (mResult != null && !TextUtils.isEmpty(mResult.getUrl())) {
