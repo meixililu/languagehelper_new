@@ -4,57 +4,68 @@
     <style name="AppThemeBlue" parent="AppThemeBasic">
         <item name="colorPrimary">@color/theme_color</item>
         <item name="colorPrimaryDark">@color/theme_color</item>
+        <item name="alphaAccent">@color/theme_color_alpha</item>
     </style>
 
     <style name="AppThemeGreen" parent="AppThemeBasic">
         <item name="colorPrimary">@color/theme_color_green</item>
         <item name="colorPrimaryDark">@color/theme_color_green</item>
+        <item name="alphaAccent">@color/theme_color_green_alpha</item>
     </style>
 
     <style name="AppThemeOrange" parent="AppThemeBasic">
         <item name="colorPrimary">@color/theme_color_orange</item>
         <item name="colorPrimaryDark">@color/theme_color_orange</item>
+        <item name="alphaAccent">@color/theme_color_orange_alpha</item>
     </style>
 
     <style name="AppThemeIndigo" parent="AppThemeBasic">
         <item name="colorPrimary">@color/theme_color_indigo</item>
         <item name="colorPrimaryDark">@color/theme_color_indigo</item>
+        <item name="alphaAccent">@color/theme_color_indigo_alpha</item>
     </style>
 
     <style name="AppThemeRed" parent="AppThemeBasic">
         <item name="colorPrimary">@color/theme_color_red</item>
         <item name="colorPrimaryDark">@color/theme_color_red</item>
+        <item name="alphaAccent">@color/theme_color_red_alpha</item>
     </style>
 
     <style name="AppThemePurple" parent="AppThemeBasic">
         <item name="colorPrimary">@color/theme_color_purple</item>
         <item name="colorPrimaryDark">@color/theme_color_purple</item>
+        <item name="alphaAccent">@color/theme_color_purple_alpha</item>
     </style>
 
     <style name="AppThemeGray" parent="AppThemeBasic">
         <item name="colorPrimary">@color/theme_color_gray</item>
         <item name="colorPrimaryDark">@color/theme_color_gray</item>
+        <item name="alphaAccent">@color/theme_color_gray_alpha</item>
     </style>
 
     <style name="AppThemeCyan" parent="AppThemeBasic">
         <item name="colorPrimary">@color/theme_color_cyan</item>
         <item name="colorPrimaryDark">@color/theme_color_cyan</item>
+        <item name="alphaAccent">@color/theme_color_cyan_alpha</item>
     </style>
 
     <style name="AppThemeTeal" parent="AppThemeBasic">
         <item name="colorPrimary">@color/theme_color_teal</item>
         <item name="colorPrimaryDark">@color/theme_color_teal</item>
+        <item name="alphaAccent">@color/theme_color_teal_alpha</item>
     </style>
 
     <style name="AppThemePink" parent="AppThemeBasic">
         <item name="colorPrimary">@color/theme_color_pink</item>
         <item name="colorPrimaryDark">@color/theme_color_pink</item>
+        <item name="alphaAccent">@color/theme_color_pink_alpha</item>
     </style>
 
     <style name="AppThemeBasic" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryDark">@color/white</item>
         <item name="colorAccent">@color/white</item>
+        <item name="alphaAccent">@color/white</item>
         <item name="android:itemBackground">@color/black</item>
     </style>
 
