@@ -31,9 +31,8 @@ import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.ui.PlayerView;
-import com.google.android.exoplayer2.upstream.DataSource;
-import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
-import com.google.android.exoplayer2.util.Util;
+import com.google.android.exoplayer2.upstream.DefaultHttpDataSource;
+import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 import com.messi.languagehelper.ViewModel.FullScreenVideoADModel;
 import com.messi.languagehelper.adapter.RcXVideoDetailListAdapter;
 import com.messi.languagehelper.adapter.RcXVideoDetailListItemViewHolder;
@@ -57,7 +56,6 @@ import com.messi.languagehelper.util.ViewUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -108,6 +106,7 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
             int firstVisibleItem = layoutManager.findFirstCompletelyVisibleItemPosition();
             if (!loading && hasMore) {
                 if ((visible + firstVisibleItem) >= total) {
+                    LogUtil.DefalutLog("RecyclerView:onScrolled");
                     RequestAsyncTask();
                 }
             }
@@ -118,7 +117,7 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
             switch (newState) {
                 case RecyclerView.SCROLL_STATE_IDLE://停止滚动
                     if(player != null){
-                        player.stop();
+                        player.setPlayWhenReady(false);
                     }
                     View view = snapHelper.findSnapView(layoutManager);
                     viewHolder = (RcXVideoDetailListItemViewHolder)recyclerView.getChildViewHolder(view);
@@ -180,11 +179,6 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
             player.setRepeatMode(Player.REPEAT_MODE_ALL);
             player_view.setPlayer(player);
 
-            mWebView = new WebView(this);
-            mWebView.requestFocus();
-            mWebView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
-            mWebView.getSettings().setJavaScriptEnabled(true);
-
             snapHelper = new PagerSnapHelper();
             snapHelper.attachToRecyclerView(listview);
             videoAdapter = new RcXVideoDetailListAdapter(player,player_view,mWebView);
@@ -211,7 +205,6 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
 
     private void setData(RcXVideoDetailListItemViewHolder viewHolder) {
         ViewUtil.removeParentView(player_view);
-        ViewUtil.removeParentView(mWebView);
         if(viewHolder.mAVObject.get(KeyUtil.ADKey) != null || viewHolder.mAVObject.get(KeyUtil.TXADView) != null ||
                 viewHolder.mAVObject.get(KeyUtil.VideoAD) != null){
             mFSVADModel.setAd_layout(viewHolder.mAVObject,viewHolder.player_view_layout,viewHolder.title,viewHolder.btn_detail);
@@ -221,33 +214,24 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
             return;
         }
         LogUtil.DefalutLog("type:"+viewHolder.type);
+        viewHolder.player_view_layout.addView(player_view);
         if(!TextUtils.isEmpty(viewHolder.mAVObject.getString(KeyUtil.VideoParseUrl))){
-            viewHolder.player_view_layout.addView(player_view);
             exoplaer(viewHolder.mAVObject.getString(KeyUtil.VideoParseUrl));
             return;
         }
         if (!TextUtils.isEmpty(viewHolder.type)) {
             if ("url_api".equals(viewHolder.type)) {
-                viewHolder.player_view_layout.addView(player_view);
                 parseVideoUrl(viewHolder.Url,viewHolder.mAVObject);
             } else if ("url_media".equals(viewHolder.type)) {
-                viewHolder.player_view_layout.addView(player_view);
                 exoplaer(viewHolder.media_url);
             } else if ("url_intercept".equals(viewHolder.type) ) {
-                viewHolder.player_view_layout.addView(player_view);
                 isIntercept = true;
                 mWebView.loadUrl(viewHolder.Url);
             } else {
-                viewHolder.player_view_layout.addView(mWebView);
-                viewHolder.title.setText("");
-                isIntercept = false;
-                isWVPSuccess = true;
-                mWebView.loadUrl(viewHolder.Url);
+                parseVideoUrl(viewHolder.Url,viewHolder.mAVObject);
             }
         } else {
-            viewHolder.player_view_layout.addView(player_view);
-            isIntercept = true;
-            mWebView.loadUrl(viewHolder.Url);
+            parseVideoUrl(viewHolder.Url,viewHolder.mAVObject);
         }
     }
 
@@ -262,24 +246,21 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
                 interceptUrls = new String[]{intercepts};
             }
         }
-
         mWebView = new WebView(this);
         mWebView.requestFocus();
         mWebView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
         mWebView.getSettings().setJavaScriptEnabled(true);
+        mWebView.getSettings().setUserAgentString(Setings.Hearder);
         mWebView.setWebViewClient(new WebViewClient() {
-
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 super.onPageStarted(view, url, favicon);
                 LogUtil.DefalutLog("WebViewClient:onPageStarted");
             }
-
             @Override
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
                 super.onReceivedError(view, errorCode, description, failingUrl);
             }
-
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
@@ -290,7 +271,6 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
                     parseVideoUrl(viewHolder.Url,viewHolder.mAVObject);
                 }
             }
-
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 LogUtil.DefalutLog("shouldOverrideUrlLoading:" + url);
@@ -299,14 +279,12 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
                 }
                 return super.shouldOverrideUrlLoading(view, url);
             }
-
             @Override
             public WebResourceResponse shouldInterceptRequest(final WebView view, String url) {
                 LogUtil.DefalutLog("shouldInterceptRequest:" + url);
                 interceptUrl(url);
                 return super.shouldInterceptRequest(view, url);
             }
-
             @Override
             public void onReceivedSslError(WebView view, final SslErrorHandler handler, SslError error) {
                 DialogUtil.OnReceivedSslError(XVideoDetailActivity.this,handler);
@@ -394,13 +372,18 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
             return;
         }
         showProgressbar();
+        String vid = "";
+        if(viewHolder != null && viewHolder.mAVObject != null &&
+                !TextUtils.isEmpty(viewHolder.mAVObject.getString(AVOUtil.XVideo.vid))){
+            vid = viewHolder.mAVObject.getString(AVOUtil.XVideo.vid);
+        }
         String timestamp = String.valueOf(System.currentTimeMillis());
         String platform = SystemUtil.platform;
         String network = NetworkUtil.getNetworkType(this);
         String sign = SignUtil.getMd5Sign(Setings.PVideoKey, timestamp, url, platform, network);
         RetrofitApiService service = RetrofitApiService.getRetrofitApiService(Setings.PVideoApi,
                 RetrofitApiService.class);
-        Call<PVideoResult> call = service.getPVideoApi(url,network,platform,sign,timestamp);
+        Call<PVideoResult> call = service.getPVideoApi(url,network,platform,sign,timestamp,0, vid);
         call.enqueue(new Callback<PVideoResult>() {
                  @Override
                  public void onResponse(Call<PVideoResult> call, Response<PVideoResult> response) {
@@ -433,8 +416,12 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
         if(player == null){
             player = ExoPlayerFactory.newSimpleInstance(this);
         }
-        DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this,
-                Util.getUserAgent(this, "LanguageHelper"));
+        DefaultHttpDataSourceFactory dataSourceFactory = new DefaultHttpDataSourceFactory(
+                Setings.Hearder,
+                null,
+                DefaultHttpDataSource.DEFAULT_CONNECT_TIMEOUT_MILLIS,
+                DefaultHttpDataSource.DEFAULT_READ_TIMEOUT_MILLIS,
+                true);
         MediaSource videoSource = new ExtractorMediaSource.Factory(dataSourceFactory)
                 .createMediaSource(Uri.parse(media_url));
         player.prepare(videoSource);
@@ -452,9 +439,9 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
 
     private void RequestAsyncTask() {
         LogUtil.DefalutLog("should load data");
-        Date time = new Date();
+        int play_count = 0;
         if(mAVObjects != null && !mAVObjects.isEmpty()){
-            time = mAVObjects.get(mAVObjects.size()-1).getCreatedAt();
+            play_count = mAVObjects.get(mAVObjects.size()-1).getNumber(AVOUtil.XVideo.play_count).intValue();
         }
         loading = true;
         AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.XVideo.XVideo);
@@ -470,8 +457,8 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
 
             query = AVQuery.or(Arrays.asList(priorityQuery, statusQuery));
         }
-        query.whereLessThan(AVOUtil.XVideo.createdAt,time);
-        query.orderByDescending(AVOUtil.XVideo.createdAt);
+        query.whereLessThan(AVOUtil.XVideo.play_count,play_count);
+        query.orderByDescending(AVOUtil.XVideo.play_count);
         query.limit(Setings.page_size);
         query.findInBackground(new FindCallback<AVObject>() {
             @Override
@@ -482,7 +469,6 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
                         hasMore = false;
                     }else {
                         mAVObjects.addAll(list);
-                        videoAdapter.notifyDataSetChanged();
                         loadAD();
                         if(list.size() < Setings.page_size){
                             hasMore = false;

@@ -60,7 +60,7 @@ public class RcXVideoDetailListItemViewHolder extends RecyclerView.ViewHolder {
         cover_img.setVisibility(View.VISIBLE);
         player_view_layout.removeAllViews();
         if(player != null){
-            player.stop();
+            player.setPlayWhenReady(false);
         }
         type = mAVObject.getString(AVOUtil.XVideo.type);
         media_url = mAVObject.getString(AVOUtil.XVideo.media_url);

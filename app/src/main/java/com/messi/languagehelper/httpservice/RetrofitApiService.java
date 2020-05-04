@@ -30,5 +30,7 @@ public interface RetrofitApiService {
     @GET("v1/pvideo")
     Call<PVideoResult> getPVideoApi(@Query("url") String url , @Query("network") String network,
                                     @Query("platform") String platform , @Query("sign") String sign,
-                                    @Query("timestamp") String timestamp);
+                                    @Query("timestamp") String timestamp,
+                                    @Query("order") int order,
+                                    @Query("vid") String vid);
 }

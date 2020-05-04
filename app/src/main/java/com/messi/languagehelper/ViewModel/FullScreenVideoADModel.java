@@ -90,10 +90,11 @@ public class FullScreenVideoADModel {
                     item.put(KeyUtil.VideoAD,ad);
                     item.put(AVOUtil.XVideo.img_url,ad.getVideoCoverImage().getImageUrl());
                     if(mAVObjects != null){
-                        mAVObjects.add(mAVObjects.size()-3,item);
-                    }
-                    if(videoAdapter != null){
-                        videoAdapter.notifyDataSetChanged();
+                        if (mAVObjects.size() > 3) {
+                            mAVObjects.add(mAVObjects.size()-3,item);
+                        } else {
+                            mAVObjects.add(0,item);
+                        }
                     }
                 }
             }

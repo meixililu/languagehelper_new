@@ -835,6 +835,8 @@ public class AVOUtil {
 		public final static String source_url = "source_url";
 
 		public final static String tag = "tag";
+
+		public final static String vid = "vid";
 	}
 
 	public static class Novel {

@@ -32,10 +32,8 @@ import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
-import com.google.android.exoplayer2.upstream.DataSource;
-import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
+import com.google.android.exoplayer2.upstream.DefaultHttpDataSource;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
-import com.google.android.exoplayer2.util.Util;
 import com.messi.languagehelper.aidl.IXBPlayer;
 import com.messi.languagehelper.bean.PVideoResult;
 import com.messi.languagehelper.box.Reading;
@@ -304,6 +302,7 @@ public class PlayerService extends Service {
 
             String media_url = song.getMedia_url();
             PlayerStatus = 1;
+            LogUtil.DefalutLog("media_url:" + media_url);
             if (mExoPlayer == null) {
                 mExoPlayer = ExoPlayerFactory.newSimpleInstance(this);
                 mExoPlayer.addListener(mEventListener);
@@ -315,16 +314,24 @@ public class PlayerService extends Service {
             mExoPlayer.setAudioAttributes(audioAttributes);
 
             MediaSource mediaSource = null;
+            DefaultHttpDataSourceFactory dataSourceFactory = new DefaultHttpDataSourceFactory(
+                    Hearder,
+                    null,
+                    DefaultHttpDataSource.DEFAULT_CONNECT_TIMEOUT_MILLIS,
+                    DefaultHttpDataSource.DEFAULT_READ_TIMEOUT_MILLIS,
+                    true);
             if (media_url.contains("bilivideo")) {
-                DefaultHttpDataSourceFactory dataSourceFactory = new DefaultHttpDataSourceFactory(Hearder);
                 dataSourceFactory.getDefaultRequestProperties().set("range","bytes=0-");
                 dataSourceFactory.getDefaultRequestProperties().set("referer",song.getSource_url());
                 dataSourceFactory.getDefaultRequestProperties().set("user-agent",Hearder);
-                mediaSource = new ExtractorMediaSource.Factory(dataSourceFactory)
-                        .createMediaSource(Uri.parse(media_url));
+                if (!TextUtils.isEmpty(song.getBackup1())) {
+                    mediaSource = new ExtractorMediaSource.Factory(dataSourceFactory)
+                            .createMediaSource(Uri.parse(song.getBackup1()));
+                }else {
+                    mediaSource = new ExtractorMediaSource.Factory(dataSourceFactory)
+                            .createMediaSource(Uri.parse(media_url));
+                }
             } else {
-                DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this,
-                        Util.getUserAgent(this, Hearder));
                 mediaSource = new ExtractorMediaSource.Factory(dataSourceFactory)
                         .createMediaSource(Uri.parse(media_url));
             }
@@ -689,13 +696,17 @@ public class PlayerService extends Service {
 
     private void parseVideoUrl(String sourceUrl) {
         LogUtil.DefalutLog("service parseVideoUrl");
+        String vid = "";
+        if (song != null && !TextUtils.isEmpty(song.getVid())) {
+            vid = song.getVid();
+        }
         String timestamp = String.valueOf(System.currentTimeMillis());
         String platform = "android";
         String network = NetworkUtil.getNetworkType(this);
         String sign = SignUtil.getMd5Sign(Setings.PVideoKey, timestamp, sourceUrl, platform, network);
         RetrofitApiService service = RetrofitApiService.getRetrofitApiService(Setings.PVideoApi,
                 RetrofitApiService.class);
-        Call<PVideoResult> call = service.getPVideoApi(sourceUrl,network,platform,sign,timestamp);
+        Call<PVideoResult> call = service.getPVideoApi(sourceUrl, network, platform, sign, timestamp, 0, vid);
         call.enqueue(new Callback<PVideoResult>() {
                  @Override
                  public void onResponse(Call<PVideoResult> call, Response<PVideoResult> response) {
@@ -705,6 +716,9 @@ public class PlayerService extends Service {
                          if (mResult != null && !TextUtils.isEmpty(mResult.getUrl())) {
                              if (song != null) {
                                  song.setMedia_url(mResult.getUrl());
+                                 if (!TextUtils.isEmpty(mResult.getMp3Url())) {
+                                     song.setBackup1(mResult.getMp3Url());
+                                 }
                                  startExoplayer(song);
                              } else {
                                  playNext();

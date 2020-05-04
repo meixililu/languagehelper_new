@@ -37,10 +37,8 @@ import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.MergingMediaSource;
 import com.google.android.exoplayer2.ui.PlayerView;
-import com.google.android.exoplayer2.upstream.DataSource;
-import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
+import com.google.android.exoplayer2.upstream.DefaultHttpDataSource;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
-import com.google.android.exoplayer2.util.Util;
 import com.messi.languagehelper.ViewModel.VideoADModel;
 import com.messi.languagehelper.bean.PVideoResult;
 import com.messi.languagehelper.bean.ToutiaoVideoBean;
@@ -79,7 +77,6 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     private final String STATE_RESUME_WINDOW = "resumeWindow";
     private final String STATE_RESUME_POSITION = "resumePosition";
     private final String STATE_PLAYER_FULLSCREEN = "playerFullscreen";
-    private final String Hearder = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36";
 
     @BindView(R.id.refreshable_webview)
     WebView mWebView;
@@ -262,9 +259,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         mWebView.requestFocus();
         mWebView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
         mWebView.getSettings().setJavaScriptEnabled(true);
-        if ("今日头条".equals(mAVObject.getSource_name()) || "西瓜视频".equals(mAVObject.getSource_name())) {
-            mWebView.getSettings().setUserAgentString(Hearder);
-        }
+        mWebView.getSettings().setUserAgentString(Setings.Hearder);
         mWebView.setWebViewClient(new WebViewClient() {
 
             @Override
@@ -383,6 +378,10 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         if(status == 1){
             return;
         }
+        String vid = "";
+        if (mAVObject != null && !TextUtils.isEmpty(mAVObject.getVid())) {
+            vid = mAVObject.getVid();
+        }
         showBuffering();
         String timestamp = String.valueOf(System.currentTimeMillis());
         String platform = SystemUtil.platform;
@@ -390,14 +389,15 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         String sign = SignUtil.getMd5Sign(Setings.PVideoKey, timestamp, Url, platform, network);
         RetrofitApiService service = RetrofitApiService.getRetrofitApiService(Setings.PVideoApi,
                 RetrofitApiService.class);
-        Call<PVideoResult> call = service.getPVideoApi(Url,network,platform,sign,timestamp);
+        Call<PVideoResult> call = service.getPVideoApi(Url, network, platform, sign, timestamp,0, vid);
         call.enqueue(new Callback<PVideoResult>() {
                 @Override
                 public void onResponse(Call<PVideoResult> call, Response<PVideoResult> response) {
-                    LogUtil.DefalutLog("onResponse:"+response+"---call:"+call);
+                    LogUtil.DefalutLog("---call:"+call);
                     if (response.isSuccessful()) {
                         PVideoResult mResult = response.body();
                         if (mResult != null && !TextUtils.isEmpty(mResult.getUrl())) {
+                            LogUtil.DefalutLog("---call:"+mResult);
                             onPVideoApiSuccess(mResult);
                         } else {
                             onPVideoApiFailured();
@@ -431,6 +431,9 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         hideBuffering();
         if (status == 0) {
             mAVObject.setMedia_url(media_url);
+            if(mResult != null && !TextUtils.isEmpty(mResult.getMp3Url())){
+                mAVObject.setBackup1(mResult.getMp3Url());
+            }
             status = 1;
             videoLayout.setVisibility(View.VISIBLE);
             webview_layout.setVisibility(View.GONE);
@@ -443,26 +446,29 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
             }
 
             MediaSource mediaSource = null;
+            DefaultHttpDataSourceFactory dataSourceFactory = new DefaultHttpDataSourceFactory(
+                    Setings.Hearder,
+                    null,
+                    DefaultHttpDataSource.DEFAULT_CONNECT_TIMEOUT_MILLIS,
+                    DefaultHttpDataSource.DEFAULT_READ_TIMEOUT_MILLIS,
+                    true);
             if (Url.contains("bilibili")) {
-                DefaultHttpDataSourceFactory dataSourceFactory = new DefaultHttpDataSourceFactory(Hearder);
                 dataSourceFactory.getDefaultRequestProperties().set("range","bytes=0-");
                 dataSourceFactory.getDefaultRequestProperties().set("referer",Url);
-                dataSourceFactory.getDefaultRequestProperties().set("user-agent",Hearder);
-                if (mResult != null && !TextUtils.isEmpty(mResult.getMp3Url())) {
+                dataSourceFactory.getDefaultRequestProperties().set("user-agent",Setings.Hearder);
+                if (!TextUtils.isEmpty(mAVObject.getBackup1())) {
                     ExtractorMediaSource videoSource =
                             new ExtractorMediaSource.Factory(dataSourceFactory)
                                     .createMediaSource(Uri.parse(media_url));
                     ExtractorMediaSource audioSource =
                             new ExtractorMediaSource.Factory(dataSourceFactory)
-                            .createMediaSource(Uri.parse(mResult.getMp3Url()));
+                            .createMediaSource(Uri.parse(mAVObject.getBackup1()));
                     mediaSource = new MergingMediaSource(videoSource,audioSource);
                 }else {
                     mediaSource = new ExtractorMediaSource.Factory(dataSourceFactory)
                             .createMediaSource(Uri.parse(media_url));
                 }
             } else {
-                DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this,
-                        Util.getUserAgent(this, Hearder));
                 mediaSource = new ExtractorMediaSource.Factory(dataSourceFactory)
                         .createMediaSource(Uri.parse(media_url));
             }
@@ -583,16 +589,18 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
 
     @OnClick(R.id.play_background_btn)
     public void onBackGroundClicked() {
-        long CurrentPosition = 0;
-        if (player != null) {
-            CurrentPosition = player.getCurrentPosition();
+        if (mAVObject != null && !TextUtils.isEmpty(mAVObject.getMedia_url())) {
+            long CurrentPosition = 0;
+            if (player != null) {
+                CurrentPosition = player.getCurrentPosition();
+            }
+            if (NetworkUtil.isWifiConnected(this)) {
+                IPlayerUtil.initAndPlay(mAVObject,true, CurrentPosition);
+            } else {
+                IPlayerUtil.initAndPlay(mAVObject,false, CurrentPosition);
+            }
+            onBackPressed();
         }
-        if (NetworkUtil.isWifiConnected(this)) {
-            IPlayerUtil.initAndPlay(mAVObject,true, CurrentPosition);
-        } else {
-            IPlayerUtil.initAndPlay(mAVObject,false, CurrentPosition);
-        }
-        onBackPressed();
     }
 
     @Override
