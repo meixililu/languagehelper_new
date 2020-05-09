@@ -34,6 +34,7 @@ import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.ScreenUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.SystemUtil;
+import com.messi.languagehelper.util.ToastUtil;
 import com.qq.e.ads.nativ.NativeExpressADView;
 
 import java.util.List;
@@ -89,7 +90,32 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
         videoplayer_cover = (FrameLayout) itemView.findViewById(R.id.videoplayer_cover);
     }
 
+    private void clearData(Reading mAVObject){
+        if (LogUtil.DEBUG) {
+            layout_cover.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    LogUtil.DefalutLog("onLongClick");
+                    deleteItem(mAVObject.getObject_id());
+                    return true;
+                }
+            });
+        }
+    }
+
+    private void deleteItem(String oid){
+        try {
+            AVObject todo = AVObject.createWithoutData(AVOUtil.Reading.Reading, oid);
+            todo.deleteInBackground();
+            LogUtil.DefalutLog("onLongClick---deleteItem-oid:"+oid);
+            ToastUtil.diaplayMesShort(context,"deleted");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void render(final Reading mAVObject){
+        clearData(mAVObject);
         list_item_img_parent.setClickable(false);
         ad_layout.setVisibility(View.GONE);
         imgs_layout.setVisibility(View.GONE);

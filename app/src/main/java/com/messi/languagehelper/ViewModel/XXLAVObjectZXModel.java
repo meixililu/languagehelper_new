@@ -96,7 +96,7 @@ public class XXLAVObjectZXModel extends XXLZXRootModel{
                 index = 0;
             }
             avObjects.add(index, mADObject);
-            mAdapter.notifyDataSetChanged();
+            mAdapter.notifyItemInserted(index);
             mADObject = null;
             return false;
         } else {

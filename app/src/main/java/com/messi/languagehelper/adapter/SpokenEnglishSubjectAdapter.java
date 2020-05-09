@@ -19,10 +19,7 @@ public class SpokenEnglishSubjectAdapter extends FragmentPagerAdapter {
 
     public SpokenEnglishSubjectAdapter(FragmentManager fm, Context mContext) {
         super(fm);
-        titleList.add(mContext.getResources().getString(R.string.new_concept));
-        titleList.add(mContext.getResources().getString(R.string.beginner));
-        titleList.add(mContext.getResources().getString(R.string.intermediate));
-        titleList.add(mContext.getResources().getString(R.string.advanced));
+        titleList.add(mContext.getResources().getString(R.string.title_course));
         titleList.add(mContext.getResources().getString(R.string.title_business));
     }
 
@@ -31,12 +28,6 @@ public class SpokenEnglishSubjectAdapter extends FragmentPagerAdapter {
         if( position == 0 ){
             return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,"0");
         }else if( position == 1 ){
-            return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,"1");
-        }else if( position == 2 ){
-            return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,"2");
-        }else if( position == 3 ){
-            return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,"3");
-        }else if( position == 4 ){
             return SubjectByTypeFragment.getInstance(AVOUtil.Category.business,KeyUtil.RecentBusiness);
         }
         return null;

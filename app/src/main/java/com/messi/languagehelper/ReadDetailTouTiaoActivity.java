@@ -86,8 +86,6 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     TextView titleTv;
     @BindView(R.id.video_ly)
     FrameLayout videoLayout;
-    @BindView(R.id.back_btn)
-    LinearLayout backBtn;
     @BindView(R.id.next_composition)
     LinearLayout nextComposition;
     @BindView(R.id.xx_ad_layout)
@@ -105,6 +103,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
     private SimpleExoPlayer player;
 
     private FrameLayout mFullScreenButton;
+    private LinearLayout back_btn;
     private ImageView mFullScreenIcon;
     private Dialog mFullScreenDialog;
     private boolean mExoPlayerFullscreen = false;
@@ -179,7 +178,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
             } else {
                 parseVideoUrl();
             }
-        } else if(!TextUtils.isEmpty(mAVObject.getVid())){
+        }else if(!TextUtils.isEmpty(mAVObject.getVid())){
             parseToutiaoHtml(mAVObject.getVid());
         } else {
             parseVideoUrl();
@@ -217,7 +216,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         LanguagehelperHttpClient.get(url,new UICallback(this){
             @Override
             public void onFailured() {
-                interceptUrl();
+                parseVideoUrl();
             }
             @Override
             public void onFinished() {
@@ -259,7 +258,9 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         mWebView.requestFocus();
         mWebView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
         mWebView.getSettings().setJavaScriptEnabled(true);
-        mWebView.getSettings().setUserAgentString(Setings.Hearder);
+        if (Url.contains("bilibili")) {
+            mWebView.getSettings().setUserAgentString(Setings.Hearder);
+        }
         mWebView.setWebViewClient(new WebViewClient() {
 
             @Override
@@ -389,15 +390,16 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         String sign = SignUtil.getMd5Sign(Setings.PVideoKey, timestamp, Url, platform, network);
         RetrofitApiService service = RetrofitApiService.getRetrofitApiService(Setings.PVideoApi,
                 RetrofitApiService.class);
+//        LogUtil.DefalutLog("---Url:"+Url);
         Call<PVideoResult> call = service.getPVideoApi(Url, network, platform, sign, timestamp,0, vid);
         call.enqueue(new Callback<PVideoResult>() {
                 @Override
                 public void onResponse(Call<PVideoResult> call, Response<PVideoResult> response) {
-                    LogUtil.DefalutLog("---call:"+call);
+                    LogUtil.DefalutLog("---call:"+call.request().url());
                     if (response.isSuccessful()) {
                         PVideoResult mResult = response.body();
                         if (mResult != null && !TextUtils.isEmpty(mResult.getUrl())) {
-                            LogUtil.DefalutLog("---call:"+mResult);
+//                            LogUtil.DefalutLog("---call:"+mResult);
                             onPVideoApiSuccess(mResult);
                         } else {
                             onPVideoApiFailured();
@@ -518,7 +520,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         ((ViewGroup) simpleExoPlayerView.getParent()).removeView(simpleExoPlayerView);
         mFullScreenDialog.addContentView(simpleExoPlayerView,
                 new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        mFullScreenIcon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_fullscreen_exit_grey600_24dp));
+        mFullScreenIcon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_fullscreen_exit_white));
         mExoPlayerFullscreen = true;
         mFullScreenDialog.show();
     }
@@ -530,20 +532,20 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         videoLayout.addView(simpleExoPlayerView);
         mExoPlayerFullscreen = false;
         mFullScreenDialog.dismiss();
-        mFullScreenIcon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_fullscreen_grey600_24dp));
+        mFullScreenIcon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_fullscreen_white));
     }
 
     private void initFullscreenButton() {
+        back_btn = simpleExoPlayerView.findViewById(R.id.back_btn);
         mFullScreenIcon = simpleExoPlayerView.findViewById(R.id.exo_fullscreen_icon);
         mFullScreenButton = simpleExoPlayerView.findViewById(R.id.exo_fullscreen_button);
-        mFullScreenButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!mExoPlayerFullscreen)
+        back_btn.setOnClickListener(view -> onBack_btn());
+        mFullScreenButton.setOnClickListener(view ->{
+                if (!mExoPlayerFullscreen) {
                     openFullscreenDialog();
-                else
+                }else {
                     closeFullscreenDialog();
-            }
+                }
         });
     }
 
@@ -611,9 +613,12 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         }
     }
 
-    @OnClick(R.id.back_btn)
-    public void onViewClicked() {
-        onBackPressed();
+    public void onBack_btn() {
+        if (!mExoPlayerFullscreen) {
+            onBackPressed();
+        }else {
+            closeFullscreenDialog();
+        }
     }
 
     public void releasePlayer() {

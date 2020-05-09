@@ -6,7 +6,6 @@ import com.baidu.mobads.AdView;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.box.Reading;
-import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Setings;
@@ -56,7 +55,7 @@ public class XXLModel extends XXLRootModel{
                 index = 0;
             }
             avObjects.add(index, mADObject);
-            mAdapter.notifyDataSetChanged();
+            mAdapter.notifyItemInserted(index);
             mADObject = null;
             return false;
         } else {

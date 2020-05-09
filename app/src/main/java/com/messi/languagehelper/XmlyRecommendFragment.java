@@ -201,10 +201,10 @@ public class XmlyRecommendFragment extends BaseFragment {
                         isNeedClear = false;
                         avObjects.clear();
                     }
+                    int startPosition = avObjects.size();
                     avObjects.addAll(albumList.getAlbums());
                     skip += 1;
                     if (skip > albumList.getTotalPage()) {
-//                        ToastUtil.diaplayMesShort(getContext(), "没有了！");
                         hideFooterview();
                         if(mXXLModel != null){
                             mXXLModel.hasMore = false;
@@ -215,7 +215,7 @@ public class XmlyRecommendFragment extends BaseFragment {
                         }
                         showFooterview();
                     }
-                    mAdapter.notifyDataSetChanged();
+                    mAdapter.notifyItemRangeChanged(startPosition,albumList.getAlbums().size());
                     max_page = albumList.getTotalPage();
                 }
             }

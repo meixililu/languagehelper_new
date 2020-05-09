@@ -1,5 +1,6 @@
 package com.messi.languagehelper;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
@@ -164,6 +165,8 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
         };
     }
 
+
+    @SuppressLint("SourceLockedOrientationActivity")
     private void closeFullscreenDialog() {
         LogUtil.DefalutLog("closeFullscreenDialog");
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -171,7 +174,7 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
         appBar.addView(simpleExoPlayerView);
         mExoPlayerFullscreen = false;
         mFullScreenDialog.dismiss();
-        mFullScreenIcon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_fullscreen_grey600_24dp));
+        mFullScreenIcon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_fullscreen_white));
     }
 
     private void initFullscreenButton() {
@@ -211,13 +214,14 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
         super.onConfigurationChanged(newConfig);
     }
 
+    @SuppressLint("SourceLockedOrientationActivity")
     private void openFullscreenDialog() {
         LogUtil.DefalutLog("openFullscreenDialog");
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         ((ViewGroup) simpleExoPlayerView.getParent()).removeView(simpleExoPlayerView);
         mFullScreenDialog.addContentView(simpleExoPlayerView,
                 new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        mFullScreenIcon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_fullscreen_exit_grey600_24dp));
+        mFullScreenIcon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_fullscreen_exit_white));
         mExoPlayerFullscreen = true;
         mFullScreenDialog.show();
     }

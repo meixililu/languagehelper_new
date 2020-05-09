@@ -18,7 +18,7 @@ public class WordStudyPlanDetailActivity_ViewBinding implements Unbinder {
 
   private View view7f080078;
 
-  private View view7f080267;
+  private View view7f08027b;
 
   private View view7f0800ff;
 
@@ -28,7 +28,7 @@ public class WordStudyPlanDetailActivity_ViewBinding implements Unbinder {
 
   private View view7f0800d2;
 
-  private View view7f080224;
+  private View view7f080238;
 
   @UiThread
   public WordStudyPlanDetailActivity_ViewBinding(WordStudyPlanDetailActivity target) {
@@ -52,7 +52,7 @@ public class WordStudyPlanDetailActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.renzhi_layout, "field 'renzhiLayout' and method 'onClick'");
     target.renzhiLayout = Utils.castView(view, R.id.renzhi_layout, "field 'renzhiLayout'", FrameLayout.class);
-    view7f080267 = view;
+    view7f08027b = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -98,7 +98,7 @@ public class WordStudyPlanDetailActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.pinxie_layout, "field 'pinxieLayout' and method 'onClick'");
     target.pinxieLayout = Utils.castView(view, R.id.pinxie_layout, "field 'pinxieLayout'", CardView.class);
-    view7f080224 = view;
+    view7f080238 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -125,8 +125,8 @@ public class WordStudyPlanDetailActivity_ViewBinding implements Unbinder {
 
     view7f080078.setOnClickListener(null);
     view7f080078 = null;
-    view7f080267.setOnClickListener(null);
-    view7f080267 = null;
+    view7f08027b.setOnClickListener(null);
+    view7f08027b = null;
     view7f0800ff.setOnClickListener(null);
     view7f0800ff = null;
     view7f0800d1.setOnClickListener(null);
@@ -135,7 +135,7 @@ public class WordStudyPlanDetailActivity_ViewBinding implements Unbinder {
     view7f08009f = null;
     view7f0800d2.setOnClickListener(null);
     view7f0800d2 = null;
-    view7f080224.setOnClickListener(null);
-    view7f080224 = null;
+    view7f080238.setOnClickListener(null);
+    view7f080238 = null;
   }
 }

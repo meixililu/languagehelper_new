@@ -1,15 +1,12 @@
 package com.messi.languagehelper;
 
-import android.app.ActivityManager;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.support.multidex.MultiDexApplication;
-import android.webkit.WebView;
 
 import com.avos.avoscloud.AVOSCloud;
 import com.facebook.drawee.backends.pipeline.Fresco;
-import com.iflytek.voiceads.dex.DexLoader;
+import com.iflytek.voiceads.IFLYAdSDK;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.dao.DaoMaster;
 import com.messi.languagehelper.dao.DaoSession;
@@ -85,10 +82,10 @@ public class BaseApplication extends MultiDexApplication {
     private void initAd(){
         try {
             TXADUtil.init(BaseApplication.this);
-            CSJADUtil.init(BaseApplication.this);
             BDADUtil.init(BaseApplication.this);
             BoxHelper.init(BaseApplication.this);
-            DexLoader.initIFLYADModule(BaseApplication.this);
+            IFLYAdSDK.init(getApplicationContext());
+            CSJADUtil.init(BaseApplication.this);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -97,20 +94,6 @@ public class BaseApplication extends MultiDexApplication {
     private void initYouDao(){
         try {
             YouDaoApplication.init(BaseApplication.this, Setings.YoudaoApiKey);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void webviewSetPath(Context context) {
-        try {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                String processName = getProcessName(context.getApplicationContext());
-                //判断不等于默认进程名称
-                if (!getApplicationInfo().packageName.equals(processName)) {
-                    WebView.setDataDirectorySuffix(processName);
-                }
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -200,17 +183,6 @@ public class BaseApplication extends MultiDexApplication {
             daoSession = daoMaster.newSession();
         }
         return daoSession;
-    }
-
-    public String getProcessName(Context context) {
-        if (context == null) return null;
-        ActivityManager manager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-        for (ActivityManager.RunningAppProcessInfo processInfo : manager.getRunningAppProcesses()) {
-            if (processInfo.pid == android.os.Process.myPid()) {
-                return processInfo.processName;
-            }
-        }
-        return null;
     }
 
 }

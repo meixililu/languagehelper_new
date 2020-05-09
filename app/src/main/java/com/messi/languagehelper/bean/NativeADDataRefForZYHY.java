@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.avos.avoscloud.AVObject;
 import com.iflytek.voiceads.bean.AdAudio;
+import com.iflytek.voiceads.bean.AdImage;
 import com.iflytek.voiceads.bean.AudioMonitor;
 import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.util.ADUtil;
@@ -96,7 +97,17 @@ public class NativeADDataRefForZYHY extends NativeDataRef {
     }
 
     @Override
+    public AdImage getAdImg() {
+        return null;
+    }
+
+    @Override
     public String getIconUrl() {
+        return null;
+    }
+
+    @Override
+    public AdImage getAdIcon() {
         return null;
     }
 
@@ -172,6 +183,11 @@ public class NativeADDataRefForZYHY extends NativeDataRef {
 
     @Override
     public List<String> getImgList() {
+        return null;
+    }
+
+    @Override
+    public List<AdImage> getAdImgList() {
         return null;
     }
 

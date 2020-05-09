@@ -71,21 +71,6 @@
             </FrameLayout>
         </FrameLayout>
 
-        <LinearLayout
-            android:id="@+id/back_btn"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding_10"
-                android:layout_marginBottom="@dimen/padding_10"
-                android:layout_marginLeft="@dimen/padding_5"
-                android:layout_marginRight="@dimen/padding_10"
-                app:srcCompat="@drawable/ic_keyboard_arrow_left_white" />
-        </LinearLayout>
-
     </FrameLayout>
 
     <LinearLayout

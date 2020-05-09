@@ -1,39 +1,48 @@
 package com.messi.languagehelper;
 
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVQuery;
+import com.avos.avoscloud.FindCallback;
 import com.iflytek.voiceads.conn.NativeDataRef;
+import com.messi.languagehelper.ViewModel.XXLModel;
 import com.messi.languagehelper.adapter.RcReadingListAdapter;
-import com.messi.languagehelper.bean.RespoADData;
-import com.messi.languagehelper.bean.RespoData;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
+import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.DataUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
-import com.messi.languagehelper.viewmodels.ReadingListViewModel;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
-public class ReadingFragment extends BaseFragment{
+import java.util.ArrayList;
+import java.util.List;
+
+public class ReadingFragment extends BaseFragment implements OnClickListener{
 
 	private RecyclerView listview;
 	private Toolbar mToolbar;
 	private ProgressBar progressBar;
 	private RcReadingListAdapter mAdapter;
+	private List<Reading> avObjects;
 	private int skip = 0;
 	private int maxRandom;
 	private String title;
@@ -43,12 +52,12 @@ public class ReadingFragment extends BaseFragment{
 	private String quest;
 	private String type;
 	private String boutique_code;
-	private boolean withOutVideo;
+	private boolean isPlayList;
 	private boolean isNeedClear = false;
 	private LinearLayoutManager mLinearLayoutManager;
-	private ReadingListViewModel viewModel;
+	private XXLModel mXXLModel;
 
-	public static ReadingFragment newInstance(Builder builder){
+	public static Fragment newInstance(Builder builder){
 		ReadingFragment fragment = new ReadingFragment();
 		Bundle bundle = new Bundle();
 		bundle.putString("category",builder.category);
@@ -61,12 +70,11 @@ public class ReadingFragment extends BaseFragment{
 		bundle.putString("quest",builder.quest);
 		bundle.putInt("maxRandom",builder.maxRandom);
 		bundle.putBoolean("isNeedClear",builder.isNeedClear);
-		bundle.putBoolean("withOutVideo",builder.withOutVideo);
 		fragment.setArguments(bundle);
 		return fragment;
 	}
 
-	public static ReadingFragment newInstance(String category, String code){
+	public static Fragment newInstance(String category, String code){
 		ReadingFragment fragment = new ReadingFragment();
 		Bundle bundle = new Bundle();
 		bundle.putString("category",category);
@@ -75,7 +83,7 @@ public class ReadingFragment extends BaseFragment{
 		return fragment;
 	}
 
-	public static ReadingFragment newInstance(String category, String code, boolean isPlayList){
+	public static Fragment newInstance(String category, String code, boolean isPlayList){
 		ReadingFragment fragment = new ReadingFragment();
 		Bundle bundle = new Bundle();
 		bundle.putString("category",category);
@@ -83,6 +91,16 @@ public class ReadingFragment extends BaseFragment{
 		if(!TextUtils.isEmpty(code)){
 			bundle.putString("code",code);
 		}
+		fragment.setArguments(bundle);
+		return fragment;
+	}
+
+	public static Fragment newInstanceByType(String type,int maxRandom,boolean isNeedClear){
+		ReadingFragment fragment = new ReadingFragment();
+		Bundle bundle = new Bundle();
+		bundle.putString("type",type);
+		bundle.putInt("maxRandom",maxRandom);
+		bundle.putBoolean("isNeedClear",isNeedClear);
 		fragment.setArguments(bundle);
 		return fragment;
 	}
@@ -99,19 +117,9 @@ public class ReadingFragment extends BaseFragment{
 		this.quest = mBundle.getString("quest");
 		this.type = mBundle.getString("type");
 		this.boutique_code = mBundle.getString(KeyUtil.BoutiqueCode);
-		this.isNeedClear = mBundle.getBoolean("isNeedClear",false);
-		this.withOutVideo = mBundle.getBoolean("withOutVideo",false);
 		this.maxRandom = mBundle.getInt("maxRandom");
-		viewModel = ViewModelProviders.of(getActivity()).get(ReadingListViewModel.class);
-		viewModel.init();
-		viewModel.getRepo().setCategory(category);
-		viewModel.getRepo().setCode(code);
-		viewModel.getRepo().setSource(source);
-		viewModel.getRepo().setQuest(quest);
-		viewModel.getRepo().setType(type);
-		viewModel.getRepo().setBoutique_code(boutique_code);
-		viewModel.getRepo().setNeedClear(isNeedClear);
-		viewModel.getRepo().setWithOutVideo(withOutVideo);
+		this.isNeedClear = mBundle.getBoolean("isNeedClear",false);
+		this.isPlayList = mBundle.getBoolean("isPlayList",false);
 	}
 
 	@Override
@@ -120,19 +128,17 @@ public class ReadingFragment extends BaseFragment{
 		LogUtil.DefalutLog("onAttach");
 		try {
 			mProgressbarListener = (FragmentProgressbarListener) activity;
-        } catch (Exception e) {
-            throw new ClassCastException(activity.toString() + " must implement FragmentProgressbarListener");
-        }
+		} catch (Exception e) {
+			throw new ClassCastException(activity.toString() + " must implement FragmentProgressbarListener");
+		}
 	}
 
 	@Override
 	public void loadDataOnStart() {
 		super.loadDataOnStart();
-		if(maxRandom > 0){
-			random();
-		}
-		viewModel.refresh(skip);
-		viewModel.count();
+		random();
+		getDataTask();
+		getMaxPageNumberBackground();
 	}
 
 	@Override
@@ -141,10 +147,9 @@ public class ReadingFragment extends BaseFragment{
 		LogUtil.DefalutLog("onCreateView:"+category);
 		View view = inflater.inflate(R.layout.reading_fragment, container, false);
 		initViews(view);
-		initViewModel();
 		return view;
 	}
-	
+
 	private void initViews(View view){
 		listview = (RecyclerView) view.findViewById(R.id.listview);
 		mToolbar = (Toolbar) view.findViewById(R.id.my_awesome_toolbar);
@@ -153,11 +158,14 @@ public class ReadingFragment extends BaseFragment{
 			mToolbar.setVisibility(View.VISIBLE);
 			mToolbar.setTitle(title);
 		}
-		viewModel.getRepo().getList().addAll(BoxHelper.getReadingList(0,Setings.page_size,category,"",code));
+		avObjects = new ArrayList<Reading>();
+		mXXLModel = new XXLModel(getActivity());
+		avObjects.addAll(BoxHelper.getReadingList(0,Setings.page_size,category,"",code));
 		initSwipeRefresh(view);
-		mAdapter = new RcReadingListAdapter(viewModel.getRepo().getList());
-		mAdapter.setItems(viewModel.getRepo().getList());
+		mAdapter = new RcReadingListAdapter(avObjects);
+		mAdapter.setItems(avObjects);
 		mAdapter.setFooter(new Object());
+		mXXLModel.setAdapter(avObjects,mAdapter);
 		hideFooterview();
 		mLinearLayoutManager = new LinearLayoutManager(getContext());
 		listview.setLayoutManager(mLinearLayoutManager);
@@ -171,71 +179,19 @@ public class ReadingFragment extends BaseFragment{
 		setListOnScrollListener();
 	}
 
-	private void initViewModel(){
-		viewModel.getReadingList().observe(this, data -> onDataChange(data));
-		viewModel.isShowProgressBar().observe(this, isShow -> isShowProgressBar(isShow));
-		viewModel.getAD().observe(this,data -> refreshAD(data));
-		viewModel.getCount().observe(this,count -> getTotalCount(count));
-	}
-
-	private void getTotalCount(int count){
-		LogUtil.DefalutLog("ViewModel---getTotalCount---count:"+count);
-		if (count > 10000) {
-			maxRandom = 10000;
-		} else {
-			maxRandom = count;
-		}
-	}
-
-	private void refreshAD(RespoADData data){
-		LogUtil.DefalutLog("ViewModel---refresh---ad");
-		if (data != null) {
-			if (data.getCode() == 1) {
-				if(mAdapter != null){
-					mAdapter.notifyItemInserted(data.getPos());
-				}
-			}
-		}
-	}
-
-	private void onDataChange(RespoData data){
-		LogUtil.DefalutLog("ViewModel---onDataChange---");
-		if (data != null) {
-			if (data.getCode() == 1) {
-				if(mAdapter != null){
-					mAdapter.notifyItemRangeInserted(data.getPositionStart(),data.getItemCount());
-				}
-			} else {
-				ToastUtil.diaplayMesShort(getActivity(),data.getErrStr());
-			}
-			if (data.isHideFooter()) {
-				hideFooterview();
-			}else {
-				showFooterview();
-			}
-		}else {
-			ToastUtil.diaplayMesShort(getActivity(),"网络异常，请检查网络连接。");
-		}
-	}
-
-	private void isShowProgressBar(Boolean isShow){
-		if (isShow) {
-			showProgressbar();
-		} else {
-			hideProgressbar();
-			onSwipeRefreshLayoutFinish();
-		}
-	}
-
 	private void random(){
 		if(!TextUtils.isEmpty(boutique_code)){
 			skip = 0;
 		}else {
-			skip = (int) Math.round(Math.random()*maxRandom);
+			if(maxRandom > 0){
+				skip = (int) Math.round(Math.random()*maxRandom);
+			}else {
+				skip = 0;
+			}
 		}
-		LogUtil.DefalutLog("random:"+skip+"--boutique_code:"+boutique_code);
+		LogUtil.DefalutLog("skip:"+skip);
 	}
-	
+
 	public void setListOnScrollListener(){
 		listview.addOnScrollListener(new RecyclerView.OnScrollListener() {
 			@Override
@@ -245,18 +201,20 @@ public class ReadingFragment extends BaseFragment{
 				int total = mLinearLayoutManager.getItemCount();
 				int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
 				isADInList(recyclerView,firstVisibleItem,visible);
-				if ((visible + firstVisibleItem) >= total){
-					viewModel.loadData();
+				if(!mXXLModel.loading && mXXLModel.hasMore){
+					if ((visible + firstVisibleItem) >= total){
+						getDataTask();
+					}
 				}
 			}
 		});
 	}
-	
+
 	private void isADInList(RecyclerView view,int first, int vCount){
-		if(viewModel.getRepo().getList().size() > 3){
+		if(avObjects.size() > 3){
 			for(int i=first;i< (first+vCount);i++){
-				if(i < viewModel.getRepo().getList().size() && i > 0){
-					Reading mAVObject = viewModel.getRepo().getList().get(i);
+				if(i < avObjects.size() && i > 0){
+					Reading mAVObject = avObjects.get(i);
 					if(mAVObject != null && mAVObject.isAd()){
 						if(!mAVObject.isAdShow()){
 							NativeDataRef mNativeADDataRef = mAVObject.getmNativeADDataRef();
@@ -279,12 +237,90 @@ public class ReadingFragment extends BaseFragment{
 	private void showFooterview(){
 		mAdapter.showFooter();
 	}
-	
+
 	@Override
 	public void onSwipeRefreshLayoutRefresh() {
 		hideFooterview();
 		random();
-		viewModel.refresh(skip);
+		avObjects.clear();
+		mAdapter.notifyDataSetChanged();
+		getDataTask();
+	}
+
+	private void loadAD(){
+		if (mXXLModel != null) {
+			mXXLModel.showAd();
+		}
+	}
+
+	private void getDataTask(){
+		showProgressbar();
+		if(mXXLModel != null){
+			mXXLModel.loading = true;
+		}
+		AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.Reading.Reading);
+		if(!TextUtils.isEmpty(category)){
+			query.whereEqualTo(AVOUtil.Reading.category, category);
+		}
+		if(!TextUtils.isEmpty(source)){
+			query.whereEqualTo(AVOUtil.Reading.source_name, source);
+		}
+		if(!TextUtils.isEmpty(quest)){
+			query.whereContains(AVOUtil.Reading.title, quest);
+		}
+		if(!TextUtils.isEmpty(type)){
+			query.whereEqualTo(AVOUtil.Reading.type, type);
+		}
+		if(!TextUtils.isEmpty(boutique_code)){
+			query.whereEqualTo(AVOUtil.Reading.boutique_code, boutique_code);
+		}
+		if(!TextUtils.isEmpty(code)){
+			if(!code.equals("1000")){
+				query.whereEqualTo(AVOUtil.Reading.type_id, code);
+			}
+		}
+		query.addDescendingOrder(AVOUtil.Reading.publish_time);
+		query.skip(skip);
+		query.limit(Setings.page_size);
+		query.findInBackground(new FindCallback<AVObject>() {
+			@Override
+			public void done(List<AVObject> avObject, AVException avException) {
+				LogUtil.DefalutLog("onPostExecute---");
+				mXXLModel.loading = false;
+				hideProgressbar();
+				onSwipeRefreshLayoutFinish();
+				if(avObject != null){
+					if(avObject.size() == 0){
+						ToastUtil.diaplayMesShort(getContext(), "没有了！");
+						hideFooterview();
+						mXXLModel.hasMore = false;
+					}else{
+						if(avObjects != null && mAdapter != null){
+							if(skip == 0){
+								avObjects.clear();
+							}
+							if(isNeedClear){
+								isNeedClear = false;
+								avObjects.clear();
+							}
+							int startPosition = avObjects.size();
+							DataUtil.changeDataToReading(avObject,avObjects,false);
+							mAdapter.notifyItemRangeChanged(startPosition,avObject.size());
+							loadAD();
+							if(avObject.size() < Setings.page_size){
+								LogUtil.DefalutLog("avObject.size() < Settings.page_size");
+								hideFooterview();
+								mXXLModel.hasMore = false;
+							}else {
+								showFooterview();
+								mXXLModel.hasMore = true;
+							}
+						}
+					}
+					skip += Setings.page_size;
+				}
+			}
+		});
 	}
 
 	@Override
@@ -307,6 +343,41 @@ public class ReadingFragment extends BaseFragment{
 	}
 
 	@Override
+	public void onClick(View v) {
+	}
+
+	private void getMaxPageNumberBackground(){
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				try {
+					AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.Reading.Reading);
+					if(!TextUtils.isEmpty(category)){
+						query.whereEqualTo(AVOUtil.Reading.category, category);
+					}
+					if(!TextUtils.isEmpty(source)){
+						query.whereEqualTo(AVOUtil.Reading.source_name, source);
+					}
+					if(!TextUtils.isEmpty(quest)){
+						query.whereContains(AVOUtil.Reading.title, quest);
+					}
+					if(!TextUtils.isEmpty(type)){
+						query.whereEqualTo(AVOUtil.Reading.type, type);
+					}
+					if(!TextUtils.isEmpty(code)){
+						if(!code.equals("1000")){
+							query.whereEqualTo(AVOUtil.Reading.type_id, code);
+						}
+					}
+					maxRandom = query.count()/Setings.page_size;
+					LogUtil.DefalutLog("category:"+category+"---maxRandom:"+maxRandom);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}).start();
+	}
+	@Override
 	public void showProgressbar(){
 		super.showProgressbar();
 		if(progressBar != null){
@@ -326,6 +397,9 @@ public class ReadingFragment extends BaseFragment{
 	public void onDestroy() {
 		super.onDestroy();
 		unregisterBroadcast();
+		if(mXXLModel != null){
+			mXXLModel.onDestroy();
+		}
 	}
 
 	public static class Builder {
@@ -377,17 +451,11 @@ public class ReadingFragment extends BaseFragment{
 			this.isPlayList = isPlayList;
 			return this;
 		}
-
-        public Builder isWithOutVideo(boolean withOutVideo) {
-            this.withOutVideo = withOutVideo;
-            return this;
-        }
-
-        public Builder isNeedClear(boolean isNeedClear) {
+		public Builder isNeedClear(boolean isNeedClear) {
 			this.isNeedClear = isNeedClear;
 			return this;
 		}
-		public ReadingFragment build(){
+		public Fragment build(){
 			return ReadingFragment.newInstance(this);
 		}
 	}

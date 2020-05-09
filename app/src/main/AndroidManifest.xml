@@ -113,15 +113,21 @@
             android:name="IFLYTEK_CHANNEL"
             android:value="messi" />
 
-        <service
-            android:name="com.iflytek.voiceads.download.DownloadService"
-            android:stopWithTask="true" />
-
         <activity
             android:name="com.iflytek.voiceads.request.IFLYBrowser"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeForXF"
             />
+        <provider
+            android:name="com.iflytek.voiceads.download.IFlyFileProvider"
+            android:authorities="${applicationId}.iFlyFileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
         <!-- 讯飞广告sdk -->
 
         <!--腾讯广告-->

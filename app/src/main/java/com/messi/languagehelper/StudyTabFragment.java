@@ -27,7 +27,7 @@ public class StudyTabFragment extends BaseFragment implements TablayoutOnSelecte
     private List<ReadingCategory> categories;
     private int position;
     private SharedPreferences sp;
-    private ReadingFragment studyFragment;
+    private Fragment studyFragment;
     private SubjectFragment subjectFragment;
     private BoutiquesFragment boutiquesFragment;
     private XmlyRecommendFragment mXmlyRecommendFragment;
@@ -84,7 +84,7 @@ public class StudyTabFragment extends BaseFragment implements TablayoutOnSelecte
     }
 
     private void initFragment(){
-        studyFragment = new ReadingFragment.Builder().isWithOutVideo(true).build();
+        studyFragment = new ReadingFragment.Builder().build();
         subjectFragment = SubjectFragment.getInstance("","","des","");
         boutiquesFragment = new BoutiquesFragment.Builder()
                 .type("english")

@@ -54,7 +54,7 @@ public class SubjectRepository {
     }
 
     public void loadData() throws Exception{
-        LogUtil.DefalutLog("loadData");
+        LogUtil.DefalutLog("loadData--level:"+level);
         if(loading || !hasMore){
             return;
         }
@@ -64,15 +64,13 @@ public class SubjectRepository {
         if (!TextUtils.isEmpty(category)) {
             query.whereEqualTo(AVOUtil.SubjectList.category, category);
         }
-        if (!TextUtils.isEmpty(level)) {
-            query.whereEqualTo(AVOUtil.SubjectList.level, level);
-        }
         if(!TextUtils.isEmpty(order)){
             query.orderByDescending(AVOUtil.SubjectList.order);
         }else {
             query.orderByAscending(AVOUtil.SubjectList.order);
         }
         query.orderByDescending(AVOUtil.SubjectList.views);
+        query.orderByAscending(AVOUtil.SubjectList.level);
         query.skip(skip);
         query.limit(Setings.page_size);
         query.findInBackground(new FindCallback<AVObject>() {

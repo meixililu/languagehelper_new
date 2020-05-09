@@ -250,7 +250,9 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
         mWebView.requestFocus();
         mWebView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
         mWebView.getSettings().setJavaScriptEnabled(true);
-        mWebView.getSettings().setUserAgentString(Setings.Hearder);
+        if (viewHolder.Url.contains("bilibili")) {
+            mWebView.getSettings().setUserAgentString(Setings.Hearder);
+        }
         mWebView.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {

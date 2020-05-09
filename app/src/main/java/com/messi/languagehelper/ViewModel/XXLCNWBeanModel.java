@@ -90,7 +90,7 @@ public class XXLCNWBeanModel extends XXLRootModel{
                 index = 0;
             }
             avObjects.add(index, mADObject);
-            mAdapter.notifyDataSetChanged();
+            mAdapter.notifyItemInserted(index);
             mADObject = null;
             return false;
         } else {

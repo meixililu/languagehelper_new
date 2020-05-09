@@ -16,7 +16,7 @@ import java.lang.Override;
 public class CaricatureSearchActivity_ViewBinding implements Unbinder {
   private CaricatureSearchActivity target;
 
-  private View view7f08028b;
+  private View view7f08029f;
 
   private View view7f0800a2;
 
@@ -33,7 +33,7 @@ public class CaricatureSearchActivity_ViewBinding implements Unbinder {
     target.searchEt = Utils.findRequiredViewAsType(source, R.id.search_et, "field 'searchEt'", EditText.class);
     view = Utils.findRequiredView(source, R.id.search_btn, "field 'searchBtn' and method 'onViewClicked'");
     target.searchBtn = Utils.castView(view, R.id.search_btn, "field 'searchBtn'", FrameLayout.class);
-    view7f08028b = view;
+    view7f08029f = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -64,8 +64,8 @@ public class CaricatureSearchActivity_ViewBinding implements Unbinder {
     target.auto_wrap_layout = null;
     target.clearHistory = null;
 
-    view7f08028b.setOnClickListener(null);
-    view7f08028b = null;
+    view7f08029f.setOnClickListener(null);
+    view7f08029f = null;
     view7f0800a2.setOnClickListener(null);
     view7f0800a2 = null;
   }

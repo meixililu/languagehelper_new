@@ -35,7 +35,7 @@ public class XVideoFragment extends BaseFragment{
     private GridLayoutManager layoutManager;
     private List<AVObject> mList;
     private int skip = 0;
-    private int max_count = 0;
+    private int max_count = 2000;
     private boolean isNeedClear = true;
     private String category;
     private String keyword;
@@ -155,9 +155,9 @@ public class XVideoFragment extends BaseFragment{
             mXXLModel.loading = true;
         }
         AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.XVideo.XVideo);
-//        if(!TextUtils.isEmpty(category)){
-//            query.whereEqualTo(AVOUtil.XVideo.category,category);
-//        }
+        if(!TextUtils.isEmpty(category)){
+            query.whereEqualTo(AVOUtil.XVideo.category,category);
+        }
         if(!TextUtils.isEmpty(keyword)){
             final AVQuery<AVObject> priorityQuery = new AVQuery<>(AVOUtil.XVideo.XVideo);
             priorityQuery.whereContains(AVOUtil.XVideo.title, keyword);
@@ -167,8 +167,8 @@ public class XVideoFragment extends BaseFragment{
 
             query = AVQuery.or(Arrays.asList(priorityQuery, statusQuery));
         }
-//        query.orderByDescending(AVOUtil.XVideo.publish_time);
-        query.orderByDescending("createdAt");
+        query.orderByDescending(AVOUtil.XVideo.publish_time);
+//        query.orderByDescending("createdAt");
         query.skip(skip);
         query.limit(Setings.page_size);
         query.findInBackground(new FindCallback<AVObject>() {

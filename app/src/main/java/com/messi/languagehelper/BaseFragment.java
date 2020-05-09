@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.LogUtil;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -68,7 +69,9 @@ public class BaseFragment extends Fragment {
 
 	}
 
-	public void loadDataOnStart(){}
+	public void loadDataOnStart(){
+		LogUtil.DefalutLog("loadDataOnStart");
+	}
 
 	public void registerBroadcast(){
 		IntentFilter intentFilter = new IntentFilter();

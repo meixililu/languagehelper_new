@@ -80,7 +80,7 @@ public class ListenActivity extends BaseActivity implements FragmentProgressbarL
                 .category("listening")
                 .title(getString(R.string.selection))
                 .build();
-        dashboardFragment = ListenCourseFragment.getInstance();
+        dashboardFragment = SubjectFragment.getInstance(AVOUtil.Category.listening,"","",getResources().getString(R.string.title_course));
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.content, mWordHomeFragment)

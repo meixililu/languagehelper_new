@@ -15,7 +15,7 @@ import java.lang.Override;
 public class CharadesFragment_ViewBinding implements Unbinder {
   private CharadesFragment target;
 
-  private View view7f08024b;
+  private View view7f08025f;
 
   private View view7f08004d;
 
@@ -26,7 +26,7 @@ public class CharadesFragment_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.question, "field 'question' and method 'onViewClicked'");
     target.question = Utils.castView(view, R.id.question, "field 'question'", TextView.class);
-    view7f08024b = view;
+    view7f08025f = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -54,8 +54,8 @@ public class CharadesFragment_ViewBinding implements Unbinder {
     target.question = null;
     target.answer = null;
 
-    view7f08024b.setOnClickListener(null);
-    view7f08024b = null;
+    view7f08025f.setOnClickListener(null);
+    view7f08025f = null;
     view7f08004d.setOnClickListener(null);
     view7f08004d = null;
   }

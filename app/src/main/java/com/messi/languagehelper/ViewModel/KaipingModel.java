@@ -139,7 +139,7 @@ public class KaipingModel {
     IFLYNativeListener mListener = new IFLYNativeListener() {
         @Override
         public void onAdFailed(AdError error) { // 广告请求失败
-            LogUtil.DefalutLog("KaipingModel-onAdFailed"+error.getErrorCode());
+            LogUtil.DefalutLog("KaipingModel-onAdFailed:"+error.getErrorCode());
             getAd();
         }
 
