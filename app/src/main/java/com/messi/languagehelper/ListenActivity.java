@@ -70,12 +70,13 @@ public class ListenActivity extends BaseActivity implements FragmentProgressbarL
         navigation.inflateMenu(R.menu.listen_tabs);
         navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        mWordHomeFragment = new ReadingFragment.Builder()
-                .title(getString(R.string.title_listening))
+        jtFragment = new ReadingFragment.Builder()
+                .title(getString(R.string.title_intensive_listening))
+                .lrc(true)
                 .category(AVOUtil.Category.listening)
                 .isPlayList(true)
                 .build();
-        jtFragment = XmlySearchAlbumFragment.newInstance("听力",getString(R.string.title_study_category));
+        mWordHomeFragment = XmlySearchAlbumFragment.newInstance("听力",getString(R.string.title_study_category));
         boutiquesFragment = new BoutiquesFragment.Builder()
                 .category("listening")
                 .title(getString(R.string.selection))

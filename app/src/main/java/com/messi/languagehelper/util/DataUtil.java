@@ -70,6 +70,10 @@ public class DataUtil {
     }
 
     public static void changeDataToReading(List<AVObject> avObjectlist, List<Reading> avObjects, boolean isAddToHead) {
+        changeDataToReading(avObjectlist, avObjects, isAddToHead, "");
+    }
+
+    public static void changeDataToReading(List<AVObject> avObjectlist, List<Reading> avObjects, boolean isAddToHead,String subjectName) {
         for (AVObject item : avObjectlist) {
             Reading mReading = new Reading();
             mReading.setObject_id(item.getObjectId());
@@ -126,6 +130,9 @@ public class DataUtil {
             }
             if(item.has(AVOUtil.Reading.lrc_url)){
                 mReading.setLrc_url(item.getString(AVOUtil.Reading.lrc_url));
+            }
+            if (!TextUtils.isEmpty(subjectName)) {
+                mReading.setBackup2(subjectName);
             }
             BoxHelper.saveOrGetStatus(mReading);
             if (isAddToHead) {

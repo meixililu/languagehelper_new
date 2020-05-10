@@ -187,7 +187,15 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
                             list_item_img.setImageResource(R.color.style6_color2);
                         }
                     }
-                    music_play_img.setImageResource(R.drawable.jz_click_play_selector);
+                    if(IPlayerUtil.MPlayerIsSameMp3(mAVObject)){
+                        if(IPlayerUtil.getPlayStatus() == 1){
+                            music_play_img.setImageResource(R.drawable.jz_click_pause_selector);
+                        }else {
+                            music_play_img.setImageResource(R.drawable.jz_click_play_selector);
+                        }
+                    }else {
+                        music_play_img.setImageResource(R.drawable.jz_click_play_selector);
+                    }
                 }else if(mAVObject.getType() != null && mAVObject.getType().equals("mp3")){
                     videoplayer_cover.setVisibility(View.GONE);
                     list_item_img_parent.setVisibility(View.VISIBLE);
@@ -203,9 +211,7 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
                     }
                     if (!TextUtils.isEmpty(mAVObject.getMedia_url())) {
                         music_play_img.setVisibility(View.VISIBLE);
-                        if(IPlayerUtil.musicSrv == null){
-                            music_play_img.setImageResource(R.drawable.jz_click_play_selector);
-                        }else if(IPlayerUtil.MPlayerIsSameMp3(mAVObject)){
+                        if(IPlayerUtil.MPlayerIsSameMp3(mAVObject)){
                             if(IPlayerUtil.getPlayStatus() == 1){
                                 music_play_img.setImageResource(R.drawable.jz_click_pause_selector);
                             }else {
@@ -279,15 +285,15 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
             }else if(!TextUtils.isEmpty(item.getType()) && "mp3".equals(item.getType())){
                 Setings.dataMap.put(KeyUtil.DataMapKey, avObjects);
                 intent.putExtra(KeyUtil.IndexKey, position);
-                toDetail = ReadingMp3DetailActivity.class;
-            }else {
-                Setings.dataMap.put(KeyUtil.DataMapKey, avObjects);
-                intent.putExtra(KeyUtil.IndexKey, position);
                 if(TextUtils.isEmpty(item.getLrc_url())){
-                    toDetail = ReadingDetailActivity.class;
+                    toDetail = ReadingMp3DetailActivity.class;
                 }else {
                     toDetail = ReadingDetailLrcActivity.class;
                 }
+            }else {
+                Setings.dataMap.put(KeyUtil.DataMapKey, avObjects);
+                intent.putExtra(KeyUtil.IndexKey, position);
+                toDetail = ReadingDetailActivity.class;
             }
             intent.setClass(context,toDetail);
             context.startActivity(intent);

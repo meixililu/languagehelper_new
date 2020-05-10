@@ -201,11 +201,11 @@ public class RcSubjectReadingListItemViewHolder extends RecyclerView.ViewHolder 
                     list_item_img_parent.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+                            XmPlayerManager.getInstance(context).pause();
                             if(isPlayList){
                                 IPlayerUtil.initPlayList(avObjects,
                                         avObjects.indexOf(mAVObject));
                             }else {
-                                XmPlayerManager.getInstance(context).pause();
                                 IPlayerUtil.initAndPlay(mAVObject);
                             }
                         }

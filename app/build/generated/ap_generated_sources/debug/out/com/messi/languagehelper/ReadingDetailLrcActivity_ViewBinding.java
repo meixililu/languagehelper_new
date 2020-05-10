@@ -8,7 +8,7 @@ import android.support.v4.widget.NestedScrollView;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import butterknife.Unbinder;
@@ -40,9 +40,8 @@ public class ReadingDetailLrcActivity_ViewBinding implements Unbinder {
     target.xx_ad_layout = Utils.findRequiredViewAsType(source, R.id.xx_ad_layout, "field 'xx_ad_layout'", FrameLayout.class);
     target.ad_layout = Utils.findRequiredViewAsType(source, R.id.ad_layout, "field 'ad_layout'", FrameLayout.class);
     target.ad_img = Utils.findRequiredViewAsType(source, R.id.ad_img, "field 'ad_img'", SimpleDraweeView.class);
-    target.next_composition = Utils.findRequiredViewAsType(source, R.id.next_composition, "field 'next_composition'", LinearLayout.class);
     target.scrollview = Utils.findRequiredViewAsType(source, R.id.scrollview, "field 'scrollview'", NestedScrollView.class);
-    target.player_layout = Utils.findRequiredViewAsType(source, R.id.player_layout, "field 'player_layout'", LinearLayout.class);
+    target.player_layout = Utils.findRequiredViewAsType(source, R.id.player_layout, "field 'player_layout'", RelativeLayout.class);
     view = Utils.findRequiredView(source, R.id.btn_play, "field 'btn_play' and method 'onClick'");
     target.btn_play = Utils.castView(view, R.id.btn_play, "field 'btn_play'", ImageView.class);
     view7f080083 = view;
@@ -71,7 +70,6 @@ public class ReadingDetailLrcActivity_ViewBinding implements Unbinder {
     target.xx_ad_layout = null;
     target.ad_layout = null;
     target.ad_img = null;
-    target.next_composition = null;
     target.scrollview = null;
     target.player_layout = null;
     target.btn_play = null;

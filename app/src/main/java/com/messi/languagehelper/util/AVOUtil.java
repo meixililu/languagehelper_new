@@ -522,6 +522,8 @@ public class AVOUtil {
 
 		public final static String lrc_url = "lrc_url";
 
+		public final static String createdAt = "createdAt";
+
 	}
 	
 	public static class Category {

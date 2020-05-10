@@ -119,7 +119,7 @@ public class ADUtil {
 				}else if(CSJ.equals(adConfigs[position])){
 					return CSJ;
 				}else if(XF.equals(adConfigs[position])){
-					return XF;
+					return GDT;
 				}else if(XBKJ.equals(adConfigs[position])){
 					return XBKJ;
 				}

@@ -14,7 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -59,12 +59,10 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
     FrameLayout ad_layout;
     @BindView(R.id.ad_img)
     SimpleDraweeView ad_img;
-    @BindView(R.id.next_composition)
-    LinearLayout next_composition;
     @BindView(R.id.scrollview)
     NestedScrollView scrollview;
     @BindView(R.id.player_layout)
-    LinearLayout player_layout;
+    RelativeLayout player_layout;
     @BindView(R.id.btn_play)
     ImageView btn_play;
     @BindView(R.id.seekbar)
@@ -94,7 +92,7 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.composition_detail_activity);
+        setContentView(R.layout.reading_mp3_detail_activity);
         registerBroadcast();
         ButterKnife.bind(this);
         initData();
@@ -135,7 +133,7 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
         }
         if(IPlayerUtil.MPlayerIsSameMp3(mAVObject)){
             if(IPlayerUtil.getPlayStatus() == 1) {
-                btn_play.setImageResource(R.drawable.ic_pause_circle_outline);
+                btn_play.setSelected(true);
                 handler.postDelayed(mRunnable,300);
                 downloadLrc();
             }
@@ -147,6 +145,9 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
         if(TextUtils.isEmpty(mAVObject.getStatus())){
             mAVObject.setStatus("1");
             BoxHelper.update(mAVObject);
+        }
+        if (!XmPlayerManager.getInstance(this).isPlaying() && !IPlayerUtil.MPlayerIsPlaying()) {
+            onClick();
         }
     }
 
@@ -170,7 +171,9 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
                         if(currentPosition < list.get(i).getTime()){
                             if(i-1 >= 0){
                                 if(content != null){
-                                    content.setText(list.get(i-1).getLyric());
+                                    String showText = list.get(i-1).getLyric();
+                                    TextHandlerUtil.handlerText(this, mProgressbar, content, showText);
+//                                    content.setText();
                                     break;
                                 }
                             }
@@ -283,17 +286,17 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
     @Override
     public void updateUI(String music_action) {
         if(IPlayerUtil.MPlayerIsSameMp3(mAVObject)){
-            if(music_action.equals(PlayerService.action_restart)){
-                btn_play.setImageResource(R.drawable.ic_play_circle_outline);
+            if(PlayerService.action_restart.equals(music_action)){
+                btn_play.setSelected(false);
                 handler.removeCallbacks(mRunnable);
-            }else if (music_action.equals(PlayerService.action_pause)) {
-                btn_play.setImageResource(R.drawable.ic_pause_circle_outline);
+            }else if (PlayerService.action_pause.equals(music_action)) {
+                btn_play.setSelected(true);
                 handler.postDelayed(mRunnable,300);
             }
         }
-        if(music_action.equals(PlayerService.action_loading)){
+        if(PlayerService.action_loading.equals(music_action)){
             showProgressbar();
-        }else if(music_action.equals(PlayerService.action_finish_loading)){
+        }else if(PlayerService.action_finish_loading.equals(music_action)){
             hideProgressbar();
         }
     }

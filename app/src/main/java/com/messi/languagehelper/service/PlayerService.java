@@ -290,6 +290,7 @@ public class PlayerService extends Service {
             LogUtil.DefalutLog("title:" + song.getTitle() +"---startExoplayer:"+song.getMedia_url());
             if ("mp3".equals(song.getType()) && TextUtils.isEmpty(song.getMedia_url())) {
                 LogUtil.DefalutLog("mp3,media url is null.");
+                InitPlayList(list,currentPosition);
                 return;
             }
             this.song = song;
@@ -629,27 +630,32 @@ public class PlayerService extends Service {
             LogUtil.DefalutLog("load more data");
             lastLoadDataTime = System.currentTimeMillis();
             AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.Reading.Reading);
-            if(song != null && !TextUtils.isEmpty(song.getCategory_2())){
+            if(song != null && !TextUtils.isEmpty(song.getBackup2())){
+                LogUtil.DefalutLog("------1------");
                 query.whereEqualTo(AVOUtil.Reading.type, song.getType());
-                query.whereEqualTo(AVOUtil.Reading.category_2, song.getCategory_2());
+                query.whereEqualTo(AVOUtil.Reading.category_2, song.getBackup2());
                 if(!TextUtils.isEmpty(song.getItem_id())){
                     query.whereGreaterThan(AVOUtil.Reading.item_id, Long.parseLong(song.getItem_id()));
                 }
                 query.addAscendingOrder(AVOUtil.Reading.item_id);
             }else if (song != null && !TextUtils.isEmpty(song.getBoutique_code())) {
+                LogUtil.DefalutLog("------2------");
                 query.whereEqualTo(AVOUtil.Reading.type, song.getType());
                 query.whereEqualTo(AVOUtil.Reading.boutique_code, song.getBoutique_code());
                 if(!TextUtils.isEmpty(song.getPublish_time())){
                     query.whereLessThan(AVOUtil.Reading.publish_time, new Date(Long.parseLong(song.getPublish_time())));
                 }
                 query.addDescendingOrder(AVOUtil.Reading.publish_time);
+                query.addDescendingOrder(AVOUtil.Reading.createdAt);
             } else {
+                LogUtil.DefalutLog("------3------");
                 if(song != null && !TextUtils.isEmpty(song.getPublish_time())){
-                    query.whereLessThan(AVOUtil.Reading.publish_time, new Date(Long.parseLong(song.getPublish_time())));
-                }else {
-                    query.whereEqualTo(AVOUtil.Reading.type, "mp3");
-                    query.addDescendingOrder(AVOUtil.Reading.publish_time);
+                    LogUtil.DefalutLog("------4------");
+                    query.whereLessThanOrEqualTo(AVOUtil.Reading.publish_time, new Date(Long.parseLong(song.getPublish_time())));
                 }
+                query.whereEqualTo(AVOUtil.Reading.type, "mp3");
+                query.addDescendingOrder(AVOUtil.Reading.publish_time);
+                query.addDescendingOrder(AVOUtil.Reading.createdAt);
             }
             query.limit(30);
             query.findInBackground(new FindCallback<AVObject>() {
@@ -659,6 +665,12 @@ public class PlayerService extends Service {
                     if (NullUtil.isNotEmpty(avObjects)) {
                         if (!NullUtil.isNotEmpty(list)) {
                             list = new ArrayList<>();
+                        }
+                        if (song != null) {
+                            if(song.getObject_id().equals(avObjects.get(0).getObjectId())){
+                                avObjects.remove(0);
+                                LogUtil.DefalutLog("song.getObject_id().equals(avObjects.get(0).getObjectId())");
+                            }
                         }
                         isPlayList = true;
                         DataUtil.changeDataToReading(avObjects,list,false);

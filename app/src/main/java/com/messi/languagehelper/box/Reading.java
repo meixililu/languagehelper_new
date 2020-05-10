@@ -54,7 +54,7 @@ public class Reading implements Parcelable {
     private int readed;
     private String lrc_url;
     private String backup1;//use for mp3url
-    private String backup2;
+    private String backup2;//category_2 play series
     private String backup3;
     private String backup4;
     private String backup5;

@@ -197,7 +197,7 @@
     },
     {
       "id": "3:3110430987322842181",
-      "lastPropertyId": "8:5255918259572070149",
+      "lastPropertyId": "11:9127389154030167286",
       "name": "ReadingSubject",
       "properties": [
         {
@@ -242,6 +242,22 @@
           "id": "8:5255918259572070149",
           "name": "creat_time",
           "type": 6,
+          "flags": 4
+        },
+        {
+          "id": "9:4210885046754564135",
+          "name": "source_name",
+          "type": 9
+        },
+        {
+          "id": "10:7768858810324117761",
+          "name": "source_url",
+          "type": 9
+        },
+        {
+          "id": "11:9127389154030167286",
+          "name": "views",
+          "type": 5,
           "flags": 4
         }
       ],

@@ -6,7 +6,6 @@ import android.support.multidex.MultiDexApplication;
 
 import com.avos.avoscloud.AVOSCloud;
 import com.facebook.drawee.backends.pipeline.Fresco;
-import com.iflytek.voiceads.IFLYAdSDK;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.dao.DaoMaster;
 import com.messi.languagehelper.dao.DaoSession;
@@ -84,7 +83,7 @@ public class BaseApplication extends MultiDexApplication {
             TXADUtil.init(BaseApplication.this);
             BDADUtil.init(BaseApplication.this);
             BoxHelper.init(BaseApplication.this);
-            IFLYAdSDK.init(getApplicationContext());
+//            IFLYAdSDK.init(getApplicationContext());
             CSJADUtil.init(BaseApplication.this);
         } catch (Exception e) {
             e.printStackTrace();

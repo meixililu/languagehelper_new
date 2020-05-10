@@ -52,6 +52,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 	private String quest;
 	private String type;
 	private String boutique_code;
+	private boolean isLrc;
 	private boolean isPlayList;
 	private boolean isNeedClear = false;
 	private LinearLayoutManager mLinearLayoutManager;
@@ -66,6 +67,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 		bundle.putString("code",builder.code);
 		bundle.putString("source",builder.source);
 		bundle.putBoolean("isPlayList",builder.isPlayList);
+		bundle.putBoolean("isLrc",builder.isLrc);
 		bundle.putString("type",builder.type);
 		bundle.putString("quest",builder.quest);
 		bundle.putInt("maxRandom",builder.maxRandom);
@@ -120,6 +122,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 		this.maxRandom = mBundle.getInt("maxRandom");
 		this.isNeedClear = mBundle.getBoolean("isNeedClear",false);
 		this.isPlayList = mBundle.getBoolean("isPlayList",false);
+		this.isLrc = mBundle.getBoolean("isLrc",false);
 	}
 
 	@Override
@@ -279,7 +282,11 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 				query.whereEqualTo(AVOUtil.Reading.type_id, code);
 			}
 		}
+		if (isLrc) {
+			query.whereStartsWith(AVOUtil.Reading.lrc_url,"h");
+		}
 		query.addDescendingOrder(AVOUtil.Reading.publish_time);
+		query.addDescendingOrder(AVOUtil.Reading.createdAt);
 		query.skip(skip);
 		query.limit(Setings.page_size);
 		query.findInBackground(new FindCallback<AVObject>() {
@@ -369,6 +376,9 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 							query.whereEqualTo(AVOUtil.Reading.type_id, code);
 						}
 					}
+					if (isLrc) {
+						query.whereStartsWith(AVOUtil.Reading.lrc_url,"h");
+					}
 					maxRandom = query.count()/Setings.page_size;
 					LogUtil.DefalutLog("category:"+category+"---maxRandom:"+maxRandom);
 				} catch (Exception e) {
@@ -411,6 +421,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 		private String quest;
 		private String type;
 		private String boutique_code;
+		private boolean isLrc;
 		private boolean isPlayList;
 		private boolean withOutVideo;
 		private boolean isNeedClear = false;
@@ -437,6 +448,10 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 		}
 		public Builder quest(String quest) {
 			this.quest = quest;
+			return this;
+		}
+		public Builder lrc(boolean lrc) {
+			this.isLrc = lrc;
 			return this;
 		}
 		public Builder type(String type) {

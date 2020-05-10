@@ -135,7 +135,7 @@ public class ReadingListRepository {
                         }
                         mData.setPositionStart(list.size());
                         mData.setItemCount(avObject.size());
-                        DataUtil.changeDataToReading(avObject,list,false);
+                        DataUtil.changeDataToReading(avObject,list,false,subjectName);
 //                        if (mADXXLRepository.mADObject != null) {
 //                            list.add(mADXXLRepository.getIndex(), mADXXLRepository.mADObject);
 //                            mADXXLRepository.mADObject = null;

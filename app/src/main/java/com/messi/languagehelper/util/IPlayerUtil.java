@@ -9,6 +9,7 @@ import com.ximalaya.ting.android.opensdk.model.live.radio.Radio;
 import com.ximalaya.ting.android.opensdk.model.track.Track;
 import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.messi.languagehelper.service.PlayerService.action_pause;
@@ -150,7 +151,7 @@ public class IPlayerUtil {
 
     public static void initAndPlay(Reading song,boolean isPlayList,long position){
         try {
-            LogUtil.DefalutLog("IPlayerUtil---initAndPlay---musicSrv:"+musicSrv);
+            LogUtil.DefalutLog("IPlayerUtil---initAndPlay---musicSrv");
             String data = JSON.toJSONString(song);
             musicSrv.initAndPlay(data, isPlayList, position);
         } catch (Exception e) {
@@ -161,9 +162,9 @@ public class IPlayerUtil {
 
     public static void initPlayList(List<Reading> list, int position){
         try {
-            LogUtil.DefalutLog("IPlayerUtil---initPlayList---musicSrv:"+musicSrv);
-            String lists = JSON.toJSONString(list);
-            musicSrv.initPlayList(lists,position);
+            LogUtil.DefalutLog("IPlayerUtil---initPlayList---musicSrv");
+            String lists = JSON.toJSONString(getMp3List(list,position));
+            musicSrv.initPlayList(lists,0);
         } catch (Exception e) {
             LogUtil.DefalutLog("RemoteException---initPlayList");
             e.printStackTrace();
@@ -219,5 +220,15 @@ public class IPlayerUtil {
             LogUtil.DefalutLog("RemoteException---pauseAudioPlayer");
             e.printStackTrace();
         }
+    }
+
+    public static List<Reading> getMp3List(List<Reading> list, int start){
+        List<Reading> nList = new ArrayList<>();
+        for (int i=start; i<list.size(); i++ ){
+            if ("mp3".equals(list.get(i).getType())) {
+                nList.add(list.get(i));
+            }
+        }
+        return nList;
     }
 }
