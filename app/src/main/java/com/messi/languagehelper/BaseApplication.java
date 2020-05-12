@@ -1,5 +1,6 @@
 package com.messi.languagehelper;
 
+import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.multidex.MultiDexApplication;
@@ -31,6 +32,7 @@ public class BaseApplication extends MultiDexApplication {
 	public static HashMap<String, Object> dataMap = new HashMap<String, Object>();
     public static DaoMaster daoMaster;
     public static DaoSession daoSession;
+    public static Application instance;
 
     @Override  
     public void onCreate() {  
@@ -40,8 +42,10 @@ public class BaseApplication extends MultiDexApplication {
 
     private void init(){
         try {
+            instance = this;
             new Thread(() -> initPartOne()).run();
             new Thread(() -> initPartTwo()).run();
+            BoxHelper.init(BaseApplication.this);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -82,7 +86,6 @@ public class BaseApplication extends MultiDexApplication {
         try {
             TXADUtil.init(BaseApplication.this);
             BDADUtil.init(BaseApplication.this);
-            BoxHelper.init(BaseApplication.this);
 //            IFLYAdSDK.init(getApplicationContext());
             CSJADUtil.init(BaseApplication.this);
         } catch (Exception e) {

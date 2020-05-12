@@ -60,8 +60,10 @@ public class DictionaryHelper {
         FrameLayout dic_title_layout = (FrameLayout) view.findViewById(R.id.dic_title_layout);
         TextView title = (TextView) view.findViewById(R.id.dic_title);
         final CheckBox collect_btn = (CheckBox) view.findViewById(R.id.collected_cb);
-        if(result != null && !TextUtils.isEmpty(result.getWord_name())){
-            title.setText(result.getWord_name());
+        if(result != null){
+            if (!TextUtils.isEmpty(result.getWord_name())) {
+                title.setText(result.getWord_name());
+            }
         }
         setIsCollected(collect_btn, result);
         collect_btn.setOnClickListener(new View.OnClickListener() {

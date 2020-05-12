@@ -3,6 +3,7 @@ package com.messi.languagehelper.viewmodels;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
+import android.content.Context;
 
 import com.messi.languagehelper.bean.RespoADData;
 import com.messi.languagehelper.bean.RespoData;
@@ -16,14 +17,15 @@ public class BoutiquesViewModel extends ViewModel {
     private MutableLiveData<RespoADData> mRespoADData;
     private BoutiquesListRepository mRepo;
     private XXLAVObjectRepository mADRepo;
+    private Context context;
 
-    public void init(){
+    public void init(Context context){
         mRepo = new BoutiquesListRepository();
         mRespoData = mRepo.mRespoData;
         isLoading = mRepo.isLoading;
         isLoading.setValue(false);
 
-        mADRepo = new XXLAVObjectRepository(mRepo.getList());
+        mADRepo = new XXLAVObjectRepository(context,mRepo.getList());
         mRespoADData = mADRepo.mRespoData;
         mRepo.setADXXLRepository(mADRepo);
     }

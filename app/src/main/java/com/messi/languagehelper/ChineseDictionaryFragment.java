@@ -1,6 +1,7 @@
 package com.messi.languagehelper;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -62,6 +63,7 @@ public class ChineseDictionaryFragment extends BaseFragment {
     ScrollView chdic_sv;
 
     private SpeechSynthesizer mSpeechSynthesizer;
+    private SharedPreferences sp;
     private View view;
 
     public static ChineseDictionaryFragment getInstance(FragmentProgressbarListener listener) {

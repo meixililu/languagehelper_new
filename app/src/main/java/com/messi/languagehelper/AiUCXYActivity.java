@@ -37,7 +37,6 @@ import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KaiPinAdUIModelCustom;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.ViewUtil;
@@ -110,7 +109,7 @@ public class AiUCXYActivity extends BaseActivity {
     private void initData() {
         sp = Setings.getSharedPreferences(this);
         recognizer = SpeechRecognizer.createRecognizer(this, null);
-        if (PlayUtil.getSP().getBoolean(KeyUtil.IsAiChatShowKeybordLayout, true)) {
+        if (sp.getBoolean(KeyUtil.IsAiChatShowKeybordLayout, true)) {
             showKeybordLayout();
         } else {
             showMicLayout();
@@ -263,7 +262,7 @@ public class AiUCXYActivity extends BaseActivity {
             inputEt.setText("");
             voiceBtn.setText(this.getResources().getText(R.string.click_and_finish));
             XFUtil.showSpeechRecognizer(this,
-                    PlayUtil.getSP(),
+                    sp,
                     recognizer,
                     recognizerListener,
                     XFUtil.VoiceEngineMD);
@@ -283,11 +282,11 @@ public class AiUCXYActivity extends BaseActivity {
     private void changeInputType() {
         if (keybordLayout.isShown()) {
             showMicLayout();
-            Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.IsAiChatShowKeybordLayout, false);
+            Setings.saveSharedPreferences(sp, KeyUtil.IsAiChatShowKeybordLayout, false);
             hideIME(inputEt);
         } else {
             showKeybordLayout();
-            Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.IsAiChatShowKeybordLayout, true);
+            Setings.saveSharedPreferences(sp, KeyUtil.IsAiChatShowKeybordLayout, true);
             showIME();
             inputEt.requestFocus();
         }

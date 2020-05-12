@@ -54,7 +54,7 @@ public class ReadingsBySubjectActivity extends BaseActivity implements View.OnCl
 		objectId = mReadingSubject.getObjectId();
 		level = getIntent().getStringExtra(KeyUtil.LevelKey);
 
-		viewModel.init();
+		viewModel.init(this);
 		viewModel.getRepo().setSubjectName(subjectName);
 		viewModel.getRepo().setLevel(level);
 		viewModel.getRepo().setOrderById(true);

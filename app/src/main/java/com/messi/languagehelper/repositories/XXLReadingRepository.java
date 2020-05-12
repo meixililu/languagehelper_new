@@ -1,5 +1,7 @@
 package com.messi.languagehelper.repositories;
 
+import android.content.Context;
+
 import com.baidu.mobads.AdView;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.iflytek.voiceads.conn.NativeDataRef;
@@ -11,8 +13,8 @@ import java.util.List;
 
 public class XXLReadingRepository  extends ADXXLRepository<Reading>{
 
-    public XXLReadingRepository(List avObjects) {
-        super(avObjects);
+    public XXLReadingRepository(Context context, List avObjects) {
+        super(context,avObjects);
     }
 
     @Override

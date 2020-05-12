@@ -174,10 +174,10 @@ public class SymbolListFragment extends BaseFragment {
         @Override
         protected Void doInBackground(Void... params) {
             try {
-                long localSize = DataBaseUtil.getInstance().getSymbolListSize();
+                long localSize = DataBaseUtil.getInstance(getContext()).getSymbolListSize();
                 if (sharedPreferences.getString(KeyUtil.UpdateSymbolList, "UpdateSymbolList1").equals("UpdateSymbolList1")) {
                     localSize = 0;
-                    DataBaseUtil.getInstance().clearSymbolList();
+                    DataBaseUtil.getInstance(getContext()).clearSymbolList();
                     Setings.saveSharedPreferences(sharedPreferences, KeyUtil.UpdateSymbolList, "");
                 }
                 mSymbolListDao.clear();
@@ -190,10 +190,10 @@ public class SymbolListFragment extends BaseFragment {
                         for (AVObject mAVObject : avObjects) {
                             mSymbolListDao.add(changeDataType(mAVObject));
                         }
-                        DataBaseUtil.getInstance().insert(mSymbolListDao);
+                        DataBaseUtil.getInstance(getContext()).insert(mSymbolListDao);
                     }
                 } else {
-                    mSymbolListDao.addAll(DataBaseUtil.getInstance().getSymbolList());
+                    mSymbolListDao.addAll(DataBaseUtil.getInstance(getContext()).getSymbolList());
                 }
 
             } catch (AVException e) {

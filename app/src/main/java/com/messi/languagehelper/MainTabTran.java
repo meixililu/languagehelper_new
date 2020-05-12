@@ -1,5 +1,6 @@
 package com.messi.languagehelper;
 
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
@@ -21,7 +22,6 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NetworkUtil;
 import com.messi.languagehelper.util.NullUtil;
-import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.TranslateUtil;
@@ -49,6 +49,7 @@ public class MainTabTran extends BaseFragment {
     private Record currentDialogBean;
     private RcTranslateListAdapter mAdapter;
     private LinearLayoutManager mLinearLayoutManager;
+    private SharedPreferences sp;
     private List<Record> beans;
     private String lastSearch;
     private int skip;
@@ -77,13 +78,14 @@ public class MainTabTran extends BaseFragment {
     }
 
     private void init(View view) {
+        sp = Setings.getSharedPreferences(getContext());
         isRegisterBus = true;
         beans = new ArrayList<Record>();
         loadData();
-        boolean IsHasShowBaiduMessage = PlayUtil.getSP().getBoolean(KeyUtil.IsHasShowBaiduMessage, false);
+        boolean IsHasShowBaiduMessage = sp.getBoolean(KeyUtil.IsHasShowBaiduMessage, false);
         if (!IsHasShowBaiduMessage) {
             initSample();
-            Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.IsHasShowBaiduMessage, true);
+            Setings.saveSharedPreferences(sp, KeyUtil.IsHasShowBaiduMessage, true);
         }
         mAdapter = new RcTranslateListAdapter(beans);
         binding.recentUsedLv.setHasFixedSize(true);
@@ -225,7 +227,7 @@ public class MainTabTran extends BaseFragment {
 
     public void autoClearAndautoPlay() {
         EventBus.getDefault().post(new FinishEvent());
-        if (PlayUtil.getSP().getBoolean(KeyUtil.AutoPlayResult, false)) {
+        if (sp.getBoolean(KeyUtil.AutoPlayResult, false)) {
             delayAutoPlay();
         }
     }

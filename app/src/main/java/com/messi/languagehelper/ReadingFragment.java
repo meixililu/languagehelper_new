@@ -283,7 +283,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 			}
 		}
 		if (isLrc) {
-			query.whereStartsWith(AVOUtil.Reading.lrc_url,"h");
+			query.whereContains(AVOUtil.Reading.lrc_url,"http");
 		}
 		query.addDescendingOrder(AVOUtil.Reading.publish_time);
 		query.addDescendingOrder(AVOUtil.Reading.createdAt);
@@ -377,7 +377,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 						}
 					}
 					if (isLrc) {
-						query.whereStartsWith(AVOUtil.Reading.lrc_url,"h");
+						query.whereContains(AVOUtil.Reading.lrc_url,"http");
 					}
 					maxRandom = query.count()/Setings.page_size;
 					LogUtil.DefalutLog("category:"+category+"---maxRandom:"+maxRandom);

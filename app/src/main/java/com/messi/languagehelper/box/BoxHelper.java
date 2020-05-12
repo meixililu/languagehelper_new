@@ -3,8 +3,8 @@ package com.messi.languagehelper.box;
 import android.content.Context;
 import android.text.TextUtils;
 
+import com.messi.languagehelper.BaseApplication;
 import com.messi.languagehelper.util.ColorUtil;
-import com.messi.languagehelper.util.ContextUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 
@@ -30,7 +30,7 @@ public class BoxHelper {
 
     public static BoxStore getBoxStore(){
         if(boxStore == null){
-            init(ContextUtil.get().getContext());
+            init(BaseApplication.instance);
         }
         return boxStore;
     }

@@ -24,11 +24,11 @@ public class MoveDataTask {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    List<CNWBean> dataList = DataBaseUtil.getInstance().getAllAVObjectData();
+                    List<CNWBean> dataList = DataBaseUtil.getInstance(mContext).getAllAVObjectData();
                     LogUtil.DefalutLog("moveCaricatureData---dataList:"+dataList.size());
                     if(dataList.size() > 0){
                         BoxHelper.updateCNWBean(dataList);
-                        DataBaseUtil.getInstance().clearAvobject();
+                        DataBaseUtil.getInstance(mContext).clearAvobject();
                     }
                     Setings.saveSharedPreferences(sp,KeyUtil.HasMoveCaricatureData,true);
                     LogUtil.DefalutLog("moveCaricatureData finish");
@@ -47,41 +47,41 @@ public class MoveDataTask {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    doRecordDataChange();
-                    doDictionaryDataChange();
-                    doWordDetailListItemDataChange();
+                    doRecordDataChange(mContext);
+                    doDictionaryDataChange(mContext);
+                    doWordDetailListItemDataChange(mContext);
                     Setings.saveSharedPreferences(sp,KeyUtil.HasMoveRDDatas,true);
                 }
             }).start();
         }
     }
 
-    public static void doRecordDataChange(){
-        List<record> dataList = DataBaseUtil.getInstance().getDataListRecord();
+    public static void doRecordDataChange(Context mContext){
+        List<record> dataList = DataBaseUtil.getInstance(mContext).getDataListRecord();
         LogUtil.DefalutLog("HasMoveRecordData---start:"+dataList.size());
         if(NullUtil.isNotEmpty(dataList)){
             getRecordList(dataList);
-            DataBaseUtil.getInstance().clearRecordData();
+            DataBaseUtil.getInstance(mContext).clearRecordData();
         }
         LogUtil.DefalutLog("HasMoveRecordData finish");
     }
 
-    public static void doDictionaryDataChange(){
-        List<Dictionary> dataList = DataBaseUtil.getInstance().getDataListDictionary();
+    public static void doDictionaryDataChange(Context mContext){
+        List<Dictionary> dataList = DataBaseUtil.getInstance(mContext).getDataListDictionary();
         LogUtil.DefalutLog("HasMoveDictionaryData---start:"+dataList.size());
         if(NullUtil.isNotEmpty(dataList)){
             getDictionaryList(dataList);
-            DataBaseUtil.getInstance().clearAllDictionary();
+            DataBaseUtil.getInstance(mContext).clearAllDictionary();
         }
         LogUtil.DefalutLog("HasMoveDictionaryData finish");
     }
 
-    public static void doWordDetailListItemDataChange(){
-        List<WordDetailListItem> dataList = DataBaseUtil.getInstance().getAllList();
+    public static void doWordDetailListItemDataChange(Context mContext){
+        List<WordDetailListItem> dataList = DataBaseUtil.getInstance(mContext).getAllList();
         LogUtil.DefalutLog("HasMoveWordDetailListItemData---start:"+dataList.size());
         if(NullUtil.isNotEmpty(dataList)){
             getWordDetailListItemList(dataList);
-            DataBaseUtil.getInstance().clearAllWordDetailListItem();
+            DataBaseUtil.getInstance(mContext).clearAllWordDetailListItem();
         }
         LogUtil.DefalutLog("HasMoveWordDetailListItemData finish");
     }

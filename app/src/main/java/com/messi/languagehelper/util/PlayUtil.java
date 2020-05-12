@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
+import com.messi.languagehelper.BaseApplication;
 import com.messi.languagehelper.impl.OnFinishListener;
 import com.messi.languagehelper.task.MyThread;
 
@@ -247,6 +248,9 @@ public class PlayUtil {
     }
 
     public static SharedPreferences getSP() {
+        if (mSharedPreferences == null) {
+            mSharedPreferences = Setings.getSharedPreferences(BaseApplication.instance);
+        }
         return mSharedPreferences;
     }
 

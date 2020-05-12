@@ -1,6 +1,7 @@
 package com.messi.languagehelper.repositories;
 
 import android.arch.lifecycle.MutableLiveData;
+import android.content.Context;
 import android.text.TextUtils;
 
 import com.bytedance.sdk.openadsdk.AdSlot;
@@ -15,24 +16,28 @@ import com.messi.languagehelper.bean.ADBean;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.BDADUtil;
 import com.messi.languagehelper.util.CSJADUtil;
-import com.messi.languagehelper.util.ContextUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.TXADUtil;
 import com.qq.e.ads.nativ.NativeExpressAD;
 import com.qq.e.ads.nativ.NativeExpressADView;
 
+import java.lang.ref.WeakReference;
 import java.util.List;
 
 public class ADRepository {
 
     public int counter;
     public String currentAD;
-
+    private WeakReference<Context> mContext;
     public String BDADID = BDADUtil.BD_BANNer;
     public String XFADID = ADUtil.MRYJYSNRLAd;
     public String CSJADID = CSJADUtil.CSJ_XXLSP;
     public MutableLiveData<ADBean> mItem = new MutableLiveData<ADBean>();
+
+    public ADRepository(Context context){
+        this.mContext = new WeakReference<>(context);
+    }
 
     public void getSBBAD(){
         try {
@@ -75,7 +80,7 @@ public class ADRepository {
     }
 
     private void loadTXAD() {
-        TXADUtil.showBigImg(ContextUtil.get().getContext(), new NativeExpressAD.NativeExpressADListener() {
+        TXADUtil.showBigImg(getContext(), new NativeExpressAD.NativeExpressADListener() {
             @Override
             public void onNoAD(com.qq.e.comm.util.AdError adError) {
                 LogUtil.DefalutLog("loadTXAD0-onNoAD");
@@ -138,7 +143,7 @@ public class ADRepository {
 
     public void loadCSJAD(){
         LogUtil.DefalutLog("loadCSJAD");
-        TTAdNative mTTAdNative = CSJADUtil.get().createAdNative(ContextUtil.get().getContext());
+        TTAdNative mTTAdNative = CSJADUtil.get().createAdNative(getContext());
         AdSlot adSlot = new AdSlot.Builder()
                 .setCodeId(CSJADID)
                 .setSupportDeepLink(true)
@@ -165,7 +170,7 @@ public class ADRepository {
     }
 
     public void loadXFAD() {
-        IFLYNativeAd nativeAd = new IFLYNativeAd(ContextUtil.get().getContext(), XFADID, new IFLYNativeListener() {
+        IFLYNativeAd nativeAd = new IFLYNativeAd(getContext(), XFADID, new IFLYNativeListener() {
             @Override
             public void onConfirm() {
             }
@@ -193,11 +198,15 @@ public class ADRepository {
     public void loadXBKJ() {
         if (ADUtil.isHasLocalAd()) {
             ADBean mADBean = new ADBean(1,ADUtil.XBKJ);
-            mADBean.setNativeADDataRef(ADUtil.getRandomAd(ContextUtil.get().getContext()));
+            mADBean.setNativeADDataRef(ADUtil.getRandomAd(getContext()));
             mItem.setValue(mADBean);
         }else {
-            ADUtil.loadAd(ContextUtil.get().getContext());
+            ADUtil.loadAd(getContext());
         }
+    }
+
+    public Context getContext() {
+        return mContext.get();
     }
 
 }

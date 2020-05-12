@@ -227,10 +227,6 @@ public class Setings {
 		}
 		return null;
 	}
-
-	public static SharedPreferences getSharedPreferences(){
-		return ContextUtil.get().getContext().getSharedPreferences(ContextUtil.get().getContext().getPackageName(), Activity.MODE_PRIVATE);
-	}
 	
 	/**
 	 * 保存配置信息
@@ -424,9 +420,6 @@ public class Setings {
 	}
 
 	public static String getDeviceID(Context context){
-		if(context == null){
-			context = ContextUtil.get().getContext();
-		}
 		SharedPreferences sp = Setings.getSharedPreferences(context);
 		String device_id = sp.getString(KeyUtil.DeviceId,"");
 		if(TextUtils.isEmpty(device_id)){

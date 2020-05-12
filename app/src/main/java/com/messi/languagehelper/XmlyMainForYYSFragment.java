@@ -1,6 +1,7 @@
 package com.messi.languagehelper;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -13,7 +14,6 @@ import android.widget.ProgressBar;
 
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.SystemUtil;
 
@@ -24,6 +24,7 @@ public class XmlyMainForYYSFragment extends BaseFragment implements OnClickListe
 	private TabLayout mTabLayout;
 	private FrameLayout search_btn;
 	public int currentTabIndex;
+	private SharedPreferences sp;
 
 	private Fragment mFragment1;
 	private Fragment mFragment2;
@@ -46,6 +47,7 @@ public class XmlyMainForYYSFragment extends BaseFragment implements OnClickListe
 	}
 	
 	private void initViews(View view){
+		sp = Setings.getSharedPreferences(getContext());
 		progressBar = (ProgressBar) view.findViewById(R.id.progressBarCircularIndetermininate);
 		mTabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
 		search_btn = (FrameLayout) view.findViewById(R.id.search_btn);
@@ -56,7 +58,7 @@ public class XmlyMainForYYSFragment extends BaseFragment implements OnClickListe
 		if(SystemUtil.lan.equals("en")){
 			mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
 		}
-		currentTabIndex = PlayUtil.getSP().getInt(KeyUtil.XmlyMainForYYS,1);
+		currentTabIndex = sp.getInt(KeyUtil.XmlyMainForYYS,1);
 		mTabLayout.addTab(mTabLayout.newTab().setText(getText(R.string.title_category)));
 		mTabLayout.addTab(mTabLayout.newTab().setText(getText(R.string.title_juhe)));
 		mTabLayout.addTab(mTabLayout.newTab().setText(getText(R.string.title_cantonese)));
@@ -67,7 +69,7 @@ public class XmlyMainForYYSFragment extends BaseFragment implements OnClickListe
 			public void onTabSelected(TabLayout.Tab tab) {
 				currentTabIndex = tab.getPosition();
 				showSelectFragment();
-				Setings.saveSharedPreferences(PlayUtil.getSP(),
+				Setings.saveSharedPreferences(sp,
 						KeyUtil.XmlyMainForYYS,
 						currentTabIndex);
 			}

@@ -37,7 +37,6 @@ import com.messi.languagehelper.faxian.YZDDFragment;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AVOUtil;
-import com.messi.languagehelper.util.ContextUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NullUtil;
@@ -152,7 +151,7 @@ public class LeisureFragment extends BaseFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewModel = ViewModelProviders.of(getActivity()).get(SingleBigBannerViewModel.class);
-        viewModel.init();
+        viewModel.init(getContext());
         lastLoadAd = System.currentTimeMillis();
     }
 
@@ -181,7 +180,7 @@ public class LeisureFragment extends BaseFragment {
     }
 
     private void bandAd(){
-        sp = Setings.getSharedPreferences();
+        sp = Setings.getSharedPreferences(getContext());
         if(ADUtil.IsShowAD){
             xx_ad_layout.setVisibility(View.VISIBLE);
             viewModel.getADBean().observe(this,adBean -> onReceiveAd(adBean));
@@ -199,7 +198,7 @@ public class LeisureFragment extends BaseFragment {
                 adBean.getTXADView().render();
             }else if(ADUtil.CSJ.equals(adBean.getType())){
                 initFeiXFAD();
-                XXLRootModel.setCSJDView(ContextUtil.get().getContext(),adBean.getTTFeedAd(),ad_layout);
+                XXLRootModel.setCSJDView(getContext(),adBean.getTTFeedAd(),ad_layout);
             }else if(ADUtil.XF.equals(adBean.getType())){
                 exposureXFAD = false;
                 setAd(adBean.mNativeADDataRef);

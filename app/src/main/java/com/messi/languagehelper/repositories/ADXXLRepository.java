@@ -1,6 +1,7 @@
 package com.messi.languagehelper.repositories;
 
 import android.arch.lifecycle.MutableLiveData;
+import android.content.Context;
 import android.text.TextUtils;
 
 import com.baidu.mobads.AdView;
@@ -17,7 +18,6 @@ import com.messi.languagehelper.bean.RespoADData;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.BDADUtil;
 import com.messi.languagehelper.util.CSJADUtil;
-import com.messi.languagehelper.util.ContextUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.NumberUtil;
@@ -28,6 +28,7 @@ import com.qq.e.ads.nativ.NativeExpressADView;
 
 import org.json.JSONObject;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +38,7 @@ public abstract class ADXXLRepository<T> {
     public int counter;
     public boolean isLoading;
     public boolean isShowAd;
+    private WeakReference<Context> mContext;
     public String XFADID = ADUtil.XXLAD;
     public String BDADID = BDADUtil.BD_BANNer;
     public String CSJADID = CSJADUtil.CSJ_XXL;
@@ -46,9 +48,10 @@ public abstract class ADXXLRepository<T> {
     public List avObjects;
     public MutableLiveData<RespoADData> mRespoData = new MutableLiveData<>();
 
-    public ADXXLRepository(List avObjects){
+    public ADXXLRepository(Context context, List avObjects){
         mTXADList = new ArrayList<NativeExpressADView>();
         this.avObjects = avObjects;
+        this.mContext = new WeakReference<>(context);
     }
 
     public void showAd(boolean isShowAd){
@@ -89,7 +92,7 @@ public abstract class ADXXLRepository<T> {
     }
 
     public void loadXFAD() {
-        IFLYNativeAd nativeAd = new IFLYNativeAd(ContextUtil.get().getContext(), XFADID, new IFLYNativeListener() {
+        IFLYNativeAd nativeAd = new IFLYNativeAd(getContext(), XFADID, new IFLYNativeListener() {
             @Override
             public void onConfirm() {
             }
@@ -117,7 +120,7 @@ public abstract class ADXXLRepository<T> {
     public abstract void addXFAD(NativeDataRef nad);
 
     public void loadTXAD() {
-        TXADUtil.showXXLAD(ContextUtil.get().getContext(),TXADType, new NativeExpressAD.NativeExpressADListener() {
+        TXADUtil.showXXLAD(getContext(),TXADType, new NativeExpressAD.NativeExpressADListener() {
             @Override
             public void onNoAD(com.qq.e.comm.util.AdError adError) {
                 LogUtil.DefalutLog("TX-onNoAD");
@@ -171,12 +174,12 @@ public abstract class ADXXLRepository<T> {
 
     public void loadXBKJ() {
         if (ADUtil.isHasLocalAd()) {
-            addXFAD(ADUtil.getRandomAd(ContextUtil.get().getContext()));
+            addXFAD(ADUtil.getRandomAd(getContext()));
         }
     }
 
     public void loadBDAD(){
-        AdView adView = new AdView(ContextUtil.get().getContext(),BDADID);
+        AdView adView = new AdView(getContext(),BDADID);
         adView.setListener(new AdViewListener(){
             @Override
             public void onAdReady(AdView adView) {
@@ -213,7 +216,7 @@ public abstract class ADXXLRepository<T> {
 
     public void loadCSJAD(){
         LogUtil.DefalutLog("loadCSJAD");
-        TTAdNative mTTAdNative = CSJADUtil.get().createAdNative(ContextUtil.get().getContext());
+        TTAdNative mTTAdNative = CSJADUtil.get().createAdNative(getContext());
         AdSlot adSlot = new AdSlot.Builder()
                 .setCodeId(CSJADID)
                 .setSupportDeepLink(true)
@@ -276,6 +279,10 @@ public abstract class ADXXLRepository<T> {
         }
         LogUtil.DefalutLog("insert list index:"+index);
         return index;
+    }
+
+    public Context getContext() {
+        return mContext.get();
     }
 
 }

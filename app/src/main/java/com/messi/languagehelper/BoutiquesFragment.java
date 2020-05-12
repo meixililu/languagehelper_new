@@ -62,7 +62,7 @@ public class BoutiquesFragment extends BaseFragment {
 			type = getArguments().getString(KeyUtil.Type);
 			title = getArguments().getString(KeyUtil.FragmentTitle);
 			viewModel = ViewModelProviders.of(getActivity()).get(BoutiquesViewModel.class);
-			viewModel.init();
+			viewModel.init(getContext());
 			viewModel.getRepo().setCategory(category);
 			viewModel.getRepo().setType(type);
 		}

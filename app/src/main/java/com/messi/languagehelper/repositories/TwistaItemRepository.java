@@ -2,12 +2,10 @@ package com.messi.languagehelper.repositories;
 
 import android.arch.lifecycle.MutableLiveData;
 
-import com.messi.languagehelper.R;
 import com.messi.languagehelper.bean.RespoData;
 import com.messi.languagehelper.bean.TwistaItem;
 import com.messi.languagehelper.bean.TwistaResult;
 import com.messi.languagehelper.httpservice.RetrofitApiService;
-import com.messi.languagehelper.util.ContextUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
 
@@ -66,7 +64,7 @@ public class TwistaItemRepository {
             @Override
             public void onFailure(Call<TwistaResult> call, Throwable t) {
                 loading.setValue(false);
-                mItem.postValue(new RespoData(ContextUtil.get().getContext().getResources().getString(R.string.network_error)));
+                mItem.postValue(new RespoData("error"));
             }
         });
     }

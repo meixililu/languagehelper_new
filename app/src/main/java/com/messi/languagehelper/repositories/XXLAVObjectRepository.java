@@ -1,5 +1,7 @@
 package com.messi.languagehelper.repositories;
 
+import android.content.Context;
+
 import com.avos.avoscloud.AVObject;
 import com.baidu.mobads.AdView;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
@@ -12,8 +14,8 @@ import java.util.List;
 
 public class XXLAVObjectRepository extends ADXXLRepository<AVObject>{
 
-    public XXLAVObjectRepository(List avObjects) {
-        super(avObjects);
+    public XXLAVObjectRepository(Context context, List avObjects) {
+        super(context,avObjects);
     }
 
     @Override

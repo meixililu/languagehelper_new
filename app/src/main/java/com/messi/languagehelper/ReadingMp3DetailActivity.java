@@ -121,7 +121,7 @@ public class ReadingMp3DetailActivity extends BaseActivity implements SeekBar.On
             ad_sign.setVisibility(View.GONE);
             ad_img.setImageURI(Uri.parse(mAVObject.getImg_url()));
         }else {
-            mLeisureModel = new LeisureModel();
+            mLeisureModel = new LeisureModel(this);
             mLeisureModel.setXFADID(ADUtil.NewsDetail);
             mLeisureModel.setViews(ad_sign,ad_img,xx_ad_layout,ad_layout);
             mLeisureModel.showAd();

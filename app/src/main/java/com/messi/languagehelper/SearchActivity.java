@@ -254,11 +254,13 @@ public class SearchActivity extends BaseActivity {
         query.findInBackground(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
-                if (list != null && list.size() > 0) {
-                    AVObject mAVObject = list.get(0);
-                    int times = mAVObject.getInt(AVOUtil.SearchHot.click_time);
-                    mAVObject.put(AVOUtil.SearchHot.click_time,times+1);
-                    mAVObject.saveInBackground();
+                if (list != null) {
+                    if (list.size() > 0) {
+                        AVObject mAVObject = list.get(0);
+                        int times = mAVObject.getInt(AVOUtil.SearchHot.click_time);
+                        mAVObject.put(AVOUtil.SearchHot.click_time,times+1);
+                        mAVObject.saveInBackground();
+                    }
                 } else {
                     AVObject object = new AVObject(AVOUtil.SearchHot.SearchHot);
                     object.put(AVOUtil.SearchHot.name, quest);

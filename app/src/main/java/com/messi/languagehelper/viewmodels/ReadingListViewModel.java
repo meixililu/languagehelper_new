@@ -3,6 +3,7 @@ package com.messi.languagehelper.viewmodels;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
+import android.content.Context;
 
 import com.messi.languagehelper.bean.RespoADData;
 import com.messi.languagehelper.bean.RespoData;
@@ -17,15 +18,16 @@ public class ReadingListViewModel extends ViewModel {
     private MutableLiveData<Integer> mMutaCount;
     private ReadingListRepository mRepo;
     private XXLReadingRepository mADRepo;
+    private Context context;
 
-    public void init(){
+    public void init(Context context){
         mRepo = new ReadingListRepository();
         mRespoData = mRepo.mRespoData;
         isLoading = mRepo.isLoading;
         mMutaCount = mRepo.mMutaCount;
         isLoading.setValue(false);
 
-        mADRepo = new XXLReadingRepository(mRepo.list);
+        mADRepo = new XXLReadingRepository(context,mRepo.list);
         mRespoADData = mADRepo.mRespoData;
         mRepo.setADXXLRepository(mADRepo);
     }

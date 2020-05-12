@@ -127,6 +127,9 @@ public class XFUtil {
 	public static void playVideoInBackground(Context mContext, SpeechSynthesizer mSpeechSynthesizer,SharedPreferences mSharedPreferences,
 			String filepath,String speakContent){
 		LogUtil.DefalutLog("filepath:"+filepath);
+		if (mSpeechSynthesizer == null) {
+			return;
+		}
 		if(!AudioTrackUtil.isFileExists(filepath)){
 			mSpeechSynthesizer.setParameter(SpeechConstant.TTS_AUDIO_PATH, filepath);
 			XFUtil.showSpeechSynthesizer(mContext,mSharedPreferences,mSpeechSynthesizer,speakContent,
