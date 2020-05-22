@@ -7,7 +7,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.bean.JuhaiBean;
+import com.messi.languagehelper.bean.TranLijuResult;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.XFUtil;
 
@@ -33,34 +33,34 @@ public class RcJuhaiItemViewHolder extends RecyclerView.ViewHolder {
         record_answer = (TextView) convertView.findViewById(R.id.record_answer);
     }
 
-    public void render(final JuhaiBean mBean) {
-        record_question.setText(mBean.getSentence());
-        record_answer.setText(mBean.getMeanning());
+    public void render(final TranLijuResult mBean) {
+        record_question.setText(mBean.getEnglish());
+        record_answer.setText(mBean.getChinese());
 
         record_question_cover.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                XFUtil.play(mBean.getSentence(),"");
+                XFUtil.play(mBean.getEnglish(),"");
             }
         });
         record_answer_cover.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                XFUtil.play(mBean.getMeanning(),"");
+                XFUtil.play(mBean.getChinese(),"");
             }
         });
 
         record_question_cover.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Setings.copy(context,mBean.getSentence());
+                Setings.copy(context,mBean.getEnglish());
                 return true;
             }
         });
         record_answer_cover.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Setings.copy(context,mBean.getMeanning());
+                Setings.copy(context,mBean.getChinese());
                 return true;
             }
         });

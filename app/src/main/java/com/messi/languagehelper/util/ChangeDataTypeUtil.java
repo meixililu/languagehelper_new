@@ -15,7 +15,7 @@ public class ChangeDataTypeUtil {
         mType.setClass_title(mAVObject.getString(AVOUtil.WordStudyDetail.class_title));
         mType.setCourse(mAVObject.getInt(AVOUtil.WordStudyDetail.course));
         mType.setDesc(mAVObject.getString(AVOUtil.WordStudyDetail.desc));
-        mType.setItem_id(mAVObject.getString(AVOUtil.WordStudyDetail.item_id));
+        mType.setItem_id(mAVObject.getObjectId());
         mType.setName(mAVObject.getString(AVOUtil.WordStudyDetail.name));
         mType.setSound(mAVObject.getString(AVOUtil.WordStudyDetail.sound));
         mType.setSymbol(mAVObject.getString(AVOUtil.WordStudyDetail.symbol));

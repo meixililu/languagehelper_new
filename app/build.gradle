@@ -117,7 +117,6 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.12'
     implementation 'com.andkulikov:transitionseverywhere:1.8.1'
-    implementation 'com.github.lzyzsd:circleprogress:1.2.1'
     implementation 'com.daimajia.numberprogressbar:library:1.4@aar'
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42'
     implementation 'com.yqritc:recyclerview-flexibledivider:1.4.0'
@@ -126,7 +125,6 @@ dependencies {
     implementation 'org.greenrobot:greendao:3.2.2'
     implementation 'com.umeng.umsdk:analytics:8.1.6'
     implementation 'com.umeng.umsdk:common:2.2.5'
-    implementation 'com.lxj:xpopup:1.8.10'
     implementation 'com.github.hotchemi:permissionsdispatcher:3.3.2'
     annotationProcessor "com.github.hotchemi:permissionsdispatcher-processor:3.3.2"
     implementation 'com.facebook.soloader:soloader:0.6.0'
@@ -139,10 +137,8 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.7.2'
     implementation 'com.squareup.retrofit2:converter-gson:2.7.2'
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.0-beta-3'
-    //    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     testImplementation 'junit:junit:4.12'
     //check tree dependencies: ./gradlew :app:dependencies
-    implementation files('libs/TingPhoneOpenSDK_7.1.8.jar')
 }
 
 greendao {

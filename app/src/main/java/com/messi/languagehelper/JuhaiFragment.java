@@ -7,38 +7,32 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.messi.languagehelper.adapter.RcJuhaiListAdapter;
-import com.messi.languagehelper.bean.JuhaiBean;
+import com.messi.languagehelper.bean.TranLijuResult;
+import com.messi.languagehelper.bean.TranResultRoot;
 import com.messi.languagehelper.databinding.FragmentJuhaiBinding;
 import com.messi.languagehelper.event.FinishEvent;
-import com.messi.languagehelper.event.ProgressEvent;
-import com.messi.languagehelper.http.BgCallback;
-import com.messi.languagehelper.http.LanguagehelperHttpClient;
+import com.messi.languagehelper.httpservice.RetrofitApiService;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
-import com.messi.languagehelper.util.HtmlParseUtil;
-import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NetworkUtil;
 import com.messi.languagehelper.util.Setings;
+import com.messi.languagehelper.util.SignUtil;
+import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.ViewUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class JuhaiFragment extends BaseFragment {
 
-    private List<JuhaiBean> beans;
+    private List<TranLijuResult> beans;
     private RcJuhaiListAdapter mAdapter;
     private String lastSearch;
     private View view;
@@ -64,8 +58,7 @@ public class JuhaiFragment extends BaseFragment {
     }
 
     private void init(){
-        isRegisterBus = true;
-        beans = new ArrayList<JuhaiBean>();
+        beans = new ArrayList<TranLijuResult>();
         mAdapter = new RcJuhaiListAdapter();
         binding.recentUsedLv.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.recentUsedLv.addItemDecoration(
@@ -79,53 +72,39 @@ public class JuhaiFragment extends BaseFragment {
         binding.recentUsedLv.setAdapter(mAdapter);
     }
 
+
     private void translateController() {
         lastSearch = Setings.q;
         showProgressbar();
-        Observable.create(new ObservableOnSubscribe<List<JuhaiBean>>() {
-            @Override
-            public void subscribe(final ObservableEmitter<List<JuhaiBean>> e) throws Exception {
-                String url = Setings.JukuApi.replace("{0}",lastSearch);
-                LanguagehelperHttpClient.get(url,new BgCallback(){
-                    @Override
-                    public void onResponsed(String responseString) {
-                        List<JuhaiBean> list = HtmlParseUtil.parseJukuHtml(responseString);
-                        e.onNext(list);
-                    }
+        String timestamp = String.valueOf(System.currentTimeMillis());
+        String platform = SystemUtil.platform;
+        String network = NetworkUtil.getNetworkType(getContext());
+        String sign = SignUtil.getMd5Sign(Setings.PVideoKey, timestamp, lastSearch, platform, network);
+        RetrofitApiService service = RetrofitApiService.getRetrofitApiService(Setings.TranApi,
+                RetrofitApiService.class);
+        Call<TranResultRoot<TranLijuResult>> call = service.getLijuApi(lastSearch, network, platform, sign, timestamp);
+        call.enqueue(new Callback<TranResultRoot<TranLijuResult>>() {
+                 @Override
+                 public void onResponse(Call<TranResultRoot<TranLijuResult>> call, Response<TranResultRoot<TranLijuResult>> response) {
+                     hideProgressbar();
+                     if (response.isSuccessful()) {
+                         TranResultRoot<TranLijuResult> mResult = response.body();
+                         setData(mResult.getResult());
+                     } else {
+                         ToastUtil.diaplayMesShort(getContext(),"未找到相关例句");
+                     }
+                 }
 
-                    @Override
-                    public void onFailured() {
-                        getDataTask();
-                    }
-                });
-            }
-        })
-        .subscribeOn(Schedulers.io())
-        .observeOn(AndroidSchedulers.mainThread())
-        .subscribe(new Observer<List<JuhaiBean>>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-            }
-            @Override
-            public void onNext(List<JuhaiBean> juhaiBeans) {
-                if(juhaiBeans != null){
-                    setData(juhaiBeans);
-                }else {
-                    getDataTask();
-                }
-            }
-            @Override
-            public void onError(Throwable e) {
-                getDataTask();
-            }
-            @Override
-            public void onComplete() {
-            }
-        });
+                 @Override
+                 public void onFailure(Call<TranResultRoot<TranLijuResult>> call, Throwable t) {
+                     hideProgressbar();
+                     ToastUtil.diaplayMesShort(getContext(),"未找到相关例句");
+                 }
+             }
+        );
     }
 
-    private void setData(List<JuhaiBean> juhaiBeans){
-        hideProgressbar();
+    private void setData(List<TranLijuResult> juhaiBeans){
         if(juhaiBeans != null && !juhaiBeans.isEmpty()){
             beans.clear();
             beans.addAll(juhaiBeans);
@@ -136,64 +115,8 @@ public class JuhaiFragment extends BaseFragment {
         }
     }
 
-    private void getDataTask() {
-        lastSearch = Setings.q;
-        showProgressbar();
-        Observable.create(new ObservableOnSubscribe<List<JuhaiBean>>() {
-            @Override
-            public void subscribe(final ObservableEmitter<List<JuhaiBean>> e) throws Exception {
-                String url = Setings.JuhaiApi.replace("{0}",lastSearch);
-                LanguagehelperHttpClient.get(url,new BgCallback(){
-                    @Override
-                    public void onResponsed(String responseString) {
-                        List<JuhaiBean> list = HtmlParseUtil.parseJuhaiHtml(responseString);
-                        e.onNext(list);
-                    }
-
-                    @Override
-                    public void onFailured() {
-                        e.onError(null);
-                    }
-                });
-            }
-        })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<List<JuhaiBean>>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                    }
-                    @Override
-                    public void onNext(List<JuhaiBean> juhaiBeans) {
-                        setData(juhaiBeans);
-                    }
-                    @Override
-                    public void onError(Throwable e) {
-                        hideProgressbar();
-                        setData(null);
-                    }
-                    @Override
-                    public void onComplete() {
-                    }
-                });
-    }
-
     public void submit() {
         translateController();
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(ProgressEvent event){
-        LogUtil.DefalutLog("ProgressEvent");
-        if(event.getStatus() == 0){
-            showProgressbar();
-        }else {
-            hideProgressbar();
-        }
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
 }

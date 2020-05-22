@@ -1,21 +1,27 @@
 package com.messi.languagehelper;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
-import android.view.View;
-import android.widget.FrameLayout;
+import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 
+import com.messi.languagehelper.adapter.RcCollectTranslateListAdapter;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.WordDetailListItem;
+import com.messi.languagehelper.databinding.WordStudyNewWordActivityBinding;
 import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NullUtil;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
+import com.messi.languagehelper.views.DividerItemDecoration;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -26,136 +32,134 @@ import io.reactivex.schedulers.Schedulers;
 
 public class WordStudyNewWordActivity extends BaseActivity {
 
-    @BindView(R.id.renzhi_layout)
-    FrameLayout renzhiLayout;
-    @BindView(R.id.duyinxuanci_layout)
-    FrameLayout duyinxuanciLayout;
-    @BindView(R.id.danciceshi_layout)
-    CardView danciceshiLayout;
-    @BindView(R.id.ciyixuanci_layout)
-    CardView ciyixuanciLayout;
-    @BindView(R.id.bottom)
-    CardView bottom;
-    @BindView(R.id.dancisuji_layout)
-    CardView dancisujiLayout;
-    @BindView(R.id.pinxie_layout)
-    CardView pinxieLayout;
-    private int page;
-    private int pagesize = 20;
+    private int skip = 0;
+    private int pagesize = 100;
+    private boolean loading;
+    private boolean hasMore = true;
+    private ArrayList<WordDetailListItem> itemList;
+    private WordStudyNewWordActivityBinding binding;
+    private RcCollectTranslateListAdapter mAdapter;
+    private LinearLayoutManager mLinearLayoutManager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.word_study_new_word_activity);
-        ButterKnife.bind(this);
+        binding = WordStudyNewWordActivityBinding.inflate(LayoutInflater.from(this));
+        setContentView(binding.getRoot());
         init();
         getDataTask();
     }
 
     private void init() {
-        int total = BoxHelper.countNewWordNumber();
-        if(total == 0){
-            ToastUtil.diaplayMesLong(this,"没有需要挑战的生词");
-            finish();
-        }
-        int pageNum = total / pagesize;
-        if(pageNum == 0){
-            pageNum = 1;
-        }
-        setActionBarTitle((page+1)+"/"+pageNum);
+        SharedPreferences sp = Setings.getSharedPreferences(this);
+        setActionBarTitle(getString(R.string.new_and_wrong));
+        itemList = new ArrayList<WordDetailListItem>();
+        mLinearLayoutManager = new LinearLayoutManager(this);
+        binding.collectedListview.setLayoutManager(mLinearLayoutManager);
+        binding.collectedListview.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.abc_list_divider_mtrl_alpha)));
+        mAdapter = new RcCollectTranslateListAdapter(sp, itemList);
+        mAdapter.setItems(itemList);
+        binding.collectedListview.setAdapter(mAdapter);
+        binding.bottom.setOnClickListener(view -> toWordStudyActivity());
+        setListOnScrollListener();
     }
 
-    @OnClick({R.id.renzhi_layout, R.id.duyinxuanci_layout, R.id.danciceshi_layout, R.id.ciyixuanci_layout,
-            R.id.dancisuji_layout, R.id.pinxie_layout, R.id.bottom})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.renzhi_layout:
-                ToAvtivity(WordStudyDanCiRenZhiActivity.class);
-                break;
-            case R.id.duyinxuanci_layout:
-                ToAvtivity(WordStudyDuYinXuanCiActivity.class);
-                break;
-            case R.id.danciceshi_layout:
-                ToAvtivity(WordStudyDanCiXuanYiActivity.class);
-                break;
-            case R.id.ciyixuanci_layout:
-                ToAvtivity(WordStudyCiYiXuanCiActivity.class);
-                break;
-            case R.id.dancisuji_layout:
-                ToAvtivity(WordStudyDuYinSuJiActivity.class);
-                break;
-            case R.id.pinxie_layout:
-                ToAvtivity(WordStudyDanCiPinXieActivity.class);
-                break;
-            case R.id.bottom:
-                ToAvtivity(WordStudyFightActivity.class);
-                break;
-        }
+    public void setListOnScrollListener() {
+        binding.collectedListview.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                int visible = mLinearLayoutManager.getChildCount();
+                int total = mLinearLayoutManager.getItemCount();
+                int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
+                if (!loading && hasMore) {
+                    if ((visible + firstVisibleItem) >= total) {
+                        getDataTask();
+                    }
+                }
+            }
+        });
     }
 
-    private void ToAvtivity(Class toClass) {
-        Intent intent = new Intent(this, toClass);
-        intent.putExtra(KeyUtil.ClassName, "");
-        intent.putExtra(KeyUtil.CourseId, 1);
-        intent.putExtra(KeyUtil.CourseNum, 1);
-        intent.putExtra(KeyUtil.ClassId, "");
-        intent.putExtra(KeyUtil.isNewWordStudy, true);
-        startActivity(intent);
+    private void refresh(){
+        skip = 0;
+        hasMore = true;
+        loading = false;
+        itemList.clear();
+        mAdapter.notifyDataSetChanged();
+        getDataTask();
     }
 
     private void getDataTask() {
-        showProgressbar();
+        if (!hasMore && loading) {
+            return;
+        }
+        LogUtil.DefalutLog("getDataTask");
         Observable.create(new ObservableOnSubscribe<String>() {
             @Override
             public void subscribe(ObservableEmitter<String> e) throws Exception {
-                loadData();
-                e.onComplete();
+                loadData(e);
             }
         })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<String>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                    }
-
-                    @Override
-                    public void onNext(String s) {
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        onFinishLoadData();
-                    }
-                });
-
+        .subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribe(new Observer<String>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+            }
+            @Override
+            public void onNext(String s) {
+                mAdapter.notifyDataSetChanged();
+                ToastUtil.diaplayMesShort(WordStudyNewWordActivity.this,"没有需要学习的生词");
+            }
+            @Override
+            public void onError(Throwable e) {
+            }
+            @Override
+            public void onComplete() {
+                mAdapter.notifyDataSetChanged();
+            }
+        });
     }
 
-    private void loadData() {
-        WordStudyPlanDetailActivity.itemList = new ArrayList<WordDetailListItem>();
-        WordStudyPlanDetailActivity.itemList.addAll(BoxHelper.getNewWordList(page,pagesize) );
+    private void loadData(ObservableEmitter<String> e) {
+        loading = true;
+        List<WordDetailListItem> list = BoxHelper.getNewWordList(skip,pagesize);
+        if (NullUtil.isNotEmpty(list)) {
+            skip += pagesize;
+            itemList.addAll(list);
+            hasMore = true;
+            e.onComplete();
+        } else {
+            if (skip == 0) {
+                e.onNext("");
+            }
+            hasMore = false;
+        }
+        loading = false;
     }
 
-    private void onFinishLoadData() {
-        hideProgressbar();
-    }
-
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        clearData();
-    }
-
-    private void clearData() {
-        if (WordStudyPlanDetailActivity.itemList != null) {
-            WordStudyPlanDetailActivity.itemList.clear();
-            WordStudyPlanDetailActivity.itemList = null;
+    private void toWordStudyActivity() {
+        if (NullUtil.isNotEmpty(itemList)) {
+            Intent intent = new Intent(this, WordDetailActivity.class);
+            if (itemList.size() > 20) {
+                ArrayList<WordDetailListItem> listItems = new ArrayList<>();
+                for(int i = 0; i < 20; i++){
+                    listItems.add(itemList.get(i));
+                }
+                intent.putParcelableArrayListExtra(KeyUtil.List, listItems);
+            } else {
+                intent.putParcelableArrayListExtra(KeyUtil.List, itemList);
+            }
+            startActivityForResult(intent,1);
+        }else {
+            ToastUtil.diaplayMesShort(this,"没有需要学习的生词");
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        refresh();
+    }
 }

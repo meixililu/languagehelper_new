@@ -223,7 +223,13 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
     }
 
     private void initData() {
-        mBean = (Record) Setings.dataMap.get(KeyUtil.DialogBeanKey);
+        try {
+            mBean = (Record) Setings.dataMap.get(KeyUtil.DialogBeanKey);
+        }catch (Exception e){
+            e.printStackTrace();
+            LogUtil.DefalutLog("类型错误");
+            finish();
+        }
         if(mBean != null){
             isEnglish = StringUtils.isEnglish(mBean.getEnglish());
         }
@@ -233,7 +239,6 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
     }
 
     private void initView() {
-//        getSupportActionBar().setTitle(getResources().getString(R.string.title_TranslatePractice));
         getSupportActionBar().setTitle("");
         mSharedPreferences = Setings.getSharedPreferences(this);
         mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);

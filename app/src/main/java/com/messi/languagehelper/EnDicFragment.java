@@ -1,34 +1,41 @@
 package com.messi.languagehelper;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.messi.languagehelper.adapter.RcEnDictListAdapter;
+import com.messi.languagehelper.bean.TranResultRoot;
 import com.messi.languagehelper.databinding.FragmentEnDicBinding;
 import com.messi.languagehelper.event.FinishEvent;
-import com.messi.languagehelper.http.LanguagehelperHttpClient;
+import com.messi.languagehelper.httpservice.RetrofitApiService;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
-import com.messi.languagehelper.util.HtmlParseUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NetworkUtil;
+import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.Setings;
+import com.messi.languagehelper.util.SignUtil;
+import com.messi.languagehelper.util.SystemUtil;
+import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.ViewUtil;
 
 import org.greenrobot.eventbus.EventBus;
 
-import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
-import okhttp3.Response;
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class EnDicFragment extends BaseFragment {
 
     private String lastSearch;
+    private List<String> beans;
     private FragmentEnDicBinding binding;
+    private RcEnDictListAdapter mAdapter;
 
     public static EnDicFragment getInstance(FragmentProgressbarListener listener) {
         EnDicFragment mMainFragment = new EnDicFragment();
@@ -44,49 +51,63 @@ public class EnDicFragment extends BaseFragment {
             return binding.getRoot();
         }
         binding = FragmentEnDicBinding.inflate(inflater);
+        init();
         return binding.getRoot();
+    }
+
+    private void init(){
+        beans = new ArrayList<>();
+        mAdapter = new RcEnDictListAdapter();
+        binding.recentUsedLv.setLayoutManager(new LinearLayoutManager(getContext()));
+        mAdapter.setFooter(new Object());
+        mAdapter.setItems(beans);
+        binding.recentUsedLv.setAdapter(mAdapter);
     }
 
     private void translateController() {
         lastSearch = Setings.q;
         showProgressbar();
-        Observable.create(new ObservableOnSubscribe<String>() {
-            @Override
-            public void subscribe(ObservableEmitter<String> e) throws Exception {
-                String url = Setings.EndicApi + lastSearch;
-                LogUtil.DefalutLog(url);
-                Response mResponse = LanguagehelperHttpClient.get(url);
-                if (mResponse != null && mResponse.isSuccessful()) {
-                    e.onNext(HtmlParseUtil.parseEndicHtml(mResponse.body().string()));
-                }
-                e.onComplete();
-            }
-        })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<String>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                    }
+        String timestamp = String.valueOf(System.currentTimeMillis());
+        String platform = SystemUtil.platform;
+        String network = NetworkUtil.getNetworkType(getContext());
+        String sign = SignUtil.getMd5Sign(Setings.PVideoKey, timestamp, lastSearch, platform, network);
+        RetrofitApiService service = RetrofitApiService.getRetrofitApiService(Setings.TranApi,
+                RetrofitApiService.class);
+        Call<TranResultRoot<String>> call = service.getEnDictApi(lastSearch, network, platform, sign, timestamp);
+        call.enqueue(new Callback<TranResultRoot<String>>() {
+                 @Override
+                 public void onResponse(Call<TranResultRoot<String>> call, Response<TranResultRoot<String>> response) {
+                     LogUtil.DefalutLog("---call:"+call.request().url());
+                     hideProgressbar();
+                     if (response.isSuccessful()) {
+                         TranResultRoot<String> mResult = response.body();
+                         setData(mResult.getResult());
+                         LogUtil.DefalutLog("---mResult:"+mResult.getResult().toString());
+                     } else {
+                         ToastUtil.diaplayMesShort(getContext(),"未找到相关结果");
+                     }
+                 }
 
-                    @Override
-                    public void onNext(String content) {
-                        binding.dicContent.setText(lastSearch+"\n"+content);
-                        binding.dicScrollview.scrollTo(0,0);
-                        EventBus.getDefault().post(new FinishEvent());
-                    }
+                 @Override
+                 public void onFailure(Call<TranResultRoot<String>> call, Throwable t) {
+                     LogUtil.DefalutLog("onFailure:"+t.getMessage()+"---call:"+call.request().url());
+                     hideProgressbar();
+                     ToastUtil.diaplayMesShort(getContext(),"未找到相关结果");
+                 }
+             }
+        );
+    }
 
-                    @Override
-                    public void onError(Throwable e) {
-                        hideProgressbar();
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        hideProgressbar();
-                    }
-                });
-
+    private void setData(List<String> datas){
+        if(NullUtil.isNotEmpty(datas)){
+            beans.clear();
+            beans.addAll(datas);
+            beans.add(0,lastSearch);
+            mAdapter.notifyDataSetChanged();
+            EventBus.getDefault().post(new FinishEvent());
+        }else {
+            ToastUtil.diaplayMesShort(getContext(),"未找到相关结果");
+        }
     }
 
     public void submit() {

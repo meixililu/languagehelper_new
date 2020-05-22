@@ -36,9 +36,23 @@ public final class WordDetailListItemCursor extends Cursor<WordDetailListItem> {
     private final static int __ID_img_url = WordDetailListItem_.img_url.id;
     private final static int __ID_new_words = WordDetailListItem_.new_words.id;
     private final static int __ID_is_study = WordDetailListItem_.is_study.id;
+    private final static int __ID_level = WordDetailListItem_.level.id;
+    private final static int __ID_paraphrase = WordDetailListItem_.paraphrase.id;
+    private final static int __ID_en_paraphrase = WordDetailListItem_.en_paraphrase.id;
+    private final static int __ID_au_paraphrase = WordDetailListItem_.au_paraphrase.id;
+    private final static int __ID_dicts = WordDetailListItem_.dicts.id;
+    private final static int __ID_examinations = WordDetailListItem_.examinations.id;
+    private final static int __ID_root = WordDetailListItem_.root.id;
+    private final static int __ID_tense = WordDetailListItem_.tense.id;
+    private final static int __ID_type = WordDetailListItem_.type.id;
+    private final static int __ID_is_know = WordDetailListItem_.is_know.id;
     private final static int __ID_backup1 = WordDetailListItem_.backup1.id;
     private final static int __ID_backup2 = WordDetailListItem_.backup2.id;
     private final static int __ID_backup3 = WordDetailListItem_.backup3.id;
+    private final static int __ID_backup4 = WordDetailListItem_.backup4.id;
+    private final static int __ID_backup5 = WordDetailListItem_.backup5.id;
+    private final static int __ID_backup6 = WordDetailListItem_.backup6.id;
+    private final static int __ID_backup7 = WordDetailListItem_.backup7.id;
 
     public WordDetailListItemCursor(io.objectbox.Transaction tx, long cursor, BoxStore boxStore) {
         super(tx, cursor, WordDetailListItem_.__INSTANCE, boxStore);
@@ -95,22 +109,64 @@ public final class WordDetailListItemCursor extends Cursor<WordDetailListItem> {
                 __id10, mp3_sdpath, __id11, img_url,
                 __id12, new_words, __id13, is_study);
 
-        Long id = entity.getId();
+        String level = entity.getLevel();
+        int __id14 = level != null ? __ID_level : 0;
+        String paraphrase = entity.getParaphrase();
+        int __id15 = paraphrase != null ? __ID_paraphrase : 0;
+        String en_paraphrase = entity.getEn_paraphrase();
+        int __id16 = en_paraphrase != null ? __ID_en_paraphrase : 0;
+        String au_paraphrase = entity.getAu_paraphrase();
+        int __id17 = au_paraphrase != null ? __ID_au_paraphrase : 0;
+
+        collect400000(cursor, 0, 0,
+                __id14, level, __id15, paraphrase,
+                __id16, en_paraphrase, __id17, au_paraphrase);
+
+        String dicts = entity.getDicts();
+        int __id18 = dicts != null ? __ID_dicts : 0;
+        String examinations = entity.getExaminations();
+        int __id19 = examinations != null ? __ID_examinations : 0;
+        String root = entity.getRoot();
+        int __id20 = root != null ? __ID_root : 0;
+        String tense = entity.getTense();
+        int __id21 = tense != null ? __ID_tense : 0;
+
+        collect400000(cursor, 0, 0,
+                __id18, dicts, __id19, examinations,
+                __id20, root, __id21, tense);
+
+        String type = entity.getType();
+        int __id22 = type != null ? __ID_type : 0;
         String backup1 = entity.getBackup1();
-        int __id14 = backup1 != null ? __ID_backup1 : 0;
+        int __id24 = backup1 != null ? __ID_backup1 : 0;
         String backup2 = entity.getBackup2();
-        int __id15 = backup2 != null ? __ID_backup2 : 0;
+        int __id25 = backup2 != null ? __ID_backup2 : 0;
         String backup3 = entity.getBackup3();
-        int __id16 = backup3 != null ? __ID_backup3 : 0;
+        int __id26 = backup3 != null ? __ID_backup3 : 0;
+
+        collect400000(cursor, 0, 0,
+                __id22, type, __id24, backup1,
+                __id25, backup2, __id26, backup3);
+
+        String backup4 = entity.getBackup4();
+        int __id27 = backup4 != null ? __ID_backup4 : 0;
+        String backup5 = entity.getBackup5();
+        int __id28 = backup5 != null ? __ID_backup5 : 0;
+        String backup6 = entity.getBackup6();
+        int __id29 = backup6 != null ? __ID_backup6 : 0;
+        String backup7 = entity.getBackup7();
+        int __id30 = backup7 != null ? __ID_backup7 : 0;
+
+        collect400000(cursor, 0, 0,
+                __id27, backup4, __id28, backup5,
+                __id29, backup6, __id30, backup7);
+
+        Long id = entity.getId();
         Integer course = entity.getCourse();
         int __id3 = course != null ? __ID_course : 0;
 
-        long __assignedId = collect313311(cursor, id != null ? id: 0, PUT_FLAG_COMPLETE,
-                __id14, backup1, __id15, backup2,
-                __id16, backup3, 0, null,
-                __id3, __id3 != 0 ? course : 0, 0, 0,
-                0, 0, 0, 0,
-                0, 0, 0, 0,
+        long __assignedId = collect004000(cursor, id != null ? id: 0, PUT_FLAG_COMPLETE,
+                __id3, __id3 != 0 ? course : 0, __ID_is_know, entity.isIs_know() ? 1 : 0,
                 0, 0, 0, 0);
 
         entity.setId(__assignedId);

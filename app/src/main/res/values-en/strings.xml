@@ -30,6 +30,7 @@
     <string name="title_article_collected">Article</string>
     <string name="title_home_tab">Home</string>
     <string name="title_translate">Translate</string>
+    <string name="title_my_newword">New Word</string>
     <string name="title_yueyufayin">Pronanciation</string>
     <string name="title_dictionary">Dictionary</string>
     <string name="title_chinese_dic">Chinese Dic</string>
@@ -137,6 +138,11 @@
     <string name="title_yuwen">Chinese</string>
     <string name="recent_study_empty">Empty</string>
     <string name="recent">Recent</string>
+    <string name="word_start">Start</string>
+    <string name="word_study_continue">Continue</string>
+    <string name="word_to_test">Test</string>
+    <string name="recognize_know">Know</string>
+    <string name="recognize_unknow">Unknow</string>
     <string name="beginner">Beginner</string>
     <string name="intermediate">Intermediate</string>
     <string name="advanced">Advanced</string>
@@ -172,7 +178,9 @@
     <string name="start_unlock">Unlock</string>
     <string name="glossary">Glossary</string>
     <string name="new_and_wrong">Wrong</string>
+    <string name="word_review">Review</string>
     <string name="xmly_fm">XimalayaFM APP</string>
+    <string name="word_task">Finish</string>
 
     <string name="dic_tab_juhai">Sentences</string>
     <string name="dic_tab_cidian">Dictionary</string>

@@ -167,9 +167,7 @@ public class KeyUtil {
 	public static final String SaveLastTime_ReadingJuheActivity = "SaveLastTime_ReadingJuheActivity";
 
 	public static final String SaveLastTime_ExaminationType = "SaveLastTime_ExaminationType";
-	
-	public static final String TranslateApiOrder = "TranslateApiOrders1";
-	
+
 	public static final String Category = "Category";
 
 	public static final String SubjectName = "SubjectName";
@@ -252,7 +250,7 @@ public class KeyUtil {
 
 	public static final String RecentKey = "RecentKey";
 
-	public static final String RecentBroadcast = "RecentBroadcast";
+	public static final String WordTestType = "WordTestType";
 
 	public static final String RecentBusiness = "RecentBusiness";
 

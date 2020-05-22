@@ -120,7 +120,7 @@ public class WordStudyDanCiPinXieActivity extends BaseActivity implements OnFini
     }
 
     public void getTestOrder() {
-        totalSum = WordStudyPlanDetailActivity.itemList.size();
+        totalSum = WordStudyFragment.itemList.size();
         randomPlayIndex = NumberUtil.getNumberOrderNotRepeat(totalSum - 1, 0);
         index = 0;
     }
@@ -168,7 +168,7 @@ public class WordStudyDanCiPinXieActivity extends BaseActivity implements OnFini
         if (index < randomPlayIndex.size()) {
             position = randomPlayIndex.get(index);
             sb.setLength(0);
-            wordDes.setText(WordStudyPlanDetailActivity.itemList.get(position).getDesc());
+            wordDes.setText(WordStudyFragment.itemList.get(position).getDesc());
             setWordName();
             wordToCharacter();
         }
@@ -178,7 +178,7 @@ public class WordStudyDanCiPinXieActivity extends BaseActivity implements OnFini
     }
 
     private void setWordName(){
-        int count = WordStudyPlanDetailActivity.itemList.get(position).getName().length() - sb.length();
+        int count = WordStudyFragment.itemList.get(position).getName().length() - sb.length();
         wordName.setText(sb.toString());
         for(int i = 0; i<count; i++){
             wordName.append(" __");
@@ -187,7 +187,7 @@ public class WordStudyDanCiPinXieActivity extends BaseActivity implements OnFini
 
     private void wordToCharacter(){
         mWordSpellCharacter.clear();
-        for(Character cha : WordStudyPlanDetailActivity.itemList.get(position).getName().trim().toCharArray()){
+        for(Character cha : WordStudyFragment.itemList.get(position).getName().trim().toCharArray()){
             mWordSpellCharacter.add(new WordSpellCharacter(cha));
         }
         Collections.shuffle(mWordSpellCharacter);
@@ -241,7 +241,7 @@ public class WordStudyDanCiPinXieActivity extends BaseActivity implements OnFini
         if (isPlaying()) {
             stopPlay();
         } else {
-            playItem(WordStudyPlanDetailActivity.itemList.get(position));
+            playItem(WordStudyFragment.itemList.get(position));
         }
     }
 
@@ -365,9 +365,9 @@ public class WordStudyDanCiPinXieActivity extends BaseActivity implements OnFini
     }
 
     private void prompt(){
-        WordStudyPlanDetailActivity.itemList.get(position).setSelect_Time();
+        WordStudyFragment.itemList.get(position).setSelect_Time();
         wordName.setTextColor(getResources().getColor(R.color.white));
-        wordName.setText(WordStudyPlanDetailActivity.itemList.get(position).getName());
+        wordName.setText(WordStudyFragment.itemList.get(position).getName());
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -384,7 +384,7 @@ public class WordStudyDanCiPinXieActivity extends BaseActivity implements OnFini
 
     private void tryAgain() {
         getTestOrder();
-        WordStudyPlanDetailActivity.clearSign();
+        WordStudyFragment.clearSign();
         setData(true);
     }
 
@@ -398,11 +398,11 @@ public class WordStudyDanCiPinXieActivity extends BaseActivity implements OnFini
 
     private void checkResultThenGoNext() {
         String text = wordName.getText().toString().trim();
-        if (index < WordStudyPlanDetailActivity.itemList.size()) {
-            if (!WordStudyPlanDetailActivity.itemList.get(position).getName().equals(text)) {
+        if (index < WordStudyFragment.itemList.size()) {
+            if (!WordStudyFragment.itemList.get(position).getName().equals(text)) {
                 playSoundPool(false);
                 wordName.setTextColor(getResources().getColor(R.color.red));
-                WordStudyPlanDetailActivity.itemList.get(position).setSelect_Time();
+                WordStudyFragment.itemList.get(position).setSelect_Time();
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -432,21 +432,21 @@ public class WordStudyDanCiPinXieActivity extends BaseActivity implements OnFini
         setActionBarTitle(this.getResources().getString(R.string.word_test_result));
         double wrongCount = 0;
         resultList.clear();
-        for (WordDetailListItem item : WordStudyPlanDetailActivity.itemList) {
+        for (WordDetailListItem item : WordStudyFragment.itemList) {
             if (item.getSelect_time() > 0) {
                 wrongCount++;
                 resultList.add(item);
             }
         }
-        BoxHelper.saveList(resultList,true);
-        for (WordDetailListItem item : WordStudyPlanDetailActivity.itemList) {
+        BoxHelper.updateList(resultList,true);
+        for (WordDetailListItem item : WordStudyFragment.itemList) {
             if (item.getSelect_time() == 0) {
                 resultList.add(item);
             }
         }
         int scoreInt = (int) ((totalSum - wrongCount) / totalSum * 100);
         score.setText(String.valueOf(scoreInt) + "分");
-        if (scoreInt > 59) {
+        if (scoreInt > 79) {
             score.setTextColor(this.getResources().getColor(R.color.green));
         } else {
             score.setTextColor(this.getResources().getColor(R.color.red));
@@ -476,7 +476,7 @@ public class WordStudyDanCiPinXieActivity extends BaseActivity implements OnFini
         sb.append(((WordSpellCharacter)mObject).getCharacter());
         mWordStudySpellAdapter.notifyDataSetChanged();
         setWordName();
-        if(WordStudyPlanDetailActivity.itemList.get(position).getName().length() == sb.length()){
+        if(WordStudyFragment.itemList.get(position).getName().length() == sb.length()){
             checkResultThenGoNext();
         }
     }

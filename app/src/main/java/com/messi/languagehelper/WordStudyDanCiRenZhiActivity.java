@@ -48,7 +48,7 @@ public class WordStudyDanCiRenZhiActivity extends BaseActivity implements OnClic
         playbtn = (FloatingActionButton) findViewById(R.id.playbtn);
         category_lv = (ListView) findViewById(R.id.studycategory_lv);
         mAdapter = new WordStudyDetailAdapter(this, mSharedPreferences, mSpeechSynthesizer, category_lv,
-                WordStudyPlanDetailActivity.itemList, mPlayer);
+                WordStudyFragment.itemList, mPlayer);
         category_lv.setAdapter(mAdapter);
         playbtn.setOnClickListener(this);
     }
@@ -81,7 +81,7 @@ public class WordStudyDanCiRenZhiActivity extends BaseActivity implements OnClic
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        WordStudyPlanDetailActivity.clearSign();
+        WordStudyFragment.clearSign();
         if (mPlayer != null) {
             mPlayer.stop();
             mPlayer.release();

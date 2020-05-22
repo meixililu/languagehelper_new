@@ -73,14 +73,56 @@ public final class WordDetailListItem_ implements EntityInfo<WordDetailListItem>
     public final static io.objectbox.Property<WordDetailListItem> is_study =
         new io.objectbox.Property<>(__INSTANCE, 13, 14, String.class, "is_study");
 
+    public final static io.objectbox.Property<WordDetailListItem> level =
+        new io.objectbox.Property<>(__INSTANCE, 14, 25, String.class, "level");
+
+    public final static io.objectbox.Property<WordDetailListItem> paraphrase =
+        new io.objectbox.Property<>(__INSTANCE, 15, 18, String.class, "paraphrase");
+
+    public final static io.objectbox.Property<WordDetailListItem> en_paraphrase =
+        new io.objectbox.Property<>(__INSTANCE, 16, 19, String.class, "en_paraphrase");
+
+    public final static io.objectbox.Property<WordDetailListItem> au_paraphrase =
+        new io.objectbox.Property<>(__INSTANCE, 17, 20, String.class, "au_paraphrase");
+
+    public final static io.objectbox.Property<WordDetailListItem> dicts =
+        new io.objectbox.Property<>(__INSTANCE, 18, 21, String.class, "dicts");
+
+    public final static io.objectbox.Property<WordDetailListItem> examinations =
+        new io.objectbox.Property<>(__INSTANCE, 19, 22, String.class, "examinations");
+
+    public final static io.objectbox.Property<WordDetailListItem> root =
+        new io.objectbox.Property<>(__INSTANCE, 20, 23, String.class, "root");
+
+    public final static io.objectbox.Property<WordDetailListItem> tense =
+        new io.objectbox.Property<>(__INSTANCE, 21, 24, String.class, "tense");
+
+    public final static io.objectbox.Property<WordDetailListItem> type =
+        new io.objectbox.Property<>(__INSTANCE, 22, 31, String.class, "type");
+
+    public final static io.objectbox.Property<WordDetailListItem> is_know =
+        new io.objectbox.Property<>(__INSTANCE, 23, 26, boolean.class, "is_know");
+
     public final static io.objectbox.Property<WordDetailListItem> backup1 =
-        new io.objectbox.Property<>(__INSTANCE, 14, 15, String.class, "backup1");
+        new io.objectbox.Property<>(__INSTANCE, 24, 15, String.class, "backup1");
 
     public final static io.objectbox.Property<WordDetailListItem> backup2 =
-        new io.objectbox.Property<>(__INSTANCE, 15, 16, String.class, "backup2");
+        new io.objectbox.Property<>(__INSTANCE, 25, 16, String.class, "backup2");
 
     public final static io.objectbox.Property<WordDetailListItem> backup3 =
-        new io.objectbox.Property<>(__INSTANCE, 16, 17, String.class, "backup3");
+        new io.objectbox.Property<>(__INSTANCE, 26, 17, String.class, "backup3");
+
+    public final static io.objectbox.Property<WordDetailListItem> backup4 =
+        new io.objectbox.Property<>(__INSTANCE, 27, 27, String.class, "backup4");
+
+    public final static io.objectbox.Property<WordDetailListItem> backup5 =
+        new io.objectbox.Property<>(__INSTANCE, 28, 28, String.class, "backup5");
+
+    public final static io.objectbox.Property<WordDetailListItem> backup6 =
+        new io.objectbox.Property<>(__INSTANCE, 29, 29, String.class, "backup6");
+
+    public final static io.objectbox.Property<WordDetailListItem> backup7 =
+        new io.objectbox.Property<>(__INSTANCE, 30, 30, String.class, "backup7");
 
     @SuppressWarnings("unchecked")
     public final static io.objectbox.Property<WordDetailListItem>[] __ALL_PROPERTIES = new io.objectbox.Property[]{
@@ -98,9 +140,23 @@ public final class WordDetailListItem_ implements EntityInfo<WordDetailListItem>
         img_url,
         new_words,
         is_study,
+        level,
+        paraphrase,
+        en_paraphrase,
+        au_paraphrase,
+        dicts,
+        examinations,
+        root,
+        tense,
+        type,
+        is_know,
         backup1,
         backup2,
-        backup3
+        backup3,
+        backup4,
+        backup5,
+        backup6,
+        backup7
     };
 
     public final static io.objectbox.Property<WordDetailListItem> __ID_PROPERTY = id;

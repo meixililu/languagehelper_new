@@ -1,33 +1,471 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical">
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_awesome_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
-        android:minHeight="@dimen/actionBar">
-        <ProgressBar
-            android:id="@+id/progressBarCircularIndetermininate"
-            style="@style/CircularProgressWhite"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="right"
-            android:visibility="gone" />
-    </android.support.v7.widget.Toolbar>
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/mswiperefreshlayout"
+        android:minHeight="@dimen/actionBar" />
+
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" >
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/listview"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:id="@+id/word_study_plan"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
-    </android.support.v4.widget.SwipeRefreshLayout>
-</LinearLayout >
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/word_study_book_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_15"
+                android:layout_marginBottom="@dimen/padding_5"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/bigger" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <ProgressBar
+                    android:id="@+id/study_progress"
+                    style="?android:progressBarStyleHorizontal"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/circle_progressbar_bg"
+                    android:progress="0"
+                    android:progressDrawable="@drawable/circle_progressbar" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/word_sum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/title" />
+                    <TextView
+                        android:id="@+id/word_task"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/word_task"
+                        android:textColor="@color/text_grey"
+                        android:textSize="@dimen/smaller_l" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/start_to_study"
+                android:layout_width="160dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/padding_5"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/bg_btn_themeborder_selector"
+                android:gravity="center"
+                android:text="@string/word_start"
+                android:textColor="@color/text_theme_selector"
+                android:textSize="@dimen/big" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/padding_10"
+                android:layout_marginRight="@dimen/padding_10"
+                android:background="@color/contentbg" />
+
+            <FrameLayout
+                android:id="@+id/word_study_new_word"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="@drawable/framelayout_selector">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        android:background="@color/none"
+                        android:gravity="center_vertical"
+                        android:text="@string/new_and_wrong"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/big" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/padding_15"
+                        app:srcCompat="@drawable/ic_expand_right_black" />
+
+                </LinearLayout>
+            </FrameLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/padding_10"
+                android:layout_marginRight="@dimen/padding_10"
+                android:background="@color/contentbg" />
+
+            <FrameLayout
+                android:id="@+id/renzhi_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="@drawable/framelayout_selector">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        android:background="@color/none"
+                        android:gravity="center_vertical"
+                        android:text="@string/dancirenzhi"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/big" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/padding_15"
+                        app:srcCompat="@drawable/ic_expand_right_black" />
+
+                </LinearLayout>
+            </FrameLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/padding_10"
+                android:layout_marginRight="@dimen/padding_10"
+                android:background="@color/contentbg" />
+
+            <FrameLayout
+                android:id="@+id/dancixuanyi_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="@drawable/framelayout_selector">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        android:background="@color/none"
+                        android:gravity="center_vertical"
+                        android:text="@string/danciceshi"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/big" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/padding_15"
+                        app:srcCompat="@drawable/ic_expand_right_black" />
+
+                </LinearLayout>
+            </FrameLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/padding_10"
+                android:layout_marginRight="@dimen/padding_10"
+                android:background="@color/contentbg" />
+
+            <FrameLayout
+                android:id="@+id/ciyixuanci_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="@drawable/framelayout_selector">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        android:background="@color/none"
+                        android:gravity="center_vertical"
+                        android:text="@string/ciyixuanci"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/big" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/padding_15"
+                        app:srcCompat="@drawable/ic_expand_right_black" />
+
+                </LinearLayout>
+            </FrameLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/padding_10"
+                android:layout_marginRight="@dimen/padding_10"
+                android:background="@color/contentbg" />
+
+            <FrameLayout
+                android:id="@+id/pinxie_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="@drawable/framelayout_selector">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        android:background="@color/none"
+                        android:gravity="center_vertical"
+                        android:text="@string/pinxie"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/big" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/padding_15"
+                        app:srcCompat="@drawable/ic_expand_right_black" />
+
+                </LinearLayout>
+            </FrameLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/padding_10"
+                android:layout_marginRight="@dimen/padding_10"
+                android:background="@color/contentbg" />
+
+            <FrameLayout
+                android:id="@+id/duyinxuanci_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="@drawable/framelayout_selector">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        android:background="@color/none"
+                        android:gravity="center_vertical"
+                        android:text="@string/dancitingxuan"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/big" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/padding_15"
+                        app:srcCompat="@drawable/ic_expand_right_black" />
+
+                </LinearLayout>
+            </FrameLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/padding_10"
+                android:layout_marginRight="@dimen/padding_10"
+                android:background="@color/contentbg" />
+
+            <FrameLayout
+                android:id="@+id/duyisuji_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="@drawable/framelayout_selector">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        android:background="@color/none"
+                        android:gravity="center_vertical"
+                        android:text="@string/dancisuji"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/big" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/padding_15"
+                        app:srcCompat="@drawable/ic_expand_right_black" />
+
+                </LinearLayout>
+            </FrameLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/padding_10"
+                android:layout_marginRight="@dimen/padding_10"
+                android:background="@color/contentbg" />
+
+            <FrameLayout
+                android:id="@+id/word_study_change_plan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="@drawable/framelayout_selector">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        android:background="@color/none"
+                        android:gravity="center_vertical"
+                        android:text="@string/change_books"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/big" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/padding_15"
+                        app:srcCompat="@drawable/ic_expand_right_black" />
+
+                </LinearLayout>
+            </FrameLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/padding_10"
+                android:layout_marginRight="@dimen/padding_10"
+                android:background="@color/contentbg" />
+
+            <FrameLayout
+                android:id="@+id/word_study_change_unit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="@drawable/framelayout_selector">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        android:background="@color/none"
+                        android:gravity="center_vertical"
+                        android:text="@string/title_all_unit"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/big" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/padding_15"
+                        app:srcCompat="@drawable/ic_expand_right_black" />
+
+                </LinearLayout>
+            </FrameLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/padding_10"
+                android:layout_marginRight="@dimen/padding_10"
+                android:layout_marginBottom="20dp"
+                android:background="@color/contentbg" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>
 

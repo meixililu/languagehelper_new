@@ -14,9 +14,9 @@ import java.lang.Override;
 public class LoadingPreActivity_ViewBinding implements Unbinder {
   private LoadingPreActivity target;
 
-  private View view7f080041;
+  private View view7f080040;
 
-  private View view7f080207;
+  private View view7f0801fb;
 
   @UiThread
   public LoadingPreActivity_ViewBinding(LoadingPreActivity target) {
@@ -32,7 +32,7 @@ public class LoadingPreActivity_ViewBinding implements Unbinder {
     target.privacyTv1 = Utils.findRequiredViewAsType(source, R.id.privacy_tv1, "field 'privacyTv1'", TextView.class);
     target.privacyTv2 = Utils.findRequiredViewAsType(source, R.id.privacy_tv2, "field 'privacyTv2'", TextView.class);
     view = Utils.findRequiredView(source, R.id.agree, "method 'onClick'");
-    view7f080041 = view;
+    view7f080040 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -40,7 +40,7 @@ public class LoadingPreActivity_ViewBinding implements Unbinder {
       }
     });
     view = Utils.findRequiredView(source, R.id.no_agree, "method 'onClick'");
-    view7f080207 = view;
+    view7f0801fb = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -60,9 +60,9 @@ public class LoadingPreActivity_ViewBinding implements Unbinder {
     target.privacyTv1 = null;
     target.privacyTv2 = null;
 
-    view7f080041.setOnClickListener(null);
-    view7f080041 = null;
-    view7f080207.setOnClickListener(null);
-    view7f080207 = null;
+    view7f080040.setOnClickListener(null);
+    view7f080040 = null;
+    view7f0801fb.setOnClickListener(null);
+    view7f0801fb = null;
   }
 }

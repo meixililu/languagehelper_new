@@ -8,18 +8,18 @@ import android.view.ViewGroup;
 
 import com.karumi.headerrecyclerview.HeaderRecyclerViewAdapter;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.box.Record;
+import com.messi.languagehelper.box.WordDetailListItem;
 
 import java.util.List;
 
-public class RcCollectTranslateListAdapter extends HeaderRecyclerViewAdapter<RecyclerView.ViewHolder, Object, Record, Object> {
+public class RcCollectTranslateListAdapter extends HeaderRecyclerViewAdapter<RecyclerView.ViewHolder, Object, WordDetailListItem, Object> {
 
-	private List<Record> beans;
+	private List<WordDetailListItem> beans;
 	private SharedPreferences mSharedPreferences;
 	private RcCollectTranslateLiatItemViewHolder mItemViewHolder;
 
 	public RcCollectTranslateListAdapter(SharedPreferences mSharedPreferences,
-										 List<Record> beans){
+										 List<WordDetailListItem> beans){
 		this.beans = beans;
 		this.mSharedPreferences = mSharedPreferences;
 	}
@@ -27,13 +27,13 @@ public class RcCollectTranslateListAdapter extends HeaderRecyclerViewAdapter<Rec
 	@Override
 	protected RecyclerView.ViewHolder onCreateItemViewHolder(ViewGroup parent, int viewType) {
 		LayoutInflater inflater = getLayoutInflater(parent);
-		View characterView = inflater.inflate(R.layout.listview_item_recent_used, parent, false);
+		View characterView = inflater.inflate(R.layout.listview_item_new_word, parent, false);
 		return new RcCollectTranslateLiatItemViewHolder(characterView,beans,mSharedPreferences,this);
 	}
 
 	@Override
 	protected void onBindItemViewHolder(RecyclerView.ViewHolder holder, int position) {
-		Record mAVObject = getItem(position);
+		WordDetailListItem mAVObject = getItem(position);
 		mItemViewHolder = (RcCollectTranslateLiatItemViewHolder)holder;
 		mItemViewHolder.render(mAVObject);
 	}

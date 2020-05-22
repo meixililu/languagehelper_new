@@ -85,7 +85,7 @@ public class WordStudyCiYiXuanCiActivity extends BaseActivity {
     }
 
     public void getTestOrder() {
-        totalSum = WordStudyPlanDetailActivity.itemList.size();
+        totalSum = WordStudyFragment.itemList.size();
         randomPlayIndex = NumberUtil.getNumberOrderNotRepeat(totalSum - 1, 0);
         index = 0;
     }
@@ -115,28 +115,28 @@ public class WordStudyCiYiXuanCiActivity extends BaseActivity {
         setActionBarTitle(this.getResources().getString(R.string.ciyixuanci) + "(" + (index + 1) + "/" + totalSum + ")");
         if (index < randomPlayIndex.size()) {
             position = randomPlayIndex.get(index);
-            wordTv.setText(WordStudyPlanDetailActivity.itemList.get(position).getDesc());
+            wordTv.setText(WordStudyFragment.itemList.get(position).getDesc());
             List<Integer> tv_list = NumberUtil.getRanbomNumberContantExceptAndNotRepeat(
                     totalSum < 4 ? 10 : totalSum,
                     0, 3, position);
             if (tv_list.size() == 4) {
                 if(totalSum > tv_list.get(0)){
-                    selection1.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(0)).getName());
+                    selection1.setText(WordStudyFragment.itemList.get(tv_list.get(0)).getName());
                 }else {
                     selection1.setText(BoxHelper.getBench().getName());
                 }
                 if(totalSum > tv_list.get(1)){
-                    selection2.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(1)).getName());
+                    selection2.setText(WordStudyFragment.itemList.get(tv_list.get(1)).getName());
                 }else {
                     selection2.setText(BoxHelper.getBench().getName());
                 }
                 if(totalSum > tv_list.get(2)){
-                    selection3.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(2)).getName());
+                    selection3.setText(WordStudyFragment.itemList.get(tv_list.get(2)).getName());
                 }else {
                     selection3.setText(BoxHelper.getBench().getName());
                 }
                 if(totalSum > tv_list.get(3)){
-                    selection4.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(3)).getName());
+                    selection4.setText(WordStudyFragment.itemList.get(tv_list.get(3)).getName());
                 }else {
                     selection4.setText(BoxHelper.getBench().getName());
                 }
@@ -192,7 +192,7 @@ public class WordStudyCiYiXuanCiActivity extends BaseActivity {
 
     private void tryAgain(){
         getTestOrder();
-        WordStudyPlanDetailActivity.clearSign();
+        WordStudyFragment.clearSign();
         setData();
     }
 
@@ -201,10 +201,10 @@ public class WordStudyCiYiXuanCiActivity extends BaseActivity {
             return;
         }
         String text = tv.getText().toString();
-        if (index < WordStudyPlanDetailActivity.itemList.size()) {
-            if (!WordStudyPlanDetailActivity.itemList.get(position).getName().equals(text)) {
+        if (index < WordStudyFragment.itemList.size()) {
+            if (!WordStudyFragment.itemList.get(position).getName().equals(text)) {
                 playSoundPool(false);
-                WordStudyPlanDetailActivity.itemList.get(position).setSelect_Time();
+                WordStudyFragment.itemList.get(position).setSelect_Time();
                 tv.setTextColor(getResources().getColor(R.color.material_color_red));
                 tv.setText(getCorretContent(text));
             }else {
@@ -227,7 +227,7 @@ public class WordStudyCiYiXuanCiActivity extends BaseActivity {
     }
 
     private String getCorretContent(String text){
-        for(WordDetailListItem item : WordStudyPlanDetailActivity.itemList){
+        for(WordDetailListItem item : WordStudyFragment.itemList){
             if(item.getName().equals(text)){
                 return text + "\n" + item.getDesc();
             }
@@ -247,21 +247,21 @@ public class WordStudyCiYiXuanCiActivity extends BaseActivity {
         setActionBarTitle(this.getResources().getString(R.string.word_test_result));
         double wrongCount = 0;
         resultList.clear();
-        for (WordDetailListItem item : WordStudyPlanDetailActivity.itemList) {
+        for (WordDetailListItem item : WordStudyFragment.itemList) {
             if (item.getSelect_time() > 0) {
                 wrongCount++;
                 resultList.add(item);
             }
         }
-        BoxHelper.saveList(resultList,true);
-        for (WordDetailListItem item : WordStudyPlanDetailActivity.itemList) {
+        BoxHelper.updateList(resultList,true);
+        for (WordDetailListItem item : WordStudyFragment.itemList) {
             if (item.getSelect_time() == 0) {
                 resultList.add(item);
             }
         }
         int scoreInt = (int) ((totalSum - wrongCount) / totalSum * 100);
         score.setText(String.valueOf(scoreInt) + "分");
-        if (scoreInt > 59) {
+        if (scoreInt > 79) {
             score.setTextColor(this.getResources().getColor(R.color.green));
         } else {
             score.setTextColor(this.getResources().getColor(R.color.red));
@@ -272,7 +272,7 @@ public class WordStudyCiYiXuanCiActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        WordStudyPlanDetailActivity.clearSign();
+        WordStudyFragment.clearSign();
     }
 
 }

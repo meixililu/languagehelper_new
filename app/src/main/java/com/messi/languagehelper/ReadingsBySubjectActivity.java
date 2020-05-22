@@ -190,12 +190,12 @@ public class ReadingsBySubjectActivity extends BaseActivity implements View.OnCl
             if(tag == 1){
                 BoxHelper.saveReadingSubject(mReadingSubject);
 				binding.volumeImg.setImageResource(R.drawable.ic_collected_white);
-				ToastUtil.diaplayMesShort(this,"已订阅");
+				ToastUtil.diaplayMesShort(this,"已收藏");
 				event.setType("subscribe");
             }else {
                 BoxHelper.removeReadingSubject(mReadingSubject);
 				binding.volumeImg.setImageResource(R.drawable.ic_uncollected_white);
-				ToastUtil.diaplayMesShort(this,"取消订阅");
+				ToastUtil.diaplayMesShort(this,"取消收藏");
 				event.setType("unsubscribe");
             }
 			EventBus.getDefault().post(event);

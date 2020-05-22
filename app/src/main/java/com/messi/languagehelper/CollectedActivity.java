@@ -31,7 +31,7 @@ public class CollectedActivity extends BaseActivity implements FragmentProgressb
         viewPager = (ViewPager) findViewById(R.id.pager);
         tablayout = (TabLayout) findViewById(R.id.tablayout);
         mAdapter = new CollectedActivityAdapter(getSupportFragmentManager(), this);
-        viewPager.setOffscreenPageLimit(4);
+        viewPager.setOffscreenPageLimit(3);
         viewPager.setAdapter(mAdapter);
         tablayout.setupWithViewPager(viewPager);
         setLastTimeSelectTab();

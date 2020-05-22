@@ -217,6 +217,9 @@
             android:name=".ReadingDetailLrcActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".WordDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".CaricatureSourceActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -405,7 +408,7 @@
             android:name=".WordStudyDanCiXuanYiActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".WordStudyPlanDetailActivity"
+            android:name=".WordStudyChangeUnitActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ReadingAndNewsActivity"

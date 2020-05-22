@@ -18,13 +18,13 @@ import java.lang.Override;
 public class CaricatureDetailActivity_ViewBinding implements Unbinder {
   private CaricatureDetailActivity target;
 
-  private View view7f080040;
+  private View view7f08003f;
 
-  private View view7f08036f;
+  private View view7f080365;
 
-  private View view7f08006c;
+  private View view7f080069;
 
-  private View view7f0802d0;
+  private View view7f0802c3;
 
   @UiThread
   public CaricatureDetailActivity_ViewBinding(CaricatureDetailActivity target) {
@@ -46,7 +46,7 @@ public class CaricatureDetailActivity_ViewBinding implements Unbinder {
     target.des = Utils.findRequiredViewAsType(source, R.id.des, "field 'des'", TextView.class);
     view = Utils.findRequiredView(source, R.id.add_bookshelf, "field 'addBookshelf' and method 'onAddBookshelfClicked'");
     target.addBookshelf = Utils.castView(view, R.id.add_bookshelf, "field 'addBookshelf'", TextView.class);
-    view7f080040 = view;
+    view7f08003f = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -55,7 +55,7 @@ public class CaricatureDetailActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.to_read, "field 'toRead' and method 'onToReadClicked'");
     target.toRead = Utils.castView(view, R.id.to_read, "field 'toRead'", TextView.class);
-    view7f08036f = view;
+    view7f080365 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -65,7 +65,7 @@ public class CaricatureDetailActivity_ViewBinding implements Unbinder {
     target.xx_ad_layout = Utils.findRequiredViewAsType(source, R.id.xx_ad_layout, "field 'xx_ad_layout'", FrameLayout.class);
     view = Utils.findRequiredView(source, R.id.back_btn, "field 'backBtn' and method 'onBackBtnClicked'");
     target.backBtn = Utils.castView(view, R.id.back_btn, "field 'backBtn'", ImageView.class);
-    view7f08006c = view;
+    view7f080069 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -74,7 +74,7 @@ public class CaricatureDetailActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.share_img, "field 'share_img' and method 'onViewClicked'");
     target.share_img = Utils.castView(view, R.id.share_img, "field 'share_img'", ImageView.class);
-    view7f0802d0 = view;
+    view7f0802c3 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -106,13 +106,13 @@ public class CaricatureDetailActivity_ViewBinding implements Unbinder {
     target.share_img = null;
     target.itemLayout = null;
 
-    view7f080040.setOnClickListener(null);
-    view7f080040 = null;
-    view7f08036f.setOnClickListener(null);
-    view7f08036f = null;
-    view7f08006c.setOnClickListener(null);
-    view7f08006c = null;
-    view7f0802d0.setOnClickListener(null);
-    view7f0802d0 = null;
+    view7f08003f.setOnClickListener(null);
+    view7f08003f = null;
+    view7f080365.setOnClickListener(null);
+    view7f080365 = null;
+    view7f080069.setOnClickListener(null);
+    view7f080069 = null;
+    view7f0802c3.setOnClickListener(null);
+    view7f0802c3 = null;
   }
 }

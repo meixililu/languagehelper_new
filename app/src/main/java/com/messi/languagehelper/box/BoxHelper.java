@@ -7,6 +7,7 @@ import com.messi.languagehelper.BaseApplication;
 import com.messi.languagehelper.util.ColorUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NullUtil;
 
 import java.util.Collections;
 import java.util.List;
@@ -22,7 +23,7 @@ public class BoxHelper {
 
     public static void init(Context context){
         try {
-            boxStore = MyObjectBox.builder().androidContext(context).build();
+            boxStore = MyObjectBox.builder().androidContext(context.getApplicationContext()).build();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -30,7 +31,7 @@ public class BoxHelper {
 
     public static BoxStore getBoxStore(){
         if(boxStore == null){
-            init(BaseApplication.instance);
+            init(BaseApplication.instance.getApplicationContext());
         }
         return boxStore;
     }
@@ -356,7 +357,7 @@ public class BoxHelper {
 
     public static void update(Reading item){
         try {
-            List<Reading> datas = isDataExit(item.getObject_id());
+            List<Reading> datas = isOidExit(item.getObject_id());
             if (datas.size() > 0) {
                 getReadingBox().put(item);
             }
@@ -386,11 +387,11 @@ public class BoxHelper {
         QueryBuilder<Reading> qb = getReadingBox().query();
         qb.equal(Reading_.isCollected,"1");
         qb.order(Reading_.collected_time);
-        return qb.build().find(page * page_size,page_size);
+        return qb.build().find(page,page_size);
     }
 
     public static void saveOrGetStatus(Reading bean){
-        List<Reading> datas = isDataExit(bean.getObject_id());
+        List<Reading> datas = isOidExit(bean.getObject_id());
         if (datas.size() > 0) {
             Reading localData = datas.get(0);
             bean.setStatus(localData.getStatus());
@@ -404,7 +405,7 @@ public class BoxHelper {
         }
     }
 
-    public static List<Reading> isDataExit(String oid){
+    public static List<Reading> isOidExit(String oid){
         return getReadingBox()
                 .query()
                 .equal(Reading_.object_id,oid)
@@ -526,46 +527,97 @@ public class BoxHelper {
         return getBoxStore().boxFor(WordDetailListItem.class);
     }
 
-    public static void saveList(List<WordDetailListItem> beans, boolean isNewWord){
-        for(WordDetailListItem bean : beans){
-            saveOrUpdate(bean,isNewWord);
+    public static void saveList(List<WordDetailListItem> beans){
+        if (NullUtil.isNotEmpty(beans)) {
+            for(WordDetailListItem bean : beans){
+                save(bean);
+            }
         }
     }
 
-    public static void saveOrUpdate(WordDetailListItem bean, boolean isNewWord){
-        List<WordDetailListItem> items = isDataExit(bean);
-        if(items.size() > 0){
-            if(isNewWord){
-                bean = items.get(0);
-                bean.setNew_words("1");
+    public static void save(WordDetailListItem bean){
+        List<WordDetailListItem> items = isExit(bean);
+        if(items.size() == 0){
+            long id = insert(bean);
+            bean.setId(id);
+        }
+    }
+
+    public static void updateList(List<WordDetailListItem> beans, boolean isNewWord){
+        if (NullUtil.isNotEmpty(beans)) {
+            for(WordDetailListItem bean : beans){
+                update(bean,isNewWord);
             }
+        }
+    }
+
+    public static void update(WordDetailListItem bean, boolean isNewWord){
+        if (bean.getId() == 0) {
+            List<WordDetailListItem> items = isOidExit(bean);
+            if(items.size() > 0){
+                bean.setId(items.get(0).getId());
+            }
+        }
+        if(isNewWord){
+            bean.setNew_words("1");
         }else {
-            if(isNewWord){
-                bean.setNew_words("1");
-            }
+            bean.setNew_words("0");
         }
-        insertData(bean);
+        long id = insert(bean);
+        if (bean.getId() == 0) {
+            bean.setId(id);
+        }
     }
 
-    public static List<WordDetailListItem> isDataExit(WordDetailListItem bean){
+    public static List<WordDetailListItem> isOidExit(WordDetailListItem bean){
         return getWordDetailListItemBox()
                 .query()
                 .equal(WordDetailListItem_.class_id,bean.getClass_id())
-                .equal(WordDetailListItem_.name,bean.getName())
+                .equal(WordDetailListItem_.item_id,bean.getItem_id())
                 .build()
                 .find();
     }
 
-    public static long insertData(WordDetailListItem bean){
+    public static List<WordDetailListItem> isExit(WordDetailListItem bean){
+        return getWordDetailListItemBox()
+                .query()
+                .equal(WordDetailListItem_.name,bean.getName())
+                .equal(WordDetailListItem_.class_id,bean.getClass_id())
+                .equal(WordDetailListItem_.course,bean.getCourse())
+                .build()
+                .find();
+    }
+
+    public static List<WordDetailListItem> isExitByType(WordDetailListItem bean){
+        return getWordDetailListItemBox()
+                .query()
+                .equal(WordDetailListItem_.name,bean.getName())
+                .equal(WordDetailListItem_.type,bean.getType())
+                .build()
+                .find();
+    }
+
+    public static void saveSearchResultToNewWord(WordDetailListItem bean){
+        List<WordDetailListItem> items = isExitByType(bean);
+        if(items.size() > 0){
+            bean.setId(items.get(0).getId());
+        }
+        insert(bean);
+    }
+
+    public static long insert(WordDetailListItem bean){
         return getWordDetailListItemBox().put(bean);
     }
 
-    public static List<WordDetailListItem> getNewWordList(int page, int page_size){
-        return getWordDetailListItemBox()
-                .query()
-                .equal(WordDetailListItem_.new_words,"1")
-                .build()
-                .find(page * page_size, page_size);
+    public static List<WordDetailListItem> getNewWordList(int skip, int page_size){
+        QueryBuilder<WordDetailListItem> query = getWordDetailListItemBox().query();
+        query.equal(WordDetailListItem_.new_words,"1");
+        query.order(WordDetailListItem_.id,QueryBuilder.DESCENDING);
+        if(page_size > 0){
+            return query.build().find(skip, page_size);
+        }else {
+            return query.build().find();
+        }
     }
 
     public static List<WordDetailListItem> getList(String class_id,int course_id){
@@ -602,14 +654,16 @@ public class BoxHelper {
                 .count();
     }
 
-    public static void deleteList(List<WordDetailListItem> beans){
+    public static void removeList(List<WordDetailListItem> beans){
         getWordDetailListItemBox().remove(beans);
     }
 
-    public static void delete(WordDetailListItem bean){
-        getWordDetailListItemBox().remove(bean);
+    public static void removeAllWordDetailListItem(){
+        getWordDetailListItemBox().removeAll();
     }
 
-    /** word study **/
+    public static void remove(WordDetailListItem bean){
+        getWordDetailListItemBox().remove(bean);
+    }
 
 }

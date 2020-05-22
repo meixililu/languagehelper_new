@@ -92,7 +92,7 @@ public class WordStudyDuYinSuJiActivity extends BaseActivity implements OnFinish
     }
 
     private void initViews() {
-        setActionBarTitle(this.getResources().getString(R.string.dancisuji) + "(" + (index + 1) + "/" + WordStudyPlanDetailActivity.itemList.size() + ")");
+        setActionBarTitle(this.getResources().getString(R.string.dancisuji) + "(" + (index + 1) + "/" + WordStudyFragment.itemList.size() + ")");
         mPlayer = new MediaPlayer();
         class_name = getIntent().getStringExtra(KeyUtil.ClassName);
         class_id = getIntent().getStringExtra(KeyUtil.ClassId);
@@ -115,7 +115,7 @@ public class WordStudyDuYinSuJiActivity extends BaseActivity implements OnFinish
     }
 
     private void initOrder() {
-        randomPlayIndex = NumberUtil.getNumberOrderNotRepeat(WordStudyPlanDetailActivity.itemList.size() - 1, 0);
+        randomPlayIndex = NumberUtil.getNumberOrderNotRepeat(WordStudyFragment.itemList.size() - 1, 0);
         index = 0;
     }
 
@@ -123,7 +123,7 @@ public class WordStudyDuYinSuJiActivity extends BaseActivity implements OnFinish
         wordSujiLayout.setVisibility(View.VISIBLE);
         resultLayout.setVisibility(View.GONE);
         if (index < randomPlayIndex.size()) {
-            setActionBarTitle(this.getResources().getString(R.string.dancisuji) + "(" + (index + 1) + "/" + WordStudyPlanDetailActivity.itemList.size() + ")");
+            setActionBarTitle(this.getResources().getString(R.string.dancisuji) + "(" + (index + 1) + "/" + WordStudyFragment.itemList.size() + ")");
             position = randomPlayIndex.get(index);
             clearWord();
             playDelay();
@@ -160,7 +160,7 @@ public class WordStudyDuYinSuJiActivity extends BaseActivity implements OnFinish
     private void playSound() {
         if (isPlaying) {
             wordPlayImg.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_pause_white));
-            playItem(WordStudyPlanDetailActivity.itemList.get(position));
+            playItem(WordStudyFragment.itemList.get(position));
         }
     }
 
@@ -292,16 +292,16 @@ public class WordStudyDuYinSuJiActivity extends BaseActivity implements OnFinish
 
     private void tryAgain() {
         initOrder();
-        WordStudyPlanDetailActivity.clearSign();
+        WordStudyFragment.clearSign();
         setData();
     }
 
     private void checkResultThenGoNext() {
-        if (index < WordStudyPlanDetailActivity.itemList.size()) {
+        if (index < WordStudyFragment.itemList.size()) {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    if (index == WordStudyPlanDetailActivity.itemList.size() - 1) {
+                    if (index == WordStudyFragment.itemList.size() - 1) {
                         wordPlayImg.setImageDrawable(WordStudyDuYinSuJiActivity.this.getResources().
                                 getDrawable(R.drawable.ic_play_arrow_white_48dp));
                         wordSujiLayout.setVisibility(View.GONE);
@@ -319,7 +319,7 @@ public class WordStudyDuYinSuJiActivity extends BaseActivity implements OnFinish
     private void countScoreAndShowResult() {
         setActionBarTitle(this.getResources().getString(R.string.dancisuji));
         resultList.clear();
-        for (WordDetailListItem item : WordStudyPlanDetailActivity.itemList) {
+        for (WordDetailListItem item : WordStudyFragment.itemList) {
             resultList.add(item);
         }
         adapter.notifyDataSetChanged();

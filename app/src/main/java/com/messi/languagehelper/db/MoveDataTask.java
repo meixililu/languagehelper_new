@@ -152,7 +152,7 @@ public class MoveDataTask {
             item.setNew_words(oItem.getNew_words());
             item.setSymbol(oItem.getSymbol());
             item.setSound(oItem.getSound());
-            BoxHelper.insertData(item);
+            BoxHelper.insert(item);
         }
     }
 }

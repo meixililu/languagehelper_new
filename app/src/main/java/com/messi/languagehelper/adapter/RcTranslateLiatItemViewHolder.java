@@ -20,15 +20,18 @@ import com.messi.languagehelper.PracticeActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Record;
+import com.messi.languagehelper.box.WordDetailListItem;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AudioTrackUtil;
 import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 /**
  * Created by luli on 10/23/16.
@@ -171,12 +174,39 @@ public class RcTranslateLiatItemViewHolder extends RecyclerView.ViewHolder {
         if (mBean.getIscollected().equals("0")) {
             mBean.setIscollected("1");
             ToastUtil.diaplayMesShort(context,context.getResources().getString(R.string.favorite_success));
+            addToNewword(mBean);
         } else {
             mBean.setIscollected("0");
             ToastUtil.diaplayMesShort(context,context.getResources().getString(R.string.favorite_cancle));
         }
         mAdapter.notifyDataSetChanged();
         BoxHelper.update(mBean);
+    }
+
+    private void addToNewword(Record mBean){
+        WordDetailListItem myNewWord = new WordDetailListItem();
+        myNewWord.setName(mBean.getChinese());
+        myNewWord.setDesc(mBean.getEnglish());
+        String pats1 = "英.*\\[";
+        Pattern pattern1 = Pattern.compile(pats1);
+        String pats2 = "美.*\\[";
+        Pattern pattern2 = Pattern.compile(pats2);
+        LogUtil.DefalutLog("pattern1:"+pattern1.matcher(mBean.getEnglish()).find());
+        LogUtil.DefalutLog("pattern2:"+pattern2.matcher(mBean.getEnglish()).find());
+        if(pattern1.matcher(mBean.getEnglish()).find() || pattern2.matcher(mBean.getEnglish()).find()){
+            String[] texts = mBean.getEnglish().split("\n");
+            if (texts != null && texts.length > 0) {
+                String symbol = texts[0];
+                if(symbol.contains("英") || symbol.contains("美")){
+                    String des = mBean.getEnglish().replace(symbol,"").trim();
+                    myNewWord.setSymbol(symbol);
+                    myNewWord.setDesc(des);
+                }
+            }
+        }
+        myNewWord.setNew_words("1");
+        myNewWord.setType("search");
+        BoxHelper.saveSearchResultToNewWord(myNewWord);
     }
 
     public class MyOnClickListener implements View.OnClickListener {

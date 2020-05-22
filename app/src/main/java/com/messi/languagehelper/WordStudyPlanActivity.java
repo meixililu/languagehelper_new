@@ -52,7 +52,7 @@ public class WordStudyPlanActivity extends BaseActivity {
         layoutManager.setSpanSizeLookup(headerSpanSizeLookup);
         listview.setLayoutManager(layoutManager);
         listview.addItemDecoration(new DividerGridItemDecoration(1));
-        mAdapter.setHeader(new Object());
+//        mAdapter.setHeader(new Object());
         mAdapter.setItems(avObjects);
         mXFYSAD.setAdapter(mAdapter);
         listview.setAdapter(mAdapter);

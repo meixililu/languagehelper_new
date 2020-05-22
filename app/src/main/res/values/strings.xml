@@ -34,6 +34,7 @@
     <string name="title_translate">翻译</string>
     <string name="title_yueyufayin">发音</string>
     <string name="title_dictionary">词典</string>
+    <string name="title_my_newword">生词本</string>
     <string name="title_sentence">句海</string>
     <string name="title_english_dic">英英</string>
     <string name="title_chinese_dic">中汉</string>
@@ -55,7 +56,7 @@
     <string name="title_sougo_wechat">微信英语</string>
     <string name="title_reading">阅读基地</string>
     <string name="title_website">不错的学习网站</string>
-    <string name="title_favorite">订阅/收藏</string>
+    <string name="title_favorite">收藏</string>
     <string name="update_title">新版来了</string>
     <string name="update_info">更快、更好用！</string>
     <string name="title_dialog_select">选择场景</string>
@@ -139,9 +140,16 @@
     <string name="search">搜索</string>
     <string name="change_books">换课本</string>
     <string name="start_unlock">开始闯关</string>
+    <string name="word_task">已完成</string>
     <string name="glossary">词汇大全</string>
-    <string name="new_and_wrong">生词错词</string>
+    <string name="new_and_wrong">生词本</string>
     <string name="query">查询</string>
+    <string name="word_to_test">开始考试</string>
+    <string name="word_study_continue">继续学习</string>
+    <string name="word_start">开始学习</string>
+    <string name="word_review">复习一下</string>
+    <string name="recognize_know">认识</string>
+    <string name="recognize_unknow">不认识</string>
     <string name="translate">翻译</string>
     <string name="start_to_follow">跟读</string>
     <string name="start">开始</string>
@@ -185,8 +193,8 @@
     <string name="pinxie_des">根据提示拼写单词</string>
     <string name="try_again">再来一次</string>
     <string name="finish_test">打完收工</string>
-    <string name="fight_success">闯关成功</string>
-    <string name="fight_fail">闯关失败</string>
+    <string name="fight_success">考试通过</string>
+    <string name="fight_fail">考砸了，继续加油</string>
     <string name="xmly_fm">来源:喜马拉雅APP</string>
 
     <string name="speak_english">请点击话筒说英语</string>
@@ -237,7 +245,7 @@
     <string name="moments_add">发布</string>
     <string name="share_buddy">分享给小伙伴</string>
     <string name="wechat_long_click">微信长按有惊喜</string>
-    <string name="favorite_success">收藏成功</string>
+    <string name="favorite_success">已收藏，并加入生词本</string>
     <string name="favorite_cancle">取消收藏</string>
     <string name="search_hot">热搜</string>
     <string name="dic_tab_juhai">句海</string>

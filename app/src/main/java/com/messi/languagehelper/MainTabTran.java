@@ -119,7 +119,7 @@ public class MainTabTran extends BaseFragment {
         List<Record> list = BoxHelper.getRecordList(skip, Setings.RecordOffset);
         if (NullUtil.isNotEmpty(list)) {
             beans.addAll(list);
-            skip += Setings.RecordOffset;
+            skip += list.size();
             if (mAdapter != null) {
                 mAdapter.notifyDataSetChanged();
             }

@@ -133,6 +133,8 @@ public class Setings {
 
 	public static final String PVideoApi = "http://api.mzxbkj.com/";
 
+	public static final String TranApi = "http://zyhy.mzxbkj.com/";
+
 	public static final String NovelShort = "https://lnovel.cc/";
 
 	public static final String PVideoKey = "sfjsdlf342ds4rbmd24fsvh5fg56d";

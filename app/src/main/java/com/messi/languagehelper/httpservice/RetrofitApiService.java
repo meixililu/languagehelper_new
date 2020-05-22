@@ -1,6 +1,8 @@
 package com.messi.languagehelper.httpservice;
 
 import com.messi.languagehelper.bean.PVideoResult;
+import com.messi.languagehelper.bean.TranLijuResult;
+import com.messi.languagehelper.bean.TranResultRoot;
 import com.messi.languagehelper.bean.TwistaResult;
 
 import retrofit2.Call;
@@ -33,4 +35,14 @@ public interface RetrofitApiService {
                                     @Query("timestamp") String timestamp,
                                     @Query("order") int order,
                                     @Query("vid") String vid);
+
+    @GET("v1/liju")
+    Call<TranResultRoot<TranLijuResult>> getLijuApi(@Query("word") String word , @Query("network") String network,
+                                                    @Query("platform") String platform , @Query("sign") String sign,
+                                                    @Query("timestamp") String timestamp);
+
+    @GET("v1/endict")
+    Call<TranResultRoot<String>> getEnDictApi(@Query("word") String word , @Query("network") String network,
+                                                    @Query("platform") String platform , @Query("sign") String sign,
+                                                    @Query("timestamp") String timestamp);
 }

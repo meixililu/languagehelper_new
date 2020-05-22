@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 
 import com.karumi.headerrecyclerview.HeaderRecyclerViewAdapter;
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.bean.JuhaiBean;
+import com.messi.languagehelper.bean.TranLijuResult;
 import com.messi.languagehelper.util.ViewUtil;
 
-public class RcJuhaiListAdapter extends HeaderRecyclerViewAdapter<RecyclerView.ViewHolder, Object, JuhaiBean, Object> {
+public class RcJuhaiListAdapter extends HeaderRecyclerViewAdapter<RecyclerView.ViewHolder, Object, TranLijuResult, Object> {
 
 
 	@Override
@@ -22,7 +22,7 @@ public class RcJuhaiListAdapter extends HeaderRecyclerViewAdapter<RecyclerView.V
 
 	@Override
 	protected void onBindItemViewHolder(RecyclerView.ViewHolder holder, int position) {
-		JuhaiBean mAVObject = getItem(position);
+		TranLijuResult mAVObject = getItem(position);
 		RcJuhaiItemViewHolder mItemViewHolder = (RcJuhaiItemViewHolder)holder;
 		mItemViewHolder.render(mAVObject);
 	}

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_item_bg_white"
+    android:orientation="vertical" >
+
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+		    <FrameLayout 
+		        android:id="@+id/record_question_cover"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:foreground="@drawable/framelayout_selector"
+		        >
+			    <TextView
+			        android:id="@+id/record_question"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+					android:lineSpacingExtra="7dp"
+			        android:paddingLeft="10dp"
+			        android:paddingTop="10dp"
+			        android:paddingBottom="5dp"
+					android:textColor="@color/text_black"
+			        android:textSize="@dimen/bigger" />
+		    </FrameLayout>
+		
+		    <FrameLayout 
+		        android:id="@+id/record_answer_cover"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:foreground="@drawable/framelayout_selector"
+		        >
+			    <TextView
+			        android:id="@+id/record_answer"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+					android:lineSpacingExtra="7dp"
+			        android:paddingLeft="10dp"
+			        android:paddingTop="4dp"
+			        android:paddingBottom="10dp"
+			        android:text=""
+			        android:textColor="@color/text_black"
+			        android:textSize="@dimen/bigger" />
+		    </FrameLayout>
+    </LinearLayout>
+    
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line_color_gray" />
+
+    <LinearLayout
+        android:id="@+id/more_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1px"
+        android:layout_marginLeft="1px"
+        android:layout_marginRight="1px"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+	    
+        <FrameLayout
+            android:id="@+id/weixi_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:layout_weight="1"
+            android:foreground="@drawable/framelayout_selector"
+            >
+
+            <ImageButton
+                android:layout_width="@dimen/list_item_icon"
+                android:layout_height="@dimen/list_item_icon"
+                android:layout_gravity="center"
+                android:background="@drawable/icon_weixin"
+                android:clickable="false" />
+        </FrameLayout>
+        
+        <ImageView
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+			android:layout_marginTop="6dp"
+			android:layout_marginBottom="6dp"
+            android:background="@color/line_color_blue" />
+        
+        <FrameLayout
+            android:id="@+id/delete_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:foreground="@drawable/framelayout_selector"
+            >
+            <ImageButton
+                android:layout_width="@dimen/list_item_icon"
+                android:layout_height="@dimen/list_item_icon"
+                android:layout_gravity="center"
+                android:background="@drawable/delete"
+                android:clickable="false" />
+        </FrameLayout>
+
+        <ImageView
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:background="@color/line_color_blue" />
+        
+        <FrameLayout
+            android:id="@+id/voice_play_layout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:foreground="@drawable/framelayout_selector"
+            >
+
+            <ImageButton
+                android:id="@+id/voice_play"
+                android:layout_width="@dimen/list_item_icon"
+                android:layout_height="@dimen/list_item_icon"
+                android:layout_gravity="center"
+                android:background="@drawable/voice_play"
+                android:clickable="false" />
+
+            <ProgressBar
+                android:id="@+id/play_content_btn_progressbar"
+                android:layout_width="@dimen/list_item_icon"
+                android:layout_height="@dimen/list_item_icon"
+				style="@style/CircularProgressBlue"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+        </FrameLayout>
+    </LinearLayout>
+
+</LinearLayout>

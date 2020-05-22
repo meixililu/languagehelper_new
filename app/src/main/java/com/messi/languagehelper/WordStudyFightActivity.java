@@ -1,17 +1,14 @@
 package com.messi.languagehelper;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,11 +17,8 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.daimajia.numberprogressbar.NumberProgressBar;
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.gson.Gson;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SynthesizerListener;
@@ -32,9 +26,8 @@ import com.messi.languagehelper.adapter.RcWordStudyCiYiXuanCiAdapter;
 import com.messi.languagehelper.bean.WordListItem;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.WordDetailListItem;
+import com.messi.languagehelper.event.UpdateWordStudyPlan;
 import com.messi.languagehelper.impl.OnFinishListener;
-import com.messi.languagehelper.util.DownLoadUtil;
-import com.messi.languagehelper.util.KaiPinAdUIModel;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.PlayUtil;
@@ -42,8 +35,9 @@ import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.SaveData;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
-import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,18 +49,9 @@ import butterknife.OnClick;
 public class WordStudyFightActivity extends BaseActivity implements OnFinishListener {
 
 
-    @BindView(R.id.ad_layout)
-    RelativeLayout ad_layout;
-    @BindView(R.id.ad_img)
-    SimpleDraweeView ad_img;
-    @BindView(R.id.ad_source)
-    TextView ad_source;
+
     @BindView(R.id.content_layout)
     LinearLayout contentLayout;
-    @BindView(R.id.number_progress_bar)
-    NumberProgressBar numberProgressBar;
-    @BindView(R.id.progress_tv)
-    TextView progressTv;
     @BindView(R.id.score)
     TextView score;
     @BindView(R.id.listview)
@@ -96,10 +81,6 @@ public class WordStudyFightActivity extends BaseActivity implements OnFinishList
     @BindView(R.id.fight_resutl_tv)
     TextView fightResutlTv;
 
-    private String class_name;
-    private String class_id;
-    private int course_id;
-    private int course_num;
     private RcWordStudyCiYiXuanCiAdapter adapter;
     private List<WordDetailListItem> resultList;
 
@@ -114,35 +95,24 @@ public class WordStudyFightActivity extends BaseActivity implements OnFinishList
     private String fullName;
     private int playTimes;
     private SharedPreferences sharedPreferences;
-    private boolean isNewWordStudy;
+    private String wordTestType;
     private int totalSum;
-    private KaiPinAdUIModel mKaiPinAdUIModel;
-
-    private Handler mHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            if (msg.what == 1) {
-                playMp3();
-            }
-        }
-    };
+    private ArrayList<WordDetailListItem> itemList;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_study_fight_activity);
         ButterKnife.bind(this);
-        showView(1);
-        mKaiPinAdUIModel = new KaiPinAdUIModel(this, ad_source, ad_img, ad_layout,
-                contentLayout, numberProgressBar, progressTv);
-        getTestOrder();
+        showView(2);
         initViews();
+        getTestOrder();
         initializeSoundPool();
         setData();
     }
 
     public void getTestOrder() {
-        totalSum = WordStudyPlanDetailActivity.itemList.size();
+        totalSum = itemList.size();
         randomPlayIndex = new ArrayList<Integer>();
         randomPlayIndex.addAll(NumberUtil.getNumberOrderNotRepeat(totalSum - 1, 0));
         randomPlayIndex.addAll(NumberUtil.getNumberOrderNotRepeat(totalSum - 1, 0));
@@ -152,11 +122,12 @@ public class WordStudyFightActivity extends BaseActivity implements OnFinishList
     private void initViews() {
         sharedPreferences = Setings.getSharedPreferences(this);
         mPlayer = new MediaPlayer();
-        class_name = getIntent().getStringExtra(KeyUtil.ClassName);
-        class_id = getIntent().getStringExtra(KeyUtil.ClassId);
-        course_id = getIntent().getIntExtra(KeyUtil.CourseId, 1);
-        course_num = getIntent().getIntExtra(KeyUtil.CourseNum, 0);
-        isNewWordStudy = getIntent().getBooleanExtra(KeyUtil.isNewWordStudy,false);
+        wordTestType = getIntent().getStringExtra(KeyUtil.WordTestType);
+        itemList = getIntent().getParcelableArrayListExtra(KeyUtil.List);
+        if (itemList == null) {
+            ToastUtil.diaplayMesShort(this,"没有单词，请退出重试！");
+            finish();
+        }
         resultList = new ArrayList<WordDetailListItem>();
         adapter = new RcWordStudyCiYiXuanCiAdapter();
         adapter.setItems(resultList);
@@ -173,12 +144,9 @@ public class WordStudyFightActivity extends BaseActivity implements OnFinishList
     }
 
     private void showView(int i) {
-        ad_layout.setVisibility(View.GONE);
         contentLayout.setVisibility(View.GONE);
         resultLayout.setVisibility(View.GONE);
-        if (i == 1) {
-            ad_layout.setVisibility(View.VISIBLE);
-        } else if (i == 2) {
+        if (i == 2) {
             contentLayout.setVisibility(View.VISIBLE);
         } else {
             resultLayout.setVisibility(View.VISIBLE);
@@ -193,25 +161,25 @@ public class WordStudyFightActivity extends BaseActivity implements OnFinishList
                     totalSum < 4 ? 10 : totalSum,
                     0, 3, position);
             if (tv_list.size() == 4) {
-                if (index < WordStudyPlanDetailActivity.itemList.size()) {
-                    wordTv.setText(WordStudyPlanDetailActivity.itemList.get(position).getName());
+                if (index < itemList.size()) {
+                    wordTv.setText(itemList.get(position).getName());
                     if(totalSum > tv_list.get(0)){
-                        selection1.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(0)).getDesc());
+                        selection1.setText(itemList.get(tv_list.get(0)).getDesc());
                     }else {
                         selection1.setText(BoxHelper.getBench().getDesc());
                     }
                     if(totalSum > tv_list.get(1)){
-                        selection2.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(1)).getDesc());
+                        selection2.setText(itemList.get(tv_list.get(1)).getDesc());
                     }else {
                         selection2.setText(BoxHelper.getBench().getDesc());
                     }
                     if(totalSum > tv_list.get(2)){
-                        selection3.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(2)).getDesc());
+                        selection3.setText(itemList.get(tv_list.get(2)).getDesc());
                     }else {
                         selection3.setText(BoxHelper.getBench().getDesc());
                     }
                     if(totalSum > tv_list.get(3)){
-                        selection4.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(3)).getDesc());
+                        selection4.setText(itemList.get(tv_list.get(3)).getDesc());
                     }else {
                         selection4.setText(BoxHelper.getBench().getDesc());
                     }
@@ -221,24 +189,24 @@ public class WordStudyFightActivity extends BaseActivity implements OnFinishList
                     selection2.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
                     selection3.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
                     selection4.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
-                    wordTv.setText(WordStudyPlanDetailActivity.itemList.get(position).getDesc());
+                    wordTv.setText(itemList.get(position).getDesc());
                     if(totalSum > tv_list.get(0)){
-                        selection1.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(0)).getName());
+                        selection1.setText(itemList.get(tv_list.get(0)).getName());
                     }else {
                         selection1.setText(BoxHelper.getBench().getName());
                     }
                     if(totalSum > tv_list.get(1)){
-                        selection2.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(1)).getName());
+                        selection2.setText(itemList.get(tv_list.get(1)).getName());
                     }else {
                         selection2.setText(BoxHelper.getBench().getName());
                     }
                     if(totalSum > tv_list.get(2)){
-                        selection3.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(2)).getName());
+                        selection3.setText(itemList.get(tv_list.get(2)).getName());
                     }else {
                         selection3.setText(BoxHelper.getBench().getName());
                     }
                     if(totalSum > tv_list.get(3)){
-                        selection4.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(3)).getName());
+                        selection4.setText(itemList.get(tv_list.get(3)).getName());
                     }else {
                         selection4.setText(BoxHelper.getBench().getName());
                     }
@@ -274,91 +242,82 @@ public class WordStudyFightActivity extends BaseActivity implements OnFinishList
     }
 
     private void playSound() {
-        if (index < WordStudyPlanDetailActivity.itemList.size()) {
-            playItem(WordStudyPlanDetailActivity.itemList.get(position));
+        if (position < itemList.size()) {
+            playItem(itemList.get(position));
         }
     }
 
     private void playItem(WordDetailListItem mAVObject) {
-        if (TextUtils.isEmpty(mAVObject.getSound()) || mAVObject.getSound().equals("http://app1.showapi.com/en_word")) {
+        if (TextUtils.isEmpty(mAVObject.getSound())) {
             playWithSpeechSynthesizer(mAVObject);
         } else {
-            String mp3Name = mAVObject.getSound().substring(mAVObject.getSound().lastIndexOf("/") + 1);
-            fullName = SDCardUtil.getDownloadPath(getAudioPath(mAVObject)) + mp3Name;
-            if (!SDCardUtil.isFileExist(fullName)) {
-                DownLoadUtil.downloadFile(this, mAVObject.getSound(), getAudioPath(mAVObject), mp3Name, mHandler);
-            } else {
-                playMp3();
-            }
+            playMp3(mAVObject.getSound());
         }
     }
 
-    private String getAudioPath(WordDetailListItem mAVObject){
-        return SDCardUtil.WordStudyPath + mAVObject.getClass_id() + SDCardUtil.Delimiter +
-                String.valueOf(mAVObject.getCourse()) + SDCardUtil.Delimiter;
-
-    }
-
-    public void playMp3() {
+    public void playMp3(String url) {
         try {
             if (mPlayer.isPlaying()) {
                 mPlayer.stop();
             }
             mPlayer.reset();
-            Uri uri = Uri.parse(fullName);
-            mPlayer.setDataSource(this, uri);
-            mPlayer.prepare();
-            mPlayer.start();
-            mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mp) {
+            mPlayer.setDataSource(url);
+            mPlayer.prepareAsync();
+            mPlayer.setOnPreparedListener(mp -> {
+                mPlayer.start();
+            });
+            mPlayer.setOnCompletionListener(mp -> {
                     replay();
-                }
             });
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    private String getAudioPath(WordDetailListItem mAVObject){
+        return SDCardUtil.WordStudyPath + mAVObject.getClass_id() + SDCardUtil.Delimiter +
+                String.valueOf(mAVObject.getCourse()) + SDCardUtil.Delimiter;
+    }
+
     private void playWithSpeechSynthesizer(WordDetailListItem mAVObject) {
         String filepath = SDCardUtil.getDownloadPath(getAudioPath(mAVObject)) + mAVObject.getItem_id() + ".pcm";
         PlayUtil.play(filepath, mAVObject.getName(), null,
-                new SynthesizerListener() {
-                    @Override
-                    public void onSpeakResumed() {
-                    }
+            new SynthesizerListener() {
+                @Override
+                public void onSpeakResumed() {
+                }
 
-                    @Override
-                    public void onSpeakProgress(int arg0, int arg1, int arg2) {
-                    }
+                @Override
+                public void onSpeakProgress(int arg0, int arg1, int arg2) {
+                }
 
-                    @Override
-                    public void onSpeakPaused() {
-                    }
+                @Override
+                public void onSpeakPaused() {
+                }
 
-                    @Override
-                    public void onSpeakBegin() {
-                        PlayUtil.onStartPlay();
-                    }
+                @Override
+                public void onSpeakBegin() {
+                    PlayUtil.onStartPlay();
+                }
 
-                    @Override
-                    public void onCompleted(SpeechError arg0) {
-                        if (arg0 != null) {
-                            ToastUtil.diaplayMesShort(WordStudyFightActivity.this,
-                                    arg0.getErrorDescription());
-                        }
-                        stopPlay();
-                        replay();
+                @Override
+                public void onCompleted(SpeechError arg0) {
+                    if (arg0 != null) {
+                        ToastUtil.diaplayMesShort(WordStudyFightActivity.this,
+                                arg0.getErrorDescription());
                     }
+                    stopPlay();
+                    replay();
+                }
 
-                    @Override
-                    public void onBufferProgress(int arg0, int arg1, int arg2, String arg3) {
-                    }
+                @Override
+                public void onBufferProgress(int arg0, int arg1, int arg2, String arg3) {
+                }
 
-                    @Override
-                    public void onEvent(int arg0, int arg1, int arg2, Bundle arg3) {
-                    }
-                });
+                @Override
+                public void onEvent(int arg0, int arg1, int arg2, Bundle arg3) {
+                }
+            });
     }
 
     public void stopPlay() {
@@ -389,7 +348,7 @@ public class WordStudyFightActivity extends BaseActivity implements OnFinishList
                 quick();
                 break;
             case R.id.word_tv:
-                if (index < WordStudyPlanDetailActivity.itemList.size()) {
+                if (index < itemList.size()) {
                     playSound();
                 }
                 break;
@@ -402,17 +361,17 @@ public class WordStudyFightActivity extends BaseActivity implements OnFinishList
         }
         String text = tv.getText().toString();
         if (index < randomPlayIndex.size()) {
-            if (index < WordStudyPlanDetailActivity.itemList.size()) {
-                if (!WordStudyPlanDetailActivity.itemList.get(position).getDesc().equals(text)) {
+            if (index < itemList.size()) {
+                if (!itemList.get(position).getDesc().equals(text)) {
                     playSoundPool(false);
-                    WordStudyPlanDetailActivity.itemList.get(position).setSelect_Time();
+                    itemList.get(position).setSelect_Time();
                 } else {
                     playSoundPool(true);
                 }
             } else {
-                if (!WordStudyPlanDetailActivity.itemList.get(position).getName().equals(text)) {
+                if (!itemList.get(position).getName().equals(text)) {
                     playSoundPool(false);
-                    WordStudyPlanDetailActivity.itemList.get(position).setSelect_Time();
+                    itemList.get(position).setSelect_Time();
                 } else {
                     playSoundPool(true);
                 }
@@ -443,25 +402,27 @@ public class WordStudyFightActivity extends BaseActivity implements OnFinishList
         showView(3);
         double wrongCount = 0;
         resultList.clear();
-        for (WordDetailListItem item : WordStudyPlanDetailActivity.itemList) {
+        for (WordDetailListItem item : itemList) {
             if (item.getSelect_time() > 0 ) {
                 wrongCount++;
                 resultList.add(item);
+                item.setIs_know(false);
             }
         }
-        BoxHelper.saveList(resultList,true);
-        for (WordDetailListItem item : WordStudyPlanDetailActivity.itemList) {
+        BoxHelper.updateList(resultList,true);
+        for (WordDetailListItem item : itemList) {
             if (item.getSelect_time() == 0) {
                 resultList.add(item);
+                BoxHelper.update(item,false);
             }
         }
         int scoreInt = (int) ((totalSum - wrongCount) / totalSum * 100);
         score.setText(String.valueOf(scoreInt) + "分");
-        if (scoreInt > 59) {
-            saveCourseId();
+        if (scoreInt > 79) {
             score.setTextColor(this.getResources().getColor(R.color.green));
             fightResutlTv.setTextColor(this.getResources().getColor(R.color.green));
             fightResutlTv.setText(this.getResources().getString(R.string.fight_success));
+            saveCourseId();
         } else {
             score.setTextColor(this.getResources().getColor(R.color.red));
             fightResutlTv.setTextColor(this.getResources().getColor(R.color.red));
@@ -471,20 +432,13 @@ public class WordStudyFightActivity extends BaseActivity implements OnFinishList
     }
 
     private void saveCourseId() {
-        if(!isNewWordStudy){
+        if ("learn".equals(wordTestType)) {
             WordListItem wordListItem =  SaveData.getDataFonJson(this, KeyUtil.WordStudyUnit, WordListItem.class);
             if(wordListItem != null){
-                wordListItem.setCourse_id(course_id+1);
+                wordListItem.setCourse_id(wordListItem.getCourse_id()+1);
                 SaveData.saveDataAsJson(this, KeyUtil.WordStudyUnit, new Gson().toJson(wordListItem));
             }
-        }else {
-            List<WordDetailListItem> list = new ArrayList<WordDetailListItem>();
-            for(WordDetailListItem item : WordStudyPlanDetailActivity.itemList){
-                if(item.getSelect_time() == 0){
-                    list.add(item);
-                }
-                BoxHelper.deleteList(list);
-            }
+            EventBus.getDefault().post(new UpdateWordStudyPlan());
         }
     }
 
@@ -500,7 +454,7 @@ public class WordStudyFightActivity extends BaseActivity implements OnFinishList
     private void showQuickDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.Theme_AppCompat_Light_Dialog_Alert);
         builder.setTitle("温馨提示");
-        builder.setMessage("正在闯关，确定要退出？");
+        builder.setMessage("正在考试，确定要退出？");
         builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -519,16 +473,12 @@ public class WordStudyFightActivity extends BaseActivity implements OnFinishList
     }
 
     private void quick(){
-        Intent intent = new Intent(this, WXEntryActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-        WordStudyFightActivity.this.finish();
+        this.finish();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        WordStudyPlanDetailActivity.clearSign();
         if (mPlayer != null) {
             mPlayer.stop();
             mPlayer.release();

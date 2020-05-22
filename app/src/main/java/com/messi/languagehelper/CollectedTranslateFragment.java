@@ -20,7 +20,7 @@ import android.view.ViewGroup;
 
 import com.messi.languagehelper.adapter.RcCollectTranslateListAdapter;
 import com.messi.languagehelper.box.BoxHelper;
-import com.messi.languagehelper.box.Record;
+import com.messi.languagehelper.box.WordDetailListItem;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.views.DividerItemDecoration;
@@ -40,35 +40,31 @@ import io.reactivex.schedulers.Schedulers;
 public class CollectedTranslateFragment extends BaseFragment {
 
     private RecyclerView recent_used_lv;
-    private LayoutInflater mInflater;
     private RcCollectTranslateListAdapter mAdapter;
-    private List<Record> beans;
-    private View view;
-    // 缓存，保存当前的引擎参数到下一次启动应用程序使用.
+    private List<WordDetailListItem> beans;
     private SharedPreferences mSharedPreferences;
     private LinearLayoutManager mLinearLayoutManager;
     private int skip = 0;
     private boolean loading;
     private boolean hasMore = true;
-    private StringBuilder sb = new StringBuilder();
+    private StringBuilder sb;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater,container,savedInstanceState);
-        view = inflater.inflate(R.layout.collected_translate_fragment, null);
+        View view = inflater.inflate(R.layout.collected_translate_fragment, null);
         setHasOptionsMenu(true);
-        init();
+        init(view);
         return view;
     }
 
-    private void init() {
-        mInflater = LayoutInflater.from(getActivity());
+    private void init(View view) {
         mSharedPreferences = getActivity().getSharedPreferences(getActivity().getPackageName(), Activity.MODE_PRIVATE);
+        beans = new ArrayList<WordDetailListItem>();
         recent_used_lv = (RecyclerView) view.findViewById(R.id.collected_listview);
         mLinearLayoutManager = new LinearLayoutManager(getActivity());
         recent_used_lv.setLayoutManager(mLinearLayoutManager);
         recent_used_lv.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.abc_list_divider_mtrl_alpha)));
-        beans = new ArrayList<Record>();
         mAdapter = new RcCollectTranslateListAdapter(mSharedPreferences, beans);
         mAdapter.setItems(beans);
         recent_used_lv.setAdapter(mAdapter);
@@ -95,7 +91,7 @@ public class CollectedTranslateFragment extends BaseFragment {
 
     private void QueryTask(){
         loading = true;
-        List<Record> list = BoxHelper.getCollectedRecordList(skip, Setings.RecordOffset, "1");
+        List<WordDetailListItem> list = BoxHelper.getNewWordList(skip, Setings.RecordOffset);
         if(list.size() == 0){
             hasMore = false;
         }else {
@@ -126,7 +122,7 @@ public class CollectedTranslateFragment extends BaseFragment {
     private void showXunFeiDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext(),R.style.Theme_AppCompat_Light_Dialog_Alert);
         builder.setTitle("温馨提示");
-        builder.setMessage("下载复制所有的单词。");
+        builder.setMessage("需要下载所有的单词吗？");
         builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -139,6 +135,7 @@ public class CollectedTranslateFragment extends BaseFragment {
     }
 
     private void download(){
+        sb = new StringBuilder();
         Observable.create(new ObservableOnSubscribe<String>() {
             @Override
             public void subscribe(ObservableEmitter<String> e) throws Exception {
@@ -167,9 +164,9 @@ public class CollectedTranslateFragment extends BaseFragment {
 
     private String getData(){
         sb.setLength(0);
-        List<Record> list = BoxHelper.getCollectedRecordList(0, 0, "1");
-        for(Record item : list){
-            sb.append(item.getChinese() + "\n" + item.getEnglish());
+        List<WordDetailListItem> list = BoxHelper.getNewWordList(0, 0);
+        for(WordDetailListItem item : list){
+            sb.append(item.getName() + "\n" + item.getDesc());
             sb.append("\n\n");
         }
         String filePath = SDCardUtil.saveFile(getContext(),"","/words.txt",sb.toString());

@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:background="?attr/colorPrimary"
-        android:minHeight="@dimen/actionBar"></android.support.v7.widget.Toolbar>
+        android:minHeight="@dimen/actionBar"/>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -46,8 +46,8 @@
                     >
                     <ImageView
                         android:id="@+id/volume_img"
-                        android:layout_width="26dp"
-                        android:layout_height="26dp"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
                         android:src="@drawable/ic_volume_on"
                         />
                 </FrameLayout>

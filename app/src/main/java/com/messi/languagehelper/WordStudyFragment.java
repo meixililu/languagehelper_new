@@ -1,201 +1,257 @@
 package com.messi.languagehelper;
 
-import android.content.Context;
-import android.os.AsyncTask;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
-import com.messi.languagehelper.adapter.RcWordStudyAdapter;
-import com.messi.languagehelper.impl.FragmentProgressbarListener;
+import com.messi.languagehelper.bean.WordListItem;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.WordDetailListItem;
+import com.messi.languagehelper.databinding.WordHomeFragmentBinding;
+import com.messi.languagehelper.event.UpdateWordStudyPlan;
 import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.ChangeDataTypeUtil;
+import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.Setings;
-import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
+import com.messi.languagehelper.util.NullUtil;
+import com.messi.languagehelper.util.SaveData;
 
-import java.lang.ref.WeakReference;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
+
 public class WordStudyFragment extends BaseFragment {
 
-	private RecyclerView category_lv;
-	private Toolbar mToolbar;
-	private ProgressBar progressBar;
-	private RcWordStudyAdapter mAdapter;
-	private LinearLayoutManager mLinearLayoutManager;
-	private List<AVObject> avObjects;
-    private int skip = 0;
-    private boolean loading;
-    private boolean hasMore = true;
-
-	@Override
-	public void onAttach(Context activity) {
-		super.onAttach(activity);
-		try {
-			mProgressbarListener = (FragmentProgressbarListener) activity;
-		} catch (ClassCastException e) {
-			throw new ClassCastException(activity.toString() + " must implement FragmentProgressbarListener");
-		}
-	}
+	private WordListItem wordCourseItem;
+	private WordHomeFragmentBinding binding;
+	public static ArrayList<WordDetailListItem> itemList;
+	private boolean isFinishWordBook;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		super.onCreateView(inflater, container, savedInstanceState);
-		View view = inflater.inflate(R.layout.word_home_fragment, container, false);
-		initSwipeRefresh(view);
-		init(view);
-		return view;
-	}
-
-	@Override
-	public void loadDataOnStart() {
-		super.loadDataOnStart();
-		new QueryTask(this).execute();
+		binding = WordHomeFragmentBinding.inflate(inflater);
+		init();
+		setCourseName();
+		getDataTask();
+		return binding.getRoot();
 	}
 	
-	private void init(View view){
-		avObjects = new ArrayList<AVObject>();
-		category_lv = (RecyclerView) view.findViewById(R.id.listview);
-		mToolbar = (Toolbar) view.findViewById(R.id.my_awesome_toolbar);
-		progressBar = (ProgressBar) view.findViewById(R.id.progressBarCircularIndetermininate);
-		mToolbar.setTitle(getString(R.string.title_words));
-		mAdapter = new RcWordStudyAdapter();
-		mAdapter.setHeader(new Object());
-        mAdapter.setFooter(new Object());
-		mAdapter.setItems(avObjects);
-        hideFooterview();
-		mLinearLayoutManager = new LinearLayoutManager(getContext());
-		category_lv.setLayoutManager(mLinearLayoutManager);
-		category_lv.addItemDecoration(
-				new HorizontalDividerItemDecoration.Builder(getContext())
-						.colorResId(R.color.text_tint)
-						.sizeResId(R.dimen.padding_7)
-						.marginResId(R.dimen.padding_2, R.dimen.padding_2)
-						.build());
-		category_lv.setAdapter(mAdapter);
-		setListOnScrollListener();
+	private void init(){
+		isRegisterBus = true;
+		itemList = new ArrayList<WordDetailListItem>();
+		binding.myAwesomeToolbar.setTitle(getString(R.string.title_words));
+		binding.startToStudy.setOnClickListener(view -> toWordStudyDetailActivity());
+		binding.wordStudyChangePlan.setOnClickListener(view -> toActivity(WordStudyPlanActivity.class, null));
+		binding.wordStudyNewWord.setOnClickListener(view -> toActivity(WordStudyNewWordActivity.class, null));
+		binding.renzhiLayout.setOnClickListener(view -> ToAvtivity(WordStudyDanCiRenZhiActivity.class));
+		binding.dancixuanyiLayout.setOnClickListener(view -> ToAvtivity(WordStudyDanCiXuanYiActivity.class));
+		binding.ciyixuanciLayout.setOnClickListener(view -> ToAvtivity(WordStudyCiYiXuanCiActivity.class));
+		binding.pinxieLayout.setOnClickListener(view -> ToAvtivity(WordStudyDanCiPinXieActivity.class));
+		binding.duyinxuanciLayout.setOnClickListener(view -> ToAvtivity(WordStudyDuYinXuanCiActivity.class));
+		binding.duyisujiLayout.setOnClickListener(view -> ToAvtivity(WordStudyDuYinSuJiActivity.class));
+		binding.wordStudyChangeUnit.setOnClickListener(view -> ToAvtivity(WordStudyChangeUnitActivity.class));
 	}
 
-    public void setListOnScrollListener(){
-        category_lv.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                int visible  = mLinearLayoutManager.getChildCount();
-                int total = mLinearLayoutManager.getItemCount();
-                int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
-                if(!loading && hasMore){
-                    if ((visible + firstVisibleItem) >= total){
-                        new QueryTask(WordStudyFragment.this).execute();
-                    }
-                }
-            }
-        });
-    }
+	private void setCourseName(){
+		wordCourseItem = SaveData.getDataFonJson(getContext(), KeyUtil.WordStudyUnit, WordListItem.class);
+		if (wordCourseItem != null) {
+			binding.myAwesomeToolbar.setTitle(wordCourseItem.getTitle());
+			binding.wordStudyBookName.setText("第" + wordCourseItem.getCourse_id() + "单元");
+			binding.studyProgress.setMax(wordCourseItem.getCourse_num());
+			binding.studyProgress.setProgress(wordCourseItem.getCourse_id());
+			if (wordCourseItem.getCourse_id() > wordCourseItem.getCourse_num()) {
+				binding.wordStudyBookName.setText("第" + wordCourseItem.getCourse_num() + "单元");
+				isFinishWordBook = true;
+			}else {
+				isFinishWordBook = false;
+			}
+		}
+	}
 
 	@Override
 	public void onResume() {
 		super.onResume();
-		if (mAdapter != null) {
-			mAdapter.notifyDataSetChanged();
-		}
+		setTask();
 	}
-	
-	@Override
-	public void onSwipeRefreshLayoutRefresh() {
-        hideFooterview();
-        skip = 0;
-		new QueryTask(this).execute();
-	}
-	
-	private class QueryTask extends AsyncTask<Void, Void, Void> {
 
-		private WeakReference<WordStudyFragment> mainActivity;
-
-		public QueryTask(WordStudyFragment mActivity){
-			mainActivity = new WeakReference<>(mActivity);
-		}
-
-		@Override
-		protected void onPreExecute() {
-			super.onPreExecute();
-			showProgressbar();
-		}
-		
-		@Override
-		protected Void doInBackground(Void... params) {
-			try {
-				AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.Boutiques.Boutiques);
-				query.whereEqualTo(AVOUtil.Boutiques.category,"word");
-				query.orderByAscending(AVOUtil.Boutiques.order);
-                query.skip(skip);
-                query.limit(Setings.page_size);
-				List<AVObject> items  = query.find();
-				if(items != null){
-				    if(skip == 0){
-                        avObjects.clear();
-                    }
-                    avObjects.addAll(items);
-					skip += Setings.page_size;
-				    if(items.size() == Setings.page_size){
-				        hasMore = true;
-                    }else {
-				        hasMore = false;
-                    }
+	private void setTask(){
+		if (binding != null && binding.wordSum != null) {
+			if (isFinishWordBook) {
+				binding.wordSum.setText("100%");
+			} else {
+				int task = (int) (getHasLearnWordNum() / 21.0 * 100);
+				if (task > 0) {
+					binding.startToStudy.setText(getText(R.string.word_study_continue));
+				} else {
+					binding.startToStudy.setText(getText(R.string.word_start));
 				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return null;
-		}
-
-		@Override
-		protected void onPostExecute(Void result) {
-			super.onPostExecute(result);
-			if(mainActivity.get() != null){
-				hideProgressbar();
-				onSwipeRefreshLayoutFinish();
-				mAdapter.notifyDataSetChanged();
-				if(hasMore){
-					showFooterview();
-				}else {
-					hideFooterview();
-				}
+				binding.wordSum.setText( String.valueOf(task)+"%" );
 			}
 		}
 	}
 
-	@Override
-	public void showProgressbar() {
-		super.showProgressbar();
-		if(mToolbar != null && mToolbar.isShown()){
-			progressBar.setVisibility(View.VISIBLE);
+	private void toWordStudyDetailActivity() {
+		Intent intent = new Intent();
+		Class toClass = null;
+		if (wordCourseItem != null) {
+			toClass = WordDetailActivity.class;
+			intent.putExtra(KeyUtil.ActionbarTitle, wordCourseItem.getTitle());
+			intent.putExtra(KeyUtil.WordTestType, "learn");
+			intent.putParcelableArrayListExtra(KeyUtil.List, itemList);
+			if (isFinishWordBook) {
+				showFinishDialog();
+				return;
+			}
+		} else {
+			toClass = WordStudyPlanActivity.class;
+		}
+		intent.setClass(getContext(),toClass);
+		startActivity(intent);
+	}
+
+	private void getDataTask() {
+		showProgressbar();
+		Observable.create(new ObservableOnSubscribe<String>() {
+			@Override
+			public void subscribe(ObservableEmitter<String> e) throws Exception {
+				loadData();
+				e.onComplete();
+			}
+		})
+		.subscribeOn(Schedulers.io())
+		.observeOn(AndroidSchedulers.mainThread())
+		.subscribe(new Observer<String>() {
+			@Override
+			public void onSubscribe(Disposable d) {
+			}
+			@Override
+			public void onNext(String s) {
+			}
+			@Override
+			public void onError(Throwable e) {
+			}
+			@Override
+			public void onComplete() {
+				onFinishLoadData();
+			}
+		});
+	}
+
+	private void loadData() {
+		try {
+			if (wordCourseItem == null) {
+				return;
+			}
+			itemList.clear();
+			List<WordDetailListItem> items = BoxHelper.getList(wordCourseItem.getClass_id(), wordCourseItem.getCourse_id());
+			if(items.size() > 0){
+				itemList.addAll(items);
+			}else {
+				AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.WordStudyDetail.WordStudyDetail);
+				query.whereEqualTo(AVOUtil.WordStudyDetail.class_id, wordCourseItem.getClass_id());
+				query.whereEqualTo(AVOUtil.WordStudyDetail.course, wordCourseItem.getCourse_id());
+				query.orderByAscending(AVOUtil.WordStudyDetail.item_id);
+				List<AVObject> avObjects = query.find();
+				if (avObjects != null) {
+					for (AVObject mAVObject : avObjects) {
+						itemList.add(ChangeDataTypeUtil.changeData(mAVObject));
+					}
+				}
+				BoxHelper.saveList(itemList);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 
-	@Override
-	public void hideProgressbar() {
-		super.hideProgressbar();
-		if(mToolbar != null && mToolbar.isShown()){
-			progressBar.setVisibility(View.GONE);
+	private void onFinishLoadData() {
+
+	}
+
+	private void ToAvtivity(Class toClass) {
+		if (wordCourseItem != null && NullUtil.isNotEmpty(itemList)) {
+			Intent intent = new Intent(getContext(), toClass);
+			intent.putExtra(KeyUtil.ClassName, wordCourseItem.getTitle());
+			intent.putExtra(KeyUtil.CourseId, wordCourseItem.getCourse_id());
+			intent.putExtra(KeyUtil.CourseNum, wordCourseItem.getCourse_num());
+			intent.putExtra(KeyUtil.ClassId, wordCourseItem.getClass_id());
+			startActivity(intent);
 		}
 	}
 
-    private void hideFooterview(){
-        mAdapter.hideFooter();
-    }
+	@Subscribe(threadMode = ThreadMode.MAIN)
+	public void onEvent(UpdateWordStudyPlan event){
+		LogUtil.DefalutLog("---UpdateWordStudyPlan---onEvent");
+		setCourseName();
+		getDataTask();
+	}
 
-    private void showFooterview(){
-        mAdapter.showFooter();
-    }
-	
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		clearData();
+	}
 
+	private void clearData() {
+		if (itemList != null) {
+			itemList.clear();
+			itemList = null;
+		}
+	}
+
+	public int getHasLearnWordNum(){
+		int count = 0;
+		List<WordDetailListItem> items = BoxHelper.getList(wordCourseItem.getClass_id(), wordCourseItem.getCourse_id());
+		if(items.size() > 0){
+			itemList.clear();
+			itemList.addAll(items);
+		}
+		for(WordDetailListItem item : itemList){
+			if (item.isIs_know()) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static void clearSign() {
+		if (itemList != null && itemList.size() > 0) {
+			for (WordDetailListItem mAVObject : itemList) {
+				mAVObject.setSelect_time(0);
+			}
+		}
+	}
+
+	private void showFinishDialog() {
+		AlertDialog.Builder builder = new AlertDialog.Builder(getContext(), R.style.Theme_AppCompat_Light_Dialog_Alert);
+		builder.setTitle("恭喜你");
+		builder.setMessage("已经学完本课程所有单词，请更换单词书继续学习。");
+		builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialogInterface, int i) {
+				dialogInterface.dismiss();
+				wordCourseItem = null;
+				toWordStudyDetailActivity();
+			}
+		});
+		AlertDialog dialog = builder.create();
+		dialog.show();
+	}
 }

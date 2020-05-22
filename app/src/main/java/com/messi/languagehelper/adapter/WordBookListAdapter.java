@@ -18,10 +18,13 @@ import com.messi.languagehelper.BaseActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.WordStudyViewAllActivity;
 import com.messi.languagehelper.bean.WordListItem;
+import com.messi.languagehelper.event.UpdateWordStudyPlan;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.SaveData;
 import com.messi.languagehelper.util.Setings;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
@@ -120,6 +123,7 @@ public class WordBookListAdapter extends BaseAdapter {
         Intent intent = new Intent();
         intent.setAction(BaseActivity.ActivityClose);
         context.sendBroadcast(intent);
+        EventBus.getDefault().post(new UpdateWordStudyPlan());
     }
 
     static class ViewHolder {

@@ -142,7 +142,7 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnFini
     }
 
     private void initOrder(){
-        totalSum = WordStudyPlanDetailActivity.itemList.size();
+        totalSum = WordStudyFragment.itemList.size();
         randomPlayIndex = NumberUtil.getNumberOrderNotRepeat(totalSum - 1, 0);
         index = 0;
     }
@@ -158,22 +158,22 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnFini
                     0, 3, position);
             if (tv_list.size() == 4) {
                 if(totalSum > tv_list.get(0)){
-                    selection1.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(0)).getName());
+                    selection1.setText(WordStudyFragment.itemList.get(tv_list.get(0)).getName());
                 }else {
                     selection1.setText(BoxHelper.getBench().getName());
                 }
                 if(totalSum > tv_list.get(1)){
-                    selection2.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(1)).getName());
+                    selection2.setText(WordStudyFragment.itemList.get(tv_list.get(1)).getName());
                 }else {
                     selection2.setText(BoxHelper.getBench().getName());
                 }
                 if(totalSum > tv_list.get(2)){
-                    selection3.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(2)).getName());
+                    selection3.setText(WordStudyFragment.itemList.get(tv_list.get(2)).getName());
                 }else {
                     selection3.setText(BoxHelper.getBench().getName());
                 }
                 if(totalSum > tv_list.get(3)){
-                    selection4.setText(WordStudyPlanDetailActivity.itemList.get(tv_list.get(3)).getName());
+                    selection4.setText(WordStudyFragment.itemList.get(tv_list.get(3)).getName());
                 }else {
                     selection4.setText(BoxHelper.getBench().getName());
                 }
@@ -226,7 +226,7 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnFini
                 stopPlay();
             } else {
                 wordPlayImg.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_pause_white));
-                playItem(WordStudyPlanDetailActivity.itemList.get(position));
+                playItem(WordStudyFragment.itemList.get(position));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -359,7 +359,7 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnFini
 
     private void tryAgain(){
         initOrder();
-        WordStudyPlanDetailActivity.clearSign();
+        WordStudyFragment.clearSign();
         setData();
     }
 
@@ -368,15 +368,15 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnFini
             return;
         }
         String text = tv.getText().toString();
-        if (index < WordStudyPlanDetailActivity.itemList.size()) {
-            if (!WordStudyPlanDetailActivity.itemList.get(position).getName().equals(text)) {
+        if (index < WordStudyFragment.itemList.size()) {
+            if (!WordStudyFragment.itemList.get(position).getName().equals(text)) {
                 playSoundPool(false);
-                WordStudyPlanDetailActivity.itemList.get(position).setSelect_Time();
+                WordStudyFragment.itemList.get(position).setSelect_Time();
                 tv.setTextColor(getResources().getColor(R.color.material_color_red));
             } else {
                 playSoundPool(true);
                 tv.setTextColor(getResources().getColor(R.color.material_color_green));
-                tv.setText(text + "\n" + WordStudyPlanDetailActivity.itemList.get(position).getDesc());
+                tv.setText(text + "\n" + WordStudyFragment.itemList.get(position).getDesc());
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -406,21 +406,21 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnFini
         setActionBarTitle(this.getResources().getString(R.string.word_test_result));
         double wrongCount = 0;
         resultList.clear();
-        for (WordDetailListItem item : WordStudyPlanDetailActivity.itemList) {
+        for (WordDetailListItem item : WordStudyFragment.itemList) {
             if (item.getSelect_time() > 0) {
                 wrongCount++;
                 resultList.add(item);
             }
         }
-        BoxHelper.saveList(resultList,true);
-        for (WordDetailListItem item : WordStudyPlanDetailActivity.itemList) {
+        BoxHelper.updateList(resultList,true);
+        for (WordDetailListItem item : WordStudyFragment.itemList) {
             if (item.getSelect_time() == 0) {
                 resultList.add(item);
             }
         }
         int scoreInt = (int) ((totalSum - wrongCount) / totalSum * 100);
         score.setText(String.valueOf(scoreInt) + "分");
-        if (scoreInt > 59) {
+        if (scoreInt > 79) {
             score.setTextColor(this.getResources().getColor(R.color.green));
         } else {
             score.setTextColor(this.getResources().getColor(R.color.red));
@@ -431,7 +431,7 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnFini
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        WordStudyPlanDetailActivity.clearSign();
+        WordStudyFragment.clearSign();
         if (mPlayer != null) {
             mPlayer.stop();
             mPlayer.release();

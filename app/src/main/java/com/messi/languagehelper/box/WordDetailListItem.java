@@ -1,19 +1,24 @@
 package com.messi.languagehelper.box;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import io.objectbox.annotation.Entity;
 import io.objectbox.annotation.Id;
 import io.objectbox.annotation.Index;
 import io.objectbox.annotation.Transient;
 
 @Entity
-public class WordDetailListItem {
+public class WordDetailListItem implements Parcelable {
 
     @Id
     private Long id;
+    @Index
     private String item_id;
     @Index
     private String class_id;
+    @Index
     private Integer course;
     private String class_title;
     private String desc;
@@ -26,11 +31,139 @@ public class WordDetailListItem {
     private String img_url;
     private String new_words;
     private String is_study;
+    private String level;
+
+    private String paraphrase;
+    private String en_paraphrase;
+    private String au_paraphrase;
+    private String dicts;
+    private String examinations;
+    private String root;
+    private String tense;
+    private String type;
+    private boolean is_know;
+
     private String backup1;
     private String backup2;
     private String backup3;
+    private String backup4;
+    private String backup5;
+    private String backup6;
+    private String backup7;
     @Transient
     private int select_time;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public boolean isIs_know() {
+        return is_know;
+    }
+
+    public void setIs_know(boolean is_know) {
+        this.is_know = is_know;
+    }
+
+    public String getBackup4() {
+        return backup4;
+    }
+
+    public void setBackup4(String backup4) {
+        this.backup4 = backup4;
+    }
+
+    public String getBackup5() {
+        return backup5;
+    }
+
+    public void setBackup5(String backup5) {
+        this.backup5 = backup5;
+    }
+
+    public String getBackup6() {
+        return backup6;
+    }
+
+    public void setBackup6(String backup6) {
+        this.backup6 = backup6;
+    }
+
+    public String getBackup7() {
+        return backup7;
+    }
+
+    public void setBackup7(String backup7) {
+        this.backup7 = backup7;
+    }
+
+    public String getParaphrase() {
+        return paraphrase;
+    }
+
+    public void setParaphrase(String paraphrase) {
+        this.paraphrase = paraphrase;
+    }
+
+    public String getEn_paraphrase() {
+        return en_paraphrase;
+    }
+
+    public void setEn_paraphrase(String en_paraphrase) {
+        this.en_paraphrase = en_paraphrase;
+    }
+
+    public String getAu_paraphrase() {
+        return au_paraphrase;
+    }
+
+    public void setAu_paraphrase(String au_paraphrase) {
+        this.au_paraphrase = au_paraphrase;
+    }
+
+    public String getDicts() {
+        return dicts;
+    }
+
+    public void setDicts(String dicts) {
+        this.dicts = dicts;
+    }
+
+    public String getExaminations() {
+        return examinations;
+    }
+
+    public void setExaminations(String examinations) {
+        this.examinations = examinations;
+    }
+
+    public String getRoot() {
+        return root;
+    }
+
+    public void setRoot(String root) {
+        this.root = root;
+    }
+
+    public String getTense() {
+        return tense;
+    }
+
+    public void setTense(String tense) {
+        this.tense = tense;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
 
     public void setSelect_Time(){
         select_time++;
@@ -180,4 +313,94 @@ public class WordDetailListItem {
         this.backup3 = backup3;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeValue(this.id);
+        dest.writeString(this.item_id);
+        dest.writeString(this.class_id);
+        dest.writeValue(this.course);
+        dest.writeString(this.class_title);
+        dest.writeString(this.desc);
+        dest.writeString(this.name);
+        dest.writeString(this.sound);
+        dest.writeString(this.symbol);
+        dest.writeString(this.examples);
+        dest.writeString(this.mp3_sdpath);
+        dest.writeString(this.img_url);
+        dest.writeString(this.new_words);
+        dest.writeString(this.is_study);
+        dest.writeString(this.level);
+        dest.writeString(this.paraphrase);
+        dest.writeString(this.en_paraphrase);
+        dest.writeString(this.au_paraphrase);
+        dest.writeString(this.dicts);
+        dest.writeString(this.examinations);
+        dest.writeString(this.root);
+        dest.writeString(this.tense);
+        dest.writeString(this.type);
+        dest.writeByte(this.is_know ? (byte) 1 : (byte) 0);
+        dest.writeString(this.backup1);
+        dest.writeString(this.backup2);
+        dest.writeString(this.backup3);
+        dest.writeString(this.backup4);
+        dest.writeString(this.backup5);
+        dest.writeString(this.backup6);
+        dest.writeString(this.backup7);
+        dest.writeInt(this.select_time);
+    }
+
+    public WordDetailListItem() {
+    }
+
+    protected WordDetailListItem(Parcel in) {
+        this.id = (Long) in.readValue(Long.class.getClassLoader());
+        this.item_id = in.readString();
+        this.class_id = in.readString();
+        this.course = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.class_title = in.readString();
+        this.desc = in.readString();
+        this.name = in.readString();
+        this.sound = in.readString();
+        this.symbol = in.readString();
+        this.examples = in.readString();
+        this.mp3_sdpath = in.readString();
+        this.img_url = in.readString();
+        this.new_words = in.readString();
+        this.is_study = in.readString();
+        this.level = in.readString();
+        this.paraphrase = in.readString();
+        this.en_paraphrase = in.readString();
+        this.au_paraphrase = in.readString();
+        this.dicts = in.readString();
+        this.examinations = in.readString();
+        this.root = in.readString();
+        this.tense = in.readString();
+        this.type = in.readString();
+        this.is_know = in.readByte() != 0;
+        this.backup1 = in.readString();
+        this.backup2 = in.readString();
+        this.backup3 = in.readString();
+        this.backup4 = in.readString();
+        this.backup5 = in.readString();
+        this.backup6 = in.readString();
+        this.backup7 = in.readString();
+        this.select_time = in.readInt();
+    }
+
+    public static final Parcelable.Creator<WordDetailListItem> CREATOR = new Parcelable.Creator<WordDetailListItem>() {
+        @Override
+        public WordDetailListItem createFromParcel(Parcel source) {
+            return new WordDetailListItem(source);
+        }
+
+        @Override
+        public WordDetailListItem[] newArray(int size) {
+            return new WordDetailListItem[size];
+        }
+    };
 }

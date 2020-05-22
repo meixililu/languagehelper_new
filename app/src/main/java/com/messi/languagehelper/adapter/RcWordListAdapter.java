@@ -28,17 +28,17 @@ public class RcWordListAdapter extends HeaderFooterRecyclerViewAdapter<RecyclerV
         this.sign = sign;
     }
 
-    @Override
-    protected RecyclerView.ViewHolder onCreateHeaderViewHolder(ViewGroup parent, int viewType) {
-        LayoutInflater inflater = getLayoutInflater(parent);
-        View headerView = inflater.inflate(R.layout.xunfei_ysad_item, parent, false);
-        return new RcAdHeaderViewHolder(headerView,mXFYSAD);
-    }
-
-    @Override
-    protected void onBindHeaderViewHolder(RecyclerView.ViewHolder holder, int position) {
-        super.onBindHeaderViewHolder(holder, position);
-    }
+//    @Override
+//    protected RecyclerView.ViewHolder onCreateHeaderViewHolder(ViewGroup parent, int viewType) {
+//        LayoutInflater inflater = getLayoutInflater(parent);
+//        View headerView = inflater.inflate(R.layout.xunfei_ysad_item, parent, false);
+//        return new RcAdHeaderViewHolder(headerView,mXFYSAD);
+//    }
+//
+//    @Override
+//    protected void onBindHeaderViewHolder(RecyclerView.ViewHolder holder, int position) {
+//        super.onBindHeaderViewHolder(holder, position);
+//    }
 
     @Override
     protected RecyclerView.ViewHolder onCreateItemViewHolder(ViewGroup parent, int viewType) {
