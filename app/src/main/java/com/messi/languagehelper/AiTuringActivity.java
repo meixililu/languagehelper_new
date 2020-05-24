@@ -37,6 +37,7 @@ import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KaiPinAdUIModelCustom;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.MD5;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Setings;
@@ -327,7 +328,7 @@ public class AiTuringActivity extends BaseActivity {
         String filepath = "";
         String path = SDCardUtil.getDownloadPath(SDCardUtil.sdPath);
         if (TextUtils.isEmpty(mAiEntity.getContent_video_id())) {
-            mAiEntity.setContent_video_id(String.valueOf(System.currentTimeMillis()));
+            mAiEntity.setContent_video_id(MD5.encode(mAiEntity.getContent()));
         }
         filepath = path + mAiEntity.getContent_video_id() + ".pcm";
         mAiEntity.setContent_video_path(filepath);

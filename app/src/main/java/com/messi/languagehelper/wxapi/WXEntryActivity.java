@@ -35,6 +35,7 @@ import com.messi.languagehelper.util.AppUpdateUtil;
 import com.messi.languagehelper.util.IPlayerUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.MyPlayer;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
@@ -231,12 +232,17 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 			unregisterBroadcast();
 			saveSelectTab();
 			Jzvd.releaseAllVideos();
+			release();
 			PlayUtil.onDestroy();
 			UnbindService();
 			isBackgroundPlay();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	private void release(){
+		MyPlayer.release();
 	}
 
 	private void UnbindService(){

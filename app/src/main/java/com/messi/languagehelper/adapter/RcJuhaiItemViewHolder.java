@@ -8,8 +8,8 @@ import android.widget.TextView;
 
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.bean.TranLijuResult;
+import com.messi.languagehelper.util.MyPlayer;
 import com.messi.languagehelper.util.Setings;
-import com.messi.languagehelper.util.XFUtil;
 
 /**
  * Created by luli on 10/23/16.
@@ -40,13 +40,13 @@ public class RcJuhaiItemViewHolder extends RecyclerView.ViewHolder {
         record_question_cover.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                XFUtil.play(mBean.getEnglish(),"");
+                MyPlayer.getInstance(context).start(mBean.getEnglish());
             }
         });
         record_answer_cover.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                XFUtil.play(mBean.getChinese(),"");
+                MyPlayer.getInstance(context).start(mBean.getChinese());
             }
         });
 

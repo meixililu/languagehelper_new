@@ -7,8 +7,8 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.messi.languagehelper.R;
+import com.messi.languagehelper.util.MyPlayer;
 import com.messi.languagehelper.util.Setings;
-import com.messi.languagehelper.util.XFUtil;
 
 /**
  * Created by luli on 10/23/16.
@@ -33,7 +33,7 @@ public class RcEnDictItemViewHolder extends RecyclerView.ViewHolder {
         record_question_cover.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                XFUtil.play(item,"");
+                MyPlayer.getInstance(context).start(item);
             }
         });
         record_question_cover.setOnLongClickListener(new View.OnLongClickListener() {

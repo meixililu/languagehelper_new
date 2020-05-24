@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -222,7 +223,7 @@ public class MainTabTran extends BaseFragment {
     public void insertData() {
         mAdapter.addEntity(0, currentDialogBean);
         binding.recentUsedLv.scrollToPosition(0);
-        long newRowId = BoxHelper.insert(currentDialogBean);
+        BoxHelper.insert(currentDialogBean);
     }
 
     public void autoClearAndautoPlay() {
@@ -236,13 +237,26 @@ public class MainTabTran extends BaseFragment {
         try {
             View mView = binding.recentUsedLv.getChildAt(0);
             final FrameLayout record_answer_cover = (FrameLayout) mView.findViewById(R.id.record_answer_cover);
-            if(record_answer_cover != null){
-                record_answer_cover.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        record_answer_cover.performClick();
-                    }
-                });
+            final FrameLayout record_question_cover = (FrameLayout) mView.findViewById(R.id.record_question_cover);
+            Record item = beans.get(0);
+            if (!TextUtils.isEmpty(item.getPh_en_mp3())) {
+                if(record_question_cover != null){
+                    record_question_cover.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            record_question_cover.performClick();
+                        }
+                    });
+                }
+            } else {
+                if(record_answer_cover != null){
+                    record_answer_cover.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            record_answer_cover.performClick();
+                        }
+                    });
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();

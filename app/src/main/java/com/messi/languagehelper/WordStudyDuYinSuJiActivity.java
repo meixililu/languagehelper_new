@@ -21,6 +21,7 @@ import com.messi.languagehelper.box.WordDetailListItem;
 import com.messi.languagehelper.impl.OnFinishListener;
 import com.messi.languagehelper.util.DownLoadUtil;
 import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.MD5;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.SDCardUtil;
@@ -221,7 +222,7 @@ public class WordStudyDuYinSuJiActivity extends BaseActivity implements OnFinish
     }
 
     private void playWithSpeechSynthesizer(WordDetailListItem mAVObject) {
-        String filepath = SDCardUtil.getDownloadPath(getAudioPath(mAVObject)) + mAVObject.getItem_id() + ".pcm";
+        String filepath = SDCardUtil.getDownloadPath(getAudioPath(mAVObject)) + MD5.encode(mAVObject.getName()) + ".pcm";
         PlayUtil.play(filepath, mAVObject.getName(), null,
                 new SynthesizerListener() {
                     @Override

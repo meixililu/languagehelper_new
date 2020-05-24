@@ -20,8 +20,8 @@ import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Dictionary;
 import com.messi.languagehelper.event.TranAndDicRefreshEvent;
 import com.messi.languagehelper.util.AVAnalytics;
-import com.messi.languagehelper.util.AudioTrackUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.MD5;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Setings;
@@ -78,7 +78,7 @@ public class RcCollectDictionaryListItemViewHolder extends RecyclerView.ViewHold
 
     public void render(final Dictionary mBean) {
         AnimationDrawable animationDrawable = (AnimationDrawable) voice_play.getBackground();
-        MyOnClickListener mQuestionOnClickListener = new MyOnClickListener(mBean,animationDrawable,voice_play,play_content_btn_progressbar,false);
+        MyOnClickListener mQuestionOnClickListener = new MyOnClickListener(mBean,voice_play,play_content_btn_progressbar,false);
         record_question.setText(mBean.getWord_name());
         String[] temps = mBean.getResult().split("\n\n");
         String result = "";
@@ -149,16 +149,14 @@ public class RcCollectDictionaryListItemViewHolder extends RecyclerView.ViewHold
 
         private Dictionary mBean;
         private ImageButton voice_play;
-        private AnimationDrawable animationDrawable;
         private ProgressBar play_content_btn_progressbar;
         private boolean isPlayResult;
         boolean isNotify = false;
 
-        private MyOnClickListener(Dictionary bean,AnimationDrawable mAnimationDrawable,ImageButton voice_play,
+        private MyOnClickListener(Dictionary bean,ImageButton voice_play,
                                   ProgressBar progressbar, boolean isPlayResult){
             this.mBean = bean;
             this.voice_play = voice_play;
-            this.animationDrawable = mAnimationDrawable;
             this.play_content_btn_progressbar = progressbar;
             this.isPlayResult = isPlayResult;
         }
@@ -172,26 +170,25 @@ public class RcCollectDictionaryListItemViewHolder extends RecyclerView.ViewHold
                 mBean.setResultVoiceId(System.currentTimeMillis() - 5 + "");
             }
             if (isPlayResult) {
-                filepath = path + mBean.getResultVoiceId() + ".pcm";
-                mBean.setResultAudioPath(filepath);
                 if (!TextUtils.isEmpty(mBean.getBackup1())) {
                     speakContent = mBean.getBackup1();
                 } else {
                     speakContent = mBean.getResult();
                 }
+                if (TextUtils.isEmpty(mBean.getResultVoiceId())) {
+                    mBean.setResultVoiceId(MD5.encode(speakContent));
+                }
+                filepath = path + mBean.getResultVoiceId() + ".pcm";
+                mBean.setResultAudioPath(filepath);
             } else {
+                speakContent = mBean.getWord_name();
+                if (TextUtils.isEmpty(mBean.getQuestionVoiceId())) {
+                    mBean.setQuestionVoiceId(MD5.encode(speakContent));
+                }
                 filepath = path + mBean.getQuestionVoiceId() + ".pcm";
                 mBean.setQuestionAudioPath(filepath);
-                speakContent = mBean.getWord_name();
             }
-            if (mBean.getSpeak_speed() != mSharedPreferences.getInt(context.getString(R.string.preference_key_tts_speed), 50)) {
-                String filep1 = path + mBean.getResultVoiceId() + ".pcm";
-                String filep2 = path + mBean.getQuestionVoiceId() + ".pcm";
-                AudioTrackUtil.deleteFile(filep1);
-                AudioTrackUtil.deleteFile(filep2);
-                mBean.setSpeak_speed(mSharedPreferences.getInt(context.getString(R.string.preference_key_tts_speed), 50));
-            }
-            PlayUtil.play(filepath, speakContent, animationDrawable,
+            PlayUtil.play(filepath, speakContent,
                 new SynthesizerListener() {
                     @Override
                     public void onSpeakResumed() {

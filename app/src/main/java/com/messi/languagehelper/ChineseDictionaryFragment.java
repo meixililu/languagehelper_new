@@ -1,7 +1,6 @@
 package com.messi.languagehelper;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -11,20 +10,16 @@ import android.widget.FrameLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.iflytek.cloud.SpeechError;
-import com.iflytek.cloud.SpeechSynthesizer;
-import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.event.FinishEvent;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.HtmlParseUtil;
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.PlayUtil;
+import com.messi.languagehelper.util.MyPlayer;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ShareUtil;
 import com.messi.languagehelper.util.ViewUtil;
-import com.messi.languagehelper.util.XFUtil;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -62,8 +57,6 @@ public class ChineseDictionaryFragment extends BaseFragment {
     @BindView(R.id.chdic_sv)
     ScrollView chdic_sv;
 
-    private SpeechSynthesizer mSpeechSynthesizer;
-    private SharedPreferences sp;
     private View view;
 
     public static ChineseDictionaryFragment getInstance(FragmentProgressbarListener listener) {
@@ -86,7 +79,6 @@ public class ChineseDictionaryFragment extends BaseFragment {
     }
 
     private void init() {
-        mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(getContext(), null);
         if (getContext().getPackageName().equals(Setings.application_id_ywcd)) {
             btnBushou.setVisibility(View.GONE);
             btnPinyin.setVisibility(View.GONE);
@@ -94,51 +86,7 @@ public class ChineseDictionaryFragment extends BaseFragment {
     }
 
     private void play(String content) {
-        if (!mSpeechSynthesizer.isSpeaking()) {
-            XFUtil.showSpeechSynthesizer(
-                    getContext(),
-                    PlayUtil.getSP(),
-                    mSpeechSynthesizer,
-                    content,
-                    new SynthesizerListener() {
-                        @Override
-                        public void onSpeakBegin() {
-
-                        }
-
-                        @Override
-                        public void onBufferProgress(int i, int i1, int i2, String s) {
-
-                        }
-
-                        @Override
-                        public void onSpeakPaused() {
-
-                        }
-
-                        @Override
-                        public void onSpeakResumed() {
-
-                        }
-
-                        @Override
-                        public void onSpeakProgress(int i, int i1, int i2) {
-
-                        }
-
-                        @Override
-                        public void onCompleted(SpeechError speechError) {
-
-                        }
-
-                        @Override
-                        public void onEvent(int i, int i1, int i2, Bundle bundle) {
-
-                        }
-                    });
-        } else {
-            mSpeechSynthesizer.stopSpeaking();
-        }
+        MyPlayer.getInstance(getContext()).start(content);
     }
 
     private void toPinyinActivity() {

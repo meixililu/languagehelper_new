@@ -28,6 +28,7 @@ import com.messi.languagehelper.box.WordDetailListItem;
 import com.messi.languagehelper.impl.OnFinishListener;
 import com.messi.languagehelper.util.DownLoadUtil;
 import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.MD5;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.SDCardUtil;
@@ -234,7 +235,7 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnFini
     }
 
     private void playItem(WordDetailListItem mAVObject) {
-        if (TextUtils.isEmpty(mAVObject.getSound()) || mAVObject.getSound().equals("http://app1.showapi.com/en_word")) {
+        if (TextUtils.isEmpty(mAVObject.getSound())) {
             playWithSpeechSynthesizer(mAVObject);
         } else {
             String mp3Name = mAVObject.getSound().substring(mAVObject.getSound().lastIndexOf("/") + 1);
@@ -279,7 +280,7 @@ public class WordStudyDuYinXuanCiActivity extends BaseActivity implements OnFini
     }
 
     private void playWithSpeechSynthesizer(WordDetailListItem mAVObject) {
-        String filepath = SDCardUtil.getDownloadPath(getAudioPath(mAVObject)) + mAVObject.getItem_id() + ".pcm";
+        String filepath = SDCardUtil.getDownloadPath(getAudioPath(mAVObject)) + MD5.encode(mAVObject.getName()) + ".pcm";
         PlayUtil.play(filepath, mAVObject.getName(), null,
                 new SynthesizerListener() {
                     @Override

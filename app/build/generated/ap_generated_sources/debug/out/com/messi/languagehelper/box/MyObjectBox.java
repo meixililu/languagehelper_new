@@ -321,7 +321,7 @@ public class MyObjectBox {
 
     private static void buildEntityRecord(ModelBuilder modelBuilder) {
         EntityBuilder entityBuilder = modelBuilder.entity("Record");
-        entityBuilder.id(7, 2299188868989635804L).lastPropertyId(13, 5900058724758816266L);
+        entityBuilder.id(7, 2299188868989635804L).lastPropertyId(26, 6622587531338528559L);
         entityBuilder.flags(io.objectbox.model.EntityFlags.USE_NO_ARG_CONSTRUCTOR);
 
         entityBuilder.property("id", PropertyType.Long).id(1, 3622779869807933367L)
@@ -333,6 +333,19 @@ public class MyObjectBox {
         entityBuilder.property("questionVoiceId", PropertyType.String).id(6, 6688460902990046095L);
         entityBuilder.property("resultVoiceId", PropertyType.String).id(7, 575908343572342797L);
         entityBuilder.property("iscollected", PropertyType.String).id(8, 710434385512588605L);
+        entityBuilder.property("ph_am_mp3", PropertyType.String).id(14, 8507070872464152587L);
+        entityBuilder.property("ph_en_mp3", PropertyType.String).id(15, 3218347760857387349L);
+        entityBuilder.property("ph_tts_mp3", PropertyType.String).id(16, 2563653877057901864L);
+        entityBuilder.property("des", PropertyType.String).id(17, 8476786870835622317L);
+        entityBuilder.property("examples", PropertyType.String).id(18, 349427129572319826L);
+        entityBuilder.property("paraphrase", PropertyType.String).id(19, 3411933568354466244L);
+        entityBuilder.property("en_paraphrase", PropertyType.String).id(20, 192852137869272928L);
+        entityBuilder.property("au_paraphrase", PropertyType.String).id(21, 2587438913214855098L);
+        entityBuilder.property("dicts", PropertyType.String).id(22, 8356244003862464753L);
+        entityBuilder.property("examinations", PropertyType.String).id(23, 2935172316605048581L);
+        entityBuilder.property("root", PropertyType.String).id(24, 3825715397976519444L);
+        entityBuilder.property("tense", PropertyType.String).id(25, 8609025634979853755L);
+        entityBuilder.property("type", PropertyType.String).id(26, 6622587531338528559L);
         entityBuilder.property("visit_times", PropertyType.Int).id(9, 8288004112566859257L)
                 .flags(PropertyFlags.NON_PRIMITIVE_TYPE);
         entityBuilder.property("speak_speed", PropertyType.Int).id(10, 1811036805093300432L)

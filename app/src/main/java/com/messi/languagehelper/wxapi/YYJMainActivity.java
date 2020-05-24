@@ -25,6 +25,7 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SpeechUtility;
 import com.messi.languagehelper.BaseActivity;
 import com.messi.languagehelper.LeisureFragment;
@@ -215,11 +216,18 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 		super.onDestroy();
 		try {
 			Jzvd.releaseAllVideos();
+			release();
 			PlayUtil.onDestroy();
 			UnbindService();
 			isBackgroundPlay();
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+
+	private void release(){
+		if (SpeechSynthesizer.getSynthesizer() != null) {
+			SpeechSynthesizer.getSynthesizer().destroy();
 		}
 	}
 

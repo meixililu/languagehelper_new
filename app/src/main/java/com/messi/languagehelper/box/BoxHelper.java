@@ -45,8 +45,8 @@ public class BoxHelper {
         bean.setIscollected("0");
         bean.setVisit_times(0);
         bean.setSpeak_speed(50);
-        bean.setQuestionVoiceId(System.currentTimeMillis() + "");
-        bean.setResultVoiceId(System.currentTimeMillis() - 5 + "");
+//        bean.setQuestionVoiceId(System.currentTimeMillis() + "");
+//        bean.setResultVoiceId(System.currentTimeMillis() - 5 + "");
         return getRecordBox().put(bean);
     }
 
@@ -97,7 +97,7 @@ public class BoxHelper {
         bean.setIscollected("0");
         bean.setVisit_times(0);
         bean.setSpeak_speed(50);
-        bean.setQuestionVoiceId(System.currentTimeMillis() + "");
+//        bean.setQuestionVoiceId(System.currentTimeMillis() + "");
         return getDictionaryBox().put(bean);
     }
 
@@ -148,8 +148,8 @@ public class BoxHelper {
         bean.setIscollected("0");
         bean.setVisit_times(0);
         bean.setSpeak_speed(50);
-        bean.setQuestionVoiceId(System.currentTimeMillis() + "");
-        bean.setResultVoiceId(System.currentTimeMillis() - 5 + "");
+//        bean.setQuestionVoiceId(System.currentTimeMillis() + "");
+//        bean.setResultVoiceId(System.currentTimeMillis() - 5 + "");
         return getTranResultZhYueBox().put(bean);
     }
 

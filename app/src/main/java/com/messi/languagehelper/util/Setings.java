@@ -58,7 +58,7 @@ public class Setings {
 
 	public static String YoudaoApi = "http://fanyi.youdao.com/translate?doctype=json&vendor=youdaoweb&screen=1080x1920&network=wifi";
 
-	public static String IcibaTranslateNewUrl = "http://fy.iciba.com/ajax.php?a=fy";
+	public static String IcibaTranslateNewUrl = "https://fy.iciba.com/ajax.php?a=fy";
 
 	public static String TranAiyueyuUrl = "https://yue.micblo.com/api.php";
 

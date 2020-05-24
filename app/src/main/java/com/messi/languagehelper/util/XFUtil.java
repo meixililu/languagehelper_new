@@ -98,7 +98,7 @@ public class XFUtil {
 		if (null == mSpeechSynthesizer) {
 			mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(mContext,null);
 		}
-		LogUtil.DefalutLog("role:"+Setings.role+"--source:"+source);
+//		LogUtil.DefalutLog("role:"+Setings.role+"--source:"+source);
 		StringUtils.setSpeaker(source);
 		mSpeechSynthesizer.setParameter(SpeechConstant.VOICE_NAME, Setings.role);
 		mSpeechSynthesizer.setParameter(SpeechConstant.SPEED, String.valueOf( mSharedPreferences.getInt("tts_speed", 50) ));

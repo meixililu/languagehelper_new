@@ -55,20 +55,59 @@ public final class Record_ implements EntityInfo<Record> {
     public final static io.objectbox.Property<Record> iscollected =
         new io.objectbox.Property<>(__INSTANCE, 7, 8, String.class, "iscollected");
 
+    public final static io.objectbox.Property<Record> ph_am_mp3 =
+        new io.objectbox.Property<>(__INSTANCE, 8, 14, String.class, "ph_am_mp3");
+
+    public final static io.objectbox.Property<Record> ph_en_mp3 =
+        new io.objectbox.Property<>(__INSTANCE, 9, 15, String.class, "ph_en_mp3");
+
+    public final static io.objectbox.Property<Record> ph_tts_mp3 =
+        new io.objectbox.Property<>(__INSTANCE, 10, 16, String.class, "ph_tts_mp3");
+
+    public final static io.objectbox.Property<Record> des =
+        new io.objectbox.Property<>(__INSTANCE, 11, 17, String.class, "des");
+
+    public final static io.objectbox.Property<Record> examples =
+        new io.objectbox.Property<>(__INSTANCE, 12, 18, String.class, "examples");
+
+    public final static io.objectbox.Property<Record> paraphrase =
+        new io.objectbox.Property<>(__INSTANCE, 13, 19, String.class, "paraphrase");
+
+    public final static io.objectbox.Property<Record> en_paraphrase =
+        new io.objectbox.Property<>(__INSTANCE, 14, 20, String.class, "en_paraphrase");
+
+    public final static io.objectbox.Property<Record> au_paraphrase =
+        new io.objectbox.Property<>(__INSTANCE, 15, 21, String.class, "au_paraphrase");
+
+    public final static io.objectbox.Property<Record> dicts =
+        new io.objectbox.Property<>(__INSTANCE, 16, 22, String.class, "dicts");
+
+    public final static io.objectbox.Property<Record> examinations =
+        new io.objectbox.Property<>(__INSTANCE, 17, 23, String.class, "examinations");
+
+    public final static io.objectbox.Property<Record> root =
+        new io.objectbox.Property<>(__INSTANCE, 18, 24, String.class, "root");
+
+    public final static io.objectbox.Property<Record> tense =
+        new io.objectbox.Property<>(__INSTANCE, 19, 25, String.class, "tense");
+
+    public final static io.objectbox.Property<Record> type =
+        new io.objectbox.Property<>(__INSTANCE, 20, 26, String.class, "type");
+
     public final static io.objectbox.Property<Record> visit_times =
-        new io.objectbox.Property<>(__INSTANCE, 8, 9, Integer.class, "visit_times");
+        new io.objectbox.Property<>(__INSTANCE, 21, 9, Integer.class, "visit_times");
 
     public final static io.objectbox.Property<Record> speak_speed =
-        new io.objectbox.Property<>(__INSTANCE, 9, 10, Integer.class, "speak_speed");
+        new io.objectbox.Property<>(__INSTANCE, 22, 10, Integer.class, "speak_speed");
 
     public final static io.objectbox.Property<Record> backup1 =
-        new io.objectbox.Property<>(__INSTANCE, 10, 11, String.class, "backup1");
+        new io.objectbox.Property<>(__INSTANCE, 23, 11, String.class, "backup1");
 
     public final static io.objectbox.Property<Record> backup2 =
-        new io.objectbox.Property<>(__INSTANCE, 11, 12, String.class, "backup2");
+        new io.objectbox.Property<>(__INSTANCE, 24, 12, String.class, "backup2");
 
     public final static io.objectbox.Property<Record> backup3 =
-        new io.objectbox.Property<>(__INSTANCE, 12, 13, String.class, "backup3");
+        new io.objectbox.Property<>(__INSTANCE, 25, 13, String.class, "backup3");
 
     @SuppressWarnings("unchecked")
     public final static io.objectbox.Property<Record>[] __ALL_PROPERTIES = new io.objectbox.Property[]{
@@ -80,6 +119,19 @@ public final class Record_ implements EntityInfo<Record> {
         questionVoiceId,
         resultVoiceId,
         iscollected,
+        ph_am_mp3,
+        ph_en_mp3,
+        ph_tts_mp3,
+        des,
+        examples,
+        paraphrase,
+        en_paraphrase,
+        au_paraphrase,
+        dicts,
+        examinations,
+        root,
+        tense,
+        type,
         visit_times,
         speak_speed,
         backup1,

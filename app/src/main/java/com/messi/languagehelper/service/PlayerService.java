@@ -447,7 +447,7 @@ public class PlayerService extends Service {
     }
 
     public boolean isPlaying(){
-        return PlayerStatus == 1;
+        return mExoPlayer.getPlaybackState() == Player.STATE_READY && mExoPlayer.getPlayWhenReady();
     }
 
     public class ExoPlayerEventListener implements Player.EventListener {

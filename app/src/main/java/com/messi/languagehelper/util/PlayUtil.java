@@ -2,7 +2,6 @@ package com.messi.languagehelper.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
@@ -30,7 +29,6 @@ public class PlayUtil {
     public static String filepath = "";
     public static String speakContent;
     public static boolean isPlaying;
-    public static AnimationDrawable currentAnimationDrawable;
     public static OnFinishListener mOnFinishListener;
 
     public static void initData(Context nContext,
@@ -50,33 +48,25 @@ public class PlayUtil {
 
     public static void play(String nfilepath,
                             String nSpeakContent,
-                            AnimationDrawable nDrawable,
                             SpeechSynthesizer mSpeechSynthesizer,
                             SynthesizerListener nSynthesizerListener
                             ){
-        play(nfilepath,nSpeakContent,nDrawable,"",mSpeechSynthesizer,nSynthesizerListener);
+        play(nfilepath,nSpeakContent,"",mSpeechSynthesizer,nSynthesizerListener);
     }
 
     public static void play(String nfilepath,
                             String nSpeakContent,
-                            AnimationDrawable nDrawable,
                             SynthesizerListener nSynthesizerListener){
-        play(nfilepath,nSpeakContent,nDrawable,"",null,nSynthesizerListener);
+        play(nfilepath,nSpeakContent,"",null,nSynthesizerListener);
     }
 
     public static void play(String nfilepath,
                             String nSpeakContent,
-                            AnimationDrawable nDrawable,
                             String speaker,
                             SpeechSynthesizer mSpeechSynthesizer,
                             SynthesizerListener nSynthesizerListener
                             ){
         LogUtil.DefalutLog("PlayUtil-PlayerStatus:"+isPlaying);
-        if(nDrawable != null){
-            currentAnimationDrawable = nDrawable;
-        }else {
-            currentAnimationDrawable = null;
-        }
         if(!isPlaying){
             filepath = nfilepath;
             speakContent = nSpeakContent+".";
@@ -130,6 +120,7 @@ public class PlayUtil {
     }
 
     public static void startToPlay(SynthesizerListener nSynthesizerListener,String speaker){
+        LogUtil.DefalutLog("isFileExists---filepath:"+AudioTrackUtil.isFileExists(filepath));
         if (!AudioTrackUtil.isFileExists(filepath)) {
             mSpeechSynthesizer.setParameter(SpeechConstant.TTS_AUDIO_PATH, filepath);
             if(TextUtils.isEmpty(speaker)){
@@ -190,14 +181,7 @@ public class PlayUtil {
     public static void onStartPlay(){
         try{
             isPlaying = true;
-            if(currentAnimationDrawable != null){
-                if (!currentAnimationDrawable.isRunning()) {
-                    currentAnimationDrawable.setOneShot(false);
-                    currentAnimationDrawable.start();
-                }
-            }
         } catch(Exception e){
-            currentAnimationDrawable = null;
             e.printStackTrace();
         }
 
@@ -207,17 +191,10 @@ public class PlayUtil {
         try {
             isPlaying = false;
             mThread = null;
-            if (currentAnimationDrawable != null) {
-                currentAnimationDrawable.setOneShot(true);
-                currentAnimationDrawable.stop();
-                currentAnimationDrawable.selectDrawable(0);
-            }
-            currentAnimationDrawable = null;
             if(mOnFinishListener != null){
                 mOnFinishListener.OnFinish();
             }
         } catch (Exception e) {
-            currentAnimationDrawable = null;
             e.printStackTrace();
         }
     }
@@ -233,7 +210,6 @@ public class PlayUtil {
             mMyThread = null;
             mHandler = null;
             mSpeechSynthesizer = null;
-            currentAnimationDrawable = null;
         } catch (Exception e) {
             e.printStackTrace();
         }

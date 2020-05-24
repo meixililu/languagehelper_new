@@ -20,7 +20,6 @@ import com.messi.languagehelper.box.WordDetailListItem;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.PlayUtil;
-import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 
@@ -69,8 +68,8 @@ public class RcCollectTranslateLiatItemViewHolder extends RecyclerView.ViewHolde
 
     public void render(final WordDetailListItem mBean) {
         AnimationDrawable animationDrawable = (AnimationDrawable) voice_play.getBackground();
-        MyOnClickListener mMyOnClickListener = new MyOnClickListener(mBean, animationDrawable, voice_play, play_content_btn_progressbar, true);
-        MyOnClickListener mQuestionOnClickListener = new MyOnClickListener(mBean, animationDrawable, voice_play, play_content_btn_progressbar, false);
+        MyOnClickListener mMyOnClickListener = new MyOnClickListener(mBean, voice_play, play_content_btn_progressbar, true);
+        MyOnClickListener mQuestionOnClickListener = new MyOnClickListener(mBean, voice_play, play_content_btn_progressbar, false);
 
         record_question.setText(mBean.getName());
         if (!TextUtils.isEmpty(mBean.getSymbol())) {
@@ -128,15 +127,13 @@ public class RcCollectTranslateLiatItemViewHolder extends RecyclerView.ViewHolde
         boolean isNotify = false;
         private WordDetailListItem mBean;
         private ImageButton voice_play;
-        private AnimationDrawable animationDrawable;
         private ProgressBar play_content_btn_progressbar;
         private boolean isPlayResult;
 
-        private MyOnClickListener(WordDetailListItem bean, AnimationDrawable mAnimationDrawable, ImageButton voice_play,
+        private MyOnClickListener(WordDetailListItem bean, ImageButton voice_play,
                                   ProgressBar progressbar, boolean isPlayResult) {
             this.mBean = bean;
             this.voice_play = voice_play;
-            this.animationDrawable = mAnimationDrawable;
             this.play_content_btn_progressbar = progressbar;
             this.isPlayResult = isPlayResult;
         }
@@ -145,13 +142,12 @@ public class RcCollectTranslateLiatItemViewHolder extends RecyclerView.ViewHolde
         public void onClick(final View v) {
             String filepath = "";
             String speakContent = "";
-            String path = SDCardUtil.getDownloadPath(SDCardUtil.sdPath);
             if (isPlayResult) {
                 speakContent = mBean.getDesc();
             } else {
                 speakContent = mBean.getName();
             }
-            PlayUtil.play(filepath, speakContent, animationDrawable,
+            PlayUtil.play(filepath, speakContent,
                 new SynthesizerListener() {
                     @Override
                     public void onSpeakResumed() {

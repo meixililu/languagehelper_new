@@ -155,8 +155,8 @@ public class DictionaryHelper {
         Pattern pattern1 = Pattern.compile(pats1);
         String pats2 = "美.*\\[";
         Pattern pattern2 = Pattern.compile(pats2);
-        LogUtil.DefalutLog("pattern1:"+pattern1.matcher(result).find());
-        LogUtil.DefalutLog("pattern2:"+pattern2.matcher(result).find());
+//        LogUtil.DefalutLog("pattern1:"+pattern1.matcher(result).find());
+//        LogUtil.DefalutLog("pattern2:"+pattern2.matcher(result).find());
         if(pattern1.matcher(result).find() || pattern2.matcher(result).find()){
             String[] texts = result.split("\n");
             if (texts != null && texts.length > 0) {

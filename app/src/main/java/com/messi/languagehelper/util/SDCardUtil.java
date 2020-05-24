@@ -185,13 +185,44 @@ public class SDCardUtil {
 	 * @param sPath
 	 * @return
 	 */
-	public static boolean deleteFile(String sPath) throws Exception{  
-		File file = new File(sPath);  
-	    /**路径为文件且不为空则进行删除**/  
-	    if (file.isFile() && file.exists()) {  
-	        return file.delete();  
-	    }  
-	    return false;  
+	public static boolean deleteFile(String sPath){
+		try {
+			File file = new File(sPath);
+			/**路径为文件且不为空则进行删除**/
+			if (file.isFile() && file.exists()) {
+				return file.delete();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	public static void deleteContent(String... contents){
+		try {
+			new Thread(() -> {
+				if (contents != null) {
+					for(String item : contents){
+						deleteContent(item);
+					}
+				}
+			}).start();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void deleteContent(String content){
+		try {
+			String path = SDCardUtil.getDownloadPath(SDCardUtil.sdPath);
+			String md5 = MD5.encode(content);
+			String mp3Path = path + md5 + ".mp3";
+			String pcmPath = path + md5 + ".pcm";
+			deleteFile(mp3Path);
+			deleteFile(pcmPath);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

@@ -488,6 +488,9 @@ public class TranslateHelper {
                             resutlStr = sb.toString();
                         }
                         currentDialogBean = new Record(resutlStr, Setings.q);
+                        currentDialogBean.setPh_am_mp3(mIciba.getContent().getPh_am_mp3());
+                        currentDialogBean.setPh_en_mp3(mIciba.getContent().getPh_en_mp3());
+                        currentDialogBean.setPh_tts_mp3(mIciba.getContent().getPh_tts_mp3());
                         currentDialogBean.setBackup1(sbplay.toString());
                         if (!TextUtils.isEmpty(mIciba.getContent().getPh_tts_mp3())) {
                             currentDialogBean.setBackup3(mIciba.getContent().getPh_tts_mp3());

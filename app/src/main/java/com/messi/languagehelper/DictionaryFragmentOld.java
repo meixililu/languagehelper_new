@@ -26,6 +26,7 @@ import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.DictionaryHelper;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.MD5;
 import com.messi.languagehelper.util.NetworkUtil;
 import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.PlayUtil;
@@ -293,6 +294,12 @@ public class DictionaryFragmentOld extends BaseFragment implements
         LogUtil.DefalutLog("---DictionaryFragmentOld---onEvent");
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mDictionaryBean = null;
+    }
+
     private void reloadData() {
         isNeedRefresh = true;
         beans.clear();
@@ -319,17 +326,17 @@ public class DictionaryFragmentOld extends BaseFragment implements
         String speakContent = "";
         String path = SDCardUtil.getDownloadPath(SDCardUtil.sdPath);
         if (isPlayResult) {
+            speakContent = result;
             if (TextUtils.isEmpty(mBean.getResultVoiceId())) {
-                mBean.setResultVoiceId(System.currentTimeMillis() + 5 + "");
+                mBean.setResultVoiceId(MD5.encode(speakContent));
             }
             filepath = path + mBean.getResultVoiceId() + ".pcm";
-            speakContent = result;
         } else {
+            speakContent = mBean.getWord_name();
             if (TextUtils.isEmpty(mBean.getQuestionVoiceId())) {
-                mBean.setQuestionVoiceId(System.currentTimeMillis() + "");
+                mBean.setQuestionVoiceId(MD5.encode(speakContent));
             }
             filepath = path + mBean.getQuestionVoiceId() + ".pcm";
-            speakContent = mBean.getWord_name();
         }
         PlayUtil.play(filepath, speakContent, null,
                 new SynthesizerListener() {
@@ -356,7 +363,6 @@ public class DictionaryFragmentOld extends BaseFragment implements
                         if (arg0 != null) {
                             ToastUtil.diaplayMesShort(getContext(), arg0.getErrorDescription());
                         }
-                        BoxHelper.update(mBean);
                     }
 
                     @Override
@@ -370,5 +376,6 @@ public class DictionaryFragmentOld extends BaseFragment implements
                     public void onEvent(int arg0, int arg1, int arg2, Bundle arg3) {
                     }
                 });
+        BoxHelper.update(mBean);
     }
 }

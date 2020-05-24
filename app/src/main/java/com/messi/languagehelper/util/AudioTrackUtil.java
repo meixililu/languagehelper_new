@@ -71,10 +71,10 @@ public class AudioTrackUtil {
 	public static AudioTrack createAudioTrack(String path) {
 		try {
 	    	byte[] audioData = getBytes(path);
-	        int minBufferSize = AudioTrack.getMinBufferSize(8000, 
+	        int minBufferSize = AudioTrack.getMinBufferSize(16000,
 	        		AudioFormat.CHANNEL_OUT_STEREO,
 	        		AudioFormat.ENCODING_PCM_16BIT); 
-	        AudioTrack audioTrack = new AudioTrack(AudioManager.STREAM_MUSIC, 8000, AudioFormat.CHANNEL_OUT_STEREO,
+	        AudioTrack audioTrack = new AudioTrack(AudioManager.STREAM_MUSIC, 16000, AudioFormat.CHANNEL_OUT_STEREO,
 					AudioFormat.ENCODING_PCM_16BIT, 
 					minBufferSize*2,
 					AudioTrack.MODE_STREAM);

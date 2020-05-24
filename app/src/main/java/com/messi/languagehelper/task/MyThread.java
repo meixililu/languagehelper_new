@@ -52,7 +52,6 @@ public class MyThread implements Runnable {
 				int offset = 0;
 				while (!Thread.currentThread().isInterrupted() && isPlaying) {
 					try {
-	//					Thread.sleep(0);
 						offset = index * playSize;
 						if (offset >= data.length) {
 							isPlaying = false;
