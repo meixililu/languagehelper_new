@@ -34,14 +34,12 @@
         <TextView
             android:id="@+id/english_txt"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginTop="@dimen/padding_7"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/padding_10"
             android:layout_marginRight="@dimen/padding_10"
             android:gravity="left|bottom"
             android:textColor="@color/white_alph_dark"
-            android:textSize="@dimen/biggerx" />
+            android:textSize="@dimen/bigger" />
 
         <TextView
             android:id="@+id/chinese_txt"
@@ -53,15 +51,15 @@
             android:layout_marginBottom="@dimen/padding_10"
             android:gravity="left"
             android:textColor="@color/white_alph"
-            android:textSize="@dimen/middle" />
+            android:textSize="@dimen/small" />
     </LinearLayout>
 	<ImageView
-                android:id="@+id/play_img"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:layout_gravity="right|top"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/ic_play_circle_outline_white_48dp" 
-                />
+        android:id="@+id/play_img"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="right|top"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/ic_play_circle_outline_white_48dp"
+        />
 </FrameLayout>

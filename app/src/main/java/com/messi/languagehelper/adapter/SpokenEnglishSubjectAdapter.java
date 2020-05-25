@@ -26,7 +26,7 @@ public class SpokenEnglishSubjectAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if( position == 0 ){
-            return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,"0");
+            return SubjectFragment.getInstance(AVOUtil.Category.spoken_english,"0","","");
         }else if( position == 1 ){
             return SubjectByTypeFragment.getInstance(AVOUtil.Category.business,KeyUtil.RecentBusiness);
         }

@@ -116,7 +116,9 @@ public class RcTranslateLiatItemViewHolder extends RecyclerView.ViewHolder {
             @Override
             public void onClick(View v) {
                 String text = "";
-                if(mBean.getEnglish().contains("英[") || mBean.getEnglish().contains("美[")){
+                String pats1 = "英.*\\[";
+                Pattern pattern1 = Pattern.compile(pats1);
+                if(pattern1.matcher(mBean.getEnglish()).find()){
                     text = mBean.getChinese()+"\n"+mBean.getEnglish();
                 }else{
                     text = mBean.getEnglish();

@@ -5,11 +5,12 @@ import android.media.AudioManager;
 import android.media.AudioRecord;
 import android.media.AudioTrack;
 
+import com.messi.languagehelper.impl.PCMAudioPlayerListener;
+import com.messi.languagehelper.task.PublicTask;
+
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class PCMAudioPlayer {
 
@@ -19,13 +20,14 @@ public class PCMAudioPlayer {
     private static final int DEFAULT_SAMPLE_RATE = 16000;//采样频率
     private static final int DEFAULT_CHANNEL_CONFIG = AudioFormat.CHANNEL_OUT_MONO;//注意是out
     private static final int DEFAULT_AUDIO_FORMAT = AudioFormat.ENCODING_PCM_16BIT;
-    private final ExecutorService mExecutorService;
 
     private AudioTrack audioTrack;//音轨
     private DataInputStream dis;//流
     private boolean isPlaying = false;
     private static PCMAudioPlayer mInstance;//单例
     private int mMinBufferSize;//最小缓存大小
+
+    private PCMAudioPlayerListener listener;
 
     public PCMAudioPlayer() {
         mMinBufferSize = AudioTrack.getMinBufferSize(
@@ -34,7 +36,6 @@ public class PCMAudioPlayer {
         audioTrack = new AudioTrack(
                 DEFAULT_STREAM_TYPE, DEFAULT_SAMPLE_RATE, DEFAULT_CHANNEL_CONFIG,
                 DEFAULT_AUDIO_FORMAT, mMinBufferSize * 2, DEFAULT_PLAY_MODE);
-        mExecutorService = Executors.newSingleThreadExecutor();//线程池
     }
 
     /**
@@ -73,7 +74,7 @@ public class PCMAudioPlayer {
         try {
             isPlaying = true;
             setPath(path);//设置路径--生成流dis
-            mExecutorService.execute(new PlayRunnable());//启动播放线程
+            playTask();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -93,6 +94,9 @@ public class PCMAudioPlayer {
             if (dis != null) {
                 dis.close();
             }
+            if (listener != null) {
+                listener.onFinish();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -109,32 +113,53 @@ public class PCMAudioPlayer {
         if (audioTrack != null) {
             audioTrack.release();
         }
-        mExecutorService.shutdownNow();//停止线程池
     }
 
-    //播放线程
-    private class PlayRunnable implements Runnable {
-        @Override
-        public void run() {
-            try {
-                //标准较重要音频播放优先级
-                android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_URGENT_AUDIO);
-                byte[] tempBuffer = new byte[mMinBufferSize];
-                int readCount = 0;
-                while (dis.available() > 0) {
-                    readCount = dis.read(tempBuffer);//读流
-                    if (readCount == AudioTrack.ERROR_INVALID_OPERATION || readCount == AudioTrack.ERROR_BAD_VALUE) {
-                        continue;
-                    }
-                    if (readCount != 0 && readCount != -1) {//
-                        audioTrack.play();
-                        audioTrack.write(tempBuffer, 0, readCount);
-                    }
+    public void setListener(PCMAudioPlayerListener listener) {
+        this.listener = listener;
+    }
+
+    private void playTask() {
+        PublicTask mPublicTask = new PublicTask();
+        mPublicTask.setmPublicTaskListener(new PublicTask.PublicTaskListener() {
+            @Override
+            public void onPreExecute() {
+                if (listener != null) {
+                    listener.onStart();
                 }
-                stopPlay();
-            } catch (Exception e) {
-                e.printStackTrace();
             }
+
+            @Override
+            public Object doInBackground() {
+                runPlayTask();
+                return null;
+            }
+
+            @Override
+            public void onFinish(Object resutl) {
+                stopPlay();
+            }
+        });
+        mPublicTask.execute();
+    }
+
+    private void runPlayTask(){
+        try {
+            android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_URGENT_AUDIO);
+            byte[] tempBuffer = new byte[mMinBufferSize];
+            int readCount = 0;
+            while (dis.available() > 0) {
+                readCount = dis.read(tempBuffer);//读流
+                if (readCount == AudioTrack.ERROR_INVALID_OPERATION || readCount == AudioTrack.ERROR_BAD_VALUE) {
+                    continue;
+                }
+                if (readCount != 0 && readCount != -1) {//
+                    audioTrack.play();
+                    audioTrack.write(tempBuffer, 0, readCount);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

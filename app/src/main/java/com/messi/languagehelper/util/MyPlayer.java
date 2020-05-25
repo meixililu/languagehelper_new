@@ -2,18 +2,27 @@ package com.messi.languagehelper.util;
 
 import android.content.Context;
 import android.net.Uri;
+import android.os.Bundle;
 import android.text.TextUtils;
 
+import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.ExoPlayerFactory;
+import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
+import com.google.android.exoplayer2.Timeline;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
+import com.google.android.exoplayer2.source.TrackGroupArray;
+import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
+import com.messi.languagehelper.impl.MyPlayerListener;
+import com.messi.languagehelper.impl.PCMAudioPlayerListener;
 
 public class MyPlayer {
 
@@ -21,6 +30,9 @@ public class MyPlayer {
     private SimpleExoPlayer exoPlayer;
     private Context context;
     private String lastContent;
+    private MyPlayerListener listener;
+    private ExoPlayerEventListener mExoPlayerEventListener;
+    private boolean isDownload;
 
     public static MyPlayer getInstance(Context context){
         if (myPlayer == null) {
@@ -30,8 +42,11 @@ public class MyPlayer {
     }
 
     public MyPlayer(Context mContext){
+        isDownload = true;
         context = mContext.getApplicationContext();
+        mExoPlayerEventListener = new ExoPlayerEventListener();
         exoPlayer = ExoPlayerFactory.newSimpleInstance(context);
+        exoPlayer.addListener(mExoPlayerEventListener);
     }
 
     public void startMedia(String media_url){
@@ -54,7 +69,8 @@ public class MyPlayer {
     }
 
     public void start(String content, String media_url, SynthesizerListener mListener){
-        LogUtil.DefalutLog("isPlaying:"+isPlaying()+"---content:"+content + "---media_url:"+media_url);
+        LogUtil.DefalutLog("content:"+content + "---media_url:"+media_url);
+        LogUtil.DefalutLog("lastContent:"+lastContent);
         if (isPlaying()) {
             stop();
             if (!content.equals(lastContent)) {
@@ -78,10 +94,23 @@ public class MyPlayer {
                 playMediaUrl(mp3Path);
                 return;
             }else if (SDCardUtil.isFileExist(pcmPath)) {
-                playPcm(pcmPath);
+                if (!TextUtils.isEmpty(media_url)) {
+                    playMediaUrl(media_url);
+                    if (isDownload) {
+                        DownLoadUtil.downloadFile(context, media_url, SDCardUtil.sdPath, fileName, null);
+                    } else {
+                        isDownload = true;
+                    }
+                } else {
+                    playPcm(pcmPath);
+                }
                 return;
             }else if (!TextUtils.isEmpty(media_url)) {
-                DownLoadUtil.downloadFile(context, media_url, SDCardUtil.sdPath, fileName, null);
+                if (isDownload) {
+                    DownLoadUtil.downloadFile(context, media_url, SDCardUtil.sdPath, fileName, null);
+                } else {
+                    isDownload = true;
+                }
             }
         }
         if (!TextUtils.isEmpty(media_url)) {
@@ -100,13 +129,28 @@ public class MyPlayer {
         LogUtil.DefalutLog("---playTTS---");
         if (!TextUtils.isEmpty(content)) {
             lastContent = content;
-            showSpeechSynthesizer(context, content,"", mListener);
+            if (mListener == null) {
+                showSpeechSynthesizer(context, content,"", mSynthesizerListener);
+            } else {
+                showSpeechSynthesizer(context, content,"", mListener);
+            }
         }
     }
 
     public void playPcm(String filePath){
         LogUtil.DefalutLog("---playPcm---"+filePath);
         if (!TextUtils.isEmpty(filePath)) {
+            PCMAudioPlayer.getInstance().setListener(new PCMAudioPlayerListener() {
+                @Override
+                public void onStart() {
+                    MyPlayer.this.onStart();
+                }
+
+                @Override
+                public void onFinish() {
+                    MyPlayer.this.onFinish();
+                }
+            });
             PCMAudioPlayer.getInstance().startPlay(filePath);
         }
     }
@@ -162,6 +206,128 @@ public class MyPlayer {
         mSpeechSynthesizer.startSpeaking(source, mSynthesizerListener);
     }
 
+    public void setListener(MyPlayerListener listener){
+        this.listener = listener;
+    }
+
+    public class ExoPlayerEventListener implements Player.EventListener {
+
+        @Override
+        public void onTimelineChanged(Timeline timeline, Object manifest, int reason) {
+            LogUtil.DefalutLog("---onTimelineChanged---");
+        }
+
+        @Override
+        public void onTracksChanged(TrackGroupArray trackGroups, TrackSelectionArray trackSelections) {
+            LogUtil.DefalutLog("---onTracksChanged---");
+        }
+
+        @Override
+        public void onLoadingChanged(boolean isLoading) {
+            LogUtil.DefalutLog("---onLoadingChanged---");
+        }
+
+        @Override
+        public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
+            LogUtil.DefalutLog("---onPlayerStateChanged---");
+            switch (playbackState) {
+                case Player.STATE_IDLE:
+                    LogUtil.DefalutLog("STATE_IDLE");
+                    break;
+                case Player.STATE_BUFFERING:
+                    LogUtil.DefalutLog("STATE_BUFFERING");
+                    break;
+                case Player.STATE_READY:
+                    LogUtil.DefalutLog("STATE_READY");
+                    if (playWhenReady) {
+                        onStart();
+                    }
+                    break;
+                case Player.STATE_ENDED:
+                    onFinish();
+                    break;
+            }
+        }
+        @Override
+        public void onRepeatModeChanged(int repeatMode) {
+            LogUtil.DefalutLog("---onRepeatModeChanged---");
+        }
+
+        @Override
+        public void onShuffleModeEnabledChanged(boolean shuffleModeEnabled) {
+            LogUtil.DefalutLog("---onShuffleModeEnabledChanged---");
+        }
+
+        @Override
+        public void onPlayerError(ExoPlaybackException error) {
+        }
+
+        @Override
+        public void onPositionDiscontinuity(int reason) {
+            LogUtil.DefalutLog("---onPositionDiscontinuity---");
+        }
+
+        @Override
+        public void onPlaybackParametersChanged(PlaybackParameters playbackParameters) {
+            LogUtil.DefalutLog("---onPlaybackParametersChanged---");
+        }
+
+        @Override
+        public void onSeekProcessed() {
+            LogUtil.DefalutLog("---onSeekProcessed---");
+        }
+    }
+
+    private SynthesizerListener mSynthesizerListener = new SynthesizerListener() {
+        @Override
+        public void onSpeakBegin() {
+            onStart();
+        }
+
+        @Override
+        public void onBufferProgress(int i, int i1, int i2, String s) {
+        }
+
+        @Override
+        public void onSpeakPaused() {
+        }
+
+        @Override
+        public void onSpeakResumed() {
+        }
+
+        @Override
+        public void onSpeakProgress(int i, int i1, int i2) {
+        }
+
+        @Override
+        public void onCompleted(SpeechError speechError) {
+            onFinish();
+        }
+
+        @Override
+        public void onEvent(int i, int i1, int i2, Bundle bundle) {
+        }
+    };
+
+    public void setDownload(boolean download) {
+        isDownload = download;
+    }
+
+    public void onStart(){
+        LogUtil.DefalutLog("MyPlayer onStart");
+        if (listener != null) {
+            listener.onStart();
+        }
+    }
+
+    public void onFinish(){
+        LogUtil.DefalutLog("MyPlayer onFinish");
+        if (listener != null) {
+            listener.onFinish();
+        }
+    }
+
     public static void release(){
         try {
             if (myPlayer != null) {
@@ -178,5 +344,4 @@ public class MyPlayer {
             e.printStackTrace();
         }
     }
-
 }

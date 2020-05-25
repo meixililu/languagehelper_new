@@ -1,7 +1,5 @@
 package com.messi.languagehelper.adapter;
 
-import android.app.Activity;
-import android.media.MediaPlayer;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,17 +20,13 @@ import java.util.List;
 public class RcDailySentenceListAdapter extends HeaderFooterRecyclerViewAdapter<RecyclerView.ViewHolder, Object, EveryDaySentence, Object> {
 
 
-    private Activity context;
     private List<EveryDaySentence> beans;
-    private MediaPlayer mPlayer;
     private FragmentProgressbarListener mProgressbarListener;
     private XFYSAD mXFYSAD;
 
-    public RcDailySentenceListAdapter(Activity context, List<EveryDaySentence> beans, MediaPlayer mPlayer,
+    public RcDailySentenceListAdapter(List<EveryDaySentence> beans,
                                       FragmentProgressbarListener mProgressbarListener, XFYSAD mXFYSAD) {
-        this.context = context;
         this.beans = beans;
-        this.mPlayer = mPlayer;
         this.mProgressbarListener = mProgressbarListener;
         this.mXFYSAD = mXFYSAD;
     }
@@ -53,7 +47,7 @@ public class RcDailySentenceListAdapter extends HeaderFooterRecyclerViewAdapter<
     protected RecyclerView.ViewHolder onCreateItemViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = getLayoutInflater(parent);
         View characterView = inflater.inflate(R.layout.daily_sentence_list_item, parent, false);
-        return new RcDailySentenceListItemViewHolder(characterView, context, beans, mPlayer, mProgressbarListener, this);
+        return new RcDailySentenceListItemViewHolder(characterView, beans, mProgressbarListener, this);
     }
 
     @Override
@@ -62,18 +56,6 @@ public class RcDailySentenceListAdapter extends HeaderFooterRecyclerViewAdapter<
         RcDailySentenceListItemViewHolder itemViewHolder = (RcDailySentenceListItemViewHolder) holder;
         itemViewHolder.render(mAVObject);
     }
-
-//    @Override
-//    protected RecyclerView.ViewHolder onCreateFooterViewHolder(ViewGroup parent, int viewType) {
-//        LayoutInflater inflater = getLayoutInflater(parent);
-//        View footerView = inflater.inflate(R.layout.footerview, parent, false);
-//        return new RcLmFooterViewHolder(footerView);
-//    }
-//
-//    @Override
-//    protected void onBindFooterViewHolder(RecyclerView.ViewHolder holder, int position) {
-//        super.onBindFooterViewHolder(holder, position);
-//    }
 
     private LayoutInflater getLayoutInflater(ViewGroup parent) {
         return LayoutInflater.from(parent.getContext());

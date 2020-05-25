@@ -19,16 +19,18 @@ public class RcXVideoAdapter extends HeaderFooterRecyclerViewAdapter<RecyclerVie
 
 
     private List<AVObject> mAVObjects;
+    private String category;
 
-    public RcXVideoAdapter(List<AVObject> mAVObjects){
+    public RcXVideoAdapter(List<AVObject> mAVObjects,String category){
         this.mAVObjects = mAVObjects;
+        this.category = category;
     }
 
     @Override
     protected RecyclerView.ViewHolder onCreateItemViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = getLayoutInflater(parent);
         View characterView = inflater.inflate(R.layout.xvideo_list_item, parent, false);
-        return new RcXVideoListItemViewHolder(characterView,mAVObjects);
+        return new RcXVideoListItemViewHolder(characterView, mAVObjects, category);
     }
 
     @Override

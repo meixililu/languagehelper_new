@@ -1,6 +1,5 @@
 package com.messi.languagehelper.task;
 
-import android.content.Context;
 import android.os.AsyncTask;
 /**
  * @author Messi
@@ -9,10 +8,8 @@ import android.os.AsyncTask;
 public class PublicTask extends AsyncTask<Void, Void, Object> {
 
 	private PublicTaskListener mPublicTaskListener;
-	private Context mContext;
-	
-	public PublicTask(Context mContext){
-		this.mContext = mContext;
+
+	public PublicTask(){
 	}
 	
 	@Override

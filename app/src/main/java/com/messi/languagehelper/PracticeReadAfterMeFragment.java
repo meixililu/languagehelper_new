@@ -427,7 +427,7 @@ public class PracticeReadAfterMeFragment extends BaseFragment implements OnClick
     }
 
     private void playLocalPcm(final String path, final AnimationDrawable animationDrawable) {
-        PublicTask mPublicTask = new PublicTask(getActivity());
+        PublicTask mPublicTask = new PublicTask();
         mPublicTask.setmPublicTaskListener(new PublicTaskListener() {
             @Override
             public void onPreExecute() {

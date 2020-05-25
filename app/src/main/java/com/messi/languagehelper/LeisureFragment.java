@@ -104,6 +104,8 @@ public class LeisureFragment extends BaseFragment {
     FrameLayout layout_conjecture;
     @BindView(R.id.layout_history)
     FrameLayout layout_history;
+    @BindView(R.id.radio_layout)
+    FrameLayout radio_layout;
     @BindView(R.id.layout_xiehouyu)
     FrameLayout layout_xiehouyu;
     @BindView(R.id.layout_tongue_twister)
@@ -258,7 +260,8 @@ public class LeisureFragment extends BaseFragment {
             R.id.twists_layout, R.id.game_layout, R.id.shenhuifu_layout, R.id.news_layout, R.id.app_layout,
             R.id.invest_layout, R.id.layout_riddle, R.id.search_layout,R.id.novel_layout, R.id.caricature_layout,
             R.id.jd_layout,R.id.english_essay_layout,R.id.layout_whyy,R.id.layout_conjecture,R.id.layout_history,
-            R.id.layout_xiehouyu,R.id.layout_tongue_twister,R.id.layout_meiriyiju,R.id.ksearch_layout})
+            R.id.layout_xiehouyu,R.id.layout_tongue_twister,R.id.layout_meiriyiju,R.id.ksearch_layout,
+            R.id.radio_layout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.cailing_layout:
@@ -327,10 +330,20 @@ public class LeisureFragment extends BaseFragment {
             case R.id.layout_tongue_twister:
                 toTongueTwister();
                 break;
+            case R.id.radio_layout:
+                toRadioActivity();
+                break;
             case R.id.layout_whyy:
                 toProverb();
                 break;
         }
+    }
+
+    private void toRadioActivity(){
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(KeyUtil.FragmentName, XimalayaRadioHomeFragment.class);
+        bundle.putString(KeyUtil.ActionbarTitle,getResources().getString(R.string.title_radio));
+        toActivity(EmptyActivity.class,bundle);
     }
 
     private void toMeiriyiju(){
@@ -420,7 +433,7 @@ public class LeisureFragment extends BaseFragment {
     private void toXVedio() {
         Intent intent = new Intent(getContext(), XVideoHomeActivity.class);
         if (getContext().getPackageName().equals(Setings.application_id_yys)){
-            intent.putExtra(KeyUtil.Category, "推荐");
+            intent.putExtra(KeyUtil.Category, "粤语");
             intent.putExtra(KeyUtil.ActionbarTitle, getContext().getResources().getString(R.string.title_xvideo_yys));
         }else {
             intent.putExtra(KeyUtil.Category, "英语");

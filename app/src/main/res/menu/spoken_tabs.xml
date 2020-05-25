@@ -8,14 +8,14 @@
         android:title="@string/selection" />
 
     <item
-        android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_subject_black_24dp"
-        android:title="@string/title_study_category" />
-
-    <item
         android:id="@+id/navigation_practice"
         android:icon="@drawable/ic_group_black_24dp"
         android:title="@string/title_TranslatePractice" />
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_subject_black_24dp"
+        android:title="@string/title_study_category" />
 
     <item
         android:id="@+id/navigation_word_study"

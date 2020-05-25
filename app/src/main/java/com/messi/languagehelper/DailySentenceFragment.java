@@ -1,7 +1,6 @@
 package com.messi.languagehelper;
 
 import android.content.Context;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,6 +17,7 @@ import com.messi.languagehelper.box.EveryDaySentence;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.MyPlayer;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.XFYSAD;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
@@ -36,10 +36,8 @@ import io.reactivex.schedulers.Schedulers;
 public class DailySentenceFragment extends BaseFragment implements OnClickListener {
 
     private RecyclerView recent_used_lv;
-    private LayoutInflater mInflater;
     private RcDailySentenceListAdapter mAdapter;
     private List<EveryDaySentence> beans;
-    private MediaPlayer mPlayer;
     private XFYSAD mXFYSAD;
 
     @Override
@@ -69,12 +67,10 @@ public class DailySentenceFragment extends BaseFragment implements OnClickListen
 
     private void init(View view) {
         try {
-            mPlayer = new MediaPlayer();
-            mInflater = LayoutInflater.from(getContext());
             beans = new ArrayList<EveryDaySentence>();
             mXFYSAD = new XFYSAD(getActivity(), ADUtil.MRYJYSNRLAd);
             recent_used_lv = (RecyclerView) view.findViewById(R.id.listview);
-            mAdapter = new RcDailySentenceListAdapter(getActivity(), beans, mPlayer, mProgressbarListener, mXFYSAD);
+            mAdapter = new RcDailySentenceListAdapter(beans, mProgressbarListener, mXFYSAD);
             mAdapter.setHeader(new Object());
             mAdapter.setItems(beans);
             mXFYSAD.setAdapter(mAdapter);
@@ -135,7 +131,7 @@ public class DailySentenceFragment extends BaseFragment implements OnClickListen
     private void getServiceData() {
         AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.DailySentence.DailySentence);
         query.orderByDescending(AVOUtil.DailySentence.dateline);
-        query.limit(30);
+        query.limit(80);
         try {
             List<AVObject> sentences = query.find();
             if (sentences != null && !sentences.isEmpty()) {
@@ -166,11 +162,7 @@ public class DailySentenceFragment extends BaseFragment implements OnClickListen
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        if (mPlayer != null) {
-            mPlayer.stop();
-            mPlayer.release();
-            mPlayer = null;
-        }
+        MyPlayer.getInstance(getContext()).stop();
         if(mXFYSAD != null){
             mXFYSAD.onDestroy();
         }

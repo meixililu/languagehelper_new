@@ -3,7 +3,6 @@ package com.messi.languagehelper;
 import android.content.Intent;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
-import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Build;
 import android.os.Bundle;
@@ -21,7 +20,7 @@ import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.WordDetailListItem;
 import com.messi.languagehelper.databinding.WordDetailActivityBinding;
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.MyPlayer;
 import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.Setings;
@@ -35,7 +34,6 @@ public class WordDetailActivity extends BaseActivity {
     private WordDetailActivityBinding binding;
     private int totalSum;
     private int position;
-    private MediaPlayer mPlayer;
     private List<Integer> randomPlayIndex;
     private String wordTestType;
     private int index;
@@ -63,7 +61,6 @@ public class WordDetailActivity extends BaseActivity {
             ToastUtil.diaplayMesShort(this,"没有单词，请退出重试！");
             finish();
         }
-        mPlayer = new MediaPlayer();
         totalSum = itemList.size();
         randomPlayIndex = NumberUtil.getNumberOrderNotRepeat(totalSum - 1, 0);
         index = 0;
@@ -93,7 +90,7 @@ public class WordDetailActivity extends BaseActivity {
             WordDetailListItem item = itemList.get(position);
             index++;
             if (item != null && !item.isIs_know()) {
-                playMp3(item.getSound());
+                playMp3(item.getName(),item.getSound());
                 binding.contentLayout.removeAllViews();
                 binding.contentLayout.addView(initRecognizeView(item),new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
             }else {
@@ -110,24 +107,8 @@ public class WordDetailActivity extends BaseActivity {
         }
     }
 
-    public void playMp3(String url) {
-        try {
-            if (TextUtils.isEmpty(url)) {
-                LogUtil.DefalutLog("url is null:"+url);
-                return;
-            }
-            if (mPlayer.isPlaying()) {
-                mPlayer.stop();
-            }
-            mPlayer.reset();
-            mPlayer.setDataSource(url);
-            mPlayer.prepareAsync();
-            mPlayer.setOnPreparedListener(mp -> {
-                mPlayer.start();
-            });
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void playMp3(String content, String url) {
+        MyPlayer.getInstance(this).start(content,url);
     }
 
     private View initRecognizeView(WordDetailListItem item){
@@ -164,14 +145,14 @@ public class WordDetailActivity extends BaseActivity {
             if(this.getResources().getString(R.string.practice_next).equals(des)){
                 setData();
             }else {
-                playMp3(item.getSound());
+                playMp3(item.getName(),item.getSound());
                 word_des.setText(item.getDesc());
                 recognize_know.setEnabled(false);
                 recognize_unknow.setText(this.getResources().getString(R.string.practice_next));
             }
         });
         recognizeView.setOnClickListener(v -> {
-            playMp3(item.getSound());
+            playMp3(item.getName(),item.getSound());
         });
         return recognizeView;
     }
@@ -194,7 +175,7 @@ public class WordDetailActivity extends BaseActivity {
         TextView selection_4 = checkIsKnowView.findViewById(R.id.selection_4);
         word_tv.setText(item.getName());
         word_layout.setOnClickListener(v -> {
-            playMp3(item.getSound());
+            playMp3(item.getName(),item.getSound());
         });
         List<Integer> tv_list = NumberUtil.getRanbomNumberContantExceptAndNotRepeat(
                 totalSum < 4 ? 10 : totalSum,

@@ -80,7 +80,7 @@
     <string name="title_web_AmericanLife">AmericanLife</string>
     <string name="title_composition">Composition</string>
     <string name="title_com_exam">ComAndExam</string>
-    <string name="title_grammer_story">GrammerStory</string>
+    <string name="title_grammer_story">Grammer</string>
     <string name="title_sure">Sure</string>
     <string name="dic_minimalist">Minimalist</string>
     <string name="play_video_background">Background</string>
@@ -104,6 +104,7 @@
     <string name="title_disagree">Disagree</string>
     <string name="reading">Reading</string>
     <string name="foreign_website">Website</string>
+    <string name="title_radio">Radio</string>
     <string name="menu_share">DIY Share</string>
     <string name="title_style">Theme</string>
     <string name="invite_friends_qrcode">QR Code</string>
@@ -377,7 +378,7 @@
     <string name="empty">Clear</string>
     <string name="title_speak_basic">Basic</string>
     <string name="title_speak_dialog">Dialogue</string>
-    <string name="title_ai_dialog_choice_course" >Choose Course</string>
+    <string name="title_ai_dialog_choice_course" >Practice</string>
     <string name="random_course">Random</string>
     <string name="start_to_fight">Start To Fight</string>
     <string name="title_tuling_ai">Robot</string>

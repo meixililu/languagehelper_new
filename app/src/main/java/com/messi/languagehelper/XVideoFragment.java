@@ -52,6 +52,8 @@ public class XVideoFragment extends BaseFragment{
         XVideoFragment fragment = new XVideoFragment();
         if(keyword.equals("英语")){
             fragment.setCategory("english");
+        }else if(keyword.equals("粤语")){
+            fragment.setCategory("cantonese");
         }else if(keyword.equals("推荐")){
             fragment.setKeyword("");
             fragment.setCategory("");
@@ -77,7 +79,7 @@ public class XVideoFragment extends BaseFragment{
         mXXLModel = new XXLAVObjectZXModel(getContext(),1);
         category_lv = (RecyclerView) view.findViewById(R.id.listview);
         category_lv.setHasFixedSize(true);
-        mAdapter = new RcXVideoAdapter(mList);
+        mAdapter = new RcXVideoAdapter(mList, category);
         layoutManager = new GridLayoutManager(getContext(), NUMBER_OF_COLUMNS);
         HeaderSpanSizeLookup headerSpanSizeLookup = new HeaderSpanSizeLookup(mAdapter, layoutManager);
         layoutManager.setSpanSizeLookup(headerSpanSizeLookup);

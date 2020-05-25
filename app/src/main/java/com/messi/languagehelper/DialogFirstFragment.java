@@ -368,7 +368,7 @@ public class DialogFirstFragment extends BaseFragment implements OnClickListener
     }
 
     private void playLocalPcm(final String path, final AnimationDrawable animationDrawable) {
-        PublicTask mPublicTask = new PublicTask(getActivity());
+        PublicTask mPublicTask = new PublicTask();
         mPublicTask.setmPublicTaskListener(new PublicTaskListener() {
             @Override
             public void onPreExecute() {

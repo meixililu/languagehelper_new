@@ -243,7 +243,7 @@ public class WordStudyDanCiXuanYiActivity extends BaseActivity implements OnFini
     }
 
     private void playItem(WordDetailListItem mAVObject) {
-        if (TextUtils.isEmpty(mAVObject.getSound()) || mAVObject.getSound().equals("http://app1.showapi.com/en_word")) {
+        if (TextUtils.isEmpty(mAVObject.getSound())) {
             playWithSpeechSynthesizer(mAVObject);
         } else {
             String mp3Name = mAVObject.getSound().substring(mAVObject.getSound().lastIndexOf("/") + 1);

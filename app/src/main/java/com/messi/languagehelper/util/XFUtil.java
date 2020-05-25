@@ -162,7 +162,7 @@ public class XFUtil {
 	}
 	
 	public static void playPcm(Context mContext, final String filepath){
-		PublicTask mPublicTask = new PublicTask(mContext);
+		PublicTask mPublicTask = new PublicTask();
 		mPublicTask.setmPublicTaskListener(new PublicTaskListener() {
 			@Override
 			public void onPreExecute() {

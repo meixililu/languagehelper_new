@@ -385,6 +385,7 @@
     <string name="restart_success">重启应用才生效哦</string>
     <string name="title_grammar">语法</string>
     <string name="title_broadcast">电台</string>
+    <string name="title_radio">广播电台</string>
     <string name="title_business">行业</string>
     <string name="title_course">课程</string>
     <string name="title_level">分级</string>
@@ -400,7 +401,7 @@
     <string name="add_bookshelf_already">移出书架</string>
     <string name="title_speak_basic">口语基础</string>
     <string name="title_speak_dialog">口语对话</string>
-    <string name="title_ai_dialog_choice_course">场景</string>
+    <string name="title_ai_dialog_choice_course">口语练习</string>
     <string name="random_course">随机</string>
     <string name="start_to_fight">闯关</string>
     <string name="title_tuling_ai">AI</string>

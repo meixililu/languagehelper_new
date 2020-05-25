@@ -78,9 +78,7 @@ public class DictionaryHelper {
         dic_title_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(listener != null){
-                    listener.playPcm(result,false,"");
-                }
+                MyPlayer.getInstance(mContext).start(result.getWord_name());
             }
         });
         parentsLayout.addView(view,new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -119,7 +117,7 @@ public class DictionaryHelper {
         dic_content_title_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                XFUtil.play(playContent,"");
+                MyPlayer.getInstance(mContext).start(playContent);
             }
         });
         parentsLayout.addView(view,new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));

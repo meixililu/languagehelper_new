@@ -387,7 +387,7 @@ public class PracticeYYSActivity extends BaseActivity implements OnClickListener
     }
 
     private void playLocalPcm(final String path, final AnimationDrawable animationDrawable) {
-        PublicTask mPublicTask = new PublicTask(PracticeYYSActivity.this);
+        PublicTask mPublicTask = new PublicTask();
         mPublicTask.setmPublicTaskListener(new PublicTask.PublicTaskListener() {
             @Override
             public void onPreExecute() {

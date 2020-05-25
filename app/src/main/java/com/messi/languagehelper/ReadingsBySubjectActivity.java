@@ -52,8 +52,6 @@ public class ReadingsBySubjectActivity extends BaseActivity implements View.OnCl
 		subjectName = getIntent().getStringExtra(KeyUtil.SubjectName);
 		mReadingSubject = getIntent().getParcelableExtra(KeyUtil.ObjectKey);
 		objectId = mReadingSubject.getObjectId();
-		level = getIntent().getStringExtra(KeyUtil.LevelKey);
-
 		viewModel.init(this);
 		viewModel.getRepo().setSubjectName(subjectName);
 		viewModel.getRepo().setLevel(level);

@@ -39,10 +39,11 @@ public class RcXVideoListItemViewHolder extends RecyclerView.ViewHolder {
     private String category;
     private String keyword;
 
-    public RcXVideoListItemViewHolder(View convertView,List<AVObject> mAVObjects) {
+    public RcXVideoListItemViewHolder(View convertView,List<AVObject> mAVObjects,String category) {
         super(convertView);
         this.context = convertView.getContext();
         this.mAVObjects = mAVObjects;
+        this.category = category;
         cover = (View) convertView.findViewById(R.id.layout_cover);
         name = (TextView) convertView.findViewById(R.id.name);
         img = (SimpleDraweeView) convertView.findViewById(R.id.img);

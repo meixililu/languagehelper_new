@@ -85,7 +85,7 @@ public class StudyTabFragment extends BaseFragment implements TablayoutOnSelecte
 
     private void initFragment(){
         studyFragment = new ReadingFragment.Builder().build();
-        subjectFragment = SubjectFragment.getInstance("","","des","");
+        subjectFragment = SubjectFragment.getInstance("",500);
         boutiquesFragment = new BoutiquesFragment.Builder()
                 .type("english")
                 .build();

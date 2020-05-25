@@ -59,10 +59,10 @@ public class SubjectFragment extends BaseFragment {
     private int maxRandom;
     private XXLAVObjectModel mXXLModel;
 
-    public static SubjectFragment getInstance(String category, String level) {
+    public static SubjectFragment getInstance(String category, int maxRandom) {
         SubjectFragment fragment = new SubjectFragment();
         fragment.category = category;
-        fragment.level = level;
+        fragment.maxRandom = maxRandom;
         return fragment;
     }
 
@@ -88,6 +88,7 @@ public class SubjectFragment extends BaseFragment {
     @Override
     public void loadDataOnStart() {
         super.loadDataOnStart();
+        random();
         getDataTask();
         getMaxPageNumberBackground();
     }

@@ -69,12 +69,13 @@ public class ReadingListRepository {
         }
         loading = true;
         isLoading.setValue(true);
+        LogUtil.DefalutLog("subjectName:"+subjectName);
         AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.Reading.Reading);
         if(!TextUtils.isEmpty(category)){
             query.whereEqualTo(AVOUtil.Reading.category, category);
         }
         if (!TextUtils.isEmpty(subjectName)) {
-            query.whereEqualTo(AVOUtil.Reading.category_2, subjectName);
+            query.whereContains(AVOUtil.Reading.category_2, subjectName);
         }
         if(!TextUtils.isEmpty(level)){
             query.whereEqualTo(AVOUtil.Reading.level, level);
@@ -198,7 +199,7 @@ public class ReadingListRepository {
             public void done(int count, AVException e) {
                 total = count;
                 maxRandom = count/10;
-                mMutaCount.setValue(count/10);
+                mMutaCount.setValue(count);
             }
         });
     }

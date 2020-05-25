@@ -11,6 +11,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.SslErrorHandler;
@@ -37,6 +38,7 @@ import com.messi.languagehelper.ViewModel.FullScreenVideoADModel;
 import com.messi.languagehelper.adapter.RcXVideoDetailListAdapter;
 import com.messi.languagehelper.adapter.RcXVideoDetailListItemViewHolder;
 import com.messi.languagehelper.bean.PVideoResult;
+import com.messi.languagehelper.bean.ToutiaoVideoBean;
 import com.messi.languagehelper.bean.ToutiaoWebRootBean;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
@@ -50,6 +52,7 @@ import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NetworkUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.SignUtil;
+import com.messi.languagehelper.util.StringUtils;
 import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.ViewUtil;
@@ -57,6 +60,7 @@ import com.messi.languagehelper.util.ViewUtil;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.zip.CRC32;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -220,18 +224,26 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
             return;
         }
         if (!TextUtils.isEmpty(viewHolder.type)) {
-            if ("url_api".equals(viewHolder.type)) {
-                parseVideoUrl(viewHolder.Url,viewHolder.mAVObject);
+            String vid = viewHolder.mAVObject.getString(AVOUtil.XVideo.vid);
+            if (!TextUtils.isEmpty(vid)) {
+                parseToutiaoVid(vid,viewHolder.Url);
+            } else if ("url_api".equals(viewHolder.type)) {
+                parseVideoUrl(viewHolder.Url);
             } else if ("url_media".equals(viewHolder.type)) {
                 exoplaer(viewHolder.media_url);
             } else if ("url_intercept".equals(viewHolder.type) ) {
                 isIntercept = true;
+                if (viewHolder.Url != null && viewHolder.Url.contains("bilibili")) {
+                    mWebView.getSettings().setUserAgentString(Setings.Hearder);
+                }else {
+                    mWebView.getSettings().setUserAgentString("");
+                }
                 mWebView.loadUrl(viewHolder.Url);
             } else {
-                parseVideoUrl(viewHolder.Url,viewHolder.mAVObject);
+                parseVideoUrl(viewHolder.Url);
             }
         } else {
-            parseVideoUrl(viewHolder.Url,viewHolder.mAVObject);
+            parseVideoUrl(viewHolder.Url);
         }
     }
 
@@ -250,9 +262,6 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
         mWebView.requestFocus();
         mWebView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
         mWebView.getSettings().setJavaScriptEnabled(true);
-        if (viewHolder.Url.contains("bilibili")) {
-            mWebView.getSettings().setUserAgentString(Setings.Hearder);
-        }
         mWebView.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
@@ -270,7 +279,7 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
                 hideProgressbar();
                 hideCoverImg();
                 if (!isWVPSuccess && viewHolder != null) {
-                    parseVideoUrl(viewHolder.Url,viewHolder.mAVObject);
+                    parseVideoUrl(viewHolder.Url);
                 }
             }
             @Override
@@ -327,7 +336,7 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
             public void onFailured() {
                 LogUtil.DefalutLog("parseToutiaoWebApi-onFailured");
                 if(viewHolder != null){
-                    parseVideoUrl(viewHolder.Url,viewHolder.mAVObject);
+                    parseVideoUrl(viewHolder.Url);
                 }
             }
             @Override
@@ -368,7 +377,7 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
         });
     }
 
-    private void parseVideoUrl(String url,AVObject mAVObject) {
+    private void parseVideoUrl(String url) {
         LogUtil.DefalutLog("parseVideoUrl:"+url);
         if(TextUtils.isEmpty(url)){
             return;
@@ -393,8 +402,8 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
                      if (response.isSuccessful()) {
                          PVideoResult mResult = response.body();
                          if (mResult != null && !TextUtils.isEmpty(mResult.getUrl())) {
-                             if(mAVObject != null){
-                                 mAVObject.put(KeyUtil.VideoParseUrl,mResult.getUrl());
+                             if(viewHolder.mAVObject != null){
+                                 viewHolder.mAVObject.put(KeyUtil.VideoParseUrl,mResult.getUrl());
                              }
                              exoplaer(mResult.getUrl());
                          }
@@ -447,6 +456,7 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
         }
         loading = true;
         AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.XVideo.XVideo);
+        LogUtil.DefalutLog("category:"+category);
         if(!TextUtils.isEmpty(category)){
             query.whereEqualTo(AVOUtil.XVideo.category,category);
         }
@@ -465,22 +475,22 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
         query.findInBackground(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
-                loading = false;
-                if(list != null){
-                    if(list.size() == 0){
+            loading = false;
+            if(list != null){
+                if(list.size() == 0){
+                    hasMore = false;
+                }else {
+                    mAVObjects.addAll(list);
+                    loadAD();
+                    if(list.size() < Setings.page_size){
                         hasMore = false;
                     }else {
-                        mAVObjects.addAll(list);
-                        loadAD();
-                        if(list.size() < Setings.page_size){
-                            hasMore = false;
-                        }else {
-                            hasMore = true;
-                        }
+                        hasMore = true;
                     }
-                }else{
-                    ToastUtil.diaplayMesShort(XVideoDetailActivity.this, "加载失败，下拉可刷新");
                 }
+            }else{
+                ToastUtil.diaplayMesShort(XVideoDetailActivity.this, "加载失败，下拉可刷新");
+            }
             }
         });
     }
@@ -525,6 +535,60 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
         if(cover_img != null){
             cover_img.setVisibility(View.GONE);
         }
+    }
+
+    private void parseToutiaoVid(String vid,String backUrl){
+        LogUtil.DefalutLog("vid:"+vid);
+        String videoUrl = "";
+        try{
+//            String pattern = "\"vid\":\"(\\w*)\"";
+            String randint = StringUtils.getRandomString(16);
+            String videoid = "/video/urls/v/1/toutiao/mp4/"+vid+"?r="+randint;
+            CRC32 crc32 = new CRC32();
+            crc32.update(videoid.getBytes());
+            long checksum = crc32.getValue();
+            videoUrl = "http://i.snssdk.com" + videoid + "&s=" + checksum;
+            LogUtil.DefalutLog("videoid:"+videoid+"-videoUrl:"+videoUrl);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            parseToutiaoApi(videoUrl,backUrl);
+        }
+    }
+
+    private void parseToutiaoApi(String url,String backUrl){
+        LogUtil.DefalutLog("parseToutiaoApi");
+        LanguagehelperHttpClient.get(url,new UICallback(this){
+            @Override
+            public void onFailured() {
+                parseVideoUrl(backUrl);
+            }
+            @Override
+            public void onFinished() {
+            }
+            @Override
+            public void onResponsed(String responseStr) {
+//                LogUtil.DefalutLog("parseToutiaoApi-responseStr:"+responseStr);
+                String videoUrl = "";
+                try{
+                    ToutiaoVideoBean toutiaoVideo = JSON.parseObject(responseStr,ToutiaoVideoBean.class);
+                    if(toutiaoVideo.getCode() == 0){
+                        videoUrl = new String(
+                                Base64.decode(toutiaoVideo.getData().getVideo_list().
+                                        getVideo_1().getMain_url().getBytes(), Base64.DEFAULT));
+                    }
+                }catch (Exception e){
+                    onFailured();
+                    e.printStackTrace();
+                }finally {
+                    if(!TextUtils.isEmpty(videoUrl)){
+                        exoplaer(videoUrl);
+                    }else {
+                        onFailured();
+                    }
+                }
+            }
+        });
     }
 
 }
