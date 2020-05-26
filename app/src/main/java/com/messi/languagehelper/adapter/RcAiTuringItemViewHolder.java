@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.messi.languagehelper.AiTuringActivity;
@@ -37,7 +36,6 @@ public class RcAiTuringItemViewHolder extends RecyclerView.ViewHolder {
     private Activity context;
     public TextView ai_chat_machine;
     public TextView ai_chat_user;
-    private ProgressBar mProgressbar;
     private List<AiEntity> beans;
     private RcAiTuringAdapter mAdapter;
     private List<PopMenuItem> menuItems;
@@ -46,12 +44,10 @@ public class RcAiTuringItemViewHolder extends RecyclerView.ViewHolder {
     public RcAiTuringItemViewHolder(View convertView,
                                     List<AiEntity> mBeans,
                                     RcAiTuringAdapter mAdapter,
-                                    ProgressBar mProgressbar,
                                     AiTuringActivity mAiChatActivity) {
         super(convertView);
         this.context = mAiChatActivity;
         this.beans = mBeans;
-        this.mProgressbar = mProgressbar;
         this.mAdapter = mAdapter;
         this.mAiChatActivity = mAiChatActivity;
         ai_chat_machine = (TextView) convertView.findViewById(R.id.ai_chat_machine);
@@ -80,7 +76,7 @@ public class RcAiTuringItemViewHolder extends RecyclerView.ViewHolder {
                 ai_chat_machine.setTextColor(context.getResources().getColor(R.color.material_color_blue));
             }else {
                 ai_chat_machine.setTextColor(context.getResources().getColor(R.color.text_dark));
-                TextHandlerUtil.handlerText(context, mProgressbar, ai_chat_machine, mBean.getContent());
+                TextHandlerUtil.handlerText(context, ai_chat_machine, mBean.getContent());
             }
             if(!TextUtils.isEmpty(mBean.getTranslate())){
                 ai_chat_machine.append("\n"+mBean.getTranslate());

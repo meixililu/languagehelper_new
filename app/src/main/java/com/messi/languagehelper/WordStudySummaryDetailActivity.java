@@ -55,7 +55,7 @@ public class WordStudySummaryDetailActivity extends BaseActivity {
         toolbar_layout.setTitle(titleStr);
         title.setText(titleStr);
         scrollview.scrollTo(0, 0);
-        TextHandlerUtil.handlerText(this, mProgressbar, content, mAVObject.getString(AVOUtil.HJWordStudyCList.word_des));
+        TextHandlerUtil.handlerText(this, content, mAVObject.getString(AVOUtil.HJWordStudyCList.word_des));
 
         mXFYSAD = new XFYSAD(this, xx_ad_layout, ADUtil.NewsDetail);
         mXFYSAD.showAd();

@@ -160,7 +160,7 @@ public class DailyEnglishActivity extends BaseActivity implements View.OnClickLi
         binding.englishTv.setTextColor(getResources().getColor(R.color.text_black));
         String content = getEnglishContent();
         int count = content.split(" ").length - selectedNum;
-        TextHandlerUtil.handlerText(this, mProgressbar, binding.englishTv, sb.toString());
+        TextHandlerUtil.handlerText(this, binding.englishTv, sb.toString());
 //        binding.englishTv.setText(sb.toString());
         if (count > 0) {
             for(int i = 0; i<count; i++){

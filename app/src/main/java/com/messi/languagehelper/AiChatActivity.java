@@ -145,7 +145,7 @@ public class AiChatActivity extends BaseActivity {
         mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this.getApplicationContext(), null);
         beans = new ArrayList<AiEntity>();
         beans.addAll(BoxHelper.getAiEntityList(AiUtil.Ai_Acobot));
-        mAdapter = new RcAiChatAdapter(this, beans, mProgressbar);
+        mAdapter = new RcAiChatAdapter(this, beans);
         mAdapter.setItems(beans);
         mLinearLayoutManager = new LinearLayoutManager(this);
         if (beans.size() > 4) {

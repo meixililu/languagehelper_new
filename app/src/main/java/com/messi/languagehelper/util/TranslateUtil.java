@@ -5,7 +5,10 @@ import android.text.TextUtils;
 
 import com.google.gson.Gson;
 import com.messi.languagehelper.bean.AiYueYuBean;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.Record;
 import com.messi.languagehelper.box.TranResultZhYue;
+import com.messi.languagehelper.box.WordDetailListItem;
 import com.messi.languagehelper.http.BgCallback;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.impl.OnTranZhYueFinishListener;
@@ -293,7 +296,30 @@ public class TranslateUtil {
 		return currentDialogBean;
 	}
 
-
+	public static void addToNewword(Record mBean){
+		WordDetailListItem myNewWord = new WordDetailListItem();
+		myNewWord.setName(mBean.getChinese());
+		myNewWord.setDesc(mBean.getEnglish());
+		String pats1 = "英.*\\[";
+		Pattern pattern1 = Pattern.compile(pats1);
+		String pats2 = "美.*\\[";
+		Pattern pattern2 = Pattern.compile(pats2);
+		if(pattern1.matcher(mBean.getEnglish()).find() || pattern2.matcher(mBean.getEnglish()).find()){
+			String[] texts = mBean.getEnglish().split("\n");
+			if (texts != null && texts.length > 0) {
+				String symbol = texts[0];
+				if(symbol.contains("英") || symbol.contains("美")){
+					String des = mBean.getEnglish().replace(symbol,"").trim();
+					myNewWord.setSymbol(symbol);
+					myNewWord.setDesc(des);
+				}
+			}
+		}
+		myNewWord.setSound(mBean.getPh_en_mp3());
+		myNewWord.setNew_words("1");
+		myNewWord.setType("search");
+		BoxHelper.saveSearchResultToNewWord(myNewWord);
+	}
 
 
 }

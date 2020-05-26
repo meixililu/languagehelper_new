@@ -118,7 +118,7 @@ public class ReadingDetailActivity extends BaseActivity implements SeekBar.OnSee
         toolbar_layout.setTitle(mAVObject.getTitle());
         title.setText(mAVObject.getTitle());
         scrollview.scrollTo(0, 0);
-        TextHandlerUtil.handlerText(this, mProgressbar, content, mAVObject.getContent());
+        TextHandlerUtil.handlerText(this, content, mAVObject.getContent());
         if (!TextUtils.isEmpty(mAVObject.getImg_url())) {
             ad_sign.setVisibility(View.GONE);
             ad_img.setImageURI(Uri.parse(mAVObject.getImg_url()));

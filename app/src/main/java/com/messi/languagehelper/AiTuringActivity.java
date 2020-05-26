@@ -126,7 +126,7 @@ public class AiTuringActivity extends BaseActivity {
         recognizer = SpeechRecognizer.createRecognizer(this, null);
         beans = new ArrayList<AiEntity>();
         beans.addAll(BoxHelper.getAiEntityList(AiUtil.Ai_Turing));
-        mAdapter = new RcAiTuringAdapter(this, beans, mProgressbar);
+        mAdapter = new RcAiTuringAdapter(this, beans);
         mAdapter.setItems(beans);
         mLinearLayoutManager = new LinearLayoutManager(this);
         if (beans.size() > 7) {

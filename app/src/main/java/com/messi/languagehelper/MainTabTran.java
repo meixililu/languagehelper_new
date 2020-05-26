@@ -74,6 +74,7 @@ public class MainTabTran extends BaseFragment {
         }
         binding = MainTabTranBinding.inflate(inflater);
         view = binding.getRoot();
+        initSwipeRefresh(binding.getRoot());
         init(view);
         return view;
     }
@@ -301,6 +302,14 @@ public class MainTabTran extends BaseFragment {
         new Handler().postDelayed(() -> autoPlay(),100);
     }
 
-
+    @Override
+    public void onSwipeRefreshLayoutRefresh() {
+        if (beans != null) {
+            beans.clear();
+            beans.addAll(BoxHelper.getRecordList(0, Setings.RecordOffset));
+            mAdapter.notifyDataSetChanged();
+        }
+        onSwipeRefreshLayoutFinish();
+    }
 }
 

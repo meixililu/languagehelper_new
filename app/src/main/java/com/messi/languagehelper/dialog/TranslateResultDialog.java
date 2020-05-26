@@ -1,147 +1,171 @@
 package com.messi.languagehelper.dialog;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.SharedPreferences;
+import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.LinearLayout;
 
-import com.iflytek.cloud.SpeechConstant;
-import com.iflytek.cloud.SpeechError;
-import com.iflytek.cloud.SpeechSynthesizer;
-import com.iflytek.cloud.SynthesizerListener;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.box.BoxHelper;
-import com.messi.languagehelper.box.Dictionary;
-import com.messi.languagehelper.impl.DicHelperListener;
-import com.messi.languagehelper.task.MyThread;
-import com.messi.languagehelper.util.AudioTrackUtil;
-import com.messi.languagehelper.util.DictionaryHelper;
-import com.messi.languagehelper.util.SDCardUtil;
-import com.messi.languagehelper.util.XFUtil;
+import com.messi.languagehelper.box.Record;
+import com.messi.languagehelper.databinding.DialogTranslateResultBinding;
+import com.messi.languagehelper.event.TranAndDicRefreshEvent;
+import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.MyPlayer;
+import com.messi.languagehelper.util.NetworkUtil;
+import com.messi.languagehelper.util.Setings;
+import com.messi.languagehelper.util.ToastUtil;
+import com.messi.languagehelper.util.TranslateUtil;
+import com.youdao.sdk.ydtranslate.Translate;
 
-public class TranslateResultDialog implements DicHelperListener {
-	
-	private Activity context;
-	private Dictionary bean;
-	private SpeechSynthesizer mSpeechSynthesizer;
-	private SharedPreferences mSharedPreferences;
-	private Thread mThread;
-	private MyThread mMyThread;
-	private AlertDialog dialog;
+import org.greenrobot.eventbus.EventBus;
 
-	public TranslateResultDialog(Activity context) {
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
+
+public class TranslateResultDialog extends Dialog {
+
+	private DialogTranslateResultBinding binding;
+	private Context context;
+	private String word;
+	private Record mBean;
+
+	public TranslateResultDialog(Context context, String word) {
+		super(context, R.style.mydialog);
 	    this.context = context;
+	    this.word = word;
 	}
 
-	/**
-	 * 更改TextView的提示内容
-	 * @param context
-	 */
-	public TranslateResultDialog(Activity context, Dictionary bean) {
-		this.context = context;
-		this.bean = bean;
-		mSharedPreferences = context.getSharedPreferences(context.getPackageName(), Activity.MODE_PRIVATE);
-		mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(context, null);
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		binding = DialogTranslateResultBinding.inflate(LayoutInflater.from(context));
+		setContentView(binding.getRoot());
+		binding.dicTitle.setText(word);
+		binding.desTv.setText("Loading...");
+		binding.collectedCb.setOnClickListener(view -> {
+				updateCollectedStatus();
+		});
+		binding.titleLayout.setOnClickListener(view -> {
+			play();
+		});
+		translateController();
 	}
 
-	public void createDialog() {
-		if(context instanceof Activity){
-			if(!((Activity)context).isFinishing()){
-				View view = LayoutInflater.from(context).inflate(R.layout.dialog_translate_result,null);
-				dialog = new AlertDialog.Builder(context).create();
-				dialog.setView(view);
-				dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-					@Override
-					public void onDismiss(DialogInterface dialogInterface) {
-						if(mSpeechSynthesizer != null && mSpeechSynthesizer.isSpeaking()){
-							mSpeechSynthesizer.stopSpeaking();
-							mSpeechSynthesizer = null;
-						}
-					}
-				});
-				mMyThread = new MyThread();
-				LinearLayout dic_result_layout = (LinearLayout) view.findViewById(R.id.dic_result_layout);
-				DictionaryHelper.addDicContentForDialog(context, dic_result_layout, bean, this);
-			}
+	private void play(){
+		if (mBean != null && !TextUtils.isEmpty(mBean.getPh_en_mp3())) {
+			MyPlayer.getInstance(context).start(word,mBean.getPh_en_mp3());
+		} else {
+			MyPlayer.getInstance(context).start(word);
 		}
 	}
 
-	public void show(){
-		if(context instanceof Activity){
-			if(!((Activity)context).isFinishing()){
-				dialog.show();
+	private void updateCollectedStatus(){
+		if(mBean != null){
+			if (mBean.getIscollected().equals("0")) {
+				mBean.setIscollected("1");
+				binding.collectedCb.setChecked(true);
+				ToastUtil.diaplayMesShort(context,context.getResources().getString(R.string.favorite_success));
+				TranslateUtil.addToNewword(mBean);
+			} else {
+				mBean.setIscollected("0");
+				binding.collectedCb.setChecked(false);
+				ToastUtil.diaplayMesShort(context,context.getResources().getString(R.string.favorite_cancle));
 			}
+			BoxHelper.update(mBean);
+		}
+	}
+	private void translateController(){
+		Setings.q = word;
+		if(NetworkUtil.isNetworkConnected(getContext())){
+			LogUtil.DefalutLog("online");
+			RequestShowapiAsyncTask();
+		}else {
+			LogUtil.DefalutLog("offline");
+			translateOffline();
+		}
+	}
+
+	private void translateOffline(){
+		Observable.create(new ObservableOnSubscribe<Translate>() {
+			@Override
+			public void subscribe(ObservableEmitter<Translate> e) throws Exception {
+				TranslateUtil.offlineTranslate(e);
+			}
+		})
+				.subscribeOn(Schedulers.io())
+				.observeOn(AndroidSchedulers.mainThread())
+				.subscribe(new Observer<Translate>() {
+					@Override
+					public void onSubscribe(Disposable d) {
+					}
+					@Override
+					public void onNext(Translate translate) {
+						parseOfflineData(translate);
+					}
+					@Override
+					public void onError(Throwable e) {
+						onComplete();
+					}
+					@Override
+					public void onComplete() {
+					}
+				});
+	}
+
+	private void parseOfflineData(Translate translate){
+		if(translate != null){
+			if(translate.getErrorCode() == 0){
+				StringBuilder sb = new StringBuilder();
+				TranslateUtil.addSymbol(translate,sb);
+				for(String tran : translate.getTranslations()){
+					sb.append(tran);
+					sb.append("\n");
+				}
+				mBean = new Record();
+				mBean.setChinese(Setings.q);
+				mBean.setEnglish(sb.substring(0, sb.lastIndexOf("\n")));
+				binding.desTv.setText(mBean.getEnglish());
+				BoxHelper.insert(mBean);
+				EventBus.getDefault().post(new TranAndDicRefreshEvent());
+			}
+		}else{
+			ToastUtil.diaplayMesShort(context,"没找到离线词典，请到设置页面下载！");
+		}
+	}
+
+	private void RequestShowapiAsyncTask(){
+		try {
+			TranslateUtil.Translate(mrecord -> onResult(mrecord));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void onResult(Record mRecord){
+		try {
+			mBean = mRecord;
+			if(mRecord == null){
+				ToastUtil.diaplayMesShort(context,getContext().getResources().getString(R.string.network_error));
+			}else {
+				binding.desTv.setText(mRecord.getEnglish());
+				BoxHelper.insert(mRecord);
+				EventBus.getDefault().post(new TranAndDicRefreshEvent());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 
 	@Override
-	public void playPcm(Dictionary mObject, boolean isPlayResult, String result) {
-		play(mObject,isPlayResult,result);
+	protected void onStop() {
+		super.onStop();
+		MyPlayer.getInstance(context).stop();
 	}
-	
-	private void play(final Dictionary mObject, boolean isPlayResult, String result){
-		if(mSpeechSynthesizer.isSpeaking()){
-			mSpeechSynthesizer.stopSpeaking();
-		}else{
-			String filepath = "";
-			String speakContent = "";
-			String path = SDCardUtil.getDownloadPath(SDCardUtil.sdPath);
-			if(isPlayResult){
-				if (TextUtils.isEmpty(mObject.getResultVoiceId())) {
-					mObject.setResultVoiceId(System.currentTimeMillis() + 5 + "");
-				}
-				filepath = path + mObject.getResultVoiceId() + ".pcm";
-				speakContent = result;
-			}else {
-				if (TextUtils.isEmpty(mObject.getQuestionVoiceId())) {
-					mObject.setQuestionVoiceId(System.currentTimeMillis() + "");
-				}
-				filepath = path + mObject.getQuestionVoiceId() + ".pcm";
-				speakContent = mObject.getWord_name();
-			}
-			if (!AudioTrackUtil.isFileExists(filepath)) {
-				mSpeechSynthesizer.setParameter(SpeechConstant.TTS_AUDIO_PATH, filepath);
-				XFUtil.showSpeechSynthesizer(context,
-						mSharedPreferences,
-						mSpeechSynthesizer,
-						speakContent,
-						XFUtil.SpeakerEn,
-						new SynthesizerListener() {
-							@Override
-							public void onSpeakResumed() {
-							}
-							@Override
-							public void onSpeakProgress(int arg0, int arg1, int arg2) {
-							}
-							@Override
-							public void onSpeakPaused() {
-							}
-							@Override
-							public void onSpeakBegin() {
-							}
-							@Override
-							public void onCompleted(SpeechError arg0) {
-								BoxHelper.update(mObject);
-							}
-							@Override
-							public void onBufferProgress(int arg0, int arg1, int arg2, String arg3) {
-							}
-							@Override
-							public void onEvent(int arg0, int arg1, int arg2,Bundle arg3) {
-							}
-						});
-			}else {
-				mMyThread.setDataUri(filepath);
-				mThread = AudioTrackUtil.startMyThread(mMyThread);
-			}
-
-		}
-	}
-
-
 }

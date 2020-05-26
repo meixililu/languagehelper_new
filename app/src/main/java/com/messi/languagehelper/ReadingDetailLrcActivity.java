@@ -121,7 +121,7 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
         toolbar_layout.setTitle(mAVObject.getTitle());
         title.setText(mAVObject.getTitle());
         scrollview.scrollTo(0, 0);
-        TextHandlerUtil.handlerText(this, mProgressbar, content, mAVObject.getContent());
+        TextHandlerUtil.handlerText(this, content, mAVObject.getContent());
         if (!TextUtils.isEmpty(mAVObject.getImg_url())) {
             ad_sign.setVisibility(View.GONE);
             ad_img.setImageURI(Uri.parse(mAVObject.getImg_url()));
@@ -172,7 +172,7 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
                             if(i-1 >= 0){
                                 if(content != null){
                                     String showText = list.get(i-1).getLyric();
-                                    TextHandlerUtil.handlerText(this, mProgressbar, content, showText);
+                                    TextHandlerUtil.handlerText(this, content, showText);
 //                                    content.setText();
                                     break;
                                 }

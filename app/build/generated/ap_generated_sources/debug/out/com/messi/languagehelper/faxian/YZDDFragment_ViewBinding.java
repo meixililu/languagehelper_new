@@ -15,7 +15,7 @@ import java.lang.Override;
 public class YZDDFragment_ViewBinding implements Unbinder {
   private YZDDFragment target;
 
-  private View view7f080251;
+  private View view7f080252;
 
   private View view7f08004c;
 
@@ -26,7 +26,7 @@ public class YZDDFragment_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.question, "field 'question' and method 'onViewClicked'");
     target.question = Utils.castView(view, R.id.question, "field 'question'", TextView.class);
-    view7f080251 = view;
+    view7f080252 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -54,8 +54,8 @@ public class YZDDFragment_ViewBinding implements Unbinder {
     target.question = null;
     target.answer = null;
 
-    view7f080251.setOnClickListener(null);
-    view7f080251 = null;
+    view7f080252.setOnClickListener(null);
+    view7f080252 = null;
     view7f08004c.setOnClickListener(null);
     view7f08004c = null;
   }
