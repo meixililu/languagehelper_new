@@ -18,7 +18,7 @@ public class CollectedActivityAdapter extends FragmentPagerAdapter {
     public CollectedActivityAdapter(FragmentManager fm,Context mContext) {
         super(fm);
         CONTENT = new String[] { 
-        		mContext.getResources().getString(R.string.collect),
+        		mContext.getResources().getString(R.string.title_course),
         		mContext.getResources().getString(R.string.title_article_collected),
         		mContext.getResources().getString(R.string.title_my_newword),
         };

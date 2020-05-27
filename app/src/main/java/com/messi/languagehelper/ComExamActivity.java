@@ -42,7 +42,7 @@ public class ComExamActivity extends BaseActivity implements FragmentProgressbar
 
     private void initFragment(){
         binding.navigation.inflateMenu(R.menu.com_exam_tabs);
-        binding.navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED);
+        binding.navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
         binding.navigation.setOnNavigationItemSelectedListener((item) -> onNavigationItemSelected(item));
         mCompositionFragment = CompositionFragment.getInstance();
         mExaminationFragment = ExaminationFragment.getInstance();

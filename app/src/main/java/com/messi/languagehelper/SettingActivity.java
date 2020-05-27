@@ -1,18 +1,12 @@
 package com.messi.languagehelper;
 
-import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.widget.AppCompatSeekBar;
-import android.view.View;
-import android.widget.CheckBox;
-import android.widget.FrameLayout;
-import android.widget.SeekBar;
-import android.widget.TextView;
+import android.view.LayoutInflater;
 
 import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.databinding.SettingBinding;
 import com.messi.languagehelper.event.TranAndDicRefreshEvent;
-import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Setings;
@@ -20,97 +14,58 @@ import com.messi.languagehelper.util.ToastUtil;
 
 import org.greenrobot.eventbus.EventBus;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+public class SettingActivity extends BaseActivity {
 
-public class SettingActivity extends BaseActivity implements SeekBar.OnSeekBarChangeListener {
-
-    @BindView(R.id.seekbar_text)
-    TextView seekbarText;
-    @BindView(R.id.seekbar)
-    AppCompatSeekBar seekbar;
-    @BindView(R.id.setting_auto_play_cb)
-    CheckBox settingAutoPlayCb;
-    @BindView(R.id.setting_auto_play)
-    FrameLayout settingAutoPlay;
-    @BindView(R.id.setting_auto_clear_cb)
-    CheckBox settingAutoClearCb;
-    @BindView(R.id.setting_auto_clear)
-    FrameLayout settingAutoClear;
-    @BindView(R.id.setting_clear_all_except_favorite)
-    FrameLayout settingClearAllExceptFavorite;
-    @BindView(R.id.setting_clear_all)
-    FrameLayout settingClearAll;
-
+    private SettingBinding binding;
     private SharedPreferences mSharedPreferences;
+    private String[] paths = {"/zyhy/audio/","/zyhy/img/","/zyhy/apps/","/zyhy/lrc/"};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.setting);
-        ButterKnife.bind(this);
+        binding = SettingBinding.inflate(LayoutInflater.from(this));
+        setContentView(binding.getRoot());
         init();
         initData();
     }
 
     private void init() {
         getSupportActionBar().setTitle(getString(R.string.title_settings));
-        mSharedPreferences = getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
-        seekbar.setOnSeekBarChangeListener(this);
+        mSharedPreferences = Setings.getSharedPreferences(this);
     }
 
     private void initData() {
-        seekbarText.setText(this.getResources().getString(R.string.play_speed_text) +
-                mSharedPreferences.getInt(getString(R.string.preference_key_tts_speed), 50));
-        seekbar.setProgress(mSharedPreferences.getInt(getString(R.string.preference_key_tts_speed), 50));
-        settingAutoPlayCb.setChecked( mSharedPreferences.getBoolean(KeyUtil.AutoPlayResult, false) );
-        settingAutoClearCb.setChecked( mSharedPreferences.getBoolean(KeyUtil.AutoClearInput, true) );
+        binding.settingAutoPlayCb.setChecked( mSharedPreferences.getBoolean(KeyUtil.AutoPlayResult, false) );
+        binding.settingAutoClearCb.setChecked( mSharedPreferences.getBoolean(KeyUtil.AutoClearInput, true) );
+        binding.settingAutoPlay.setOnClickListener(view -> {
+            binding.settingAutoPlayCb.setChecked(!binding.settingAutoPlayCb.isChecked());
+            Setings.saveSharedPreferences(mSharedPreferences, KeyUtil.AutoPlayResult, binding.settingAutoPlayCb.isChecked());
+        });
+        binding.settingAutoClear.setOnClickListener(view -> {
+            binding.settingAutoClearCb.setChecked(!binding.settingAutoClearCb.isChecked());
+            Setings.saveSharedPreferences(mSharedPreferences, KeyUtil.AutoClearInput, binding.settingAutoClearCb.isChecked());
+        });
+        binding.settingClearAllExceptFavorite.setOnClickListener(view -> {
+            BoxHelper.clearExceptFavorite();
+            EventBus.getDefault().post(new TranAndDicRefreshEvent());
+            ToastUtil.diaplayMesShort(SettingActivity.this, this.getResources().getString(R.string.clear_success));
+        });
+        binding.settingClearAll.setOnClickListener(view -> {
+            BoxHelper.clearAllData();
+            EventBus.getDefault().post(new TranAndDicRefreshEvent());
+            SDCardUtil.deleteOldFile();
+            ToastUtil.diaplayMesShort(SettingActivity.this, this.getResources().getString(R.string.clear_success));
+        });
+        setCacheSize();
+        binding.cacheLayout.setOnClickListener(view -> {
+            SDCardUtil.deleteFolderFiles(paths);
+            setCacheSize();
+        });
     }
 
-    @Override
-    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        seekbarText.setText(this.getResources().getString(R.string.play_speed_text) + progress);
+    private void setCacheSize(){
+        long size = SDCardUtil.getFolderSize(paths);
+        binding.cacheTv.setText("清除音频缓存("+SDCardUtil.formetFileSize(size)+")");
     }
 
-    @Override
-    public void onStartTrackingTouch(SeekBar seekBar) {
-    }
-
-    @Override
-    public void onStopTrackingTouch(SeekBar seekBar) {
-        Setings.saveSharedPreferences(mSharedPreferences,
-                getString(R.string.preference_key_tts_speed),
-                seekBar.getProgress());
-        AVAnalytics.onEvent(SettingActivity.this, "tran_tools_change_speed");
-    }
-
-    @OnClick({R.id.setting_auto_play, R.id.setting_auto_clear, R.id.setting_clear_all_except_favorite, R.id.setting_clear_all})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.setting_auto_play:
-                settingAutoPlayCb.setChecked(!settingAutoPlayCb.isChecked());
-                Setings.saveSharedPreferences(mSharedPreferences, KeyUtil.AutoPlayResult, settingAutoPlayCb.isChecked());
-                AVAnalytics.onEvent(this, "setting_pg_auto_play");
-                break;
-            case R.id.setting_clear_all_except_favorite:
-                BoxHelper.clearExceptFavorite();
-                EventBus.getDefault().post(new TranAndDicRefreshEvent());
-                ToastUtil.diaplayMesShort(SettingActivity.this, this.getResources().getString(R.string.clear_success));
-                AVAnalytics.onEvent(this, "setting_pg_clear_all_except");
-                break;
-            case R.id.setting_clear_all:
-                BoxHelper.clearAllData();
-                EventBus.getDefault().post(new TranAndDicRefreshEvent());
-                SDCardUtil.deleteOldFile();
-                ToastUtil.diaplayMesShort(SettingActivity.this, this.getResources().getString(R.string.clear_success));
-                AVAnalytics.onEvent(this, "setting_pg_clear_all");
-                break;
-            case R.id.setting_auto_clear:
-                settingAutoClearCb.setChecked(!settingAutoClearCb.isChecked());
-                Setings.saveSharedPreferences(mSharedPreferences, KeyUtil.AutoClearInput, settingAutoClearCb.isChecked());
-                AVAnalytics.onEvent(this, "setting_pg_auto_clear_input");
-                break;
-        }
-    }
 }

@@ -68,7 +68,7 @@ public class SymbolActivity extends BaseActivity implements FragmentProgressbarL
 
     private void initFragment(){
         navigation.inflateMenu(R.menu.tabs_symbol);
-        navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED);
+        navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         mWordHomeFragment = new BoutiquesFragment.Builder()
                 .category("symbol")

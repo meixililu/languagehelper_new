@@ -1,11 +1,9 @@
 package com.messi.languagehelper;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AlertDialog;
@@ -23,22 +21,17 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.messi.languagehelper.ViewModel.LeisureModel;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Reading;
-import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.ADUtil;
-import com.messi.languagehelper.util.IPlayerUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TextHandlerUtil;
-import com.messi.languagehelper.util.TimeUtil;
-import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
-public class ReadingDetailActivity extends BaseActivity implements SeekBar.OnSeekBarChangeListener {
+public class ReadingDetailActivity extends BaseActivity {
 
     @BindView(R.id.toolbar_layout)
     CollapsingToolbarLayout toolbar_layout;
@@ -75,15 +68,6 @@ public class ReadingDetailActivity extends BaseActivity implements SeekBar.OnSee
     private int index;
     private LeisureModel mLeisureModel;
 
-    private Handler handler = new Handler();
-
-    private Runnable mRunnable = new Runnable() {
-        @Override
-        public void run() {
-            setSeekbarAndText();
-            handler.postDelayed(this,300);
-        }
-    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -97,7 +81,7 @@ public class ReadingDetailActivity extends BaseActivity implements SeekBar.OnSee
     }
 
     private void initData() {
-        mSharedPreferences = this.getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
+        mSharedPreferences = Setings.getSharedPreferences(this);
         index = getIntent().getIntExtra(KeyUtil.IndexKey, 0);
         Object data =  Setings.dataMap.get(KeyUtil.DataMapKey);
         Setings.dataMap.clear();
@@ -114,7 +98,6 @@ public class ReadingDetailActivity extends BaseActivity implements SeekBar.OnSee
             finish();
             return;
         }
-        seekbar.setOnSeekBarChangeListener(this);
         toolbar_layout.setTitle(mAVObject.getTitle());
         title.setText(mAVObject.getTitle());
         scrollview.scrollTo(0, 0);
@@ -128,32 +111,12 @@ public class ReadingDetailActivity extends BaseActivity implements SeekBar.OnSee
             mLeisureModel.setViews(ad_sign,ad_img,xx_ad_layout,ad_layout);
             mLeisureModel.showAd();
         }
-        if(IPlayerUtil.MPlayerIsSameMp3(mAVObject)){
-            if(IPlayerUtil.getPlayStatus() == 1) {
-                btn_play.setImageResource(R.drawable.ic_pause_circle_outline);
-                handler.postDelayed(mRunnable,300);
-            }
-            setSeekbarAndText();
-        }
         if("text".equals(mAVObject.getType())){
             player_layout.setVisibility(View.GONE);
         }
         if(TextUtils.isEmpty(mAVObject.getStatus())){
             mAVObject.setStatus("1");
             BoxHelper.update(mAVObject);
-        }
-    }
-
-    private void setSeekbarAndText(){
-        if(IPlayerUtil.MPlayerIsSameMp3(mAVObject)){
-            int currentPosition = IPlayerUtil.getCurrentPosition();
-            int mDuration = IPlayerUtil.getDuration();
-            if(mDuration > 0){
-                seekbar.setMax(mDuration);
-                time_duration.setText(TimeUtil.getDuration(mDuration / 1000));
-            }
-            seekbar.setProgress(currentPosition);
-            time_current.setText(TimeUtil.getDuration(currentPosition / 1000));
         }
     }
 
@@ -215,37 +178,10 @@ public class ReadingDetailActivity extends BaseActivity implements SeekBar.OnSee
         }
     }
 
-    @OnClick(R.id.btn_play)
-    public void onClick() {
-        XmPlayerManager.getInstance(this).pause();
-        IPlayerUtil.initAndPlay(mAVObject);
-    }
-
-    @Override
-    public void updateUI(String music_action) {
-        if(IPlayerUtil.MPlayerIsSameMp3(mAVObject)){
-            if(PlayerService.action_restart.equals(music_action)){
-                btn_play.setImageResource(R.drawable.ic_play_circle_outline);
-                handler.removeCallbacks(mRunnable);
-            }else if (PlayerService.action_pause.equals(music_action)) {
-                btn_play.setImageResource(R.drawable.ic_pause_circle_outline);
-                handler.postDelayed(mRunnable,300);
-            }
-        }
-        if(PlayerService.action_loading.equals(music_action)){
-            showProgressbar();
-        }else if(PlayerService.action_finish_loading.equals(music_action)){
-            hideProgressbar();
-        }
-    }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
         unregisterBroadcast();
-        if(handler != null){
-            handler.removeCallbacks(mRunnable);
-        }
         if(mLeisureModel != null){
             mLeisureModel.onDestroy();
         }
@@ -261,23 +197,5 @@ public class ReadingDetailActivity extends BaseActivity implements SeekBar.OnSee
             dialog.show();
             Setings.saveSharedPreferences(mSharedPreferences, KeyUtil.isReadingDetailGuideShow, true);
         }
-    }
-
-    @Override
-    public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-
-    }
-
-    @Override
-    public void onStartTrackingTouch(SeekBar seekBar) {
-        handler.removeCallbacks(mRunnable);
-        IPlayerUtil.MPlayerPause();
-    }
-
-    @Override
-    public void onStopTrackingTouch(SeekBar seekBar) {
-        IPlayerUtil.MPlayerSeekTo(seekBar.getProgress());
-        IPlayerUtil.MPlayerRestart();
-        handler.postDelayed(mRunnable,300);
     }
 }

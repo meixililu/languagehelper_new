@@ -75,7 +75,7 @@ public class ReadingListRepository {
             query.whereEqualTo(AVOUtil.Reading.category, category);
         }
         if (!TextUtils.isEmpty(subjectName)) {
-            query.whereContains(AVOUtil.Reading.category_2, subjectName);
+            query.whereEqualTo(AVOUtil.Reading.category_2, subjectName);
         }
         if(!TextUtils.isEmpty(level)){
             query.whereEqualTo(AVOUtil.Reading.level, level);

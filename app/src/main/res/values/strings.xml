@@ -148,6 +148,10 @@
     <string name="word_study_continue">继续学习</string>
     <string name="word_start">开始学习</string>
     <string name="word_review">复习一下</string>
+    <string name="listen_previous">上一句</string>
+    <string name="listen_next">下一句</string>
+    <string name="listen_subtitle">字幕</string>
+    <string name="listen_unknow">这句没听懂</string>
     <string name="recognize_know">认识</string>
     <string name="recognize_unknow">不认识</string>
     <string name="translate">翻译</string>

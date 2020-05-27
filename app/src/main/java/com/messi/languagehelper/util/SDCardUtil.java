@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 public class SDCardUtil {
 
@@ -225,4 +226,89 @@ public class SDCardUtil {
 		}
 	}
 
+	public static long getFolderSize(String[] paths){
+		long size = 0;
+		try {
+			if (paths != null) {
+				for (String item : paths){
+					String path = SDCardUtil.getDownloadPath(item);
+					File file = new File(path);
+					size += getFolderSize(file);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return size;
+	}
+
+	public static long getFolderSize(File file) {
+		long size = 0;
+		try {
+			File[] fileList = file.listFiles();
+			for (int i = 0; i < fileList.length; i++) {
+				if (fileList[i].isDirectory()) {
+					size = size + getFolderSize(fileList[i]);
+				} else {
+					size = size + fileList[i].length();
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return size;
+	}
+
+	public static void deleteFolderFiles(String[] paths){
+		if (paths != null) {
+			for(String item : paths){
+				String path = SDCardUtil.getDownloadPath(item);
+				deleteFolderFile(path,true);
+			}
+		}
+	}
+
+	public static void deleteFolderFile(String filePath, boolean deleteThisPath) {
+		if (!TextUtils.isEmpty(filePath)) {
+			try {
+				File file = new File(filePath);
+				if (file.isDirectory()) {
+					File files[] = file.listFiles();
+					for (int i = 0; i < files.length; i++) {
+						deleteFolderFile(files[i].getAbsolutePath(), true);
+					}
+				}
+				if (deleteThisPath) {
+					if (!file.isDirectory()) {// 如果是文件，删除
+						file.delete();
+					} else {// 目录
+						if (file.listFiles().length == 0) {// 目录下没有文件或者目录，删除
+							file.delete();
+						}
+					}
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public static String formetFileSize(long fileS) {
+		DecimalFormat df = new DecimalFormat("#.00");
+		String fileSizeString = "";
+		String wrongSize = "0B";
+		if(fileS == 0){
+			return wrongSize;
+		}
+		if (fileS < 1024){
+			fileSizeString = df.format((double) fileS) + "B";
+		} else if (fileS < 1048576){
+			fileSizeString = df.format((double) fileS / 1024) + "KB";
+		} else if (fileS < 1073741824){
+			fileSizeString = df.format((double) fileS / 1048576) + "MB";
+		} else{
+			fileSizeString = df.format((double) fileS / 1073741824) + "GB";
+		}
+		return fileSizeString;
+	}
 }

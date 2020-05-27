@@ -187,6 +187,9 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 			skip = 0;
 		}else {
 			if(maxRandom > 0){
+				if (maxRandom > 2000) {
+					maxRandom = 2000;
+				}
 				skip = (int) Math.round(Math.random()*maxRandom);
 			}else {
 				skip = 0;

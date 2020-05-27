@@ -115,7 +115,7 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void render(final Reading mAVObject){
-        clearData(mAVObject);
+//        clearData(mAVObject);
         list_item_img_parent.setClickable(false);
         ad_layout.setVisibility(View.GONE);
         imgs_layout.setVisibility(View.GONE);

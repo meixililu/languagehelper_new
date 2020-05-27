@@ -12,7 +12,6 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import butterknife.Unbinder;
-import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.lang.IllegalStateException;
@@ -21,18 +20,15 @@ import java.lang.Override;
 public class ReadingDetailActivity_ViewBinding implements Unbinder {
   private ReadingDetailActivity target;
 
-  private View view7f08007f;
-
   @UiThread
   public ReadingDetailActivity_ViewBinding(ReadingDetailActivity target) {
     this(target, target.getWindow().getDecorView());
   }
 
   @UiThread
-  public ReadingDetailActivity_ViewBinding(final ReadingDetailActivity target, View source) {
+  public ReadingDetailActivity_ViewBinding(ReadingDetailActivity target, View source) {
     this.target = target;
 
-    View view;
     target.toolbar_layout = Utils.findRequiredViewAsType(source, R.id.toolbar_layout, "field 'toolbar_layout'", CollapsingToolbarLayout.class);
     target.title = Utils.findRequiredViewAsType(source, R.id.title, "field 'title'", TextView.class);
     target.content = Utils.findRequiredViewAsType(source, R.id.content, "field 'content'", TextView.class);
@@ -43,15 +39,7 @@ public class ReadingDetailActivity_ViewBinding implements Unbinder {
     target.next_composition = Utils.findRequiredViewAsType(source, R.id.next_composition, "field 'next_composition'", LinearLayout.class);
     target.scrollview = Utils.findRequiredViewAsType(source, R.id.scrollview, "field 'scrollview'", NestedScrollView.class);
     target.player_layout = Utils.findRequiredViewAsType(source, R.id.player_layout, "field 'player_layout'", LinearLayout.class);
-    view = Utils.findRequiredView(source, R.id.btn_play, "field 'btn_play' and method 'onClick'");
-    target.btn_play = Utils.castView(view, R.id.btn_play, "field 'btn_play'", ImageView.class);
-    view7f08007f = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.onClick();
-      }
-    });
+    target.btn_play = Utils.findRequiredViewAsType(source, R.id.btn_play, "field 'btn_play'", ImageView.class);
     target.seekbar = Utils.findRequiredViewAsType(source, R.id.seekbar, "field 'seekbar'", SeekBar.class);
     target.time_current = Utils.findRequiredViewAsType(source, R.id.time_current, "field 'time_current'", TextView.class);
     target.time_duration = Utils.findRequiredViewAsType(source, R.id.time_duration, "field 'time_duration'", TextView.class);
@@ -78,8 +66,5 @@ public class ReadingDetailActivity_ViewBinding implements Unbinder {
     target.seekbar = null;
     target.time_current = null;
     target.time_duration = null;
-
-    view7f08007f.setOnClickListener(null);
-    view7f08007f = null;
   }
 }

@@ -142,6 +142,10 @@
     <string name="word_start">Start</string>
     <string name="word_study_continue">Continue</string>
     <string name="word_to_test">Test</string>
+    <string name="listen_previous">Previous</string>
+    <string name="listen_subtitle">Subtitle</string>
+    <string name="listen_next">Next</string>
+    <string name="listen_unknow">Again</string>
     <string name="recognize_know">Know</string>
     <string name="recognize_unknow">Unknow</string>
     <string name="beginner">Beginner</string>

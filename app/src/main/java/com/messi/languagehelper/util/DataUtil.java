@@ -247,8 +247,8 @@ public class DataUtil {
         List<ReadingCategory> readingCategories = new ArrayList<ReadingCategory>();
         readingCategories.add(new ReadingCategory(context.getString(R.string.recommend), "recommend"));
         readingCategories.add(new ReadingCategory(context.getString(R.string.title_english_video), "video"));
-        readingCategories.add(new ReadingCategory(context.getString(R.string.selection), "jingxuan"));
-        readingCategories.add(new ReadingCategory(context.getString(R.string.xmly_album), "zhuanji"));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.xmly_album), "jingxuan"));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.title_course), "zhuanji"));
 //        readingCategories.add(new ReadingCategory(context.getString(R.string.title_xvideo_yys), "xvideo"));
         return readingCategories;
     }

@@ -182,7 +182,8 @@ public class KeyUtil {
 
 	public static final String BoutiqueCode = "BoutiqueCode";
 
-	public static final String isReadingDetailGuideShow = "isReadingDetailGuideShow";
+	public static final String isReadingDetailGuideShow = "isReadingDetailGuideShow1";
+	public static final String isReadingDetailGuideShow1 = "isReadingDetailGuideShow2";
 
 	public static final String isDailyEnglishGuideShow = "isDailyEnglishGuideShow";
 

@@ -68,7 +68,7 @@ public class ListenActivity extends BaseActivity implements FragmentProgressbarL
 
     private void initFragment(){
         navigation.inflateMenu(R.menu.listen_tabs);
-        navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED);
+        navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         jtFragment = new ReadingFragment.Builder()
                 .title(getString(R.string.title_intensive_listening))
@@ -79,7 +79,7 @@ public class ListenActivity extends BaseActivity implements FragmentProgressbarL
         mWordHomeFragment = XmlySearchAlbumFragment.newInstance("听力",getString(R.string.title_study_category));
         boutiquesFragment = new BoutiquesFragment.Builder()
                 .category("listening")
-                .title(getString(R.string.selection))
+                .title(getString(R.string.title_english_video))
                 .build();
         dashboardFragment = SubjectFragment.getInstance(AVOUtil.Category.listening,"","",getResources().getString(R.string.title_course));
         getSupportFragmentManager()
@@ -91,7 +91,7 @@ public class ListenActivity extends BaseActivity implements FragmentProgressbarL
                 .commit();
         hideAllFragment();
         getSupportFragmentManager()
-                .beginTransaction().show(boutiquesFragment).commit();
+                .beginTransaction().show(jtFragment).commit();
     }
 
     private void hideAllFragment(){

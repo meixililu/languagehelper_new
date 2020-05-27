@@ -48,7 +48,6 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:src="@drawable/novel_free"
                 />
         </FrameLayout>
         <FrameLayout
@@ -62,7 +61,6 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:src="@drawable/novel_rank"
                 />
         </FrameLayout>
         <FrameLayout
@@ -76,7 +74,6 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:src="@drawable/novel_short"
                 />
         </FrameLayout>
         <FrameLayout
@@ -90,7 +87,6 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:src="@drawable/collected_history"
                 />
         </FrameLayout>
     </LinearLayout>

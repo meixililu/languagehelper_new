@@ -1,35 +1,31 @@
 package com.messi.languagehelper;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.widget.NestedScrollView;
+import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.view.ViewGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.messi.languagehelper.ViewModel.LeisureModel;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Reading;
+import com.messi.languagehelper.databinding.ReadingMp3LrcDetailActivityBinding;
 import com.messi.languagehelper.http.BgCallback;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.service.PlayerService;
-import com.messi.languagehelper.util.ADUtil;
+import com.messi.languagehelper.util.ColorUtil;
 import com.messi.languagehelper.util.DownLoadUtil;
 import com.messi.languagehelper.util.IPlayerUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TextHandlerUtil;
@@ -39,69 +35,43 @@ import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
 
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.OnSeekBarChangeListener {
-
-    @BindView(R.id.toolbar_layout)
-    CollapsingToolbarLayout toolbar_layout;
-    @BindView(R.id.title)
-    TextView title;
-    @BindView(R.id.content)
-    TextView content;
-    @BindView(R.id.ad_sign)
-    TextView ad_sign;
-    @BindView(R.id.xx_ad_layout)
-    FrameLayout xx_ad_layout;
-    @BindView(R.id.ad_layout)
-    FrameLayout ad_layout;
-    @BindView(R.id.ad_img)
-    SimpleDraweeView ad_img;
-    @BindView(R.id.scrollview)
-    NestedScrollView scrollview;
-    @BindView(R.id.player_layout)
-    RelativeLayout player_layout;
-    @BindView(R.id.btn_play)
-    ImageView btn_play;
-    @BindView(R.id.seekbar)
-    SeekBar seekbar;
-    @BindView(R.id.time_current)
-    TextView time_current;
-    @BindView(R.id.time_duration)
-    TextView time_duration;
 
     private Reading mAVObject;
     private List<Reading> mAVObjects;
-    private SharedPreferences mSharedPreferences;
-    private int index;
-    private utilLrc mutilLrc;
-    private LeisureModel mLeisureModel;
-
+    private List<utilLrc.Statement> list;
+    private int currentIndex;
+    private utilLrc.Statement currentItem;
+    private double nextTopTime;
     private Handler handler = new Handler();
+    private StringBuilder sb;
+    private SharedPreferences mSharedPreferences;
+    private ReadingMp3LrcDetailActivityBinding binding;
 
     private Runnable mRunnable = new Runnable() {
         @Override
         public void run() {
             setSeekbarAndText();
-            handler.postDelayed(this,300);
+            handler.postDelayed(this,50);
         }
     };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.reading_mp3_detail_activity);
+        binding = ReadingMp3LrcDetailActivityBinding.inflate(LayoutInflater.from(this));
+        setContentView(binding.getRoot());
         registerBroadcast();
-        ButterKnife.bind(this);
         initData();
+        downloadLrc();
         setData();
+        guide();
     }
 
     private void initData() {
-        mSharedPreferences = this.getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
-        index = getIntent().getIntExtra(KeyUtil.IndexKey, 0);
+        mSharedPreferences = Setings.getSharedPreferences(this);
+        sb = new StringBuilder();
+        int index = getIntent().getIntExtra(KeyUtil.IndexKey, 0);
         Object data =  Setings.dataMap.get(KeyUtil.DataMapKey);
         Setings.dataMap.clear();
         if(data instanceof List){
@@ -117,37 +87,34 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
     }
 
     private void setData(){
-        seekbar.setOnSeekBarChangeListener(this);
-        toolbar_layout.setTitle(mAVObject.getTitle());
-        title.setText(mAVObject.getTitle());
-        scrollview.scrollTo(0, 0);
-        TextHandlerUtil.handlerText(this, content, mAVObject.getContent());
-        if (!TextUtils.isEmpty(mAVObject.getImg_url())) {
-            ad_sign.setVisibility(View.GONE);
-            ad_img.setImageURI(Uri.parse(mAVObject.getImg_url()));
-        }else {
-            mLeisureModel = new LeisureModel(this);
-            mLeisureModel.setXFADID(ADUtil.NewsDetail);
-            mLeisureModel.setViews(ad_sign,ad_img,xx_ad_layout,ad_layout);
-            mLeisureModel.showAd();
-        }
+        setActionBarTitle(" ");
+        binding.seekbar.setOnSeekBarChangeListener(this);
+        binding.title.setText(mAVObject.getTitle());
+        binding.playbtnLayout.setOnClickListener(view -> onPlayBtnClick());
+        binding.recognizeKnow.setOnClickListener(view -> playNext());
+        binding.recognizeUnknow.setOnClickListener(view -> addUnknow());
+        binding.playPrevious.setOnClickListener(view -> playPrevious());
+        binding.subtitle.setOnClickListener(view -> {
+            if (binding.content.isShown()) {
+                binding.content.setVisibility(View.GONE);
+            } else {
+                binding.content.setVisibility(View.VISIBLE);
+            }
+        });
         if(IPlayerUtil.MPlayerIsSameMp3(mAVObject)){
             if(IPlayerUtil.getPlayStatus() == 1) {
-                btn_play.setSelected(true);
-                handler.postDelayed(mRunnable,300);
+                binding.btnPlay.setSelected(true);
+                handler.postDelayed(mRunnable,50);
                 downloadLrc();
             }
             setSeekbarAndText();
-        }
-        if(mAVObject.getType().equals("text")){
-            player_layout.setVisibility(View.GONE);
         }
         if(TextUtils.isEmpty(mAVObject.getStatus())){
             mAVObject.setStatus("1");
             BoxHelper.update(mAVObject);
         }
         if (!XmPlayerManager.getInstance(this).isPlaying() && !IPlayerUtil.MPlayerIsPlaying()) {
-            onClick();
+            onPlayBtnClick();
         }
     }
 
@@ -156,42 +123,105 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
             int currentPosition = IPlayerUtil.getCurrentPosition();
             int mDuration = IPlayerUtil.getDuration();
             if(mDuration > 0){
-                seekbar.setMax(mDuration);
-                time_duration.setText(TimeUtil.getDuration(mDuration / 1000));
+                binding.seekbar.setMax(mDuration);
+                binding.timeDuration.setText(TimeUtil.getDuration(mDuration / 1000));
             }
-            seekbar.setProgress(currentPosition);
-            time_current.setText(TimeUtil.getDuration(currentPosition / 1000));
-            if(mutilLrc != null){
-                List<utilLrc.Statement> list = mutilLrc.getLrcList();
-                if(list != null && list.size() > 0){
-                    if(content != null){
-                        content.setTextColor(getResources().getColor(R.color.green_500));
-                    }
-                    for(int i=0;i<list.size();i++){
-                        if(currentPosition < list.get(i).getTime()){
-                            if(i-1 >= 0){
-                                if(content != null){
-                                    String showText = list.get(i-1).getLyric();
-                                    TextHandlerUtil.handlerText(this, content, showText);
-//                                    content.setText();
-                                    break;
-                                }
-                            }
-                        }
+            binding.seekbar.setProgress(currentPosition);
+            binding.timeCurrent.setText(TimeUtil.getDuration(currentPosition / 1000));
+            if (currentPosition > nextTopTime && nextTopTime > 0 && currentIndex > 0) {
+                binding.btnPlay.setSelected(false);
+                IPlayerUtil.MPlayerPause();
+            } else {
+                if (nextTopTime < 1 || currentIndex < 1) {
+                    initCurrentPosition(currentPosition);
+                }
+            }
+            setSubtitle();
+        }
+    }
+
+    private void initCurrentPosition(int currentPosition){
+        if(NullUtil.isNotEmpty(list) && IPlayerUtil.MPlayerIsPlaying()){
+            for(int i=0;i<list.size();i++){
+                if(currentPosition < list.get(i).getTime()){
+                    if(i-1 >= 0){
+                        currentIndex = i - 1;
+                        currentItem = list.get(currentIndex);
+                        nextTopTime = list.get(i).getTime();
+                        LogUtil.DefalutLog("initCurrentPosition:"+currentPosition+"---nextTopTime:"+nextTopTime+"---currentIndex:"+currentIndex);
+                        break;
                     }
                 }
             }
         }
     }
 
+    private void setSubtitle(){
+        if (currentItem != null) {
+            String showText = currentItem.getLyric();
+            if (!showText.equals(binding.content.getText().toString().trim())) {
+                TextHandlerUtil.handlerText(this, binding.content, showText+" ");
+            }
+        }
+    }
+
+    private void addUnknow(){
+        if (currentItem != null) {
+            if (!sb.toString().contains(currentItem.getLyric())) {
+                sb.append(currentItem.getLyric());
+                addUnknowText(currentItem,currentIndex);
+            }
+            if (!IPlayerUtil.MPlayerIsPlaying()) {
+                playCurrentItem();
+            }
+        }
+    }
+
+    private void playNext(){
+        if(currentItem != null && list.size() > (currentIndex + 2)){
+            currentIndex += 1;
+            playCurrentItem();
+        }
+    }
+
+    private void playPrevious(){
+        if(currentItem != null && currentIndex > 1){
+            currentIndex -= 1;
+            playCurrentItem();
+        }
+    }
+
+    private void playCurrentItem(){
+        if(currentItem != null && NullUtil.isNotEmpty(list) && list.size() > (currentIndex + 1)){
+            currentItem = list.get(currentIndex);
+            nextTopTime = list.get(currentIndex+1).getTime();
+            IPlayerUtil.MPlayerSeekTo((int)currentItem.getTime());
+            IPlayerUtil.MPlayerRestart();
+        }
+    }
+
+    private void addUnknowText(utilLrc.Statement item,int index){
+        if (item != null) {
+            View view = LayoutInflater.from(this).inflate(R.layout.reading_lrc_unknow_item, null, false);
+            TextView content = view.findViewById(R.id.content);
+            View playBtn = view.findViewById(R.id.play_item);
+            playBtn.setBackgroundColor(getResources().getColor(ColorUtil.getRadomColor()));
+            playBtn.setTag(index);
+            TextHandlerUtil.handlerText(this, content, item.getLyric()+" ");
+            playBtn.setOnClickListener(vi -> {
+                currentIndex = (int)playBtn.getTag();
+                playCurrentItem();
+            });
+            binding.unknowLayout.addView(view,0,new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        }
+    }
+
     private void downloadLrc(){
-        LogUtil.DefalutLog("downloadLrc:"+mAVObject.getLrc_url());
-        if(!TextUtils.isEmpty(mAVObject.getLrc_url())){
+        if(mAVObject != null && !TextUtils.isEmpty(mAVObject.getLrc_url())){
             final String name = mAVObject.getObject_id() + ".lrc";
             final String lrcfilepath = SDCardUtil.getDownloadPath(SDCardUtil.lrcPath) + name;
-            LogUtil.DefalutLog("lrcfilepath:"+lrcfilepath);
-            LogUtil.DefalutLog("isExist:"+SDCardUtil.isFileExist(lrcfilepath));
             if(!SDCardUtil.isFileExist(lrcfilepath)){
+                LogUtil.DefalutLog("downloadLrc:"+mAVObject.getLrc_url());
                 LanguagehelperHttpClient.get(mAVObject.getLrc_url(),new BgCallback(){
                     @Override
                     public void onFailured() {
@@ -202,7 +232,8 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
                         DownLoadUtil.saveFile(ReadingDetailLrcActivity.this,
                                 SDCardUtil.lrcPath,name,responseString.getBytes());
                         try {
-                            mutilLrc = new utilLrc(lrcfilepath);
+                            utilLrc mutilLrc = new utilLrc(lrcfilepath);
+                            setList(mutilLrc);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -210,11 +241,18 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
                 });
             }else {
                 try {
-                    mutilLrc = new utilLrc(lrcfilepath);
+                    utilLrc mutilLrc = new utilLrc(lrcfilepath);
+                    setList(mutilLrc);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
+        }
+    }
+
+    private void setList(utilLrc mutilLrc){
+        if (mutilLrc != null) {
+            list = mutilLrc.getLrcList();
         }
     }
 
@@ -276,22 +314,21 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
         }
     }
 
-    @OnClick(R.id.btn_play)
-    public void onClick() {
+    public void onPlayBtnClick() {
+        nextTopTime = 0;
         XmPlayerManager.getInstance(this).pause();
         IPlayerUtil.initAndPlay(mAVObject);
-        downloadLrc();
     }
 
     @Override
     public void updateUI(String music_action) {
         if(IPlayerUtil.MPlayerIsSameMp3(mAVObject)){
             if(PlayerService.action_restart.equals(music_action)){
-                btn_play.setSelected(false);
+                binding.btnPlay.setSelected(false);
                 handler.removeCallbacks(mRunnable);
             }else if (PlayerService.action_pause.equals(music_action)) {
-                btn_play.setSelected(true);
-                handler.postDelayed(mRunnable,300);
+                binding.btnPlay.setSelected(true);
+                handler.postDelayed(mRunnable,50);
             }
         }
         if(PlayerService.action_loading.equals(music_action)){
@@ -307,9 +344,7 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
         unregisterBroadcast();
         if(handler != null){
             handler.removeCallbacks(mRunnable);
-        }
-        if(mLeisureModel != null){
-            mLeisureModel.onDestroy();
+            handler = null;
         }
     }
 
@@ -325,8 +360,21 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
+        nextTopTime = 0;
         IPlayerUtil.MPlayerSeekTo(seekBar.getProgress());
         IPlayerUtil.MPlayerRestart();
-        handler.postDelayed(mRunnable,300);
+        handler.postDelayed(mRunnable,50);
+    }
+
+    private void guide() {
+        if (!mSharedPreferences.getBoolean(KeyUtil.isReadingDetailGuideShow1, false)) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.Theme_AppCompat_Light_Dialog_Alert);
+            builder.setTitle("");
+            builder.setMessage("点击英文单词即可查询词意。");
+            builder.setPositiveButton("确认", null);
+            AlertDialog dialog = builder.create();
+            dialog.show();
+            Setings.saveSharedPreferences(mSharedPreferences, KeyUtil.isReadingDetailGuideShow1, true);
+        }
     }
 }
