@@ -390,7 +390,6 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         String sign = SignUtil.getMd5Sign(Setings.PVideoKey, timestamp, Url, platform, network);
         RetrofitApiService service = RetrofitApiService.getRetrofitApiService(Setings.PVideoApi,
                 RetrofitApiService.class);
-//        LogUtil.DefalutLog("---Url:"+Url);
         Call<PVideoResult> call = service.getPVideoApi(Url, network, platform, sign, timestamp,0, vid);
         call.enqueue(new Callback<PVideoResult>() {
                 @Override
@@ -399,7 +398,6 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
                     if (response.isSuccessful()) {
                         PVideoResult mResult = response.body();
                         if (mResult != null && !TextUtils.isEmpty(mResult.getUrl())) {
-//                            LogUtil.DefalutLog("---call:"+mResult);
                             onPVideoApiSuccess(mResult);
                         } else {
                             onPVideoApiFailured();

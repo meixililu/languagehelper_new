@@ -87,6 +87,7 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
     private boolean mExoPlayerFullscreen = false;
     private FrameLayout mFullScreenButton;
     private ImageView mFullScreenIcon;
+    private LinearLayout back_btn;
     private Dialog mFullScreenDialog;
     private int mResumeWindow;
     private long mResumePosition;
@@ -178,15 +179,15 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
     }
 
     private void initFullscreenButton() {
+        back_btn = simpleExoPlayerView.findViewById(R.id.back_btn);
         mFullScreenIcon = simpleExoPlayerView.findViewById(R.id.exo_fullscreen_icon);
         mFullScreenButton = simpleExoPlayerView.findViewById(R.id.exo_fullscreen_button);
-        mFullScreenButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!mExoPlayerFullscreen)
-                    openFullscreenDialog();
-                else
-                    closeFullscreenDialog();
+        back_btn.setOnClickListener(view -> onBack_btn());
+        mFullScreenButton.setOnClickListener(view -> {
+            if (!mExoPlayerFullscreen) {
+                openFullscreenDialog();
+            } else {
+                closeFullscreenDialog();
             }
         });
     }
@@ -331,6 +332,14 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
                 break;
             default:
                 break;
+        }
+    }
+
+    public void onBack_btn() {
+        if (!mExoPlayerFullscreen) {
+            onBackPressed();
+        }else {
+            closeFullscreenDialog();
         }
     }
 
