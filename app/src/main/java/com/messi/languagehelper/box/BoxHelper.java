@@ -527,19 +527,23 @@ public class BoxHelper {
         return getBoxStore().boxFor(WordDetailListItem.class);
     }
 
-    public static void saveList(List<WordDetailListItem> beans){
+    public static void saveAndGetStatusList(List<WordDetailListItem> beans){
         if (NullUtil.isNotEmpty(beans)) {
             for(WordDetailListItem bean : beans){
-                save(bean);
+                saveAndGetStatus(bean);
             }
         }
     }
 
-    public static void save(WordDetailListItem bean){
+    public static void saveAndGetStatus(WordDetailListItem bean){
         List<WordDetailListItem> items = isExit(bean);
         if(items.size() == 0){
             long id = insert(bean);
             bean.setId(id);
+        }else {
+            WordDetailListItem oldItem = items.get(0);
+            bean.setId(oldItem.getId());
+            bean.setIs_know(oldItem.isIs_know());
         }
     }
 

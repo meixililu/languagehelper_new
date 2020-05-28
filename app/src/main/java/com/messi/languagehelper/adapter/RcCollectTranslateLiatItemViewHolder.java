@@ -6,7 +6,6 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.messi.languagehelper.R;
@@ -32,7 +31,6 @@ public class RcCollectTranslateLiatItemViewHolder extends RecyclerView.ViewHolde
     public FrameLayout delete_btn;
     public FrameLayout weixi_btn;
     public FrameLayout voice_play_layout;
-    public ProgressBar play_content_btn_progressbar;
     private Context context;
 
     private List<WordDetailListItem> beans;
@@ -53,7 +51,6 @@ public class RcCollectTranslateLiatItemViewHolder extends RecyclerView.ViewHolde
         voice_play_layout = (FrameLayout) convertView.findViewById(R.id.voice_play_layout);
         delete_btn = (FrameLayout) convertView.findViewById(R.id.delete_btn);
         weixi_btn = (FrameLayout) convertView.findViewById(R.id.weixi_btn);
-        play_content_btn_progressbar = (ProgressBar) convertView.findViewById(R.id.play_content_btn_progressbar);
     }
 
     public void render(final WordDetailListItem mBean) {

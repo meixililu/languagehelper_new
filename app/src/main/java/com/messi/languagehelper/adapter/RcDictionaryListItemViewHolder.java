@@ -30,6 +30,7 @@ public class RcDictionaryListItemViewHolder extends RecyclerView.ViewHolder {
     private TextView record_answer;
     private FrameLayout record_question_cover;
     private FrameLayout record_answer_cover;
+    private FrameLayout voice_play_layout;
     private TextView record_question;
     private FrameLayout copy_btn;
     private FrameLayout collected_btn;
@@ -55,6 +56,7 @@ public class RcDictionaryListItemViewHolder extends RecyclerView.ViewHolder {
         collected_cb = (CheckBox) convertView.findViewById(R.id.collected_cb);
         record_question_cover = (FrameLayout) convertView.findViewById(R.id.record_question_cover);
         record_answer_cover = (FrameLayout) convertView.findViewById(R.id.record_answer_cover);
+        voice_play_layout = (FrameLayout) convertView.findViewById(R.id.voice_play_layout);
         copy_btn = (FrameLayout) convertView.findViewById(R.id.copy_btn);
         collected_btn = (FrameLayout) convertView.findViewById(R.id.collected_btn);
         delete_btn = (FrameLayout) convertView.findViewById(R.id.delete_btn);
@@ -71,6 +73,9 @@ public class RcDictionaryListItemViewHolder extends RecyclerView.ViewHolder {
         }
         record_answer.setText(result);
         record_question_cover.setOnClickListener(view -> {
+            MyPlayer.getInstance(context).start(mBean.getWord_name());
+        });
+        voice_play_layout.setOnClickListener(view -> {
             MyPlayer.getInstance(context).start(mBean.getWord_name());
         });
         if (mBean.getIscollected().equals("0")) {

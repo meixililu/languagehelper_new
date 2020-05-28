@@ -38,6 +38,7 @@ public class RcTranslateLiatItemViewHolder extends RecyclerView.ViewHolder {
     public FrameLayout record_answer_cover;
     public FrameLayout record_to_practice;
     public FrameLayout record_question_cover;
+    public FrameLayout voice_play_layout;
     public FrameLayout delete_btn;
     public FrameLayout collected_btn;
     public FrameLayout weixi_btn;
@@ -58,6 +59,7 @@ public class RcTranslateLiatItemViewHolder extends RecyclerView.ViewHolder {
         record_question_cover = (FrameLayout) convertView.findViewById(R.id.record_question_cover);
         record_answer_cover = (FrameLayout) convertView.findViewById(R.id.record_answer_cover);
         record_to_practice = (FrameLayout) convertView.findViewById(R.id.record_to_practice);
+        voice_play_layout = (FrameLayout) convertView.findViewById(R.id.voice_play_layout);
         record_question = (TextView) convertView.findViewById(R.id.record_question);
         record_answer = (TextView) convertView.findViewById(R.id.record_answer);
         unread_dot_answer = (ImageView) convertView.findViewById(R.id.unread_dot_answer);
@@ -88,6 +90,14 @@ public class RcTranslateLiatItemViewHolder extends RecyclerView.ViewHolder {
         }
         record_question.setText(mBean.getChinese());
         record_answer.setText(mBean.getEnglish());
+
+        String pats1 = "英.*\\[";
+        Pattern pattern1 = Pattern.compile(pats1);
+        if(pattern1.matcher(mBean.getEnglish()).find()){
+            voice_play_layout.setOnClickListener(mQuestionOnClickListener);
+        } else {
+            voice_play_layout.setOnClickListener(mMyOnClickListener);
+        }
 
         record_question_cover.setOnClickListener(mQuestionOnClickListener);
         record_answer_cover.setOnClickListener(mMyOnClickListener);

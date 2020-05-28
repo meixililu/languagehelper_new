@@ -85,6 +85,7 @@ public class NotificationUtil {
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
         RemoteViews contentView = new RemoteViews(mContext.getPackageName(),R.layout.notification_layout);
+        contentView.setImageViewResource(R.id.notifi_icon, ColorUtil.getRadomColor());
         contentView.setTextViewText(R.id.notifi_title, title);
         contentView.setImageViewResource(R.id.notifi_action, img_id);
         contentView.setViewVisibility(R.id.notifi_previous, View.GONE);

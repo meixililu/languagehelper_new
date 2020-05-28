@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.iflytek.cloud.SpeechError;
@@ -47,7 +46,6 @@ public class RcCollectDictionaryListItemViewHolder extends RecyclerView.ViewHold
     private CheckBox collected_cb;
     private ImageButton voice_play;
     private FrameLayout voice_play_layout;
-    private ProgressBar play_content_btn_progressbar;
     private Activity context;
     private List<Dictionary> mBeans;
     RcCollectDictionaryListAdapter mAdapter;
@@ -73,12 +71,11 @@ public class RcCollectDictionaryListItemViewHolder extends RecyclerView.ViewHold
         delete_btn = (FrameLayout) convertView.findViewById(R.id.delete_btn);
         voice_play = (ImageButton) convertView.findViewById(R.id.voice_play);
         voice_play_layout = (FrameLayout) convertView.findViewById(R.id.voice_play_layout);
-        play_content_btn_progressbar = (ProgressBar) convertView.findViewById(R.id.play_content_btn_progressbar);
     }
 
     public void render(final Dictionary mBean) {
         AnimationDrawable animationDrawable = (AnimationDrawable) voice_play.getBackground();
-        MyOnClickListener mQuestionOnClickListener = new MyOnClickListener(mBean,voice_play,play_content_btn_progressbar,false);
+        MyOnClickListener mQuestionOnClickListener = new MyOnClickListener(mBean,voice_play,false);
         record_question.setText(mBean.getWord_name());
         String[] temps = mBean.getResult().split("\n\n");
         String result = "";
@@ -149,15 +146,12 @@ public class RcCollectDictionaryListItemViewHolder extends RecyclerView.ViewHold
 
         private Dictionary mBean;
         private ImageButton voice_play;
-        private ProgressBar play_content_btn_progressbar;
         private boolean isPlayResult;
         boolean isNotify = false;
 
-        private MyOnClickListener(Dictionary bean,ImageButton voice_play,
-                                  ProgressBar progressbar, boolean isPlayResult){
+        private MyOnClickListener(Dictionary bean,ImageButton voice_play, boolean isPlayResult){
             this.mBean = bean;
             this.voice_play = voice_play;
-            this.play_content_btn_progressbar = progressbar;
             this.isPlayResult = isPlayResult;
         }
         @Override
@@ -204,7 +198,6 @@ public class RcCollectDictionaryListItemViewHolder extends RecyclerView.ViewHold
 
                     @Override
                     public void onSpeakBegin() {
-                        play_content_btn_progressbar.setVisibility(View.GONE);
                         voice_play.setVisibility(View.VISIBLE);
                         PlayUtil.onStartPlay();
                     }
@@ -222,7 +215,6 @@ public class RcCollectDictionaryListItemViewHolder extends RecyclerView.ViewHold
                     @Override
                     public void onBufferProgress(int arg0, int arg1, int arg2, String arg3) {
                         if(arg0 < 10){
-                            play_content_btn_progressbar.setVisibility(View.VISIBLE);
                             voice_play.setVisibility(View.GONE);
                         }
                     }

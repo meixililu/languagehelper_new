@@ -126,13 +126,6 @@
                 android:background="@drawable/voice_play"
                 android:clickable="false" />
 
-            <ProgressBar
-                android:id="@+id/play_content_btn_progressbar"
-                android:layout_width="@dimen/list_item_icon"
-                android:layout_height="@dimen/list_item_icon"
-				style="@style/CircularProgressBlue"
-                android:layout_gravity="center"
-                android:visibility="gone" />
         </FrameLayout>
     </LinearLayout>
 

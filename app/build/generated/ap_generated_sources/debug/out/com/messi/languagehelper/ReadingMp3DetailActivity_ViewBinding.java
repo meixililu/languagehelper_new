@@ -21,7 +21,7 @@ import java.lang.Override;
 public class ReadingMp3DetailActivity_ViewBinding implements Unbinder {
   private ReadingMp3DetailActivity target;
 
-  private View view7f080239;
+  private View view7f080238;
 
   @UiThread
   public ReadingMp3DetailActivity_ViewBinding(ReadingMp3DetailActivity target) {
@@ -47,7 +47,7 @@ public class ReadingMp3DetailActivity_ViewBinding implements Unbinder {
     target.time_current = Utils.findRequiredViewAsType(source, R.id.time_current, "field 'time_current'", TextView.class);
     target.time_duration = Utils.findRequiredViewAsType(source, R.id.time_duration, "field 'time_duration'", TextView.class);
     view = Utils.findRequiredView(source, R.id.playbtn_layout, "method 'onClick'");
-    view7f080239 = view;
+    view7f080238 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -77,7 +77,7 @@ public class ReadingMp3DetailActivity_ViewBinding implements Unbinder {
     target.time_current = null;
     target.time_duration = null;
 
-    view7f080239.setOnClickListener(null);
-    view7f080239 = null;
+    view7f080238.setOnClickListener(null);
+    view7f080238 = null;
   }
 }

@@ -16,7 +16,7 @@ import java.lang.Override;
 public class MomentsComentActivity_ViewBinding implements Unbinder {
   private MomentsComentActivity target;
 
-  private View view7f08031c;
+  private View view7f08031b;
 
   @UiThread
   public MomentsComentActivity_ViewBinding(MomentsComentActivity target) {
@@ -34,7 +34,7 @@ public class MomentsComentActivity_ViewBinding implements Unbinder {
     target.inputEt = Utils.findRequiredViewAsType(source, R.id.input_et, "field 'inputEt'", AppCompatEditText.class);
     view = Utils.findRequiredView(source, R.id.submit_btn, "field 'submitBtn' and method 'onClick'");
     target.submitBtn = Utils.castView(view, R.id.submit_btn, "field 'submitBtn'", TextView.class);
-    view7f08031c = view;
+    view7f08031b = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -56,7 +56,7 @@ public class MomentsComentActivity_ViewBinding implements Unbinder {
     target.inputEt = null;
     target.submitBtn = null;
 
-    view7f08031c.setOnClickListener(null);
-    view7f08031c = null;
+    view7f08031b.setOnClickListener(null);
+    view7f08031b = null;
   }
 }

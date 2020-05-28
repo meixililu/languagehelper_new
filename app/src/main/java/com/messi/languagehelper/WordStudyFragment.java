@@ -111,14 +111,18 @@ public class WordStudyFragment extends BaseFragment {
 		Intent intent = new Intent();
 		Class toClass = null;
 		if (wordCourseItem != null) {
-			toClass = WordDetailActivity.class;
-			intent.putExtra(KeyUtil.ActionbarTitle, wordCourseItem.getTitle());
-			intent.putExtra(KeyUtil.WordTestType, "learn");
-			intent.putParcelableArrayListExtra(KeyUtil.List, itemList);
+			if (itemList == null) {
+				getDataTask();
+				return;
+			}
 			if (isFinishWordBook) {
 				showFinishDialog();
 				return;
 			}
+			toClass = WordDetailActivity.class;
+			intent.putExtra(KeyUtil.ActionbarTitle, wordCourseItem.getTitle());
+			intent.putExtra(KeyUtil.WordTestType, "learn");
+			intent.putParcelableArrayListExtra(KeyUtil.List, itemList);
 		} else {
 			toClass = WordStudyPlanActivity.class;
 		}
@@ -154,35 +158,31 @@ public class WordStudyFragment extends BaseFragment {
 		});
 	}
 
+	private void onFinishLoadData() {
+		setTask();
+	}
+
 	private void loadData() {
 		try {
 			if (wordCourseItem == null) {
 				return;
 			}
-			itemList.clear();
-			List<WordDetailListItem> items = BoxHelper.getList(wordCourseItem.getClass_id(), wordCourseItem.getCourse_id());
-			if(items.size() > 0){
-				itemList.addAll(items);
-			}else {
-				AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.WordStudyDetail.WordStudyDetail);
-				query.whereEqualTo(AVOUtil.WordStudyDetail.class_id, wordCourseItem.getClass_id());
-				query.whereEqualTo(AVOUtil.WordStudyDetail.course, wordCourseItem.getCourse_id());
-				query.orderByAscending(AVOUtil.WordStudyDetail.item_id);
-				List<AVObject> avObjects = query.find();
-				if (avObjects != null) {
-					for (AVObject mAVObject : avObjects) {
-						itemList.add(ChangeDataTypeUtil.changeData(mAVObject));
-					}
+			LogUtil.DefalutLog("class_id:"+wordCourseItem.getClass_id()+"---course:"+wordCourseItem.getCourse_id());
+			AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.WordStudyDetail.WordStudyDetail);
+			query.whereEqualTo(AVOUtil.WordStudyDetail.class_id, wordCourseItem.getClass_id());
+			query.whereEqualTo(AVOUtil.WordStudyDetail.course, wordCourseItem.getCourse_id());
+			query.orderByAscending(AVOUtil.WordStudyDetail.item_id);
+			List<AVObject> avObjects = query.find();
+			if (NullUtil.isNotEmpty(avObjects)) {
+				itemList.clear();
+				for (AVObject mAVObject : avObjects) {
+					itemList.add(ChangeDataTypeUtil.changeData(mAVObject));
 				}
-				BoxHelper.saveList(itemList);
 			}
+			BoxHelper.saveAndGetStatusList(itemList);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-
-	private void onFinishLoadData() {
-
 	}
 
 	private void ToAvtivity(Class toClass) {
@@ -218,12 +218,8 @@ public class WordStudyFragment extends BaseFragment {
 
 	public int getHasLearnWordNum(){
 		int count = 0;
-		if(wordCourseItem != null){
-			List<WordDetailListItem> items = BoxHelper.getList(wordCourseItem.getClass_id(), wordCourseItem.getCourse_id());
-			if(items.size() > 0){
-				itemList.clear();
-				itemList.addAll(items);
-			}
+		if(NullUtil.isNotEmpty(itemList)){
+			BoxHelper.saveAndGetStatusList(itemList);
 			for(WordDetailListItem item : itemList){
 				if (item.isIs_know()) {
 					count++;

@@ -127,39 +127,28 @@
                 android:clickable="false" />
         </FrameLayout>
 
-<!--        <ImageView-->
-<!--            android:layout_width="1px"-->
-<!--            android:layout_height="fill_parent"-->
-<!--            android:layout_marginBottom="4dp"-->
-<!--            android:layout_marginTop="4dp"-->
-<!--            android:visibility="gone"-->
-<!--            android:background="@color/line_color_blue" />-->
+        <ImageView
+            android:layout_width="1px"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/line_color_blue" />
 
-<!--        <FrameLayout-->
-<!--            android:id="@+id/voice_play_layout"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="fill_parent"-->
-<!--            android:layout_weight="1"-->
-<!--            android:visibility="gone"-->
-<!--            android:foreground="@drawable/framelayout_selector"-->
-<!--            >-->
-
-<!--            <ImageButton-->
-<!--                android:id="@+id/voice_play"-->
-<!--                android:layout_width="9dp"-->
-<!--                android:layout_height="12dp"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:background="@drawable/voice_play"-->
-<!--                android:clickable="false" />-->
-
-<!--            <ProgressBar-->
-<!--                android:id="@+id/play_content_btn_progressbar"-->
-<!--                android:layout_width="@dimen/list_item_icon"-->
-<!--                android:layout_height="@dimen/list_item_icon"-->
-<!--                style="@style/CircularProgressBlue"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:visibility="gone" />-->
-<!--        </FrameLayout>-->
+        <FrameLayout
+            android:id="@+id/voice_play_layout"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:foreground="@drawable/framelayout_selector"
+            >
+            <ImageButton
+                android:id="@+id/voice_play"
+                android:layout_width="@dimen/list_item_icon"
+                android:layout_height="@dimen/list_item_icon"
+                android:layout_gravity="center"
+                android:background="@drawable/play_btn_d"
+                android:clickable="false" />
+        </FrameLayout>
     </LinearLayout>
     <ImageView
         android:layout_width="fill_parent"

@@ -78,7 +78,6 @@ public class WordsActivity extends BaseActivity implements FragmentProgressbarLi
                 .build();
         studyFragment = XmlySearchAlbumFragment.newInstance("单词",getString(R.string.title_study_category));
         radioHomeFragment = SubjectFragment.getInstance(AVOUtil.Category.word,"","",getString(R.string.title_course));
-//        VocabularyFragment.getInstance();
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.content, mWordHomeFragment)
