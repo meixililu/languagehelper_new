@@ -139,6 +139,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 	@Override
 	public void loadDataOnStart() {
 		super.loadDataOnStart();
+		LogUtil.DefalutLog("------ReadingFragment------");
 		random();
 		getDataTask();
 		getMaxPageNumberBackground();

@@ -88,6 +88,7 @@ public class SubjectFragment extends BaseFragment {
     @Override
     public void loadDataOnStart() {
         super.loadDataOnStart();
+        LogUtil.DefalutLog("------SubjectFragment------");
         random();
         getDataTask();
         getMaxPageNumberBackground();

@@ -15,10 +15,10 @@
         android:layout_gravity="center_vertical"
         >
         <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_centerInParent="true"
-            app:srcCompat="@drawable/play_btn_d"
+            app:srcCompat="@drawable/ic_volume_on"
             />
     </RelativeLayout>
 
@@ -33,6 +33,6 @@
         android:padding="@dimen/padding_10"
         android:textColor="@color/text_black"
         android:textIsSelectable="true"
-        android:textSize="@dimen/big" />
+        android:textSize="@dimen/bigger" />
 
 </LinearLayout>

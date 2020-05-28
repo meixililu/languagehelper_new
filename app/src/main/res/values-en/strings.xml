@@ -145,6 +145,7 @@
     <string name="listen_previous">Previous</string>
     <string name="listen_subtitle">Subtitle</string>
     <string name="listen_next">Next</string>
+    <string name="listen_know">Pass</string>
     <string name="listen_unknow">Again</string>
     <string name="recognize_know">Know</string>
     <string name="recognize_unknow">Unknow</string>

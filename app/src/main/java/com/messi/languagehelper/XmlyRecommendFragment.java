@@ -66,6 +66,12 @@ public class XmlyRecommendFragment extends BaseFragment {
         return view;
     }
 
+    @Override
+    public void loadDataOnStart() {
+        super.loadDataOnStart();
+        LogUtil.DefalutLog("------XmlyRecommendFragment-----");
+    }
+
     private void initViews() {
         avObjects = new ArrayList<Album>();
         mXXLModel = new XXLForXMLYAlbumModel(getActivity());
@@ -143,13 +149,12 @@ public class XmlyRecommendFragment extends BaseFragment {
     }
 
     public void refreshByTags(String category, String tag_name) {
-        LogUtil.DefalutLog("refreshByTags");
+        LogUtil.DefalutLog("QueryTask-refreshByTags");
         this.category = category;
         this.tag_name = tag_name;
         skip = 1;
         hideFooterview();
         isNeedClear = true;
-        LogUtil.DefalutLog("QueryTask-refreshByTags");
         QueryTask();
     }
 

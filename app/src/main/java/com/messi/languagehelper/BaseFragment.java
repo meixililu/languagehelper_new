@@ -66,7 +66,6 @@ public class BaseFragment extends Fragment {
 				loadDataOnStart();
 			}
 		}
-
 	}
 
 	public void loadDataOnStart(){

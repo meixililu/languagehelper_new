@@ -80,6 +80,7 @@ public class BoutiquesFragment extends BaseFragment {
 	@Override
 	public void loadDataOnStart() {
 		super.loadDataOnStart();
+		LogUtil.DefalutLog("------SubjectFragment------");
 		viewModel.loadData();
 		viewModel.count();
 	}

@@ -182,7 +182,7 @@
             android:gravity="center"
             android:textColor="@color/white"
             android:textSize="@dimen/big"
-            android:text="@string/listen_next"
+            android:text="@string/listen_know"
             android:background="@drawable/green_btn_bg_selector"
             />
         <View

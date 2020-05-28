@@ -138,11 +138,11 @@
     <string name="auto_play_after_translate">自动播放翻译结果</string>
     <string name="auto_clear">退出应用删除非收藏记录</string>
     <string name="search">搜索</string>
-    <string name="change_books">换课本</string>
+    <string name="change_books">选单词书</string>
     <string name="start_unlock">开始闯关</string>
     <string name="word_task">已完成</string>
     <string name="glossary">词汇大全</string>
-    <string name="new_and_wrong">生词本</string>
+    <string name="new_and_wrong">我的生词本</string>
     <string name="query">查询</string>
     <string name="word_to_test">开始考试</string>
     <string name="word_study_continue">继续学习</string>
@@ -151,7 +151,8 @@
     <string name="listen_previous">上一句</string>
     <string name="listen_next">下一句</string>
     <string name="listen_subtitle">字幕</string>
-    <string name="listen_unknow">这句没听懂</string>
+    <string name="listen_know">听懂了</string>
+    <string name="listen_unknow">没听懂</string>
     <string name="recognize_know">认识</string>
     <string name="recognize_unknow">不认识</string>
     <string name="translate">翻译</string>

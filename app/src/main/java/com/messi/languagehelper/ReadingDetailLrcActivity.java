@@ -178,7 +178,7 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
     }
 
     private void playNext(){
-        if(currentItem != null && list.size() > (currentIndex + 2)){
+        if(currentItem != null && list.size() > (currentIndex + 1)){
             currentIndex += 1;
             playCurrentItem();
         }
@@ -192,9 +192,15 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
     }
 
     private void playCurrentItem(){
-        if(currentItem != null && NullUtil.isNotEmpty(list) && list.size() > (currentIndex + 1)){
-            currentItem = list.get(currentIndex);
-            nextTopTime = list.get(currentIndex+1).getTime();
+        if(currentItem != null && NullUtil.isNotEmpty(list) && list.size() >= (currentIndex + 1)){
+            if (list.size() > currentIndex) {
+                currentItem = list.get(currentIndex);
+            }
+            if (list.size() > (currentIndex + 1)) {
+                nextTopTime = list.get(currentIndex+1).getTime();
+            } else {
+                nextTopTime = IPlayerUtil.getDuration();
+            }
             IPlayerUtil.MPlayerSeekTo((int)currentItem.getTime());
             IPlayerUtil.MPlayerRestart();
         }
@@ -213,6 +219,7 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
                 playCurrentItem();
             });
             binding.unknowLayout.addView(view,0,new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+            binding.scrollview.scrollTo(0,0);
         }
     }
 

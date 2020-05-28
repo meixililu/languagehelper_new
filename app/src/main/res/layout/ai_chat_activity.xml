@@ -45,8 +45,8 @@
 
                 <ImageView
                     android:id="@+id/volume_img"
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="13dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_volume_on" />
             </FrameLayout>

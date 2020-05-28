@@ -218,14 +218,16 @@ public class WordStudyFragment extends BaseFragment {
 
 	public int getHasLearnWordNum(){
 		int count = 0;
-		List<WordDetailListItem> items = BoxHelper.getList(wordCourseItem.getClass_id(), wordCourseItem.getCourse_id());
-		if(items.size() > 0){
-			itemList.clear();
-			itemList.addAll(items);
-		}
-		for(WordDetailListItem item : itemList){
-			if (item.isIs_know()) {
-				count++;
+		if(wordCourseItem != null){
+			List<WordDetailListItem> items = BoxHelper.getList(wordCourseItem.getClass_id(), wordCourseItem.getCourse_id());
+			if(items.size() > 0){
+				itemList.clear();
+				itemList.addAll(items);
+			}
+			for(WordDetailListItem item : itemList){
+				if (item.isIs_know()) {
+					count++;
+				}
 			}
 		}
 		return count;
