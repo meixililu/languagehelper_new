@@ -179,7 +179,13 @@
         </attr>
     </declare-styleable><style name="Widget.Support.CoordinatorLayout" parent="android:Widget">
         <item name="statusBarBackground">#000000</item>
-    </style></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="com.android.support:transition:28.0.0$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/c2d404d113bc0e7e094c67bb9e0ae633/transition-28.0.0/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="com.android.support:transition:28.0.0" from-dependency="true" generated-set="com.android.support:transition:28.0.0$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/c2d404d113bc0e7e094c67bb9e0ae633/transition-28.0.0/res"><file path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/c2d404d113bc0e7e094c67bb9e0ae633/transition-28.0.0/res/values/values.xml" qualifiers=""><item name="ghost_view" type="id"/><item name="parent_matrix" type="id"/><item name="save_image_matrix" type="id"/><item name="save_non_transition_alpha" type="id"/><item name="save_scale_type" type="id"/><item name="transition_current_scene" type="id"/><item name="transition_layout_save" type="id"/><item name="transition_position" type="id"/><item name="transition_scene_layoutid_cache" type="id"/><item name="transition_transform" type="id"/></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="pl.droidsonroids.gif:android-gif-drawable:1.2.6$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/338705f13117812d8aee765dc3f71978/android-gif-drawable-1.2.6/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="pl.droidsonroids.gif:android-gif-drawable:1.2.6" from-dependency="true" generated-set="pl.droidsonroids.gif:android-gif-drawable:1.2.6$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/338705f13117812d8aee765dc3f71978/android-gif-drawable-1.2.6/res"><file path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/338705f13117812d8aee765dc3f71978/android-gif-drawable-1.2.6/res/values/values.xml" qualifiers=""><declare-styleable name="GifTextureView"><attr format="reference|string" name="gifSource"/><attr format="boolean" name="isOpaque"/></declare-styleable><declare-styleable name="GifView"><attr format="boolean" name="freezesAnimation"/></declare-styleable></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="com.facebook.fresco:drawee:1.13.0$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/25d0a9da365ea076b4ff7e0cb059ff81/drawee-1.13.0/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="com.facebook.fresco:drawee:1.13.0" from-dependency="true" generated-set="com.facebook.fresco:drawee:1.13.0$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/25d0a9da365ea076b4ff7e0cb059ff81/drawee-1.13.0/res"><file path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/25d0a9da365ea076b4ff7e0cb059ff81/drawee-1.13.0/res/values/values.xml" qualifiers=""><declare-styleable name="GenericDraweeHierarchy">
+    </style></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="com.android.support:transition:28.0.0$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/c2d404d113bc0e7e094c67bb9e0ae633/transition-28.0.0/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="com.android.support:transition:28.0.0" from-dependency="true" generated-set="com.android.support:transition:28.0.0$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/c2d404d113bc0e7e094c67bb9e0ae633/transition-28.0.0/res"><file path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/c2d404d113bc0e7e094c67bb9e0ae633/transition-28.0.0/res/values/values.xml" qualifiers=""><item name="ghost_view" type="id"/><item name="parent_matrix" type="id"/><item name="save_image_matrix" type="id"/><item name="save_non_transition_alpha" type="id"/><item name="save_scale_type" type="id"/><item name="transition_current_scene" type="id"/><item name="transition_layout_save" type="id"/><item name="transition_position" type="id"/><item name="transition_scene_layoutid_cache" type="id"/><item name="transition_transform" type="id"/></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="pl.droidsonroids.gif:android-gif-drawable:1.2.19$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/bf1fc981b1355910eb2724f928916302/android-gif-drawable-1.2.19/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="pl.droidsonroids.gif:android-gif-drawable:1.2.19" from-dependency="true" generated-set="pl.droidsonroids.gif:android-gif-drawable:1.2.19$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/bf1fc981b1355910eb2724f928916302/android-gif-drawable-1.2.19/res"><file path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/bf1fc981b1355910eb2724f928916302/android-gif-drawable-1.2.19/res/values/values.xml" qualifiers=""><declare-styleable name="GifTextureView">
+        <attr format="reference|string" name="gifSource"/>
+        <attr format="boolean" name="isOpaque"/>
+    </declare-styleable><declare-styleable name="GifView">
+        <attr format="boolean" name="freezesAnimation"/>
+        <attr format="integer" name="loopCount"/>
+    </declare-styleable></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="com.facebook.fresco:drawee:1.13.0$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/25d0a9da365ea076b4ff7e0cb059ff81/drawee-1.13.0/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="com.facebook.fresco:drawee:1.13.0" from-dependency="true" generated-set="com.facebook.fresco:drawee:1.13.0$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/25d0a9da365ea076b4ff7e0cb059ff81/drawee-1.13.0/res"><file path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/25d0a9da365ea076b4ff7e0cb059ff81/drawee-1.13.0/res/values/values.xml" qualifiers=""><declare-styleable name="GenericDraweeHierarchy">
 
     
     <eat-comment/>
@@ -397,7 +403,7 @@
     
     <attr name="roundingBorderPadding"/>
 
-  </declare-styleable></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/108a52e5fc4626a59ed5e4f16738d765/BaseRecyclerViewAdapterHelper-2.9.42/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42" from-dependency="true" generated-set="com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/108a52e5fc4626a59ed5e4f16738d765/BaseRecyclerViewAdapterHelper-2.9.42/res"><file path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/108a52e5fc4626a59ed5e4f16738d765/BaseRecyclerViewAdapterHelper-2.9.42/res/values/values.xml" qualifiers=""><dimen name="def_height">50dp</dimen><dimen name="dp_10">10dp</dimen><dimen name="dp_4">4dp</dimen><dimen name="dp_40">40dp</dimen><dimen name="dp_72">72dp</dimen><dimen name="sp_12">12sp</dimen><dimen name="sp_14">14sp</dimen><dimen name="sp_16">16sp</dimen><item name="BaseQuickAdapter_databinding_support" type="id"/><item name="BaseQuickAdapter_dragging_support" type="id"/><item name="BaseQuickAdapter_swiping_support" type="id"/><item name="BaseQuickAdapter_viewholder_support" type="id"/><string name="brvah_app_name">Library</string><string name="brvah_load_end">没有更多数据</string><string name="brvah_load_failed">加载失败，请点我重试</string><string name="brvah_loading">正在加载中...</string></file><file path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/108a52e5fc4626a59ed5e4f16738d765/BaseRecyclerViewAdapterHelper-2.9.42/res/values-en/values-en.xml" qualifiers="en"><string name="brvah_load_end">No more data</string><string name="brvah_load_failed">load more failed</string><string name="brvah_loading">Loading...</string></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="com.daimajia.numberprogressbar:library:1.4$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/c95e8429d49736de59071d28861a94c1/library-1.4/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="com.daimajia.numberprogressbar:library:1.4" from-dependency="true" generated-set="com.daimajia.numberprogressbar:library:1.4$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/c95e8429d49736de59071d28861a94c1/library-1.4/res"><file path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/c95e8429d49736de59071d28861a94c1/library-1.4/res/values/values.xml" qualifiers=""><declare-styleable name="NumberProgressBar"><attr format="integer" name="progress_current"/><attr format="integer" name="progress_max"/><attr format="color" name="progress_unreached_color"/><attr format="color" name="progress_reached_color"/><attr format="dimension" name="progress_reached_bar_height"/><attr format="dimension" name="progress_unreached_bar_height"/><attr format="dimension" name="progress_text_size"/><attr format="color" name="progress_text_color"/><attr format="dimension" name="progress_text_offset"/><attr format="enum" name="progress_text_visibility">
+  </declare-styleable></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="com.daimajia.numberprogressbar:library:1.4$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/c95e8429d49736de59071d28861a94c1/library-1.4/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="com.daimajia.numberprogressbar:library:1.4" from-dependency="true" generated-set="com.daimajia.numberprogressbar:library:1.4$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/c95e8429d49736de59071d28861a94c1/library-1.4/res"><file path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/c95e8429d49736de59071d28861a94c1/library-1.4/res/values/values.xml" qualifiers=""><declare-styleable name="NumberProgressBar"><attr format="integer" name="progress_current"/><attr format="integer" name="progress_max"/><attr format="color" name="progress_unreached_color"/><attr format="color" name="progress_reached_color"/><attr format="dimension" name="progress_reached_bar_height"/><attr format="dimension" name="progress_unreached_bar_height"/><attr format="dimension" name="progress_text_size"/><attr format="color" name="progress_text_color"/><attr format="dimension" name="progress_text_offset"/><attr format="enum" name="progress_text_visibility">
             <enum name="visible" value="0"/>
             <enum name="invisible" value="1"/>
         </attr></declare-styleable><declare-styleable name="Themes"><attr format="reference" name="numberProgressBarStyle"/></declare-styleable><style name="NumberProgressBar_Beauty_Red">
@@ -514,96 +520,7 @@
 
         <item name="progress_reached_bar_height">1.5dp</item>
         <item name="progress_unreached_bar_height">0.75dp</item>
-    </style></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="com.andkulikov:transitionseverywhere:1.8.1$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/cd068566666888bf6eafdc7c7b9fe104/transitionseverywhere-1.8.1/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="com.andkulikov:transitionseverywhere:1.8.1" from-dependency="true" generated-set="com.andkulikov:transitionseverywhere:1.8.1$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/cd068566666888bf6eafdc7c7b9fe104/transitionseverywhere-1.8.1/res"><file path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/cd068566666888bf6eafdc7c7b9fe104/transitionseverywhere-1.8.1/res/values/values.xml" qualifiers=""><declare-styleable name="ArcMotion">
-        
-        <attr format="float" name="minimumHorizontalAngle"/>
-        
-        <attr format="float" name="minimumVerticalAngle"/>
-        
-        <attr format="float" name="maximumAngle"/>
-    </declare-styleable><declare-styleable name="ChangeBounds">
-        
-        <attr format="boolean" name="resizeClip"/>
-    </declare-styleable><declare-styleable name="ChangeTransform">
-        
-        <attr format="boolean" name="reparentWithOverlay"/>
-
-        
-        <attr format="boolean" name="reparent"/>
-    </declare-styleable><declare-styleable name="Fade">
-        
-        <attr name="fadingMode">
-            
-            <enum name="fade_in" value="1"/>
-            
-            <enum name="fade_out" value="2"/>
-            
-            <enum name="fade_in_out" value="3"/>
-        </attr>
-    </declare-styleable><declare-styleable name="PatternPathMotion">
-        
-        <attr format="string" name="patternPathData"/>
-    </declare-styleable><declare-styleable name="Scale">
-        
-        <attr format="float" name="disappearedScale"/>
-    </declare-styleable><declare-styleable name="Slide">
-        <attr name="slideEdge">
-            
-            <enum name="left" value="0x03"/>
-            
-            <enum name="top" value="0x30"/>
-            
-            <enum name="right" value="0x05"/>
-            
-            <enum name="bottom" value="0x50"/>
-        </attr>
-    </declare-styleable><declare-styleable name="Transition">
-        
-        <attr name="android:duration"/>
-        <attr format="integer" name="duration"/>
-        
-        <attr format="integer" name="startDelay"/>
-        
-        <attr name="android:interpolator"/>
-        <attr format="reference" name="interpolator"/>
-        
-        <attr format="string" name="matchOrder"/>
-    </declare-styleable><declare-styleable name="TransitionManager">
-        
-        <attr format="reference" name="transition"/>
-        
-        <attr format="reference" name="fromScene"/>
-        
-        <attr format="reference" name="toScene"/>
-    </declare-styleable><declare-styleable name="TransitionSet">
-        <attr name="transitionOrdering">
-            
-            <enum name="together" value="0"/>
-            
-            <enum name="sequential" value="1"/>
-        </attr>
-    </declare-styleable><declare-styleable name="TransitionTarget">
-        
-        <attr format="reference" name="targetId"/>
-        
-        <attr format="reference" name="excludeId"/>
-        
-        <attr format="string" name="targetClass"/>
-        
-        <attr format="string" name="excludeClass"/>
-        
-        <attr format="string" name="targetName"/>
-        
-        <attr format="string" name="excludeName"/>
-    </declare-styleable><declare-styleable name="VisibilityTransition">
-        
-        <attr name="transitionVisibilityMode">
-            
-            <flag name="mode_in" value="1"/>
-            
-            <flag name="mode_out" value="2"/>
-        </attr>
-    </declare-styleable><item name="current_scene" type="id"/><item name="group_layouttransition_backup" type="id"/><item name="overlay_layout_params_backup" type="id"/><item name="overlay_view" type="id"/><item name="parentMatrix" type="id"/><item name="runningTransitions" type="id"/><item name="scene_layoutid_cache" type="id"/><item name="transitionAlpha" type="id"/><item name="transitionName" type="id"/><item name="transitionPosition" type="id"/><item name="transitionTransform" type="id"/></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="cn.jzvd:jiaozivideoplayer:7.2.3$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/c67849c9202fdfb891819f086b18a855/jiaozivideoplayer-7.2.3/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="cn.jzvd:jiaozivideoplayer:7.2.3" from-dependency="true" generated-set="cn.jzvd:jiaozivideoplayer:7.2.3$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/c67849c9202fdfb891819f086b18a855/jiaozivideoplayer-7.2.3/res"><file path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/c67849c9202fdfb891819f086b18a855/jiaozivideoplayer-7.2.3/res/values/values.xml" qualifiers=""><dimen name="jz_start_button_w_h_fullscreen">62dp</dimen><dimen name="jz_start_button_w_h_normal">45dp</dimen><string name="click_to_restart">Click to try again</string><string name="no_url">No url</string><string name="replay">Replay</string><string name="tips_not_wifi">You are currently using the mobile network, the player will continue to consume traffic</string><string name="tips_not_wifi_cancel">Stop play</string><string name="tips_not_wifi_confirm">Resume</string><string name="video_loading_failed">Video loading failed</string><style name="jz_popup_toast_anim" parent="@android:style/Animation">
+    </style></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="cn.jzvd:jiaozivideoplayer:7.2.3$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/c67849c9202fdfb891819f086b18a855/jiaozivideoplayer-7.2.3/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="cn.jzvd:jiaozivideoplayer:7.2.3" from-dependency="true" generated-set="cn.jzvd:jiaozivideoplayer:7.2.3$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/c67849c9202fdfb891819f086b18a855/jiaozivideoplayer-7.2.3/res"><file path="/Users/lilu/.gradle/caches/transforms-2/files-2.1/c67849c9202fdfb891819f086b18a855/jiaozivideoplayer-7.2.3/res/values/values.xml" qualifiers=""><dimen name="jz_start_button_w_h_fullscreen">62dp</dimen><dimen name="jz_start_button_w_h_normal">45dp</dimen><string name="click_to_restart">Click to try again</string><string name="no_url">No url</string><string name="replay">Replay</string><string name="tips_not_wifi">You are currently using the mobile network, the player will continue to consume traffic</string><string name="tips_not_wifi_cancel">Stop play</string><string name="tips_not_wifi_confirm">Resume</string><string name="video_loading_failed">Video loading failed</string><style name="jz_popup_toast_anim" parent="@android:style/Animation">
         <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
         <item name="android:windowExitAnimation">@android:anim/fade_out</item>
     </style><style name="jz_style_dialog_progress" parent="@android:style/Theme.Dialog">
@@ -4934,15 +4851,7 @@
     </declare-styleable><declare-styleable name="NumberProgressBar"><attr format="integer" name="progress_current"/><attr format="integer" name="progress_max"/><attr format="color" name="progress_unreached_color"/><attr format="color" name="progress_reached_color"/><attr format="dimension" name="progress_reached_bar_height"/><attr format="dimension" name="progress_unreached_bar_height"/><attr format="dimension" name="progress_text_size"/><attr format="color" name="progress_text_color"/><attr format="dimension" name="progress_text_offset"/><attr format="enum" name="progress_text_visibility">
             <enum name="visible" value="0"/>
             <enum name="invisible" value="1"/>
-        </attr></declare-styleable><declare-styleable name="VisibilityTransition">
-        
-        <attr name="transitionVisibilityMode">
-            
-            <flag name="mode_in" value="1"/>
-            
-            <flag name="mode_out" value="2"/>
-        </attr>
-    </declare-styleable><declare-styleable name="AppBarLayout"><attr name="elevation"/><attr name="android:background"/><attr format="boolean" name="expanded"/><attr name="android:keyboardNavigationCluster"/><attr name="android:touchscreenBlocksFocus"/><attr format="boolean" name="liftOnScroll"/></declare-styleable><declare-styleable name="RecycleListView">
+        </attr></declare-styleable><declare-styleable name="AppBarLayout"><attr name="elevation"/><attr name="android:background"/><attr format="boolean" name="expanded"/><attr name="android:keyboardNavigationCluster"/><attr name="android:touchscreenBlocksFocus"/><attr format="boolean" name="liftOnScroll"/></declare-styleable><declare-styleable name="RecycleListView">
         
         <attr format="dimension" name="paddingBottomNoButtons"/>
         
@@ -5032,19 +4941,6 @@
         <attr format="dimension" name="firstBaselineToTopHeight"/>
         
         <attr format="dimension" name="lastBaselineToBottomHeight"/>
-    </declare-styleable><declare-styleable name="TransitionTarget">
-        
-        <attr format="reference" name="targetId"/>
-        
-        <attr format="reference" name="excludeId"/>
-        
-        <attr format="string" name="targetClass"/>
-        
-        <attr format="string" name="excludeClass"/>
-        
-        <attr format="string" name="targetName"/>
-        
-        <attr format="string" name="excludeName"/>
     </declare-styleable><declare-styleable name="KeyAttribute"><attr name="framePosition"/><attr name="motionTarget"/><attr name="transitionEasing"/><attr name="curveFit"/><attr name="motionProgress"/><attr name="android:visibility"/><attr name="android:alpha"/><attr name="android:elevation"/><attr name="android:rotation"/><attr name="android:rotationX"/><attr name="android:rotationY"/><attr name="transitionPathRotate"/><attr name="android:scaleX"/><attr name="android:scaleY"/><attr name="android:translationX"/><attr name="android:translationY"/><attr name="android:translationZ"/></declare-styleable><declare-styleable name="CollapsingToolbarLayout_Layout"><attr name="layout_collapseMode">
       
       <enum name="none" value="0"/>
@@ -5098,10 +4994,7 @@
         <attr name="android:dropDownWidth"/>
         
         <attr name="android:entries"/>
-    </declare-styleable><declare-styleable name="ConstraintLayout_placeholder"><attr name="placeholder_emptyVisibility"/><attr name="content"/></declare-styleable><declare-styleable name="PatternPathMotion">
-        
-        <attr format="string" name="patternPathData"/>
-    </declare-styleable><declare-styleable name="DrawerArrowToggle">
+    </declare-styleable><declare-styleable name="ConstraintLayout_placeholder"><attr name="placeholder_emptyVisibility"/><attr name="content"/></declare-styleable><declare-styleable name="DrawerArrowToggle">
         
         <attr format="color" name="color"/>
         
@@ -5126,17 +5019,6 @@
         
         <attr name="android:inflatedId"/>
         <attr name="android:id"/>
-    </declare-styleable><declare-styleable name="Slide">
-        <attr name="slideEdge">
-            
-            <enum name="left" value="0x03"/>
-            
-            <enum name="top" value="0x30"/>
-            
-            <enum name="right" value="0x05"/>
-            
-            <enum name="bottom" value="0x50"/>
-        </attr>
     </declare-styleable><declare-styleable name="leak_canary_MoreDetailsView">
     <attr format="color" name="leak_canary_plus_color"/>
   </declare-styleable><declare-styleable name="SnackbarLayout"><attr name="android:maxWidth"/><attr name="elevation"/><attr format="dimension" name="maxActionInlineWidth"/></declare-styleable><declare-styleable name="StateSet"><attr format="reference" name="defaultState"/></declare-styleable><declare-styleable name="MenuGroup">
@@ -5229,14 +5111,7 @@
         <attr name="android:fontWeight"/>
         <attr name="android:fontVariationSettings"/>
         <attr name="android:ttcIndex"/>
-    </declare-styleable><declare-styleable name="PlayerControlView"><attr name="show_timeout"/><attr name="rewind_increment"/><attr name="fastforward_increment"/><attr name="repeat_toggle_modes"/><attr name="show_shuffle_button"/><attr name="controller_layout_id"/></declare-styleable><declare-styleable name="TransitionManager">
-        
-        <attr format="reference" name="transition"/>
-        
-        <attr format="reference" name="fromScene"/>
-        
-        <attr format="reference" name="toScene"/>
-    </declare-styleable><declare-styleable name="DesignTheme"><attr name="bottomSheetDialogTheme"/><attr name="bottomSheetStyle"/></declare-styleable><declare-styleable name="LinearLayoutCompat">
+    </declare-styleable><declare-styleable name="PlayerControlView"><attr name="show_timeout"/><attr name="rewind_increment"/><attr name="fastforward_increment"/><attr name="repeat_toggle_modes"/><attr name="show_shuffle_button"/><attr name="controller_layout_id"/></declare-styleable><declare-styleable name="DesignTheme"><attr name="bottomSheetDialogTheme"/><attr name="bottomSheetStyle"/></declare-styleable><declare-styleable name="LinearLayoutCompat">
         
         <attr name="android:orientation"/>
         <attr name="android:gravity"/>
@@ -5259,7 +5134,7 @@
         </attr>
         
         <attr format="dimension" name="dividerPadding"/>
-    </declare-styleable><declare-styleable name="FloatingActionButton_Behavior_Layout"><attr format="boolean" name="behavior_autoHide"/></declare-styleable><declare-styleable name="Layout"><attr name="android:layout_width"/><attr name="android:layout_height"/><attr name="android:layout_marginStart"/><attr name="android:layout_marginBottom"/><attr name="android:layout_marginTop"/><attr name="android:layout_marginEnd"/><attr name="android:layout_marginLeft"/><attr name="android:layout_marginRight"/><attr name="layout_constraintCircle"/><attr name="layout_constraintCircleRadius"/><attr name="layout_constraintCircleAngle"/><attr name="layout_constraintGuide_begin"/><attr name="layout_constraintGuide_end"/><attr name="layout_constraintGuide_percent"/><attr name="layout_constraintLeft_toLeftOf"/><attr name="layout_constraintLeft_toRightOf"/><attr name="layout_constraintRight_toLeftOf"/><attr name="layout_constraintRight_toRightOf"/><attr name="layout_constraintTop_toTopOf"/><attr name="layout_constraintTop_toBottomOf"/><attr name="layout_constraintBottom_toTopOf"/><attr name="layout_constraintBottom_toBottomOf"/><attr name="layout_constraintBaseline_toBaselineOf"/><attr name="layout_constraintStart_toEndOf"/><attr name="layout_constraintStart_toStartOf"/><attr name="layout_constraintEnd_toStartOf"/><attr name="layout_constraintEnd_toEndOf"/><attr name="layout_goneMarginLeft"/><attr name="layout_goneMarginTop"/><attr name="layout_goneMarginRight"/><attr name="layout_goneMarginBottom"/><attr name="layout_goneMarginStart"/><attr name="layout_goneMarginEnd"/><attr name="layout_constrainedWidth"/><attr name="layout_constrainedHeight"/><attr name="layout_constraintHorizontal_bias"/><attr name="layout_constraintVertical_bias"/><attr name="layout_constraintWidth_default"/><attr name="layout_constraintHeight_default"/><attr name="layout_constraintWidth_min"/><attr name="layout_constraintWidth_max"/><attr name="android:orientation"/><attr name="layout_constraintWidth_percent"/><attr name="layout_constraintHeight_min"/><attr name="layout_constraintHeight_max"/><attr name="layout_constraintHeight_percent"/><attr name="layout_constraintLeft_creator"/><attr name="layout_constraintTop_creator"/><attr name="layout_constraintRight_creator"/><attr name="layout_constraintBottom_creator"/><attr name="layout_constraintBaseline_creator"/><attr name="layout_constraintDimensionRatio"/><attr name="layout_constraintHorizontal_weight"/><attr name="layout_constraintVertical_weight"/><attr name="layout_constraintHorizontal_chainStyle"/><attr name="layout_constraintVertical_chainStyle"/><attr name="layout_editor_absoluteX"/><attr name="layout_editor_absoluteY"/><attr name="barrierDirection"/><attr name="barrierMargin"/><attr name="constraint_referenced_ids"/><attr format="dimension" name="maxHeight"/><attr format="dimension" name="maxWidth"/><attr format="dimension" name="minHeight"/><attr format="dimension" name="minWidth"/><attr name="barrierAllowsGoneWidgets"/><attr name="chainUseRtl"/></declare-styleable><declare-styleable name="Transition"><attr name="android:duration"/><attr format="integer" name="duration"/><attr format="integer" name="startDelay"/><attr name="android:interpolator"/><attr format="reference" name="interpolator"/><attr format="string" name="matchOrder"/><attr name="android:id"/><attr format="reference" name="constraintSetStart"/><attr format="reference" name="constraintSetEnd"/><attr format="boolean" name="transitionDisable"/><attr name="layoutDuringTransition"/><attr name="pathMotionArc"/><attr format="enum" name="autoTransition">
+    </declare-styleable><declare-styleable name="FloatingActionButton_Behavior_Layout"><attr format="boolean" name="behavior_autoHide"/></declare-styleable><declare-styleable name="Layout"><attr name="android:layout_width"/><attr name="android:layout_height"/><attr name="android:layout_marginStart"/><attr name="android:layout_marginBottom"/><attr name="android:layout_marginTop"/><attr name="android:layout_marginEnd"/><attr name="android:layout_marginLeft"/><attr name="android:layout_marginRight"/><attr name="layout_constraintCircle"/><attr name="layout_constraintCircleRadius"/><attr name="layout_constraintCircleAngle"/><attr name="layout_constraintGuide_begin"/><attr name="layout_constraintGuide_end"/><attr name="layout_constraintGuide_percent"/><attr name="layout_constraintLeft_toLeftOf"/><attr name="layout_constraintLeft_toRightOf"/><attr name="layout_constraintRight_toLeftOf"/><attr name="layout_constraintRight_toRightOf"/><attr name="layout_constraintTop_toTopOf"/><attr name="layout_constraintTop_toBottomOf"/><attr name="layout_constraintBottom_toTopOf"/><attr name="layout_constraintBottom_toBottomOf"/><attr name="layout_constraintBaseline_toBaselineOf"/><attr name="layout_constraintStart_toEndOf"/><attr name="layout_constraintStart_toStartOf"/><attr name="layout_constraintEnd_toStartOf"/><attr name="layout_constraintEnd_toEndOf"/><attr name="layout_goneMarginLeft"/><attr name="layout_goneMarginTop"/><attr name="layout_goneMarginRight"/><attr name="layout_goneMarginBottom"/><attr name="layout_goneMarginStart"/><attr name="layout_goneMarginEnd"/><attr name="layout_constrainedWidth"/><attr name="layout_constrainedHeight"/><attr name="layout_constraintHorizontal_bias"/><attr name="layout_constraintVertical_bias"/><attr name="layout_constraintWidth_default"/><attr name="layout_constraintHeight_default"/><attr name="layout_constraintWidth_min"/><attr name="layout_constraintWidth_max"/><attr name="android:orientation"/><attr name="layout_constraintWidth_percent"/><attr name="layout_constraintHeight_min"/><attr name="layout_constraintHeight_max"/><attr name="layout_constraintHeight_percent"/><attr name="layout_constraintLeft_creator"/><attr name="layout_constraintTop_creator"/><attr name="layout_constraintRight_creator"/><attr name="layout_constraintBottom_creator"/><attr name="layout_constraintBaseline_creator"/><attr name="layout_constraintDimensionRatio"/><attr name="layout_constraintHorizontal_weight"/><attr name="layout_constraintVertical_weight"/><attr name="layout_constraintHorizontal_chainStyle"/><attr name="layout_constraintVertical_chainStyle"/><attr name="layout_editor_absoluteX"/><attr name="layout_editor_absoluteY"/><attr name="barrierDirection"/><attr name="barrierMargin"/><attr name="constraint_referenced_ids"/><attr format="dimension" name="maxHeight"/><attr format="dimension" name="maxWidth"/><attr format="dimension" name="minHeight"/><attr format="dimension" name="minWidth"/><attr name="barrierAllowsGoneWidgets"/><attr name="chainUseRtl"/></declare-styleable><declare-styleable name="Transition"><attr name="android:id"/><attr format="reference" name="constraintSetStart"/><attr format="reference" name="constraintSetEnd"/><attr format="boolean" name="transitionDisable"/><attr name="layoutDuringTransition"/><attr name="pathMotionArc"/><attr format="enum" name="autoTransition">
             <enum name="none" value="0"/>
             <enum name="jumpToStart" value="1"/>
             <enum name="jumpToEnd" value="2"/>
@@ -5271,7 +5146,7 @@
             <enum name="easeOut" value="2"/>
             <enum name="linear" value="3"/>
             <enum name="bounce" value="5"/>
-        </attr><attr format="float" name="staggered"/></declare-styleable><declare-styleable name="PropertySet"><attr name="android:visibility"/><attr name="visibilityMode"/><attr format="float" name="android:alpha"/><attr name="motionProgress"/><attr name="layout_constraintTag"/></declare-styleable><declare-styleable name="RecyclerView">
+        </attr><attr name="duration"/><attr format="float" name="staggered"/></declare-styleable><declare-styleable name="PropertySet"><attr name="android:visibility"/><attr name="visibilityMode"/><attr format="float" name="android:alpha"/><attr name="motionProgress"/><attr name="layout_constraintTag"/></declare-styleable><declare-styleable name="RecyclerView">
         
         <attr format="string" name="layoutManager"/>
 
@@ -5540,14 +5415,7 @@
         <attr name="android:drawable"/>
         
         <attr name="android:id"/>
-    </declare-styleable><declare-styleable name="KeyTimeCycle"><attr name="framePosition"/><attr name="motionTarget"/><attr name="transitionEasing"/><attr name="curveFit"/><attr name="waveShape"/><attr name="wavePeriod"/><attr name="motionProgress"/><attr name="waveOffset"/><attr name="waveDecay"/><attr name="android:alpha"/><attr name="android:elevation"/><attr name="android:rotation"/><attr name="android:rotationX"/><attr name="android:rotationY"/><attr name="transitionPathRotate"/><attr name="android:scaleX"/><attr name="android:scaleY"/><attr name="android:translationX"/><attr name="android:translationY"/><attr name="android:translationZ"/></declare-styleable><declare-styleable name="ScrollingViewBehavior_Layout"><attr format="dimension" name="behavior_overlapTop"/></declare-styleable><declare-styleable name="TransitionSet">
-        <attr name="transitionOrdering">
-            
-            <enum name="together" value="0"/>
-            
-            <enum name="sequential" value="1"/>
-        </attr>
-    </declare-styleable><declare-styleable name="TextInputLayout"><attr name="android:textColorHint"/><attr name="android:hint"/><attr format="boolean" name="hintEnabled"/><attr format="boolean" name="hintAnimationEnabled"/><attr format="reference" name="hintTextAppearance"/><attr format="string" name="helperText"/><attr format="boolean" name="helperTextEnabled"/><attr format="reference" name="helperTextTextAppearance"/><attr format="boolean" name="errorEnabled"/><attr format="reference" name="errorTextAppearance"/><attr format="boolean" name="counterEnabled"/><attr format="integer" name="counterMaxLength"/><attr format="reference" name="counterTextAppearance"/><attr format="reference" name="counterOverflowTextAppearance"/><attr format="boolean" name="passwordToggleEnabled"/><attr format="reference" name="passwordToggleDrawable"/><attr format="string" name="passwordToggleContentDescription"/><attr format="color" name="passwordToggleTint"/><attr name="passwordToggleTintMode">
+    </declare-styleable><declare-styleable name="KeyTimeCycle"><attr name="framePosition"/><attr name="motionTarget"/><attr name="transitionEasing"/><attr name="curveFit"/><attr name="waveShape"/><attr name="wavePeriod"/><attr name="motionProgress"/><attr name="waveOffset"/><attr name="waveDecay"/><attr name="android:alpha"/><attr name="android:elevation"/><attr name="android:rotation"/><attr name="android:rotationX"/><attr name="android:rotationY"/><attr name="transitionPathRotate"/><attr name="android:scaleX"/><attr name="android:scaleY"/><attr name="android:translationX"/><attr name="android:translationY"/><attr name="android:translationZ"/></declare-styleable><declare-styleable name="ScrollingViewBehavior_Layout"><attr format="dimension" name="behavior_overlapTop"/></declare-styleable><declare-styleable name="TextInputLayout"><attr name="android:textColorHint"/><attr name="android:hint"/><attr format="boolean" name="hintEnabled"/><attr format="boolean" name="hintAnimationEnabled"/><attr format="reference" name="hintTextAppearance"/><attr format="string" name="helperText"/><attr format="boolean" name="helperTextEnabled"/><attr format="reference" name="helperTextTextAppearance"/><attr format="boolean" name="errorEnabled"/><attr format="reference" name="errorTextAppearance"/><attr format="boolean" name="counterEnabled"/><attr format="integer" name="counterMaxLength"/><attr format="reference" name="counterTextAppearance"/><attr format="reference" name="counterOverflowTextAppearance"/><attr format="boolean" name="passwordToggleEnabled"/><attr format="reference" name="passwordToggleDrawable"/><attr format="string" name="passwordToggleContentDescription"/><attr format="color" name="passwordToggleTint"/><attr name="passwordToggleTintMode">
       
       <enum name="src_over" value="3"/>
       
@@ -5646,9 +5514,9 @@
         <attr name="android:layout_height"/>
         <attr name="android:layout_weight"/>
         <attr name="android:layout_gravity"/>
-    </declare-styleable><declare-styleable name="GifView"><attr format="boolean" name="freezesAnimation"/></declare-styleable><declare-styleable name="ChangeBounds">
-        
-        <attr format="boolean" name="resizeClip"/>
+    </declare-styleable><declare-styleable name="GifView">
+        <attr format="boolean" name="freezesAnimation"/>
+        <attr format="integer" name="loopCount"/>
     </declare-styleable><declare-styleable name="CardView">
         
         <attr format="color" name="cardBackgroundColor"/>
@@ -5766,17 +5634,10 @@
             <flag name="beginning" value="1"/>
             <flag name="middle" value="2"/>
             <flag name="end" value="4"/>
-        </attr><attr format="integer" name="maxLine"/></declare-styleable><declare-styleable name="TabItem"><attr name="android:text"/><attr name="android:icon"/><attr name="android:layout"/></declare-styleable><declare-styleable name="State"><attr name="android:id"/><attr format="reference" name="constraints"/></declare-styleable><declare-styleable name="KeyFramesVelocity"/><declare-styleable name="Fade">
-        
-        <attr name="fadingMode">
-            
-            <enum name="fade_in" value="1"/>
-            
-            <enum name="fade_out" value="2"/>
-            
-            <enum name="fade_in_out" value="3"/>
-        </attr>
-    </declare-styleable><declare-styleable name="GifTextureView"><attr format="reference|string" name="gifSource"/><attr format="boolean" name="isOpaque"/></declare-styleable><declare-styleable name="SwitchCompat">
+        </attr><attr format="integer" name="maxLine"/></declare-styleable><declare-styleable name="TabItem"><attr name="android:text"/><attr name="android:icon"/><attr name="android:layout"/></declare-styleable><declare-styleable name="State"><attr name="android:id"/><attr format="reference" name="constraints"/></declare-styleable><declare-styleable name="KeyFramesVelocity"/><declare-styleable name="GifTextureView">
+        <attr format="reference|string" name="gifSource"/>
+        <attr format="boolean" name="isOpaque"/>
+    </declare-styleable><declare-styleable name="SwitchCompat">
         
         <attr name="android:thumb"/>
         
@@ -6018,13 +5879,7 @@
         <attr format="string" name="initialActivityCount"/>
         
         <attr format="reference" name="expandActivityOverflowButtonDrawable"/>
-    </declare-styleable><declare-styleable name="AspectRatioFrameLayout"><attr name="resize_mode"/></declare-styleable><declare-styleable name="ChangeTransform">
-        
-        <attr format="boolean" name="reparentWithOverlay"/>
-
-        
-        <attr format="boolean" name="reparent"/>
-    </declare-styleable><declare-styleable name="ListPopupWindow">
+    </declare-styleable><declare-styleable name="AspectRatioFrameLayout"><attr name="resize_mode"/></declare-styleable><declare-styleable name="ListPopupWindow">
         
         <attr name="android:dropDownVerticalOffset"/>
         
@@ -6192,9 +6047,6 @@
             <enum name="add" value="16"/>
         </attr>
 
-    </declare-styleable><declare-styleable name="Scale">
-        
-        <attr format="float" name="disappearedScale"/>
     </declare-styleable><declare-styleable name="AnimatedStateListDrawableTransition">
         
         <attr name="android:fromId"/>
@@ -6215,13 +6067,6 @@
         <attr format="reference" name="theme"/>
         
         <attr name="android:theme"/>
-    </declare-styleable><declare-styleable name="ArcMotion">
-        
-        <attr format="float" name="minimumHorizontalAngle"/>
-        
-        <attr format="float" name="minimumVerticalAngle"/>
-        
-        <attr format="float" name="maximumAngle"/>
     </declare-styleable><declare-styleable name="OnSwipe"><attr format="float" name="dragScale"/><attr format="float" name="maxVelocity"/><attr format="float" name="maxAcceleration"/><attr name="dragDirection"/><attr name="touchAnchorId"/><attr name="touchAnchorSide"/><attr format="reference" name="touchRegionId"/><attr format="boolean" name="moveWhenScrollAtTop"/><attr format="enum" name="onTouchUp">
             <enum name="autoComplete" value="0"/>
             <enum name="autoCompleteToStart" value="1"/>

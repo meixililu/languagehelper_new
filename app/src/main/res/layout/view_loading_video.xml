@@ -23,8 +23,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="24dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#a3a3a3"
-            android:text="@string/brvah_loading" />
+            android:textColor="#a3a3a3" />
 
     </LinearLayout>
 

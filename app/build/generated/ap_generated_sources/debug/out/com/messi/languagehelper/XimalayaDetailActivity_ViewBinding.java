@@ -19,11 +19,11 @@ import java.lang.Override;
 public class XimalayaDetailActivity_ViewBinding implements Unbinder {
   private XimalayaDetailActivity target;
 
-  private View view7f080234;
+  private View view7f080221;
 
-  private View view7f080233;
+  private View view7f080220;
 
-  private View view7f080238;
+  private View view7f080225;
 
   @UiThread
   public XimalayaDetailActivity_ViewBinding(XimalayaDetailActivity target) {
@@ -47,7 +47,7 @@ public class XimalayaDetailActivity_ViewBinding implements Unbinder {
     target.playBtn = Utils.findRequiredViewAsType(source, R.id.btn_play, "field 'playBtn'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.play_previous, "field 'playPrevious' and method 'onViewClicked'");
     target.playPrevious = Utils.castView(view, R.id.play_previous, "field 'playPrevious'", ImageView.class);
-    view7f080234 = view;
+    view7f080221 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -56,7 +56,7 @@ public class XimalayaDetailActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.play_next, "field 'playNext' and method 'onViewClicked'");
     target.playNext = Utils.castView(view, R.id.play_next, "field 'playNext'", ImageView.class);
-    view7f080233 = view;
+    view7f080220 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -71,7 +71,7 @@ public class XimalayaDetailActivity_ViewBinding implements Unbinder {
     target.ad_layout = Utils.findRequiredViewAsType(source, R.id.ad_layout, "field 'ad_layout'", FrameLayout.class);
     target.imgCover = Utils.findRequiredViewAsType(source, R.id.img_cover, "field 'imgCover'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.playbtn_layout, "method 'onViewClicked'");
-    view7f080238 = view;
+    view7f080225 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -107,11 +107,11 @@ public class XimalayaDetailActivity_ViewBinding implements Unbinder {
     target.ad_layout = null;
     target.imgCover = null;
 
-    view7f080234.setOnClickListener(null);
-    view7f080234 = null;
-    view7f080233.setOnClickListener(null);
-    view7f080233 = null;
-    view7f080238.setOnClickListener(null);
-    view7f080238 = null;
+    view7f080221.setOnClickListener(null);
+    view7f080221 = null;
+    view7f080220.setOnClickListener(null);
+    view7f080220 = null;
+    view7f080225.setOnClickListener(null);
+    view7f080225 = null;
   }
 }

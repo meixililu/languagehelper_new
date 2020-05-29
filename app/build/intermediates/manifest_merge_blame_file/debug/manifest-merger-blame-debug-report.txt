@@ -1,11 +1,11 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.messi.languagehelper"
-4    android:versionCode="52"
-5    android:versionName="4.6.2" >
+4    android:versionCode="53"
+5    android:versionName="4.6.3" >
 6
 7    <uses-sdk
-8        android:minSdkVersion="16"
+8        android:minSdkVersion="17"
 8-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml
 9        android:targetSdkVersion="28" />
 9-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml

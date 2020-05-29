@@ -25,7 +25,6 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
-import com.transitionseverywhere.TransitionManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -146,7 +145,6 @@ public class WordStudyViewAllActivity extends BaseActivity implements AdapterLis
     }
 
     private void isShowAllUnit() {
-        TransitionManager.beginDelayedTransition(transitionsContainer);
         isShowAllUnit = !isShowAllUnit;
         unitList.setVisibility(isShowAllUnit ? View.VISIBLE : View.GONE);
     }

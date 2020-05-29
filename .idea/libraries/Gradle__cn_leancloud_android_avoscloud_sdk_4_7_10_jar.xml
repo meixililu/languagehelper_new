@@ -3,7 +3,9 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cn.leancloud.android/avoscloud-sdk/4.7.10/af7bbbb8a9298fef2db389ba5f6901ec546604e6/avoscloud-sdk-4.7.10.jar!/" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cn.leancloud.android/avoscloud-sdk/4.7.10/4de17aa054bbb3040e24af9b065ab44099852f69/avoscloud-sdk-4.7.10-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cn.leancloud.android/avoscloud-sdk/4.7.10/1d391829bb832d64ad50f7246ef1b256397f522d/avoscloud-sdk-4.7.10-sources.jar!/" />
     </SOURCES>

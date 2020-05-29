@@ -15,9 +15,9 @@ import java.lang.Override;
 public class XHYFragment_ViewBinding implements Unbinder {
   private XHYFragment target;
 
-  private View view7f080254;
+  private View view7f080241;
 
-  private View view7f08004c;
+  private View view7f080048;
 
   @UiThread
   public XHYFragment_ViewBinding(final XHYFragment target, View source) {
@@ -26,7 +26,7 @@ public class XHYFragment_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.question, "field 'question' and method 'onViewClicked'");
     target.question = Utils.castView(view, R.id.question, "field 'question'", TextView.class);
-    view7f080254 = view;
+    view7f080241 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -35,7 +35,7 @@ public class XHYFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.answer, "field 'answer' and method 'onViewClicked'");
     target.answer = Utils.castView(view, R.id.answer, "field 'answer'", TextView.class);
-    view7f08004c = view;
+    view7f080048 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -54,9 +54,9 @@ public class XHYFragment_ViewBinding implements Unbinder {
     target.question = null;
     target.answer = null;
 
-    view7f080254.setOnClickListener(null);
-    view7f080254 = null;
-    view7f08004c.setOnClickListener(null);
-    view7f08004c = null;
+    view7f080241.setOnClickListener(null);
+    view7f080241 = null;
+    view7f080048.setOnClickListener(null);
+    view7f080048 = null;
   }
 }
