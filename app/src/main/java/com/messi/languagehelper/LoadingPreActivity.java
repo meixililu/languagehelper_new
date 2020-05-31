@@ -18,6 +18,7 @@ import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.messi.languagehelper.wxapi.YYJMainActivity;
+import com.messi.languagehelper.wxapi.YYSMainActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -112,6 +113,9 @@ public class LoadingPreActivity extends BaseActivity {
         if (getPackageName().equals(Setings.application_id_yyj) ||
                 getPackageName().equals(Setings.application_id_yyj_google)) {
             mclass = YYJMainActivity.class;
+        }else if (getPackageName().equals(Setings.application_id_yys) ||
+                getPackageName().equals(Setings.application_id_yys_google)) {
+            mclass = YYSMainActivity.class;
         }
         Intent intent = new Intent(this, mclass);
         startActivity(intent);

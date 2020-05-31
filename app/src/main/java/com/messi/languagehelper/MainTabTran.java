@@ -293,9 +293,12 @@ public class MainTabTran extends BaseFragment {
     }
 
     private void reloadData() {
-        isNeedRefresh = true;
-        beans.clear();
-        beans.addAll(BoxHelper.getRecordList(0, Setings.RecordOffset));
+        if (beans != null) {
+            isNeedRefresh = true;
+            beans.clear();
+            beans.addAll(BoxHelper.getRecordList(0, Setings.RecordOffset));
+        }
+
     }
 
     private void delayAutoPlay(){

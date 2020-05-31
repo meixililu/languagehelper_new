@@ -50,38 +50,37 @@ public class MyPlayer {
     }
 
     public void startMedia(String media_url){
-        LogUtil.DefalutLog("isPlaying:"+isPlaying()+"---media_url:"+media_url);
-        start("",media_url,null);
+        start("","",media_url,null);
+    }
+
+    public void startWithSpeaker(String content, String speaker){
+        start(content,"",speaker,null);
     }
 
     public void start(String content){
-        LogUtil.DefalutLog("isPlaying:"+isPlaying()+"---content:"+content);
-        start(content,"",null);
+        start(content,"","",null);
     }
 
     public void start(String content, SynthesizerListener mListener){
-        LogUtil.DefalutLog("isPlaying:"+isPlaying()+"---content:"+content);
-        start(content,"",mListener);
+        start(content,"","",mListener);
     }
 
     public void start(String content, String media_url){
-        start(content, media_url, null);
+        start(content, media_url,"", null);
     }
 
-    public void start(String content, String media_url, SynthesizerListener mListener){
-        LogUtil.DefalutLog("content:"+content + "---media_url:"+media_url);
-        LogUtil.DefalutLog("lastContent:"+lastContent);
+    public void start(String content, String media_url, String speaker, SynthesizerListener mListener){
         if (isPlaying()) {
             stop();
             if (!content.equals(lastContent)) {
-                play(content, media_url, mListener);
+                play(content, media_url, speaker, mListener);
             }
         } else {
-            play(content, media_url, mListener);
+            play(content, media_url, speaker, mListener);
         }
     }
 
-    public void play(String content, String media_url, SynthesizerListener mListener){
+    public void play(String content, String media_url, String speaker, SynthesizerListener mListener){
         LogUtil.DefalutLog("---play---");
         if (!TextUtils.isEmpty(content)) {
             lastContent = content;
@@ -121,18 +120,18 @@ public class MyPlayer {
             }
             playMediaUrl(media_url);
         } else {
-            playTTS(content, mListener);
+            playTTS(content, speaker, mListener);
         }
     }
 
-    public void playTTS(String content, SynthesizerListener mListener){
+    public void playTTS(String content, String speaker, SynthesizerListener mListener){
         LogUtil.DefalutLog("---playTTS---");
         if (!TextUtils.isEmpty(content)) {
             lastContent = content;
             if (mListener == null) {
-                showSpeechSynthesizer(context, content,"", mSynthesizerListener);
+                showSpeechSynthesizer(context, content, speaker, mSynthesizerListener);
             } else {
-                showSpeechSynthesizer(context, content,"", mListener);
+                showSpeechSynthesizer(context, content, speaker, mListener);
             }
         }
     }

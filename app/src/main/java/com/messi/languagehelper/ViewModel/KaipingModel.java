@@ -36,6 +36,7 @@ import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.messi.languagehelper.wxapi.YYJMainActivity;
+import com.messi.languagehelper.wxapi.YYSMainActivity;
 import com.qq.e.ads.splash.SplashADListener;
 
 import org.greenrobot.eventbus.EventBus;
@@ -279,6 +280,9 @@ public class KaipingModel {
         if(getContext().getPackageName().equals(Setings.application_id_yyj) ||
                 getContext().getPackageName().equals(Setings.application_id_yyj_google)){
             mclass = YYJMainActivity.class;
+        }else if (getContext().getPackageName().equals(Setings.application_id_yys) ||
+                getContext().getPackageName().equals(Setings.application_id_yys_google)) {
+            mclass = YYSMainActivity.class;
         }
         Intent intent = new Intent(getContext(), mclass);
         getContext().startActivity(intent);

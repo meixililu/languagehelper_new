@@ -145,7 +145,6 @@ public class MainFragmentOld extends BaseFragment implements OnClickListener, Or
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater,container,savedInstanceState);
         view = inflater.inflate(R.layout.fragment_translate_old, null);
-        LogUtil.DefalutLog("MainFragmentOld-onCreateView");
         init();
         return view;
     }

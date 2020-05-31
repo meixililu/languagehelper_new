@@ -205,9 +205,21 @@ public class MainTabTranZhYue extends BaseFragment {
     }
 
     private void reloadData() {
-        isNeedRefresh = true;
-        beans.clear();
-        beans.addAll(BoxHelper.getTranResultZhYueList(0, Setings.RecordOffset));
+        if (beans != null) {
+            isNeedRefresh = true;
+            beans.clear();
+            beans.addAll(BoxHelper.getTranResultZhYueList(0, Setings.RecordOffset));
+        }
+    }
+
+    @Override
+    public void onSwipeRefreshLayoutRefresh() {
+        if (beans != null) {
+            beans.clear();
+            beans.addAll(BoxHelper.getTranResultZhYueList(0, Setings.RecordOffset));
+            mAdapter.notifyDataSetChanged();
+        }
+        onSwipeRefreshLayoutFinish();
     }
 
     private void delayAutoPlay(){
