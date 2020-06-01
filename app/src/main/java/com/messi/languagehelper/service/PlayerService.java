@@ -34,6 +34,7 @@ import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSource;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
+import com.messi.languagehelper.R;
 import com.messi.languagehelper.aidl.IXBPlayer;
 import com.messi.languagehelper.bean.PVideoResult;
 import com.messi.languagehelper.box.Reading;
@@ -205,7 +206,7 @@ public class PlayerService extends Service {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationUtil.getManager(this);
             Notification notification = NotificationUtil.getNotification(this,
-                    action_restart,"告别说不出口的英语", NotificationUtil.mes_type_zyhy);
+                    action_restart,getString(R.string.app_des), NotificationUtil.mes_type_zyhy);
             startForeground(Setings.NOTIFY_ID,notification);
         }
         isForeground = true;
@@ -441,9 +442,14 @@ public class PlayerService extends Service {
             NotificationUtil.showNotification(this,action_pause,song.getTitle(),
                     NotificationUtil.mes_type_zyhy);
         }else {
-            loadMoreData();
+            LogUtil.DefalutLog("PackageName:"+getPackageName());
+            if (getPackageName().equals(Setings.application_id_zyhy)){
+                loadMoreData();
+                NotificationUtil.sendBroadcast(this,action_pause);
+            }else {
+                NotificationUtil.sendBroadcast(this,action_restart);
+            }
         }
-        NotificationUtil.sendBroadcast(this,action_pause);
     }
 
     public boolean isPlaying(){

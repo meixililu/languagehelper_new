@@ -57,10 +57,12 @@ public class MainTabTranZhYue extends BaseFragment {
         View view = inflater.inflate(R.layout.main_tab_tran, null);
         LogUtil.DefalutLog("MainTabTranZhYue-onCreateView");
         init(view);
+        initSwipeRefresh(view);
         return view;
     }
 
     private void init(View view) {
+        isRegisterBus = true;
         recent_used_lv = (RecyclerView) view.findViewById(R.id.recent_used_lv);
         beans = new ArrayList<TranResultZhYue>();
         loadData();

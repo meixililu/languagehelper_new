@@ -35,7 +35,7 @@ public class XVideoFragment extends BaseFragment{
     private GridLayoutManager layoutManager;
     private List<AVObject> mList;
     private int skip = 0;
-    private int max_count = 2000;
+    private int max_count = 500;
     private boolean isNeedClear = true;
     private String category;
     private String keyword;

@@ -16,6 +16,7 @@ import com.messi.languagehelper.R;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.messi.languagehelper.wxapi.YYJMainActivity;
+import com.messi.languagehelper.wxapi.YYSMainActivity;
 
 import static android.content.Context.NOTIFICATION_SERVICE;
 import static com.messi.languagehelper.service.PlayerService.action_pause;
@@ -46,9 +47,9 @@ public class NotificationUtil {
     public static Notification getNotification(Context mContext,String action,String title,String type){
         Class toClass = WXEntryActivity.class;
         if(mContext.getPackageName().equals(Setings.application_id_yys)){
-            toClass = WXEntryActivity.class;
+            toClass = YYSMainActivity.class;
         }else if(mContext.getPackageName().equals(Setings.application_id_yys_google)){
-            toClass = WXEntryActivity.class;
+            toClass = YYSMainActivity.class;
         }else if(mContext.getPackageName().equals(Setings.application_id_yyj)){
             toClass = YYJMainActivity.class;
         }else if(mContext.getPackageName().equals(Setings.application_id_yyj_google)){
