@@ -82,13 +82,13 @@ public class JuhaiFragment extends BaseFragment {
         String sign = SignUtil.getMd5Sign(Setings.PVideoKey, timestamp, lastSearch, platform, network);
         RetrofitApiService service = RetrofitApiService.getRetrofitApiService(Setings.TranApi,
                 RetrofitApiService.class);
-        Call<TranResultRoot<TranLijuResult>> call = service.getLijuApi(lastSearch, network, platform, sign, timestamp);
-        call.enqueue(new Callback<TranResultRoot<TranLijuResult>>() {
+        Call<TranResultRoot<List<TranLijuResult>>> call = service.getLijuApi(lastSearch, network, platform, sign, timestamp);
+        call.enqueue(new Callback<TranResultRoot<List<TranLijuResult>>>() {
                  @Override
-                 public void onResponse(Call<TranResultRoot<TranLijuResult>> call, Response<TranResultRoot<TranLijuResult>> response) {
+                 public void onResponse(Call<TranResultRoot<List<TranLijuResult>>> call, Response<TranResultRoot<List<TranLijuResult>>> response) {
                      hideProgressbar();
                      if (response.isSuccessful()) {
-                         TranResultRoot<TranLijuResult> mResult = response.body();
+                         TranResultRoot<List<TranLijuResult>> mResult = response.body();
                          setData(mResult.getResult());
                      } else {
                          ToastUtil.diaplayMesShort(getContext(),"未找到相关例句");
@@ -96,7 +96,7 @@ public class JuhaiFragment extends BaseFragment {
                  }
 
                  @Override
-                 public void onFailure(Call<TranResultRoot<TranLijuResult>> call, Throwable t) {
+                 public void onFailure(Call<TranResultRoot<List<TranLijuResult>>> call, Throwable t) {
                      hideProgressbar();
                      ToastUtil.diaplayMesShort(getContext(),"未找到相关例句");
                  }

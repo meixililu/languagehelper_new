@@ -152,7 +152,6 @@ public class Setings {
 	public static final int page_size = 10;
 	public static String baidu_appid = "";
 	public static String baidu_secretkey = "";
-//	public static final String client_id = "vCV6TTGRTI5QrckdYSKHQIhq";
 	public static String yue = "yue";
 	public static String zh = "zh";
 	public static String from = "auto";	

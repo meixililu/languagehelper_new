@@ -1,12 +1,10 @@
 package com.messi.languagehelper.bean;
 
-import java.util.List;
-
 public class TranResultRoot<T> {
 
     private int code;
     private String error;
-    private List<T> result;
+    private T result;
     public void setCode(int code) {
         this.code = code;
     }
@@ -21,10 +19,10 @@ public class TranResultRoot<T> {
         return error;
     }
 
-    public void setResult(List<T> result) {
+    public void setResult(T result) {
         this.result = result;
     }
-    public List<T> getResult() {
+    public T getResult() {
         return result;
     }
 

@@ -73,14 +73,14 @@ public class EnDicFragment extends BaseFragment {
         String sign = SignUtil.getMd5Sign(Setings.PVideoKey, timestamp, lastSearch, platform, network);
         RetrofitApiService service = RetrofitApiService.getRetrofitApiService(Setings.TranApi,
                 RetrofitApiService.class);
-        Call<TranResultRoot<String>> call = service.getEnDictApi(lastSearch, network, platform, sign, timestamp);
-        call.enqueue(new Callback<TranResultRoot<String>>() {
+        Call<TranResultRoot<List<String>>> call = service.getEnDictApi(lastSearch, network, platform, sign, timestamp);
+        call.enqueue(new Callback<TranResultRoot<List<String>>>() {
                  @Override
-                 public void onResponse(Call<TranResultRoot<String>> call, Response<TranResultRoot<String>> response) {
+                 public void onResponse(Call<TranResultRoot<List<String>>> call, Response<TranResultRoot<List<String>>> response) {
                      LogUtil.DefalutLog("---call:"+call.request().url());
                      hideProgressbar();
                      if (response.isSuccessful()) {
-                         TranResultRoot<String> mResult = response.body();
+                         TranResultRoot<List<String>> mResult = response.body();
                          setData(mResult.getResult());
                          LogUtil.DefalutLog("---mResult:"+mResult.getResult().toString());
                      } else {
@@ -89,7 +89,7 @@ public class EnDicFragment extends BaseFragment {
                  }
 
                  @Override
-                 public void onFailure(Call<TranResultRoot<String>> call, Throwable t) {
+                 public void onFailure(Call<TranResultRoot<List<String>>> call, Throwable t) {
                      LogUtil.DefalutLog("onFailure:"+t.getMessage()+"---call:"+call.request().url());
                      hideProgressbar();
                      ToastUtil.diaplayMesShort(getContext(),"未找到相关结果");

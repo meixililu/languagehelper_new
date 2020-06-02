@@ -3,7 +3,10 @@ package com.messi.languagehelper.httpservice;
 import com.messi.languagehelper.bean.PVideoResult;
 import com.messi.languagehelper.bean.TranLijuResult;
 import com.messi.languagehelper.bean.TranResultRoot;
+import com.messi.languagehelper.bean.TranYueyuResult;
 import com.messi.languagehelper.bean.TwistaResult;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -37,12 +40,17 @@ public interface RetrofitApiService {
                                     @Query("vid") String vid);
 
     @GET("v1/liju")
-    Call<TranResultRoot<TranLijuResult>> getLijuApi(@Query("word") String word , @Query("network") String network,
+    Call<TranResultRoot<List<TranLijuResult>>> getLijuApi(@Query("word") String word , @Query("network") String network,
+                                                          @Query("platform") String platform , @Query("sign") String sign,
+                                                          @Query("timestamp") String timestamp);
+
+    @GET("v1/endict")
+    Call<TranResultRoot<List<String>>> getEnDictApi(@Query("word") String word , @Query("network") String network,
                                                     @Query("platform") String platform , @Query("sign") String sign,
                                                     @Query("timestamp") String timestamp);
 
-    @GET("v1/endict")
-    Call<TranResultRoot<String>> getEnDictApi(@Query("word") String word , @Query("network") String network,
-                                                    @Query("platform") String platform , @Query("sign") String sign,
-                                                    @Query("timestamp") String timestamp);
+    @GET("v1/yue")
+    Call<TranResultRoot<TranYueyuResult>> tranZhYue(@Query("word") String word , @Query("fr") String fr , @Query("to") String to ,
+                                    @Query("network") String network, @Query("platform") String platform ,
+                                    @Query("sign") String sign, @Query("timestamp") String timestamp);
 }

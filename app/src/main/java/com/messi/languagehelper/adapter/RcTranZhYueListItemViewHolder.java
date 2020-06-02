@@ -195,7 +195,6 @@ public class RcTranZhYueListItemViewHolder extends RecyclerView.ViewHolder {
                 } else {
                     speakContent = mBean.getEnglish();
                 }
-                MyPlayer.getInstance(context).start(speakContent);
             } else {
                 if(mBean.getBackup3().equals(Setings.yue)){
                     speaker = XFUtil.SpeakerZh;
@@ -204,8 +203,8 @@ public class RcTranZhYueListItemViewHolder extends RecyclerView.ViewHolder {
                 }
                 Setings.saveSharedPreferences(PlayUtil.getSP(), KeyUtil.IsShowQuestionUnread, true);
                 speakContent = mBean.getChinese();
-                MyPlayer.getInstance(context).startWithSpeaker(speakContent, speaker);
             }
+            MyPlayer.getInstance(context).startWithSpeaker(speakContent, speaker);
         }
     }
 }

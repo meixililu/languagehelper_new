@@ -10,20 +10,23 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.messi.languagehelper.adapter.RcTranZhYueListAdapter;
+import com.messi.languagehelper.bean.TranResultRoot;
+import com.messi.languagehelper.bean.TranYueyuResult;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.TranResultZhYue;
 import com.messi.languagehelper.event.FinishEvent;
 import com.messi.languagehelper.event.TranAndDicRefreshEvent;
+import com.messi.languagehelper.httpservice.RetrofitApiService;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
-import com.messi.languagehelper.impl.OnTranZhYueFinishListener;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NetworkUtil;
 import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Setings;
+import com.messi.languagehelper.util.SignUtil;
+import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.ToastUtil;
-import com.messi.languagehelper.util.TranslateUtil;
 import com.messi.languagehelper.views.DividerItemDecoration;
 
 import org.greenrobot.eventbus.EventBus;
@@ -32,6 +35,10 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainTabTranZhYue extends BaseFragment {
 
@@ -134,30 +141,56 @@ public class MainTabTranZhYue extends BaseFragment {
         }
     }
 
-    /**
-     * send translate request
-     */
-    private void RequestTask() throws Exception{
+
+    private void RequestTask() {
+        lastSearch = Setings.q;
         showProgressbar();
-        TranslateUtil.TranslateZhYue(new OnTranZhYueFinishListener() {
-            @Override
-            public void OnFinishTranslate(TranResultZhYue mTranResultZhYue) {
-                hideProgressbar();
-                if(mTranResultZhYue == null){
-                    showToast(getContext().getResources().getString(R.string.network_error));
-                }else {
-                    currentDialogBean = mTranResultZhYue;
-                    insertData();
-                    autoClearAndautoPlay();
-                }
-            }
-        });
+        String timestamp = String.valueOf(System.currentTimeMillis());
+        String platform = SystemUtil.platform;
+        String network = NetworkUtil.getNetworkType(getContext());
+        String sign = SignUtil.getMd5Sign(Setings.PVideoKey, timestamp, lastSearch,
+                platform, network, Setings.from, Setings.to);
+        RetrofitApiService service = RetrofitApiService.getRetrofitApiService(Setings.TranApi,
+                RetrofitApiService.class);
+        Call<TranResultRoot<TranYueyuResult>> call = service.tranZhYue(lastSearch, Setings.from, Setings.to,
+                network, platform, sign, timestamp);
+        call.enqueue(new Callback<TranResultRoot<TranYueyuResult>>() {
+                 @Override
+                 public void onResponse(Call<TranResultRoot<TranYueyuResult>> call, Response<TranResultRoot<TranYueyuResult>> response) {
+                     hideProgressbar();
+                     if (response.isSuccessful()) {
+                         TranResultRoot<TranYueyuResult> mResult = response.body();
+                         setData(mResult);
+                     } else {
+                         ToastUtil.diaplayMesShort(getContext(),"未找到相关结果");
+                     }
+                 }
+
+                 @Override
+                 public void onFailure(Call<TranResultRoot<TranYueyuResult>> call, Throwable t) {
+                     hideProgressbar();
+                     ToastUtil.diaplayMesShort(getContext(),"未找到相关结果");
+                 }
+             }
+        );
+    }
+
+    private void setData(TranResultRoot<TranYueyuResult> root){
+        if(root != null && root.getCode() == 0){
+            TranYueyuResult result = root.getResult();
+            currentDialogBean = new TranResultZhYue(result.getResult(), Setings.q, Setings.to);;
+            insertData();
+            autoClearAndautoPlay();
+        }else {
+            showToast(getContext().getResources().getString(R.string.network_error));
+        }
     }
 
     public void insertData() {
         mAdapter.addEntity(0, currentDialogBean);
         recent_used_lv.scrollToPosition(0);
         long newRowId = BoxHelper.insert(currentDialogBean);
+        currentDialogBean.setId(newRowId);
     }
 
     public void autoClearAndautoPlay() {
