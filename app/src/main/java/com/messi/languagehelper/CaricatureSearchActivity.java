@@ -3,7 +3,6 @@ package com.messi.languagehelper;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.view.ViewCompat;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -13,10 +12,8 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.FindCallback;
+import androidx.core.view.ViewCompat;
+
 import com.google.android.flexbox.FlexboxLayout;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
@@ -30,6 +27,11 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.leancloud.AVException;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
+import cn.leancloud.callback.FindCallback;
+import cn.leancloud.convertor.ObserverBuilder;
 
 public class CaricatureSearchActivity extends BaseActivity {
 
@@ -247,7 +249,7 @@ public class CaricatureSearchActivity extends BaseActivity {
     private void checkAndSaveData(final String quest){
         AVQuery<AVObject> query = new AVQuery<>(AVOUtil.CaricatureSearchHot.CaricatureSearchHot);
         query.whereEqualTo(AVOUtil.CaricatureSearchHot.name, quest);
-        query.findInBackground(new FindCallback<AVObject>() {
+        query.findInBackground().subscribe(ObserverBuilder.buildCollectionObserver(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
                 if (list != null && list.size() > 0) {
@@ -261,7 +263,7 @@ public class CaricatureSearchActivity extends BaseActivity {
                     object.saveInBackground();
                 }
             }
-        });
+        }));
     }
 
     @Override

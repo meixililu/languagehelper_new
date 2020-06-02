@@ -1,27 +1,27 @@
 // Generated code from Butter Knife. Do not modify!
 package com.messi.languagehelper;
 
-import android.support.annotation.CallSuper;
-import android.support.annotation.UiThread;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.widget.NestedScrollView;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import androidx.annotation.CallSuper;
+import androidx.annotation.UiThread;
+import androidx.core.widget.NestedScrollView;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 
 public class ReadingMp3DetailActivity_ViewBinding implements Unbinder {
   private ReadingMp3DetailActivity target;
 
-  private View view7f080225;
+  private View view7f080266;
 
   @UiThread
   public ReadingMp3DetailActivity_ViewBinding(ReadingMp3DetailActivity target) {
@@ -47,7 +47,7 @@ public class ReadingMp3DetailActivity_ViewBinding implements Unbinder {
     target.time_current = Utils.findRequiredViewAsType(source, R.id.time_current, "field 'time_current'", TextView.class);
     target.time_duration = Utils.findRequiredViewAsType(source, R.id.time_duration, "field 'time_duration'", TextView.class);
     view = Utils.findRequiredView(source, R.id.playbtn_layout, "method 'onClick'");
-    view7f080225 = view;
+    view7f080266 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -77,7 +77,7 @@ public class ReadingMp3DetailActivity_ViewBinding implements Unbinder {
     target.time_current = null;
     target.time_duration = null;
 
-    view7f080225.setOnClickListener(null);
-    view7f080225 = null;
+    view7f080266.setOnClickListener(null);
+    view7f080266 = null;
   }
 }

@@ -2,10 +2,9 @@ package com.messi.languagehelper;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
+import com.google.android.material.tabs.TabLayout;
+import androidx.viewpager.widget.ViewPager;
 
-import com.messi.languagehelper.adapter.JokePageAdapter;
 import com.messi.languagehelper.adapter.ReadingAndNewsAdapter;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 

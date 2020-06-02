@@ -6,7 +6,7 @@
     android:gravity="center"
     android:orientation="vertical" >
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
 	    xmlns:app="http://schemas.android.com/apk/res-auto"
 	    android:id="@+id/my_awesome_toolbar"
 	    android:layout_height="wrap_content"

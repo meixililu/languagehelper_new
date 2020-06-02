@@ -1,12 +1,12 @@
 // Generated code from Butter Knife. Do not modify!
 package com.messi.languagehelper;
 
-import android.support.annotation.CallSuper;
-import android.support.annotation.UiThread;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import androidx.annotation.CallSuper;
+import androidx.annotation.UiThread;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
@@ -16,7 +16,7 @@ import java.lang.Override;
 public class PhotoSearchActivity_ViewBinding implements Unbinder {
   private PhotoSearchActivity target;
 
-  private View view7f080082;
+  private View view7f08009a;
 
   @UiThread
   public PhotoSearchActivity_ViewBinding(PhotoSearchActivity target) {
@@ -31,7 +31,7 @@ public class PhotoSearchActivity_ViewBinding implements Unbinder {
     target.cameraBtn = Utils.findRequiredViewAsType(source, R.id.camera_btn, "field 'cameraBtn'", Button.class);
     view = Utils.findRequiredView(source, R.id.camera_layout, "field 'cameraLayout' and method 'onClick'");
     target.cameraLayout = Utils.castView(view, R.id.camera_layout, "field 'cameraLayout'", LinearLayout.class);
-    view7f080082 = view;
+    view7f08009a = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -54,7 +54,7 @@ public class PhotoSearchActivity_ViewBinding implements Unbinder {
     target.contentLayout = null;
     target.content_tv = null;
 
-    view7f080082.setOnClickListener(null);
-    view7f080082 = null;
+    view7f08009a.setOnClickListener(null);
+    view7f08009a = null;
   }
 }

@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVObject;
+import cn.leancloud.AVObject;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.util.AVOUtil;
 

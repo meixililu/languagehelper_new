@@ -8,7 +8,6 @@ import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,10 +18,8 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.FindCallback;
+import androidx.appcompat.app.AlertDialog;
+
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
@@ -34,6 +31,12 @@ import com.messi.languagehelper.util.ViewUtil;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.List;
+
+import cn.leancloud.AVException;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
+import cn.leancloud.callback.FindCallback;
+import cn.leancloud.convertor.ObserverBuilder;
 
 
 public class WebViewForYYSFragment extends BaseFragment{
@@ -169,7 +172,7 @@ public class WebViewForYYSFragment extends BaseFragment{
 		try {
 			AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.AdFilter.AdFilter);
 			query.whereEqualTo(AVOUtil.AdFilter.name, "粤语发音词典");
-			query.findInBackground(new FindCallback<AVObject>() {
+			query.findInBackground().subscribe(ObserverBuilder.buildCollectionObserver(new FindCallback<AVObject>() {
 				@Override
 				public void done(List<AVObject> list, AVException e) {
 					if(list != null){
@@ -182,7 +185,7 @@ public class WebViewForYYSFragment extends BaseFragment{
 						}
 					}
 				}
-			});
+			}));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

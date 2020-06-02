@@ -2,12 +2,10 @@ package com.messi.languagehelper;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.adapter.RcAdEnglishAdapter;
 import com.messi.languagehelper.util.AVOUtil;
@@ -20,6 +18,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
 
 public class AdEnglishActivity extends BaseActivity {
 
@@ -119,12 +119,7 @@ public class AdEnglishActivity extends BaseActivity {
             query.orderByAscending(AVOUtil.SubjectList.order);
             query.skip(skip);
             query.limit(page_size);
-            try {
-                return query.find();
-            } catch (AVException e) {
-                e.printStackTrace();
-            }
-            return null;
+            return query.find();
         }
 
         @Override

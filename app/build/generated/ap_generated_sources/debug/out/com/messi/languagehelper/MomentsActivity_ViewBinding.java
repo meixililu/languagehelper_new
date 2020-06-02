@@ -1,11 +1,11 @@
 // Generated code from Butter Knife. Do not modify!
 package com.messi.languagehelper;
 
-import android.support.annotation.CallSuper;
-import android.support.annotation.UiThread;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
+import androidx.annotation.CallSuper;
+import androidx.annotation.UiThread;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
@@ -15,7 +15,7 @@ import java.lang.Override;
 public class MomentsActivity_ViewBinding implements Unbinder {
   private MomentsActivity target;
 
-  private View view7f0801ca;
+  private View view7f0801f2;
 
   @UiThread
   public MomentsActivity_ViewBinding(MomentsActivity target) {
@@ -29,7 +29,7 @@ public class MomentsActivity_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.moments_add, "field 'momentsAdd' and method 'onClick'");
     target.momentsAdd = Utils.castView(view, R.id.moments_add, "field 'momentsAdd'", LinearLayout.class);
-    view7f0801ca = view;
+    view7f0801f2 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -49,7 +49,7 @@ public class MomentsActivity_ViewBinding implements Unbinder {
     target.momentsAdd = null;
     target.listview = null;
 
-    view7f0801ca.setOnClickListener(null);
-    view7f0801ca = null;
+    view7f0801f2.setOnClickListener(null);
+    view7f0801f2 = null;
   }
 }

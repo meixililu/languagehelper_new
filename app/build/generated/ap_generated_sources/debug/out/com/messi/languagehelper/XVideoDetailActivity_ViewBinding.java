@@ -1,11 +1,11 @@
 // Generated code from Butter Knife. Do not modify!
 package com.messi.languagehelper;
 
-import android.support.annotation.CallSuper;
-import android.support.annotation.UiThread;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
+import androidx.annotation.CallSuper;
+import androidx.annotation.UiThread;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
@@ -15,7 +15,7 @@ import java.lang.Override;
 public class XVideoDetailActivity_ViewBinding implements Unbinder {
   private XVideoDetailActivity target;
 
-  private View view7f080065;
+  private View view7f08007e;
 
   @UiThread
   public XVideoDetailActivity_ViewBinding(XVideoDetailActivity target) {
@@ -30,7 +30,7 @@ public class XVideoDetailActivity_ViewBinding implements Unbinder {
     target.listview = Utils.findRequiredViewAsType(source, R.id.listview, "field 'listview'", RecyclerView.class);
     view = Utils.findRequiredView(source, R.id.back_btn, "field 'back_btn' and method 'onClick'");
     target.back_btn = Utils.castView(view, R.id.back_btn, "field 'back_btn'", LinearLayout.class);
-    view7f080065 = view;
+    view7f08007e = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -49,7 +49,7 @@ public class XVideoDetailActivity_ViewBinding implements Unbinder {
     target.listview = null;
     target.back_btn = null;
 
-    view7f080065.setOnClickListener(null);
-    view7f080065 = null;
+    view7f08007e.setOnClickListener(null);
+    view7f08007e = null;
   }
 }

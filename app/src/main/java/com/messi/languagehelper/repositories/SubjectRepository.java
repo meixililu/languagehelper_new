@@ -1,13 +1,9 @@
 package com.messi.languagehelper.repositories;
 
-import android.arch.lifecycle.MutableLiveData;
 import android.text.TextUtils;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.CountCallback;
-import com.avos.avoscloud.FindCallback;
+import androidx.lifecycle.MutableLiveData;
+
 import com.messi.languagehelper.bean.RespoData;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.ColorUtil;
@@ -17,6 +13,13 @@ import com.messi.languagehelper.util.Setings;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.leancloud.AVException;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
+import cn.leancloud.callback.CountCallback;
+import cn.leancloud.callback.FindCallback;
+import cn.leancloud.convertor.ObserverBuilder;
 
 public class SubjectRepository {
 
@@ -73,7 +76,7 @@ public class SubjectRepository {
         query.orderByAscending(AVOUtil.SubjectList.level);
         query.skip(skip);
         query.limit(Setings.page_size);
-        query.findInBackground(new FindCallback<AVObject>() {
+        query.findInBackground().subscribe(ObserverBuilder.buildCollectionObserver(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> avObject, AVException avException) {
                 LogUtil.DefalutLog("loadData:avObject"+"---AVException:"+avException);
@@ -120,7 +123,7 @@ public class SubjectRepository {
                 }
                 mRespoData.setValue(mData);
             }
-        });
+        }));
     }
 
     private void addBgColor(List<AVObject> avObject){
@@ -142,12 +145,12 @@ public class SubjectRepository {
         }else {
             query.orderByAscending(AVOUtil.SubjectList.order);
         }
-        query.countInBackground(new CountCallback() {
+        query.countInBackground().subscribe(ObserverBuilder.buildSingleObserver(new CountCallback() {
             @Override
             public void done(int count, AVException e) {
                 maxRandom = count/10;
             }
-        });
+        }));
     }
 
     public ADXXLRepository getmADXXLRepository() {

@@ -1,6 +1,6 @@
 package com.messi.languagehelper.util;
 
-import com.avos.avoscloud.AVObject;
+import cn.leancloud.AVObject;
 import com.messi.languagehelper.box.WordDetailListItem;
 
 /**

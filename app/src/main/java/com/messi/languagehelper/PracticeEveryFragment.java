@@ -2,8 +2,8 @@ package com.messi.languagehelper;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
 import android.text.SpannableStringBuilder;
 import android.view.LayoutInflater;
 import android.view.View;

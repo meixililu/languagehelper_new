@@ -2,11 +2,11 @@ package com.messi.languagehelper;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.adapter.RcWordListAdapter;
 import com.messi.languagehelper.util.ADUtil;

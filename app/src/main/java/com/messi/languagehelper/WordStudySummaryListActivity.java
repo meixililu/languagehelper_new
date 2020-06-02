@@ -2,14 +2,12 @@ package com.messi.languagehelper;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.messi.languagehelper.adapter.RcWordStudySummaryListAdapter;
 import com.messi.languagehelper.adapter.RcWordStudySummaryMenuListAdapter;
 import com.messi.languagehelper.util.AVOUtil;
@@ -23,6 +21,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -171,20 +171,16 @@ public class WordStudySummaryListActivity extends BaseActivity {
         }
         query.skip(skip);
         query.limit(pageSize);
-        try {
-            List<AVObject> sentences = query.find();
-            if (sentences != null && sentences.size() > 0) {
-                if(skip == 0){
-                    mAVObjectList.clear();
-                }
-                mAVObjectList.addAll(sentences);
-                skip += pageSize;
-                hasMore = true;
-            }else {
-                hasMore = false;
+        List<AVObject> sentences = query.find();
+        if (sentences != null && sentences.size() > 0) {
+            if(skip == 0){
+                mAVObjectList.clear();
             }
-        } catch (AVException e) {
-            e.printStackTrace();
+            mAVObjectList.addAll(sentences);
+            skip += pageSize;
+            hasMore = true;
+        }else {
+            hasMore = false;
         }
     }
 
@@ -194,14 +190,10 @@ public class WordStudySummaryListActivity extends BaseActivity {
         query.whereEqualTo(AVOUtil.HJWordStudyCategory.isValid, "1");
         query.whereEqualTo(AVOUtil.HJWordStudyCategory.ltype, list_type);
         query.orderByAscending(AVOUtil.HJWordStudyCategory.order);
-        try {
-            List<AVObject> sentences = query.find();
-            if (sentences != null && sentences.size() > 0) {
-                mAVObjectMenuList.clear();
-                mAVObjectMenuList.addAll(sentences);
-            }
-        } catch (AVException e) {
-            e.printStackTrace();
+        List<AVObject> sentences = query.find();
+        if (sentences != null && sentences.size() > 0) {
+            mAVObjectMenuList.clear();
+            mAVObjectMenuList.addAll(sentences);
         }
     }
 

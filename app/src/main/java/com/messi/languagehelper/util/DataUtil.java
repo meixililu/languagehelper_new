@@ -3,7 +3,7 @@ package com.messi.languagehelper.util;
 import android.content.Context;
 import android.text.TextUtils;
 
-import com.avos.avoscloud.AVObject;
+import cn.leancloud.AVObject;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.bean.ReadingCategory;
 import com.messi.languagehelper.box.BoxHelper;

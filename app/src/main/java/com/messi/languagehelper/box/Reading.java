@@ -4,7 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.avos.avoscloud.AVObject;
 import com.baidu.mobads.AdView;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.iflytek.voiceads.conn.NativeDataRef;
@@ -12,6 +11,7 @@ import com.qq.e.ads.nativ.NativeExpressADView;
 
 import java.util.List;
 
+import cn.leancloud.AVObject;
 import io.objectbox.annotation.Entity;
 import io.objectbox.annotation.Id;
 import io.objectbox.annotation.Index;
@@ -469,7 +469,6 @@ public class Reading implements Parcelable {
         dest.writeByte(this.isAd ? (byte) 1 : (byte) 0);
         dest.writeByte(this.isAdShow ? (byte) 1 : (byte) 0);
         dest.writeInt(this.bdHeight);
-        dest.writeTypedList(this.xvideoList);
     }
 
     public Reading() {

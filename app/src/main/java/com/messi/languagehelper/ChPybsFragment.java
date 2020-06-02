@@ -1,18 +1,15 @@
 package com.messi.languagehelper;
 
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.FindCallback;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.messi.languagehelper.adapter.RcPybsListAdapter;
 import com.messi.languagehelper.adapter.RcPybsMenuAdapter;
 import com.messi.languagehelper.event.PybsEvent;
@@ -30,6 +27,11 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.leancloud.AVException;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
+import cn.leancloud.callback.FindCallback;
+import cn.leancloud.convertor.ObserverBuilder;
 
 public class ChPybsFragment extends BaseFragment {
 
@@ -144,7 +146,7 @@ public class ChPybsFragment extends BaseFragment {
         query.orderByAscending(AVOUtil.XhDicList.createdAt);
         query.skip(skip);
         query.limit(page_size);
-        query.findInBackground(new FindCallback<AVObject>() {
+        query.findInBackground().subscribe(ObserverBuilder.buildCollectionObserver(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
                 hideProgressbar();
@@ -173,7 +175,7 @@ public class ChPybsFragment extends BaseFragment {
                     ToastUtil.diaplayMesShort(getContext(), "加载失败，下拉可刷新");
                 }
             }
-        });
+        }));
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

@@ -3,8 +3,8 @@ package com.messi.languagehelper.views;
 import android.graphics.Matrix;
 import android.graphics.PointF;
 import android.graphics.RectF;
-import android.support.annotation.IntDef;
-import android.support.annotation.Nullable;
+import androidx.annotation.IntDef;
+import androidx.annotation.Nullable;
 import android.view.MotionEvent;
 
 import com.facebook.common.logging.FLog;

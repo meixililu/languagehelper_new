@@ -1,10 +1,10 @@
 // Generated code from Butter Knife. Do not modify!
 package com.messi.languagehelper.faxian;
 
-import android.support.annotation.CallSuper;
-import android.support.annotation.UiThread;
 import android.view.View;
 import android.widget.TextView;
+import androidx.annotation.CallSuper;
+import androidx.annotation.UiThread;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
@@ -15,9 +15,9 @@ import java.lang.Override;
 public class HistoryFragment_ViewBinding implements Unbinder {
   private HistoryFragment target;
 
-  private View view7f080241;
+  private View view7f080280;
 
-  private View view7f080048;
+  private View view7f080065;
 
   @UiThread
   public HistoryFragment_ViewBinding(final HistoryFragment target, View source) {
@@ -26,7 +26,7 @@ public class HistoryFragment_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.question, "field 'question' and method 'onViewClicked'");
     target.question = Utils.castView(view, R.id.question, "field 'question'", TextView.class);
-    view7f080241 = view;
+    view7f080280 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -35,7 +35,7 @@ public class HistoryFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.answer, "field 'answer' and method 'onViewClicked'");
     target.answer = Utils.castView(view, R.id.answer, "field 'answer'", TextView.class);
-    view7f080048 = view;
+    view7f080065 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -54,9 +54,9 @@ public class HistoryFragment_ViewBinding implements Unbinder {
     target.question = null;
     target.answer = null;
 
-    view7f080241.setOnClickListener(null);
-    view7f080241 = null;
-    view7f080048.setOnClickListener(null);
-    view7f080048 = null;
+    view7f080280.setOnClickListener(null);
+    view7f080280 = null;
+    view7f080065.setOnClickListener(null);
+    view7f080065 = null;
   }
 }

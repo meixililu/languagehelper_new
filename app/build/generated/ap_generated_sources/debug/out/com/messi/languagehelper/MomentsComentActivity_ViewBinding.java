@@ -1,12 +1,12 @@
 // Generated code from Butter Knife. Do not modify!
 package com.messi.languagehelper;
 
-import android.support.annotation.CallSuper;
-import android.support.annotation.UiThread;
-import android.support.v7.widget.AppCompatEditText;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
+import androidx.annotation.CallSuper;
+import androidx.annotation.UiThread;
+import androidx.appcompat.widget.AppCompatEditText;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
@@ -16,7 +16,7 @@ import java.lang.Override;
 public class MomentsComentActivity_ViewBinding implements Unbinder {
   private MomentsComentActivity target;
 
-  private View view7f080305;
+  private View view7f08033b;
 
   @UiThread
   public MomentsComentActivity_ViewBinding(MomentsComentActivity target) {
@@ -34,7 +34,7 @@ public class MomentsComentActivity_ViewBinding implements Unbinder {
     target.inputEt = Utils.findRequiredViewAsType(source, R.id.input_et, "field 'inputEt'", AppCompatEditText.class);
     view = Utils.findRequiredView(source, R.id.submit_btn, "field 'submitBtn' and method 'onClick'");
     target.submitBtn = Utils.castView(view, R.id.submit_btn, "field 'submitBtn'", TextView.class);
-    view7f080305 = view;
+    view7f08033b = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -56,7 +56,7 @@ public class MomentsComentActivity_ViewBinding implements Unbinder {
     target.inputEt = null;
     target.submitBtn = null;
 
-    view7f080305.setOnClickListener(null);
-    view7f080305 = null;
+    view7f08033b.setOnClickListener(null);
+    view7f08033b = null;
   }
 }

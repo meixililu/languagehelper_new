@@ -2,9 +2,6 @@ package com.messi.languagehelper;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -14,10 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.FindCallback;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.ViewModel.XXLAVObjectModel;
 import com.messi.languagehelper.adapter.RcSubjectListAdapter;
@@ -36,6 +33,11 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import cn.leancloud.AVException;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
+import cn.leancloud.callback.FindCallback;
+import cn.leancloud.convertor.ObserverBuilder;
 
 public class SubjectFragment extends BaseFragment {
 
@@ -205,7 +207,7 @@ public class SubjectFragment extends BaseFragment {
         query.orderByAscending(AVOUtil.SubjectList.level);
         query.skip(skip);
         query.limit(Setings.page_size);
-        query.findInBackground(new FindCallback<AVObject>() {
+        query.findInBackground().subscribe(ObserverBuilder.buildCollectionObserver(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> objects, AVException avException) {
                 if (mXXLModel != null) {
@@ -239,7 +241,7 @@ public class SubjectFragment extends BaseFragment {
                     }
                 }
             }
-        });
+        }));
     }
 
     private void addBgColor(List<AVObject> avObject){

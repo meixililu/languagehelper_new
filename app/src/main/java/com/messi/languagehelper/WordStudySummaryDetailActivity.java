@@ -1,12 +1,12 @@
 package com.messi.languagehelper;
 
 import android.os.Bundle;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.widget.NestedScrollView;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
+import androidx.core.widget.NestedScrollView;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVObject;
+import cn.leancloud.AVObject;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;

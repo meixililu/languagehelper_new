@@ -36,19 +36,19 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         >
-        <android.support.v4.widget.SwipeRefreshLayout
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/mswiperefreshlayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/contentbg">
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/studycategory_lv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
-        </android.support.v4.widget.SwipeRefreshLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/random_cover"
             android:layout_width="42dp"
             android:layout_height="42dp"
@@ -67,7 +67,7 @@
                 android:gravity="center"
                 android:text="@string/random_course"
                 />
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
     </FrameLayout>
 

@@ -1,17 +1,17 @@
 package com.messi.languagehelper;
 
-import android.arch.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.avos.avoscloud.AVObject;
+import cn.leancloud.AVObject;
 import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.adapter.RcBoutiquesAdapter;
 import com.messi.languagehelper.bean.RespoADData;

@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical" >
 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/my_awesome_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
             android:background="@color/green_500"
             android:visibility="gone"
             android:max="100" />
-        <android.support.v4.widget.SwipeRefreshLayout
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipe_container"
             android:layout_width="match_parent"
             android:layout_height="286dp"
@@ -33,7 +33,7 @@
                 android:id="@+id/refreshable_webview"
                 android:layout_width="match_parent"
                 android:layout_height="286dp" />
-        </android.support.v4.widget.SwipeRefreshLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </LinearLayout>
 
     <LinearLayout

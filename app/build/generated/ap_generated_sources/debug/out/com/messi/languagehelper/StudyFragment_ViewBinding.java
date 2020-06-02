@@ -1,10 +1,10 @@
 // Generated code from Butter Knife. Do not modify!
 package com.messi.languagehelper;
 
-import android.support.annotation.CallSuper;
-import android.support.annotation.UiThread;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import androidx.annotation.CallSuper;
+import androidx.annotation.UiThread;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
@@ -14,7 +14,7 @@ import java.lang.Override;
 public class StudyFragment_ViewBinding implements Unbinder {
   private StudyFragment target;
 
-  private View view7f080281;
+  private View view7f0802bd;
 
   @UiThread
   public StudyFragment_ViewBinding(final StudyFragment target, View source) {
@@ -23,7 +23,7 @@ public class StudyFragment_ViewBinding implements Unbinder {
     View view;
     target.listview = Utils.findRequiredViewAsType(source, R.id.listview, "field 'listview'", RecyclerView.class);
     view = Utils.findRequiredView(source, R.id.search_btn, "method 'onViewClicked'");
-    view7f080281 = view;
+    view7f0802bd = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -41,7 +41,7 @@ public class StudyFragment_ViewBinding implements Unbinder {
 
     target.listview = null;
 
-    view7f080281.setOnClickListener(null);
-    view7f080281 = null;
+    view7f0802bd.setOnClickListener(null);
+    view7f0802bd = null;
   }
 }

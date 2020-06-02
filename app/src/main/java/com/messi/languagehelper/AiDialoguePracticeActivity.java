@@ -7,10 +7,6 @@ import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -18,9 +14,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.iflytek.cloud.RecognizerListener;
 import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechConstant;
@@ -50,6 +48,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -237,20 +237,16 @@ public class AiDialoguePracticeActivity extends BaseActivity implements View.OnC
         query.whereEqualTo(AVOUtil.EvaluationDetail.ECCode, ECCode);
         query.whereEqualTo(AVOUtil.EvaluationDetail.EDIsValid, "1");
         query.orderByAscending(AVOUtil.EvaluationDetail.ECLCode);
-        try {
-            List<AVObject> avObject = query.find();
-            if (avObject != null && avObject.size() > 0) {
-                for (int i = 0; i < avObject.size(); i++) {
-                    if (i == 0) {
-                        avObject.get(i).put(KeyUtil.PracticeItemIndex, "1");
-                    } else {
-                        avObject.get(i).put(KeyUtil.PracticeItemIndex, "0");
-                    }
+        List<AVObject> avObject = query.find();
+        if (avObject != null && avObject.size() > 0) {
+            for (int i = 0; i < avObject.size(); i++) {
+                if (i == 0) {
+                    avObject.get(i).put(KeyUtil.PracticeItemIndex, "1");
+                } else {
+                    avObject.get(i).put(KeyUtil.PracticeItemIndex, "0");
                 }
-                avObjects.addAll(avObject);
             }
-        } catch (AVException e) {
-            e.printStackTrace();
+            avObjects.addAll(avObject);
         }
     }
 

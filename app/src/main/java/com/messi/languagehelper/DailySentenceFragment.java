@@ -2,16 +2,14 @@ package com.messi.languagehelper;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.messi.languagehelper.adapter.RcDailySentenceListAdapter;
 import com.messi.languagehelper.box.EveryDaySentence;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
@@ -25,6 +23,8 @@ import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -132,16 +132,12 @@ public class DailySentenceFragment extends BaseFragment implements OnClickListen
         AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.DailySentence.DailySentence);
         query.orderByDescending(AVOUtil.DailySentence.dateline);
         query.limit(80);
-        try {
-            List<AVObject> sentences = query.find();
-            if (sentences != null && !sentences.isEmpty()) {
-                beans.clear();
-                for (AVObject bean : sentences) {
-                    beans.add(changeData(bean));
-                }
+        List<AVObject> sentences = query.find();
+        if (sentences != null && !sentences.isEmpty()) {
+            beans.clear();
+            for (AVObject bean : sentences) {
+                beans.add(changeData(bean));
             }
-        } catch (AVException e) {
-            e.printStackTrace();
         }
     }
 

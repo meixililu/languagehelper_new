@@ -1,13 +1,13 @@
 // Generated code from Butter Knife. Do not modify!
 package com.messi.languagehelper;
 
-import android.support.annotation.CallSuper;
-import android.support.annotation.UiThread;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.CallSuper;
+import androidx.annotation.UiThread;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
@@ -18,13 +18,13 @@ import java.lang.Override;
 public class MiaosouDetailActivity_ViewBinding implements Unbinder {
   private MiaosouDetailActivity target;
 
-  private View view7f08003b;
+  private View view7f08005b;
 
-  private View view7f080353;
+  private View view7f080392;
 
-  private View view7f080065;
+  private View view7f08007e;
 
-  private View view7f0802b0;
+  private View view7f0802ec;
 
   @UiThread
   public MiaosouDetailActivity_ViewBinding(MiaosouDetailActivity target) {
@@ -46,7 +46,7 @@ public class MiaosouDetailActivity_ViewBinding implements Unbinder {
     target.itemLayout = Utils.findRequiredViewAsType(source, R.id.item_layout, "field 'itemLayout'", LinearLayout.class);
     view = Utils.findRequiredView(source, R.id.add_bookshelf, "field 'addBookshelf' and method 'onViewClicked'");
     target.addBookshelf = Utils.castView(view, R.id.add_bookshelf, "field 'addBookshelf'", TextView.class);
-    view7f08003b = view;
+    view7f08005b = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -55,7 +55,7 @@ public class MiaosouDetailActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.to_read, "field 'toRead' and method 'onViewClicked'");
     target.toRead = Utils.castView(view, R.id.to_read, "field 'toRead'", TextView.class);
-    view7f080353 = view;
+    view7f080392 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -68,7 +68,7 @@ public class MiaosouDetailActivity_ViewBinding implements Unbinder {
     target.xxAdLayout = Utils.findRequiredViewAsType(source, R.id.xx_ad_layout, "field 'xxAdLayout'", FrameLayout.class);
     view = Utils.findRequiredView(source, R.id.back_btn, "field 'backBtn' and method 'onViewClicked'");
     target.backBtn = Utils.castView(view, R.id.back_btn, "field 'backBtn'", ImageView.class);
-    view7f080065 = view;
+    view7f08007e = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -77,7 +77,7 @@ public class MiaosouDetailActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.share_img, "field 'shareImg' and method 'onViewClicked'");
     target.shareImg = Utils.castView(view, R.id.share_img, "field 'shareImg'", ImageView.class);
-    view7f0802b0 = view;
+    view7f0802ec = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -110,13 +110,13 @@ public class MiaosouDetailActivity_ViewBinding implements Unbinder {
     target.backBtn = null;
     target.shareImg = null;
 
-    view7f08003b.setOnClickListener(null);
-    view7f08003b = null;
-    view7f080353.setOnClickListener(null);
-    view7f080353 = null;
-    view7f080065.setOnClickListener(null);
-    view7f080065 = null;
-    view7f0802b0.setOnClickListener(null);
-    view7f0802b0 = null;
+    view7f08005b.setOnClickListener(null);
+    view7f08005b = null;
+    view7f080392.setOnClickListener(null);
+    view7f080392 = null;
+    view7f08007e.setOnClickListener(null);
+    view7f08007e = null;
+    view7f0802ec.setOnClickListener(null);
+    view7f0802ec = null;
   }
 }

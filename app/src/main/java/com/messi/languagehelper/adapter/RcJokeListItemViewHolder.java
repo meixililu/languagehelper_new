@@ -3,7 +3,6 @@ package com.messi.languagehelper.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,8 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVObject;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.baidu.mobads.AdView;
 import com.bumptech.glide.Glide;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
@@ -31,6 +31,7 @@ import com.messi.languagehelper.util.SystemUtil;
 import com.qq.e.ads.nativ.NativeExpressADView;
 
 import cn.jzvd.JzvdStd;
+import cn.leancloud.AVObject;
 
 /**
  * Created by luli on 10/23/16.
@@ -67,12 +68,9 @@ public class RcJokeListItemViewHolder extends RecyclerView.ViewHolder {
             list_item_img.setAspectRatio((float) 1.5);
             list_item_img.setVisibility(View.VISIBLE);
             list_item_img.setImageURI(Uri.parse(mNativeADDataRef.getImgUrl()));
-            list_item_img.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    boolean onClicked = mNativeADDataRef.onClick(v);
-                    LogUtil.DefalutLog("onClicked:"+onClicked);
-                }
+            list_item_img.setOnClickListener(view -> {
+                boolean onClicked = mNativeADDataRef.onClick(view);
+                LogUtil.DefalutLog("onClicked:"+onClicked);
             });
         }else if(mAVObject.get(KeyUtil.TXADView) != null) {
             NativeExpressADView mADView = (NativeExpressADView) mAVObject.get(KeyUtil.TXADView);
@@ -127,12 +125,7 @@ public class RcJokeListItemViewHolder extends RecyclerView.ViewHolder {
                             .into(videoplayer.posterImageView);
                 }
             }
-            list_item_img.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onItemClick(mAVObject);
-                }
-            });
+            list_item_img.setOnClickListener(view -> onItemClick(mAVObject));
         }
     }
 

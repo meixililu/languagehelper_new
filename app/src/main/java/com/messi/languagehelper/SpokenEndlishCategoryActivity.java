@@ -2,12 +2,10 @@ package com.messi.languagehelper;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.messi.languagehelper.adapter.RcSpokenEndlishCategoryAdapter;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -18,6 +16,9 @@ import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
 
 public class SpokenEndlishCategoryActivity extends BaseActivity {
 
@@ -117,12 +118,7 @@ public class SpokenEndlishCategoryActivity extends BaseActivity {
             query.orderByDescending(AVOUtil.EvaluationCategory.ECOrder);
             query.skip(skip);
             query.limit(Setings.page_size);
-            try {
-                return query.find();
-            } catch (AVException e) {
-                e.printStackTrace();
-            }
-            return null;
+            return query.find();
         }
 
         @Override

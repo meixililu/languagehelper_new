@@ -3,18 +3,16 @@ package com.messi.languagehelper;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.messi.languagehelper.impl.PracticeProgressListener;
 import com.messi.languagehelper.util.AVAnalytics;
@@ -27,6 +25,9 @@ import com.messi.languagehelper.util.ViewUtil;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
+
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
 
 import static com.messi.languagehelper.util.AVOUtil.PracticeDetail.PracticeDetail;
 
@@ -102,13 +103,9 @@ public class AiSpokenBasicActivity extends BaseActivity implements PracticeProgr
 			query.skip(currentSection);
 			query.limit(1);
 			query.addAscendingOrder(AVOUtil.PracticeDetail.PCCode);
-			try {
-				List<AVObject> avObjects  = query.find();
-				if(avObjects != null && !avObjects.isEmpty()){
-					avObject = avObjects.get(0);
-				}
-			} catch (AVException e) {
-				e.printStackTrace();
+			List<AVObject> avObjects  = query.find();
+			if(avObjects != null && !avObjects.isEmpty()){
+				avObject = avObjects.get(0);
 			}
 			return null;
 		}

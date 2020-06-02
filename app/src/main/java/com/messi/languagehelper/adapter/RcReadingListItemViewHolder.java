@@ -3,7 +3,7 @@ package com.messi.languagehelper.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVObject;
+import cn.leancloud.AVObject;
 import com.baidu.mobads.AdView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.conn.NativeDataRef;

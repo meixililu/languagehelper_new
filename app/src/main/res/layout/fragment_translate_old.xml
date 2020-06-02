@@ -11,7 +11,7 @@
         android:background="@color/white"
         android:focusableInTouchMode="true"
         android:orientation="vertical" >
-        <android.support.design.widget.TabLayout
+        <com.google.android.material.tabs.TabLayout
             android:id="@+id/tablayout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/tabs_heigh"
@@ -23,7 +23,7 @@
             app:tabTextAppearance="@style/MainTabTextStyle"
             android:background="@color/white" />
 
-        <android.support.v4.widget.NestedScrollView
+        <androidx.core.widget.NestedScrollView
             android:id="@+id/top_layout"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" >
@@ -103,7 +103,7 @@
                 </FrameLayout>
 
             </RelativeLayout>
-        </android.support.v4.widget.NestedScrollView>
+        </androidx.core.widget.NestedScrollView>
 
         <RelativeLayout
             android:layout_width="match_parent"

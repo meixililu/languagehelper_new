@@ -6,10 +6,6 @@ import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.PagerSnapHelper;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.view.LayoutInflater;
@@ -20,11 +16,12 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.PagerSnapHelper;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.alibaba.fastjson.JSON;
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.FindCallback;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.Player;
@@ -65,6 +62,11 @@ import java.util.zip.CRC32;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.leancloud.AVException;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
+import cn.leancloud.callback.FindCallback;
+import cn.leancloud.convertor.ObserverBuilder;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -472,7 +474,7 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
         query.whereLessThan(AVOUtil.XVideo.play_count,play_count);
         query.orderByDescending(AVOUtil.XVideo.play_count);
         query.limit(Setings.page_size);
-        query.findInBackground(new FindCallback<AVObject>() {
+        query.findInBackground().subscribe(ObserverBuilder.buildCollectionObserver(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
             loading = false;
@@ -492,7 +494,7 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
                 ToastUtil.diaplayMesShort(XVideoDetailActivity.this, "加载失败，下拉可刷新");
             }
             }
-        });
+        }));
     }
 
     private void loadAD(){

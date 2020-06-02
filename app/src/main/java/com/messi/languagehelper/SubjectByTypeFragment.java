@@ -3,16 +3,14 @@ package com.messi.languagehelper;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.adapter.RcSubjectTypeListAdapter;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
@@ -29,6 +27,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
 
 public class SubjectByTypeFragment extends BaseFragment {
 
@@ -167,12 +167,7 @@ public class SubjectByTypeFragment extends BaseFragment {
             query.orderByAscending(AVOUtil.SubjectType.order);
             query.skip(skip);
             query.limit(20);
-            try {
-                return query.find();
-            } catch (AVException e) {
-                e.printStackTrace();
-            }
-            return null;
+            return query.find();
         }
 
         @Override

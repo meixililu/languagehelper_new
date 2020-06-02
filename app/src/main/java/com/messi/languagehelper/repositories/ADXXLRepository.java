@@ -1,6 +1,6 @@
 package com.messi.languagehelper.repositories;
 
-import android.arch.lifecycle.MutableLiveData;
+import androidx.lifecycle.MutableLiveData;
 import android.content.Context;
 import android.text.TextUtils;
 

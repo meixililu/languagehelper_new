@@ -1,6 +1,6 @@
 package com.messi.languagehelper.repositories;
 
-import android.arch.lifecycle.MutableLiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.messi.languagehelper.bean.RespoData;
 import com.messi.languagehelper.bean.TwistaItem;

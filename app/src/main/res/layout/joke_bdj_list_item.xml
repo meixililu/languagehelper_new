@@ -36,7 +36,7 @@
         <cn.jzvd.JzvdStd
             android:id="@+id/videoplayer"
             android:layout_width="match_parent"
-            android:layout_height="210dp" />
+            android:layout_height="560dp" />
 
     </LinearLayout>
     <FrameLayout

@@ -3,11 +3,11 @@ package com.messi.languagehelper.adapter;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVObject;
+import cn.leancloud.AVObject;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.WordStudySummaryListActivity;
 import com.messi.languagehelper.util.AVOUtil;

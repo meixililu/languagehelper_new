@@ -1,13 +1,10 @@
 package com.messi.languagehelper;
 
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.FindCallback;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.iflytek.voiceads.IFLYNativeAd;
 import com.iflytek.voiceads.config.AdError;
 import com.iflytek.voiceads.config.AdKeys;
@@ -28,6 +25,12 @@ import com.qq.e.ads.nativ.NativeExpressADView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.leancloud.AVException;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
+import cn.leancloud.callback.FindCallback;
+import cn.leancloud.convertor.ObserverBuilder;
 
 public class XVideoSearchResultActivity extends BaseActivity{
 
@@ -148,7 +151,7 @@ public class XVideoSearchResultActivity extends BaseActivity{
         query.orderByDescending(AVOUtil.XVideo.play_count);
         query.skip(skip);
         query.limit(Setings.ca_psize);
-        query.findInBackground(new FindCallback<AVObject>() {
+        query.findInBackground().subscribe(ObserverBuilder.buildCollectionObserver(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
                 hideProgressbar();
@@ -180,7 +183,7 @@ public class XVideoSearchResultActivity extends BaseActivity{
                     ToastUtil.diaplayMesShort(XVideoSearchResultActivity.this, "加载失败，下拉可刷新");
                 }
             }
-        });
+        }));
     }
 
     private void loadXFAD(){

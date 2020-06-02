@@ -2,15 +2,12 @@ package com.messi.languagehelper;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.FindCallback;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.iflytek.voiceads.conn.NativeDataRef;
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.ViewModel.XXLCNWBeanModel;
@@ -26,6 +23,12 @@ import com.messi.languagehelper.util.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.leancloud.AVException;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
+import cn.leancloud.callback.FindCallback;
+import cn.leancloud.convertor.ObserverBuilder;
 
 public class CaricatureSourceActivity extends BaseActivity implements View.OnClickListener{
 
@@ -142,7 +145,7 @@ public class CaricatureSourceActivity extends BaseActivity implements View.OnCli
         query.orderByDescending(AVOUtil.Caricature.views);
         query.skip(skip);
         query.limit(Setings.ca_psize);
-        query.findInBackground(new FindCallback<AVObject>() {
+        query.findInBackground().subscribe(ObserverBuilder.buildCollectionObserver(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
                 hideProgressbar();
@@ -176,7 +179,7 @@ public class CaricatureSourceActivity extends BaseActivity implements View.OnCli
                     ToastUtil.diaplayMesShort(CaricatureSourceActivity.this, "加载失败，下拉可刷新");
                 }
             }
-        });
+        }));
     }
 
     private void hideFooterview(){

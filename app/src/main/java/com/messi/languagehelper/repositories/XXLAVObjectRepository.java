@@ -2,7 +2,7 @@ package com.messi.languagehelper.repositories;
 
 import android.content.Context;
 
-import com.avos.avoscloud.AVObject;
+import cn.leancloud.AVObject;
 import com.baidu.mobads.AdView;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.iflytek.voiceads.conn.NativeDataRef;

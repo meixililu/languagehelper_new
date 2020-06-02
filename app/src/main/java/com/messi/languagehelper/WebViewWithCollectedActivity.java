@@ -13,10 +13,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.PersistableBundle;
-import android.support.annotation.NonNull;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.CardView;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -36,10 +32,11 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.FindCallback;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.cardview.widget.CardView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.iflytek.cloud.RecognizerListener;
 import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechError;
@@ -68,6 +65,11 @@ import com.qq.e.ads.nativ.NativeExpressADView;
 import java.net.URLDecoder;
 import java.util.List;
 
+import cn.leancloud.AVException;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
+import cn.leancloud.callback.FindCallback;
+import cn.leancloud.convertor.ObserverBuilder;
 import permissions.dispatcher.NeedsPermission;
 import permissions.dispatcher.OnPermissionDenied;
 import permissions.dispatcher.OnShowRationale;
@@ -506,7 +508,7 @@ public class WebViewWithCollectedActivity extends BaseActivity implements OnClic
 				try {
 					AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.AdFilter.AdFilter);
 					query.whereEqualTo(AVOUtil.AdFilter.name, filter_source_name);
-					query.findInBackground(new FindCallback<AVObject>() {
+					query.findInBackground().subscribe(ObserverBuilder.buildCollectionObserver(new FindCallback<AVObject>() {
 						@Override
 						public void done(List<AVObject> list, AVException e) {
 							if(list != null && list.size() > 0){
@@ -519,7 +521,7 @@ public class WebViewWithCollectedActivity extends BaseActivity implements OnClic
 								}
 							}
 						}
-					});
+					}));
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

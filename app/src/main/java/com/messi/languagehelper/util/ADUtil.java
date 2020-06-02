@@ -7,11 +7,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.text.TextUtils;
 
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
 import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.WebViewActivity;

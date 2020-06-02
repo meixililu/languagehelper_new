@@ -4,15 +4,15 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.ListView;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
 import com.messi.languagehelper.adapter.StudyDialogCategoryListAdapter;
 import com.messi.languagehelper.util.AVOUtil;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
 
 public class StudyDialogListActivity extends BaseActivity {
 
@@ -64,14 +64,10 @@ public class StudyDialogListActivity extends BaseActivity {
 			query.whereEqualTo(AVOUtil.StudyDialogListCategory.SDCode, SDCode);
 			query.whereEqualTo(AVOUtil.StudyDialogListCategory.SDLIsValid, "1");
 			query.orderByDescending(AVOUtil.StudyDialogListCategory.SDLOrder);
-			try {
-				List<AVObject> avObject  = query.find();
-				if(avObject != null){
-					avObjects.clear();
-					avObjects.addAll(avObject);
-				}
-			} catch (AVException e) {
-				e.printStackTrace();
+			List<AVObject> avObject  = query.find();
+			if(avObject != null){
+				avObjects.clear();
+				avObjects.addAll(avObject);
 			}
 			return null;
 		}

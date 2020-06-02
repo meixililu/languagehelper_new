@@ -1,14 +1,11 @@
 package com.messi.languagehelper;
 
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.FindCallback;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.adapter.RcWebsiteListAdapter;
 import com.messi.languagehelper.util.ADUtil;
@@ -20,6 +17,12 @@ import com.messi.languagehelper.views.DividerGridItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.leancloud.AVException;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
+import cn.leancloud.callback.FindCallback;
+import cn.leancloud.convertor.ObserverBuilder;
 
 public class WebsiteListActivity extends BaseActivity {
 
@@ -101,7 +104,7 @@ public class WebsiteListActivity extends BaseActivity {
         query.orderByDescending(AVOUtil.EnglishWebsite.Order);
         query.skip(skip);
         query.limit(page_size);
-        query.findInBackground(new FindCallback<AVObject>() {
+        query.findInBackground().subscribe(ObserverBuilder.buildCollectionObserver(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
                 hideProgressbar();
@@ -130,7 +133,7 @@ public class WebsiteListActivity extends BaseActivity {
                     ToastUtil.diaplayMesShort(WebsiteListActivity.this, "加载失败，下拉可刷新");
                 }
             }
-        });
+        }));
     }
 
 

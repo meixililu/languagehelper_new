@@ -1,8 +1,6 @@
 // Generated code from Butter Knife. Do not modify!
 package com.messi.languagehelper;
 
-import android.support.annotation.CallSuper;
-import android.support.annotation.UiThread;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
@@ -11,6 +9,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.annotation.CallSuper;
+import androidx.annotation.UiThread;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
@@ -21,9 +21,9 @@ import java.lang.Override;
 public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
   private ReadDetailTouTiaoActivity target;
 
-  private View view7f0800a2;
+  private View view7f0800be;
 
-  private View view7f08021d;
+  private View view7f08025e;
 
   @UiThread
   public ReadDetailTouTiaoActivity_ViewBinding(ReadDetailTouTiaoActivity target) {
@@ -45,7 +45,7 @@ public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
     target.webview_layout = Utils.findRequiredViewAsType(source, R.id.webview_layout, "field 'webview_layout'", FrameLayout.class);
     view = Utils.findRequiredView(source, R.id.collect_btn, "field 'collect_btn' and method 'onClick'");
     target.collect_btn = Utils.castView(view, R.id.collect_btn, "field 'collect_btn'", ImageView.class);
-    view7f0800a2 = view;
+    view7f0800be = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -55,7 +55,7 @@ public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
     target.progressbar = Utils.findRequiredViewAsType(source, R.id.progressbar, "field 'progressbar'", ProgressBar.class);
     view = Utils.findRequiredView(source, R.id.play_background_btn, "field 'play_background_btn' and method 'onBackGroundClicked'");
     target.play_background_btn = Utils.castView(view, R.id.play_background_btn, "field 'play_background_btn'", RelativeLayout.class);
-    view7f08021d = view;
+    view7f08025e = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -82,9 +82,9 @@ public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
     target.progressbar = null;
     target.play_background_btn = null;
 
-    view7f0800a2.setOnClickListener(null);
-    view7f0800a2 = null;
-    view7f08021d.setOnClickListener(null);
-    view7f08021d = null;
+    view7f0800be.setOnClickListener(null);
+    view7f0800be = null;
+    view7f08025e.setOnClickListener(null);
+    view7f08025e = null;
   }
 }

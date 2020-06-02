@@ -1,16 +1,13 @@
 package com.messi.languagehelper;
 
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.FindCallback;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.adapter.RcCaricatureSourceListAdapter;
 import com.messi.languagehelper.util.ADUtil;
@@ -21,6 +18,12 @@ import com.messi.languagehelper.views.DividerGridItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.leancloud.AVException;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
+import cn.leancloud.callback.FindCallback;
+import cn.leancloud.convertor.ObserverBuilder;
 
 public class CaricatureWebListFragment extends BaseFragment{
 
@@ -113,7 +116,7 @@ public class CaricatureWebListFragment extends BaseFragment{
         query.orderByDescending(AVOUtil.EnglishWebsite.Order);
         query.skip(skip);
         query.limit(50);
-        query.findInBackground(new FindCallback<AVObject>() {
+        query.findInBackground().subscribe(ObserverBuilder.buildCollectionObserver(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
                 hideProgressbar();
@@ -142,7 +145,7 @@ public class CaricatureWebListFragment extends BaseFragment{
                     ToastUtil.diaplayMesShort(getContext(), "加载失败，下拉可刷新");
                 }
             }
-        });
+        }));
     }
 
     private void hideFooterview(){

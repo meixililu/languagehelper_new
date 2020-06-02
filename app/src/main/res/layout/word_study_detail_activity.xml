@@ -6,7 +6,7 @@
     android:background="@color/contentbg"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/my_awesome_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
             android:layout_height="24dp"
             android:layout_gravity="right"
             android:visibility="gone" />
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <FrameLayout
         android:layout_width="fill_parent"
@@ -43,7 +43,7 @@
             android:layout_marginRight="15dp"
             android:orientation="vertical">
 
-            <android.support.design.widget.FloatingActionButton
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/playbtn"
                 android:layout_width="50dp"
                 android:layout_height="50dp"

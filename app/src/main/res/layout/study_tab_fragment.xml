@@ -19,7 +19,7 @@
             android:background="@color/white"
             android:paddingLeft="@dimen/padding_12"
             >
-            <android.support.design.widget.TabLayout
+            <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tablayout"
                 android:layout_width="0dp"
                 android:layout_weight="1"

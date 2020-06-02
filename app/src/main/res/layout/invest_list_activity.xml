@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="@color/contentbg"
     >
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/my_awesome_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,9 +19,9 @@
             android:layout_gravity="right"
             android:visibility="gone" />
 
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
-    <android.support.v4.widget.SwipeRefreshLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/mswiperefreshlayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -41,7 +41,7 @@
             android:paddingLeft="@dimen/padding_2"
             android:paddingRight="@dimen/padding_2"
             android:scrollbars="none" />
-    </android.support.v4.widget.SwipeRefreshLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     <LinearLayout
         android:id="@+id/ad_view"
         android:layout_width="fill_parent"

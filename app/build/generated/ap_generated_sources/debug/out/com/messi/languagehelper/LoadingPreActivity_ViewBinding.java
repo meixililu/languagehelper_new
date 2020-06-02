@@ -1,10 +1,10 @@
 // Generated code from Butter Knife. Do not modify!
 package com.messi.languagehelper;
 
-import android.support.annotation.CallSuper;
-import android.support.annotation.UiThread;
 import android.view.View;
 import android.widget.TextView;
+import androidx.annotation.CallSuper;
+import androidx.annotation.UiThread;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
@@ -14,9 +14,9 @@ import java.lang.Override;
 public class LoadingPreActivity_ViewBinding implements Unbinder {
   private LoadingPreActivity target;
 
-  private View view7f08003c;
+  private View view7f08005c;
 
-  private View view7f0801ee;
+  private View view7f08022e;
 
   @UiThread
   public LoadingPreActivity_ViewBinding(LoadingPreActivity target) {
@@ -32,7 +32,7 @@ public class LoadingPreActivity_ViewBinding implements Unbinder {
     target.privacyTv1 = Utils.findRequiredViewAsType(source, R.id.privacy_tv1, "field 'privacyTv1'", TextView.class);
     target.privacyTv2 = Utils.findRequiredViewAsType(source, R.id.privacy_tv2, "field 'privacyTv2'", TextView.class);
     view = Utils.findRequiredView(source, R.id.agree, "method 'onClick'");
-    view7f08003c = view;
+    view7f08005c = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -40,7 +40,7 @@ public class LoadingPreActivity_ViewBinding implements Unbinder {
       }
     });
     view = Utils.findRequiredView(source, R.id.no_agree, "method 'onClick'");
-    view7f0801ee = view;
+    view7f08022e = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -60,9 +60,9 @@ public class LoadingPreActivity_ViewBinding implements Unbinder {
     target.privacyTv1 = null;
     target.privacyTv2 = null;
 
-    view7f08003c.setOnClickListener(null);
-    view7f08003c = null;
-    view7f0801ee.setOnClickListener(null);
-    view7f0801ee = null;
+    view7f08005c.setOnClickListener(null);
+    view7f08005c = null;
+    view7f08022e.setOnClickListener(null);
+    view7f08022e = null;
   }
 }

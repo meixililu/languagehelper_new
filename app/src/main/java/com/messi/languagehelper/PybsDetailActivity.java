@@ -1,17 +1,14 @@
 package com.messi.languagehelper;
 
 import android.os.Bundle;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.widget.NestedScrollView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.FindCallback;
+import androidx.core.widget.NestedScrollView;
+
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
@@ -23,6 +20,11 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.leancloud.AVException;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
+import cn.leancloud.callback.FindCallback;
+import cn.leancloud.convertor.ObserverBuilder;
 
 public class PybsDetailActivity extends BaseActivity {
 
@@ -61,7 +63,7 @@ public class PybsDetailActivity extends BaseActivity {
         showProgressbar();
         AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.XhDicSList.XhDicSList);
         query.whereEqualTo(AVOUtil.XhDicSList.name, code);
-        query.findInBackground(new FindCallback<AVObject>() {
+        query.findInBackground().subscribe(ObserverBuilder.buildCollectionObserver(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
                 hideProgressbar();
@@ -74,7 +76,7 @@ public class PybsDetailActivity extends BaseActivity {
                     ToastUtil.diaplayMesShort(PybsDetailActivity.this, "加载失败，下拉可刷新");
                 }
             }
-        });
+        }));
     }
 
     private void LoadAD() {

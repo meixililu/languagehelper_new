@@ -11,10 +11,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.FindCallback;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.WebFilter;
@@ -22,6 +18,12 @@ import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
 import com.ximalaya.ting.android.sdkdownloader.XmDownloadManager;
 
 import java.util.List;
+
+import cn.leancloud.AVException;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
+import cn.leancloud.callback.FindCallback;
+import cn.leancloud.convertor.ObserverBuilder;
 
 public class AppUpdateUtil {
 
@@ -48,15 +50,10 @@ public class AppUpdateUtil {
             public void run() {
                 AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.AdFilter.AdFilter);
                 query.whereContains(AVOUtil.AdFilter.category, "ca_novel");
-                List<AVObject> list = null;
-                try {
-                    list = query.find();
-                    if(list != null){
-                        List<WebFilter> beans = DataUtil.toWebFilter(list);
-                        BoxHelper.updateWebFilter(beans);
-                    }
-                } catch (AVException e) {
-                    e.printStackTrace();
+                List<AVObject> list = query.find();
+                if(list != null){
+                    List<WebFilter> beans = DataUtil.toWebFilter(list);
+                    BoxHelper.updateWebFilter(beans);
                 }
             }
         }).start();
@@ -91,14 +88,14 @@ public class AppUpdateUtil {
         }else{
             query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "noupdate");
         }
-        query.findInBackground(new FindCallback<AVObject>() {
+        query.findInBackground().subscribe(ObserverBuilder.buildCollectionObserver(new FindCallback<AVObject>() {
             public void done(List<AVObject> avObjects, AVException e) {
                 if (avObjects != null && !avObjects.isEmpty()) {
                     final AVObject mAVObject = avObjects.get(0);
                     saveSetting(mActivity,mAVObject);
                 }
             }
-        });
+        }));
     }
 
     public static void saveSetting(Activity mActivity,AVObject mAVObject){

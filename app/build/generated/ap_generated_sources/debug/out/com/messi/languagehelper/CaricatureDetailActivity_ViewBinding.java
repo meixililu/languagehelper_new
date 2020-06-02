@@ -1,13 +1,13 @@
 // Generated code from Butter Knife. Do not modify!
 package com.messi.languagehelper;
 
-import android.support.annotation.CallSuper;
-import android.support.annotation.UiThread;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.CallSuper;
+import androidx.annotation.UiThread;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
@@ -18,13 +18,13 @@ import java.lang.Override;
 public class CaricatureDetailActivity_ViewBinding implements Unbinder {
   private CaricatureDetailActivity target;
 
-  private View view7f08003b;
+  private View view7f08005b;
 
-  private View view7f080353;
+  private View view7f080392;
 
-  private View view7f080065;
+  private View view7f08007e;
 
-  private View view7f0802b0;
+  private View view7f0802ec;
 
   @UiThread
   public CaricatureDetailActivity_ViewBinding(CaricatureDetailActivity target) {
@@ -46,7 +46,7 @@ public class CaricatureDetailActivity_ViewBinding implements Unbinder {
     target.des = Utils.findRequiredViewAsType(source, R.id.des, "field 'des'", TextView.class);
     view = Utils.findRequiredView(source, R.id.add_bookshelf, "field 'addBookshelf' and method 'onAddBookshelfClicked'");
     target.addBookshelf = Utils.castView(view, R.id.add_bookshelf, "field 'addBookshelf'", TextView.class);
-    view7f08003b = view;
+    view7f08005b = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -55,7 +55,7 @@ public class CaricatureDetailActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.to_read, "field 'toRead' and method 'onToReadClicked'");
     target.toRead = Utils.castView(view, R.id.to_read, "field 'toRead'", TextView.class);
-    view7f080353 = view;
+    view7f080392 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -65,7 +65,7 @@ public class CaricatureDetailActivity_ViewBinding implements Unbinder {
     target.xx_ad_layout = Utils.findRequiredViewAsType(source, R.id.xx_ad_layout, "field 'xx_ad_layout'", FrameLayout.class);
     view = Utils.findRequiredView(source, R.id.back_btn, "field 'backBtn' and method 'onBackBtnClicked'");
     target.backBtn = Utils.castView(view, R.id.back_btn, "field 'backBtn'", ImageView.class);
-    view7f080065 = view;
+    view7f08007e = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -74,7 +74,7 @@ public class CaricatureDetailActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.share_img, "field 'share_img' and method 'onViewClicked'");
     target.share_img = Utils.castView(view, R.id.share_img, "field 'share_img'", ImageView.class);
-    view7f0802b0 = view;
+    view7f0802ec = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -106,13 +106,13 @@ public class CaricatureDetailActivity_ViewBinding implements Unbinder {
     target.share_img = null;
     target.itemLayout = null;
 
-    view7f08003b.setOnClickListener(null);
-    view7f08003b = null;
-    view7f080353.setOnClickListener(null);
-    view7f080353 = null;
-    view7f080065.setOnClickListener(null);
-    view7f080065 = null;
-    view7f0802b0.setOnClickListener(null);
-    view7f0802b0 = null;
+    view7f08005b.setOnClickListener(null);
+    view7f08005b = null;
+    view7f080392.setOnClickListener(null);
+    view7f080392 = null;
+    view7f08007e.setOnClickListener(null);
+    view7f08007e = null;
+    view7f0802ec.setOnClickListener(null);
+    view7f0802ec = null;
   }
 }

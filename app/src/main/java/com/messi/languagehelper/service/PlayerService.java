@@ -13,14 +13,11 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.RemoteException;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
+import androidx.annotation.Nullable;
+
 import com.alibaba.fastjson.JSON;
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.FindCallback;
 import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.PlaybackParameters;
@@ -59,6 +56,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import cn.leancloud.AVException;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
+import cn.leancloud.callback.FindCallback;
+import cn.leancloud.convertor.ObserverBuilder;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -664,7 +666,7 @@ public class PlayerService extends Service {
                 query.addDescendingOrder(AVOUtil.Reading.createdAt);
             }
             query.limit(30);
-            query.findInBackground(new FindCallback<AVObject>() {
+            query.findInBackground().subscribe(ObserverBuilder.buildCollectionObserver(new FindCallback<AVObject>() {
                 @Override
                 public void done(List<AVObject> avObjects, AVException avException) {
                     LogUtil.DefalutLog("findInBackground---done:"+avObjects.size());
@@ -687,7 +689,7 @@ public class PlayerService extends Service {
                         }
                     }
                 }
-            });
+            }));
         }
     }
 

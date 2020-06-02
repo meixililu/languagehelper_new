@@ -6,15 +6,15 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ListView;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
 import com.messi.languagehelper.adapter.StudyDialogCategoryAdapter;
 import com.messi.languagehelper.util.AVOUtil;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
 
 public class StudyDialogCategoryActivity extends BaseActivity implements OnClickListener{
 
@@ -65,14 +65,10 @@ public class StudyDialogCategoryActivity extends BaseActivity implements OnClick
 			AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.StudyDialogCategory.StudyDialogCategory);
 			query.whereEqualTo(AVOUtil.StudyDialogCategory.SDIsValid, "1");
 			query.orderByDescending(AVOUtil.StudyDialogCategory.SDOrder);
-			try {
-				List<AVObject> avObject  = query.find();
-				if(avObject != null){
-					avObjects.clear();
-					avObjects.addAll(avObject);
-				}
-			} catch (AVException e) {
-				e.printStackTrace();
+			List<AVObject> avObject  = query.find();
+			if(avObject != null){
+				avObjects.clear();
+				avObjects.addAll(avObject);
 			}
 			return null;
 		}

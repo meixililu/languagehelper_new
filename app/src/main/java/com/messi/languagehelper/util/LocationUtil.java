@@ -7,16 +7,16 @@ import android.content.pm.PackageManager;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
-import android.support.v4.app.ActivityCompat;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
+import androidx.core.app.ActivityCompat;
+
 import com.google.gson.Gson;
 import com.messi.languagehelper.bean.BdLocationRoot;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.impl.LocationResultListener;
 
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -138,7 +138,7 @@ public class LocationUtil {
                         testObject.put(AVOUtil.Location.brand, SystemUtil.getDeviceBrand());
                         testObject.saveInBackground();
                     }
-                } catch (AVException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }

@@ -1,13 +1,10 @@
 package com.messi.languagehelper;
 
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.FindCallback;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.messi.languagehelper.adapter.RcPybsTypeListAdapter;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
@@ -20,6 +17,11 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.leancloud.AVException;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
+import cn.leancloud.callback.FindCallback;
+import cn.leancloud.convertor.ObserverBuilder;
 
 public class ChPybsSListActivity extends BaseActivity {
 
@@ -99,7 +101,7 @@ public class ChPybsSListActivity extends BaseActivity {
         query.orderByAscending(AVOUtil.XhDicSList.createdAt);
         query.skip(skip);
         query.limit(page_size);
-        query.findInBackground(new FindCallback<AVObject>() {
+        query.findInBackground().subscribe(ObserverBuilder.buildCollectionObserver(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
                 hideProgressbar();
@@ -128,7 +130,7 @@ public class ChPybsSListActivity extends BaseActivity {
                     ToastUtil.diaplayMesShort(ChPybsSListActivity.this, "加载失败，下拉可刷新");
                 }
             }
-        });
+        }));
     }
 
     private void hideFooterview(){

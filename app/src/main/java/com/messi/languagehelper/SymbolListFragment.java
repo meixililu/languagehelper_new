@@ -7,10 +7,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -20,10 +16,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVFile;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.adapter.RcSymbolListAdapter;
 import com.messi.languagehelper.dao.SymbolListDao;
@@ -42,6 +39,10 @@ import com.messi.languagehelper.views.DividerGridItemDecoration;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.leancloud.AVFile;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
 
 public class SymbolListFragment extends BaseFragment {
 
@@ -173,31 +174,26 @@ public class SymbolListFragment extends BaseFragment {
 
         @Override
         protected Void doInBackground(Void... params) {
-            try {
-                long localSize = DataBaseUtil.getInstance(getContext()).getSymbolListSize();
-                if (sharedPreferences.getString(KeyUtil.UpdateSymbolList, "UpdateSymbolList1").equals("UpdateSymbolList1")) {
-                    localSize = 0;
-                    DataBaseUtil.getInstance(getContext()).clearSymbolList();
-                    Setings.saveSharedPreferences(sharedPreferences, KeyUtil.UpdateSymbolList, "");
-                }
-                mSymbolListDao.clear();
-                if (localSize == 0) {
-                    AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.SymbolDetail.SymbolDetail);
-                    query.whereEqualTo(AVOUtil.SymbolDetail.SDIsValid, "1");
-                    query.orderByAscending(AVOUtil.SymbolDetail.SDCode);
-                    List<AVObject> avObjects = query.find();
-                    if (avObjects != null) {
-                        for (AVObject mAVObject : avObjects) {
-                            mSymbolListDao.add(changeDataType(mAVObject));
-                        }
-                        DataBaseUtil.getInstance(getContext()).insert(mSymbolListDao);
+            long localSize = DataBaseUtil.getInstance(getContext()).getSymbolListSize();
+            if (sharedPreferences.getString(KeyUtil.UpdateSymbolList, "UpdateSymbolList1").equals("UpdateSymbolList1")) {
+                localSize = 0;
+                DataBaseUtil.getInstance(getContext()).clearSymbolList();
+                Setings.saveSharedPreferences(sharedPreferences, KeyUtil.UpdateSymbolList, "");
+            }
+            mSymbolListDao.clear();
+            if (localSize == 0) {
+                AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.SymbolDetail.SymbolDetail);
+                query.whereEqualTo(AVOUtil.SymbolDetail.SDIsValid, "1");
+                query.orderByAscending(AVOUtil.SymbolDetail.SDCode);
+                List<AVObject> avObjects = query.find();
+                if (avObjects != null) {
+                    for (AVObject mAVObject : avObjects) {
+                        mSymbolListDao.add(changeDataType(mAVObject));
                     }
-                } else {
-                    mSymbolListDao.addAll(DataBaseUtil.getInstance(getContext()).getSymbolList());
+                    DataBaseUtil.getInstance(getContext()).insert(mSymbolListDao);
                 }
-
-            } catch (AVException e) {
-                e.printStackTrace();
+            } else {
+                mSymbolListDao.addAll(DataBaseUtil.getInstance(getContext()).getSymbolList());
             }
             return null;
         }

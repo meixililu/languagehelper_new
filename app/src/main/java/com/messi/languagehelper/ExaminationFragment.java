@@ -3,15 +3,13 @@ package com.messi.languagehelper;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 import com.messi.languagehelper.adapter.ExaminationListAdapter;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AVOUtil;
@@ -23,6 +21,9 @@ import com.messi.languagehelper.util.Setings;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
 
 public class ExaminationFragment extends BaseFragment {
 
@@ -98,15 +99,11 @@ public class ExaminationFragment extends BaseFragment {
 			AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.ExaminationType.ExaminationType);
 			query.whereEqualTo(AVOUtil.CompositionType.is_valid, "1");
 			query.orderByAscending(AVOUtil.CompositionType.order);
-			try {
-				List<AVObject> avObject  = query.find();
-				if(avObject != null){
-					avObjects.clear();
-					avObjects.addAll(avObject);
-					isNeedSaveData = true;
-				}
-			} catch (AVException e) {
-				e.printStackTrace();
+			List<AVObject> avObject  = query.find();
+			if(avObject != null){
+				avObjects.clear();
+				avObjects.addAll(avObject);
+				isNeedSaveData = true;
 			}
 			return null;
 		}

@@ -1,7 +1,7 @@
 package com.messi.languagehelper.viewmodels;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.messi.languagehelper.bean.RespoData;
 import com.messi.languagehelper.bean.TwistaItem;

@@ -20,10 +20,6 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.FindCallback;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
@@ -34,6 +30,12 @@ import com.qq.e.ads.nativ.NativeExpressAD;
 import com.qq.e.ads.nativ.NativeExpressADView;
 
 import java.util.List;
+
+import cn.leancloud.AVException;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
+import cn.leancloud.callback.FindCallback;
+import cn.leancloud.convertor.ObserverBuilder;
 
 
 public class WebViewForNovelActivity extends BaseActivity implements View.OnClickListener{
@@ -269,7 +271,7 @@ public class WebViewForNovelActivity extends BaseActivity implements View.OnClic
 			try {
 				AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.AdFilter.AdFilter);
 				query.whereEqualTo(AVOUtil.AdFilter.name, filter_source_name);
-				query.findInBackground(new FindCallback<AVObject>() {
+				query.findInBackground().subscribe(ObserverBuilder.buildCollectionObserver(new FindCallback<AVObject>() {
 					@Override
 					public void done(List<AVObject> list, AVException e) {
 						if(list != null && list.size() > 0){
@@ -281,7 +283,7 @@ public class WebViewForNovelActivity extends BaseActivity implements View.OnClic
 							}
 						}
 					}
-				});
+				}));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

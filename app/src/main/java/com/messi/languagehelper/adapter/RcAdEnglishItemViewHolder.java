@@ -2,7 +2,7 @@ package com.messi.languagehelper.adapter;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -12,7 +12,7 @@ import com.messi.languagehelper.R;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 
-import com.avos.avoscloud.AVObject;
+import cn.leancloud.AVObject;
 
 /**
  * Created by luli on 10/23/16.

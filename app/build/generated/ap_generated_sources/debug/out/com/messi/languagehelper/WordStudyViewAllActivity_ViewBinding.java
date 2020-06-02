@@ -1,13 +1,13 @@
 // Generated code from Butter Knife. Do not modify!
 package com.messi.languagehelper;
 
-import android.support.annotation.CallSuper;
-import android.support.annotation.UiThread;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import androidx.annotation.CallSuper;
+import androidx.annotation.UiThread;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
@@ -17,9 +17,9 @@ import java.lang.Override;
 public class WordStudyViewAllActivity_ViewBinding implements Unbinder {
   private WordStudyViewAllActivity target;
 
-  private View view7f0802b7;
+  private View view7f0802f3;
 
-  private View view7f0801ed;
+  private View view7f08022c;
 
   @UiThread
   public WordStudyViewAllActivity_ViewBinding(WordStudyViewAllActivity target) {
@@ -33,7 +33,7 @@ public class WordStudyViewAllActivity_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.show_all_unit_layout, "field 'previousUnitLayout' and method 'onClick'");
     target.previousUnitLayout = Utils.castView(view, R.id.show_all_unit_layout, "field 'previousUnitLayout'", FrameLayout.class);
-    view7f0802b7 = view;
+    view7f0802f3 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -42,7 +42,7 @@ public class WordStudyViewAllActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.next_unit_layout, "field 'nextUnitLayout' and method 'onClick'");
     target.nextUnitLayout = Utils.castView(view, R.id.next_unit_layout, "field 'nextUnitLayout'", FrameLayout.class);
-    view7f0801ed = view;
+    view7f08022c = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -67,9 +67,9 @@ public class WordStudyViewAllActivity_ViewBinding implements Unbinder {
     target.transitionsContainer = null;
     target.studycategoryLv = null;
 
-    view7f0802b7.setOnClickListener(null);
-    view7f0802b7 = null;
-    view7f0801ed.setOnClickListener(null);
-    view7f0801ed = null;
+    view7f0802f3.setOnClickListener(null);
+    view7f0802f3 = null;
+    view7f08022c.setOnClickListener(null);
+    view7f08022c = null;
   }
 }

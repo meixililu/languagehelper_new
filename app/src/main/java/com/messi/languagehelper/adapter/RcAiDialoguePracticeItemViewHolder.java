@@ -1,14 +1,14 @@
 package com.messi.languagehelper.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVObject;
+import cn.leancloud.AVObject;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.bean.UserSpeakBean;
 import com.messi.languagehelper.impl.SpokenEnglishPlayListener;

@@ -2,11 +2,11 @@ package com.messi.languagehelper.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVObject;
+import cn.leancloud.AVObject;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.WebViewNoAdActivity;

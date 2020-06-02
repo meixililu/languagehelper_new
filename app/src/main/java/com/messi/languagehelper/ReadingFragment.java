@@ -2,11 +2,6 @@ package com.messi.languagehelper;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,10 +9,12 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.FindCallback;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.ViewModel.XXLModel;
 import com.messi.languagehelper.adapter.RcReadingListAdapter;
@@ -35,6 +32,12 @@ import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.leancloud.AVException;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
+import cn.leancloud.callback.FindCallback;
+import cn.leancloud.convertor.ObserverBuilder;
 
 public class ReadingFragment extends BaseFragment implements OnClickListener{
 
@@ -293,7 +296,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 		query.addDescendingOrder(AVOUtil.Reading.createdAt);
 		query.skip(skip);
 		query.limit(Setings.page_size);
-		query.findInBackground(new FindCallback<AVObject>() {
+		query.findInBackground().subscribe(ObserverBuilder.buildCollectionObserver(new FindCallback<AVObject>() {
 			@Override
 			public void done(List<AVObject> avObject, AVException avException) {
 				LogUtil.DefalutLog("onPostExecute---");
@@ -331,7 +334,7 @@ public class ReadingFragment extends BaseFragment implements OnClickListener{
 					skip += Setings.page_size;
 				}
 			}
-		});
+		}));
 	}
 
 	@Override

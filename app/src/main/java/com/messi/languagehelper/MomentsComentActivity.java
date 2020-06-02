@@ -2,18 +2,14 @@ package com.messi.languagehelper;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.widget.AppCompatEditText;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.FindCallback;
-import com.avos.avoscloud.SaveCallback;
+import androidx.appcompat.widget.AppCompatEditText;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.messi.languagehelper.adapter.RcMomentsCommentListAdapter;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
@@ -30,6 +26,12 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.leancloud.AVException;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
+import cn.leancloud.callback.FindCallback;
+import cn.leancloud.callback.SaveCallback;
+import cn.leancloud.convertor.ObserverBuilder;
 
 public class MomentsComentActivity extends BaseActivity {
 
@@ -106,7 +108,7 @@ public class MomentsComentActivity extends BaseActivity {
     private void checkUidAndPublish(){
         AVQuery<AVObject> avQuery = new AVQuery<>(AVOUtil.MomentsFilter.MomentsFilter);
         avQuery.whereEqualTo(AVOUtil.MomentsFilter.uid,SystemUtil.getDev_id(this));
-        avQuery.findInBackground(new FindCallback<AVObject>() {
+        avQuery.findInBackground().subscribe(ObserverBuilder.buildCollectionObserver(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> avObjects, AVException avException) {
                 if(avObjects != null && avObjects.size() > 0){
@@ -115,7 +117,7 @@ public class MomentsComentActivity extends BaseActivity {
                     publish();
                 }
             }
-        });
+        }));
     }
 
     private void publish() {
@@ -125,7 +127,7 @@ public class MomentsComentActivity extends BaseActivity {
             object.put(AVOUtil.MomentsComment.content, content);
             object.put(AVOUtil.MomentsComment.momid, momid);
             object.put(AVOUtil.MomentsComment.uid, SystemUtil.getDev_id(this));
-            object.saveEventually(new SaveCallback() {
+            object.saveInBackground().subscribe(ObserverBuilder.buildSingleObserver(new SaveCallback<AVObject>() {
                 @Override
                 public void done(AVException e) {
                     if(e == null){
@@ -138,7 +140,7 @@ public class MomentsComentActivity extends BaseActivity {
                         ToastUtil.diaplayMesShort(MomentsComentActivity.this,"发布失败，请重试！");
                     }
                 }
-            });
+            }));
         }
     }
 

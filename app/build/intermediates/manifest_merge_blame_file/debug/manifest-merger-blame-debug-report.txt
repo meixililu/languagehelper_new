@@ -1,6 +1,6 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="com.messi.cantonese.study"
+3    package="com.messi.languagehelper"
 4    android:versionCode="53"
 5    android:versionName="4.6.3" >
 6
@@ -78,8 +78,8 @@
 35-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:31:9-40
 36        android:allowBackup="true"
 36-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:32:9-35
-37        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
-37-->[com.android.support:support-compat:28.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8cd41661159164afc8dce0847a48d60d/support-compat-28.0.0/AndroidManifest.xml:22:18-91
+37        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+37-->[androidx.core:core:1.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2fd986760ca53aa3fd6df1492b83577f/core-1.1.0/AndroidManifest.xml:24:18-86
 38        android:debuggable="true"
 39        android:extractNativeLibs="true"
 39-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:37:9-41
@@ -102,9 +102,9 @@
 48-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:43:13-37
 49
 50        <provider
-51            android:name="android.support.v4.content.FileProvider"
-51-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:46:13-67
-52            android:authorities="com.messi.cantonese.study.provider"
+51            android:name="androidx.core.content.FileProvider"
+51-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:46:13-62
+52            android:authorities="com.messi.languagehelper.provider"
 52-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:47:13-60
 53            android:exported="false"
 53-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:48:13-37
@@ -139,13 +139,13 @@
 70        <meta-data
 71            android:name="ProviderId"
 71-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:65:13-38
-72            android:value="com.messi.cantonese.study.provider" />
+72            android:value="com.messi.languagehelper.provider" />
 72-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:66:13-54
 73
 74        <provider
 75            android:name="com.messi.languagehelper.provider.ContextProvider"
 75-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:69:13-53
-76            android:authorities="com.messi.cantonese.study.ContextProvider"
+76            android:authorities="com.messi.languagehelper.ContextProvider"
 76-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:70:13-67
 77            android:exported="false" />
 77-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:71:13-37
@@ -167,7 +167,7 @@
 87        <provider
 88            android:name="com.bytedance.sdk.openadsdk.TTFileProvider"
 88-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:79:13-70
-89            android:authorities="com.messi.cantonese.study.TTFileProvider"
+89            android:authorities="com.messi.languagehelper.TTFileProvider"
 89-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:80:13-66
 90            android:exported="false"
 90-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:81:13-37
@@ -183,7 +183,7 @@
 96        <provider
 97            android:name="com.bytedance.sdk.openadsdk.multipro.TTMultiProvider"
 97-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:89:13-80
-98            android:authorities="com.messi.cantonese.study.TTMultiProvider"
+98            android:authorities="com.messi.languagehelper.TTMultiProvider"
 98-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:90:13-67
 99            android:exported="false" />
 99-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:91:13-37
@@ -201,7 +201,7 @@
 107        <provider
 108            android:name="com.baidu.mobads.openad.BdFileProvider"
 108-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:99:13-66
-109            android:authorities="com.messi.cantonese.study.bd.provider"
+109            android:authorities="com.messi.languagehelper.bd.provider"
 109-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:100:13-63
 110            android:exported="false"
 110-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:101:13-37
@@ -241,7 +241,7 @@
 130        <provider
 131            android:name="com.iflytek.voiceads.download.IFlyFileProvider"
 131-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:122:13-74
-132            android:authorities="com.messi.cantonese.study.iFlyFileProvider"
+132            android:authorities="com.messi.languagehelper.iFlyFileProvider"
 132-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:123:13-68
 133            android:exported="false"
 133-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:124:13-37
@@ -266,7 +266,7 @@
 146            android:exported="false"
 146-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:135:13-37
 147            android:multiprocess="true" />
-147-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3690ec4f585468d6e1cc5b5910902f53/GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:22:13-40
+147-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/17f3797ca1a5bfc66a3b72185eba9b09/jetified-GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:22:13-40
 148
 149        <activity
 149-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:136:9-137:86
@@ -275,7 +275,7 @@
 151            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
 151-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:137:13-83
 152            android:multiprocess="true" />
-152-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3690ec4f585468d6e1cc5b5910902f53/GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:26:13-40
+152-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/17f3797ca1a5bfc66a3b72185eba9b09/jetified-GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:26:13-40
 153        <activity
 153-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:138:9-140:86
 154            android:name="com.qq.e.ads.PortraitADActivity"
@@ -283,7 +283,7 @@
 155            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
 155-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:140:13-83
 156            android:multiprocess="true"
-156-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3690ec4f585468d6e1cc5b5910902f53/GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:30:13-40
+156-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/17f3797ca1a5bfc66a3b72185eba9b09/jetified-GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:30:13-40
 157            android:screenOrientation="portrait" />
 157-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:139:13-49
 158        <activity
@@ -293,7 +293,7 @@
 160            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
 160-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:143:13-83
 161            android:multiprocess="true"
-161-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3690ec4f585468d6e1cc5b5910902f53/GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:35:13-40
+161-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/17f3797ca1a5bfc66a3b72185eba9b09/jetified-GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:35:13-40
 162            android:screenOrientation="landscape" />
 162-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:142:13-50
 163        <!-- 腾讯广告 -->
@@ -1127,79 +1127,79 @@
 576-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:557:13-54
 577        <!-- 用于激励视频可选广告的竖屏透明背景activity -->
 578        <activity
-578-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3690ec4f585468d6e1cc5b5910902f53/GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:37:9-41:64
+578-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/17f3797ca1a5bfc66a3b72185eba9b09/jetified-GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:37:9-41:64
 579            android:name="com.qq.e.ads.RewardvideoPortraitADActivity"
-579-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3690ec4f585468d6e1cc5b5910902f53/GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:38:13-70
+579-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/17f3797ca1a5bfc66a3b72185eba9b09/jetified-GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:38:13-70
 580            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-580-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3690ec4f585468d6e1cc5b5910902f53/GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:39:13-83
+580-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/17f3797ca1a5bfc66a3b72185eba9b09/jetified-GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:39:13-83
 581            android:multiprocess="true"
-581-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3690ec4f585468d6e1cc5b5910902f53/GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:40:13-40
+581-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/17f3797ca1a5bfc66a3b72185eba9b09/jetified-GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:40:13-40
 582            android:theme="@android:style/Theme.Translucent" /> <!-- 用于激励视频可选广告的横屏透明背景activity -->
-582-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3690ec4f585468d6e1cc5b5910902f53/GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:41:13-61
+582-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/17f3797ca1a5bfc66a3b72185eba9b09/jetified-GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:41:13-61
 583        <activity
-583-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3690ec4f585468d6e1cc5b5910902f53/GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:42:9-46:64
+583-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/17f3797ca1a5bfc66a3b72185eba9b09/jetified-GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:42:9-46:64
 584            android:name="com.qq.e.ads.RewardvideoLandscapeADActivity"
-584-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3690ec4f585468d6e1cc5b5910902f53/GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:43:13-71
+584-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/17f3797ca1a5bfc66a3b72185eba9b09/jetified-GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:43:13-71
 585            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-585-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3690ec4f585468d6e1cc5b5910902f53/GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:44:13-83
+585-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/17f3797ca1a5bfc66a3b72185eba9b09/jetified-GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:44:13-83
 586            android:multiprocess="true"
-586-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3690ec4f585468d6e1cc5b5910902f53/GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:45:13-40
+586-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/17f3797ca1a5bfc66a3b72185eba9b09/jetified-GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:45:13-40
 587            android:theme="@android:style/Theme.Translucent" />
-587-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3690ec4f585468d6e1cc5b5910902f53/GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:46:13-61
+587-->[GDTSDK.unionNormal.4.191.1061.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/17f3797ca1a5bfc66a3b72185eba9b09/jetified-GDTSDK.unionNormal.4.191.1061/AndroidManifest.xml:46:13-61
 588        <activity
-588-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7849a164445b87bed63b9a4de4edb998/Baidu_MobAds_SDK-release/AndroidManifest.xml:12:9-17:20
+588-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/0db8eefcdceb03d952643631c7b051fd/jetified-Baidu_MobAds_SDK-release/AndroidManifest.xml:12:9-17:20
 589            android:name="com.baidu.mobads.production.rewardvideo.MobRewardVideoActivity"
-589-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7849a164445b87bed63b9a4de4edb998/Baidu_MobAds_SDK-release/AndroidManifest.xml:13:13-90
+589-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/0db8eefcdceb03d952643631c7b051fd/jetified-Baidu_MobAds_SDK-release/AndroidManifest.xml:13:13-90
 590            android:configChanges="screenSize|orientation|keyboardHidden"
-590-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7849a164445b87bed63b9a4de4edb998/Baidu_MobAds_SDK-release/AndroidManifest.xml:14:13-74
+590-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/0db8eefcdceb03d952643631c7b051fd/jetified-Baidu_MobAds_SDK-release/AndroidManifest.xml:14:13-74
 591            android:launchMode="singleTask"
-591-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7849a164445b87bed63b9a4de4edb998/Baidu_MobAds_SDK-release/AndroidManifest.xml:15:13-44
+591-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/0db8eefcdceb03d952643631c7b051fd/jetified-Baidu_MobAds_SDK-release/AndroidManifest.xml:15:13-44
 592            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-592-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/7849a164445b87bed63b9a4de4edb998/Baidu_MobAds_SDK-release/AndroidManifest.xml:16:13-72
+592-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/0db8eefcdceb03d952643631c7b051fd/jetified-Baidu_MobAds_SDK-release/AndroidManifest.xml:16:13-72
 593        </activity>
 594
 595        <service android:name="com.ss.android.socialbase.downloader.notification.DownloadNotificationService" />
-595-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:24:9-113
-595-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:24:18-110
+595-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:24:9-113
+595-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:24:18-110
 596        <service android:name="com.ss.android.socialbase.downloader.downloader.DownloadService" />
-596-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:25:9-99
-596-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:25:18-96
+596-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:25:9-99
+596-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:25:18-96
 597        <service
-597-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:26:9-32:19
+597-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:26:9-32:19
 598            android:name="com.ss.android.socialbase.downloader.downloader.IndependentProcessDownloadService"
-598-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:27:13-109
+598-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:27:13-109
 599            android:process=":downloader" >
-599-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:28:13-42
+599-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:28:13-42
 600            <intent-filter>
-600-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:29:13-31:29
+600-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:29:13-31:29
 601                <action android:name="com.ss.android.socialbase.downloader.remote" />
-601-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:30:17-86
-601-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:30:25-83
+601-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:30:17-86
+601-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:30:25-83
 602            </intent-filter>
 603        </service>
 604        <service android:name="com.ss.android.socialbase.downloader.impls.DownloadHandleService" /> <!-- <receiver android:name="com.ss.android.socialbase.downloader.downloader.DownloadReceiver"> -->
-604-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:33:9-100
-604-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:33:18-97
+604-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:33:9-100
+604-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:33:18-97
 605        <!-- <intent-filter> -->
 606        <!-- <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/> -->
 607        <!-- </intent-filter> -->
 608        <!-- </receiver> -->
 609        <service
-609-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:41:9-45:72
+609-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:41:9-45:72
 610            android:name="com.ss.android.socialbase.downloader.impls.RetryJobSchedulerService"
-610-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:42:13-95
+610-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:42:13-95
 611            android:enabled="true"
-611-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:43:13-35
+611-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:43:13-35
 612            android:exported="true"
-612-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:44:13-36
+612-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:44:13-36
 613            android:permission="android.permission.BIND_JOB_SERVICE" /> <!-- 数据库更新service -->
-613-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:45:13-69
+613-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:45:13-69
 614        <service android:name="com.ss.android.socialbase.downloader.downloader.SqlDownloadCacheService" /> <!-- APP DOWNLOADER START -->
-614-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:47:9-107
-614-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:47:18-104
+614-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:47:9-107
+614-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:47:18-104
 615        <service android:name="com.ss.android.socialbase.appdownloader.DownloadHandlerService" /> <!-- <receiver android:name="com.ss.android.socialbase.appdownloader.DownloadReceiver"> -->
-615-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:49:9-98
-615-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:49:18-95
+615-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:49:9-98
+615-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:49:18-95
 616        <!-- <intent-filter> -->
 617        <!-- <action android:name="android.intent.action.BOOT_COMPLETED"/> -->
 618        <!-- <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/> -->
@@ -1216,227 +1216,226 @@
 629        <!-- </intent-filter> -->
 630        <!-- </receiver> -->
 631        <activity
-631-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:65:9-68:59
+631-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:65:9-68:59
 632            android:name="com.ss.android.socialbase.appdownloader.view.DownloadTaskDeleteActivity"
-632-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:66:13-99
+632-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:66:13-99
 633            android:launchMode="singleTask"
-633-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:67:13-44
+633-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:67:13-44
 634            android:theme="@android:style/Theme.Dialog" />
-634-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:68:13-56
+634-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:68:13-56
 635        <activity
-635-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:69:9-72:59
+635-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:69:9-72:59
 636            android:name="com.ss.android.socialbase.appdownloader.view.JumpUnknownSourceActivity"
-636-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:70:13-98
+636-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:70:13-98
 637            android:launchMode="singleTask"
-637-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:71:13-44
+637-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:71:13-44
 638            android:theme="@android:style/Theme.Dialog" />
-638-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:72:13-56
+638-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:72:13-56
 639        <activity
-639-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:73:9-76:75
+639-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:73:9-76:75
 640            android:name="com.ss.android.downloadlib.activity.TTDelegateActivity"
-640-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:74:13-82
+640-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:74:13-82
 641            android:launchMode="singleTask"
-641-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:75:13-44
+641-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:75:13-44
 642            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-642-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:76:13-72
+642-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:76:13-72
 643
 644        <receiver android:name="com.ss.android.downloadlib.core.download.DownloadReceiver" /> <!-- 下面的activity和service必须注册 -->
-644-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:78:9-94
-644-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:78:19-91
+644-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:78:9-94
+644-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:78:19-91
 645        <activity
-645-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:79:9-82:45
+645-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:79:9-82:45
 646            android:name="com.bytedance.sdk.openadsdk.activity.TTLandingPageActivity"
-646-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:80:13-86
+646-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:80:13-86
 647            android:configChanges="keyboardHidden|orientation|screenSize"
-647-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:81:13-74
+647-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:81:13-74
 648            android:launchMode="standard" />
-648-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:82:13-42
+648-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:82:13-42
 649        <activity
-649-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:83:9-86:45
+649-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:83:9-86:45
 650            android:name="com.bytedance.sdk.openadsdk.activity.TTPlayableLandingPageActivity"
-650-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:84:13-94
+650-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:84:13-94
 651            android:configChanges="keyboardHidden|orientation|screenSize"
-651-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:85:13-74
+651-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:85:13-74
 652            android:launchMode="standard" />
-652-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:86:13-42
+652-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:86:13-42
 653        <activity
-653-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:87:9-90:45
+653-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:87:9-90:45
 654            android:name="com.bytedance.sdk.openadsdk.activity.TTVideoLandingPageActivity"
-654-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:88:13-91
+654-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:88:13-91
 655            android:configChanges="keyboardHidden|orientation|screenSize"
-655-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:89:13-74
+655-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:89:13-74
 656            android:launchMode="standard" />
-656-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:90:13-42
+656-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:90:13-42
 657        <activity
-657-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:91:9-94:45
+657-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:91:9-94:45
 658            android:name="com.bytedance.sdk.openadsdk.activity.TTRewardVideoActivity"
-658-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:92:13-86
+658-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:92:13-86
 659            android:configChanges="keyboardHidden|orientation|screenSize"
-659-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:93:13-74
+659-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:93:13-74
 660            android:launchMode="standard" />
-660-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:94:13-42
+660-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:94:13-42
 661        <activity
-661-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:95:9-98:45
+661-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:95:9-98:45
 662            android:name="com.bytedance.sdk.openadsdk.activity.TTRewardExpressVideoActivity"
-662-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:96:13-93
+662-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:96:13-93
 663            android:configChanges="keyboardHidden|orientation|screenSize"
-663-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:97:13-74
+663-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:97:13-74
 664            android:launchMode="standard" />
-664-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:98:13-42
+664-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:98:13-42
 665        <activity
-665-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:99:9-102:45
+665-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:99:9-102:45
 666            android:name="com.bytedance.sdk.openadsdk.activity.TTFullScreenVideoActivity"
-666-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:100:13-90
+666-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:100:13-90
 667            android:configChanges="keyboardHidden|orientation|screenSize"
-667-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:101:13-74
+667-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:101:13-74
 668            android:launchMode="standard" />
-668-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:102:13-42
+668-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:102:13-42
 669        <activity
-669-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:103:9-106:45
+669-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:103:9-106:45
 670            android:name="com.bytedance.sdk.openadsdk.activity.TTFullScreenExpressVideoActivity"
-670-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:104:13-97
+670-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:104:13-97
 671            android:configChanges="keyboardHidden|orientation|screenSize"
-671-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:105:13-74
+671-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:105:13-74
 672            android:launchMode="standard" />
-672-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:106:13-42
+672-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:106:13-42
 673        <activity
-673-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:107:9-110:75
+673-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:107:9-110:75
 674            android:name="com.bytedance.sdk.openadsdk.activity.TTDelegateActivity"
-674-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:108:13-83
+674-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:108:13-83
 675            android:launchMode="singleTask"
-675-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:109:13-44
+675-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:109:13-44
 676            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-676-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:110:13-72
+676-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:110:13-72
 677
 678        <service android:name="com.bytedance.sdk.openadsdk.multipro.aidl.BinderPoolService" />
-678-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:112:9-95
-678-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:112:18-92
+678-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:112:9-95
+678-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:112:18-92
 679
 680        <receiver
-680-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:114:9-117:39
+680-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:114:9-117:39
 681            android:name="com.bytedance.embedapplog.collector.Collector"
-681-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:115:13-73
+681-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:115:13-73
 682            android:enabled="true"
-682-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:116:13-35
+682-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:116:13-35
 683            android:exported="true" />
-683-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:117:13-36
+683-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:117:13-36
 684
 685        <service
-685-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:119:9-121:39
+685-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:119:9-121:39
 686            android:name="com.bytedance.tea.crash.upload.CrashUploadService"
-686-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:120:13-77
+686-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:120:13-77
 687            android:process=":npth" />
-687-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/88f38303864abcf700b57ee417da3321/open_ad_sdk/AndroidManifest.xml:121:13-36
+687-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/19bd874c048b2524fb86197e4ae83c21/jetified-open_ad_sdk/AndroidManifest.xml:121:13-36
 688        <service
-688-->[com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/353cd07b39845972701bd9497db2074b/leakcanary-android-2.0-beta-3/AndroidManifest.xml:23:9-29:19
+688-->[com.squareup.leakcanary:leakcanary-android:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b36b35c640db64b54cc3e0398f1dedc1/jetified-leakcanary-android-2.3/AndroidManifest.xml:23:9-25:40
 689            android:name="leakcanary.internal.HeapAnalyzerService"
-689-->[com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/353cd07b39845972701bd9497db2074b/leakcanary-android-2.0-beta-3/AndroidManifest.xml:24:13-67
-690            android:exported="false" >
-690-->[com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/353cd07b39845972701bd9497db2074b/leakcanary-android-2.0-beta-3/AndroidManifest.xml:25:13-37
-691            <intent-filter>
-691-->[com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/353cd07b39845972701bd9497db2074b/leakcanary-android-2.0-beta-3/AndroidManifest.xml:26:13-28:29
-692                <action android:name="leakcanary.ANALYSIS_ACTION" />
-692-->[com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/353cd07b39845972701bd9497db2074b/leakcanary-android-2.0-beta-3/AndroidManifest.xml:27:17-69
-692-->[com.squareup.leakcanary:leakcanary-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/353cd07b39845972701bd9497db2074b/leakcanary-android-2.0-beta-3/AndroidManifest.xml:27:25-66
-693            </intent-filter>
-694        </service>
-695
-696        <provider
-696-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ad2173e407e2fc93b9502294a9404838/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:29:9-37:20
-697            android:name="leakcanary.internal.LeakCanaryFileProvider"
-697-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ad2173e407e2fc93b9502294a9404838/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:30:13-70
-698            android:authorities="com.squareup.leakcanary.fileprovider.com.messi.cantonese.study"
-698-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ad2173e407e2fc93b9502294a9404838/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:31:13-88
-699            android:exported="false"
-699-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ad2173e407e2fc93b9502294a9404838/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:32:13-37
-700            android:grantUriPermissions="true" >
-700-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ad2173e407e2fc93b9502294a9404838/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:33:13-47
-701            <meta-data
-701-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:50:13-52:54
-702                android:name="android.support.FILE_PROVIDER_PATHS"
-702-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:51:17-67
-703                android:resource="@xml/leak_canary_file_paths" />
-703-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:52:17-51
-704        </provider>
-705
-706        <activity
-706-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ad2173e407e2fc93b9502294a9404838/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:39:9-44:66
-707            android:name="leakcanary.internal.activity.LeakActivity"
-707-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ad2173e407e2fc93b9502294a9404838/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:40:13-69
-708            android:icon="@mipmap/leak_canary_icon"
-708-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ad2173e407e2fc93b9502294a9404838/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:41:13-52
-709            android:label="@string/leak_canary_display_activity_label"
-709-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ad2173e407e2fc93b9502294a9404838/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:42:13-71
-710            android:taskAffinity="com.squareup.leakcanary.com.messi.cantonese.study"
-710-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ad2173e407e2fc93b9502294a9404838/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:43:13-76
-711            android:theme="@style/leak_canary_LeakCanary.Base" />
-711-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ad2173e407e2fc93b9502294a9404838/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:44:13-63
-712
-713        <activity-alias
-713-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ad2173e407e2fc93b9502294a9404838/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:46:9-59:26
-714            android:name="leakcanary.internal.activity.LeakLauncherActivity"
-714-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ad2173e407e2fc93b9502294a9404838/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:47:13-77
-715            android:enabled="@bool/leak_canary_add_launcher_icon"
-715-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ad2173e407e2fc93b9502294a9404838/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:48:13-66
-716            android:icon="@mipmap/leak_canary_icon"
-716-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ad2173e407e2fc93b9502294a9404838/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:49:13-52
-717            android:label="@string/leak_canary_display_activity_label"
-717-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ad2173e407e2fc93b9502294a9404838/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:50:13-71
-718            android:targetActivity="leakcanary.internal.activity.LeakActivity"
-718-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ad2173e407e2fc93b9502294a9404838/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:51:13-79
-719            android:taskAffinity="com.squareup.leakcanary.com.messi.cantonese.study"
-719-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ad2173e407e2fc93b9502294a9404838/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:52:13-76
-720            android:theme="@style/leak_canary_LeakCanary.Base" >
-720-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ad2173e407e2fc93b9502294a9404838/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:53:13-63
-721            <intent-filter>
-721-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:58:13-61:29
-722                <action android:name="android.intent.action.MAIN" />
-722-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:59:17-69
-722-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:59:25-66
-723
-724                <category android:name="android.intent.category.LAUNCHER" />
-724-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:60:17-77
-724-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:60:27-74
-725            </intent-filter>
-726        </activity-alias>
-727
-728        <activity
-728-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ad2173e407e2fc93b9502294a9404838/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:61:9-67:68
-729            android:name="leakcanary.internal.RequestStoragePermissionActivity"
-729-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ad2173e407e2fc93b9502294a9404838/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:62:13-80
-730            android:excludeFromRecents="true"
-730-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ad2173e407e2fc93b9502294a9404838/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:63:13-46
-731            android:icon="@mipmap/leak_canary_icon"
-731-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ad2173e407e2fc93b9502294a9404838/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:64:13-52
-732            android:label="@string/leak_canary_storage_permission_activity_label"
-732-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ad2173e407e2fc93b9502294a9404838/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:65:13-82
-733            android:taskAffinity="com.squareup.leakcanary.com.messi.cantonese.study"
-733-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ad2173e407e2fc93b9502294a9404838/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:66:13-76
-734            android:theme="@style/leak_canary_Theme.Transparent" />
-734-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ad2173e407e2fc93b9502294a9404838/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:67:13-65
-735
-736        <receiver android:name="leakcanary.internal.NotificationReceiver" />
-736-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ad2173e407e2fc93b9502294a9404838/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:69:9-77
-736-->[com.squareup.leakcanary:leakcanary-android-core:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/ad2173e407e2fc93b9502294a9404838/leakcanary-android-core-2.0-beta-3/AndroidManifest.xml:69:19-74
-737
-738        <provider
-738-->[android.arch.lifecycle:extensions:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4de76b84431188662709b9db64cb59dd/extensions-1.1.1/AndroidManifest.xml:23:9-27:43
-739            android:name="android.arch.lifecycle.ProcessLifecycleOwnerInitializer"
-739-->[android.arch.lifecycle:extensions:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4de76b84431188662709b9db64cb59dd/extensions-1.1.1/AndroidManifest.xml:24:13-83
-740            android:authorities="com.messi.cantonese.study.lifecycle-trojan"
-740-->[android.arch.lifecycle:extensions:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4de76b84431188662709b9db64cb59dd/extensions-1.1.1/AndroidManifest.xml:25:13-68
-741            android:exported="false"
-741-->[android.arch.lifecycle:extensions:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4de76b84431188662709b9db64cb59dd/extensions-1.1.1/AndroidManifest.xml:26:13-37
-742            android:multiprocess="true" />
-742-->[android.arch.lifecycle:extensions:1.1.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4de76b84431188662709b9db64cb59dd/extensions-1.1.1/AndroidManifest.xml:27:13-40
-743        <provider
-743-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4039b93d8fce58a6dea8fe3873a53038/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:8:9-11:40
-744            android:name="leakcanary.internal.AppWatcherInstaller"
-744-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4039b93d8fce58a6dea8fe3873a53038/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:9:13-67
-745            android:authorities="com.messi.cantonese.study.leakcanary-installer"
-745-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4039b93d8fce58a6dea8fe3873a53038/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:10:13-72
-746            android:exported="false" />
-746-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.0-beta-3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4039b93d8fce58a6dea8fe3873a53038/leakcanary-object-watcher-android-2.0-beta-3/AndroidManifest.xml:11:13-37
-747    </application>
-748
-749</manifest>
+689-->[com.squareup.leakcanary:leakcanary-android:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b36b35c640db64b54cc3e0398f1dedc1/jetified-leakcanary-android-2.3/AndroidManifest.xml:24:13-67
+690            android:exported="false" />
+690-->[com.squareup.leakcanary:leakcanary-android:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b36b35c640db64b54cc3e0398f1dedc1/jetified-leakcanary-android-2.3/AndroidManifest.xml:25:13-37
+691
+692        <provider
+692-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:29:9-37:20
+693            android:name="leakcanary.internal.LeakCanaryFileProvider"
+693-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:30:13-70
+694            android:authorities="com.squareup.leakcanary.fileprovider.com.messi.languagehelper"
+694-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:31:13-88
+695            android:exported="false"
+695-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:32:13-37
+696            android:grantUriPermissions="true" >
+696-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:33:13-47
+697            <meta-data
+697-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:50:13-52:54
+698                android:name="android.support.FILE_PROVIDER_PATHS"
+698-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:51:17-67
+699                android:resource="@xml/leak_canary_file_paths" />
+699-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:52:17-51
+700        </provider>
+701
+702        <activity
+702-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:39:9-44:66
+703            android:name="leakcanary.internal.activity.LeakActivity"
+703-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:40:13-69
+704            android:icon="@mipmap/leak_canary_icon"
+704-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:41:13-52
+705            android:label="@string/leak_canary_display_activity_label"
+705-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:42:13-71
+706            android:taskAffinity="com.squareup.leakcanary.com.messi.languagehelper"
+706-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:43:13-76
+707            android:theme="@style/leak_canary_LeakCanary.Base" />
+707-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:44:13-63
+708
+709        <activity-alias
+709-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:46:9-62:26
+710            android:name="leakcanary.internal.activity.LeakLauncherActivity"
+710-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:47:13-77
+711            android:banner="@drawable/leak_canary_tv_icon"
+711-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:48:13-59
+712            android:enabled="@bool/leak_canary_add_launcher_icon"
+712-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:49:13-66
+713            android:icon="@mipmap/leak_canary_icon"
+713-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:50:13-52
+714            android:label="@string/leak_canary_display_activity_label"
+714-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:51:13-71
+715            android:targetActivity="leakcanary.internal.activity.LeakActivity"
+715-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:52:13-79
+716            android:taskAffinity="com.squareup.leakcanary.com.messi.languagehelper"
+716-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:53:13-76
+717            android:theme="@style/leak_canary_LeakCanary.Base" >
+717-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:54:13-63
+718            <intent-filter>
+718-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:55:13-61:29
+719                <action android:name="android.intent.action.MAIN" />
+719-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:59:17-69
+719-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:59:25-66
+720
+721                <category android:name="android.intent.category.LAUNCHER" />
+721-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:60:17-77
+721-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:60:27-74
+722                <!-- Android TV launcher intent -->
+723                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+723-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:60:17-86
+723-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:60:27-83
+724            </intent-filter>
+725        </activity-alias>
+726
+727        <activity
+727-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:64:9-70:68
+728            android:name="leakcanary.internal.RequestStoragePermissionActivity"
+728-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:65:13-80
+729            android:excludeFromRecents="true"
+729-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:66:13-46
+730            android:icon="@mipmap/leak_canary_icon"
+730-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:67:13-52
+731            android:label="@string/leak_canary_storage_permission_activity_label"
+731-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:68:13-82
+732            android:taskAffinity="com.squareup.leakcanary.com.messi.languagehelper"
+732-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:69:13-76
+733            android:theme="@style/leak_canary_Theme.Transparent" />
+733-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:70:13-65
+734
+735        <receiver android:name="leakcanary.internal.NotificationReceiver" />
+735-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:72:9-77
+735-->[com.squareup.leakcanary:leakcanary-android-core:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/26027aa9868b7504f189a66d45d0a294/jetified-leakcanary-android-core-2.3/AndroidManifest.xml:72:19-74
+736
+737        <provider
+737-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3e0a64621f74809f1ad6ba65462f9e0e/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
+738            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+738-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3e0a64621f74809f1ad6ba65462f9e0e/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79
+739            android:authorities="com.messi.languagehelper.lifecycle-process"
+739-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3e0a64621f74809f1ad6ba65462f9e0e/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
+740            android:exported="false"
+740-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3e0a64621f74809f1ad6ba65462f9e0e/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
+741            android:multiprocess="true" />
+741-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3e0a64621f74809f1ad6ba65462f9e0e/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
+742        <provider
+742-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/10b69b54a1c8659d3748031f5e880bab/jetified-leakcanary-object-watcher-android-2.3/AndroidManifest.xml:8:9-11:40
+743            android:name="leakcanary.internal.AppWatcherInstaller$MainProcess"
+743-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/10b69b54a1c8659d3748031f5e880bab/jetified-leakcanary-object-watcher-android-2.3/AndroidManifest.xml:9:13-79
+744            android:authorities="com.messi.languagehelper.leakcanary-installer"
+744-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/10b69b54a1c8659d3748031f5e880bab/jetified-leakcanary-object-watcher-android-2.3/AndroidManifest.xml:10:13-72
+745            android:exported="false" />
+745-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/10b69b54a1c8659d3748031f5e880bab/jetified-leakcanary-object-watcher-android-2.3/AndroidManifest.xml:11:13-37
+746    </application>
+747
+748</manifest>

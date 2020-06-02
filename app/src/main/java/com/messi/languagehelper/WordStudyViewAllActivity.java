@@ -11,8 +11,8 @@ import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.messi.languagehelper.adapter.WordStudyUnitListAdapter;
 import com.messi.languagehelper.adapter.WordStudyViewAllAdapter;

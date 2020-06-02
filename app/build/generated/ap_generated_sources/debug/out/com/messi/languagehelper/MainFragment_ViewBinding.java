@@ -1,18 +1,18 @@
 // Generated code from Butter Knife. Do not modify!
 package com.messi.languagehelper;
 
-import android.support.annotation.CallSuper;
-import android.support.annotation.UiThread;
-import android.support.design.widget.TabLayout;
-import android.support.v7.widget.AppCompatEditText;
-import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.CallSuper;
+import androidx.annotation.UiThread;
+import androidx.appcompat.widget.AppCompatEditText;
+import androidx.cardview.widget.CardView;
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
+import com.google.android.material.tabs.TabLayout;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 

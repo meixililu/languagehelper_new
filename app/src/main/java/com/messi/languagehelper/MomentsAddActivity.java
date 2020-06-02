@@ -1,23 +1,26 @@
 package com.messi.languagehelper;
 
 import android.os.Bundle;
-import android.support.v7.widget.AppCompatEditText;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.FrameLayout;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.FindCallback;
-import com.avos.avoscloud.SaveCallback;
+import androidx.appcompat.widget.AppCompatEditText;
+
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.StringUtils;
 import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.ToastUtil;
 
 import java.util.List;
+
+import cn.leancloud.AVException;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
+import cn.leancloud.callback.FindCallback;
+import cn.leancloud.callback.SaveCallback;
+import cn.leancloud.convertor.ObserverBuilder;
 
 public class MomentsAddActivity extends BaseActivity implements OnClickListener {
 
@@ -50,7 +53,7 @@ public class MomentsAddActivity extends BaseActivity implements OnClickListener 
     private void checkUidAndPublish(){
         AVQuery<AVObject> avQuery = new AVQuery<>(AVOUtil.MomentsFilter.MomentsFilter);
         avQuery.whereEqualTo(AVOUtil.MomentsFilter.uid,SystemUtil.getDev_id(this));
-        avQuery.findInBackground(new FindCallback<AVObject>() {
+        avQuery.findInBackground().subscribe(ObserverBuilder.buildCollectionObserver(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> avObjects, AVException avException) {
                 if(avObjects != null && avObjects.size() > 0){
@@ -59,7 +62,7 @@ public class MomentsAddActivity extends BaseActivity implements OnClickListener 
                     publish();
                 }
             }
-        });
+        }));
     }
 
     private void publish() {
@@ -68,7 +71,7 @@ public class MomentsAddActivity extends BaseActivity implements OnClickListener 
             AVObject object = new AVObject(AVOUtil.Moments.Moments);
             object.put(AVOUtil.Moments.content, content);
             object.put(AVOUtil.Moments.uid, SystemUtil.getDev_id(this));
-            object.saveEventually(new SaveCallback() {
+            object.saveInBackground().subscribe(ObserverBuilder.buildSingleObserver(new SaveCallback<AVObject>() {
                 @Override
                 public void done(AVException e) {
                     if(e == null){
@@ -79,7 +82,7 @@ public class MomentsAddActivity extends BaseActivity implements OnClickListener 
                         ToastUtil.diaplayMesShort(MomentsAddActivity.this,"发布失败，请重试！");
                     }
                 }
-            });
+            }));
         }
     }
 

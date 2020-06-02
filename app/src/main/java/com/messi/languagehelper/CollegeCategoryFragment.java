@@ -2,15 +2,12 @@ package com.messi.languagehelper;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.FindCallback;
+import androidx.recyclerview.widget.GridLayoutManager;
+
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.adapter.RcCollegeCategoryAdapter;
 import com.messi.languagehelper.databinding.CollegeCategoryFragmentBinding;
@@ -21,6 +18,12 @@ import com.messi.languagehelper.views.DividerGridItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.leancloud.AVException;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
+import cn.leancloud.callback.FindCallback;
+import cn.leancloud.convertor.ObserverBuilder;
 
 
 public class CollegeCategoryFragment extends BaseFragment {
@@ -74,7 +77,7 @@ public class CollegeCategoryFragment extends BaseFragment {
         query.orderByAscending(AVOUtil.BoutiquesClass.order);
         query.orderByDescending(AVOUtil.BoutiquesClass.views);
         query.limit(30);
-        query.findInBackground((new FindCallback<AVObject>() {
+        query.findInBackground().subscribe(ObserverBuilder.buildCollectionObserver(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> avObjects, AVException avException) {
                 onSwipeRefreshLayoutFinish();

@@ -1,7 +1,7 @@
 package com.messi.languagehelper.listener;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.messi.languagehelper.util.ViewUtil;
 

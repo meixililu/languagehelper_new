@@ -1,13 +1,13 @@
 // Generated code from Butter Knife. Do not modify!
 package com.messi.languagehelper;
 
-import android.support.annotation.CallSuper;
-import android.support.annotation.UiThread;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.CallSuper;
+import androidx.annotation.UiThread;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
@@ -18,7 +18,7 @@ import java.lang.Override;
 public class XimalayaRadioDetailActivity_ViewBinding implements Unbinder {
   private XimalayaRadioDetailActivity target;
 
-  private View view7f080225;
+  private View view7f080266;
 
   @UiThread
   public XimalayaRadioDetailActivity_ViewBinding(XimalayaRadioDetailActivity target) {
@@ -46,7 +46,7 @@ public class XimalayaRadioDetailActivity_ViewBinding implements Unbinder {
     target.sourceName = Utils.findRequiredViewAsType(source, R.id.source_name, "field 'sourceName'", TextView.class);
     target.contentTv = Utils.findRequiredViewAsType(source, R.id.content_tv, "field 'contentTv'", LinearLayout.class);
     view = Utils.findRequiredView(source, R.id.playbtn_layout, "method 'onViewClicked'");
-    view7f080225 = view;
+    view7f080266 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -77,7 +77,7 @@ public class XimalayaRadioDetailActivity_ViewBinding implements Unbinder {
     target.sourceName = null;
     target.contentTv = null;
 
-    view7f080225.setOnClickListener(null);
-    view7f080225 = null;
+    view7f080266.setOnClickListener(null);
+    view7f080266 = null;
   }
 }

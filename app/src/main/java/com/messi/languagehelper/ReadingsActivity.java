@@ -2,14 +2,14 @@ package com.messi.languagehelper;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
 import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.ViewModel.XXLModel;
 import com.messi.languagehelper.adapter.RcReadingListAdapter;

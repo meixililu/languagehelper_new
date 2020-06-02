@@ -3,16 +3,14 @@ package com.messi.languagehelper;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.adapter.RcSpokenEndlishPracticeTypeListAdapter;
 import com.messi.languagehelper.util.ADUtil;
@@ -27,6 +25,8 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -141,12 +141,7 @@ public class AiDialogueCourseFragment extends BaseFragment implements View.OnCli
             query.orderByAscending(AVOUtil.EvaluationType.ETOrder);
             query.skip(skip);
             query.limit(20);
-            try {
-                return query.find();
-            } catch (AVException e) {
-                e.printStackTrace();
-            }
-            return null;
+            return query.find();
         }
 
         @Override
@@ -212,18 +207,14 @@ public class AiDialogueCourseFragment extends BaseFragment implements View.OnCli
         int random = NumberUtil.randomNumber(13000);
         LogUtil.DefalutLog("random:"+random);
         AVObject mAVObject = null;
-        try {
-            AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.EvaluationCategory.EvaluationCategory);
-            query.whereEqualTo(AVOUtil.EvaluationCategory.ECIsValid, "1");
-            query.orderByDescending(AVOUtil.EvaluationCategory.ECOrder);
-            query.skip(random);
-            query.limit(1);
-            List<AVObject> list = query.find();
-            if(list != null && list.size() > 0){
-                mAVObject = list.get(0);
-            }
-        } catch (AVException e) {
-            e.printStackTrace();
+        AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.EvaluationCategory.EvaluationCategory);
+        query.whereEqualTo(AVOUtil.EvaluationCategory.ECIsValid, "1");
+        query.orderByDescending(AVOUtil.EvaluationCategory.ECOrder);
+        query.skip(random);
+        query.limit(1);
+        List<AVObject> list = query.find();
+        if(list != null && list.size() > 0){
+            mAVObject = list.get(0);
         }
         return mAVObject;
     }

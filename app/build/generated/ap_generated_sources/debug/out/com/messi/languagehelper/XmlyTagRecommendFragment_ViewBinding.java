@@ -1,13 +1,13 @@
 // Generated code from Butter Knife. Do not modify!
 package com.messi.languagehelper;
 
-import android.support.annotation.CallSuper;
-import android.support.annotation.UiThread;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
 import android.view.View;
+import androidx.annotation.CallSuper;
+import androidx.annotation.UiThread;
+import androidx.viewpager.widget.ViewPager;
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
+import com.google.android.material.tabs.TabLayout;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 

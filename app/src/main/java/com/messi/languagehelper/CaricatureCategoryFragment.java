@@ -1,17 +1,14 @@
 package com.messi.languagehelper;
 
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.FindCallback;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.iflytek.voiceads.conn.NativeDataRef;
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.ViewModel.XXLCNWBeanModel;
@@ -28,6 +25,12 @@ import com.messi.languagehelper.util.ToastUtil;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import cn.leancloud.AVException;
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
+import cn.leancloud.callback.FindCallback;
+import cn.leancloud.convertor.ObserverBuilder;
 
 public class CaricatureCategoryFragment extends BaseFragment implements AdapterStringListener {
 
@@ -141,7 +144,7 @@ public class CaricatureCategoryFragment extends BaseFragment implements AdapterS
         AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.CaricatureSearchHot.CaricatureSearchHot);
         query.whereGreaterThan(AVOUtil.CaricatureSearchHot.click_time,98000080);
         query.orderByDescending(AVOUtil.CaricatureSearchHot.click_time);
-        query.findInBackground(new FindCallback<AVObject>() {
+        query.findInBackground().subscribe(ObserverBuilder.buildCollectionObserver(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
                 hideProgressbar();
@@ -156,7 +159,7 @@ public class CaricatureCategoryFragment extends BaseFragment implements AdapterS
                     mAdapter.notifyDataSetChanged();
                 }
             }
-        });
+        }));
     }
 
     private void addTag(){
@@ -184,7 +187,7 @@ public class CaricatureCategoryFragment extends BaseFragment implements AdapterS
         query.orderByDescending(AVOUtil.Caricature.views);
         query.skip(skip);
         query.limit(Setings.ca_psize);
-        query.findInBackground(new FindCallback<AVObject>() {
+        query.findInBackground().subscribe(ObserverBuilder.buildCollectionObserver(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
                 hideProgressbar();
@@ -215,7 +218,7 @@ public class CaricatureCategoryFragment extends BaseFragment implements AdapterS
                     ToastUtil.diaplayMesShort(getContext(), "加载失败，下拉可刷新");
                 }
             }
-        });
+        }));
     }
 
     private void loadAD(){

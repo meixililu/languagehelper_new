@@ -2,7 +2,7 @@ package com.messi.languagehelper.db;
 
 import android.content.Context;
 
-import com.avos.avoscloud.AVObject;
+import cn.leancloud.AVObject;
 import com.messi.languagehelper.BaseApplication;
 import com.messi.languagehelper.box.CNWBean;
 import com.messi.languagehelper.dao.Avobject;

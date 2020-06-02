@@ -1,6 +1,6 @@
 package com.messi.languagehelper.adapter;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 public class BaseRecViewHolder extends RecyclerView.ViewHolder {

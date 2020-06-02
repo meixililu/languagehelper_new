@@ -1,17 +1,17 @@
 // Generated code from Butter Knife. Do not modify!
 package com.messi.languagehelper;
 
-import android.support.annotation.CallSuper;
-import android.support.annotation.UiThread;
-import android.support.v7.widget.AppCompatEditText;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.annotation.CallSuper;
+import androidx.annotation.UiThread;
+import androidx.appcompat.widget.AppCompatEditText;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
@@ -23,15 +23,15 @@ import java.lang.Override;
 public class AiTuringActivity_ViewBinding implements Unbinder {
   private AiTuringActivity target;
 
-  private View view7f080306;
+  private View view7f08033c;
 
-  private View view7f080432;
+  private View view7f080470;
 
-  private View view7f08016f;
+  private View view7f080187;
 
-  private View view7f08042b;
+  private View view7f080469;
 
-  private View view7f0800cd;
+  private View view7f0800e9;
 
   @UiThread
   public AiTuringActivity_ViewBinding(AiTuringActivity target) {
@@ -46,7 +46,7 @@ public class AiTuringActivity_ViewBinding implements Unbinder {
     target.inputEt = Utils.findRequiredViewAsType(source, R.id.input_et, "field 'inputEt'", AppCompatEditText.class);
     view = Utils.findRequiredView(source, R.id.submit_btn_cover, "field 'submitBtn' and method 'onViewClicked'");
     target.submitBtn = Utils.castView(view, R.id.submit_btn_cover, "field 'submitBtn'", CardView.class);
-    view7f080306 = view;
+    view7f08033c = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -59,7 +59,7 @@ public class AiTuringActivity_ViewBinding implements Unbinder {
     target.volumeImg = Utils.findRequiredViewAsType(source, R.id.volume_img, "field 'volumeImg'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.volume_btn, "field 'volumeBtn' and method 'onViewClicked'");
     target.volumeBtn = Utils.castView(view, R.id.volume_btn, "field 'volumeBtn'", FrameLayout.class);
-    view7f080432 = view;
+    view7f080470 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -69,7 +69,7 @@ public class AiTuringActivity_ViewBinding implements Unbinder {
     target.inputTypeBtn = Utils.findRequiredViewAsType(source, R.id.input_type_btn, "field 'inputTypeBtn'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.input_type_layout, "field 'inputTypeLayout' and method 'onViewClicked'");
     target.inputTypeLayout = Utils.castView(view, R.id.input_type_layout, "field 'inputTypeLayout'", LinearLayout.class);
-    view7f08016f = view;
+    view7f080187 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -79,7 +79,7 @@ public class AiTuringActivity_ViewBinding implements Unbinder {
     target.voiceBtn = Utils.findRequiredViewAsType(source, R.id.voice_btn, "field 'voiceBtn'", TextView.class);
     view = Utils.findRequiredView(source, R.id.voice_btn_cover, "field 'voiceBtnCover' and method 'onViewClicked'");
     target.voiceBtnCover = Utils.castView(view, R.id.voice_btn_cover, "field 'voiceBtnCover'", CardView.class);
-    view7f08042b = view;
+    view7f080469 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -95,7 +95,7 @@ public class AiTuringActivity_ViewBinding implements Unbinder {
     target.adLayout = Utils.findRequiredViewAsType(source, R.id.ad_layout, "field 'adLayout'", RelativeLayout.class);
     view = Utils.findRequiredView(source, R.id.delete_btn, "field 'deleteBtn' and method 'onViewClicked'");
     target.deleteBtn = Utils.castView(view, R.id.delete_btn, "field 'deleteBtn'", FrameLayout.class);
-    view7f0800cd = view;
+    view7f0800e9 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -135,15 +135,15 @@ public class AiTuringActivity_ViewBinding implements Unbinder {
     target.splash_container = null;
     target.skip_view = null;
 
-    view7f080306.setOnClickListener(null);
-    view7f080306 = null;
-    view7f080432.setOnClickListener(null);
-    view7f080432 = null;
-    view7f08016f.setOnClickListener(null);
-    view7f08016f = null;
-    view7f08042b.setOnClickListener(null);
-    view7f08042b = null;
-    view7f0800cd.setOnClickListener(null);
-    view7f0800cd = null;
+    view7f08033c.setOnClickListener(null);
+    view7f08033c = null;
+    view7f080470.setOnClickListener(null);
+    view7f080470 = null;
+    view7f080187.setOnClickListener(null);
+    view7f080187 = null;
+    view7f080469.setOnClickListener(null);
+    view7f080469 = null;
+    view7f0800e9.setOnClickListener(null);
+    view7f0800e9 = null;
   }
 }

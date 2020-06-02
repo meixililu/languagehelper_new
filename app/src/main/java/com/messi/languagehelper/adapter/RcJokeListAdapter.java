@@ -1,13 +1,15 @@
 package com.messi.languagehelper.adapter;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.avos.avoscloud.AVObject;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.karumi.headerrecyclerview.HeaderRecyclerViewAdapter;
 import com.messi.languagehelper.R;
+
+import cn.leancloud.AVObject;
 
 /**
  * Created by luli on 10/23/16.
