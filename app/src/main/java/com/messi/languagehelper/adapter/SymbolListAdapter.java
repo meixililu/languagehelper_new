@@ -1,13 +1,5 @@
 package com.messi.languagehelper.adapter;
 
-import java.util.List;
-
-import com.messi.languagehelper.util.Setings;
-import com.messi.languagehelper.R;
-import com.messi.languagehelper.SymbolDetailActivity;
-import com.messi.languagehelper.dao.SymbolListDao;
-import com.messi.languagehelper.util.KeyUtil;
-
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -16,6 +8,14 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.messi.languagehelper.R;
+import com.messi.languagehelper.SymbolDetailActivity;
+import com.messi.languagehelper.box.SymbolListDao;
+import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.Setings;
+
+import java.util.List;
 
 public class SymbolListAdapter extends BaseAdapter {
 

@@ -2,15 +2,16 @@ package com.messi.languagehelper.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.messi.languagehelper.util.Setings;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.SymbolDetailActivity;
-import com.messi.languagehelper.dao.SymbolListDao;
+import com.messi.languagehelper.box.SymbolListDao;
 import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.Setings;
 
 import java.util.List;
 

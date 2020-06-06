@@ -1,11 +1,8 @@
 package com.messi.languagehelper;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.TextPaint;
@@ -13,6 +10,8 @@ import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.Setings;
@@ -98,14 +97,7 @@ public class LoadingPreActivity extends BaseActivity {
 
     @OnClick({R.id.agree, R.id.no_agree})
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.agree:
-                toNextPage();
-                break;
-            case R.id.no_agree:
-                pleaseAgree();
-                break;
-        }
+        toNextPage();
     }
 
     public void toNextPage() {
@@ -120,26 +112,6 @@ public class LoadingPreActivity extends BaseActivity {
         Intent intent = new Intent(this, mclass);
         startActivity(intent);
         this.finish();
-    }
-
-    private void pleaseAgree() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.Theme_AppCompat_Light_Dialog_Alert);
-        builder.setTitle("抱歉");
-        builder.setMessage("您在同意隐私政策与服务条款后方可继续使用本软件。");
-        builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-            }
-        });
-//        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialogInterface, int i) {
-//                dialogInterface.dismiss();
-//            }
-//        });
-        AlertDialog dialog = builder.create();
-        dialog.show();
     }
 
     private class ClickableText extends ClickableSpan{

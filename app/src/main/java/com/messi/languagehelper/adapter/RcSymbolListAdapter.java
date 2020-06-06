@@ -1,12 +1,13 @@
 package com.messi.languagehelper.adapter;
 
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.messi.languagehelper.R;
-import com.messi.languagehelper.dao.SymbolListDao;
+import com.messi.languagehelper.box.SymbolListDao;
 import com.messi.languagehelper.util.HeaderFooterRecyclerViewAdapter;
 import com.messi.languagehelper.util.XFYSAD;
 

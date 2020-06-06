@@ -52,8 +52,6 @@ public class KeyUtil {
 	
 	public static final String IsShowQuestionUnread = "IsShowQuestionUnread";
 
-	public static final String UpdateSymbolList = "UpdateSymbolList1";
-
 	public static final String IsTranslateYueKey = "IsTranslateYueKey";
 
 	public static final String URL = "urlkey";
@@ -61,8 +59,6 @@ public class KeyUtil {
 	public static final String SearchUrl = "SearchUrl";
 
 	public static final String MesType = "MesType";
-
-	public static final String KSearchSelected = "KSearchSelected";
 
 	public static final String Type = "Type";
 

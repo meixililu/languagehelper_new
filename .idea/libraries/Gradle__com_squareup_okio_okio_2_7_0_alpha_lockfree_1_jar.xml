@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="Gradle: com.squareup.okio:okio:2.7.0-alpha.lockfree.1@jar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/2.7.0-alpha.lockfree.1/a025f03782f6c1aec46c151da0c0add297010f61/okio-2.7.0-alpha.lockfree.1.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/2.7.0-alpha.lockfree.1/a025f03782f6c1aec46c151da0c0add297010f61/okio-jvm-2.7.0-alpha.lockfree.1.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/2.7.0-alpha.lockfree.1/6087560d3f53c2b5c97551cda6a9c78a39ffa06e/okio-2.7.0-alpha.lockfree.1-javadoc.jar!/" />

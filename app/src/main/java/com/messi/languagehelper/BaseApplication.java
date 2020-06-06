@@ -1,18 +1,12 @@
 package com.messi.languagehelper;
 
 import android.app.Application;
-import android.content.Context;
 import android.content.SharedPreferences;
 
 import androidx.multidex.MultiDexApplication;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.messi.languagehelper.box.BoxHelper;
-import com.messi.languagehelper.dao.DaoMaster;
-import com.messi.languagehelper.dao.DaoSession;
-import com.messi.languagehelper.db.LHContract;
-import com.messi.languagehelper.db.MoveDataTask;
-import com.messi.languagehelper.db.SQLiteOpenHelper;
 import com.messi.languagehelper.util.BDADUtil;
 import com.messi.languagehelper.util.CSJADUtil;
 import com.messi.languagehelper.util.KeyUtil;
@@ -32,8 +26,6 @@ import cn.leancloud.AVOSCloud;
 public class BaseApplication extends MultiDexApplication {
 
 	public static HashMap<String, Object> dataMap = new HashMap<String, Object>();
-    public static DaoMaster daoMaster;
-    public static DaoSession daoSession;
     public static Application instance;
 
     @Override  
@@ -138,22 +130,16 @@ public class BaseApplication extends MultiDexApplication {
     public void setAPPData(){
         if(getPackageName().equals(Setings.application_id_zyhy)){
             Setings.UmengAPPId = "551e3853fd98c5403800122c";
-            MoveDataTask.moveRecordData(getApplicationContext());
         }else if(getPackageName().equals(Setings.application_id_zyhy_google)){
             Setings.UmengAPPId = "551e3853fd98c5403800122c";
-            MoveDataTask.moveRecordData(getApplicationContext());
         }else if(getPackageName().equals(Setings.application_id_yys)){
             Setings.UmengAPPId = "5c1f3af4b465f53ecc00093b";
-            MoveDataTask.moveRecordData(getApplicationContext());
         }else if(getPackageName().equals(Setings.application_id_yys_google)){
             Setings.UmengAPPId = "5c1f3af4b465f53ecc00093b";
-            MoveDataTask.moveRecordData(getApplicationContext());
         }else if(getPackageName().equals(Setings.application_id_yyj)){
             Setings.UmengAPPId = "5c1f36d4f1f55655d1000f88";
-            MoveDataTask.moveRecordData(getApplicationContext());
         }else if(getPackageName().equals(Setings.application_id_yyj_google)){
             Setings.UmengAPPId = "5c1f36d4f1f55655d1000f88";
-            MoveDataTask.moveRecordData(getApplicationContext());
         }else if(getPackageName().equals(Setings.application_id_ywcd)){
             Setings.UmengAPPId = "5c1f3b7bb465f5598b000f57";
         }else if(getPackageName().equals(Setings.application_id_xbky)){
@@ -169,24 +155,6 @@ public class BaseApplication extends MultiDexApplication {
         }else{
             Setings.UmengAPPId = "551e3853fd98c5403800122c";
         }
-    }
-
-    public static DaoMaster getDaoMaster(Context context) {
-        if (daoMaster == null) {
-            SQLiteOpenHelper helper = new SQLiteOpenHelper(context, LHContract.DATABASE_NAME, null);
-            daoMaster = new DaoMaster(helper.getWritableDatabase());
-        }
-        return daoMaster;
-    }
-
-    public static DaoSession getDaoSession(Context context) {
-        if (daoSession == null) {
-            if (daoMaster == null) {
-                daoMaster = getDaoMaster(context);
-            }
-            daoSession = daoMaster.newSession();
-        }
-        return daoSession;
     }
 
 }

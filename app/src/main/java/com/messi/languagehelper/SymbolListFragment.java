@@ -23,13 +23,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.adapter.RcSymbolListAdapter;
-import com.messi.languagehelper.dao.SymbolListDao;
-import com.messi.languagehelper.db.DataBaseUtil;
+import com.messi.languagehelper.box.SymbolListDao;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.DownLoadUtil;
-import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
@@ -174,26 +172,14 @@ public class SymbolListFragment extends BaseFragment {
 
         @Override
         protected Void doInBackground(Void... params) {
-            long localSize = DataBaseUtil.getInstance(getContext()).getSymbolListSize();
-            if (sharedPreferences.getString(KeyUtil.UpdateSymbolList, "UpdateSymbolList1").equals("UpdateSymbolList1")) {
-                localSize = 0;
-                DataBaseUtil.getInstance(getContext()).clearSymbolList();
-                Setings.saveSharedPreferences(sharedPreferences, KeyUtil.UpdateSymbolList, "");
-            }
-            mSymbolListDao.clear();
-            if (localSize == 0) {
-                AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.SymbolDetail.SymbolDetail);
-                query.whereEqualTo(AVOUtil.SymbolDetail.SDIsValid, "1");
-                query.orderByAscending(AVOUtil.SymbolDetail.SDCode);
-                List<AVObject> avObjects = query.find();
-                if (avObjects != null) {
-                    for (AVObject mAVObject : avObjects) {
-                        mSymbolListDao.add(changeDataType(mAVObject));
-                    }
-                    DataBaseUtil.getInstance(getContext()).insert(mSymbolListDao);
+            AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.SymbolDetail.SymbolDetail);
+            query.whereEqualTo(AVOUtil.SymbolDetail.SDIsValid, "1");
+            query.orderByAscending(AVOUtil.SymbolDetail.SDCode);
+            List<AVObject> avObjects = query.find();
+            if (avObjects != null) {
+                for (AVObject mAVObject : avObjects) {
+                    mSymbolListDao.add(changeDataType(mAVObject));
                 }
-            } else {
-                mSymbolListDao.addAll(DataBaseUtil.getInstance(getContext()).getSymbolList());
             }
             return null;
         }

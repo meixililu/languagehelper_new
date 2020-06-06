@@ -6,7 +6,7 @@ import android.os.Message;
 import android.text.TextUtils;
 
 import com.messi.languagehelper.box.Reading;
-import com.messi.languagehelper.dao.SymbolListDao;
+import com.messi.languagehelper.box.SymbolListDao;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.impl.ProgressListener;
 

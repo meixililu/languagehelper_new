@@ -4,11 +4,12 @@ import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.LinearLayout;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 
 import com.messi.languagehelper.bean.YoudaoPhotoBean;
 import com.messi.languagehelper.bean.YoudaoPhotouestions;
@@ -96,7 +97,8 @@ public class PhotoSearchActivity extends BaseActivity {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(mOrcHelper != null){
+        super.onActivityResult(requestCode, resultCode, data);
+        if (mOrcHelper != null) {
             mOrcHelper.onActivityResult(requestCode, resultCode, data);
         }
     }
