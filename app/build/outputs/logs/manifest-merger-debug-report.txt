@@ -80,7 +80,6 @@ MERGED from [IFLY_AD_4.4.2.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.
 MERGED from [io.objectbox:objectbox-android:2.5.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/bbd2ae46d623c35fc263a610cea5e21c/objectbox-android-2.5.1/AndroidManifest.xml:2:1-25:12
 MERGED from [androidx.databinding:viewbinding:3.6.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/686dfd1f9648d4c12e93e23bc8b9aa7c/jetified-viewbinding-3.6.3/AndroidManifest.xml:17:1-22:12
 MERGED from [com.squareup.leakcanary:leakcanary-android:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b36b35c640db64b54cc3e0398f1dedc1/jetified-leakcanary-android-2.3/AndroidManifest.xml:17:1-28:12
-MERGED from [androidx.multidex:multidex:2.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/076ec246a936a40447f62464cff24ecf/multidex-2.0.1/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.material:material:1.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1cd67c9338de344cc8cb2a9cac5ec9c6/material-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d65883ea1f2326b841b33b80ce5e31f8/appcompat-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8921f35f67599722b74cef97eb32b853/legacy-support-v4-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -94,6 +93,7 @@ MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/lilu/
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/64c7b8046cccf82a56650e11730468c8/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.exoplayer:exoplayer-ui:2.11.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4cd8bf365cf0845c005c8dd0fce55fbf/jetified-exoplayer-ui-2.11.4/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.media:media:1.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c3fce09fa87806f11e10b1a4cc289f71/media-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.multidex:multidex:2.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/076ec246a936a40447f62464cff24ecf/multidex-2.0.1/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android:flexbox:1.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/462a5053fcced19fb6828e5d04b8175d/jetified-flexbox-1.0.0/AndroidManifest.xml:17:1-27:12
 MERGED from [com.google.android.exoplayer:exoplayer-core:2.11.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/81143d3bdc69e065f0fb765ecc7dd745/jetified-exoplayer-core-2.11.4/AndroidManifest.xml:17:1-26:12
 MERGED from [com.jakewharton:butterknife:10.2.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4853bafb87d0020fbbcde9b5b49b1e50/jetified-butterknife-10.2.1/AndroidManifest.xml:2:1-7:12
@@ -1294,8 +1294,6 @@ MERGED from [androidx.databinding:viewbinding:3.6.3] /Users/lilu/.gradle/caches/
 MERGED from [androidx.databinding:viewbinding:3.6.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/686dfd1f9648d4c12e93e23bc8b9aa7c/jetified-viewbinding-3.6.3/AndroidManifest.xml:20:5-44
 MERGED from [com.squareup.leakcanary:leakcanary-android:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b36b35c640db64b54cc3e0398f1dedc1/jetified-leakcanary-android-2.3/AndroidManifest.xml:20:5-44
 MERGED from [com.squareup.leakcanary:leakcanary-android:2.3] /Users/lilu/.gradle/caches/transforms-2/files-2.1/b36b35c640db64b54cc3e0398f1dedc1/jetified-leakcanary-android-2.3/AndroidManifest.xml:20:5-44
-MERGED from [androidx.multidex:multidex:2.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/076ec246a936a40447f62464cff24ecf/multidex-2.0.1/AndroidManifest.xml:20:5-43
-MERGED from [androidx.multidex:multidex:2.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/076ec246a936a40447f62464cff24ecf/multidex-2.0.1/AndroidManifest.xml:20:5-43
 MERGED from [com.google.android.material:material:1.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1cd67c9338de344cc8cb2a9cac5ec9c6/material-1.1.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1cd67c9338de344cc8cb2a9cac5ec9c6/material-1.1.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d65883ea1f2326b841b33b80ce5e31f8/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
@@ -1322,6 +1320,8 @@ MERGED from [com.google.android.exoplayer:exoplayer-ui:2.11.4] /Users/lilu/.grad
 MERGED from [com.google.android.exoplayer:exoplayer-ui:2.11.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/4cd8bf365cf0845c005c8dd0fce55fbf/jetified-exoplayer-ui-2.11.4/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.media:media:1.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c3fce09fa87806f11e10b1a4cc289f71/media-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.media:media:1.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c3fce09fa87806f11e10b1a4cc289f71/media-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.multidex:multidex:2.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/076ec246a936a40447f62464cff24ecf/multidex-2.0.1/AndroidManifest.xml:20:5-43
+MERGED from [androidx.multidex:multidex:2.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/076ec246a936a40447f62464cff24ecf/multidex-2.0.1/AndroidManifest.xml:20:5-43
 MERGED from [com.google.android:flexbox:1.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/462a5053fcced19fb6828e5d04b8175d/jetified-flexbox-1.0.0/AndroidManifest.xml:23:5-25:41
 MERGED from [com.google.android:flexbox:1.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/462a5053fcced19fb6828e5d04b8175d/jetified-flexbox-1.0.0/AndroidManifest.xml:23:5-25:41
 MERGED from [com.google.android.exoplayer:exoplayer-core:2.11.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/81143d3bdc69e065f0fb765ecc7dd745/jetified-exoplayer-core-2.11.4/AndroidManifest.xml:20:5-22:41
