@@ -7,11 +7,14 @@ import com.alibaba.fastjson.JSON;
 import com.messi.languagehelper.bean.HjTranBean;
 import com.messi.languagehelper.bean.IcibaNew;
 import com.messi.languagehelper.bean.QQTranAILabRoot;
+import com.messi.languagehelper.bean.TranDictResult;
+import com.messi.languagehelper.bean.TranResultRoot;
 import com.messi.languagehelper.bean.YoudaoApiBean;
 import com.messi.languagehelper.bean.YoudaoApiResult;
 import com.messi.languagehelper.box.Record;
 import com.messi.languagehelper.http.BgCallback;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
+import com.messi.languagehelper.httpservice.RetrofitApiService;
 import com.messi.languagehelper.impl.OnTranslateFinishListener;
 
 import org.jsoup.Jsoup;
@@ -52,7 +55,6 @@ public class TranslateHelper {
     private OnTranslateFinishListener listener;
 
     public static void init(SharedPreferences sp){
-        initTranBdIdKey(sp);
         initTranOrder(sp);
     }
 
@@ -78,11 +80,11 @@ public class TranslateHelper {
             }else if(hujiangapi.equals(method)){
                 Tran_Hj_Api(e);
             }else if(hujiangweb.equals(method)){
-                Tran_Hj_Web(e);
+                Tran_Baidu(e);
             }else if(qqfyj.equals(method)){
                 Tran_QQFYJApi(e);
             }else if(baidu.equals(method)){
-                Tran_Baidu(e);
+                Tran_Hj_Web(e);
             }else {
                 onFaileTranslate(e);
             }
@@ -196,7 +198,6 @@ public class TranslateHelper {
             }
             @Override
             public void onResponsed(String responseString) {
-                LogUtil.DefalutLog("Tran_QQFYJApi:"+responseString);
                 Record result = null;
                 try {
                     QQTranAILabRoot root = JSON.parseObject(responseString,QQTranAILabRoot.class);
@@ -380,47 +381,54 @@ public class TranslateHelper {
     }
 
     private void Tran_Baidu(ObservableEmitter<Record> e) {
-        LogUtil.DefalutLog("Result---Tran_Baidu");
-        LanguagehelperHttpClient.postBaidu(new BgCallback(){
-            @Override
-            public void onFailured() {
-                onFaileTranslate(e);
-            }
-            @Override
-            public void onResponsed(String responseString) {
-                Record result = null;
-                try {
-                    result = tran_bd_api(responseString);
-                } catch (Exception ec) {
-                    ec.printStackTrace();
-                }finally {
-                    if(result != null){
-                        e.onNext( result );
-                    }else {
-                        onFaileTranslate(e);
-                    }
-                }
-            }
-        });
-    }
-
-    private static Record tran_bd_api(String mResult) {
-        Record currentDialogBean = null;
-        try {
-            if(!TextUtils.isEmpty(mResult)) {
-                if (JsonParser.isJson(mResult)) {
-                    String dstString = JsonParser.getTranslateResult(mResult);
-                    if (!dstString.contains("error_msg:")) {
-                        currentDialogBean = new Record(dstString, Setings.q);
-                        LogUtil.DefalutLog("tran_bd_api http:"+dstString);
-                    }
-                }
-            }
-        }catch (Exception e){
-            LogUtil.DefalutLog("tran_bd_api error");
-            e.printStackTrace();
+        LogUtil.DefalutLog("Result---zyhy server");
+        String timestamp = String.valueOf(System.currentTimeMillis());
+        String platform = SystemUtil.platform;
+        String network = SystemUtil.network;
+        String sign = SignUtil.getMd5Sign(Setings.PVideoKey, timestamp, Setings.q,
+                platform, network, Setings.from, Setings.to);
+        if (StringUtils.isEnglish(Setings.q)) {
+            Setings.from = "en";
+            Setings.to = "zh";
+        } else {
+            Setings.from = "zh";
+            Setings.to = "en";
         }
-        return currentDialogBean;
+        RetrofitApiService service = RetrofitApiService.getRetrofitApiService(Setings.TranApi,
+                RetrofitApiService.class);
+        retrofit2.Call<TranResultRoot<TranDictResult>> call = service.tranDict(Setings.q, Setings.from, Setings.to,
+                network, platform, sign, 0, timestamp);
+        call.enqueue(new retrofit2.Callback<TranResultRoot<TranDictResult>>() {
+             @Override
+             public void onResponse(retrofit2.Call<TranResultRoot<TranDictResult>> call, retrofit2.Response<TranResultRoot<TranDictResult>> response) {
+                 Record result = null;
+                 if (response.isSuccessful()) {
+                     TranResultRoot<TranDictResult> mResult = response.body();
+                     if (mResult != null){
+                         TranDictResult tdResult = mResult.getResult();
+                         if (tdResult != null && !TextUtils.isEmpty(tdResult.getResult())) {
+                             String des = tdResult.getResult();
+                             if (!TextUtils.isEmpty(tdResult.getSymbol())) {
+                                 des = tdResult.getSymbol() + "\n" + tdResult.getResult();
+                             }
+                             result = new Record(des, Setings.q);
+                             result.setPh_am_mp3(tdResult.getMp3_am());
+                             result.setPh_en_mp3(tdResult.getMp3_en());
+                             result.setBackup1(tdResult.getResult());
+                         }
+                     }
+                 }
+                 if(result != null){
+                     e.onNext( result );
+                 }else {
+                     onFaileTranslate(e);
+                 }
+             }
+             @Override
+             public void onFailure(retrofit2.Call<TranResultRoot<TranDictResult>> call, Throwable t) {
+                 onFaileTranslate(e);
+             }
+        });
     }
 
     private Record parseYoudaoApiResult(String mResult){
@@ -701,17 +709,6 @@ public class TranslateHelper {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }
-    }
-
-    public static void initTranBdIdKey(SharedPreferences sp){
-        String idkey = sp.getString(KeyUtil.TranBDKey,"");
-        if (!TextUtils.isEmpty(idkey) && idkey.contains("#")) {
-            String[] keys = idkey.split("#");
-            if(keys != null && keys.length > 1){
-                Setings.baidu_appid = keys[0];
-                Setings.baidu_secretkey = keys[1];
-            }
         }
     }
 }

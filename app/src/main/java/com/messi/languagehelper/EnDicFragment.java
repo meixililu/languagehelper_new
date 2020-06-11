@@ -1,10 +1,11 @@
 package com.messi.languagehelper;
 
 import android.os.Bundle;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.messi.languagehelper.adapter.RcEnDictListAdapter;
 import com.messi.languagehelper.bean.TranResultRoot;
@@ -13,7 +14,6 @@ import com.messi.languagehelper.event.FinishEvent;
 import com.messi.languagehelper.httpservice.RetrofitApiService;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.NetworkUtil;
 import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.SignUtil;
@@ -69,7 +69,7 @@ public class EnDicFragment extends BaseFragment {
         showProgressbar();
         String timestamp = String.valueOf(System.currentTimeMillis());
         String platform = SystemUtil.platform;
-        String network = NetworkUtil.getNetworkType(getContext());
+        String network = SystemUtil.network;
         String sign = SignUtil.getMd5Sign(Setings.PVideoKey, timestamp, lastSearch, platform, network);
         RetrofitApiService service = RetrofitApiService.getRetrofitApiService(Setings.TranApi,
                 RetrofitApiService.class);

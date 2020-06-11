@@ -111,7 +111,6 @@ public class AppUpdateUtil {
         String ad_csj = mAVObject.getString(AVOUtil.UpdateInfo.ad_csj);
         String ad_bd = mAVObject.getString(AVOUtil.UpdateInfo.ad_bd);
         String no_ad_channel = mAVObject.getString(AVOUtil.UpdateInfo.no_ad_channel);
-        String trankey = mAVObject.getString(AVOUtil.UpdateInfo.trankey);
         String interceptUrls = mAVObject.getString(AVOUtil.UpdateInfo.interceptUrls);
         String adConf = mAVObject.getString(AVOUtil.UpdateInfo.adConf);
         String Caricature_channel = mAVObject.getString(AVOUtil.UpdateInfo.Caricature_channel);
@@ -126,7 +125,6 @@ public class AppUpdateUtil {
         BDADUtil.setADData(ad_bd);
         Setings.saveSharedPreferences(sp,KeyUtil.TranOrder,tran_order);
         Setings.saveSharedPreferences(sp,KeyUtil.InterceptUrls,interceptUrls);
-        Setings.saveSharedPreferences(sp,KeyUtil.TranBDKey,trankey);
         Setings.saveSharedPreferences(sp,KeyUtil.APP_Advertiser,app_advertiser);
         Setings.saveSharedPreferences(sp,KeyUtil.Lei_DVideo,uctt_url);
         Setings.saveSharedPreferences(sp,KeyUtil.Lei_Novel,wyyx_url);

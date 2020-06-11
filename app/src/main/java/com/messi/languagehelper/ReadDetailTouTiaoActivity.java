@@ -10,8 +10,6 @@ import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Bundle;
 import android.os.PersistableBundle;
-import androidx.fragment.app.Fragment;
-import androidx.core.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.view.View;
@@ -27,15 +25,17 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+
 import com.alibaba.fastjson.JSON;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.ExoPlaybackException;
-import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
-import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.MergingMediaSource;
+import com.google.android.exoplayer2.source.ProgressiveMediaSource;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSource;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
@@ -386,7 +386,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         showBuffering();
         String timestamp = String.valueOf(System.currentTimeMillis());
         String platform = SystemUtil.platform;
-        String network = NetworkUtil.getNetworkType(this);
+        String network = SystemUtil.network;
         String sign = SignUtil.getMd5Sign(Setings.PVideoKey, timestamp, Url, platform, network);
         RetrofitApiService service = RetrofitApiService.getRetrofitApiService(Setings.PVideoApi,
                 RetrofitApiService.class);
@@ -438,7 +438,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
             videoLayout.setVisibility(View.VISIBLE);
             webview_layout.setVisibility(View.GONE);
 
-            player = ExoPlayerFactory.newSimpleInstance(this);
+            player = new SimpleExoPlayer.Builder(this).build();
             simpleExoPlayerView.setPlayer(player);
             boolean haveResumePosition = mResumeWindow != C.INDEX_UNSET;
             if (haveResumePosition) {
@@ -457,19 +457,19 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
                 dataSourceFactory.getDefaultRequestProperties().set("referer",Url);
                 dataSourceFactory.getDefaultRequestProperties().set("user-agent",Setings.Hearder);
                 if (!TextUtils.isEmpty(mAVObject.getBackup1())) {
-                    ExtractorMediaSource videoSource =
-                            new ExtractorMediaSource.Factory(dataSourceFactory)
+                    MediaSource videoSource =
+                            new ProgressiveMediaSource.Factory(dataSourceFactory)
                                     .createMediaSource(Uri.parse(media_url));
-                    ExtractorMediaSource audioSource =
-                            new ExtractorMediaSource.Factory(dataSourceFactory)
+                    MediaSource audioSource =
+                            new ProgressiveMediaSource.Factory(dataSourceFactory)
                             .createMediaSource(Uri.parse(mAVObject.getBackup1()));
                     mediaSource = new MergingMediaSource(videoSource,audioSource);
                 }else {
-                    mediaSource = new ExtractorMediaSource.Factory(dataSourceFactory)
+                    mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
                             .createMediaSource(Uri.parse(media_url));
                 }
             } else {
-                mediaSource = new ExtractorMediaSource.Factory(dataSourceFactory)
+                mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
                         .createMediaSource(Uri.parse(media_url));
             }
             player.addListener(this);

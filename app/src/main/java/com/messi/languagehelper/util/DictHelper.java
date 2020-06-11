@@ -7,12 +7,15 @@ import android.text.TextUtils;
 import com.alibaba.fastjson.JSON;
 import com.messi.languagehelper.bean.HjTranBean;
 import com.messi.languagehelper.bean.IcibaNew;
+import com.messi.languagehelper.bean.TranDictResult;
+import com.messi.languagehelper.bean.TranResultRoot;
 import com.messi.languagehelper.bean.YoudaoApiBean;
 import com.messi.languagehelper.bean.YoudaoApiResult;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Dictionary;
 import com.messi.languagehelper.http.BgCallback;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
+import com.messi.languagehelper.httpservice.RetrofitApiService;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -300,42 +303,56 @@ public class DictHelper {
     }
 
     private void Tran_Baidu(ObservableEmitter<Dictionary> e) {
-        LanguagehelperHttpClient.postBaidu(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException ioe) {
-                onFaileTranslate(e);
-            }
-
-            @Override
-            public void onResponse(Call call, Response mResponse) throws IOException {
-                Dictionary mDictionary = null;
-                try {
-                    if (mResponse.isSuccessful()) {
-                        String responseString = mResponse.body().string();
-                        if (!TextUtils.isEmpty(responseString)) {
-                            LogUtil.DefalutLog("Result---baidu tran:" + responseString);
-                            String dstString = JsonParser.getTranslateResult(responseString);
-                            if (dstString.contains("error_msg:")) {
-                                LogUtil.DefalutLog("Result---baidu tran---error_msg:" + dstString);
-                            } else {
-                                mDictionary = new Dictionary();
-                                mDictionary.setType(KeyUtil.ResultTypeTranslate);
-                                mDictionary.setWord_name(Setings.q);
-                                mDictionary.setResult(dstString);
-                                BoxHelper.insert(mDictionary);
-                            }
-                        }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }finally {
-                    if (mDictionary != null) {
-                        e.onNext(mDictionary);
-                    }else {
-                        onFaileTranslate(e);
-                    }
-                }
-            }
+        String timestamp = String.valueOf(System.currentTimeMillis());
+        String platform = SystemUtil.platform;
+        String network = SystemUtil.network;
+        String sign = SignUtil.getMd5Sign(Setings.PVideoKey, timestamp, Setings.q,
+                platform, network, Setings.from, Setings.to);
+        if (StringUtils.isEnglish(Setings.q)) {
+            Setings.from = "en";
+            Setings.to = "zh";
+        } else {
+            Setings.from = "zh";
+            Setings.to = "en";
+        }
+        RetrofitApiService service = RetrofitApiService.getRetrofitApiService(Setings.TranApi,
+                RetrofitApiService.class);
+        retrofit2.Call<TranResultRoot<TranDictResult>> call = service.tranDict(Setings.q, Setings.from, Setings.to,
+                network, platform, sign, 1, timestamp);
+        call.enqueue(new retrofit2.Callback<TranResultRoot<TranDictResult>>() {
+             @Override
+             public void onResponse(retrofit2.Call<TranResultRoot<TranDictResult>> call, retrofit2.Response<TranResultRoot<TranDictResult>> response) {
+                 Dictionary result = null;
+                 if (response.isSuccessful()) {
+                     TranResultRoot<TranDictResult> mResult = response.body();
+                     if (mResult != null){
+                         TranDictResult tdResult = mResult.getResult();
+                         if (tdResult != null && !TextUtils.isEmpty(tdResult.getResult())) {
+                             String des = tdResult.getResult();
+                             if (!TextUtils.isEmpty(tdResult.getSymbol())) {
+                                 des = tdResult.getSymbol() + "\n" + tdResult.getResult();
+                             }
+                             result = new Dictionary();
+                             result.setPh_am(tdResult.getMp3_am());
+                             result.setPh_en(tdResult.getMp3_en());
+                             result.setType(KeyUtil.ResultTypeTranslate);
+                             result.setWord_name(Setings.q);
+                             result.setResult(des);
+                             result.setBackup1(tdResult.getResult());
+                             BoxHelper.insert(result);
+                         }
+                     }
+                 }
+                 if(result != null){
+                     e.onNext( result );
+                 }else {
+                     onFaileTranslate(e);
+                 }
+             }
+             @Override
+             public void onFailure(retrofit2.Call<TranResultRoot<TranDictResult>> call, Throwable t) {
+                 onFaileTranslate(e);
+             }
         });
     }
 

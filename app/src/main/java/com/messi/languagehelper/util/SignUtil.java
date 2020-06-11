@@ -18,7 +18,7 @@ public class SignUtil {
             tempStr = tempStr + key + item;
         }
         sign = MD5.encode(tempStr);
-        LogUtil.DefalutLog("tempStr:"+tempStr + "---sign:"+sign);
+        LogUtil.DefalutLog("sign:"+sign);
         return sign;
     }
 }

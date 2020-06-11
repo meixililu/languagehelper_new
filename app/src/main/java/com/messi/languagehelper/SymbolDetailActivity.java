@@ -24,10 +24,9 @@ import android.widget.TextView;
 import androidx.core.content.ContextCompat;
 
 import com.google.android.exoplayer2.C;
-import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.SimpleExoPlayer;
-import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
+import com.google.android.exoplayer2.source.ProgressiveMediaSource;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
@@ -195,7 +194,7 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
 
     private void exoplaer(String media_url) {
         IPlayerUtil.pauseAudioPlayer(this);
-        player = ExoPlayerFactory.newSimpleInstance(this);
+        player = new SimpleExoPlayer.Builder(this).build();
         simpleExoPlayerView.setPlayer(player);
 
         boolean haveResumePosition = mResumeWindow != C.INDEX_UNSET;
@@ -205,7 +204,7 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
 
         DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this,
                 Util.getUserAgent(this, "LanguageHelper"));
-        MediaSource videoSource = new ExtractorMediaSource.Factory(dataSourceFactory)
+        MediaSource videoSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
                 .createMediaSource(Uri.parse(media_url));
         player.prepare(videoSource);
         player.setPlayWhenReady(false);

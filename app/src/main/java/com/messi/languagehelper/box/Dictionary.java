@@ -24,7 +24,7 @@ public class Dictionary {
     private Integer visit_times;
     private Integer speak_speed;
     private String backup1;/**for media play **/
-    private String backup2;/**playing pause stop sign  XFUtil PlayOnline PlayOffline**/
+    private String backup2;
     private String backup3;/**for split words**/
     private String backup4;
     private String backup5;

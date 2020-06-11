@@ -6,13 +6,12 @@ import android.os.Bundle;
 import android.text.TextUtils;
 
 import com.google.android.exoplayer2.ExoPlaybackException;
-import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.Timeline;
-import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
+import com.google.android.exoplayer2.source.ProgressiveMediaSource;
 import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import com.google.android.exoplayer2.upstream.DataSource;
@@ -45,7 +44,7 @@ public class MyPlayer {
         isDownload = true;
         context = mContext.getApplicationContext();
         mExoPlayerEventListener = new ExoPlayerEventListener();
-        exoPlayer = ExoPlayerFactory.newSimpleInstance(context);
+        exoPlayer = new SimpleExoPlayer.Builder(context).build();
         exoPlayer.addListener(mExoPlayerEventListener);
     }
 
@@ -158,7 +157,7 @@ public class MyPlayer {
         LogUtil.DefalutLog("---playMediaUrl---"+url);
         if (!TextUtils.isEmpty(url)) {
             DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(context, "xbkj");
-            MediaSource mediaSource = new ExtractorMediaSource.Factory(dataSourceFactory)
+            MediaSource mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
                     .createMediaSource(Uri.parse(url));
             exoPlayer.prepare(mediaSource);
             exoPlayer.setPlayWhenReady(true);

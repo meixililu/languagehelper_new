@@ -17,9 +17,10 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.provider.Settings;
-import androidx.core.content.FileProvider;
 import android.text.TextUtils;
 import android.view.View;
+
+import androidx.core.content.FileProvider;
 
 import com.messi.languagehelper.ImgShareActivity;
 import com.messi.languagehelper.R;
@@ -150,8 +151,6 @@ public class Setings {
 
 	public static final int ca_psize = 12;
 	public static final int page_size = 10;
-	public static String baidu_appid = "";
-	public static String baidu_secretkey = "";
 	public static String yue = "yue";
 	public static String zh = "zh";
 	public static String from = "auto";	

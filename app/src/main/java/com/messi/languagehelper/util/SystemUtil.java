@@ -29,6 +29,10 @@ public class SystemUtil {
 
     public static String platform = "android";
 
+    public static String network = "android";
+
+
+
     public static String getDev_id(Context context){
         if (TextUtils.isEmpty(dev_id)){
             dev_id = Setings.getDeviceID(context);
@@ -38,6 +42,7 @@ public class SystemUtil {
 
     public static void setPacketName(Context context){
         PacketName = context.getPackageName();
+        network = NetworkUtil.getNetworkType(context);
     }
     /**
      * 获取当前手机系统语言。

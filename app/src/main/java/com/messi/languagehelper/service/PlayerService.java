@@ -19,14 +19,13 @@ import androidx.annotation.Nullable;
 
 import com.alibaba.fastjson.JSON;
 import com.google.android.exoplayer2.ExoPlaybackException;
-import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.Timeline;
 import com.google.android.exoplayer2.audio.AudioAttributes;
-import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
+import com.google.android.exoplayer2.source.ProgressiveMediaSource;
 import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSource;
@@ -308,7 +307,7 @@ public class PlayerService extends Service {
             PlayerStatus = 1;
             LogUtil.DefalutLog("media_url:" + media_url);
             if (mExoPlayer == null) {
-                mExoPlayer = ExoPlayerFactory.newSimpleInstance(this);
+                mExoPlayer = new SimpleExoPlayer.Builder(this).build();
                 mExoPlayer.addListener(mEventListener);
             }
             final AudioAttributes audioAttributes = new AudioAttributes.Builder()
@@ -329,14 +328,14 @@ public class PlayerService extends Service {
                 dataSourceFactory.getDefaultRequestProperties().set("referer",song.getSource_url());
                 dataSourceFactory.getDefaultRequestProperties().set("user-agent",Hearder);
                 if (!TextUtils.isEmpty(song.getBackup1())) {
-                    mediaSource = new ExtractorMediaSource.Factory(dataSourceFactory)
+                    mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
                             .createMediaSource(Uri.parse(song.getBackup1()));
                 }else {
-                    mediaSource = new ExtractorMediaSource.Factory(dataSourceFactory)
+                    mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
                             .createMediaSource(Uri.parse(media_url));
                 }
             } else {
-                mediaSource = new ExtractorMediaSource.Factory(dataSourceFactory)
+                mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
                         .createMediaSource(Uri.parse(media_url));
             }
             mExoPlayer.prepare(mediaSource);

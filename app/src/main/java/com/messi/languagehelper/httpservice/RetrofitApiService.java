@@ -1,6 +1,7 @@
 package com.messi.languagehelper.httpservice;
 
 import com.messi.languagehelper.bean.PVideoResult;
+import com.messi.languagehelper.bean.TranDictResult;
 import com.messi.languagehelper.bean.TranLijuResult;
 import com.messi.languagehelper.bean.TranResultRoot;
 import com.messi.languagehelper.bean.TranYueyuResult;
@@ -53,4 +54,10 @@ public interface RetrofitApiService {
     Call<TranResultRoot<TranYueyuResult>> tranZhYue(@Query("word") String word , @Query("fr") String fr , @Query("to") String to ,
                                     @Query("network") String network, @Query("platform") String platform ,
                                     @Query("sign") String sign, @Query("timestamp") String timestamp);
+
+    @GET("v1/tran")
+    Call<TranResultRoot<TranDictResult>> tranDict(@Query("q") String q , @Query("fr") String fr , @Query("to") String to ,
+                                                  @Query("network") String network, @Query("platform") String platform ,
+                                                  @Query("sign") String sign, @Query("type") int type,
+                                                  @Query("timestamp") String timestamp);
 }

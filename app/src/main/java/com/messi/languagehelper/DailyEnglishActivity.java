@@ -16,14 +16,13 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.core.view.ViewCompat;
 
 import com.google.android.exoplayer2.ExoPlaybackException;
-import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.Timeline;
 import com.google.android.exoplayer2.audio.AudioAttributes;
-import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
+import com.google.android.exoplayer2.source.ProgressiveMediaSource;
 import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import com.google.android.exoplayer2.upstream.DataSource;
@@ -86,7 +85,7 @@ public class DailyEnglishActivity extends BaseActivity implements View.OnClickLi
         sb = new StringBuilder();
         mSharedPreferences = Setings.getSharedPreferences(this);
         mSpeechSynthesizer = SpeechSynthesizer.createSynthesizer(this, null);
-        mExoPlayer = ExoPlayerFactory.newSimpleInstance(this);
+        mExoPlayer = new SimpleExoPlayer.Builder(this).build();
         mExoPlayer.addListener(mEventListener);
         binding.startBtnCover.setOnClickListener(this);
         binding.retryTv.setOnClickListener(view -> init(false));
@@ -274,7 +273,7 @@ public class DailyEnglishActivity extends BaseActivity implements View.OnClickLi
         mExoPlayer.setAudioAttributes(audioAttributes);
         DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this,
                 Util.getUserAgent(this, Hearder));
-        MediaSource mediaSource = new ExtractorMediaSource.Factory(dataSourceFactory)
+        MediaSource mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
                 .createMediaSource(Uri.parse(media_url));
         mExoPlayer.prepare(mediaSource);
         mExoPlayer.setPlayWhenReady(true);

@@ -176,14 +176,6 @@
             android:name="com.ximalaya.ting.android.opensdk.player.receive.WireControlReceiver"
             android:exported="true"
             android:process=":player" />
-        <receiver
-            android:name=".service.XimalayaReceiver"
-            android:exported="true"
-            android:process=":player">
-            <intent-filter>
-                <action android:name="com.app.test.android.Action_Close" />
-            </intent-filter>
-        </receiver>
 
         <activity
             android:name=".ReadDetailTouTiaoActivity"

@@ -148,19 +148,6 @@ public class LanguagehelperHttpClient {
 		return mResponse;
 	}
 
-	public static Response postBaidu(Callback mCallback) {
-		long salt = System.currentTimeMillis();
-		FormBody formBody = new FormBody.Builder()
-			.add("appid", Setings.baidu_appid)
-			.add("salt", String.valueOf(salt))
-			.add("q", Setings.q)
-			.add("from", Setings.from)
-			.add("to", Setings.to)
-			.add("sign", getBaiduTranslateSign(salt))
-			.build();
-		return post(Setings.baiduTranslateUrl,  formBody , mCallback);
-	}
-
 	public static Response postTranQQAILabAPi(Callback mCallback) {
 		String time_stamp = String.valueOf(System.currentTimeMillis()/1000);
 		String nonce_str = StringUtils.getRandomString(16);
@@ -379,11 +366,6 @@ public class LanguagehelperHttpClient {
 		}).build();
 		return clone;
     }
-
-	public static String getBaiduTranslateSign(long salt) {
-		String str = Setings.baidu_appid + Setings.q + salt + Setings.baidu_secretkey;
-		return MD5.encode(str);
-	}
 
 	public static String getSortData(Map<String, String> map){
 		String result = "";

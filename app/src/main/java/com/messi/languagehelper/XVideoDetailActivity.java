@@ -23,11 +23,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.fastjson.JSON;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
-import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
+import com.google.android.exoplayer2.source.ProgressiveMediaSource;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSource;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
@@ -180,7 +179,7 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
                 RequestAsyncTask();
             }
             player_view = (PlayerView)LayoutInflater.from(this).inflate(R.layout.xvideo_detail_list_playerview,null);
-            player = ExoPlayerFactory.newSimpleInstance(this);
+            player = new SimpleExoPlayer.Builder(this).build();
             player.addListener(this);
             player.setRepeatMode(Player.REPEAT_MODE_ALL);
             player_view.setPlayer(player);
@@ -427,7 +426,7 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
     private void exoplaer(String media_url) {
         hideProgressbar();
         if(player == null){
-            player = ExoPlayerFactory.newSimpleInstance(this);
+            player = new SimpleExoPlayer.Builder(this).build();
         }
         DefaultHttpDataSourceFactory dataSourceFactory = new DefaultHttpDataSourceFactory(
                 Setings.Hearder,
@@ -435,7 +434,7 @@ public class XVideoDetailActivity extends BaseActivity implements Player.EventLi
                 DefaultHttpDataSource.DEFAULT_CONNECT_TIMEOUT_MILLIS,
                 DefaultHttpDataSource.DEFAULT_READ_TIMEOUT_MILLIS,
                 true);
-        MediaSource videoSource = new ExtractorMediaSource.Factory(dataSourceFactory)
+        MediaSource videoSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
                 .createMediaSource(Uri.parse(media_url));
         player.prepare(videoSource);
         player.setPlayWhenReady(true);

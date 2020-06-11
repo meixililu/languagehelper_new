@@ -2,12 +2,13 @@ package com.messi.languagehelper;
 
 import android.os.Bundle;
 import android.os.Handler;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.messi.languagehelper.adapter.RcTranZhYueListAdapter;
 import com.messi.languagehelper.bean.TranResultRoot;
@@ -147,7 +148,7 @@ public class MainTabTranZhYue extends BaseFragment {
         showProgressbar();
         String timestamp = String.valueOf(System.currentTimeMillis());
         String platform = SystemUtil.platform;
-        String network = NetworkUtil.getNetworkType(getContext());
+        String network = SystemUtil.network;
         String sign = SignUtil.getMd5Sign(Setings.PVideoKey, timestamp, lastSearch,
                 platform, network, Setings.from, Setings.to);
         RetrofitApiService service = RetrofitApiService.getRetrofitApiService(Setings.TranApi,
