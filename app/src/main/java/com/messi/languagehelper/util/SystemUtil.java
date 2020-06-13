@@ -29,9 +29,7 @@ public class SystemUtil {
 
     public static String platform = "android";
 
-    public static String network = "android";
-
-
+    public static String network = "wifi";
 
     public static String getDev_id(Context context){
         if (TextUtils.isEmpty(dev_id)){

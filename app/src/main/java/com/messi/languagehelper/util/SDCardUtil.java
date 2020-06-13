@@ -2,8 +2,9 @@ package com.messi.languagehelper.util;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.os.Environment;
 import android.text.TextUtils;
+
+import com.messi.languagehelper.BaseApplication;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -15,7 +16,7 @@ import java.text.DecimalFormat;
 public class SDCardUtil {
 
 	/**sd卡保存文件夹名称**/
-	public static final String RootPath = "/zyhy/";
+	public static String RootPath = "/zyhy/";
 	public static final String sdPath = "/zyhy/audio/";
 	public static final String ImgPath = "/zyhy/img/";
 	public static final String SymbolPath = "/zyhy/audio/symbol/";
@@ -39,11 +40,8 @@ public class SDCardUtil {
 	 * @return
 	 */
 	public static String getDownloadPath(String sdCardPath) {
-		File SDdir = null;
-		boolean sdCardExist = Environment.getExternalStorageState().equals( Environment.MEDIA_MOUNTED);
-		if (sdCardExist) {
-			SDdir = Environment.getExternalStorageDirectory();
-		}
+		File SDdir = BaseApplication.instance.getExternalFilesDir(sdCardPath);
+		LogUtil.DefalutLog("SDdir:"+SDdir.getPath());
 		if (SDdir != null) {
 			String path = SDdir.getPath() + sdCardPath;
 			isFileExistsOrCreate(path);
