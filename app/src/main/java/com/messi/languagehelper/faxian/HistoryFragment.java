@@ -1,15 +1,16 @@
 package com.messi.languagehelper.faxian;
 
-import androidx.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
 import android.text.Html;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.messi.languagehelper.BaseFragment;
 import com.messi.languagehelper.R;
@@ -46,7 +47,7 @@ public class HistoryFragment extends BaseFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mViewModel = ViewModelProviders.of(getActivity()).get(TXAPIViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(TXAPIViewModel.class);
         mViewModel.init(apiType);
     }
 

@@ -15,13 +15,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
-import androidx.annotation.NonNull;
-import com.google.android.material.tabs.TabLayout;
-import androidx.appcompat.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+
+import com.google.android.material.tabs.TabLayout;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechUtility;
 import com.messi.languagehelper.BaseActivity;
@@ -117,7 +118,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 
 	private void initPlayerBtn(int index){
 		try {
-			if (index == 1 || index == 2) {
+			if (index == 2) {
 				binding.playbtnLayout.setVisibility(View.VISIBLE);
 				if (IPlayerUtil.MPlayerIsPlaying() || XmPlayerManager.getInstance(this).isPlaying()) {
 					binding.btnPlay.setSelected(true);

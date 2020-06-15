@@ -1,17 +1,17 @@
 package com.messi.languagehelper;
 
-import androidx.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import cn.leancloud.AVObject;
+import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.adapter.RcBoutiquesAdapter;
 import com.messi.languagehelper.bean.RespoADData;
@@ -23,6 +23,8 @@ import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.viewmodels.BoutiquesViewModel;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
+
+import cn.leancloud.AVObject;
 
 public class BoutiquesFragment extends BaseFragment {
 
@@ -61,7 +63,7 @@ public class BoutiquesFragment extends BaseFragment {
 			category = getArguments().getString(KeyUtil.Category);
 			type = getArguments().getString(KeyUtil.Type);
 			title = getArguments().getString(KeyUtil.FragmentTitle);
-			viewModel = ViewModelProviders.of(getActivity()).get(BoutiquesViewModel.class);
+			viewModel = new ViewModelProvider(this).get(BoutiquesViewModel.class);
 			viewModel.init(getContext());
 			viewModel.getRepo().setCategory(category);
 			viewModel.getRepo().setType(type);

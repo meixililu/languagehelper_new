@@ -1,9 +1,10 @@
 package com.messi.languagehelper.adapter;
 
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.karumi.headerrecyclerview.HeaderRecyclerViewAdapter;
 import com.messi.languagehelper.R;
@@ -48,8 +49,4 @@ public class RcTranslateListAdapter extends HeaderRecyclerViewAdapter<RecyclerVi
 		return LayoutInflater.from(parent.getContext());
 	}
 
-	public void addEntity(int position, Record entity) {
-		beans.add(position, entity);
-		notifyItemInserted(position);
-	}
 }

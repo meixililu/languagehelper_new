@@ -5,9 +5,6 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.google.android.material.tabs.TabLayout;
-import androidx.appcompat.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +18,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+
+import com.google.android.material.tabs.TabLayout;
 import com.iflytek.cloud.RecognizerListener;
 import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechError;
@@ -416,7 +417,7 @@ public class MainFragmentOld extends BaseFragment implements OnClickListener, Or
             }
             submit_to_fragment();
         } else {
-            showToast(getContext().getResources().getString(R.string.input_et_empty));
+            showToast(getString(R.string.input_et_empty));
             hideProgressbar();
         }
     }

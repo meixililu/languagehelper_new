@@ -4,15 +4,14 @@ package com.messi.languagehelper;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.CallSuper;
 import androidx.annotation.UiThread;
-import androidx.viewpager.widget.ViewPager;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.google.android.material.tabs.TabLayout;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 
@@ -127,7 +126,6 @@ public class StudyCategoryFragment_ViewBinding implements Unbinder {
         target.onViewClicked(p0);
       }
     });
-    target.viewpager = Utils.findRequiredViewAsType(source, R.id.viewpager, "field 'viewpager'", ViewPager.class);
     view = Utils.findRequiredView(source, R.id.xmly_layout, "field 'xmlyLayout' and method 'onViewClicked'");
     target.xmlyLayout = Utils.castView(view, R.id.xmly_layout, "field 'xmlyLayout'", FrameLayout.class);
     view7f080490 = view;
@@ -137,7 +135,6 @@ public class StudyCategoryFragment_ViewBinding implements Unbinder {
         target.onViewClicked(p0);
       }
     });
-    target.tablayout = Utils.findRequiredViewAsType(source, R.id.tablayout, "field 'tablayout'", TabLayout.class);
     target.dailysentence_txt = Utils.findRequiredViewAsType(source, R.id.dailysentence_txt, "field 'dailysentence_txt'", TextView.class);
     target.daily_sentence_unread_dot = Utils.findRequiredViewAsType(source, R.id.daily_sentence_unread_dot, "field 'daily_sentence_unread_dot'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.study_daily_sentence, "field 'study_daily_sentence' and method 'onViewClicked'");
@@ -149,6 +146,7 @@ public class StudyCategoryFragment_ViewBinding implements Unbinder {
         target.onViewClicked(p0);
       }
     });
+    target.container = Utils.findRequiredViewAsType(source, R.id.container, "field 'container'", LinearLayout.class);
     target.daily_sentence_item_img = Utils.findRequiredViewAsType(source, R.id.daily_sentence_item_img, "field 'daily_sentence_item_img'", SimpleDraweeView.class);
   }
 
@@ -168,12 +166,11 @@ public class StudyCategoryFragment_ViewBinding implements Unbinder {
     target.studySpokenEnglish = null;
     target.enGrammar = null;
     target.enStoryLayout = null;
-    target.viewpager = null;
     target.xmlyLayout = null;
-    target.tablayout = null;
     target.dailysentence_txt = null;
     target.daily_sentence_unread_dot = null;
     target.study_daily_sentence = null;
+    target.container = null;
     target.daily_sentence_item_img = null;
 
     view7f080347.setOnClickListener(null);

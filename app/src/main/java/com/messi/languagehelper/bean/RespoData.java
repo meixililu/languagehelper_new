@@ -4,7 +4,7 @@ public class RespoData<T> {
 	
 	private T data;
 
-	private int code;
+	private int code;//0 error  1 right
 
 	private String errStr;
 

@@ -1,18 +1,21 @@
 package com.messi.languagehelper;
 
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.messi.languagehelper.adapter.RcTranslateListAdapter;
+import com.messi.languagehelper.bean.RespoData;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Record;
 import com.messi.languagehelper.databinding.MainTabTranBinding;
@@ -21,48 +24,38 @@ import com.messi.languagehelper.event.TranAndDicRefreshEvent;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-import com.messi.languagehelper.util.NetworkUtil;
-import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
-import com.messi.languagehelper.util.TranslateUtil;
 import com.messi.languagehelper.util.ViewUtil;
+import com.messi.languagehelper.viewmodels.TranDictViewModel;
 import com.messi.languagehelper.views.DividerItemDecoration;
-import com.youdao.sdk.ydtranslate.Translate;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
 
 public class MainTabTran extends BaseFragment {
 
     private Record currentDialogBean;
     private RcTranslateListAdapter mAdapter;
     private LinearLayoutManager mLinearLayoutManager;
-    private SharedPreferences sp;
-    private List<Record> beans;
     private String lastSearch;
-    private int skip;
-    private boolean noMoreData;
-    private boolean isNeedRefresh;
     private View view;
     private MainTabTranBinding binding;
+    private TranDictViewModel mViewModel;
+    private SharedPreferences sp;
 
     public static MainTabTran getInstance(FragmentProgressbarListener listener) {
         MainTabTran mMainFragment = new MainTabTran();
         mMainFragment.setmProgressbarListener(listener);
         return mMainFragment;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        sp = Setings.getSharedPreferences(getContext());
+        mViewModel = new ViewModelProvider(this).get(TranDictViewModel.class);
     }
 
     @Override
@@ -75,26 +68,21 @@ public class MainTabTran extends BaseFragment {
         binding = MainTabTranBinding.inflate(inflater);
         view = binding.getRoot();
         initSwipeRefresh(binding.getRoot());
-        init(view);
+        init();
+        initLiveData();
         return view;
     }
 
-    private void init(View view) {
-        sp = Setings.getSharedPreferences(getContext());
+    private void init() {
         isRegisterBus = true;
-        beans = new ArrayList<Record>();
+        mViewModel.initSample();
         loadData();
-        boolean IsHasShowBaiduMessage = sp.getBoolean(KeyUtil.IsHasShowBaiduMessage, false);
-        if (!IsHasShowBaiduMessage) {
-            initSample();
-            Setings.saveSharedPreferences(sp, KeyUtil.IsHasShowBaiduMessage, true);
-        }
-        mAdapter = new RcTranslateListAdapter(beans);
+        mAdapter = new RcTranslateListAdapter(mViewModel.getRepository().beans);
         binding.recentUsedLv.setHasFixedSize(true);
         mLinearLayoutManager = new LinearLayoutManager(getContext());
         binding.recentUsedLv.setLayoutManager(mLinearLayoutManager);
         binding.recentUsedLv.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.abc_list_divider_mtrl_alpha)));
-        mAdapter.setItems(beans);
+        mAdapter.setItems(mViewModel.getRepository().beans);
         mAdapter.setFooter(new Object());
         binding.recentUsedLv.setAdapter(mAdapter);
         setListOnScrollListener();
@@ -105,124 +93,49 @@ public class MainTabTran extends BaseFragment {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                if(!noMoreData){
-                    int visible  = mLinearLayoutManager.getChildCount();
-                    int total = mLinearLayoutManager.getItemCount();
-                    int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
-                    if ((visible + firstVisibleItem) >= total){
-                        loadData();
-                    }
+                int visible  = mLinearLayoutManager.getChildCount();
+                int total = mLinearLayoutManager.getItemCount();
+                int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
+                if ((visible + firstVisibleItem) >= total){
+                    mViewModel.loadTranData(false);
                 }
             }
         });
     }
 
-    public void loadData(){
-        List<Record> list = BoxHelper.getRecordList(skip, Setings.RecordOffset);
-        if (NullUtil.isNotEmpty(list)) {
-            beans.addAll(list);
-            skip += list.size();
-            if (mAdapter != null) {
-                mAdapter.notifyDataSetChanged();
-            }
-        }else {
-            noMoreData = true;
-        }
+    private void initLiveData(){
+        mViewModel.isRefreshTran().observe(getViewLifecycleOwner(), isNeedRefresh -> {
+            mAdapter.notifyDataSetChanged();
+            onSwipeRefreshLayoutFinish();
+        });
+        mViewModel.getRespoData().observe(getViewLifecycleOwner(), mResult -> {
+            showResult(mResult);
+        });
     }
 
-    private void initSample() {
-        Record sampleBean = new Record("Click the mic to speak", "点击话筒说话");
-        BoxHelper.insert(sampleBean);
-        beans.add(0, sampleBean);
+    public void loadData(){
+        mViewModel.loadTranData(true);
     }
 
     private void translateController(){
+        showProgressbar();
         lastSearch = Setings.q;
-        if(NetworkUtil.isNetworkConnected(getContext())){
-            LogUtil.DefalutLog("online");
-            try {
-                RequestJinShanNewAsyncTask();
-            } catch (Exception e) {
-                LogUtil.DefalutLog("online exception");
-                e.printStackTrace();
-            }
+        mViewModel.tranDict();
+    }
+
+    private void showResult(RespoData<Record> mRespoData){
+        hideProgressbar();
+        if(mRespoData == null || mRespoData.getData() == null || mRespoData.getCode() == 0){
+            showToast(mRespoData.getErrStr());
         }else {
-            LogUtil.DefalutLog("offline");
-            translateOffline();
-        }
-    }
-
-    private void translateOffline(){
-        showProgressbar();
-        Observable.create(new ObservableOnSubscribe<Translate>() {
-            @Override
-            public void subscribe(ObservableEmitter<Translate> e) throws Exception {
-                TranslateUtil.offlineTranslate(e);
-            }
-        })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Translate>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                    }
-                    @Override
-                    public void onNext(Translate translate) {
-                        parseOfflineData(translate);
-                    }
-                    @Override
-                    public void onError(Throwable e) {
-                        onComplete();
-                    }
-                    @Override
-                    public void onComplete() {
-                        hideProgressbar();
-                    }
-                });
-    }
-
-    private void parseOfflineData(Translate translate){
-        if(translate != null){
-            if(translate.getErrorCode() == 0){
-                StringBuilder sb = new StringBuilder();
-                TranslateUtil.addSymbol(translate,sb);
-                for(String tran : translate.getTranslations()){
-                    sb.append(tran);
-                    sb.append("\n");
-                }
-                currentDialogBean = new Record(sb.substring(0, sb.lastIndexOf("\n")), Setings.q);
-                insertData();
-                autoClearAndautoPlay();
-            }
-        }else{
-            showToast("没找到离线词典，请到更多页面下载！");
-        }
-    }
-    /**
-     * send translate request
-     */
-    private void RequestJinShanNewAsyncTask() throws Exception{
-        showProgressbar();
-        TranslateUtil.Translate(mrecord -> onResult(mrecord));
-    }
-
-    private void onResult(Record mRecord){
-        try {
-            hideProgressbar();
-            if(mRecord == null){
-                showToast(getContext().getResources().getString(R.string.network_error));
-            }else {
-                currentDialogBean = mRecord;
-                insertData();
-                autoClearAndautoPlay();
-            }
-        } catch (Resources.NotFoundException e) {
-            e.printStackTrace();
+            currentDialogBean = mRespoData.getData();
+            insertData();
+            autoClearAndautoPlay();
         }
     }
 
     public void insertData() {
-        mAdapter.addEntity(0, currentDialogBean);
+        mAdapter.notifyItemInserted(0);;
         binding.recentUsedLv.scrollToPosition(0);
         BoxHelper.insert(currentDialogBean);
     }
@@ -234,12 +147,18 @@ public class MainTabTran extends BaseFragment {
         }
     }
 
+    public void refresh() {
+        if (mAdapter != null) {
+            mAdapter.notifyDataSetChanged();
+        }
+    }
+
     private void autoPlay() {
         try {
             View mView = binding.recentUsedLv.getChildAt(0);
             final FrameLayout record_answer_cover = (FrameLayout) mView.findViewById(R.id.record_answer_cover);
             final FrameLayout record_question_cover = (FrameLayout) mView.findViewById(R.id.record_question_cover);
-            Record item = beans.get(0);
+            Record item = mViewModel.getRepository().beans.get(0);
             if (!TextUtils.isEmpty(item.getPh_en_mp3())) {
                 if(record_question_cover != null){
                     record_question_cover.post(new Runnable() {
@@ -264,41 +183,18 @@ public class MainTabTran extends BaseFragment {
         }
     }
 
-    /**
-     * toast message
-     * @param toastString
-     */
     private void showToast(String toastString) {
         ToastUtil.diaplayMesShort(getContext(), toastString);
     }
 
-    /**
-     * submit request task
-     */
     public void submit() {
         translateController();
     }
 
-    public void refresh() {
-        if (isNeedRefresh && mAdapter != null) {
-            mAdapter.notifyDataSetChanged();
-            isNeedRefresh = false;
-        }
-    }
-
-    @Subscribe(threadMode = ThreadMode.BACKGROUND)
+    @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(TranAndDicRefreshEvent event){
-        reloadData();
         LogUtil.DefalutLog("---TranAndDicRefreshEvent---onEvent");
-    }
-
-    private void reloadData() {
-        if (beans != null) {
-            isNeedRefresh = true;
-            beans.clear();
-            beans.addAll(BoxHelper.getRecordList(0, Setings.RecordOffset));
-        }
-
+        mViewModel.loadTranData(true);
     }
 
     private void delayAutoPlay(){
@@ -307,12 +203,7 @@ public class MainTabTran extends BaseFragment {
 
     @Override
     public void onSwipeRefreshLayoutRefresh() {
-        if (beans != null) {
-            beans.clear();
-            beans.addAll(BoxHelper.getRecordList(0, Setings.RecordOffset));
-            mAdapter.notifyDataSetChanged();
-        }
-        onSwipeRefreshLayoutFinish();
+        mViewModel.loadTranData(true);
     }
 }
 

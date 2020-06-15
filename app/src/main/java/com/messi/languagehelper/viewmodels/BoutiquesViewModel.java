@@ -1,9 +1,10 @@
 package com.messi.languagehelper.viewmodels;
 
+import android.content.Context;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import android.content.Context;
 
 import com.messi.languagehelper.bean.RespoADData;
 import com.messi.languagehelper.bean.RespoData;
@@ -17,7 +18,6 @@ public class BoutiquesViewModel extends ViewModel {
     private MutableLiveData<RespoADData> mRespoADData;
     private BoutiquesListRepository mRepo;
     private XXLAVObjectRepository mADRepo;
-    private Context context;
 
     public void init(Context context){
         mRepo = new BoutiquesListRepository();

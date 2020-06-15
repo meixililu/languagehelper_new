@@ -71,22 +71,38 @@ public class TranslateUtil {
 	public static void offlineTranslate(ObservableEmitter<Translate> e){
 		Translate translate = null;
 		if(isOfflineTranslateWords()){
-			LogUtil.DefalutLog("offline-word");
-			translate = getWordTranslate(e);
+			translate = getWordTranslate();
+			LogUtil.DefalutLog("offline-word:"+translate);
 		}else {
-			LogUtil.DefalutLog("offline-sentence");
 			translate = getSentenceTranslate();
+			LogUtil.DefalutLog("offline-sentence:"+translate);
 		}
 		e.onNext(translate);
 		e.onComplete();
 	}
 
-	public static Translate getWordTranslate(ObservableEmitter<Translate> e){
+	public static Translate offlineTranslate(){
+		Translate translate = null;
+		if(isOfflineTranslateWords()){
+			translate = getWordTranslate();
+			LogUtil.DefalutLog("offline-word:"+translate);
+		}else {
+			translate = getSentenceTranslate();
+			LogUtil.DefalutLog("offline-sentence:"+translate);
+		}
+		LogUtil.DefalutLog("offlineTranslate:"+translate);
+		return translate;
+	}
+
+	public static Translate getWordTranslate(){
 		EnWordTranslator.initDictPath(SDCardUtil.OfflineDicPath);
 		if(!EnWordTranslator.isInited()){
 			EnWordTranslator.init();
 		}
-		return EnWordTranslator.lookupNative(Setings.q);
+		if (EnWordTranslator.isInited()) {
+			return EnWordTranslator.lookupNative(Setings.q);
+		}
+		return null;
 	}
 
 	public static Translate getSentenceTranslate(){

@@ -3,7 +3,6 @@ package com.messi.languagehelper.util;
 import android.content.Context;
 import android.text.TextUtils;
 
-import cn.leancloud.AVObject;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.bean.ReadingCategory;
 import com.messi.languagehelper.box.BoxHelper;
@@ -17,6 +16,8 @@ import com.ximalaya.ting.android.opensdk.model.track.Track;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+
+import cn.leancloud.AVObject;
 
 public class DataUtil {
 
@@ -247,9 +248,9 @@ public class DataUtil {
         List<ReadingCategory> readingCategories = new ArrayList<ReadingCategory>();
         readingCategories.add(new ReadingCategory(context.getString(R.string.recommend), "recommend"));
         readingCategories.add(new ReadingCategory(context.getString(R.string.title_english_video), "video"));
-        readingCategories.add(new ReadingCategory(context.getString(R.string.xmly_album), "jingxuan"));
         readingCategories.add(new ReadingCategory(context.getString(R.string.title_course), "zhuanji"));
-//        readingCategories.add(new ReadingCategory(context.getString(R.string.title_xvideo_yys), "xvideo"));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.xmly_home), "jingxuan"));
+        readingCategories.add(new ReadingCategory(context.getString(R.string.title_xvideo_yys), "xvideo"));
         return readingCategories;
     }
 }

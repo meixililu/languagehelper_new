@@ -1,18 +1,22 @@
 package com.messi.languagehelper;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import com.google.android.material.tabs.TabLayout;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.fragment.app.Fragment;
+
+import com.google.android.material.tabs.TabLayout;
 import com.messi.languagehelper.bean.ReadingCategory;
 import com.messi.languagehelper.databinding.StudyTabFragmentBinding;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.DataUtil;
+import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.XimalayaUtil;
 
 import java.util.List;
@@ -21,13 +25,13 @@ public class StudyTabFragment extends BaseFragment {
 
     private StudyTabFragmentBinding binding;
     private List<ReadingCategory> categories;
-//    private int position;
-//    private SharedPreferences sp;
+    private int position;
+    private SharedPreferences sp;
     private Fragment studyFragment;
     private SubjectFragment subjectFragment;
     private BoutiquesFragment boutiquesFragment;
     private XmlyRecommendFragment mXmlyRecommendFragment;
-//    private Fragment mReadingFragment;
+    private Fragment mxVideoFragment;
 
     public static StudyTabFragment getInstance() {
         return new StudyTabFragment();
@@ -52,8 +56,8 @@ public class StudyTabFragment extends BaseFragment {
     }
 
     private void initTablayout() {
-//        sp = Setings.getSharedPreferences(getContext());
-//        position = sp.getInt(KeyUtil.StudyTabPosition,0);
+        sp = Setings.getSharedPreferences(getContext());
+        position = sp.getInt(KeyUtil.StudyTabPosition,0);
         binding.searchBtn.setOnClickListener(view -> onViewClicked(view));
         categories = DataUtil.getStudyTab(getContext());
         for (ReadingCategory item : categories) {
@@ -63,7 +67,7 @@ public class StudyTabFragment extends BaseFragment {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 showFragment(tab.getPosition());
-//                Setings.saveSharedPreferences(sp, KeyUtil.StudyTabPosition, tab.getPosition());
+                Setings.saveSharedPreferences(sp, KeyUtil.StudyTabPosition, tab.getPosition());
             }
 
             @Override
@@ -75,7 +79,7 @@ public class StudyTabFragment extends BaseFragment {
             public void onTabUnselected(TabLayout.Tab tab) {
             }
         });
-        binding.tablayout.getTabAt(0).select();
+        binding.tablayout.getTabAt(position).select();
     }
 
     private void showFragment(int position){
@@ -99,6 +103,13 @@ public class StudyTabFragment extends BaseFragment {
                 fragment = boutiquesFragment;
                 break;
             case 2:
+                if (subjectFragment == null) {
+                    subjectFragment = SubjectFragment.getInstance("",500);
+                    addFragment(subjectFragment);
+                }
+                fragment = subjectFragment;
+                break;
+            case 3:
                 if (mXmlyRecommendFragment == null) {
                     mXmlyRecommendFragment = XmlyRecommendFragment.newInstance();
                     mXmlyRecommendFragment.refreshByTags(XimalayaUtil.Category_english,"");
@@ -106,12 +117,13 @@ public class StudyTabFragment extends BaseFragment {
                 }
                 fragment = mXmlyRecommendFragment;
                 break;
-            case 3:
-                if (subjectFragment == null) {
-                    subjectFragment = SubjectFragment.getInstance("",500);
-                    addFragment(subjectFragment);
+
+            case 4:
+                if (mxVideoFragment == null) {
+                    mxVideoFragment = XVideoFragment.newInstance("英语");;
+                    addFragment(mxVideoFragment);
                 }
-                fragment = subjectFragment;
+                fragment = mxVideoFragment;
                 break;
         }
         getChildFragmentManager()
@@ -137,6 +149,9 @@ public class StudyTabFragment extends BaseFragment {
         }
         if (mXmlyRecommendFragment != null) {
             hideFragment(mXmlyRecommendFragment);
+        }
+        if (mxVideoFragment != null) {
+            hideFragment(mxVideoFragment);
         }
     }
 

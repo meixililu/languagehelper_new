@@ -5,10 +5,6 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,6 +15,11 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.iflytek.cloud.RecognizerListener;
 import com.iflytek.cloud.RecognizerResult;
@@ -229,6 +230,8 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
         }
         if(mBean != null){
             isEnglish = StringUtils.isEnglish(mBean.getEnglish());
+        }else {
+            finish();
         }
         isNeedDelete = getIntent().getBooleanExtra(KeyUtil.IsNeedDelete, false);
         mUserSpeakBeanList = new ArrayList<UserSpeakBean>();

@@ -96,6 +96,9 @@ public class XimalayaDetailActivity extends BaseActivity implements IXmPlayerSta
         seekbar.setOnSeekBarChangeListener(this);
         position = getIntent().getIntExtra(KeyUtil.PositionKey, 10);
         trackList = (List<Track>) Setings.dataMap.get(KeyUtil.List);
+        if (trackList == null || trackList.size() < position) {
+            finish();
+        }
         mXMLYDetailModel = new XMLYDetailModel(this);
         mXMLYDetailModel.setViews(adTitle,adImg,adClose,adBtn,xx_ad_layout,ad_layout,imgCover);
         currentTrack = trackList.get(position);
