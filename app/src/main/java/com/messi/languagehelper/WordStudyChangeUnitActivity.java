@@ -4,15 +4,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 
 import com.google.gson.Gson;
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.adapter.WordStudyUnitListAdapter;
 import com.messi.languagehelper.bean.WordListItem;
 import com.messi.languagehelper.databinding.WordStudyChangeUnitActivityBinding;
-import com.messi.languagehelper.event.UpdateWordStudyPlan;
 import com.messi.languagehelper.impl.AdapterListener;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.SaveData;
-
-import org.greenrobot.eventbus.EventBus;
 
 public class WordStudyChangeUnitActivity extends BaseActivity implements AdapterListener {
 
@@ -52,7 +50,7 @@ public class WordStudyChangeUnitActivity extends BaseActivity implements Adapter
     private void saveCourseId() {
         avObjects.setCourse_id(course_id);
         SaveData.saveDataAsJson(this, KeyUtil.WordStudyUnit, new Gson().toJson(avObjects));
-        EventBus.getDefault().post(new UpdateWordStudyPlan());
+        LiveEventBus.get(KeyUtil.UpdateWordStudyPlan).post("update");
     }
 
 }

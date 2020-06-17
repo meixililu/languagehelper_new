@@ -26,8 +26,8 @@ import com.iflytek.cloud.RecognizerListener;
 import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechRecognizer;
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.bean.BaiduOcrRoot;
-import com.messi.languagehelper.event.FinishEvent;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.impl.OrcResultListener;
 import com.messi.languagehelper.util.AVAnalytics;
@@ -41,9 +41,6 @@ import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
-
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import permissions.dispatcher.NeedsPermission;
 import permissions.dispatcher.OnPermissionDenied;
@@ -151,9 +148,8 @@ public class MainFragmentOld extends BaseFragment implements OnClickListener, Or
     }
 
     private void init() {
-        isRegisterBus = true;
+        liveEventBus();
         recognizer = SpeechRecognizer.createRecognizer(getContext(), null);
-
         input_et = (EditText) view.findViewById(R.id.input_et);
         photo_tran_btn = (FrameLayout) view.findViewById(R.id.photo_tran_btn);
         cb_speak_language_ch = (TextView) view.findViewById(R.id.cb_speak_language_ch);
@@ -351,6 +347,12 @@ public class MainFragmentOld extends BaseFragment implements OnClickListener, Or
         }
     }
 
+    public void liveEventBus(){
+        LiveEventBus.get(KeyUtil.onTranDictFinish).observe(getViewLifecycleOwner(), result -> {
+            autoClearAndautoPlay();
+        });
+    }
+
     public void autoClearAndautoPlay() {
         if (PlayUtil.getSP().getBoolean(KeyUtil.AutoClearInput, true)) {
             input_et.setText("");
@@ -471,12 +473,6 @@ public class MainFragmentOld extends BaseFragment implements OnClickListener, Or
             recognizer.stopListening();
             recognizer = null;
         }
-    }
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(FinishEvent event){
-        LogUtil.DefalutLog("FinishEvent");
-        autoClearAndautoPlay();
     }
 
     @Override

@@ -7,18 +7,18 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
-import androidx.core.content.FileProvider;
 import android.view.View;
 
+import androidx.core.content.FileProvider;
+
 import com.alibaba.fastjson.JSON;
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.bean.YoudaoPhotoBean;
 import com.messi.languagehelper.dialog.OCRDialog;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.io.File;
 import java.io.IOException;
@@ -131,7 +131,7 @@ public class OrcSearchHelper {
                     if(JsonParser.isJson(responseString)){
                         LogUtil.DefalutLog("YoudaoOCR:"+responseString);
                         YoudaoPhotoBean bean = JSON.parseObject(responseString,YoudaoPhotoBean.class);
-                        EventBus.getDefault().post(bean);
+                        LiveEventBus.get(KeyUtil.YoudaoPhotoBean, YoudaoPhotoBean.class).post(bean);
                     }else{
                         showToast(context.getResources().getString(R.string.server_error));
                     }

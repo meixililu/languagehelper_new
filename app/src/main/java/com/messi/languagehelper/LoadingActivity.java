@@ -10,23 +10,20 @@ import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.os.Handler;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.messi.languagehelper.ViewModel.KaipingModel;
-import com.messi.languagehelper.event.KaipingPageEvent;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AppUpdateUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.Setings;
 import com.umeng.analytics.MobclickAgent;
-
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +53,7 @@ public class LoadingActivity extends AppCompatActivity {
             setContentView(R.layout.loading_activity);
             ButterKnife.bind(this);
 
-            EventBus.getDefault().register(this);
+//            liveEventBus();
             AppUpdateUtil.runCheckUpdateTask(this);
             init();
         } catch (Exception e) {
@@ -79,12 +76,7 @@ public class LoadingActivity extends AppCompatActivity {
         initPermissions();
         if(!mSharedPreferences.getBoolean(KeyUtil.PrivacyKey,false)){
             Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.PrivacyKey,true);
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    startPrivacyActivity();
-                }
-            },1000);
+            new Handler().postDelayed(() -> startPrivacyActivity(),1000);
         }else {
             mKaipingModel = new KaipingModel(this);
             mKaipingModel.setViews(ad_source,skip_view,ad_img,splash_container);
@@ -98,12 +90,11 @@ public class LoadingActivity extends AppCompatActivity {
         this.finish();
     }
 
-    @Subscribe
-    public void EventBusEvent(KaipingPageEvent event){
-        if(event.getMsg().equals("finish")){
-            finish();
-        }
-    }
+//    public void liveEventBus(){
+//        LiveEventBus.get(KeyUtil.LoadingPageFinish).observe(this, result -> {
+//            finish();
+//        });
+//    }
 
     //防止用户返回键退出APP
     @Override
@@ -163,14 +154,6 @@ public class LoadingActivity extends AppCompatActivity {
                 }
             }
         },3000);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if(EventBus.getDefault().isRegistered(this)) {
-            EventBus.getDefault().unregister(this);
-        }
     }
 
 }

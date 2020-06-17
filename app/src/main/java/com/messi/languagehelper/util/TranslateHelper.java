@@ -58,7 +58,7 @@ public class TranslateHelper {
         initTranOrder(sp);
     }
 
-    public void Translate(OnTranslateFinishListener listener) throws Exception{
+    public void Translate(OnTranslateFinishListener listener){
         this.listener = listener;
         tranOrder = OrderTran.split(",");
         OrderTranCounter = 0;

@@ -15,7 +15,6 @@ import com.messi.languagehelper.R;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Dictionary;
 import com.messi.languagehelper.box.WordDetailListItem;
-import com.messi.languagehelper.impl.DicHelperListener;
 
 import java.util.regex.Pattern;
 
@@ -27,10 +26,9 @@ import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
 public class DictionaryHelper {
 
-    public static void addDicContent(Context mContext, LinearLayout parentsLayout, Dictionary result,
-                                     DicHelperListener listener){
+    public static void addDicContent(Context mContext, LinearLayout parentsLayout, Dictionary result){
         parentsLayout.removeAllViews();
-        addTitle(mContext,parentsLayout,result,listener);
+        addTitle(mContext,parentsLayout,result);
         if(result != null){
             String[] re_contents = result.getResult().split("\n\n");
             for (int i = 0;i<re_contents.length; i++){
@@ -40,10 +38,9 @@ public class DictionaryHelper {
         getListFooterView(mContext,parentsLayout);
     }
 
-    public static void addDicContentForDialog(Context mContext, LinearLayout parentsLayout, Dictionary result,
-                                     DicHelperListener listener){
+    public static void addDicContentForDialog(Context mContext, LinearLayout parentsLayout, Dictionary result){
         parentsLayout.removeAllViews();
-        addTitle(mContext,parentsLayout,result,listener);
+        addTitle(mContext,parentsLayout,result);
         if(result != null){
             String[] re_contents = result.getResult().split("\n\n");
             if(re_contents.length > 0){
@@ -57,7 +54,7 @@ public class DictionaryHelper {
     }
 
     private static void addTitle(final Context mContext, LinearLayout parentsLayout,
-                                 final Dictionary result,final DicHelperListener listener){
+                                 final Dictionary result){
         LayoutInflater inflater = LayoutInflater.from(mContext);
         View view = inflater.inflate(R.layout.dic_title_layout, null);
         FrameLayout dic_title_layout = (FrameLayout) view.findViewById(R.id.dic_title_layout);
@@ -69,18 +66,8 @@ public class DictionaryHelper {
             }
         }
         setIsCollected(collect_btn, result);
-        collect_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                updateCollectedStatus(mContext,collect_btn,result);
-            }
-        });
-        dic_title_layout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MyPlayer.getInstance(mContext).start(result.getWord_name());
-            }
-        });
+        collect_btn.setOnClickListener(view1 -> updateCollectedStatus(mContext,collect_btn,result));
+        dic_title_layout.setOnClickListener(view12 -> MyPlayer.getInstance(mContext).start(result.getWord_name()));
         parentsLayout.addView(view,new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
     }
 
@@ -114,12 +101,7 @@ public class DictionaryHelper {
             }
         }
         final String playContent = content;
-        dic_content_title_layout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MyPlayer.getInstance(mContext).start(playContent);
-            }
-        });
+        dic_content_title_layout.setOnClickListener(view1 -> MyPlayer.getInstance(mContext).start(playContent));
         parentsLayout.addView(view,new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
     }
 

@@ -9,9 +9,6 @@ import android.media.SoundPool;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import androidx.appcompat.app.AlertDialog;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.View;
@@ -19,14 +16,18 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.gson.Gson;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SynthesizerListener;
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.adapter.RcWordStudyCiYiXuanCiAdapter;
 import com.messi.languagehelper.bean.WordListItem;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.WordDetailListItem;
-import com.messi.languagehelper.event.UpdateWordStudyPlan;
 import com.messi.languagehelper.impl.OnFinishListener;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.MD5;
@@ -37,8 +38,6 @@ import com.messi.languagehelper.util.SaveData;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -439,7 +438,7 @@ public class WordStudyFightActivity extends BaseActivity implements OnFinishList
                 wordListItem.setCourse_id(wordListItem.getCourse_id()+1);
                 SaveData.saveDataAsJson(this, KeyUtil.WordStudyUnit, new Gson().toJson(wordListItem));
             }
-            EventBus.getDefault().post(new UpdateWordStudyPlan());
+            LiveEventBus.get(KeyUtil.UpdateWordStudyPlan).post("update");
         }
     }
 

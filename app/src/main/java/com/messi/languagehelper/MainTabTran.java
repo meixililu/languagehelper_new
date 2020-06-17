@@ -14,32 +14,25 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.adapter.RcTranslateListAdapter;
 import com.messi.languagehelper.bean.RespoData;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Record;
 import com.messi.languagehelper.databinding.MainTabTranBinding;
-import com.messi.languagehelper.event.FinishEvent;
-import com.messi.languagehelper.event.TranAndDicRefreshEvent;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.ViewUtil;
 import com.messi.languagehelper.viewmodels.TranDictViewModel;
 import com.messi.languagehelper.views.DividerItemDecoration;
 
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
-
 public class MainTabTran extends BaseFragment {
 
     private Record currentDialogBean;
     private RcTranslateListAdapter mAdapter;
     private LinearLayoutManager mLinearLayoutManager;
-    private String lastSearch;
     private View view;
     private MainTabTranBinding binding;
     private TranDictViewModel mViewModel;
@@ -74,15 +67,15 @@ public class MainTabTran extends BaseFragment {
     }
 
     private void init() {
-        isRegisterBus = true;
+        liveEventBus();
         mViewModel.initSample();
         loadData();
-        mAdapter = new RcTranslateListAdapter(mViewModel.getRepository().beans);
+        mAdapter = new RcTranslateListAdapter(mViewModel.getRepository().trans);
         binding.recentUsedLv.setHasFixedSize(true);
         mLinearLayoutManager = new LinearLayoutManager(getContext());
         binding.recentUsedLv.setLayoutManager(mLinearLayoutManager);
         binding.recentUsedLv.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.abc_list_divider_mtrl_alpha)));
-        mAdapter.setItems(mViewModel.getRepository().beans);
+        mAdapter.setItems(mViewModel.getRepository().trans);
         mAdapter.setFooter(new Object());
         binding.recentUsedLv.setAdapter(mAdapter);
         setListOnScrollListener();
@@ -105,10 +98,9 @@ public class MainTabTran extends BaseFragment {
 
     private void initLiveData(){
         mViewModel.isRefreshTran().observe(getViewLifecycleOwner(), isNeedRefresh -> {
-            mAdapter.notifyDataSetChanged();
-            onSwipeRefreshLayoutFinish();
+            refresh();
         });
-        mViewModel.getRespoData().observe(getViewLifecycleOwner(), mResult -> {
+        mViewModel.getTranRespoData().observe(getViewLifecycleOwner(), mResult -> {
             showResult(mResult);
         });
     }
@@ -119,7 +111,6 @@ public class MainTabTran extends BaseFragment {
 
     private void translateController(){
         showProgressbar();
-        lastSearch = Setings.q;
         mViewModel.tranDict();
     }
 
@@ -141,13 +132,14 @@ public class MainTabTran extends BaseFragment {
     }
 
     public void autoClearAndautoPlay() {
-        EventBus.getDefault().post(new FinishEvent());
+        LiveEventBus.get(KeyUtil.onTranDictFinish).post("");
         if (sp.getBoolean(KeyUtil.AutoPlayResult, false)) {
             delayAutoPlay();
         }
     }
 
     public void refresh() {
+        onSwipeRefreshLayoutFinish();
         if (mAdapter != null) {
             mAdapter.notifyDataSetChanged();
         }
@@ -158,7 +150,7 @@ public class MainTabTran extends BaseFragment {
             View mView = binding.recentUsedLv.getChildAt(0);
             final FrameLayout record_answer_cover = (FrameLayout) mView.findViewById(R.id.record_answer_cover);
             final FrameLayout record_question_cover = (FrameLayout) mView.findViewById(R.id.record_question_cover);
-            Record item = mViewModel.getRepository().beans.get(0);
+            Record item = mViewModel.getRepository().trans.get(0);
             if (!TextUtils.isEmpty(item.getPh_en_mp3())) {
                 if(record_question_cover != null){
                     record_question_cover.post(new Runnable() {
@@ -191,10 +183,10 @@ public class MainTabTran extends BaseFragment {
         translateController();
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(TranAndDicRefreshEvent event){
-        LogUtil.DefalutLog("---TranAndDicRefreshEvent---onEvent");
-        mViewModel.loadTranData(true);
+    public void liveEventBus(){
+        LiveEventBus.get(KeyUtil.TranAndDicRefreshEvent).observe(getViewLifecycleOwner(), result -> {
+            mViewModel.loadTranData(true);
+        });
     }
 
     private void delayAutoPlay(){

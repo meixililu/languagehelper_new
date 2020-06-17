@@ -10,12 +10,12 @@ import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechRecognizer;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.event.ProgressEvent;
 import com.messi.languagehelper.task.PublicTask;
 import com.messi.languagehelper.task.PublicTask.PublicTaskListener;
 
-import org.greenrobot.eventbus.EventBus;
 
 public class XFUtil {
 	
@@ -195,12 +195,12 @@ public class XFUtil {
 
 			@Override
 			public void onSpeakBegin() {
-				EventBus.getDefault().post(new ProgressEvent(1));
+				LiveEventBus.get(KeyUtil.DictProgressEvent, ProgressEvent.class).post(new ProgressEvent(1));
 			}
 
 			@Override
 			public void onCompleted(SpeechError arg0) {
-				EventBus.getDefault().post(new ProgressEvent(1));
+				LiveEventBus.get(KeyUtil.DictProgressEvent, ProgressEvent.class).post(new ProgressEvent(1));
 				if (arg0 != null) {
 					LogUtil.DefalutLog(arg0.getErrorDescription());
 				}
@@ -209,7 +209,7 @@ public class XFUtil {
 			@Override
 			public void onBufferProgress(int arg0, int arg1, int arg2, String arg3) {
 				if (arg0 < 10) {
-					EventBus.getDefault().post(new ProgressEvent(0));
+					LiveEventBus.get(KeyUtil.DictProgressEvent, ProgressEvent.class).post(new ProgressEvent(0));
 				}
 			}
 

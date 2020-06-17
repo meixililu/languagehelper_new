@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.CheckBox;
@@ -12,21 +11,22 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SynthesizerListener;
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Dictionary;
-import com.messi.languagehelper.event.TranAndDicRefreshEvent;
 import com.messi.languagehelper.util.AVAnalytics;
+import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.MD5;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
@@ -125,7 +125,7 @@ public class RcCollectDictionaryListItemViewHolder extends RecyclerView.ViewHold
             Dictionary mBean = mBeans.remove(position);
             mAdapter.notifyItemRemoved(position);
             BoxHelper.remove(mBean);
-            EventBus.getDefault().post(new TranAndDicRefreshEvent());
+            LiveEventBus.get(KeyUtil.TranAndDicRefreshEvent).post("reload");
             ToastUtil.diaplayMesShort(context, context.getResources().getString(R.string.dele_success));
             AVAnalytics.onEvent(context, "tab2_delete_btn");
         } catch (Exception e) {
@@ -138,7 +138,7 @@ public class RcCollectDictionaryListItemViewHolder extends RecyclerView.ViewHold
         mAdapter.notifyItemRemoved(position);
         mBean.setIscollected("0");
         BoxHelper.update(mBean);
-        EventBus.getDefault().post(new TranAndDicRefreshEvent());
+        LiveEventBus.get(KeyUtil.TranAndDicRefreshEvent).post("reload");
         ToastUtil.diaplayMesShort(context, context.getResources().getString(R.string.favorite_cancle));
     }
 

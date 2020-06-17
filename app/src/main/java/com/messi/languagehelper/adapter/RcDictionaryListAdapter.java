@@ -1,10 +1,11 @@
 package com.messi.languagehelper.adapter;
 
 import android.content.Context;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.karumi.headerrecyclerview.HeaderRecyclerViewAdapter;
 import com.messi.languagehelper.R;
@@ -16,7 +17,7 @@ import java.util.List;
 
 public class RcDictionaryListAdapter extends HeaderRecyclerViewAdapter<RecyclerView.ViewHolder, Object, Dictionary, Object> {
 
-	public Context context;
+	private Context context;
 	private List<Dictionary> beans;
 	private DictionaryTranslateListener mDictionaryTranslateListener;
 

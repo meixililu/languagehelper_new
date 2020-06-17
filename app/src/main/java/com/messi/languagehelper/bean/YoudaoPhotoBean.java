@@ -3,13 +3,15 @@
   */
 package com.messi.languagehelper.bean;
 
+import com.jeremyliao.liveeventbus.core.LiveEvent;
+
 /**
  * Auto-generated: 2019-04-19 22:45:5
  *
  * @author bejson.com (i@bejson.com)
  * @website http://www.bejson.com/java2pojo/
  */
-public class YoudaoPhotoBean {
+public class YoudaoPhotoBean implements LiveEvent {
 
     private YoudaoPhotoData data;
     private String errorCode;

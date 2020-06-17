@@ -6,11 +6,12 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Record;
 import com.messi.languagehelper.databinding.DialogTranslateResultBinding;
-import com.messi.languagehelper.event.TranAndDicRefreshEvent;
+import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.MyPlayer;
 import com.messi.languagehelper.util.NetworkUtil;
@@ -18,8 +19,6 @@ import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.TranslateUtil;
 import com.youdao.sdk.ydtranslate.Translate;
-
-import org.greenrobot.eventbus.EventBus;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
@@ -133,7 +132,7 @@ public class TranslateResultDialog extends Dialog {
 				mBean.setEnglish(sb.substring(0, sb.lastIndexOf("\n")));
 				binding.desTv.setText(mBean.getEnglish());
 				BoxHelper.insert(mBean);
-				EventBus.getDefault().post(new TranAndDicRefreshEvent());
+				LiveEventBus.get(KeyUtil.TranAndDicRefreshEvent).post("reload");
 			}
 		}else{
 			ToastUtil.diaplayMesShort(context,"没找到离线词典，请到设置页面下载！");
@@ -156,7 +155,7 @@ public class TranslateResultDialog extends Dialog {
 			}else {
 				binding.desTv.setText(mRecord.getEnglish());
 				BoxHelper.insert(mRecord);
-				EventBus.getDefault().post(new TranAndDicRefreshEvent());
+				LiveEventBus.get(KeyUtil.TranAndDicRefreshEvent).post("reload");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

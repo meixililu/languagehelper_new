@@ -1,11 +1,12 @@
 package com.messi.languagehelper.adapter;
 
 import android.content.Context;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.box.BoxHelper;
@@ -83,40 +84,19 @@ public class RcDictionaryListItemViewHolder extends RecyclerView.ViewHolder {
         } else {
             collected_cb.setChecked(true);
         }
-        record_question_cover.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                Setings.copy(context,mBean.getWord_name());
-                return true;
-            }
+        record_question_cover.setOnLongClickListener(v -> {
+            Setings.copy(context,mBean.getWord_name());
+            return true;
         });
-        record_answer_cover.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(mDictionaryTranslateListener != null){
-                    mDictionaryTranslateListener.showItem(mBean);
-                }
+        record_answer_cover.setOnClickListener(v -> {
+            if(mDictionaryTranslateListener != null){
+                mDictionaryTranslateListener.showItem(mBean);
             }
         });
         final String finalResult = result;
-        copy_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Setings.copy(context,mBean.getWord_name() + "\n" + finalResult);
-            }
-        });
-        collected_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                updateCollectedStatus(mBean);
-            }
-        });
-        delete_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                deleteEntity(getAdapterPosition());
-            }
-        });
+        copy_btn.setOnClickListener(v -> Setings.copy(context,mBean.getWord_name() + "\n" + finalResult));
+        collected_btn.setOnClickListener(v -> updateCollectedStatus(mBean));
+        delete_btn.setOnClickListener(v -> deleteEntity(getAdapterPosition()));
     }
 
     public void deleteEntity(int position) {

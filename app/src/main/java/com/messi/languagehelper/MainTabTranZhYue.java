@@ -10,13 +10,12 @@ import android.widget.FrameLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.adapter.RcTranZhYueListAdapter;
 import com.messi.languagehelper.bean.TranResultRoot;
 import com.messi.languagehelper.bean.TranYueyuResult;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.TranResultZhYue;
-import com.messi.languagehelper.event.FinishEvent;
-import com.messi.languagehelper.event.TranAndDicRefreshEvent;
 import com.messi.languagehelper.httpservice.RetrofitApiService;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.KeyUtil;
@@ -29,10 +28,6 @@ import com.messi.languagehelper.util.SignUtil;
 import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.views.DividerItemDecoration;
-
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,7 +65,7 @@ public class MainTabTranZhYue extends BaseFragment {
     }
 
     private void init(View view) {
-        isRegisterBus = true;
+        liveEventBus();
         recent_used_lv = (RecyclerView) view.findViewById(R.id.recent_used_lv);
         beans = new ArrayList<TranResultZhYue>();
         loadData();
@@ -195,7 +190,7 @@ public class MainTabTranZhYue extends BaseFragment {
     }
 
     public void autoClearAndautoPlay() {
-        EventBus.getDefault().post(new FinishEvent());
+        LiveEventBus.get(KeyUtil.onTranDictFinish).post("");
         if (PlayUtil.getSP().getBoolean(KeyUtil.AutoPlayResult, false)) {
             delayAutoPlay();
         }
@@ -234,10 +229,10 @@ public class MainTabTranZhYue extends BaseFragment {
         }
     }
 
-    @Subscribe(threadMode = ThreadMode.BACKGROUND)
-    public void onEvent(TranAndDicRefreshEvent event){
-        reloadData();
-        LogUtil.DefalutLog("---TranAndDicRefreshEvent---onEvent");
+    public void liveEventBus(){
+        LiveEventBus.get(KeyUtil.TranAndDicRefreshEvent).observe(getViewLifecycleOwner(), result -> {
+            reloadData();
+        });
     }
 
     private void reloadData() {

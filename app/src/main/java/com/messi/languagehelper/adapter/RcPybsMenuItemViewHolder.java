@@ -1,14 +1,14 @@
 package com.messi.languagehelper.adapter;
 
 import android.content.Context;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.messi.languagehelper.R;
-import com.messi.languagehelper.event.PybsEvent;
+import androidx.recyclerview.widget.RecyclerView;
 
-import org.greenrobot.eventbus.EventBus;
+import com.jeremyliao.liveeventbus.LiveEventBus;
+import com.messi.languagehelper.R;
+import com.messi.languagehelper.util.KeyUtil;
 
 /**
  * Created by luli on 10/23/16.
@@ -30,16 +30,11 @@ public class RcPybsMenuItemViewHolder extends RecyclerView.ViewHolder {
     public void render(final String code) {
         name.setTextColor(context.getResources().getColor(R.color.load_blue));
         name.setText( code );
-        cover.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                onItemClick(code);
-            }
-        });
+        cover.setOnClickListener(view -> onItemClick(code));
     }
 
     private void onItemClick(String code){
-        EventBus.getDefault().post(new PybsEvent(code));
+        LiveEventBus.get(KeyUtil.ChPybsType).post(code);
     }
 
 }

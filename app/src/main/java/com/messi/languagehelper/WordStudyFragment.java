@@ -3,18 +3,17 @@ package com.messi.languagehelper;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import cn.leancloud.AVObject;
-import cn.leancloud.AVQuery;
+import androidx.appcompat.app.AlertDialog;
+
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.bean.WordListItem;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.WordDetailListItem;
 import com.messi.languagehelper.databinding.WordHomeFragmentBinding;
-import com.messi.languagehelper.event.UpdateWordStudyPlan;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.ChangeDataTypeUtil;
 import com.messi.languagehelper.util.KeyUtil;
@@ -22,14 +21,12 @@ import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.SaveData;
 
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
 import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -54,7 +51,7 @@ public class WordStudyFragment extends BaseFragment {
 	}
 	
 	private void init(){
-		isRegisterBus = true;
+		liveEventBus();
 		itemList = new ArrayList<WordDetailListItem>();
 		binding.myAwesomeToolbar.setTitle(getString(R.string.title_words));
 		binding.startToStudy.setOnClickListener(view -> toWordStudyDetailActivity());
@@ -132,12 +129,9 @@ public class WordStudyFragment extends BaseFragment {
 
 	private void getDataTask() {
 		showProgressbar();
-		Observable.create(new ObservableOnSubscribe<String>() {
-			@Override
-			public void subscribe(ObservableEmitter<String> e) throws Exception {
-				loadData();
-				e.onComplete();
-			}
+		Observable.create((ObservableOnSubscribe<String>) e -> {
+			loadData();
+			e.onComplete();
 		})
 		.subscribeOn(Schedulers.io())
 		.observeOn(AndroidSchedulers.mainThread())
@@ -196,11 +190,12 @@ public class WordStudyFragment extends BaseFragment {
 		}
 	}
 
-	@Subscribe(threadMode = ThreadMode.MAIN)
-	public void onEvent(UpdateWordStudyPlan event){
-		LogUtil.DefalutLog("---UpdateWordStudyPlan---onEvent");
-		setCourseName();
-		getDataTask();
+	public void liveEventBus(){
+		LiveEventBus.get(KeyUtil.UpdateWordStudyPlan).observe(getViewLifecycleOwner(), result -> {
+			LogUtil.DefalutLog("---UpdateWordStudyPlan---onEvent");
+			setCourseName();
+			getDataTask();
+		});
 	}
 
 	@Override

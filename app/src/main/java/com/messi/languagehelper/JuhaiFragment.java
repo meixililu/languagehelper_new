@@ -7,21 +7,20 @@ import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.adapter.RcJuhaiListAdapter;
 import com.messi.languagehelper.bean.TranLijuResult;
 import com.messi.languagehelper.bean.TranResultRoot;
 import com.messi.languagehelper.databinding.FragmentJuhaiBinding;
-import com.messi.languagehelper.event.FinishEvent;
 import com.messi.languagehelper.httpservice.RetrofitApiService;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
+import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.SignUtil;
 import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.ViewUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -109,7 +108,7 @@ public class JuhaiFragment extends BaseFragment {
             beans.clear();
             beans.addAll(juhaiBeans);
             mAdapter.notifyDataSetChanged();
-            EventBus.getDefault().post(new FinishEvent());
+            LiveEventBus.get(KeyUtil.onTranDictFinish).post("");
         }else {
             ToastUtil.diaplayMesShort(getContext(),"未找到相关例句");
         }

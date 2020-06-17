@@ -16,6 +16,7 @@ import com.messi.languagehelper.box.Dictionary;
 import com.messi.languagehelper.http.BgCallback;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.httpservice.RetrofitApiService;
+import com.messi.languagehelper.impl.OnDictFinishListener;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -50,10 +51,10 @@ public class DictHelper {
     public static final String baidu = "baidu";
     private int OrderTranCounter = 0;
     private String[] tranOrder;
-    private Handler mHandler;
+    private OnDictFinishListener mListener;
 
-    public void Translate(Handler mHandler){
-        this.mHandler = mHandler;
+    public void Translate(OnDictFinishListener mListener){
+        this.mListener = mListener;
         tranOrder = OrderDic.split(",");
         OrderTranCounter = 0;
         Tran_Task();
@@ -98,31 +99,29 @@ public class DictHelper {
     }
 
     private void Tran_Task() {
-        Observable.create(new ObservableOnSubscribe<Dictionary>() {
-            @Override
-            public void subscribe(ObservableEmitter<Dictionary> e) throws Exception {
-                DoTranslateByMethod(e);
-            }
-        })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Dictionary>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
+        Observable.create((ObservableOnSubscribe<Dictionary>) e -> DoTranslateByMethod(e))
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(new Observer<Dictionary>() {
+                @Override
+                public void onSubscribe(Disposable d) {
+                }
+                @Override
+                public void onNext(Dictionary mResult) {
+                    if (mListener != null) {
+                        mListener.OnFinish(mResult);
                     }
-                    @Override
-                    public void onNext(Dictionary mResult) {
-                        Setings.dataMap.put(KeyUtil.DataMapKey, mResult);
-                        sendMessage(mHandler,1);
+                }
+                @Override
+                public void onError(Throwable e) {
+                    if (mListener != null) {
+                        mListener.OnFinish(null);
                     }
-                    @Override
-                    public void onError(Throwable e) {
-                        sendMessage(mHandler,0);
-                    }
-                    @Override
-                    public void onComplete() {
-                    }
-                });
+                }
+                @Override
+                public void onComplete() {
+                }
+            });
     }
 
     private void Tran_Youdao_Web(ObservableEmitter<Dictionary> e) {

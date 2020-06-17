@@ -1,10 +1,12 @@
 package com.messi.languagehelper.event;
 
+import com.jeremyliao.liveeventbus.core.LiveEvent;
+
 /**
  * Created by luli on 24/02/2018.
  */
 
-public class SubjectSubscribeEvent {
+public class SubjectSubscribeEvent implements LiveEvent {
 
     private String objectID;
 

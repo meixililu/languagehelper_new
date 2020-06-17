@@ -62,7 +62,21 @@ public class KeyUtil {
 
 	public static final String Type = "Type";
 
-	public static final String OrderBy = "OrderBy";
+	public static final String YoudaoPhotoBean = "YoudaoPhotoBean";
+
+	public static final String onTranDictFinish = "onTranDictFinish";
+
+	public static final String CaricatureEventAddBookshelf = "CaricatureEventAddBookshelf";
+
+	public static final String UpdateWordStudyPlan = "UpdateWordStudyPlan";
+
+	public static final String TranAndDicRefreshEvent = "TranAndDicRefreshEvent";
+
+	public static final String DictProgressEvent = "DictProgressEvent";
+
+	public static final String SubjectSubscribeEvent = "SubjectSubscribeEvent";
+
+	public static final String ChPybsType = "ChPybsType";
 
 	public static final String List = "List";
 

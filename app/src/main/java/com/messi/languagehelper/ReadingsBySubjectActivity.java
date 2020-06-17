@@ -1,13 +1,15 @@
 package com.messi.languagehelper;
 
-import androidx.lifecycle.ViewModelProviders;
 import android.os.Bundle;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.iflytek.voiceads.conn.NativeDataRef;
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.adapter.RcReadingListAdapter;
 import com.messi.languagehelper.bean.RespoADData;
 import com.messi.languagehelper.bean.RespoData;
@@ -24,8 +26,6 @@ import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.viewmodels.ReadingListViewModel;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
-
-import org.greenrobot.eventbus.EventBus;
 
 public class ReadingsBySubjectActivity extends BaseActivity implements View.OnClickListener {
 
@@ -48,7 +48,7 @@ public class ReadingsBySubjectActivity extends BaseActivity implements View.OnCl
 	}
 
 	private void initViews(){
-		viewModel = ViewModelProviders.of(this).get(ReadingListViewModel.class);
+		viewModel = new ViewModelProvider(this).get(ReadingListViewModel.class);
 		subjectName = getIntent().getStringExtra(KeyUtil.SubjectName);
 		mReadingSubject = getIntent().getParcelableExtra(KeyUtil.ObjectKey);
 		objectId = mReadingSubject.getObjectId();
@@ -196,7 +196,7 @@ public class ReadingsBySubjectActivity extends BaseActivity implements View.OnCl
 				ToastUtil.diaplayMesShort(this,"取消收藏");
 				event.setType("unsubscribe");
             }
-			EventBus.getDefault().post(event);
+			LiveEventBus.get(KeyUtil.SubjectSubscribeEvent,SubjectSubscribeEvent.class).post(event);
 			binding.volumeImg.setTag(tag);
         }
     }

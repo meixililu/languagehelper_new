@@ -2,6 +2,9 @@
   * Copyright 2019 bejson.com 
   */
 package com.messi.languagehelper.bean;
+
+import com.jeremyliao.liveeventbus.core.LiveEvent;
+
 import java.util.List;
 
 /**
@@ -10,7 +13,7 @@ import java.util.List;
  * @author bejson.com (i@bejson.com)
  * @website http://www.bejson.com/java2pojo/
  */
-public class YoudaoPhotoData {
+public class YoudaoPhotoData implements LiveEvent {
 
     private List<YoudaoPhotouestions> questions;
     private String text;

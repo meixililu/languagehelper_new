@@ -5,9 +5,6 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.google.android.material.tabs.TabLayout;
-import androidx.appcompat.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,12 +18,16 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+
+import com.google.android.material.tabs.TabLayout;
 import com.iflytek.cloud.RecognizerListener;
 import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechRecognizer;
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.bean.BaiduOcrRoot;
-import com.messi.languagehelper.event.FinishEvent;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.impl.OrcResultListener;
@@ -41,9 +42,6 @@ import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFUtil;
-
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import permissions.dispatcher.NeedsPermission;
 import permissions.dispatcher.OnPermissionDenied;
@@ -155,7 +153,7 @@ public class MainFragmentYYS extends BaseFragment implements OnClickListener, Or
     }
 
     private void init() {
-        isRegisterBus = true;
+        liveEventBus();
         recognizer = SpeechRecognizer.createRecognizer(getContext(), null);
 
         input_et = (EditText) view.findViewById(R.id.input_et);
@@ -489,10 +487,10 @@ public class MainFragmentYYS extends BaseFragment implements OnClickListener, Or
         }
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(FinishEvent event){
-        LogUtil.DefalutLog("FinishEvent");
-        autoClearAndautoPlay();
+    public void liveEventBus(){
+        LiveEventBus.get(KeyUtil.onTranDictFinish).observe(getViewLifecycleOwner(), result -> {
+            autoClearAndautoPlay();
+        });
     }
 
     @Override

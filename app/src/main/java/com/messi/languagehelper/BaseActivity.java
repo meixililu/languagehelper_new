@@ -9,10 +9,6 @@ import android.content.SharedPreferences;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.MenuItem;
@@ -21,14 +17,17 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ProgressBar;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener;
+
 import com.messi.languagehelper.util.AudioTrackUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.ScreenUtil;
 import com.messi.languagehelper.util.Setings;
 import com.umeng.analytics.MobclickAgent;
-
-import org.greenrobot.eventbus.EventBus;
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -38,7 +37,6 @@ public class BaseActivity extends AppCompatActivity {
     public ProgressBar mProgressbar;
     public SwipeRefreshLayout mSwipeRefreshLayout;
     private View mScrollable;
-    public boolean isRegisterBus;
     private View rootView;
 
     BroadcastReceiver activityReceiver = new BroadcastReceiver() {
@@ -267,34 +265,6 @@ public class BaseActivity extends AppCompatActivity {
     protected void showIME() {
         final InputMethodManager imm = (InputMethodManager) this.getSystemService(Activity.INPUT_METHOD_SERVICE);
         imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, InputMethodManager.HIDE_NOT_ALWAYS);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        try {
-            if(isRegisterBus){
-                if(!EventBus.getDefault().isRegistered(this)){
-                    EventBus.getDefault().register(this);
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        try {
-            if (isRegisterBus) {
-                if(EventBus.getDefault().isRegistered(this)){
-                    EventBus.getDefault().unregister(this);
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     @Override

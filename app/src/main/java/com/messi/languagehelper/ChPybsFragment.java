@@ -10,16 +10,14 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.adapter.RcPybsListAdapter;
 import com.messi.languagehelper.adapter.RcPybsMenuAdapter;
-import com.messi.languagehelper.event.PybsEvent;
 import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
-
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -78,7 +76,7 @@ public class ChPybsFragment extends BaseFragment {
     }
 
     private void initViews() {
-        isRegisterBus = true;
+        liveEventBus();
         mList = new ArrayList<AVObject>();
         menuAdapter = new RcPybsMenuAdapter();
         if(!TextUtils.isEmpty(type) && pinyin.equals(type)){
@@ -178,14 +176,15 @@ public class ChPybsFragment extends BaseFragment {
         }));
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(PybsEvent scode){
-        if("全部".equals(scode.getCode())){
-            this.code = "";
-        }else {
-            this.code = scode.getCode();
-        }
-        onSwipeRefreshLayoutRefresh();
+    public void liveEventBus(){
+        LiveEventBus.get(KeyUtil.ChPybsType,String.class).observe(getViewLifecycleOwner(), result -> {
+            if("全部".equals(result)){
+                this.code = "";
+            }else {
+                this.code = result;
+            }
+            onSwipeRefreshLayoutRefresh();
+        });
     }
 
     private void hideFooterview(){

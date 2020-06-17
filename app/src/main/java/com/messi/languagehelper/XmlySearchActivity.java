@@ -1,7 +1,6 @@
 package com.messi.languagehelper;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Gravity;
@@ -26,7 +25,6 @@ import com.ximalaya.ting.android.opensdk.datatrasfer.IDataCallBack;
 import com.ximalaya.ting.android.opensdk.model.word.HotWord;
 import com.ximalaya.ting.android.opensdk.model.word.HotWordList;
 
-import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -40,6 +38,8 @@ import cn.leancloud.AVObject;
 import cn.leancloud.AVQuery;
 import cn.leancloud.callback.FindCallback;
 import cn.leancloud.convertor.ObserverBuilder;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 public class XmlySearchActivity extends BaseActivity {
 
@@ -62,7 +62,7 @@ public class XmlySearchActivity extends BaseActivity {
         init();
         addHistory();
         getHotWords();
-        new QueryTask(this).execute();
+        QueryTask();
     }
 
     private void init() {
@@ -140,50 +140,36 @@ public class XmlySearchActivity extends BaseActivity {
         });
     }
 
-    private class QueryTask extends AsyncTask<Void, Void,  List<AVObject>> {
-
-        private WeakReference<XmlySearchActivity> mainActivity;
-
-        public QueryTask(XmlySearchActivity mActivity){
-            mainActivity = new WeakReference<>(mActivity);
+    private void QueryTask(){
+        AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.XmlySearchHot.XmlySearchHot);
+        if(getPackageName().equals(Setings.application_id_zyhy)){
+            query.whereContains(AVOUtil.XmlySearchHot.app,"zyhy");
+        }else if(getPackageName().equals(Setings.application_id_zyhy_google)){
+            query.whereContains(AVOUtil.XmlySearchHot.app,"zyhy");
+        }else if(getPackageName().equals(Setings.application_id_yys)){
+            query.whereContains(AVOUtil.XmlySearchHot.app,"yys");
+        }else if(getPackageName().equals(Setings.application_id_yys_google)){
+            query.whereContains(AVOUtil.XmlySearchHot.app,"yys");
+        }else if(getPackageName().equals(Setings.application_id_yyj)){
+            query.whereContains(AVOUtil.XmlySearchHot.app,"zyhy");
+        }else if(getPackageName().equals(Setings.application_id_yyj_google)){
+            query.whereContains(AVOUtil.XmlySearchHot.app,"zyhy");
+        }else if(getPackageName().equals(Setings.application_id_ywcd)){
+            query.whereContains(AVOUtil.XmlySearchHot.app,"yycd");
+        }else if(getPackageName().equals(Setings.application_id_xbky)){
+            query.whereContains(AVOUtil.XmlySearchHot.app,"zyhy");
+        }else{
+            query.whereContains(AVOUtil.XmlySearchHot.app,"zyhy");
         }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
-
-        @Override
-        protected List<AVObject> doInBackground(Void... params) {
-            AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.XmlySearchHot.XmlySearchHot);
-            if(getPackageName().equals(Setings.application_id_zyhy)){
-                query.whereContains(AVOUtil.XmlySearchHot.app,"zyhy");
-            }else if(getPackageName().equals(Setings.application_id_zyhy_google)){
-                query.whereContains(AVOUtil.XmlySearchHot.app,"zyhy");
-            }else if(getPackageName().equals(Setings.application_id_yys)){
-                query.whereContains(AVOUtil.XmlySearchHot.app,"yys");
-            }else if(getPackageName().equals(Setings.application_id_yys_google)){
-                query.whereContains(AVOUtil.XmlySearchHot.app,"yys");
-            }else if(getPackageName().equals(Setings.application_id_yyj)){
-                query.whereContains(AVOUtil.XmlySearchHot.app,"zyhy");
-            }else if(getPackageName().equals(Setings.application_id_yyj_google)){
-                query.whereContains(AVOUtil.XmlySearchHot.app,"zyhy");
-            }else if(getPackageName().equals(Setings.application_id_ywcd)){
-                query.whereContains(AVOUtil.XmlySearchHot.app,"yycd");
-            }else if(getPackageName().equals(Setings.application_id_xbky)){
-                query.whereContains(AVOUtil.XmlySearchHot.app,"zyhy");
-            }else{
-                query.whereContains(AVOUtil.XmlySearchHot.app,"zyhy");
+        query.orderByAscending(AVOUtil.XmlySearchHot.createdAt);
+        query.orderByDescending(AVOUtil.XmlySearchHot.click_time);
+        query.findInBackground().subscribe(new Observer<List<AVObject>>() {
+            @Override
+            public void onSubscribe(Disposable d) {
             }
-            query.orderByAscending(AVOUtil.XmlySearchHot.createdAt);
-            query.orderByDescending(AVOUtil.XmlySearchHot.click_time);
-            return query.find();
-        }
 
-        @Override
-        protected void onPostExecute(List<AVObject> avObject) {
-            super.onPostExecute(avObject);
-            if(mainActivity.get() != null && avObject != null){
+            @Override
+            public void onNext(List<AVObject> avObject) {
                 if(avObject.size() != 0){
                     List<AVObject> avObjects = new ArrayList<AVObject>();
                     for (AVObject object : avObject){
@@ -204,7 +190,17 @@ public class XmlySearchActivity extends BaseActivity {
                     setData(avObjects);
                 }
             }
-        }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
     }
 
     public void setData(List<AVObject> tags){
@@ -257,7 +253,7 @@ public class XmlySearchActivity extends BaseActivity {
                 "");
         auto_wrap_layout.removeAllViews();
         getHotWords();
-        new QueryTask(this).execute();
+        QueryTask();
     }
 
     private void search(String quest) {

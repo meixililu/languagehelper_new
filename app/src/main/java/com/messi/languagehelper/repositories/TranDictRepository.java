@@ -8,12 +8,14 @@ import androidx.lifecycle.MutableLiveData;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.bean.RespoData;
 import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.Dictionary;
 import com.messi.languagehelper.box.Record;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NetworkUtil;
 import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.Setings;
+import com.messi.languagehelper.util.StringUtils;
 import com.messi.languagehelper.util.TranslateUtil;
 import com.youdao.sdk.ydtranslate.Translate;
 
@@ -22,18 +24,23 @@ import java.util.List;
 
 public class TranDictRepository {
 
-    public MutableLiveData<Boolean> isLoading = new MutableLiveData<>();
     public MutableLiveData<RespoData<Record>> mRespoData = new MutableLiveData<>();
+    public MutableLiveData<RespoData<Dictionary>> mDictRespoData = new MutableLiveData<>();
     public MutableLiveData<Boolean> isRefreshTran = new MutableLiveData<>();
+    public MutableLiveData<Boolean> isRefreshDict = new MutableLiveData<>();
     private SharedPreferences sp;
-    public List<Record> beans;
+    public List<Record> trans;
+    public List<Dictionary> dicts;
     public Context context;
-    public int skip;
-    public boolean noMoreData;
+    public int tSkip;
+    public boolean tNoMoreData;
+    public int dSkip;
+    public boolean dNoMoreData;
 
     public TranDictRepository(Context context){
         this.context = context;
-        this.beans = new ArrayList<Record>();
+        this.trans = new ArrayList<>();
+        this.dicts = new ArrayList<>();
         sp = Setings.getSharedPreferences(context);
     }
 
@@ -42,24 +49,24 @@ public class TranDictRepository {
         if (!IsHasShowBaiduMessage) {
             Record sampleBean = new Record("Click the mic to speak", "点击话筒说话");
             BoxHelper.insert(sampleBean);
-            beans.add(0, sampleBean);
+            trans.add(0, sampleBean);
             Setings.saveSharedPreferences(sp, KeyUtil.IsHasShowBaiduMessage, true);
         }
     }
 
     public void loadTranData(boolean isRefresh){
         if (isRefresh) {
-            beans.clear();
-            skip = 0;
-            noMoreData = false;
+            trans.clear();
+            tSkip = 0;
+            tNoMoreData = false;
         }
-        if (!noMoreData) {
-            List<Record> list = BoxHelper.getRecordList(skip, Setings.RecordOffset);
+        if (!tNoMoreData) {
+            List<Record> list = BoxHelper.getRecordList(tSkip, Setings.RecordOffset);
             if (NullUtil.isNotEmpty(list)) {
-                beans.addAll(list);
-                skip += list.size();
+                trans.addAll(list);
+                tSkip += list.size();
             }else {
-                noMoreData = true;
+                tNoMoreData = true;
             }
             isRefreshTran.setValue(true);
         }
@@ -67,25 +74,20 @@ public class TranDictRepository {
 
     public void tranDict(){
         if(NetworkUtil.isNetworkConnected(context)){
-            LogUtil.DefalutLog("online");
-            try {
-                RequestJinShanNewAsyncTask();
-            } catch (Exception e) {
-                LogUtil.DefalutLog("online exception");
-                e.printStackTrace();
-            }
+            LogUtil.DefalutLog("tranDict-online");
+            RequestJinShanNewAsyncTask();
         }else {
-            LogUtil.DefalutLog("offline");
+            LogUtil.DefalutLog("tranDict-offline");
             translateOffline();
         }
     }
 
-    private void RequestJinShanNewAsyncTask() throws Exception{
+    private void RequestJinShanNewAsyncTask(){
         TranslateUtil.Translate(mrecord -> {
             RespoData mData = new RespoData<Record>(1,"");
             if (mrecord != null) {
                 mData.setData(mrecord);
-                beans.add(0, mrecord);
+                trans.add(0, mrecord);
             } else {
                 mData.setCode(0);
                 mData.setErrStr(context.getResources().getString(R.string.network_error));
@@ -113,7 +115,7 @@ public class TranDictRepository {
                     sb.append("\n");
                 }
                 Record mrecord = new Record(sb.substring(0, sb.lastIndexOf("\n")), Setings.q);
-                beans.add(0, mrecord);
+                trans.add(0, mrecord);
             }
         }else{
             mData.setCode(0);
@@ -122,8 +124,87 @@ public class TranDictRepository {
         mRespoData.postValue(mData);
     }
 
-    public void dict(){
 
+    //dict-----------------
+    public void loadDictData(boolean isRefresh){
+        if (isRefresh) {
+            dicts.clear();
+            dSkip = 0;
+            dNoMoreData = false;
+        }
+        if (!dNoMoreData) {
+            List<Dictionary> list = BoxHelper.getDictionaryList(dSkip, Setings.RecordOffset);
+            if (NullUtil.isNotEmpty(list)) {
+                dicts.addAll(list);
+                dSkip += list.size();
+            }else {
+                dNoMoreData = true;
+            }
+            isRefreshDict.setValue(true);
+        }
+    }
+
+    public void getDict(){
+        if(NetworkUtil.isNetworkConnected(context)){
+            LogUtil.DefalutLog("dict-online");
+            RequestTranslateApiTask();
+        }else {
+            LogUtil.DefalutLog("dict-offline");
+            translateOfflineForDict();
+        }
+    }
+
+    private void RequestTranslateApiTask() {
+        TranslateUtil.Translate_init(mDict -> {
+            RespoData mData = new RespoData<Dictionary>(1,"");
+            if (mDict != null) {
+                mData.setData(mDict);
+                dicts.add(0, mDict);
+                BoxHelper.insert(mDict);
+            } else {
+                mData.setCode(0);
+                mData.setErrStr(context.getResources().getString(R.string.network_error));
+            }
+            mDictRespoData.postValue(mData);
+        });
+    }
+
+    private void translateOfflineForDict(){
+        new Thread(() -> {
+            Translate mTranslate = TranslateUtil.offlineTranslate();
+            parseOfflineDictData(mTranslate);
+        }).start();
+    }
+
+    private void parseOfflineDictData(Translate translate){
+        RespoData mData = new RespoData<Dictionary>(1,"");
+        if(translate != null){
+            if(translate.getErrorCode() == 0){
+                StringBuilder sb = new StringBuilder();
+                TranslateUtil.addSymbol(translate,sb);
+                for(String tran : translate.getTranslations()){
+                    sb.append(tran);
+                    sb.append("\n");
+                }
+                Dictionary mDictionaryBean = new Dictionary();
+                boolean isEnglish = StringUtils.isEnglish(Setings.q);
+                if(isEnglish){
+                    mDictionaryBean.setFrom("en");
+                    mDictionaryBean.setTo("zh");
+                }else{
+                    mDictionaryBean.setFrom("zh");
+                    mDictionaryBean.setTo("en");
+                }
+                mDictionaryBean.setWord_name(Setings.q);
+                mDictionaryBean.setResult(sb.substring(0, sb.lastIndexOf("\n")));
+                dicts.add(0, mDictionaryBean);
+                BoxHelper.insert(mDictionaryBean);
+            }
+        }else{
+            mData.setCode(0);
+            mData.setErrStr("没找到离线词典，请到更多页面下载！");
+        }
+        mDictRespoData.postValue(mData);
     }
 
 }

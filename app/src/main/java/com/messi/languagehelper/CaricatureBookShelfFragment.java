@@ -1,9 +1,6 @@
 package com.messi.languagehelper;
 
 import android.os.Bundle;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,17 +8,19 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.adapter.RcCaricatureBookShelfAdapter;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.CNWBean;
-import com.messi.languagehelper.event.CaricatureEventAddBookshelf;
 import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.ToastUtil;
-
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,7 +65,7 @@ public class CaricatureBookShelfFragment extends BaseFragment implements View.On
     }
 
     private void initViews(View view) {
-        isRegisterBus = true;
+        liveEventBus();
         mList = new ArrayList<CNWBean>();
         my_awesome_toolbar = (Toolbar) view.findViewById(R.id.my_awesome_toolbar);
         category_lv = (RecyclerView) view.findViewById(R.id.listview);
@@ -90,10 +89,11 @@ public class CaricatureBookShelfFragment extends BaseFragment implements View.On
         category_lv.setAdapter(mAdapter);
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(CaricatureEventAddBookshelf scode){
-        LogUtil.DefalutLog("onEvent--CaricatureEventAddBookshelf");
-        RequestAsyncTask();
+    public void liveEventBus(){
+        LiveEventBus.get(KeyUtil.CaricatureEventAddBookshelf).observe(getViewLifecycleOwner(), result -> {
+            LogUtil.DefalutLog("onEvent--CaricatureEventAddBookshelf");
+            RequestAsyncTask();
+        });
     }
 
     @Override

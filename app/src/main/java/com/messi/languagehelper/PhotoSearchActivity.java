@@ -11,15 +11,14 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.bean.YoudaoPhotoBean;
 import com.messi.languagehelper.bean.YoudaoPhotouestions;
+import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.OrcSearchHelper;
 import com.messi.languagehelper.util.ToastUtil;
 import com.umeng.analytics.MobclickAgent;
-
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,7 +47,7 @@ public class PhotoSearchActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.photo_search_activity);
         ButterKnife.bind(this);
-        isRegisterBus = true;
+        liveEventBus();
     }
 
     @NeedsPermission(Manifest.permission.CAMERA)
@@ -66,8 +65,13 @@ public class PhotoSearchActivity extends BaseActivity {
         PhotoSearchActivityPermissionsDispatcher.showORCDialogWithPermissionCheck(this);
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(YoudaoPhotoBean bean){
+    public void liveEventBus(){
+        LiveEventBus.get(KeyUtil.YoudaoPhotoBean, YoudaoPhotoBean.class).observe(this, result -> {
+            showResult(result);
+        });
+    }
+
+    public void showResult(YoudaoPhotoBean bean){
         hideProgressbar();
         LogUtil.DefalutLog("YoudaoPhotoBean:"+bean.getErrorCode());
         content_tv.loadData("","","");

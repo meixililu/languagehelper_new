@@ -5,11 +5,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Handler;
-import androidx.annotation.MainThread;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+
+import androidx.annotation.MainThread;
 
 import com.baidu.mobads.AdSettings;
 import com.baidu.mobads.SplashAd;
@@ -25,7 +26,6 @@ import com.iflytek.voiceads.config.AdError;
 import com.iflytek.voiceads.config.AdKeys;
 import com.iflytek.voiceads.conn.NativeDataRef;
 import com.iflytek.voiceads.listener.IFLYNativeListener;
-import com.messi.languagehelper.event.KaipingPageEvent;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.BDADUtil;
@@ -38,8 +38,6 @@ import com.messi.languagehelper.wxapi.WXEntryActivity;
 import com.messi.languagehelper.wxapi.YYJMainActivity;
 import com.messi.languagehelper.wxapi.YYSMainActivity;
 import com.qq.e.ads.splash.SplashADListener;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.lang.ref.WeakReference;
 
@@ -286,7 +284,8 @@ public class KaipingModel {
         }
         Intent intent = new Intent(getContext(), mclass);
         getContext().startActivity(intent);
-        EventBus.getDefault().post(new KaipingPageEvent("finish"));
+        getContext().finish();
+//        LiveEventBus.get(KeyUtil.LoadingPageFinish).post("");
     }
 
     SplashAdListener bdAdListener = new SplashAdListener() {

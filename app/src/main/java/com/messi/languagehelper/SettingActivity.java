@@ -4,15 +4,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.databinding.SettingBinding;
-import com.messi.languagehelper.event.TranAndDicRefreshEvent;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
-
-import org.greenrobot.eventbus.EventBus;
 
 public class SettingActivity extends BaseActivity {
 
@@ -47,12 +45,12 @@ public class SettingActivity extends BaseActivity {
         });
         binding.settingClearAllExceptFavorite.setOnClickListener(view -> {
             BoxHelper.clearExceptFavorite();
-            EventBus.getDefault().post(new TranAndDicRefreshEvent());
+            LiveEventBus.get(KeyUtil.TranAndDicRefreshEvent).post("reload");
             ToastUtil.diaplayMesShort(SettingActivity.this, this.getResources().getString(R.string.clear_success));
         });
         binding.settingClearAll.setOnClickListener(view -> {
             BoxHelper.clearAllData();
-            EventBus.getDefault().post(new TranAndDicRefreshEvent());
+            LiveEventBus.get(KeyUtil.TranAndDicRefreshEvent).post("reload");
             SDCardUtil.deleteOldFile();
             ToastUtil.diaplayMesShort(SettingActivity.this, this.getResources().getString(R.string.clear_success));
         });

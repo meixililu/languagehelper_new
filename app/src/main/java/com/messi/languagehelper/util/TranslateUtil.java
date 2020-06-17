@@ -1,11 +1,11 @@
 package com.messi.languagehelper.util;
 
-import android.os.Handler;
 import android.text.TextUtils;
 
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Record;
 import com.messi.languagehelper.box.WordDetailListItem;
+import com.messi.languagehelper.impl.OnDictFinishListener;
 import com.messi.languagehelper.impl.OnTranslateFinishListener;
 import com.youdao.localtransengine.EnLineTranslator;
 import com.youdao.localtransengine.LanguageConvert;
@@ -20,8 +20,8 @@ import io.reactivex.ObservableEmitter;
 
 public class TranslateUtil {
 
-	public static void Translate_init(Handler mHandler) {
-		new DictHelper().Translate(mHandler);
+	public static void Translate_init(OnDictFinishListener mListener) {
+		new DictHelper().Translate(mListener);
 	}
 
 	public static void addContent(Element title,StringBuilder sb){
@@ -147,7 +147,7 @@ public class TranslateUtil {
 		}
 	}
 
-	public static void Translate(final OnTranslateFinishListener listener) throws Exception{
+	public static void Translate(final OnTranslateFinishListener listener){
 		new TranslateHelper().Translate(listener);
 	}
 

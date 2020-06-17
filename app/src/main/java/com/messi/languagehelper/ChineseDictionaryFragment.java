@@ -10,7 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.messi.languagehelper.event.FinishEvent;
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.AVAnalytics;
@@ -20,8 +20,6 @@ import com.messi.languagehelper.util.MyPlayer;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ShareUtil;
 import com.messi.languagehelper.util.ViewUtil;
-
-import org.greenrobot.eventbus.EventBus;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -144,7 +142,7 @@ public class ChineseDictionaryFragment extends BaseFragment {
                         chdic_sv.scrollTo(0, 0);
                         question_tv.setText(Setings.q);
                         result_tv.setText(s);
-                        EventBus.getDefault().post(new FinishEvent());
+                        LiveEventBus.get(KeyUtil.onTranDictFinish).post("");
                     }
 
                     @Override

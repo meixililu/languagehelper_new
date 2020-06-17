@@ -3,8 +3,6 @@ package com.messi.languagehelper;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -13,7 +11,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import cn.leancloud.AVObject;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.ViewModel.XXLAVObjectModel;
 import com.messi.languagehelper.adapter.RcSubjectListAdapter;
@@ -30,9 +31,6 @@ import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
 
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
-
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +38,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import cn.leancloud.AVObject;
 
 public class SubjectSubscribeFragment extends BaseFragment {
 
@@ -84,7 +83,7 @@ public class SubjectSubscribeFragment extends BaseFragment {
     }
 
     private void initViews() {
-        isRegisterBus = true;
+        liveEventBus();
         avObjects = new ArrayList<AVObject>();
         mXXLModel = new XXLAVObjectModel(getActivity());
     }
@@ -155,19 +154,21 @@ public class SubjectSubscribeFragment extends BaseFragment {
         return super.onOptionsItemSelected(item);
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(SubjectSubscribeEvent event){
-        if(event != null && !TextUtils.isEmpty(event.getType()) &&
-                !TextUtils.isEmpty(event.getObjectID())){
-            if(event.getType().equals("subscribe")){
-                ReadingSubject mItem = BoxHelper.findReadingSubjectByObjectId(event.getObjectID());
-                if(mItem != null){
-                    avObjects.add(0,subjectItem(mItem));
-                }
-            }else {
-                removeItem(event.getObjectID());
-            }
-        }
+    public void liveEventBus(){
+        LiveEventBus.get(KeyUtil.SubjectSubscribeEvent,SubjectSubscribeEvent.class)
+                .observe(getViewLifecycleOwner(), event -> {
+                    if(event != null && !TextUtils.isEmpty(event.getType()) &&
+                            !TextUtils.isEmpty(event.getObjectID())){
+                        if(event.getType().equals("subscribe")){
+                            ReadingSubject mItem = BoxHelper.findReadingSubjectByObjectId(event.getObjectID());
+                            if(mItem != null){
+                                avObjects.add(0,subjectItem(mItem));
+                            }
+                        }else {
+                            removeItem(event.getObjectID());
+                        }
+                    }
+        });
     }
 
     private void removeItem(String oid){

@@ -57,7 +57,12 @@ public class MyPlayer {
     }
 
     public void start(String content){
-        start(content,"","",null);
+        if (StringUtils.isContainChinese(content)) {
+            start(content,"","",null);
+        } else {
+            String url = "http://zyhy.mzxbkj.com/v1/word/sound/" + content;
+            start(content,url,"",null);
+        }
     }
 
     public void start(String content, SynthesizerListener mListener){

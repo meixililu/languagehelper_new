@@ -7,12 +7,13 @@ import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.adapter.RcEnDictListAdapter;
 import com.messi.languagehelper.bean.TranResultRoot;
 import com.messi.languagehelper.databinding.FragmentEnDicBinding;
-import com.messi.languagehelper.event.FinishEvent;
 import com.messi.languagehelper.httpservice.RetrofitApiService;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
+import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.Setings;
@@ -20,8 +21,6 @@ import com.messi.languagehelper.util.SignUtil;
 import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.ViewUtil;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -104,7 +103,7 @@ public class EnDicFragment extends BaseFragment {
             beans.addAll(datas);
             beans.add(0,lastSearch);
             mAdapter.notifyDataSetChanged();
-            EventBus.getDefault().post(new FinishEvent());
+            LiveEventBus.get(KeyUtil.onTranDictFinish).post("");
         }else {
             ToastUtil.diaplayMesShort(getContext(),"未找到相关结果");
         }

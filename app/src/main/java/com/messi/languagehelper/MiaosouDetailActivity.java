@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -12,10 +11,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.CNWBean;
-import com.messi.languagehelper.event.CaricatureEventAddBookshelf;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.util.ADUtil;
@@ -27,8 +28,6 @@ import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.XFYSAD;
-
-import org.greenrobot.eventbus.EventBus;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -248,6 +247,6 @@ public class MiaosouDetailActivity extends BaseActivity {
         mAVObject.setUpdateTime(System.currentTimeMillis());
         initButton();
         BoxHelper.updateCNWBean(mAVObject);
-        EventBus.getDefault().post(new CaricatureEventAddBookshelf());
+        LiveEventBus.get(KeyUtil.CaricatureEventAddBookshelf).post("add");
     }
 }

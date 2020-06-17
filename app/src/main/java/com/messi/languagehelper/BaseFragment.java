@@ -5,20 +5,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener;
+
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
-
-import org.greenrobot.eventbus.EventBus;
 
 public class BaseFragment extends Fragment {
 	
@@ -27,7 +26,6 @@ public class BaseFragment extends Fragment {
 	public boolean isHasLoadData;
 	public boolean isFragmentInit;
 	public boolean misVisibleToUser;
-	public boolean isRegisterBus;
 
 	BroadcastReceiver activityReceiver = new BroadcastReceiver() {
 		@Override
@@ -85,27 +83,7 @@ public class BaseFragment extends Fragment {
 	public void updateUI(String music_action){}
 
 	@Override
-	public void onStart() {
-		super.onStart();
-		if(isRegisterBus){
-			if(!EventBus.getDefault().isRegistered(this)){
-				EventBus.getDefault().register(this);
-			}
-		}
-	}
-
-	@Override
-	public void onStop() {
-		super.onStop();
-	}
-
-	@Override
 	public void onDestroyView() {
-		if (isRegisterBus) {
-			if(EventBus.getDefault().isRegistered(this)){
-				EventBus.getDefault().unregister(this);
-			}
-		}
 		if(mProgressbarListener != null){
 			mProgressbarListener = null;
 		}
