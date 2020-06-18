@@ -63,7 +63,7 @@ public class BoutiquesFragment extends BaseFragment {
 			category = getArguments().getString(KeyUtil.Category);
 			type = getArguments().getString(KeyUtil.Type);
 			title = getArguments().getString(KeyUtil.FragmentTitle);
-			viewModel = new ViewModelProvider(this).get(BoutiquesViewModel.class);
+			viewModel = new ViewModelProvider(requireActivity()).get(BoutiquesViewModel.class);
 			viewModel.init(getContext());
 			viewModel.getRepo().setCategory(category);
 			viewModel.getRepo().setType(type);
@@ -110,9 +110,9 @@ public class BoutiquesFragment extends BaseFragment {
 	}
 
 	private void initViewModel(){
-		viewModel.getReadingList().observe(this, data -> onDataChange(data));
-		viewModel.isShowProgressBar().observe(this, isShow -> isShowProgressBar(isShow));
-		viewModel.getAD().observe(this,data -> refreshAD(data));
+		viewModel.getReadingList().observe(getViewLifecycleOwner(), data -> onDataChange(data));
+		viewModel.isShowProgressBar().observe(getViewLifecycleOwner(), isShow -> isShowProgressBar(isShow));
+		viewModel.getAD().observe(getViewLifecycleOwner(),data -> refreshAD(data));
 	}
 
 	private void refreshAD(RespoADData data){

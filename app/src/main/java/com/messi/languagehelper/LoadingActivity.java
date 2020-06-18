@@ -90,12 +90,6 @@ public class LoadingActivity extends AppCompatActivity {
         this.finish();
     }
 
-//    public void liveEventBus(){
-//        LiveEventBus.get(KeyUtil.LoadingPageFinish).observe(this, result -> {
-//            finish();
-//        });
-//    }
-
     //防止用户返回键退出APP
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {

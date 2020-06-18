@@ -153,7 +153,7 @@ public class LeisureFragment extends BaseFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewModel = new ViewModelProvider(this).get(SingleBigBannerViewModel.class);
+        viewModel = new ViewModelProvider(requireActivity()).get(SingleBigBannerViewModel.class);
         viewModel.init(getContext());
         lastLoadAd = System.currentTimeMillis();
     }
@@ -186,7 +186,7 @@ public class LeisureFragment extends BaseFragment {
         sp = Setings.getSharedPreferences(getContext());
         if(ADUtil.IsShowAD){
             xx_ad_layout.setVisibility(View.VISIBLE);
-            viewModel.getADBean().observe(this,adBean -> onReceiveAd(adBean));
+            viewModel.getADBean().observe(getViewLifecycleOwner(),adBean -> onReceiveAd(adBean));
         }else {
             xx_ad_layout.setVisibility(View.GONE);
         }

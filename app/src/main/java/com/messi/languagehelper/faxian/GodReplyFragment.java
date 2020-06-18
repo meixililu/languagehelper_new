@@ -50,7 +50,7 @@ public class GodReplyFragment  extends BaseFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(TXAPIViewModel.class);
+        mViewModel = new ViewModelProvider(requireActivity()).get(TXAPIViewModel.class);
         mViewModel.init(apiType);
     }
 

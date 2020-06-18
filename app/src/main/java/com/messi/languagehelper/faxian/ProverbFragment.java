@@ -50,7 +50,7 @@ public class ProverbFragment extends BaseFragment {
 	@Override
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		mViewModel = new ViewModelProvider(this).get(TXAPIViewModel.class);
+		mViewModel = new ViewModelProvider(requireActivity()).get(TXAPIViewModel.class);
 		mViewModel.init(apiType);
 	}
 
@@ -65,8 +65,8 @@ public class ProverbFragment extends BaseFragment {
 
 	private void initViewModel() {
 		count = Setings.getSharedPreferences(getContext()).getInt(KeyUtil.IsShowClickToNext,0);
-		mViewModel.getTwistaItem().observe(this,(data) -> onDataChange(data));
-		mViewModel.isShowProgressBar().observe(this,(isShow) -> isShowProgressBar(isShow));
+		mViewModel.getTwistaItem().observe(getViewLifecycleOwner(),(data) -> onDataChange(data));
+		mViewModel.isShowProgressBar().observe(getViewLifecycleOwner(),(isShow) -> isShowProgressBar(isShow));
 	}
 
 	private void isShowProgressBar(Boolean isShow){

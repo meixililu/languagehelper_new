@@ -55,7 +55,7 @@ public class DictionaryFragmentOld extends BaseFragment implements DictionaryTra
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(TranDictViewModel.class);
+        mViewModel = new ViewModelProvider(requireActivity()).get(TranDictViewModel.class);
     }
 
     @Override

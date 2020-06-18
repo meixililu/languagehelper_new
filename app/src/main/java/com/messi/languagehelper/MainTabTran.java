@@ -48,7 +48,7 @@ public class MainTabTran extends BaseFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         sp = Setings.getSharedPreferences(getContext());
-        mViewModel = new ViewModelProvider(this).get(TranDictViewModel.class);
+        mViewModel = new ViewModelProvider(requireActivity()).get(TranDictViewModel.class);
     }
 
     @Override
