@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import androidx.appcompat.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -13,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Reading;
@@ -112,9 +113,6 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
         if(TextUtils.isEmpty(mAVObject.getStatus())){
             mAVObject.setStatus("1");
             BoxHelper.update(mAVObject);
-        }
-        if (!XmPlayerManager.getInstance(this).isPlaying() && !IPlayerUtil.MPlayerIsPlaying()) {
-            onPlayBtnClick();
         }
     }
 

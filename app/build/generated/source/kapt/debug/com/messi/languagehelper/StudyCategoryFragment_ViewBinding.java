@@ -36,7 +36,7 @@ public class StudyCategoryFragment_ViewBinding implements Unbinder {
 
   private View view7f080113;
 
-  private View view7f080491;
+  private View view7f080498;
 
   private View view7f080323;
 
@@ -128,7 +128,7 @@ public class StudyCategoryFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.xmly_layout, "field 'xmlyLayout' and method 'onViewClicked'");
     target.xmlyLayout = Utils.castView(view, R.id.xmly_layout, "field 'xmlyLayout'", FrameLayout.class);
-    view7f080491 = view;
+    view7f080498 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -191,8 +191,8 @@ public class StudyCategoryFragment_ViewBinding implements Unbinder {
     view7f080112 = null;
     view7f080113.setOnClickListener(null);
     view7f080113 = null;
-    view7f080491.setOnClickListener(null);
-    view7f080491 = null;
+    view7f080498.setOnClickListener(null);
+    view7f080498 = null;
     view7f080323.setOnClickListener(null);
     view7f080323 = null;
   }

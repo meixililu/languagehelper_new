@@ -6,9 +6,6 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import com.google.android.material.appbar.CollapsingToolbarLayout;
-import androidx.core.widget.NestedScrollView;
-import androidx.appcompat.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,7 +16,11 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.widget.NestedScrollView;
+
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.messi.languagehelper.ViewModel.LeisureModel;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Reading;
@@ -139,9 +140,6 @@ public class ReadingMp3DetailActivity extends BaseActivity implements SeekBar.On
         if(TextUtils.isEmpty(mAVObject.getStatus())){
             mAVObject.setStatus("1");
             BoxHelper.update(mAVObject);
-        }
-        if (!XmPlayerManager.getInstance(this).isPlaying() && !IPlayerUtil.MPlayerIsPlaying()) {
-            onClick();
         }
     }
 

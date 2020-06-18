@@ -390,6 +390,9 @@ public class XMLYDetailModel {
                     @Override
                     public void onCancel() {
                     }
+                    @Override
+                    public void onRefuse() {
+                    }
                 });
             }
         });

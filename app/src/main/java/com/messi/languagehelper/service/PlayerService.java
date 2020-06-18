@@ -5,13 +5,10 @@ import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.media.AudioManager;
 import android.net.Uri;
 import android.net.wifi.WifiManager;
 import android.os.Build;
-import android.os.Handler;
 import android.os.IBinder;
-import android.os.Message;
 import android.os.RemoteException;
 import android.text.TextUtils;
 
@@ -84,7 +81,6 @@ public class PlayerService extends Service {
     public static final String action_previous = "com.messi.languagehelper.music.previous";
     public static final String action_close = "com.messi.languagehelper.music.close";
 
-    private AudioManager mAudioManager;
     private WifiManager.WifiLock mWifiLock;
     private SimpleExoPlayer mExoPlayer;
     // 0 default, 1 playing, 2 pause
@@ -174,19 +170,6 @@ public class PlayerService extends Service {
         }
     };
 
-    private Handler mHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            NotificationUtil.sendBroadcast(PlayerService.this,action_finish_loading);
-            LogUtil.DefalutLog("receive Handler:"+msg.what);
-            if (msg.what == 1) {
-                if(song != null){
-                    startExoplayer(song);
-                }
-            }
-        }
-    };
-
     @Override
     public void onCreate() {
         super.onCreate();
@@ -196,9 +179,9 @@ public class PlayerService extends Service {
 
     private void initExoplayer(){
         Context applicationContext = this.getApplicationContext();
-        this.mAudioManager = (AudioManager) applicationContext.getSystemService(Context.AUDIO_SERVICE);
         this.mWifiLock = ((WifiManager) applicationContext.getSystemService(Context.WIFI_SERVICE))
                 .createWifiLock(WifiManager.WIFI_MODE_FULL, "uAmp_lock");
+        XmPlayerManager.getInstance(this).init();
         XmPlayerManager.getInstance(this).addPlayerStatusListener(mMyIXmPlayerStatusListener);
         initForeground();
     }

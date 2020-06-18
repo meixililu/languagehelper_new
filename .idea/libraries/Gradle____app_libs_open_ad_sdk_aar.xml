@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: ./app/libs/open_ad_sdk.aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2272f66fed5aa918eb57ebef5a2245be/jetified-open_ad_sdk/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2272f66fed5aa918eb57ebef5a2245be/jetified-open_ad_sdk/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2272f66fed5aa918eb57ebef5a2245be/jetified-open_ad_sdk/jars/libs/adhost.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/jars/libs/adhost.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

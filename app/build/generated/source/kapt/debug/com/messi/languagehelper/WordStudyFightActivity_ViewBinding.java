@@ -19,7 +19,7 @@ public class WordStudyFightActivity_ViewBinding implements Unbinder {
 
   private View view7f080142;
 
-  private View view7f08048d;
+  private View view7f080494;
 
   private View view7f0802da;
 
@@ -54,7 +54,7 @@ public class WordStudyFightActivity_ViewBinding implements Unbinder {
     target.resultLayout = Utils.findRequiredViewAsType(source, R.id.result_layout, "field 'resultLayout'", LinearLayout.class);
     view = Utils.findRequiredView(source, R.id.word_tv, "field 'wordTv' and method 'onClick'");
     target.wordTv = Utils.castView(view, R.id.word_tv, "field 'wordTv'", TextView.class);
-    view7f08048d = view;
+    view7f080494 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -129,8 +129,8 @@ public class WordStudyFightActivity_ViewBinding implements Unbinder {
 
     view7f080142.setOnClickListener(null);
     view7f080142 = null;
-    view7f08048d.setOnClickListener(null);
-    view7f08048d = null;
+    view7f080494.setOnClickListener(null);
+    view7f080494 = null;
     view7f0802da.setOnClickListener(null);
     view7f0802da = null;
     view7f0802dc.setOnClickListener(null);
