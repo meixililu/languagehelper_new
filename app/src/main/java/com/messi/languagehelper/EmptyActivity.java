@@ -10,6 +10,8 @@ import com.messi.languagehelper.util.LogUtil;
 
 public class EmptyActivity extends BaseActivity implements FragmentProgressbarListener {
 
+    Fragment fragment;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +30,7 @@ public class EmptyActivity extends BaseActivity implements FragmentProgressbarLi
         }
         Class fName = (Class)bundle.getSerializable(KeyUtil.FragmentName);
         try {
-            Fragment fragment = (Fragment) fName.newInstance();
+            fragment = (Fragment) fName.newInstance();
             if(fragment != null){
                 if (bundle != null) {
                     fragment.setArguments(bundle);
@@ -45,4 +47,8 @@ public class EmptyActivity extends BaseActivity implements FragmentProgressbarLi
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

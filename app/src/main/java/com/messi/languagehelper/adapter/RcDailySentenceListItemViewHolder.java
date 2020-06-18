@@ -3,11 +3,12 @@ package com.messi.languagehelper.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.messi.languagehelper.PracticeActivity;
@@ -48,11 +49,11 @@ public class RcDailySentenceListItemViewHolder extends RecyclerView.ViewHolder {
         this.beans = beans;
         this.mAdapter = mAdapter;
         this.mProgressbarListener = mProgressbarListener;
-        daily_sentence_list_item_cover = (FrameLayout) convertView.findViewById(R.id.daily_sentence_list_item_cover);
-        daily_sentence_list_item_img = (SimpleDraweeView) convertView.findViewById(R.id.daily_sentence_list_item_img);
-        play_img = (ImageView) convertView.findViewById(R.id.play_img);
-        english_txt = (TextView) convertView.findViewById(R.id.english_txt);
-        chinese_txt = (TextView) convertView.findViewById(R.id.chinese_txt);
+        daily_sentence_list_item_cover = convertView.findViewById(R.id.daily_sentence_list_item_cover);
+        daily_sentence_list_item_img = convertView.findViewById(R.id.daily_sentence_list_item_img);
+        play_img = convertView.findViewById(R.id.play_img);
+        english_txt = convertView.findViewById(R.id.english_txt);
+        chinese_txt = convertView.findViewById(R.id.chinese_txt);
         MyPlayer.getInstance(context).setListener(new MyPlayerListener() {
             @Override
             public void onStart() {
@@ -60,7 +61,6 @@ public class RcDailySentenceListItemViewHolder extends RecyclerView.ViewHolder {
                     mProgressbarListener.hideProgressbar();
                 }
             }
-
             @Override
             public void onFinish() {
                 LogUtil.DefalutLog("----onfinish----");

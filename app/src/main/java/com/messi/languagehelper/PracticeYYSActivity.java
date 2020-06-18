@@ -415,7 +415,7 @@ public class PracticeYYSActivity extends BaseActivity implements OnClickListener
             recognizer.destroy();
             recognizer = null;
         }
-        MyPlayer.getInstance(this).stop();
+        MyPlayer.getInstance(this).onDestroy();
         if (isNeedDelete) {
             BoxHelper.remove(mBean);
         }

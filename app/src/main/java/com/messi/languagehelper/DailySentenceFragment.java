@@ -26,7 +26,6 @@ import java.util.List;
 import cn.leancloud.AVObject;
 import cn.leancloud.AVQuery;
 import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -45,7 +44,7 @@ public class DailySentenceFragment extends BaseFragment implements OnClickListen
         super.onAttach(activity);
         try {
             mProgressbarListener = (FragmentProgressbarListener) activity;
-        } catch (ClassCastException e) {
+        } catch (Exception e) {
             throw new ClassCastException(activity.toString() + " must implement FragmentProgressbarListener");
         }
     }
@@ -67,9 +66,9 @@ public class DailySentenceFragment extends BaseFragment implements OnClickListen
 
     private void init(View view) {
         try {
-            beans = new ArrayList<EveryDaySentence>();
+            beans = new ArrayList<>();
             mXFYSAD = new XFYSAD(getActivity(), ADUtil.MRYJYSNRLAd);
-            recent_used_lv = (RecyclerView) view.findViewById(R.id.listview);
+            recent_used_lv = view.findViewById(R.id.listview);
             mAdapter = new RcDailySentenceListAdapter(beans, mProgressbarListener, mXFYSAD);
             mAdapter.setHeader(new Object());
             mAdapter.setItems(beans);
@@ -96,36 +95,32 @@ public class DailySentenceFragment extends BaseFragment implements OnClickListen
 
     private void getDataTask() {
         showProgressbar();
-        Observable.create(new ObservableOnSubscribe<String>() {
-            @Override
-            public void subscribe(ObservableEmitter<String> e) throws Exception {
-                getServiceData();
-                e.onComplete();
-            }
+        Observable.create((ObservableOnSubscribe<String>) e -> {
+            getServiceData();
+            e.onComplete();
         })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<String>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                    }
+        .subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribe(new Observer<String>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+            }
 
-                    @Override
-                    public void onNext(String s) {
-                    }
+            @Override
+            public void onNext(String s) {
+            }
 
-                    @Override
-                    public void onError(Throwable e) {
-                    }
+            @Override
+            public void onError(Throwable e) {
+            }
 
-                    @Override
-                    public void onComplete() {
-                        hideProgressbar();
-                        onSwipeRefreshLayoutFinish();
-                        mAdapter.notifyDataSetChanged();
-                    }
-                });
-
+            @Override
+            public void onComplete() {
+                hideProgressbar();
+                onSwipeRefreshLayoutFinish();
+                mAdapter.notifyDataSetChanged();
+            }
+        });
     }
 
     private void getServiceData() {
@@ -158,7 +153,7 @@ public class DailySentenceFragment extends BaseFragment implements OnClickListen
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        MyPlayer.getInstance(getContext()).stop();
+        MyPlayer.getInstance(getContext()).onDestroy();
         if(mXFYSAD != null){
             mXFYSAD.onDestroy();
         }

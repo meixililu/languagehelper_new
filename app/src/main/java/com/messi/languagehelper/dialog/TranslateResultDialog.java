@@ -140,31 +140,23 @@ public class TranslateResultDialog extends Dialog {
 	}
 
 	private void RequestShowapiAsyncTask(){
-		try {
-			TranslateUtil.Translate(mrecord -> onResult(mrecord));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		TranslateUtil.Translate(mrecord -> onResult(mrecord));
 	}
 
 	private void onResult(Record mRecord){
-		try {
-			mBean = mRecord;
-			if(mRecord == null){
-				ToastUtil.diaplayMesShort(context,getContext().getResources().getString(R.string.network_error));
-			}else {
-				binding.desTv.setText(mRecord.getEnglish());
-				BoxHelper.insert(mRecord);
-				LiveEventBus.get(KeyUtil.TranAndDicRefreshEvent).post("reload");
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		mBean = mRecord;
+		if(mRecord == null){
+			ToastUtil.diaplayMesShort(context,getContext().getResources().getString(R.string.network_error));
+		}else {
+			binding.desTv.setText(mRecord.getEnglish());
+			BoxHelper.insert(mRecord);
+			LiveEventBus.get(KeyUtil.TranAndDicRefreshEvent).post("reload");
 		}
 	}
 
 	@Override
 	protected void onStop() {
 		super.onStop();
-		MyPlayer.getInstance(context).stop();
+		MyPlayer.getInstance(context).onDestroy();
 	}
 }

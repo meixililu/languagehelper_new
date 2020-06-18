@@ -9,7 +9,6 @@ import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
-import com.google.android.exoplayer2.Timeline;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.ProgressiveMediaSource;
 import com.google.android.exoplayer2.source.TrackGroupArray;
@@ -185,6 +184,11 @@ public class MyPlayer {
         }
     }
 
+    public void onDestroy(){
+        stop();
+        listener = null;
+    }
+
     public static void showSpeechSynthesizer(Context mContext,
                                              String source,
                                              String speaker,
@@ -214,11 +218,6 @@ public class MyPlayer {
     }
 
     public class ExoPlayerEventListener implements Player.EventListener {
-
-        @Override
-        public void onTimelineChanged(Timeline timeline, Object manifest, int reason) {
-            LogUtil.DefalutLog("---onTimelineChanged---");
-        }
 
         @Override
         public void onTracksChanged(TrackGroupArray trackGroups, TrackSelectionArray trackSelections) {
