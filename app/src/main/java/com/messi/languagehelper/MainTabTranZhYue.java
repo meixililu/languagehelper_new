@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,7 +28,6 @@ import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.SignUtil;
 import com.messi.languagehelper.util.SystemUtil;
 import com.messi.languagehelper.util.ToastUtil;
-import com.messi.languagehelper.views.DividerItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +35,8 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static androidx.recyclerview.widget.DividerItemDecoration.HORIZONTAL;
 
 public class MainTabTranZhYue extends BaseFragment {
 
@@ -78,7 +80,7 @@ public class MainTabTranZhYue extends BaseFragment {
         recent_used_lv.setHasFixedSize(true);
         mLinearLayoutManager = new LinearLayoutManager(getContext());
         recent_used_lv.setLayoutManager(mLinearLayoutManager);
-        recent_used_lv.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.abc_list_divider_mtrl_alpha)));
+        recent_used_lv.addItemDecoration(new DividerItemDecoration(getContext(), HORIZONTAL));
         mAdapter.setItems(beans);
         mAdapter.setFooter(new Object());
         recent_used_lv.setAdapter(mAdapter);

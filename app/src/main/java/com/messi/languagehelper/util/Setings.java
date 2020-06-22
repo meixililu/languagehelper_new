@@ -29,6 +29,7 @@ import com.messi.languagehelper.dialog.PopDialog.PopViewItemOnclickListener;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.UUID;
 
 public class Setings {
 
@@ -425,7 +426,7 @@ public class Setings {
 		if(TextUtils.isEmpty(device_id)){
 			device_id = getTryToGetDeviceId(context);
 			if(TextUtils.isEmpty(device_id)){
-				device_id = StringUtils.getRandomString(32);
+				device_id = UUID.randomUUID().toString();
 			}
 		}
 		Setings.saveSharedPreferences(sp,KeyUtil.DeviceId,device_id);

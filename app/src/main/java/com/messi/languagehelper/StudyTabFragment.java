@@ -79,6 +79,9 @@ public class StudyTabFragment extends BaseFragment {
             public void onTabUnselected(TabLayout.Tab tab) {
             }
         });
+        if(position == 0){
+            position = 1;
+        }
         binding.tablayout.getTabAt(position).select();
     }
 
@@ -94,6 +97,13 @@ public class StudyTabFragment extends BaseFragment {
                 fragment = studyFragment;
                 break;
             case 1:
+                if (studyFragment == null) {
+                    studyFragment = new ReadingFragment.Builder().build();
+                    addFragment(studyFragment);
+                }
+                fragment = studyFragment;
+                break;
+            case 2:
                 if (boutiquesFragment == null) {
                     boutiquesFragment = new BoutiquesFragment.Builder()
                             .type("english")
@@ -101,13 +111,6 @@ public class StudyTabFragment extends BaseFragment {
                     addFragment(boutiquesFragment);
                 }
                 fragment = boutiquesFragment;
-                break;
-            case 2:
-                if (subjectFragment == null) {
-                    subjectFragment = SubjectFragment.getInstance("",500);
-                    addFragment(subjectFragment);
-                }
-                fragment = subjectFragment;
                 break;
             case 3:
                 if (mXmlyRecommendFragment == null) {
@@ -117,8 +120,15 @@ public class StudyTabFragment extends BaseFragment {
                 }
                 fragment = mXmlyRecommendFragment;
                 break;
-
             case 4:
+                if (subjectFragment == null) {
+                    subjectFragment = SubjectFragment.getInstance("",500);
+                    addFragment(subjectFragment);
+                }
+                fragment = subjectFragment;
+                break;
+
+            case 5:
                 if (mxVideoFragment == null) {
                     mxVideoFragment = XVideoFragment.newInstance("英语");;
                     addFragment(mxVideoFragment);

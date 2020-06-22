@@ -62,6 +62,8 @@ public class KeyUtil {
 
 	public static final String Type = "Type";
 
+	public static final String UpdateCollectedData = "UpdateCollectedData";
+
 	public static final String YoudaoPhotoBean = "YoudaoPhotoBean";
 
 	public static final String onTranDictFinish = "onTranDictFinish";

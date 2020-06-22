@@ -3,10 +3,12 @@ package com.messi.languagehelper;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.view.LayoutInflater;
 
 import com.messi.languagehelper.adapter.RcCollectTranslateListAdapter;
 import com.messi.languagehelper.box.BoxHelper;
@@ -17,7 +19,6 @@ import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
-import com.messi.languagehelper.views.DividerItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +30,8 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+
+import static androidx.recyclerview.widget.DividerItemDecoration.HORIZONTAL;
 
 public class WordStudyNewWordActivity extends BaseActivity {
 
@@ -56,7 +59,7 @@ public class WordStudyNewWordActivity extends BaseActivity {
         itemList = new ArrayList<WordDetailListItem>();
         mLinearLayoutManager = new LinearLayoutManager(this);
         binding.collectedListview.setLayoutManager(mLinearLayoutManager);
-        binding.collectedListview.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.abc_list_divider_mtrl_alpha)));
+        binding.collectedListview.addItemDecoration(new DividerItemDecoration(this, HORIZONTAL));
         mAdapter = new RcCollectTranslateListAdapter(sp, itemList);
         mAdapter.setItems(itemList);
         binding.collectedListview.setAdapter(mAdapter);

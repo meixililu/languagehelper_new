@@ -3,7 +3,6 @@ package com.messi.languagehelper.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +12,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import cn.leancloud.AVObject;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.baidu.mobads.AdView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iflytek.voiceads.conn.NativeDataRef;
@@ -38,6 +38,8 @@ import com.messi.languagehelper.util.ToastUtil;
 import com.qq.e.ads.nativ.NativeExpressADView;
 
 import java.util.List;
+
+import cn.leancloud.AVObject;
 
 /**
  * Created by luli on 10/23/16.
@@ -263,12 +265,9 @@ public class RcReadingListItemViewHolder extends RecyclerView.ViewHolder {
                     list_item_img.setVisibility(View.VISIBLE);
                     list_item_img.setImageURI(mNativeADDataRef.getImgUrl());
                 }
-                layout_cover.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        boolean adClick = mNativeADDataRef.onClick(v);
-                        LogUtil.DefalutLog("adClick:"+adClick);
-                    }
+                layout_cover.setOnClickListener(v -> {
+                    boolean adClick = mNativeADDataRef.onClick(v);
+                    LogUtil.DefalutLog("adClick:"+adClick);
                 });
             }
         }

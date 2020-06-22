@@ -7,10 +7,6 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import androidx.core.content.FileProvider;
-import androidx.appcompat.app.AlertDialog;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,13 +14,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.FileProvider;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.messi.languagehelper.adapter.RcCollectDictionaryListAdapter;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Dictionary;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Setings;
-import com.messi.languagehelper.views.DividerItemDecoration;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -37,6 +38,8 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+
+import static androidx.recyclerview.widget.DividerItemDecoration.HORIZONTAL;
 
 public class CollectedDictionaryFragment extends BaseFragment {
 
@@ -74,7 +77,7 @@ public class CollectedDictionaryFragment extends BaseFragment {
         recent_used_lv = (RecyclerView) view.findViewById(R.id.collected_listview);
         mLinearLayoutManager = new LinearLayoutManager(getActivity());
         recent_used_lv.setLayoutManager(mLinearLayoutManager);
-        recent_used_lv.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.abc_list_divider_mtrl_alpha)));
+        recent_used_lv.addItemDecoration(new DividerItemDecoration(getContext(), HORIZONTAL));
         beans = new ArrayList<Dictionary>();
         mAdapter = new RcCollectDictionaryListAdapter(getActivity(), beans, mSharedPreferences);
         mAdapter.setItems(beans);

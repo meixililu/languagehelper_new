@@ -47,8 +47,4 @@ public class EmptyActivity extends BaseActivity implements FragmentProgressbarLi
         }
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
 }

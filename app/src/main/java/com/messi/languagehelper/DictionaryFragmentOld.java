@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import androidx.core.widget.NestedScrollView;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,10 +26,11 @@ import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.ViewUtil;
 import com.messi.languagehelper.viewmodels.TranDictViewModel;
-import com.messi.languagehelper.views.DividerItemDecoration;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static androidx.recyclerview.widget.DividerItemDecoration.HORIZONTAL;
 
 public class DictionaryFragmentOld extends BaseFragment implements DictionaryTranslateListener {
 
@@ -79,7 +81,7 @@ public class DictionaryFragmentOld extends BaseFragment implements DictionaryTra
         recent_used_lv.setHasFixedSize(true);
         mLinearLayoutManager = new LinearLayoutManager(getContext());
         recent_used_lv.setLayoutManager(mLinearLayoutManager);
-        recent_used_lv.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.abc_list_divider_mtrl_alpha)));
+        recent_used_lv.addItemDecoration(new DividerItemDecoration(getContext(), HORIZONTAL));
         mAdapter.setItems(mViewModel.getRepository().dicts);
         mAdapter.setFooter(new Object());
         recent_used_lv.setAdapter(mAdapter);

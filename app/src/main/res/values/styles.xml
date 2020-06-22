@@ -122,8 +122,8 @@
     <style name="TabLayoutTextStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textSize">@dimen/big</item>
     </style>
-    <style name="MainTabTextStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textSize">@dimen/big</item>
+    <style name="MainTabTextStyle">
+        <item name="android:textSize">@dimen/tab</item>
     </style>
 
     <style name="SeekbarStyle" >

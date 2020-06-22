@@ -11,6 +11,7 @@ import android.widget.FrameLayout;
 
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,7 +27,8 @@ import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.ViewUtil;
 import com.messi.languagehelper.viewmodels.TranDictViewModel;
-import com.messi.languagehelper.views.DividerItemDecoration;
+
+import static androidx.recyclerview.widget.DividerItemDecoration.HORIZONTAL;
 
 public class MainTabTran extends BaseFragment {
 
@@ -74,7 +76,7 @@ public class MainTabTran extends BaseFragment {
         binding.recentUsedLv.setHasFixedSize(true);
         mLinearLayoutManager = new LinearLayoutManager(getContext());
         binding.recentUsedLv.setLayoutManager(mLinearLayoutManager);
-        binding.recentUsedLv.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.abc_list_divider_mtrl_alpha)));
+        binding.recentUsedLv.addItemDecoration(new DividerItemDecoration(getContext(), HORIZONTAL));
         mAdapter.setItems(mViewModel.getRepository().trans);
         mAdapter.setFooter(new Object());
         binding.recentUsedLv.setAdapter(mAdapter);

@@ -35,8 +35,8 @@ public class MyObjectBox {
 
     private static byte[] getModel() {
         ModelBuilder modelBuilder = new ModelBuilder();
-        modelBuilder.lastEntityId(12, 6592943254351922246L);
-        modelBuilder.lastIndexId(11, 8390970880567877118L);
+        modelBuilder.lastEntityId(13, 7828428422097733664L);
+        modelBuilder.lastIndexId(12, 1247149357836161189L);
         modelBuilder.lastRelationId(0, 0L);
 
         buildEntityEveryDaySentence(modelBuilder);

@@ -17,7 +17,6 @@
             android:layout_height="@dimen/tabs_heigh"
             android:orientation="horizontal"
             android:background="@color/white"
-            android:paddingLeft="@dimen/padding_12"
             >
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tablayout"
@@ -28,7 +27,7 @@
                 app:tabMode="scrollable"
                 app:tabPaddingStart="11dp"
                 app:tabPaddingEnd="11dp"
-                app:tabMaxWidth="220dp"
+                app:tabMaxWidth="150dp"
                 app:tabMinWidth="30dp"
                 app:tabSelectedTextColor="?attr/colorPrimary"
                 app:tabTextColor="@color/text_grey"

@@ -49,10 +49,10 @@ public class RcJokeListItemViewHolder extends RecyclerView.ViewHolder {
     public RcJokeListItemViewHolder(View convertView) {
         super(convertView);
         this.context = convertView.getContext();
-        des = (TextView) convertView.findViewById(R.id.des);
-        list_item_img = (SimpleDraweeView) convertView.findViewById(R.id.list_item_img);
-        ad_layout = (FrameLayout) convertView.findViewById(R.id.ad_layout);
-        videoplayer = (JzvdStd) convertView.findViewById(R.id.videoplayer);
+        des = convertView.findViewById(R.id.des);
+        list_item_img = convertView.findViewById(R.id.list_item_img);
+        ad_layout = convertView.findViewById(R.id.ad_layout);
+        videoplayer = convertView.findViewById(R.id.videoplayer);
     }
 
     //		type 1 img; 2 gif; 3 gif; 4 video; 5 text; 6 url；
