@@ -20,7 +20,6 @@ import com.messi.languagehelper.ViewModel.XXLAVObjectModel;
 import com.messi.languagehelper.adapter.RcSubjectListAdapter;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.ReadingSubject;
-import com.messi.languagehelper.event.SubjectSubscribeEvent;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AVOUtil;

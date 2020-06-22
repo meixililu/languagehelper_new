@@ -76,8 +76,6 @@ public class KeyUtil {
 
 	public static final String DictProgressEvent = "DictProgressEvent";
 
-	public static final String SubjectSubscribeEvent = "SubjectSubscribeEvent";
-
 	public static final String ChPybsType = "ChPybsType";
 
 	public static final String List = "List";
