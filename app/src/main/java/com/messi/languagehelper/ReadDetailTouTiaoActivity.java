@@ -39,16 +39,20 @@ import com.google.android.exoplayer2.source.ProgressiveMediaSource;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSource;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
+import com.google.gson.Gson;
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.ViewModel.VideoADModel;
 import com.messi.languagehelper.bean.PVideoResult;
 import com.messi.languagehelper.bean.ToutiaoVideoBean;
 import com.messi.languagehelper.bean.ToutiaoWebRootBean;
 import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.CollectedData;
 import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.http.UICallback;
 import com.messi.languagehelper.httpservice.RetrofitApiService;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
+import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.DialogUtil;
 import com.messi.languagehelper.util.IPlayerUtil;
 import com.messi.languagehelper.util.JsonParser;
@@ -632,16 +636,27 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
 
     @OnClick(R.id.collect_btn)
     public void onClick() {
-        if(mAVObject != null){
-            if(TextUtils.isEmpty(mAVObject.getIsCollected())){
-                mAVObject.setIsCollected("1");
-                mAVObject.setCollected_time(System.currentTimeMillis());
-            }else {
-                mAVObject.setIsCollected("");
-                mAVObject.setCollected_time(0);
+        setCollected();
+        updateData();
+    }
+
+    private void updateData(){
+        new Thread(() -> {
+            if(mAVObject != null){
+                if(TextUtils.isEmpty(mAVObject.getIsCollected())){
+                    CollectedData cdata = new CollectedData();
+                    cdata.setObjectId(mAVObject.getObject_id());
+                    cdata.setName(mAVObject.getTitle());
+                    cdata.setType(AVOUtil.Reading.Reading);
+                    cdata.setJson(new Gson().toJson(mAVObject));
+                    BoxHelper.insert(cdata);
+                }else {
+                    CollectedData cdata = new CollectedData();
+                    cdata.setObjectId(mAVObject.getObject_id());
+                    BoxHelper.remove(cdata);
+                }
+                LiveEventBus.get(KeyUtil.UpdateCollectedData).post("");
             }
-            setCollected();
-            BoxHelper.update(mAVObject);
-        }
+        }).start();
     }
 }

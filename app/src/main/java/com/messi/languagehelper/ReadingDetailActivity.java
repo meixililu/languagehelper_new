@@ -1,12 +1,8 @@
 package com.messi.languagehelper;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import com.google.android.material.appbar.CollapsingToolbarLayout;
-import androidx.core.widget.NestedScrollView;
-import androidx.appcompat.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,11 +13,18 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.widget.NestedScrollView;
+
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.gson.Gson;
 import com.messi.languagehelper.ViewModel.LeisureModel;
 import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.CollectedData;
 import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.util.ADUtil;
+import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.TextHandlerUtil;
@@ -142,20 +145,27 @@ public class ReadingDetailActivity extends BaseActivity {
                 copyOrshare(0);
                 break;
             case R.id.action_collected:
-                if(TextUtils.isEmpty(mAVObject.getIsCollected())){
-                    mAVObject.setIsCollected("1");
-                    mAVObject.setCollected_time(System.currentTimeMillis());
-                }else {
-                    mAVObject.setIsCollected("");
-                    mAVObject.setCollected_time(0);
-                    Intent intent = new Intent();
-                    setResult(RESULT_OK, intent);
-                }
                 setMenuIcon(item);
-                BoxHelper.update(mAVObject);
+                updateData();
                 break;
         }
         return true;
+    }
+
+    private void updateData(){
+        new Thread(() -> {
+            if(TextUtils.isEmpty(mAVObject.getIsCollected())){
+                CollectedData cdata = new CollectedData();
+                cdata.setObjectId(mAVObject.getObject_id());
+                cdata.setName(AVOUtil.Reading.Reading);
+                cdata.setJson(new Gson().toJson(mAVObject));
+                BoxHelper.insert(cdata);
+            }else {
+                CollectedData cdata = new CollectedData();
+                cdata.setObjectId(mAVObject.getObject_id());
+                BoxHelper.remove(cdata);
+            }
+        }).start();
     }
 
     private void setMenuIcon(MenuItem item){

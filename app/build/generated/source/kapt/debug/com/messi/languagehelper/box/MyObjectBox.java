@@ -19,6 +19,7 @@ public class MyObjectBox {
 
     public static BoxStoreBuilder builder() {
         BoxStoreBuilder builder = new BoxStoreBuilder(getModel());
+        builder.entity(CollectedData_.__INSTANCE);
         builder.entity(EveryDaySentence_.__INSTANCE);
         builder.entity(ReadingSubject_.__INSTANCE);
         builder.entity(MomentLikes_.__INSTANCE);
@@ -35,10 +36,11 @@ public class MyObjectBox {
 
     private static byte[] getModel() {
         ModelBuilder modelBuilder = new ModelBuilder();
-        modelBuilder.lastEntityId(13, 7828428422097733664L);
-        modelBuilder.lastIndexId(12, 1247149357836161189L);
+        modelBuilder.lastEntityId(14, 3960141952018617754L);
+        modelBuilder.lastIndexId(13, 7088497524958009537L);
         modelBuilder.lastRelationId(0, 0L);
 
+        buildEntityCollectedData(modelBuilder);
         buildEntityEveryDaySentence(modelBuilder);
         buildEntityReadingSubject(modelBuilder);
         buildEntityMomentLikes(modelBuilder);
@@ -52,6 +54,23 @@ public class MyObjectBox {
         buildEntityCNWBean(modelBuilder);
 
         return modelBuilder.build();
+    }
+
+    private static void buildEntityCollectedData(ModelBuilder modelBuilder) {
+        EntityBuilder entityBuilder = modelBuilder.entity("CollectedData");
+        entityBuilder.id(14, 3960141952018617754L).lastPropertyId(5, 4475057115962061318L);
+        entityBuilder.flags(io.objectbox.model.EntityFlags.USE_NO_ARG_CONSTRUCTOR);
+
+        entityBuilder.property("id", PropertyType.Long).id(1, 4883505936011134605L)
+                .flags(PropertyFlags.ID);
+        entityBuilder.property("objectId", PropertyType.String).id(2, 4758640470848442734L)
+                .flags(PropertyFlags.INDEX_HASH).indexId(13, 7088497524958009537L);
+        entityBuilder.property("name", PropertyType.String).id(3, 4153548220455600934L);
+        entityBuilder.property("json", PropertyType.String).id(4, 2535851677011220860L);
+        entityBuilder.property("type", PropertyType.String).id(5, 4475057115962061318L);
+
+
+        entityBuilder.entityDone();
     }
 
     private static void buildEntityEveryDaySentence(ModelBuilder modelBuilder) {

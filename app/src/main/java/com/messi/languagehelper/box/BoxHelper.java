@@ -670,4 +670,31 @@ public class BoxHelper {
         getWordDetailListItemBox().remove(bean);
     }
 
+    //CollectedData
+    public static Box<CollectedData> getCollectedDataBox(){
+        return getBoxStore().boxFor(CollectedData.class);
+    }
+
+    public static void insert(CollectedData bean){
+        List<CollectedData> list = isCollectedDataExist(bean.getObjectId());
+        if (!NullUtil.isNotEmpty(list)) {
+            getCollectedDataBox().put(bean);
+        }
+    }
+
+    public static void remove(CollectedData bean){
+        List<CollectedData> list = isCollectedDataExist(bean.getObjectId());
+        if (NullUtil.isNotEmpty(list)) {
+            CollectedData data = list.get(0);
+            getCollectedDataBox().remove(data);
+        }
+    }
+
+    public static List<CollectedData> isCollectedDataExist(String oid){
+        return getCollectedDataBox()
+                .query()
+                .equal(CollectedData_.objectId,oid)
+                .build()
+                .find();
+    }
 }
