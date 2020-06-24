@@ -7,13 +7,11 @@ import androidx.multidex.MultiDexApplication;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.messi.languagehelper.box.BoxHelper;
-import com.messi.languagehelper.util.BDADUtil;
-import com.messi.languagehelper.util.CSJADUtil;
+import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.SystemUtil;
-import com.messi.languagehelper.util.TXADUtil;
 import com.umeng.commonsdk.UMConfigure;
 import com.ximalaya.ting.android.opensdk.datatrasfer.CommonRequest;
 import com.youdao.sdk.app.YouDaoApplication;
@@ -47,7 +45,7 @@ public class BaseApplication extends MultiDexApplication {
 
     private void initPartOne(){
         initAVOSCloud();
-        initAd();
+        ADUtil.initAd(this);
         initXMLY();
     }
      private void initPartTwo(){
@@ -71,17 +69,6 @@ public class BaseApplication extends MultiDexApplication {
         try {
             SystemUtil.setPacketName(BaseApplication.this);
             Fresco.initialize(BaseApplication.this);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void initAd(){
-        try {
-            TXADUtil.init(BaseApplication.this);
-            BDADUtil.init(BaseApplication.this);
-//            IFLYAdSDK.init(getApplicationContext());
-            CSJADUtil.init(BaseApplication.this);
         } catch (Exception e) {
             e.printStackTrace();
         }

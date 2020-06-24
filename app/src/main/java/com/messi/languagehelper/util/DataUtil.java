@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.messi.languagehelper.R;
+import com.messi.languagehelper.bean.BoutiquesBean;
 import com.messi.languagehelper.bean.ReadingCategory;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.CNWBean;
@@ -144,49 +145,41 @@ public class DataUtil {
         }
     }
 
-    public static void changeBoutiquesListToReading(List<AVObject> avObjectlist, List<Reading> avObjects, boolean isAddToHead) {
+    public static void changeToBoutiquesBean(List<AVObject> avObjectlist, List<BoutiquesBean> mBoutiquesBean) {
         for (AVObject item : avObjectlist) {
-            Reading mReading = new Reading();
-            mReading.setObject_id(item.getObjectId());
-            if(item.has(AVOUtil.BoutiquesList.bcdoe)){
-                mReading.setBoutique_code(item.getString(AVOUtil.BoutiquesList.bcdoe));
+            BoutiquesBean mReading = new BoutiquesBean();
+            mReading.setObjectId(item.getObjectId());
+            if(item.has(AVOUtil.Boutiques.title)){
+                mReading.setTitle(item.getString(AVOUtil.Boutiques.title));
             }
-            if(item.has(AVOUtil.BoutiquesList.des)){
-                mReading.setContent(item.getString(AVOUtil.BoutiquesList.des));
+            if(item.has(AVOUtil.Boutiques.content)){
+                mReading.setContent(item.getString(AVOUtil.Boutiques.content));
             }
-            if(item.has(AVOUtil.BoutiquesList.type_name)){
-                mReading.setType_name(item.getString(AVOUtil.BoutiquesList.type_name));
+            if(item.has(AVOUtil.Boutiques.code)){
+                mReading.setCode(item.getString(AVOUtil.Boutiques.code));
             }
-            if(item.has(AVOUtil.BoutiquesList.title)){
-                mReading.setTitle(item.getString(AVOUtil.BoutiquesList.title));
+            if(item.has(AVOUtil.Boutiques.img_url)){
+                mReading.setImg_url(item.getString(AVOUtil.Boutiques.img_url));
             }
-            if(item.has(AVOUtil.BoutiquesList.content_type)){
-                mReading.setContent_type(item.getString(AVOUtil.BoutiquesList.content_type));
+            if(item.has(AVOUtil.Boutiques.tag)){
+                mReading.setTag(item.getString(AVOUtil.Boutiques.tag));
             }
-            if(item.has(AVOUtil.BoutiquesList.vid)){
-                mReading.setVid(item.getString(AVOUtil.BoutiquesList.vid));
+            if(item.has(AVOUtil.Boutiques.source_name)){
+                mReading.setSource_name(item.getString(AVOUtil.Boutiques.source_name));
             }
-            if(item.has(AVOUtil.BoutiquesList.img)){
-                mReading.setImg_url(item.getString(AVOUtil.BoutiquesList.img));
+            if(item.has(AVOUtil.Boutiques.source_url)){
+                mReading.setSource_url(item.getString(AVOUtil.Boutiques.source_url));
             }
-            if(item.has(AVOUtil.BoutiquesList.source_name)){
-                mReading.setSource_name(item.getString(AVOUtil.BoutiquesList.source_name));
+            if(item.has(AVOUtil.Boutiques.type)){
+                mReading.setType(item.getString(AVOUtil.Boutiques.type));
             }
-            if(item.has(AVOUtil.BoutiquesList.source_url)){
-                mReading.setSource_url(item.getString(AVOUtil.BoutiquesList.source_url));
+            if(item.has(AVOUtil.Boutiques.category)){
+                mReading.setSource_url(item.getString(AVOUtil.Boutiques.category));
             }
-            if(item.has(AVOUtil.BoutiquesList.type)){
-                mReading.setType(item.getString(AVOUtil.BoutiquesList.type));
+            if(item.has(AVOUtil.Boutiques.views)){
+                mReading.setViews(item.getInt(AVOUtil.Boutiques.views));
             }
-            if(item.has(AVOUtil.BoutiquesList.media_url)){
-                mReading.setMedia_url(item.getString(AVOUtil.BoutiquesList.media_url));
-            }
-            BoxHelper.saveOrGetStatus(mReading);
-            if (isAddToHead) {
-                avObjects.add(0, mReading);
-            } else {
-                avObjects.add(mReading);
-            }
+            mBoutiquesBean.add(mReading);
         }
     }
 

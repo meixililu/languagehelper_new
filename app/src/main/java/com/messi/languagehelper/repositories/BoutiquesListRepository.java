@@ -4,8 +4,10 @@ import android.text.TextUtils;
 
 import androidx.lifecycle.MutableLiveData;
 
+import com.messi.languagehelper.bean.BoutiquesBean;
 import com.messi.languagehelper.bean.RespoData;
 import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.DataUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
 
@@ -23,7 +25,7 @@ public class BoutiquesListRepository {
 
     public MutableLiveData<Boolean> isLoading = new MutableLiveData<>();
     public MutableLiveData<RespoData> mRespoData = new MutableLiveData<>();
-    private List<AVObject> list = new ArrayList<>();
+    private List<BoutiquesBean> list = new ArrayList<>();
     private String type;
     private String category;
     private int maxRandom;
@@ -31,7 +33,7 @@ public class BoutiquesListRepository {
     private boolean isNeedClear = false;
     private boolean hasMore = true;
     private boolean loading = false;
-    private XXLAVObjectRepository mADXXLRepository;
+    private XXLBoutiquesRepository mADXXLRepository;
 
     public BoutiquesListRepository(){}
 
@@ -109,7 +111,7 @@ public class BoutiquesListRepository {
                         }
                         mData.setPositionStart(list.size());
                         mData.setItemCount(avObject.size());
-                        list.addAll(avObject);
+                        DataUtil.changeToBoutiquesBean(avObject,list);
                         loadAD(true);
                         if(avObject.size() == Setings.page_size){
                             skip += Setings.page_size;
@@ -146,7 +148,7 @@ public class BoutiquesListRepository {
         }));
     }
 
-    public List<AVObject> getList() {
+    public List<BoutiquesBean> getList() {
         return list;
     }
 
@@ -198,7 +200,7 @@ public class BoutiquesListRepository {
         this.hasMore = hasMore;
     }
 
-    public void setADXXLRepository(XXLAVObjectRepository mADXXLRepository) {
+    public void setADXXLRepository(XXLBoutiquesRepository mADXXLRepository) {
         this.mADXXLRepository = mADXXLRepository;
     }
 }

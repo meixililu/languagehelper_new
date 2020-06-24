@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModel;
 import com.messi.languagehelper.bean.RespoADData;
 import com.messi.languagehelper.bean.RespoData;
 import com.messi.languagehelper.repositories.BoutiquesListRepository;
-import com.messi.languagehelper.repositories.XXLAVObjectRepository;
+import com.messi.languagehelper.repositories.XXLBoutiquesRepository;
 
 public class BoutiquesViewModel extends ViewModel {
 
@@ -17,7 +17,7 @@ public class BoutiquesViewModel extends ViewModel {
     private MutableLiveData<RespoData> mRespoData;
     private MutableLiveData<RespoADData> mRespoADData;
     private BoutiquesListRepository mRepo;
-    private XXLAVObjectRepository mADRepo;
+    private XXLBoutiquesRepository mADRepo;
 
     public void init(Context context){
         mRepo = new BoutiquesListRepository();
@@ -25,7 +25,7 @@ public class BoutiquesViewModel extends ViewModel {
         isLoading = mRepo.isLoading;
         isLoading.setValue(false);
 
-        mADRepo = new XXLAVObjectRepository(context,mRepo.getList());
+        mADRepo = new XXLBoutiquesRepository(context,mRepo.getList());
         mRespoADData = mADRepo.mRespoData;
         mRepo.setADXXLRepository(mADRepo);
     }

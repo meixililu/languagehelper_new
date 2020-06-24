@@ -39,7 +39,6 @@ import com.google.android.exoplayer2.source.ProgressiveMediaSource;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSource;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
-import com.google.gson.Gson;
 import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.ViewModel.VideoADModel;
 import com.messi.languagehelper.bean.PVideoResult;
@@ -154,6 +153,11 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
             return;
         }
         titleTv.setText(mAVObject.getTitle());
+        if (BoxHelper.isCollected(mAVObject.getObject_id())) {
+            mAVObject.setIsCollected("1");
+        } else {
+            mAVObject.setIsCollected("");
+        }
         setCollected();
         IPlayerUtil.pauseAudioPlayer(this);
         Url = mAVObject.getSource_url();
@@ -162,6 +166,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
         setWebView();
         setData();
         addVideoNewsList();
+
     }
 
     private void setCollected() {
@@ -636,19 +641,28 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
 
     @OnClick(R.id.collect_btn)
     public void onClick() {
+        setCollectStatus();
         setCollected();
         updateData();
+    }
+
+    private void setCollectStatus(){
+        if(TextUtils.isEmpty(mAVObject.getIsCollected())){
+            mAVObject.setIsCollected("1");
+        } else {
+            mAVObject.setIsCollected("");
+        }
     }
 
     private void updateData(){
         new Thread(() -> {
             if(mAVObject != null){
-                if(TextUtils.isEmpty(mAVObject.getIsCollected())){
+                if(!TextUtils.isEmpty(mAVObject.getIsCollected())){
                     CollectedData cdata = new CollectedData();
                     cdata.setObjectId(mAVObject.getObject_id());
                     cdata.setName(mAVObject.getTitle());
                     cdata.setType(AVOUtil.Reading.Reading);
-                    cdata.setJson(new Gson().toJson(mAVObject));
+                    cdata.setJson(JSON.toJSONString(mAVObject));
                     BoxHelper.insert(cdata);
                 }else {
                     CollectedData cdata = new CollectedData();

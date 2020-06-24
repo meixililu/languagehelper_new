@@ -87,12 +87,31 @@
                 app:layout_collapseMode="pin"
                 android:background="?attr/colorPrimary"
                 app:popupTheme="@style/AppTheme.PopupOverlay" >
-                <ProgressBar style="@style/CircularProgressWhite"
-                    android:id="@+id/progressBarCircularIndetermininate"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="right"
-                    android:visibility="gone" />
+                    android:orientation="horizontal">
+                    <ProgressBar style="@style/CircularProgressWhite"
+                        android:id="@+id/progressBarCircularIndetermininate"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center_vertical"
+                        android:visibility="gone"
+                        />
+                    <FrameLayout
+                        android:id="@+id/collect_btn"
+                        android:layout_width="50dp"
+                        android:layout_gravity="center"
+                        android:layout_height="@dimen/actionBar">
+                        <ImageView
+                            android:id="@+id/volume_img"
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_uncollected_white" />
+                    </FrameLayout>
+                </LinearLayout>
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
         <RelativeLayout

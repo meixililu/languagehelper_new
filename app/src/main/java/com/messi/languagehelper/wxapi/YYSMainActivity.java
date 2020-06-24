@@ -32,6 +32,7 @@ import com.messi.languagehelper.aidl.IXBPlayer;
 import com.messi.languagehelper.databinding.ContentFrameBinding;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
+import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AppUpdateUtil;
 import com.messi.languagehelper.util.IPlayerUtil;
 import com.messi.languagehelper.util.KeyUtil;
@@ -58,6 +59,7 @@ public class YYSMainActivity extends BaseActivity implements FragmentProgressbar
 	private SharedPreferences sp;
 	private Intent playIntent;
 	private ContentFrameBinding binding;
+	private boolean HasInitAD;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -76,11 +78,16 @@ public class YYSMainActivity extends BaseActivity implements FragmentProgressbar
 	}
 
 	private void initData(){
+		HasInitAD = getIntent().getBooleanExtra(KeyUtil.HasInitAD,false);
 		registerBroadcast();
 		SpeechUtility.createUtility(this, SpeechConstant.APPID + "=" + getString(R.string.app_id));
 		sp = getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
 		PlayUtil.initData(this, sp);
 		TranslateHelper.init(sp);
+		if (!HasInitAD) {
+			LogUtil.DefalutLog("WXEntryActivity---initData---initAd");
+			ADUtil.initAd(this.getApplicationContext());
+		}
 	}
 
 	private void setupTabIcons() {

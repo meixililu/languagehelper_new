@@ -110,6 +110,7 @@ public class LoadingPreActivity extends BaseActivity {
             mclass = YYSMainActivity.class;
         }
         Intent intent = new Intent(this, mclass);
+        intent.putExtra(KeyUtil.HasInitAD,true);
         startActivity(intent);
         this.finish();
     }

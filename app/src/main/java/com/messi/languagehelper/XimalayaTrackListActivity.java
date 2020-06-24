@@ -1,21 +1,26 @@
 package com.messi.languagehelper;
 
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.facebook.drawee.view.SimpleDraweeView;
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.adapter.RcXimalayaTrackListAdapter;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.CollectedData;
+import com.messi.languagehelper.databinding.XimalayaTracklistActivityBinding;
 import com.messi.languagehelper.service.PlayerService;
+import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.StringUtils;
+import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XimalayaUtil;
 import com.ximalaya.ting.android.opensdk.constants.DTransferConstants;
 import com.ximalaya.ting.android.opensdk.datatrasfer.CommonRequest;
@@ -33,28 +38,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 public class XimalayaTrackListActivity extends BaseActivity implements OnClickListener,IXmPlayerStatusListener {
 
-    @BindView(R.id.listview)
-    RecyclerView listview;
-    @BindView(R.id.item_img)
-    SimpleDraweeView itemImg;
-    @BindView(R.id.track_title)
-    TextView trackTitle;
-    @BindView(R.id.track_info)
-    TextView trackInfo;
-    @BindView(R.id.btn_sort)
-    FrameLayout btnSort;
-    @BindView(R.id.btn_download)
-    FrameLayout btnDownload;
-    @BindView(R.id.img_sort)
-    ImageView imgSort;
-    @BindView(R.id.page_count)
-    TextView pageCount;
     private RcXimalayaTrackListAdapter mAdapter;
     private List<Track> avObjects;
     private int skip = 1;
@@ -66,16 +51,20 @@ public class XimalayaTrackListActivity extends BaseActivity implements OnClickLi
     private LinearLayoutManager mLinearLayoutManager;
     private boolean init_info;
     private String sort = "asc";
+    private String jsonData;
+    private XimalayaTracklistActivityBinding binding;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ximalaya_tracklist_activity);
-        ButterKnife.bind(this);
+        binding = XimalayaTracklistActivityBinding.inflate(LayoutInflater.from(this));
+        setContentView(binding.getRoot());
         registerBroadcast();
         album_id = getIntent().getStringExtra("album_id");
         play_times = getIntent().getLongExtra("play_times", 100000);
-        track_count = getIntent().getLongExtra("track_count", 30);
+        track_count = getIntent().getLongExtra("track_count", 1);
+        jsonData = getIntent().getStringExtra(KeyUtil.JSONData);
+        LogUtil.DefalutLog(jsonData);
         initViews();
         QueryTask();
     }
@@ -88,20 +77,23 @@ public class XimalayaTrackListActivity extends BaseActivity implements OnClickLi
         mAdapter.setFooter(new Object());
         hideFooterview();
         mLinearLayoutManager = new LinearLayoutManager(this);
-        listview.setLayoutManager(mLinearLayoutManager);
-        listview.addItemDecoration(
+        binding.listview.setLayoutManager(mLinearLayoutManager);
+        binding.listview.addItemDecoration(
                 new HorizontalDividerItemDecoration.Builder(this)
                         .colorResId(R.color.text_tint)
                         .sizeResId(R.dimen.list_divider_size)
                         .marginResId(R.dimen.padding_2, R.dimen.padding_2)
                         .build());
-        listview.setAdapter(mAdapter);
+        binding.listview.setAdapter(mAdapter);
         setListOnScrollListener();
         XmPlayerManager.getInstance(this).addPlayerStatusListener(this);
+        initCollectedButton();
+        binding.btnSort.setOnClickListener(view -> btnSort());
+        binding.collectBtn.setOnClickListener(view -> collectedOrUncollected());
     }
 
     public void setListOnScrollListener() {
-        listview.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        binding.listview.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
@@ -138,7 +130,6 @@ public class XimalayaTrackListActivity extends BaseActivity implements OnClickLi
         QueryTask();
     }
 
-
     private void QueryTask() {
         loading = true;
         showProgressbar();
@@ -150,8 +141,9 @@ public class XimalayaTrackListActivity extends BaseActivity implements OnClickLi
         CommonRequest.getTracks(map, new IDataCallBack<TrackList>() {
             @Override
             public void onSuccess(@Nullable TrackList trackList) {
+                LogUtil.DefalutLog("QueryTask---onSuccess");
                 onFinishLoadData();
-                LogUtil.DefalutLog(trackList.toString());
+//                LogUtil.DefalutLog(trackList.toString());
                 if (trackList != null && trackList.getTracks() != null) {
                     LogUtil.DefalutLog(trackList.toString());
                     for (Track track : trackList.getTracks()){
@@ -161,7 +153,6 @@ public class XimalayaTrackListActivity extends BaseActivity implements OnClickLi
                     skip += 1;
                     mAdapter.notifyDataSetChanged();
                     if (skip > trackList.getTotalPage()) {
-//                        ToastUtil.diaplayMesShort(XimalayaTrackListActivity.this, "没有了！");
                         hideFooterview();
                         hasMore = false;
                     } else {
@@ -169,10 +160,10 @@ public class XimalayaTrackListActivity extends BaseActivity implements OnClickLi
                         showFooterview();
                     }
                     if (!init_info) {
-                        itemImg.setImageURI(trackList.getCoverUrlLarge());
-                        trackTitle.setText(trackList.getAlbumTitle());
-                        trackInfo.setText("播放：" + StringUtils.numToStrTimes(play_times));
-                        pageCount.setText(" " + String.valueOf(track_count) + "集");
+                        binding.itemImg.setImageURI(trackList.getCoverUrlLarge());
+                        binding.trackTitle.setText(trackList.getAlbumTitle());
+                        binding.trackInfo.setText("播放：" + StringUtils.numToStrTimes(play_times));
+                        binding.pageCount.setText(" " + String.valueOf(track_count) + "集");
                         init_info = true;
                     }
                 }
@@ -184,6 +175,48 @@ public class XimalayaTrackListActivity extends BaseActivity implements OnClickLi
                 LogUtil.DefalutLog(s);
             }
         });
+    }
+
+    private void initCollectedButton(){
+        if(BoxHelper.isCollected(album_id)){
+            binding.volumeImg.setImageResource(R.drawable.ic_collected_white);
+            binding.volumeImg.setTag(true);
+        }else {
+            binding.volumeImg.setImageResource(R.drawable.ic_uncollected_white);
+            binding.volumeImg.setTag(false);
+        }
+    }
+
+    private void collectedOrUncollected(){
+        boolean tag = !(boolean)binding.volumeImg.getTag();
+        binding.volumeImg.setTag(tag);
+        if(!TextUtils.isEmpty(jsonData)){
+            if(tag){
+                binding.volumeImg.setImageResource(R.drawable.ic_collected_white);
+                ToastUtil.diaplayMesShort(this,"已收藏");
+            }else {
+                binding.volumeImg.setImageResource(R.drawable.ic_uncollected_white);
+                ToastUtil.diaplayMesShort(this,"取消收藏");
+            }
+            saveCollectedStatus(tag);
+        }
+    }
+
+    private void saveCollectedStatus(boolean tag){
+        new Thread(() -> {
+            CollectedData cdata = new CollectedData();
+            if(tag){
+                cdata.setObjectId(album_id);
+                cdata.setName(album_id);
+                cdata.setType(KeyUtil.XimalayaTrack);
+                cdata.setJson(jsonData);
+                BoxHelper.insert(cdata);
+            }else {
+                cdata.setObjectId(album_id);
+                BoxHelper.remove(cdata);
+            }
+            LiveEventBus.get(KeyUtil.UpdateCollectedData).post("");
+        }).start();
     }
 
     private void onFinishLoadData() {
@@ -226,22 +259,15 @@ public class XimalayaTrackListActivity extends BaseActivity implements OnClickLi
         XmPlayerManager.getInstance(this).removePlayerStatusListener(this);
     }
 
-    @OnClick({R.id.btn_sort, R.id.btn_download})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.btn_sort:
-                if (sort.equals(XimalayaUtil.Sort_asc)) {
-                    sort = XimalayaUtil.Sort_desc;
-                    imgSort.setImageResource(R.drawable.main_album_sort_desc);
-                } else {
-                    sort = XimalayaUtil.Sort_asc;
-                    imgSort.setImageResource(R.drawable.main_album_sort_asc);
-                }
-                Refresh();
-                break;
-            case R.id.btn_download:
-                break;
+    public void btnSort() {
+        if (sort.equals(XimalayaUtil.Sort_asc)) {
+            sort = XimalayaUtil.Sort_desc;
+            binding.imgSort.setImageResource(R.drawable.main_album_sort_desc);
+        } else {
+            sort = XimalayaUtil.Sort_asc;
+            binding.imgSort.setImageResource(R.drawable.main_album_sort_asc);
         }
+        Refresh();
     }
 
     @Override

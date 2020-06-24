@@ -18,9 +18,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.widget.NestedScrollView;
 
+import com.alibaba.fastjson.JSON;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
-import com.google.gson.Gson;
 import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.ViewModel.LeisureModel;
 import com.messi.languagehelper.box.BoxHelper;
@@ -144,6 +144,11 @@ public class ReadingMp3DetailActivity extends BaseActivity implements SeekBar.On
             mAVObject.setStatus("1");
             BoxHelper.update(mAVObject);
         }
+        if (BoxHelper.isCollected(mAVObject.getObject_id())) {
+            mAVObject.setIsCollected("1");
+        } else {
+            mAVObject.setIsCollected("");
+        }
     }
 
     private void setSeekbarAndText(){
@@ -181,6 +186,7 @@ public class ReadingMp3DetailActivity extends BaseActivity implements SeekBar.On
                 copyOrshare(0);
                 break;
             case R.id.action_collected:
+                setCollectStatus();
                 setMenuIcon(item);
                 updateData();
                 break;
@@ -188,15 +194,23 @@ public class ReadingMp3DetailActivity extends BaseActivity implements SeekBar.On
         return true;
     }
 
+    private void setCollectStatus(){
+        if(TextUtils.isEmpty(mAVObject.getIsCollected())){
+            mAVObject.setIsCollected("1");
+        } else {
+            mAVObject.setIsCollected("");
+        }
+    }
+
     private void updateData(){
         new Thread(() -> {
             if(mAVObject != null){
-                if(TextUtils.isEmpty(mAVObject.getIsCollected())){
+                if(!TextUtils.isEmpty(mAVObject.getIsCollected())){
                     CollectedData cdata = new CollectedData();
                     cdata.setObjectId(mAVObject.getObject_id());
                     cdata.setName(mAVObject.getTitle());
                     cdata.setType(AVOUtil.Reading.Reading);
-                    cdata.setJson(new Gson().toJson(mAVObject));
+                    cdata.setJson(JSON.toJSONString(mAVObject));
                     BoxHelper.insert(cdata);
                 }else {
                     CollectedData cdata = new CollectedData();

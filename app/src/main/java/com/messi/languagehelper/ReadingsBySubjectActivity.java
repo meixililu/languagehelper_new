@@ -8,19 +8,15 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.gson.Gson;
 import com.iflytek.voiceads.conn.NativeDataRef;
-import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.adapter.RcReadingListAdapter;
 import com.messi.languagehelper.bean.RespoADData;
 import com.messi.languagehelper.bean.RespoData;
 import com.messi.languagehelper.box.BoxHelper;
-import com.messi.languagehelper.box.CollectedData;
 import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.box.ReadingSubject;
 import com.messi.languagehelper.databinding.ReadingBySubjectActivityBinding;
 import com.messi.languagehelper.service.PlayerService;
-import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.ColorUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -35,7 +31,6 @@ public class ReadingsBySubjectActivity extends BaseActivity implements View.OnCl
 	private String subjectName;
 	private String objectId;
 	private ReadingSubject mReadingSubject;
-	private String level;
 	private LinearLayoutManager mLinearLayoutManager;
 	private ReadingBySubjectActivityBinding binding;
 	private ReadingListViewModel viewModel;
@@ -56,7 +51,6 @@ public class ReadingsBySubjectActivity extends BaseActivity implements View.OnCl
 		objectId = mReadingSubject.getObjectId();
 		viewModel.init(this);
 		viewModel.getRepo().setSubjectName(subjectName);
-		viewModel.getRepo().setLevel(level);
 		viewModel.getRepo().setOrderById(true);
 
 		initSwipeRefresh();
@@ -91,18 +85,6 @@ public class ReadingsBySubjectActivity extends BaseActivity implements View.OnCl
 			binding.trackTitle.setText(mReadingSubject.getName());
 		}
 	}
-
-	private void initCollectedButton(){
-		ReadingSubject temp = BoxHelper.findReadingSubjectByObjectId(objectId);
-	    if(temp != null){
-			mReadingSubject = temp;
-			binding.volumeImg.setImageResource(R.drawable.ic_collected_white);
-			binding.volumeImg.setTag(1);
-        }else {
-			binding.volumeImg.setImageResource(R.drawable.ic_uncollected_white);
-			binding.volumeImg.setTag(0);
-        }
-    }
 
 	public void setListOnScrollListener(){
 		binding.listview.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -167,11 +149,7 @@ public class ReadingsBySubjectActivity extends BaseActivity implements View.OnCl
 	@Override
 	public void onClick(View v) {
 		if(v.getId() == R.id.collect_btn){
-		    if((int)binding.volumeImg.getTag() == 1){
-                collectedOrUncollected(0);
-            }else {
-                collectedOrUncollected(1);
-            }
+			collectedOrUncollected();
 		}else if(v.getId() == R.id.btn_sort){
 			viewModel.getRepo().setOrderById(!viewModel.getRepo().getOrderById());
 			viewModel.refresh(0);
@@ -183,36 +161,30 @@ public class ReadingsBySubjectActivity extends BaseActivity implements View.OnCl
         }
 	}
 
-    private void collectedOrUncollected(int tag){
+	private void initCollectedButton(){
+		if(BoxHelper.isCollected(objectId)){
+			binding.volumeImg.setImageResource(R.drawable.ic_collected_white);
+			binding.volumeImg.setTag(true);
+		}else {
+			binding.volumeImg.setImageResource(R.drawable.ic_uncollected_white);
+			binding.volumeImg.setTag(false);
+		}
+	}
+
+    private void collectedOrUncollected(){
+		boolean tag = !(boolean)binding.volumeImg.getTag();
+		binding.volumeImg.setTag(tag);
         if(mReadingSubject != null){
-            if(tag == 1){
+            if(tag){
 				binding.volumeImg.setImageResource(R.drawable.ic_collected_white);
 				ToastUtil.diaplayMesShort(this,"已收藏");
             }else {
 				binding.volumeImg.setImageResource(R.drawable.ic_uncollected_white);
 				ToastUtil.diaplayMesShort(this,"取消收藏");
             }
-			binding.volumeImg.setTag(tag);
-			updateData(tag);
+			viewModel.collectData(tag, mReadingSubject);
         }
     }
-
-	private void updateData(int tag){
-		new Thread(() -> {
-			CollectedData cdata = new CollectedData();
-			if(tag == 1){
-				cdata.setObjectId(mReadingSubject.getObjectId());
-				cdata.setName(mReadingSubject.getName());
-				cdata.setType(AVOUtil.SubjectList.SubjectList);
-				cdata.setJson(new Gson().toJson(mReadingSubject));
-				BoxHelper.insert(cdata);
-			}else {
-				cdata.setObjectId(mReadingSubject.getObjectId());
-				BoxHelper.remove(cdata);
-			}
-			LiveEventBus.get(KeyUtil.UpdateCollectedData).post("");
-		}).start();
-	}
 
     private void initViewModel(){
 		viewModel.getReadingList().observe(this, data -> onDataChange(data));

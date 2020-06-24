@@ -5,8 +5,6 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +12,11 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.google.gson.Gson;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -227,6 +229,7 @@ public class XmlyCategoryRecommendFragment extends BaseFragment {
         intent.putExtra("album_id", mAVObject.getId()+"");
         intent.putExtra("play_times", mAVObject.getPlayCount());
         intent.putExtra("track_count", mAVObject.getIncludeTrackCount());
+        intent.putExtra(KeyUtil.JSONData, new Gson().toJson(mAVObject));
         intent.putExtra(KeyUtil.ActionbarTitle, mAVObject.getAlbumTitle());
         startActivity(intent);
     }

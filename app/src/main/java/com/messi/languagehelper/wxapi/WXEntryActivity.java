@@ -7,7 +7,6 @@ import android.app.Activity;
 import android.app.NotificationManager;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
@@ -32,6 +31,7 @@ import com.messi.languagehelper.aidl.IXBPlayer;
 import com.messi.languagehelper.databinding.ContentFrameBinding;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
+import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AppUpdateUtil;
 import com.messi.languagehelper.util.IPlayerUtil;
 import com.messi.languagehelper.util.KeyUtil;
@@ -58,6 +58,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 	private SharedPreferences sp;
 	private Intent playIntent;
 	private ContentFrameBinding binding;
+	private boolean HasInitAD;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -76,11 +77,17 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 	}
 
 	private void initData(){
+		HasInitAD = getIntent().getBooleanExtra(KeyUtil.HasInitAD,false);
+		LogUtil.DefalutLog("WXEntryActivity---initData---HasInitAD:"+HasInitAD);
 		registerBroadcast();
 		SpeechUtility.createUtility(this, SpeechConstant.APPID + "=" + getString(R.string.app_id));
 		sp = getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
 		PlayUtil.initData(this, sp);
 		TranslateHelper.init(sp);
+		if (!HasInitAD) {
+			LogUtil.DefalutLog("WXEntryActivity---initData---initAd");
+			ADUtil.initAd(this.getApplicationContext());
+		}
 	}
 
 	private void setupTabIcons() {
@@ -286,12 +293,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 		new AlertDialog.Builder(this,R.style.Theme_AppCompat_Light_Dialog_Alert)
 				.setTitle("温馨提示")
 				.setMessage("需要授权才能使用。")
-				.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						request.proceed();
-					}
-				}).show();
+				.setPositiveButton("OK", (dialog, which) -> request.proceed()).show();
 	}
 
 	@OnPermissionDenied({Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_EXTERNAL_STORAGE,

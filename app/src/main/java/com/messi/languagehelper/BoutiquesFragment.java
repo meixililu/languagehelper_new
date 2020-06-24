@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.adapter.RcBoutiquesAdapter;
+import com.messi.languagehelper.bean.AdData;
+import com.messi.languagehelper.bean.BoutiquesBean;
 import com.messi.languagehelper.bean.RespoADData;
 import com.messi.languagehelper.bean.RespoData;
 import com.messi.languagehelper.databinding.BoutiquesFragmentBinding;
@@ -23,8 +25,6 @@ import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.viewmodels.BoutiquesViewModel;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
-
-import cn.leancloud.AVObject;
 
 public class BoutiquesFragment extends BaseFragment {
 
@@ -75,7 +75,7 @@ public class BoutiquesFragment extends BaseFragment {
 		super.onCreateView(inflater, container, savedInstanceState);
 		binding = BoutiquesFragmentBinding.inflate(inflater);
 		initSwipeRefresh(binding.getRoot());
-		init(binding.getRoot());
+		init();
 		return binding.getRoot();
 	}
 
@@ -87,7 +87,7 @@ public class BoutiquesFragment extends BaseFragment {
 		viewModel.count();
 	}
 	
-	private void init(View view){
+	private void init(){
 		if(!TextUtils.isEmpty(title)){
 			binding.myAwesomeToolbar.setVisibility(View.VISIBLE);
 			binding.myAwesomeToolbar.setTitle(title);
@@ -175,15 +175,14 @@ public class BoutiquesFragment extends BaseFragment {
 		if(viewModel.getRepo().getList().size() > 3){
 			for(int i=first;i< (first+vCount);i++){
 				if(i < viewModel.getRepo().getList().size() && i > 0){
-					AVObject mAVObject = viewModel.getRepo().getList().get(i);
-					if(mAVObject != null && mAVObject.get(KeyUtil.ADKey) != null){
-						if(!(Boolean) mAVObject.get(KeyUtil.ADIsShowKey)){
-							NativeDataRef mNativeADDataRef = (NativeDataRef) mAVObject.get(KeyUtil.ADKey);
+					BoutiquesBean mAVObject = viewModel.getRepo().getList().get(i);
+					if(mAVObject != null && mAVObject.isAd() && mAVObject.getAdData() != null){
+						AdData mAdData = mAVObject.getAdData();
+						if(mAdData.getMNativeADDataRef() != null && !mAdData.isAdShow()){
+							NativeDataRef mNativeADDataRef = mAdData.getMNativeADDataRef();
 							boolean isExposure = mNativeADDataRef.onExposure(view.getChildAt(i%vCount));
+							mAdData.setAdShow(isExposure);
 							LogUtil.DefalutLog("isExposure:"+isExposure);
-							if(isExposure){
-								mAVObject.put(KeyUtil.ADIsShowKey, isExposure);
-							}
 						}
 					}
 				}

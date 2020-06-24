@@ -8,6 +8,10 @@ public class KeyUtil {
 
 	public static final String StyleKey = "StyleKey";
 
+	public static final String JSONData = "JSONData";
+
+	public static final String HasInitAD = "HasInitAD";
+
 	public static final String Practice_FourInOne = "Practice_FourInOne";
 	
 	public static final String Practice_ReadAfterMe = "Practice_ReadAfterMe";
@@ -86,7 +90,7 @@ public class KeyUtil {
 
 	public static final String XmlyRadioProvince = "XmlyRadioProvince";
 
-	public static final String Xmly_Tags_Eng = "Xmly_Tags_Eng";
+	public static final String XimalayaTrack = "XimalayaTrack";
 
 	public static final String Xmly_Tag = "Xmly_Tag";
 

@@ -50,6 +50,7 @@ public class CSJADUtil {
                 sInit = true;
             }
         } catch (Exception e) {
+            sInit = false;
             e.printStackTrace();
         }
     }

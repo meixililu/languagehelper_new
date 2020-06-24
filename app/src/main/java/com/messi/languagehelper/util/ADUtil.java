@@ -7,11 +7,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
-import androidx.appcompat.app.AlertDialog;
 import android.text.TextUtils;
 
-import cn.leancloud.AVObject;
-import cn.leancloud.AVQuery;
+import androidx.appcompat.app.AlertDialog;
+
 import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.WebViewActivity;
@@ -21,6 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -91,6 +92,17 @@ public class ADUtil {
 				}
 			}
 			LogUtil.DefalutLog("IsShowAD:"+ADUtil.IsShowAD);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void initAd(Context context){
+		try {
+			TXADUtil.init(context);
+			BDADUtil.init(context);
+//            IFLYAdSDK.init(context);
+			CSJADUtil.init(context);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

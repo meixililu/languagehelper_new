@@ -1,19 +1,20 @@
 package com.messi.languagehelper.adapter;
 
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import cn.leancloud.AVObject;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.messi.languagehelper.R;
+import com.messi.languagehelper.bean.BoutiquesBean;
 import com.messi.languagehelper.util.HeaderFooterRecyclerViewAdapter;
 
 /**
  * Created by luli on 10/23/16.
  */
 
-public class RcBoutiquesAdapter extends HeaderFooterRecyclerViewAdapter<RecyclerView.ViewHolder, Object, AVObject, Object> {
+public class RcBoutiquesAdapter extends HeaderFooterRecyclerViewAdapter<RecyclerView.ViewHolder, Object, BoutiquesBean, Object> {
 
     @Override
     protected RecyclerView.ViewHolder onCreateItemViewHolder(ViewGroup parent, int viewType) {
@@ -24,7 +25,7 @@ public class RcBoutiquesAdapter extends HeaderFooterRecyclerViewAdapter<Recycler
 
     @Override
     protected void onBindItemViewHolder(RecyclerView.ViewHolder holder, int position) {
-        AVObject mAVObject = getItem(position);
+        BoutiquesBean mAVObject = getItem(position);
         RcBoutiquesViewHolder itemViewHolder = (RcBoutiquesViewHolder)holder;
         itemViewHolder.render(mAVObject);
     }

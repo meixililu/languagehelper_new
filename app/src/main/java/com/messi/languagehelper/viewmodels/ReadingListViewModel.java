@@ -1,14 +1,22 @@
 package com.messi.languagehelper.viewmodels;
 
+import android.content.Context;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import android.content.Context;
 
+import com.google.gson.Gson;
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.bean.RespoADData;
 import com.messi.languagehelper.bean.RespoData;
+import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.CollectedData;
+import com.messi.languagehelper.box.ReadingSubject;
 import com.messi.languagehelper.repositories.ReadingListRepository;
 import com.messi.languagehelper.repositories.XXLReadingRepository;
+import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.KeyUtil;
 
 public class ReadingListViewModel extends ViewModel {
 
@@ -18,7 +26,6 @@ public class ReadingListViewModel extends ViewModel {
     private MutableLiveData<Integer> mMutaCount;
     private ReadingListRepository mRepo;
     private XXLReadingRepository mADRepo;
-    private Context context;
 
     public void init(Context context){
         mRepo = new ReadingListRepository();
@@ -65,6 +72,23 @@ public class ReadingListViewModel extends ViewModel {
 
     public ReadingListRepository getRepo(){
         return mRepo;
+    }
+
+    public void collectData(boolean tag, ReadingSubject mReadingSubject){
+        new Thread(() -> {
+            CollectedData cdata = new CollectedData();
+            if(tag){
+                cdata.setObjectId(mReadingSubject.getObjectId());
+                cdata.setName(mReadingSubject.getName());
+                cdata.setType(AVOUtil.SubjectList.SubjectList);
+                cdata.setJson(new Gson().toJson(mReadingSubject));
+                BoxHelper.insert(cdata);
+            }else {
+                cdata.setObjectId(mReadingSubject.getObjectId());
+                BoxHelper.remove(cdata);
+            }
+            LiveEventBus.get(KeyUtil.UpdateCollectedData).post("");
+        }).start();
     }
 
 //    @Override

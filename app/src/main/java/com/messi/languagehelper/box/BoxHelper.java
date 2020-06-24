@@ -697,4 +697,14 @@ public class BoxHelper {
                 .build()
                 .find();
     }
+
+    public static boolean isCollected(String oid){
+        int size = getCollectedDataBox()
+                .query()
+                .equal(CollectedData_.objectId,oid)
+                .build()
+                .find()
+                .size();
+        return size > 0;
+    }
 }

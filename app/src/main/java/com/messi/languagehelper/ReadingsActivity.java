@@ -2,17 +2,18 @@ package com.messi.languagehelper;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-import cn.leancloud.AVObject;
-import cn.leancloud.AVQuery;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.alibaba.fastjson.JSON;
 import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.ViewModel.XXLModel;
 import com.messi.languagehelper.adapter.RcReadingListAdapter;
+import com.messi.languagehelper.bean.BoutiquesBean;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.service.PlayerService;
@@ -28,6 +29,9 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
+
 public class ReadingsActivity extends BaseActivity implements OnClickListener{
 
 	private RecyclerView listview;
@@ -41,6 +45,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 	private String boutique_code;
 	private LinearLayoutManager mLinearLayoutManager;
 	private XXLModel mXXLModel;
+	private BoutiquesBean mBoutiquesBean;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -57,6 +62,9 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 		type = getIntent().getStringExtra(KeyUtil.NewsType);
 		source = getIntent().getStringExtra(KeyUtil.NewsSource);
 		boutique_code = getIntent().getStringExtra(KeyUtil.BoutiqueCode);
+		mBoutiquesBean = getIntent().getParcelableExtra(KeyUtil.ObjectKey);
+		LogUtil.DefalutLog(JSON.toJSONString(mBoutiquesBean));
+
 		avObjects = new ArrayList<Reading>();
 		mXXLModel = new XXLModel(this);
 		avObjects.addAll(BoxHelper.getReadingList(0,Setings.page_size,category,type,""));

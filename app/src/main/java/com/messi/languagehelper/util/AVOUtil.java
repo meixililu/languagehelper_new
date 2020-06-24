@@ -905,8 +905,6 @@ public class AVOUtil {
 
 		public final static String tag = "tag";
 
-		public final static String table_name = "table_name";
-
 		public final static String source_name = "source_name";
 
 		public final static String source_url = "source_url";

@@ -4,15 +4,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.baidu.mobads.AdView;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.google.gson.Gson;
 import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.ViewModel.XXLModel;
@@ -141,6 +143,7 @@ public class RcXmlyTagsItemViewHolder extends RecyclerView.ViewHolder {
         intent.putExtra("album_id", mAVObject.getId()+"");
         intent.putExtra("play_times", mAVObject.getPlayCount());
         intent.putExtra("track_count", mAVObject.getIncludeTrackCount());
+        intent.putExtra(KeyUtil.JSONData, new Gson().toJson(mAVObject));
         intent.putExtra(KeyUtil.ActionbarTitle, mAVObject.getAlbumTitle());
         context.startActivity(intent);
     }

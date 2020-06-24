@@ -15,15 +15,16 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
-import androidx.annotation.NonNull;
-import com.google.android.material.bottomnavigation.LabelVisibilityMode;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import androidx.fragment.app.Fragment;
-import androidx.appcompat.app.AlertDialog;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SpeechUtility;
@@ -37,9 +38,11 @@ import com.messi.languagehelper.YYJHomeFragment;
 import com.messi.languagehelper.aidl.IXBPlayer;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
+import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AppUpdateUtil;
 import com.messi.languagehelper.util.IPlayerUtil;
+import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.Setings;
@@ -71,6 +74,7 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 	private Fragment practiceFragment;
 	private Fragment dashboardFragment;
 	private Fragment radioHomeFragment;
+	private boolean HasInitAD;
 
 	private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
 			= new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -120,10 +124,15 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 	}
 
 	private void initData(){
+		HasInitAD = getIntent().getBooleanExtra(KeyUtil.HasInitAD,false);
 		SpeechUtility.createUtility(this, SpeechConstant.APPID + "=" + getString(R.string.app_id));
 		mSharedPreferences = getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
 		PlayUtil.initData(this, mSharedPreferences);
 		TranslateHelper.init(mSharedPreferences);
+		if (!HasInitAD) {
+			LogUtil.DefalutLog("WXEntryActivity---initData---initAd");
+			ADUtil.initAd(this.getApplicationContext());
+		}
 	}
 
 	private void initFragment() {

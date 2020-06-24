@@ -3,7 +3,6 @@ package com.messi.languagehelper;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -14,7 +13,6 @@ import android.view.ViewGroup;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.ViewModel.XXLAVObjectModel;
 import com.messi.languagehelper.adapter.RcSubjectListAdapter;
@@ -154,20 +152,7 @@ public class SubjectSubscribeFragment extends BaseFragment {
     }
 
     public void liveEventBus(){
-        LiveEventBus.get(KeyUtil.SubjectSubscribeEvent,SubjectSubscribeEvent.class)
-                .observe(getViewLifecycleOwner(), event -> {
-                    if(event != null && !TextUtils.isEmpty(event.getType()) &&
-                            !TextUtils.isEmpty(event.getObjectID())){
-                        if(event.getType().equals("subscribe")){
-                            ReadingSubject mItem = BoxHelper.findReadingSubjectByObjectId(event.getObjectID());
-                            if(mItem != null){
-                                avObjects.add(0,subjectItem(mItem));
-                            }
-                        }else {
-                            removeItem(event.getObjectID());
-                        }
-                    }
-        });
+
     }
 
     private void removeItem(String oid){

@@ -283,6 +283,7 @@ public class KaipingModel {
             mclass = YYSMainActivity.class;
         }
         Intent intent = new Intent(getContext(), mclass);
+        intent.putExtra(KeyUtil.HasInitAD,true);
         getContext().startActivity(intent);
         getContext().finish();
 //        LiveEventBus.get(KeyUtil.LoadingPageFinish).post("");
