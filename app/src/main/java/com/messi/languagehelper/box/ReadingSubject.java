@@ -19,11 +19,20 @@ public class ReadingSubject implements Parcelable {
     private String category;
     private String source_name;
     private String source_url;
+    private int imgId;
     private String level;
     private String code;
     private String order;
     private int views;
     private long creat_time;
+
+    public int getImgId() {
+        return imgId;
+    }
+
+    public void setImgId(int imgId) {
+        this.imgId = imgId;
+    }
 
     public long getId() {
         return id;
@@ -131,6 +140,7 @@ public class ReadingSubject implements Parcelable {
         dest.writeString(this.code);
         dest.writeString(this.order);
         dest.writeInt(this.views);
+        dest.writeInt(this.imgId);
         dest.writeLong(this.creat_time);
     }
 
@@ -148,6 +158,7 @@ public class ReadingSubject implements Parcelable {
         this.code = in.readString();
         this.order = in.readString();
         this.views = in.readInt();
+        this.imgId = in.readInt();
         this.creat_time = in.readLong();
     }
 

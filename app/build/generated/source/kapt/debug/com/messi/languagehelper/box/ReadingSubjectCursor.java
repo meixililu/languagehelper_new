@@ -28,6 +28,7 @@ public final class ReadingSubjectCursor extends Cursor<ReadingSubject> {
     private final static int __ID_category = ReadingSubject_.category.id;
     private final static int __ID_source_name = ReadingSubject_.source_name.id;
     private final static int __ID_source_url = ReadingSubject_.source_url.id;
+    private final static int __ID_imgId = ReadingSubject_.imgId.id;
     private final static int __ID_level = ReadingSubject_.level.id;
     private final static int __ID_code = ReadingSubject_.code.id;
     private final static int __ID_order = ReadingSubject_.order.id;
@@ -66,19 +67,19 @@ public final class ReadingSubjectCursor extends Cursor<ReadingSubject> {
         String source_url = entity.getSource_url();
         int __id5 = source_url != null ? __ID_source_url : 0;
         String level = entity.getLevel();
-        int __id6 = level != null ? __ID_level : 0;
+        int __id7 = level != null ? __ID_level : 0;
         String code = entity.getCode();
-        int __id7 = code != null ? __ID_code : 0;
+        int __id8 = code != null ? __ID_code : 0;
         String order = entity.getOrder();
-        int __id8 = order != null ? __ID_order : 0;
+        int __id9 = order != null ? __ID_order : 0;
 
         collect400000(cursor, 0, 0,
-                __id5, source_url, __id6, level,
-                __id7, code, __id8, order);
+                __id5, source_url, __id7, level,
+                __id8, code, __id9, order);
 
         long __assignedId = collect004000(cursor, entity.getId(), PUT_FLAG_COMPLETE,
-                __ID_creat_time, entity.getCreat_time(), __ID_views, entity.getViews(),
-                0, 0, 0, 0);
+                __ID_creat_time, entity.getCreat_time(), __ID_imgId, entity.getImgId(),
+                __ID_views, entity.getViews(), 0, 0);
 
         entity.setId(__assignedId);
 

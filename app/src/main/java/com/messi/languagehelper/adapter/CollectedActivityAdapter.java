@@ -29,7 +29,7 @@ public class CollectedActivityAdapter extends FragmentPagerAdapter {
         if( position == 0 ){
         	return SubjectSubscribeFragment.getInstance();
         }else if( position == 1 ){
-            return ReadingCollectedListFragment.newInstance();
+            return new ReadingCollectedListFragment();
         }else if( position == 2 ){
         	return new CollectedTranslateFragment();
         }else if( position == 3 ){

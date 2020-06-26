@@ -1,21 +1,23 @@
 package com.messi.languagehelper;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.fastjson.JSON;
 import com.iflytek.voiceads.conn.NativeDataRef;
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.ViewModel.XXLModel;
 import com.messi.languagehelper.adapter.RcReadingListAdapter;
 import com.messi.languagehelper.bean.BoutiquesBean;
 import com.messi.languagehelper.box.BoxHelper;
+import com.messi.languagehelper.box.CollectedData;
 import com.messi.languagehelper.box.Reading;
+import com.messi.languagehelper.databinding.ReadingActivityBinding;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.DataUtil;
@@ -25,16 +27,16 @@ import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
-import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
 import cn.leancloud.AVObject;
 import cn.leancloud.AVQuery;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
-public class ReadingsActivity extends BaseActivity implements OnClickListener{
+public class ReadingsActivity extends BaseActivity {
 
-	private RecyclerView listview;
 	private RcReadingListAdapter mAdapter;
 	private List<Reading> avObjects;
 	private int skip = 0;
@@ -46,14 +48,17 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 	private LinearLayoutManager mLinearLayoutManager;
 	private XXLModel mXXLModel;
 	private BoutiquesBean mBoutiquesBean;
+	private ReadingActivityBinding binding;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.reading_activity);
+		binding = ReadingActivityBinding.inflate(LayoutInflater.from(this));
+		setContentView(binding.getRoot());
 		registerBroadcast();
 		initViews();
-		new QueryTask(this).execute();
+		queryTask();
+		initCollectedButton();
 		getMaxPageNumberBackground();
 	}
 
@@ -63,28 +68,38 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 		source = getIntent().getStringExtra(KeyUtil.NewsSource);
 		boutique_code = getIntent().getStringExtra(KeyUtil.BoutiqueCode);
 		mBoutiquesBean = getIntent().getParcelableExtra(KeyUtil.ObjectKey);
-		LogUtil.DefalutLog(JSON.toJSONString(mBoutiquesBean));
-
 		avObjects = new ArrayList<Reading>();
 		mXXLModel = new XXLModel(this);
 		avObjects.addAll(BoxHelper.getReadingList(0,Setings.page_size,category,type,""));
 		initSwipeRefresh();
-		listview = (RecyclerView) findViewById(R.id.listview);
 		mAdapter = new RcReadingListAdapter(avObjects);
 		mAdapter.setItems(avObjects);
 		mAdapter.setFooter(new Object());
 		mXXLModel.setAdapter(avObjects,mAdapter);
 		hideFooterview();
 		mLinearLayoutManager = new LinearLayoutManager(this);
-		listview.setLayoutManager(mLinearLayoutManager);
-		listview.addItemDecoration(
+		binding.listview.setLayoutManager(mLinearLayoutManager);
+		binding.listview.addItemDecoration(
 				new HorizontalDividerItemDecoration.Builder(this)
 						.colorResId(R.color.text_tint)
 						.sizeResId(R.dimen.list_divider_size)
 						.marginResId(R.dimen.padding_2, R.dimen.padding_2)
 						.build());
-		listview.setAdapter(mAdapter);
+		binding.listview.setAdapter(mAdapter);
+		binding.collectBtn.setOnClickListener(view -> collectedOrUncollected());
 		setListOnScrollListener();
+		updateDataBackground(mBoutiquesBean);
+	}
+
+	private void updateDataBackground(BoutiquesBean mBoutiquesBean){
+		if (mBoutiquesBean != null && !TextUtils.isEmpty(mBoutiquesBean.getObjectId())) {
+			new Thread(() -> {
+				AVObject mBoutiques = AVObject.createWithoutData(AVOUtil.Boutiques.Boutiques,
+						mBoutiquesBean.getObjectId());
+				mBoutiques.increment(AVOUtil.Boutiques.views);
+				mBoutiques.save();
+			}).start();
+		}
 	}
 
 	private void random(){
@@ -96,7 +111,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 	}
 
 	public void setListOnScrollListener(){
-		listview.addOnScrollListener(new RecyclerView.OnScrollListener() {
+		binding.listview.addOnScrollListener(new RecyclerView.OnScrollListener() {
 			@Override
 			public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
 				super.onScrolled(recyclerView, dx, dy);
@@ -106,7 +121,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 				isADInList(recyclerView,firstVisibleItem,visible);
 				if(!mXXLModel.loading && mXXLModel.hasMore){
 					if ((visible + firstVisibleItem) >= total){
-						new QueryTask(ReadingsActivity.this).execute();
+						queryTask();
 					}
 				}
 			}
@@ -130,6 +145,46 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 					}
 				}
 			}
+		}
+	}
+
+	private void initCollectedButton(){
+		if (mBoutiquesBean != null && !TextUtils.isEmpty(mBoutiquesBean.getCode())) {
+			binding.volumeImg.setVisibility(View.VISIBLE);
+			if(BoxHelper.isCollected(mBoutiquesBean.getCode())){
+				binding.volumeImg.setImageResource(R.drawable.ic_collected_white);
+				binding.volumeImg.setTag(true);
+			}else {
+				binding.volumeImg.setImageResource(R.drawable.ic_uncollected_white);
+				binding.volumeImg.setTag(false);
+			}
+		} else {
+			binding.volumeImg.setVisibility(View.GONE);
+		}
+	}
+
+	private void collectedOrUncollected(){
+		boolean tag = !(boolean)binding.volumeImg.getTag();
+		binding.volumeImg.setTag(tag);
+		if(mBoutiquesBean != null){
+			if(tag){
+				binding.volumeImg.setImageResource(R.drawable.ic_collected_white);
+				ToastUtil.diaplayMesShort(this,"已收藏");
+			}else {
+				binding.volumeImg.setImageResource(R.drawable.ic_uncollected_white);
+				ToastUtil.diaplayMesShort(this,"取消收藏");
+			}
+			CollectedData cdata = new CollectedData();
+			cdata.setObjectId(mBoutiquesBean.getCode());
+			if(tag){
+				cdata.setName(mBoutiquesBean.getTitle());
+				cdata.setType(AVOUtil.Boutiques.Boutiques);
+				cdata.setJson(JSON.toJSONString(mBoutiquesBean));
+				BoxHelper.insert(cdata);
+			}else {
+				BoxHelper.remove(cdata);
+			}
+			LiveEventBus.get(KeyUtil.UpdateCollectedData).post("");
 		}
 	}
 
@@ -158,7 +213,7 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 		random();
 		avObjects.clear();
 		mAdapter.notifyDataSetChanged();
-		new QueryTask(this).execute();
+		queryTask();
 	}
 
 	private void loadAD(){
@@ -167,79 +222,70 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 		}
 	}
 
-	private class QueryTask extends AsyncTask<Void, Void, List<AVObject>> {
-
-		private WeakReference<ReadingsActivity> mainActivity;
-
-		public QueryTask(ReadingsActivity mActivity){
-			mainActivity = new WeakReference<>(mActivity);
+	private void queryTask(){
+		showProgressbar();
+		if(mXXLModel != null){
+			mXXLModel.loading = true;
 		}
-
-		@Override
-		protected void onPreExecute() {
-			super.onPreExecute();
-			showProgressbar();
-			if(mXXLModel != null){
-				mXXLModel.loading = true;
-			}
+		AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.Reading.Reading);
+		if(!TextUtils.isEmpty(category)){
+			query.whereEqualTo(AVOUtil.Reading.category, category);
 		}
-
-		@Override
-		protected List<AVObject> doInBackground(Void... params) {
-			AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.Reading.Reading);
-			if(!TextUtils.isEmpty(category)){
-				query.whereEqualTo(AVOUtil.Reading.category, category);
-			}
-			if(!TextUtils.isEmpty(type)){
-				query.whereEqualTo(AVOUtil.Reading.type, type);
-			}
-			if(!TextUtils.isEmpty(source)){
-				query.whereEqualTo(AVOUtil.Reading.source_name, source);
-			}
-			if(!TextUtils.isEmpty(boutique_code)){
-				query.whereEqualTo(AVOUtil.Reading.boutique_code, boutique_code);
-			}
-			query.addDescendingOrder(AVOUtil.Reading.publish_time);
-			query.skip(skip);
-			query.limit(Setings.page_size);
-			try {
-				return query.find();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return null;
+		if(!TextUtils.isEmpty(type)){
+			query.whereEqualTo(AVOUtil.Reading.type, type);
 		}
-
-		@Override
-		protected void onPostExecute(List<AVObject> avObject) {
-			if(mainActivity.get() != null){
+		if(!TextUtils.isEmpty(source)){
+			query.whereEqualTo(AVOUtil.Reading.source_name, source);
+		}
+		if(!TextUtils.isEmpty(boutique_code)){
+			query.whereEqualTo(AVOUtil.Reading.boutique_code, boutique_code);
+		}
+		query.addDescendingOrder(AVOUtil.Reading.publish_time);
+		query.skip(skip);
+		query.limit(Setings.page_size);
+		query.findInBackground().subscribe(new Observer<List<AVObject>>() {
+			@Override
+			public void onSubscribe(Disposable d) {
+			}
+			@Override
+			public void onNext(List<AVObject> avObjects) {
+				onPostExecute(avObjects);
+			}
+			@Override
+			public void onError(Throwable e) {
+			}
+			@Override
+			public void onComplete() {
 				mXXLModel.loading = false;
 				hideProgressbar();
 				onSwipeRefreshLayoutFinish();
-				if(avObject != null){
-					if(avObject.size() == 0){
-						mXXLModel.hasMore = false;
-						hideFooterview();
-					}else{
-						if(skip == 0){
-							avObjects.clear();
-						}
-						DataUtil.changeDataToReading(avObject,avObjects,false);
-						mAdapter.notifyDataSetChanged();
-						loadAD();
-						skip += Setings.page_size;
-						if(avObject.size() < Setings.page_size){
-							mXXLModel.hasMore = false;
-							hideFooterview();
-						}else {
-							mXXLModel.hasMore = true;
-							showFooterview();
-						}
-					}
-				}else{
-					ToastUtil.diaplayMesShort(ReadingsActivity.this, "加载失败，下拉可刷新");
+			}
+		});
+	}
+
+	protected void onPostExecute(List<AVObject> avObject) {
+		if(avObject != null){
+			if(avObject.size() == 0){
+				mXXLModel.hasMore = false;
+				hideFooterview();
+			}else{
+				if(skip == 0){
+					avObjects.clear();
+				}
+				DataUtil.changeDataToReading(avObject,avObjects,false);
+				mAdapter.notifyDataSetChanged();
+				loadAD();
+				skip += Setings.page_size;
+				if(avObject.size() < Setings.page_size){
+					mXXLModel.hasMore = false;
+					hideFooterview();
+				}else {
+					mXXLModel.hasMore = true;
+					showFooterview();
 				}
 			}
+		}else{
+			ToastUtil.diaplayMesShort(ReadingsActivity.this, "加载失败，下拉可刷新");
 		}
 	}
 
@@ -251,34 +297,26 @@ public class ReadingsActivity extends BaseActivity implements OnClickListener{
 		}
 	}
 
-
-	@Override
-	public void onClick(View v) {
-	}
-
 	private void getMaxPageNumberBackground(){
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.Reading.Reading);
-					if(!TextUtils.isEmpty(category)){
-						query.whereEqualTo(AVOUtil.Reading.category, category);
-					}
-					if(!TextUtils.isEmpty(type)){
-						query.whereEqualTo(AVOUtil.Reading.type, type);
-					}
-					if(!TextUtils.isEmpty(source)){
-						query.whereEqualTo(AVOUtil.Reading.source_name, source);
-					}
-					if(!TextUtils.isEmpty(boutique_code)){
-						query.whereEqualTo(AVOUtil.Reading.boutique_code, boutique_code);
-					}
-					maxRandom = query.count();
-					maxRandom /= Setings.page_size;
-				} catch (Exception e) {
-					e.printStackTrace();
+		new Thread(() -> {
+			try {
+				AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.Reading.Reading);
+				if(!TextUtils.isEmpty(category)){
+					query.whereEqualTo(AVOUtil.Reading.category, category);
 				}
+				if(!TextUtils.isEmpty(type)){
+					query.whereEqualTo(AVOUtil.Reading.type, type);
+				}
+				if(!TextUtils.isEmpty(source)){
+					query.whereEqualTo(AVOUtil.Reading.source_name, source);
+				}
+				if(!TextUtils.isEmpty(boutique_code)){
+					query.whereEqualTo(AVOUtil.Reading.boutique_code, boutique_code);
+				}
+				maxRandom = query.count();
+				maxRandom /= Setings.page_size;
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		}).start();
 	}

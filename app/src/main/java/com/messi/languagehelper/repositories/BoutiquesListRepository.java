@@ -115,12 +115,11 @@ public class BoutiquesListRepository {
                         loadAD(true);
                         if(avObject.size() == Setings.page_size){
                             skip += Setings.page_size;
-                            mData.setHideFooter(false);
                             hasMore = true;
                         }else {
                             hasMore = false;
-                            mData.setHideFooter(true);
                         }
+                        mData.setHideFooter(!hasMore);
                     }
                 }else{
                     mData.setCode(0);

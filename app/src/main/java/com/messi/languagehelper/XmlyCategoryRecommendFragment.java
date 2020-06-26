@@ -15,8 +15,8 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.alibaba.fastjson.JSON;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.google.gson.Gson;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -229,7 +229,7 @@ public class XmlyCategoryRecommendFragment extends BaseFragment {
         intent.putExtra("album_id", mAVObject.getId()+"");
         intent.putExtra("play_times", mAVObject.getPlayCount());
         intent.putExtra("track_count", mAVObject.getIncludeTrackCount());
-        intent.putExtra(KeyUtil.JSONData, new Gson().toJson(mAVObject));
+        intent.putExtra(KeyUtil.JSONData, JSON.toJSONString(mAVObject));
         intent.putExtra(KeyUtil.ActionbarTitle, mAVObject.getAlbumTitle());
         startActivity(intent);
     }

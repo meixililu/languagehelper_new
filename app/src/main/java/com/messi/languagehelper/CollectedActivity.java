@@ -2,9 +2,10 @@ package com.messi.languagehelper;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import com.google.android.material.tabs.TabLayout;
+
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.tabs.TabLayout;
 import com.messi.languagehelper.adapter.CollectedActivityAdapter;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.KeyUtil;
@@ -28,8 +29,8 @@ public class CollectedActivity extends BaseActivity implements FragmentProgressb
     private void init() {
         getSupportActionBar().setTitle(getResources().getString(R.string.title_favorite));
         mSharedPreferences = Setings.getSharedPreferences(this);
-        viewPager = (ViewPager) findViewById(R.id.pager);
-        tablayout = (TabLayout) findViewById(R.id.tablayout);
+        viewPager = findViewById(R.id.pager);
+        tablayout = findViewById(R.id.tablayout);
         mAdapter = new CollectedActivityAdapter(getSupportFragmentManager(), this);
         viewPager.setOffscreenPageLimit(3);
         viewPager.setAdapter(mAdapter);

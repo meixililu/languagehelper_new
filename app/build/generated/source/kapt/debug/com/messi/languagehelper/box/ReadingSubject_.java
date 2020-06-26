@@ -49,20 +49,23 @@ public final class ReadingSubject_ implements EntityInfo<ReadingSubject> {
     public final static io.objectbox.Property<ReadingSubject> source_url =
         new io.objectbox.Property<>(__INSTANCE, 5, 10, String.class, "source_url");
 
+    public final static io.objectbox.Property<ReadingSubject> imgId =
+        new io.objectbox.Property<>(__INSTANCE, 6, 12, int.class, "imgId");
+
     public final static io.objectbox.Property<ReadingSubject> level =
-        new io.objectbox.Property<>(__INSTANCE, 6, 5, String.class, "level");
+        new io.objectbox.Property<>(__INSTANCE, 7, 5, String.class, "level");
 
     public final static io.objectbox.Property<ReadingSubject> code =
-        new io.objectbox.Property<>(__INSTANCE, 7, 6, String.class, "code");
+        new io.objectbox.Property<>(__INSTANCE, 8, 6, String.class, "code");
 
     public final static io.objectbox.Property<ReadingSubject> order =
-        new io.objectbox.Property<>(__INSTANCE, 8, 7, String.class, "order");
+        new io.objectbox.Property<>(__INSTANCE, 9, 7, String.class, "order");
 
     public final static io.objectbox.Property<ReadingSubject> views =
-        new io.objectbox.Property<>(__INSTANCE, 9, 11, int.class, "views");
+        new io.objectbox.Property<>(__INSTANCE, 10, 11, int.class, "views");
 
     public final static io.objectbox.Property<ReadingSubject> creat_time =
-        new io.objectbox.Property<>(__INSTANCE, 10, 8, long.class, "creat_time");
+        new io.objectbox.Property<>(__INSTANCE, 11, 8, long.class, "creat_time");
 
     @SuppressWarnings("unchecked")
     public final static io.objectbox.Property<ReadingSubject>[] __ALL_PROPERTIES = new io.objectbox.Property[]{
@@ -72,6 +75,7 @@ public final class ReadingSubject_ implements EntityInfo<ReadingSubject> {
         category,
         source_name,
         source_url,
+        imgId,
         level,
         code,
         order,

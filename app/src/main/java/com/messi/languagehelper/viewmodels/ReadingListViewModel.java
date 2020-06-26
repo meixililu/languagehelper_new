@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.google.gson.Gson;
+import com.alibaba.fastjson.JSON;
 import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.bean.RespoADData;
 import com.messi.languagehelper.bean.RespoData;
@@ -81,7 +81,7 @@ public class ReadingListViewModel extends ViewModel {
                 cdata.setObjectId(mReadingSubject.getObjectId());
                 cdata.setName(mReadingSubject.getName());
                 cdata.setType(AVOUtil.SubjectList.SubjectList);
-                cdata.setJson(new Gson().toJson(mReadingSubject));
+                cdata.setJson(JSON.toJSONString(mReadingSubject));
                 BoxHelper.insert(cdata);
             }else {
                 cdata.setObjectId(mReadingSubject.getObjectId());
@@ -91,11 +91,4 @@ public class ReadingListViewModel extends ViewModel {
         }).start();
     }
 
-//    @Override
-//    protected void onCleared() {
-//        super.onCleared();
-//        if (mADRepo != null) {
-//            mADRepo.onDestroy();
-//        }
-//    }
 }

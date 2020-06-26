@@ -1,95 +1,106 @@
 package com.messi.languagehelper;
 
-import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.messi.languagehelper.adapter.RcStudyListAdapter;
-import com.messi.languagehelper.box.BoxHelper;
-import com.messi.languagehelper.box.Reading;
+import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.jeremyliao.liveeventbus.LiveEventBus;
+import com.messi.languagehelper.adapter.RcCollectedListAdapter;
+import com.messi.languagehelper.databinding.CompositionFragmentBinding;
 import com.messi.languagehelper.service.PlayerService;
+import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.viewmodels.CollectedListViewModel;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
-
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.List;
-
-import static android.app.Activity.RESULT_OK;
 
 public class ReadingCollectedListFragment extends BaseFragment {
 
-	private RecyclerView listview;
-	private RcStudyListAdapter mAdapter;
-	private List<Reading> avObjects;
-	private int page = 0;
-	private int pageSize = 30;
-	private boolean loading;
-	private boolean hasMore = true;
+	private RcCollectedListAdapter mAdapter;
 	private LinearLayoutManager mLinearLayoutManager;
-
-	public static Fragment newInstance(){
-		ReadingCollectedListFragment fragment = new ReadingCollectedListFragment();
-		return fragment;
-	}
+	private CompositionFragmentBinding binding;
+	private CollectedListViewModel viewModel;
 
 	@Override
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		registerBroadcast();
+		viewModel = new ViewModelProvider(requireActivity()).get(CollectedListViewModel.class);
+		viewModel.init();
+	}
+
+	@Override
+	public void loadDataOnStart() {
+		super.loadDataOnStart();
+		viewModel.loadData(true);
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		super.onCreateView(inflater, container, savedInstanceState);
-		View view = inflater.inflate(R.layout.composition_fragment, container, false);
-		initViews(view);
-		new QueryTask(this).execute();
-		return view;
+		binding = CompositionFragmentBinding.inflate(inflater);
+		initViews();
+		initSwipeRefresh(binding.getRoot());
+		initLiveData();
+		return binding.getRoot();
 	}
 	
-	private void initViews(View view){
-		listview = (RecyclerView) view.findViewById(R.id.listview);
-		avObjects = new ArrayList<Reading>();
-		initSwipeRefresh(view);
-		mAdapter = new RcStudyListAdapter(avObjects);
-		mAdapter.setItems(avObjects);
+	private void initViews(){
+		mAdapter = new RcCollectedListAdapter();
+		mAdapter.setItems(viewModel.mRepo.getList());
 		mAdapter.setFooter(new Object());
 		hideFooterview();
 		mLinearLayoutManager = new LinearLayoutManager(getContext());
-		listview.setLayoutManager(mLinearLayoutManager);
-		listview.addItemDecoration(
+		binding.listview.setLayoutManager(mLinearLayoutManager);
+		binding.listview.addItemDecoration(
 				new HorizontalDividerItemDecoration.Builder(getContext())
 						.colorResId(R.color.text_tint)
 						.sizeResId(R.dimen.list_divider_size)
 						.marginResId(R.dimen.padding_2, R.dimen.padding_2)
 						.build());
-		listview.setAdapter(mAdapter);
+		binding.listview.setAdapter(mAdapter);
 		setListOnScrollListener();
+	}
+
+	private void initLiveData(){
+		viewModel.getDataList().observe(getViewLifecycleOwner(), mRespoData -> {
+			onSwipeRefreshLayoutFinish();
+			if (mRespoData.getCode() == 1) {
+				mAdapter.notifyItemRangeInserted(mRespoData.getPositionStart(),mRespoData.getItemCount());
+			}
+			if (mRespoData.isHideFooter()) {
+				hideFooterview();
+			} else {
+				showFooterview();
+			}
+		});
+		LiveEventBus.get(KeyUtil.UpdateCollectedData).observe(getViewLifecycleOwner(), result -> {
+			viewModel.loadData(true);
+		});
 	}
 	
 	public void setListOnScrollListener(){
-		listview.addOnScrollListener(new RecyclerView.OnScrollListener() {
+		binding.listview.addOnScrollListener(new RecyclerView.OnScrollListener() {
 			@Override
 			public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
 				super.onScrolled(recyclerView, dx, dy);
 				int visible  = mLinearLayoutManager.getChildCount();
 				int total = mLinearLayoutManager.getItemCount();
 				int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
-				if(!loading && hasMore){
-					if ((visible + firstVisibleItem) >= total){
-						new QueryTask(ReadingCollectedListFragment.this).execute();
-					}
+				if ((visible + firstVisibleItem) >= total){
+					viewModel.loadData(false);
 				}
 			}
 		});
+	}
+	
+	@Override
+	public void onSwipeRefreshLayoutRefresh() {
+		viewModel.loadData(true);
 	}
 
 	private void hideFooterview(){
@@ -98,65 +109,6 @@ public class ReadingCollectedListFragment extends BaseFragment {
 
 	private void showFooterview(){
 		mAdapter.showFooter();
-	}
-	
-	@Override
-	public void onSwipeRefreshLayoutRefresh() {
-		page = 0;
-		hideFooterview();
-		avObjects.clear();
-		mAdapter.notifyDataSetChanged();
-		new QueryTask(this).execute();
-	}
-	
-	private class QueryTask extends AsyncTask<Void, Void, List<Reading>> {
-
-		private WeakReference<ReadingCollectedListFragment> mainActivity;
-
-		public QueryTask(ReadingCollectedListFragment mActivity){
-			mainActivity = new WeakReference<>(mActivity);
-		}
-
-		@Override
-		protected void onPreExecute() {
-			super.onPreExecute();
-			loading = true;
-		}
-		
-		@Override
-		protected List<Reading> doInBackground(Void... params) {
-			return BoxHelper.getReadingCollectedList(page,pageSize);
-		}
-
-		@Override
-		protected void onPostExecute(List<Reading> avObject) {
-			if(mainActivity.get() != null){
-				loading = false;
-				onSwipeRefreshLayoutFinish();
-				if(avObject != null){
-					if(avObject.size() == 0){
-						hideFooterview();
-						hasMore = false;
-					}else{
-						if(avObjects != null && mAdapter != null){
-							if(page == 0){
-								avObjects.clear();
-							}
-							avObjects.addAll(avObject);
-							mAdapter.notifyDataSetChanged();
-							if(avObject.size() == pageSize){
-								page += pageSize;
-								showFooterview();
-								hasMore = true;
-							}else {
-								hideFooterview();
-								hasMore = false;
-							}
-						}
-					}
-				}
-			}
-		}
 	}
 
 	@Override
@@ -170,27 +122,13 @@ public class ReadingCollectedListFragment extends BaseFragment {
 		}
 	}
 
-	@Override
-	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-		super.onActivityResult(requestCode, resultCode, data);
-		if(resultCode == RESULT_OK){
-			if(requestCode < avObjects.size()){
-				Reading mReading = avObjects.get(requestCode);
-				if(TextUtils.isEmpty(mReading.getIsCollected())){
-					avObjects.remove(requestCode);
-					mAdapter.notifyDataSetChanged();
-				}
-			}
-		}
-	}
-
-	@Override
-	public void onResume() {
-		super.onResume();
-		if(mAdapter != null){
-			mAdapter.notifyDataSetChanged();
-		}
-	}
+//	@Override
+//	public void onResume() {
+//		super.onResume();
+//		if () {
+//
+//		}
+//	}
 
 	@Override
 	public void onDestroy() {

@@ -17,7 +17,7 @@ public class XXLModel extends XXLRootModel{
     public Reading mADObject;
 
     public XXLModel(Context mContext) {
-        super(mContext);
+        super(mContext.getApplicationContext());
     }
 
     @Override

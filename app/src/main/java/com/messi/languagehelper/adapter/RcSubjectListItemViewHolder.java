@@ -3,14 +3,14 @@ package com.messi.languagehelper.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import cn.leancloud.AVObject;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.baidu.mobads.AdView;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -26,6 +26,8 @@ import com.messi.languagehelper.util.ScreenUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.SystemUtil;
 import com.qq.e.ads.nativ.NativeExpressADView;
+
+import cn.leancloud.AVObject;
 
 /**
  * Created by luli on 10/23/16.
@@ -109,14 +111,9 @@ public class RcSubjectListItemViewHolder extends RecyclerView.ViewHolder {
             list_item_img.setVisibility(View.VISIBLE);
             list_item_img.setImageResource(mAVObject.getInt(KeyUtil.ColorKey));
             title.setText( mAVObject.getString(AVOUtil.SubjectList.name) );
-            source_name.setText(Setings.getCategoryName(mAVObject.getString(AVOUtil.SubjectList.category)) );
+            source_name.setText(Setings.getCategoryName(mAVObject.getString(AVOUtil.SubjectList.category)));
             type_name.setText( mAVObject.getString(AVOUtil.SubjectList.source_name) );
-            normal_layout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View arg0) {
-                    onItemClick(mAVObject);
-                }
-            });
+            normal_layout.setOnClickListener(arg0 -> onItemClick(mAVObject));
         }
     }
 

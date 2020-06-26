@@ -19,6 +19,7 @@ import androidx.core.widget.NestedScrollView;
 import com.alibaba.fastjson.JSON;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.ViewModel.LeisureModel;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.CollectedData;
@@ -168,17 +169,20 @@ public class ReadingDetailActivity extends BaseActivity {
 
     private void updateData(){
         new Thread(() -> {
-            if(!TextUtils.isEmpty(mAVObject.getIsCollected())){
-                CollectedData cdata = new CollectedData();
-                cdata.setObjectId(mAVObject.getObject_id());
-                cdata.setName(mAVObject.getTitle());
-                cdata.setType(AVOUtil.Reading.Reading);
-                cdata.setJson(JSON.toJSONString(mAVObject));
-                BoxHelper.insert(cdata);
-            }else {
-                CollectedData cdata = new CollectedData();
-                cdata.setObjectId(mAVObject.getObject_id());
-                BoxHelper.remove(cdata);
+            if(mAVObject != null){
+                if(!TextUtils.isEmpty(mAVObject.getIsCollected())){
+                    CollectedData cdata = new CollectedData();
+                    cdata.setObjectId(mAVObject.getObject_id());
+                    cdata.setName(mAVObject.getTitle());
+                    cdata.setType(AVOUtil.Reading.Reading);
+                    cdata.setJson(JSON.toJSONString(mAVObject));
+                    BoxHelper.insert(cdata);
+                }else {
+                    CollectedData cdata = new CollectedData();
+                    cdata.setObjectId(mAVObject.getObject_id());
+                    BoxHelper.remove(cdata);
+                }
+                LiveEventBus.get(KeyUtil.UpdateCollectedData).post("");
             }
         }).start();
     }

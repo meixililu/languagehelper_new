@@ -215,6 +215,7 @@ public class DataUtil {
         item.setCategory(mAVObject.getString(AVOUtil.SubjectList.category));
         item.setCode(mAVObject.getString(AVOUtil.SubjectList.code));
         item.setName(mAVObject.getString(AVOUtil.SubjectList.name));
+        item.setImgId(mAVObject.getInt(KeyUtil.ColorKey));
         item.setLevel(mAVObject.getString(AVOUtil.SubjectList.level));
         item.setViews(mAVObject.getInt(AVOUtil.SubjectList.views));
         item.setSource_name(mAVObject.getString(AVOUtil.SubjectList.source_name));

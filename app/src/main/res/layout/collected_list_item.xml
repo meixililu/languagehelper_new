@@ -8,16 +8,19 @@
     android:background="@color/white" >
 
     <LinearLayout
+		android:id="@+id/normal_layout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginBottom="11dp"
         android:orientation="horizontal" >
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:minHeight="80dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
 			android:background="@color/white"
@@ -25,27 +28,38 @@
             <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:maxLines="3"
 				android:background="@color/white"
                 android:textColor="@color/text_dark"
                 android:textSize="@dimen/bigger" />
-
-			<cn.jzvd.JzvdStd
-				android:id="@+id/videoplayer"
+			<FrameLayout
+				android:id="@+id/videoplayer_cover"
 				android:layout_width="match_parent"
-				android:layout_marginBottom="@dimen/padding_7"
-				android:layout_marginTop="@dimen/padding_7"
+				android:layout_height="180dp"
+				android:layout_below="@id/title"
 				android:visibility="gone"
-				android:layout_height="210dp"/>
+				android:layout_marginTop="@dimen/padding_5"
+				android:background="@color/white">
+				<com.facebook.drawee.view.SimpleDraweeView
+					android:id="@+id/videoplayer_img"
+					android:layout_width="match_parent"
+					android:layout_height="180dp"
+					/>
+				<ImageView
+					android:layout_width="38dp"
+					android:layout_height="38dp"
+					android:layout_gravity="center"
+					android:src="@drawable/jz_click_play_selector"
+					/>
+			</FrameLayout>
 
 			<LinearLayout
 				android:id="@+id/imgs_layout"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_marginBottom="@dimen/padding_7"
-				android:layout_marginTop="@dimen/padding_7"
+				android:layout_below="@id/title"
+				android:layout_marginTop="@dimen/padding_10"
 				android:visibility="gone"
 				android:orientation="horizontal"
 				>
@@ -55,6 +69,8 @@
 					android:layout_height="wrap_content"
 					android:layout_weight="1"
 					android:layout_marginRight="@dimen/padding_5"
+					android:layout_marginBottom="@dimen/padding_7"
+					android:layout_marginTop="@dimen/padding_7"
 					fresco:viewAspectRatio="1.5"
 					fresco:placeholderImageScaleType="fitCenter"
 					fresco:actualImageScaleType="focusCrop"
@@ -68,6 +84,8 @@
 					fresco:viewAspectRatio="1.5"
 					android:layout_marginLeft="@dimen/padding_5"
 					android:layout_marginRight="@dimen/padding_5"
+					android:layout_marginBottom="@dimen/padding_7"
+					android:layout_marginTop="@dimen/padding_7"
 					fresco:placeholderImageScaleType="fitCenter"
 					fresco:actualImageScaleType="focusCrop"
 					fresco:placeholderImage="@color/text_tint"
@@ -79,17 +97,21 @@
 					android:layout_weight="1"
 					fresco:viewAspectRatio="1.5"
 					android:layout_marginLeft="@dimen/padding_5"
+					android:layout_marginBottom="@dimen/padding_7"
+					android:layout_marginTop="@dimen/padding_7"
 					fresco:placeholderImageScaleType="fitCenter"
 					fresco:actualImageScaleType="focusCrop"
 					fresco:placeholderImage="@color/text_tint"
 					/>
 			</LinearLayout>
 
-            <LinearLayout 
+            <LinearLayout
+				android:id="@+id/item_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:gravity="bottom"
+				android:layout_below="@id/title"
+				android:layout_marginTop="20dp"
                 android:orientation="horizontal"
 				android:background="@color/white"
                 >
@@ -112,9 +134,8 @@
 	                android:gravity="left"
 	                android:textColor="@color/text_grey1"
 	                android:textSize="@dimen/small" />
-                
             </LinearLayout>
-        </LinearLayout>
+        </RelativeLayout>
 
         <FrameLayout
             android:id="@+id/list_item_img_parent"
@@ -133,6 +154,7 @@
 				fresco:actualImageScaleType="focusCrop"
 				fresco:placeholderImage="@color/text_tint"
 				fresco:roundedCornerRadius="2dp"
+
 				/>
 
 			<ImageView
@@ -146,4 +168,48 @@
         </FrameLayout>
     </LinearLayout>
 
+	<LinearLayout
+		android:id="@+id/xvideo_layout"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:paddingTop="@dimen/padding_5"
+		android:paddingBottom="@dimen/padding_5"
+		android:background="@color/contentbg"
+		android:orientation="vertical"
+		>
+		<TextView
+			android:id="@+id/xvideo_more_tv"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@color/white"
+			android:textSize="@dimen/middle"
+			android:gravity="center_vertical"
+			android:paddingLeft="12dp"
+			android:paddingTop="@dimen/padding_5"
+			android:paddingBottom="@dimen/padding_5"
+			android:textColor="@color/text_dark"
+			android:text="@string/title_xvideo"
+			android:drawableRight="@drawable/expend_right"
+			/>
+		<HorizontalScrollView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@color/white"
+			android:paddingBottom="@dimen/padding_5"
+			android:paddingLeft="@dimen/padding_10"
+			>
+			<LinearLayout
+				android:id="@+id/xvideo_content"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				/>
+		</HorizontalScrollView>
+	</LinearLayout>
+	<FrameLayout
+		android:id="@+id/ad_layout"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:visibility="gone"
+		/>
 </FrameLayout>

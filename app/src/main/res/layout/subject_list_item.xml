@@ -67,8 +67,8 @@
         </RelativeLayout>
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/list_item_img"
-            android:layout_width="115dp"
-            android:layout_height="80dp"
+            android:layout_width="105dp"
+            android:layout_height="75dp"
             fresco:placeholderImageScaleType="fitCenter"
             fresco:actualImageScaleType="focusCrop"
             fresco:placeholderImage="@color/text_tint"

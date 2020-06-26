@@ -43,6 +43,7 @@ public class XimalayaTrackListActivity extends BaseActivity implements OnClickLi
     private RcXimalayaTrackListAdapter mAdapter;
     private List<Track> avObjects;
     private int skip = 1;
+    private String title;
     private String album_id;
     private long play_times;
     private long track_count;
@@ -60,11 +61,11 @@ public class XimalayaTrackListActivity extends BaseActivity implements OnClickLi
         binding = XimalayaTracklistActivityBinding.inflate(LayoutInflater.from(this));
         setContentView(binding.getRoot());
         registerBroadcast();
+        title = getIntent().getStringExtra(KeyUtil.ActionbarTitle);
         album_id = getIntent().getStringExtra("album_id");
         play_times = getIntent().getLongExtra("play_times", 100000);
         track_count = getIntent().getLongExtra("track_count", 1);
         jsonData = getIntent().getStringExtra(KeyUtil.JSONData);
-        LogUtil.DefalutLog(jsonData);
         initViews();
         QueryTask();
     }
@@ -205,14 +206,13 @@ public class XimalayaTrackListActivity extends BaseActivity implements OnClickLi
     private void saveCollectedStatus(boolean tag){
         new Thread(() -> {
             CollectedData cdata = new CollectedData();
+            cdata.setObjectId(album_id);
             if(tag){
-                cdata.setObjectId(album_id);
-                cdata.setName(album_id);
+                cdata.setName(title);
                 cdata.setType(KeyUtil.XimalayaTrack);
                 cdata.setJson(jsonData);
                 BoxHelper.insert(cdata);
             }else {
-                cdata.setObjectId(album_id);
                 BoxHelper.remove(cdata);
             }
             LiveEventBus.get(KeyUtil.UpdateCollectedData).post("");

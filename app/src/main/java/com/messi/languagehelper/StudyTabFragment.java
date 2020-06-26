@@ -27,6 +27,7 @@ public class StudyTabFragment extends BaseFragment {
     private List<ReadingCategory> categories;
     private int position;
     private SharedPreferences sp;
+    private Fragment collectedFragment;
     private Fragment studyFragment;
     private SubjectFragment subjectFragment;
     private BoutiquesFragment boutiquesFragment;
@@ -90,11 +91,11 @@ public class StudyTabFragment extends BaseFragment {
         Fragment fragment = null;
         switch (position){
             case 0:
-                if (studyFragment == null) {
-                    studyFragment = new ReadingFragment.Builder().build();
-                    addFragment(studyFragment);
+                if (collectedFragment == null) {
+                    collectedFragment = new ReadingCollectedListFragment();
+                    addFragment(collectedFragment);
                 }
-                fragment = studyFragment;
+                fragment = collectedFragment;
                 break;
             case 1:
                 if (studyFragment == null) {
@@ -148,6 +149,9 @@ public class StudyTabFragment extends BaseFragment {
     }
 
     private void hideAllFragment(){
+        if (collectedFragment != null) {
+            hideFragment(collectedFragment);
+        }
         if (studyFragment != null) {
             hideFragment(studyFragment);
         }

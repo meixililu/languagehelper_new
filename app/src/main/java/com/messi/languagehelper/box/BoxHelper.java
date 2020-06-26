@@ -707,4 +707,10 @@ public class BoxHelper {
                 .size();
         return size > 0;
     }
+
+    public static List<CollectedData> getCollectedList(int offset,int page_size) {
+        QueryBuilder<CollectedData> qb = getCollectedDataBox().query();
+        qb.orderDesc(CollectedData_.id);
+        return qb.build().find(offset,page_size);
+    }
 }

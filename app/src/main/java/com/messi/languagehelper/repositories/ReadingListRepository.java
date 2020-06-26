@@ -158,7 +158,7 @@ public class ReadingListRepository {
                     }
                 }else{
                     mData.setCode(0);
-                    mData.setHideFooter(false);
+                    mData.setHideFooter(true);
                     mData.setErrStr("加载失败，下拉可刷新");
                 }
                 mRespoData.setValue(mData);
