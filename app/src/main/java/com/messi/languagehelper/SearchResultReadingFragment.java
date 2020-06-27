@@ -1,16 +1,22 @@
 package com.messi.languagehelper;
 
-import android.os.AsyncTask;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import cn.leancloud.AVObject;
-import cn.leancloud.AVQuery;
 import com.iflytek.voiceads.conn.NativeDataRef;
 import com.messi.languagehelper.ViewModel.XXLModel;
 import com.messi.languagehelper.adapter.RcReadingListAdapter;
 import com.messi.languagehelper.box.Reading;
+import com.messi.languagehelper.databinding.XmlySearchReasultFragmentBinding;
+import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.DataUtil;
@@ -20,55 +26,84 @@ import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
-import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class SearchResultActivity extends BaseActivity{
+import cn.leancloud.AVObject;
+import cn.leancloud.AVQuery;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
-	private RecyclerView listview;
+public class SearchResultReadingFragment extends BaseFragment{
+
 	private RcReadingListAdapter mAdapter;
 	private List<Reading> avObjects;
 	private int skip = 0;
 	private String quest;
 	private XXLModel mXXLModel;
 	private LinearLayoutManager mLinearLayoutManager;
+	private XmlySearchReasultFragmentBinding binding;
+
+	public static Fragment newInstance(String search_text, String title) {
+		SearchResultReadingFragment fragment = new SearchResultReadingFragment();
+		Bundle bundle = new Bundle();
+		bundle.putString(KeyUtil.SearchKey, search_text);
+		bundle.putString(KeyUtil.ActionbarTitle, title);
+		fragment.setArguments(bundle);
+		return fragment;
+	}
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
+	public void onAttach(Context activity) {
+		super.onAttach(activity);
+		try {
+			mProgressbarListener = (FragmentProgressbarListener) activity;
+		} catch (ClassCastException e) {
+			throw new ClassCastException(activity.toString() + " must implement FragmentProgressbarListener");
+		}
+	}
+
+	@Override
+	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.reading_activity);
+		Bundle mBundle = getArguments();
+		this.quest = mBundle.getString(KeyUtil.SearchKey);
+	}
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+		super.onCreateView(inflater, container, savedInstanceState);
+		binding = XmlySearchReasultFragmentBinding.inflate(inflater);
 		registerBroadcast();
+		initSwipeRefresh(binding.getRoot());
 		initViews();
-		new QueryTask(this).execute();
+		queryTask();
+		return binding.getRoot();
 	}
 
 	private void initViews(){
-		quest = getIntent().getStringExtra(KeyUtil.SearchKey);
-		mXXLModel = new XXLModel(this);
+		mXXLModel = new XXLModel(getContext());
 		avObjects = new ArrayList<Reading>();
-		initSwipeRefresh();
-		listview = (RecyclerView) findViewById(R.id.listview);
 		mAdapter = new RcReadingListAdapter(avObjects);
 		mAdapter.setItems(avObjects);
 		mAdapter.setFooter(new Object());
 		mXXLModel.setAdapter(avObjects,mAdapter);
 		hideFooterview();
-		mLinearLayoutManager = new LinearLayoutManager(this);
-		listview.setLayoutManager(mLinearLayoutManager);
-		listview.addItemDecoration(
-				new HorizontalDividerItemDecoration.Builder(this)
+		mLinearLayoutManager = new LinearLayoutManager(getContext());
+		binding.listview.setLayoutManager(mLinearLayoutManager);
+		binding.listview.addItemDecoration(
+				new HorizontalDividerItemDecoration.Builder(getContext())
 						.colorResId(R.color.text_tint)
 						.sizeResId(R.dimen.list_divider_size)
 						.marginResId(R.dimen.padding_2, R.dimen.padding_2)
 						.build());
-		listview.setAdapter(mAdapter);
+		binding.listview.setAdapter(mAdapter);
 		setListOnScrollListener();
 	}
 
 	public void setListOnScrollListener(){
-		listview.addOnScrollListener(new RecyclerView.OnScrollListener() {
+		binding.listview.addOnScrollListener(new RecyclerView.OnScrollListener() {
 			@Override
 			public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
 				super.onScrolled(recyclerView, dx, dy);
@@ -78,7 +113,7 @@ public class SearchResultActivity extends BaseActivity{
 				isADInList(recyclerView,firstVisibleItem,visible);
 				if(!mXXLModel.loading && mXXLModel.hasMore){
 					if ((visible + firstVisibleItem) >= total){
-						new QueryTask(SearchResultActivity.this).execute();
+						queryTask();
 					}
 				}
 			}
@@ -130,7 +165,7 @@ public class SearchResultActivity extends BaseActivity{
 		skip = 0;
 		avObjects.clear();
 		mAdapter.notifyDataSetChanged();
-		new QueryTask(this).execute();
+		queryTask();
 	}
 
 	private void loadAD(){
@@ -139,60 +174,36 @@ public class SearchResultActivity extends BaseActivity{
 		}
 	}
 
-	private class QueryTask extends AsyncTask<Void, Void, List<AVObject>> {
-
-		private WeakReference<SearchResultActivity> mainActivity;
-
-		public QueryTask(SearchResultActivity mActivity){
-			mainActivity = new WeakReference<>(mActivity);
+	private void queryTask(){
+		showProgressbar();
+		if(mXXLModel != null){
+			mXXLModel.loading = true;
 		}
+		AVQuery<AVObject> query = null;
+		if(quest.toLowerCase().equals(quest.toUpperCase())){
+			query = new AVQuery<>(AVOUtil.Reading.Reading);
+			query.whereContains(AVOUtil.Reading.title, quest);
+			query.addDescendingOrder(AVOUtil.Reading.publish_time);
+		}else {
+			AVQuery<AVObject> priorityQuery = new AVQuery<>(AVOUtil.Reading.Reading);
+			priorityQuery.whereContains(AVOUtil.Reading.title, quest.toLowerCase());
+			priorityQuery.addDescendingOrder(AVOUtil.Reading.publish_time);
 
-		@Override
-		protected void onPreExecute() {
-			super.onPreExecute();
-			showProgressbar();
-			if(mXXLModel != null){
-				mXXLModel.loading = true;
-			}
+			AVQuery<AVObject> statusQuery = new AVQuery<>(AVOUtil.Reading.Reading);
+			statusQuery.whereContains(AVOUtil.Reading.title, quest.toUpperCase());
+			statusQuery.addDescendingOrder(AVOUtil.Reading.publish_time);
+			query = AVQuery.or(Arrays.asList(priorityQuery, statusQuery));
 		}
-
-		@Override
-		protected List<AVObject> doInBackground(Void... params) {
-			AVQuery<AVObject> query = null;
-			if(quest.toLowerCase().equals(quest.toUpperCase())){
-				query = new AVQuery<AVObject>(AVOUtil.Reading.Reading);
-				query.whereContains(AVOUtil.Reading.title, quest);
-				query.addDescendingOrder(AVOUtil.Reading.publish_time);
-			}else {
-				AVQuery<AVObject> priorityQuery = new AVQuery<>(AVOUtil.Reading.Reading);
-				priorityQuery.whereContains(AVOUtil.Reading.title, quest.toLowerCase());
-				priorityQuery.addDescendingOrder(AVOUtil.Reading.publish_time);
-
-				AVQuery<AVObject> statusQuery = new AVQuery<>(AVOUtil.Reading.Reading);
-				statusQuery.whereContains(AVOUtil.Reading.title, quest.toUpperCase());
-				statusQuery.addDescendingOrder(AVOUtil.Reading.publish_time);
-
-				query = AVQuery.or(Arrays.asList(priorityQuery, statusQuery));
+		query.skip(skip);
+		query.limit(Setings.page_size);
+		query.findInBackground().subscribe(new Observer<List<AVObject>>() {
+			@Override
+			public void onSubscribe(Disposable d) {
 			}
-			query.skip(skip);
-			query.limit(Setings.page_size);
-			try {
-				return query.find();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return null;
-		}
-
-		@Override
-		protected void onPostExecute(List<AVObject> avObject) {
-			if(mainActivity.get() != null){
-				mXXLModel.loading = false;
-				hideProgressbar();
-				onSwipeRefreshLayoutFinish();
+			@Override
+			public void onNext(List<AVObject> avObject) {
 				if(avObject != null){
 					if(avObject.size() == 0){
-						ToastUtil.diaplayMesShort(SearchResultActivity.this, "没有了！");
 						mXXLModel.hasMore = false;
 						hideFooterview();
 					}else{
@@ -212,14 +223,23 @@ public class SearchResultActivity extends BaseActivity{
 						}
 					}
 				}else{
-					ToastUtil.diaplayMesShort(SearchResultActivity.this, "加载失败，下拉可刷新");
+					ToastUtil.diaplayMesShort(getContext(), "加载失败，下拉可刷新");
 				}
 			}
-		}
+			@Override
+			public void onError(Throwable e) {
+			}
+			@Override
+			public void onComplete() {
+				mXXLModel.loading = false;
+				hideProgressbar();
+				onSwipeRefreshLayoutFinish();
+			}
+		});
 	}
 
 	@Override
-	protected void onResume() {
+	public void onResume() {
 		super.onResume();
 		if(mAdapter != null){
 			mAdapter.notifyDataSetChanged();
@@ -227,7 +247,7 @@ public class SearchResultActivity extends BaseActivity{
 	}
 
 	@Override
-	protected void onDestroy() {
+	public void onDestroy() {
 		super.onDestroy();
 		unregisterBroadcast();
 		if(mXXLModel != null){

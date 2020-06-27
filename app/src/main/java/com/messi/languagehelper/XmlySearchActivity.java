@@ -261,6 +261,7 @@ public class XmlySearchActivity extends BaseActivity {
             Intent intent = new Intent(this, XmlySearchResultActivity.class);
             intent.putExtra(KeyUtil.ActionbarTitle, quest);
             intent.putExtra(KeyUtil.SearchKey, quest);
+            intent.putExtra(KeyUtil.PositionKey, 2);
             startActivity(intent);
             saveHistory(quest);
         }
@@ -290,12 +291,7 @@ public class XmlySearchActivity extends BaseActivity {
     }
 
     private void saveHistoryToServer(final String quest){
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                checkAndSaveData(quest);
-            }
-        }).start();
+        new Thread(() -> checkAndSaveData(quest)).start();
     }
 
     private void checkAndSaveData(final String quest){

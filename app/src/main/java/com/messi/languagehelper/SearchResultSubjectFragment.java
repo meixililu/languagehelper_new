@@ -2,7 +2,6 @@ package com.messi.languagehelper;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -21,7 +20,6 @@ import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.ColorUtil;
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
 
@@ -34,34 +32,20 @@ import cn.leancloud.AVQuery;
 import cn.leancloud.callback.FindCallback;
 import cn.leancloud.convertor.ObserverBuilder;
 
-public class SubjectFragment extends BaseFragment {
+public class SearchResultSubjectFragment extends BaseFragment {
 
     private static final int NUMBER_OF_COLUMNS = 1;
     private RcSubjectListAdapter mAdapter;
     private List<AVObject> avObjects;
     private int skip = 0;
     private GridLayoutManager layoutManager;
-    private String category;
-    private String title;
-    private String level;
-    private String order;
-    private int maxRandom;
+    private String keyword;
     private XXLAVObjectModel mXXLModel;
     private SymbolListFragmentBinding binding;
 
-    public static SubjectFragment getInstance(String category, int maxRandom) {
-        SubjectFragment fragment = new SubjectFragment();
-        fragment.category = category;
-        fragment.maxRandom = maxRandom;
-        return fragment;
-    }
-
-    public static SubjectFragment getInstance(String category, String level, String order, String title) {
-        SubjectFragment fragment = new SubjectFragment();
-        fragment.category = category;
-        fragment.level = level;
-        fragment.order = order;
-        fragment.title = title;
+    public static SearchResultSubjectFragment newInstance(String keyword) {
+        SearchResultSubjectFragment fragment = new SearchResultSubjectFragment();
+        fragment.keyword = keyword;
         return fragment;
     }
 
@@ -78,9 +62,7 @@ public class SubjectFragment extends BaseFragment {
     @Override
     public void loadDataOnStart() {
         super.loadDataOnStart();
-        random();
         getDataTask();
-        getMaxPageNumberBackground();
     }
 
     @Override
@@ -93,10 +75,6 @@ public class SubjectFragment extends BaseFragment {
     }
 
     private void initViews() {
-        if(!TextUtils.isEmpty(title)){
-            binding.myAwesomeToolbar.setVisibility(View.VISIBLE);
-            binding.myAwesomeToolbar.setTitle(title);
-        }
         avObjects = new ArrayList<>();
         mXXLModel = new XXLAVObjectModel(getActivity());
         mAdapter = new RcSubjectListAdapter();
@@ -139,7 +117,7 @@ public class SubjectFragment extends BaseFragment {
     @Override
     public void onSwipeRefreshLayoutRefresh() {
         hideFooterview();
-        random();
+        skip = 0;
         avObjects.clear();
         mAdapter.notifyDataSetChanged();
         getDataTask();
@@ -165,30 +143,14 @@ public class SubjectFragment extends BaseFragment {
         toActivity(SearchActivity.class, null);
     }
 
-    private void random(){
-        if(maxRandom > 0){
-            skip = (int) Math.round(Math.random()*maxRandom);
-        }else {
-            skip = 0;
-        }
-    }
-
     private void getDataTask(){
         if(mXXLModel != null){
             mXXLModel.loading = true;
         }
         showProgressbar();
         AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.SubjectList.SubjectList);
-        if (!TextUtils.isEmpty(category)) {
-            query.whereEqualTo(AVOUtil.SubjectList.category, category);
-        }
-        if(!TextUtils.isEmpty(order)){
-            query.orderByDescending(AVOUtil.SubjectList.order);
-        }else {
-            query.orderByAscending(AVOUtil.SubjectList.order);
-        }
+        query.whereContains(AVOUtil.SubjectList.name, keyword);
         query.orderByDescending(AVOUtil.SubjectList.views);
-        query.orderByAscending(AVOUtil.SubjectList.level);
         query.skip(skip);
         query.limit(Setings.page_size);
         query.findInBackground().subscribe(ObserverBuilder.buildCollectionObserver(new FindCallback<AVObject>() {
@@ -240,26 +202,6 @@ public class SubjectFragment extends BaseFragment {
         if(binding.myAwesomeToolbar != null && binding.myAwesomeToolbar.isShown()){
             binding.progressBarCircularIndetermininate.setVisibility(View.VISIBLE);
         }
-    }
-
-    private void getMaxPageNumberBackground(){
-        new Thread(() -> {
-            try {
-                AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.SubjectList.SubjectList);
-                if (!TextUtils.isEmpty(category)) {
-                    query.whereEqualTo(AVOUtil.SubjectList.category, category);
-                }
-                if(!TextUtils.isEmpty(order)){
-                    query.orderByDescending(AVOUtil.SubjectList.order);
-                }else {
-                    query.orderByAscending(AVOUtil.SubjectList.order);
-                }
-                maxRandom =  query.count()-100;
-                LogUtil.DefalutLog("category:"+category+"---maxRandom:"+maxRandom);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }).start();
     }
 
     @Override

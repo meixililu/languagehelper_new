@@ -387,7 +387,11 @@ public class BoxHelper {
         QueryBuilder<Reading> qb = getReadingBox().query();
         qb.equal(Reading_.isCollected,"1");
         qb.order(Reading_.collected_time);
-        return qb.build().find(page,page_size);
+        if (page_size > 0) {
+            return qb.build().find(page,page_size);
+        } else {
+            return qb.build().find();
+        }
     }
 
     public static void saveOrGetStatus(Reading bean){

@@ -28,6 +28,7 @@ import com.messi.languagehelper.BaseActivity;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.adapter.MainPageAdapter;
 import com.messi.languagehelper.aidl.IXBPlayer;
+import com.messi.languagehelper.box.MoveDataUitl;
 import com.messi.languagehelper.databinding.ContentFrameBinding;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
@@ -70,6 +71,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 			initViews();
 			setupTabIcons();
 			initSDKAndPermission();
+			MoveDataUitl.Companion.moveCollectedData(this.getApplicationContext());
 			AppUpdateUtil.isNeedUpdate(this);
 		} catch (Exception e) {
 			e.printStackTrace();

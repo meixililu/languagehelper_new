@@ -2,14 +2,15 @@ package com.messi.languagehelper;
 
 import android.content.Context;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.messi.languagehelper.adapter.RcXimalayaTrackListAdapter;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
@@ -130,6 +131,10 @@ public class XmlySearchTrackFragment extends BaseFragment implements OnClickList
         mAdapter.showFooter();
     }
 
+    @Override
+    public void onSwipeRefreshLayoutRefresh() {
+        Refresh();
+    }
 
     public void Refresh() {
         skip = 1;
@@ -151,7 +156,6 @@ public class XmlySearchTrackFragment extends BaseFragment implements OnClickList
             @Override
             public void onSuccess(@Nullable SearchTrackList trackList) {
                 onFinishLoadData();
-                LogUtil.DefalutLog(trackList.toString());
                 if (trackList != null && trackList.getTracks() != null) {
                     LogUtil.DefalutLog(trackList.toString());
                     for (Track track : trackList.getTracks()){
@@ -180,9 +184,9 @@ public class XmlySearchTrackFragment extends BaseFragment implements OnClickList
     }
 
     private void onFinishLoadData() {
+        onSwipeRefreshLayoutFinish();
         loading = false;
         hideProgressbar();
-        onSwipeRefreshLayoutFinish();
     }
 
     @Override

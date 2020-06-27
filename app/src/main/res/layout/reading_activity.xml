@@ -28,6 +28,7 @@
                 android:id="@+id/collect_btn"
                 android:layout_width="50dp"
                 android:layout_gravity="center"
+                android:visibility="gone"
                 android:layout_height="@dimen/actionBar">
                 <ImageView
                     android:id="@+id/volume_img"

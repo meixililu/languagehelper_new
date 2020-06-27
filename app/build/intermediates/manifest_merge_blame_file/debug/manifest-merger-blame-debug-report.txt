@@ -73,7 +73,7 @@
 32-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:28:19-67
 33
 34    <application
-34-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:30:5-550:19
+34-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:30:5-547:19
 35        android:name="com.messi.languagehelper.BaseApplication"
 35-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:31:9-40
 36        android:allowBackup="true"
@@ -697,762 +697,756 @@
 360-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:341:13-54
 361        <activity
 361-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:342:9-344:52
-362            android:name="com.messi.languagehelper.SearchResultActivity"
-362-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:343:13-49
+362            android:name="com.messi.languagehelper.SearchActivity"
+362-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:343:13-43
 363            android:screenOrientation="portrait" />
 363-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:344:13-49
 364        <activity
 364-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:345:9-347:52
-365            android:name="com.messi.languagehelper.SearchActivity"
-365-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:346:13-43
+365            android:name="com.messi.languagehelper.SubjectActivity"
+365-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:346:13-44
 366            android:screenOrientation="portrait" />
 366-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:347:13-49
 367        <activity
 367-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:348:9-350:52
-368            android:name="com.messi.languagehelper.SubjectActivity"
-368-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:349:13-44
+368            android:name="com.messi.languagehelper.StoryActivity"
+368-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:349:13-42
 369            android:screenOrientation="portrait" />
 369-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:350:13-49
 370        <activity
 370-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:351:9-353:52
-371            android:name="com.messi.languagehelper.StoryActivity"
-371-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:352:13-42
+371            android:name="com.messi.languagehelper.AiDialoguePracticeYYSActivity"
+371-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:352:13-58
 372            android:screenOrientation="portrait" />
 372-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:353:13-49
 373        <activity
 373-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:354:9-356:52
-374            android:name="com.messi.languagehelper.AiDialoguePracticeYYSActivity"
-374-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:355:13-58
+374            android:name="com.messi.languagehelper.AiDialogueFightYYSActivity"
+374-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:355:13-55
 375            android:screenOrientation="portrait" />
 375-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:356:13-49
 376        <activity
 376-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:357:9-359:52
-377            android:name="com.messi.languagehelper.AiDialogueFightYYSActivity"
-377-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:358:13-55
+377            android:name="com.messi.languagehelper.ReadingsBySubjectActivity"
+377-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:358:13-54
 378            android:screenOrientation="portrait" />
 378-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:359:13-49
 379        <activity
 379-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:360:9-362:52
-380            android:name="com.messi.languagehelper.ReadingsBySubjectActivity"
-380-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:361:13-54
+380            android:name="com.messi.languagehelper.SymbolActivity"
+380-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:361:13-43
 381            android:screenOrientation="portrait" />
 381-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:362:13-49
 382        <activity
 382-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:363:9-365:52
-383            android:name="com.messi.languagehelper.SymbolActivity"
-383-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:364:13-43
+383            android:name="com.messi.languagehelper.ReadingMp3DetailActivity"
+383-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:364:13-53
 384            android:screenOrientation="portrait" />
 384-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:365:13-49
 385        <activity
 385-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:366:9-368:52
-386            android:name="com.messi.languagehelper.ReadingMp3DetailActivity"
-386-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:367:13-53
+386            android:name="com.messi.languagehelper.OfflineDicDownloadActivity"
+386-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:367:13-55
 387            android:screenOrientation="portrait" />
 387-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:368:13-49
 388        <activity
 388-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:369:9-371:52
-389            android:name="com.messi.languagehelper.OfflineDicDownloadActivity"
-389-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:370:13-55
+389            android:name="com.messi.languagehelper.WordStudyNewWordActivity"
+389-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:370:13-53
 390            android:screenOrientation="portrait" />
 390-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:371:13-49
 391        <activity
 391-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:372:9-374:52
-392            android:name="com.messi.languagehelper.WordStudyNewWordActivity"
-392-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:373:13-53
+392            android:name="com.messi.languagehelper.WordStudyFightActivity"
+392-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:373:13-51
 393            android:screenOrientation="portrait" />
 393-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:374:13-49
 394        <activity
 394-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:375:9-377:52
-395            android:name="com.messi.languagehelper.WordStudyFightActivity"
-395-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:376:13-51
+395            android:name="com.messi.languagehelper.WordStudyDanCiPinXieActivity"
+395-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:376:13-57
 396            android:screenOrientation="portrait" />
 396-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:377:13-49
 397        <activity
 397-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:378:9-380:52
-398            android:name="com.messi.languagehelper.WordStudyDanCiPinXieActivity"
-398-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:379:13-57
+398            android:name="com.messi.languagehelper.WordStudyDuYinSuJiActivity"
+398-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:379:13-55
 399            android:screenOrientation="portrait" />
 399-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:380:13-49
 400        <activity
 400-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:381:9-383:52
-401            android:name="com.messi.languagehelper.WordStudyDuYinSuJiActivity"
-401-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:382:13-55
+401            android:name="com.messi.languagehelper.WordStudyViewAllActivity"
+401-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:382:13-53
 402            android:screenOrientation="portrait" />
 402-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:383:13-49
 403        <activity
 403-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:384:9-386:52
-404            android:name="com.messi.languagehelper.WordStudyViewAllActivity"
-404-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:385:13-53
+404            android:name="com.messi.languagehelper.WordStudyPlanActivity"
+404-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:385:13-50
 405            android:screenOrientation="portrait" />
 405-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:386:13-49
 406        <activity
 406-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:387:9-389:52
-407            android:name="com.messi.languagehelper.WordStudyPlanActivity"
-407-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:388:13-50
+407            android:name="com.messi.languagehelper.WordStudySummaryDetailActivity"
+407-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:388:13-59
 408            android:screenOrientation="portrait" />
 408-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:389:13-49
 409        <activity
 409-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:390:9-392:52
-410            android:name="com.messi.languagehelper.WordStudySummaryDetailActivity"
-410-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:391:13-59
+410            android:name="com.messi.languagehelper.WordStudySummaryListActivity"
+410-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:391:13-57
 411            android:screenOrientation="portrait" />
 411-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:392:13-49
 412        <activity
 412-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:393:9-395:52
-413            android:name="com.messi.languagehelper.WordStudySummaryListActivity"
-413-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:394:13-57
+413            android:name="com.messi.languagehelper.WordStudyCiYiXuanCiActivity"
+413-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:394:13-56
 414            android:screenOrientation="portrait" />
 414-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:395:13-49
 415        <activity
 415-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:396:9-398:52
-416            android:name="com.messi.languagehelper.WordStudyCiYiXuanCiActivity"
-416-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:397:13-56
+416            android:name="com.messi.languagehelper.WordStudyDanCiXuanYiActivity"
+416-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:397:13-57
 417            android:screenOrientation="portrait" />
 417-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:398:13-49
 418        <activity
 418-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:399:9-401:52
-419            android:name="com.messi.languagehelper.WordStudyDanCiXuanYiActivity"
-419-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:400:13-57
+419            android:name="com.messi.languagehelper.WordStudyChangeUnitActivity"
+419-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:400:13-56
 420            android:screenOrientation="portrait" />
 420-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:401:13-49
 421        <activity
 421-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:402:9-404:52
-422            android:name="com.messi.languagehelper.WordStudyChangeUnitActivity"
-422-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:403:13-56
+422            android:name="com.messi.languagehelper.ReadingAndNewsActivity"
+422-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:403:13-51
 423            android:screenOrientation="portrait" />
 423-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:404:13-49
 424        <activity
 424-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:405:9-407:52
-425            android:name="com.messi.languagehelper.ReadingAndNewsActivity"
-425-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:406:13-51
+425            android:name="com.messi.languagehelper.ChPybsSListActivity"
+425-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:406:13-48
 426            android:screenOrientation="portrait" />
 426-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:407:13-49
 427        <activity
 427-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:408:9-410:52
-428            android:name="com.messi.languagehelper.ChPybsSListActivity"
+428            android:name="com.messi.languagehelper.ExaminationActivity"
 428-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:409:13-48
 429            android:screenOrientation="portrait" />
 429-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:410:13-49
 430        <activity
 430-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:411:9-413:52
-431            android:name="com.messi.languagehelper.ExaminationActivity"
-431-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:412:13-48
+431            android:name="com.messi.languagehelper.WordStudyDuYinXuanCiActivity"
+431-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:412:13-57
 432            android:screenOrientation="portrait" />
 432-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:413:13-49
 433        <activity
-433-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:414:9-416:52
-434            android:name="com.messi.languagehelper.WordStudyDuYinXuanCiActivity"
-434-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:415:13-57
-435            android:screenOrientation="portrait" />
-435-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:416:13-49
-436        <activity
-436-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:417:9-421:52
-437            android:name="com.messi.languagehelper.ReadingJuheActivity"
-437-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:418:13-48
-438            android:exported="true"
-438-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:419:13-36
-439            android:launchMode="singleTask"
-439-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:420:13-44
+433-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:414:9-418:52
+434            android:name="com.messi.languagehelper.ReadingJuheActivity"
+434-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:415:13-48
+435            android:exported="true"
+435-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:416:13-36
+436            android:launchMode="singleTask"
+436-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:417:13-44
+437            android:screenOrientation="portrait" />
+437-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:418:13-49
+438        <activity
+438-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:419:9-421:52
+439            android:name="com.messi.languagehelper.WordStudySecondActivity"
+439-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:420:13-52
 440            android:screenOrientation="portrait" />
 440-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:421:13-49
 441        <activity
 441-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:422:9-424:52
-442            android:name="com.messi.languagehelper.WordStudySecondActivity"
-442-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:423:13-52
+442            android:name="com.messi.languagehelper.CollectedActivity"
+442-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:423:13-46
 443            android:screenOrientation="portrait" />
 443-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:424:13-49
 444        <activity
 444-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:425:9-427:52
-445            android:name="com.messi.languagehelper.CollectedActivity"
-445-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:426:13-46
+445            android:name="com.messi.languagehelper.SettingActivity"
+445-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:426:13-44
 446            android:screenOrientation="portrait" />
 446-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:427:13-49
 447        <activity
 447-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:428:9-430:52
-448            android:name="com.messi.languagehelper.SettingActivity"
-448-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:429:13-44
+448            android:name="com.messi.languagehelper.ReadingDetailActivity"
+448-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:429:13-50
 449            android:screenOrientation="portrait" />
 449-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:430:13-49
 450        <activity
 450-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:431:9-433:52
-451            android:name="com.messi.languagehelper.ReadingDetailActivity"
-451-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:432:13-50
+451            android:name="com.messi.languagehelper.ReadingsActivity"
+451-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:432:13-45
 452            android:screenOrientation="portrait" />
 452-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:433:13-49
 453        <activity
 453-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:434:9-436:52
-454            android:name="com.messi.languagehelper.ReadingsActivity"
-454-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:435:13-45
+454            android:name="com.messi.languagehelper.CompositionActivity"
+454-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:435:13-48
 455            android:screenOrientation="portrait" />
 455-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:436:13-49
 456        <activity
-456-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:437:9-439:52
-457            android:name="com.messi.languagehelper.CompositionActivity"
-457-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:438:13-48
-458            android:screenOrientation="portrait" />
-458-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:439:13-49
-459        <activity
-459-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:440:9-443:52
-460            android:name="com.messi.languagehelper.JokeActivity"
-460-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:441:13-41
-461            android:configChanges="orientation|keyboardHidden|screenSize"
-461-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:442:13-74
+456-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:437:9-440:52
+457            android:name="com.messi.languagehelper.JokeActivity"
+457-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:438:13-41
+458            android:configChanges="orientation|keyboardHidden|screenSize"
+458-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:439:13-74
+459            android:screenOrientation="portrait" />
+459-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:440:13-49
+460        <activity
+460-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:441:9-443:52
+461            android:name="com.messi.languagehelper.WordStudyDanCiRenZhiActivity"
+461-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:442:13-57
 462            android:screenOrientation="portrait" />
 462-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:443:13-49
 463        <activity
 463-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:444:9-446:52
-464            android:name="com.messi.languagehelper.WordStudyDanCiRenZhiActivity"
-464-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:445:13-57
+464            android:name="com.messi.languagehelper.WordStudyThirdActivity"
+464-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:445:13-51
 465            android:screenOrientation="portrait" />
 465-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:446:13-49
 466        <activity
 466-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:447:9-449:52
-467            android:name="com.messi.languagehelper.WordStudyThirdActivity"
-467-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:448:13-51
+467            android:name="com.messi.languagehelper.PhotosTranslateActivity"
+467-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:448:13-52
 468            android:screenOrientation="portrait" />
 468-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:449:13-49
 469        <activity
 469-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:450:9-452:52
-470            android:name="com.messi.languagehelper.PhotosTranslateActivity"
-470-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:451:13-52
+470            android:name="com.messi.languagehelper.MoreActivity"
+470-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:451:13-41
 471            android:screenOrientation="portrait" />
 471-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:452:13-49
 472        <activity
-472-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:453:9-455:52
-473            android:name="com.messi.languagehelper.MoreActivity"
-473-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:454:13-41
-474            android:screenOrientation="portrait" />
-474-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:455:13-49
-475        <activity
-475-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:456:9-459:52
-476            android:name="com.messi.languagehelper.SymbolDetailActivity"
-476-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:457:13-49
-477            android:configChanges="orientation|keyboardHidden|screenSize"
-477-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:458:13-74
+472-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:453:9-456:52
+473            android:name="com.messi.languagehelper.SymbolDetailActivity"
+473-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:454:13-49
+474            android:configChanges="orientation|keyboardHidden|screenSize"
+474-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:455:13-74
+475            android:screenOrientation="portrait" />
+475-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:456:13-49
+476        <activity
+476-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:457:9-459:52
+477            android:name="com.messi.languagehelper.SpokenEnglishDetailActivity"
+477-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:458:13-56
 478            android:screenOrientation="portrait" />
 478-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:459:13-49
 479        <activity
 479-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:460:9-462:52
-480            android:name="com.messi.languagehelper.SpokenEnglishDetailActivity"
-480-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:461:13-56
+480            android:name="com.messi.languagehelper.AiDialoguePracticeActivity"
+480-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:461:13-55
 481            android:screenOrientation="portrait" />
 481-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:462:13-49
 482        <activity
 482-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:463:9-465:52
-483            android:name="com.messi.languagehelper.AiDialoguePracticeActivity"
-483-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:464:13-55
+483            android:name="com.messi.languagehelper.SpokenEndlishCategoryActivity"
+483-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:464:13-58
 484            android:screenOrientation="portrait" />
 484-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:465:13-49
 485        <activity
 485-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:466:9-468:52
-486            android:name="com.messi.languagehelper.SpokenEndlishCategoryActivity"
-486-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:467:13-58
+486            android:name="com.messi.languagehelper.DialogPracticeActivity"
+486-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:467:13-51
 487            android:screenOrientation="portrait" />
 487-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:468:13-49
 488        <activity
 488-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:469:9-471:52
-489            android:name="com.messi.languagehelper.DialogPracticeActivity"
-489-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:470:13-51
+489            android:name="com.messi.languagehelper.StudyDialogActivity"
+489-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:470:13-48
 490            android:screenOrientation="portrait" />
 490-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:471:13-49
 491        <activity
 491-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:472:9-474:52
-492            android:name="com.messi.languagehelper.StudyDialogActivity"
-492-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:473:13-48
+492            android:name="com.messi.languagehelper.StudyDialogCategoryActivity"
+492-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:473:13-56
 493            android:screenOrientation="portrait" />
 493-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:474:13-49
 494        <activity
 494-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:475:9-477:52
-495            android:name="com.messi.languagehelper.StudyDialogCategoryActivity"
-495-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:476:13-56
+495            android:name="com.messi.languagehelper.StudyDialogListActivity"
+495-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:476:13-52
 496            android:screenOrientation="portrait" />
 496-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:477:13-49
 497        <activity
-497-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:478:9-480:52
-498            android:name="com.messi.languagehelper.StudyDialogListActivity"
-498-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:479:13-52
-499            android:screenOrientation="portrait" />
-499-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:480:13-49
-500        <activity
-500-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:481:9-484:52
-501            android:name="com.messi.languagehelper.AiUCXYActivity"
-501-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:482:13-43
-502            android:screenOrientation="portrait"
-502-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:484:13-49
-503            android:windowSoftInputMode="stateHidden|adjustPan" />
-503-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:483:13-64
+497-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:478:9-481:52
+498            android:name="com.messi.languagehelper.AiUCXYActivity"
+498-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:479:13-43
+499            android:screenOrientation="portrait"
+499-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:481:13-49
+500            android:windowSoftInputMode="stateHidden|adjustPan" />
+500-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:480:13-64
+501        <activity
+501-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:482:9-484:52
+502            android:name="com.messi.languagehelper.QRCodeShareActivity"
+502-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:483:13-48
+503            android:screenOrientation="portrait" />
+503-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:484:13-49
 504        <activity
-504-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:485:9-487:52
-505            android:name="com.messi.languagehelper.QRCodeShareActivity"
-505-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:486:13-48
-506            android:screenOrientation="portrait" />
+504-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:485:9-488:70
+505            android:name="com.messi.languagehelper.AiSpokenBasicActivity"
+505-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:486:13-50
+506            android:screenOrientation="portrait"
 506-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:487:13-49
-507        <activity
-507-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:488:9-491:70
-508            android:name="com.messi.languagehelper.AiSpokenBasicActivity"
-508-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:489:13-50
-509            android:screenOrientation="portrait"
-509-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:490:13-49
-510            android:windowSoftInputMode="stateHidden|adjustResize" />
-510-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:491:13-67
-511        <activity
-511-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:492:9-495:20
-512            android:name="com.messi.languagehelper.WebViewActivity"
-512-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:493:13-44
-513            android:screenOrientation="portrait" >
-513-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:494:13-49
-514        </activity>
-515        <activity
-515-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:496:9-499:52
-516            android:name="com.messi.languagehelper.WebViewFullscreenActivity"
-516-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:497:13-54
-517            android:configChanges="orientation|keyboardHidden|screenSize"
-517-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:498:13-74
-518            android:screenOrientation="portrait" />
-518-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:499:13-49
-519        <activity
-519-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:500:9-503:52
-520            android:name="com.messi.languagehelper.WebViewWithMicActivity"
-520-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:501:13-51
-521            android:configChanges="orientation|keyboardHidden|screenSize"
-521-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:502:13-74
+507            android:windowSoftInputMode="stateHidden|adjustResize" />
+507-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:488:13-67
+508        <activity
+508-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:489:9-492:20
+509            android:name="com.messi.languagehelper.WebViewActivity"
+509-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:490:13-44
+510            android:screenOrientation="portrait" >
+510-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:491:13-49
+511        </activity>
+512        <activity
+512-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:493:9-496:52
+513            android:name="com.messi.languagehelper.WebViewFullscreenActivity"
+513-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:494:13-54
+514            android:configChanges="orientation|keyboardHidden|screenSize"
+514-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:495:13-74
+515            android:screenOrientation="portrait" />
+515-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:496:13-49
+516        <activity
+516-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:497:9-500:52
+517            android:name="com.messi.languagehelper.WebViewWithMicActivity"
+517-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:498:13-51
+518            android:configChanges="orientation|keyboardHidden|screenSize"
+518-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:499:13-74
+519            android:screenOrientation="portrait" />
+519-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:500:13-49
+520        <activity
+520-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:501:9-503:52
+521            android:name="com.messi.languagehelper.WebViewForNovelActivity"
+521-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:502:13-52
 522            android:screenOrientation="portrait" />
 522-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:503:13-49
 523        <activity
 523-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:504:9-506:52
-524            android:name="com.messi.languagehelper.WebViewForNovelActivity"
-524-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:505:13-52
+524            android:name="com.messi.languagehelper.EmptyActivity"
+524-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:505:13-42
 525            android:screenOrientation="portrait" />
 525-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:506:13-49
 526        <activity
 526-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:507:9-509:52
-527            android:name="com.messi.languagehelper.EmptyActivity"
+527            android:name="com.messi.languagehelper.AboutActivity"
 527-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:508:13-42
 528            android:screenOrientation="portrait" />
 528-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:509:13-49
 529        <activity
 529-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:510:9-512:52
-530            android:name="com.messi.languagehelper.AboutActivity"
-530-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:511:13-42
+530            android:name="com.messi.languagehelper.WebViewNoAdActivity"
+530-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:511:13-48
 531            android:screenOrientation="portrait" />
 531-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:512:13-49
 532        <activity
 532-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:513:9-515:52
-533            android:name="com.messi.languagehelper.WebViewNoAdActivity"
-533-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:514:13-48
+533            android:name="com.messi.languagehelper.TranStyleActivity"
+533-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:514:13-46
 534            android:screenOrientation="portrait" />
 534-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:515:13-49
 535        <activity
 535-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:516:9-518:52
-536            android:name="com.messi.languagehelper.TranStyleActivity"
-536-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:517:13-46
+536            android:name="com.messi.languagehelper.PracticeYYSActivity"
+536-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:517:13-48
 537            android:screenOrientation="portrait" />
 537-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:518:13-49
 538        <activity
 538-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:519:9-521:52
-539            android:name="com.messi.languagehelper.PracticeYYSActivity"
-539-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:520:13-48
+539            android:name="com.messi.languagehelper.PracticeActivity"
+539-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:520:13-45
 540            android:screenOrientation="portrait" />
 540-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:521:13-49
 541        <activity
-541-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:522:9-524:52
-542            android:name="com.messi.languagehelper.PracticeActivity"
+541-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:522:9-525:75
+542            android:name="com.messi.languagehelper.ImgShareActivity"
 542-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:523:13-45
-543            android:screenOrientation="portrait" />
+543            android:screenOrientation="portrait"
 543-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:524:13-49
-544        <activity
-544-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:525:9-528:75
-545            android:name="com.messi.languagehelper.ImgShareActivity"
-545-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:526:13-45
-546            android:screenOrientation="portrait"
-546-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:527:13-49
-547            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
-547-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:528:13-72
-548        <activity
-548-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:529:9-535:57
-549            android:name="com.messi.languagehelper.wxapi.WXEntryActivity"
-549-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:530:13-50
-550            android:configChanges="orientation|keyboardHidden|screenSize"
-550-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:531:13-74
-551            android:exported="true"
-551-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:532:13-36
-552            android:launchMode="singleTask"
-552-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:533:13-44
-553            android:screenOrientation="portrait"
-553-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:534:13-49
-554            android:windowSoftInputMode="stateHidden" />
-554-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:535:13-54
-555        <activity
-555-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:536:10-542:57
-556            android:name="com.messi.languagehelper.wxapi.YYSMainActivity"
-556-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:537:13-50
-557            android:configChanges="orientation|keyboardHidden|screenSize"
-557-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:538:13-74
-558            android:exported="true"
-558-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:539:13-36
-559            android:launchMode="singleTask"
-559-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:540:13-44
-560            android:screenOrientation="portrait"
-560-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:541:13-49
-561            android:windowSoftInputMode="stateHidden" />
-561-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:542:13-54
-562        <activity
-562-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:543:9-549:57
-563            android:name="com.messi.languagehelper.wxapi.YYJMainActivity"
-563-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:544:13-50
-564            android:configChanges="orientation|keyboardHidden|screenSize"
-564-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:545:13-74
-565            android:exported="true"
-565-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:546:13-36
-566            android:launchMode="singleTask"
-566-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:547:13-44
-567            android:screenOrientation="portrait"
-567-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:548:13-49
-568            android:windowSoftInputMode="stateHidden" />
-568-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:549:13-54
-569        <activity
-569-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/02d9f8e98dddf3cc000a836f2927f25c/jetified-Baidu_MobAds_SDK-release/AndroidManifest.xml:12:9-17:20
-570            android:name="com.baidu.mobads.production.rewardvideo.MobRewardVideoActivity"
-570-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/02d9f8e98dddf3cc000a836f2927f25c/jetified-Baidu_MobAds_SDK-release/AndroidManifest.xml:13:13-90
-571            android:configChanges="screenSize|orientation|keyboardHidden"
-571-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/02d9f8e98dddf3cc000a836f2927f25c/jetified-Baidu_MobAds_SDK-release/AndroidManifest.xml:14:13-74
-572            android:launchMode="singleTask"
-572-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/02d9f8e98dddf3cc000a836f2927f25c/jetified-Baidu_MobAds_SDK-release/AndroidManifest.xml:15:13-44
-573            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-573-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/02d9f8e98dddf3cc000a836f2927f25c/jetified-Baidu_MobAds_SDK-release/AndroidManifest.xml:16:13-72
-574        </activity>
-575
-576        <service android:name="com.ss.android.socialbase.downloader.notification.DownloadNotificationService" />
-576-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:24:9-113
-576-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:24:18-110
-577        <service android:name="com.ss.android.socialbase.downloader.downloader.DownloadService" />
-577-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:25:9-99
-577-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:25:18-96
-578        <service
-578-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:26:9-32:19
-579            android:name="com.ss.android.socialbase.downloader.downloader.IndependentProcessDownloadService"
-579-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:27:13-109
-580            android:process=":downloader" >
-580-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:28:13-42
-581            <intent-filter>
-581-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:29:13-31:29
-582                <action android:name="com.ss.android.socialbase.downloader.remote" />
-582-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:30:17-86
-582-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:30:25-83
-583            </intent-filter>
-584        </service>
-585        <service android:name="com.ss.android.socialbase.downloader.impls.DownloadHandleService" /> <!-- <receiver android:name="com.ss.android.socialbase.downloader.downloader.DownloadReceiver"> -->
-585-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:33:9-100
-585-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:33:18-97
-586        <!-- <intent-filter> -->
-587        <!-- <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/> -->
-588        <!-- </intent-filter> -->
-589        <!-- </receiver> -->
-590        <service
-590-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:41:9-45:72
-591            android:name="com.ss.android.socialbase.downloader.impls.RetryJobSchedulerService"
-591-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:42:13-95
-592            android:enabled="true"
-592-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:43:13-35
-593            android:exported="true"
-593-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:44:13-36
-594            android:permission="android.permission.BIND_JOB_SERVICE" /> <!-- 数据库更新service -->
-594-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:45:13-69
-595        <service android:name="com.ss.android.socialbase.downloader.downloader.SqlDownloadCacheService" /> <!-- APP DOWNLOADER START -->
-595-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:47:9-107
-595-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:47:18-104
-596        <service android:name="com.ss.android.socialbase.appdownloader.DownloadHandlerService" /> <!-- <receiver android:name="com.ss.android.socialbase.appdownloader.DownloadReceiver"> -->
-596-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:49:9-98
-596-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:49:18-95
-597        <!-- <intent-filter> -->
-598        <!-- <action android:name="android.intent.action.BOOT_COMPLETED"/> -->
-599        <!-- <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/> -->
-600        <!-- <action android:name="android.ss.intent.action.DOWNLOAD_COMPLETE"/> -->
-601        <!-- </intent-filter> -->
-602        <!-- <intent-filter> -->
-603        <!-- <action android:name="android.intent.action.PACKAGE_ADDED"/> -->
-604        <!-- <action android:name="android.intent.action.PACKAGE_REPLACED"/> -->
-605        <!-- <data android:scheme="package"/> -->
-606        <!-- </intent-filter> -->
-607        <!-- <intent-filter> -->
-608        <!-- <action android:name="android.intent.action.MEDIA_MOUNTED"/> -->
-609        <!-- <data android:scheme="file"/> -->
-610        <!-- </intent-filter> -->
-611        <!-- </receiver> -->
-612        <activity
-612-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:65:9-68:59
-613            android:name="com.ss.android.socialbase.appdownloader.view.DownloadTaskDeleteActivity"
-613-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:66:13-99
-614            android:launchMode="singleTask"
-614-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:67:13-44
-615            android:theme="@android:style/Theme.Dialog" />
-615-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:68:13-56
-616        <activity
-616-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:69:9-72:59
-617            android:name="com.ss.android.socialbase.appdownloader.view.JumpUnknownSourceActivity"
-617-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:70:13-98
-618            android:launchMode="singleTask"
-618-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:71:13-44
-619            android:theme="@android:style/Theme.Dialog" />
-619-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:72:13-56
-620        <activity
-620-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:73:9-76:75
-621            android:name="com.ss.android.downloadlib.activity.TTDelegateActivity"
-621-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:74:13-82
-622            android:launchMode="singleTask"
-622-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:75:13-44
-623            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-623-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:76:13-72
-624
-625        <receiver android:name="com.ss.android.downloadlib.core.download.DownloadReceiver" /> <!-- 下面的activity和service必须注册 -->
-625-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:78:9-94
-625-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:78:19-91
-626        <activity
-626-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:79:9-83:57
-627            android:name="com.bytedance.sdk.openadsdk.activity.TTLandingPageActivity"
-627-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:80:13-86
-628            android:configChanges="keyboardHidden|orientation|screenSize"
-628-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:81:13-74
-629            android:launchMode="standard"
-629-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:82:13-42
-630            android:windowSoftInputMode="stateHidden" />
-630-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:83:13-54
-631        <activity
-631-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:84:9-88:57
-632            android:name="com.bytedance.sdk.openadsdk.activity.TTPlayableLandingPageActivity"
-632-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:85:13-94
-633            android:configChanges="keyboardHidden|orientation|screenSize"
-633-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:86:13-74
-634            android:launchMode="standard"
-634-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:87:13-42
-635            android:windowSoftInputMode="stateHidden" />
-635-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:88:13-54
-636        <activity
-636-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:89:9-93:57
-637            android:name="com.bytedance.sdk.openadsdk.activity.TTVideoLandingPageActivity"
-637-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:90:13-91
-638            android:configChanges="keyboardHidden|orientation|screenSize"
-638-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:91:13-74
-639            android:launchMode="standard"
-639-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:92:13-42
-640            android:windowSoftInputMode="stateHidden" />
-640-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:93:13-54
-641        <activity
-641-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:94:9-97:45
-642            android:name="com.bytedance.sdk.openadsdk.activity.TTRewardVideoActivity"
-642-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:95:13-86
-643            android:configChanges="keyboardHidden|orientation|screenSize"
-643-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:96:13-74
-644            android:launchMode="standard" />
-644-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:97:13-42
-645        <activity
-645-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:98:9-101:45
-646            android:name="com.bytedance.sdk.openadsdk.activity.TTRewardExpressVideoActivity"
-646-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:99:13-93
-647            android:configChanges="keyboardHidden|orientation|screenSize"
-647-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:100:13-74
-648            android:launchMode="standard" />
-648-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:101:13-42
-649        <activity
-649-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:102:9-105:45
-650            android:name="com.bytedance.sdk.openadsdk.activity.TTFullScreenVideoActivity"
-650-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:103:13-90
-651            android:configChanges="keyboardHidden|orientation|screenSize"
-651-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:104:13-74
-652            android:launchMode="standard" />
-652-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:105:13-42
-653        <activity
-653-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:106:9-109:45
-654            android:name="com.bytedance.sdk.openadsdk.activity.TTFullScreenExpressVideoActivity"
-654-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:107:13-97
-655            android:configChanges="keyboardHidden|orientation|screenSize"
-655-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:108:13-74
-656            android:launchMode="standard" />
-656-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:109:13-42
-657        <activity
-657-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:110:9-113:75
-658            android:name="com.bytedance.sdk.openadsdk.activity.TTDelegateActivity"
-658-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:111:13-83
-659            android:launchMode="singleTask"
-659-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:112:13-44
-660            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-660-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:113:13-72
-661
-662        <service android:name="com.bytedance.sdk.openadsdk.multipro.aidl.BinderPoolService" />
-662-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:115:9-95
-662-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:115:18-92
-663
-664        <receiver
-664-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:117:9-120:39
-665            android:name="com.bytedance.embedapplog.collector.Collector"
-665-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:118:13-73
-666            android:enabled="true"
-666-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:119:13-35
-667            android:exported="true" />
-667-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:120:13-36
-668
-669        <service
-669-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:122:9-124:39
-670            android:name="com.bytedance.tea.crash.upload.CrashUploadService"
-670-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:123:13-77
-671            android:process=":npth" /> <!-- 用于激励视频可选广告的竖屏透明背景activity -->
-671-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:124:13-36
-672        <activity
-672-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:37:9-45:20
-673            android:name="com.qq.e.ads.RewardvideoPortraitADActivity"
-673-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:38:13-70
-674            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-674-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:39:13-83
-675            android:multiprocess="true"
-675-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:40:13-40
-676            android:theme="@android:style/Theme.Translucent" >
-676-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:41:13-61
-677            <meta-data
-677-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:42:13-44:40
-678                android:name="android.notch_support"
-678-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:43:17-53
-679                android:value="true" />
-679-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:44:17-37
-680        </activity> <!-- 用于激励视频可选广告的横屏透明背景activity -->
-681        <activity
-681-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:46:9-54:20
-682            android:name="com.qq.e.ads.RewardvideoLandscapeADActivity"
-682-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:47:13-71
-683            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-683-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:48:13-83
-684            android:multiprocess="true"
-684-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:49:13-40
-685            android:theme="@android:style/Theme.Translucent" >
-685-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:50:13-61
-686            <meta-data
-686-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:42:13-44:40
-687                android:name="android.notch_support"
-687-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:43:17-53
-688                android:value="true" />
-688-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:44:17-37
-689        </activity>
-690
-691        <service
-691-->[com.squareup.leakcanary:leakcanary-android:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/0a35605e15b5bc9957b02d7427cea52f/jetified-leakcanary-android-2.4/AndroidManifest.xml:23:9-25:40
-692            android:name="leakcanary.internal.HeapAnalyzerService"
-692-->[com.squareup.leakcanary:leakcanary-android:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/0a35605e15b5bc9957b02d7427cea52f/jetified-leakcanary-android-2.4/AndroidManifest.xml:24:13-67
-693            android:exported="false" />
-693-->[com.squareup.leakcanary:leakcanary-android:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/0a35605e15b5bc9957b02d7427cea52f/jetified-leakcanary-android-2.4/AndroidManifest.xml:25:13-37
-694
-695        <provider
-695-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:29:9-37:20
-696            android:name="leakcanary.internal.LeakCanaryFileProvider"
-696-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:30:13-70
-697            android:authorities="com.squareup.leakcanary.fileprovider.com.messi.languagehelper"
-697-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:31:13-88
-698            android:exported="false"
-698-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:32:13-37
-699            android:grantUriPermissions="true" >
-699-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:33:13-47
-700            <meta-data
-700-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:50:13-52:54
-701                android:name="android.support.FILE_PROVIDER_PATHS"
-701-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:51:17-67
-702                android:resource="@xml/leak_canary_file_paths" />
-702-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:52:17-51
-703        </provider>
-704
-705        <activity
-705-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:39:9-44:66
-706            android:name="leakcanary.internal.activity.LeakActivity"
-706-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:40:13-69
-707            android:icon="@mipmap/leak_canary_icon"
-707-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:41:13-52
-708            android:label="@string/leak_canary_display_activity_label"
-708-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:42:13-71
-709            android:taskAffinity="com.squareup.leakcanary.com.messi.languagehelper"
-709-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:43:13-76
-710            android:theme="@style/leak_canary_LeakCanary.Base" />
-710-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:44:13-63
-711
-712        <activity-alias
-712-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:46:9-62:26
-713            android:name="leakcanary.internal.activity.LeakLauncherActivity"
-713-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:47:13-77
-714            android:banner="@drawable/leak_canary_tv_icon"
-714-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:48:13-59
-715            android:enabled="@bool/leak_canary_add_launcher_icon"
-715-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:49:13-66
-716            android:icon="@mipmap/leak_canary_icon"
-716-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:50:13-52
-717            android:label="@string/leak_canary_display_activity_label"
-717-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:51:13-71
-718            android:targetActivity="leakcanary.internal.activity.LeakActivity"
-718-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:52:13-79
-719            android:taskAffinity="com.squareup.leakcanary.com.messi.languagehelper"
-719-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:53:13-76
-720            android:theme="@style/leak_canary_LeakCanary.Base" >
-720-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:54:13-63
-721            <intent-filter>
-721-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:55:13-61:29
-722                <action android:name="android.intent.action.MAIN" />
-722-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:59:17-69
-722-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:59:25-66
-723
-724                <category android:name="android.intent.category.LAUNCHER" />
-724-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:60:17-77
-724-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:60:27-74
-725                <!-- Android TV launcher intent -->
-726                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
-726-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:60:17-86
-726-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:60:27-83
-727            </intent-filter>
-728        </activity-alias>
-729
-730        <activity
-730-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:64:9-70:68
-731            android:name="leakcanary.internal.RequestStoragePermissionActivity"
-731-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:65:13-80
-732            android:excludeFromRecents="true"
-732-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:66:13-46
-733            android:icon="@mipmap/leak_canary_icon"
-733-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:67:13-52
-734            android:label="@string/leak_canary_storage_permission_activity_label"
-734-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:68:13-82
-735            android:taskAffinity="com.squareup.leakcanary.com.messi.languagehelper"
-735-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:69:13-76
-736            android:theme="@style/leak_canary_Theme.Transparent" />
-736-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:70:13-65
-737
-738        <receiver android:name="leakcanary.internal.NotificationReceiver" />
-738-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:72:9-77
-738-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:72:19-74
-739
-740        <provider
-740-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9e2a98648d610e9df80fe7de6143e4bd/jetified-leakcanary-object-watcher-android-2.4/AndroidManifest.xml:8:9-12:40
-741            android:name="leakcanary.internal.AppWatcherInstaller$MainProcess"
-741-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9e2a98648d610e9df80fe7de6143e4bd/jetified-leakcanary-object-watcher-android-2.4/AndroidManifest.xml:9:13-79
-742            android:authorities="com.messi.languagehelper.leakcanary-installer"
-742-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9e2a98648d610e9df80fe7de6143e4bd/jetified-leakcanary-object-watcher-android-2.4/AndroidManifest.xml:10:13-72
-743            android:enabled="@bool/leak_canary_watcher_auto_install"
-743-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9e2a98648d610e9df80fe7de6143e4bd/jetified-leakcanary-object-watcher-android-2.4/AndroidManifest.xml:11:13-69
-744            android:exported="false" />
-744-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9e2a98648d610e9df80fe7de6143e4bd/jetified-leakcanary-object-watcher-android-2.4/AndroidManifest.xml:12:13-37
-745        <provider
-745-->[com.squareup.leakcanary:plumber-android:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2ccd5bad746e9483c89016a600497367/jetified-plumber-android-2.4/AndroidManifest.xml:8:9-12:40
-746            android:name="leakcanary.internal.PlumberInstaller"
-746-->[com.squareup.leakcanary:plumber-android:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2ccd5bad746e9483c89016a600497367/jetified-plumber-android-2.4/AndroidManifest.xml:9:13-64
-747            android:authorities="com.messi.languagehelper.plumber-installer"
-747-->[com.squareup.leakcanary:plumber-android:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2ccd5bad746e9483c89016a600497367/jetified-plumber-android-2.4/AndroidManifest.xml:10:13-69
-748            android:enabled="@bool/leak_canary_plumber_auto_install"
-748-->[com.squareup.leakcanary:plumber-android:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2ccd5bad746e9483c89016a600497367/jetified-plumber-android-2.4/AndroidManifest.xml:11:13-69
-749            android:exported="false" />
-749-->[com.squareup.leakcanary:plumber-android:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2ccd5bad746e9483c89016a600497367/jetified-plumber-android-2.4/AndroidManifest.xml:12:13-37
-750        <provider
-750-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/828c8ad0c54bc83c81b1d7dd23af3dc6/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
-751            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-751-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/828c8ad0c54bc83c81b1d7dd23af3dc6/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79
-752            android:authorities="com.messi.languagehelper.lifecycle-process"
-752-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/828c8ad0c54bc83c81b1d7dd23af3dc6/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
-753            android:exported="false"
-753-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/828c8ad0c54bc83c81b1d7dd23af3dc6/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
-754            android:multiprocess="true" />
-754-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/828c8ad0c54bc83c81b1d7dd23af3dc6/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
-755    </application>
-756
-757</manifest>
+544            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+544-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:525:13-72
+545        <activity
+545-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:526:9-532:57
+546            android:name="com.messi.languagehelper.wxapi.WXEntryActivity"
+546-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:527:13-50
+547            android:configChanges="orientation|keyboardHidden|screenSize"
+547-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:528:13-74
+548            android:exported="true"
+548-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:529:13-36
+549            android:launchMode="singleTask"
+549-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:530:13-44
+550            android:screenOrientation="portrait"
+550-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:531:13-49
+551            android:windowSoftInputMode="stateHidden" />
+551-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:532:13-54
+552        <activity
+552-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:533:10-539:57
+553            android:name="com.messi.languagehelper.wxapi.YYSMainActivity"
+553-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:534:13-50
+554            android:configChanges="orientation|keyboardHidden|screenSize"
+554-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:535:13-74
+555            android:exported="true"
+555-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:536:13-36
+556            android:launchMode="singleTask"
+556-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:537:13-44
+557            android:screenOrientation="portrait"
+557-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:538:13-49
+558            android:windowSoftInputMode="stateHidden" />
+558-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:539:13-54
+559        <activity
+559-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:540:9-546:57
+560            android:name="com.messi.languagehelper.wxapi.YYJMainActivity"
+560-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:541:13-50
+561            android:configChanges="orientation|keyboardHidden|screenSize"
+561-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:542:13-74
+562            android:exported="true"
+562-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:543:13-36
+563            android:launchMode="singleTask"
+563-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:544:13-44
+564            android:screenOrientation="portrait"
+564-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:545:13-49
+565            android:windowSoftInputMode="stateHidden" />
+565-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:546:13-54
+566        <activity
+566-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/02d9f8e98dddf3cc000a836f2927f25c/jetified-Baidu_MobAds_SDK-release/AndroidManifest.xml:12:9-17:20
+567            android:name="com.baidu.mobads.production.rewardvideo.MobRewardVideoActivity"
+567-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/02d9f8e98dddf3cc000a836f2927f25c/jetified-Baidu_MobAds_SDK-release/AndroidManifest.xml:13:13-90
+568            android:configChanges="screenSize|orientation|keyboardHidden"
+568-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/02d9f8e98dddf3cc000a836f2927f25c/jetified-Baidu_MobAds_SDK-release/AndroidManifest.xml:14:13-74
+569            android:launchMode="singleTask"
+569-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/02d9f8e98dddf3cc000a836f2927f25c/jetified-Baidu_MobAds_SDK-release/AndroidManifest.xml:15:13-44
+570            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+570-->[Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/02d9f8e98dddf3cc000a836f2927f25c/jetified-Baidu_MobAds_SDK-release/AndroidManifest.xml:16:13-72
+571        </activity>
+572
+573        <service android:name="com.ss.android.socialbase.downloader.notification.DownloadNotificationService" />
+573-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:24:9-113
+573-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:24:18-110
+574        <service android:name="com.ss.android.socialbase.downloader.downloader.DownloadService" />
+574-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:25:9-99
+574-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:25:18-96
+575        <service
+575-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:26:9-32:19
+576            android:name="com.ss.android.socialbase.downloader.downloader.IndependentProcessDownloadService"
+576-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:27:13-109
+577            android:process=":downloader" >
+577-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:28:13-42
+578            <intent-filter>
+578-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:29:13-31:29
+579                <action android:name="com.ss.android.socialbase.downloader.remote" />
+579-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:30:17-86
+579-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:30:25-83
+580            </intent-filter>
+581        </service>
+582        <service android:name="com.ss.android.socialbase.downloader.impls.DownloadHandleService" /> <!-- <receiver android:name="com.ss.android.socialbase.downloader.downloader.DownloadReceiver"> -->
+582-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:33:9-100
+582-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:33:18-97
+583        <!-- <intent-filter> -->
+584        <!-- <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/> -->
+585        <!-- </intent-filter> -->
+586        <!-- </receiver> -->
+587        <service
+587-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:41:9-45:72
+588            android:name="com.ss.android.socialbase.downloader.impls.RetryJobSchedulerService"
+588-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:42:13-95
+589            android:enabled="true"
+589-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:43:13-35
+590            android:exported="true"
+590-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:44:13-36
+591            android:permission="android.permission.BIND_JOB_SERVICE" /> <!-- 数据库更新service -->
+591-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:45:13-69
+592        <service android:name="com.ss.android.socialbase.downloader.downloader.SqlDownloadCacheService" /> <!-- APP DOWNLOADER START -->
+592-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:47:9-107
+592-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:47:18-104
+593        <service android:name="com.ss.android.socialbase.appdownloader.DownloadHandlerService" /> <!-- <receiver android:name="com.ss.android.socialbase.appdownloader.DownloadReceiver"> -->
+593-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:49:9-98
+593-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:49:18-95
+594        <!-- <intent-filter> -->
+595        <!-- <action android:name="android.intent.action.BOOT_COMPLETED"/> -->
+596        <!-- <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/> -->
+597        <!-- <action android:name="android.ss.intent.action.DOWNLOAD_COMPLETE"/> -->
+598        <!-- </intent-filter> -->
+599        <!-- <intent-filter> -->
+600        <!-- <action android:name="android.intent.action.PACKAGE_ADDED"/> -->
+601        <!-- <action android:name="android.intent.action.PACKAGE_REPLACED"/> -->
+602        <!-- <data android:scheme="package"/> -->
+603        <!-- </intent-filter> -->
+604        <!-- <intent-filter> -->
+605        <!-- <action android:name="android.intent.action.MEDIA_MOUNTED"/> -->
+606        <!-- <data android:scheme="file"/> -->
+607        <!-- </intent-filter> -->
+608        <!-- </receiver> -->
+609        <activity
+609-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:65:9-68:59
+610            android:name="com.ss.android.socialbase.appdownloader.view.DownloadTaskDeleteActivity"
+610-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:66:13-99
+611            android:launchMode="singleTask"
+611-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:67:13-44
+612            android:theme="@android:style/Theme.Dialog" />
+612-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:68:13-56
+613        <activity
+613-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:69:9-72:59
+614            android:name="com.ss.android.socialbase.appdownloader.view.JumpUnknownSourceActivity"
+614-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:70:13-98
+615            android:launchMode="singleTask"
+615-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:71:13-44
+616            android:theme="@android:style/Theme.Dialog" />
+616-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:72:13-56
+617        <activity
+617-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:73:9-76:75
+618            android:name="com.ss.android.downloadlib.activity.TTDelegateActivity"
+618-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:74:13-82
+619            android:launchMode="singleTask"
+619-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:75:13-44
+620            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+620-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:76:13-72
+621
+622        <receiver android:name="com.ss.android.downloadlib.core.download.DownloadReceiver" /> <!-- 下面的activity和service必须注册 -->
+622-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:78:9-94
+622-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:78:19-91
+623        <activity
+623-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:79:9-83:57
+624            android:name="com.bytedance.sdk.openadsdk.activity.TTLandingPageActivity"
+624-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:80:13-86
+625            android:configChanges="keyboardHidden|orientation|screenSize"
+625-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:81:13-74
+626            android:launchMode="standard"
+626-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:82:13-42
+627            android:windowSoftInputMode="stateHidden" />
+627-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:83:13-54
+628        <activity
+628-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:84:9-88:57
+629            android:name="com.bytedance.sdk.openadsdk.activity.TTPlayableLandingPageActivity"
+629-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:85:13-94
+630            android:configChanges="keyboardHidden|orientation|screenSize"
+630-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:86:13-74
+631            android:launchMode="standard"
+631-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:87:13-42
+632            android:windowSoftInputMode="stateHidden" />
+632-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:88:13-54
+633        <activity
+633-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:89:9-93:57
+634            android:name="com.bytedance.sdk.openadsdk.activity.TTVideoLandingPageActivity"
+634-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:90:13-91
+635            android:configChanges="keyboardHidden|orientation|screenSize"
+635-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:91:13-74
+636            android:launchMode="standard"
+636-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:92:13-42
+637            android:windowSoftInputMode="stateHidden" />
+637-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:93:13-54
+638        <activity
+638-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:94:9-97:45
+639            android:name="com.bytedance.sdk.openadsdk.activity.TTRewardVideoActivity"
+639-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:95:13-86
+640            android:configChanges="keyboardHidden|orientation|screenSize"
+640-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:96:13-74
+641            android:launchMode="standard" />
+641-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:97:13-42
+642        <activity
+642-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:98:9-101:45
+643            android:name="com.bytedance.sdk.openadsdk.activity.TTRewardExpressVideoActivity"
+643-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:99:13-93
+644            android:configChanges="keyboardHidden|orientation|screenSize"
+644-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:100:13-74
+645            android:launchMode="standard" />
+645-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:101:13-42
+646        <activity
+646-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:102:9-105:45
+647            android:name="com.bytedance.sdk.openadsdk.activity.TTFullScreenVideoActivity"
+647-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:103:13-90
+648            android:configChanges="keyboardHidden|orientation|screenSize"
+648-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:104:13-74
+649            android:launchMode="standard" />
+649-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:105:13-42
+650        <activity
+650-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:106:9-109:45
+651            android:name="com.bytedance.sdk.openadsdk.activity.TTFullScreenExpressVideoActivity"
+651-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:107:13-97
+652            android:configChanges="keyboardHidden|orientation|screenSize"
+652-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:108:13-74
+653            android:launchMode="standard" />
+653-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:109:13-42
+654        <activity
+654-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:110:9-113:75
+655            android:name="com.bytedance.sdk.openadsdk.activity.TTDelegateActivity"
+655-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:111:13-83
+656            android:launchMode="singleTask"
+656-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:112:13-44
+657            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+657-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:113:13-72
+658
+659        <service android:name="com.bytedance.sdk.openadsdk.multipro.aidl.BinderPoolService" />
+659-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:115:9-95
+659-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:115:18-92
+660
+661        <receiver
+661-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:117:9-120:39
+662            android:name="com.bytedance.embedapplog.collector.Collector"
+662-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:118:13-73
+663            android:enabled="true"
+663-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:119:13-35
+664            android:exported="true" />
+664-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:120:13-36
+665
+666        <service
+666-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:122:9-124:39
+667            android:name="com.bytedance.tea.crash.upload.CrashUploadService"
+667-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:123:13-77
+668            android:process=":npth" /> <!-- 用于激励视频可选广告的竖屏透明背景activity -->
+668-->[open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/AndroidManifest.xml:124:13-36
+669        <activity
+669-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:37:9-45:20
+670            android:name="com.qq.e.ads.RewardvideoPortraitADActivity"
+670-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:38:13-70
+671            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+671-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:39:13-83
+672            android:multiprocess="true"
+672-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:40:13-40
+673            android:theme="@android:style/Theme.Translucent" >
+673-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:41:13-61
+674            <meta-data
+674-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:42:13-44:40
+675                android:name="android.notch_support"
+675-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:43:17-53
+676                android:value="true" />
+676-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:44:17-37
+677        </activity> <!-- 用于激励视频可选广告的横屏透明背景activity -->
+678        <activity
+678-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:46:9-54:20
+679            android:name="com.qq.e.ads.RewardvideoLandscapeADActivity"
+679-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:47:13-71
+680            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+680-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:48:13-83
+681            android:multiprocess="true"
+681-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:49:13-40
+682            android:theme="@android:style/Theme.Translucent" >
+682-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:50:13-61
+683            <meta-data
+683-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:42:13-44:40
+684                android:name="android.notch_support"
+684-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:43:17-53
+685                android:value="true" />
+685-->[GDTSDK.unionNormal.4.230.1100.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/f5d1aac667890a481bc648f09890a527/jetified-GDTSDK.unionNormal.4.230.1100/AndroidManifest.xml:44:17-37
+686        </activity>
+687
+688        <service
+688-->[com.squareup.leakcanary:leakcanary-android:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/0a35605e15b5bc9957b02d7427cea52f/jetified-leakcanary-android-2.4/AndroidManifest.xml:23:9-25:40
+689            android:name="leakcanary.internal.HeapAnalyzerService"
+689-->[com.squareup.leakcanary:leakcanary-android:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/0a35605e15b5bc9957b02d7427cea52f/jetified-leakcanary-android-2.4/AndroidManifest.xml:24:13-67
+690            android:exported="false" />
+690-->[com.squareup.leakcanary:leakcanary-android:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/0a35605e15b5bc9957b02d7427cea52f/jetified-leakcanary-android-2.4/AndroidManifest.xml:25:13-37
+691
+692        <provider
+692-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:29:9-37:20
+693            android:name="leakcanary.internal.LeakCanaryFileProvider"
+693-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:30:13-70
+694            android:authorities="com.squareup.leakcanary.fileprovider.com.messi.languagehelper"
+694-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:31:13-88
+695            android:exported="false"
+695-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:32:13-37
+696            android:grantUriPermissions="true" >
+696-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:33:13-47
+697            <meta-data
+697-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:50:13-52:54
+698                android:name="android.support.FILE_PROVIDER_PATHS"
+698-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:51:17-67
+699                android:resource="@xml/leak_canary_file_paths" />
+699-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:52:17-51
+700        </provider>
+701
+702        <activity
+702-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:39:9-44:66
+703            android:name="leakcanary.internal.activity.LeakActivity"
+703-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:40:13-69
+704            android:icon="@mipmap/leak_canary_icon"
+704-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:41:13-52
+705            android:label="@string/leak_canary_display_activity_label"
+705-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:42:13-71
+706            android:taskAffinity="com.squareup.leakcanary.com.messi.languagehelper"
+706-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:43:13-76
+707            android:theme="@style/leak_canary_LeakCanary.Base" />
+707-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:44:13-63
+708
+709        <activity-alias
+709-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:46:9-62:26
+710            android:name="leakcanary.internal.activity.LeakLauncherActivity"
+710-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:47:13-77
+711            android:banner="@drawable/leak_canary_tv_icon"
+711-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:48:13-59
+712            android:enabled="@bool/leak_canary_add_launcher_icon"
+712-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:49:13-66
+713            android:icon="@mipmap/leak_canary_icon"
+713-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:50:13-52
+714            android:label="@string/leak_canary_display_activity_label"
+714-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:51:13-71
+715            android:targetActivity="leakcanary.internal.activity.LeakActivity"
+715-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:52:13-79
+716            android:taskAffinity="com.squareup.leakcanary.com.messi.languagehelper"
+716-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:53:13-76
+717            android:theme="@style/leak_canary_LeakCanary.Base" >
+717-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:54:13-63
+718            <intent-filter>
+718-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:55:13-61:29
+719                <action android:name="android.intent.action.MAIN" />
+719-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:59:17-69
+719-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:59:25-66
+720
+721                <category android:name="android.intent.category.LAUNCHER" />
+721-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:60:17-77
+721-->/Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:60:27-74
+722                <!-- Android TV launcher intent -->
+723                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+723-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:60:17-86
+723-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:60:27-83
+724            </intent-filter>
+725        </activity-alias>
+726
+727        <activity
+727-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:64:9-70:68
+728            android:name="leakcanary.internal.RequestStoragePermissionActivity"
+728-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:65:13-80
+729            android:excludeFromRecents="true"
+729-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:66:13-46
+730            android:icon="@mipmap/leak_canary_icon"
+730-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:67:13-52
+731            android:label="@string/leak_canary_storage_permission_activity_label"
+731-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:68:13-82
+732            android:taskAffinity="com.squareup.leakcanary.com.messi.languagehelper"
+732-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:69:13-76
+733            android:theme="@style/leak_canary_Theme.Transparent" />
+733-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:70:13-65
+734
+735        <receiver android:name="leakcanary.internal.NotificationReceiver" />
+735-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:72:9-77
+735-->[com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/89a15c64e5b1761cbe5acf931d680683/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:72:19-74
+736
+737        <provider
+737-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9e2a98648d610e9df80fe7de6143e4bd/jetified-leakcanary-object-watcher-android-2.4/AndroidManifest.xml:8:9-12:40
+738            android:name="leakcanary.internal.AppWatcherInstaller$MainProcess"
+738-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9e2a98648d610e9df80fe7de6143e4bd/jetified-leakcanary-object-watcher-android-2.4/AndroidManifest.xml:9:13-79
+739            android:authorities="com.messi.languagehelper.leakcanary-installer"
+739-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9e2a98648d610e9df80fe7de6143e4bd/jetified-leakcanary-object-watcher-android-2.4/AndroidManifest.xml:10:13-72
+740            android:enabled="@bool/leak_canary_watcher_auto_install"
+740-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9e2a98648d610e9df80fe7de6143e4bd/jetified-leakcanary-object-watcher-android-2.4/AndroidManifest.xml:11:13-69
+741            android:exported="false" />
+741-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9e2a98648d610e9df80fe7de6143e4bd/jetified-leakcanary-object-watcher-android-2.4/AndroidManifest.xml:12:13-37
+742        <provider
+742-->[com.squareup.leakcanary:plumber-android:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2ccd5bad746e9483c89016a600497367/jetified-plumber-android-2.4/AndroidManifest.xml:8:9-12:40
+743            android:name="leakcanary.internal.PlumberInstaller"
+743-->[com.squareup.leakcanary:plumber-android:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2ccd5bad746e9483c89016a600497367/jetified-plumber-android-2.4/AndroidManifest.xml:9:13-64
+744            android:authorities="com.messi.languagehelper.plumber-installer"
+744-->[com.squareup.leakcanary:plumber-android:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2ccd5bad746e9483c89016a600497367/jetified-plumber-android-2.4/AndroidManifest.xml:10:13-69
+745            android:enabled="@bool/leak_canary_plumber_auto_install"
+745-->[com.squareup.leakcanary:plumber-android:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2ccd5bad746e9483c89016a600497367/jetified-plumber-android-2.4/AndroidManifest.xml:11:13-69
+746            android:exported="false" />
+746-->[com.squareup.leakcanary:plumber-android:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2ccd5bad746e9483c89016a600497367/jetified-plumber-android-2.4/AndroidManifest.xml:12:13-37
+747        <provider
+747-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/828c8ad0c54bc83c81b1d7dd23af3dc6/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
+748            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+748-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/828c8ad0c54bc83c81b1d7dd23af3dc6/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79
+749            android:authorities="com.messi.languagehelper.lifecycle-process"
+749-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/828c8ad0c54bc83c81b1d7dd23af3dc6/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
+750            android:exported="false"
+750-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/828c8ad0c54bc83c81b1d7dd23af3dc6/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
+751            android:multiprocess="true" />
+751-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/828c8ad0c54bc83c81b1d7dd23af3dc6/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
+752    </application>
+753
+754</manifest>

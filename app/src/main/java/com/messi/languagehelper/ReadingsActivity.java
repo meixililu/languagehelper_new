@@ -93,12 +93,15 @@ public class ReadingsActivity extends BaseActivity {
 
 	private void updateDataBackground(BoutiquesBean mBoutiquesBean){
 		if (mBoutiquesBean != null && !TextUtils.isEmpty(mBoutiquesBean.getObjectId())) {
+			binding.collectBtn.setVisibility(View.VISIBLE);
 			new Thread(() -> {
 				AVObject mBoutiques = AVObject.createWithoutData(AVOUtil.Boutiques.Boutiques,
 						mBoutiquesBean.getObjectId());
 				mBoutiques.increment(AVOUtil.Boutiques.views);
 				mBoutiques.save();
 			}).start();
+		}else {
+			binding.collectBtn.setVisibility(View.GONE);
 		}
 	}
 

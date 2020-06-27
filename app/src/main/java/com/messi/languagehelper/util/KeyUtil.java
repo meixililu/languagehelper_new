@@ -190,7 +190,7 @@ public class KeyUtil {
 
 	public static final String HasMoveCaricatureData = "HasMoveCaricatureData";
 
-	public static final String HasMoveRDDatas = "HasMoveRDDataFinal";
+	public static final String HasMoveCollectedData = "HasMoveCollectedData";
 
 	public static final String NewsSource = "NewsSource";
 

@@ -26,8 +26,10 @@ public class RcCollectedListAdapter extends HeaderFooterRecyclerViewAdapter<Recy
     @Override
     protected void onBindItemViewHolder(RecyclerView.ViewHolder holder, int position) {
         CollectedData mAVObject = getItem(position);
-        RcCollectedListItemViewHolder itemViewHolder = (RcCollectedListItemViewHolder)holder;
-        itemViewHolder.render(mAVObject);
+        if (holder instanceof RcCollectedListItemViewHolder) {
+            RcCollectedListItemViewHolder itemViewHolder = (RcCollectedListItemViewHolder)holder;
+            itemViewHolder.render(mAVObject);
+        }
     }
 
     @Override

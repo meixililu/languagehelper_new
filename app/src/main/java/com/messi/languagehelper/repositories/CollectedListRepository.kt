@@ -5,8 +5,10 @@ import com.messi.languagehelper.bean.RespoData
 import com.messi.languagehelper.box.BoxHelper
 import com.messi.languagehelper.box.CollectedData
 import com.messi.languagehelper.util.LogUtil
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.util.*
 
 class CollectedListRepository {
@@ -42,7 +44,8 @@ class CollectedListRepository {
         }
     }
 
-    suspend fun loadData(): RespoData<String> {
+    suspend fun loadData(): RespoData<String> =
+            withContext(Dispatchers.IO){
         LogUtil.DefalutLog("loadData")
         var result = RespoData<String>()
         result.code = 0
@@ -56,6 +59,6 @@ class CollectedListRepository {
         }
         hasMore = datas.size == pageSize
         result.isHideFooter = !hasMore
-        return result
+        result
     }
 }

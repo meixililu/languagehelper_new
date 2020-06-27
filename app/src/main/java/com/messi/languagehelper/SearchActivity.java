@@ -205,9 +205,10 @@ public class SearchActivity extends BaseActivity {
 
     private void search(String quest) {
         if (!TextUtils.isEmpty(quest)) {
-            Intent intent = new Intent(this, SearchResultActivity.class);
+            Intent intent = new Intent(this, XmlySearchResultActivity.class);
             intent.putExtra(KeyUtil.ActionbarTitle, quest);
             intent.putExtra(KeyUtil.SearchKey, quest);
+            intent.putExtra(KeyUtil.PositionKey, 0);
             startActivity(intent);
             saveHistory(quest);
         }
