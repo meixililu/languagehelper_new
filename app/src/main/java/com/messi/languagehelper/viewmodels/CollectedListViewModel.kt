@@ -17,9 +17,6 @@ class CollectedListViewModel : ViewModel() {
         mRepo.getDataList(isRefresh)
     }
 
-    val isShowProgressBar: LiveData<Boolean>?
-        get() = mRepo.isLoading
-
-    val dataList: LiveData<RespoData<*>>?
+    val dataList: LiveData<RespoData<String>>?
         get() = mRepo.mRespoData
 }

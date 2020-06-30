@@ -79,7 +79,6 @@ public class StudyCategoryFragment extends BaseFragment {
     public void onAttach(Context activity) {
         super.onAttach(activity);
         try {
-            registerBroadcast();
             mProgressbarListener = (FragmentProgressbarListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString() + " must implement FragmentProgressbarListener");
@@ -228,7 +227,6 @@ public class StudyCategoryFragment extends BaseFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        unregisterBroadcast();
     }
 
 }

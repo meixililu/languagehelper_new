@@ -13,19 +13,13 @@ import java.util.*
 
 class CollectedListRepository {
 
-    var isLoading = MutableLiveData<Boolean>()
-    var mRespoData = MutableLiveData<RespoData<*>>()
+    var mRespoData = MutableLiveData<RespoData<String>>()
 
     private val pageSize = 50
-    var list: MutableList<CollectedData>
+    var list: MutableList<CollectedData> = ArrayList()
     var skip = 0
     var hasMore = true
     var loading = false
-
-    init {
-        isLoading.value = false
-        list = ArrayList()
-    }
 
     fun getDataList(isRefresh: Boolean) {
         if (isRefresh){

@@ -49,7 +49,7 @@ public class StudyFragment extends BaseFragment {
 
     @BindView(R.id.listview)
     RecyclerView listview;
-    private int maxVideo = 20000;
+    private int maxVideo = 10000;
     private RcStudyListAdapter mAdapter;
     private List<Reading> avObjects;
     private List<AVObject> tempList;

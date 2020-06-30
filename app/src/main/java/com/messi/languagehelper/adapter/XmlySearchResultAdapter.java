@@ -6,11 +6,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import com.messi.languagehelper.BiliSearchResultFragmeng;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.SearchResultReadingFragment;
 import com.messi.languagehelper.SearchResultSubjectFragment;
 import com.messi.languagehelper.XmlySearchAlbumFragment;
-import com.messi.languagehelper.XmlySearchRadioFragment;
 import com.messi.languagehelper.XmlySearchTrackFragment;
 
 public class XmlySearchResultAdapter extends FragmentPagerAdapter {
@@ -26,7 +26,7 @@ public class XmlySearchResultAdapter extends FragmentPagerAdapter {
         		mContext.getResources().getString(R.string.title_course),
         		mContext.getResources().getString(R.string.xmly_album),
         		mContext.getResources().getString(R.string.xmly_track),
-        		mContext.getResources().getString(R.string.xmly_radio)
+        		mContext.getResources().getString(R.string.title_english_video)
         };
     }
 
@@ -41,7 +41,7 @@ public class XmlySearchResultAdapter extends FragmentPagerAdapter {
         }else if( position == 3 ){
             return XmlySearchTrackFragment.newInstance(search_text);
         }else if( position == 4 ){
-            return XmlySearchRadioFragment.newInstance(search_text);
+            return BiliSearchResultFragmeng.Companion.getInstance(search_text);
         }
         return new Fragment();
     }

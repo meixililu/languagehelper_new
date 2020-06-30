@@ -524,13 +524,23 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
                     onfinishPlay();
                 }
             });
+
             String speakContent = "";
             if (isPlayResult) {
                 speakContent = mBean.getEnglish();
             } else {
                 speakContent = mBean.getChinese();
             }
-            MyPlayer.getInstance(PracticeActivity.this).start(speakContent);
+            if (isPlayResult && !isExchange) {
+                if (!TextUtils.isEmpty(mBean.getPh_en_mp3())) {
+                    LogUtil.DefalutLog(mBean.getPh_en_mp3());
+                    MyPlayer.getInstance(PracticeActivity.this).start(speakContent,mBean.getPh_en_mp3());
+                } else {
+                    MyPlayer.getInstance(PracticeActivity.this).start(speakContent);
+                }
+            } else {
+                MyPlayer.getInstance(PracticeActivity.this).start(speakContent);
+            }
         }
     }
 

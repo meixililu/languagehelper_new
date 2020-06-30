@@ -40,6 +40,7 @@ public class XFUtil {
 //	粤语：
 //	domain=iat,language=zh_cn,accent=cantonese
 //	这个需要你自己设置，合成使用tts_audio_path设置，识别转写使用asr_audio_path
+//	audio_formatt PCM、WAV 默认值：PCM
 
 	public static String getVoiceEngineText(String voiceEngine){
 		if(voiceEngine.equals(VoiceEngineMD)){
@@ -104,6 +105,7 @@ public class XFUtil {
 		mSpeechSynthesizer.setParameter(SpeechConstant.SPEED, String.valueOf( mSharedPreferences.getInt("tts_speed", 50) ));
 		mSpeechSynthesizer.setParameter(SpeechConstant.VOLUME, "100");
 		mSpeechSynthesizer.setParameter(SpeechConstant.ENGINE_TYPE, "cloud");//离线 local
+		mSpeechSynthesizer.setParameter(SpeechConstant.AUDIO_FORMAT,"WAV");
 		mSpeechSynthesizer.startSpeaking(source, mSynthesizerListener);
 	}
 	
@@ -121,6 +123,7 @@ public class XFUtil {
 		mSpeechSynthesizer.setParameter(SpeechConstant.SPEED, String.valueOf( mSharedPreferences.getInt("tts_speed", 50) ));
 		mSpeechSynthesizer.setParameter(SpeechConstant.VOLUME, "100");
 		mSpeechSynthesizer.setParameter(SpeechConstant.ENGINE_TYPE, "cloud");//离线 local
+		mSpeechSynthesizer.setParameter(SpeechConstant.AUDIO_FORMAT,"WAV");
 		mSpeechSynthesizer.startSpeaking(source, mSynthesizerListener);
 	}
 	

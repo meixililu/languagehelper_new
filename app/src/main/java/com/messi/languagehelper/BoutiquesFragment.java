@@ -106,10 +106,10 @@ public class BoutiquesFragment extends BaseFragment {
 						.build());
 		binding.listview.setAdapter(mAdapter);
 		setListOnScrollListener();
-		initViewModel();
+		initLiveData();
 	}
 
-	private void initViewModel(){
+	private void initLiveData(){
 		viewModel.getReadingList().observe(getViewLifecycleOwner(), data -> onDataChange(data));
 		viewModel.isShowProgressBar().observe(getViewLifecycleOwner(), isShow -> isShowProgressBar(isShow));
 		viewModel.getAD().observe(getViewLifecycleOwner(),data -> refreshAD(data));

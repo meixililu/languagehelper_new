@@ -2,40 +2,37 @@ package com.messi.languagehelper;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.view.LayoutInflater;
 
-import androidx.viewpager.widget.ViewPager;
-
-import com.google.android.material.tabs.TabLayout;
 import com.messi.languagehelper.adapter.XmlySearchResultAdapter;
+import com.messi.languagehelper.databinding.JokeActivityBinding;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.KeyUtil;
 
 public class XmlySearchResultActivity extends BaseActivity implements FragmentProgressbarListener {
 
-    private TabLayout tablayout;
-    private ViewPager viewpager;
     private XmlySearchResultAdapter pageAdapter;
     private String search_text;
     private int position;
+    private JokeActivityBinding binding;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.joke_activity);
+        binding = JokeActivityBinding.inflate(LayoutInflater.from(this));
+        setContentView(binding.getRoot());
         initViews();
     }
 
     private void initViews() {
         position = getIntent().getIntExtra(KeyUtil.PositionKey,0);
         search_text = getIntent().getStringExtra(KeyUtil.SearchKey);
-        tablayout = (TabLayout) findViewById(R.id.tablayout);
-        viewpager = (ViewPager) findViewById(R.id.viewpager);
 
         pageAdapter = new XmlySearchResultAdapter(getSupportFragmentManager(), this, search_text);
-        viewpager.setAdapter(pageAdapter);
-        viewpager.setOffscreenPageLimit(5);
-        tablayout.setupWithViewPager(viewpager);
-        viewpager.setCurrentItem(position);
+        binding.viewpager.setAdapter(pageAdapter);
+        binding.viewpager.setOffscreenPageLimit(5);
+        binding.tablayout.setupWithViewPager(binding.viewpager);
+        binding.viewpager.setCurrentItem(position);
     }
 
     @Override

@@ -19,8 +19,8 @@ public class MyObjectBox {
 
     public static BoxStoreBuilder builder() {
         BoxStoreBuilder builder = new BoxStoreBuilder(getModel());
-        builder.entity(ReadingSubject_.__INSTANCE);
         builder.entity(EveryDaySentence_.__INSTANCE);
+        builder.entity(ReadingSubject_.__INSTANCE);
         builder.entity(MomentLikes_.__INSTANCE);
         builder.entity(TranResultZhYue_.__INSTANCE);
         builder.entity(WordDetailListItem_.__INSTANCE);
@@ -40,8 +40,8 @@ public class MyObjectBox {
         modelBuilder.lastIndexId(13, 7088497524958009537L);
         modelBuilder.lastRelationId(0, 0L);
 
-        buildEntityReadingSubject(modelBuilder);
         buildEntityEveryDaySentence(modelBuilder);
+        buildEntityReadingSubject(modelBuilder);
         buildEntityMomentLikes(modelBuilder);
         buildEntityTranResultZhYue(modelBuilder);
         buildEntityWordDetailListItem(modelBuilder);
@@ -54,33 +54,6 @@ public class MyObjectBox {
         buildEntityCollectedData(modelBuilder);
 
         return modelBuilder.build();
-    }
-
-    private static void buildEntityReadingSubject(ModelBuilder modelBuilder) {
-        EntityBuilder entityBuilder = modelBuilder.entity("ReadingSubject");
-        entityBuilder.id(3, 3110430987322842181L).lastPropertyId(12, 7660327528341797608L);
-        entityBuilder.flags(io.objectbox.model.EntityFlags.USE_NO_ARG_CONSTRUCTOR);
-
-        entityBuilder.property("id", PropertyType.Long).id(1, 2227665014556694129L)
-                .flags(PropertyFlags.ID);
-        entityBuilder.property("objectId", PropertyType.String).id(2, 2967640124154169069L)
-                .flags(PropertyFlags.INDEX_HASH).indexId(3, 6815057945743640498L);
-        entityBuilder.property("name", PropertyType.String).id(3, 5821272637059367913L);
-        entityBuilder.property("category", PropertyType.String).id(4, 7575922884050837893L);
-        entityBuilder.property("source_name", PropertyType.String).id(9, 4210885046754564135L);
-        entityBuilder.property("source_url", PropertyType.String).id(10, 7768858810324117761L);
-        entityBuilder.property("imgId", PropertyType.Int).id(12, 7660327528341797608L)
-                .flags(PropertyFlags.NOT_NULL);
-        entityBuilder.property("level", PropertyType.String).id(5, 616399869417557875L);
-        entityBuilder.property("code", PropertyType.String).id(6, 8557705001234428064L);
-        entityBuilder.property("order", PropertyType.String).id(7, 7453984672991539501L);
-        entityBuilder.property("views", PropertyType.Int).id(11, 9127389154030167286L)
-                .flags(PropertyFlags.NOT_NULL);
-        entityBuilder.property("creat_time", PropertyType.Long).id(8, 5255918259572070149L)
-                .flags(PropertyFlags.NOT_NULL);
-
-
-        entityBuilder.entityDone();
     }
 
     private static void buildEntityEveryDaySentence(ModelBuilder modelBuilder) {
@@ -110,6 +83,33 @@ public class MyObjectBox {
         entityBuilder.property("backup1", PropertyType.String).id(18, 4535431592604435183L);
         entityBuilder.property("backup2", PropertyType.String).id(19, 2171478550620344325L);
         entityBuilder.property("backup3", PropertyType.String).id(20, 6356815833324233135L);
+
+
+        entityBuilder.entityDone();
+    }
+
+    private static void buildEntityReadingSubject(ModelBuilder modelBuilder) {
+        EntityBuilder entityBuilder = modelBuilder.entity("ReadingSubject");
+        entityBuilder.id(3, 3110430987322842181L).lastPropertyId(12, 7660327528341797608L);
+        entityBuilder.flags(io.objectbox.model.EntityFlags.USE_NO_ARG_CONSTRUCTOR);
+
+        entityBuilder.property("id", PropertyType.Long).id(1, 2227665014556694129L)
+                .flags(PropertyFlags.ID);
+        entityBuilder.property("objectId", PropertyType.String).id(2, 2967640124154169069L)
+                .flags(PropertyFlags.INDEX_HASH).indexId(3, 6815057945743640498L);
+        entityBuilder.property("name", PropertyType.String).id(3, 5821272637059367913L);
+        entityBuilder.property("category", PropertyType.String).id(4, 7575922884050837893L);
+        entityBuilder.property("source_name", PropertyType.String).id(9, 4210885046754564135L);
+        entityBuilder.property("source_url", PropertyType.String).id(10, 7768858810324117761L);
+        entityBuilder.property("imgId", PropertyType.Int).id(12, 7660327528341797608L)
+                .flags(PropertyFlags.NOT_NULL);
+        entityBuilder.property("level", PropertyType.String).id(5, 616399869417557875L);
+        entityBuilder.property("code", PropertyType.String).id(6, 8557705001234428064L);
+        entityBuilder.property("order", PropertyType.String).id(7, 7453984672991539501L);
+        entityBuilder.property("views", PropertyType.Int).id(11, 9127389154030167286L)
+                .flags(PropertyFlags.NOT_NULL);
+        entityBuilder.property("creat_time", PropertyType.Long).id(8, 5255918259572070149L)
+                .flags(PropertyFlags.NOT_NULL);
 
 
         entityBuilder.entityDone();

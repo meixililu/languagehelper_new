@@ -5,16 +5,16 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 
 import com.google.android.flexbox.FlexboxLayout;
+import com.messi.languagehelper.databinding.ActivityXmlySearchBinding;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.ScreenUtil;
@@ -30,8 +30,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.leancloud.AVException;
 import cn.leancloud.AVObject;
@@ -43,22 +41,15 @@ import io.reactivex.disposables.Disposable;
 
 public class XmlySearchActivity extends BaseActivity {
 
-    @BindView(R.id.search_et)
-    EditText searchEt;
-    @BindView(R.id.search_btn)
-    FrameLayout searchBtn;
-    @BindView(R.id.auto_wrap_layout)
-    FlexboxLayout auto_wrap_layout;
-    @BindView(R.id.clear_history)
-    FrameLayout clearHistory;
     private long lastTime;
     private List<AVObject> words;
+    private ActivityXmlySearchBinding binding;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_xmly_search);
-        ButterKnife.bind(this);
+        binding = ActivityXmlySearchBinding.inflate(LayoutInflater.from(this));
+        setContentView(binding.getRoot());
         init();
         addHistory();
         getHotWords();
@@ -67,19 +58,16 @@ public class XmlySearchActivity extends BaseActivity {
 
     private void init() {
         hideTitle();
-        words = new ArrayList<AVObject>();
-        searchEt.requestFocus();
-        searchEt.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View view, int i, KeyEvent keyEvent) {
-                if (i == KeyEvent.KEYCODE_ENTER) {
-                    if (System.currentTimeMillis() - lastTime > 1000) {
-                        search(searchEt.getText().toString());
-                    }
-                    lastTime = System.currentTimeMillis();
+        words = new ArrayList<>();
+        binding.searchEt.requestFocus();
+        binding.searchEt.setOnKeyListener((view, i, keyEvent) -> {
+            if (i == KeyEvent.KEYCODE_ENTER) {
+                if (System.currentTimeMillis() - lastTime > 1000) {
+                    search(binding.searchEt.getText().toString());
                 }
-                return false;
+                lastTime = System.currentTimeMillis();
             }
+            return false;
         });
     }
 
@@ -206,7 +194,7 @@ public class XmlySearchActivity extends BaseActivity {
     public void setData(List<AVObject> tags){
         words.addAll(tags);
         for (AVObject tag : tags){
-            auto_wrap_layout.addView(createNewFlexItemTextView(tag));
+            binding.autoWrapLayout.addView(createNewFlexItemTextView(tag));
         }
     }
 
@@ -239,7 +227,7 @@ public class XmlySearchActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.search_btn:
-                search(searchEt.getText().toString());
+                search(binding.searchEt.getText().toString());
                 break;
             case R.id.clear_history:
                 clearHistory();
@@ -251,7 +239,7 @@ public class XmlySearchActivity extends BaseActivity {
         Setings.saveSharedPreferences(Setings.getSharedPreferences(this),
                 KeyUtil.XmlySearchHistory,
                 "");
-        auto_wrap_layout.removeAllViews();
+        binding.autoWrapLayout.removeAllViews();
         getHotWords();
         QueryTask();
     }
@@ -336,13 +324,13 @@ public class XmlySearchActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        hideIME(searchEt);
+        hideIME(binding.searchEt);
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        hideIME(searchEt);
+        hideIME(binding.searchEt);
     }
 
 }

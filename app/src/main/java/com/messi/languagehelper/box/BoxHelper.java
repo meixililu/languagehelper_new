@@ -703,12 +703,15 @@ public class BoxHelper {
     }
 
     public static boolean isCollected(String oid){
-        int size = getCollectedDataBox()
-                .query()
-                .equal(CollectedData_.objectId,oid)
-                .build()
-                .find()
-                .size();
+        int size = 0;
+        if (!TextUtils.isEmpty(oid)) {
+            size = getCollectedDataBox()
+                    .query()
+                    .equal(CollectedData_.objectId,oid)
+                    .build()
+                    .find()
+                    .size();
+        }
         return size > 0;
     }
 
