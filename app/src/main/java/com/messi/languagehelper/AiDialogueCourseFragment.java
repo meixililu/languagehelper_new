@@ -28,7 +28,6 @@ import java.util.List;
 import cn.leancloud.AVObject;
 import cn.leancloud.AVQuery;
 import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -64,9 +63,9 @@ public class AiDialogueCourseFragment extends BaseFragment implements View.OnCli
     }
 
     private void initViews(View view) {
-        avObjects = new ArrayList<AVObject>();
-        random_cover = (CardView) view.findViewById(R.id.random_cover);
-        category_lv = (RecyclerView) view.findViewById(R.id.studycategory_lv);
+        avObjects = new ArrayList<>();
+        random_cover = view.findViewById(R.id.random_cover);
+        category_lv = view.findViewById(R.id.studycategory_lv);
         mXFYSAD = new XFYSAD(getActivity(), ADUtil.SecondaryPage);
         mAdapter = new RcSpokenEndlishPracticeTypeListAdapter(mXFYSAD);
         mAdapter.setItems(avObjects);
@@ -173,34 +172,31 @@ public class AiDialogueCourseFragment extends BaseFragment implements View.OnCli
 
     private void random_select(){
         showProgressbar();
-        Observable.create(new ObservableOnSubscribe<AVObject>() {
-            @Override
-            public void subscribe(ObservableEmitter<AVObject> e) throws Exception {
-                e.onNext( getCourse() );
-                e.onComplete();
-            }
+        Observable.create((ObservableOnSubscribe<AVObject>) e -> {
+            e.onNext( getCourse() );
+            e.onComplete();
         })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<AVObject>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                    }
+        .subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribe(new Observer<AVObject>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+            }
 
-                    @Override
-                    public void onNext(AVObject mResult) {
-                        hideProgressbar();
-                        toPracticeActivity(mResult);
-                    }
+            @Override
+            public void onNext(AVObject mResult) {
+                hideProgressbar();
+                toPracticeActivity(mResult);
+            }
 
-                    @Override
-                    public void onError(Throwable e) {
-                    }
+            @Override
+            public void onError(Throwable e) {
+            }
 
-                    @Override
-                    public void onComplete() {
-                    }
-                });
+            @Override
+            public void onComplete() {
+            }
+        });
     }
 
     private AVObject getCourse(){

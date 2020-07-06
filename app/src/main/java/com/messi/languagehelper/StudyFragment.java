@@ -72,7 +72,7 @@ public class StudyFragment extends BaseFragment {
         try {
             registerBroadcast();
             mProgressbarListener = (FragmentProgressbarListener) activity;
-        } catch (ClassCastException e) {
+        } catch (Exception e) {
             throw new ClassCastException(activity.toString() + " must implement FragmentProgressbarListener");
         }
     }

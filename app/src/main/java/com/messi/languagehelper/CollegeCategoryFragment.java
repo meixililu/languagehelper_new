@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import com.karumi.headerrecyclerview.HeaderSpanSizeLookup;
 import com.messi.languagehelper.adapter.RcCollegeCategoryAdapter;
 import com.messi.languagehelper.databinding.CollegeCategoryFragmentBinding;
+import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
@@ -51,6 +53,7 @@ public class CollegeCategoryFragment extends BaseFragment {
         avObjects = new ArrayList<AVObject>();
         sharedPreferences = Setings.getSharedPreferences(getContext());
         binding.listview.setHasFixedSize(true);
+        binding.searchBtn.setOnClickListener(view -> onSearch());
         mAdapter = new RcCollegeCategoryAdapter();
         GridLayoutManager layoutManager = new GridLayoutManager(getContext(), NUMBER_OF_COLUMNS);
         HeaderSpanSizeLookup headerSpanSizeLookup = new HeaderSpanSizeLookup(mAdapter, layoutManager);
@@ -94,6 +97,12 @@ public class CollegeCategoryFragment extends BaseFragment {
         }
     }
 
+    public void onSearch() {
+        Bundle bundle = new Bundle();
+        bundle.putInt(KeyUtil.PositionKey,4);
+        toActivity(SearchActivity.class,bundle);
+        AVAnalytics.onEvent(getContext(), "tab4_to_search");
+    }
 
 
 

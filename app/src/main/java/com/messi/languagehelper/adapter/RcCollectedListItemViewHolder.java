@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alibaba.fastjson.JSON;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.gson.Gson;
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.ReadDetailTouTiaoActivity;
 import com.messi.languagehelper.ReadingDetailActivity;
@@ -24,6 +25,7 @@ import com.messi.languagehelper.ReadingsActivity;
 import com.messi.languagehelper.ReadingsBySubjectActivity;
 import com.messi.languagehelper.XimalayaTrackListActivity;
 import com.messi.languagehelper.bean.BoutiquesBean;
+import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.CollectedData;
 import com.messi.languagehelper.box.Reading;
 import com.messi.languagehelper.box.ReadingSubject;
@@ -31,8 +33,12 @@ import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.IPlayerUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.Setings;
+import com.messi.languagehelper.util.ToastUtil;
+import com.squareup.moshi.JsonAdapter;
+import com.squareup.moshi.Moshi;
 import com.ximalaya.ting.android.opensdk.model.album.Album;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -93,6 +99,13 @@ public class RcCollectedListItemViewHolder extends RecyclerView.ViewHolder {
         xvideo_layout.setVisibility(View.GONE);
         title.setText("");
         list_item_img_parent.setVisibility(View.GONE);
+
+        layout_cover.setOnLongClickListener(view -> {
+            BoxHelper.delete(mCollectedData);
+            LiveEventBus.get(KeyUtil.UpdateCollectedData).post("");
+            ToastUtil.diaplayMesLong(context,context.getString(R.string.favorite_cancle));
+            return true;
+        });
 
         String json = mCollectedData.getJson();
         String type = mCollectedData.getType();
@@ -171,17 +184,23 @@ public class RcCollectedListItemViewHolder extends RecyclerView.ViewHolder {
             }
             layout_cover.setOnClickListener(view -> toDetailActivity(type, mAVObject));
         } else if (AVOUtil.Boutiques.Boutiques.equals(type)) {
-            BoutiquesBean mBoutiquesBean = JSON.parseObject(json,BoutiquesBean.class);
-            item_layout.setVisibility(View.GONE);
-            title.setText( mBoutiquesBean.getTitle() );
-            type_name.setText(mBoutiquesBean.getTag());
-            source_name.setText(mBoutiquesBean.getSource_name());
-            videoplayer_cover.setVisibility(View.VISIBLE);
-            list_item_img_parent.setVisibility(View.GONE);
-            list_item_img.setVisibility(View.VISIBLE);
-            music_play_img.setVisibility(View.VISIBLE);
-            videoplayer_img.setImageURI(mBoutiquesBean.getImg_url());
-            layout_cover.setOnClickListener(view -> toDetailActivity(type, mBoutiquesBean));
+            try {
+                Moshi moshi = new Moshi.Builder().build();
+                JsonAdapter<BoutiquesBean> jsonAdapter = moshi.adapter(BoutiquesBean.class);
+                BoutiquesBean mBoutiquesBean = jsonAdapter.fromJson(json);
+                item_layout.setVisibility(View.GONE);
+                title.setText( mBoutiquesBean.getTitle() );
+                type_name.setText(mBoutiquesBean.getTag());
+                source_name.setText(mBoutiquesBean.getSource_name());
+                videoplayer_cover.setVisibility(View.VISIBLE);
+                list_item_img_parent.setVisibility(View.GONE);
+                list_item_img.setVisibility(View.VISIBLE);
+                music_play_img.setVisibility(View.VISIBLE);
+                videoplayer_img.setImageURI(mBoutiquesBean.getImg_url());
+                layout_cover.setOnClickListener(view -> toDetailActivity(type, mBoutiquesBean));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         } else if (AVOUtil.SubjectList.SubjectList.equals(type)){
             ReadingSubject mReadingSubject = JSON.parseObject(json,ReadingSubject.class);
             item_layout.setVisibility(View.VISIBLE);

@@ -27,12 +27,12 @@
             android:layout_height="match_parent"
             android:foreground="@drawable/framelayout_selector"
             >
+
             <ImageView
                 android:layout_width="21dp"
-                android:layout_height="21dp"
-                app:srcCompat="@drawable/ic_search_white_24dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                />
+                app:srcCompat="@drawable/ic_search_white_24dp" />
         </FrameLayout>
     </LinearLayout>
 

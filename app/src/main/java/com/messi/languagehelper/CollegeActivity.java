@@ -1,11 +1,12 @@
 package com.messi.languagehelper;
 
 import android.os.Bundle;
-import com.google.android.material.bottomnavigation.LabelVisibilityMode;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 
+import androidx.fragment.app.Fragment;
+
+import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.messi.languagehelper.databinding.ActivityBottomTabsBinding;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 
@@ -39,7 +40,7 @@ public class CollegeActivity extends BaseActivity implements FragmentProgressbar
 
     private void initFragment(){
         binding.navigation.inflateMenu(R.menu.college_tabs);
-        binding.navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED);
+        binding.navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
         binding.navigation.setOnNavigationItemSelectedListener(this::onNavigationItemSelected);
         mCategoryFragment = CollegeCategoryFragment.getInstance();
         mAllCourseFragment = new BoutiquesFragment.Builder()

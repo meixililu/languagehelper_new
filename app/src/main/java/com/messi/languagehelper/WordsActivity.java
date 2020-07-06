@@ -1,20 +1,20 @@
 package com.messi.languagehelper;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.google.android.material.bottomnavigation.LabelVisibilityMode;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import androidx.fragment.app.Fragment;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AVOUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import cn.jzvd.Jzvd;
 
 public class WordsActivity extends BaseActivity implements FragmentProgressbarListener {
 
@@ -22,7 +22,6 @@ public class WordsActivity extends BaseActivity implements FragmentProgressbarLi
     FrameLayout content;
     @BindView(R.id.navigation)
     BottomNavigationView navigation;
-    private Fragment mWordHomeFragment;
     private Fragment xmlyFragment;
     private Fragment studyFragment;
     private Fragment radioHomeFragment;
@@ -33,11 +32,6 @@ public class WordsActivity extends BaseActivity implements FragmentProgressbarLi
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    hideAllFragment();
-                    getSupportFragmentManager().beginTransaction().show(mWordHomeFragment).commit();;
-                    AVAnalytics.onEvent(WordsActivity.this, "wordstudy_daily");
-                    return true;
                 case R.id.navigation_word_study:
                     hideAllFragment();
                     getSupportFragmentManager().beginTransaction().show(xmlyFragment).commit();;
@@ -71,7 +65,6 @@ public class WordsActivity extends BaseActivity implements FragmentProgressbarLi
         navigation.inflateMenu(R.menu.words_tabs);
         navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        mWordHomeFragment = new WordStudyFragment();
         xmlyFragment = new BoutiquesFragment.Builder()
                 .category("word")
                 .title(getString(R.string.selection))
@@ -80,14 +73,13 @@ public class WordsActivity extends BaseActivity implements FragmentProgressbarLi
         radioHomeFragment = SubjectFragment.getInstance(AVOUtil.Category.word,"","",getString(R.string.title_course));
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.content, mWordHomeFragment)
                 .add(R.id.content, xmlyFragment)
                 .add(R.id.content, studyFragment)
                 .add(R.id.content, radioHomeFragment)
                 .commit();
         hideAllFragment();
         getSupportFragmentManager()
-                .beginTransaction().show(mWordHomeFragment).commit();
+                .beginTransaction().show(xmlyFragment).commit();
     }
 
     private void hideAllFragment(){
@@ -96,23 +88,7 @@ public class WordsActivity extends BaseActivity implements FragmentProgressbarLi
                 .hide(xmlyFragment)
                 .hide(studyFragment)
                 .hide(radioHomeFragment)
-                .hide(mWordHomeFragment)
                 .commit();
     }
-
-    @Override
-    public void onBackPressed() {
-        if (Jzvd.backPress()) {
-            return;
-        }
-        super.onBackPressed();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Jzvd.releaseAllVideos();
-    }
-
 
 }

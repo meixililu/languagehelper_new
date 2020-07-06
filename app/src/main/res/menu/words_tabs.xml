@@ -2,13 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home_black"
-        android:title="@string/title_word_study" />
-
-    <item
         android:id="@+id/navigation_word_study"
-        android:icon="@drawable/ic_group_black_24dp"
+        android:icon="@drawable/ic_home_black"
         android:title="@string/selection" />
 
     <item
@@ -20,6 +15,5 @@
         android:id="@+id/navigation_vovabulary"
         android:icon="@drawable/ic_subject_black_24dp"
         android:title="@string/title_course" />
-
 
 </menu>

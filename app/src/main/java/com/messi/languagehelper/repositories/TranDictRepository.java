@@ -47,7 +47,7 @@ public class TranDictRepository {
     public void initSample() {
         boolean IsHasShowBaiduMessage = sp.getBoolean(KeyUtil.IsHasShowBaiduMessage, false);
         if (!IsHasShowBaiduMessage) {
-            Record sampleBean = new Record("Click the mic to speak", "点击话筒说话");
+            Record sampleBean = new Record("Click on the microphone to speak", "点击话筒说话");
             BoxHelper.insert(sampleBean);
             trans.add(0, sampleBean);
             Setings.saveSharedPreferences(sp, KeyUtil.IsHasShowBaiduMessage, true);
@@ -61,14 +61,16 @@ public class TranDictRepository {
             tNoMoreData = false;
         }
         if (!tNoMoreData) {
-            List<Record> list = BoxHelper.getRecordList(tSkip, Setings.RecordOffset);
-            if (NullUtil.isNotEmpty(list)) {
-                trans.addAll(list);
-                tSkip += list.size();
-            }else {
-                tNoMoreData = true;
-            }
-            isRefreshTran.setValue(true);
+            new Thread(() -> {
+                List<Record> list = BoxHelper.getRecordList(tSkip, Setings.RecordOffset);
+                if (NullUtil.isNotEmpty(list)) {
+                    trans.addAll(list);
+                    tSkip += list.size();
+                }else {
+                    tNoMoreData = true;
+                }
+                isRefreshTran.postValue(true);
+            }).start();
         }
     }
 

@@ -1,8 +1,7 @@
 package com.messi.languagehelper.httpservice
 
-import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 
 object RetrofitBuilder {
 
@@ -16,7 +15,7 @@ object RetrofitBuilder {
     private fun getRetrofit(BASE_URL: String): Retrofit {
         return Retrofit.Builder()
                 .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(GsonBuilder().excludeFieldsWithoutExposeAnnotation().create()))
+                .addConverterFactory(MoshiConverterFactory.create())
                 .build()
     }
 

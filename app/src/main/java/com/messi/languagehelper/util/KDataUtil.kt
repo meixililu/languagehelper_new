@@ -15,12 +15,14 @@ object KDataUtil {
 
     fun fromBoutiquesBeanToReading(mBoutiques: BoutiquesBean): Reading {
         val item = Reading()
+        item.object_id = MD5.encode(mBoutiques.title)
         item.title = mBoutiques.title
         item.content = mBoutiques.content
         item.img_url = mBoutiques.img_url
         item.source_name = mBoutiques.source_name
         item.source_url = mBoutiques.source_url
         item.content_type = "url_api"
+        item.type = "video"
         item.category = mBoutiques.category
         return item
     }

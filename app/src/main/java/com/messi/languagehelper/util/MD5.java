@@ -9,9 +9,6 @@ import java.security.NoSuchAlgorithmException;
 
 public class MD5 {
 
-    public MD5() {
-    }
-
     public static String encode(String val) {
         MessageDigest md5 = null;
         try {

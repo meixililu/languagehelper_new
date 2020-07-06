@@ -28,9 +28,7 @@ class BiliSearchResultViewModel : ViewModel(){
         get() = mRespoData
 
     fun loadData(isRefresh: Boolean) {
-        LogUtil.DefalutLog("current thread ${Thread.currentThread().name}")
         viewModelScope.launch(Dispatchers.IO)  {
-            LogUtil.DefalutLog("current thread ${Thread.currentThread().name}")
             getData(isRefresh)
         }
     }
@@ -50,8 +48,6 @@ class BiliSearchResultViewModel : ViewModel(){
     }
 
     suspend fun loadData(): RespoData<String> = withContext(Dispatchers.IO){
-        LogUtil.DefalutLog("loadData")
-        LogUtil.DefalutLog("current thread ${Thread.currentThread().name}")
         var result = RespoData<String>()
         result.code = 0
         val timestamp = System.currentTimeMillis().toString()

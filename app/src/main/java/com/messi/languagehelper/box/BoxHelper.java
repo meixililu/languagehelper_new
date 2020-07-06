@@ -694,12 +694,24 @@ public class BoxHelper {
         }
     }
 
+    public static void delete(CollectedData bean){
+        try {
+            getCollectedDataBox().remove(bean);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static List<CollectedData> isCollectedDataExist(String oid){
-        return getCollectedDataBox()
-                .query()
-                .equal(CollectedData_.objectId,oid)
-                .build()
-                .find();
+        if (TextUtils.isEmpty(oid)) {
+            return null;
+        } else {
+            return getCollectedDataBox()
+                    .query()
+                    .equal(CollectedData_.objectId,oid)
+                    .build()
+                    .find();
+        }
     }
 
     public static boolean isCollected(String oid){

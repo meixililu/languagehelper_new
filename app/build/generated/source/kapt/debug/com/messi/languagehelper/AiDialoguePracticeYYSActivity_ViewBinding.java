@@ -19,7 +19,7 @@ import java.lang.Override;
 public class AiDialoguePracticeYYSActivity_ViewBinding implements Unbinder {
   private AiDialoguePracticeYYSActivity target;
 
-  private View view7f08031d;
+  private View view7f08031b;
 
   @UiThread
   public AiDialoguePracticeYYSActivity_ViewBinding(AiDialoguePracticeYYSActivity target) {
@@ -40,7 +40,7 @@ public class AiDialoguePracticeYYSActivity_ViewBinding implements Unbinder {
     target.voice_img = Utils.findRequiredViewAsType(source, R.id.voice_img, "field 'voice_img'", ImageButton.class);
     view = Utils.findRequiredView(source, R.id.start_to_fight, "field 'startToFight' and method 'onViewClicked'");
     target.startToFight = Utils.castView(view, R.id.start_to_fight, "field 'startToFight'", FrameLayout.class);
-    view7f08031d = view;
+    view7f08031b = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -64,7 +64,7 @@ public class AiDialoguePracticeYYSActivity_ViewBinding implements Unbinder {
     target.voice_img = null;
     target.startToFight = null;
 
-    view7f08031d.setOnClickListener(null);
-    view7f08031d = null;
+    view7f08031b.setOnClickListener(null);
+    view7f08031b = null;
   }
 }

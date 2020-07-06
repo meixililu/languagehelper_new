@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/word_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:gravity="center"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/bigxx" />
+
+        <TextView
+            android:id="@+id/word_symbol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_15"
+            android:gravity="center"
+            android:textColor="@color/text_grey"
+            android:textSize="@dimen/bigger" />
+
+        <TextView
+            android:id="@+id/word_des"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_10"
+            android:layout_marginTop="@dimen/padding_15"
+            android:layout_marginRight="@dimen/padding_10"
+            android:gravity="center"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/bigger" />
+
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/voice_img"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/padding_10"
+        app:srcCompat="@drawable/ic_volume_black" />
+</RelativeLayout>

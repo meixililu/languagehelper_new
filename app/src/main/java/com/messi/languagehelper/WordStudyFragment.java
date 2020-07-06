@@ -2,6 +2,7 @@ package com.messi.languagehelper;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,27 +53,18 @@ public class WordStudyFragment extends BaseFragment {
 	
 	private void init(){
 		liveEventBus();
-		itemList = new ArrayList<WordDetailListItem>();
-		binding.myAwesomeToolbar.setTitle(getString(R.string.title_words));
+		itemList = new ArrayList<>();
+		binding.studyProgress.setMax(100);
 		binding.startToStudy.setOnClickListener(view -> toWordStudyDetailActivity());
 		binding.wordStudyChangePlan.setOnClickListener(view -> toActivity(WordStudyPlanActivity.class, null));
 		binding.wordStudyNewWord.setOnClickListener(view -> toActivity(WordStudyNewWordActivity.class, null));
-		binding.renzhiLayout.setOnClickListener(view -> ToAvtivity(WordStudyDanCiRenZhiActivity.class));
-		binding.dancixuanyiLayout.setOnClickListener(view -> ToAvtivity(WordStudyDanCiXuanYiActivity.class));
-		binding.ciyixuanciLayout.setOnClickListener(view -> ToAvtivity(WordStudyCiYiXuanCiActivity.class));
-		binding.pinxieLayout.setOnClickListener(view -> ToAvtivity(WordStudyDanCiPinXieActivity.class));
-		binding.duyinxuanciLayout.setOnClickListener(view -> ToAvtivity(WordStudyDuYinXuanCiActivity.class));
-		binding.duyisujiLayout.setOnClickListener(view -> ToAvtivity(WordStudyDuYinSuJiActivity.class));
 		binding.wordStudyChangeUnit.setOnClickListener(view -> ToAvtivity(WordStudyChangeUnitActivity.class));
 	}
 
 	private void setCourseName(){
 		wordCourseItem = SaveData.getDataFonJson(getContext(), KeyUtil.WordStudyUnit, WordListItem.class);
 		if (wordCourseItem != null) {
-			binding.myAwesomeToolbar.setTitle(wordCourseItem.getTitle());
-			binding.wordStudyBookName.setText("第" + wordCourseItem.getCourse_id() + "单元");
-			binding.studyProgress.setMax(wordCourseItem.getCourse_num());
-			binding.studyProgress.setProgress(wordCourseItem.getCourse_id());
+			binding.wordStudyBookName.setText(wordCourseItem.getTitle() +" 第" + wordCourseItem.getCourse_id() + "单元");
 			if (wordCourseItem.getCourse_id() > wordCourseItem.getCourse_num()) {
 				binding.wordStudyBookName.setText("第" + wordCourseItem.getCourse_num() + "单元");
 				isFinishWordBook = true;
@@ -92,14 +84,21 @@ public class WordStudyFragment extends BaseFragment {
 		if (binding != null && binding.wordSum != null) {
 			if (isFinishWordBook) {
 				binding.wordSum.setText("100%");
+				binding.studyProgress.setProgress(100);
 			} else {
-				int task = (int) (getHasLearnWordNum() / 21.0 * 100);
+				int task = (int) (getHasLearnWordNum() / 25.0 * 100);
 				if (task > 0) {
 					binding.startToStudy.setText(getText(R.string.word_study_continue));
 				} else {
 					binding.startToStudy.setText(getText(R.string.word_start));
 				}
+				binding.studyProgress.setProgress(task);
 				binding.wordSum.setText( String.valueOf(task)+"%" );
+				if(task > 53){
+					binding.wordSum.setTextColor(Color.WHITE);
+				}else {
+					binding.wordSum.setTextColor(getResources().getColor(R.color.text_black));
+				}
 			}
 		}
 	}

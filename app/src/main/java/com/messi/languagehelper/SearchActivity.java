@@ -46,6 +46,7 @@ public class SearchActivity extends BaseActivity {
     private long lastTime;
     private ArrayList<AVObject> historyList;
     private ArrayList<AVObject> avObjects;
+    private int position;
 
 
     @Override
@@ -58,22 +59,23 @@ public class SearchActivity extends BaseActivity {
     }
 
     private void init() {
+        Bundle bundle = getIntent().getBundleExtra(KeyUtil.BundleKey);
+        if (bundle != null) {
+            position = bundle.getInt(KeyUtil.PositionKey,0);
+        }
         hideTitle();
         searchEt.requestFocus();
         historyList = new ArrayList<AVObject>();
         avObjects = new ArrayList<AVObject>();
         addHistory();
-        searchEt.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View view, int i, KeyEvent keyEvent) {
-                if (i == KeyEvent.KEYCODE_ENTER) {
-                    if (System.currentTimeMillis() - lastTime > 1000) {
-                        search(searchEt.getText().toString());
-                    }
-                    lastTime = System.currentTimeMillis();
+        searchEt.setOnKeyListener((view, i, keyEvent) -> {
+            if (i == KeyEvent.KEYCODE_ENTER) {
+                if (System.currentTimeMillis() - lastTime > 1000) {
+                    search(searchEt.getText().toString());
                 }
-                return false;
+                lastTime = System.currentTimeMillis();
             }
+            return false;
         });
     }
 
@@ -208,7 +210,7 @@ public class SearchActivity extends BaseActivity {
             Intent intent = new Intent(this, XmlySearchResultActivity.class);
             intent.putExtra(KeyUtil.ActionbarTitle, quest);
             intent.putExtra(KeyUtil.SearchKey, quest);
-            intent.putExtra(KeyUtil.PositionKey, 0);
+            intent.putExtra(KeyUtil.PositionKey, position);
             startActivity(intent);
             saveHistory(quest);
         }

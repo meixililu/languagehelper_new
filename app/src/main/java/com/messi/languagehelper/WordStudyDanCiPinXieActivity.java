@@ -3,16 +3,10 @@ package com.messi.languagehelper;
 import android.content.SharedPreferences;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
-import android.media.MediaPlayer;
 import android.media.SoundPool;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.GridView;
@@ -21,23 +15,20 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.iflytek.cloud.SpeechError;
-import com.iflytek.cloud.SynthesizerListener;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.messi.languagehelper.adapter.RcWordStudyCiYiXuanCiAdapter;
 import com.messi.languagehelper.adapter.WordStudySpellAdapter;
 import com.messi.languagehelper.bean.WordSpellCharacter;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.WordDetailListItem;
 import com.messi.languagehelper.impl.AdapterListener;
-import com.messi.languagehelper.impl.OnFinishListener;
-import com.messi.languagehelper.util.DownLoadUtil;
+import com.messi.languagehelper.impl.MyPlayerListener;
 import com.messi.languagehelper.util.KeyUtil;
-import com.messi.languagehelper.util.MD5;
+import com.messi.languagehelper.util.MyPlayer;
 import com.messi.languagehelper.util.NumberUtil;
-import com.messi.languagehelper.util.PlayUtil;
-import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Setings;
-import com.messi.languagehelper.util.ToastUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import java.util.ArrayList;
@@ -48,7 +39,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class WordStudyDanCiPinXieActivity extends BaseActivity implements OnFinishListener,AdapterListener {
+public class WordStudyDanCiPinXieActivity extends BaseActivity implements AdapterListener {
 
 
     @BindView(R.id.score)
@@ -91,23 +82,12 @@ public class WordStudyDanCiPinXieActivity extends BaseActivity implements OnFini
     private int answer_right;
     private int answer_wrong;
 
-    private MediaPlayer mPlayer;
-    private String fullName;
     private int playTimes;
     private int totalSum;
     private StringBuilder sb;
     private SharedPreferences sharedPreferences;
     private WordStudySpellAdapter mWordStudySpellAdapter;
     private List<WordSpellCharacter> mWordSpellCharacter;
-
-    private Handler mHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            if (msg.what == 1) {
-                playMp3();
-            }
-        }
-    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -129,7 +109,6 @@ public class WordStudyDanCiPinXieActivity extends BaseActivity implements OnFini
     private void initViews() {
         setActionBarTitle(this.getResources().getString(R.string.pinxie));
         sharedPreferences = Setings.getSharedPreferences(this);
-        mPlayer = new MediaPlayer();
         sb = new StringBuilder();
         mWordSpellCharacter = new ArrayList<WordSpellCharacter>();
         class_name = getIntent().getStringExtra(KeyUtil.ClassName);
@@ -150,7 +129,6 @@ public class WordStudyDanCiPinXieActivity extends BaseActivity implements OnFini
                         .marginResId(R.dimen.padding_2, R.dimen.padding_2)
                         .build());
         listview.setAdapter(adapter);
-        PlayUtil.setOnFinishListener(this);
         setVolumeImg();
     }
 
@@ -213,14 +191,7 @@ public class WordStudyDanCiPinXieActivity extends BaseActivity implements OnFini
     }
 
     private void playDelay() {
-        if (mPlayer != null) {
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    playSound();
-                }
-            }, 500);
-        }
+        new Handler().postDelayed(() -> playSound(), 500);
     }
 
     private void replay() {
@@ -240,104 +211,29 @@ public class WordStudyDanCiPinXieActivity extends BaseActivity implements OnFini
 
     private void startToPlay() {
         if (isPlaying()) {
-            stopPlay();
+            MyPlayer.getInstance(this).stop();
         } else {
             playItem(WordStudyFragment.itemList.get(position));
         }
     }
 
     private void playItem(WordDetailListItem mAVObject) {
-        if (TextUtils.isEmpty(mAVObject.getSound()) || mAVObject.getSound().equals("http://app1.showapi.com/en_word")) {
-            playWithSpeechSynthesizer(mAVObject);
-        } else {
-            String mp3Name = mAVObject.getSound().substring(mAVObject.getSound().lastIndexOf("/") + 1);
-            fullName = SDCardUtil.getDownloadPath(getAudioPath(mAVObject)) + mp3Name;
-            if (!SDCardUtil.isFileExist(fullName)) {
-                DownLoadUtil.downloadFile(this, mAVObject.getSound(), getAudioPath(mAVObject), mp3Name, mHandler);
-            } else {
-                playMp3();
+        MyPlayer.getInstance(this).setListener(new MyPlayerListener() {
+            @Override
+            public void onStart() {
             }
-        }
-    }
 
-    private String getAudioPath(WordDetailListItem mAVObject){
-        return SDCardUtil.WordStudyPath + mAVObject.getClass_id() + SDCardUtil.Delimiter +
-                String.valueOf(mAVObject.getCourse()) + SDCardUtil.Delimiter;
-
-    }
-
-    public void playMp3() {
-        try {
-            if (mPlayer.isPlaying()) {
-                mPlayer.stop();
+            @Override
+            public void onFinish() {
+                replay();
             }
-            mPlayer.reset();
-            Uri uri = Uri.parse(fullName);
-            mPlayer.setDataSource(this, uri);
-            mPlayer.prepare();
-            mPlayer.start();
-            mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mp) {
-                    replay();
-                }
-            });
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        });
+        MyPlayer.getInstance(this).start(mAVObject.getName(),mAVObject.getSound());
     }
+
 
     private boolean isPlaying() {
-        return mPlayer.isPlaying() || PlayUtil.isPlaying;
-    }
-
-    private void playWithSpeechSynthesizer(WordDetailListItem mAVObject) {
-        String filepath = SDCardUtil.getDownloadPath(getAudioPath(mAVObject)) + MD5.encode(mAVObject.getName()) + ".pcm";
-        PlayUtil.play(filepath, mAVObject.getName(), null,
-                new SynthesizerListener() {
-                    @Override
-                    public void onSpeakResumed() {
-                    }
-
-                    @Override
-                    public void onSpeakProgress(int arg0, int arg1, int arg2) {
-                    }
-
-                    @Override
-                    public void onSpeakPaused() {
-                    }
-
-                    @Override
-                    public void onSpeakBegin() {
-                        PlayUtil.onStartPlay();
-                    }
-
-                    @Override
-                    public void onCompleted(SpeechError arg0) {
-                        if (arg0 != null) {
-                            ToastUtil.diaplayMesShort(WordStudyDanCiPinXieActivity.this,
-                                    arg0.getErrorDescription());
-                        }
-                        stopPlay();
-                        replay();
-                    }
-
-                    @Override
-                    public void onBufferProgress(int arg0, int arg1, int arg2, String arg3) {
-                    }
-
-                    @Override
-                    public void onEvent(int arg0, int arg1, int arg2, Bundle arg3) {
-                    }
-                });
-    }
-
-    public void stopPlay() {
-        if (mPlayer != null) {
-            mPlayer.stop();
-            mPlayer.reset();
-        }
-        PlayUtil.stopPlay();
+        return MyPlayer.getInstance(this).isPlaying();
     }
 
     @OnClick({R.id.try_again_layout, R.id.finish_test_layout, R.id.volume_layout, R.id.word_layout,
@@ -458,17 +354,7 @@ public class WordStudyDanCiPinXieActivity extends BaseActivity implements OnFini
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mPlayer != null) {
-            mPlayer.stop();
-            mPlayer.release();
-        }
-        PlayUtil.stopPlay();
-        PlayUtil.clearFinishListener();
-    }
-
-    @Override
-    public void OnFinish() {
-        replay();
+        MyPlayer.getInstance(this).onDestroy();
     }
 
     @Override
