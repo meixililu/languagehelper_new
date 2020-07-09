@@ -3,7 +3,6 @@ package com.messi.languagehelper;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -16,6 +15,8 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
 
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.messi.languagehelper.bean.UserSpeakBean;
@@ -160,7 +161,7 @@ public class PracticeWriteFragment extends BaseFragment implements OnClickListen
 	private void checkResult(){
 		hideIME();
 		String userInput = translate_input.getText().toString().toLowerCase();
-		UserSpeakBean bean = ScoreUtil.score(getActivity(), userInput, en[resultPosition].toLowerCase());
+		UserSpeakBean bean = ScoreUtil.score(userInput, en[resultPosition].toLowerCase());
 		translate_input.setText(bean.getContent());
 		if(bean.getContent().length() > 0){
 			translate_input.setSelection(bean.getContent().length()-1);

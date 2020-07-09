@@ -2,22 +2,13 @@ package com.messi.languagehelper
 
 import android.content.Context
 import android.content.Intent
-import android.media.AudioAttributes
-import android.media.AudioManager
-import android.media.SoundPool
-import android.os.Build
 import android.os.Bundle
-import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
-import com.messi.languagehelper.box.BoxHelper
-import com.messi.languagehelper.box.WordDetailListItem
-import com.messi.languagehelper.databinding.WordStudyDancixuanyiBinding
 import com.messi.languagehelper.databinding.WordStudyToTestBinding
-import com.messi.languagehelper.util.*
+import com.messi.languagehelper.util.KeyUtil
 import com.messi.languagehelper.viewmodels.WordStudyViewModel
 
 class WordToTestFragment : BaseFragment() {
@@ -46,6 +37,7 @@ class WordToTestFragment : BaseFragment() {
     private fun ToAvtivity(toClass: Class<*>) {
         val intent = Intent(context, toClass)
         intent.putParcelableArrayListExtra(KeyUtil.List, viewModel.itemList)
+        intent.putExtra(KeyUtil.WordTestType, viewModel.wordTestType)
         startActivity(intent)
         activity?.finish()
     }

@@ -123,7 +123,7 @@ public class DialogFirstFragment extends BaseFragment implements OnClickListener
             if (isLast) {
                 hideProgressbar();
                 finishRecord();
-                UserSpeakBean bean = ScoreUtil.score(getActivity(), sbResult.toString().toLowerCase(),
+                UserSpeakBean bean = ScoreUtil.score(sbResult.toString().toLowerCase(),
                         record_answer.getText().toString().toLowerCase());
                 mUserSpeakBeanList.add(0, bean);
                 adapter.notifyDataSetChanged();

@@ -157,6 +157,8 @@
     <string name="recognize_unknow">不认识</string>
     <string name="translate">翻译</string>
     <string name="start_to_follow">跟读</string>
+    <string name="go_on_follow">继续跟读</string>
+    <string name="unfollow">不跟读</string>
     <string name="start">开始</string>
     <string name="listen">听</string>
     <string name="finish">完毕</string>

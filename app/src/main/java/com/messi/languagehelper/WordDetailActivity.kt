@@ -14,7 +14,6 @@ import java.util.*
 class WordDetailActivity : BaseActivity() {
 
     lateinit var binding: WordDetailActivityBinding
-    var wordTestType: String = ""
     lateinit var viewModel: WordStudyViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +27,7 @@ class WordDetailActivity : BaseActivity() {
     }
 
     private fun init() {
-        wordTestType = intent.getStringExtra(KeyUtil.WordTestType)
+        var wordTestType = intent.getStringExtra(KeyUtil.WordTestType)
         val itemList: ArrayList<WordDetailListItem> = intent.getParcelableArrayListExtra(KeyUtil.List)
         if (itemList == null) {
             ToastUtil.diaplayMesShort(this, "没有单词，请选择一本单词书！")
@@ -36,6 +35,7 @@ class WordDetailActivity : BaseActivity() {
         }
         viewModel = ViewModelProvider(this).get(WordStudyViewModel::class.java)
         viewModel.init(itemList)
+        viewModel.wordTestType = wordTestType
         viewModel.resultAction.observe(this, Observer<String> { result ->
             LogUtil.DefalutLog(result)
             when (result) {

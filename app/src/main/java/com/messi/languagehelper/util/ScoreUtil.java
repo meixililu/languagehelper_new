@@ -7,12 +7,13 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 
+import com.messi.languagehelper.BaseApplication;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.bean.UserSpeakBean;
 
 public class ScoreUtil {
 
-	public static UserSpeakBean score(Context mContext, String content, String result){
+	public static UserSpeakBean score(String content, String result){
 		LogUtil.DefalutLog("old---content:"+content+"---result:"+result);
 		SpannableStringBuilder sb = new SpannableStringBuilder();
 		UserSpeakBean bean = new UserSpeakBean();
@@ -34,12 +35,11 @@ public class ScoreUtil {
 				}
 			}
 			if(isRight){
-				sb.append( setColor(mContext,item,R.color.green) );
-				sb.append(" ");
+				sb.append( setColor(item,R.color.green) );
 			}else{
-				sb.append( setColor(mContext,item,R.color.text_red) );
-				sb.append(" ");
+				sb.append( setColor(item,R.color.text_red) );
 			}
+			sb.append(" ");
 		}
 		double length = 0;
 		for(String str : mResults){
@@ -51,6 +51,9 @@ public class ScoreUtil {
 		if(scoreInt > 59 ){
 			bean.setColor(R.color.green);
 		}else{
+			if(scoreInt < 10){
+				scoreInt = NumberUtil.getRandomNumber(10,50);
+			}
 			bean.setColor(R.color.text_red);
 		}
 		bean.setContent(sb);
@@ -59,7 +62,7 @@ public class ScoreUtil {
 		return bean;
 	}
 
-	public static UserSpeakBean score(Context mContext, String content, String result, int type){
+	public static UserSpeakBean score(String content, String result, int type){
 		LogUtil.DefalutLog("old---content:"+content+"---result:"+result);
 		SpannableStringBuilder sb = new SpannableStringBuilder();
 		UserSpeakBean bean = new UserSpeakBean();
@@ -81,12 +84,11 @@ public class ScoreUtil {
 				}
 			}
 			if(isRight){
-				sb.append( setColor(mContext,item,R.color.green) );
-				sb.append(" ");
+				sb.append( setColor(item,R.color.green) );
 			}else{
-				sb.append( setColor(mContext,item,R.color.text_red) );
-				sb.append(" ");
+				sb.append( setColor(item,R.color.text_red) );
 			}
+			sb.append(" ");
 		}
 		double length = 0;
 		for(String str : mResults){
@@ -130,9 +132,9 @@ public class ScoreUtil {
 				}
 			}
 			if(isRight){
-				sb.append( setColor(mContext,item,R.color.green) );
+				sb.append( setColor(item,R.color.green) );
 			}else{
-				sb.append( setColor(mContext,item,R.color.text_red) );
+				sb.append( setColor(item,R.color.text_red) );
 			}
 		}
 		double length = 0;
@@ -152,6 +154,20 @@ public class ScoreUtil {
 		bean.setScore(String.valueOf(scoreInt));
 		return bean;
 	}
+
+	public static String getTestResult(int score) {
+		String word = "Nice";
+		if (score > 90) {
+			word = "Perfect";
+		} else if (score > 70) {
+			word = "Great";
+		} else if (score > 59) {
+			word = "Not bad";
+		} else {
+			word = "Not bad";
+		}
+		return word;
+	}
 	
 	public static String formatString(String content){
 		content = content.replaceAll("\\p{P}", " ");
@@ -159,13 +175,11 @@ public class ScoreUtil {
 		return content.trim();
 	}
 	
-	public static SpannableString setColor(Context mContext, String content, int color){
+	public static SpannableString setColor(String content, int color){
 		SpannableString spa = new SpannableString(content);
 		try {
-			spa.setSpan(new ForegroundColorSpan(
-							mContext.getResources().getColor(color)), 
-							0, content.length(),
-							Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+			spa.setSpan(new ForegroundColorSpan(BaseApplication.instance.getResources().getColor(color)),
+					0, content.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

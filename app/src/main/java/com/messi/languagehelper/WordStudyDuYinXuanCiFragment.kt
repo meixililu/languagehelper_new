@@ -6,21 +6,28 @@ import android.media.AudioManager
 import android.media.SoundPool
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
+import com.messi.languagehelper.box.BoxHelper
+import com.messi.languagehelper.box.WordDetailListItem
 import com.messi.languagehelper.databinding.WordStudyDuyinxuanciBinding
+import com.messi.languagehelper.util.KStringUtils
 import com.messi.languagehelper.util.MyPlayer
+import com.messi.languagehelper.util.NumberUtil
+import com.messi.languagehelper.util.Setings
 import com.messi.languagehelper.viewmodels.WordStudyViewModel
 
 class WordStudyDuYinXuanCiFragment : BaseFragment() {
 
     lateinit var binding: WordStudyDuyinxuanciBinding
     private lateinit var viewModel: WordStudyViewModel
-    lateinit var ourSounds: SoundPool
-    private var answer_right = 0
-    private var answer_wrong = 0
+    private lateinit var ourSounds: SoundPool
+    private var answerRight = 0
+    private var answerWrong = 0
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -48,19 +55,44 @@ class WordStudyDuYinXuanCiFragment : BaseFragment() {
         } else {
             SoundPool(5, AudioManager.STREAM_MUSIC, 1)
         }
-        answer_right = ourSounds.load(context, R.raw.answer_right, 1)
-        answer_wrong = ourSounds.load(context, R.raw.answer_wrong, 1)
+        answerRight = ourSounds.load(context, R.raw.answer_right, 1)
+        answerWrong = ourSounds.load(context, R.raw.answer_wrong, 1)
     }
 
     fun setData() {
         var item = viewModel.currentItem
         binding.wordLayout.setOnClickListener { playMp3(item.name, item.sound) }
         binding.wordDes.text = item.desc
-        var word = item.name
-        binding.selection1.text = word
-        binding.selection2.text = word
-        binding.selection3.text = word
-        binding.selection4.text = word
+        val samples = KStringUtils.getWordSamples(item.name)
+        if (samples.size == 4) {
+            binding.selection1.text = samples[0]
+            binding.selection2.text = samples[1]
+            binding.selection3.text = samples[2]
+            binding.selection4.text = samples[3]
+            binding.selection1.setOnClickListener { checkResultThenGoNext(binding.selection1, item) }
+            binding.selection2.setOnClickListener { checkResultThenGoNext(binding.selection2, item) }
+            binding.selection3.setOnClickListener { checkResultThenGoNext(binding.selection3, item) }
+            binding.selection4.setOnClickListener { checkResultThenGoNext(binding.selection4, item) }
+        }
+    }
+
+    private fun checkResultThenGoNext(tv: TextView, item: WordDetailListItem) {
+        if (Setings.isFastClick(context)) {
+            return
+        }
+        val text = tv.text.toString()
+        if (item.name != text) {
+            playSoundPool(false)
+            tv.setTextColor(resources.getColor(R.color.material_color_red))
+            tv.setBackgroundResource(R.drawable.border_shadow_wrong_oval)
+        } else {
+            playSoundPool(true)
+            tv.setTextColor(resources.getColor(R.color.material_color_green))
+            tv.setBackgroundResource(R.drawable.border_shadow_right_oval)
+            Handler().postDelayed({
+                viewModel.refreshData("next")
+            }, 500)
+        }
     }
 
     private fun playMp3(content: String, url: String) {
@@ -69,39 +101,9 @@ class WordStudyDuYinXuanCiFragment : BaseFragment() {
 
     private fun playSoundPool(isRight: Boolean) {
         if (isRight) {
-            ourSounds.play(answer_right, 1f, 1f, 1, 0, 1f)
+            ourSounds.play(answerRight, 1f, 1f, 1, 0, 1f)
         } else {
-            ourSounds.play(answer_wrong, 1f, 1f, 1, 0, 1f)
+            ourSounds.play(answerWrong, 1f, 1f, 1, 0, 1f)
         }
     }
-
-    //        if (index < randomPlayIndex.size()) {
-    //            position = randomPlayIndex.get(index);
-    //            List<Integer> tv_list = NumberUtil.getRanbomNumberContantExceptAndNotRepeat(
-    //                    totalSum < 4 ? 10 : totalSum,
-    //                    0, 3, position);
-    //            if (tv_list.size() == 4) {
-    //                if(totalSum > tv_list.get(0)){
-    //                    selection1.setText(WordStudyFragment.itemList.get(tv_list.get(0)).getName());
-    //                }else {
-    //                    selection1.setText(BoxHelper.getBench().getName());
-    //                }
-    //                if(totalSum > tv_list.get(1)){
-    //                    selection2.setText(WordStudyFragment.itemList.get(tv_list.get(1)).getName());
-    //                }else {
-    //                    selection2.setText(BoxHelper.getBench().getName());
-    //                }
-    //                if(totalSum > tv_list.get(2)){
-    //                    selection3.setText(WordStudyFragment.itemList.get(tv_list.get(2)).getName());
-    //                }else {
-    //                    selection3.setText(BoxHelper.getBench().getName());
-    //                }
-    //                if(totalSum > tv_list.get(3)){
-    //                    selection4.setText(WordStudyFragment.itemList.get(tv_list.get(3)).getName());
-    //                }else {
-    //                    selection4.setText(BoxHelper.getBench().getName());
-    //                }
-    //            }
-    //        }
-    //    }
 }

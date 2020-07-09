@@ -15,7 +15,7 @@ import java.lang.Override;
 public class MomentsActivity_ViewBinding implements Unbinder {
   private MomentsActivity target;
 
-  private View view7f0801f3;
+  private View view7f0801f9;
 
   @UiThread
   public MomentsActivity_ViewBinding(MomentsActivity target) {
@@ -29,7 +29,7 @@ public class MomentsActivity_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.moments_add, "field 'momentsAdd' and method 'onClick'");
     target.momentsAdd = Utils.castView(view, R.id.moments_add, "field 'momentsAdd'", LinearLayout.class);
-    view7f0801f3 = view;
+    view7f0801f9 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -49,7 +49,7 @@ public class MomentsActivity_ViewBinding implements Unbinder {
     target.momentsAdd = null;
     target.listview = null;
 
-    view7f0801f3.setOnClickListener(null);
-    view7f0801f3 = null;
+    view7f0801f9.setOnClickListener(null);
+    view7f0801f9 = null;
   }
 }

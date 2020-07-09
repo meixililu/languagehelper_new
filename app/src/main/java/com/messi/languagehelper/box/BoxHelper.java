@@ -551,22 +551,22 @@ public class BoxHelper {
         }
     }
 
-    public static void updateList(List<WordDetailListItem> beans, boolean isNewWord){
+    public static void updateList(List<WordDetailListItem> beans, boolean isNeedReview){
         if (NullUtil.isNotEmpty(beans)) {
             for(WordDetailListItem bean : beans){
-                update(bean,isNewWord);
+                update(bean,isNeedReview);
             }
         }
     }
 
-    public static void update(WordDetailListItem bean, boolean isNewWord){
+    public static void update(WordDetailListItem bean, boolean isNeedReview){
         if (bean.getId() == 0) {
             List<WordDetailListItem> items = isOidExit(bean);
             if(items.size() > 0){
                 bean.setId(items.get(0).getId());
             }
         }
-        if(isNewWord){
+        if(isNeedReview){
             bean.setNew_words("1");
         }else {
             bean.setNew_words("0");

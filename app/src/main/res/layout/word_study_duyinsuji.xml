@@ -16,30 +16,30 @@
             android:id="@+id/word_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="40dp"
             android:gravity="center"
             android:textColor="@color/text_black"
-            android:textSize="@dimen/bigxx" />
+            android:textSize="@dimen/bigx" />
 
         <TextView
             android:id="@+id/word_symbol"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_15"
+            android:layout_marginTop="@dimen/padding_10"
             android:gravity="center"
             android:textColor="@color/text_grey"
-            android:textSize="@dimen/bigger" />
+            android:textSize="@dimen/middle" />
 
         <TextView
             android:id="@+id/word_des"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/padding_10"
-            android:layout_marginTop="@dimen/padding_15"
+            android:layout_marginTop="@dimen/padding_10"
             android:layout_marginRight="@dimen/padding_10"
             android:gravity="center"
             android:textColor="@color/text_black"
-            android:textSize="@dimen/bigger" />
+            android:textSize="@dimen/big" />
 
     </LinearLayout>
     <ImageView
@@ -50,4 +50,69 @@
         android:layout_alignParentRight="true"
         android:layout_margin="@dimen/padding_10"
         app:srcCompat="@drawable/ic_volume_black" />
+    <LinearLayout
+        android:id="@+id/btn_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="56dp"
+        android:layout_marginRight="56dp"
+        android:paddingBottom="30dp"
+        >
+        <TextView
+            android:id="@+id/mimic"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/big"
+            android:text="@string/start_to_follow"
+            android:background="@drawable/border_shadow_gray_oval_selecter"
+            />
+        <TextView
+            android:id="@+id/go_on"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="@dimen/padding_20"
+            android:gravity="center"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/big"
+            android:text="@string/unfollow"
+            android:background="@drawable/border_shadow_gray_oval_selecter"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/score_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/big"
+        android:gravity="center"
+        android:layout_above="@id/btn_layout"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/green_500"
+        />
+
+    <LinearLayout
+        android:id="@+id/record_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/round_bg_record"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:visibility="gone" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/voice_pic" />
+
+        <ImageView
+            android:id="@+id/record_anim_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/speak_voice_1" />
+    </LinearLayout>
 </RelativeLayout>

@@ -10,7 +10,11 @@ import java.util.Random;
 public class NumberUtil {
 
 	public static int getRandomNumber(int range){
-		return (int)(Math.random()*range);
+		return new Random().nextInt(range);
+	}
+
+	public static int getRandomNumber(int min, int max){
+		return new Random().nextInt(max-min+1) + min;
 	}
 	
 	/**
@@ -90,11 +94,9 @@ public class NumberUtil {
 		int[] result = new int[size];
 		List<Integer> list = new ArrayList<Integer>();
 		Random r = new Random();
-
 		for (int i = init, temSize = max + init; i < temSize; i++) {
 			list.add(i);
 		}
-
 		for (int j = 0; j < size; j++) {
 			int index = r.nextInt(list.size());
 			result[j] = list.get(index);

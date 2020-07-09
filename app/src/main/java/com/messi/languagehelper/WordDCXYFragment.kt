@@ -24,9 +24,9 @@ class WordDCXYFragment : BaseFragment() {
 
     lateinit var binding: WordStudyDancixuanyiBinding
     private lateinit var viewModel: WordStudyViewModel
-    lateinit var ourSounds: SoundPool
-    private var answer_right = 0
-    private var answer_wrong = 0
+    private lateinit var ourSounds: SoundPool
+    private var answerRight = 0
+    private var answerWrong = 0
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -54,8 +54,8 @@ class WordDCXYFragment : BaseFragment() {
         } else {
             SoundPool(5, AudioManager.STREAM_MUSIC, 1)
         }
-        answer_right = ourSounds.load(context, R.raw.answer_right, 1)
-        answer_wrong = ourSounds.load(context, R.raw.answer_wrong, 1)
+        answerRight = ourSounds.load(context, R.raw.answer_right, 1)
+        answerWrong = ourSounds.load(context, R.raw.answer_wrong, 1)
     }
 
     fun setData() {
@@ -86,10 +86,10 @@ class WordDCXYFragment : BaseFragment() {
             } else {
                 binding.selection4.text = BoxHelper.getBench().desc
             }
-            binding.selection1Layout.setOnClickListener { checkResultThenGoNext(binding.selection1, item) }
-            binding.selection2Layout.setOnClickListener { checkResultThenGoNext(binding.selection2, item) }
-            binding.selection3Layout.setOnClickListener { checkResultThenGoNext(binding.selection3, item) }
-            binding.selection4Layout.setOnClickListener { checkResultThenGoNext(binding.selection4, item) }
+            binding.selection1.setOnClickListener { checkResultThenGoNext(binding.selection1, item) }
+            binding.selection2.setOnClickListener { checkResultThenGoNext(binding.selection2, item) }
+            binding.selection3.setOnClickListener { checkResultThenGoNext(binding.selection3, item) }
+            binding.selection4.setOnClickListener { checkResultThenGoNext(binding.selection4, item) }
         }
     }
 
@@ -101,17 +101,18 @@ class WordDCXYFragment : BaseFragment() {
         if (item.desc != text) {
             playSoundPool(false)
             tv.setTextColor(resources.getColor(R.color.material_color_red))
+            tv.setBackgroundResource(R.drawable.border_shadow_wrong_oval)
         } else {
             playSoundPool(true)
             tv.setTextColor(resources.getColor(R.color.material_color_green))
+            tv.setBackgroundResource(R.drawable.border_shadow_right_oval)
             item.isIs_know = true
+            BoxHelper.insert(item)
         }
         Handler().postDelayed({
             viewModel.refreshData("next")
         }, 500)
-        if (item.isIs_know) {
-            BoxHelper.insert(item)
-        }
+
     }
 
     private fun playMp3(content: String, url: String) {
@@ -120,9 +121,9 @@ class WordDCXYFragment : BaseFragment() {
 
     private fun playSoundPool(isRight: Boolean) {
         if (isRight) {
-            ourSounds.play(answer_right, 1f, 1f, 1, 0, 1f)
+            ourSounds.play(answerRight, 1f, 1f, 1, 0, 1f)
         } else {
-            ourSounds.play(answer_wrong, 1f, 1f, 1, 0, 1f)
+            ourSounds.play(answerWrong, 1f, 1f, 1, 0, 1f)
         }
     }
 

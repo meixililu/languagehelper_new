@@ -56,12 +56,8 @@ public class MyPlayer {
     }
 
     public void start(String content){
-        if (StringUtils.isContainChinese(content)) {
-            start(content,"","",null);
-        } else {
-            String url = "http://zyhy.mzxbkj.com/v1/word/sound/" + content;
-            start(content,url,"",null);
-        }
+        LogUtil.DefalutLog("isContainChinese:"+StringUtils.isContainChinese(content));
+        start(content,"","",null);
     }
 
     public void start(String content, SynthesizerListener mListener){
@@ -123,7 +119,13 @@ public class MyPlayer {
             }
             playMediaUrl(media_url);
         } else {
-            playTTS(content, speaker, mListener);
+            if (StringUtils.isContainChinese(content)) {
+                playTTS(content, speaker, mListener);
+            } else {
+                String url = "http://zyhy.mzxbkj.com/v1/word/sound/" + content;
+                start(content,url,"",null);
+            }
+
         }
     }
 

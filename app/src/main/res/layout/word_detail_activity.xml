@@ -13,13 +13,13 @@
             android:id="@+id/close_btn"
             android:layout_width="50dp"
             android:layout_height="match_parent"
-            android:paddingLeft="@dimen/padding_5"
+            android:paddingLeft="@dimen/padding_15"
             android:paddingRight="@dimen/padding_5"
             android:foreground="@drawable/framelayout_selector"
             >
             <ImageView
-                android:layout_width="38dp"
-                android:layout_height="38dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_clear_black"/>
         </FrameLayout>
@@ -30,7 +30,7 @@
             android:layout_height="14dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginRight="25dp"
             android:max="10"
             android:progress="1"
             android:progressDrawable="@drawable/progress_bar_round_green"

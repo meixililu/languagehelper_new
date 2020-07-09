@@ -22,7 +22,7 @@
             android:gravity="center"
             android:text="name"
             android:textColor="@color/text_black"
-            android:textSize="@dimen/bigxx" />
+            android:textSize="@dimen/bigx" />
         <TextView
             android:id="@+id/word_symbol"
             android:layout_width="match_parent"
@@ -30,7 +30,7 @@
             android:layout_marginTop="@dimen/padding_15"
             android:gravity="center"
             android:textColor="@color/text_grey"
-            android:textSize="@dimen/bigger" />
+            android:textSize="@dimen/big" />
         <TextView
             android:id="@+id/word_des"
             android:layout_width="match_parent"
@@ -38,6 +38,7 @@
             android:layout_marginTop="@dimen/padding_15"
             android:layout_marginLeft="@dimen/padding_10"
             android:layout_marginRight="@dimen/padding_10"
+            android:visibility="gone"
             android:gravity="center"
             android:textColor="@color/text_black"
             android:textSize="@dimen/bigger" />
@@ -54,41 +55,36 @@
         />
 
     <LinearLayout
+        android:id="@+id/bottom_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:paddingBottom="25dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginRight="56dp"
+        android:paddingBottom="30dp"
         >
         <TextView
             android:id="@+id/recognize_know"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_weight="4"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
             android:gravity="center"
-            android:textColor="@color/white"
+            android:textColor="@color/text_black"
             android:textSize="@dimen/big"
             android:text="@string/recognize_know"
-            android:background="@drawable/green_btn_bg_selector"
+            android:background="@drawable/border_shadow_gray_oval_selecter"
             />
-        <View
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_weight="1"/>
         <TextView
             android:id="@+id/recognize_unknow"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_weight="4"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="@dimen/padding_20"
             android:gravity="center"
-            android:textColor="@color/white"
+            android:textColor="@color/text_black"
             android:textSize="@dimen/big"
             android:text="@string/recognize_unknow"
-            android:background="@drawable/bg_btn_pink_selector"
+            android:background="@drawable/border_shadow_gray_oval_selecter"
             />
-
     </LinearLayout>
 
 </RelativeLayout>

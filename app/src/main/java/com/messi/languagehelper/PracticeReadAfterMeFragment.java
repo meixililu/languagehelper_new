@@ -3,8 +3,6 @@ package com.messi.languagehelper;
 import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +13,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.iflytek.cloud.RecognizerListener;
 import com.iflytek.cloud.RecognizerResult;
@@ -131,7 +132,7 @@ public class PracticeReadAfterMeFragment extends BaseFragment implements OnClick
             if (isLast) {
                 hideProgressbar();
                 finishRecord();
-                UserSpeakBean bean = ScoreUtil.score(getActivity(), sbResult.toString().toLowerCase(),
+                UserSpeakBean bean = ScoreUtil.score(sbResult.toString().toLowerCase(),
                         record_answer.getText().toString().toLowerCase());
                 mUserSpeakBeanList.add(0, bean);
                 adapter.notifyDataSetChanged();

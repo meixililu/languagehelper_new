@@ -16,7 +16,6 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import cn.leancloud.AVObject;
 import com.iflytek.cloud.RecognizerListener;
 import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechConstant;
@@ -46,6 +45,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.leancloud.AVObject;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -194,7 +194,7 @@ public class SpokenEnglishDetailActivity extends BaseActivity implements OnClick
                 finishRecord();
                 UserSpeakBean bean = null;
                 if (!conversation_cb.isChecked()) {
-                    bean = ScoreUtil.score(SpokenEnglishDetailActivity.this, sbResult.toString(), evaluation_en_tv.getText().toString());
+                    bean = ScoreUtil.score(sbResult.toString(), evaluation_en_tv.getText().toString());
                 } else {
 //                    bean = ScoreUtil.score(SpokenEnglishDetailActivity.this, sbResult.toString(), user_need_to_speak_content.getText().toString().split(":")[1].trim());
                 }

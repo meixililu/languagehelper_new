@@ -7,7 +7,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -111,15 +110,13 @@ public class WordStudyFightActivity extends BaseActivity {
 
     public void initClickEvent() {
         binding.closeBtn.setOnClickListener(view -> onBackPressed());
-        binding.selection1Layout.setOnClickListener(view -> checkResultThenGoNext(binding.selection1));
-        binding.selection2Layout.setOnClickListener(view -> checkResultThenGoNext(binding.selection2));
-        binding.selection3Layout.setOnClickListener(view -> checkResultThenGoNext(binding.selection3));
-        binding.selection4Layout.setOnClickListener(view -> checkResultThenGoNext(binding.selection4));
+        binding.selection1.setOnClickListener(view -> checkResultThenGoNext(binding.selection1));
+        binding.selection2.setOnClickListener(view -> checkResultThenGoNext(binding.selection2));
+        binding.selection3.setOnClickListener(view -> checkResultThenGoNext(binding.selection3));
+        binding.selection4.setOnClickListener(view -> checkResultThenGoNext(binding.selection4));
         binding.finishTestLayout.setOnClickListener(view -> quick());
         binding.wordTv.setOnClickListener(view -> {
-            if (index < itemList.size()) {
-                playSound();
-            }
+            playSound();
         });
     }
 
@@ -154,17 +151,14 @@ public class WordStudyFightActivity extends BaseActivity {
                     }else {
                         binding.selection4.setText(BoxHelper.getBench().getDesc());
                     }
+                    playSound();
                 } else {
                     binding.wordTv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
-                    binding.selection1.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
-                    binding.selection2.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
-                    binding.selection3.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
-                    binding.selection4.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
+                    binding.selection1.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+                    binding.selection2.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+                    binding.selection3.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+                    binding.selection4.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
                     binding. wordTv.setText(itemList.get(position).getDesc());
-                    binding.selection1.setGravity(Gravity.CENTER);
-                    binding.selection2.setGravity(Gravity.CENTER);
-                    binding.selection3.setGravity(Gravity.CENTER);
-                    binding.selection4.setGravity(Gravity.CENTER);
                     if(totalSum > tv_list.get(0)){
                         binding.selection1.setText(itemList.get(tv_list.get(0)).getName());
                     }else {
@@ -208,9 +202,13 @@ public class WordStudyFightActivity extends BaseActivity {
     }
 
     private void playSound() {
-        if (position < itemList.size()) {
-            playItem(itemList.get(position));
-        }
+        new Handler().postDelayed(() -> {
+            if (index < itemList.size()) {
+                if (position < itemList.size()) {
+                    playItem(itemList.get(position));
+                }
+            }
+        },350);
     }
 
     private void playItem(WordDetailListItem mAVObject) {
@@ -226,16 +224,20 @@ public class WordStudyFightActivity extends BaseActivity {
             if (index < itemList.size()) {
                 if (!itemList.get(position).getDesc().equals(text)) {
                     playSoundPool(false);
+                    tv.setBackgroundResource(R.drawable.border_shadow_wrong_oval);
                     itemList.get(position).setSelect_Time();
                 } else {
                     playSoundPool(true);
+                    tv.setBackgroundResource(R.drawable.border_shadow_right_oval);
                 }
             } else {
                 if (!itemList.get(position).getName().equals(text)) {
                     playSoundPool(false);
+                    tv.setBackgroundResource(R.drawable.border_shadow_wrong_oval);
                     itemList.get(position).setSelect_Time();
                 } else {
                     playSoundPool(true);
+                    tv.setBackgroundResource(R.drawable.border_shadow_right_oval);
                 }
             }
             new Handler().postDelayed(() -> {
@@ -243,6 +245,7 @@ public class WordStudyFightActivity extends BaseActivity {
                     countScoreAndShowResult();
                 } else {
                     index++;
+                    tv.setBackgroundResource(R.drawable.border_shadow_gray_oval_selecter);
                     setData();
                 }
             }, 500);

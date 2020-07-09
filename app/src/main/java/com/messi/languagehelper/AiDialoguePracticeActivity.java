@@ -446,7 +446,7 @@ public class AiDialoguePracticeActivity extends BaseActivity implements View.OnC
                 hideProgressbar();
                 finishRecord();
                 AVObject mSpeakItem = avObjects.get(position);
-                UserSpeakBean bean = ScoreUtil.score(AiDialoguePracticeActivity.this, sbResult.toString(), getEnglishContent(mSpeakItem), 0);
+                UserSpeakBean bean = ScoreUtil.score(sbResult.toString(), getEnglishContent(mSpeakItem), 0);
                 mSpeakItem.put(KeyUtil.UserSpeakBean, bean);
                 mAdapter.notifyDataSetChanged();
                 sbResult.setLength(0);

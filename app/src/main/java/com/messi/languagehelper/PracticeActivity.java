@@ -158,7 +158,7 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
                 LogUtil.DefalutLog("isLast-------onResult:" + sbResult.toString());
                 hideProgressbar();
                 finishRecord();
-                UserSpeakBean bean = ScoreUtil.score(PracticeActivity.this, sbResult.toString(), record_answer.getText().toString());
+                UserSpeakBean bean = ScoreUtil.score(sbResult.toString(), record_answer.getText().toString());
                 mUserSpeakBeanList.add(0, bean);
                 adapter.notifyDataSetChanged();
                 animationReward(bean.getScoreInt());

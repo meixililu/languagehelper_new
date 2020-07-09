@@ -18,6 +18,7 @@ class WordStudyViewModel : ViewModel(){
     var totalSum = 0
     var position = 0
     var index = 0
+    var wordTestType = ""
     lateinit var randomPlayIndex: List<Int>
     lateinit var itemList: ArrayList<WordDetailListItem>
 
@@ -55,11 +56,8 @@ class WordStudyViewModel : ViewModel(){
 
     fun loadData() {
         viewModelScope.launch(Dispatchers.IO)  {
-            getData()
+
         }
     }
 
-    suspend fun getData() {
-
-    }
 }
