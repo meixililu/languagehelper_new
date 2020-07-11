@@ -10,7 +10,7 @@ import permissions.dispatcher.PermissionRequest;
 import permissions.dispatcher.PermissionUtils;
 
 final class PhotoSearchActivityPermissionsDispatcher {
-  private static final int REQUEST_SHOWORCDIALOG = 16;
+  private static final int REQUEST_SHOWORCDIALOG = 13;
 
   private static final String[] PERMISSION_SHOWORCDIALOG = new String[] {"android.permission.CAMERA"};
 

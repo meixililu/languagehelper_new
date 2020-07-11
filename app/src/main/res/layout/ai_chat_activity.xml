@@ -272,6 +272,17 @@
                 style="@style/NumberProgressBar_Default"
                 />
         </LinearLayout>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@color/white"
+            android:layout_centerInParent="true"
+            app:lottie_fileName="addtext.json"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true" />
+
         <FrameLayout
             android:id="@+id/splash_container"
             android:layout_width="match_parent"

@@ -6,15 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.messi.languagehelper.box.EveryDaySentence;
 import com.messi.languagehelper.databinding.StudyCategoryFragmentBinding;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.AVAnalytics;
-import com.messi.languagehelper.util.AVOUtil;
 
 public class StudyCategoryFragment extends BaseFragment {
 
-    private EveryDaySentence mEveryDaySentence;
     private StudyCategoryFragmentBinding binding;
     public static StudyCategoryFragment getInstance() {
         return new StudyCategoryFragment();
@@ -42,7 +39,7 @@ public class StudyCategoryFragment extends BaseFragment {
     private void initFragment(){
         getChildFragmentManager()
                 .beginTransaction()
-                .add(R.id.fragment_container,ReadingFragment.newInstance(AVOUtil.Category.composition,"") )
+                .add(R.id.fragment_container, new CourseListsFragment())
                 .commit();
     }
 

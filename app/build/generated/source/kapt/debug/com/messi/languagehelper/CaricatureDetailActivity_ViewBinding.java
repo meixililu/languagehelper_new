@@ -20,11 +20,11 @@ public class CaricatureDetailActivity_ViewBinding implements Unbinder {
 
   private View view7f08005b;
 
-  private View view7f08039b;
+  private View view7f0803a1;
 
-  private View view7f08007f;
+  private View view7f080082;
 
-  private View view7f0802f4;
+  private View view7f0802f8;
 
   @UiThread
   public CaricatureDetailActivity_ViewBinding(CaricatureDetailActivity target) {
@@ -55,7 +55,7 @@ public class CaricatureDetailActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.to_read, "field 'toRead' and method 'onToReadClicked'");
     target.toRead = Utils.castView(view, R.id.to_read, "field 'toRead'", TextView.class);
-    view7f08039b = view;
+    view7f0803a1 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -65,7 +65,7 @@ public class CaricatureDetailActivity_ViewBinding implements Unbinder {
     target.xx_ad_layout = Utils.findRequiredViewAsType(source, R.id.xx_ad_layout, "field 'xx_ad_layout'", FrameLayout.class);
     view = Utils.findRequiredView(source, R.id.back_btn, "field 'backBtn' and method 'onBackBtnClicked'");
     target.backBtn = Utils.castView(view, R.id.back_btn, "field 'backBtn'", ImageView.class);
-    view7f08007f = view;
+    view7f080082 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -74,7 +74,7 @@ public class CaricatureDetailActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.share_img, "field 'share_img' and method 'onViewClicked'");
     target.share_img = Utils.castView(view, R.id.share_img, "field 'share_img'", ImageView.class);
-    view7f0802f4 = view;
+    view7f0802f8 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -108,11 +108,11 @@ public class CaricatureDetailActivity_ViewBinding implements Unbinder {
 
     view7f08005b.setOnClickListener(null);
     view7f08005b = null;
-    view7f08039b.setOnClickListener(null);
-    view7f08039b = null;
-    view7f08007f.setOnClickListener(null);
-    view7f08007f = null;
-    view7f0802f4.setOnClickListener(null);
-    view7f0802f4 = null;
+    view7f0803a1.setOnClickListener(null);
+    view7f0803a1 = null;
+    view7f080082.setOnClickListener(null);
+    view7f080082 = null;
+    view7f0802f8.setOnClickListener(null);
+    view7f0802f8 = null;
   }
 }

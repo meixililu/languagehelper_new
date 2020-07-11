@@ -15,9 +15,9 @@ import java.lang.Override;
 public class RiddleFragment_ViewBinding implements Unbinder {
   private RiddleFragment target;
 
-  private View view7f080286;
+  private View view7f08028a;
 
-  private View view7f080065;
+  private View view7f080066;
 
   @UiThread
   public RiddleFragment_ViewBinding(final RiddleFragment target, View source) {
@@ -26,7 +26,7 @@ public class RiddleFragment_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.question, "field 'question' and method 'onClick'");
     target.question = Utils.castView(view, R.id.question, "field 'question'", TextView.class);
-    view7f080286 = view;
+    view7f08028a = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -35,7 +35,7 @@ public class RiddleFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.answer, "field 'answer' and method 'onClick'");
     target.answer = Utils.castView(view, R.id.answer, "field 'answer'", TextView.class);
-    view7f080065 = view;
+    view7f080066 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -54,9 +54,9 @@ public class RiddleFragment_ViewBinding implements Unbinder {
     target.question = null;
     target.answer = null;
 
-    view7f080286.setOnClickListener(null);
-    view7f080286 = null;
-    view7f080065.setOnClickListener(null);
-    view7f080065 = null;
+    view7f08028a.setOnClickListener(null);
+    view7f08028a = null;
+    view7f080066.setOnClickListener(null);
+    view7f080066 = null;
   }
 }

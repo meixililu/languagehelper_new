@@ -95,7 +95,7 @@ MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/lilu/.gradle/c
 MERGED from [com.google.android.exoplayer:exoplayer-ui:2.11.7] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3fc0eb829704597be88f8a01ecb61815/jetified-exoplayer-ui-2.11.7/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.media:media:1.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5dae92bdfc0d87e336c8359f098154b7/media-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.multidex:multidex:2.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/330ddb062eea9d65f8807a17dd838f65/multidex-2.0.1/AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.android:flexbox:1.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1bc431a787e16721429d2318ef153c78/jetified-flexbox-1.0.0/AndroidManifest.xml:17:1-27:12
+MERGED from [com.google.android:flexbox:2.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/932e905595e5c402480d33080fcb1a62/jetified-flexbox-2.0.1/AndroidManifest.xml:17:1-26:12
 MERGED from [com.google.android.exoplayer:exoplayer-core:2.11.7] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3e98c2091aa0c5509b308d2ad4936539/jetified-exoplayer-core-2.11.7/AndroidManifest.xml:17:1-26:12
 MERGED from [com.jakewharton:butterknife:10.2.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c6453b494f81e4695fe4566606408dd7/jetified-butterknife-10.2.1/AndroidManifest.xml:2:1-7:12
 MERGED from [com.jeremyliao:live-event-bus-x:1.7.2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fb7c3a2a69fa0895c14c84159355189b/jetified-live-event-bus-x-1.7.2/AndroidManifest.xml:2:1-11:12
@@ -1318,8 +1318,8 @@ MERGED from [androidx.media:media:1.1.0] /Users/lilu/.gradle/caches/transforms-2
 MERGED from [androidx.media:media:1.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5dae92bdfc0d87e336c8359f098154b7/media-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.multidex:multidex:2.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/330ddb062eea9d65f8807a17dd838f65/multidex-2.0.1/AndroidManifest.xml:20:5-43
 MERGED from [androidx.multidex:multidex:2.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/330ddb062eea9d65f8807a17dd838f65/multidex-2.0.1/AndroidManifest.xml:20:5-43
-MERGED from [com.google.android:flexbox:1.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1bc431a787e16721429d2318ef153c78/jetified-flexbox-1.0.0/AndroidManifest.xml:23:5-25:41
-MERGED from [com.google.android:flexbox:1.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/1bc431a787e16721429d2318ef153c78/jetified-flexbox-1.0.0/AndroidManifest.xml:23:5-25:41
+MERGED from [com.google.android:flexbox:2.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/932e905595e5c402480d33080fcb1a62/jetified-flexbox-2.0.1/AndroidManifest.xml:22:5-24:41
+MERGED from [com.google.android:flexbox:2.0.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/932e905595e5c402480d33080fcb1a62/jetified-flexbox-2.0.1/AndroidManifest.xml:22:5-24:41
 MERGED from [com.google.android.exoplayer:exoplayer-core:2.11.7] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3e98c2091aa0c5509b308d2ad4936539/jetified-exoplayer-core-2.11.7/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.exoplayer:exoplayer-core:2.11.7] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3e98c2091aa0c5509b308d2ad4936539/jetified-exoplayer-core-2.11.7/AndroidManifest.xml:20:5-22:41
 MERGED from [com.jakewharton:butterknife:10.2.1] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c6453b494f81e4695fe4566606408dd7/jetified-butterknife-10.2.1/AndroidManifest.xml:5:5-44

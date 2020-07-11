@@ -405,51 +405,5 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         />
 
-<!--    <FrameLayout-->
-<!--        android:id="@+id/study_daily_sentence"-->
-<!--        android:layout_width="fill_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@color/white"-->
-<!--        android:visibility="gone"-->
-<!--        android:foreground="@drawable/framelayout_selector">-->
-
-<!--        <com.facebook.drawee.view.SimpleDraweeView-->
-<!--            android:id="@+id/daily_sentence_item_img"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            fresco:actualImageScaleType="focusCrop"-->
-<!--            fresco:placeholderImage="@color/text_tint"-->
-<!--            fresco:placeholderImageScaleType="focusCrop"-->
-<!--            fresco:viewAspectRatio="2.5" />-->
-
-<!--        <LinearLayout-->
-<!--            android:id="@+id/daily_sentence_list_item_middle"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:background="@color/none_alpha"-->
-<!--            android:orientation="vertical"-->
-<!--            android:paddingTop="50dp" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/dailysentence_txt"-->
-<!--            android:layout_width="fill_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="bottom"-->
-<!--            android:layout_marginLeft="@dimen/padding_7"-->
-<!--            android:layout_marginRight="@dimen/padding_7"-->
-<!--            android:layout_marginBottom="@dimen/padding_10"-->
-<!--            android:gravity="left|bottom"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:textSize="@dimen/biggerx" />-->
-
-<!--        <ImageView-->
-<!--            android:id="@+id/daily_sentence_unread_dot"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="top|right"-->
-<!--            android:layout_margin="@dimen/padding_15"-->
-<!--            android:src="@drawable/unread_dot"-->
-<!--            android:visibility="gone" />-->
-<!--    </FrameLayout>-->
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
