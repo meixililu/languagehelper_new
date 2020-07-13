@@ -5,7 +5,6 @@ import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.IBinder;
@@ -22,11 +21,8 @@ import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.Timeline;
 import com.google.android.exoplayer2.audio.AudioAttributes;
 import com.google.android.exoplayer2.source.MediaSource;
-import com.google.android.exoplayer2.source.ProgressiveMediaSource;
 import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
-import com.google.android.exoplayer2.upstream.DefaultHttpDataSource;
-import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.aidl.IXBPlayer;
 import com.messi.languagehelper.bean.PVideoResult;
@@ -37,6 +33,7 @@ import com.messi.languagehelper.util.DataUtil;
 import com.messi.languagehelper.util.IPlayerUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.MyPlayer;
 import com.messi.languagehelper.util.NetworkUtil;
 import com.messi.languagehelper.util.NotificationUtil;
 import com.messi.languagehelper.util.NullUtil;
@@ -298,29 +295,7 @@ public class PlayerService extends Service {
                     .setUsage(USAGE_MEDIA)
                     .build();
             mExoPlayer.setAudioAttributes(audioAttributes);
-
-            MediaSource mediaSource = null;
-            DefaultHttpDataSourceFactory dataSourceFactory = new DefaultHttpDataSourceFactory(
-                    Hearder,
-                    null,
-                    DefaultHttpDataSource.DEFAULT_CONNECT_TIMEOUT_MILLIS,
-                    DefaultHttpDataSource.DEFAULT_READ_TIMEOUT_MILLIS,
-                    true);
-            if (media_url.contains("bilivideo")) {
-                dataSourceFactory.getDefaultRequestProperties().set("range","bytes=0-");
-                dataSourceFactory.getDefaultRequestProperties().set("referer",song.getSource_url());
-                dataSourceFactory.getDefaultRequestProperties().set("user-agent",Hearder);
-                if (!TextUtils.isEmpty(song.getBackup1())) {
-                    mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
-                            .createMediaSource(Uri.parse(song.getBackup1()));
-                }else {
-                    mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
-                            .createMediaSource(Uri.parse(media_url));
-                }
-            } else {
-                mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
-                        .createMediaSource(Uri.parse(media_url));
-            }
+            MediaSource mediaSource = MyPlayer.getMediaSource(media_url,song.getBackup1(),song.getSource_url());
             mExoPlayer.prepare(mediaSource);
             mExoPlayer.setPlayWhenReady(true);
             mWifiLock.acquire();

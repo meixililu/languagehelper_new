@@ -3,10 +3,10 @@
     <item>
         <shape android:shape="rectangle">
             <padding
-                android:bottom="1dp"
-                android:left="1dp"
-                android:right="1dp"
-                android:top="1dp" />
+                android:bottom="1px"
+                android:left="1px"
+                android:right="1px"
+                android:top="1px" />
             <solid android:color="#0DAAAAAA" />
             <corners android:radius="8dp" />
         </shape>
@@ -14,10 +14,10 @@
     <item>
         <shape android:shape="rectangle">
             <padding
-                android:bottom="1dp"
-                android:left="1dp"
-                android:right="1dp"
-                android:top="1dp" />
+                android:bottom="1px"
+                android:left="1px"
+                android:right="1px"
+                android:top="1px" />
             <solid android:color="#10AAAAAA" />
             <corners android:radius="8dp" />
         </shape>
@@ -25,10 +25,10 @@
     <item>
         <shape android:shape="rectangle">
             <padding
-                android:bottom="1dp"
-                android:left="1dp"
-                android:right="1dp"
-                android:top="1dp" />
+                android:bottom="1px"
+                android:left="1px"
+                android:right="1px"
+                android:top="1px" />
             <solid android:color="#15AAAAAA" />
             <corners android:radius="8dp" />
         </shape>
@@ -36,10 +36,10 @@
     <item>
         <shape android:shape="rectangle">
             <padding
-                android:bottom="1dp"
-                android:left="1dp"
-                android:right="1dp"
-                android:top="1dp" />
+                android:bottom="1px"
+                android:left="1px"
+                android:right="1px"
+                android:top="1px" />
             <solid android:color="#20AAAAAA" />
             <corners android:radius="8dp" />
         </shape>
@@ -47,10 +47,10 @@
     <item>
         <shape android:shape="rectangle">
             <padding
-                android:bottom="1dp"
-                android:left="1dp"
-                android:right="1dp"
-                android:top="1dp" />
+                android:bottom="1px"
+                android:left="1px"
+                android:right="1px"
+                android:top="1px" />
             <solid android:color="#25AAAAAA" />
             <corners android:radius="8dp" />
         </shape>

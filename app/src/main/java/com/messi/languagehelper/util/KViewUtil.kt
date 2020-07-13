@@ -6,6 +6,7 @@ import android.text.TextUtils
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewParent
 import android.view.animation.AccelerateInterpolator
 import android.widget.FrameLayout
 import android.widget.TextView
@@ -38,8 +39,12 @@ object KViewUtil {
         return arrayOfInt
     }
 
-    fun addViewAnimation(context: Context, targetParent: ViewGroup, tv: TextView){
-        var nView = addNewFlexItemTextView(context,tv.text.toString())
+    fun addViewAnimation(context: Context, targetParent: ViewGroup,sumitBtn:TextView,tv: TextView){
+        var content = tv.text.toString()
+        if(StringUtils.isEnglish(content)){
+            MyPlayer.getInstance(context).start(content)
+        }
+        var nView = addNewFlexItemTextView(context,content)
         targetParent.addView(nView)
         nView.postDelayed({
             var offset = getViewsOffset(tv,nView)
@@ -55,6 +60,7 @@ object KViewUtil {
                             tv.x = 0f
                             tv.y = 0f
                             nView.addView(tv)
+                            sumitBtn.isEnabled = true
                         }
                         override fun onAnimationCancel(p0: Animator?) {
                         }
@@ -79,7 +85,7 @@ object KViewUtil {
         return frameLayout
     }
 
-    fun removeItem(targetParent: ViewGroup, tv: TextView){
+    fun removeItem(targetParent: ViewGroup, resultParent: ViewGroup,sumitBtn:TextView, tv: TextView){
         var position = tv.getTag(R.id.tag_key) as Int
         var oview = targetParent[position] as FrameLayout
         var offset = getViewsOffset(tv,oview)
@@ -96,6 +102,7 @@ object KViewUtil {
                         tv.x = 0f
                         tv.y = 0f
                         oview.addView(tv)
+                        sumitBtn.isEnabled = resultParent.childCount != 0
                     }
                     override fun onAnimationCancel(p0: Animator?) {
                     }
@@ -109,6 +116,7 @@ object KViewUtil {
     fun createNewFlexItemTextView(context: Context,
                                   autoWrapOptions:ViewGroup,
                                   autoWrapResult:ViewGroup,
+                                  sumitBtn:TextView,
                                   word: String,
                                   position: Int) {
         if (TextUtils.isEmpty(word)){
@@ -124,16 +132,16 @@ object KViewUtil {
         val marginTop = ScreenUtil.dip2px(context, 12f)
         frameParams.setMargins(margin, marginTop, margin, 0)
         frameLayout.layoutParams = frameParams
-        frameLayout.setBackgroundResource(R.drawable.bg_btn_gray)
+        frameLayout.setBackgroundResource(R.color.none)
 
         val textViewbg = TextView(context)
         textViewbg.gravity = Gravity.CENTER
         textViewbg.text = word
-        textViewbg.textSize = 16f
-        textViewbg.setBackgroundResource(R.color.none)
+        textViewbg.textSize = 18f
+        textViewbg.setBackgroundResource(R.drawable.bg_btn_course_item_backcup)
         textViewbg.setTextColor(context.resources.getColor(R.color.none))
-        val paddingbg = ScreenUtil.dip2px(context, 8f)
-        val paddingLRbg = ScreenUtil.dip2px(context, 14f)
+        val paddingbg = ScreenUtil.dip2px(context, 12f)
+        val paddingLRbg = ScreenUtil.dip2px(context, 10f)
         ViewCompat.setPaddingRelative(textViewbg, paddingLRbg, paddingbg, paddingLRbg, paddingbg)
         val layoutParamsbg = FlexboxLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -144,23 +152,23 @@ object KViewUtil {
         val textView = TextView(context)
         textView.gravity = Gravity.CENTER
         textView.text = word
-        textView.textSize = 16f
+        textView.textSize = 18f
         textView.setTag(R.id.tag_key,position)
         textView.setTag(R.id.tag_status,0)
-        textView.setBackgroundResource(R.drawable.bg_btn_gray)
+        textView.setBackgroundResource(R.drawable.bg_btn_course_item)
         textView.setTextColor(context.resources.getColor(R.color.text_black))
         textView.setOnClickListener {
             var status = it.getTag(R.id.tag_status) as Int
             if (status == 0) {
                 textView.setTag(R.id.tag_status,1)
-                addViewAnimation(context,autoWrapResult,textView)
+                addViewAnimation(context,autoWrapResult,sumitBtn,textView)
             }else{
                 textView.setTag(R.id.tag_status,0)
-                removeItem(autoWrapOptions, textView)
+                removeItem(autoWrapOptions,autoWrapResult,sumitBtn,textView)
             }
         }
-        val padding = ScreenUtil.dip2px(context, 8f)
-        val paddingLR = ScreenUtil.dip2px(context, 14f)
+        val padding = ScreenUtil.dip2px(context, 12f)
+        val paddingLR = ScreenUtil.dip2px(context, 10f)
         ViewCompat.setPaddingRelative(textView, paddingLR, padding, paddingLR, padding)
         val layoutParams = FlexboxLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,

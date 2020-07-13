@@ -15,12 +15,12 @@
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:foreground="@drawable/framelayout_selector"
-            android:paddingLeft="@dimen/padding_5"
-            android:paddingRight="@dimen/padding_5">
+            android:paddingLeft="@dimen/padding_15"
+            android:paddingRight="@dimen/padding_15">
 
             <ImageView
-                android:layout_width="38dp"
-                android:layout_height="38dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_clear_black" />
         </FrameLayout>

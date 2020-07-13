@@ -74,7 +74,11 @@ public class WordStudyFightActivity extends BaseActivity {
     }
 
     private void initProgress(){
-        binding.classProgress.setProgress(index);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            binding.classProgress.setProgress(index, true);
+        }else{
+            binding.classProgress.setProgress(index);
+        }
     }
 
     private void initViews() {

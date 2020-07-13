@@ -1,6 +1,7 @@
 package com.messi.languagehelper
 
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.lifecycle.Observer
@@ -57,7 +58,11 @@ class WordDetailActivity : BaseActivity() {
 
     private fun setData() {
         binding.classProgress.max = viewModel.totalSum
-        binding.classProgress.progress = viewModel.hasLearnWordNum
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            binding.classProgress.setProgress(viewModel.hasLearnWordNum, true)
+        }else{
+            binding.classProgress.progress = viewModel.hasLearnWordNum
+        }
         binding.closeBtn.setOnClickListener { finish() }
         if (viewModel.index < viewModel.randomPlayIndex.size) {
             viewModel.position = viewModel.randomPlayIndex[viewModel.index]

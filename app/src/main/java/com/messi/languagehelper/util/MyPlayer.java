@@ -15,16 +15,20 @@ import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
+import com.google.android.exoplayer2.upstream.DefaultHttpDataSource;
+import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
+import com.messi.languagehelper.http.LanguagehelperHttpClient;
 import com.messi.languagehelper.impl.MyPlayerListener;
 import com.messi.languagehelper.impl.PCMAudioPlayerListener;
 
 public class MyPlayer {
 
     public static MyPlayer myPlayer;
+    public static String playUrl = "http://zyhy.mzxbkj.com/v1/word/sound/";
     private SimpleExoPlayer exoPlayer;
     private Context context;
     private String lastContent;
@@ -122,7 +126,7 @@ public class MyPlayer {
             if (StringUtils.isContainChinese(content)) {
                 playTTS(content, speaker, mListener);
             } else {
-                String url = "http://zyhy.mzxbkj.com/v1/word/sound/" + content;
+                String url = playUrl + content;
                 start(content,url,"",null);
             }
 
@@ -162,7 +166,7 @@ public class MyPlayer {
     public void playMediaUrl(String url){
         LogUtil.DefalutLog("---playMediaUrl---"+url);
         if (!TextUtils.isEmpty(url)) {
-            DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(context, "xbkj");
+            DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(context, LanguagehelperHttpClient.Header);
             MediaSource mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
                     .createMediaSource(Uri.parse(url));
             exoPlayer.prepare(mediaSource);
@@ -347,5 +351,35 @@ public class MyPlayer {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static MediaSource getMediaSource(String url){
+        return getMediaSource(url,"","");
+    }
+
+    public static MediaSource getMediaSource(String url, String bkurl, String sUrl){
+        DefaultHttpDataSourceFactory dataSourceFactory = new DefaultHttpDataSourceFactory(
+                LanguagehelperHttpClient.Header,
+                null,
+                DefaultHttpDataSource.DEFAULT_CONNECT_TIMEOUT_MILLIS,
+                DefaultHttpDataSource.DEFAULT_READ_TIMEOUT_MILLIS,
+                true);
+        MediaSource mediaSource = null;
+        if (url.contains("bilivideo")) {
+            dataSourceFactory.getDefaultRequestProperties().set("range","bytes=0-");
+            dataSourceFactory.getDefaultRequestProperties().set("referer",sUrl);
+            dataSourceFactory.getDefaultRequestProperties().set("user-agent",LanguagehelperHttpClient.Header);
+            if (!TextUtils.isEmpty(bkurl)) {
+                mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
+                        .createMediaSource(Uri.parse(bkurl));
+            }else {
+                mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
+                        .createMediaSource(Uri.parse(url));
+            }
+        } else {
+            mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
+                    .createMediaSource(Uri.parse(url));
+        }
+        return mediaSource;
     }
 }

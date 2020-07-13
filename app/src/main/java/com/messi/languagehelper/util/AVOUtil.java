@@ -204,7 +204,29 @@ public class AVOUtil {
 		public final static String EDIsValid = "EDIsValid";
 		
 	}
-	
+
+	public static class ListenCourse {
+
+		public final static String ListenCourse = "ListenCourse";
+
+		public final static String content = "content";
+
+		public final static String chinese = "chinese";
+
+		public final static String level = "level";
+
+		public final static String order = "order";
+
+		public final static String tag = "tag";
+
+		public final static String mp3_url = "mp3_url";
+
+		public final static String start_time = "start_time";
+
+		public final static String end_time = "end_time";
+
+	}
+
 	public static class EnglishWebsite {
 		
 		public final static String EnglishWebsite = "EnglishWebsite";

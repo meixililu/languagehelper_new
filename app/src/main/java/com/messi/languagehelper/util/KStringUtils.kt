@@ -1,10 +1,6 @@
 package com.messi.languagehelper.util
 
-import android.os.Build
-import android.text.Html
-import android.text.Spanned
-import android.text.TextUtils
-import java.text.DecimalFormat
+import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -100,5 +96,11 @@ object KStringUtils {
             list.removeAt(pos)
         }
         return result
+    }
+
+    fun getTimeMills(time: String): Long {
+        val str = time.split(":|\\.".toRegex()).toTypedArray()
+        var time = (str[0].toInt() * 60 + str[1].toInt() + str[2].toInt() * 0.01) * 1000
+        return time.toLong()
     }
 }

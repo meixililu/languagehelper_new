@@ -11,6 +11,6 @@ import org.junit.Test;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() throws Exception {
-        System.out.println(KStringUtils.INSTANCE.getWordSamples("go on"));
+        System.out.println(KStringUtils.INSTANCE.getTimeMills("01:01.64"));
     }
 }
