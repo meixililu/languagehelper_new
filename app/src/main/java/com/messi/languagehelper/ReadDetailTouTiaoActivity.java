@@ -28,7 +28,6 @@ import android.widget.TextView;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-import com.alibaba.fastjson.JSON;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.Player;
@@ -69,6 +68,7 @@ import java.util.zip.CRC32;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.leancloud.json.JSON;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

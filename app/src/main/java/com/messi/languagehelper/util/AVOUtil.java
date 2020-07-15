@@ -213,6 +213,8 @@ public class AVOUtil {
 
 		public final static String chinese = "chinese";
 
+		public final static String answer = "answer";
+
 		public final static String level = "level";
 
 		public final static String order = "order";

@@ -40,7 +40,6 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="20dp"
-                android:animateLayoutChanges="true"
                 android:max="30"
                 android:progress="1"
                 android:progressDrawable="@drawable/progress_bar_round_green" />

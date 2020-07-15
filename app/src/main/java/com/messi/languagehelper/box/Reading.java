@@ -3,7 +3,6 @@ package com.messi.languagehelper.box;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.alibaba.fastjson.annotation.JSONField;
 import com.baidu.mobads.AdView;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.iflytek.voiceads.conn.NativeDataRef;
@@ -59,33 +58,24 @@ public class Reading implements Parcelable {
     private String backup4;
     private String backup5;
     private int img_color;
-    @JSONField(serialize = false)
     @Transient
-    private boolean isPlaying;
-    @JSONField(serialize = false)
+    private transient boolean isPlaying;
     @Transient
-    private boolean isAd;
-    @JSONField(serialize = false)
+    private transient boolean isAd;
     @Transient
-    private boolean isAdShow;
-    @JSONField(serialize = false)
+    private transient boolean isAdShow;
     @Transient
-    private NativeDataRef mNativeADDataRef;
-    @JSONField(serialize = false)
+    private transient NativeDataRef mNativeADDataRef;
     @Transient
-    private NativeExpressADView mTXADView;
-    @JSONField(serialize = false)
+    private transient NativeExpressADView mTXADView;
     @Transient
-    private TTFeedAd csjTTFeedAd;
-    @JSONField(serialize = false)
+    private transient TTFeedAd csjTTFeedAd;
     @Transient
-    private AdView bdAdView;
-    @JSONField(serialize = false)
+    private transient AdView bdAdView;
     @Transient
-    private int bdHeight;
-    @JSONField(serialize = false)
+    private transient int bdHeight;
     @Transient
-    private List<AVObject> xvideoList;
+    private transient List<AVObject> xvideoList;
 
     public AdView getBdAdView() {
         return bdAdView;

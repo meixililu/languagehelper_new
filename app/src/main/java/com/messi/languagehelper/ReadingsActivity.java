@@ -8,7 +8,6 @@ import android.view.View;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.alibaba.fastjson.JSON;
 import com.iflytek.voiceads.conn.NativeDataRef;
 import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.ViewModel.XXLModel;
@@ -32,6 +31,7 @@ import java.util.List;
 
 import cn.leancloud.AVObject;
 import cn.leancloud.AVQuery;
+import cn.leancloud.json.JSON;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 

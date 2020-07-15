@@ -3,7 +3,6 @@ package com.messi.languagehelper.util;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 
-import com.alibaba.fastjson.JSON;
 import com.messi.languagehelper.bean.HjTranBean;
 import com.messi.languagehelper.bean.IcibaNew;
 import com.messi.languagehelper.bean.QQTranAILabRoot;
@@ -25,6 +24,7 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.List;
 
+import cn.leancloud.json.JSON;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;

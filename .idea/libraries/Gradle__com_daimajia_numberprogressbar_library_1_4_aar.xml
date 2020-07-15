@@ -3,6 +3,7 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/484fa7fe61fc091f1c015221cf8bb855/jetified-library-1.4/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/484fa7fe61fc091f1c015221cf8bb855/jetified-library-1.4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/484fa7fe61fc091f1c015221cf8bb855/jetified-library-1.4/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.daimajia.numberprogressbar/library/1.4/ff3c1141ad7366f9e1248284a19661abacbef84c/library-1.4-javadoc.jar!/" />

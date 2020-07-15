@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 
-import com.alibaba.fastjson.JSON;
 import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.box.BoxHelper;
 import com.messi.languagehelper.box.CollectedData;
@@ -38,6 +37,8 @@ import com.messi.languagehelper.util.utilLrc;
 import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
 
 import java.util.List;
+
+import cn.leancloud.json.JSON;
 
 public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.OnSeekBarChangeListener {
 

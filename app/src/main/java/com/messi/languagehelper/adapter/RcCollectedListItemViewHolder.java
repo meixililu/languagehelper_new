@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.alibaba.fastjson.JSON;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.gson.Gson;
 import com.jeremyliao.liveeventbus.LiveEventBus;
@@ -40,6 +39,8 @@ import com.ximalaya.ting.android.opensdk.model.album.Album;
 
 import java.io.IOException;
 import java.util.ArrayList;
+
+import cn.leancloud.json.JSON;
 
 /**
  * Created by luli on 10/23/16.

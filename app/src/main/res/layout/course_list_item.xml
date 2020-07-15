@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/course_item"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ProgressBar
+        android:id="@+id/study_progress"
+        style="?android:progressBarStyleHorizontal"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:background="@drawable/circle_progressbar_bg"
+        android:progress="3"
+        android:max="15"
+        android:progressDrawable="@drawable/circle_progressbar" />
+
+    <TextView
+        android:id="@+id/jichu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/big"
+        android:gravity="center"
+        android:text="听力课程"
+        />
+
+</FrameLayout>
+

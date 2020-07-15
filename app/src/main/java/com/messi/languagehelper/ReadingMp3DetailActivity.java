@@ -18,7 +18,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.widget.NestedScrollView;
 
-import com.alibaba.fastjson.JSON;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.jeremyliao.liveeventbus.LiveEventBus;
@@ -41,6 +40,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.leancloud.json.JSON;
 
 public class ReadingMp3DetailActivity extends BaseActivity implements SeekBar.OnSeekBarChangeListener {
 

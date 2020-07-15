@@ -21,7 +21,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.alibaba.fastjson.JSON;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
@@ -66,6 +65,7 @@ import cn.leancloud.AVObject;
 import cn.leancloud.AVQuery;
 import cn.leancloud.callback.FindCallback;
 import cn.leancloud.convertor.ObserverBuilder;
+import cn.leancloud.json.JSON;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

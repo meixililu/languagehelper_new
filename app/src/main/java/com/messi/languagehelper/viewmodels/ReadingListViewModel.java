@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.alibaba.fastjson.JSON;
 import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.bean.RespoADData;
 import com.messi.languagehelper.bean.RespoData;
@@ -17,6 +16,8 @@ import com.messi.languagehelper.repositories.ReadingListRepository;
 import com.messi.languagehelper.repositories.XXLReadingRepository;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
+
+import cn.leancloud.json.JSON;
 
 public class ReadingListViewModel extends ViewModel {
 

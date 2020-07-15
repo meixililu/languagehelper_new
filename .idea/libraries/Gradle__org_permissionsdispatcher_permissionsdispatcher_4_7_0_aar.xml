@@ -3,6 +3,7 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/19159df9786223f399f7888991d71a27/jetified-permissionsdispatcher-4.7.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/19159df9786223f399f7888991d71a27/jetified-permissionsdispatcher-4.7.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/19159df9786223f399f7888991d71a27/jetified-permissionsdispatcher-4.7.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.permissionsdispatcher/permissionsdispatcher/4.7.0/367d1e6a747659f3ccd7e1a0de99b99c5c8e1182/permissionsdispatcher-4.7.0-javadoc.jar!/" />

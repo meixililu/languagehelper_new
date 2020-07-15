@@ -1,48 +1,51 @@
 package com.messi.languagehelper.viewmodels
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import android.app.Application
+import androidx.lifecycle.*
+import com.messi.languagehelper.BaseApplication
+import com.messi.languagehelper.bean.ListenCourseData
 import com.messi.languagehelper.bean.RespoData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MyCourseViewModel : ViewModel(){
+class MyCourseViewModel(application: Application) : AndroidViewModel(application){
 
-    var mRespoData = MutableLiveData<RespoData<String>>()
+    var mRespoData = MutableLiveData<String>()
+    lateinit var mListenCourse: ListenCourseData
+    lateinit var course_id: String
+
     var page: Int = 1
-    var hasMore = true
     var loading = false
     var keyword = ""
 
-    val dataList: LiveData<RespoData<String>>?
+    val result: LiveData<String>
         get() = mRespoData
 
-    fun loadData(isRefresh: Boolean) {
+    fun loadData() {
         viewModelScope.launch(Dispatchers.IO)  {
-            getData(isRefresh)
+            getData()
+
         }
     }
 
-    suspend fun getData(isRefresh: Boolean) {
-        if (isRefresh){
-            page = 1
-            hasMore = true
-        }
-        if(!loading && hasMore){
+    suspend fun getData() {
+        if(!loading){
             loading = true
-            var mResult = loadData()
-            mRespoData.postValue(mResult)
+            getDataTask()
+            mRespoData.postValue("finish")
             loading = false
         }
     }
 
-    suspend fun loadData(): RespoData<String> = withContext(Dispatchers.IO){
-        var result = RespoData<String>()
-        page += 1
-        result.isHideFooter = !hasMore
-        result
+    suspend fun getDataTask() = withContext(Dispatchers.IO){
+        mListenCourse = ListenCourseData()
+        mListenCourse.answer = "some bridges are made from stone"
+        mListenCourse.content = "some bridges is bike make wood are made from stone"
+        mListenCourse.transalte = "一些桥是由石头建造的"
+    }
+
+    fun next(){
+        mRespoData.postValue("next")
     }
 }

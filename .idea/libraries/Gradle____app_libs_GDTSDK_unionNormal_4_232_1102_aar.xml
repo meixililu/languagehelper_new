@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: ./app/libs/GDTSDK.unionNormal.4.232.1102.aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2f90e416066da2985e776778ddc62790/jetified-GDTSDK.unionNormal.4.232.1102/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2f90e416066da2985e776778ddc62790/jetified-GDTSDK.unionNormal.4.232.1102/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2f90e416066da2985e776778ddc62790/jetified-GDTSDK.unionNormal.4.232.1102/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

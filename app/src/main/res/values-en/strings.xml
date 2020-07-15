@@ -267,7 +267,7 @@
 	<string name="textclickguidedialog_content">Click the content and result also will play the speech,You can change the speech speed in Settings.</string>
 	
 	<string name="about_play_title">About Voice Broadcast</string>
-	<string name="about_play_content">Click the content and result will play the speech.</string>
+<!--	<string name="about_play_content">Click the content and result will play the speech.</string>-->
 	
 	<string name="about_speed_title">About Speech Speed</string>
 	<string name="about_speed_content">You can change the speech speed in Settings.</string>
@@ -306,7 +306,7 @@
     <string name="leisure_conjecture">Conjecture</string>
     <string name="leisure_riddle">Riddle</string>
 	<string name="leisuer_one">Products</string>
-	<string name="leisuer_one_subtitle">Hot-sold products</string>
+<!--	<string name="leisuer_one_subtitle">Hot-sold products</string>-->
     <string name="leisuer_sougou_wechat">Wechat English</string>
     <string name="leisuer_sougou_wechat_subtitle">All the Wechat English</string>
 	<string name="leisuer_reading">Readings</string>
@@ -314,7 +314,7 @@
 	<string name="leisuer_twists">Brain twists</string>
 	<string name="leisuer_shenhuifu">GodReply</string>
     <string name="leisuer_shenhuifu_des">God-like reply</string>
-    <string name="leisuer_henhuifu_des">amazing reply</string>
+<!--    <string name="leisuer_henhuifu_des">amazing reply</string>-->
 	<string name="leisuer_yizhandaodi">Q-A</string>
     <string name="leisuer_yizhandaodi_des">Question and Answer</string>
 	<string name="leisuer_twists_subtitle">Chinese brain twists</string>

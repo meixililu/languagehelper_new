@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
 
-import com.alibaba.fastjson.JSON;
 import com.messi.languagehelper.bean.BaiduAccessToken;
 import com.messi.languagehelper.impl.ProgressListener;
 import com.messi.languagehelper.util.CameraUtil;
@@ -25,6 +24,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.TimeUnit;
 
+import cn.leancloud.json.JSON;
 import okhttp3.Cache;
 import okhttp3.Callback;
 import okhttp3.FormBody;

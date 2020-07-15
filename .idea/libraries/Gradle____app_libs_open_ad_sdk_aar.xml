@@ -1,9 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: ./app/libs/open_ad_sdk.aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/924cc2381c7ce6770496a3dccaec9cfb/jetified-open_ad_sdk/jars/libs/adhost.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/55addf2e98651172d8ccd1e6e479f983/jetified-open_ad_sdk/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/55addf2e98651172d8ccd1e6e479f983/jetified-open_ad_sdk/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/55addf2e98651172d8ccd1e6e479f983/jetified-open_ad_sdk/jars/libs/adhost.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/55addf2e98651172d8ccd1e6e479f983/jetified-open_ad_sdk/jars/libs/r-classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/55addf2e98651172d8ccd1e6e479f983/jetified-open_ad_sdk/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

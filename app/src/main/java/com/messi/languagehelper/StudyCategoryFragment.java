@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.messi.languagehelper.coursefragment.CourseListsFragment;
 import com.messi.languagehelper.databinding.StudyCategoryFragmentBinding;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.AVAnalytics;

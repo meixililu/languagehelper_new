@@ -202,13 +202,13 @@
             android:name=".InstallActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".DailyEnglishActivity"
+            android:name=".coursefragment.ListenCourseActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".TitleActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CoursesActivity"
+            android:name=".coursefragment.CoursesActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ReadingDetailLrcActivity"

@@ -1,10 +1,7 @@
 package com.messi.languagehelper.bean
 
 import android.os.Parcelable
-import com.alibaba.fastjson.annotation.JSONField
-import com.google.gson.annotations.Expose
 import com.squareup.moshi.JsonClass
-import kotlinx.android.parcel.IgnoredOnParcel
 import kotlinx.android.parcel.Parcelize
 
 @JsonClass(generateAdapter = true)
@@ -24,7 +21,6 @@ class BoutiquesBean(
         var views: Int = 0,
         var isAd: Boolean = false
 ) : Parcelable {
-    @JSONField(serialize = false)
     @Transient
     var adData: AdData? = null
 }

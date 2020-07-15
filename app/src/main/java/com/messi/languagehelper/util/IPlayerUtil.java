@@ -2,7 +2,6 @@ package com.messi.languagehelper.util;
 
 import android.content.Context;
 
-import com.alibaba.fastjson.JSON;
 import com.messi.languagehelper.aidl.IXBPlayer;
 import com.messi.languagehelper.box.Reading;
 import com.ximalaya.ting.android.opensdk.model.live.radio.Radio;
@@ -11,6 +10,8 @@ import com.ximalaya.ting.android.opensdk.player.XmPlayerManager;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.leancloud.json.JSON;
 
 import static com.messi.languagehelper.service.PlayerService.action_pause;
 import static com.messi.languagehelper.service.PlayerService.action_restart;

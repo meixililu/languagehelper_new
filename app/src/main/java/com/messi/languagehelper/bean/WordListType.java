@@ -1,11 +1,10 @@
 package com.messi.languagehelper.bean;
 
+import android.text.TextUtils;
+
 import java.util.List;
 
-import com.alibaba.fastjson.JSON;
-import com.messi.languagehelper.bean.WordListItem;
-
-import android.text.TextUtils;
+import cn.leancloud.json.JSON;
 
 
 public class WordListType {

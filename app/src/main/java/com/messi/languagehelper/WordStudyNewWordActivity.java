@@ -113,7 +113,6 @@ public class WordStudyNewWordActivity extends BaseActivity {
             @Override
             public void onNext(String s) {
                 mAdapter.notifyDataSetChanged();
-                ToastUtil.diaplayMesShort(WordStudyNewWordActivity.this,"没有需要学习的生词");
             }
             @Override
             public void onError(Throwable e) {
@@ -156,7 +155,7 @@ public class WordStudyNewWordActivity extends BaseActivity {
             }
             startActivityForResult(intent,1);
         }else {
-            ToastUtil.diaplayMesShort(this,"没有需要学习的生词");
+            ToastUtil.diaplayMesShort(this,"没有生词");
         }
     }
 

@@ -11,7 +11,6 @@ import android.view.View;
 
 import androidx.core.content.FileProvider;
 
-import com.alibaba.fastjson.JSON;
 import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.bean.YoudaoPhotoBean;
@@ -23,6 +22,7 @@ import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import java.io.File;
 import java.io.IOException;
 
+import cn.leancloud.json.JSON;
 import okhttp3.FormBody;
 
 /**

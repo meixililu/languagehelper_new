@@ -13,7 +13,6 @@ import android.text.TextUtils;
 
 import androidx.annotation.Nullable;
 
-import com.alibaba.fastjson.JSON;
 import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.Player;
@@ -54,6 +53,7 @@ import cn.leancloud.AVObject;
 import cn.leancloud.AVQuery;
 import cn.leancloud.callback.FindCallback;
 import cn.leancloud.convertor.ObserverBuilder;
+import cn.leancloud.json.JSON;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

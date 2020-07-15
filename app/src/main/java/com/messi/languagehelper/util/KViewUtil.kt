@@ -6,7 +6,6 @@ import android.text.TextUtils
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewParent
 import android.view.animation.AccelerateInterpolator
 import android.widget.FrameLayout
 import android.widget.TextView
@@ -27,15 +26,12 @@ object KViewUtil {
         var nps = getViewPosition(nView)
         val x = nps[0]-cps[0]
         val y = nps[1]-cps[1]
-        val offset = floatArrayOf(x.toFloat(), y.toFloat())
-        LogUtil.DefalutLog("ViewsOffset:$x---$y")
-        return offset
+        return floatArrayOf(x.toFloat(), y.toFloat())
     }
 
     fun getViewPosition(paramView: View): IntArray {
         val arrayOfInt = IntArray(2)
         paramView.getLocationOnScreen(arrayOfInt)
-        LogUtil.DefalutLog("ViewPosition:" + arrayOfInt[0] + "---" + arrayOfInt[1])
         return arrayOfInt
     }
 

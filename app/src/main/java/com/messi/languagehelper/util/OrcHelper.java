@@ -7,11 +7,11 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
-import androidx.fragment.app.Fragment;
-import androidx.core.content.FileProvider;
 import android.view.View;
 
-import com.alibaba.fastjson.JSON;
+import androidx.core.content.FileProvider;
+import androidx.fragment.app.Fragment;
+
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.bean.BaiduOcrRoot;
 import com.messi.languagehelper.dialog.OCRDialog;
@@ -22,6 +22,8 @@ import com.messi.languagehelper.impl.OrcResultListener;
 
 import java.io.File;
 import java.io.IOException;
+
+import cn.leancloud.json.JSON;
 
 /**
  * Created by luli on 06/07/2017.
