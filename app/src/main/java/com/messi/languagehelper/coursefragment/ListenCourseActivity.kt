@@ -65,6 +65,8 @@ class ListenCourseActivity : BaseActivity() {
         courseID = mSharedPreferences.getInt(KeyUtil.DailyListenCourseID,0)
         binding.closeBtn.setOnClickListener { finish() }
         binding.playBtn.setOnClickListener { playItem() }
+        binding.imgPlayBtn.setOnClickListener { playItem() }
+        binding.imgLayout.setOnClickListener { playItem() }
         binding.checkBtn.setOnClickListener { checkOrNext() }
     }
 
@@ -116,6 +118,14 @@ class ListenCourseActivity : BaseActivity() {
     }
 
     private fun wordToCharacter() {
+        if(TextUtils.isEmpty(mAVObject.getString(AVOUtil.ListenCourse.img))){
+            binding.noimgLayout.visibility = View.VISIBLE
+            binding.imgLayout.visibility = View.GONE
+        } else {
+            binding.noimgLayout.visibility = View.GONE
+            binding.imgLayout.visibility = View.VISIBLE
+            binding.imgItem.setImageURI(mAVObject.getString(AVOUtil.ListenCourse.img))
+        }
         binding.resultLayout.visibility = View.GONE
         binding.autoWrapOptions.removeAllViews()
         binding.autoWrapResult.removeAllViews()
@@ -234,6 +244,7 @@ class ListenCourseActivity : BaseActivity() {
     fun playItem() {
         if (mAVObject != null) {
             binding.playBtn.playAnimation()
+            binding.imgPlayBtn.playAnimation()
             var mp3Url = mAVObject.getString(AVOUtil.ListenCourse.mp3_url)
             var startTime = mAVObject.getString(AVOUtil.ListenCourse.start_time)
             var endTime = mAVObject.getString(AVOUtil.ListenCourse.end_time)
@@ -257,6 +268,7 @@ class ListenCourseActivity : BaseActivity() {
             Handler().postDelayed({
                 if (player.currentPosition > endPosition) {
                     binding.playBtn.cancelAnimation()
+                    binding.imgPlayBtn.cancelAnimation()
                     player.playWhenReady = false
                 }else{
                     stopAtEndPosition()
@@ -301,6 +313,7 @@ class ListenCourseActivity : BaseActivity() {
                 }
                 Player.STATE_ENDED -> {
                     binding.playBtn.cancelAnimation()
+                    binding.imgPlayBtn.cancelAnimation()
                 }
             }
         }

@@ -379,7 +379,7 @@ public class MainFragmentYWCD extends BaseFragment implements OnClickListener, O
     /**
      * 点击编辑之后显示输入法
      */
-    private void showIME() {
+    protected void showIME() {
         final InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Activity.INPUT_METHOD_SERVICE);
         imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, InputMethodManager.HIDE_NOT_ALWAYS);
     }

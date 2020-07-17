@@ -251,11 +251,21 @@ public class BaseActivity extends AppCompatActivity {
         mScrollable = s;
     }
 
+
     /**
      * 点击翻译之后隐藏输入法
      */
     protected void hideIME(View view) {
         final InputMethodManager imm = (InputMethodManager) this.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    protected void hideKeyBoard() {
+        final InputMethodManager imm = (InputMethodManager) this.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        View view = this.getCurrentFocus();
+        if (view == null) {
+            view = new View(this);
+        }
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 

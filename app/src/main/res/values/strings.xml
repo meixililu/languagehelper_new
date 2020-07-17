@@ -132,6 +132,8 @@
     <string name="ai_chat_input_hint">just say something</string>
     <string name="ai_turing_input_hint">聊五块钱的</string>
     <string name="ch_dic_input_hint">请输入需要查询的文字、词语、成语、诗词</string>
+    <string name="translate_course_input_hint">请翻译</string>
+    <string name="listen_course_input_hint">请输入你听到的内容</string>
     <string name="ch_dic_idiom_input_hint">请输入需要查询的成语</string>
     <string name="input_translate_hint">请翻译</string>
     <string name="auto_clear_after_translate">翻译完成后自动清空输入框</string>
@@ -383,7 +385,6 @@
     <string name="recognize_error">识别错误，请重试！</string>
 
     <string name="action_settings">Settings</string>
-    <string name="title_activity_main_test">MainActivityTest</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="style_select">选择您喜欢的界面风格</string>
     <string name="theme_color_select">选择您喜欢的主题颜色</string>
@@ -443,6 +444,8 @@
     <string name="search_internet">搜全网</string>
     <string name="search_novel">搜小说</string>
     <string name="search_caricature">搜动漫</string>
+    <string name="listen_course_title">选择你听到的内容</string>
+    <string name="course_translate_title">翻译</string>
 
 
 </resources>

@@ -8,12 +8,15 @@ import android.media.SoundPool
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.text.Editable
 import android.text.TextUtils
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.view.get
+import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.exoplayer2.ExoPlaybackException
 import com.google.android.exoplayer2.PlaybackParameters
@@ -25,15 +28,16 @@ import com.messi.languagehelper.BaseFragment
 import com.messi.languagehelper.R
 import com.messi.languagehelper.bean.ListenCourseData
 import com.messi.languagehelper.databinding.ListenCourseFragmentBinding
+import com.messi.languagehelper.databinding.ListenCourseInputFragmentBinding
 import com.messi.languagehelper.util.*
 import com.messi.languagehelper.viewmodels.MyCourseViewModel
 
 
-class CourseListenFragment : BaseFragment() {
+class CourseListenEnterFragment : BaseFragment() {
 
     lateinit var mSharedPreferences: SharedPreferences
     lateinit var mAVObject: ListenCourseData
-    lateinit var binding: ListenCourseFragmentBinding
+    lateinit var binding: ListenCourseInputFragmentBinding
     private lateinit var ourSounds: SoundPool
     private var answerRight = 0
     private var answerWrong = 0
@@ -49,7 +53,7 @@ class CourseListenFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        binding = ListenCourseFragmentBinding.inflate(inflater)
+        binding = ListenCourseInputFragmentBinding.inflate(inflater)
         initializeSoundPool()
         initViews()
         init()
@@ -64,6 +68,17 @@ class CourseListenFragment : BaseFragment() {
         binding.imgPlayBtn.setOnClickListener { playItem() }
         binding.imgLayout.setOnClickListener { playItem() }
         binding.checkBtn.setOnClickListener { checkOrNext() }
+        binding.editText.addTextChangedListener (object: TextWatcher{
+            override fun afterTextChanged(text: Editable?) {
+                if (text != null) {
+                    binding.checkBtn.isEnabled = text.isNotEmpty()
+                }
+            }
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+        })
     }
 
     private fun init() {
@@ -91,19 +106,10 @@ class CourseListenFragment : BaseFragment() {
             binding.imgLayout.visibility = View.VISIBLE
             binding.imgItem.setImageURI(mAVObject.img)
         }
+        binding.editText.text?.clear()
         binding.resultLayout.visibility = View.GONE
-        binding.autoWrapOptions.removeAllViews()
-        binding.autoWrapResult.removeAllViews()
+        binding.editText.clearComposingText()
         binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_green_selecter)
-        val contents = mAVObject.content.split(" ")
-        for ((index,item) in contents.shuffled().withIndex()) {
-            KViewUtil.createNewFlexItemTextView(context!!,
-                    binding.autoWrapOptions,
-                    binding.autoWrapResult,
-                    binding.checkBtn,
-                    item.trim(),
-                    index)
-        }
     }
 
     private fun checkOrNext() {
@@ -116,12 +122,13 @@ class CourseListenFragment : BaseFragment() {
     }
 
     private fun check() {
-        val content = englishContent
-        if (binding.autoWrapResult.childCount > 0) {
-            var selectedStr = getSelectedResult()
+        hideKeyBoard()
+        val content = englishContent.toLowerCase().trim()
+        val userInput = binding.editText.text.toString().toLowerCase().trim()
+        if (!TextUtils.isEmpty(userInput)) {
             binding.checkBtn.text = "Next"
             binding.resultLayout.visibility = View.VISIBLE
-            if (content == selectedStr) {
+            if (content == userInput) {
                 mAVObject.user_result = true
                 playSoundPool(mAVObject.user_result)
                 binding.checkSuccess.setAnimation("check_success.json")
@@ -146,22 +153,8 @@ class CourseListenFragment : BaseFragment() {
                 binding.resultTv.setTextColor(resources.getColor(R.color.wrong_text))
             }
         }else{
-            ToastUtil.diaplayMesShort(context,"请先做题，做完再Check！")
+            ToastUtil.diaplayMesShort(context,getString(R.string.listen_course_input_hint))
         }
-    }
-
-    private fun getSelectedResult(): String{
-        var sb = StringBuilder()
-        for (index in 0 until binding.autoWrapResult.childCount){
-            var item = ((binding.autoWrapResult[index] as ViewGroup)[0] as TextView).text.toString()
-            if (!TextUtils.isEmpty(item)){
-                sb.append(item)
-                if (index != binding.autoWrapResult.childCount-1){
-                    sb.append(" ")
-                }
-            }
-        }
-        return sb.toString()
     }
 
     private fun initializeSoundPool() {

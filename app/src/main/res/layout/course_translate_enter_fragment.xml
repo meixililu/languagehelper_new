@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        >
+    <LinearLayout
+        android:id="@+id/selection_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/middle"
+            android:padding="@dimen/padding_10"
+            android:layout_marginLeft="@dimen/padding_10"
+            android:layout_marginRight="@dimen/padding_10"
+            android:layout_marginBottom="@dimen/padding_5"
+            android:background="@drawable/bg_btn_course_item"
+            android:visibility="gone"
+            />
+
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:paddingLeft="@dimen/padding_10"
+            android:textStyle="bold"
+            android:text="@string/course_translate_title"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/biggerx" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/img_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:roundedCornerRadius="8dp"
+            fresco:viewAspectRatio="2"
+            android:layout_marginTop="@dimen/padding_10"
+            android:layout_marginLeft="@dimen/padding_10"
+            android:layout_marginRight="@dimen/padding_10"
+            fresco:placeholderImageScaleType="fitCenter"
+            fresco:actualImageScaleType="focusCrop"
+            fresco:placeholderImage="@color/text_backup_bg"
+            />
+        <LinearLayout
+            android:id="@+id/sub_title_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            >
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/play_btn"
+                android:layout_width="45dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/padding_10"
+                android:visibility="gone"
+                android:background="@drawable/background_blue_circle"
+                app:lottie_autoPlay="false"
+                app:lottie_fileName="voice_playing.json"
+                app:lottie_loop="true" />
+            <TextView
+                android:id="@+id/translate_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:padding="@dimen/padding_10"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/bigger" />
+        </LinearLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:minLines="5"
+            android:background="@drawable/course_input_bg"
+            android:hint="@string/translate_course_input_hint"
+            android:layout_margin="@dimen/padding_10"
+            android:padding="@dimen/padding_10"
+            android:textColorHint="@color/text_grey"
+            android:textColor="@color/text_black"
+            android:gravity="left"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="75dp"/>
+    </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/result_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:paddingBottom="80dp"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:id="@+id/result_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/padding_15"
+            android:layout_marginLeft="@dimen/padding_15"
+            android:layout_marginBottom="@dimen/padding_10"
+            android:gravity="left"
+            android:textSize="@dimen/title" />
+        <TextView
+            android:id="@+id/chinese_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/result_tv"
+            android:layout_marginLeft="@dimen/padding_15"
+            android:gravity="left"
+            android:textSize="@dimen/big" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/check_success"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/padding_20"
+            android:layout_marginRight="@dimen/padding_20"
+            app:lottie_autoPlay="false"
+            app:lottie_fileName="check_success.json"
+            />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/check_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:textStyle="bold"
+        android:layout_marginLeft="@dimen/padding_20"
+        android:layout_marginRight="@dimen/padding_20"
+        android:layout_marginBottom="@dimen/padding_15"
+        android:background="@drawable/border_shadow_green_selecter"
+        android:elevation="1dp"
+        android:enabled="false"
+        android:gravity="center"
+        android:text="Check"
+        android:textColor="@color/disable_gray_white_selector"
+        android:textSize="@dimen/big" />
+</FrameLayout>
+

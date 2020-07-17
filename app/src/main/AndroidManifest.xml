@@ -209,6 +209,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".coursefragment.CoursesActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ReadingDetailLrcActivity"
@@ -412,8 +413,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ReadingJuheActivity"
-            android:exported="true"
-            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
             android:name=".WordStudySecondActivity"

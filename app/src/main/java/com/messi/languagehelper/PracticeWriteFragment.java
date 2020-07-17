@@ -199,7 +199,7 @@ public class PracticeWriteFragment extends BaseFragment implements OnClickListen
 	/**
 	 * 点击翻译之后隐藏输入法
 	 */
-	private void hideIME(){
+	protected void hideIME(){
 		final InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);       
 		imm.hideSoftInputFromWindow(translate_input.getWindowToken(), 0); 
 	}

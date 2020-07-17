@@ -24,16 +24,16 @@ import com.google.android.exoplayer2.trackselection.TrackSelectionArray
 import com.messi.languagehelper.BaseFragment
 import com.messi.languagehelper.R
 import com.messi.languagehelper.bean.ListenCourseData
-import com.messi.languagehelper.databinding.ListenCourseFragmentBinding
+import com.messi.languagehelper.databinding.CourseTranslateFragmentBinding
 import com.messi.languagehelper.util.*
 import com.messi.languagehelper.viewmodels.MyCourseViewModel
 
 
-class CourseListenFragment : BaseFragment() {
+class CourseTranslateFragment : BaseFragment() {
 
     lateinit var mSharedPreferences: SharedPreferences
     lateinit var mAVObject: ListenCourseData
-    lateinit var binding: ListenCourseFragmentBinding
+    lateinit var binding: CourseTranslateFragmentBinding
     private lateinit var ourSounds: SoundPool
     private var answerRight = 0
     private var answerWrong = 0
@@ -49,7 +49,7 @@ class CourseListenFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        binding = ListenCourseFragmentBinding.inflate(inflater)
+        binding = CourseTranslateFragmentBinding.inflate(inflater)
         initializeSoundPool()
         initViews()
         init()
@@ -61,8 +61,6 @@ class CourseListenFragment : BaseFragment() {
         player = SimpleExoPlayer.Builder(context!!).build()
         player.addListener(listener)
         binding.playBtn.setOnClickListener { playItem() }
-        binding.imgPlayBtn.setOnClickListener { playItem() }
-        binding.imgLayout.setOnClickListener { playItem() }
         binding.checkBtn.setOnClickListener { checkOrNext() }
     }
 
@@ -72,7 +70,6 @@ class CourseListenFragment : BaseFragment() {
             binding.checkBtn.isEnabled = false
             binding.checkBtn.text = "Check"
             wordToCharacter()
-            playItem()
         }
     }
 
@@ -83,14 +80,18 @@ class CourseListenFragment : BaseFragment() {
             binding.tips.visibility = View.VISIBLE
             binding.tips.text = mAVObject.tips
         }
-        if(TextUtils.isEmpty(mAVObject.img)){
-            binding.noimgLayout.visibility = View.VISIBLE
-            binding.imgLayout.visibility = View.GONE
+        if (StringUtils.isAllChinese(mAVObject.transalte)){
+            binding.playBtn.visibility = View.GONE
         } else {
-            binding.noimgLayout.visibility = View.GONE
-            binding.imgLayout.visibility = View.VISIBLE
+            binding.playBtn.visibility = View.VISIBLE
+        }
+        if(TextUtils.isEmpty(mAVObject.img)){
+            binding.imgItem.visibility = View.GONE
+        } else {
+            binding.imgItem.visibility = View.VISIBLE
             binding.imgItem.setImageURI(mAVObject.img)
         }
+        binding.translateContent.text = mAVObject.transalte
         binding.resultLayout.visibility = View.GONE
         binding.autoWrapOptions.removeAllViews()
         binding.autoWrapResult.removeAllViews()
@@ -116,7 +117,7 @@ class CourseListenFragment : BaseFragment() {
     }
 
     private fun check() {
-        val content = englishContent
+        val content = result
         if (binding.autoWrapResult.childCount > 0) {
             var selectedStr = getSelectedResult()
             binding.checkBtn.text = "Next"
@@ -128,7 +129,8 @@ class CourseListenFragment : BaseFragment() {
                 binding.checkSuccess.progress
                 binding.checkSuccess.playAnimation()
                 binding.resultTv.text = "正确"
-                binding.chineseTv.text = mAVObject.transalte
+                binding.chineseTv.text = ""
+                binding.chineseTv.visibility = View.GONE
                 binding.resultLayout.setBackgroundResource(R.color.correct_bg)
                 binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_green_selecter)
                 binding.chineseTv.setTextColor(resources.getColor(R.color.correct_text))
@@ -139,7 +141,8 @@ class CourseListenFragment : BaseFragment() {
                 binding.checkSuccess.setAnimation("cross.json")
                 binding.checkSuccess.playAnimation()
                 binding.resultTv.text = "正确答案"
-                binding.chineseTv.text = englishContent + "\n" + mAVObject.transalte
+                binding.chineseTv.visibility = View.VISIBLE
+                binding.chineseTv.text = result
                 binding.resultLayout.setBackgroundResource(R.color.wrong_bg)
                 binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_red_selecter)
                 binding.chineseTv.setTextColor(resources.getColor(R.color.wrong_text))
@@ -153,12 +156,15 @@ class CourseListenFragment : BaseFragment() {
     private fun getSelectedResult(): String{
         var sb = StringBuilder()
         for (index in 0 until binding.autoWrapResult.childCount){
-            var item = ((binding.autoWrapResult[index] as ViewGroup)[0] as TextView).text.toString()
+            var item = ((binding.autoWrapResult[index] as ViewGroup)[0] as TextView).text.toString().trim()
             if (!TextUtils.isEmpty(item)){
                 sb.append(item)
-                if (index != binding.autoWrapResult.childCount-1){
-                    sb.append(" ")
+                if(StringUtils.isEnglish(mAVObject.answer)){
+                    if (index != binding.autoWrapResult.childCount-1){
+                        sb.append(" ")
+                    }
                 }
+
             }
         }
         return sb.toString()
@@ -189,28 +195,31 @@ class CourseListenFragment : BaseFragment() {
         }
     }
 
-    private val englishContent: String
+    private val result: String
         private get() {
-            var sb = StringBuilder()
-            var contents = mAVObject.answer.split(" ")
-            for (item in contents) {
-                if (!TextUtils.isEmpty(item)) {
-                    sb.append(item)
-                    sb.append(" ")
+            return if(StringUtils.isEnglish(mAVObject.answer)){
+                var sb = StringBuilder()
+                var contents = mAVObject.answer.split(" ")
+                for (item in contents) {
+                    if (!TextUtils.isEmpty(item)) {
+                        sb.append(item)
+                        sb.append(" ")
+                    }
                 }
+                sb.toString().trim()
+            }else {
+                mAVObject.answer.trim()
             }
-            return sb.toString().trim()
         }
 
     fun playItem() {
-        if (mAVObject != null) {
+        if (StringUtils.isEnglish(mAVObject.transalte)) {
             binding.playBtn.playAnimation()
-            binding.imgPlayBtn.playAnimation()
             var mp3Url = mAVObject.mp3_url
             var startTime = mAVObject.start_time
             var endTime = mAVObject.end_time
             if(TextUtils.isEmpty(mp3Url)){
-                mp3Url = MyPlayer.playUrl + mAVObject.answer
+                mp3Url = MyPlayer.playUrl + mAVObject.transalte
             }
             if(!TextUtils.isEmpty(startTime)){
                 startPosition = KStringUtils.getTimeMills(startTime)
@@ -229,7 +238,6 @@ class CourseListenFragment : BaseFragment() {
             Handler().postDelayed({
                 if (player.currentPosition > endPosition) {
                     binding.playBtn.cancelAnimation()
-                    binding.imgPlayBtn.cancelAnimation()
                     player.playWhenReady = false
                 }else{
                     stopAtEndPosition()
@@ -273,7 +281,6 @@ class CourseListenFragment : BaseFragment() {
                 }
                 Player.STATE_ENDED -> {
                     binding.playBtn.cancelAnimation()
-                    binding.imgPlayBtn.cancelAnimation()
                 }
             }
         }

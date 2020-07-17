@@ -1,5 +1,6 @@
 package com.messi.languagehelper;
 
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +10,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -129,7 +131,15 @@ public class BaseFragment extends Fragment {
 	
 	public void onSwipeRefreshLayoutRefresh(){
 	}
-	
+
+	protected void hideKeyBoard() {
+		final InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+		View view = getActivity().getCurrentFocus();
+		if (view == null) {
+			view = new View(getActivity());
+		}
+		imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+	}
 	
 	public void showProgressbar(){
 		if(mProgressbarListener != null){

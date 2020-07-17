@@ -8,7 +8,9 @@ import android.media.SoundPool
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.text.Editable
 import android.text.TextUtils
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,16 +26,17 @@ import com.google.android.exoplayer2.trackselection.TrackSelectionArray
 import com.messi.languagehelper.BaseFragment
 import com.messi.languagehelper.R
 import com.messi.languagehelper.bean.ListenCourseData
-import com.messi.languagehelper.databinding.ListenCourseFragmentBinding
+import com.messi.languagehelper.databinding.CourseTranslateEnterFragmentBinding
+import com.messi.languagehelper.databinding.CourseTranslateFragmentBinding
 import com.messi.languagehelper.util.*
 import com.messi.languagehelper.viewmodels.MyCourseViewModel
 
 
-class CourseListenFragment : BaseFragment() {
+class CourseTranslateEnterFragment : BaseFragment() {
 
     lateinit var mSharedPreferences: SharedPreferences
     lateinit var mAVObject: ListenCourseData
-    lateinit var binding: ListenCourseFragmentBinding
+    lateinit var binding: CourseTranslateEnterFragmentBinding
     private lateinit var ourSounds: SoundPool
     private var answerRight = 0
     private var answerWrong = 0
@@ -49,7 +52,7 @@ class CourseListenFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        binding = ListenCourseFragmentBinding.inflate(inflater)
+        binding = CourseTranslateEnterFragmentBinding.inflate(inflater)
         initializeSoundPool()
         initViews()
         init()
@@ -61,9 +64,18 @@ class CourseListenFragment : BaseFragment() {
         player = SimpleExoPlayer.Builder(context!!).build()
         player.addListener(listener)
         binding.playBtn.setOnClickListener { playItem() }
-        binding.imgPlayBtn.setOnClickListener { playItem() }
-        binding.imgLayout.setOnClickListener { playItem() }
         binding.checkBtn.setOnClickListener { checkOrNext() }
+        binding.editText.addTextChangedListener (object: TextWatcher {
+            override fun afterTextChanged(text: Editable?) {
+                if (text != null) {
+                    binding.checkBtn.isEnabled = text.isNotEmpty()
+                }
+            }
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+        })
     }
 
     private fun init() {
@@ -72,7 +84,6 @@ class CourseListenFragment : BaseFragment() {
             binding.checkBtn.isEnabled = false
             binding.checkBtn.text = "Check"
             wordToCharacter()
-            playItem()
         }
     }
 
@@ -83,27 +94,20 @@ class CourseListenFragment : BaseFragment() {
             binding.tips.visibility = View.VISIBLE
             binding.tips.text = mAVObject.tips
         }
-        if(TextUtils.isEmpty(mAVObject.img)){
-            binding.noimgLayout.visibility = View.VISIBLE
-            binding.imgLayout.visibility = View.GONE
+        if (StringUtils.isAllChinese(mAVObject.transalte)){
+            binding.playBtn.visibility = View.GONE
         } else {
-            binding.noimgLayout.visibility = View.GONE
-            binding.imgLayout.visibility = View.VISIBLE
+            binding.playBtn.visibility = View.VISIBLE
+        }
+        if(TextUtils.isEmpty(mAVObject.img)){
+            binding.imgItem.visibility = View.GONE
+        } else {
+            binding.imgItem.visibility = View.VISIBLE
             binding.imgItem.setImageURI(mAVObject.img)
         }
+        binding.translateContent.text = mAVObject.transalte
         binding.resultLayout.visibility = View.GONE
-        binding.autoWrapOptions.removeAllViews()
-        binding.autoWrapResult.removeAllViews()
         binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_green_selecter)
-        val contents = mAVObject.content.split(" ")
-        for ((index,item) in contents.shuffled().withIndex()) {
-            KViewUtil.createNewFlexItemTextView(context!!,
-                    binding.autoWrapOptions,
-                    binding.autoWrapResult,
-                    binding.checkBtn,
-                    item.trim(),
-                    index)
-        }
     }
 
     private fun checkOrNext() {
@@ -116,12 +120,13 @@ class CourseListenFragment : BaseFragment() {
     }
 
     private fun check() {
-        val content = englishContent
-        if (binding.autoWrapResult.childCount > 0) {
-            var selectedStr = getSelectedResult()
+        hideKeyBoard()
+        val content = result
+        val userInput = binding.editText.text.toString().toLowerCase().trim()
+        if (!TextUtils.isEmpty(userInput)) {
             binding.checkBtn.text = "Next"
             binding.resultLayout.visibility = View.VISIBLE
-            if (content == selectedStr) {
+            if (content == userInput) {
                 mAVObject.user_result = true
                 playSoundPool(mAVObject.user_result)
                 binding.checkSuccess.setAnimation("check_success.json")
@@ -139,29 +144,15 @@ class CourseListenFragment : BaseFragment() {
                 binding.checkSuccess.setAnimation("cross.json")
                 binding.checkSuccess.playAnimation()
                 binding.resultTv.text = "正确答案"
-                binding.chineseTv.text = englishContent + "\n" + mAVObject.transalte
+                binding.chineseTv.text = result
                 binding.resultLayout.setBackgroundResource(R.color.wrong_bg)
                 binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_red_selecter)
                 binding.chineseTv.setTextColor(resources.getColor(R.color.wrong_text))
                 binding.resultTv.setTextColor(resources.getColor(R.color.wrong_text))
             }
         }else{
-            ToastUtil.diaplayMesShort(context,"请先做题，做完再Check！")
+            ToastUtil.diaplayMesShort(context,getString(R.string.input_translate_hint))
         }
-    }
-
-    private fun getSelectedResult(): String{
-        var sb = StringBuilder()
-        for (index in 0 until binding.autoWrapResult.childCount){
-            var item = ((binding.autoWrapResult[index] as ViewGroup)[0] as TextView).text.toString()
-            if (!TextUtils.isEmpty(item)){
-                sb.append(item)
-                if (index != binding.autoWrapResult.childCount-1){
-                    sb.append(" ")
-                }
-            }
-        }
-        return sb.toString()
     }
 
     private fun initializeSoundPool() {
@@ -189,28 +180,31 @@ class CourseListenFragment : BaseFragment() {
         }
     }
 
-    private val englishContent: String
+    private val result: String
         private get() {
-            var sb = StringBuilder()
-            var contents = mAVObject.answer.split(" ")
-            for (item in contents) {
-                if (!TextUtils.isEmpty(item)) {
-                    sb.append(item)
-                    sb.append(" ")
+            return if(StringUtils.isEnglish(mAVObject.answer)){
+                var sb = StringBuilder()
+                var contents = mAVObject.answer.split(" ")
+                for (item in contents) {
+                    if (!TextUtils.isEmpty(item)) {
+                        sb.append(item)
+                        sb.append(" ")
+                    }
                 }
+                sb.toString().trim()
+            }else {
+                mAVObject.answer.trim()
             }
-            return sb.toString().trim()
         }
 
     fun playItem() {
-        if (mAVObject != null) {
+        if (StringUtils.isEnglish(mAVObject.transalte)) {
             binding.playBtn.playAnimation()
-            binding.imgPlayBtn.playAnimation()
             var mp3Url = mAVObject.mp3_url
             var startTime = mAVObject.start_time
             var endTime = mAVObject.end_time
             if(TextUtils.isEmpty(mp3Url)){
-                mp3Url = MyPlayer.playUrl + mAVObject.answer
+                mp3Url = MyPlayer.playUrl + mAVObject.transalte
             }
             if(!TextUtils.isEmpty(startTime)){
                 startPosition = KStringUtils.getTimeMills(startTime)
@@ -229,7 +223,6 @@ class CourseListenFragment : BaseFragment() {
             Handler().postDelayed({
                 if (player.currentPosition > endPosition) {
                     binding.playBtn.cancelAnimation()
-                    binding.imgPlayBtn.cancelAnimation()
                     player.playWhenReady = false
                 }else{
                     stopAtEndPosition()
@@ -273,7 +266,6 @@ class CourseListenFragment : BaseFragment() {
                 }
                 Player.STATE_ENDED -> {
                     binding.playBtn.cancelAnimation()
-                    binding.imgPlayBtn.cancelAnimation()
                 }
             }
         }

@@ -3,11 +3,13 @@ package com.messi.languagehelper.util
 import android.animation.Animator
 import android.content.Context
 import android.text.TextUtils
+import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateInterpolator
 import android.widget.FrameLayout
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.view.ViewCompat
 import androidx.core.view.get
@@ -68,19 +70,6 @@ object KViewUtil {
         },60)
     }
 
-    private fun addNewFlexItemTextView(context: Context, word: String): ViewGroup {
-        val frameLayout = FrameLayout(context)
-        val frameParams = FlexboxLayout.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT)
-        ViewCompat.setPaddingRelative(frameLayout, 0, 0, 0, 0)
-        val margin = ScreenUtil.dip2px(context, 4f)
-        val marginTop = ScreenUtil.dip2px(context, 12f)
-        frameParams.setMargins(margin, marginTop, margin, 0)
-        frameLayout.layoutParams = frameParams
-        return frameLayout
-    }
-
     fun removeItem(targetParent: ViewGroup, resultParent: ViewGroup,sumitBtn:TextView, tv: TextView){
         var position = tv.getTag(R.id.tag_key) as Int
         var oview = targetParent[position] as FrameLayout
@@ -124,9 +113,9 @@ object KViewUtil {
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT)
         ViewCompat.setPaddingRelative(frameLayout, 0, 0, 0, 0)
-        val margin = ScreenUtil.dip2px(context, 4f)
-        val marginTop = ScreenUtil.dip2px(context, 12f)
-        frameParams.setMargins(margin, marginTop, margin, 0)
+        val margin = ScreenUtil.dip2px(context, 8f)
+        val marginTop = ScreenUtil.dip2px(context, 7f)
+        frameParams.setMargins(0, 0, margin, marginTop)
         frameLayout.layoutParams = frameParams
         frameLayout.setBackgroundResource(R.color.none)
 
@@ -136,7 +125,7 @@ object KViewUtil {
         textViewbg.textSize = 18f
         textViewbg.setBackgroundResource(R.drawable.bg_btn_course_item_backcup)
         textViewbg.setTextColor(context.resources.getColor(R.color.none))
-        val paddingbg = ScreenUtil.dip2px(context, 12f)
+        val paddingbg = ScreenUtil.dip2px(context, 10f)
         val paddingLRbg = ScreenUtil.dip2px(context, 10f)
         ViewCompat.setPaddingRelative(textViewbg, paddingLRbg, paddingbg, paddingLRbg, paddingbg)
         val layoutParamsbg = FlexboxLayout.LayoutParams(
@@ -163,7 +152,7 @@ object KViewUtil {
                 removeItem(autoWrapOptions,autoWrapResult,sumitBtn,textView)
             }
         }
-        val padding = ScreenUtil.dip2px(context, 12f)
+        val padding = ScreenUtil.dip2px(context, 10f)
         val paddingLR = ScreenUtil.dip2px(context, 10f)
         ViewCompat.setPaddingRelative(textView, paddingLR, padding, paddingLR, padding)
         val layoutParams = FlexboxLayout.LayoutParams(
@@ -172,5 +161,44 @@ object KViewUtil {
         textView.layoutParams = layoutParams
         frameLayout.addView(textView)
         autoWrapOptions.addView(frameLayout)
+    }
+
+    private fun addNewFlexItemTextView(context: Context, word: String): ViewGroup {
+        val frameLayout = FrameLayout(context)
+        val frameParams = FlexboxLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT)
+        ViewCompat.setPaddingRelative(frameLayout, 0, 0, 0, 0)
+        val margin = ScreenUtil.dip2px(context, 8f)
+        val marginTop = ScreenUtil.dip2px(context, 7f)
+        frameParams.setMargins(0, 0, margin, marginTop)
+        frameLayout.layoutParams = frameParams
+        return frameLayout
+    }
+
+    fun createOptionItem(context: Context, item: String): TextView{
+        val textViewbg = TextView(context)
+        textViewbg.gravity = Gravity.CENTER
+        textViewbg.text = item
+        textViewbg.textSize = 16f
+        textViewbg.elevation = 2f
+        textViewbg.setTextColor(context.resources.getColor(R.color.text_black))
+        setOptionItemStyle(context, textViewbg, R.drawable.border_shadow_gray_oval_selecter)
+        return textViewbg
+    }
+
+    fun setOptionItemStyle(context: Context?, textViewbg: TextView, resid: Int){
+        if(context != null){
+            textViewbg.setBackgroundResource(resid)
+            val paddingbg = ScreenUtil.dip2px(context, 16f)
+            val paddingLRbg = ScreenUtil.dip2px(context, 14f)
+            ViewCompat.setPaddingRelative(textViewbg, paddingLRbg, paddingbg, paddingLRbg, paddingbg)
+            val layoutParamsbg = LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT)
+            val marginBottom = ScreenUtil.dip2px(context, 10f)
+            layoutParamsbg.setMargins(0, 0, 0, marginBottom)
+            textViewbg.layoutParams = layoutParamsbg
+        }
     }
 }
