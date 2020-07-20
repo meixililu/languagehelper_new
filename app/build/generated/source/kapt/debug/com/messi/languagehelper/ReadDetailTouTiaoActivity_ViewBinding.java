@@ -23,7 +23,7 @@ public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
 
   private View view7f0800c6;
 
-  private View view7f080273;
+  private View view7f08027d;
 
   @UiThread
   public ReadDetailTouTiaoActivity_ViewBinding(ReadDetailTouTiaoActivity target) {
@@ -55,7 +55,7 @@ public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
     target.progressbar = Utils.findRequiredViewAsType(source, R.id.progressbar, "field 'progressbar'", ProgressBar.class);
     view = Utils.findRequiredView(source, R.id.play_background_btn, "field 'play_background_btn' and method 'onBackGroundClicked'");
     target.play_background_btn = Utils.castView(view, R.id.play_background_btn, "field 'play_background_btn'", RelativeLayout.class);
-    view7f080273 = view;
+    view7f08027d = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -84,7 +84,7 @@ public class ReadDetailTouTiaoActivity_ViewBinding implements Unbinder {
 
     view7f0800c6.setOnClickListener(null);
     view7f0800c6 = null;
-    view7f080273.setOnClickListener(null);
-    view7f080273 = null;
+    view7f08027d.setOnClickListener(null);
+    view7f08027d = null;
   }
 }

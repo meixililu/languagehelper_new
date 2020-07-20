@@ -57,6 +57,7 @@
                 android:layout_height="32dp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="@dimen/padding_10"
+                android:visibility="gone"
                 android:background="@drawable/background_blue_circle"
                 app:lottie_autoPlay="false"
                 app:lottie_fileName="voice_playing.json"
@@ -75,13 +76,12 @@
             android:id="@+id/img_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:roundedCornerRadius="8dp"
             fresco:viewAspectRatio="2"
             android:layout_marginTop="@dimen/padding_2"
             android:layout_marginLeft="@dimen/padding_10"
             android:layout_marginRight="@dimen/padding_10"
             fresco:placeholderImageScaleType="fitCenter"
-            fresco:actualImageScaleType="focusCrop"
+            fresco:actualImageScaleType="fitCenter"
             fresco:placeholderImage="@color/text_backup_bg"
             />
 

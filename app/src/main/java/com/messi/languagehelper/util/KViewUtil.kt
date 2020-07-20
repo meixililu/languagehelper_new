@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateInterpolator
 import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.view.ViewCompat
@@ -17,6 +18,32 @@ import com.google.android.flexbox.FlexboxLayout
 import com.messi.languagehelper.R
 
 object KViewUtil {
+
+    fun showRecordImgAnimation(volume: Int, recordAnimImg: ImageView) {
+        when {
+            volume < 4 -> {
+                recordAnimImg.setBackgroundResource(R.drawable.speak_voice_1)
+            }
+            volume < 8 -> {
+                recordAnimImg.setBackgroundResource(R.drawable.speak_voice_2)
+            }
+            volume < 12 -> {
+                recordAnimImg.setBackgroundResource(R.drawable.speak_voice_3)
+            }
+            volume < 16 -> {
+                recordAnimImg.setBackgroundResource(R.drawable.speak_voice_4)
+            }
+            volume < 20 -> {
+                recordAnimImg.setBackgroundResource(R.drawable.speak_voice_5)
+            }
+            volume < 24 -> {
+                recordAnimImg.setBackgroundResource(R.drawable.speak_voice_6)
+            }
+            volume < 31 -> {
+                recordAnimImg.setBackgroundResource(R.drawable.speak_voice_7)
+            }
+        }
+    }
 
     fun removeFromParentView(view: View) {
         val parent = view.parent as ViewGroup
@@ -72,6 +99,9 @@ object KViewUtil {
 
     fun removeItem(targetParent: ViewGroup, resultParent: ViewGroup,sumitBtn:TextView, tv: TextView){
         var position = tv.getTag(R.id.tag_key) as Int
+        if(position > targetParent.childCount){
+            return
+        }
         var oview = targetParent[position] as FrameLayout
         var offset = getViewsOffset(tv,oview)
         tv.animate()

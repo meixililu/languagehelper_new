@@ -76,7 +76,7 @@ public class Setings {
 
 	public static String YDOcrQuestion = "https://aidemo.youdao.com/ocr_question";
 
-	public static String XMLYApiRoot = "https://api.ximalaya.com";
+	public static String IMGRoot = "http://res.mzxbkj.com/img/";
 
 	/**tencent api**/
 	public static final String QQAPPID = "2109225639";

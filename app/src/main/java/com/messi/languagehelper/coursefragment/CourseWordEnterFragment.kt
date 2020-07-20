@@ -89,7 +89,10 @@ class CourseWordEnterFragment : BaseFragment() {
             binding.imgItem.visibility = View.VISIBLE
             binding.imgItem.setImageURI(mAVObject.img)
         }
-        binding.translateContent.text = mAVObject.transalte
+        if (!TextUtils.isEmpty(mAVObject.title)){
+            binding.titleTv.text = mAVObject.title
+        }
+        binding.questionTv.text = mAVObject.question
         binding.resultLayout.visibility = View.GONE
         binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_green_selecter)
     }

@@ -419,7 +419,9 @@ public class MainFragmentOld extends BaseFragment implements OnClickListener, Or
             }
             submit_to_fragment();
         } else {
-            showToast(getString(R.string.input_et_empty));
+            if (getContext() != null){
+                showToast(getResources().getString(R.string.input_et_empty));
+            }
             hideProgressbar();
         }
     }

@@ -2,6 +2,7 @@ package com.messi.languagehelper.httpservice
 
 import com.messi.languagehelper.bean.BoutiquesBean
 import com.messi.languagehelper.bean.PVideoResult
+import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

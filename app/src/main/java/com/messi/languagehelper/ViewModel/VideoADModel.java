@@ -34,12 +34,7 @@ public class VideoADModel {
         this.xx_ad_layout = xx_ad_layout;
         ad_layout = xx_ad_layout.findViewById(R.id.ad_layout);
         ad_close_btn = xx_ad_layout.findViewById(R.id.ad_close_btn);
-        ad_close_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                xx_ad_layout.setVisibility(View.GONE);
-            }
-        });
+        ad_close_btn.setOnClickListener(v -> xx_ad_layout.setVisibility(View.GONE));
     }
 
     public void showAd(){

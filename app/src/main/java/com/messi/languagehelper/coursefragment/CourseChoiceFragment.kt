@@ -8,14 +8,11 @@ import android.media.SoundPool
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
-import android.text.Editable
 import android.text.TextUtils
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.view.get
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.exoplayer2.ExoPlaybackException
 import com.google.android.exoplayer2.PlaybackParameters
@@ -27,8 +24,6 @@ import com.messi.languagehelper.BaseFragment
 import com.messi.languagehelper.R
 import com.messi.languagehelper.bean.ListenCourseData
 import com.messi.languagehelper.databinding.CourseChoiceFragmentBinding
-import com.messi.languagehelper.databinding.CourseTranslateEnterFragmentBinding
-import com.messi.languagehelper.databinding.CourseTranslateFragmentBinding
 import com.messi.languagehelper.util.*
 import com.messi.languagehelper.viewmodels.MyCourseViewModel
 
@@ -64,7 +59,7 @@ class CourseChoiceFragment : BaseFragment() {
 
     private fun initViews() {
         IPlayerUtil.pauseAudioPlayer(context)
-        player = SimpleExoPlayer.Builder(context!!).build()
+        player = SimpleExoPlayer.Builder(requireContext()).build()
         player.addListener(listener)
         binding.playBtn.setOnClickListener { playItem() }
         binding.checkBtn.setOnClickListener { checkOrNext() }
@@ -76,6 +71,7 @@ class CourseChoiceFragment : BaseFragment() {
             binding.checkBtn.isEnabled = false
             binding.checkBtn.text = "Check"
             wordToCharacter()
+            playItem()
         }
     }
 
@@ -86,7 +82,7 @@ class CourseChoiceFragment : BaseFragment() {
             binding.tips.visibility = View.VISIBLE
             binding.tips.text = mAVObject.tips
         }
-        if (StringUtils.isAllChinese(mAVObject.c_question)){
+        if (TextUtils.isEmpty(mAVObject.play_content)){
             binding.playBtn.visibility = View.GONE
         } else {
             binding.playBtn.visibility = View.VISIBLE
@@ -99,10 +95,10 @@ class CourseChoiceFragment : BaseFragment() {
         }
         binding.resultLayout.visibility = View.GONE
         binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_green_selecter)
-        binding.titleTv.text = mAVObject.c_title
-        binding.cQuestion.text = mAVObject.c_question
-        for (item in mAVObject.c_options.shuffled()) {
-            var textView = KViewUtil.createOptionItem(context!!,item.trim())
+        binding.titleTv.text = mAVObject.title
+        binding.cQuestion.text = mAVObject.question
+        for (item in mAVObject.options.shuffled()) {
+            var textView = KViewUtil.createOptionItem(requireContext(),item.trim())
             textView.setOnClickListener {
                 resetTV(textView)
                 binding.checkBtn.isEnabled = true
@@ -118,7 +114,6 @@ class CourseChoiceFragment : BaseFragment() {
             KViewUtil.setOptionItemStyle(context, item, R.drawable.border_shadow_gray_oval_selecter)
         }
         KViewUtil.setOptionItemStyle(context, tv, R.drawable.border_shadow_blue_oval_s)
-//        tv.setBackgroundResource(R.drawable.border_shadow_blue_oval_s)
     }
 
     private fun checkOrNext() {
@@ -208,13 +203,13 @@ class CourseChoiceFragment : BaseFragment() {
         }
 
     fun playItem() {
-        if (StringUtils.isEnglish(mAVObject.c_question)) {
+        if (!TextUtils.isEmpty(mAVObject.play_content)) {
             binding.playBtn.playAnimation()
             var mp3Url = mAVObject.mp3_url
             var startTime = mAVObject.start_time
             var endTime = mAVObject.end_time
             if(TextUtils.isEmpty(mp3Url)){
-                mp3Url = MyPlayer.playUrl + mAVObject.c_question
+                mp3Url = MyPlayer.playUrl + mAVObject.play_content
             }
             if(!TextUtils.isEmpty(startTime)){
                 startPosition = KStringUtils.getTimeMills(startTime)

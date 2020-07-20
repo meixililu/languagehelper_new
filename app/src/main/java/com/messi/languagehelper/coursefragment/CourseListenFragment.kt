@@ -58,7 +58,7 @@ class CourseListenFragment : BaseFragment() {
 
     private fun initViews() {
         IPlayerUtil.pauseAudioPlayer(context)
-        player = SimpleExoPlayer.Builder(context!!).build()
+        player = SimpleExoPlayer.Builder(requireContext()).build()
         player.addListener(listener)
         binding.playBtn.setOnClickListener { playItem() }
         binding.imgPlayBtn.setOnClickListener { playItem() }
@@ -91,18 +91,27 @@ class CourseListenFragment : BaseFragment() {
             binding.imgLayout.visibility = View.VISIBLE
             binding.imgItem.setImageURI(mAVObject.img)
         }
+        if (!TextUtils.isEmpty(mAVObject.title)){
+            binding.titleTv.text = mAVObject.title
+        }
         binding.resultLayout.visibility = View.GONE
         binding.autoWrapOptions.removeAllViews()
         binding.autoWrapResult.removeAllViews()
         binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_green_selecter)
         val contents = mAVObject.content.split(" ")
-        for ((index,item) in contents.shuffled().withIndex()) {
-            KViewUtil.createNewFlexItemTextView(context!!,
-                    binding.autoWrapOptions,
-                    binding.autoWrapResult,
-                    binding.checkBtn,
-                    item.trim(),
-                    index)
+        var index = 0
+        for (item in contents.shuffled()) {
+            if (TextUtils.isEmpty(item) || item == " "){
+                continue
+            }else{
+                KViewUtil.createNewFlexItemTextView(requireContext(),
+                        binding.autoWrapOptions,
+                        binding.autoWrapResult,
+                        binding.checkBtn,
+                        item.trim(),
+                        index)
+                index++
+            }
         }
     }
 

@@ -70,6 +70,7 @@ class CourseTranslateFragment : BaseFragment() {
             binding.checkBtn.isEnabled = false
             binding.checkBtn.text = "Check"
             wordToCharacter()
+            playItem()
         }
     }
 
@@ -91,19 +92,28 @@ class CourseTranslateFragment : BaseFragment() {
             binding.imgItem.visibility = View.VISIBLE
             binding.imgItem.setImageURI(mAVObject.img)
         }
+        if (!TextUtils.isEmpty(mAVObject.title)){
+            binding.titleTv.text = mAVObject.title
+        }
         binding.translateContent.text = mAVObject.transalte
         binding.resultLayout.visibility = View.GONE
         binding.autoWrapOptions.removeAllViews()
         binding.autoWrapResult.removeAllViews()
         binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_green_selecter)
         val contents = mAVObject.content.split(" ")
-        for ((index,item) in contents.shuffled().withIndex()) {
-            KViewUtil.createNewFlexItemTextView(context!!,
-                    binding.autoWrapOptions,
-                    binding.autoWrapResult,
-                    binding.checkBtn,
-                    item.trim(),
-                    index)
+        var index = 0
+        for (item in contents.shuffled()) {
+            if (TextUtils.isEmpty(item) || item == " "){
+                continue
+            }else{
+                KViewUtil.createNewFlexItemTextView(requireContext(),
+                        binding.autoWrapOptions,
+                        binding.autoWrapResult,
+                        binding.checkBtn,
+                        item.trim(),
+                        index)
+                index++
+            }
         }
     }
 

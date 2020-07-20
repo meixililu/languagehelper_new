@@ -30,11 +30,19 @@
                 android:padding="@dimen/padding_10"
                 android:layout_marginLeft="@dimen/padding_10"
                 android:layout_marginRight="@dimen/padding_10"
-                android:layout_marginBottom="@dimen/padding_2"
                 android:background="@drawable/bg_btn_course_item"
                 android:visibility="gone"
                 />
-
+            <TextView
+                android:id="@+id/title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:padding="@dimen/padding_10"
+                android:textStyle="bold"
+                android:text="@string/title_Practice"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/biggerx" />
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -46,17 +54,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     >
-                    <TextView
-                        android:id="@+id/title_tv"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="left"
-                        android:padding="@dimen/padding_10"
-                        android:textStyle="bold"
-                        android:text="@string/listen_course_title"
-                        android:textColor="@color/text_black"
-                        android:textSize="@dimen/biggerx" />
-
                     <com.airbnb.lottie.LottieAnimationView
                         android:id="@+id/play_btn"
                         android:layout_width="120dp"
@@ -79,12 +76,11 @@
                         android:id="@+id/img_item"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:roundedCornerRadius="8dp"
                         fresco:viewAspectRatio="2"
                         android:layout_marginLeft="@dimen/padding_10"
                         android:layout_marginRight="@dimen/padding_10"
                         fresco:placeholderImageScaleType="fitCenter"
-                        fresco:actualImageScaleType="focusCrop"
+                        fresco:actualImageScaleType="fitCenter"
                         fresco:placeholderImage="@color/text_backup_bg"
                         />
                     <com.airbnb.lottie.LottieAnimationView

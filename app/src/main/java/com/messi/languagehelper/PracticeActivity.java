@@ -163,6 +163,7 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
                 adapter.notifyDataSetChanged();
                 animationReward(bean.getScoreInt());
                 sbResult.setLength(0);
+                playUserPcm();
             }
         }
 
@@ -299,8 +300,12 @@ public class PracticeActivity extends BaseActivity implements OnClickListener, P
     }
 
     private void playUserPcm() {
-        if (!TextUtils.isEmpty(userPcmPath)) {
-            PCMAudioPlayer.getInstance().startPlay(userPcmPath);
+        try {
+            if (!TextUtils.isEmpty(userPcmPath)) {
+                PCMAudioPlayer.getInstance().startPlay(userPcmPath);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

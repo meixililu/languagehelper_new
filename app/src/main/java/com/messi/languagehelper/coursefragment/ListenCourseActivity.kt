@@ -61,13 +61,15 @@ class ListenCourseActivity : BaseActivity() {
         player = SimpleExoPlayer.Builder(this).build()
         player.addListener(listener)
         mSharedPreferences = Setings.getSharedPreferences(this)
-        Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.DailyListenCourseID,0)
         courseID = mSharedPreferences.getInt(KeyUtil.DailyListenCourseID,0)
         binding.closeBtn.setOnClickListener { finish() }
         binding.playBtn.setOnClickListener { playItem() }
         binding.imgPlayBtn.setOnClickListener { playItem() }
         binding.imgLayout.setOnClickListener { playItem() }
         binding.checkBtn.setOnClickListener { checkOrNext() }
+        binding.levelTv.setOnClickListener {
+            Setings.saveSharedPreferences(mSharedPreferences,KeyUtil.DailyListenCourseID,0)
+        }
     }
 
     private fun checkOrNext() {
@@ -132,20 +134,26 @@ class ListenCourseActivity : BaseActivity() {
         binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_green_selecter)
         val content = mAVObject.getString(AVOUtil.ListenCourse.content)
         val contents = content.split(" ")
-        for ((index,item) in contents.shuffled().withIndex()) {
-            KViewUtil.createNewFlexItemTextView(this,
-                    binding.autoWrapOptions,
-                    binding.autoWrapResult,
-                    binding.checkBtn,
-                    item.trim(),
-                    index)
+        var index = 0
+        for (item in contents.shuffled()) {
+            if (TextUtils.isEmpty(item) || item == " "){
+                continue
+            }else{
+                KViewUtil.createNewFlexItemTextView(this,
+                        binding.autoWrapOptions,
+                        binding.autoWrapResult,
+                        binding.checkBtn,
+                        item.trim(),
+                        index)
+                index++
+            }
         }
     }
 
     private fun check() {
-        val content = answer
+        val content = answer.toLowerCase()
         if (binding.autoWrapResult.childCount > 0) {
-            var selectedStr = getSelectedResult()
+            var selectedStr = getSelectedResult().toLowerCase()
             binding.checkBtn.text = "Next"
             binding.resultLayout.visibility = View.VISIBLE
             if (content == selectedStr) {

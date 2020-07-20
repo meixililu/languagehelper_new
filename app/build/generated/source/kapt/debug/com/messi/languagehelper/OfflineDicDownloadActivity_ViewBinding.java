@@ -22,7 +22,7 @@ public class OfflineDicDownloadActivity_ViewBinding implements Unbinder {
 
   private View view7f080105;
 
-  private View view7f0801aa;
+  private View view7f0801b4;
 
   private View view7f08016a;
 
@@ -71,7 +71,7 @@ public class OfflineDicDownloadActivity_ViewBinding implements Unbinder {
     target.kzImg = Utils.findRequiredViewAsType(source, R.id.kz_img, "field 'kzImg'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.kz_layout, "field 'kzLayout' and method 'onViewClicked'");
     target.kzLayout = Utils.castView(view, R.id.kz_layout, "field 'kzLayout'", FrameLayout.class);
-    view7f0801aa = view;
+    view7f0801b4 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -115,8 +115,8 @@ public class OfflineDicDownloadActivity_ViewBinding implements Unbinder {
     view7f080107 = null;
     view7f080105.setOnClickListener(null);
     view7f080105 = null;
-    view7f0801aa.setOnClickListener(null);
-    view7f0801aa = null;
+    view7f0801b4.setOnClickListener(null);
+    view7f0801b4 = null;
     view7f08016a.setOnClickListener(null);
     view7f08016a = null;
   }

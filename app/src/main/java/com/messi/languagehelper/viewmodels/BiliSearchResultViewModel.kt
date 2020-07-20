@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.messi.languagehelper.bean.BoutiquesBean
 import com.messi.languagehelper.bean.RespoData
 import com.messi.languagehelper.httpservice.RetrofitBuilder
-import com.messi.languagehelper.util.LogUtil
 import com.messi.languagehelper.util.Setings
 import com.messi.languagehelper.util.SignUtil
 import com.messi.languagehelper.util.SystemUtil
@@ -54,7 +53,7 @@ class BiliSearchResultViewModel : ViewModel(){
         val platform = SystemUtil.platform
         val network = SystemUtil.network
         val sign = SignUtil.getMd5Sign(Setings.PVideoKey, timestamp, keyword, page.toString(), platform, network)
-        var respoData = RetrofitBuilder.kService.searchVideoApi(keyword, network, platform, sign, timestamp, page)
+        var respoData = RetrofitBuilder.vService.searchVideoApi(keyword, network, platform, sign, timestamp, page)
         var datas = respoData.body()
         if (datas != null) {
             if (datas.size > 0){
@@ -66,7 +65,6 @@ class BiliSearchResultViewModel : ViewModel(){
             }
             hasMore = datas.size == 20
         }
-
         result.isHideFooter = !hasMore
         result
     }

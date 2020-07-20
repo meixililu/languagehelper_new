@@ -10,6 +10,7 @@ import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.source.MediaSource;
+import com.google.android.exoplayer2.source.MergingMediaSource;
 import com.google.android.exoplayer2.source.ProgressiveMediaSource;
 import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
@@ -365,13 +366,16 @@ public class MyPlayer {
                 DefaultHttpDataSource.DEFAULT_READ_TIMEOUT_MILLIS,
                 true);
         MediaSource mediaSource = null;
-        if (url.contains("bilivideo")) {
+        if (sUrl.contains("bilibili")) {
             dataSourceFactory.getDefaultRequestProperties().set("range","bytes=0-");
             dataSourceFactory.getDefaultRequestProperties().set("referer",sUrl);
             dataSourceFactory.getDefaultRequestProperties().set("user-agent",LanguagehelperHttpClient.Header);
             if (!TextUtils.isEmpty(bkurl)) {
-                mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
-                        .createMediaSource(Uri.parse(bkurl));
+                MediaSource videoSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
+                                .createMediaSource(Uri.parse(url));
+                MediaSource audioSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
+                                .createMediaSource(Uri.parse(bkurl));
+                mediaSource = new MergingMediaSource(videoSource,audioSource);
             }else {
                 mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
                         .createMediaSource(Uri.parse(url));

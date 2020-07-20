@@ -12,8 +12,11 @@ data class ListenCourseData (
         var img: String = "",
         var tips: String = "",
         var user_result: Boolean = false,
-        var c_title: String = "",
-        var c_question: String = "",
-        var c_options: ArrayList<String> = ArrayList()
+        var title: String = "",
+        var question: String = "",
+        var play_content: String = "",
+        var video_url: String = "",
+        var video_type: String = "",
+        var options: ArrayList<String> = ArrayList()
 
 )

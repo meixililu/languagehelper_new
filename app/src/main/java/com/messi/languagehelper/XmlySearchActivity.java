@@ -17,6 +17,7 @@ import com.google.android.flexbox.FlexboxLayout;
 import com.messi.languagehelper.databinding.ActivityXmlySearchBinding;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.ScreenUtil;
 import com.messi.languagehelper.util.Setings;
 import com.ximalaya.ting.android.opensdk.constants.DTransferConstants;
@@ -288,7 +289,7 @@ public class XmlySearchActivity extends BaseActivity {
         query.findInBackground().subscribe(ObserverBuilder.buildCollectionObserver(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
-                if (!list.isEmpty()) {
+                if (NullUtil.isNotEmpty(list)) {
                     AVObject mAVObject = list.get(0);
                     int times = mAVObject.getInt(AVOUtil.XmlySearchHot.click_time);
                     mAVObject.put(AVOUtil.XmlySearchHot.click_time,times+1);

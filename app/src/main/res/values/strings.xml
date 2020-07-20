@@ -136,6 +136,8 @@
     <string name="listen_course_input_hint">请输入你听到的内容</string>
     <string name="ch_dic_idiom_input_hint">请输入需要查询的成语</string>
     <string name="input_translate_hint">请翻译</string>
+    <string name="choice_hint">请选择</string>
+    <string name="enter_hint">请输入</string>
     <string name="auto_clear_after_translate">翻译完成后自动清空输入框</string>
     <string name="auto_play_after_translate">自动播放翻译结果</string>
     <string name="auto_clear">退出应用删除非收藏记录</string>
@@ -446,6 +448,7 @@
     <string name="search_caricature">搜动漫</string>
     <string name="listen_course_title">选择你听到的内容</string>
     <string name="course_translate_title">翻译</string>
+    <string name="course_mimic">口语模仿跟读</string>
 
 
 </resources>

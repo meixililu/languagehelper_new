@@ -35,7 +35,7 @@
                 android:textColor="@color/text_black"
                 android:textSize="@dimen/biggerx" />
             <TextView
-                android:id="@+id/translate_content"
+                android:id="@+id/question_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -57,12 +57,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                app:roundedCornerRadius="8dp"
                 fresco:viewAspectRatio="1.5"
                 android:layout_marginLeft="@dimen/padding_10"
                 android:layout_marginRight="@dimen/padding_10"
                 fresco:placeholderImageScaleType="fitCenter"
-                fresco:actualImageScaleType="focusCrop"
+                fresco:actualImageScaleType="fitCenter"
                 fresco:placeholderImage="@color/text_backup_bg"
                 />
         </LinearLayout>

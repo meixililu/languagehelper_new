@@ -77,7 +77,7 @@
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/padding_10"
+                    android:layout_marginBottom="@dimen/padding_5"
                     >
                     <LinearLayout
                         android:id="@+id/noimg_layout"
@@ -116,13 +116,12 @@
                             android:id="@+id/img_item"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            app:roundedCornerRadius="8dp"
                             fresco:viewAspectRatio="2"
                             android:layout_marginLeft="@dimen/padding_10"
                             android:layout_marginRight="@dimen/padding_10"
-                            fresco:placeholderImageScaleType="fitCenter"
-                            fresco:actualImageScaleType="focusCrop"
-                            fresco:placeholderImage="@color/text_backup_bg"
+                            fresco:placeholderImageScaleType="focusCrop"
+                            fresco:actualImageScaleType="fitCenter"
+                            fresco:placeholderImage="@color/text_tint"
                             />
                         <com.airbnb.lottie.LottieAnimationView
                             android:id="@+id/img_play_btn"
@@ -174,7 +173,7 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="75dp"/>
+                    android:layout_height="70dp"/>
             </LinearLayout>
         </ScrollView>
 

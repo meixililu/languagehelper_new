@@ -45,12 +45,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_10"
             android:visibility="gone"
-            app:roundedCornerRadius="8dp"
             fresco:viewAspectRatio="2"
             android:layout_marginLeft="@dimen/padding_10"
             android:layout_marginRight="@dimen/padding_10"
             fresco:placeholderImageScaleType="fitCenter"
-            fresco:actualImageScaleType="focusCrop"
+            fresco:actualImageScaleType="fitCenter"
             fresco:placeholderImage="@color/text_backup_bg"
             />
         <LinearLayout

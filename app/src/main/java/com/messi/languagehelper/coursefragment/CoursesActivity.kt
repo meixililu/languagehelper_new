@@ -10,6 +10,7 @@ import com.messi.languagehelper.BaseActivity
 import com.messi.languagehelper.R
 import com.messi.languagehelper.databinding.CoursesActivityBinding
 import com.messi.languagehelper.impl.FragmentProgressbarListener
+import com.messi.languagehelper.util.IPlayerUtil
 import com.messi.languagehelper.util.KeyUtil
 import com.messi.languagehelper.util.MyPlayer
 import com.messi.languagehelper.util.ToastUtil
@@ -31,6 +32,7 @@ class CoursesActivity: FragmentProgressbarListener, BaseActivity() {
     }
 
     private fun init() {
+        IPlayerUtil.pauseAudioPlayer(this)
         val bundle = intent.getBundleExtra(KeyUtil.BundleKey)
         course_id = bundle.getString(KeyUtil.CourseId,"")
         if (!TextUtils.isEmpty(course_id)){
@@ -41,10 +43,10 @@ class CoursesActivity: FragmentProgressbarListener, BaseActivity() {
             viewModel.result.observe(this, Observer {
                 when (it) {
                     "finish" -> {
-                        ToastUtil.diaplayMesLong(this,"finish")
+                        ToastUtil.diaplayMesShort(this,"finish")
                     }
                     "error" -> {
-                        ToastUtil.diaplayMesLong(this,"error")
+                        ToastUtil.diaplayMesShort(this,"error")
                     }
                     "translate" -> {
                         initFragment(CourseTranslateFragment())
@@ -64,6 +66,18 @@ class CoursesActivity: FragmentProgressbarListener, BaseActivity() {
                     "choice" -> {
                         initFragment(CourseChoiceFragment())
                     }
+                    "enter" -> {
+                        initFragment(CourseEnterFragment())
+                    }
+                    "word" -> {
+                        initFragment(CourseWordFragment())
+                    }
+                    "mimic" -> {
+                        initFragment(CourseMimicFragment())
+                    }
+                    "video" -> {
+                        initFragment(CourseVideoFragment())
+                    }
                 }
             })
         }
@@ -80,6 +94,10 @@ class CoursesActivity: FragmentProgressbarListener, BaseActivity() {
     override fun onDestroy() {
         super.onDestroy()
         MyPlayer.getInstance(this).onDestroy()
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
 }

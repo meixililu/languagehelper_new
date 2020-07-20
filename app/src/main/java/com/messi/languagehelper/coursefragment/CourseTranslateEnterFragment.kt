@@ -84,6 +84,7 @@ class CourseTranslateEnterFragment : BaseFragment() {
             binding.checkBtn.isEnabled = false
             binding.checkBtn.text = "Check"
             wordToCharacter()
+            playItem()
         }
     }
 
@@ -104,6 +105,9 @@ class CourseTranslateEnterFragment : BaseFragment() {
         } else {
             binding.imgItem.visibility = View.VISIBLE
             binding.imgItem.setImageURI(mAVObject.img)
+        }
+        if (!TextUtils.isEmpty(mAVObject.title)){
+            binding.titleTv.text = mAVObject.title
         }
         binding.translateContent.text = mAVObject.transalte
         binding.resultLayout.visibility = View.GONE

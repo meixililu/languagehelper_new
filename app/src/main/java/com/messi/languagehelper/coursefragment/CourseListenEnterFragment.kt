@@ -106,6 +106,9 @@ class CourseListenEnterFragment : BaseFragment() {
             binding.imgLayout.visibility = View.VISIBLE
             binding.imgItem.setImageURI(mAVObject.img)
         }
+        if (!TextUtils.isEmpty(mAVObject.title)){
+            binding.titleTv.text = mAVObject.title
+        }
         binding.editText.text?.clear()
         binding.resultLayout.visibility = View.GONE
         binding.editText.clearComposingText()

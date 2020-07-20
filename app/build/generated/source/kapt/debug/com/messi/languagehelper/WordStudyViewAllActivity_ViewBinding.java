@@ -17,9 +17,9 @@ import java.lang.Override;
 public class WordStudyViewAllActivity_ViewBinding implements Unbinder {
   private WordStudyViewAllActivity target;
 
-  private View view7f08030b;
+  private View view7f080315;
 
-  private View view7f080240;
+  private View view7f08024a;
 
   @UiThread
   public WordStudyViewAllActivity_ViewBinding(WordStudyViewAllActivity target) {
@@ -33,7 +33,7 @@ public class WordStudyViewAllActivity_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.show_all_unit_layout, "field 'previousUnitLayout' and method 'onClick'");
     target.previousUnitLayout = Utils.castView(view, R.id.show_all_unit_layout, "field 'previousUnitLayout'", FrameLayout.class);
-    view7f08030b = view;
+    view7f080315 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -42,7 +42,7 @@ public class WordStudyViewAllActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.next_unit_layout, "field 'nextUnitLayout' and method 'onClick'");
     target.nextUnitLayout = Utils.castView(view, R.id.next_unit_layout, "field 'nextUnitLayout'", FrameLayout.class);
-    view7f080240 = view;
+    view7f08024a = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -67,9 +67,9 @@ public class WordStudyViewAllActivity_ViewBinding implements Unbinder {
     target.transitionsContainer = null;
     target.studycategoryLv = null;
 
-    view7f08030b.setOnClickListener(null);
-    view7f08030b = null;
-    view7f080240.setOnClickListener(null);
-    view7f080240 = null;
+    view7f080315.setOnClickListener(null);
+    view7f080315 = null;
+    view7f08024a.setOnClickListener(null);
+    view7f08024a = null;
   }
 }

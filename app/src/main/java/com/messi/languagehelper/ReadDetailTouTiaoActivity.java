@@ -56,6 +56,7 @@ import com.messi.languagehelper.util.IPlayerUtil;
 import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.MyPlayer;
 import com.messi.languagehelper.util.NetworkUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.SignUtil;
@@ -454,33 +455,7 @@ public class ReadDetailTouTiaoActivity extends BaseActivity implements FragmentP
                 simpleExoPlayerView.getPlayer().seekTo(mResumeWindow, mResumePosition);
             }
 
-            MediaSource mediaSource = null;
-            DefaultHttpDataSourceFactory dataSourceFactory = new DefaultHttpDataSourceFactory(
-                    Setings.Hearder,
-                    null,
-                    DefaultHttpDataSource.DEFAULT_CONNECT_TIMEOUT_MILLIS,
-                    DefaultHttpDataSource.DEFAULT_READ_TIMEOUT_MILLIS,
-                    true);
-            if (Url.contains("bilibili")) {
-                dataSourceFactory.getDefaultRequestProperties().set("range","bytes=0-");
-                dataSourceFactory.getDefaultRequestProperties().set("referer",Url);
-                dataSourceFactory.getDefaultRequestProperties().set("user-agent",Setings.Hearder);
-                if (!TextUtils.isEmpty(mAVObject.getBackup1())) {
-                    MediaSource videoSource =
-                            new ProgressiveMediaSource.Factory(dataSourceFactory)
-                                    .createMediaSource(Uri.parse(media_url));
-                    MediaSource audioSource =
-                            new ProgressiveMediaSource.Factory(dataSourceFactory)
-                            .createMediaSource(Uri.parse(mAVObject.getBackup1()));
-                    mediaSource = new MergingMediaSource(videoSource,audioSource);
-                }else {
-                    mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
-                            .createMediaSource(Uri.parse(media_url));
-                }
-            } else {
-                mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
-                        .createMediaSource(Uri.parse(media_url));
-            }
+            MediaSource mediaSource = MyPlayer.getMediaSource(media_url,mAVObject.getBackup1(),Url);
             player.addListener(this);
             player.prepare(mediaSource);
             player.setPlayWhenReady(true);

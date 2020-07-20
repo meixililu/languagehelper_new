@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: ./app/libs/IFLY_AD_4.4.2.aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8f7ffc86c529963bbc0931a0ef0401f3/jetified-IFLY_AD_4.4.2/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8f7ffc86c529963bbc0931a0ef0401f3/jetified-IFLY_AD_4.4.2/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8f7ffc86c529963bbc0931a0ef0401f3/jetified-IFLY_AD_4.4.2/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/841ab6a88877e5519c37444c9c91e3e3/jetified-IFLY_AD_4.4.2/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/841ab6a88877e5519c37444c9c91e3e3/jetified-IFLY_AD_4.4.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/841ab6a88877e5519c37444c9c91e3e3/jetified-IFLY_AD_4.4.2/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

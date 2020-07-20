@@ -1,9 +1,10 @@
 <component name="libraryTable">
   <library name="Gradle: com.facebook.fresco:animated-gif:2.2.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6cc9bdf0a474a381db6ebebbe8a8276c/jetified-animated-gif-2.2.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6cc9bdf0a474a381db6ebebbe8a8276c/jetified-animated-gif-2.2.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6cc9bdf0a474a381db6ebebbe8a8276c/jetified-animated-gif-2.2.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f8766d579b6cc2054510f38528f8a998/jetified-animated-gif-2.2.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f8766d579b6cc2054510f38528f8a998/jetified-animated-gif-2.2.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f8766d579b6cc2054510f38528f8a998/jetified-animated-gif-2.2.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.fresco/animated-gif/2.2.0/5c398bea966f103792eab78fc017fc9592e9330a/animated-gif-2.2.0-javadoc.jar!/" />
