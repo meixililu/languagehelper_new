@@ -32,7 +32,7 @@ public class YYJHomeFragment_ViewBinding implements Unbinder {
 
   private View view7f080119;
 
-  private View view7f0804bd;
+  private View view7f0804be;
 
   private View view7f0803d5;
 
@@ -126,7 +126,7 @@ public class YYJHomeFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.xmly_layout, "field 'xmlyLayout' and method 'onViewClicked'");
     target.xmlyLayout = Utils.castView(view, R.id.xmly_layout, "field 'xmlyLayout'", FrameLayout.class);
-    view7f0804bd = view;
+    view7f0804be = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -191,8 +191,8 @@ public class YYJHomeFragment_ViewBinding implements Unbinder {
     view7f080118 = null;
     view7f080119.setOnClickListener(null);
     view7f080119 = null;
-    view7f0804bd.setOnClickListener(null);
-    view7f0804bd = null;
+    view7f0804be.setOnClickListener(null);
+    view7f0804be = null;
     view7f0803d5.setOnClickListener(null);
     view7f0803d5 = null;
     view7f080349.setOnClickListener(null);

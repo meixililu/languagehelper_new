@@ -25,7 +25,7 @@ public class WordStudyCiYiXuanCiActivity_ViewBinding implements Unbinder {
 
   private View view7f080300;
 
-  private View view7f0803d9;
+  private View view7f0803da;
 
   private View view7f080147;
 
@@ -86,7 +86,7 @@ public class WordStudyCiYiXuanCiActivity_ViewBinding implements Unbinder {
     target.resultLayout = Utils.findRequiredViewAsType(source, R.id.result_layout, "field 'resultLayout'", LinearLayout.class);
     view = Utils.findRequiredView(source, R.id.try_again_layout, "field 'tryAgainLayout' and method 'onClick'");
     target.tryAgainLayout = Utils.castView(view, R.id.try_again_layout, "field 'tryAgainLayout'", FrameLayout.class);
-    view7f0803d9 = view;
+    view7f0803da = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -134,8 +134,8 @@ public class WordStudyCiYiXuanCiActivity_ViewBinding implements Unbinder {
     view7f0802fe = null;
     view7f080300.setOnClickListener(null);
     view7f080300 = null;
-    view7f0803d9.setOnClickListener(null);
-    view7f0803d9 = null;
+    view7f0803da.setOnClickListener(null);
+    view7f0803da = null;
     view7f080147.setOnClickListener(null);
     view7f080147 = null;
   }

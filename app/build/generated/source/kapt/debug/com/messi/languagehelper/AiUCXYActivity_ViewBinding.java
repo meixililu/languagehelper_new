@@ -27,7 +27,7 @@ public class AiUCXYActivity_ViewBinding implements Unbinder {
 
   private View view7f080192;
 
-  private View view7f08049b;
+  private View view7f08049c;
 
   @UiThread
   public AiUCXYActivity_ViewBinding(AiUCXYActivity target) {
@@ -65,7 +65,7 @@ public class AiUCXYActivity_ViewBinding implements Unbinder {
     target.voiceBtn = Utils.findRequiredViewAsType(source, R.id.voice_btn, "field 'voiceBtn'", TextView.class);
     view = Utils.findRequiredView(source, R.id.voice_btn_cover, "field 'voiceBtnCover' and method 'onViewClicked'");
     target.voiceBtnCover = Utils.castView(view, R.id.voice_btn_cover, "field 'voiceBtnCover'", CardView.class);
-    view7f08049b = view;
+    view7f08049c = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -113,7 +113,7 @@ public class AiUCXYActivity_ViewBinding implements Unbinder {
     view7f080360 = null;
     view7f080192.setOnClickListener(null);
     view7f080192 = null;
-    view7f08049b.setOnClickListener(null);
-    view7f08049b = null;
+    view7f08049c.setOnClickListener(null);
+    view7f08049c = null;
   }
 }

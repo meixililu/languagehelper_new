@@ -57,7 +57,6 @@ class CourseListenFragment : BaseFragment() {
     }
 
     private fun initViews() {
-        IPlayerUtil.pauseAudioPlayer(context)
         player = SimpleExoPlayer.Builder(requireContext()).build()
         player.addListener(listener)
         binding.playBtn.setOnClickListener { playItem() }
@@ -134,7 +133,7 @@ class CourseListenFragment : BaseFragment() {
                 mAVObject.user_result = true
                 playSoundPool(mAVObject.user_result)
                 binding.checkSuccess.setAnimation("check_success.json")
-                binding.checkSuccess.progress
+                binding.checkSuccess.speed = 2F
                 binding.checkSuccess.playAnimation()
                 binding.resultTv.text = "正确"
                 binding.chineseTv.text = mAVObject.transalte
@@ -246,9 +245,6 @@ class CourseListenFragment : BaseFragment() {
             }, 10)
         }
     }
-
-    val isPlaying: Boolean
-        get() = player.playbackState == Player.STATE_READY && player.playWhenReady
 
     override fun onDestroy() {
         super.onDestroy()

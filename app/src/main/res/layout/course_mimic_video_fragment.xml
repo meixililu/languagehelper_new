@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:fresco="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/layout_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical">
+    android:fitsSystemWindows="true"
+    android:background="@color/white">
 
     <LinearLayout
+        android:id="@+id/selection_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         android:orientation="vertical">
+
         <TextView
             android:id="@+id/tips"
             android:layout_width="match_parent"
@@ -21,7 +24,7 @@
             android:padding="@dimen/padding_10"
             android:layout_marginLeft="@dimen/padding_10"
             android:layout_marginRight="@dimen/padding_10"
-            android:layout_marginBottom="@dimen/padding_10"
+            android:layout_marginBottom="@dimen/padding_5"
             android:background="@drawable/bg_btn_course_item"
             android:visibility="gone"
             />
@@ -31,54 +34,38 @@
             android:layout_height="wrap_content"
             android:gravity="left"
             android:paddingLeft="@dimen/padding_10"
-            android:paddingRight="@dimen/padding_10"
-            android:paddingBottom="@dimen/padding_10"
             android:textStyle="bold"
             android:text="@string/course_mimic"
             android:textColor="@color/text_black"
             android:textSize="@dimen/biggerx" />
         <FrameLayout
-            android:id="@+id/img_layout"
+            android:id="@+id/video_ly"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            >
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:id="@+id/img_item"
+            android:layout_height="220dp"
+            android:layout_marginTop="@dimen/padding_10"
+            android:background="@color/black"
+            android:keepScreenOn="true">
+            <com.google.android.exoplayer2.ui.PlayerView
+                android:id="@+id/player_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                fresco:viewAspectRatio="2"
-                android:layout_marginLeft="@dimen/padding_10"
-                android:layout_marginRight="@dimen/padding_10"
-                android:layout_marginBottom="@dimen/padding_10"
-                fresco:placeholderImageScaleType="fitCenter"
-                fresco:actualImageScaleType="fitCenter"
-                fresco:placeholderImage="@color/text_backup_bg"
-                />
-            <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/img_play_btn"
-                android:layout_width="45dp"
-                android:layout_height="40dp"
-                android:layout_gravity="bottom|right"
-                android:layout_marginRight="@dimen/padding_5"
-                app:lottie_autoPlay="false"
-                app:lottie_fileName="playing_v_green.json"
-                app:lottie_loop="true" />
+                android:layout_height="220dp"
+                android:layout_gravity="center"
+                app:show_buffering="always"
+                app:use_controller="false"
+                android:background="@color/black" />
         </FrameLayout>
 
         <TextView
-            android:id="@+id/word_name"
+            android:id="@+id/content_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/padding_10"
-            android:paddingRight="@dimen/padding_10"
-            android:paddingBottom="@dimen/padding_10"
+            android:padding="@dimen/padding_10"
             android:gravity="left"
-            android:text="listen"
             android:textColor="@color/text_black"
             android:textSize="@dimen/biggerx" />
+
         <TextView
-            android:id="@+id/word_des"
+            android:id="@+id/translate_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/padding_10"
@@ -86,17 +73,8 @@
             android:gravity="left"
             android:textColor="@color/text_black"
             android:textSize="@dimen/middle" />
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/play_btn"
-            android:layout_width="120dp"
-            android:layout_height="80dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/padding_12"
-            android:background="@drawable/background_blue_circle"
-            app:lottie_autoPlay="false"
-            app:lottie_fileName="voice_playing.json"
-            app:lottie_loop="true" />
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/btn_layout"
         android:layout_width="match_parent"
@@ -113,6 +91,7 @@
             android:layout_height="55dp"
             android:gravity="center"
             android:textColor="@color/text_black_and_dark_selector"
+            android:elevation="1dp"
             android:textSize="@dimen/big"
             android:text="@string/start_to_follow"
             android:background="@drawable/border_shadow_gray_oval_selecter"
@@ -123,6 +102,7 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginTop="@dimen/padding_15"
+            android:elevation="1dp"
             android:gravity="center"
             android:textColor="@color/text_black_and_dark_selector"
             android:textSize="@dimen/big"
@@ -168,7 +148,6 @@
             android:textColor="@color/green"
             android:textSize="@dimen/action_size" />
     </LinearLayout>
-
     <LinearLayout
         android:id="@+id/record_layout"
         android:layout_width="wrap_content"
@@ -190,4 +169,6 @@
             android:layout_height="wrap_content"
             android:src="@drawable/speak_voice_1" />
     </LinearLayout>
+
 </RelativeLayout>
+

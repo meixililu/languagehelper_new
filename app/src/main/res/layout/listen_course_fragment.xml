@@ -88,10 +88,9 @@
                         android:layout_width="45dp"
                         android:layout_height="40dp"
                         android:layout_gravity="bottom|right"
-                        android:layout_marginRight="@dimen/padding_15"
-                        android:layout_marginLeft="@dimen/padding_5"
+                        android:layout_marginRight="@dimen/padding_5"
                         app:lottie_autoPlay="false"
-                        app:lottie_fileName="voice_playing.json"
+                        app:lottie_fileName="playing_v_green.json"
                         app:lottie_loop="true" />
                 </FrameLayout>
             </FrameLayout>

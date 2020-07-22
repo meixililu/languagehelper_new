@@ -73,16 +73,35 @@ class MyCourseViewModel(application: Application) : AndroidViewModel(application
     }
 
     suspend fun getDataTask() = withContext(Dispatchers.IO){
+        var item15 = ListenCourseData()
+        item15.type = "mimic_video"
+        item15.title = "口语模仿跟读"
+        item15.video_type = "api"
+        item15.content = "Oh! Is it too hot? I'm sorry."
+        item15.transalte = "哦，是太烫了吗？对不起。"
+        item15.video_url = "https://www.bilibili.com/video/BV1DZ4y1p76Q?from=search&seid=10927940355750130610"
+        item15.start_time = "00:09.10"
+        item15.end_time = "00:14.00"
+        item15.img = "http://res.mzxbkj.com/img/thefunnycat3.png"
+//        item15.tips = "举例：\n man - 男人复数：men\nwoman-女人复数：women"
+        courseList.add(item15)
         var item14 = ListenCourseData()
         item14.type = "video"
         item14.title = "视频讲解"
         item14.video_type = "api"
+        item14.tips = "举例：\n man - 男人复数：men\nwoman-女人复数：women"
+        item14.img = "http://res.mzxbkj.com/img/thefunnycat3.png"
         item14.video_url = "https://www.bilibili.com/video/BV1DZ4y1p76Q?from=search&seid=10927940355750130610"
-//        item14.video_url = "https://www.ixigua.com/embed?group_id=6833998024885142028"
         courseList.add(item14)
         var item13 = ListenCourseData()
         item13.type = "mimic"
-        item13.content = "school"
+        item13.content = "\$1. You can get your photos instantly."
+        item13.transalte = "1美元，你可以马上拿到你的相片。"
+        item13.mp3_url = "http://sound.yywz123.com/qingjing/lycx/cgjd/pzln/zx15/2.mp3"
+        item13.start_time = "00:00.10"
+        item13.end_time = "00:02.00"
+        item13.img = "http://res.mzxbkj.com/img/thefunnycat3.png"
+//        item13.tips = "举例：\n man - 男人复数：men\nwoman-女人复数：women"
         courseList.add(item13)
         var item11 = ListenCourseData()
         item11.type = "word"

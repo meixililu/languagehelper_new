@@ -135,7 +135,7 @@ class CourseChoiceFragment : BaseFragment() {
                 mAVObject.user_result = true
                 playSoundPool(mAVObject.user_result)
                 binding.checkSuccess.setAnimation("check_success.json")
-                binding.checkSuccess.progress
+                binding.checkSuccess.speed = 2F
                 binding.checkSuccess.playAnimation()
                 binding.resultTv.text = "正确"
                 binding.chineseTv.text = mAVObject.transalte

@@ -78,6 +78,12 @@ class CoursesActivity: FragmentProgressbarListener, BaseActivity() {
                     "video" -> {
                         initFragment(CourseVideoFragment())
                     }
+                    "mimic_video" -> {
+                        initFragment(CourseMimicVideoFragment())
+                    }
+                    else -> {
+                        viewModel.next()
+                    }
                 }
             })
         }

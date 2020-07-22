@@ -5,10 +5,10 @@
     <solid android:color="@color/material_color_light_blue"/>
 
     <padding
-        android:bottom="5dp"
+        android:bottom="4dp"
         android:left="3dp"
         android:right="3dp"
-        android:top="5dp"/>
+        android:top="4dp"/>
 
     <corners
         android:bottomLeftRadius="16dp"

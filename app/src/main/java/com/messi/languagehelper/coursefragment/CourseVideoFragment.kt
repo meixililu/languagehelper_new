@@ -4,7 +4,6 @@ import android.app.Dialog
 import android.content.Context
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
-import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.LayoutInflater
@@ -20,11 +19,6 @@ import com.google.android.exoplayer2.C
 import com.google.android.exoplayer2.ExoPlaybackException
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
-import com.google.android.exoplayer2.source.MediaSource
-import com.google.android.exoplayer2.source.MergingMediaSource
-import com.google.android.exoplayer2.source.ProgressiveMediaSource
-import com.google.android.exoplayer2.upstream.DefaultHttpDataSource
-import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory
 import com.messi.languagehelper.BaseFragment
 import com.messi.languagehelper.R
 import com.messi.languagehelper.bean.ListenCourseData
@@ -32,7 +26,6 @@ import com.messi.languagehelper.bean.PVideoResult
 import com.messi.languagehelper.databinding.CourseVideoFragmentBinding
 import com.messi.languagehelper.util.LogUtil
 import com.messi.languagehelper.util.MyPlayer
-import com.messi.languagehelper.util.Setings
 import com.messi.languagehelper.util.ToastUtil
 import com.messi.languagehelper.viewmodels.MyCourseViewModel
 
@@ -42,7 +35,7 @@ class CourseVideoFragment : BaseFragment(), Player.EventListener {
     private val STATE_RESUME_POSITION = "resumePosition"
     private val STATE_PLAYER_FULLSCREEN = "playerFullscreen"
 
-    private var player: SimpleExoPlayer? = null
+    lateinit var player: SimpleExoPlayer
     private var mFullScreenButton: FrameLayout? = null
     private var mFullScreenIcon: ImageView? = null
     lateinit var back_btn: LinearLayout
@@ -60,6 +53,8 @@ class CourseVideoFragment : BaseFragment(), Player.EventListener {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         viewModel = ViewModelProvider(requireActivity()).get(MyCourseViewModel::class.java)
+        player = SimpleExoPlayer.Builder(requireContext()).build()
+        player.addListener(this)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -92,7 +87,7 @@ class CourseVideoFragment : BaseFragment(), Player.EventListener {
         if (!TextUtils.isEmpty(mAVObject.title)){
             binding.titleTv.text = mAVObject.title
         }
-        binding.checkBtn.setOnClickListener { viewModel.next() }
+        binding.checkBtn.setOnClickListener { toNext() }
         viewModel.mRespoVideo.observe(viewLifecycleOwner, Observer {
             if (it.code == 0){
                 onPVideoApiSuccess(it.data)
@@ -102,25 +97,26 @@ class CourseVideoFragment : BaseFragment(), Player.EventListener {
         })
     }
 
+    private fun toNext(){
+        release()
+        viewModel.next()
+    }
+
     private fun onPVideoApiSuccess(mResult: PVideoResult) {
         exoplaer(mResult.getUrl(),mResult.getMp3Url())
     }
 
     private fun exoplaer(mediaUrl: String, voiceUrl: String) {
-        LogUtil.DefalutLog("exoplaer---media_url:$mediaUrl")
         if (status == 0) {
             status = 1
-            player = SimpleExoPlayer.Builder(requireContext()).build()
             binding.playerView.player = player;
             val haveResumePosition = mResumeWindow != C.INDEX_UNSET
             if (haveResumePosition) {
                 binding.playerView.player?.seekTo(mResumeWindow, mResumePosition);
             }
             val mediaSource = MyPlayer.getMediaSource(mediaUrl, voiceUrl, mAVObject.video_url)
-            player!!.addListener(this)
-            player!!.prepare(mediaSource!!)
-            player!!.playWhenReady = true
-            LogUtil.DefalutLog("ACTION_setPlayWhenReady")
+            player.prepare(mediaSource!!)
+            player.playWhenReady = true
         }
     }
 
@@ -188,14 +184,13 @@ class CourseVideoFragment : BaseFragment(), Player.EventListener {
 
     override fun onDestroy() {
         super.onDestroy()
-        status = 1
-        releasePlayer()
+        release()
     }
 
     override fun onPause() {
         super.onPause()
         if (player != null) {
-            player!!.playWhenReady = false
+            player.playWhenReady = false
         }
     }
 
@@ -205,11 +200,11 @@ class CourseVideoFragment : BaseFragment(), Player.EventListener {
         }
     }
 
-    fun releasePlayer() {
+    private fun release() {
+        status = 1
         if (player != null) {
-            player!!.playWhenReady = false
-            player!!.release()
-            player = null
+            player.playWhenReady = false
+            player.release()
         }
         if (mFullScreenDialog != null) {
             mFullScreenDialog!!.dismiss()

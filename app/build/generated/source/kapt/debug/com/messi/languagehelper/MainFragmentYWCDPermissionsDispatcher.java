@@ -9,11 +9,11 @@ import permissions.dispatcher.PermissionRequest;
 import permissions.dispatcher.PermissionUtils;
 
 final class MainFragmentYWCDPermissionsDispatcher {
-  private static final int REQUEST_SHOWORCDIALOG = 12;
+  private static final int REQUEST_SHOWORCDIALOG = 11;
 
   private static final String[] PERMISSION_SHOWORCDIALOG = new String[] {"android.permission.CAMERA"};
 
-  private static final int REQUEST_SHOWRECORD = 13;
+  private static final int REQUEST_SHOWRECORD = 12;
 
   private static final String[] PERMISSION_SHOWRECORD = new String[] {"android.permission.RECORD_AUDIO"};
 

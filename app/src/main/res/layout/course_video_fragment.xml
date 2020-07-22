@@ -62,15 +62,14 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="bottom"
-        android:textStyle="bold"
         android:layout_marginLeft="@dimen/padding_20"
         android:layout_marginRight="@dimen/padding_20"
         android:layout_marginBottom="@dimen/padding_15"
-        android:background="@drawable/border_shadow_green_selecter"
+        android:text="@string/practice_next_level"
+        android:background="@drawable/border_shadow_gray_oval_selecter"
         android:elevation="1dp"
         android:gravity="center"
-        android:text="Next"
-        android:textColor="@color/disable_gray_white_selector"
+        android:textColor="@color/text_black"
         android:textSize="@dimen/big" />
 </FrameLayout>
 
