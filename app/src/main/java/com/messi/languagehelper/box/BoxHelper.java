@@ -732,4 +732,48 @@ public class BoxHelper {
         qb.orderDesc(CollectedData_.id);
         return qb.build().find(offset,page_size);
     }
+
+    //CollectedData
+    public static Box<CourseList> getCourseListBox(){
+        return getBoxStore().boxFor(CourseList.class);
+    }
+
+    public static void saveAndUpdate(CourseList item){
+        CourseList oItem = isExited(item.getObjectId());
+        if(oItem != null){
+            item.setId(oItem.getId());
+            item.setCurrent(oItem.getCurrent());
+            item.setViews(oItem.getViews());
+        }
+        long id = getCourseListBox().put(item);
+        item.setId(id);
+    }
+
+    public static void updateViews(CourseList item){
+        if(item.getId() > 0){
+            item.setViews(item.getViews()+1);
+            getCourseListBox().put(item);
+        }
+    }
+
+    public static CourseList isExited(String oid){
+        CourseList result = null;
+        List<CourseList> list = getCourseListBox()
+                .query()
+                .equal(CourseList_.objectId,oid)
+                .build()
+                .find();
+        if (NullUtil.isNotEmpty(list)){
+            result =  list.get(0);
+        }
+        return result;
+    }
+
+    public static List<CourseList> getCourseList(){
+        return getCourseListBox().query()
+                .orderDesc(CourseList_.views)
+                .order(CourseList_.order)
+                .build()
+                .find();
+    }
 }

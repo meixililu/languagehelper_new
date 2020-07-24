@@ -97,7 +97,7 @@ public class BaseFragment extends Fragment {
 	 */
 	protected void initSwipeRefresh(View view){
 		if(mSwipeRefreshLayout == null){
-			mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.mswiperefreshlayout);
+			mSwipeRefreshLayout = view.findViewById(R.id.mswiperefreshlayout);
 		}
 		setSwipeOnRefresh();
 	}
@@ -120,12 +120,6 @@ public class BaseFragment extends Fragment {
 	public void onSwipeRefreshLayoutFinish(){
 		if(mSwipeRefreshLayout != null){
 			mSwipeRefreshLayout.setRefreshing(false);
-		}
-	}
-
-	public void onSwipeRefreshLayoutStart(){
-		if(mSwipeRefreshLayout != null){
-			mSwipeRefreshLayout.setRefreshing(true);
 		}
 	}
 	

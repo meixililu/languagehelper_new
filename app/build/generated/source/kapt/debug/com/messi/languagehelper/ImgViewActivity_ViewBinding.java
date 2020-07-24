@@ -17,9 +17,9 @@ public class ImgViewActivity_ViewBinding implements Unbinder {
 
   private View view7f0800c2;
 
-  private View view7f08010e;
+  private View view7f080110;
 
-  private View view7f08030e;
+  private View view7f08030d;
 
   @UiThread
   public ImgViewActivity_ViewBinding(ImgViewActivity target) {
@@ -43,7 +43,7 @@ public class ImgViewActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.download_img, "field 'downloadImg' and method 'onViewClicked'");
     target.downloadImg = Utils.castView(view, R.id.download_img, "field 'downloadImg'", ImageView.class);
-    view7f08010e = view;
+    view7f080110 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -52,7 +52,7 @@ public class ImgViewActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.share_img, "field 'shareImg' and method 'onViewClicked'");
     target.shareImg = Utils.castView(view, R.id.share_img, "field 'shareImg'", ImageView.class);
-    view7f08030e = view;
+    view7f08030d = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -75,9 +75,9 @@ public class ImgViewActivity_ViewBinding implements Unbinder {
 
     view7f0800c2.setOnClickListener(null);
     view7f0800c2 = null;
-    view7f08010e.setOnClickListener(null);
-    view7f08010e = null;
-    view7f08030e.setOnClickListener(null);
-    view7f08030e = null;
+    view7f080110.setOnClickListener(null);
+    view7f080110 = null;
+    view7f08030d.setOnClickListener(null);
+    view7f08030d = null;
   }
 }

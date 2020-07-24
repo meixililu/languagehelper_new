@@ -52,7 +52,7 @@ class BiliSearchResultFragmeng : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        keyword = arguments!!.getString(KeyUtil.KeyWord)
+        keyword = requireArguments().getString(KeyUtil.KeyWord)
         viewmodel = ViewModelProvider(requireActivity()).get(BiliSearchResultViewModel::class.java)
         viewmodel.keyword = keyword.toString()
     }

@@ -995,5 +995,34 @@ public class AVOUtil {
 
 	}
 
+	public static class CourseList {
+
+		public final static String CourseList = "CourseList";
+
+		public final static String name = "name";
+
+		public final static String course_id = "course_id";
+
+		public final static String course_num = "course_num";
+
+		public final static String to_activity = "to_activity";
+
+		public final static String order = "order";
+
+		public final static String lock = "lock";
+
+		public final static String img = "img";
+
+		public final static String level = "level";
+
+		public final static String level_num = "level_num";
+
+		public final static String unit_num = "unit_num";
+
+		public final static String views = "views";
+
+		public final static String valid = "valid";
+
+	}
 
 }

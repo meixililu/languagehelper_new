@@ -10,7 +10,7 @@ import permissions.dispatcher.PermissionRequest;
 import permissions.dispatcher.PermissionUtils;
 
 final class CaricatureMainActivityPermissionsDispatcher {
-  private static final int REQUEST_SHOWPERMISSION = 6;
+  private static final int REQUEST_SHOWPERMISSION = 0;
 
   private static final String[] PERMISSION_SHOWPERMISSION = new String[] {"android.permission.READ_PHONE_STATE","android.permission.READ_EXTERNAL_STORAGE","android.permission.WRITE_EXTERNAL_STORAGE","android.permission.ACCESS_FINE_LOCATION"};
 

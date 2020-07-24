@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.messi.languagehelper.coursefragment.CourseListsFragment;
+import com.messi.languagehelper.coursefragment.CourseListFragment;
 import com.messi.languagehelper.databinding.StudyCategoryFragmentBinding;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.AVAnalytics;
@@ -40,7 +40,7 @@ public class StudyCategoryFragment extends BaseFragment {
     private void initFragment(){
         getChildFragmentManager()
                 .beginTransaction()
-                .add(R.id.fragment_container, new CourseListsFragment())
+                .add(R.id.fragment_container, new CourseListFragment())
                 .commit();
     }
 

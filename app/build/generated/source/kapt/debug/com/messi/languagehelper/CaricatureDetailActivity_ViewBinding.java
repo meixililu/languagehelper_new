@@ -20,11 +20,11 @@ public class CaricatureDetailActivity_ViewBinding implements Unbinder {
 
   private View view7f08005b;
 
-  private View view7f0803bc;
+  private View view7f0803b9;
 
   private View view7f080082;
 
-  private View view7f08030e;
+  private View view7f08030d;
 
   @UiThread
   public CaricatureDetailActivity_ViewBinding(CaricatureDetailActivity target) {
@@ -55,7 +55,7 @@ public class CaricatureDetailActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.to_read, "field 'toRead' and method 'onToReadClicked'");
     target.toRead = Utils.castView(view, R.id.to_read, "field 'toRead'", TextView.class);
-    view7f0803bc = view;
+    view7f0803b9 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -74,7 +74,7 @@ public class CaricatureDetailActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.share_img, "field 'share_img' and method 'onViewClicked'");
     target.share_img = Utils.castView(view, R.id.share_img, "field 'share_img'", ImageView.class);
-    view7f08030e = view;
+    view7f08030d = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -108,11 +108,11 @@ public class CaricatureDetailActivity_ViewBinding implements Unbinder {
 
     view7f08005b.setOnClickListener(null);
     view7f08005b = null;
-    view7f0803bc.setOnClickListener(null);
-    view7f0803bc = null;
+    view7f0803b9.setOnClickListener(null);
+    view7f0803b9 = null;
     view7f080082.setOnClickListener(null);
     view7f080082 = null;
-    view7f08030e.setOnClickListener(null);
-    view7f08030e = null;
+    view7f08030d.setOnClickListener(null);
+    view7f08030d = null;
   }
 }

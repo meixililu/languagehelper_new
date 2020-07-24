@@ -86,6 +86,8 @@ MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/lilu/.gradle/caches/tran
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/909111d781e404ddbd10f8e411b8680d/legacy-support-v4-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.karumi:headerrecyclerview:1.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8436bfcd69e241dff11d7f6eff58fa4f/jetified-headerrecyclerview-1.1.0/AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c1257b7e9dbe64757a7343bd6999bc58/jetified-viewpager2-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.paging:paging-runtime-ktx:2.1.2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d5e3ad827741cb20fe14387d5f24e3f0/jetified-paging-runtime-ktx-2.1.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.paging:paging-runtime:2.1.2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6f89341696a9b43812e1417ba5df20d2/paging-runtime-2.1.2/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fc1ee1e91c851975c4fa4b1f43164bc8/recyclerview-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.cardview:cardview:1.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3016311b46a588b851370ea599916217/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/515c2d27b0cc84013c0ac7c76ce752af/jetified-appcompat-resources-1.1.0/AndroidManifest.xml:17:1-24:12
@@ -1308,6 +1310,10 @@ MERGED from [com.karumi:headerrecyclerview:1.1.0] /Users/lilu/.gradle/caches/tra
 MERGED from [com.karumi:headerrecyclerview:1.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/8436bfcd69e241dff11d7f6eff58fa4f/jetified-headerrecyclerview-1.1.0/AndroidManifest.xml:22:5-24:41
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c1257b7e9dbe64757a7343bd6999bc58/jetified-viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/c1257b7e9dbe64757a7343bd6999bc58/jetified-viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.paging:paging-runtime-ktx:2.1.2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d5e3ad827741cb20fe14387d5f24e3f0/jetified-paging-runtime-ktx-2.1.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.paging:paging-runtime-ktx:2.1.2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d5e3ad827741cb20fe14387d5f24e3f0/jetified-paging-runtime-ktx-2.1.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.paging:paging-runtime:2.1.2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6f89341696a9b43812e1417ba5df20d2/paging-runtime-2.1.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.paging:paging-runtime:2.1.2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6f89341696a9b43812e1417ba5df20d2/paging-runtime-2.1.2/AndroidManifest.xml:20:5-44
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fc1ee1e91c851975c4fa4b1f43164bc8/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/fc1ee1e91c851975c4fa4b1f43164bc8/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.cardview:cardview:1.0.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3016311b46a588b851370ea599916217/cardview-1.0.0/AndroidManifest.xml:20:5-44
