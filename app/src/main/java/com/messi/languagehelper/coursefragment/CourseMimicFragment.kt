@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.exoplayer2.ExoPlaybackException
 import com.google.android.exoplayer2.PlaybackParameters
@@ -28,7 +29,7 @@ import com.messi.languagehelper.viewmodels.MyCourseViewModel
 class CourseMimicFragment : BaseFragment() {
 
     lateinit var binding: CourseMimicFragmentBinding
-    lateinit var viewModel: MyCourseViewModel
+    val viewModel: MyCourseViewModel by activityViewModels()
     private var isMimic = false
     lateinit var recognizer: SpeechRecognizer
     lateinit var mAVObject: ListenCourseData
@@ -39,7 +40,6 @@ class CourseMimicFragment : BaseFragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        viewModel = ViewModelProvider(requireActivity()).get(MyCourseViewModel::class.java)
         recognizer = SpeechRecognizer.createRecognizer(context, null)
         player = SimpleExoPlayer.Builder(requireContext()).build()
         player.addListener(listener)
@@ -53,39 +53,41 @@ class CourseMimicFragment : BaseFragment() {
     }
 
     private fun setData() {
-        mAVObject = viewModel.currentCourse
-        if (TextUtils.isEmpty(mAVObject.tips)){
-            binding.tips.visibility = View.GONE
-        }else{
-            binding.tips.visibility = View.VISIBLE
-            binding.tips.text = mAVObject.tips
+        if(viewModel.currentCourse != null){
+            mAVObject = viewModel.currentCourse
+            if (TextUtils.isEmpty(mAVObject.tips)){
+                binding.tips.visibility = View.GONE
+            }else{
+                binding.tips.visibility = View.VISIBLE
+                binding.tips.text = mAVObject.tips
+            }
+            if (!TextUtils.isEmpty(mAVObject.title)){
+                binding.titleTv.text = mAVObject.title
+            }
+            if (!TextUtils.isEmpty(mAVObject.transalte)){
+                binding.wordDes.text = mAVObject.transalte
+            }
+            if(TextUtils.isEmpty(mAVObject.img)){
+                binding.playBtn.visibility = View.VISIBLE
+                binding.imgLayout.visibility = View.GONE
+            } else {
+                binding.playBtn.visibility = View.GONE
+                binding.imgLayout.visibility = View.VISIBLE
+                binding.imgItem.setImageURI(mAVObject.img)
+            }
+            binding.wordName.text = mAVObject.content
+            binding.imgLayout.setOnClickListener {
+                justPlay()
+            }
+            binding.playBtn.setOnClickListener {
+                justPlay()
+            }
+            binding.goOn.setOnClickListener { toNext() }
+            binding.mimic.setOnClickListener {
+                playAndListen()
+            }
+            playDelay()
         }
-        if (!TextUtils.isEmpty(mAVObject.title)){
-            binding.titleTv.text = mAVObject.title
-        }
-        if (!TextUtils.isEmpty(mAVObject.transalte)){
-            binding.wordDes.text = mAVObject.transalte
-        }
-        if(TextUtils.isEmpty(mAVObject.img)){
-            binding.playBtn.visibility = View.VISIBLE
-            binding.imgLayout.visibility = View.GONE
-        } else {
-            binding.playBtn.visibility = View.GONE
-            binding.imgLayout.visibility = View.VISIBLE
-            binding.imgItem.setImageURI(mAVObject.img)
-        }
-        binding.wordName.text = mAVObject.content
-        binding.imgLayout.setOnClickListener {
-            justPlay()
-        }
-        binding.playBtn.setOnClickListener {
-            justPlay()
-        }
-        binding.goOn.setOnClickListener { toNext() }
-        binding.mimic.setOnClickListener {
-            playAndListen()
-        }
-        playDelay()
     }
 
     private fun justPlay(){
@@ -98,7 +100,6 @@ class CourseMimicFragment : BaseFragment() {
             showOrHidePrompt(0)
             binding.scoreTv.text = ""
             isMimic = true
-            player.playWhenReady = false
             playSound()
         }else {
             finishRecord()
@@ -280,7 +281,7 @@ class CourseMimicFragment : BaseFragment() {
             binding.scoreTv.text = resultText
             Handler().postDelayed({
                 playUserPcm()
-            },20)
+            },10)
         }
     }
 

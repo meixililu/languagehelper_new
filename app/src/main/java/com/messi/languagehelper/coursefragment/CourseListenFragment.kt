@@ -66,8 +66,8 @@ class CourseListenFragment : BaseFragment() {
     }
 
     private fun init() {
-        mAVObject = viewModel.currentCourse
-        if(mAVObject != null){
+        if(viewModel.currentCourse != null){
+            mAVObject = viewModel.currentCourse
             binding.checkBtn.isEnabled = false
             binding.checkBtn.text = "Check"
             wordToCharacter()

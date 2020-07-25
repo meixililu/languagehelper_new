@@ -53,7 +53,6 @@ public class LoadingActivity extends AppCompatActivity {
             setContentView(R.layout.loading_activity);
             ButterKnife.bind(this);
 
-//            liveEventBus();
             AppUpdateUtil.runCheckUpdateTask(this);
             init();
         } catch (Exception e) {

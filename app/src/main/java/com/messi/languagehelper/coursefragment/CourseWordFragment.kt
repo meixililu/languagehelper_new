@@ -1,6 +1,5 @@
 package com.messi.languagehelper.coursefragment
 
-import android.content.Context
 import android.content.SharedPreferences
 import android.media.AudioAttributes
 import android.media.AudioManager
@@ -14,6 +13,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.exoplayer2.ExoPlaybackException
 import com.google.android.exoplayer2.PlaybackParameters
@@ -24,7 +25,6 @@ import com.google.android.exoplayer2.trackselection.TrackSelectionArray
 import com.messi.languagehelper.BaseFragment
 import com.messi.languagehelper.R
 import com.messi.languagehelper.bean.ListenCourseData
-import com.messi.languagehelper.databinding.CourseChoiceFragmentBinding
 import com.messi.languagehelper.databinding.CourseWordFragmentBinding
 import com.messi.languagehelper.util.*
 import com.messi.languagehelper.viewmodels.MyCourseViewModel
@@ -41,14 +41,9 @@ class CourseWordFragment : BaseFragment() {
     private var startPosition = 0L
     private var endPosition = 0L
     lateinit var player: SimpleExoPlayer
-    lateinit var viewModel: MyCourseViewModel
+    val viewModel: MyCourseViewModel by activityViewModels()
     var optionBtns = ArrayList<TextView>()
     var userAnswer = ""
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        viewModel = ViewModelProvider(requireActivity()).get(MyCourseViewModel::class.java)
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -60,15 +55,14 @@ class CourseWordFragment : BaseFragment() {
     }
 
     private fun initViews() {
-        IPlayerUtil.pauseAudioPlayer(context)
-        player = SimpleExoPlayer.Builder(context!!).build()
+        player = SimpleExoPlayer.Builder(requireContext()).build()
         player.addListener(listener)
         binding.checkBtn.setOnClickListener { checkOrNext() }
     }
 
     private fun init() {
-        mAVObject = viewModel.currentCourse
-        if(mAVObject != null){
+        if(viewModel.currentCourse != null){
+            mAVObject = viewModel.currentCourse
             binding.checkBtn.isEnabled = false
             binding.checkBtn.text = "Check"
             wordToCharacter()

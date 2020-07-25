@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -33,15 +34,29 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="30dp"
             android:max="10"
-            android:progress="1"
+            android:progress="0"
             android:progressDrawable="@drawable/progress_bar_round_green"
             />
     </LinearLayout>
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment_container"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
-        android:tag="my_tag"
-        />
+        >
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:tag="my_tag"
+            />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/loading_av"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:layout_gravity="center"
+            app:lottie_fileName="loading_elephant.json"
+            app:lottie_loop="true" />
+    </FrameLayout>
+
 </LinearLayout>

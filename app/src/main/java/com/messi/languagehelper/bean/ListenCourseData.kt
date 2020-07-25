@@ -9,6 +9,7 @@ data class ListenCourseData (
         var transalte: String = "",
         var answer: String = "",
         var content: String = "",
+        var course_id: String = "",
         var img: String = "",
         var tips: String = "",
         var user_result: Boolean = false,
@@ -17,6 +18,7 @@ data class ListenCourseData (
         var play_content: String = "",
         var video_url: String = "",
         var video_type: String = "",
+        var order: Int = 0,
         var options: ArrayList<String> = ArrayList()
 
 )

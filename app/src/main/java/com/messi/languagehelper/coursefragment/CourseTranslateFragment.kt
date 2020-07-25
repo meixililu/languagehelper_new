@@ -57,16 +57,15 @@ class CourseTranslateFragment : BaseFragment() {
     }
 
     private fun initViews() {
-        IPlayerUtil.pauseAudioPlayer(context)
-        player = SimpleExoPlayer.Builder(context!!).build()
+        player = SimpleExoPlayer.Builder(requireContext()).build()
         player.addListener(listener)
         binding.playBtn.setOnClickListener { playItem() }
         binding.checkBtn.setOnClickListener { checkOrNext() }
     }
 
     private fun init() {
-        mAVObject = viewModel.currentCourse
-        if(mAVObject != null){
+        if(viewModel.currentCourse != null){
+            mAVObject = viewModel.currentCourse
             binding.checkBtn.isEnabled = false
             binding.checkBtn.text = "Check"
             wordToCharacter()

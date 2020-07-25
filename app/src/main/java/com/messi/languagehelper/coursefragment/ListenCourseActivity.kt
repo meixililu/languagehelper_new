@@ -57,7 +57,6 @@ class ListenCourseActivity : BaseActivity() {
     }
 
     private fun initViews() {
-        IPlayerUtil.pauseAudioPlayer(this)
         player = SimpleExoPlayer.Builder(this).build()
         player.addListener(listener)
         mSharedPreferences = Setings.getSharedPreferences(this)

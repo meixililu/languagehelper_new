@@ -58,7 +58,6 @@ class CourseWordEnterFragment : BaseFragment() {
     }
 
     private fun initViews() {
-        IPlayerUtil.pauseAudioPlayer(context)
         binding.checkBtn.setOnClickListener { checkOrNext() }
         binding.editText.addTextChangedListener (object: TextWatcher {
             override fun afterTextChanged(text: Editable?) {
@@ -74,8 +73,8 @@ class CourseWordEnterFragment : BaseFragment() {
     }
 
     private fun init() {
-        mAVObject = viewModel.currentCourse
-        if(mAVObject != null){
+        if(viewModel.currentCourse != null){
+            mAVObject = viewModel.currentCourse
             binding.checkBtn.isEnabled = false
             binding.checkBtn.text = "Check"
             wordToCharacter()

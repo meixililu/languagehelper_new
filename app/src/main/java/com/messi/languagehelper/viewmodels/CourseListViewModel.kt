@@ -27,12 +27,10 @@ class CourseListViewModel(application: Application) : AndroidViewModel(applicati
     fun loadData() {
         if (isRequestInProgress) return
         serverVersion = sp.getInt(KeyUtil.Caricature_version,1)
-//        serverVersion = 3
-        localVersion = sp.getInt(KeyUtil.CourseVersion,0)
+//        localVersion = sp.getInt(KeyUtil.CourseVersion,0)
 
         isRequestInProgress = true
-        val coroutineScope = CoroutineScope(Dispatchers.IO)
-        coroutineScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             if (localVersion == serverVersion){
                 LogUtil.DefalutLog("localVersion == serverVersion")
                 getDataFromDataBase()
@@ -58,9 +56,9 @@ class CourseListViewModel(application: Application) : AndroidViewModel(applicati
             for (item in results){
                 datas.add(fromAVObjectToCourseList(item))
             }
-            if (serverVersion > 1){
-                Setings.saveSharedPreferences(sp,KeyUtil.CourseVersion,serverVersion)
-            }
+//            if (serverVersion > 1){
+//                Setings.saveSharedPreferences(sp,KeyUtil.CourseVersion,serverVersion)
+//            }
         }
         result.postValue(queryResult)
     }

@@ -3,6 +3,8 @@ package com.messi.languagehelper.coursefragment
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.LayoutInflater
+import android.view.View
+import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -32,61 +34,64 @@ class CoursesActivity: FragmentProgressbarListener, BaseActivity() {
     }
 
     private fun init() {
-        IPlayerUtil.pauseAudioPlayer(this)
+        IPlayerUtil.MPlayerPause()
+        viewModel = ViewModelProvider(this).get(MyCourseViewModel::class.java)
+        binding.loadingAv.visibility = View.VISIBLE
+        binding.loadingAv.playAnimation()
         val bundle = intent.getBundleExtra(KeyUtil.BundleKey)
         course_id = bundle.getString(KeyUtil.CourseId,"")
-        if (!TextUtils.isEmpty(course_id)){
-            viewModel = ViewModelProvider(this).get(MyCourseViewModel::class.java)
-            viewModel.course_id = course_id
-            viewModel.loadData()
-            binding.closeBtn.setOnClickListener { finish() }
-            viewModel.result.observe(this, Observer {
-                when (it) {
-                    "finish" -> {
-                        ToastUtil.diaplayMesShort(this,"finish")
-                    }
-                    "error" -> {
-                        ToastUtil.diaplayMesShort(this,"error")
-                    }
-                    "translate" -> {
-                        initFragment(CourseTranslateFragment())
-                    }
-                    "translate_enter" -> {
-                        initFragment(CourseTranslateEnterFragment())
-                    }
-                    "listen" -> {
-                        initFragment(CourseListenFragment())
-                    }
-                    "listen_enter" -> {
-                        initFragment(CourseListenEnterFragment())
-                    }
-                    "word_enter" -> {
-                        initFragment(CourseWordEnterFragment())
-                    }
-                    "choice" -> {
-                        initFragment(CourseChoiceFragment())
-                    }
-                    "enter" -> {
-                        initFragment(CourseEnterFragment())
-                    }
-                    "word" -> {
-                        initFragment(CourseWordFragment())
-                    }
-                    "mimic" -> {
-                        initFragment(CourseMimicFragment())
-                    }
-                    "video" -> {
-                        initFragment(CourseVideoFragment())
-                    }
-                    "mimic_video" -> {
-                        initFragment(CourseMimicVideoFragment())
-                    }
-                    else -> {
-                        viewModel.next()
-                    }
+        viewModel.course_id = course_id
+        viewModel.loadData()
+
+        binding.closeBtn.setOnClickListener { finish() }
+        viewModel.result.observe(this, Observer {
+            binding.loadingAv.visibility = View.GONE
+            binding.loadingAv.cancelAnimation()
+            when (it) {
+                "finish" -> {
+                    ToastUtil.diaplayMesShort(this,"finish")
                 }
-            })
-        }
+                "error" -> {
+                    ToastUtil.diaplayMesShort(this,"error")
+                }
+                "translate" -> {
+                    initFragment(CourseTranslateFragment())
+                }
+                "translate_enter" -> {
+                    initFragment(CourseTranslateEnterFragment())
+                }
+                "listen" -> {
+                    initFragment(CourseListenFragment())
+                }
+                "listen_enter" -> {
+                    initFragment(CourseListenEnterFragment())
+                }
+                "word_enter" -> {
+                    initFragment(CourseWordEnterFragment())
+                }
+                "choice" -> {
+                    initFragment(CourseChoiceFragment())
+                }
+                "enter" -> {
+                    initFragment(CourseEnterFragment())
+                }
+                "word" -> {
+                    initFragment(CourseWordFragment())
+                }
+                "mimic" -> {
+                    initFragment(CourseMimicFragment())
+                }
+                "video" -> {
+                    initFragment(CourseVideoFragment())
+                }
+                "mimic_video" -> {
+                    initFragment(CourseMimicVideoFragment())
+                }
+                else -> {
+                    viewModel.next()
+                }
+            }
+        })
     }
 
     private fun initFragment(fragment: Fragment){

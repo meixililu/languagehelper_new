@@ -58,7 +58,6 @@ class CourseChoiceFragment : BaseFragment() {
     }
 
     private fun initViews() {
-        IPlayerUtil.pauseAudioPlayer(context)
         player = SimpleExoPlayer.Builder(requireContext()).build()
         player.addListener(listener)
         binding.playBtn.setOnClickListener { playItem() }
@@ -66,8 +65,8 @@ class CourseChoiceFragment : BaseFragment() {
     }
 
     private fun init() {
-        mAVObject = viewModel.currentCourse
-        if(mAVObject != null){
+        if(viewModel.currentCourse != null){
+            mAVObject = viewModel.currentCourse
             binding.checkBtn.isEnabled = false
             binding.checkBtn.text = "Check"
             wordToCharacter()

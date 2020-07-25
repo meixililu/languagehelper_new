@@ -79,36 +79,38 @@ class CourseMimicVideoFragment : BaseFragment(), Player.EventListener {
     }
 
     private fun initDatas() {
-        mAVObject = viewModel.currentCourse
-        if (mAVObject.video_type == "api") {
-            viewModel.loadVideo()
-        }else {
-            exoplaer(mAVObject.video_url,"")
-        }
-        if (TextUtils.isEmpty(mAVObject.tips)){
-            binding.tips.visibility = View.GONE
-        }else{
-            binding.tips.visibility = View.VISIBLE
-            binding.tips.text = mAVObject.tips
-        }
-        if (!TextUtils.isEmpty(mAVObject.title)){
-            binding.titleTv.text = mAVObject.title
-        }
-        if (!TextUtils.isEmpty(mAVObject.transalte)){
-            binding.translateTv.text = mAVObject.transalte
-        }
-        binding.contentTv.text = mAVObject.content
-        binding.goOn.setOnClickListener { next() }
-        binding.mimic.setOnClickListener {
-            playAndListen()
-        }
-        viewModel.mRespoVideo.observe(viewLifecycleOwner, Observer {
-            if (it.code == 0){
-                onPVideoApiSuccess(it.data)
-            }else{
-                ToastUtil.diaplayMesShort(context,"error")
+        if(viewModel.currentCourse != null) {
+            mAVObject = viewModel.currentCourse
+            if (mAVObject.video_type == "api") {
+                viewModel.loadVideo()
+            }else {
+                exoplaer(mAVObject.video_url,"")
             }
-        })
+            if (TextUtils.isEmpty(mAVObject.tips)){
+                binding.tips.visibility = View.GONE
+            }else{
+                binding.tips.visibility = View.VISIBLE
+                binding.tips.text = mAVObject.tips
+            }
+            if (!TextUtils.isEmpty(mAVObject.title)){
+                binding.titleTv.text = mAVObject.title
+            }
+            if (!TextUtils.isEmpty(mAVObject.transalte)){
+                binding.translateTv.text = mAVObject.transalte
+            }
+            binding.contentTv.text = mAVObject.content
+            binding.goOn.setOnClickListener { next() }
+            binding.mimic.setOnClickListener {
+                playAndListen()
+            }
+            viewModel.mRespoVideo.observe(viewLifecycleOwner, Observer {
+                if (it.code == 0){
+                    onPVideoApiSuccess(it.data)
+                }else{
+                    ToastUtil.diaplayMesShort(context,"error")
+                }
+            })
+        }
     }
 
     private fun playAndListen(){
@@ -117,7 +119,6 @@ class CourseMimicVideoFragment : BaseFragment(), Player.EventListener {
             showOrHidePrompt(0)
             binding.scoreTv.text = ""
             isMimic = true
-            player.playWhenReady = false
             playSound()
         }else {
             finishRecord()
@@ -416,7 +417,7 @@ class CourseMimicVideoFragment : BaseFragment(), Player.EventListener {
             binding.scoreTv.text = resultText
             Handler().postDelayed({
                 playUserPcm()
-            },20)
+            },10)
         }
     }
 

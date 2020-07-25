@@ -72,29 +72,31 @@ class CourseVideoFragment : BaseFragment(), Player.EventListener {
     }
 
     private fun initDatas() {
-        mAVObject = viewModel.currentCourse
-        if (mAVObject.video_type == "api") {
-            viewModel.loadVideo()
-        }else {
-            exoplaer(mAVObject.video_url,"")
-        }
-        if (TextUtils.isEmpty(mAVObject.tips)){
-            binding.tips.visibility = View.GONE
-        }else{
-            binding.tips.visibility = View.VISIBLE
-            binding.tips.text = mAVObject.tips
-        }
-        if (!TextUtils.isEmpty(mAVObject.title)){
-            binding.titleTv.text = mAVObject.title
-        }
-        binding.checkBtn.setOnClickListener { toNext() }
-        viewModel.mRespoVideo.observe(viewLifecycleOwner, Observer {
-            if (it.code == 0){
-                onPVideoApiSuccess(it.data)
-            }else{
-                ToastUtil.diaplayMesShort(context,"error")
+        if(viewModel.currentCourse != null) {
+            mAVObject = viewModel.currentCourse
+            if (mAVObject.video_type == "api") {
+                viewModel.loadVideo()
+            }else {
+                exoplaer(mAVObject.video_url,"")
             }
-        })
+            if (TextUtils.isEmpty(mAVObject.tips)){
+                binding.tips.visibility = View.GONE
+            }else{
+                binding.tips.visibility = View.VISIBLE
+                binding.tips.text = mAVObject.tips
+            }
+            if (!TextUtils.isEmpty(mAVObject.title)){
+                binding.titleTv.text = mAVObject.title
+            }
+            binding.checkBtn.setOnClickListener { toNext() }
+            viewModel.mRespoVideo.observe(viewLifecycleOwner, Observer {
+                if (it.code == 0){
+                    onPVideoApiSuccess(it.data)
+                }else{
+                    ToastUtil.diaplayMesShort(context,"error")
+                }
+            })
+        }
     }
 
     private fun toNext(){

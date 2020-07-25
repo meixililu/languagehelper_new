@@ -5,22 +5,23 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
-import android.view.ViewGroup
 import android.widget.FrameLayout
-import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import cn.leancloud.AVObject
 import com.facebook.drawee.view.SimpleDraweeView
 import com.messi.languagehelper.R
-import com.messi.languagehelper.ReadDetailTouTiaoActivity
-import com.messi.languagehelper.ViewModel.XXLModel
-import com.messi.languagehelper.bean.BoutiquesBean
 import com.messi.languagehelper.box.BoxHelper
 import com.messi.languagehelper.box.CourseList
 import com.messi.languagehelper.coursefragment.CoursesActivity
 import com.messi.languagehelper.coursefragment.ListenCourseActivity
-import com.messi.languagehelper.util.*
+import com.messi.languagehelper.util.AVOUtil
+import com.messi.languagehelper.util.KeyUtil
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+
 
 /**
  * Created by luli on 10/23/16.
@@ -59,7 +60,16 @@ class RcCourseListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
             intent.setClass(context,ListenCourseActivity::class.java)
         }
         context.startActivity(intent)
-        BoxHelper.updateViews(mAVObject)
+        update(mAVObject)
+    }
+
+    private fun update(mAVObject: CourseList){
+        CoroutineScope(Dispatchers.IO).launch {
+            BoxHelper.updateViews(mAVObject)
+            val item = AVObject.createWithoutData(AVOUtil.CourseList.CourseList, mAVObject.objectId)
+            item.increment(AVOUtil.CourseList.views)
+            item.save()
+        }
     }
 
 
