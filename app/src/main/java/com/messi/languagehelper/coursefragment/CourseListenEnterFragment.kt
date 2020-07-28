@@ -14,9 +14,6 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.core.view.get
-import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.exoplayer2.ExoPlaybackException
 import com.google.android.exoplayer2.PlaybackParameters
@@ -26,8 +23,7 @@ import com.google.android.exoplayer2.source.TrackGroupArray
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray
 import com.messi.languagehelper.BaseFragment
 import com.messi.languagehelper.R
-import com.messi.languagehelper.bean.ListenCourseData
-import com.messi.languagehelper.databinding.ListenCourseFragmentBinding
+import com.messi.languagehelper.bean.CourseData
 import com.messi.languagehelper.databinding.ListenCourseInputFragmentBinding
 import com.messi.languagehelper.util.*
 import com.messi.languagehelper.viewmodels.MyCourseViewModel
@@ -36,7 +32,7 @@ import com.messi.languagehelper.viewmodels.MyCourseViewModel
 class CourseListenEnterFragment : BaseFragment() {
 
     lateinit var mSharedPreferences: SharedPreferences
-    lateinit var mAVObject: ListenCourseData
+    lateinit var mAVObject: CourseData
     lateinit var binding: ListenCourseInputFragmentBinding
     private lateinit var ourSounds: SoundPool
     private var answerRight = 0
@@ -110,7 +106,6 @@ class CourseListenEnterFragment : BaseFragment() {
         }
         binding.editText.text?.clear()
         binding.resultLayout.visibility = View.GONE
-        binding.editText.clearComposingText()
         binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_green_selecter)
     }
 
@@ -125,8 +120,9 @@ class CourseListenEnterFragment : BaseFragment() {
 
     private fun check() {
         hideKeyBoard()
-        val content = englishContent.toLowerCase().trim()
-        val userInput = binding.editText.text.toString().toLowerCase().trim()
+        val content = answer(true).toLowerCase().trim()
+        var userInput = binding.editText.text.toString().toLowerCase().trim()
+        userInput = StringUtils.replaceAll(userInput)
         if (!TextUtils.isEmpty(userInput)) {
             binding.checkBtn.text = "Next"
             binding.resultLayout.visibility = View.VISIBLE
@@ -148,7 +144,7 @@ class CourseListenEnterFragment : BaseFragment() {
                 binding.checkSuccess.setAnimation("cross.json")
                 binding.checkSuccess.playAnimation()
                 binding.resultTv.text = "正确答案"
-                binding.chineseTv.text = englishContent + "\n" + mAVObject.transalte
+                binding.chineseTv.text = answer(false) + "\n" + mAVObject.transalte
                 binding.resultLayout.setBackgroundResource(R.color.wrong_bg)
                 binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_red_selecter)
                 binding.chineseTv.setTextColor(resources.getColor(R.color.wrong_text))
@@ -184,28 +180,31 @@ class CourseListenEnterFragment : BaseFragment() {
         }
     }
 
-    private val englishContent: String
-        private get() {
-            var sb = StringBuilder()
-            var contents = mAVObject.answer.split(" ")
-            for (item in contents) {
-                if (!TextUtils.isEmpty(item)) {
-                    sb.append(item)
-                    sb.append(" ")
-                }
-            }
-            return sb.toString().trim()
+    private fun answer(flag: Boolean): String{
+        var sb = StringBuilder()
+        var content = mAVObject.answer
+        if(flag){
+            content = StringUtils.replaceSome(content)
         }
+        var contents = content.split(" ")
+        for (item in contents) {
+            if (!TextUtils.isEmpty(item)) {
+                sb.append(item)
+                sb.append(" ")
+            }
+        }
+        return sb.toString().trim()
+    }
 
     fun playItem() {
         if (mAVObject != null) {
             binding.playBtn.playAnimation()
             binding.imgPlayBtn.playAnimation()
-            var mp3Url = mAVObject.mp3_url
+            var mp3Url = mAVObject.media_url
             var startTime = mAVObject.start_time
             var endTime = mAVObject.end_time
             if(TextUtils.isEmpty(mp3Url)){
-                mp3Url = MyPlayer.playUrl + mAVObject.answer
+                mp3Url = MyPlayer.playUrl + answer(false)
             }
             if(!TextUtils.isEmpty(startTime)){
                 startPosition = KStringUtils.getTimeMills(startTime)

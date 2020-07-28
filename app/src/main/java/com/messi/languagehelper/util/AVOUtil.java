@@ -1029,39 +1029,15 @@ public class AVOUtil {
 
 		public final static String CourseDetail = "CourseDetail";
 
-		public final static String type = "type";
-
-		public final static String mp3_url = "mp3_url";
-
 		public final static String course_id = "course_id";
 
-		public final static String start_time = "start_time";
-
-		public final static String end_time = "end_time";
-
-		public final static String transalte = "transalte";
-
-		public final static String answer = "answer";
-
-		public final static String content = "content";
-
-		public final static String img = "img";
-
-		public final static String tips = "tips";
-
-		public final static String title = "title";
-
-		public final static String question = "question";
-
-		public final static String play_content = "play_content";
-
-		public final static String video_url = "video_url";
-
-		public final static String video_type = "video_type";
-
-		public final static String options = "options";
+		public final static String json = "json";
 
 		public final static String order = "order";
+
+		public final static String level = "level";
+
+		public final static String unit = "unit";
 
 	}
 

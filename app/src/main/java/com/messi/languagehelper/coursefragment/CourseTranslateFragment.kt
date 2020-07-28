@@ -23,7 +23,7 @@ import com.google.android.exoplayer2.source.TrackGroupArray
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray
 import com.messi.languagehelper.BaseFragment
 import com.messi.languagehelper.R
-import com.messi.languagehelper.bean.ListenCourseData
+import com.messi.languagehelper.bean.CourseData
 import com.messi.languagehelper.databinding.CourseTranslateFragmentBinding
 import com.messi.languagehelper.util.*
 import com.messi.languagehelper.viewmodels.MyCourseViewModel
@@ -32,7 +32,7 @@ import com.messi.languagehelper.viewmodels.MyCourseViewModel
 class CourseTranslateFragment : BaseFragment() {
 
     lateinit var mSharedPreferences: SharedPreferences
-    lateinit var mAVObject: ListenCourseData
+    lateinit var mAVObject: CourseData
     lateinit var binding: CourseTranslateFragmentBinding
     private lateinit var ourSounds: SoundPool
     private var answerRight = 0
@@ -69,7 +69,7 @@ class CourseTranslateFragment : BaseFragment() {
             binding.checkBtn.isEnabled = false
             binding.checkBtn.text = "Check"
             wordToCharacter()
-            playItem()
+
         }
     }
 
@@ -80,10 +80,14 @@ class CourseTranslateFragment : BaseFragment() {
             binding.tips.visibility = View.VISIBLE
             binding.tips.text = mAVObject.tips
         }
-        if (StringUtils.isAllChinese(mAVObject.transalte)){
-            binding.playBtn.visibility = View.GONE
-        } else {
+        if (!TextUtils.isEmpty(mAVObject.title)){
+            binding.titleTv.text = mAVObject.title
+        }
+        if (StringUtils.isEnglish(mAVObject.question)){
             binding.playBtn.visibility = View.VISIBLE
+            playItem()
+        } else {
+            binding.playBtn.visibility = View.GONE
         }
         if(TextUtils.isEmpty(mAVObject.img)){
             binding.imgItem.visibility = View.GONE
@@ -91,10 +95,7 @@ class CourseTranslateFragment : BaseFragment() {
             binding.imgItem.visibility = View.VISIBLE
             binding.imgItem.setImageURI(mAVObject.img)
         }
-        if (!TextUtils.isEmpty(mAVObject.title)){
-            binding.titleTv.text = mAVObject.title
-        }
-        binding.translateContent.text = mAVObject.transalte
+        binding.translateContent.text = mAVObject.question
         binding.resultLayout.visibility = View.GONE
         binding.autoWrapOptions.removeAllViews()
         binding.autoWrapResult.removeAllViews()
@@ -176,7 +177,7 @@ class CourseTranslateFragment : BaseFragment() {
 
             }
         }
-        return sb.toString()
+        return sb.toString().trim()
     }
 
     private fun initializeSoundPool() {
@@ -222,13 +223,13 @@ class CourseTranslateFragment : BaseFragment() {
         }
 
     fun playItem() {
-        if (StringUtils.isEnglish(mAVObject.transalte)) {
+        if (StringUtils.isEnglish(mAVObject.question)) {
             binding.playBtn.playAnimation()
-            var mp3Url = mAVObject.mp3_url
+            var mp3Url = mAVObject.media_url
             var startTime = mAVObject.start_time
             var endTime = mAVObject.end_time
             if(TextUtils.isEmpty(mp3Url)){
-                mp3Url = MyPlayer.playUrl + mAVObject.transalte
+                mp3Url = MyPlayer.playUrl + mAVObject.question
             }
             if(!TextUtils.isEmpty(startTime)){
                 startPosition = KStringUtils.getTimeMills(startTime)

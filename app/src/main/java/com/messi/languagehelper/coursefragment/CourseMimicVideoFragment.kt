@@ -16,15 +16,16 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.google.android.exoplayer2.*
 import com.google.android.exoplayer2.source.TrackGroupArray
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray
 import com.iflytek.cloud.*
 import com.messi.languagehelper.BaseFragment
 import com.messi.languagehelper.R
-import com.messi.languagehelper.bean.ListenCourseData
+import com.messi.languagehelper.bean.CourseData
+import com.messi.languagehelper.bean.CourseMedias
 import com.messi.languagehelper.bean.PVideoResult
 import com.messi.languagehelper.databinding.CourseMimicVideoFragmentBinding
 import com.messi.languagehelper.util.*
@@ -48,9 +49,11 @@ class CourseMimicVideoFragment : BaseFragment(), Player.EventListener {
     private var mResumePosition: Long = 0
     private var status = 0
     lateinit var recognizer: SpeechRecognizer
-    lateinit var mAVObject: ListenCourseData
+    lateinit var mAVObject: CourseData
+    lateinit var mimics: List<CourseMedias>
     lateinit var binding: CourseMimicVideoFragmentBinding
-    lateinit var viewModel: MyCourseViewModel
+    val viewModel: MyCourseViewModel by activityViewModels()
+    private var position = 0
     private var startPosition = 0L
     private var endPosition = 0L
     private var userPcmPath = SDCardUtil.getDownloadPath(SDCardUtil.UserPracticePath) + "wordmimic.pcm"
@@ -58,7 +61,6 @@ class CourseMimicVideoFragment : BaseFragment(), Player.EventListener {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        viewModel = ViewModelProvider(requireActivity()).get(MyCourseViewModel::class.java)
         recognizer = SpeechRecognizer.createRecognizer(context, null)
         player = SimpleExoPlayer.Builder(requireContext()).build()
         player.addListener(listener)
@@ -79,13 +81,10 @@ class CourseMimicVideoFragment : BaseFragment(), Player.EventListener {
     }
 
     private fun initDatas() {
-        if(viewModel.currentCourse != null) {
+        if(viewModel.currentCourse.medias != null
+                && viewModel.currentCourse.medias!!.size > position) {
             mAVObject = viewModel.currentCourse
-            if (mAVObject.video_type == "api") {
-                viewModel.loadVideo()
-            }else {
-                exoplaer(mAVObject.video_url,"")
-            }
+            mimics = viewModel.currentCourse.medias!!
             if (TextUtils.isEmpty(mAVObject.tips)){
                 binding.tips.visibility = View.GONE
             }else{
@@ -95,11 +94,16 @@ class CourseMimicVideoFragment : BaseFragment(), Player.EventListener {
             if (!TextUtils.isEmpty(mAVObject.title)){
                 binding.titleTv.text = mAVObject.title
             }
-            if (!TextUtils.isEmpty(mAVObject.transalte)){
-                binding.translateTv.text = mAVObject.transalte
+            if (mimics[position].video_type == "api") {
+                viewModel.loadVideo(mimics[position])
+            }else {
+                exoplaer(mimics[position].media_url,"")
             }
-            binding.contentTv.text = mAVObject.content
-            binding.goOn.setOnClickListener { next() }
+            setListData()
+            binding.goOn.setOnClickListener {
+                position++
+                setListData()
+            }
             binding.mimic.setOnClickListener {
                 playAndListen()
             }
@@ -111,6 +115,19 @@ class CourseMimicVideoFragment : BaseFragment(), Player.EventListener {
                 }
             })
         }
+    }
+
+    private fun setListData(){
+        if(mimics.size > position){
+            if (!TextUtils.isEmpty(mimics[position].transalte)){
+                binding.translateTv.text = mimics[position].transalte
+            }
+            binding.contentTv.text = mimics[position].content
+            playSound()
+        }else{
+            next()
+        }
+
     }
 
     private fun playAndListen(){
@@ -161,32 +178,40 @@ class CourseMimicVideoFragment : BaseFragment(), Player.EventListener {
     }
 
     private fun exoplaer(mediaUrl: String, voiceUrl: String) {
+        if (mimics.size <= position) {
+            next()
+            return
+        }
         if (status == 0) {
             hasInitVideo = true
             status = 1
-            var startTime = mAVObject.start_time
-            var endTime = mAVObject.end_time
+            var startTime = mimics[position].start_time
+            var endTime = mimics[position].end_time
             if(!TextUtils.isEmpty(startTime)){
                 startPosition = KStringUtils.getTimeMills(startTime)
                 if(!TextUtils.isEmpty(endTime)){
                     endPosition = KStringUtils.getTimeMills(endTime)
                 }
             }
-            binding.playerView.player = player;
+            binding.playerView.player = player
             val haveResumePosition = mResumeWindow != C.INDEX_UNSET
             if (haveResumePosition) {
                 binding.playerView.player?.seekTo(mResumeWindow, mResumePosition);
             }
-            val mediaSource = MyPlayer.getMediaSource(mediaUrl, voiceUrl, mAVObject.video_url)
+            val mediaSource = MyPlayer.getMediaSource(mediaUrl, voiceUrl, mimics[position].media_url)
             player.prepare(mediaSource)
             player.playWhenReady = true
         }
     }
 
     private fun playSound(){
+        if (mimics.size <= position) {
+            next()
+            return
+        }
         if (hasInitVideo){
-            var startTime = mAVObject.start_time
-            var endTime = mAVObject.end_time
+            var startTime = mimics[position].start_time
+            var endTime = mimics[position].end_time
             if(!TextUtils.isEmpty(startTime)){
                 startPosition = KStringUtils.getTimeMills(startTime)
                 if(!TextUtils.isEmpty(endTime)){
@@ -195,8 +220,6 @@ class CourseMimicVideoFragment : BaseFragment(), Player.EventListener {
             }
             player.seekTo(startPosition)
             player.playWhenReady = true
-            startPosition = 0
-            stopAtEndPosition()
         }
     }
 

@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import android.os.Bundle
+import android.os.Handler
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
@@ -13,17 +14,19 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.google.android.exoplayer2.C
 import com.google.android.exoplayer2.ExoPlaybackException
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.messi.languagehelper.BaseFragment
 import com.messi.languagehelper.R
-import com.messi.languagehelper.bean.ListenCourseData
+import com.messi.languagehelper.bean.CourseData
+import com.messi.languagehelper.bean.CourseMedias
 import com.messi.languagehelper.bean.PVideoResult
 import com.messi.languagehelper.databinding.CourseVideoFragmentBinding
+import com.messi.languagehelper.util.KStringUtils
 import com.messi.languagehelper.util.LogUtil
 import com.messi.languagehelper.util.MyPlayer
 import com.messi.languagehelper.util.ToastUtil
@@ -45,14 +48,17 @@ class CourseVideoFragment : BaseFragment(), Player.EventListener {
     private var mResumePosition: Long = 0
     private var status = 0
 
-    lateinit var mAVObject: ListenCourseData
+    lateinit var mAVObject: CourseData
     lateinit var binding: CourseVideoFragmentBinding
-    lateinit var viewModel: MyCourseViewModel
+    val viewModel: MyCourseViewModel by activityViewModels()
+    lateinit var mimics: List<CourseMedias>
+    private var position = 0
+    private var startPosition = 0L
+    private var endPosition = 0L
 
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        viewModel = ViewModelProvider(requireActivity()).get(MyCourseViewModel::class.java)
         player = SimpleExoPlayer.Builder(requireContext()).build()
         player.addListener(this)
     }
@@ -72,12 +78,14 @@ class CourseVideoFragment : BaseFragment(), Player.EventListener {
     }
 
     private fun initDatas() {
-        if(viewModel.currentCourse != null) {
+        if(viewModel.currentCourse.medias != null
+                && viewModel.currentCourse.medias!!.size > position) {
             mAVObject = viewModel.currentCourse
-            if (mAVObject.video_type == "api") {
-                viewModel.loadVideo()
+            mimics = viewModel.currentCourse.medias!!
+            if (mimics[position].video_type == "api") {
+                viewModel.loadVideo(mimics[position])
             }else {
-                exoplaer(mAVObject.video_url,"")
+                exoplaer(mimics[position].media_url,"")
             }
             if (TextUtils.isEmpty(mAVObject.tips)){
                 binding.tips.visibility = View.GONE
@@ -109,21 +117,59 @@ class CourseVideoFragment : BaseFragment(), Player.EventListener {
     }
 
     private fun exoplaer(mediaUrl: String, voiceUrl: String) {
+        if (mimics.size <= position) {
+            toNext()
+            return
+        }
         if (status == 0) {
             status = 1
-            binding.playerView.player = player;
+            var startTime = mimics[position].start_time
+            var endTime = mimics[position].end_time
+            if(!TextUtils.isEmpty(startTime)){
+                startPosition = KStringUtils.getTimeMills(startTime)
+                if(!TextUtils.isEmpty(endTime)){
+                    endPosition = KStringUtils.getTimeMills(endTime)
+                }
+            }
+            binding.playerView.player = player
             val haveResumePosition = mResumeWindow != C.INDEX_UNSET
             if (haveResumePosition) {
                 binding.playerView.player?.seekTo(mResumeWindow, mResumePosition);
             }
-            val mediaSource = MyPlayer.getMediaSource(mediaUrl, voiceUrl, mAVObject.video_url)
+            val mediaSource = MyPlayer.getMediaSource(mediaUrl, voiceUrl, mimics[position].media_url)
             player.prepare(mediaSource!!)
             player.playWhenReady = true
         }
     }
 
+    private fun stopAtEndPosition() {
+        if(endPosition > 0){
+            Handler().postDelayed({
+                if (player.currentPosition > endPosition) {
+                    player.playWhenReady = false
+                }else{
+                    stopAtEndPosition()
+                }
+            }, 10)
+        }
+    }
+
     override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
-        LogUtil.DefalutLog("onPlayerStateChanged:$playbackState-:playWhenReady:$playWhenReady")
+        when (playbackState) {
+            Player.STATE_IDLE -> LogUtil.DefalutLog("STATE_IDLE")
+            Player.STATE_BUFFERING -> LogUtil.DefalutLog("STATE_BUFFERING")
+            Player.STATE_READY -> {
+                if(playWhenReady){
+                    if (startPosition > 0) {
+                        player.seekTo(startPosition)
+                        player.playWhenReady = true
+                        startPosition = 0
+                        stopAtEndPosition()
+                    }
+                }
+            }
+            Player.STATE_ENDED -> {}
+        }
     }
 
     override fun onPlayerError(error: ExoPlaybackException) {}

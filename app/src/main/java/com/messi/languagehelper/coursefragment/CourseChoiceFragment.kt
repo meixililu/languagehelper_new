@@ -22,7 +22,7 @@ import com.google.android.exoplayer2.source.TrackGroupArray
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray
 import com.messi.languagehelper.BaseFragment
 import com.messi.languagehelper.R
-import com.messi.languagehelper.bean.ListenCourseData
+import com.messi.languagehelper.bean.CourseData
 import com.messi.languagehelper.databinding.CourseChoiceFragmentBinding
 import com.messi.languagehelper.util.*
 import com.messi.languagehelper.viewmodels.MyCourseViewModel
@@ -31,7 +31,7 @@ import com.messi.languagehelper.viewmodels.MyCourseViewModel
 class CourseChoiceFragment : BaseFragment() {
 
     lateinit var mSharedPreferences: SharedPreferences
-    lateinit var mAVObject: ListenCourseData
+    lateinit var mAVObject: CourseData
     lateinit var binding: CourseChoiceFragmentBinding
     private lateinit var ourSounds: SoundPool
     private var answerRight = 0
@@ -70,7 +70,6 @@ class CourseChoiceFragment : BaseFragment() {
             binding.checkBtn.isEnabled = false
             binding.checkBtn.text = "Check"
             wordToCharacter()
-            playItem()
         }
     }
 
@@ -81,10 +80,13 @@ class CourseChoiceFragment : BaseFragment() {
             binding.tips.visibility = View.VISIBLE
             binding.tips.text = mAVObject.tips
         }
-        if (TextUtils.isEmpty(mAVObject.play_content)){
-            binding.playBtn.visibility = View.GONE
-        } else {
+        binding.titleTv.text = mAVObject.title
+        binding.cQuestion.text = mAVObject.question
+        if (StringUtils.isEnglish(mAVObject.question) && !mAVObject.question.contains("_")){
             binding.playBtn.visibility = View.VISIBLE
+            playItem()
+        } else {
+            binding.playBtn.visibility = View.GONE
         }
         if(TextUtils.isEmpty(mAVObject.img)){
             binding.imgItem.visibility = View.GONE
@@ -94,17 +96,17 @@ class CourseChoiceFragment : BaseFragment() {
         }
         binding.resultLayout.visibility = View.GONE
         binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_green_selecter)
-        binding.titleTv.text = mAVObject.title
-        binding.cQuestion.text = mAVObject.question
-        for (item in mAVObject.options.shuffled()) {
-            var textView = KViewUtil.createOptionItem(requireContext(),item.trim())
-            textView.setOnClickListener {
-                resetTV(textView)
-                binding.checkBtn.isEnabled = true
-                userAnswer = item
+        if (NullUtil.isNotEmpty(mAVObject.options)){
+            for (item in mAVObject.options?.shuffled()!!) {
+                var textView = KViewUtil.createOptionItem(requireContext(),item.trim())
+                textView.setOnClickListener {
+                    resetTV(textView)
+                    binding.checkBtn.isEnabled = true
+                    userAnswer = item
+                }
+                binding.optionsLayout.addView(textView)
+                optionBtns.add(textView)
             }
-            binding.optionsLayout.addView(textView)
-            optionBtns.add(textView)
         }
     }
 
@@ -137,7 +139,7 @@ class CourseChoiceFragment : BaseFragment() {
                 binding.checkSuccess.speed = 2F
                 binding.checkSuccess.playAnimation()
                 binding.resultTv.text = "正确"
-                binding.chineseTv.text = mAVObject.transalte
+                binding.chineseTv.text = mAVObject.answer
                 binding.resultLayout.setBackgroundResource(R.color.correct_bg)
                 binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_green_selecter)
                 binding.chineseTv.setTextColor(resources.getColor(R.color.correct_text))
@@ -202,24 +204,22 @@ class CourseChoiceFragment : BaseFragment() {
         }
 
     fun playItem() {
-        if (!TextUtils.isEmpty(mAVObject.play_content)) {
-            binding.playBtn.playAnimation()
-            var mp3Url = mAVObject.mp3_url
-            var startTime = mAVObject.start_time
-            var endTime = mAVObject.end_time
-            if(TextUtils.isEmpty(mp3Url)){
-                mp3Url = MyPlayer.playUrl + mAVObject.play_content
-            }
-            if(!TextUtils.isEmpty(startTime)){
-                startPosition = KStringUtils.getTimeMills(startTime)
-                if(!TextUtils.isEmpty(endTime)){
-                    endPosition = KStringUtils.getTimeMills(endTime)
-                }
-            }
-            val videoSource = MyPlayer.getMediaSource(mp3Url)
-            player.prepare(videoSource)
-            player.playWhenReady = true
+        binding.playBtn.playAnimation()
+        var mp3Url = mAVObject.media_url
+        var startTime = mAVObject.start_time
+        var endTime = mAVObject.end_time
+        if(TextUtils.isEmpty(mp3Url)){
+            mp3Url = MyPlayer.playUrl + mAVObject.question
         }
+        if(!TextUtils.isEmpty(startTime)){
+            startPosition = KStringUtils.getTimeMills(startTime)
+            if(!TextUtils.isEmpty(endTime)){
+                endPosition = KStringUtils.getTimeMills(endTime)
+            }
+        }
+        val videoSource = MyPlayer.getMediaSource(mp3Url)
+        player.prepare(videoSource)
+        player.playWhenReady = true
     }
 
     private fun stopAtEndPosition() {

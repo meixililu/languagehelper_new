@@ -22,7 +22,6 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:layout_alignParentTop="true"
             >
             <TextView
                 android:id="@+id/title_tv"
@@ -31,7 +30,7 @@
                 android:gravity="left"
                 android:paddingLeft="@dimen/padding_10"
                 android:textStyle="bold"
-                android:text="@string/course_translate_title"
+                android:text=""
                 android:textColor="@color/text_black"
                 android:textSize="@dimen/biggerx" />
             <TextView
@@ -41,7 +40,7 @@
                 android:layout_marginLeft="5dp"
                 android:textStyle="bold"
                 android:gravity="left"
-                android:text="学校"
+                android:text=""
                 android:textColor="@color/text_black"
                 android:textSize="@dimen/biggerx" />
         </LinearLayout>

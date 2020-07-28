@@ -128,6 +128,13 @@ public class StringUtils {
 		return sb.toString();
 	}
 
+	public static String replaceSome(String content){
+		return content.replaceAll("[,.?#!，。？！]", "");
+	}
+
+	public static String replaceAll(String content){
+		return content.replaceAll("[\\p{Punct}]+", "");
+	}
 
 
 

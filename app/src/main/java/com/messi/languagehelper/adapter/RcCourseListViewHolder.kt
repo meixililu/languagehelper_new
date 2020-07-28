@@ -54,10 +54,12 @@ class RcCourseListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
         if (TextUtils.isEmpty(mAVObject.to_activity)){
             val bundle = Bundle()
             bundle.putString(KeyUtil.CourseId,mAVObject.course_id)
+            bundle.putParcelable(KeyUtil.ObjectKey,mAVObject)
             intent.setClass(context,CoursesActivity::class.java)
             intent.putExtra(KeyUtil.BundleKey,bundle)
         }else if (mAVObject.to_activity == "ListenCourseActivity"){
             intent.setClass(context,ListenCourseActivity::class.java)
+            intent.putExtra(KeyUtil.ObjectKey,mAVObject)
         }
         context.startActivity(intent)
         update(mAVObject)

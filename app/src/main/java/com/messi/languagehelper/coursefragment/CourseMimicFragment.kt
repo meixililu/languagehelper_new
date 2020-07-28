@@ -11,17 +11,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.Observer
 import com.google.android.exoplayer2.ExoPlaybackException
 import com.google.android.exoplayer2.PlaybackParameters
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
+import com.google.android.exoplayer2.source.MediaSource
 import com.google.android.exoplayer2.source.TrackGroupArray
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray
 import com.iflytek.cloud.*
 import com.messi.languagehelper.BaseFragment
 import com.messi.languagehelper.R
-import com.messi.languagehelper.bean.ListenCourseData
+import com.messi.languagehelper.bean.CourseData
+import com.messi.languagehelper.bean.CourseMedias
 import com.messi.languagehelper.databinding.CourseMimicFragmentBinding
 import com.messi.languagehelper.util.*
 import com.messi.languagehelper.viewmodels.MyCourseViewModel
@@ -32,10 +34,14 @@ class CourseMimicFragment : BaseFragment() {
     val viewModel: MyCourseViewModel by activityViewModels()
     private var isMimic = false
     lateinit var recognizer: SpeechRecognizer
-    lateinit var mAVObject: ListenCourseData
+    lateinit var mAVObject: CourseData
+    lateinit var mimics: List<CourseMedias>
     lateinit var player: SimpleExoPlayer
+    private var lastUrl = "lastUrl"
+    private var position = 0
     private var startPosition = 0L
     private var endPosition = 0L
+    private var videoSource: MediaSource? = null
     private var userPcmPath = SDCardUtil.getDownloadPath(SDCardUtil.UserPracticePath) + "wordmimic.pcm"
 
     override fun onAttach(context: Context) {
@@ -53,8 +59,10 @@ class CourseMimicFragment : BaseFragment() {
     }
 
     private fun setData() {
-        if(viewModel.currentCourse != null){
+        if(viewModel.currentCourse.medias != null){
+            position = 0
             mAVObject = viewModel.currentCourse
+            mimics = viewModel.currentCourse.medias!!
             if (TextUtils.isEmpty(mAVObject.tips)){
                 binding.tips.visibility = View.GONE
             }else{
@@ -64,29 +72,52 @@ class CourseMimicFragment : BaseFragment() {
             if (!TextUtils.isEmpty(mAVObject.title)){
                 binding.titleTv.text = mAVObject.title
             }
-            if (!TextUtils.isEmpty(mAVObject.transalte)){
-                binding.wordDes.text = mAVObject.transalte
+            if (mimics[position].video_type == "api") {
+                viewModel.loadVideo(mimics[position])
+            }else {
+                exoplaer(mimics[position].media_url)
             }
-            if(TextUtils.isEmpty(mAVObject.img)){
-                binding.playBtn.visibility = View.VISIBLE
-                binding.imgLayout.visibility = View.GONE
-            } else {
-                binding.playBtn.visibility = View.GONE
-                binding.imgLayout.visibility = View.VISIBLE
-                binding.imgItem.setImageURI(mAVObject.img)
-            }
-            binding.wordName.text = mAVObject.content
+            setListData()
             binding.imgLayout.setOnClickListener {
                 justPlay()
             }
             binding.playBtn.setOnClickListener {
                 justPlay()
             }
-            binding.goOn.setOnClickListener { toNext() }
+            binding.goOn.setOnClickListener {
+                position++
+                setListData()
+            }
             binding.mimic.setOnClickListener {
                 playAndListen()
             }
-            playDelay()
+            viewModel.mRespoVideo.observe(viewLifecycleOwner, Observer {
+                if (it.code == 0 && it.data != null){
+                    exoplaer(it.data.getMp3Url())
+                }else{
+                    ToastUtil.diaplayMesShort(context,"error")
+                }
+            })
+        }
+    }
+
+    private fun setListData(){
+        if(mimics.size > position){
+            if(TextUtils.isEmpty(mimics[position].img)){
+                binding.playBtn.visibility = View.VISIBLE
+                binding.imgLayout.visibility = View.GONE
+            } else {
+                binding.playBtn.visibility = View.GONE
+                binding.imgLayout.visibility = View.VISIBLE
+                binding.imgItem.setImageURI(mimics[position].img)
+            }
+            if (!TextUtils.isEmpty(mimics[position].transalte)){
+                binding.wordDes.text = mimics[position].transalte
+            }
+            binding.wordName.text = mimics[position].content
+            playSound()
+        }else{
+            toNext()
         }
     }
 
@@ -159,31 +190,67 @@ class CourseMimicFragment : BaseFragment() {
         PCMAudioPlayer.getInstance().startPlay(userPcmPath)
     }
 
-    private fun playDelay() {
-        Handler().postDelayed({ playSound() }, 10)
-    }
-
-    private fun playSound() {
+    private fun exoplaer(url: String) {
+        if (mimics.size <= position) {
+            toNext()
+            return
+        }
         if(PCMAudioPlayer.getInstance().isPlaying){
             PCMAudioPlayer.getInstance().stopPlay()
         }
+        var mp3Url = url
         binding.playBtn.playAnimation()
         binding.imgPlayBtn.playAnimation()
-        var mp3Url = mAVObject.mp3_url
-        var startTime = mAVObject.start_time
-        var endTime = mAVObject.end_time
-        if(TextUtils.isEmpty(mp3Url)){
-            mp3Url = MyPlayer.playUrl + mAVObject.content
-        }
+        var startTime = mimics[position].start_time
+        var endTime = mimics[position].end_time
         if(!TextUtils.isEmpty(startTime)){
             startPosition = KStringUtils.getTimeMills(startTime)
             if(!TextUtils.isEmpty(endTime)){
                 endPosition = KStringUtils.getTimeMills(endTime)
             }
         }
-        val videoSource = MyPlayer.getMediaSource(mp3Url)
-        player.prepare(videoSource)
+        if(videoSource == null){
+            if(TextUtils.isEmpty(mp3Url)){
+                mp3Url = MyPlayer.playUrl + mimics[position].content
+            }
+            lastUrl = mp3Url
+            videoSource = MyPlayer.getMediaSource(mp3Url)
+        }
+        player.prepare(videoSource!!)
         player.playWhenReady = true
+    }
+
+    private fun playSound(){
+        if (mimics.size <= position) {
+            toNext()
+            return
+        }
+        if (videoSource != null){
+            if(PCMAudioPlayer.getInstance().isPlaying){
+                PCMAudioPlayer.getInstance().stopPlay()
+            }
+            binding.playBtn.playAnimation()
+            binding.imgPlayBtn.playAnimation()
+            var startTime = mimics[position].start_time
+            var endTime = mimics[position].end_time
+            if(!TextUtils.isEmpty(startTime)){
+                startPosition = KStringUtils.getTimeMills(startTime)
+                if(!TextUtils.isEmpty(endTime)){
+                    endPosition = KStringUtils.getTimeMills(endTime)
+                }
+            }
+            var currentUrl = mimics[position].media_url
+            if (lastUrl != currentUrl){
+                if(TextUtils.isEmpty(currentUrl)){
+                    currentUrl = MyPlayer.playUrl + mimics[position].content
+                }
+                lastUrl = currentUrl
+                videoSource = MyPlayer.getMediaSource(currentUrl)
+                player.prepare(videoSource!!)
+            }
+            player.seekTo(startPosition)
+            player.playWhenReady = true
+        }
     }
 
     private fun toNext(){

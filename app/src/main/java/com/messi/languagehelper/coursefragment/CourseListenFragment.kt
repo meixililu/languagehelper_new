@@ -23,7 +23,7 @@ import com.google.android.exoplayer2.source.TrackGroupArray
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray
 import com.messi.languagehelper.BaseFragment
 import com.messi.languagehelper.R
-import com.messi.languagehelper.bean.ListenCourseData
+import com.messi.languagehelper.bean.CourseData
 import com.messi.languagehelper.databinding.ListenCourseFragmentBinding
 import com.messi.languagehelper.util.*
 import com.messi.languagehelper.viewmodels.MyCourseViewModel
@@ -32,7 +32,7 @@ import com.messi.languagehelper.viewmodels.MyCourseViewModel
 class CourseListenFragment : BaseFragment() {
 
     lateinit var mSharedPreferences: SharedPreferences
-    lateinit var mAVObject: ListenCourseData
+    lateinit var mAVObject: CourseData
     lateinit var binding: ListenCourseFragmentBinding
     private lateinit var ourSounds: SoundPool
     private var answerRight = 0
@@ -124,7 +124,7 @@ class CourseListenFragment : BaseFragment() {
     }
 
     private fun check() {
-        val content = englishContent
+        val content = answer(true)
         if (binding.autoWrapResult.childCount > 0) {
             var selectedStr = getSelectedResult()
             binding.checkBtn.text = "Next"
@@ -147,7 +147,7 @@ class CourseListenFragment : BaseFragment() {
                 binding.checkSuccess.setAnimation("cross.json")
                 binding.checkSuccess.playAnimation()
                 binding.resultTv.text = "正确答案"
-                binding.chineseTv.text = englishContent + "\n" + mAVObject.transalte
+                binding.chineseTv.text = answer(false) + "\n" + mAVObject.transalte
                 binding.resultLayout.setBackgroundResource(R.color.wrong_bg)
                 binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_red_selecter)
                 binding.chineseTv.setTextColor(resources.getColor(R.color.wrong_text))
@@ -197,28 +197,31 @@ class CourseListenFragment : BaseFragment() {
         }
     }
 
-    private val englishContent: String
-        private get() {
-            var sb = StringBuilder()
-            var contents = mAVObject.answer.split(" ")
-            for (item in contents) {
-                if (!TextUtils.isEmpty(item)) {
-                    sb.append(item)
-                    sb.append(" ")
-                }
-            }
-            return sb.toString().trim()
+    private fun answer(flag: Boolean): String{
+        var sb = StringBuilder()
+        var content = mAVObject.answer
+        if(flag){
+            content = StringUtils.replaceSome(content)
         }
+        var contents = content.split(" ")
+        for (item in contents) {
+            if (!TextUtils.isEmpty(item)) {
+                sb.append(item)
+                sb.append(" ")
+            }
+        }
+        return sb.toString().trim()
+    }
 
     fun playItem() {
         if (mAVObject != null) {
             binding.playBtn.playAnimation()
             binding.imgPlayBtn.playAnimation()
-            var mp3Url = mAVObject.mp3_url
+            var mp3Url = mAVObject.media_url
             var startTime = mAVObject.start_time
             var endTime = mAVObject.end_time
             if(TextUtils.isEmpty(mp3Url)){
-                mp3Url = MyPlayer.playUrl + mAVObject.answer
+                mp3Url = MyPlayer.playUrl + answer(false)
             }
             if(!TextUtils.isEmpty(startTime)){
                 startPosition = KStringUtils.getTimeMills(startTime)

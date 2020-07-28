@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.messi.languagehelper.BaseActivity
 import com.messi.languagehelper.R
+import com.messi.languagehelper.box.CourseList
 import com.messi.languagehelper.databinding.CoursesActivityBinding
 import com.messi.languagehelper.impl.FragmentProgressbarListener
 import com.messi.languagehelper.util.IPlayerUtil
@@ -22,7 +23,7 @@ class CoursesActivity: FragmentProgressbarListener, BaseActivity() {
 
     var course_id = ""
     lateinit var binding: CoursesActivityBinding
-    lateinit var viewModel: MyCourseViewModel
+    private var mCourseList: CourseList? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,11 +36,12 @@ class CoursesActivity: FragmentProgressbarListener, BaseActivity() {
 
     private fun init() {
         IPlayerUtil.MPlayerPause()
-        viewModel = ViewModelProvider(this).get(MyCourseViewModel::class.java)
+        val viewModel: MyCourseViewModel by viewModels()
         binding.loadingAv.visibility = View.VISIBLE
         binding.loadingAv.playAnimation()
         val bundle = intent.getBundleExtra(KeyUtil.BundleKey)
         course_id = bundle.getString(KeyUtil.CourseId,"")
+        mCourseList = bundle.getParcelable(KeyUtil.ObjectKey)
         viewModel.course_id = course_id
         viewModel.loadData()
 
@@ -88,6 +90,7 @@ class CoursesActivity: FragmentProgressbarListener, BaseActivity() {
                     initFragment(CourseMimicVideoFragment())
                 }
                 else -> {
+                    ToastUtil.diaplayMesShort(this,"未知Type")
                     viewModel.next()
                 }
             }
@@ -104,6 +107,7 @@ class CoursesActivity: FragmentProgressbarListener, BaseActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
+        hideKeyBoard()
         MyPlayer.getInstance(this).onDestroy()
     }
 

@@ -14,8 +14,6 @@ import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import com.google.android.exoplayer2.ExoPlaybackException
 import com.google.android.exoplayer2.PlaybackParameters
 import com.google.android.exoplayer2.Player
@@ -24,7 +22,7 @@ import com.google.android.exoplayer2.source.TrackGroupArray
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray
 import com.messi.languagehelper.BaseFragment
 import com.messi.languagehelper.R
-import com.messi.languagehelper.bean.ListenCourseData
+import com.messi.languagehelper.bean.CourseData
 import com.messi.languagehelper.databinding.CourseWordFragmentBinding
 import com.messi.languagehelper.util.*
 import com.messi.languagehelper.viewmodels.MyCourseViewModel
@@ -33,14 +31,11 @@ import com.messi.languagehelper.viewmodels.MyCourseViewModel
 class CourseWordFragment : BaseFragment() {
 
     lateinit var mSharedPreferences: SharedPreferences
-    lateinit var mAVObject: ListenCourseData
+    lateinit var mAVObject: CourseData
     lateinit var binding: CourseWordFragmentBinding
     private lateinit var ourSounds: SoundPool
     private var answerRight = 0
     private var answerWrong = 0
-    private var startPosition = 0L
-    private var endPosition = 0L
-    lateinit var player: SimpleExoPlayer
     val viewModel: MyCourseViewModel by activityViewModels()
     var optionBtns = ArrayList<TextView>()
     var userAnswer = ""
@@ -55,8 +50,6 @@ class CourseWordFragment : BaseFragment() {
     }
 
     private fun initViews() {
-        player = SimpleExoPlayer.Builder(requireContext()).build()
-        player.addListener(listener)
         binding.checkBtn.setOnClickListener { checkOrNext() }
     }
 
@@ -70,49 +63,49 @@ class CourseWordFragment : BaseFragment() {
     }
 
     private fun wordToCharacter() {
-        binding.resultLayout.visibility = View.GONE
-        binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_green_selecter)
-        binding.titleTv.text = mAVObject.title
-        for ((index,item) in mAVObject.options.shuffled().withIndex()){
-            when (index) {
-                0 -> {
-                    binding.itemTv.text = item
-                    binding.itemImg.setImageURI(getImgUrl(item))
-                    binding.item.setOnClickListener {
-                        userAnswer = item
-                        resetItem(binding.item)
+        if (NullUtil.isNotEmpty(mAVObject.words)){
+            binding.resultLayout.visibility = View.GONE
+            binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_green_selecter)
+            binding.titleTv.text = mAVObject.question
+
+            for ((index,item) in mAVObject.words?.shuffled()?.withIndex()!!){
+                when (index) {
+                    0 -> {
+                        binding.itemTv.text = item.name
+                        binding.itemImg.setImageURI(item.img)
+                        binding.item.setOnClickListener {
+                            userAnswer = item.name
+                            resetItem(binding.item)
+                        }
+                    }
+                    1 -> {
+                        binding.itemTv1.text = item.name
+                        binding.itemImg1.setImageURI(item.img)
+                        binding.item1.setOnClickListener {
+                            userAnswer = item.name
+                            resetItem(binding.item1)
+                        }
+                    }
+                    2 -> {
+                        binding.itemTv2.text = item.name
+                        binding.itemImg2.setImageURI(item.img)
+                        binding.item2.setOnClickListener {
+                            userAnswer = item.name
+                            resetItem(binding.item2)
+                        }
+                    }
+                    3 -> {
+                        binding.itemTv3.text = item.name
+                        binding.itemImg3.setImageURI(item.img)
+                        binding.item3.setOnClickListener {
+                            userAnswer = item.name
+                            resetItem(binding.item3)
+                        }
                     }
                 }
-                1 -> {
-                    binding.itemTv1.text = item
-                    binding.itemImg1.setImageURI(getImgUrl(item))
-                    binding.item1.setOnClickListener {
-                        userAnswer = item
-                        resetItem(binding.item1)
-                    }
-                }
-                2 -> {
-                    binding.itemTv2.text = item
-                    binding.itemImg2.setImageURI(getImgUrl(item))
-                    binding.item2.setOnClickListener {
-                        userAnswer = item
-                        resetItem(binding.item2)
-                    }
-                }
-                3 -> {
-                    binding.itemTv3.text = item
-                    binding.itemImg3.setImageURI(getImgUrl(item))
-                    binding.item3.setOnClickListener {
-                        userAnswer = item
-                        resetItem(binding.item3)
-                    }
-                }
+                playItem(userAnswer)
             }
         }
-    }
-
-    fun getImgUrl(name:String): String{
-        return Setings.IMGRoot + "father" + ".png"
     }
 
     private fun resetItem(view: RelativeLayout){
@@ -130,6 +123,7 @@ class CourseWordFragment : BaseFragment() {
             check()
         } else if (binding.checkBtn.text.toString() == "Next") {
             viewModel.next()
+            release()
         }
     }
 
@@ -138,14 +132,14 @@ class CourseWordFragment : BaseFragment() {
         if (!TextUtils.isEmpty(userAnswer)) {
             binding.checkBtn.text = "Next"
             binding.resultLayout.visibility = View.VISIBLE
-            if (mAVObject.answer.trim() == userAnswer) {
+            if (mAVObject.answer.trim() == userAnswer.trim()) {
                 mAVObject.user_result = true
                 playSoundPool(mAVObject.user_result)
                 binding.checkSuccess.setAnimation("check_success.json")
                 binding.checkSuccess.speed = 2F
                 binding.checkSuccess.playAnimation()
                 binding.resultTv.text = "正确"
-                binding.chineseTv.text = mAVObject.transalte
+                binding.chineseTv.text = ""
                 binding.resultLayout.setBackgroundResource(R.color.correct_bg)
                 binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_green_selecter)
                 binding.chineseTv.setTextColor(resources.getColor(R.color.correct_text))
@@ -192,96 +186,19 @@ class CourseWordFragment : BaseFragment() {
         }
     }
 
-    fun playItem() {
-        if (!TextUtils.isEmpty(mAVObject.play_content)) {
-            var mp3Url = mAVObject.mp3_url
-            var startTime = mAVObject.start_time
-            var endTime = mAVObject.end_time
-            if(TextUtils.isEmpty(mp3Url)){
-                mp3Url = MyPlayer.playUrl + mAVObject.play_content
-            }
-            if(!TextUtils.isEmpty(startTime)){
-                startPosition = KStringUtils.getTimeMills(startTime)
-                if(!TextUtils.isEmpty(endTime)){
-                    endPosition = KStringUtils.getTimeMills(endTime)
-                }
-            }
-            val videoSource = MyPlayer.getMediaSource(mp3Url)
-            player.prepare(videoSource)
-            player.playWhenReady = true
+    fun playItem(playContent: String) {
+        if (!TextUtils.isEmpty(playContent)) {
+            MyPlayer.getInstance(context).start(playContent)
         }
     }
-
-    private fun stopAtEndPosition() {
-        if(endPosition > 0){
-            Handler().postDelayed({
-                if (player.currentPosition > endPosition) {
-                    player.playWhenReady = false
-                }else{
-                    stopAtEndPosition()
-                }
-            }, 10)
-        }
-    }
-
-    val isPlaying: Boolean
-        get() = player.playbackState == Player.STATE_READY && player.playWhenReady
 
     override fun onDestroy() {
         super.onDestroy()
-        if(player != null){
-            player.stop()
-            player.release()
-        }
+        release()
+    }
+
+    private fun release(){
+        MyPlayer.getInstance(context).onDestroy()
         optionBtns.clear()
     }
-
-    var listener = object : Player.EventListener{
-        override fun onTracksChanged(trackGroups: TrackGroupArray, trackSelections: TrackSelectionArray) {
-            LogUtil.DefalutLog("---onTracksChanged---")
-        }
-        override fun onLoadingChanged(isLoading: Boolean) {
-            LogUtil.DefalutLog("---onLoadingChanged---")
-        }
-        override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
-            LogUtil.DefalutLog("---onPlayerStateChanged---")
-            when (playbackState) {
-                Player.STATE_IDLE -> LogUtil.DefalutLog("STATE_IDLE")
-                Player.STATE_BUFFERING -> LogUtil.DefalutLog("STATE_BUFFERING")
-                Player.STATE_READY -> {
-                    if(playWhenReady){
-                        if (startPosition > 0) {
-                            player.seekTo(startPosition)
-                            player.playWhenReady = true
-                            startPosition = 0
-                            stopAtEndPosition()
-                        }
-                    }
-                }
-                Player.STATE_ENDED -> {
-
-                }
-            }
-        }
-
-        override fun onRepeatModeChanged(repeatMode: Int) {
-            LogUtil.DefalutLog("---onRepeatModeChanged---")
-        }
-        override fun onShuffleModeEnabledChanged(shuffleModeEnabled: Boolean) {
-            LogUtil.DefalutLog("---onShuffleModeEnabledChanged---")
-        }
-        override fun onPlayerError(error: ExoPlaybackException) {
-
-        }
-        override fun onPositionDiscontinuity(reason: Int) {
-            LogUtil.DefalutLog("---onPositionDiscontinuity---")
-        }
-        override fun onPlaybackParametersChanged(playbackParameters: PlaybackParameters) {
-            LogUtil.DefalutLog("---onPlaybackParametersChanged---")
-        }
-        override fun onSeekProcessed() {
-            LogUtil.DefalutLog("---onSeekProcessed---")
-        }
-    }
-
 }

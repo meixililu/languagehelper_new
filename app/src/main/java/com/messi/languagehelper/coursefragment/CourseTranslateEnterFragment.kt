@@ -14,8 +14,6 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.core.view.get
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.exoplayer2.ExoPlaybackException
 import com.google.android.exoplayer2.PlaybackParameters
@@ -25,9 +23,8 @@ import com.google.android.exoplayer2.source.TrackGroupArray
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray
 import com.messi.languagehelper.BaseFragment
 import com.messi.languagehelper.R
-import com.messi.languagehelper.bean.ListenCourseData
+import com.messi.languagehelper.bean.CourseData
 import com.messi.languagehelper.databinding.CourseTranslateEnterFragmentBinding
-import com.messi.languagehelper.databinding.CourseTranslateFragmentBinding
 import com.messi.languagehelper.util.*
 import com.messi.languagehelper.viewmodels.MyCourseViewModel
 
@@ -35,7 +32,7 @@ import com.messi.languagehelper.viewmodels.MyCourseViewModel
 class CourseTranslateEnterFragment : BaseFragment() {
 
     lateinit var mSharedPreferences: SharedPreferences
-    lateinit var mAVObject: ListenCourseData
+    lateinit var mAVObject: CourseData
     lateinit var binding: CourseTranslateEnterFragmentBinding
     private lateinit var ourSounds: SoundPool
     private var answerRight = 0
@@ -83,7 +80,6 @@ class CourseTranslateEnterFragment : BaseFragment() {
             binding.checkBtn.isEnabled = false
             binding.checkBtn.text = "Check"
             wordToCharacter()
-            playItem()
         }
     }
 
@@ -94,10 +90,8 @@ class CourseTranslateEnterFragment : BaseFragment() {
             binding.tips.visibility = View.VISIBLE
             binding.tips.text = mAVObject.tips
         }
-        if (StringUtils.isAllChinese(mAVObject.transalte)){
-            binding.playBtn.visibility = View.GONE
-        } else {
-            binding.playBtn.visibility = View.VISIBLE
+        if (!TextUtils.isEmpty(mAVObject.title)){
+            binding.titleTv.text = mAVObject.title
         }
         if(TextUtils.isEmpty(mAVObject.img)){
             binding.imgItem.visibility = View.GONE
@@ -105,10 +99,13 @@ class CourseTranslateEnterFragment : BaseFragment() {
             binding.imgItem.visibility = View.VISIBLE
             binding.imgItem.setImageURI(mAVObject.img)
         }
-        if (!TextUtils.isEmpty(mAVObject.title)){
-            binding.titleTv.text = mAVObject.title
+        if (StringUtils.isEnglish(mAVObject.question)){
+            binding.playBtn.visibility = View.VISIBLE
+            playItem()
+        } else {
+            binding.playBtn.visibility = View.GONE
         }
-        binding.translateContent.text = mAVObject.transalte
+        binding.translateContent.text = mAVObject.question
         binding.resultLayout.visibility = View.GONE
         binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_green_selecter)
     }
@@ -125,7 +122,8 @@ class CourseTranslateEnterFragment : BaseFragment() {
     private fun check() {
         hideKeyBoard()
         val content = result
-        val userInput = binding.editText.text.toString().toLowerCase().trim()
+        var userInput = binding.editText.text.toString().toLowerCase().trim()
+        userInput = StringUtils.replaceAll(userInput)
         if (!TextUtils.isEmpty(userInput)) {
             binding.checkBtn.text = "Next"
             binding.resultLayout.visibility = View.VISIBLE
@@ -201,13 +199,14 @@ class CourseTranslateEnterFragment : BaseFragment() {
         }
 
     fun playItem() {
-        if (StringUtils.isEnglish(mAVObject.transalte)) {
+        if (StringUtils.isEnglish(mAVObject.question)) {
             binding.playBtn.playAnimation()
-            var mp3Url = mAVObject.mp3_url
+            var mp3Url = mAVObject.media_url
             var startTime = mAVObject.start_time
             var endTime = mAVObject.end_time
+
             if(TextUtils.isEmpty(mp3Url)){
-                mp3Url = MyPlayer.playUrl + mAVObject.transalte
+                mp3Url = MyPlayer.playUrl + mAVObject.question
             }
             if(!TextUtils.isEmpty(startTime)){
                 startPosition = KStringUtils.getTimeMills(startTime)

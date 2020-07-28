@@ -7,27 +7,16 @@ import android.media.AudioManager
 import android.media.SoundPool
 import android.os.Build
 import android.os.Bundle
-import android.os.Handler
 import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.core.view.get
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.exoplayer2.ExoPlaybackException
-import com.google.android.exoplayer2.PlaybackParameters
-import com.google.android.exoplayer2.Player
-import com.google.android.exoplayer2.SimpleExoPlayer
-import com.google.android.exoplayer2.source.TrackGroupArray
-import com.google.android.exoplayer2.trackselection.TrackSelectionArray
 import com.messi.languagehelper.BaseFragment
 import com.messi.languagehelper.R
-import com.messi.languagehelper.bean.ListenCourseData
-import com.messi.languagehelper.databinding.CourseTranslateEnterFragmentBinding
-import com.messi.languagehelper.databinding.CourseTranslateFragmentBinding
+import com.messi.languagehelper.bean.CourseData
 import com.messi.languagehelper.databinding.CourseWordEnterFragmentBinding
 import com.messi.languagehelper.util.*
 import com.messi.languagehelper.viewmodels.MyCourseViewModel
@@ -36,7 +25,7 @@ import com.messi.languagehelper.viewmodels.MyCourseViewModel
 class CourseWordEnterFragment : BaseFragment() {
 
     lateinit var mSharedPreferences: SharedPreferences
-    lateinit var mAVObject: ListenCourseData
+    lateinit var mAVObject: CourseData
     lateinit var binding: CourseWordEnterFragmentBinding
     private lateinit var ourSounds: SoundPool
     private var answerRight = 0
@@ -108,7 +97,8 @@ class CourseWordEnterFragment : BaseFragment() {
     private fun check() {
         hideKeyBoard()
         val content = mAVObject.answer.trim()
-        val userInput = binding.editText.text.toString().toLowerCase().trim()
+        var userInput = binding.editText.text.toString().toLowerCase().trim()
+        userInput = StringUtils.replaceSome(userInput)
         if (!TextUtils.isEmpty(userInput)) {
             binding.checkBtn.text = "Next"
             binding.resultLayout.visibility = View.VISIBLE
@@ -119,7 +109,7 @@ class CourseWordEnterFragment : BaseFragment() {
                 binding.checkSuccess.speed = 2F
                 binding.checkSuccess.playAnimation()
                 binding.resultTv.text = "正确"
-                binding.chineseTv.text = mAVObject.transalte
+                binding.chineseTv.text = ""
                 binding.resultLayout.setBackgroundResource(R.color.correct_bg)
                 binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_green_selecter)
                 binding.chineseTv.setTextColor(resources.getColor(R.color.correct_text))

@@ -26,6 +26,7 @@ import com.google.android.exoplayer2.source.TrackGroupArray
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray
 import com.messi.languagehelper.BaseActivity
 import com.messi.languagehelper.R
+import com.messi.languagehelper.box.CourseList
 import com.messi.languagehelper.databinding.DailyEnglishActivityBinding
 import com.messi.languagehelper.util.*
 
@@ -44,6 +45,7 @@ class ListenCourseActivity : BaseActivity() {
     private var startPosition = 0L
     private var endPosition = 0L
     lateinit var player: SimpleExoPlayer
+    private var mCourseList: CourseList? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +59,7 @@ class ListenCourseActivity : BaseActivity() {
     }
 
     private fun initViews() {
+        mCourseList = intent.getParcelableExtra(KeyUtil.ObjectKey)
         player = SimpleExoPlayer.Builder(this).build()
         player.addListener(listener)
         mSharedPreferences = Setings.getSharedPreferences(this)
@@ -82,14 +85,15 @@ class ListenCourseActivity : BaseActivity() {
             }else{
                 binding.classProgress.progress = nProgress
             }
-            queryData()
+            init()
         }
     }
 
     private fun queryData() {
         showProgressbar()
         val query = AVQuery<AVObject>(AVOUtil.ListenCourse.ListenCourse)
-        query.addAscendingOrder(AVOUtil.ListenCourse.order)
+        query.addDescendingOrder(AVOUtil.ListenCourse.order)
+        query.whereExists(AVOUtil.ListenCourse.content)
         query.limit(20)
         query.skip(courseID)
         query.findInBackground().subscribe(ObserverBuilder.buildCollectionObserver<AVObject>(object : FindCallback<AVObject>() {
@@ -132,25 +136,27 @@ class ListenCourseActivity : BaseActivity() {
         binding.autoWrapResult.removeAllViews()
         binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_green_selecter)
         val content = mAVObject.getString(AVOUtil.ListenCourse.content)
-        val contents = content.split(" ")
-        var index = 0
-        for (item in contents.shuffled()) {
-            if (TextUtils.isEmpty(item) || item == " "){
-                continue
-            }else{
-                KViewUtil.createNewFlexItemTextView(this,
-                        binding.autoWrapOptions,
-                        binding.autoWrapResult,
-                        binding.checkBtn,
-                        item.trim(),
-                        index)
-                index++
+        if (!TextUtils.isEmpty(content)){
+            val contents = content.split(" ")
+            var index = 0
+            for (item in contents.shuffled()) {
+                if (TextUtils.isEmpty(item) || item == " "){
+                    continue
+                }else{
+                    KViewUtil.createNewFlexItemTextView(this,
+                            binding.autoWrapOptions,
+                            binding.autoWrapResult,
+                            binding.checkBtn,
+                            item.trim(),
+                            index)
+                    index++
+                }
             }
         }
     }
 
     private fun check() {
-        val content = answer.toLowerCase()
+        val content = answer(true).toLowerCase()
         if (binding.autoWrapResult.childCount > 0) {
             var selectedStr = getSelectedResult().toLowerCase()
             binding.checkBtn.text = "Next"
@@ -174,7 +180,7 @@ class ListenCourseActivity : BaseActivity() {
                 binding.checkSuccess.setAnimation("cross.json")
                 binding.checkSuccess.playAnimation()
                 binding.resultTv.text = "正确答案"
-                binding.chineseTv.text = answer + "\n" + chineseContent
+                binding.chineseTv.text = answer(false) + "\n" + chineseContent
                 binding.resultLayout.setBackgroundResource(R.color.wrong_bg)
                 binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_red_selecter)
                 binding.chineseTv.setTextColor(resources.getColor(R.color.wrong_text))
@@ -229,19 +235,21 @@ class ListenCourseActivity : BaseActivity() {
             return mAVObject.getString(AVOUtil.ListenCourse.level)
         }
 
-    private val answer: String
-        private get() {
-            var sb = StringBuilder()
-            var content = mAVObject.getString(AVOUtil.ListenCourse.answer)
-            var contents = content.split(" ")
-            for (item in contents) {
-                if (!TextUtils.isEmpty(item)) {
-                    sb.append(item)
-                    sb.append(" ")
-                }
-            }
-            return sb.toString().trim()
+    private fun answer(flag: Boolean): String{
+        var sb = StringBuilder()
+        var content = (mAVObject.getString(AVOUtil.ListenCourse.answer))
+        if(flag){
+            content = StringUtils.replaceSome(content)
         }
+        var contents = content.split(" ")
+        for (item in contents) {
+            if (!TextUtils.isEmpty(item)) {
+                sb.append(item)
+                sb.append(" ")
+            }
+        }
+        return sb.toString().trim()
+    }
 
     private val chineseContent: String
         private get() {
@@ -256,7 +264,7 @@ class ListenCourseActivity : BaseActivity() {
             var startTime = mAVObject.getString(AVOUtil.ListenCourse.start_time)
             var endTime = mAVObject.getString(AVOUtil.ListenCourse.end_time)
             if(TextUtils.isEmpty(mp3Url)){
-                mp3Url = MyPlayer.playUrl + answer
+                mp3Url = MyPlayer.playUrl + answer(false)
             }
             if(!TextUtils.isEmpty(startTime)){
                 startPosition = KStringUtils.getTimeMills(startTime)

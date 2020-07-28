@@ -1,6 +1,5 @@
 package com.messi.languagehelper.util
 
-import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -103,4 +102,5 @@ object KStringUtils {
         var time = (str[0].toInt() * 60 + str[1].toInt() + str[2].toInt() * 0.01) * 1000
         return time.toLong()
     }
+
 }
