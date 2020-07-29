@@ -51,7 +51,7 @@ class CoursesActivity: FragmentProgressbarListener, BaseActivity() {
             binding.loadingAv.cancelAnimation()
             when (it) {
                 "finish" -> {
-                    ToastUtil.diaplayMesShort(this,"finish")
+                    initFragment(CourseFinishFragment())
                 }
                 "error" -> {
                     ToastUtil.diaplayMesShort(this,"error")
@@ -88,6 +88,9 @@ class CoursesActivity: FragmentProgressbarListener, BaseActivity() {
                 }
                 "mimic_video" -> {
                     initFragment(CourseMimicVideoFragment())
+                }
+                "word_spell" -> {
+                    initFragment(CourseWordSpellFragment())
                 }
                 else -> {
                     ToastUtil.diaplayMesShort(this,"未知Type")

@@ -1013,8 +1013,6 @@ public class AVOUtil {
 
 		public final static String img = "img";
 
-		public final static String level = "level";
-
 		public final static String level_num = "level_num";
 
 		public final static String unit_num = "unit_num";
@@ -1022,6 +1020,8 @@ public class AVOUtil {
 		public final static String views = "views";
 
 		public final static String valid = "valid";
+
+		public final static String type = "type";
 
 	}
 

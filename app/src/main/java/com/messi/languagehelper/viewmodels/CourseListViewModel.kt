@@ -24,7 +24,7 @@ class CourseListViewModel(application: Application) : AndroidViewModel(applicati
     private var serverVersion = 1
     var sp: SharedPreferences = Setings.getSharedPreferences(application.applicationContext)
 
-    fun loadData() {
+    fun loadData(type: String) {
         if (isRequestInProgress) return
         serverVersion = sp.getInt(KeyUtil.Caricature_version,1)
 //        localVersion = sp.getInt(KeyUtil.CourseVersion,0)
@@ -32,21 +32,22 @@ class CourseListViewModel(application: Application) : AndroidViewModel(applicati
         isRequestInProgress = true
         viewModelScope.launch(Dispatchers.IO) {
             if (localVersion == serverVersion){
-                LogUtil.DefalutLog("localVersion == serverVersion")
-                getDataFromDataBase()
+                getDataFromDataBase(type)
             }else {
-                LogUtil.DefalutLog("localVersion != serverVersion")
-                getData()
+                getData(type)
             }
             isRequestInProgress = false
         }
     }
 
-    fun getData() {
+    fun getData(type: String) {
         val queryResult = RespoData<String>()
         queryResult.code = 1
         var query = AVQuery<AVObject>(AVOUtil.CourseList.CourseList)
         query.whereNotEqualTo(AVOUtil.CourseList.valid,"0")
+        if(!TextUtils.isEmpty(type)){
+            query.whereEqualTo(AVOUtil.CourseList.type,type)
+        }
         query.orderByAscending(AVOUtil.CourseList.order)
         query.limit = 200
         var results = query.find()
@@ -72,7 +73,6 @@ class CourseListViewModel(application: Application) : AndroidViewModel(applicati
         mCourseList.order = mAVObject.getInt(AVOUtil.CourseList.order)
         mCourseList.level_num = mAVObject.getInt(AVOUtil.CourseList.level_num)
         mCourseList.unit_num = mAVObject.getInt(AVOUtil.CourseList.unit_num)
-        mCourseList.order = mAVObject.getInt(AVOUtil.CourseList.order)
         if (!TextUtils.isEmpty(mAVObject.getString(AVOUtil.CourseList.lock))){
             mCourseList.lock = mAVObject.getString(AVOUtil.CourseList.lock)
         }
@@ -82,15 +82,15 @@ class CourseListViewModel(application: Application) : AndroidViewModel(applicati
         if (!TextUtils.isEmpty(mAVObject.getString(AVOUtil.CourseList.to_activity))){
             mCourseList.to_activity = mAVObject.getString(AVOUtil.CourseList.to_activity)
         }
-        if (!TextUtils.isEmpty(mAVObject.getString(AVOUtil.CourseList.level))){
-            mCourseList.level = mAVObject.getString(AVOUtil.CourseList.level)
+        if (!TextUtils.isEmpty(mAVObject.getString(AVOUtil.CourseList.type))){
+            mCourseList.type = mAVObject.getString(AVOUtil.CourseList.type)
         }
         BoxHelper.saveAndUpdate(mCourseList)
         return mCourseList
     }
 
-    private fun getDataFromDataBase(){
-        var list = BoxHelper.getCourseList()
+    private fun getDataFromDataBase(type: String){
+        var list = BoxHelper.getCourseList(type)
         if (list.size > 0){
             datas.clear()
             datas.addAll(list)
@@ -98,7 +98,7 @@ class CourseListViewModel(application: Application) : AndroidViewModel(applicati
             queryResult.code = 0
             result.postValue(queryResult)
         }else{
-            getData()
+            getData(type)
         }
     }
 

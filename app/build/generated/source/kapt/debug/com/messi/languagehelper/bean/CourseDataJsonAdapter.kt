@@ -23,7 +23,7 @@ class CourseDataJsonAdapter(
   moshi: Moshi
 ) : JsonAdapter<CourseData>() {
   private val options: JsonReader.Options = JsonReader.Options.of("type", "tips", "title",
-      "question", "img", "content", "answer", "transalte", "media_url", "start_time", "end_time",
+      "question", "img", "content", "answer", "translate", "media_url", "start_time", "end_time",
       "medias", "options", "words", "course_id", "order", "unit", "level", "user_result")
 
   private val stringAdapter: JsonAdapter<String> = moshi.adapter(String::class.java, emptySet(),
@@ -60,7 +60,7 @@ class CourseDataJsonAdapter(
     var img: String? = null
     var content: String? = null
     var answer: String? = null
-    var transalte: String? = null
+    var translate: String? = null
     var media_url: String? = null
     var start_time: String? = null
     var end_time: String? = null
@@ -116,8 +116,8 @@ class CourseDataJsonAdapter(
           mask0 = mask0 and 0xffffffbf.toInt()
         }
         7 -> {
-          transalte = stringAdapter.fromJson(reader) ?: throw Util.unexpectedNull("transalte",
-              "transalte", reader)
+          translate = stringAdapter.fromJson(reader) ?: throw Util.unexpectedNull("translate",
+              "translate", reader)
           // $mask = $mask and (1 shl 7).inv()
           mask0 = mask0 and 0xffffff7f.toInt()
         }
@@ -207,7 +207,7 @@ class CourseDataJsonAdapter(
         img,
         content,
         answer,
-        transalte,
+        translate,
         media_url,
         start_time,
         end_time,
@@ -243,8 +243,8 @@ class CourseDataJsonAdapter(
     stringAdapter.toJson(writer, value.content)
     writer.name("answer")
     stringAdapter.toJson(writer, value.answer)
-    writer.name("transalte")
-    stringAdapter.toJson(writer, value.transalte)
+    writer.name("translate")
+    stringAdapter.toJson(writer, value.translate)
     writer.name("media_url")
     stringAdapter.toJson(writer, value.media_url)
     writer.name("start_time")

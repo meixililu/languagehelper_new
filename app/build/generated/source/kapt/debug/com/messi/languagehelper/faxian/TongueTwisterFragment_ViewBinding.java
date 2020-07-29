@@ -15,7 +15,7 @@ import java.lang.Override;
 public class TongueTwisterFragment_ViewBinding implements Unbinder {
   private TongueTwisterFragment target;
 
-  private View view7f0802a0;
+  private View view7f0802a1;
 
   private View view7f080066;
 
@@ -26,7 +26,7 @@ public class TongueTwisterFragment_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.question, "field 'question' and method 'onViewClicked'");
     target.question = Utils.castView(view, R.id.question, "field 'question'", TextView.class);
-    view7f0802a0 = view;
+    view7f0802a1 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -54,8 +54,8 @@ public class TongueTwisterFragment_ViewBinding implements Unbinder {
     target.question = null;
     target.answer = null;
 
-    view7f0802a0.setOnClickListener(null);
-    view7f0802a0 = null;
+    view7f0802a1.setOnClickListener(null);
+    view7f0802a1 = null;
     view7f080066.setOnClickListener(null);
     view7f080066 = null;
   }

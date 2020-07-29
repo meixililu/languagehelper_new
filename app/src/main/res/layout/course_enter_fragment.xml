@@ -60,6 +60,7 @@
             fresco:viewAspectRatio="2"
             android:layout_marginLeft="@dimen/padding_10"
             android:layout_marginRight="@dimen/padding_10"
+            android:layout_marginBottom="@dimen/padding_10"
             fresco:placeholderImageScaleType="fitCenter"
             fresco:actualImageScaleType="fitCenter"
             fresco:placeholderImage="@color/text_backup_bg"
@@ -70,7 +71,6 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:paddingTop="10dp"
             android:gravity="center_vertical"
             >
             <com.google.android.material.textfield.TextInputEditText

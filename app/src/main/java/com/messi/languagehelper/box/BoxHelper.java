@@ -769,8 +769,9 @@ public class BoxHelper {
         return result;
     }
 
-    public static List<CourseList> getCourseList(){
+    public static List<CourseList> getCourseList(String type){
         return getCourseListBox().query()
+                .equal(CourseList_.type,type)
                 .orderDesc(CourseList_.views)
                 .order(CourseList_.order)
                 .build()

@@ -31,7 +31,7 @@ public final class CourseListCursor extends Cursor<CourseList> {
     private final static int __ID_order = CourseList_.order.id;
     private final static int __ID_to_activity = CourseList_.to_activity.id;
     private final static int __ID_img = CourseList_.img.id;
-    private final static int __ID_level = CourseList_.level.id;
+    private final static int __ID_type = CourseList_.type.id;
     private final static int __ID_lock = CourseList_.lock.id;
     private final static int __ID_backkup = CourseList_.backkup.id;
     private final static int __ID_backkup1 = CourseList_.backkup1.id;
@@ -74,15 +74,15 @@ public final class CourseListCursor extends Cursor<CourseList> {
 
         String img = entity.getImg();
         int __id8 = img != null ? __ID_img : 0;
-        String level = entity.getLevel();
-        int __id9 = level != null ? __ID_level : 0;
+        String type = entity.getType();
+        int __id9 = type != null ? __ID_type : 0;
         String lock = entity.getLock();
         int __id10 = lock != null ? __ID_lock : 0;
         String backkup = entity.getBackkup();
         int __id11 = backkup != null ? __ID_backkup : 0;
 
         collect400000(cursor, 0, 0,
-                __id8, img, __id9, level,
+                __id8, img, __id9, type,
                 __id10, lock, __id11, backkup);
 
         String backkup1 = entity.getBackkup1();

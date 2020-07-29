@@ -124,7 +124,7 @@ class CourseListenFragment : BaseFragment() {
     }
 
     private fun check() {
-        val content = answer(true)
+        val content = StringUtils.replaceSome(answer(true))
         if (binding.autoWrapResult.childCount > 0) {
             var selectedStr = getSelectedResult()
             binding.checkBtn.text = "Next"
@@ -136,7 +136,7 @@ class CourseListenFragment : BaseFragment() {
                 binding.checkSuccess.speed = 2F
                 binding.checkSuccess.playAnimation()
                 binding.resultTv.text = "正确"
-                binding.chineseTv.text = mAVObject.transalte
+                binding.chineseTv.text = mAVObject.translate
                 binding.resultLayout.setBackgroundResource(R.color.correct_bg)
                 binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_green_selecter)
                 binding.chineseTv.setTextColor(resources.getColor(R.color.correct_text))
@@ -147,7 +147,7 @@ class CourseListenFragment : BaseFragment() {
                 binding.checkSuccess.setAnimation("cross.json")
                 binding.checkSuccess.playAnimation()
                 binding.resultTv.text = "正确答案"
-                binding.chineseTv.text = answer(false) + "\n" + mAVObject.transalte
+                binding.chineseTv.text = answer(false) + "\n" + mAVObject.translate
                 binding.resultLayout.setBackgroundResource(R.color.wrong_bg)
                 binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_red_selecter)
                 binding.chineseTv.setTextColor(resources.getColor(R.color.wrong_text))

@@ -95,7 +95,8 @@ class CourseTranslateFragment : BaseFragment() {
             binding.imgItem.visibility = View.VISIBLE
             binding.imgItem.setImageURI(mAVObject.img)
         }
-        binding.translateContent.text = mAVObject.question
+        TextHandlerUtil.handlerText(context, binding.translateContent, mAVObject.question)
+//        binding.translateContent.text = mAVObject.question
         binding.resultLayout.visibility = View.GONE
         binding.autoWrapOptions.removeAllViews()
         binding.autoWrapResult.removeAllViews()
@@ -127,9 +128,9 @@ class CourseTranslateFragment : BaseFragment() {
     }
 
     private fun check() {
-        val content = result
+        val content = StringUtils.replaceSome(result.toLowerCase())
         if (binding.autoWrapResult.childCount > 0) {
-            var selectedStr = getSelectedResult()
+            var selectedStr = getSelectedResult().toLowerCase()
             binding.checkBtn.text = "Next"
             binding.resultLayout.visibility = View.VISIBLE
             if (content == selectedStr) {

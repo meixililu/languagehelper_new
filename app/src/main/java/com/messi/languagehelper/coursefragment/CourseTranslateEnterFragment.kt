@@ -121,9 +121,8 @@ class CourseTranslateEnterFragment : BaseFragment() {
 
     private fun check() {
         hideKeyBoard()
-        val content = result
-        var userInput = binding.editText.text.toString().toLowerCase().trim()
-        userInput = StringUtils.replaceAll(userInput)
+        val content = StringUtils.replaceSome(result)
+        var userInput = StringUtils.replaceSome(binding.editText.text.toString().toLowerCase().trim())
         if (!TextUtils.isEmpty(userInput)) {
             binding.checkBtn.text = "Next"
             binding.resultLayout.visibility = View.VISIBLE
@@ -134,7 +133,7 @@ class CourseTranslateEnterFragment : BaseFragment() {
                 binding.checkSuccess.speed = 2F
                 binding.checkSuccess.playAnimation()
                 binding.resultTv.text = "正确"
-                binding.chineseTv.text = mAVObject.transalte
+                binding.chineseTv.text = mAVObject.translate
                 binding.resultLayout.setBackgroundResource(R.color.correct_bg)
                 binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_green_selecter)
                 binding.chineseTv.setTextColor(resources.getColor(R.color.correct_text))

@@ -21,7 +21,7 @@ class CourseListJsonAdapter(
   moshi: Moshi
 ) : JsonAdapter<CourseList>() {
   private val options: JsonReader.Options = JsonReader.Options.of("id", "objectId", "course_id",
-      "name", "course_num", "current", "order", "to_activity", "img", "level", "lock", "backkup",
+      "name", "course_num", "current", "order", "to_activity", "img", "type", "lock", "backkup",
       "backkup1", "backkup2", "backkup3", "backkup4", "backkup5", "level_num", "unit_num", "views")
 
   private val longAdapter: JsonAdapter<Long> = moshi.adapter(Long::class.java, emptySet(), "id")
@@ -51,7 +51,7 @@ class CourseListJsonAdapter(
     var order: Int? = 0
     var to_activity: String? = null
     var img: String? = null
-    var level: String? = null
+    var type: String? = null
     var lock: String? = null
     var backkup: String? = null
     var backkup1: String? = null
@@ -116,8 +116,7 @@ class CourseListJsonAdapter(
           mask0 = mask0 and 0xfffffeff.toInt()
         }
         9 -> {
-          level = stringAdapter.fromJson(reader) ?: throw Util.unexpectedNull("level", "level",
-              reader)
+          type = nullableStringAdapter.fromJson(reader)
           // $mask = $mask and (1 shl 9).inv()
           mask0 = mask0 and 0xfffffdff.toInt()
         }
@@ -201,7 +200,7 @@ class CourseListJsonAdapter(
         order,
         to_activity,
         img,
-        level,
+        type,
         lock,
         backkup,
         backkup1,
@@ -240,8 +239,8 @@ class CourseListJsonAdapter(
     nullableStringAdapter.toJson(writer, value.to_activity)
     writer.name("img")
     stringAdapter.toJson(writer, value.img)
-    writer.name("level")
-    stringAdapter.toJson(writer, value.level)
+    writer.name("type")
+    nullableStringAdapter.toJson(writer, value.type)
     writer.name("lock")
     nullableStringAdapter.toJson(writer, value.lock)
     writer.name("backkup")

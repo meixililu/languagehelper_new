@@ -58,8 +58,8 @@ public final class CourseList_ implements EntityInfo<CourseList> {
     public final static io.objectbox.Property<CourseList> img =
         new io.objectbox.Property<>(__INSTANCE, 8, 8, String.class, "img");
 
-    public final static io.objectbox.Property<CourseList> level =
-        new io.objectbox.Property<>(__INSTANCE, 9, 9, String.class, "level");
+    public final static io.objectbox.Property<CourseList> type =
+        new io.objectbox.Property<>(__INSTANCE, 9, 21, String.class, "type");
 
     public final static io.objectbox.Property<CourseList> lock =
         new io.objectbox.Property<>(__INSTANCE, 10, 20, String.class, "lock");
@@ -102,7 +102,7 @@ public final class CourseList_ implements EntityInfo<CourseList> {
         order,
         to_activity,
         img,
-        level,
+        type,
         lock,
         backkup,
         backkup1,

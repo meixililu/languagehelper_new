@@ -23,17 +23,17 @@ import java.lang.Override;
 public class AiChatActivity_ViewBinding implements Unbinder {
   private AiChatActivity target;
 
-  private View view7f080360;
+  private View view7f080361;
 
-  private View view7f0804a1;
+  private View view7f0804a3;
 
-  private View view7f080194;
+  private View view7f080195;
 
-  private View view7f08049a;
+  private View view7f08049c;
 
-  private View view7f08032c;
+  private View view7f08032d;
 
-  private View view7f0800f2;
+  private View view7f0800f3;
 
   @UiThread
   public AiChatActivity_ViewBinding(AiChatActivity target) {
@@ -48,7 +48,7 @@ public class AiChatActivity_ViewBinding implements Unbinder {
     target.inputEt = Utils.findRequiredViewAsType(source, R.id.input_et, "field 'inputEt'", AppCompatEditText.class);
     view = Utils.findRequiredView(source, R.id.submit_btn_cover, "field 'submitBtn' and method 'onViewClicked'");
     target.submitBtn = Utils.castView(view, R.id.submit_btn_cover, "field 'submitBtn'", CardView.class);
-    view7f080360 = view;
+    view7f080361 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -61,7 +61,7 @@ public class AiChatActivity_ViewBinding implements Unbinder {
     target.volumeImg = Utils.findRequiredViewAsType(source, R.id.volume_img, "field 'volumeImg'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.volume_btn, "field 'volumeBtn' and method 'onViewClicked'");
     target.volumeBtn = Utils.castView(view, R.id.volume_btn, "field 'volumeBtn'", FrameLayout.class);
-    view7f0804a1 = view;
+    view7f0804a3 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -71,7 +71,7 @@ public class AiChatActivity_ViewBinding implements Unbinder {
     target.inputTypeBtn = Utils.findRequiredViewAsType(source, R.id.input_type_btn, "field 'inputTypeBtn'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.input_type_layout, "field 'inputTypeLayout' and method 'onViewClicked'");
     target.inputTypeLayout = Utils.castView(view, R.id.input_type_layout, "field 'inputTypeLayout'", LinearLayout.class);
-    view7f080194 = view;
+    view7f080195 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -81,7 +81,7 @@ public class AiChatActivity_ViewBinding implements Unbinder {
     target.voiceBtn = Utils.findRequiredViewAsType(source, R.id.voice_btn, "field 'voiceBtn'", TextView.class);
     view = Utils.findRequiredView(source, R.id.voice_btn_cover, "field 'voiceBtnCover' and method 'onViewClicked'");
     target.voiceBtnCover = Utils.castView(view, R.id.voice_btn_cover, "field 'voiceBtnCover'", CardView.class);
-    view7f08049a = view;
+    view7f08049c = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -91,7 +91,7 @@ public class AiChatActivity_ViewBinding implements Unbinder {
     target.speakLanguageTv = Utils.findRequiredViewAsType(source, R.id.speak_language_tv, "field 'speakLanguageTv'", TextView.class);
     view = Utils.findRequiredView(source, R.id.speak_language_layout, "field 'speakLanguageLayout' and method 'onViewClicked'");
     target.speakLanguageLayout = Utils.castView(view, R.id.speak_language_layout, "field 'speakLanguageLayout'", LinearLayout.class);
-    view7f08032c = view;
+    view7f08032d = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -107,7 +107,7 @@ public class AiChatActivity_ViewBinding implements Unbinder {
     target.adLayout = Utils.findRequiredViewAsType(source, R.id.ad_layout, "field 'adLayout'", RelativeLayout.class);
     view = Utils.findRequiredView(source, R.id.delete_btn, "field 'deleteBtn' and method 'onViewClicked'");
     target.deleteBtn = Utils.castView(view, R.id.delete_btn, "field 'deleteBtn'", FrameLayout.class);
-    view7f0800f2 = view;
+    view7f0800f3 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -149,17 +149,17 @@ public class AiChatActivity_ViewBinding implements Unbinder {
     target.splash_container = null;
     target.skip_view = null;
 
-    view7f080360.setOnClickListener(null);
-    view7f080360 = null;
-    view7f0804a1.setOnClickListener(null);
-    view7f0804a1 = null;
-    view7f080194.setOnClickListener(null);
-    view7f080194 = null;
-    view7f08049a.setOnClickListener(null);
-    view7f08049a = null;
-    view7f08032c.setOnClickListener(null);
-    view7f08032c = null;
-    view7f0800f2.setOnClickListener(null);
-    view7f0800f2 = null;
+    view7f080361.setOnClickListener(null);
+    view7f080361 = null;
+    view7f0804a3.setOnClickListener(null);
+    view7f0804a3 = null;
+    view7f080195.setOnClickListener(null);
+    view7f080195 = null;
+    view7f08049c.setOnClickListener(null);
+    view7f08049c = null;
+    view7f08032d.setOnClickListener(null);
+    view7f08032d = null;
+    view7f0800f3.setOnClickListener(null);
+    view7f0800f3 = null;
   }
 }

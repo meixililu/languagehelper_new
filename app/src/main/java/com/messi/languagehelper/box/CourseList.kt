@@ -20,7 +20,7 @@ class CourseList(
         var order: Int = 0,
         var to_activity: String? = "",
         var img: String = "",
-        var level: String = "",
+        var type: String? = "",
         var lock: String? = "",
         var backkup: String? = "",
         var backkup1: String? = "",

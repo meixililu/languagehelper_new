@@ -22,7 +22,7 @@ public class TextHandlerUtil {
         boolean isFinish = false;
         int star = -1;
         int end = -1;
-        char[] arr = text.toCharArray();
+        char[] arr = (text+" ").toCharArray();
         for (int i = 0; i < arr.length; i++) {
             if ((arr[i] >= 65 && arr[i] <= 90) || (arr[i] >= 97 && arr[i] <= 125) || (arr[i] == 39)
                     || (arr[i] == 8217)) {

@@ -1,6 +1,7 @@
 package com.messi.languagehelper.viewmodels
 
 import android.app.Application
+import android.content.SharedPreferences
 import android.text.TextUtils
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -27,7 +28,7 @@ class MyCourseViewModel(application: Application) : AndroidViewModel(application
     var mRespoVideo = MutableLiveData<RespoData<PVideoResult>>()
     var courseList: ArrayList<CourseData> = ArrayList()
     lateinit var currentCourse: CourseData
-    val sp = Setings.getSharedPreferences(getApplication())
+    val sp: SharedPreferences = Setings.getSharedPreferences(getApplication())
     var course_id = ""
 
     var skip = 0

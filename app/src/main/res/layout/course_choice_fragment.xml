@@ -94,7 +94,7 @@
             android:paddingTop="@dimen/padding_10"
             android:paddingBottom="85dp"
             android:orientation="vertical"
-            android:gravity="center_horizontal|bottom"
+            android:gravity="center_vertical"
             />
     </LinearLayout>
     </ScrollView>

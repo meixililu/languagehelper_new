@@ -81,7 +81,8 @@ class CourseChoiceFragment : BaseFragment() {
             binding.tips.text = mAVObject.tips
         }
         binding.titleTv.text = mAVObject.title
-        binding.cQuestion.text = mAVObject.question
+//        binding.cQuestion.text = mAVObject.question
+        TextHandlerUtil.handlerText(context, binding.cQuestion, mAVObject.question)
         if (StringUtils.isEnglish(mAVObject.question) && !mAVObject.question.contains("_")){
             binding.playBtn.visibility = View.VISIBLE
             playItem()
@@ -139,7 +140,7 @@ class CourseChoiceFragment : BaseFragment() {
                 binding.checkSuccess.speed = 2F
                 binding.checkSuccess.playAnimation()
                 binding.resultTv.text = "正确"
-                binding.chineseTv.text = mAVObject.answer
+                binding.chineseTv.text = mAVObject.translate
                 binding.resultLayout.setBackgroundResource(R.color.correct_bg)
                 binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_green_selecter)
                 binding.chineseTv.setTextColor(resources.getColor(R.color.correct_text))
@@ -150,7 +151,7 @@ class CourseChoiceFragment : BaseFragment() {
                 binding.checkSuccess.setAnimation("cross.json")
                 binding.checkSuccess.playAnimation()
                 binding.resultTv.text = "正确答案"
-                binding.chineseTv.text = result
+                binding.chineseTv.text = result + "\n" + mAVObject.translate
                 binding.resultLayout.setBackgroundResource(R.color.wrong_bg)
                 binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_red_selecter)
                 binding.chineseTv.setTextColor(resources.getColor(R.color.wrong_text))

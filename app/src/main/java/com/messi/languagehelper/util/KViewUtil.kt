@@ -127,13 +127,23 @@ object KViewUtil {
                 .setInterpolator(AccelerateInterpolator())
                 .start()
     }
-
     fun createNewFlexItemTextView(context: Context,
                                   autoWrapOptions:ViewGroup,
                                   autoWrapResult:ViewGroup,
                                   sumitBtn:TextView,
                                   word: String,
                                   position: Int) {
+        createNewFlexItemTextView(context,autoWrapOptions,autoWrapResult,sumitBtn,word,position,10f,10f)
+    }
+
+    fun createNewFlexItemTextView(context: Context,
+                                  autoWrapOptions:ViewGroup,
+                                  autoWrapResult:ViewGroup,
+                                  sumitBtn:TextView,
+                                  word: String,
+                                  position: Int,
+                                  paddingLR: Float,
+                                  paddingTB: Float) {
         if (TextUtils.isEmpty(word)){
             LogUtil.DefalutLog("word:$position is empty")
             return
@@ -155,8 +165,8 @@ object KViewUtil {
         textViewbg.textSize = 18f
         textViewbg.setBackgroundResource(R.drawable.bg_btn_course_item_backcup)
         textViewbg.setTextColor(context.resources.getColor(R.color.none))
-        val paddingbg = ScreenUtil.dip2px(context, 10f)
-        val paddingLRbg = ScreenUtil.dip2px(context, 10f)
+        val paddingbg = ScreenUtil.dip2px(context, paddingTB)
+        val paddingLRbg = ScreenUtil.dip2px(context, paddingLR)
         ViewCompat.setPaddingRelative(textViewbg, paddingLRbg, paddingbg, paddingLRbg, paddingbg)
         val layoutParamsbg = FlexboxLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -182,9 +192,9 @@ object KViewUtil {
                 removeItem(autoWrapOptions,autoWrapResult,sumitBtn,textView)
             }
         }
-        val padding = ScreenUtil.dip2px(context, 10f)
-        val paddingLR = ScreenUtil.dip2px(context, 10f)
-        ViewCompat.setPaddingRelative(textView, paddingLR, padding, paddingLR, padding)
+        val pTB = ScreenUtil.dip2px(context, paddingTB)
+        val pLR = ScreenUtil.dip2px(context, paddingLR)
+        ViewCompat.setPaddingRelative(textView, pLR, pTB, pLR, pTB)
         val layoutParams = FlexboxLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT)

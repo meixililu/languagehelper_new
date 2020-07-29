@@ -14,7 +14,7 @@ data class CourseData (
         var img: String = "",
         var content: String = "",
         var answer: String = "",
-        var transalte: String = "",
+        var translate: String = "",
         var media_url: String = "",
         var start_time: String = "",
         var end_time: String = "",

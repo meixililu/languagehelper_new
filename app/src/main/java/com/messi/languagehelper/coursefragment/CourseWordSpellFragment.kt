@@ -8,12 +8,12 @@ import android.media.SoundPool
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
-import android.text.Editable
 import android.text.TextUtils
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.core.view.get
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.exoplayer2.ExoPlaybackException
 import com.google.android.exoplayer2.PlaybackParameters
@@ -24,16 +24,17 @@ import com.google.android.exoplayer2.trackselection.TrackSelectionArray
 import com.messi.languagehelper.BaseFragment
 import com.messi.languagehelper.R
 import com.messi.languagehelper.bean.CourseData
-import com.messi.languagehelper.databinding.ListenCourseInputFragmentBinding
+import com.messi.languagehelper.databinding.ListenCourseFragmentBinding
+import com.messi.languagehelper.databinding.ListenWordSpellFragmentBinding
 import com.messi.languagehelper.util.*
 import com.messi.languagehelper.viewmodels.MyCourseViewModel
 
 
-class CourseListenEnterFragment : BaseFragment() {
+class CourseWordSpellFragment : BaseFragment() {
 
     lateinit var mSharedPreferences: SharedPreferences
     lateinit var mAVObject: CourseData
-    lateinit var binding: ListenCourseInputFragmentBinding
+    lateinit var binding: ListenWordSpellFragmentBinding
     private lateinit var ourSounds: SoundPool
     private var answerRight = 0
     private var answerWrong = 0
@@ -49,7 +50,7 @@ class CourseListenEnterFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        binding = ListenCourseInputFragmentBinding.inflate(inflater)
+        binding = ListenWordSpellFragmentBinding.inflate(inflater)
         initializeSoundPool()
         initViews()
         init()
@@ -63,17 +64,6 @@ class CourseListenEnterFragment : BaseFragment() {
         binding.imgPlayBtn.setOnClickListener { playItem() }
         binding.imgLayout.setOnClickListener { playItem() }
         binding.checkBtn.setOnClickListener { checkOrNext() }
-        binding.editText.addTextChangedListener (object: TextWatcher{
-            override fun afterTextChanged(text: Editable?) {
-                if (text != null) {
-                    binding.checkBtn.isEnabled = text.isNotEmpty()
-                }
-            }
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-        })
     }
 
     private fun init() {
@@ -101,12 +91,28 @@ class CourseListenEnterFragment : BaseFragment() {
             binding.imgLayout.visibility = View.VISIBLE
             binding.imgItem.setImageURI(mAVObject.img)
         }
-        if (!TextUtils.isEmpty(mAVObject.title)){
-            binding.titleTv.text = mAVObject.title
-        }
-        binding.editText.text?.clear()
+        binding.titleTv.text = mAVObject.title
         binding.resultLayout.visibility = View.GONE
+        binding.autoWrapOptions.removeAllViews()
+        binding.autoWrapResult.removeAllViews()
         binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_green_selecter)
+        val contents = mAVObject.content.split("")
+        var index = 0
+        for (item in contents.shuffled()) {
+            if (TextUtils.isEmpty(item) || item == " "){
+                continue
+            }else{
+                KViewUtil.createNewFlexItemTextView(requireContext(),
+                        binding.autoWrapOptions,
+                        binding.autoWrapResult,
+                        binding.checkBtn,
+                        item.trim(),
+                        index,
+                        18f,
+                        13f)
+                index++
+            }
+        }
     }
 
     private fun checkOrNext() {
@@ -119,20 +125,19 @@ class CourseListenEnterFragment : BaseFragment() {
     }
 
     private fun check() {
-        hideKeyBoard()
-        val content = StringUtils.replaceSome(answer(true).toLowerCase().trim())
-        var userInput = StringUtils.replaceSome(binding.editText.text.toString().toLowerCase().trim())
-        if (!TextUtils.isEmpty(userInput)) {
+        val content = answer()
+        if (binding.autoWrapResult.childCount > 0) {
+            var selectedStr = getSelectedResult()
             binding.checkBtn.text = "Next"
             binding.resultLayout.visibility = View.VISIBLE
-            if (content == userInput) {
+            if (content == selectedStr) {
                 mAVObject.user_result = true
                 playSoundPool(mAVObject.user_result)
                 binding.checkSuccess.setAnimation("check_success.json")
                 binding.checkSuccess.speed = 2F
                 binding.checkSuccess.playAnimation()
                 binding.resultTv.text = "正确"
-                binding.chineseTv.text = mAVObject.translate
+                binding.chineseTv.text = ""
                 binding.resultLayout.setBackgroundResource(R.color.correct_bg)
                 binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_green_selecter)
                 binding.chineseTv.setTextColor(resources.getColor(R.color.correct_text))
@@ -143,15 +148,26 @@ class CourseListenEnterFragment : BaseFragment() {
                 binding.checkSuccess.setAnimation("cross.json")
                 binding.checkSuccess.playAnimation()
                 binding.resultTv.text = "正确答案"
-                binding.chineseTv.text = answer(false) + "\n" + mAVObject.translate
+                binding.chineseTv.text = answer()
                 binding.resultLayout.setBackgroundResource(R.color.wrong_bg)
                 binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_red_selecter)
                 binding.chineseTv.setTextColor(resources.getColor(R.color.wrong_text))
                 binding.resultTv.setTextColor(resources.getColor(R.color.wrong_text))
             }
         }else{
-            ToastUtil.diaplayMesShort(context,getString(R.string.listen_course_input_hint))
+            ToastUtil.diaplayMesShort(context,"请先做题，做完再Check！")
         }
+    }
+
+    private fun getSelectedResult(): String{
+        var sb = StringBuilder()
+        for (index in 0 until binding.autoWrapResult.childCount){
+            var item = ((binding.autoWrapResult[index] as ViewGroup)[0] as TextView).text.toString()
+            if (!TextUtils.isEmpty(item)){
+                sb.append(item)
+            }
+        }
+        return sb.toString()
     }
 
     private fun initializeSoundPool() {
@@ -179,42 +195,28 @@ class CourseListenEnterFragment : BaseFragment() {
         }
     }
 
-    private fun answer(flag: Boolean): String{
-        var sb = StringBuilder()
-        var content = mAVObject.answer
-        if(flag){
-            content = StringUtils.replaceSome(content)
-        }
-        var contents = content.split(" ")
-        for (item in contents) {
-            if (!TextUtils.isEmpty(item)) {
-                sb.append(item)
-                sb.append(" ")
-            }
-        }
-        return sb.toString().trim()
+    private fun answer(): String{
+        return mAVObject.answer
     }
 
     fun playItem() {
-        if (mAVObject != null) {
-            binding.playBtn.playAnimation()
-            binding.imgPlayBtn.playAnimation()
-            var mp3Url = mAVObject.media_url
-            var startTime = mAVObject.start_time
-            var endTime = mAVObject.end_time
-            if(TextUtils.isEmpty(mp3Url)){
-                mp3Url = MyPlayer.playUrl + answer(false)
-            }
-            if(!TextUtils.isEmpty(startTime)){
-                startPosition = KStringUtils.getTimeMills(startTime)
-                if(!TextUtils.isEmpty(endTime)){
-                    endPosition = KStringUtils.getTimeMills(endTime)
-                }
-            }
-            val videoSource = MyPlayer.getMediaSource(mp3Url)
-            player.prepare(videoSource)
-            player.playWhenReady = true
+        binding.playBtn.playAnimation()
+        binding.imgPlayBtn.playAnimation()
+        var mp3Url = mAVObject.media_url
+        var startTime = mAVObject.start_time
+        var endTime = mAVObject.end_time
+        if(TextUtils.isEmpty(mp3Url)){
+            mp3Url = MyPlayer.playUrl + mAVObject.answer
         }
+        if(!TextUtils.isEmpty(startTime)){
+            startPosition = KStringUtils.getTimeMills(startTime)
+            if(!TextUtils.isEmpty(endTime)){
+                endPosition = KStringUtils.getTimeMills(endTime)
+            }
+        }
+        val videoSource = MyPlayer.getMediaSource(mp3Url)
+        player.prepare(videoSource)
+        player.playWhenReady = true
     }
 
     private fun stopAtEndPosition() {
@@ -230,9 +232,6 @@ class CourseListenEnterFragment : BaseFragment() {
             }, 10)
         }
     }
-
-    val isPlaying: Boolean
-        get() = player.playbackState == Player.STATE_READY && player.playWhenReady
 
     override fun onDestroy() {
         super.onDestroy()

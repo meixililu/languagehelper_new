@@ -97,8 +97,7 @@ class CourseWordEnterFragment : BaseFragment() {
     private fun check() {
         hideKeyBoard()
         val content = mAVObject.answer.trim()
-        var userInput = binding.editText.text.toString().toLowerCase().trim()
-        userInput = StringUtils.replaceSome(userInput)
+        var userInput = StringUtils.replaceSome(binding.editText.text.toString().toLowerCase().trim())
         if (!TextUtils.isEmpty(userInput)) {
             binding.checkBtn.text = "Next"
             binding.resultLayout.visibility = View.VISIBLE

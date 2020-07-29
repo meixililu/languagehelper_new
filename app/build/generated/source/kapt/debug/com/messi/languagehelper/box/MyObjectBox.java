@@ -19,6 +19,7 @@ public class MyObjectBox {
 
     public static BoxStoreBuilder builder() {
         BoxStoreBuilder builder = new BoxStoreBuilder(getModel());
+        builder.entity(CourseList_.__INSTANCE);
         builder.entity(EveryDaySentence_.__INSTANCE);
         builder.entity(ReadingSubject_.__INSTANCE);
         builder.entity(MomentLikes_.__INSTANCE);
@@ -31,7 +32,6 @@ public class MyObjectBox {
         builder.entity(WebFilter_.__INSTANCE);
         builder.entity(CNWBean_.__INSTANCE);
         builder.entity(CollectedData_.__INSTANCE);
-        builder.entity(CourseList_.__INSTANCE);
         return builder;
     }
 
@@ -41,6 +41,7 @@ public class MyObjectBox {
         modelBuilder.lastIndexId(15, 1910611769934093760L);
         modelBuilder.lastRelationId(0, 0L);
 
+        buildEntityCourseList(modelBuilder);
         buildEntityEveryDaySentence(modelBuilder);
         buildEntityReadingSubject(modelBuilder);
         buildEntityMomentLikes(modelBuilder);
@@ -53,9 +54,46 @@ public class MyObjectBox {
         buildEntityWebFilter(modelBuilder);
         buildEntityCNWBean(modelBuilder);
         buildEntityCollectedData(modelBuilder);
-        buildEntityCourseList(modelBuilder);
 
         return modelBuilder.build();
+    }
+
+    private static void buildEntityCourseList(ModelBuilder modelBuilder) {
+        EntityBuilder entityBuilder = modelBuilder.entity("CourseList");
+        entityBuilder.id(15, 1683819082702328425L).lastPropertyId(21, 1797962185026132935L);
+
+        entityBuilder.property("id", PropertyType.Long).id(1, 1016975024758746046L)
+                .flags(PropertyFlags.ID);
+        entityBuilder.property("objectId", PropertyType.String).id(2, 2969043471136807754L)
+                .flags(PropertyFlags.INDEX_HASH).indexId(14, 5394378365453439847L);
+        entityBuilder.property("course_id", PropertyType.String).id(3, 1870829277024990999L)
+                .flags(PropertyFlags.INDEX_HASH).indexId(15, 1910611769934093760L);
+        entityBuilder.property("name", PropertyType.String).id(4, 2851468010113136622L);
+        entityBuilder.property("course_num", PropertyType.Int).id(5, 4128973353364291614L)
+                .flags(PropertyFlags.NOT_NULL);
+        entityBuilder.property("current", PropertyType.Int).id(6, 1006698674056487381L)
+                .flags(PropertyFlags.NOT_NULL);
+        entityBuilder.property("order", PropertyType.Int).id(7, 3584090652438890472L)
+                .flags(PropertyFlags.NOT_NULL);
+        entityBuilder.property("to_activity", PropertyType.String).id(13, 659880399132415744L);
+        entityBuilder.property("img", PropertyType.String).id(8, 7182746462867212593L);
+        entityBuilder.property("type", PropertyType.String).id(21, 1797962185026132935L);
+        entityBuilder.property("lock", PropertyType.String).id(20, 5419052090458732126L);
+        entityBuilder.property("backkup", PropertyType.String).id(14, 5889711468632492630L);
+        entityBuilder.property("backkup1", PropertyType.String).id(15, 6387966178170537421L);
+        entityBuilder.property("backkup2", PropertyType.String).id(16, 8142938807205000063L);
+        entityBuilder.property("backkup3", PropertyType.String).id(17, 7665626738488650587L);
+        entityBuilder.property("backkup4", PropertyType.String).id(18, 342354979166189757L);
+        entityBuilder.property("backkup5", PropertyType.String).id(19, 7672933854065894048L);
+        entityBuilder.property("level_num", PropertyType.Int).id(10, 777720717726572187L)
+                .flags(PropertyFlags.NOT_NULL);
+        entityBuilder.property("unit_num", PropertyType.Int).id(11, 1614118075978026481L)
+                .flags(PropertyFlags.NOT_NULL);
+        entityBuilder.property("views", PropertyType.Int).id(12, 6289185321763757091L)
+                .flags(PropertyFlags.NOT_NULL);
+
+
+        entityBuilder.entityDone();
     }
 
     private static void buildEntityEveryDaySentence(ModelBuilder modelBuilder) {
@@ -437,44 +475,6 @@ public class MyObjectBox {
         entityBuilder.property("name", PropertyType.String).id(3, 4153548220455600934L);
         entityBuilder.property("json", PropertyType.String).id(4, 2535851677011220860L);
         entityBuilder.property("type", PropertyType.String).id(5, 4475057115962061318L);
-
-
-        entityBuilder.entityDone();
-    }
-
-    private static void buildEntityCourseList(ModelBuilder modelBuilder) {
-        EntityBuilder entityBuilder = modelBuilder.entity("CourseList");
-        entityBuilder.id(15, 1683819082702328425L).lastPropertyId(20, 5419052090458732126L);
-
-        entityBuilder.property("id", PropertyType.Long).id(1, 1016975024758746046L)
-                .flags(PropertyFlags.ID);
-        entityBuilder.property("objectId", PropertyType.String).id(2, 2969043471136807754L)
-                .flags(PropertyFlags.INDEX_HASH).indexId(14, 5394378365453439847L);
-        entityBuilder.property("course_id", PropertyType.String).id(3, 1870829277024990999L)
-                .flags(PropertyFlags.INDEX_HASH).indexId(15, 1910611769934093760L);
-        entityBuilder.property("name", PropertyType.String).id(4, 2851468010113136622L);
-        entityBuilder.property("course_num", PropertyType.Int).id(5, 4128973353364291614L)
-                .flags(PropertyFlags.NOT_NULL);
-        entityBuilder.property("current", PropertyType.Int).id(6, 1006698674056487381L)
-                .flags(PropertyFlags.NOT_NULL);
-        entityBuilder.property("order", PropertyType.Int).id(7, 3584090652438890472L)
-                .flags(PropertyFlags.NOT_NULL);
-        entityBuilder.property("to_activity", PropertyType.String).id(13, 659880399132415744L);
-        entityBuilder.property("img", PropertyType.String).id(8, 7182746462867212593L);
-        entityBuilder.property("level", PropertyType.String).id(9, 8883136987446062145L);
-        entityBuilder.property("lock", PropertyType.String).id(20, 5419052090458732126L);
-        entityBuilder.property("backkup", PropertyType.String).id(14, 5889711468632492630L);
-        entityBuilder.property("backkup1", PropertyType.String).id(15, 6387966178170537421L);
-        entityBuilder.property("backkup2", PropertyType.String).id(16, 8142938807205000063L);
-        entityBuilder.property("backkup3", PropertyType.String).id(17, 7665626738488650587L);
-        entityBuilder.property("backkup4", PropertyType.String).id(18, 342354979166189757L);
-        entityBuilder.property("backkup5", PropertyType.String).id(19, 7672933854065894048L);
-        entityBuilder.property("level_num", PropertyType.Int).id(10, 777720717726572187L)
-                .flags(PropertyFlags.NOT_NULL);
-        entityBuilder.property("unit_num", PropertyType.Int).id(11, 1614118075978026481L)
-                .flags(PropertyFlags.NOT_NULL);
-        entityBuilder.property("views", PropertyType.Int).id(12, 6289185321763757091L)
-                .flags(PropertyFlags.NOT_NULL);
 
 
         entityBuilder.entityDone();

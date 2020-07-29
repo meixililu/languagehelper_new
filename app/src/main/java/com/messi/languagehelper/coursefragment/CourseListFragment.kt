@@ -19,6 +19,7 @@ class CourseListFragment : BaseFragment() {
     lateinit var binding: CourseListFragmentBinding
     val viewModel: CourseListViewModel by viewModels()
     lateinit var adapter: RcCourseListAdapter
+    var type = "base"
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -40,11 +41,11 @@ class CourseListFragment : BaseFragment() {
             }
             onSwipeRefreshLayoutFinish()
         })
-        viewModel.loadData()
+        viewModel.loadData(type)
     }
 
     override fun onSwipeRefreshLayoutRefresh() {
-        viewModel.loadData()
+        viewModel.loadData(type)
     }
 
 }
