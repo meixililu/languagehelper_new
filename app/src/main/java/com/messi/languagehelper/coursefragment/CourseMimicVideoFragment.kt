@@ -30,6 +30,7 @@ import com.messi.languagehelper.bean.PVideoResult
 import com.messi.languagehelper.databinding.CourseMimicVideoFragmentBinding
 import com.messi.languagehelper.util.*
 import com.messi.languagehelper.viewmodels.MyCourseViewModel
+import java.lang.StringBuilder
 
 class CourseMimicVideoFragment : BaseFragment(), Player.EventListener {
 
@@ -48,6 +49,7 @@ class CourseMimicVideoFragment : BaseFragment(), Player.EventListener {
     private var mResumeWindow = 0
     private var mResumePosition: Long = 0
     private var status = 0
+    private var sb = StringBuilder()
     lateinit var recognizer: SpeechRecognizer
     lateinit var mAVObject: CourseData
     lateinit var mimics: List<CourseMedias>
@@ -85,6 +87,7 @@ class CourseMimicVideoFragment : BaseFragment(), Player.EventListener {
                 && viewModel.currentCourse.medias!!.size > position) {
             mAVObject = viewModel.currentCourse
             mimics = viewModel.currentCourse.medias!!
+            mAVObject.user_result = true
             if (TextUtils.isEmpty(mAVObject.tips)){
                 binding.tips.visibility = View.GONE
             }else{
@@ -118,11 +121,16 @@ class CourseMimicVideoFragment : BaseFragment(), Player.EventListener {
     }
 
     private fun setListData(){
+        if (recognizer.isListening){
+            recognizer.stopListening()
+        }
+        PCMAudioPlayer.getInstance().stopPlay()
         if(mimics.size > position){
             if (!TextUtils.isEmpty(mimics[position].transalte)){
                 binding.translateTv.text = mimics[position].transalte
             }
             binding.contentTv.text = mimics[position].content
+            isMimic = true
             playSound()
         }else{
             next()
@@ -285,8 +293,8 @@ class CourseMimicVideoFragment : BaseFragment(), Player.EventListener {
         super.onConfigurationChanged(newConfig)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         release()
     }
 
@@ -316,19 +324,21 @@ class CourseMimicVideoFragment : BaseFragment(), Player.EventListener {
         Handler().postDelayed({
             showOrHidePrompt(2)
             mimic()
-        },900)
+        },700)
     }
 
     private fun mimic() {
-        isMimic = false
-        if (!recognizer.isListening) {
-            binding.recordLayout.visibility = View.VISIBLE
-            binding.mimic.text = getString(R.string.finish)
-            recognizer.setParameter(SpeechConstant.ASR_AUDIO_PATH, userPcmPath)
-            XFUtil.showSpeechRecognizer(context, PlayUtil.getSP(), recognizer, recognizerListener, XFUtil.VoiceEngineEN)
-        } else {
-            finishRecord()
-            recognizer.stopListening()
+        if(context != null){
+            isMimic = false
+            if (!recognizer.isListening) {
+                binding.recordLayout.visibility = View.VISIBLE
+                binding.mimic.text = getString(R.string.finish)
+                recognizer.setParameter(SpeechConstant.ASR_AUDIO_PATH, userPcmPath)
+                XFUtil.showSpeechRecognizer(context, PlayUtil.getSP(), recognizer, recognizerListener, XFUtil.VoiceEngineEN)
+            } else {
+                finishRecord()
+                recognizer.stopListening()
+            }
         }
     }
 
@@ -395,10 +405,11 @@ class CourseMimicVideoFragment : BaseFragment(), Player.EventListener {
         override fun onResult(results: RecognizerResult?, isLast: Boolean) {
             LogUtil.DefalutLog("onResult")
             val text = JsonParser.parseIatResult(results?.resultString)
-            LogUtil.DefalutLog(text)
+            sb.append(text)
             if (isLast) {
                 finishRecord()
-                showResult(text)
+                showResult(sb.toString())
+                sb.clear()
             }
         }
 
@@ -435,12 +446,14 @@ class CourseMimicVideoFragment : BaseFragment(), Player.EventListener {
 
     private fun showResult(text:String){
         if(context != null){
-            val bean = ScoreUtil.score(mAVObject.content.toLowerCase(), text.toLowerCase())
-            val resultText = ScoreUtil.getTestResult(bean.scoreInt)
-            binding.scoreTv.text = resultText
-            Handler().postDelayed({
+            if(!TextUtils.isEmpty(text)){
+                val bean = ScoreUtil.score(binding.contentTv.text.toString(), text.toLowerCase())
+                val resultText = ScoreUtil.getTestResult(bean.scoreInt)
+                binding.scoreTv.text = resultText
                 playUserPcm()
-            },10)
+            }else{
+                ToastUtil.diaplayMesShort(context,"请跟读！")
+            }
         }
     }
 
@@ -452,6 +465,7 @@ class CourseMimicVideoFragment : BaseFragment(), Player.EventListener {
         PCMAudioPlayer.getInstance().stopPlay()
         status = 1
         endPosition = 0
+        isMimic = false
         if (recognizer != null) {
             recognizer.stopListening()
         }

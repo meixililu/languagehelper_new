@@ -739,28 +739,40 @@ public class BoxHelper {
     }
 
     public static void saveAndUpdate(CourseList item){
-        CourseList oItem = isExited(item.getObjectId());
+        CourseList oItem = getCourseListById(item.getCourse_id());
         if(oItem != null){
             item.setId(oItem.getId());
             item.setCurrent(oItem.getCurrent());
             item.setViews(oItem.getViews());
+            item.setUser_unit_num(oItem.getUser_unit_num() == 0 ? 1 : oItem.getUser_unit_num());
+            item.setUser_level_num(oItem.getUser_level_num() == 0 ? 1 : oItem.getUser_level_num());
+            item.setFinish(oItem.getFinish());
         }
         long id = getCourseListBox().put(item);
         item.setId(id);
     }
 
     public static void updateViews(CourseList item){
-        if(item.getId() > 0){
-            item.setViews(item.getViews()+1);
-            getCourseListBox().put(item);
+        CourseList oItem = getCourseListById(item.getCourse_id());
+        if(oItem != null){
+            oItem.setViews(oItem.getViews()+1);
+            getCourseListBox().put(oItem);
         }
     }
 
-    public static CourseList isExited(String oid){
+    public static void update(CourseList item){
+        CourseList oItem = getCourseListById(item.getCourse_id());
+        if(oItem != null && oItem.getId() != item.getId()){
+            item.setId(oItem.getId());
+        }
+        getCourseListBox().put(item);
+    }
+
+    public static CourseList getCourseListById(String oid){
         CourseList result = null;
         List<CourseList> list = getCourseListBox()
                 .query()
-                .equal(CourseList_.objectId,oid)
+                .equal(CourseList_.course_id,oid)
                 .build()
                 .find();
         if (NullUtil.isNotEmpty(list)){

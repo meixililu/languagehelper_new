@@ -13,8 +13,8 @@
         android:layout_centerInParent="true"
         android:gravity="center"
         android:text="@string/word_to_test"
-        android:background="@drawable/bg_btn_themeborder_selector"
-        android:textColor="@color/text_theme_selector"
+        android:background="@drawable/border_shadow_gray_oval_selecter"
+        android:textColor="@color/green_500"
         android:textSize="@dimen/big" />
 
 </RelativeLayout>

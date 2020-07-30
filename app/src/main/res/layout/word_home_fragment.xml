@@ -5,16 +5,53 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/word_study_book_name"
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/app_background" />
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_10"
-        android:gravity="left"
-        android:text="@string/title_word_study"
-        android:textColor="@color/text_black"
-        android:textSize="@dimen/big" />
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:id="@+id/word_study_book_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="16dp"
+            android:layout_gravity="center_vertical"
+            android:gravity="left"
+            android:text="@string/title_word_study"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/big" />
+        <FrameLayout
+            android:id="@+id/word_study_change_unit"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:foreground="@drawable/framelayout_selector"
+            android:layout_marginRight="@dimen/padding_5"
+            >
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_subject"/>
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/word_study_change_plan"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="@dimen/padding_7"
+            android:foreground="@drawable/framelayout_selector"
+            >
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_library_books"/>
+        </FrameLayout>
+    </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -24,10 +61,10 @@
             android:id="@+id/study_progress"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
-            android:layout_height="24dp"
+            android:layout_height="20dp"
             android:layout_centerInParent="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:max="100"
             android:progress="10"
             android:progressDrawable="@drawable/progress_bar_round_green"
@@ -45,11 +82,11 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:paddingLeft="@dimen/padding_5"
-        android:paddingRight="@dimen/padding_5"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="13dp"
+        android:paddingLeft="@dimen/padding_15"
+        android:paddingRight="@dimen/padding_15"
         android:orientation="horizontal">
         <TextView
             android:id="@+id/word_study_new_word"
@@ -80,54 +117,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/contentbg" />
+        android:background="@color/app_background" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="38dp"
-        android:orientation="horizontal"
-        >
-        <FrameLayout
-            android:id="@+id/word_study_change_plan"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:foreground="@drawable/framelayout_selector">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@color/none"
-                android:text="@string/change_books"
-                android:textColor="@color/text_black"
-                android:textSize="@dimen/small" />
-        </FrameLayout>
-        <ImageView
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/padding_5"
-            android:layout_marginBottom="@dimen/padding_5"
-            android:background="@color/contentbg" />
-        <FrameLayout
-            android:id="@+id/word_study_change_unit"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:foreground="@drawable/framelayout_selector">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@color/none"
-                android:text="@string/title_all_unit"
-                android:textColor="@color/text_black"
-                android:textSize="@dimen/small" />
-        </FrameLayout>
-
-    </LinearLayout>
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/contentbg" />
 </LinearLayout>
 

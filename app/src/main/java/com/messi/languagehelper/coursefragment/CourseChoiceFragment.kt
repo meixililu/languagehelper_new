@@ -13,6 +13,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.exoplayer2.ExoPlaybackException
 import com.google.android.exoplayer2.PlaybackParameters
@@ -39,14 +40,9 @@ class CourseChoiceFragment : BaseFragment() {
     private var startPosition = 0L
     private var endPosition = 0L
     lateinit var player: SimpleExoPlayer
-    lateinit var viewModel: MyCourseViewModel
+    val viewModel: MyCourseViewModel by activityViewModels()
     var optionBtns = ArrayList<TextView>()
     var userAnswer = ""
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        viewModel = ViewModelProvider(requireActivity()).get(MyCourseViewModel::class.java)
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -129,11 +125,11 @@ class CourseChoiceFragment : BaseFragment() {
 
     private fun check() {
         hideKeyBoard()
-        val content = result
+        val content = StringUtils.replaceSome(result)
         if (!TextUtils.isEmpty(userAnswer)) {
             binding.checkBtn.text = "Next"
             binding.resultLayout.visibility = View.VISIBLE
-            if (content == userAnswer) {
+            if (content == StringUtils.replaceSome(userAnswer)) {
                 mAVObject.user_result = true
                 playSoundPool(mAVObject.user_result)
                 binding.checkSuccess.setAnimation("check_success.json")

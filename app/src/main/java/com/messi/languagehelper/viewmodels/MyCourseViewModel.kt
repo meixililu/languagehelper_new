@@ -11,6 +11,8 @@ import cn.leancloud.AVObject
 import cn.leancloud.AVQuery
 import com.google.gson.Gson
 import com.messi.languagehelper.bean.*
+import com.messi.languagehelper.box.BoxHelper
+import com.messi.languagehelper.box.CourseList
 import com.messi.languagehelper.httpservice.RetrofitBuilder
 import com.messi.languagehelper.util.*
 import com.squareup.moshi.JsonAdapter
@@ -28,10 +30,9 @@ class MyCourseViewModel(application: Application) : AndroidViewModel(application
     var mRespoVideo = MutableLiveData<RespoData<PVideoResult>>()
     var courseList: ArrayList<CourseData> = ArrayList()
     lateinit var currentCourse: CourseData
+    lateinit var userCourseRecord: CourseList
     val sp: SharedPreferences = Setings.getSharedPreferences(getApplication())
     var course_id = ""
-
-    var skip = 0
     var position = 0
     var page: Int = 1
     var loading = false
@@ -42,7 +43,23 @@ class MyCourseViewModel(application: Application) : AndroidViewModel(application
 
     fun loadData() {
         viewModelScope.launch(Dispatchers.IO)  {
+            userCourseRecord = BoxHelper.getCourseListById(course_id)
+            isFinish()
+            LogUtil.DefalutLog("level_num:"+userCourseRecord.user_level_num+"--unit_num:"+userCourseRecord.user_unit_num)
             getData()
+        }
+    }
+
+    private fun isFinish(){
+        if(!userCourseRecord.finish){
+            if(userCourseRecord.user_level_num > userCourseRecord.level_num){
+                userCourseRecord.finish = true
+            }else if (userCourseRecord.user_level_num == userCourseRecord.level_num && userCourseRecord.user_unit_num >= userCourseRecord.unit_num){
+                userCourseRecord.finish = true
+            }
+            if(userCourseRecord.finish){
+                BoxHelper.update(userCourseRecord)
+            }
         }
     }
 
@@ -57,7 +74,6 @@ class MyCourseViewModel(application: Application) : AndroidViewModel(application
     }
 
     fun next(){
-        skip ++
         position ++
         showCourse()
     }
@@ -66,7 +82,6 @@ class MyCourseViewModel(application: Application) : AndroidViewModel(application
         if(courseList.size > 0){
             if (courseList.size > position){
                 currentCourse = courseList[position]
-                Setings.saveSharedPreferences(sp,course_id,skip)
                 mRespoData.postValue(currentCourse.type)
             } else {
                 var isFinish = true
@@ -79,20 +94,45 @@ class MyCourseViewModel(application: Application) : AndroidViewModel(application
                     }
                 }
                 if(isFinish){
+                    checkIsFinish()
                     mRespoData.postValue("finish")
                 }
             }
         }
     }
 
+    fun checkIsFinish(){
+        if (userCourseRecord.user_unit_num < userCourseRecord.unit_num){
+            userCourseRecord.user_unit_num++
+        }else{
+            if (userCourseRecord.user_level_num >= userCourseRecord.level_num){
+                userCourseRecord.finish = true
+                LogUtil.DefalutLog("Course---finish")
+            }else{
+                userCourseRecord.user_unit_num = 1
+                userCourseRecord.user_level_num++
+            }
+        }
+        BoxHelper.update(userCourseRecord)
+    }
+
     fun getDataTask() {
-        skip = sp.getInt(course_id,0)
-        skip = 0
         var query = AVQuery<AVObject>(AVOUtil.CourseDetail.CourseDetail)
         query.whereEqualTo(AVOUtil.CourseDetail.course_id,course_id)
+//        if (!userCourseRecord.finish){
+//            query.whereEqualTo(AVOUtil.CourseDetail.level, userCourseRecord.user_level_num)
+//            query.whereEqualTo(AVOUtil.CourseDetail.unit, userCourseRecord.user_unit_num)
+//            query.skip = 0
+//        }else{
+//            var skip = 0
+//            if (userCourseRecord.course_num-15 > 10){
+//                skip = NumberUtil.getRandomNumber(userCourseRecord.course_num-15)
+//            }
+//            query.skip = skip
+//            query.limit = 15
+//        }
+//        query.orderByAscending(AVOUtil.CourseDetail.order)
         query.orderByDescending(AVOUtil.CourseDetail.order)
-        query.limit = 20
-        query.skip = skip
         var results = query.find()
         if (NullUtil.isNotEmpty(results)){
             for (item in results){

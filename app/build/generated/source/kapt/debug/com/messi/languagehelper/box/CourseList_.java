@@ -82,14 +82,23 @@ public final class CourseList_ implements EntityInfo<CourseList> {
     public final static io.objectbox.Property<CourseList> backkup5 =
         new io.objectbox.Property<>(__INSTANCE, 16, 19, String.class, "backkup5");
 
+    public final static io.objectbox.Property<CourseList> finish =
+        new io.objectbox.Property<>(__INSTANCE, 17, 22, boolean.class, "finish");
+
+    public final static io.objectbox.Property<CourseList> user_level_num =
+        new io.objectbox.Property<>(__INSTANCE, 18, 23, int.class, "user_level_num");
+
+    public final static io.objectbox.Property<CourseList> user_unit_num =
+        new io.objectbox.Property<>(__INSTANCE, 19, 24, int.class, "user_unit_num");
+
     public final static io.objectbox.Property<CourseList> level_num =
-        new io.objectbox.Property<>(__INSTANCE, 17, 10, int.class, "level_num");
+        new io.objectbox.Property<>(__INSTANCE, 20, 10, int.class, "level_num");
 
     public final static io.objectbox.Property<CourseList> unit_num =
-        new io.objectbox.Property<>(__INSTANCE, 18, 11, int.class, "unit_num");
+        new io.objectbox.Property<>(__INSTANCE, 21, 11, int.class, "unit_num");
 
     public final static io.objectbox.Property<CourseList> views =
-        new io.objectbox.Property<>(__INSTANCE, 19, 12, int.class, "views");
+        new io.objectbox.Property<>(__INSTANCE, 22, 12, int.class, "views");
 
     @SuppressWarnings("unchecked")
     public final static io.objectbox.Property<CourseList>[] __ALL_PROPERTIES = new io.objectbox.Property[]{
@@ -110,6 +119,9 @@ public final class CourseList_ implements EntityInfo<CourseList> {
         backkup3,
         backkup4,
         backkup5,
+        finish,
+        user_level_num,
+        user_unit_num,
         level_num,
         unit_num,
         views

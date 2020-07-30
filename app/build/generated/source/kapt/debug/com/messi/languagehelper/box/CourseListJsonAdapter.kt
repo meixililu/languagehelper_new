@@ -8,6 +8,7 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.internal.Util
 import java.lang.NullPointerException
 import java.lang.reflect.Constructor
+import kotlin.Boolean
 import kotlin.Int
 import kotlin.Long
 import kotlin.String
@@ -22,7 +23,8 @@ class CourseListJsonAdapter(
 ) : JsonAdapter<CourseList>() {
   private val options: JsonReader.Options = JsonReader.Options.of("id", "objectId", "course_id",
       "name", "course_num", "current", "order", "to_activity", "img", "type", "lock", "backkup",
-      "backkup1", "backkup2", "backkup3", "backkup4", "backkup5", "level_num", "unit_num", "views")
+      "backkup1", "backkup2", "backkup3", "backkup4", "backkup5", "finish", "user_level_num",
+      "user_unit_num", "level_num", "unit_num", "views")
 
   private val longAdapter: JsonAdapter<Long> = moshi.adapter(Long::class.java, emptySet(), "id")
 
@@ -34,6 +36,9 @@ class CourseListJsonAdapter(
 
   private val nullableStringAdapter: JsonAdapter<String?> = moshi.adapter(String::class.java,
       emptySet(), "to_activity")
+
+  private val booleanAdapter: JsonAdapter<Boolean> = moshi.adapter(Boolean::class.java, emptySet(),
+      "finish")
 
   @Volatile
   private var constructorRef: Constructor<CourseList>? = null
@@ -59,6 +64,9 @@ class CourseListJsonAdapter(
     var backkup3: String? = null
     var backkup4: String? = null
     var backkup5: String? = null
+    var finish: Boolean? = false
+    var user_level_num: Int? = 0
+    var user_unit_num: Int? = 0
     var level_num: Int? = 0
     var unit_num: Int? = 0
     var views: Int? = 0
@@ -156,21 +164,39 @@ class CourseListJsonAdapter(
           mask0 = mask0 and 0xfffeffff.toInt()
         }
         17 -> {
-          level_num = intAdapter.fromJson(reader) ?: throw Util.unexpectedNull("level_num",
-              "level_num", reader)
+          finish = booleanAdapter.fromJson(reader) ?: throw Util.unexpectedNull("finish", "finish",
+              reader)
           // $mask = $mask and (1 shl 17).inv()
           mask0 = mask0 and 0xfffdffff.toInt()
         }
         18 -> {
-          unit_num = intAdapter.fromJson(reader) ?: throw Util.unexpectedNull("unit_num",
-              "unit_num", reader)
+          user_level_num = intAdapter.fromJson(reader) ?:
+              throw Util.unexpectedNull("user_level_num", "user_level_num", reader)
           // $mask = $mask and (1 shl 18).inv()
           mask0 = mask0 and 0xfffbffff.toInt()
         }
         19 -> {
-          views = intAdapter.fromJson(reader) ?: throw Util.unexpectedNull("views", "views", reader)
+          user_unit_num = intAdapter.fromJson(reader) ?: throw Util.unexpectedNull("user_unit_num",
+              "user_unit_num", reader)
           // $mask = $mask and (1 shl 19).inv()
           mask0 = mask0 and 0xfff7ffff.toInt()
+        }
+        20 -> {
+          level_num = intAdapter.fromJson(reader) ?: throw Util.unexpectedNull("level_num",
+              "level_num", reader)
+          // $mask = $mask and (1 shl 20).inv()
+          mask0 = mask0 and 0xffefffff.toInt()
+        }
+        21 -> {
+          unit_num = intAdapter.fromJson(reader) ?: throw Util.unexpectedNull("unit_num",
+              "unit_num", reader)
+          // $mask = $mask and (1 shl 21).inv()
+          mask0 = mask0 and 0xffdfffff.toInt()
+        }
+        22 -> {
+          views = intAdapter.fromJson(reader) ?: throw Util.unexpectedNull("views", "views", reader)
+          // $mask = $mask and (1 shl 22).inv()
+          mask0 = mask0 and 0xffbfffff.toInt()
         }
         -1 -> {
           // Unknown name, skip it.
@@ -187,7 +213,8 @@ class CourseListJsonAdapter(
         Int::class.javaPrimitiveType, Int::class.javaPrimitiveType, String::class.java,
         String::class.java, String::class.java, String::class.java, String::class.java,
         String::class.java, String::class.java, String::class.java, String::class.java,
-        String::class.java, Int::class.javaPrimitiveType, Int::class.javaPrimitiveType,
+        String::class.java, Boolean::class.javaPrimitiveType, Int::class.javaPrimitiveType,
+        Int::class.javaPrimitiveType, Int::class.javaPrimitiveType, Int::class.javaPrimitiveType,
         Int::class.javaPrimitiveType, Int::class.javaPrimitiveType,
         Util.DEFAULT_CONSTRUCTOR_MARKER).also { this.constructorRef = it }
     return localConstructor.newInstance(
@@ -208,6 +235,9 @@ class CourseListJsonAdapter(
         backkup3,
         backkup4,
         backkup5,
+        finish,
+        user_level_num,
+        user_unit_num,
         level_num,
         unit_num,
         views,
@@ -255,6 +285,12 @@ class CourseListJsonAdapter(
     nullableStringAdapter.toJson(writer, value.backkup4)
     writer.name("backkup5")
     nullableStringAdapter.toJson(writer, value.backkup5)
+    writer.name("finish")
+    booleanAdapter.toJson(writer, value.finish)
+    writer.name("user_level_num")
+    intAdapter.toJson(writer, value.user_level_num)
+    writer.name("user_unit_num")
+    intAdapter.toJson(writer, value.user_unit_num)
     writer.name("level_num")
     intAdapter.toJson(writer, value.level_num)
     writer.name("unit_num")

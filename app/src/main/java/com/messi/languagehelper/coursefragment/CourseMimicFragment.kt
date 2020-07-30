@@ -27,6 +27,7 @@ import com.messi.languagehelper.bean.CourseMedias
 import com.messi.languagehelper.databinding.CourseMimicFragmentBinding
 import com.messi.languagehelper.util.*
 import com.messi.languagehelper.viewmodels.MyCourseViewModel
+import java.lang.StringBuilder
 
 class CourseMimicFragment : BaseFragment() {
 
@@ -41,6 +42,7 @@ class CourseMimicFragment : BaseFragment() {
     private var position = 0
     private var startPosition = 0L
     private var endPosition = 0L
+    private var sb = StringBuilder()
     private var videoSource: MediaSource? = null
     private var userPcmPath = SDCardUtil.getDownloadPath(SDCardUtil.UserPracticePath) + "wordmimic.pcm"
 
@@ -63,6 +65,7 @@ class CourseMimicFragment : BaseFragment() {
             position = 0
             mAVObject = viewModel.currentCourse
             mimics = viewModel.currentCourse.medias!!
+            mAVObject.user_result = true
             if (TextUtils.isEmpty(mAVObject.tips)){
                 binding.tips.visibility = View.GONE
             }else{
@@ -79,10 +82,12 @@ class CourseMimicFragment : BaseFragment() {
             }
             setListData()
             binding.imgLayout.setOnClickListener {
-                justPlay()
+                isMimic = true
+                playSound()
             }
             binding.playBtn.setOnClickListener {
-                justPlay()
+                isMimic = true
+                playSound()
             }
             binding.goOn.setOnClickListener {
                 position++
@@ -93,7 +98,11 @@ class CourseMimicFragment : BaseFragment() {
             }
             viewModel.mRespoVideo.observe(viewLifecycleOwner, Observer {
                 if (it.code == 0 && it.data != null){
-                    exoplaer(it.data.getMp3Url())
+                    var url = it.data.getUrl()
+                    if(!TextUtils.isEmpty(it.data.getMp3Url())){
+                        url = it.data.getMp3Url()
+                    }
+                    exoplaer(url)
                 }else{
                     ToastUtil.diaplayMesShort(context,"error")
                 }
@@ -102,6 +111,10 @@ class CourseMimicFragment : BaseFragment() {
     }
 
     private fun setListData(){
+        if (recognizer.isListening){
+            recognizer.stopListening()
+        }
+        PCMAudioPlayer.getInstance().stopPlay()
         if(mimics.size > position){
             if(TextUtils.isEmpty(mimics[position].img)){
                 binding.playBtn.visibility = View.VISIBLE
@@ -115,15 +128,11 @@ class CourseMimicFragment : BaseFragment() {
                 binding.wordDes.text = mimics[position].transalte
             }
             binding.wordName.text = mimics[position].content
+            isMimic = true
             playSound()
         }else{
             toNext()
         }
-    }
-
-    private fun justPlay(){
-        isMimic = false
-        playSound()
     }
 
     private fun playAndListen(){
@@ -170,19 +179,21 @@ class CourseMimicFragment : BaseFragment() {
         Handler().postDelayed({
             showOrHidePrompt(2)
             mimic()
-        },900)
+        },700)
     }
 
     private fun mimic() {
-        isMimic = false
-        if (!recognizer.isListening) {
-            binding.recordLayout.visibility = View.VISIBLE
-            binding.mimic.text = getString(R.string.finish)
-            recognizer.setParameter(SpeechConstant.ASR_AUDIO_PATH, userPcmPath)
-            XFUtil.showSpeechRecognizer(context, PlayUtil.getSP(), recognizer, recognizerListener, XFUtil.VoiceEngineEN)
-        } else {
-            finishRecord()
-            recognizer.stopListening()
+        if(context != null){
+            isMimic = false
+            if (!recognizer.isListening) {
+                binding.recordLayout.visibility = View.VISIBLE
+                binding.mimic.text = getString(R.string.finish)
+                recognizer.setParameter(SpeechConstant.ASR_AUDIO_PATH, userPcmPath)
+                XFUtil.showSpeechRecognizer(context, PlayUtil.getSP(), recognizer, recognizerListener, XFUtil.VoiceEngineEN)
+            } else {
+                finishRecord()
+                recognizer.stopListening()
+            }
         }
     }
 
@@ -240,7 +251,7 @@ class CourseMimicFragment : BaseFragment() {
                 }
             }
             var currentUrl = mimics[position].media_url
-            if (lastUrl != currentUrl){
+            if (lastUrl != currentUrl && !currentUrl.contains("bili")){
                 if(TextUtils.isEmpty(currentUrl)){
                     currentUrl = MyPlayer.playUrl + mimics[position].content
                 }
@@ -268,6 +279,7 @@ class CourseMimicFragment : BaseFragment() {
 
     private fun relase(){
         endPosition = 0
+        isMimic = false
         if (player != null){
             player.stop()
             player.release()
@@ -299,12 +311,12 @@ class CourseMimicFragment : BaseFragment() {
         }
 
         override fun onResult(results: RecognizerResult?, isLast: Boolean) {
-            LogUtil.DefalutLog("onResult")
             val text = JsonParser.parseIatResult(results?.resultString)
-            LogUtil.DefalutLog(text)
+            sb.append(text)
             if (isLast) {
                 finishRecord()
-                showResult(text)
+                showResult(sb.toString())
+                sb.clear()
             }
         }
 
@@ -343,12 +355,14 @@ class CourseMimicFragment : BaseFragment() {
 
     private fun showResult(text:String){
         if(context != null){
-            val bean = ScoreUtil.score(mAVObject.content.toLowerCase(), text.toLowerCase())
-            val resultText = ScoreUtil.getTestResult(bean.scoreInt)
-            binding.scoreTv.text = resultText
-            Handler().postDelayed({
+            if(!TextUtils.isEmpty(text)){
+                val bean = ScoreUtil.score(binding.wordName.text.toString(), text.toLowerCase())
+                val resultText = ScoreUtil.getTestResult(bean.scoreInt)
+                binding.scoreTv.text = resultText
                 playUserPcm()
-            },10)
+            }else{
+                ToastUtil.diaplayMesShort(context,"请跟读！")
+            }
         }
     }
 

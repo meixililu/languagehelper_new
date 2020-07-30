@@ -56,13 +56,6 @@ class CourseVideoFragment : BaseFragment(), Player.EventListener {
     private var startPosition = 0L
     private var endPosition = 0L
 
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        player = SimpleExoPlayer.Builder(requireContext()).build()
-        player.addListener(this)
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = CourseVideoFragmentBinding.inflate(inflater)
@@ -78,10 +71,13 @@ class CourseVideoFragment : BaseFragment(), Player.EventListener {
     }
 
     private fun initDatas() {
+        player = SimpleExoPlayer.Builder(requireContext()).build()
+        player.addListener(this)
         if(viewModel.currentCourse.medias != null
                 && viewModel.currentCourse.medias!!.size > position) {
             mAVObject = viewModel.currentCourse
             mimics = viewModel.currentCourse.medias!!
+            mAVObject.user_result = true
             if (mimics[position].video_type == "api") {
                 viewModel.loadVideo(mimics[position])
             }else {

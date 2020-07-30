@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.widget.TextView;
 
 import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.PlaybackParameters;
@@ -366,7 +367,10 @@ public class MyPlayer {
                 DefaultHttpDataSource.DEFAULT_READ_TIMEOUT_MILLIS,
                 true);
         MediaSource mediaSource = null;
-        if (sUrl.contains("bilibili")) {
+        if (sUrl.contains("bilibili") || url.contains("bilivideo")) {
+            if(TextUtils.isEmpty(sUrl)){
+                sUrl = "https://www.bilibili.com/";
+            }
             dataSourceFactory.getDefaultRequestProperties().set("range","bytes=0-");
             dataSourceFactory.getDefaultRequestProperties().set("referer",sUrl);
             dataSourceFactory.getDefaultRequestProperties().set("user-agent",LanguagehelperHttpClient.Header);

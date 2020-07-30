@@ -1253,7 +1253,7 @@
     },
     {
       "id": "15:1683819082702328425",
-      "lastPropertyId": "21:1797962185026132935",
+      "lastPropertyId": "24:7467772255640158387",
       "name": "CourseList",
       "properties": [
         {
@@ -1366,12 +1366,90 @@
           "id": "21:1797962185026132935",
           "name": "type",
           "type": 9
+        },
+        {
+          "id": "22:6791843896656721848",
+          "name": "finish",
+          "type": 1,
+          "flags": 4
+        },
+        {
+          "id": "23:6620416365430173889",
+          "name": "user_level_num",
+          "type": 5,
+          "flags": 4
+        },
+        {
+          "id": "24:7467772255640158387",
+          "name": "user_unit_num",
+          "type": 5,
+          "flags": 4
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "16:2910252327772198757",
+      "lastPropertyId": "10:9104944866490009975",
+      "name": "UserProfile",
+      "properties": [
+        {
+          "id": "1:7718561882454436565",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:6962433604185773288",
+          "name": "user_name",
+          "type": 9
+        },
+        {
+          "id": "3:5708105416714502559",
+          "name": "user_img",
+          "type": 9
+        },
+        {
+          "id": "4:4887532696707504794",
+          "name": "course_score",
+          "type": 5,
+          "flags": 4
+        },
+        {
+          "id": "5:8611379744230972354",
+          "name": "backkup",
+          "type": 9
+        },
+        {
+          "id": "6:4998548817226543831",
+          "name": "backkup1",
+          "type": 9
+        },
+        {
+          "id": "7:6269569077294973665",
+          "name": "backkup2",
+          "type": 9
+        },
+        {
+          "id": "8:476921784603464164",
+          "name": "backkup3",
+          "type": 9
+        },
+        {
+          "id": "9:5403720477271503586",
+          "name": "backkup4",
+          "type": 9
+        },
+        {
+          "id": "10:9104944866490009975",
+          "name": "backkup5",
+          "type": 9
         }
       ],
       "relations": []
     }
   ],
-  "lastEntityId": "15:1683819082702328425",
+  "lastEntityId": "16:2910252327772198757",
   "lastIndexId": "15:1910611769934093760",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",

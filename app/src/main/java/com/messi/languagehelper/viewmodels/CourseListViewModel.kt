@@ -57,6 +57,7 @@ class CourseListViewModel(application: Application) : AndroidViewModel(applicati
             for (item in results){
                 datas.add(fromAVObjectToCourseList(item))
             }
+            datas.sortByDescending { it.views }
 //            if (serverVersion > 1){
 //                Setings.saveSharedPreferences(sp,KeyUtil.CourseVersion,serverVersion)
 //            }

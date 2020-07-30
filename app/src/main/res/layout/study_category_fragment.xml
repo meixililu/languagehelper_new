@@ -20,13 +20,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/app_background"
-                android:paddingBottom="7dp"
                 android:orientation="vertical">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/app_background"
-                    android:layout_marginBottom="@dimen/padding_7"
                     android:orientation="vertical">
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -49,11 +47,11 @@
                                 android:gravity="center"
                                 android:orientation="vertical"
                                 android:paddingTop="@dimen/padding_10"
-                                android:paddingBottom="@dimen/padding_10">
+                                android:paddingBottom="@dimen/padding_5">
 
                                 <ImageView
-                                    android:layout_width="43dp"
-                                    android:layout_height="43dp"
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
                                     android:src="@drawable/icon_symbol" />
 
                                 <TextView
@@ -82,11 +80,11 @@
                                 android:gravity="center"
                                 android:orientation="vertical"
                                 android:paddingTop="@dimen/padding_10"
-                                android:paddingBottom="@dimen/padding_10">
+                                android:paddingBottom="@dimen/padding_5">
 
                                 <ImageView
-                                    android:layout_width="43dp"
-                                    android:layout_height="43dp"
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
                                     android:src="@drawable/icon_words" />
 
                                 <TextView
@@ -117,11 +115,11 @@
                                 android:gravity="center"
                                 android:orientation="vertical"
                                 android:paddingTop="@dimen/padding_10"
-                                android:paddingBottom="@dimen/padding_10">
+                                android:paddingBottom="@dimen/padding_5">
 
                                 <ImageView
-                                    android:layout_width="43dp"
-                                    android:layout_height="43dp"
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
                                     android:src="@drawable/icon_listening" />
 
                                 <TextView
@@ -152,11 +150,11 @@
                                 android:gravity="center"
                                 android:orientation="vertical"
                                 android:paddingTop="@dimen/padding_10"
-                                android:paddingBottom="@dimen/padding_10">
+                                android:paddingBottom="@dimen/padding_5">
 
                                 <ImageView
-                                    android:layout_width="43dp"
-                                    android:layout_height="43dp"
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
                                     android:src="@drawable/icon_speaking" />
 
                                 <TextView
@@ -186,11 +184,11 @@
                                 android:gravity="center"
                                 android:orientation="vertical"
                                 android:paddingTop="@dimen/padding_10"
-                                android:paddingBottom="@dimen/padding_10">
+                                android:paddingBottom="@dimen/padding_5">
 
                                 <ImageView
-                                    android:layout_width="43dp"
-                                    android:layout_height="43dp"
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
                                     android:src="@drawable/icon_examination" />
 
                                 <TextView
@@ -229,11 +227,11 @@
                                 android:gravity="center"
                                 android:orientation="vertical"
                                 android:paddingTop="@dimen/padding_10"
-                                android:paddingBottom="@dimen/padding_10">
+                                android:paddingBottom="@dimen/padding_7">
 
                                 <ImageView
-                                    android:layout_width="43dp"
-                                    android:layout_height="43dp"
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
                                     android:src="@drawable/icon_grammer" />
 
                                 <TextView
@@ -263,11 +261,11 @@
                                 android:gravity="center"
                                 android:orientation="vertical"
                                 android:paddingTop="@dimen/padding_10"
-                                android:paddingBottom="@dimen/padding_10">
+                                android:paddingBottom="@dimen/padding_7">
 
                                 <ImageView
-                                    android:layout_width="43dp"
-                                    android:layout_height="43dp"
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
                                     android:src="@drawable/icon_story" />
 
                                 <TextView
@@ -296,11 +294,11 @@
                                 android:gravity="center"
                                 android:orientation="vertical"
                                 android:paddingTop="@dimen/padding_10"
-                                android:paddingBottom="@dimen/padding_10">
+                                android:paddingBottom="@dimen/padding_7">
 
                                 <ImageView
-                                    android:layout_width="43dp"
-                                    android:layout_height="43dp"
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
                                     android:src="@drawable/icon_fm" />
 
                                 <TextView
@@ -329,11 +327,11 @@
                                 android:gravity="center"
                                 android:orientation="vertical"
                                 android:paddingTop="@dimen/padding_10"
-                                android:paddingBottom="@dimen/padding_10">
+                                android:paddingBottom="@dimen/padding_7">
 
                                 <ImageView
-                                    android:layout_width="43dp"
-                                    android:layout_height="43dp"
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
                                     android:src="@drawable/icon_writing" />
 
                                 <TextView
@@ -363,11 +361,11 @@
                                 android:gravity="center"
                                 android:orientation="vertical"
                                 android:paddingTop="@dimen/padding_10"
-                                android:paddingBottom="@dimen/padding_10">
+                                android:paddingBottom="@dimen/padding_7">
 
                                 <ImageView
-                                    android:layout_width="43dp"
-                                    android:layout_height="43dp"
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
                                     android:src="@drawable/icon_favrite" />
 
                                 <TextView

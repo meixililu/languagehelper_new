@@ -39,6 +39,9 @@ public final class CourseListCursor extends Cursor<CourseList> {
     private final static int __ID_backkup3 = CourseList_.backkup3.id;
     private final static int __ID_backkup4 = CourseList_.backkup4.id;
     private final static int __ID_backkup5 = CourseList_.backkup5.id;
+    private final static int __ID_finish = CourseList_.finish.id;
+    private final static int __ID_user_level_num = CourseList_.user_level_num.id;
+    private final static int __ID_user_unit_num = CourseList_.user_unit_num.id;
     private final static int __ID_level_num = CourseList_.level_num.id;
     private final static int __ID_unit_num = CourseList_.unit_num.id;
     private final static int __ID_views = CourseList_.views.id;
@@ -101,13 +104,17 @@ public final class CourseListCursor extends Cursor<CourseList> {
         String backkup5 = entity.getBackkup5();
         int __id16 = backkup5 != null ? __ID_backkup5 : 0;
 
-        long __assignedId = collect313311(cursor, entity.getId(), PUT_FLAG_COMPLETE,
+        collect313311(cursor, 0, 0,
                 __id16, backkup5, 0, null,
                 0, null, 0, null,
                 __ID_course_num, entity.getCourse_num(), __ID_current, entity.getCurrent(),
-                __ID_order, entity.getOrder(), __ID_level_num, entity.getLevel_num(),
-                __ID_unit_num, entity.getUnit_num(), __ID_views, entity.getViews(),
+                __ID_order, entity.getOrder(), __ID_user_level_num, entity.getUser_level_num(),
+                __ID_user_unit_num, entity.getUser_unit_num(), __ID_level_num, entity.getLevel_num(),
                 0, 0, 0, 0);
+
+        long __assignedId = collect004000(cursor, entity.getId(), PUT_FLAG_COMPLETE,
+                __ID_unit_num, entity.getUnit_num(), __ID_views, entity.getViews(),
+                __ID_finish, entity.getFinish() ? 1 : 0, 0, 0);
 
         entity.setId(__assignedId);
 

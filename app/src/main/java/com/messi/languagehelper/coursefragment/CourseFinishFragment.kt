@@ -50,7 +50,7 @@ class CourseFinishFragment : BaseFragment() {
         binding.checkBtn.setOnClickListener { checkOrNext() }
         Handler().postDelayed({
             playSoundPool()
-        },200)
+        },500)
     }
 
 
@@ -75,7 +75,11 @@ class CourseFinishFragment : BaseFragment() {
     }
 
     private fun playSoundPool() {
-        ourSounds.play(answerRight, 1f, 1f, 1, 0, 1f)
+        ourSounds.play(answerRight, 1f, 1f, 1, 1, 1f)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        ourSounds.stop(answerRight)
+    }
 }

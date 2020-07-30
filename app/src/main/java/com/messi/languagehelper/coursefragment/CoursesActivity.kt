@@ -23,7 +23,6 @@ class CoursesActivity: FragmentProgressbarListener, BaseActivity() {
 
     var course_id = ""
     lateinit var binding: CoursesActivityBinding
-    private var mCourseList: CourseList? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +40,6 @@ class CoursesActivity: FragmentProgressbarListener, BaseActivity() {
         binding.loadingAv.playAnimation()
         val bundle = intent.getBundleExtra(KeyUtil.BundleKey)
         course_id = bundle.getString(KeyUtil.CourseId,"")
-        mCourseList = bundle.getParcelable(KeyUtil.ObjectKey)
         viewModel.course_id = course_id
         viewModel.loadData()
 
@@ -91,6 +89,9 @@ class CoursesActivity: FragmentProgressbarListener, BaseActivity() {
                 }
                 "word_spell" -> {
                     initFragment(CourseWordSpellFragment())
+                }
+                "word_llk" -> {
+                    initFragment(CourseWordLLKFragment())
                 }
                 else -> {
                     ToastUtil.diaplayMesShort(this,"未知Type")
