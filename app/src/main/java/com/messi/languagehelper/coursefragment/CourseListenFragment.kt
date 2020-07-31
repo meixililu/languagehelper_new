@@ -120,19 +120,20 @@ class CourseListenFragment : BaseFragment() {
     }
 
     private fun check() {
-        val content = StringUtils.replaceSome(answer(true))
+        val content = StringUtils.replaceSome(answer(true).toLowerCase())
         if (binding.autoWrapResult.childCount > 0) {
-            var selectedStr = getSelectedResult()
+            var selectedStr = getSelectedResult().toLowerCase()
             binding.checkBtn.text = "Next"
             binding.resultLayout.visibility = View.VISIBLE
             if (content == selectedStr) {
                 mAVObject.user_result = true
+                viewModel.sendProgress()
                 playSoundPool(mAVObject.user_result)
                 binding.checkSuccess.setAnimation("check_success.json")
                 binding.checkSuccess.speed = 2F
                 binding.checkSuccess.playAnimation()
                 binding.resultTv.text = "正确"
-                binding.chineseTv.text = mAVObject.translate
+                KViewUtil.setDataOrHide(binding.chineseTv, mAVObject.translate)
                 binding.resultLayout.setBackgroundResource(R.color.correct_bg)
                 binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_green_selecter)
                 binding.chineseTv.setTextColor(resources.getColor(R.color.correct_text))
@@ -143,7 +144,7 @@ class CourseListenFragment : BaseFragment() {
                 binding.checkSuccess.setAnimation("cross.json")
                 binding.checkSuccess.playAnimation()
                 binding.resultTv.text = "正确答案"
-                binding.chineseTv.text = answer(false) + "\n" + mAVObject.translate
+                KViewUtil.setDataOrHide(binding.chineseTv, answer(false) + "\n" + mAVObject.translate)
                 binding.resultLayout.setBackgroundResource(R.color.wrong_bg)
                 binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_red_selecter)
                 binding.chineseTv.setTextColor(resources.getColor(R.color.wrong_text))

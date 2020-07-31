@@ -10,7 +10,7 @@ import permissions.dispatcher.PermissionRequest;
 import permissions.dispatcher.PermissionUtils;
 
 final class PracticeActivityPermissionsDispatcher {
-  private static final int REQUEST_SHOWIATDIALOG = 17;
+  private static final int REQUEST_SHOWIATDIALOG = 14;
 
   private static final String[] PERMISSION_SHOWIATDIALOG = new String[] {"android.permission.RECORD_AUDIO"};
 

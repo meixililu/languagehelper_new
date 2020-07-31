@@ -121,19 +121,20 @@ class CourseWordSpellFragment : BaseFragment() {
     }
 
     private fun check() {
-        val content = answer()
+        val content = mAVObject.answer.toLowerCase().trim()
         if (binding.autoWrapResult.childCount > 0) {
-            var selectedStr = getSelectedResult()
+            var selectedStr = getSelectedResult().toLowerCase()
             binding.checkBtn.text = "Next"
             binding.resultLayout.visibility = View.VISIBLE
             if (content == selectedStr) {
                 mAVObject.user_result = true
+                viewModel.sendProgress()
                 playSoundPool(mAVObject.user_result)
                 binding.checkSuccess.setAnimation("check_success.json")
                 binding.checkSuccess.speed = 2F
                 binding.checkSuccess.playAnimation()
                 binding.resultTv.text = "正确"
-                binding.chineseTv.text = ""
+                binding.chineseTv.visibility = View.GONE
                 binding.resultLayout.setBackgroundResource(R.color.correct_bg)
                 binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_green_selecter)
                 binding.chineseTv.setTextColor(resources.getColor(R.color.correct_text))
@@ -144,7 +145,7 @@ class CourseWordSpellFragment : BaseFragment() {
                 binding.checkSuccess.setAnimation("cross.json")
                 binding.checkSuccess.playAnimation()
                 binding.resultTv.text = "正确答案"
-                binding.chineseTv.text = answer()
+                KViewUtil.setDataOrHide(binding.chineseTv, mAVObject.answer)
                 binding.resultLayout.setBackgroundResource(R.color.wrong_bg)
                 binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_red_selecter)
                 binding.chineseTv.setTextColor(resources.getColor(R.color.wrong_text))
@@ -189,10 +190,6 @@ class CourseWordSpellFragment : BaseFragment() {
         } else {
             ourSounds.play(answerWrong, 1f, 1f, 1, 0, 1f)
         }
-    }
-
-    private fun answer(): String{
-        return mAVObject.answer
     }
 
     fun playItem() {

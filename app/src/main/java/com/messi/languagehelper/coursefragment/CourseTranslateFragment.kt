@@ -131,6 +131,7 @@ class CourseTranslateFragment : BaseFragment() {
             binding.resultLayout.visibility = View.VISIBLE
             if (content == selectedStr) {
                 mAVObject.user_result = true
+                viewModel.sendProgress()
                 playSoundPool(mAVObject.user_result)
                 binding.checkSuccess.setAnimation("check_success.json")
                 binding.checkSuccess.speed = 2F

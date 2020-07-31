@@ -75,6 +75,7 @@ class CourseWordFragment : BaseFragment() {
                         binding.itemImg.setImageURI(item.img)
                         binding.item.setOnClickListener {
                             userAnswer = item.name
+                            playItem(userAnswer)
                             resetItem(binding.item)
                         }
                     }
@@ -83,6 +84,7 @@ class CourseWordFragment : BaseFragment() {
                         binding.itemImg1.setImageURI(item.img)
                         binding.item1.setOnClickListener {
                             userAnswer = item.name
+                            playItem(userAnswer)
                             resetItem(binding.item1)
                         }
                     }
@@ -91,6 +93,7 @@ class CourseWordFragment : BaseFragment() {
                         binding.itemImg2.setImageURI(item.img)
                         binding.item2.setOnClickListener {
                             userAnswer = item.name
+                            playItem(userAnswer)
                             resetItem(binding.item2)
                         }
                     }
@@ -99,11 +102,11 @@ class CourseWordFragment : BaseFragment() {
                         binding.itemImg3.setImageURI(item.img)
                         binding.item3.setOnClickListener {
                             userAnswer = item.name
+                            playItem(userAnswer)
                             resetItem(binding.item3)
                         }
                     }
                 }
-                playItem(userAnswer)
             }
         }
     }
@@ -132,14 +135,15 @@ class CourseWordFragment : BaseFragment() {
         if (!TextUtils.isEmpty(userAnswer)) {
             binding.checkBtn.text = "Next"
             binding.resultLayout.visibility = View.VISIBLE
-            if (mAVObject.answer.trim() == userAnswer.trim()) {
+            if (mAVObject.answer.toLowerCase().trim() == userAnswer.toLowerCase().trim()) {
                 mAVObject.user_result = true
+                viewModel.sendProgress()
                 playSoundPool(mAVObject.user_result)
                 binding.checkSuccess.setAnimation("check_success.json")
                 binding.checkSuccess.speed = 2F
                 binding.checkSuccess.playAnimation()
                 binding.resultTv.text = "正确"
-                binding.chineseTv.text = ""
+                binding.chineseTv.visibility = View.GONE
                 binding.resultLayout.setBackgroundResource(R.color.correct_bg)
                 binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_green_selecter)
                 binding.chineseTv.setTextColor(resources.getColor(R.color.correct_text))
@@ -150,7 +154,7 @@ class CourseWordFragment : BaseFragment() {
                 binding.checkSuccess.setAnimation("cross.json")
                 binding.checkSuccess.playAnimation()
                 binding.resultTv.text = "正确答案"
-                binding.chineseTv.text = mAVObject.answer
+                KViewUtil.setDataOrHide(binding.chineseTv, mAVObject.answer)
                 binding.resultLayout.setBackgroundResource(R.color.wrong_bg)
                 binding.checkBtn.setBackgroundResource(R.drawable.border_shadow_red_selecter)
                 binding.chineseTv.setTextColor(resources.getColor(R.color.wrong_text))

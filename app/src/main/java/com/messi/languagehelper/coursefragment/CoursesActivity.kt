@@ -1,22 +1,17 @@
 package com.messi.languagehelper.coursefragment
 
+import android.os.Build
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.messi.languagehelper.BaseActivity
 import com.messi.languagehelper.R
-import com.messi.languagehelper.box.CourseList
 import com.messi.languagehelper.databinding.CoursesActivityBinding
 import com.messi.languagehelper.impl.FragmentProgressbarListener
-import com.messi.languagehelper.util.IPlayerUtil
-import com.messi.languagehelper.util.KeyUtil
-import com.messi.languagehelper.util.MyPlayer
-import com.messi.languagehelper.util.ToastUtil
+import com.messi.languagehelper.util.*
 import com.messi.languagehelper.viewmodels.MyCourseViewModel
 
 class CoursesActivity: FragmentProgressbarListener, BaseActivity() {
@@ -33,6 +28,12 @@ class CoursesActivity: FragmentProgressbarListener, BaseActivity() {
         init()
     }
 
+    private fun setTempData(viewModel: MyCourseViewModel){
+        binding.tempData.text = "level:"+viewModel.userCourseRecord.user_level_num+
+                "unit:"+viewModel.userCourseRecord.user_unit_num+
+                "order:"+viewModel.currentCourse.order
+    }
+
     private fun init() {
         IPlayerUtil.MPlayerPause()
         val viewModel: MyCourseViewModel by viewModels()
@@ -42,11 +43,20 @@ class CoursesActivity: FragmentProgressbarListener, BaseActivity() {
         course_id = bundle.getString(KeyUtil.CourseId,"")
         viewModel.course_id = course_id
         viewModel.loadData()
-
-        binding.closeBtn.setOnClickListener { finish() }
+        viewModel.progress.observe(this, Observer {
+            LogUtil.DefalutLog("viewModel.progress")
+            binding.classProgress.max = it
+            var cprogress = binding.classProgress.progress + 1
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                binding.classProgress.setProgress(cprogress, true)
+            }else{
+                binding.classProgress.progress = cprogress
+            }
+        })
         viewModel.result.observe(this, Observer {
             binding.loadingAv.visibility = View.GONE
             binding.loadingAv.cancelAnimation()
+            setTempData(viewModel)
             when (it) {
                 "finish" -> {
                     initFragment(CourseFinishFragment())
@@ -99,6 +109,7 @@ class CoursesActivity: FragmentProgressbarListener, BaseActivity() {
                 }
             }
         })
+        binding.closeBtn.setOnClickListener { finish() }
     }
 
     private fun initFragment(fragment: Fragment){

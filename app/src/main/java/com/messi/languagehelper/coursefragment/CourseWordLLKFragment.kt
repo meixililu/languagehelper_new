@@ -160,6 +160,7 @@ class CourseWordLLKFragment : BaseFragment() {
     }
 
     private fun check() {
+        viewModel.sendProgress()
         binding.checkBtn.text = "Next"
         binding.resultLayout.visibility = View.VISIBLE
         binding.checkBtn.isEnabled = true

@@ -266,6 +266,7 @@ class CourseMimicFragment : BaseFragment() {
 
     private fun toNext(){
         relase()
+        viewModel.sendProgress()
         viewModel.next()
     }
 

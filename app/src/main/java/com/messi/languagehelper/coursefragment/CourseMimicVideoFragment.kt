@@ -178,6 +178,7 @@ class CourseMimicVideoFragment : BaseFragment(), Player.EventListener {
 
     private fun next(){
         release()
+        viewModel.sendProgress()
         viewModel.next()
     }
 

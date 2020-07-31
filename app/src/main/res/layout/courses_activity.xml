@@ -33,11 +33,19 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="30dp"
-            android:max="10"
-            android:progress="0"
             android:progressDrawable="@drawable/progress_bar_round_green"
+            android:max="12"
+            android:progress="1"
             />
     </LinearLayout>
+    <TextView
+        android:id="@+id/temp_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="@dimen/middle"
+        android:textColor="@color/text_black"
+        />
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

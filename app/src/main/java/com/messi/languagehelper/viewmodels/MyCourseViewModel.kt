@@ -15,13 +15,9 @@ import com.messi.languagehelper.box.BoxHelper
 import com.messi.languagehelper.box.CourseList
 import com.messi.languagehelper.httpservice.RetrofitBuilder
 import com.messi.languagehelper.util.*
-import com.squareup.moshi.JsonAdapter
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.Types
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.lang.reflect.Type
 
 
 class MyCourseViewModel(application: Application) : AndroidViewModel(application){
@@ -29,6 +25,7 @@ class MyCourseViewModel(application: Application) : AndroidViewModel(application
     var mRespoData = MutableLiveData<String>()
     var mRespoVideo = MutableLiveData<RespoData<PVideoResult>>()
     var courseList: ArrayList<CourseData> = ArrayList()
+    var progress = MutableLiveData<Int> ()
     lateinit var currentCourse: CourseData
     lateinit var userCourseRecord: CourseList
     val sp: SharedPreferences = Setings.getSharedPreferences(getApplication())
@@ -73,6 +70,13 @@ class MyCourseViewModel(application: Application) : AndroidViewModel(application
         }
     }
 
+    fun sendProgress(){
+        if(currentCourse != null && courseList.size > 0 &&
+                currentCourse.user_result){
+            progress.value = courseList.size+1
+        }
+    }
+
     fun next(){
         position ++
         showCourse()
@@ -101,7 +105,7 @@ class MyCourseViewModel(application: Application) : AndroidViewModel(application
         }
     }
 
-    fun checkIsFinish(){
+    private fun checkIsFinish(){
         if (userCourseRecord.user_unit_num < userCourseRecord.unit_num){
             userCourseRecord.user_unit_num++
         }else{
@@ -119,20 +123,20 @@ class MyCourseViewModel(application: Application) : AndroidViewModel(application
     fun getDataTask() {
         var query = AVQuery<AVObject>(AVOUtil.CourseDetail.CourseDetail)
         query.whereEqualTo(AVOUtil.CourseDetail.course_id,course_id)
-//        if (!userCourseRecord.finish){
-//            query.whereEqualTo(AVOUtil.CourseDetail.level, userCourseRecord.user_level_num)
-//            query.whereEqualTo(AVOUtil.CourseDetail.unit, userCourseRecord.user_unit_num)
-//            query.skip = 0
-//        }else{
-//            var skip = 0
-//            if (userCourseRecord.course_num-15 > 10){
-//                skip = NumberUtil.getRandomNumber(userCourseRecord.course_num-15)
-//            }
-//            query.skip = skip
-//            query.limit = 15
-//        }
-//        query.orderByAscending(AVOUtil.CourseDetail.order)
-        query.orderByDescending(AVOUtil.CourseDetail.order)
+        if (!userCourseRecord.finish){
+            query.whereEqualTo(AVOUtil.CourseDetail.level, userCourseRecord.user_level_num)
+            query.whereEqualTo(AVOUtil.CourseDetail.unit, userCourseRecord.user_unit_num)
+            query.skip = 0
+        }else{
+            var skip = 0
+            if (userCourseRecord.course_num-15 > 10){
+                skip = NumberUtil.getRandomNumber(userCourseRecord.course_num-15)
+            }
+            query.skip = skip
+            query.limit = 15
+        }
+        query.orderByAscending(AVOUtil.CourseDetail.order)
+//        query.orderByDescending(AVOUtil.CourseDetail.order)
         var results = query.find()
         if (NullUtil.isNotEmpty(results)){
             for (item in results){

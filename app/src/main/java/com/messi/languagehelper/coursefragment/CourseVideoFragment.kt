@@ -105,6 +105,7 @@ class CourseVideoFragment : BaseFragment(), Player.EventListener {
 
     private fun toNext(){
         release()
+        viewModel.sendProgress()
         viewModel.next()
     }
 

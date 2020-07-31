@@ -241,4 +241,13 @@ object KViewUtil {
             textViewbg.layoutParams = layoutParamsbg
         }
     }
+
+    fun setDataOrHide(tv: TextView, text: String){
+        if (TextUtils.isEmpty(text)){
+            tv.visibility = View.GONE
+        }else{
+            tv.visibility = View.VISIBLE
+            tv.text = text
+        }
+    }
 }

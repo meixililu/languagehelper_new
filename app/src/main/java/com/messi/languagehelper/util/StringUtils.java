@@ -129,11 +129,11 @@ public class StringUtils {
 	}
 
 	public static String replaceSome(String content){
-		return content.replaceAll("[,.?#!，。？！]", "");
+		return content.replaceAll("[,.?#!，。？！]", " ").trim();
 	}
 
 	public static String replaceAll(String content){
-		return content.replaceAll("[\\p{Punct}]+", "");
+		return content.replaceAll("[\\p{Punct}]+", " ").trim();
 	}
 
 

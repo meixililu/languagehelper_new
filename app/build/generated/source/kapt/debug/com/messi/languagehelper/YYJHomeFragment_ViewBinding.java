@@ -32,9 +32,9 @@ public class YYJHomeFragment_ViewBinding implements Unbinder {
 
   private View view7f08011c;
 
-  private View view7f0804be;
+  private View view7f0804bf;
 
-  private View view7f0803d5;
+  private View view7f0803d6;
 
   private View view7f08034a;
 
@@ -126,7 +126,7 @@ public class YYJHomeFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.xmly_layout, "field 'xmlyLayout' and method 'onViewClicked'");
     target.xmlyLayout = Utils.castView(view, R.id.xmly_layout, "field 'xmlyLayout'", FrameLayout.class);
-    view7f0804be = view;
+    view7f0804bf = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -135,7 +135,7 @@ public class YYJHomeFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.translate_layout, "field 'translateLayout' and method 'onViewClicked'");
     target.translateLayout = Utils.castView(view, R.id.translate_layout, "field 'translateLayout'", FrameLayout.class);
-    view7f0803d5 = view;
+    view7f0803d6 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -191,10 +191,10 @@ public class YYJHomeFragment_ViewBinding implements Unbinder {
     view7f08011b = null;
     view7f08011c.setOnClickListener(null);
     view7f08011c = null;
-    view7f0804be.setOnClickListener(null);
-    view7f0804be = null;
-    view7f0803d5.setOnClickListener(null);
-    view7f0803d5 = null;
+    view7f0804bf.setOnClickListener(null);
+    view7f0804bf = null;
+    view7f0803d6.setOnClickListener(null);
+    view7f0803d6 = null;
     view7f08034a.setOnClickListener(null);
     view7f08034a = null;
   }
