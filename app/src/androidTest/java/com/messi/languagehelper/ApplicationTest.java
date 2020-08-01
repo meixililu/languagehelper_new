@@ -22,8 +22,8 @@ public class ApplicationTest extends ApplicationTestCase<BaseApplication> {
         super.setUp();
         createApplication();
         application = getApplication();                    //0 10 164a s dfaa dsfadsfd sf2dwf dwd
-        LogUtil.DefalutLog(StringUtils.replaceAll("0 1:0 1.64,a s dfa.a dsfa?dsfd sf2,dw.f :'dwd."));
-        LogUtil.DefalutLog(StringUtils.replaceSome("0 1:0 1.64,a s dfa.a dsfa?dsfd sf2,dw.f :'dwd."));
+        LogUtil.DefalutLog(StringUtils.replaceAll("0 1:0 1.64,a s    dfa.a dsfa?dsfd sf2,dw.f :'dwd."));
+        LogUtil.DefalutLog(StringUtils.replaceSome("0 1:0 1.64,a s    dfa.a dsfa?dsfd sf2,dw.f :'dwd."));
     }
 
     public void testCorrectVersion() throws Exception {

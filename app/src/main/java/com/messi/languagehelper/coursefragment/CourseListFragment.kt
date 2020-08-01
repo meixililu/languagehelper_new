@@ -8,9 +8,11 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.jeremyliao.liveeventbus.LiveEventBus
 import com.messi.languagehelper.BaseFragment
 import com.messi.languagehelper.adapter.RcCourseListAdapter
 import com.messi.languagehelper.databinding.CourseListFragmentBinding
+import com.messi.languagehelper.util.KeyUtil
 import com.messi.languagehelper.viewmodels.CourseListViewModel
 
 class CourseListFragment : BaseFragment() {
@@ -42,6 +44,9 @@ class CourseListFragment : BaseFragment() {
             onSwipeRefreshLayoutFinish()
         })
         viewModel.loadData(type)
+        LiveEventBus.get(KeyUtil.CourseListUpdate).observe(viewLifecycleOwner, Observer {
+            viewModel.loadData(type)
+        })
     }
 
     override fun onSwipeRefreshLayoutRefresh() {

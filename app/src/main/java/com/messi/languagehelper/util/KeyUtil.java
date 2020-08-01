@@ -72,6 +72,8 @@ public class KeyUtil {
 
 	public static final String onTranDictFinish = "onTranDictFinish";
 
+	public static final String CourseListUpdate = "CourseListUpdate";
+
 	public static final String CaricatureEventAddBookshelf = "CaricatureEventAddBookshelf";
 
 	public static final String UpdateWordStudyPlan = "UpdateWordStudyPlan";

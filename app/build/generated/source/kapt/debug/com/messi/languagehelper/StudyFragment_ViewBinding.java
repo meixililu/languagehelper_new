@@ -14,7 +14,7 @@ import java.lang.Override;
 public class StudyFragment_ViewBinding implements Unbinder {
   private StudyFragment target;
 
-  private View view7f0802df;
+  private View view7f0802e0;
 
   @UiThread
   public StudyFragment_ViewBinding(final StudyFragment target, View source) {
@@ -23,7 +23,7 @@ public class StudyFragment_ViewBinding implements Unbinder {
     View view;
     target.listview = Utils.findRequiredViewAsType(source, R.id.listview, "field 'listview'", RecyclerView.class);
     view = Utils.findRequiredView(source, R.id.search_btn, "method 'onViewClicked'");
-    view7f0802df = view;
+    view7f0802e0 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -41,7 +41,7 @@ public class StudyFragment_ViewBinding implements Unbinder {
 
     target.listview = null;
 
-    view7f0802df.setOnClickListener(null);
-    view7f0802df = null;
+    view7f0802e0.setOnClickListener(null);
+    view7f0802e0 = null;
   }
 }

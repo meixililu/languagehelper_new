@@ -68,6 +68,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="left"
                 android:padding="@dimen/padding_10"
+                android:lineSpacingExtra="2dp"
+                android:lineSpacingMultiplier="1.2"
                 android:text="@string/listen_course_title"
                 android:textColor="@color/text_black"
                 android:textSize="@dimen/biggerx" />

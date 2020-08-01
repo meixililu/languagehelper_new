@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-  <item android:id="@android:id/background">
-    <shape android:shape="rectangle">
-      <solid android:color="@color/btn_grey"/>
-      <corners android:radius="18dp"/>
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:id="@android:id/background" android:top="1.0dip" android:bottom="1.0dip">
+    <shape>
+      <solid android:color="@color/btn_grey" />
+      <corners android:radius="8.0dip" />
     </shape>
   </item>
-  <item android:id="@android:id/secondaryProgress">
-    <clip>
+  <item android:id="@android:id/secondaryProgress" android:top="1.0dip" android:bottom="1.0dip">
+    <scale android:scaleWidth="100%">
       <shape>
-        <solid android:color="@color/btn_grey" />
-        <corners android:radius="18dp"/>
+        <solid android:color="#fffcf0c4" />
+        <corners android:radius="8.0dip" />
       </shape>
-    </clip>
+    </scale>
   </item>
   <item android:id="@android:id/progress">
-    <clip>
+    <scale android:scaleWidth="100%">
       <shape>
         <solid android:color="@color/material_color_green" />
-        <corners android:radius="18dp"/>
+        <corners android:radius="8.0dip" />
       </shape>
-    </clip>
+    </scale>
   </item>
 </layer-list>
+

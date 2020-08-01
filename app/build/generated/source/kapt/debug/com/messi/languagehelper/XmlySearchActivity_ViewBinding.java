@@ -13,7 +13,7 @@ import java.lang.Override;
 public class XmlySearchActivity_ViewBinding implements Unbinder {
   private XmlySearchActivity target;
 
-  private View view7f0802df;
+  private View view7f0802e0;
 
   private View view7f0800bd;
 
@@ -28,7 +28,7 @@ public class XmlySearchActivity_ViewBinding implements Unbinder {
 
     View view;
     view = Utils.findRequiredView(source, R.id.search_btn, "method 'onViewClicked'");
-    view7f0802df = view;
+    view7f0802e0 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -52,8 +52,8 @@ public class XmlySearchActivity_ViewBinding implements Unbinder {
     target = null;
 
 
-    view7f0802df.setOnClickListener(null);
-    view7f0802df = null;
+    view7f0802e0.setOnClickListener(null);
+    view7f0802e0 = null;
     view7f0800bd.setOnClickListener(null);
     view7f0800bd = null;
   }

@@ -789,4 +789,26 @@ public class BoxHelper {
                 .build()
                 .find();
     }
+
+    //UserProfile
+    public static Box<UserProfile> getUserProfileBox(){
+        return getBoxStore().boxFor(UserProfile.class);
+    }
+
+    public static UserProfile getUserProfile(){
+        UserProfile item = getUserProfileBox()
+                .query()
+                .build()
+                .findFirst();
+        if (item == null){
+            item = new UserProfile();
+            long id = update(item);
+            item.setId(id);
+        }
+        return item;
+    }
+
+    public static long update(UserProfile item){
+        return getUserProfileBox().put(item);
+    }
 }

@@ -158,10 +158,18 @@ class CourseWordSpellFragment : BaseFragment() {
 
     private fun getSelectedResult(): String{
         var sb = StringBuilder()
-        for (index in 0 until binding.autoWrapResult.childCount){
-            var item = ((binding.autoWrapResult[index] as ViewGroup)[0] as TextView).text.toString()
-            if (!TextUtils.isEmpty(item)){
-                sb.append(item)
+        if(binding.autoWrapResult.childCount > 0){
+            for (index in 0 until binding.autoWrapResult.childCount){
+                val parent = binding.autoWrapResult[index]
+                if (parent is ViewGroup && parent.childCount > 0){
+                    val child = parent[0]
+                    if (child is TextView){
+                        var item = child.text.toString()
+                        if (!TextUtils.isEmpty(item)){
+                            sb.append(item)
+                        }
+                    }
+                }
             }
         }
         return sb.toString()

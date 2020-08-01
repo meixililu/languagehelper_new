@@ -133,7 +133,7 @@ object KViewUtil {
                                   sumitBtn:TextView,
                                   word: String,
                                   position: Int) {
-        createNewFlexItemTextView(context,autoWrapOptions,autoWrapResult,sumitBtn,word,position,10f,10f)
+        createNewFlexItemTextView(context,autoWrapOptions,autoWrapResult,sumitBtn,word,position,12f,10f)
     }
 
     fun createNewFlexItemTextView(context: Context,

@@ -10,7 +10,7 @@ import permissions.dispatcher.PermissionRequest;
 import permissions.dispatcher.PermissionUtils;
 
 final class XimalayaRadioLocalActivityPermissionsDispatcher {
-  private static final int REQUEST_NEEDLOCATION = 15;
+  private static final int REQUEST_NEEDLOCATION = 21;
 
   private static final String[] PERMISSION_NEEDLOCATION = new String[] {"android.permission.ACCESS_FINE_LOCATION","android.permission.ACCESS_COARSE_LOCATION"};
 

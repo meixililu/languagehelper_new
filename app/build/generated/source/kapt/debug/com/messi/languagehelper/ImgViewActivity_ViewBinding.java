@@ -19,7 +19,7 @@ public class ImgViewActivity_ViewBinding implements Unbinder {
 
   private View view7f080111;
 
-  private View view7f08030f;
+  private View view7f080310;
 
   @UiThread
   public ImgViewActivity_ViewBinding(ImgViewActivity target) {
@@ -52,7 +52,7 @@ public class ImgViewActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.share_img, "field 'shareImg' and method 'onViewClicked'");
     target.shareImg = Utils.castView(view, R.id.share_img, "field 'shareImg'", ImageView.class);
-    view7f08030f = view;
+    view7f080310 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -77,7 +77,7 @@ public class ImgViewActivity_ViewBinding implements Unbinder {
     view7f0800c3 = null;
     view7f080111.setOnClickListener(null);
     view7f080111 = null;
-    view7f08030f.setOnClickListener(null);
-    view7f08030f = null;
+    view7f080310.setOnClickListener(null);
+    view7f080310 = null;
   }
 }

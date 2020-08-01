@@ -81,6 +81,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
+                android:lineSpacingExtra="2dp"
+                android:lineSpacingMultiplier="1.2"
                 android:padding="@dimen/padding_10"
                 android:textColor="@color/text_black"
                 android:textSize="@dimen/bigger" />

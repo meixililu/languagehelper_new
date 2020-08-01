@@ -23,8 +23,8 @@
         android:background="@color/white"
         android:layout_centerInParent="true"
         app:lottie_autoPlay="true"
-        app:lottie_fileName="animation_well_done.json"
-        app:lottie_repeatCount="3"
+        app:lottie_fileName="star_animation.json"
+        app:lottie_loop="true"
         />
 
     <TextView
@@ -32,8 +32,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:text=""
         android:textColor="@color/green_500"
-        android:textSize="@dimen/bigxx"
+        android:textSize="@dimen/title"
         android:textStyle="bold"
         android:layout_alignParentTop="true"
         android:layout_marginTop="60dp"
@@ -50,9 +51,9 @@
         android:layout_marginBottom="@dimen/padding_15"
         android:background="@drawable/border_shadow_green_selecter"
         android:elevation="1dp"
-        android:enabled="false"
         android:gravity="center"
-        android:text="Next"
+        android:enabled="false"
+        android:text="Finish"
         android:textColor="@color/disable_gray_white_selector"
         android:textSize="@dimen/big" />
 </RelativeLayout>

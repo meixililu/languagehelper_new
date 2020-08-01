@@ -29,9 +29,12 @@ class CoursesActivity: FragmentProgressbarListener, BaseActivity() {
     }
 
     private fun setTempData(viewModel: MyCourseViewModel){
-        binding.tempData.text = "level:"+viewModel.userCourseRecord.user_level_num+
-                "unit:"+viewModel.userCourseRecord.user_unit_num+
-                "order:"+viewModel.currentCourse.order
+        try {
+            binding.tempData.text = "level:"+viewModel.userCourseRecord.user_level_num+
+                    "unit:"+viewModel.userCourseRecord.user_unit_num+
+                    "order:"+viewModel.currentCourse.order
+        } catch (e: Exception) {
+        }
     }
 
     private fun init() {
@@ -61,8 +64,8 @@ class CoursesActivity: FragmentProgressbarListener, BaseActivity() {
                 "finish" -> {
                     initFragment(CourseFinishFragment())
                 }
-                "error" -> {
-                    ToastUtil.diaplayMesShort(this,"error")
+                "score" -> {
+                    initFragment(CourseFinishScoreFragment())
                 }
                 "translate" -> {
                     initFragment(CourseTranslateFragment())

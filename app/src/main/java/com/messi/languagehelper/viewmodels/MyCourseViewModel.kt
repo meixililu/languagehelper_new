@@ -13,6 +13,7 @@ import com.google.gson.Gson
 import com.messi.languagehelper.bean.*
 import com.messi.languagehelper.box.BoxHelper
 import com.messi.languagehelper.box.CourseList
+import com.messi.languagehelper.box.UserProfile
 import com.messi.languagehelper.httpservice.RetrofitBuilder
 import com.messi.languagehelper.util.*
 import kotlinx.coroutines.Dispatchers
@@ -22,6 +23,7 @@ import kotlinx.coroutines.withContext
 
 class MyCourseViewModel(application: Application) : AndroidViewModel(application){
 
+    var userProfile: UserProfile? = null
     var mRespoData = MutableLiveData<String>()
     var mRespoVideo = MutableLiveData<RespoData<PVideoResult>>()
     var courseList: ArrayList<CourseData> = ArrayList()
@@ -34,6 +36,13 @@ class MyCourseViewModel(application: Application) : AndroidViewModel(application
     var page: Int = 1
     var loading = false
     var keyword = ""
+
+    init {
+        LogUtil.DefalutLog("MyCourseViewModel---init")
+        viewModelScope.launch(Dispatchers.IO)  {
+            userProfile = BoxHelper.getUserProfile()
+        }
+    }
 
     val result: LiveData<String>
         get() = mRespoData
@@ -106,18 +115,23 @@ class MyCourseViewModel(application: Application) : AndroidViewModel(application
     }
 
     private fun checkIsFinish(){
-        if (userCourseRecord.user_unit_num < userCourseRecord.unit_num){
-            userCourseRecord.user_unit_num++
-        }else{
-            if (userCourseRecord.user_level_num >= userCourseRecord.level_num){
-                userCourseRecord.finish = true
-                LogUtil.DefalutLog("Course---finish")
+        if (userCourseRecord != null && userProfile != null){
+            if (userCourseRecord.user_unit_num < userCourseRecord.unit_num){
+                userCourseRecord.user_unit_num++
+                userProfile!!.course_unit_sum++
             }else{
-                userCourseRecord.user_unit_num = 1
-                userCourseRecord.user_level_num++
+                if (userCourseRecord.user_level_num >= userCourseRecord.level_num){
+                    userCourseRecord.finish = true
+                }else{
+                    userCourseRecord.user_unit_num = 1
+                    userCourseRecord.user_level_num++
+                    userProfile!!.course_level_sum++
+                }
             }
+            userProfile!!.course_score += courseList.size
+            BoxHelper.update(userCourseRecord)
+            BoxHelper.update(userProfile)
         }
-        BoxHelper.update(userCourseRecord)
     }
 
     fun getDataTask() {
@@ -129,8 +143,8 @@ class MyCourseViewModel(application: Application) : AndroidViewModel(application
             query.skip = 0
         }else{
             var skip = 0
-            if (userCourseRecord.course_num-15 > 10){
-                skip = NumberUtil.getRandomNumber(userCourseRecord.course_num-15)
+            if (userCourseRecord.course_num - 15 > 10){
+                skip = NumberUtil.getRandomNumber(userCourseRecord.course_num - 15)
             }
             query.skip = skip
             query.limit = 15
@@ -187,6 +201,10 @@ class MyCourseViewModel(application: Application) : AndroidViewModel(application
             mItem.course_id = mAVObject.getString(AVOUtil.CourseDetail.course_id)
         }
         courseList.add(mItem)
+    }
+
+    fun toScore(){
+        mRespoData.postValue("score")
     }
 
 }

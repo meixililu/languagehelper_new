@@ -7,22 +7,33 @@ import android.media.SoundPool
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RelativeLayout
+import android.widget.TextView
 import androidx.fragment.app.activityViewModels
-import com.jeremyliao.liveeventbus.LiveEventBus
+import com.google.android.exoplayer2.ExoPlaybackException
+import com.google.android.exoplayer2.PlaybackParameters
+import com.google.android.exoplayer2.Player
+import com.google.android.exoplayer2.SimpleExoPlayer
+import com.google.android.exoplayer2.source.TrackGroupArray
+import com.google.android.exoplayer2.trackselection.TrackSelectionArray
 import com.messi.languagehelper.BaseFragment
 import com.messi.languagehelper.R
+import com.messi.languagehelper.bean.CourseData
 import com.messi.languagehelper.databinding.CourseFinishFragmentBinding
-import com.messi.languagehelper.util.KeyUtil
+import com.messi.languagehelper.databinding.CourseFinishScoreFragmentBinding
+import com.messi.languagehelper.databinding.CourseWordFragmentBinding
+import com.messi.languagehelper.util.*
 import com.messi.languagehelper.viewmodels.MyCourseViewModel
 
 
-class CourseFinishFragment : BaseFragment() {
+class CourseFinishScoreFragment : BaseFragment() {
 
     lateinit var mSharedPreferences: SharedPreferences
-    lateinit var binding: CourseFinishFragmentBinding
+    lateinit var binding: CourseFinishScoreFragmentBinding
     private lateinit var ourSounds: SoundPool
     private var answerRight = 0
     val viewModel: MyCourseViewModel by activityViewModels()
@@ -30,25 +41,31 @@ class CourseFinishFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        binding = CourseFinishFragmentBinding.inflate(inflater)
+        binding = CourseFinishScoreFragmentBinding.inflate(inflater)
         initializeSoundPool()
         initViews()
         return binding.root
     }
 
     private fun initViews() {
-        LiveEventBus.get(KeyUtil.CourseListUpdate).post("")
         binding.checkBtn.setOnClickListener { checkOrNext() }
         Handler().postDelayed({
             playSoundPool()
-            binding.scoreTv.text = "Well Done!"
+            setScore()
             binding.checkBtn.isEnabled = true
         },600)
     }
 
+    private fun setScore(){
+        try {
+            binding.scoreTv.text = "恭喜你！"+"\n"+"获得 " + viewModel.courseList.size + " 点经验" + "\n" +
+                    "您的经验值达到了 " + viewModel.userProfile!!.course_score + " ！"
+        } catch (e: Exception) {
+        }
+    }
 
     private fun checkOrNext() {
-        viewModel.toScore()
+        requireActivity().finish()
     }
 
     private fun initializeSoundPool() {
@@ -64,7 +81,7 @@ class CourseFinishFragment : BaseFragment() {
         } else {
             SoundPool(5, AudioManager.STREAM_MUSIC, 1)
         }
-        answerRight = ourSounds.load(context, R.raw.lesson_complete, 1)
+        answerRight = ourSounds.load(context, R.raw.sound_correct, 1)
     }
 
     private fun playSoundPool() {

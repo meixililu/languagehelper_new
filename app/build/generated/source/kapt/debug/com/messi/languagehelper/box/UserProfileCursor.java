@@ -25,7 +25,12 @@ public final class UserProfileCursor extends Cursor<UserProfile> {
 
     private final static int __ID_user_name = UserProfile_.user_name.id;
     private final static int __ID_user_img = UserProfile_.user_img.id;
+    private final static int __ID_credits = UserProfile_.credits.id;
+    private final static int __ID_check_in_sum = UserProfile_.check_in_sum.id;
+    private final static int __ID_last_check_in = UserProfile_.last_check_in.id;
     private final static int __ID_course_score = UserProfile_.course_score.id;
+    private final static int __ID_course_unit_sum = UserProfile_.course_unit_sum.id;
+    private final static int __ID_course_level_sum = UserProfile_.course_level_sum.id;
     private final static int __ID_backkup = UserProfile_.backkup.id;
     private final static int __ID_backkup1 = UserProfile_.backkup1.id;
     private final static int __ID_backkup2 = UserProfile_.backkup2.id;
@@ -53,30 +58,37 @@ public final class UserProfileCursor extends Cursor<UserProfile> {
         int __id1 = user_name != null ? __ID_user_name : 0;
         String user_img = entity.getUser_img();
         int __id2 = user_img != null ? __ID_user_img : 0;
+        String last_check_in = entity.getLast_check_in();
+        int __id5 = last_check_in != null ? __ID_last_check_in : 0;
         String backkup = entity.getBackkup();
-        int __id4 = backkup != null ? __ID_backkup : 0;
-        String backkup1 = entity.getBackkup1();
-        int __id5 = backkup1 != null ? __ID_backkup1 : 0;
+        int __id9 = backkup != null ? __ID_backkup : 0;
 
         collect400000(cursor, 0, PUT_FLAG_FIRST,
                 __id1, user_name, __id2, user_img,
-                __id4, backkup, __id5, backkup1);
+                __id5, last_check_in, __id9, backkup);
 
+        String backkup1 = entity.getBackkup1();
+        int __id10 = backkup1 != null ? __ID_backkup1 : 0;
         String backkup2 = entity.getBackkup2();
-        int __id6 = backkup2 != null ? __ID_backkup2 : 0;
+        int __id11 = backkup2 != null ? __ID_backkup2 : 0;
         String backkup3 = entity.getBackkup3();
-        int __id7 = backkup3 != null ? __ID_backkup3 : 0;
+        int __id12 = backkup3 != null ? __ID_backkup3 : 0;
         String backkup4 = entity.getBackkup4();
-        int __id8 = backkup4 != null ? __ID_backkup4 : 0;
-        String backkup5 = entity.getBackkup5();
-        int __id9 = backkup5 != null ? __ID_backkup5 : 0;
+        int __id13 = backkup4 != null ? __ID_backkup4 : 0;
 
         collect400000(cursor, 0, 0,
-                __id6, backkup2, __id7, backkup3,
-                __id8, backkup4, __id9, backkup5);
+                __id10, backkup1, __id11, backkup2,
+                __id12, backkup3, __id13, backkup4);
 
-        long __assignedId = collect004000(cursor, entity.getId(), PUT_FLAG_COMPLETE,
-                __ID_course_score, entity.getCourse_score(), 0, 0,
+        String backkup5 = entity.getBackkup5();
+        int __id14 = backkup5 != null ? __ID_backkup5 : 0;
+
+        long __assignedId = collect313311(cursor, entity.getId(), PUT_FLAG_COMPLETE,
+                __id14, backkup5, 0, null,
+                0, null, 0, null,
+                __ID_credits, entity.getCredits(), __ID_check_in_sum, entity.getCheck_in_sum(),
+                __ID_course_score, entity.getCourse_score(), __ID_course_unit_sum, entity.getCourse_unit_sum(),
+                __ID_course_level_sum, entity.getCourse_level_sum(), 0, 0,
                 0, 0, 0, 0);
 
         entity.setId(__assignedId);

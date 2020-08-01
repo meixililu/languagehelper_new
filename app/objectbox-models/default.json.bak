@@ -1387,9 +1387,92 @@
         }
       ],
       "relations": []
+    },
+    {
+      "id": "16:2910252327772198757",
+      "lastPropertyId": "14:6658713227148395617",
+      "name": "UserProfile",
+      "properties": [
+        {
+          "id": "1:7718561882454436565",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:6962433604185773288",
+          "name": "user_name",
+          "type": 9
+        },
+        {
+          "id": "3:5708105416714502559",
+          "name": "user_img",
+          "type": 9
+        },
+        {
+          "id": "4:4887532696707504794",
+          "name": "course_score",
+          "type": 5,
+          "flags": 4
+        },
+        {
+          "id": "5:8611379744230972354",
+          "name": "backkup",
+          "type": 9
+        },
+        {
+          "id": "6:4998548817226543831",
+          "name": "backkup1",
+          "type": 9
+        },
+        {
+          "id": "7:6269569077294973665",
+          "name": "backkup2",
+          "type": 9
+        },
+        {
+          "id": "8:476921784603464164",
+          "name": "backkup3",
+          "type": 9
+        },
+        {
+          "id": "9:5403720477271503586",
+          "name": "backkup4",
+          "type": 9
+        },
+        {
+          "id": "10:9104944866490009975",
+          "name": "backkup5",
+          "type": 9
+        },
+        {
+          "id": "11:5101552453357547047",
+          "name": "check_in_sum",
+          "type": 5,
+          "flags": 4
+        },
+        {
+          "id": "12:3431532285563889006",
+          "name": "last_check_in",
+          "type": 9
+        },
+        {
+          "id": "13:3549274152090178261",
+          "name": "course_unit_sum",
+          "type": 5,
+          "flags": 4
+        },
+        {
+          "id": "14:6658713227148395617",
+          "name": "course_level_sum",
+          "type": 5,
+          "flags": 4
+        }
+      ],
+      "relations": []
     }
   ],
-  "lastEntityId": "15:1683819082702328425",
+  "lastEntityId": "16:2910252327772198757",
   "lastIndexId": "15:1910611769934093760",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",

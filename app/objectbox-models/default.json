@@ -1390,7 +1390,7 @@
     },
     {
       "id": "16:2910252327772198757",
-      "lastPropertyId": "10:9104944866490009975",
+      "lastPropertyId": "15:4952115770437733610",
       "name": "UserProfile",
       "properties": [
         {
@@ -1444,6 +1444,35 @@
           "id": "10:9104944866490009975",
           "name": "backkup5",
           "type": 9
+        },
+        {
+          "id": "11:5101552453357547047",
+          "name": "check_in_sum",
+          "type": 5,
+          "flags": 4
+        },
+        {
+          "id": "12:3431532285563889006",
+          "name": "last_check_in",
+          "type": 9
+        },
+        {
+          "id": "13:3549274152090178261",
+          "name": "course_unit_sum",
+          "type": 5,
+          "flags": 4
+        },
+        {
+          "id": "14:6658713227148395617",
+          "name": "course_level_sum",
+          "type": 5,
+          "flags": 4
+        },
+        {
+          "id": "15:4952115770437733610",
+          "name": "credits",
+          "type": 5,
+          "flags": 4
         }
       ],
       "relations": []
