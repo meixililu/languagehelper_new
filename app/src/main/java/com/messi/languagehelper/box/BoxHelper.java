@@ -745,7 +745,7 @@ public class BoxHelper {
             item.setCurrent(oItem.getCurrent());
             item.setViews(oItem.getViews());
             item.setUser_unit_num(oItem.getUser_unit_num());
-            item.setUser_level_num(oItem.getUser_level_num() == 0 ? 1 : oItem.getUser_level_num());
+            item.setUser_level_num(oItem.getUser_level_num());
             item.setFinish(oItem.getFinish());
         }
         long id = getCourseListBox().put(item);

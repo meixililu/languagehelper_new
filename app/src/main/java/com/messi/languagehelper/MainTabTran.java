@@ -72,12 +72,12 @@ public class MainTabTran extends BaseFragment {
         liveEventBus();
         mViewModel.initSample();
         loadData();
-        mAdapter = new RcTranslateListAdapter(mViewModel.getRepository().trans);
+        mAdapter = new RcTranslateListAdapter(mViewModel.getRepository().getTrans());
         binding.recentUsedLv.setHasFixedSize(true);
         mLinearLayoutManager = new LinearLayoutManager(getContext());
         binding.recentUsedLv.setLayoutManager(mLinearLayoutManager);
         binding.recentUsedLv.addItemDecoration(new DividerItemDecoration(getContext(), HORIZONTAL));
-        mAdapter.setItems(mViewModel.getRepository().trans);
+        mAdapter.setItems(mViewModel.getRepository().getTrans());
         mAdapter.setFooter(new Object());
         binding.recentUsedLv.setAdapter(mAdapter);
         setListOnScrollListener();
@@ -152,7 +152,7 @@ public class MainTabTran extends BaseFragment {
             View mView = binding.recentUsedLv.getChildAt(0);
             final FrameLayout record_answer_cover = (FrameLayout) mView.findViewById(R.id.record_answer_cover);
             final FrameLayout record_question_cover = (FrameLayout) mView.findViewById(R.id.record_question_cover);
-            Record item = mViewModel.getRepository().trans.get(0);
+            Record item = mViewModel.getRepository().getTrans().get(0);
             if (!TextUtils.isEmpty(item.getPh_en_mp3())) {
                 if(record_question_cover != null){
                     record_question_cover.post(new Runnable() {
@@ -192,7 +192,7 @@ public class MainTabTran extends BaseFragment {
     }
 
     private void delayAutoPlay(){
-        new Handler().postDelayed(() -> autoPlay(),100);
+        new Handler().postDelayed(() -> autoPlay(),90);
     }
 
     @Override

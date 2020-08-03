@@ -29,8 +29,8 @@ class CourseList(
         var backkup4: String? = "",
         var backkup5: String? = "",
         var finish: Boolean = false,
-        var user_level_num: Int = 1,
-        var user_unit_num: Int = 1,
+        var user_level_num: Int = 0,
+        var user_unit_num: Int = 0,
         var level_num: Int = 0,
         var unit_num: Int = 0,
         var views: Int = 0

@@ -62,6 +62,8 @@ public class Setings {
 
 	public static String IcibaTranslateNewUrl = "https://fy.iciba.com/ajax.php?a=fy";
 
+	public static String IcibaTranslateBaseUrl = "https://fy.iciba.com/";
+
 	public static String TranAiyueyuUrl = "https://yue.micblo.com/api.php";
 
 	public static String BaiduAccessToken = "https://aip.baidubce.com/oauth/2.0/token";
@@ -158,7 +160,7 @@ public class Setings {
 	public static String to = "auto";	
 	public static String q = "";	
 	public static String role = "vimary";	
-	public static final int RecordOffset = 50;
+	public static final int RecordOffset = 100;
 	private static final int MIN_CLICK_DELAY_TIME = 350;
 	private static long lastClickTime;
 

@@ -77,12 +77,12 @@ public class DictionaryFragmentOld extends BaseFragment implements DictionaryTra
     private void init() {
         liveEventBus();
         loadData();
-        mAdapter = new RcDictionaryListAdapter(getContext(), mViewModel.getRepository().dicts, this);
+        mAdapter = new RcDictionaryListAdapter(getContext(), mViewModel.getRepository().getDicts(), this);
         recent_used_lv.setHasFixedSize(true);
         mLinearLayoutManager = new LinearLayoutManager(getContext());
         recent_used_lv.setLayoutManager(mLinearLayoutManager);
         recent_used_lv.addItemDecoration(new DividerItemDecoration(getContext(), HORIZONTAL));
-        mAdapter.setItems(mViewModel.getRepository().dicts);
+        mAdapter.setItems(mViewModel.getRepository().getDicts());
         mAdapter.setFooter(new Object());
         recent_used_lv.setAdapter(mAdapter);
         isShowRecentList(true);

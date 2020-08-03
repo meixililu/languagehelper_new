@@ -2,10 +2,11 @@
   <library name="Gradle: com.umeng.umsdk:crash:0.0.4@aar">
     <CLASSES>
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/52c13aa2c192e3a7927b4d073a9d3429/jetified-crash-0.0.4/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4914220701db8d008b977d777bae3573/jetified-crash-0.0.4/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4914220701db8d008b977d777bae3573/jetified-crash-0.0.4/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4914220701db8d008b977d777bae3573/jetified-crash-0.0.4/jars/libs/crashsdk-3.2.0.4.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4914220701db8d008b977d777bae3573/jetified-crash-0.0.4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bdde1e5091d5a9327ec600241aebd8c5/jetified-crash-0.0.4/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bdde1e5091d5a9327ec600241aebd8c5/jetified-crash-0.0.4/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bdde1e5091d5a9327ec600241aebd8c5/jetified-crash-0.0.4/jars/libs/crashsdk-3.2.0.4.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bdde1e5091d5a9327ec600241aebd8c5/jetified-crash-0.0.4/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.umeng.umsdk/crash/0.0.4/44eb48e306e975c7c08ce053d9e5c8330d383a60/crash-0.0.4-javadoc.jar!/" />

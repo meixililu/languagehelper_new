@@ -46,20 +46,6 @@ public class LanguagehelperHttpClient {
 			.readTimeout(30, TimeUnit.SECONDS)
 			.writeTimeout(15, TimeUnit.SECONDS)
 			.build();
-	
-	public static OkHttpClient initClient(Context mContext){
-		File baseDir = mContext.getCacheDir();
-		File cacheDir = new File(baseDir,"HttpResponseCache");
-		if(cacheDir != null){
-			client = new OkHttpClient.Builder()
-					.connectTimeout(15, TimeUnit.SECONDS)
-					.readTimeout(30, TimeUnit.SECONDS)
-					.writeTimeout(15, TimeUnit.SECONDS)
-					.cache(new Cache(cacheDir, HTTP_RESPONSE_DISK_CACHE_MAX_SIZE))
-					.build();
-		}
-		return client;
-	}
 
 	public static Response get(String url) {
 		Response mResponse = null;

@@ -5,9 +5,10 @@ import com.messi.languagehelper.bean.PVideoResult
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Query
 
-interface KRetrofitApiService {
+interface KVideoRetrofitService {
 
     @GET("v1/pvideo")
     suspend fun getPVideoApi(@Query("url") url: String?, @Query("network") network: String?,

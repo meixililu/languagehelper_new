@@ -159,7 +159,23 @@ class MyCourseViewModel(application: Application) : AndroidViewModel(application
                 fromAVObjectToListenCourseData(item)
             }
         }else{
-            mRespoData.postValue("finish")
+            if (userCourseRecord.user_level_num > userCourseRecord.level_num){
+                mRespoData.postValue("finish")
+            }else{
+                if (userCourseRecord.user_unit_num < userCourseRecord.unit_num-1){
+                    userCourseRecord.user_unit_num++
+                }else{
+                    if (userCourseRecord.user_level_num >= userCourseRecord.level_num){
+                        userCourseRecord.finish = true
+                    }else{
+                        userCourseRecord.user_unit_num = 0
+                        userCourseRecord.user_level_num++
+                        userProfile!!.show_level_up = true
+                        userProfile!!.course_level_sum++
+                    }
+                }
+                getDataTask()
+            }
         }
     }
 
@@ -207,24 +223,28 @@ class MyCourseViewModel(application: Application) : AndroidViewModel(application
 
     fun show_check_in(): Boolean{
         var result = false
-        if (userProfile != null){
-            val simpleDateFormat = SimpleDateFormat("yyyyMMdd")
-            val date = Date(System.currentTimeMillis())
-            var today = simpleDateFormat.format(date)
+        try {
+            if (userProfile != null){
+                val simpleDateFormat = SimpleDateFormat("yyyyMMdd")
+                val date = Date(System.currentTimeMillis())
+                var today = simpleDateFormat.format(date)
 
-            val calendar = Calendar.getInstance()
-            calendar.add(Calendar.DATE, -1) //向前走一天
-            var yesterday = simpleDateFormat.format(calendar.time)
-            if (userProfile!!.last_check_in != today){
-                if (userProfile!!.last_check_in == yesterday){
-                    userProfile!!.check_in_sum ++
-                }else{
-                    userProfile!!.check_in_sum = 1
+                val calendar = Calendar.getInstance()
+                calendar.add(Calendar.DATE, -1) //向前走一天
+                var yesterday = simpleDateFormat.format(calendar.time)
+                if (userProfile!!.last_check_in != today){
+                    if (userProfile!!.last_check_in == yesterday){
+                        userProfile!!.check_in_sum ++
+                    }else{
+                        userProfile!!.check_in_sum = 1
+                    }
+                    result = true
+                    userProfile!!.show_check_in = true
+                    userProfile!!.last_check_in = today
+                    BoxHelper.update(userProfile)
                 }
-                userProfile!!.show_check_in = true
-                userProfile!!.last_check_in = today
-                BoxHelper.update(userProfile)
             }
+        } catch (e: Exception) {
         }
         return result
     }

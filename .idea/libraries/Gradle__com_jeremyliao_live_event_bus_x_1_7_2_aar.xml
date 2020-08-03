@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.jeremyliao:live-event-bus-x:1.7.2@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2d77e0f64fedef47d0d4de79a2191918/jetified-live-event-bus-x-1.7.2/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2d77e0f64fedef47d0d4de79a2191918/jetified-live-event-bus-x-1.7.2/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2d77e0f64fedef47d0d4de79a2191918/jetified-live-event-bus-x-1.7.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/15012ff5bb2adcbe22266bf47a953a33/jetified-live-event-bus-x-1.7.2/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/15012ff5bb2adcbe22266bf47a953a33/jetified-live-event-bus-x-1.7.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/15012ff5bb2adcbe22266bf47a953a33/jetified-live-event-bus-x-1.7.2/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jeremyliao/live-event-bus-x/1.7.2/3b7cb3eca526b250f2f084ed182ff184c4b7f364/live-event-bus-x-1.7.2-javadoc.jar!/" />
