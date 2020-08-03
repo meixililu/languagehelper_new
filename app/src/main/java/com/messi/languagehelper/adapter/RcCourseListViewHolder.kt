@@ -47,23 +47,30 @@ class RcCourseListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
     fun render(mAVObject: CourseList) {
         course_name.text = mAVObject.name
         list_item_img.setImageURI(mAVObject.img)
-        course_progress.max = mAVObject.unit_num
-        course_progress.progress = 0
-        if (mAVObject.user_unit_num >= 1){
-            course_progress.progress = mAVObject.user_unit_num - 1
+        when (mAVObject.user_level_num) {
+            0 -> {
+                course_progress.progressDrawable = context.getDrawable(R.drawable.progress_bar_round_primary)
+            }
+            1 -> {
+                course_progress.progressDrawable = context.getDrawable(R.drawable.progress_bar_round_yellow)
+            }
+            2 -> {
+                course_progress.progressDrawable = context.getDrawable(R.drawable.progress_bar_round_yellow_dark)
+            }
+            else -> {
+                course_progress.progressDrawable = context.getDrawable(R.drawable.progress_bar_round_orange)
+            }
         }
-        if(mAVObject.user_level_num > 1){
+        course_progress.max = mAVObject.unit_num
+        course_progress.progress = mAVObject.user_unit_num
+        if(mAVObject.user_level_num > 0){
             level_img.visibility = View.VISIBLE
-            level_img.setImageResource(R.drawable.crowns_drawer)
+            level_tv.text = mAVObject.user_level_num.toString()
             if (mAVObject.finish){
-                level_tv.text = mAVObject.user_level_num.toString()
                 course_progress.progress = mAVObject.unit_num
-            }else{
-                level_tv.text = (mAVObject.user_level_num - 1).toString()
             }
         }else{
             level_img.visibility = View.GONE
-            level_img.setImageResource(R.drawable.crown_gray)
             level_tv.text = ""
         }
         layout_cover.setOnClickListener { onItemClick(mAVObject) }

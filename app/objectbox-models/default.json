@@ -1253,7 +1253,7 @@
     },
     {
       "id": "15:1683819082702328425",
-      "lastPropertyId": "24:7467772255640158387",
+      "lastPropertyId": "25:9166149589230592109",
       "name": "CourseList",
       "properties": [
         {
@@ -1368,12 +1368,6 @@
           "type": 9
         },
         {
-          "id": "22:6791843896656721848",
-          "name": "finish",
-          "type": 1,
-          "flags": 4
-        },
-        {
           "id": "23:6620416365430173889",
           "name": "user_level_num",
           "type": 5,
@@ -1384,13 +1378,19 @@
           "name": "user_unit_num",
           "type": 5,
           "flags": 4
+        },
+        {
+          "id": "25:9166149589230592109",
+          "name": "finish",
+          "type": 1,
+          "flags": 4
         }
       ],
       "relations": []
     },
     {
       "id": "16:2910252327772198757",
-      "lastPropertyId": "15:4952115770437733610",
+      "lastPropertyId": "18:373588418639337017",
       "name": "UserProfile",
       "properties": [
         {
@@ -1473,6 +1473,24 @@
           "name": "credits",
           "type": 5,
           "flags": 4
+        },
+        {
+          "id": "16:3694773853868302061",
+          "name": "show_check_in",
+          "type": 1,
+          "flags": 4
+        },
+        {
+          "id": "17:7456307550407510606",
+          "name": "show_level_up",
+          "type": 1,
+          "flags": 4
+        },
+        {
+          "id": "18:373588418639337017",
+          "name": "continuous",
+          "type": 5,
+          "flags": 4
         }
       ],
       "relations": []
@@ -1532,7 +1550,8 @@
     7711633302768008325,
     8845919300673175074,
     9143221155952999496,
-    8883136987446062145
+    8883136987446062145,
+    6791843896656721848
   ],
   "retiredRelationUids": [],
   "version": 1

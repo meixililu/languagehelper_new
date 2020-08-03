@@ -14,6 +14,7 @@ import com.messi.languagehelper.adapter.RcCourseListAdapter
 import com.messi.languagehelper.databinding.CourseListFragmentBinding
 import com.messi.languagehelper.util.KeyUtil
 import com.messi.languagehelper.viewmodels.CourseListViewModel
+import com.messi.languagehelper.views.DividerGridItemDecoration
 
 class CourseListFragment : BaseFragment() {
 
@@ -33,7 +34,7 @@ class CourseListFragment : BaseFragment() {
 
     private fun  init(){
         adapter = RcCourseListAdapter()
-        viewManager = GridLayoutManager(context,2)
+        viewManager = GridLayoutManager(context,3)
         adapter.setItems(viewModel.datas)
         binding.listView.layoutManager = viewManager
         binding.listView.adapter = adapter

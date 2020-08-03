@@ -43,38 +43,47 @@ public final class UserProfile_ implements EntityInfo<UserProfile> {
     public final static io.objectbox.Property<UserProfile> credits =
         new io.objectbox.Property<>(__INSTANCE, 3, 15, int.class, "credits");
 
+    public final static io.objectbox.Property<UserProfile> continuous =
+        new io.objectbox.Property<>(__INSTANCE, 4, 18, int.class, "continuous");
+
+    public final static io.objectbox.Property<UserProfile> show_check_in =
+        new io.objectbox.Property<>(__INSTANCE, 5, 16, boolean.class, "show_check_in");
+
     public final static io.objectbox.Property<UserProfile> check_in_sum =
-        new io.objectbox.Property<>(__INSTANCE, 4, 11, int.class, "check_in_sum");
+        new io.objectbox.Property<>(__INSTANCE, 6, 11, int.class, "check_in_sum");
 
     public final static io.objectbox.Property<UserProfile> last_check_in =
-        new io.objectbox.Property<>(__INSTANCE, 5, 12, String.class, "last_check_in");
+        new io.objectbox.Property<>(__INSTANCE, 7, 12, String.class, "last_check_in");
 
     public final static io.objectbox.Property<UserProfile> course_score =
-        new io.objectbox.Property<>(__INSTANCE, 6, 4, int.class, "course_score");
+        new io.objectbox.Property<>(__INSTANCE, 8, 4, int.class, "course_score");
+
+    public final static io.objectbox.Property<UserProfile> show_level_up =
+        new io.objectbox.Property<>(__INSTANCE, 9, 17, boolean.class, "show_level_up");
 
     public final static io.objectbox.Property<UserProfile> course_unit_sum =
-        new io.objectbox.Property<>(__INSTANCE, 7, 13, int.class, "course_unit_sum");
+        new io.objectbox.Property<>(__INSTANCE, 10, 13, int.class, "course_unit_sum");
 
     public final static io.objectbox.Property<UserProfile> course_level_sum =
-        new io.objectbox.Property<>(__INSTANCE, 8, 14, int.class, "course_level_sum");
+        new io.objectbox.Property<>(__INSTANCE, 11, 14, int.class, "course_level_sum");
 
     public final static io.objectbox.Property<UserProfile> backkup =
-        new io.objectbox.Property<>(__INSTANCE, 9, 5, String.class, "backkup");
+        new io.objectbox.Property<>(__INSTANCE, 12, 5, String.class, "backkup");
 
     public final static io.objectbox.Property<UserProfile> backkup1 =
-        new io.objectbox.Property<>(__INSTANCE, 10, 6, String.class, "backkup1");
+        new io.objectbox.Property<>(__INSTANCE, 13, 6, String.class, "backkup1");
 
     public final static io.objectbox.Property<UserProfile> backkup2 =
-        new io.objectbox.Property<>(__INSTANCE, 11, 7, String.class, "backkup2");
+        new io.objectbox.Property<>(__INSTANCE, 14, 7, String.class, "backkup2");
 
     public final static io.objectbox.Property<UserProfile> backkup3 =
-        new io.objectbox.Property<>(__INSTANCE, 12, 8, String.class, "backkup3");
+        new io.objectbox.Property<>(__INSTANCE, 15, 8, String.class, "backkup3");
 
     public final static io.objectbox.Property<UserProfile> backkup4 =
-        new io.objectbox.Property<>(__INSTANCE, 13, 9, String.class, "backkup4");
+        new io.objectbox.Property<>(__INSTANCE, 16, 9, String.class, "backkup4");
 
     public final static io.objectbox.Property<UserProfile> backkup5 =
-        new io.objectbox.Property<>(__INSTANCE, 14, 10, String.class, "backkup5");
+        new io.objectbox.Property<>(__INSTANCE, 17, 10, String.class, "backkup5");
 
     @SuppressWarnings("unchecked")
     public final static io.objectbox.Property<UserProfile>[] __ALL_PROPERTIES = new io.objectbox.Property[]{
@@ -82,9 +91,12 @@ public final class UserProfile_ implements EntityInfo<UserProfile> {
         user_name,
         user_img,
         credits,
+        continuous,
+        show_check_in,
         check_in_sum,
         last_check_in,
         course_score,
+        show_level_up,
         course_unit_sum,
         course_level_sum,
         backkup,

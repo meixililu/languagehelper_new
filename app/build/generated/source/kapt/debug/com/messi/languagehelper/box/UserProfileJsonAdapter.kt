@@ -8,6 +8,7 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.internal.Util
 import java.lang.NullPointerException
 import java.lang.reflect.Constructor
+import kotlin.Boolean
 import kotlin.Int
 import kotlin.Long
 import kotlin.String
@@ -21,8 +22,9 @@ class UserProfileJsonAdapter(
   moshi: Moshi
 ) : JsonAdapter<UserProfile>() {
   private val options: JsonReader.Options = JsonReader.Options.of("id", "user_name", "user_img",
-      "credits", "check_in_sum", "last_check_in", "course_score", "course_unit_sum",
-      "course_level_sum", "backkup", "backkup1", "backkup2", "backkup3", "backkup4", "backkup5")
+      "credits", "continuous", "show_check_in", "check_in_sum", "last_check_in", "course_score",
+      "show_level_up", "course_unit_sum", "course_level_sum", "backkup", "backkup1", "backkup2",
+      "backkup3", "backkup4", "backkup5")
 
   private val longAdapter: JsonAdapter<Long> = moshi.adapter(Long::class.java, emptySet(), "id")
 
@@ -30,6 +32,9 @@ class UserProfileJsonAdapter(
       "user_name")
 
   private val intAdapter: JsonAdapter<Int> = moshi.adapter(Int::class.java, emptySet(), "credits")
+
+  private val booleanAdapter: JsonAdapter<Boolean> = moshi.adapter(Boolean::class.java, emptySet(),
+      "show_check_in")
 
   private val nullableStringAdapter: JsonAdapter<String?> = moshi.adapter(String::class.java,
       emptySet(), "backkup")
@@ -45,9 +50,12 @@ class UserProfileJsonAdapter(
     var user_name: String? = null
     var user_img: String? = null
     var credits: Int? = 0
+    var continuous: Int? = 0
+    var show_check_in: Boolean? = false
     var check_in_sum: Int? = 0
     var last_check_in: String? = null
     var course_score: Int? = 0
+    var show_level_up: Boolean? = false
     var course_unit_sum: Int? = 0
     var course_level_sum: Int? = 0
     var backkup: String? = null
@@ -84,64 +92,82 @@ class UserProfileJsonAdapter(
           mask0 = mask0 and 0xfffffff7.toInt()
         }
         4 -> {
-          check_in_sum = intAdapter.fromJson(reader) ?: throw Util.unexpectedNull("check_in_sum",
-              "check_in_sum", reader)
+          continuous = intAdapter.fromJson(reader) ?: throw Util.unexpectedNull("continuous",
+              "continuous", reader)
           // $mask = $mask and (1 shl 4).inv()
           mask0 = mask0 and 0xffffffef.toInt()
         }
         5 -> {
-          last_check_in = stringAdapter.fromJson(reader) ?:
-              throw Util.unexpectedNull("last_check_in", "last_check_in", reader)
+          show_check_in = booleanAdapter.fromJson(reader) ?:
+              throw Util.unexpectedNull("show_check_in", "show_check_in", reader)
           // $mask = $mask and (1 shl 5).inv()
           mask0 = mask0 and 0xffffffdf.toInt()
         }
         6 -> {
-          course_score = intAdapter.fromJson(reader) ?: throw Util.unexpectedNull("course_score",
-              "course_score", reader)
+          check_in_sum = intAdapter.fromJson(reader) ?: throw Util.unexpectedNull("check_in_sum",
+              "check_in_sum", reader)
           // $mask = $mask and (1 shl 6).inv()
           mask0 = mask0 and 0xffffffbf.toInt()
         }
         7 -> {
-          course_unit_sum = intAdapter.fromJson(reader) ?:
-              throw Util.unexpectedNull("course_unit_sum", "course_unit_sum", reader)
+          last_check_in = stringAdapter.fromJson(reader) ?:
+              throw Util.unexpectedNull("last_check_in", "last_check_in", reader)
           // $mask = $mask and (1 shl 7).inv()
           mask0 = mask0 and 0xffffff7f.toInt()
         }
         8 -> {
-          course_level_sum = intAdapter.fromJson(reader) ?:
-              throw Util.unexpectedNull("course_level_sum", "course_level_sum", reader)
+          course_score = intAdapter.fromJson(reader) ?: throw Util.unexpectedNull("course_score",
+              "course_score", reader)
           // $mask = $mask and (1 shl 8).inv()
           mask0 = mask0 and 0xfffffeff.toInt()
         }
         9 -> {
-          backkup = nullableStringAdapter.fromJson(reader)
+          show_level_up = booleanAdapter.fromJson(reader) ?:
+              throw Util.unexpectedNull("show_level_up", "show_level_up", reader)
           // $mask = $mask and (1 shl 9).inv()
           mask0 = mask0 and 0xfffffdff.toInt()
         }
         10 -> {
-          backkup1 = nullableStringAdapter.fromJson(reader)
+          course_unit_sum = intAdapter.fromJson(reader) ?:
+              throw Util.unexpectedNull("course_unit_sum", "course_unit_sum", reader)
           // $mask = $mask and (1 shl 10).inv()
           mask0 = mask0 and 0xfffffbff.toInt()
         }
         11 -> {
-          backkup2 = nullableStringAdapter.fromJson(reader)
+          course_level_sum = intAdapter.fromJson(reader) ?:
+              throw Util.unexpectedNull("course_level_sum", "course_level_sum", reader)
           // $mask = $mask and (1 shl 11).inv()
           mask0 = mask0 and 0xfffff7ff.toInt()
         }
         12 -> {
-          backkup3 = nullableStringAdapter.fromJson(reader)
+          backkup = nullableStringAdapter.fromJson(reader)
           // $mask = $mask and (1 shl 12).inv()
           mask0 = mask0 and 0xffffefff.toInt()
         }
         13 -> {
-          backkup4 = nullableStringAdapter.fromJson(reader)
+          backkup1 = nullableStringAdapter.fromJson(reader)
           // $mask = $mask and (1 shl 13).inv()
           mask0 = mask0 and 0xffffdfff.toInt()
         }
         14 -> {
-          backkup5 = nullableStringAdapter.fromJson(reader)
+          backkup2 = nullableStringAdapter.fromJson(reader)
           // $mask = $mask and (1 shl 14).inv()
           mask0 = mask0 and 0xffffbfff.toInt()
+        }
+        15 -> {
+          backkup3 = nullableStringAdapter.fromJson(reader)
+          // $mask = $mask and (1 shl 15).inv()
+          mask0 = mask0 and 0xffff7fff.toInt()
+        }
+        16 -> {
+          backkup4 = nullableStringAdapter.fromJson(reader)
+          // $mask = $mask and (1 shl 16).inv()
+          mask0 = mask0 and 0xfffeffff.toInt()
+        }
+        17 -> {
+          backkup5 = nullableStringAdapter.fromJson(reader)
+          // $mask = $mask and (1 shl 17).inv()
+          mask0 = mask0 and 0xfffdffff.toInt()
         }
         -1 -> {
           // Unknown name, skip it.
@@ -155,19 +181,23 @@ class UserProfileJsonAdapter(
     val localConstructor: Constructor<UserProfile> = this.constructorRef ?:
         UserProfile::class.java.getDeclaredConstructor(Long::class.javaPrimitiveType,
         String::class.java, String::class.java, Int::class.javaPrimitiveType,
+        Int::class.javaPrimitiveType, Boolean::class.javaPrimitiveType,
         Int::class.javaPrimitiveType, String::class.java, Int::class.javaPrimitiveType,
-        Int::class.javaPrimitiveType, Int::class.javaPrimitiveType, String::class.java,
-        String::class.java, String::class.java, String::class.java, String::class.java,
-        String::class.java, Int::class.javaPrimitiveType, Util.DEFAULT_CONSTRUCTOR_MARKER).also {
-        this.constructorRef = it }
+        Boolean::class.javaPrimitiveType, Int::class.javaPrimitiveType,
+        Int::class.javaPrimitiveType, String::class.java, String::class.java, String::class.java,
+        String::class.java, String::class.java, String::class.java, Int::class.javaPrimitiveType,
+        Util.DEFAULT_CONSTRUCTOR_MARKER).also { this.constructorRef = it }
     return localConstructor.newInstance(
         id,
         user_name,
         user_img,
         credits,
+        continuous,
+        show_check_in,
         check_in_sum,
         last_check_in,
         course_score,
+        show_level_up,
         course_unit_sum,
         course_level_sum,
         backkup,
@@ -194,12 +224,18 @@ class UserProfileJsonAdapter(
     stringAdapter.toJson(writer, value.user_img)
     writer.name("credits")
     intAdapter.toJson(writer, value.credits)
+    writer.name("continuous")
+    intAdapter.toJson(writer, value.continuous)
+    writer.name("show_check_in")
+    booleanAdapter.toJson(writer, value.show_check_in)
     writer.name("check_in_sum")
     intAdapter.toJson(writer, value.check_in_sum)
     writer.name("last_check_in")
     stringAdapter.toJson(writer, value.last_check_in)
     writer.name("course_score")
     intAdapter.toJson(writer, value.course_score)
+    writer.name("show_level_up")
+    booleanAdapter.toJson(writer, value.show_level_up)
     writer.name("course_unit_sum")
     intAdapter.toJson(writer, value.course_unit_sum)
     writer.name("course_level_sum")

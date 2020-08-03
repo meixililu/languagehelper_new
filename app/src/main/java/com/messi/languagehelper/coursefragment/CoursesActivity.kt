@@ -67,6 +67,9 @@ class CoursesActivity: FragmentProgressbarListener, BaseActivity() {
                 "score" -> {
                     initFragment(CourseFinishScoreFragment())
                 }
+                "check_in" -> {
+                    initFragment(CourseCheckInFragment())
+                }
                 "translate" -> {
                     initFragment(CourseTranslateFragment())
                 }

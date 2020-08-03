@@ -83,7 +83,7 @@ public final class CourseList_ implements EntityInfo<CourseList> {
         new io.objectbox.Property<>(__INSTANCE, 16, 19, String.class, "backkup5");
 
     public final static io.objectbox.Property<CourseList> finish =
-        new io.objectbox.Property<>(__INSTANCE, 17, 22, boolean.class, "finish");
+        new io.objectbox.Property<>(__INSTANCE, 17, 25, boolean.class, "finish");
 
     public final static io.objectbox.Property<CourseList> user_level_num =
         new io.objectbox.Property<>(__INSTANCE, 18, 23, int.class, "user_level_num");

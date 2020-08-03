@@ -12,42 +12,46 @@
 
     <FrameLayout
         android:id="@+id/img_layout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true">
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/list_item_img"
-            android:layout_width="95dp"
-            android:layout_height="115dp"
-            android:layout_marginTop="@dimen/padding_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:layout_marginBottom="@dimen/padding_5"
-            fresco:actualImageScaleType="centerCrop"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            fresco:viewAspectRatio="0.8"
+            fresco:actualImageScaleType="focusCrop"
             fresco:placeholderImage="@color/text_tint"
-            fresco:placeholderImageScaleType="fitCenter"
+            fresco:placeholderImageScaleType="focusCrop"
             fresco:roundedCornerRadius="16dp" />
 
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="top|right"
-            android:layout_marginRight="-10dp">
-
+            android:layout_gravity="bottom|right"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="@dimen/padding_2"
+            >
             <ImageView
                 android:id="@+id/level_img"
-                android:layout_width="30dp"
-                android:layout_height="18dp"
-                app:srcCompat="@drawable/crowns_drawer" />
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                app:srcCompat="@drawable/round_yellow" />
 
             <TextView
                 android:id="@+id/level_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="1dp"
+                android:textStyle="bold"
                 android:text="1"
-                android:textColor="@color/style2_color5"
+                android:textColor="@color/white"
                 android:textSize="@dimen/smaller_l" />
         </FrameLayout>
     </FrameLayout>
@@ -55,8 +59,10 @@
     <ProgressBar
         android:id="@+id/course_progress"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="70dp"
+        android:layout_width="match_parent"
         android:layout_height="12dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
         android:layout_below="@id/img_layout"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="3dp"
@@ -72,11 +78,11 @@
         android:layout_below="@id/course_progress"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
         android:gravity="center"
         android:text="听力课程"
         android:textColor="@color/text_black"
-        android:textSize="@dimen/middle" />
+        android:textSize="@dimen/big" />
 </RelativeLayout>
 
 

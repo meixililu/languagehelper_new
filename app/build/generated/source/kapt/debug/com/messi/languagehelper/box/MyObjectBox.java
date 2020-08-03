@@ -19,6 +19,7 @@ public class MyObjectBox {
 
     public static BoxStoreBuilder builder() {
         BoxStoreBuilder builder = new BoxStoreBuilder(getModel());
+        builder.entity(UserProfile_.__INSTANCE);
         builder.entity(EveryDaySentence_.__INSTANCE);
         builder.entity(ReadingSubject_.__INSTANCE);
         builder.entity(MomentLikes_.__INSTANCE);
@@ -31,7 +32,6 @@ public class MyObjectBox {
         builder.entity(WebFilter_.__INSTANCE);
         builder.entity(CNWBean_.__INSTANCE);
         builder.entity(CollectedData_.__INSTANCE);
-        builder.entity(UserProfile_.__INSTANCE);
         builder.entity(CourseList_.__INSTANCE);
         return builder;
     }
@@ -42,6 +42,7 @@ public class MyObjectBox {
         modelBuilder.lastIndexId(15, 1910611769934093760L);
         modelBuilder.lastRelationId(0, 0L);
 
+        buildEntityUserProfile(modelBuilder);
         buildEntityEveryDaySentence(modelBuilder);
         buildEntityReadingSubject(modelBuilder);
         buildEntityMomentLikes(modelBuilder);
@@ -54,10 +55,45 @@ public class MyObjectBox {
         buildEntityWebFilter(modelBuilder);
         buildEntityCNWBean(modelBuilder);
         buildEntityCollectedData(modelBuilder);
-        buildEntityUserProfile(modelBuilder);
         buildEntityCourseList(modelBuilder);
 
         return modelBuilder.build();
+    }
+
+    private static void buildEntityUserProfile(ModelBuilder modelBuilder) {
+        EntityBuilder entityBuilder = modelBuilder.entity("UserProfile");
+        entityBuilder.id(16, 2910252327772198757L).lastPropertyId(18, 373588418639337017L);
+
+        entityBuilder.property("id", PropertyType.Long).id(1, 7718561882454436565L)
+                .flags(PropertyFlags.ID);
+        entityBuilder.property("user_name", PropertyType.String).id(2, 6962433604185773288L);
+        entityBuilder.property("user_img", PropertyType.String).id(3, 5708105416714502559L);
+        entityBuilder.property("credits", PropertyType.Int).id(15, 4952115770437733610L)
+                .flags(PropertyFlags.NOT_NULL);
+        entityBuilder.property("continuous", PropertyType.Int).id(18, 373588418639337017L)
+                .flags(PropertyFlags.NOT_NULL);
+        entityBuilder.property("show_check_in", PropertyType.Bool).id(16, 3694773853868302061L)
+                .flags(PropertyFlags.NOT_NULL);
+        entityBuilder.property("check_in_sum", PropertyType.Int).id(11, 5101552453357547047L)
+                .flags(PropertyFlags.NOT_NULL);
+        entityBuilder.property("last_check_in", PropertyType.String).id(12, 3431532285563889006L);
+        entityBuilder.property("course_score", PropertyType.Int).id(4, 4887532696707504794L)
+                .flags(PropertyFlags.NOT_NULL);
+        entityBuilder.property("show_level_up", PropertyType.Bool).id(17, 7456307550407510606L)
+                .flags(PropertyFlags.NOT_NULL);
+        entityBuilder.property("course_unit_sum", PropertyType.Int).id(13, 3549274152090178261L)
+                .flags(PropertyFlags.NOT_NULL);
+        entityBuilder.property("course_level_sum", PropertyType.Int).id(14, 6658713227148395617L)
+                .flags(PropertyFlags.NOT_NULL);
+        entityBuilder.property("backkup", PropertyType.String).id(5, 8611379744230972354L);
+        entityBuilder.property("backkup1", PropertyType.String).id(6, 4998548817226543831L);
+        entityBuilder.property("backkup2", PropertyType.String).id(7, 6269569077294973665L);
+        entityBuilder.property("backkup3", PropertyType.String).id(8, 476921784603464164L);
+        entityBuilder.property("backkup4", PropertyType.String).id(9, 5403720477271503586L);
+        entityBuilder.property("backkup5", PropertyType.String).id(10, 9104944866490009975L);
+
+
+        entityBuilder.entityDone();
     }
 
     private static void buildEntityEveryDaySentence(ModelBuilder modelBuilder) {
@@ -444,39 +480,9 @@ public class MyObjectBox {
         entityBuilder.entityDone();
     }
 
-    private static void buildEntityUserProfile(ModelBuilder modelBuilder) {
-        EntityBuilder entityBuilder = modelBuilder.entity("UserProfile");
-        entityBuilder.id(16, 2910252327772198757L).lastPropertyId(15, 4952115770437733610L);
-
-        entityBuilder.property("id", PropertyType.Long).id(1, 7718561882454436565L)
-                .flags(PropertyFlags.ID);
-        entityBuilder.property("user_name", PropertyType.String).id(2, 6962433604185773288L);
-        entityBuilder.property("user_img", PropertyType.String).id(3, 5708105416714502559L);
-        entityBuilder.property("credits", PropertyType.Int).id(15, 4952115770437733610L)
-                .flags(PropertyFlags.NOT_NULL);
-        entityBuilder.property("check_in_sum", PropertyType.Int).id(11, 5101552453357547047L)
-                .flags(PropertyFlags.NOT_NULL);
-        entityBuilder.property("last_check_in", PropertyType.String).id(12, 3431532285563889006L);
-        entityBuilder.property("course_score", PropertyType.Int).id(4, 4887532696707504794L)
-                .flags(PropertyFlags.NOT_NULL);
-        entityBuilder.property("course_unit_sum", PropertyType.Int).id(13, 3549274152090178261L)
-                .flags(PropertyFlags.NOT_NULL);
-        entityBuilder.property("course_level_sum", PropertyType.Int).id(14, 6658713227148395617L)
-                .flags(PropertyFlags.NOT_NULL);
-        entityBuilder.property("backkup", PropertyType.String).id(5, 8611379744230972354L);
-        entityBuilder.property("backkup1", PropertyType.String).id(6, 4998548817226543831L);
-        entityBuilder.property("backkup2", PropertyType.String).id(7, 6269569077294973665L);
-        entityBuilder.property("backkup3", PropertyType.String).id(8, 476921784603464164L);
-        entityBuilder.property("backkup4", PropertyType.String).id(9, 5403720477271503586L);
-        entityBuilder.property("backkup5", PropertyType.String).id(10, 9104944866490009975L);
-
-
-        entityBuilder.entityDone();
-    }
-
     private static void buildEntityCourseList(ModelBuilder modelBuilder) {
         EntityBuilder entityBuilder = modelBuilder.entity("CourseList");
-        entityBuilder.id(15, 1683819082702328425L).lastPropertyId(24, 7467772255640158387L);
+        entityBuilder.id(15, 1683819082702328425L).lastPropertyId(25, 9166149589230592109L);
 
         entityBuilder.property("id", PropertyType.Long).id(1, 1016975024758746046L)
                 .flags(PropertyFlags.ID);
@@ -501,7 +507,7 @@ public class MyObjectBox {
         entityBuilder.property("backkup3", PropertyType.String).id(17, 7665626738488650587L);
         entityBuilder.property("backkup4", PropertyType.String).id(18, 342354979166189757L);
         entityBuilder.property("backkup5", PropertyType.String).id(19, 7672933854065894048L);
-        entityBuilder.property("finish", PropertyType.Bool).id(22, 6791843896656721848L)
+        entityBuilder.property("finish", PropertyType.Bool).id(25, 9166149589230592109L)
                 .flags(PropertyFlags.NOT_NULL);
         entityBuilder.property("user_level_num", PropertyType.Int).id(23, 6620416365430173889L)
                 .flags(PropertyFlags.NOT_NULL);

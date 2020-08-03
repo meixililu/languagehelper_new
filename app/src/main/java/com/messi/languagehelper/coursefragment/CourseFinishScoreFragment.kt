@@ -48,24 +48,32 @@ class CourseFinishScoreFragment : BaseFragment() {
     }
 
     private fun initViews() {
+        if (viewModel.show_check_in()){
+            binding.checkBtn.text = "Next"
+        }
         binding.checkBtn.setOnClickListener { checkOrNext() }
+        setScore()
         Handler().postDelayed({
             playSoundPool()
-            setScore()
             binding.checkBtn.isEnabled = true
         },600)
     }
 
     private fun setScore(){
         try {
-            binding.scoreTv.text = "恭喜你！"+"\n"+"获得 " + viewModel.courseList.size + " 点经验" + "\n" +
-                    "您的经验值达到了 " + viewModel.userProfile!!.course_score + " ！"
+            binding.scoreTv.text = "恭喜你"
+            binding.levelTv.text = "获得 " + viewModel.courseList.size + " 点经验" + "\n" +
+                    "经验值达到了 " + viewModel.userProfile!!.course_score + " ！"
         } catch (e: Exception) {
         }
     }
 
     private fun checkOrNext() {
-        requireActivity().finish()
+        if (binding.checkBtn.text.toString() == "Finish") {
+            requireActivity().finish()
+        } else if (binding.checkBtn.text.toString() == "Next") {
+            viewModel.toCheckIn()
+        }
     }
 
     private fun initializeSoundPool() {

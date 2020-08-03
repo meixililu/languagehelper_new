@@ -24,9 +24,9 @@ public class WordStudyDanCiPinXieActivity_ViewBinding implements Unbinder {
 
   private View view7f08029e;
 
-  private View view7f0804a8;
+  private View view7f0804a9;
 
-  private View view7f0804b1;
+  private View view7f0804b2;
 
   private View view7f0803dc;
 
@@ -67,7 +67,7 @@ public class WordStudyDanCiPinXieActivity_ViewBinding implements Unbinder {
     target.volumeImg = Utils.findRequiredViewAsType(source, R.id.volume_img, "field 'volumeImg'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.volume_layout, "field 'volumeLayout' and method 'onClick'");
     target.volumeLayout = Utils.castView(view, R.id.volume_layout, "field 'volumeLayout'", FrameLayout.class);
-    view7f0804a8 = view;
+    view7f0804a9 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -76,7 +76,7 @@ public class WordStudyDanCiPinXieActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.word_layout, "field 'wordLayout' and method 'onClick'");
     target.wordLayout = Utils.castView(view, R.id.word_layout, "field 'wordLayout'", RelativeLayout.class);
-    view7f0804b1 = view;
+    view7f0804b2 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -131,10 +131,10 @@ public class WordStudyDanCiPinXieActivity_ViewBinding implements Unbinder {
     view7f0802c9 = null;
     view7f08029e.setOnClickListener(null);
     view7f08029e = null;
-    view7f0804a8.setOnClickListener(null);
-    view7f0804a8 = null;
-    view7f0804b1.setOnClickListener(null);
-    view7f0804b1 = null;
+    view7f0804a9.setOnClickListener(null);
+    view7f0804a9 = null;
+    view7f0804b2.setOnClickListener(null);
+    view7f0804b2 = null;
     view7f0803dc.setOnClickListener(null);
     view7f0803dc = null;
     view7f08014a.setOnClickListener(null);

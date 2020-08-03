@@ -10,7 +10,10 @@ import androidx.lifecycle.viewModelScope
 import cn.leancloud.AVObject
 import cn.leancloud.AVQuery
 import com.google.gson.Gson
-import com.messi.languagehelper.bean.*
+import com.messi.languagehelper.bean.CourseData
+import com.messi.languagehelper.bean.CourseMedias
+import com.messi.languagehelper.bean.PVideoResult
+import com.messi.languagehelper.bean.RespoData
 import com.messi.languagehelper.box.BoxHelper
 import com.messi.languagehelper.box.CourseList
 import com.messi.languagehelper.box.UserProfile
@@ -19,6 +22,9 @@ import com.messi.languagehelper.util.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class MyCourseViewModel(application: Application) : AndroidViewModel(application){
@@ -38,7 +44,6 @@ class MyCourseViewModel(application: Application) : AndroidViewModel(application
     var keyword = ""
 
     init {
-        LogUtil.DefalutLog("MyCourseViewModel---init")
         viewModelScope.launch(Dispatchers.IO)  {
             userProfile = BoxHelper.getUserProfile()
         }
@@ -51,21 +56,17 @@ class MyCourseViewModel(application: Application) : AndroidViewModel(application
         viewModelScope.launch(Dispatchers.IO)  {
             userCourseRecord = BoxHelper.getCourseListById(course_id)
             isFinish()
-            LogUtil.DefalutLog("level_num:"+userCourseRecord.user_level_num+"--unit_num:"+userCourseRecord.user_unit_num)
             getData()
         }
     }
 
     private fun isFinish(){
-        if(!userCourseRecord.finish){
-            if(userCourseRecord.user_level_num > userCourseRecord.level_num){
-                userCourseRecord.finish = true
-            }else if (userCourseRecord.user_level_num == userCourseRecord.level_num && userCourseRecord.user_unit_num >= userCourseRecord.unit_num){
-                userCourseRecord.finish = true
-            }
-            if(userCourseRecord.finish){
-                BoxHelper.update(userCourseRecord)
-            }
+        if (userCourseRecord.finish && userCourseRecord.user_level_num < userCourseRecord.level_num){
+            LogUtil.DefalutLog("isFinish---has add more level")
+            userCourseRecord.finish = false
+            userCourseRecord.user_level_num ++
+            userCourseRecord.user_unit_num = 0
+            BoxHelper.update(userCourseRecord)
         }
     }
 
@@ -116,15 +117,16 @@ class MyCourseViewModel(application: Application) : AndroidViewModel(application
 
     private fun checkIsFinish(){
         if (userCourseRecord != null && userProfile != null){
-            if (userCourseRecord.user_unit_num < userCourseRecord.unit_num){
+            if (userCourseRecord.user_unit_num < userCourseRecord.unit_num-1){
                 userCourseRecord.user_unit_num++
                 userProfile!!.course_unit_sum++
             }else{
                 if (userCourseRecord.user_level_num >= userCourseRecord.level_num){
                     userCourseRecord.finish = true
                 }else{
-                    userCourseRecord.user_unit_num = 1
+                    userCourseRecord.user_unit_num = 0
                     userCourseRecord.user_level_num++
+                    userProfile!!.show_level_up = true
                     userProfile!!.course_level_sum++
                 }
             }
@@ -203,8 +205,35 @@ class MyCourseViewModel(application: Application) : AndroidViewModel(application
         courseList.add(mItem)
     }
 
+    fun show_check_in(): Boolean{
+        var result = false
+        if (userProfile != null){
+            val simpleDateFormat = SimpleDateFormat("yyyyMMdd")
+            val date = Date(System.currentTimeMillis())
+            var today = simpleDateFormat.format(date)
+
+            val calendar = Calendar.getInstance()
+            calendar.add(Calendar.DATE, -1) //向前走一天
+            var yesterday = simpleDateFormat.format(calendar.time)
+            if (userProfile!!.last_check_in != today){
+                if (userProfile!!.last_check_in == yesterday){
+                    userProfile!!.check_in_sum ++
+                }else{
+                    userProfile!!.check_in_sum = 1
+                }
+                userProfile!!.show_check_in = true
+                userProfile!!.last_check_in = today
+                BoxHelper.update(userProfile)
+            }
+        }
+        return result
+    }
+
     fun toScore(){
         mRespoData.postValue("score")
     }
 
+    fun toCheckIn(){
+        mRespoData.postValue("check_in")
+    }
 }

@@ -14,6 +14,7 @@ import androidx.fragment.app.activityViewModels
 import com.jeremyliao.liveeventbus.LiveEventBus
 import com.messi.languagehelper.BaseFragment
 import com.messi.languagehelper.R
+import com.messi.languagehelper.box.BoxHelper
 import com.messi.languagehelper.databinding.CourseFinishFragmentBinding
 import com.messi.languagehelper.util.KeyUtil
 import com.messi.languagehelper.viewmodels.MyCourseViewModel
@@ -39,13 +40,28 @@ class CourseFinishFragment : BaseFragment() {
     private fun initViews() {
         LiveEventBus.get(KeyUtil.CourseListUpdate).post("")
         binding.checkBtn.setOnClickListener { checkOrNext() }
+        setData()
         Handler().postDelayed({
             playSoundPool()
-            binding.scoreTv.text = "Well Done!"
             binding.checkBtn.isEnabled = true
         },600)
     }
 
+    fun setData(){
+        if (viewModel.userCourseRecord != null && viewModel.userProfile != null && viewModel.userProfile?.show_level_up!!){
+            if (viewModel.userCourseRecord.user_level_num == viewModel.userCourseRecord.level_num){
+                binding.scoreTv.text = viewModel.userCourseRecord.name + " 技能达到了最高级" + "\n面对疾风吧！"
+            }else{
+                binding.scoreTv.text = viewModel.userCourseRecord.name + " 技能达到第" + viewModel.userCourseRecord.user_level_num + "级" + "\n面对疾风吧！"
+            }
+            viewModel.userProfile?.show_level_up = false
+            BoxHelper.update(viewModel.userProfile)
+        }else{
+            binding.scoreTv.text = "本单元学习完成啦！"
+        }
+        binding.levelTv.text = "当前级别："+viewModel.userCourseRecord.user_level_num.toString() + " / " + viewModel.userCourseRecord.level_num
+        binding.unitTv.text =  "下一单元："+viewModel.userCourseRecord.user_unit_num.toString() + " / " + viewModel.userCourseRecord.unit_num
+    }
 
     private fun checkOrNext() {
         viewModel.toScore()

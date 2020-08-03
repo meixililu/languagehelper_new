@@ -18,7 +18,7 @@ import java.lang.Override;
 public class LeisureFragment_ViewBinding implements Unbinder {
   private LeisureFragment target;
 
-  private View view7f0804c8;
+  private View view7f0804c9;
 
   private View view7f080479;
 
@@ -74,7 +74,7 @@ public class LeisureFragment_ViewBinding implements Unbinder {
     target.ad_sign = Utils.findRequiredViewAsType(source, R.id.ad_sign, "field 'ad_sign'", TextView.class);
     view = Utils.findRequiredView(source, R.id.yuedu_layout, "field 'yueduLayout' and method 'onViewClicked'");
     target.yueduLayout = Utils.castView(view, R.id.yuedu_layout, "field 'yueduLayout'", FrameLayout.class);
-    view7f0804c8 = view;
+    view7f0804c9 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -331,8 +331,8 @@ public class LeisureFragment_ViewBinding implements Unbinder {
     target.cnk_layout = null;
     target.rootView = null;
 
-    view7f0804c8.setOnClickListener(null);
-    view7f0804c8 = null;
+    view7f0804c9.setOnClickListener(null);
+    view7f0804c9 = null;
     view7f080479.setOnClickListener(null);
     view7f080479 = null;
     view7f08009f.setOnClickListener(null);

@@ -7,24 +7,14 @@
     android:background="@color/white">
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/bg_animation"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        android:layout_centerInParent="true"
-        app:lottie_autoPlay="true"
-        app:lottie_fileName="confetti_animation.json"
-        app:lottie_loop="true" />
-
-    <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/thumb_animation"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:background="@color/white"
         android:layout_centerInParent="true"
         app:lottie_autoPlay="true"
-        app:lottie_fileName="star_animation.json"
-        app:lottie_loop="true"
+        app:lottie_fileName="check_mark.json"
+        app:lottie_repeatCount="2"
         />
 
     <LinearLayout
@@ -39,7 +29,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text=""
             android:textColor="@color/text_dark"
             android:textSize="@dimen/title"
             android:textStyle="bold"
@@ -49,14 +38,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_15"
-            android:lineSpacingExtra="2dp"
-            android:lineSpacingMultiplier="1.2"
             android:gravity="center"
             android:textColor="@color/text_black"
             android:textSize="@dimen/big"
             android:textStyle="bold"
             />
     </LinearLayout>
+
 
     <TextView
         android:id="@+id/check_btn"
@@ -69,8 +57,8 @@
         android:layout_marginBottom="@dimen/padding_15"
         android:background="@drawable/border_shadow_green_selecter"
         android:elevation="1dp"
-        android:gravity="center"
         android:enabled="false"
+        android:gravity="center"
         android:text="Finish"
         android:textColor="@color/disable_gray_white_selector"
         android:textSize="@dimen/big" />
