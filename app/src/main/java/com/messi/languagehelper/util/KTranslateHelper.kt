@@ -3,22 +3,18 @@ package com.messi.languagehelper.util
 import android.text.TextUtils
 import androidx.lifecycle.MutableLiveData
 import cn.leancloud.json.JSON
-import com.messi.languagehelper.R
-import com.messi.languagehelper.bean.*
+import com.messi.languagehelper.bean.HjTranBean
+import com.messi.languagehelper.bean.IcibaNew
+import com.messi.languagehelper.bean.RespoData
 import com.messi.languagehelper.box.Record
 import com.messi.languagehelper.http.BgCallback
 import com.messi.languagehelper.http.LanguagehelperHttpClient
 import com.messi.languagehelper.httpservice.RetrofitBuilder
-import com.messi.languagehelper.util.TranslateHelper.getParseBingyingWebHtml
 import io.reactivex.ObservableEmitter
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import okhttp3.FormBody
 import okhttp3.Request
 import org.jsoup.Jsoup
 import java.io.IOException
-import java.util.ArrayList
+import java.net.URLEncoder
 
 object KTranslateHelper {
 
@@ -28,11 +24,11 @@ object KTranslateHelper {
     private val youdaoapi = "youdaoapi"
     private val bingweb = "bingweb"
     private val jscb = "jscb"
+    private val xbkj = "xbkj"
     private val hujiangapi = "hujiangapi"
     private val hujiangweb = "hujiangweb"
     private val qqfyj = "qqfyj"
     private val baidu = "baidu"
-    private var HJCookie = ""
     private lateinit var tranOrder: MutableList<String>
     var mRespoData: MutableLiveData<RespoData<Record>>? = null
 
@@ -45,8 +41,6 @@ object KTranslateHelper {
                     if (!TextUtils.isEmpty(keys[0])) {
                         OrderTran = keys[0]
                     }
-                    LogUtil.DefalutLog("---initTranOrder---keys[0]:$"+keys[0])
-                    LogUtil.DefalutLog("---initTranOrder---keys[1]:$"+keys[1])
                     if (!TextUtils.isEmpty(keys[1])) {
                         DictHelper.OrderDic = keys[1]
                     }
@@ -59,6 +53,8 @@ object KTranslateHelper {
             tranOrder = OrderTran.split(",").toMutableList()
             e.printStackTrace()
         }
+        tranOrder.add(0,xbkj)
+        tranOrder.add(qqfyj)
     }
 
     suspend fun doTranslateTask():Record? {
@@ -66,37 +62,70 @@ object KTranslateHelper {
         for(method in tranOrder){
             LogUtil.DefalutLog("DoTranslateByMethod---$method")
             when (method){
-//                youdaoweb -> {
-//                    mRecordResult = Tran_Youdao_Web(e)
-//                }
+                youdaoweb -> {
+                    mRecordResult = tranFromYDWeb()
+                }
                 jscb -> {
                     mRecordResult = tranFromICiBa()
                 }
-//                youdaoapi -> {
-//                    mRecordResult = Tran_Youdao_Api(e)
-//                }
-//                bingweb -> {
-//                    mRecordResult = Tran_Bing_Web(e)
-//                }
-//                hujiangapi -> {
-//                    mRecordResult = Tran_Hj_Api(e)
-//                }
-//                hujiangweb -> {
-//                    mRecordResult = Tran_Baidu(e)
-//                }
-//                qqfyj -> {
-//                    mRecordResult = Tran_QQFYJApi(e)
-//                }
-//                baidu -> {
-//                    mRecordResult = Tran_Hj_Web(e)
-//                }
-                else -> {
-                    LogUtil.DefalutLog("translate error method:$method")
+                xbkj -> {
+                    mRecordResult = tranFromXBKJ()
+                }
+                youdaoapi -> {
+                    mRecordResult = tranFromYDApi()
+                }
+                bingweb -> {
+                    mRecordResult = tranFromBingWeb()
+                }
+                hujiangapi -> {
+                    mRecordResult = tranFromHJApi()
+                }
+                hujiangweb -> {
+                    mRecordResult = tranFromHjWeb()
+                }
+                qqfyj -> {
+                    mRecordResult = tranFromQQFYJ()
+                }
+                baidu -> {
+                    mRecordResult = tranFromXBKJ()
                 }
             }
             if (mRecordResult != null) break
         }
         return mRecordResult
+    }
+
+    private suspend fun tranFromXBKJ(): Record? {
+        LogUtil.DefalutLog("Result---zyhy server")
+        var mRecord: Record? = null
+        val timestamp = System.currentTimeMillis().toString()
+        val platform = SystemUtil.platform
+        val network = SystemUtil.network
+        if (StringUtils.isEnglish(Setings.q)) {
+            Setings.from = "en"
+            Setings.to = "zh"
+        } else {
+            Setings.from = "zh"
+            Setings.to = "en"
+        }
+        val sign = SignUtil.getMd5Sign(Setings.PVideoKey, timestamp, Setings.q,
+                platform, network, Setings.from, Setings.to)
+        var responseResult = RetrofitBuilder.tService.tranDict(Setings.q, Setings.from, Setings.to, network, platform, sign, 0, timestamp)
+        val mResult = responseResult.body()
+        if (mResult != null) {
+            val tdResult = mResult.result
+            if (tdResult != null && !TextUtils.isEmpty(tdResult.result)) {
+                var des = tdResult.result
+                if (!TextUtils.isEmpty(tdResult.symbol)) {
+                    des = tdResult.symbol + "\n" + tdResult.result
+                }
+                mRecord = Record(des, Setings.q)
+                mRecord.ph_am_mp3 = tdResult.mp3_am
+                mRecord.ph_en_mp3 = tdResult.mp3_en
+                mRecord.backup1 = tdResult.result
+            }
+        }
+        return mRecord
     }
 
     private suspend fun tranFromICiBa(): Record? {
@@ -119,282 +148,154 @@ object KTranslateHelper {
         return result
     }
 
-
-    private fun Tran_QQAILabApi(e: ObservableEmitter<Record>) {
-        LogUtil.DefalutLog("Result---Tran_QQAILAb")
-        LanguagehelperHttpClient.postTranQQAILabAPi(object : BgCallback() {
-            override fun onFailured() {
-            }
-
-            override fun onResponsed(responseString: String) {
-                LogUtil.DefalutLog("Tran_QQAILabApi:$responseString")
-                var result: Record? = null
-                try {
-                    val root = JSON.parseObject(responseString, QQTranAILabRoot::class.java)
-                    if (root != null && root.ret == 0 && root.data != null) {
-                        result = Record(root.data.trans_text, Setings.q)
-                    }
-                } catch (ec: Exception) {
-                    result = null
-                    ec.printStackTrace()
-                } finally {
-                    if (result != null) {
-                        e.onNext(result)
-                    } else {
-                    }
-                }
-            }
-        })
-    }
-
-    private fun Tran_QQFYJApi(e: ObservableEmitter<Record>) {
-        LogUtil.DefalutLog("Result---Tran_QQFYJApi")
-        LanguagehelperHttpClient.postTranQQFYJAPi(object : BgCallback() {
-            override fun onFailured() {
-            }
-
-            override fun onResponsed(responseString: String) {
-                var result: Record? = null
-                try {
-                    val root = JSON.parseObject(responseString, QQTranAILabRoot::class.java)
-                    if (root != null && root.ret == 0 && root.data != null) {
-                        result = Record(root.data.target_text, Setings.q)
-                    }
-                } catch (ec: Exception) {
-                    result = null
-                    ec.printStackTrace()
-                } finally {
-                    if (result != null) {
-                        e.onNext(result)
-                    } else {
-                    }
-                }
-            }
-        })
-    }
-
-    private fun Tran_Youdao_Web(e: ObservableEmitter<Record>) {
-        LogUtil.DefalutLog("Result---Tran_Youdao_Web")
-        if (isNotWord) {
-            return
-        }
-        LanguagehelperHttpClient.get(Setings.YoudaoWeb + Setings.q + Setings.YoudaoWebEnd, object : okhttp3.Callback {
-            override fun onFailure(call: okhttp3.Call, ioe: IOException) {
-            }
-
-            @Throws(IOException::class)
-            override fun onResponse(call: okhttp3.Call, mResponse: okhttp3.Response) {
-                var result: Record? = null
-                try {
-                    if (mResponse.isSuccessful) {
-                        val responseString = mResponse.body!!.string()
-                        if (!TextUtils.isEmpty(responseString)) {
-                            result = getParseYoudaoWebHtml(responseString)
-                        }
-                    }
-                } catch (ex: Exception) {
-                    ex.printStackTrace()
-                } finally {
-                    if (result != null) {
-                        e.onNext(result)
-                    } else {
-                    }
-                }
-            }
-        })
-    }
-
-    private fun Tran_Bing_Web(e: ObservableEmitter<Record>) {
-        LogUtil.DefalutLog("Result---Tran_Bing_Web")
-        if (isNotWord) {
-            return
-        }
-        LanguagehelperHttpClient.get(Setings.BingyingWeb + Setings.q, object : okhttp3.Callback {
-            override fun onFailure(call: okhttp3.Call, ioe: IOException) {
-            }
-
-            @Throws(IOException::class)
-            override fun onResponse(call: okhttp3.Call, mResponse: okhttp3.Response) {
-                var result: Record? = null
-                try {
-                    if (mResponse.isSuccessful) {
-                        val responseString = mResponse.body!!.string()
-                        if (!TextUtils.isEmpty(responseString)) {
-                            result = getParseBingyingWebHtml(responseString)
-                        }
-                    }
-                } catch (ex: Exception) {
-                    ex.printStackTrace()
-                } finally {
-                    if (result != null) {
-                        e.onNext(result)
-                    } else {
-                    }
-                }
-            }
-        })
-    }
-
-    private fun Tran_Hj_Web(e: ObservableEmitter<Record>) {
-        LogUtil.DefalutLog("Result---Tran_Hj_Web")
-        if (isNotWord) {
-            return
-        }
-        val request = Request.Builder()
-                .url(Setings.HjiangWeb + Setings.q)
-                .header("User-Agent", LanguagehelperHttpClient.Header)
-                .header("Cookie", HJCookie)
-                .build()
-        LanguagehelperHttpClient.get(request, object : okhttp3.Callback {
-            override fun onFailure(call: okhttp3.Call, ioe: IOException) {
-            }
-
-            @Throws(IOException::class)
-            override fun onResponse(call: okhttp3.Call, mResponse: okhttp3.Response) {
-                var result: Record? = null
-                try {
-                    if (mResponse.isSuccessful) {
-                        val responseString = mResponse.body!!.string()
-                        if (!TextUtils.isEmpty(responseString)) {
-                            result = getParseHjiangWebHtml(responseString)
-                        }
-                    }
-                } catch (ex: Exception) {
-                    ex.printStackTrace()
-                } finally {
-                    if (result != null) {
-                        e.onNext(result)
-                    } else {
-                    }
-                }
-            }
-        })
-    }
-
-    private fun Tran_Youdao_Api(e: ObservableEmitter<Record>) {
-        LogUtil.DefalutLog("Result---Tran_Youdao_Api")
-        val formBody = FormBody.Builder()
-                .add("i", Setings.q)
-                .build()
-        LanguagehelperHttpClient.post(Setings.YoudaoApi, formBody, object : BgCallback() {
-            override fun onFailured() {
-            }
-
-            override fun onResponsed(responseString: String) {
-                var result: Record? = null
-                try {
-                    result = parseYoudaoApiResult(responseString)
-                } catch (ec: Exception) {
-                    ec.printStackTrace()
-                } finally {
-                    if (result != null) {
-                        e.onNext(result)
-                    } else {
-                    }
-                }
-            }
-        })
-    }
-
-    private fun Tran_Hj_Api(e: ObservableEmitter<Record>) {
-        LogUtil.DefalutLog("Result---Tran_Hj_Api")
-        LanguagehelperHttpClient.postHjApi(object : BgCallback() {
-            override fun onFailured() {
-            }
-
-            override fun onResponsed(responseString: String) {
-                var result: Record? = null
-                try {
-                    result = tran_hj_api(responseString)
-                } catch (ec: Exception) {
-                    ec.printStackTrace()
-                } finally {
-                    if (result != null) {
-                        e.onNext(result)
-                    } else {
-                    }
-                }
-            }
-        })
-    }
-
-//    private fun Tran_Baidu(e: ObservableEmitter<Record>) {
-//        LogUtil.DefalutLog("Result---zyhy server")
-//        val timestamp = System.currentTimeMillis().toString()
-//        val platform = SystemUtil.platform
-//        val network = SystemUtil.network
-//        val sign = SignUtil.getMd5Sign(Setings.PVideoKey, timestamp, Setings.q,
-//                platform, network, Setings.from, Setings.to)
-//        if (StringUtils.isEnglish(Setings.q)) {
-//            Setings.from = "en"
-//            Setings.to = "zh"
-//        } else {
-//            Setings.from = "zh"
-//            Setings.to = "en"
-//        }
-//        val service = RetrofitApiService.getRetrofitApiService(Setings.TranApi,
-//                RetrofitApiService::class.java)
-//        val call = service.tranDict(Setings.q, Setings.from, Setings.to,
-//                network, platform, sign, 0, timestamp)
-//        call.enqueue(object : Callback<TranResultRoot<TranDictResult?>?> {
-//            override fun onResponse(call: Call<TranResultRoot<TranDictResult?>?>, response: Response<TranResultRoot<TranDictResult?>?>) {
-//                var result: Record? = null
-//                if (response.isSuccessful) {
-//                    val mResult = response.body()
-//                    if (mResult != null) {
-//                        val tdResult = mResult.result
-//                        if (tdResult != null && !TextUtils.isEmpty(tdResult.result)) {
-//                            var des = tdResult.result
-//                            if (!TextUtils.isEmpty(tdResult.symbol)) {
-//                                des = """
-//                                    ${tdResult.symbol}
-//                                    ${tdResult.result}
-//                                    """.trimIndent()
-//                            }
-//                            result = Record(des, Setings.q)
-//                            result.ph_am_mp3 = tdResult.mp3_am
-//                            result.ph_en_mp3 = tdResult.mp3_en
-//                            result.backup1 = tdResult.result
-//                        }
-//                    }
-//                }
-//                if (result != null) {
-//                    e.onNext(result)
-//                } else {
-//                    onFaileTranslate(e)
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<TranResultRoot<TranDictResult?>?>, t: Throwable) {
-//                onFaileTranslate(e)
-//            }
-//        })
-//    }
-
-    private fun parseYoudaoApiResult(mResult: String): Record? {
-        var currentDialogBean: Record? = null
+    private suspend fun tranFromQQFYJ(): Record? {
+        LogUtil.DefalutLog("Result---TranQQFYJApi")
+        var result: Record? = null
         try {
-            if (!TextUtils.isEmpty(mResult)) {
-                if (JsonParser.isJson(mResult)) {
-                    val bean = JSON.parseObject(mResult, YoudaoApiBean::class.java)
-                    if (bean != null && bean.errorCode == 0 && bean.translateResult != null) {
-                        val list = bean.translateResult
-                        if (list.size > 0) {
-                            val item = list[0]
-                            if (item != null && item.size > 0) {
-                                val result = item[0]
-                                if (result != null && !TextUtils.isEmpty(result.tgt)) {
-                                    currentDialogBean = Record(result.tgt, Setings.q)
-                                }
+            val time_stamp = (System.currentTimeMillis() / 1000).toString()
+            val nonce_str = StringUtils.getRandomString(16)
+            var source = "zh"
+            var target = "en"
+            if (StringUtils.isEnglish(Setings.q)) {
+                source = "en"
+                target = "zh"
+            }
+            var map = sortedMapOf("app_id" to URLEncoder.encode(Setings.QQAPPID, "UTF-8"),
+                    "nonce_str" to URLEncoder.encode(nonce_str, "UTF-8"),
+                    "text" to URLEncoder.encode(Setings.q, "UTF-8"),
+                    "time_stamp" to URLEncoder.encode(time_stamp, "UTF-8"),
+                    "source" to URLEncoder.encode(source, "UTF-8"),
+                    "target" to URLEncoder.encode(target, "UTF-8")
+            )
+            val sign = getSortData(map)
+            var service = RetrofitBuilder.getKTranRetrofitService(Setings.QQTranFYJBase)
+            var response = service.tranByQQFYJ(Setings.QQAPPID,time_stamp,sign,source,target,Setings.q,nonce_str)
+            val data = response.body()
+            if (data != null && data.ret == 0 && data.data != null) {
+                result = Record(data.data.target_text, Setings.q)
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return result
+    }
+
+    private suspend fun tranFromYDWeb(): Record? {
+        LogUtil.DefalutLog("Result---TranYoudaoWeb")
+        var result: Record? = null
+        try {
+            var service = RetrofitBuilder.getKTranRetrofitService(Setings.YoudaoWeb)
+            var response = service.tranByYDWeb(Setings.q)
+            var data = response.body()
+            if (data != null) {
+                val responseString = data.string()
+                if (!TextUtils.isEmpty(responseString)) {
+                    result = getParseYoudaoWebHtml(responseString)
+                }
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return result
+    }
+
+    private suspend fun tranFromBingWeb(): Record? {
+        LogUtil.DefalutLog("Result---TranBingWeb:")
+        var result: Record? = null
+        try {
+            var service = RetrofitBuilder.getKTranRetrofitService(Setings.BingyingWebBase)
+            var response = service.tranByBingWeb(Setings.q)
+            var body = response.body()
+            if (body != null) {
+                val data = body.string()
+                if (!TextUtils.isEmpty(data)) {
+                    result = getParseBingyingWebHtml(data)
+                }
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return result
+    }
+
+    private suspend fun tranFromHjWeb(): Record?{
+        LogUtil.DefalutLog("Result---Tran_Hj_Web")
+        var result: Record? = null
+        try {
+            val request = Request.Builder()
+                    .url(Setings.HjiangWeb + StringUtils.replaceAll(Setings.q))
+                    .header("User-Agent", LanguagehelperHttpClient.Header)
+                    .header("Cookie", TranslateHelper.HJCookie)
+                    .build()
+            var response = LanguagehelperHttpClient.get(request,null)
+            LogUtil.DefalutLog(request.url.toUrl().toString())
+            if (response.isSuccessful) {
+                val responseString = response.body?.string()
+                if (!TextUtils.isEmpty(responseString)) {
+                    result = responseString?.let { getParseHjiangWebHtml(it) }
+                }
+            }
+        } catch (ex: Exception) {
+            ex.printStackTrace()
+        }
+        return result
+    }
+
+    private suspend fun tranFromYDApi(): Record? {
+        LogUtil.DefalutLog("Result---TranYoudaoApi")
+        var mRecord: Record? = null
+        try {
+            var service = RetrofitBuilder.getKTranRetrofitService(Setings.YoudaoApiBase)
+            var response = service.tranByYDApi(Setings.q)
+            var bean = response.body()
+            if (bean != null) {
+                if (bean != null && bean.errorCode == 0 && bean.translateResult != null) {
+                    val list = bean.translateResult
+                    if (list.size > 0) {
+                        val item = list[0]
+                        if (item != null && item.size > 0) {
+                            val result = item[0]
+                            if (result != null && !TextUtils.isEmpty(result.tgt)) {
+                                mRecord = Record(result.tgt, Setings.q)
                             }
                         }
                     }
                 }
             }
         } catch (e: Exception) {
-            LogUtil.DefalutLog("parseYoudaoApiResult error")
             e.printStackTrace()
         }
+        return mRecord
+    }
+
+    private suspend fun tranFromHJApi(): Record? {
+        LogUtil.DefalutLog("Result---TranHjApi")
+        var mRecord: Record? = null
+        try {
+            var response = LanguagehelperHttpClient.postHjApi(null)
+            if (response.isSuccessful){
+                var dataString = response.body?.string()
+                mRecord = dataString?.let { tran_hj_api(it) }
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return mRecord
+    }
+
+    @Throws(Exception::class)
+    private fun tran_hj_api(mResult: String): Record? {
+        var currentDialogBean: Record? = null
+        if (!TextUtils.isEmpty(mResult)) {
+            if (JsonParser.isJson(mResult)) {
+                val mHjTranBean = JSON.parseObject(mResult, HjTranBean::class.java)
+                if (mHjTranBean != null && mHjTranBean.status == 0 && mHjTranBean.data != null && !TextUtils.isEmpty(mHjTranBean.data.content)) {
+                    currentDialogBean = Record(mHjTranBean.data.content, Setings.q)
+                    LogUtil.DefalutLog("tran_hj_api http:" + mHjTranBean.data.content)
+                }
+            }
+        }
+        LogUtil.DefalutLog("tran_hj_api")
         return currentDialogBean
     }
 
@@ -448,23 +349,7 @@ object KTranslateHelper {
         return result
     }
 
-    @Throws(Exception::class)
-    private fun tran_hj_api(mResult: String): Record? {
-        var currentDialogBean: Record? = null
-        if (!TextUtils.isEmpty(mResult)) {
-            if (JsonParser.isJson(mResult)) {
-                val mHjTranBean = JSON.parseObject(mResult, HjTranBean::class.java)
-                if (mHjTranBean != null && mHjTranBean.status == 0 && mHjTranBean.data != null && !TextUtils.isEmpty(mHjTranBean.data.content)) {
-                    currentDialogBean = Record(mHjTranBean.data.content, Setings.q)
-                    LogUtil.DefalutLog("tran_hj_api http:" + mHjTranBean.data.content)
-                }
-            }
-        }
-        LogUtil.DefalutLog("tran_hj_api")
-        return currentDialogBean
-    }
-
-    fun getParseYoudaoWebHtml(html: String?): Record? {
+    fun getParseYoudaoWebHtml(html: String): Record? {
         val sb = StringBuilder()
         val sb_play = StringBuilder()
         var mrecord: Record? = null
@@ -496,22 +381,61 @@ object KTranslateHelper {
                 TranslateUtil.addContentAll(p, sb, sb_play)
             }
         }
-        return if (sb.length > 0) {
-            var resutlStr: String? = ""
-            resutlStr = if (sb.lastIndexOf("\n") > 0) {
-                sb.substring(0, sb.lastIndexOf("\n"))
-            } else {
-                sb.toString()
+        val fanyiToggle = doc.select("div#fanyiToggle").first()
+        if (fanyiToggle != null) {
+            val lis = fanyiToggle.getElementsByTag("p")
+            if (lis != null && lis.size > 1) {
+                TranslateUtil.addContentAll(lis[1], sb, sb_play)
             }
-            mrecord = Record(resutlStr, Setings.q)
-            mrecord.backup1 = sb_play.toString()
-            mrecord
-        } else {
-            null
         }
+        var resutlStr = sb.toString().trim()
+        mrecord = Record(resutlStr, Setings.q)
+        mrecord.backup1 = sb_play.toString()
+        return mrecord
     }
 
-    fun getParseHjiangWebHtml(html: String?): Record? {
+    private fun getParseBingyingWebHtml(html: String): Record? {
+        LogUtil.DefalutLog("---getParseBingyingWebHtml---")
+        var mrecord: Record? = null
+        val sb = java.lang.StringBuilder()
+        val sb_play = java.lang.StringBuilder()
+        val doc = Jsoup.parse(html)
+        val smt_hw = doc.select("div.smt_hw").first()
+        if (smt_hw != null) {
+            val p1_11 = doc.select("div.p1-11").first()
+            if (p1_11 != null) {
+                TranslateUtil.addContentAll(p1_11, sb, sb_play)
+            }
+        }
+        val symblo = doc.select("div.hd_p1_1").first()
+        if (symblo != null) {
+            TranslateUtil.addContent(symblo, sb)
+        }
+        val translates = doc.select("div.qdef > ul > li")
+        if (translates != null && translates.size > 0) {
+            for (li in translates) {
+                var content = li.text().trim { it <= ' ' }
+                if (content.contains("网络")) {
+                    content = content.replace("网络", "网络：")
+                }
+                sb.append(content)
+                sb.append("\n")
+                sb_play.append(content)
+                sb_play.append(",")
+            }
+        }
+        val fusu = doc.select("div.qdef > div.hd_div1 > div.hd_if").first()
+        if (fusu != null) {
+            TranslateUtil.addContentAll(fusu, sb, sb_play)
+        }
+        var resutlStr = sb.toString().trim()
+        mrecord = Record(resutlStr, Setings.q)
+        mrecord.backup1 = sb_play.toString()
+        return mrecord
+    }
+
+    fun getParseHjiangWebHtml(html: String): Record? {
+        LogUtil.DefalutLog(html)
         val sb = StringBuilder()
         val sb_play = StringBuilder()
         var mrecord: Record? = null
@@ -531,40 +455,22 @@ object KTranslateHelper {
                 TranslateUtil.addContentAll(li, sb, sb_play)
             }
         }
-        return if (sb.length > 0) {
-            var resutlStr: String? = ""
-            resutlStr = if (sb.lastIndexOf("\n") > 0) {
-                sb.substring(0, sb.lastIndexOf("\n"))
-            } else {
-                sb.toString()
-            }
-            mrecord = Record(resutlStr, Setings.q)
-            mrecord.backup1 = sb_play.toString()
-            mrecord
-        } else {
-            null
-        }
+        var resutlStr = sb.toString().trim()
+        mrecord = Record(resutlStr, Setings.q)
+        mrecord.backup1 = sb_play.toString()
+        return mrecord
     }
 
-    private fun getWordsCount(content: String): Int {
-        var count = 0
-        val len = content.length
-        for (i in 0 until len) {
-            val tem = Setings.q[i]
-            if (tem == ' ') count++
-        }
-        return count
-    }
-
-    private val isNotWord: Boolean
-        private get() {
-            if (getWordsCount(Setings.q.trim { it <= ' ' }) > 1) {
-                return true
-            } else if (StringUtils.isContainChinese(Setings.q.trim { it <= ' ' })) {
-                return true
+    fun getSortData(map: Map<String, String>): String {
+        var result = ""
+        if (map != null) {
+            for ((key, value) in map) {
+                result += "$key=$value&"
             }
-            return false
+            result += "app_key=" + Setings.QQAPPKEY
+            result = MD5.encode(result).toUpperCase()
         }
-
+        return result
+    }
 
 }

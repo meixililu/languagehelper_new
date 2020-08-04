@@ -16,7 +16,7 @@ import java.lang.Override;
 public class PhotoSearchActivity_ViewBinding implements Unbinder {
   private PhotoSearchActivity target;
 
-  private View view7f0800a1;
+  private View view7f0800a5;
 
   @UiThread
   public PhotoSearchActivity_ViewBinding(PhotoSearchActivity target) {
@@ -31,7 +31,7 @@ public class PhotoSearchActivity_ViewBinding implements Unbinder {
     target.cameraBtn = Utils.findRequiredViewAsType(source, R.id.camera_btn, "field 'cameraBtn'", Button.class);
     view = Utils.findRequiredView(source, R.id.camera_layout, "field 'cameraLayout' and method 'onClick'");
     target.cameraLayout = Utils.castView(view, R.id.camera_layout, "field 'cameraLayout'", LinearLayout.class);
-    view7f0800a1 = view;
+    view7f0800a5 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -54,7 +54,7 @@ public class PhotoSearchActivity_ViewBinding implements Unbinder {
     target.contentLayout = null;
     target.content_tv = null;
 
-    view7f0800a1.setOnClickListener(null);
-    view7f0800a1 = null;
+    view7f0800a5.setOnClickListener(null);
+    view7f0800a5 = null;
   }
 }

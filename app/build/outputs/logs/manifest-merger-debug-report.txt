@@ -75,7 +75,7 @@ INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/
 INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:2:1-548:12
 MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/21c34afa741ea071944f621605a684a7/jetified-Baidu_MobAds_SDK-release/AndroidManifest.xml:2:1-20:12
 MERGED from [GDTSDK.unionNormal.4.232.1102.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6ca3e54856b366afe71e42616a9a2a6b/jetified-GDTSDK.unionNormal.4.232.1102/AndroidManifest.xml:2:1-57:12
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:2:1-146:12
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:2:1-168:12
 MERGED from [IFLY_AD_4.4.2.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2bdd8c0a17d38e83cb113f49e9613731/jetified-IFLY_AD_4.4.2/AndroidManifest.xml:2:1-11:12
 MERGED from [io.objectbox:objectbox-android:2.7.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/25d090c04bf8ae390b82deb5975bfb6b/jetified-objectbox-android-2.7.0/AndroidManifest.xml:2:1-25:12
 MERGED from [androidx.databinding:viewbinding:4.1.0-beta04] /Users/lilu/.gradle/caches/transforms-2/files-2.1/5c1238ef2cc2537a72723c43dc123fe0/jetified-viewbinding-4.1.0-beta04/AndroidManifest.xml:17:1-22:12
@@ -199,8 +199,8 @@ uses-permission#android.permission.INTERNET
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:6:5-67
 MERGED from [GDTSDK.unionNormal.4.232.1102.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6ca3e54856b366afe71e42616a9a2a6b/jetified-GDTSDK.unionNormal.4.232.1102/AndroidManifest.xml:12:5-67
 MERGED from [GDTSDK.unionNormal.4.232.1102.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6ca3e54856b366afe71e42616a9a2a6b/jetified-GDTSDK.unionNormal.4.232.1102/AndroidManifest.xml:12:5-67
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:23:5-67
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:23:5-67
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:19:5-67
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:19:5-67
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:6:22-64
 uses-permission#android.permission.RECORD_AUDIO
@@ -211,8 +211,8 @@ uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:8:5-79
 MERGED from [GDTSDK.unionNormal.4.232.1102.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6ca3e54856b366afe71e42616a9a2a6b/jetified-GDTSDK.unionNormal.4.232.1102/AndroidManifest.xml:13:5-79
 MERGED from [GDTSDK.unionNormal.4.232.1102.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6ca3e54856b366afe71e42616a9a2a6b/jetified-GDTSDK.unionNormal.4.232.1102/AndroidManifest.xml:13:5-79
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:13:5-79
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:13:5-79
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:13:5-79
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:13:5-79
 MERGED from [com.google.android.exoplayer:exoplayer-core:2.11.7] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a6253805dd7affc06eb02327306ed253/jetified-exoplayer-core-2.11.7/AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.exoplayer:exoplayer-core:2.11.7] /Users/lilu/.gradle/caches/transforms-2/files-2.1/a6253805dd7affc06eb02327306ed253/jetified-exoplayer-core-2.11.7/AndroidManifest.xml:24:5-79
 MERGED from [cn.jzvd:jiaozivideoplayer:7.4.2] /Users/lilu/.gradle/caches/transforms-2/files-2.1/9a1e4687bfa5efcfafcaf02db99ab34f/jetified-jiaozivideoplayer-7.4.2/AndroidManifest.xml:11:5-79
@@ -223,8 +223,6 @@ uses-permission#android.permission.ACCESS_WIFI_STATE
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:9:5-76
 MERGED from [GDTSDK.unionNormal.4.232.1102.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6ca3e54856b366afe71e42616a9a2a6b/jetified-GDTSDK.unionNormal.4.232.1102/AndroidManifest.xml:14:5-76
 MERGED from [GDTSDK.unionNormal.4.232.1102.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6ca3e54856b366afe71e42616a9a2a6b/jetified-GDTSDK.unionNormal.4.232.1102/AndroidManifest.xml:14:5-76
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:22:5-76
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:22:5-76
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:9:22-73
 uses-permission#android.permission.CHANGE_NETWORK_STATE
@@ -233,29 +231,27 @@ ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/And
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:10:22-76
 uses-permission#android.permission.READ_PHONE_STATE
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:11:5-75
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:21:5-75
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:21:5-75
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:20:5-75
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:20:5-75
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:11:22-72
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:12:5-81
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:14:5-81
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:14:5-81
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:14:5-81
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:14:5-81
 MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d5c066ddba554088c0b557b8efa12abe/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:24:5-81
 MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d5c066ddba554088c0b557b8efa12abe/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:24:5-81
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:12:22-78
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:13:5-80
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:16:5-88
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:16:5-88
 MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d5c066ddba554088c0b557b8efa12abe/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:23:5-80
 MERGED from [com.squareup.leakcanary:leakcanary-android-core:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/d5c066ddba554088c0b557b8efa12abe/jetified-leakcanary-android-core-2.4/AndroidManifest.xml:23:5-80
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:13:22-77
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
 ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:14:5-81
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:19:5-81
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:19:5-81
 	android:name
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml:14:22-78
 uses-permission#android.permission.ACCESS_COARSE_UPDATES
@@ -310,8 +306,8 @@ MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms
 MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/21c34afa741ea071944f621605a684a7/jetified-Baidu_MobAds_SDK-release/AndroidManifest.xml:11:5-18:19
 MERGED from [GDTSDK.unionNormal.4.232.1102.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6ca3e54856b366afe71e42616a9a2a6b/jetified-GDTSDK.unionNormal.4.232.1102/AndroidManifest.xml:16:5-55:19
 MERGED from [GDTSDK.unionNormal.4.232.1102.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6ca3e54856b366afe71e42616a9a2a6b/jetified-GDTSDK.unionNormal.4.232.1102/AndroidManifest.xml:16:5-55:19
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:25:5-144:19
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:25:5-144:19
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:22:5-166:19
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:22:5-166:19
 MERGED from [io.objectbox:objectbox-android:2.7.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/25d090c04bf8ae390b82deb5975bfb6b/jetified-objectbox-android-2.7.0/AndroidManifest.xml:21:5-23:31
 MERGED from [io.objectbox:objectbox-android:2.7.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/25d090c04bf8ae390b82deb5975bfb6b/jetified-objectbox-android-2.7.0/AndroidManifest.xml:21:5-23:31
 MERGED from [com.squareup.leakcanary:leakcanary-android:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/136b1c3f106d7ccb32d232093e9cf4c6/jetified-leakcanary-android-2.4/AndroidManifest.xml:22:5-26:19
@@ -1289,8 +1285,8 @@ MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms
 MERGED from [Baidu_MobAds_SDK-release.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/21c34afa741ea071944f621605a684a7/jetified-Baidu_MobAds_SDK-release/AndroidManifest.xml:7:5-9:41
 MERGED from [GDTSDK.unionNormal.4.232.1102.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6ca3e54856b366afe71e42616a9a2a6b/jetified-GDTSDK.unionNormal.4.232.1102/AndroidManifest.xml:7:5-9:41
 MERGED from [GDTSDK.unionNormal.4.232.1102.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6ca3e54856b366afe71e42616a9a2a6b/jetified-GDTSDK.unionNormal.4.232.1102/AndroidManifest.xml:7:5-9:41
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:8:5-11:591
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:8:5-11:591
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:8:5-11:611
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:8:5-11:611
 MERGED from [IFLY_AD_4.4.2.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2bdd8c0a17d38e83cb113f49e9613731/jetified-IFLY_AD_4.4.2/AndroidManifest.xml:7:5-9:41
 MERGED from [IFLY_AD_4.4.2.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2bdd8c0a17d38e83cb113f49e9613731/jetified-IFLY_AD_4.4.2/AndroidManifest.xml:7:5-9:41
 MERGED from [io.objectbox:objectbox-android:2.7.0] /Users/lilu/.gradle/caches/transforms-2/files-2.1/25d090c04bf8ae390b82deb5975bfb6b/jetified-objectbox-android-2.7.0/AndroidManifest.xml:8:5-10:41
@@ -1494,7 +1490,7 @@ MERGED from [pl.droidsonroids:relinker:1.3.1] /Users/lilu/.gradle/caches/transfo
 INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml
 INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml
 	tools:overrideLibrary
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:11:9-588
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:11:9-608
 	android:targetSdkVersion
 		INJECTED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml
 		ADDED from /Users/lilu/AndroidStudioProjects/languagehelper_new/app/src/main/AndroidManifest.xml
@@ -1546,199 +1542,249 @@ ADDED from [GDTSDK.unionNormal.4.232.1102.aar] /Users/lilu/.gradle/caches/transf
 	android:name
 		ADDED from [GDTSDK.unionNormal.4.232.1102.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/6ca3e54856b366afe71e42616a9a2a6b/jetified-GDTSDK.unionNormal.4.232.1102/AndroidManifest.xml:47:13-71
 android:uses-permission#android.permission.READ_EXTERNAL_STORAGE
-MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:16:5-88
+MERGED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:16:5-88
 uses-permission#com.asus.msa.SupplementaryDID.ACCESS
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:18:5-76
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:18:5-76
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:18:22-73
-uses-permission#android.permission.BLUETOOTH
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:20:5-68
-	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:20:22-65
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:18:22-73
 service#com.ss.android.socialbase.downloader.notification.DownloadNotificationService
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:28:9-113
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:25:9-113
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:28:18-110
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:25:18-110
 service#com.ss.android.socialbase.downloader.downloader.DownloadService
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:29:9-99
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:26:9-99
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:29:18-96
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:26:18-96
 service#com.ss.android.socialbase.downloader.downloader.IndependentProcessDownloadService
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:30:9-36:19
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:27:9-34:19
 	android:process
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:32:13-42
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:30:13-42
+	android:exported
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:29:13-37
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:31:13-109
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:28:13-109
 intent-filter#action:name:com.ss.android.socialbase.downloader.remote
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:33:13-35:29
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:31:13-33:29
 action#com.ss.android.socialbase.downloader.remote
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:34:17-86
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:32:17-86
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:34:25-83
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:32:25-83
 service#com.ss.android.socialbase.downloader.impls.DownloadHandleService
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:37:9-100
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:35:9-100
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:37:18-97
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:35:18-97
 service#com.ss.android.socialbase.downloader.impls.RetryJobSchedulerService
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:45:9-49:72
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:43:9-47:72
 	android:enabled
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:47:13-35
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:45:13-35
 	android:exported
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:48:13-36
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:46:13-37
 	android:permission
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:49:13-69
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:47:13-69
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:46:13-95
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:44:13-95
 service#com.ss.android.socialbase.downloader.downloader.SqlDownloadCacheService
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:51:9-107
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:49:9-107
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:51:18-104
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:49:18-104
 service#com.ss.android.socialbase.appdownloader.DownloadHandlerService
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:53:9-98
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:51:9-98
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:53:18-95
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:51:18-95
 activity#com.ss.android.socialbase.appdownloader.view.DownloadTaskDeleteActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:69:9-72:59
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:67:9-70:59
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:71:13-44
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:69:13-44
 	android:theme
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:72:13-56
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:70:13-56
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:70:13-99
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:68:13-99
 activity#com.ss.android.socialbase.appdownloader.view.JumpUnknownSourceActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:73:9-76:59
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:71:9-74:59
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:75:13-44
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:73:13-44
 	android:theme
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:76:13-56
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:74:13-56
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:74:13-98
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:72:13-98
 activity#com.ss.android.downloadlib.activity.TTDelegateActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:77:9-80:75
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:75:9-78:75
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:79:13-44
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:77:13-44
 	android:theme
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:80:13-72
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:78:13-72
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:78:13-82
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:76:13-82
+activity#com.ss.android.downloadlib.guide.install.InstallGuideActivity
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:79:9-82:75
+	android:launchMode
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:81:13-44
+	android:theme
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:82:13-72
+	android:name
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:80:13-89
 receiver#com.ss.android.downloadlib.core.download.DownloadReceiver
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:82:9-94
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:84:9-94
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:82:19-91
-activity#com.bytedance.sdk.openadsdk.activity.TTWebPageActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:83:9-87:57
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:84:19-91
+activity#com.bytedance.sdk.openadsdk.activity.base.TTWebPageActivity
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:85:9-89:57
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:86:13-42
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:88:13-42
 	android:windowSoftInputMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:87:13-54
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:89:13-54
 	android:configChanges
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:85:13-74
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:87:13-74
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:84:13-82
-activity#com.bytedance.sdk.openadsdk.activity.TTPlayableWebPageActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:88:9-92:57
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:86:13-87
+activity#com.bytedance.sdk.openadsdk.activity.direct.TTWebPageDirectActivity
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:90:9-94:57
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:91:13-42
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:93:13-42
 	android:windowSoftInputMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:92:13-54
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:94:13-54
 	android:configChanges
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:90:13-74
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:92:13-74
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:89:13-90
-activity#com.bytedance.sdk.openadsdk.activity.TTVideoWebPageActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:93:9-97:57
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:91:13-95
+activity#com.bytedance.sdk.openadsdk.activity.base.TTPlayableWebPageActivity
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:95:9-99:57
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:96:13-42
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:98:13-42
 	android:windowSoftInputMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:97:13-54
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:99:13-54
 	android:configChanges
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:95:13-74
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:97:13-74
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:94:13-87
-activity#com.bytedance.sdk.openadsdk.activity.TTRewardVideoActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:98:9-101:45
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:96:13-95
+activity#com.bytedance.sdk.openadsdk.activity.direct.TTPlayableWebPageDirectActivity
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:100:9-104:57
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:101:13-42
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:103:13-42
+	android:windowSoftInputMode
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:104:13-54
 	android:configChanges
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:100:13-74
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:102:13-74
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:99:13-86
-activity#com.bytedance.sdk.openadsdk.activity.TTRewardExpressVideoActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:102:9-105:45
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:101:13-103
+activity#com.bytedance.sdk.openadsdk.activity.base.TTVideoWebPageActivity
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:105:9-109:57
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:105:13-42
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:108:13-42
+	android:windowSoftInputMode
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:109:13-54
 	android:configChanges
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:104:13-74
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:107:13-74
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:103:13-93
-activity#com.bytedance.sdk.openadsdk.activity.TTFullScreenVideoActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:106:9-109:45
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:106:13-92
+activity#com.bytedance.sdk.openadsdk.activity.direct.TTVideoWebPageDirectActivity
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:110:9-114:57
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:109:13-42
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:113:13-42
+	android:windowSoftInputMode
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:114:13-54
 	android:configChanges
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:108:13-74
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:112:13-74
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:107:13-90
-activity#com.bytedance.sdk.openadsdk.activity.TTFullScreenExpressVideoActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:110:9-113:45
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:111:13-100
+activity#com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:115:9-118:75
 	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:113:13-42
-	android:configChanges
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:112:13-74
-	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:111:13-97
-activity#com.bytedance.sdk.openadsdk.activity.TTDelegateActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:114:9-117:75
-	android:launchMode
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:116:13-44
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:117:13-44
 	android:theme
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:117:13-72
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:118:13-72
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:115:13-83
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:116:13-88
+activity#com.bytedance.sdk.openadsdk.activity.direct.TTDelegateDirectActivity
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:119:9-122:75
+	android:launchMode
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:121:13-44
+	android:theme
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:122:13-72
+	android:name
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:120:13-96
+activity#com.bytedance.sdk.openadsdk.activity.base.TTRewardVideoActivity
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:123:9-126:45
+	android:launchMode
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:126:13-42
+	android:configChanges
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:125:13-74
+	android:name
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:124:13-91
+activity#com.bytedance.sdk.openadsdk.activity.direct.TTRewardVideoDirectActivity
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:127:9-130:45
+	android:launchMode
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:130:13-42
+	android:configChanges
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:129:13-74
+	android:name
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:128:13-99
+activity#com.bytedance.sdk.openadsdk.activity.base.TTRewardExpressVideoActivity
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:131:9-134:45
+	android:launchMode
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:134:13-42
+	android:configChanges
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:133:13-74
+	android:name
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:132:13-98
+activity#com.bytedance.sdk.openadsdk.activity.direct.TTRewardExpressVideoDirectActivity
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:135:9-138:45
+	android:launchMode
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:138:13-42
+	android:configChanges
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:137:13-74
+	android:name
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:136:13-106
+activity#com.bytedance.sdk.openadsdk.activity.base.TTFullScreenVideoActivity
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:139:9-142:45
+	android:launchMode
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:142:13-42
+	android:configChanges
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:141:13-74
+	android:name
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:140:13-95
+activity#com.bytedance.sdk.openadsdk.activity.direct.TTFullScreenVideoDirectActivity
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:143:9-146:45
+	android:launchMode
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:146:13-42
+	android:configChanges
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:145:13-74
+	android:name
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:144:13-103
+activity#com.bytedance.sdk.openadsdk.activity.base.TTFullScreenExpressVideoActivity
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:147:9-150:45
+	android:launchMode
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:150:13-42
+	android:configChanges
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:149:13-74
+	android:name
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:148:13-102
+activity#com.bytedance.sdk.openadsdk.activity.direct.TTFullScreenExpressVideoDirectActivity
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:151:9-154:45
+	android:launchMode
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:154:13-42
+	android:configChanges
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:153:13-74
+	android:name
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:152:13-110
 service#com.bytedance.sdk.openadsdk.multipro.aidl.BinderPoolService
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:119:9-95
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:156:9-95
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:119:18-92
-activity#com.bytedance.applog.util.SimulateLaunchActivity
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:121:9-134:20
-	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:121:19-82
-intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:rangersapplog+data:path:/picker+data:scheme:rangersapplog.byax6uyt
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:122:13-133:29
-action#android.intent.action.VIEW
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:123:17-69
-	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:123:25-66
-category#android.intent.category.BROWSABLE
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:125:17-78
-	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:125:27-75
-category#android.intent.category.DEFAULT
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:127:17-76
-	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:127:27-73
-data
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:129:17-132:63
-	android:path
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:131:21-43
-	android:host
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:130:21-49
-	android:scheme
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:132:21-60
-receiver#com.bytedance.applog.collector.Collector
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:136:9-139:40
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:156:18-92
+receiver#com.bytedance.embedapplog.collector.Collector
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:158:9-161:39
 	android:enabled
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:138:13-35
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:160:13-35
 	android:exported
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:139:13-37
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:161:13-36
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:137:13-68
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:159:13-73
 service#com.bytedance.tea.crash.upload.CrashUploadService
-ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:141:9-143:39
+ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:163:9-165:39
 	android:process
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:143:13-36
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:165:13-36
 	android:name
-		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/2e4508f6368a5cf0a2f9deef8576254c/jetified-open_ad_sdk/AndroidManifest.xml:142:13-77
+		ADDED from [open_ad_sdk.aar] /Users/lilu/.gradle/caches/transforms-2/files-2.1/3a7e8213ea99533b4cfde31a45681da3/jetified-open_ad_sdk/AndroidManifest.xml:164:13-77
 service#leakcanary.internal.HeapAnalyzerService
 ADDED from [com.squareup.leakcanary:leakcanary-android:2.4] /Users/lilu/.gradle/caches/transforms-2/files-2.1/136b1c3f106d7ccb32d232093e9cf4c6/jetified-leakcanary-android-2.4/AndroidManifest.xml:23:9-25:40
 	android:exported

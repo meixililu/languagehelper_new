@@ -37,9 +37,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class LanguagehelperHttpClient {
-	
-	public static final int HTTP_RESPONSE_DISK_CACHE_MAX_SIZE = 10 * 1024 * 1024;
-	private static final MediaType MEDIA_TYPE_JPG = MediaType.parse("image/jpg");
+
 	public static final String Header = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36";
 	public static OkHttpClient client = new OkHttpClient.Builder()
 			.connectTimeout(15, TimeUnit.SECONDS)
@@ -68,8 +66,18 @@ public class LanguagehelperHttpClient {
 		client.newCall(request).enqueue(mCallback);
 	}
 
-	public static void get(Request request, Callback mCallback) {
-		client.newCall(request).enqueue(mCallback);
+	public static Response get(Request request, Callback mCallback) {
+		Response mResponse = null;
+		try {
+			if(mCallback == null){
+				mResponse = client.newCall(request).execute();
+			}else {
+				client.newCall(request).enqueue(mCallback);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mResponse;
 	}
 
 	public static Response get(String url,ProgressListener progressListener) {
@@ -134,19 +142,14 @@ public class LanguagehelperHttpClient {
 		return mResponse;
 	}
 
+	//qq ai lab service 不稳定，可用于后端服务器调用，遍历常用句子
 	public static Response postTranQQAILabAPi(Callback mCallback) {
 		String time_stamp = String.valueOf(System.currentTimeMillis()/1000);
 		String nonce_str = StringUtils.getRandomString(16);
 		String type = "0";//9中文转粤语 10粤语转中文
-
 		Map<String, String> map = null;
 		try {
-			map = new TreeMap<>(new Comparator<String>() {
-				@Override
-				public int compare(String str1, String str2) {
-					return str1.compareTo(str2);
-				}
-			});
+			map = new TreeMap<>((str1, str2) -> str1.compareTo(str2));
 			map.put("app_id", URLEncoder.encode(Setings.QQAPPID,"UTF-8"));
 			map.put("nonce_str",URLEncoder.encode(nonce_str,"UTF-8"));
 			map.put("text",URLEncoder.encode(Setings.q,"UTF-8"));
@@ -155,7 +158,6 @@ public class LanguagehelperHttpClient {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		String sign = getSortData(map);
 		FormBody formBody = new FormBody.Builder()
 				.add("app_id", Setings.QQAPPID)
@@ -171,23 +173,15 @@ public class LanguagehelperHttpClient {
 	public static Response postTranQQFYJAPi(Callback mCallback) {
 		String time_stamp = String.valueOf(System.currentTimeMillis()/1000);
 		String nonce_str = StringUtils.getRandomString(16);
-		String source = "";
-		String target = "";
+		String source = "zh";
+		String target = "en";
 		if (StringUtils.isEnglish(Setings.q)) {
 			source = "en";
 			target = "zh";
-		} else {
-			source = "zh";
-			target = "en";
 		}
 		Map<String, String> map = null;
 		try {
-			map = new TreeMap<>(new Comparator<String>() {
-				@Override
-				public int compare(String str1, String str2) {
-					return str1.compareTo(str2);
-				}
-			});
+			map = new TreeMap<>((str1, str2) -> str1.compareTo(str2));
 			map.put("app_id", URLEncoder.encode(Setings.QQAPPID,"UTF-8"));
 			map.put("nonce_str",URLEncoder.encode(nonce_str,"UTF-8"));
 			map.put("text",URLEncoder.encode(Setings.q,"UTF-8"));
@@ -214,14 +208,11 @@ public class LanguagehelperHttpClient {
 	public static Response postHjApi(Callback mCallback) {
 		//cn en jp(Japanese) kr(Korean) fr(French) de(German) th(Thai)
 		//es(Spaish) ru(Russian) pt(Portuguese) it(Italian)
-		String from = "";
-		String to = "";
+		String from = "/cn";
+		String to = "/en";
 		if (StringUtils.isEnglish(Setings.q)) {
 			from = "/en";
 			to = "/cn";
-		} else {
-			from = "/cn";
-			to = "/en";
 		}
 		String url = Setings.HjTranslateUrl + from + to;
 		LogUtil.DefalutLog("HjTranslateUrl:"+url);
@@ -360,9 +351,8 @@ public class LanguagehelperHttpClient {
 				result += entry.getKey() + "=" + entry.getValue() + "&";
 			}
 			result += "app_key="+ Setings.QQAPPKEY;
-			LogUtil.DefalutLog("result:"+result);
 			result = MD5.encode(result).toUpperCase();
-			LogUtil.DefalutLog("result:"+result);
+//			LogUtil.DefalutLog("result:"+result);
 		}
 		return result;
 	}

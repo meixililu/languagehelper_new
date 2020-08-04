@@ -18,7 +18,7 @@ object RetrofitBuilder {
 
     val vService: KVideoRetrofitService = getKVideoRetrofitService(VIDEO_BASE_URL)
 
-    val tService: RetrofitApiService = getRetrofit(TRAN_BASE_URL).create(RetrofitApiService::class.java)
+    val tService: KTranRetrofitService = getRetrofit(TRAN_BASE_URL).create(KTranRetrofitService::class.java)
 
     fun getKVideoRetrofitService(baseUrl: String): KVideoRetrofitService {
         return getRetrofit(baseUrl).create(KVideoRetrofitService::class.java)

@@ -2,6 +2,7 @@ package com.messi.languagehelper.util;
 
 import android.text.Html;
 import android.text.Spanned;
+import android.text.TextUtils;
 
 import java.util.Random;
 
@@ -36,6 +37,7 @@ public class StringUtils {
 	}
 
 	public static boolean isEnglish(String charaString) {
+		if (TextUtils.isEmpty(charaString)) return false;
 		char[] arr = charaString.toCharArray();
 		int count = 0;
 		for (int i = 0; i < arr.length; i++) {
@@ -48,6 +50,7 @@ public class StringUtils {
 	}
 
 	public static boolean isAllEnglish(String charaString) {
+		if (TextUtils.isEmpty(charaString)) return false;
 		char[] arr = charaString.toCharArray();
 		boolean count = true;
 		int word = 0;

@@ -60,6 +60,8 @@ public class Setings {
 
 	public static String YoudaoApi = "http://fanyi.youdao.com/translate?doctype=json&vendor=youdaoweb&screen=1080x1920&network=wifi";
 
+	public static String YoudaoApiBase = "http://fanyi.youdao.com/";
+
 	public static String IcibaTranslateNewUrl = "https://fy.iciba.com/ajax.php?a=fy";
 
 	public static String IcibaTranslateBaseUrl = "https://fy.iciba.com/";
@@ -86,6 +88,7 @@ public class Setings {
 	public static String QQImgOrcApi = "https://api.ai.qq.com/fcgi-bin/nlp/nlp_imagetranslate";
 	public static String QQTranAILabApi = "https://api.ai.qq.com/fcgi-bin/nlp/nlp_texttrans";
 	public static String QQTranFYJApi = "https://api.ai.qq.com/fcgi-bin/nlp/nlp_texttranslate";
+	public static String QQTranFYJBase = "https://api.ai.qq.com/fcgi-bin/nlp/";
 
 	/**youdao web translate for jsoup catch**/
 	public static String YoudaoWeb = "http://dict.youdao.com/w/";
@@ -93,6 +96,8 @@ public class Setings {
 	public static String YoudaoWebEnd = "/#keyfrom=dict.index";
 	
 	public static String BingyingWeb = "http://cn.bing.com/dict/";
+
+	public static String BingyingWebBase = "https://www.bing.com/dict/";
 
 	public static String HjiangWeb = "https://dict.hjenglish.com/w/";
 

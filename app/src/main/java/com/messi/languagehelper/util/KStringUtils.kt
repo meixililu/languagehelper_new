@@ -1,5 +1,6 @@
 package com.messi.languagehelper.util
 
+import android.text.TextUtils
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -36,7 +37,7 @@ object KStringUtils {
 
     private fun changeWordLetter(word: String, pos: Int): String{
         var result = word
-        if(!word.isNullOrEmpty()){
+        if(!TextUtils.isEmpty(word)){
             var temp = word.toCharArray()
             if (temp.size > pos){
                 val ca = getRandomLetterExcept(word[pos])
