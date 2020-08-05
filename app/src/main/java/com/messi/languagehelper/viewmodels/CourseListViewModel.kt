@@ -14,6 +14,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.lang.Exception
 
 class CourseListViewModel(application: Application) : AndroidViewModel(application){
 
@@ -50,11 +51,16 @@ class CourseListViewModel(application: Application) : AndroidViewModel(applicati
         }
         query.orderByAscending(AVOUtil.CourseList.order)
         query.limit = 200
-        var results = query.find()
+        var results: List<AVObject>? = null
+        try {
+            results = query.find()
+        }catch (e: Exception){
+            e.printStackTrace()
+        }
         if (NullUtil.isNotEmpty(results)){
             queryResult.code = 0
             datas.clear()
-            for (item in results){
+            for (item in results!!){
                 datas.add(fromAVObjectToCourseList(item))
             }
 //            datas.sortByDescending { it.views }

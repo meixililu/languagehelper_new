@@ -16,6 +16,7 @@ import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.MyPlayer;
+import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.XFYSAD;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
@@ -127,8 +128,13 @@ public class DailySentenceFragment extends BaseFragment implements OnClickListen
         AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.DailySentence.DailySentence);
         query.orderByDescending(AVOUtil.DailySentence.dateline);
         query.limit(80);
-        List<AVObject> sentences = query.find();
-        if (sentences != null && !sentences.isEmpty()) {
+        List<AVObject> sentences  = null;
+        try{
+            sentences = query.find();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        if (NullUtil.isNotEmpty(sentences)) {
             beans.clear();
             for (AVObject bean : sentences) {
                 beans.add(changeData(bean));

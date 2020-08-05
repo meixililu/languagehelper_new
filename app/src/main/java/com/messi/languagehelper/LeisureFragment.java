@@ -244,7 +244,6 @@ public class LeisureFragment extends BaseFragment {
     }
 
     public void exposedAd() {
-        LogUtil.DefalutLog("exposedAd");
         if (mNativeADDataRef != null) {
             new Handler().postDelayed(() -> exposedXFAD(mNativeADDataRef),500);
         }

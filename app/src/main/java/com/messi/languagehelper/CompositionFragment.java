@@ -14,6 +14,7 @@ import com.messi.languagehelper.adapter.CompositionAdapter;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.SaveData;
 import com.messi.languagehelper.util.Setings;
 
@@ -98,8 +99,13 @@ public class CompositionFragment extends BaseFragment{
 			AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.CompositionType.CompositionType);
 			query.whereEqualTo(AVOUtil.CompositionType.is_valid, "1");
 			query.orderByAscending(AVOUtil.CompositionType.order);
-			List<AVObject> avObject  = query.find();
-			if(avObject != null){
+			List<AVObject> avObject  = null;
+			try{
+				avObject = query.find();
+			}catch (Exception e){
+				e.printStackTrace();
+			}
+			if(NullUtil.isNotEmpty(avObject)){
 				avObjects.clear();
 				avObjects.addAll(avObject);
 				isNeedSaveData = true;

@@ -16,6 +16,7 @@ import com.messi.languagehelper.adapter.RcSpokenEndlishPracticeTypeListAdapter;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.NumberUtil;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFYSAD;
@@ -140,7 +141,12 @@ public class AiDialogueCourseFragment extends BaseFragment implements View.OnCli
             query.orderByAscending(AVOUtil.EvaluationType.ETOrder);
             query.skip(skip);
             query.limit(20);
-            return query.find();
+            try {
+                return query.find();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
         }
 
         @Override
@@ -208,8 +214,13 @@ public class AiDialogueCourseFragment extends BaseFragment implements View.OnCli
         query.orderByDescending(AVOUtil.EvaluationCategory.ECOrder);
         query.skip(random);
         query.limit(1);
-        List<AVObject> list = query.find();
-        if(list != null && list.size() > 0){
+        List<AVObject> list  = null;
+        try{
+            list = query.find();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        if(NullUtil.isNotEmpty(list)){
             mAVObject = list.get(0);
         }
         return mAVObject;

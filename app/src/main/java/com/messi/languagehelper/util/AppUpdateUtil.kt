@@ -46,10 +46,14 @@ object AppUpdateUtil {
             CoroutineScope(Dispatchers.IO).launch {
                 val query = AVQuery<AVObject>(AVOUtil.AdFilter.AdFilter)
                 query.whereContains(AVOUtil.AdFilter.category, "ca_novel")
-                val list = query.find()
-                if (list != null) {
-                    val beans = DataUtil.toWebFilter(list)
-                    BoxHelper.updateWebFilter(beans)
+                try {
+                    val list = query.find()
+                    if (NullUtil.isNotEmpty(list)) {
+                        val beans = DataUtil.toWebFilter(list)
+                        BoxHelper.updateWebFilter(beans)
+                    }
+                }catch (e: Exception){
+                    e.printStackTrace()
                 }
             }
         }
@@ -99,10 +103,14 @@ object AppUpdateUtil {
                     query.whereEqualTo(AVOUtil.UpdateInfo.AppCode, "noupdate")
                 }
             }
-            var avObjects = query.find()
-            if (NullUtil.isNotEmpty(avObjects)) {
-                val mAVObject = avObjects[0]
-                saveSetting(mContext.applicationContext, mAVObject)
+            try {
+                var avObjects = query.find()
+                if (NullUtil.isNotEmpty(avObjects)) {
+                    val mAVObject = avObjects[0]
+                    saveSetting(mContext.applicationContext, mAVObject)
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
         }
     }

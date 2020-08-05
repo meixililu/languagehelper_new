@@ -167,7 +167,12 @@ public class SubjectByTypeFragment extends BaseFragment {
             query.orderByAscending(AVOUtil.SubjectType.order);
             query.skip(skip);
             query.limit(20);
-            return query.find();
+            try {
+                return query.find();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
         }
 
         @Override

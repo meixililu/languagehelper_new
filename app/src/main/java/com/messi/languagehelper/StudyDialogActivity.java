@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
+import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 
 import java.lang.ref.WeakReference;
@@ -76,8 +77,13 @@ public class StudyDialogActivity extends BaseActivity implements OnClickListener
 			AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.StudyDialogDetail.StudyDialogDetail);
 			query.whereEqualTo(AVOUtil.StudyDialogDetail.SDCode, SDCode);
 			query.whereEqualTo(AVOUtil.StudyDialogDetail.SDLCode, SDLCode);
-			List<AVObject> avObjects  = query.find();
-			if(avObjects != null && avObjects.size() > 0){
+			List<AVObject> avObjects  = null;
+			try{
+				avObjects = query.find();
+			}catch (Exception e){
+				e.printStackTrace();
+			}
+			if(NullUtil.isNotEmpty(avObjects)){
 				avObject = avObjects.get(0);
 			}
 			return null;

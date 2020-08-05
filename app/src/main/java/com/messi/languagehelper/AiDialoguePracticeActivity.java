@@ -36,6 +36,7 @@ import com.messi.languagehelper.util.DownLoadUtil;
 import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.ScoreUtil;
 import com.messi.languagehelper.util.Setings;
@@ -237,8 +238,13 @@ public class AiDialoguePracticeActivity extends BaseActivity implements View.OnC
         query.whereEqualTo(AVOUtil.EvaluationDetail.ECCode, ECCode);
         query.whereEqualTo(AVOUtil.EvaluationDetail.EDIsValid, "1");
         query.orderByAscending(AVOUtil.EvaluationDetail.ECLCode);
-        List<AVObject> avObject = query.find();
-        if (avObject != null && avObject.size() > 0) {
+        List<AVObject> avObject  = null;
+        try{
+            avObject = query.find();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        if (NullUtil.isNotEmpty(avObject)) {
             for (int i = 0; i < avObject.size(); i++) {
                 if (i == 0) {
                     avObject.get(i).put(KeyUtil.PracticeItemIndex, "1");

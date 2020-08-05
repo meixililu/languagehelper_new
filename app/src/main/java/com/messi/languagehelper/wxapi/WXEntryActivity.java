@@ -34,6 +34,7 @@ import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AppUpdateUtil;
+import com.messi.languagehelper.util.CSJADUtil;
 import com.messi.languagehelper.util.IPlayerUtil;
 import com.messi.languagehelper.util.KTranslateHelper;
 import com.messi.languagehelper.util.KeyUtil;
@@ -74,6 +75,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 			initSDKAndPermission();
 			MoveDataUitl.Companion.moveCollectedData(this.getApplicationContext());
 			AppUpdateUtil.isNeedUpdate(this);
+			ADUtil.initAdConfig();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -254,6 +256,7 @@ public class WXEntryActivity extends BaseActivity implements FragmentProgressbar
 
 	private void release(){
 		MyPlayer.release();
+		CSJADUtil.sInit = false;
 	}
 
 	private void UnbindService(){

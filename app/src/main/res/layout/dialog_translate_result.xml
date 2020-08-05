@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/cover"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/white"
+    android:background="@drawable/dialog_bg_shadow"
+    android:elevation="10dp"
     android:orientation="vertical" >
     <FrameLayout
         android:id="@+id/title_layout"
-        android:layout_width="match_parent"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:foreground="@drawable/framelayout_selector"
         >
     <RelativeLayout
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_10"
@@ -47,15 +47,14 @@
     </RelativeLayout>
     </FrameLayout>
     <View
-        android:layout_width="match_parent"
+        android:layout_width="240dp"
         android:layout_height="1px"
         android:background="@color/contentbg" />
     <RelativeLayout
         android:id="@+id/dic_result_layout"
-        android:layout_width="match_parent"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
-        android:minHeight="180dp"
-        android:background="@color/white">
+        android:background="@color/none">
         <TextView
             android:id="@+id/des_tv"
             android:layout_width="match_parent"
@@ -63,7 +62,7 @@
             android:lineSpacingExtra="7dp"
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
-            android:paddingBottom="5dp"
+            android:paddingBottom="20dp"
             android:textColor="@color/text_black"
             android:textSize="@dimen/big" />
     </RelativeLayout>

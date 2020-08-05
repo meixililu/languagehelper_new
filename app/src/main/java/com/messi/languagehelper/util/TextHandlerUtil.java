@@ -6,8 +6,10 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
+import android.view.MotionEvent;
 import android.widget.TextView;
 
+import com.messi.languagehelper.dialog.TranslateResultDialog;
 import com.messi.languagehelper.views.TouchableSpan;
 
 public class TextHandlerUtil {
@@ -49,5 +51,12 @@ public class TextHandlerUtil {
         contentTv.setText(ss);
         contentTv.setMovementMethod(LinkMovementMethod.getInstance());
         contentTv.setHighlightColor(Color.TRANSPARENT);
+        contentTv.setOnTouchListener((v, event) -> {
+            if (MotionEvent.ACTION_UP == event.getAction()){
+                TranslateResultDialog.x = (int) event.getRawX();
+                TranslateResultDialog.y = (int) event.getRawY();
+            }
+            return false;
+        });
     }
 }

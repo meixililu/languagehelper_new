@@ -19,6 +19,7 @@ import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ViewUtil;
@@ -103,8 +104,13 @@ public class AiSpokenBasicActivity extends BaseActivity implements PracticeProgr
 			query.skip(currentSection);
 			query.limit(1);
 			query.addAscendingOrder(AVOUtil.PracticeDetail.PCCode);
-			List<AVObject> avObjects  = query.find();
-			if(avObjects != null && !avObjects.isEmpty()){
+			List<AVObject> avObjects  = null;
+			try{
+				avObjects = query.find();
+			}catch (Exception e){
+				e.printStackTrace();
+			}
+			if(NullUtil.isNotEmpty(avObjects)){
 				avObject = avObjects.get(0);
 			}
 			return null;

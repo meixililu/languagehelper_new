@@ -8,6 +8,7 @@ import com.bytedance.sdk.openadsdk.TTAdConfig;
 import com.bytedance.sdk.openadsdk.TTAdConstant;
 import com.bytedance.sdk.openadsdk.TTAdManager;
 import com.bytedance.sdk.openadsdk.TTAdSdk;
+import com.messi.languagehelper.BaseApplication;
 
 public class CSJADUtil {
 
@@ -28,7 +29,7 @@ public class CSJADUtil {
 
     public static TTAdManager get() {
         if (!sInit) {
-            return null;
+            doInit(BaseApplication.instance);
         }
         return TTAdSdk.getAdManager();
     }

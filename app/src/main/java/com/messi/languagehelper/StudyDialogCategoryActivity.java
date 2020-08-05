@@ -8,6 +8,7 @@ import android.widget.ListView;
 
 import com.messi.languagehelper.adapter.StudyDialogCategoryAdapter;
 import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.NullUtil;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -65,8 +66,13 @@ public class StudyDialogCategoryActivity extends BaseActivity implements OnClick
 			AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.StudyDialogCategory.StudyDialogCategory);
 			query.whereEqualTo(AVOUtil.StudyDialogCategory.SDIsValid, "1");
 			query.orderByDescending(AVOUtil.StudyDialogCategory.SDOrder);
-			List<AVObject> avObject  = query.find();
-			if(avObject != null){
+			List<AVObject> avObject  = null;
+			try{
+				avObject = query.find();
+			}catch (Exception e){
+				e.printStackTrace();
+			}
+			if(NullUtil.isNotEmpty(avObject)){
 				avObjects.clear();
 				avObjects.addAll(avObject);
 			}

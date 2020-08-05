@@ -32,6 +32,7 @@ import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.ShareUtil;
 import com.messi.languagehelper.util.TXADUtil;
 import com.messi.languagehelper.util.ViewUtil;
@@ -110,7 +111,7 @@ public class WebViewForAdActivity extends BaseActivity{
 				AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.AdFilter.AdFilter);
 				query.whereEqualTo(AVOUtil.AdFilter.name, filter_source_name);
 				List<AVObject> list = query.find();
-				if(list != null){
+				if(NullUtil.isNotEmpty(list)){
 					AVObject mAVObject = list.get(0);
 					if(mAVObject != null){
 						adFilte = mAVObject.getString(AVOUtil.AdFilter.filter);

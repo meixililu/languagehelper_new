@@ -29,6 +29,7 @@ import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.DownLoadUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.Setings;
 import com.messi.languagehelper.util.ToastUtil;
 import com.messi.languagehelper.util.XFYSAD;
@@ -175,8 +176,13 @@ public class SymbolListFragment extends BaseFragment {
             AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.SymbolDetail.SymbolDetail);
             query.whereEqualTo(AVOUtil.SymbolDetail.SDIsValid, "1");
             query.orderByAscending(AVOUtil.SymbolDetail.SDCode);
-            List<AVObject> avObjects = query.find();
-            if (avObjects != null) {
+            List<AVObject> avObjects = null;
+            try{
+                avObjects = query.find();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            if (NullUtil.isNotEmpty(avObjects)) {
                 for (AVObject mAVObject : avObjects) {
                     mSymbolListDao.add(changeDataType(mAVObject));
                 }

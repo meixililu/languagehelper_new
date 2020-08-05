@@ -119,7 +119,12 @@ public class AdEnglishActivity extends BaseActivity {
             query.orderByAscending(AVOUtil.SubjectList.order);
             query.skip(skip);
             query.limit(page_size);
-            return query.find();
+            try {
+                return query.find();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
         }
 
         @Override

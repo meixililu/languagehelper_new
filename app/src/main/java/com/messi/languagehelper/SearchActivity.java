@@ -123,7 +123,12 @@ public class SearchActivity extends BaseActivity {
             AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.SearchHot.SearchHot);
             query.orderByAscending(AVOUtil.SearchHot.createdAt);
             query.orderByDescending(AVOUtil.SearchHot.click_time);
-            return query.find();
+            try {
+                return query.find();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
         }
 
         @Override

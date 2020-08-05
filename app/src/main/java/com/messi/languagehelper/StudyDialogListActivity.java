@@ -6,6 +6,7 @@ import android.widget.ListView;
 
 import com.messi.languagehelper.adapter.StudyDialogCategoryListAdapter;
 import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.NullUtil;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -64,8 +65,13 @@ public class StudyDialogListActivity extends BaseActivity {
 			query.whereEqualTo(AVOUtil.StudyDialogListCategory.SDCode, SDCode);
 			query.whereEqualTo(AVOUtil.StudyDialogListCategory.SDLIsValid, "1");
 			query.orderByDescending(AVOUtil.StudyDialogListCategory.SDLOrder);
-			List<AVObject> avObject  = query.find();
-			if(avObject != null){
+			List<AVObject> avObject  = null;
+			try{
+				avObject = query.find();
+			}catch (Exception e){
+				e.printStackTrace();
+			}
+			if(NullUtil.isNotEmpty(avObject)){
 				avObjects.clear();
 				avObjects.addAll(avObject);
 			}

@@ -16,6 +16,7 @@ import com.messi.languagehelper.adapter.RcWordListAdapter;
 import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVOUtil;
+import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.XFYSAD;
 import com.messi.languagehelper.views.DividerGridItemDecoration;
 
@@ -93,7 +94,7 @@ public class WordStudyFirstFragment extends BaseFragment {
                 query.whereEqualTo(AVOUtil.WordCategory.isvalid, "1");
                 query.orderByAscending(AVOUtil.WordCategory.order);
                 List<AVObject> mAVObjects = query.find();
-                if (avObjects != null) {
+                if (avObjects != null && NullUtil.isNotEmpty(mAVObjects)) {
                     avObjects.clear();
                     avObjects.addAll(mAVObjects);
                 }

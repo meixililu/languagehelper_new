@@ -92,14 +92,18 @@ public class CompositionActivity extends BaseActivity implements FragmentProgres
 		
 		@Override
 		protected Void doInBackground(Void... params) {
-			AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.CompositionType.CompositionType);
-			query.whereEqualTo(AVOUtil.CompositionType.is_valid, "1");
-			query.orderByAscending(AVOUtil.CompositionType.order);
-			List<AVObject> avObject  = query.find();
-			if(avObject != null) {
-				avObjects.clear();
-				avObjects.addAll(avObject);
-				isNeedSaveData = true;
+			try{
+				AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.CompositionType.CompositionType);
+				query.whereEqualTo(AVOUtil.CompositionType.is_valid, "1");
+				query.orderByAscending(AVOUtil.CompositionType.order);
+				List<AVObject> avObject = query.find();
+				if(avObject != null) {
+					avObjects.clear();
+					avObjects.addAll(avObject);
+					isNeedSaveData = true;
+				}
+			}catch (Exception e){
+				e.printStackTrace();
 			}
 			return null;
 		}

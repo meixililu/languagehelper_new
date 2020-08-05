@@ -26,8 +26,8 @@ class BaseApplication : MultiDexApplication() {
     }
 
     private fun init() {
+        instance = this
         try {
-            instance = this
             Thread(Runnable { initPartOne() }).run()
             Thread(Runnable { initPartTwo() }).run()
         } catch (e: Exception) {

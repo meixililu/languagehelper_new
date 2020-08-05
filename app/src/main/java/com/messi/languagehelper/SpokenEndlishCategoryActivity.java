@@ -118,7 +118,12 @@ public class SpokenEndlishCategoryActivity extends BaseActivity {
             query.orderByDescending(AVOUtil.EvaluationCategory.ECOrder);
             query.skip(skip);
             query.limit(Setings.page_size);
-            return query.find();
+            try {
+                return query.find();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
         }
 
         @Override

@@ -101,6 +101,17 @@
         <item name="android:windowExitAnimation">@anim/zoomout</item>
     </style>
 
+    <style name="DialogNone" parent="@android:style/Theme.Dialog">
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@color/none</item><!--背景透明-->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowEnterAnimation">@anim/zoomin</item>
+        <item name="android:windowExitAnimation">@anim/zoomout</item>
+    </style>
+
     <style name="AppThemeForXF" parent="Theme.AppCompat.Light.DarkActionBar" />
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

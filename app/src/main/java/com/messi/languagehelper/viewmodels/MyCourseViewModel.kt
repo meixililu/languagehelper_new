@@ -153,9 +153,14 @@ class MyCourseViewModel(application: Application) : AndroidViewModel(application
         }
         query.orderByAscending(AVOUtil.CourseDetail.order)
 //        query.orderByDescending(AVOUtil.CourseDetail.order)
-        var results = query.find()
+        var results:List<AVObject>? = null
+        try {
+             results = query.find()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
         if (NullUtil.isNotEmpty(results)){
-            for (item in results){
+            for (item in results!!){
                 fromAVObjectToListenCourseData(item)
             }
         }else{

@@ -41,6 +41,7 @@ import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AppUpdateUtil;
+import com.messi.languagehelper.util.CSJADUtil;
 import com.messi.languagehelper.util.IPlayerUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -235,6 +236,7 @@ public class YYJMainActivity extends BaseActivity implements FragmentProgressbar
 	}
 
 	private void release(){
+		CSJADUtil.sInit = false;
 		if (SpeechSynthesizer.getSynthesizer() != null) {
 			SpeechSynthesizer.getSynthesizer().destroy();
 		}

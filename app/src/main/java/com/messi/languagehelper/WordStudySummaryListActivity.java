@@ -171,7 +171,12 @@ public class WordStudySummaryListActivity extends BaseActivity {
         }
         query.skip(skip);
         query.limit(pageSize);
-        List<AVObject> sentences = query.find();
+        List<AVObject> sentences = null;
+        try{
+            sentences = query.find();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         if (sentences != null && sentences.size() > 0) {
             if(skip == 0){
                 mAVObjectList.clear();
@@ -190,7 +195,12 @@ public class WordStudySummaryListActivity extends BaseActivity {
         query.whereEqualTo(AVOUtil.HJWordStudyCategory.isValid, "1");
         query.whereEqualTo(AVOUtil.HJWordStudyCategory.ltype, list_type);
         query.orderByAscending(AVOUtil.HJWordStudyCategory.order);
-        List<AVObject> sentences = query.find();
+        List<AVObject> sentences = null;
+        try{
+            sentences = query.find();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         if (sentences != null && sentences.size() > 0) {
             mAVObjectMenuList.clear();
             mAVObjectMenuList.addAll(sentences);

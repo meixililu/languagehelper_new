@@ -36,6 +36,7 @@ import com.messi.languagehelper.util.DownLoadUtil;
 import com.messi.languagehelper.util.JsonParser;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.ScoreUtil;
 import com.messi.languagehelper.util.Setings;
@@ -263,8 +264,13 @@ public class AiDialoguePracticeYYSActivity extends BaseActivity implements View.
         query.orderByAscending(AVOUtil.CantoneseEvaluationDetail.EDCode);
         query.skip(skip);
         query.limit(20);
-        List<AVObject> avObject = query.find();
-        if (avObject != null && !avObject.isEmpty()) {
+        List<AVObject> avObject  = null;
+        try{
+            avObject = query.find();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        if (NullUtil.isNotEmpty(avObject)) {
             if(avObject.size() == 0){
                 hasMore = false;
             }else if(avObject.size() > 0) {

@@ -171,8 +171,8 @@ public class WordStudyFragment extends BaseFragment {
 				for (AVObject mAVObject : avObjects) {
 					itemList.add(ChangeDataTypeUtil.changeData(mAVObject));
 				}
+				BoxHelper.saveAndGetStatusList(itemList);
 			}
-			BoxHelper.saveAndGetStatusList(itemList);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

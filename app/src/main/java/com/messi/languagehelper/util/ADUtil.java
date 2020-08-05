@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import androidx.appcompat.app.AlertDialog;
 
 import com.iflytek.voiceads.conn.NativeDataRef;
+import com.messi.languagehelper.BaseApplication;
 import com.messi.languagehelper.R;
 import com.messi.languagehelper.WebViewActivity;
 import com.messi.languagehelper.bean.NativeADDataRefForZYHY;
@@ -110,6 +111,12 @@ public class ADUtil {
 
 
 	public static void initAdConfig(SharedPreferences sp){
+		String configStr = sp.getString(KeyUtil.AdConfig, "CSJ#GDT#XF#BD#XBKJ");
+		setAdConfig(configStr);
+	}
+
+	public static void initAdConfig(){
+		SharedPreferences sp = Setings.getSharedPreferences(BaseApplication.instance);
 		String configStr = sp.getString(KeyUtil.AdConfig, "CSJ#GDT#XF#BD#XBKJ");
 		setAdConfig(configStr);
 	}
@@ -254,7 +261,12 @@ public class ADUtil {
 			}
 			query.addDescendingOrder(AVOUtil.AdList.createdAt);
 			query.limit(20);
-			List<AVObject> list = query.find();
+			List<AVObject> list = null;
+			try{
+				list = query.find();
+			}catch (Exception e){
+				e.printStackTrace();
+			}
 			localAd.clear();
 			if(list != null && !list.isEmpty()){
 				for (AVObject object : list){

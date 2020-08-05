@@ -13,6 +13,7 @@ import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.SaveData;
 import com.messi.languagehelper.util.Setings;
 
@@ -92,8 +93,13 @@ public class ReadingJuheActivity extends BaseActivity implements FragmentProgres
 			AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.Category.Category);
 			query.whereEqualTo(AVOUtil.Category.isvalid, "1");
 			query.orderByAscending(AVOUtil.Category.order);
-			List<AVObject> avObject  = query.find();
-			if(avObject != null){
+			List<AVObject> avObject  = null;
+			try{
+				avObject = query.find();
+			}catch (Exception e){
+				e.printStackTrace();
+			}
+			if(NullUtil.isNotEmpty(avObject)){
 				avObjects.clear();
 				avObjects.addAll(avObject);
 				isNeedSaveData = true;

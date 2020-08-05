@@ -15,6 +15,7 @@ import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AVOUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
+import com.messi.languagehelper.util.NullUtil;
 import com.messi.languagehelper.util.SaveData;
 import com.messi.languagehelper.util.Setings;
 
@@ -94,8 +95,13 @@ public class ExaminationActivity extends BaseActivity implements FragmentProgres
 			AVQuery<AVObject> query = new AVQuery<AVObject>(AVOUtil.ExaminationType.ExaminationType);
 			query.whereEqualTo(AVOUtil.CompositionType.is_valid, "1");
 			query.orderByAscending(AVOUtil.CompositionType.order);
-			List<AVObject> avObject  = query.find();
-			if(avObject != null){
+			List<AVObject> avObject  = null;
+			try{
+				avObject = query.find();
+			}catch (Exception e){
+				e.printStackTrace();
+			}
+			if(NullUtil.isNotEmpty(avObject)){
 				avObjects.clear();
 				avObjects.addAll(avObject);
 				isNeedSaveData = true;

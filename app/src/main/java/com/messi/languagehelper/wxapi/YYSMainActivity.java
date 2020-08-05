@@ -34,6 +34,7 @@ import com.messi.languagehelper.impl.FragmentProgressbarListener;
 import com.messi.languagehelper.service.PlayerService;
 import com.messi.languagehelper.util.ADUtil;
 import com.messi.languagehelper.util.AppUpdateUtil;
+import com.messi.languagehelper.util.CSJADUtil;
 import com.messi.languagehelper.util.IPlayerUtil;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
@@ -254,6 +255,7 @@ public class YYSMainActivity extends BaseActivity implements FragmentProgressbar
 	}
 
 	private void UnbindService(){
+		CSJADUtil.sInit = false;
 		IPlayerUtil.setAppExit(true);
 		if (musicConnection != null && IPlayerUtil.musicSrv != null) {
 			unbindService(musicConnection);

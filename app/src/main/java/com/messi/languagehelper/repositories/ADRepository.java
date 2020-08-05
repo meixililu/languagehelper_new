@@ -68,6 +68,8 @@ public class ADRepository {
                 }else if(ADUtil.XBKJ.equals(currentAD)){
                     loadXBKJ();
                 }
+            }else {
+                ADUtil.initAdConfig();
             }
         } catch (Exception e) {
             e.printStackTrace();
