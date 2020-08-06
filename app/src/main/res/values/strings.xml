@@ -16,7 +16,7 @@
     <string name="title_intensive_listening">精听</string>
     <string name="title_word_vocabulary">词汇学习</string>
     <string name="title_spoken_english_study">口语学习</string>
-    <string name="title_initiate">启蒙</string>
+    <string name="title_initiate">自然拼读</string>
     <string name="title_symbol">音标</string>
     <string name="title_word_study">单词</string>
     <string name="title_words">背单词</string>
@@ -57,6 +57,7 @@
     <string name="title_reading">阅读基地</string>
     <string name="title_website">不错的学习网站</string>
     <string name="title_favorite">收藏</string>
+    <string name="title_reading_comprehension">阅读理解</string>
     <string name="update_title">新版来了</string>
     <string name="update_info">更快、更好用！</string>
     <string name="title_dialog_select">选择场景</string>

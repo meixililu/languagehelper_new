@@ -116,7 +116,7 @@ public class KeyUtil {
 
 	public static final String DailyListenCourseLevel = "DailyListenCourseLevel";
 
-	public static final String AutoClearDic = "AutoClearDic";
+	public static final String Column = "Column";
 
 	public static final String IsHasShowBaiduMessage = "IsHasShowBaiduMessage";
 

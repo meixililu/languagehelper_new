@@ -37,10 +37,12 @@ import com.messi.languagehelper.impl.OnFinishListener;
 import com.messi.languagehelper.util.AVAnalytics;
 import com.messi.languagehelper.util.AiUtil;
 import com.messi.languagehelper.util.JsonParser;
+import com.messi.languagehelper.util.KViewUtil;
 import com.messi.languagehelper.util.KaiPinAdUIModelCustom;
 import com.messi.languagehelper.util.KeyUtil;
 import com.messi.languagehelper.util.LogUtil;
 import com.messi.languagehelper.util.MD5;
+import com.messi.languagehelper.util.MyPlayer;
 import com.messi.languagehelper.util.PlayUtil;
 import com.messi.languagehelper.util.SDCardUtil;
 import com.messi.languagehelper.util.Setings;
@@ -380,50 +382,7 @@ public class AiChatActivity extends BaseActivity {
     }
 
     public void playVideo(final AiEntity mAiEntity) {
-        String filepath = "";
-        String path = SDCardUtil.getDownloadPath(SDCardUtil.sdPath);
-        if (TextUtils.isEmpty(mAiEntity.getContent_video_id())) {
-            mAiEntity.setContent_video_id(MD5.encode(mAiEntity.getContent()));
-        }
-        filepath = path + mAiEntity.getContent_video_id() + ".pcm";
-        mAiEntity.setContent_video_path(filepath);
-        PlayUtil.play(filepath, mAiEntity.getContent(), null,mSpeechSynthesizer,
-                new SynthesizerListener() {
-                    @Override
-                    public void onSpeakResumed() {
-                    }
-
-                    @Override
-                    public void onSpeakProgress(int arg0, int arg1, int arg2) {
-                    }
-
-                    @Override
-                    public void onSpeakPaused() {
-                    }
-
-                    @Override
-                    public void onSpeakBegin() {
-                        hideProgressbar();
-                        PlayUtil.onStartPlay();
-                    }
-
-                    @Override
-                    public void onCompleted(SpeechError arg0) {
-                        if (arg0 != null) {
-                            ToastUtil.diaplayMesShort(AiChatActivity.this, arg0.getErrorDescription());
-                        }
-                        BoxHelper.insertOrUpdate(mAiEntity);
-                        PlayUtil.onFinishPlay();
-                    }
-
-                    @Override
-                    public void onBufferProgress(int arg0, int arg1, int arg2, String arg3) {
-                    }
-
-                    @Override
-                    public void onEvent(int arg0, int arg1, int arg2, Bundle arg3) {
-                    }
-                });
+        MyPlayer.getInstance(this).start(mAiEntity.getContent());
     }
 
     RecognizerListener recognizerListener = new RecognizerListener() {
@@ -467,21 +426,7 @@ public class AiChatActivity extends BaseActivity {
 
         @Override
         public void onVolumeChanged(int volume, byte[] arg1) {
-            if (volume < 4) {
-                recordAnimImg.setBackgroundResource(R.drawable.speak_voice_1);
-            } else if (volume < 8) {
-                recordAnimImg.setBackgroundResource(R.drawable.speak_voice_2);
-            } else if (volume < 12) {
-                recordAnimImg.setBackgroundResource(R.drawable.speak_voice_3);
-            } else if (volume < 16) {
-                recordAnimImg.setBackgroundResource(R.drawable.speak_voice_4);
-            } else if (volume < 20) {
-                recordAnimImg.setBackgroundResource(R.drawable.speak_voice_5);
-            } else if (volume < 24) {
-                recordAnimImg.setBackgroundResource(R.drawable.speak_voice_6);
-            } else if (volume < 31) {
-                recordAnimImg.setBackgroundResource(R.drawable.speak_voice_7);
-            }
+            KViewUtil.INSTANCE.showRecordImgAnimation(volume, recordAnimImg);
         }
 
     };
@@ -526,5 +471,6 @@ public class AiChatActivity extends BaseActivity {
             mSpeechSynthesizer.destroy();
             mSpeechSynthesizer = null;
         }
+        MyPlayer.getInstance(this).onDestroy();
     }
 }

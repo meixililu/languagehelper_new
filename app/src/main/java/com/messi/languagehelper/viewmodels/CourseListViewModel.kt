@@ -47,7 +47,7 @@ class CourseListViewModel(application: Application) : AndroidViewModel(applicati
         var query = AVQuery<AVObject>(AVOUtil.CourseList.CourseList)
         query.whereNotEqualTo(AVOUtil.CourseList.valid,"0")
         if(!TextUtils.isEmpty(type)){
-            query.whereEqualTo(AVOUtil.CourseList.type,type)
+            query.whereContains(AVOUtil.CourseList.type,type)
         }
         query.orderByAscending(AVOUtil.CourseList.order)
         query.limit = 200

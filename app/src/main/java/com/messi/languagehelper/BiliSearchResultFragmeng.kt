@@ -31,7 +31,7 @@ class BiliSearchResultFragmeng : BaseFragment() {
     lateinit var adapter: RcBiliSearchResultAdapter
 
     companion object {
-        fun getInstance(keyword: String): BiliSearchResultFragmeng? {
+        fun getInstance(keyword: String): BiliSearchResultFragmeng {
             val fragment = BiliSearchResultFragmeng()
             val args = Bundle()
             args.putString(KeyUtil.KeyWord, keyword)

@@ -40,7 +40,7 @@ public class StudyCategoryFragment extends BaseFragment {
     private void initFragment(){
         getChildFragmentManager()
                 .beginTransaction()
-                .add(R.id.fragment_container, new CourseListFragment())
+                .add(R.id.fragment_container, CourseListFragment.Companion.getInstance(3))
                 .commit();
     }
 

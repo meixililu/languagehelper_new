@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jeremyliao.liveeventbus.LiveEventBus
 import com.messi.languagehelper.BaseFragment
+import com.messi.languagehelper.BiliSearchResultFragmeng
 import com.messi.languagehelper.adapter.RcCourseListAdapter
 import com.messi.languagehelper.databinding.CourseListFragmentBinding
 import com.messi.languagehelper.util.KeyUtil
@@ -23,6 +24,17 @@ class CourseListFragment : BaseFragment() {
     val viewModel: CourseListViewModel by viewModels()
     lateinit var adapter: RcCourseListAdapter
     var type = "base"
+    var column = 3
+
+    companion object {
+        fun getInstance(column: Int): CourseListFragment {
+            val fragment = CourseListFragment()
+            val args = Bundle()
+            args.putInt(KeyUtil.Column, column)
+            fragment.arguments = args
+            return fragment
+        }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -32,9 +44,10 @@ class CourseListFragment : BaseFragment() {
         return binding.root
     }
 
-    private fun  init(){
+    private fun init(){
+        column = requireArguments().getInt(KeyUtil.Column,3)
         adapter = RcCourseListAdapter()
-        viewManager = GridLayoutManager(context,3)
+        viewManager = GridLayoutManager(context,column)
         adapter.setItems(viewModel.datas)
         binding.listView.layoutManager = viewManager
         binding.listView.adapter = adapter

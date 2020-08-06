@@ -10,7 +10,7 @@
     <string name="title_Practice">Practice</string>
     <string name="title_listening">Listening</string>
     <string name="title_intensive_listening">Intensive</string>
-    <string name="title_initiate">Basic</string>
+    <string name="title_initiate">Phonics</string>
     <string name="title_symbol">Symbol</string>
     <string name="title_word_study">Word</string>
     <string name="title_words">Words</string>
@@ -54,6 +54,7 @@
     <string name="update_info">Better and better</string>
     <string name="selection">Selection</string>
     <string name="title_favorite">Favorite</string>
+    <string name="title_reading_comprehension">Comprehension</string>
     <string name="title_settings">Settings</string>
     <string name="unfollow">Next</string>
     <string name="go_on_follow">Mimic</string>
