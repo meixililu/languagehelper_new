@@ -35,9 +35,10 @@ public class SDCardUtil {
 	public static final String apkUpdatePath = "/zyhy/apps/update/";
 	public static final String lrcPath = "/zyhy/lrc/voa/";
 	public static final String OfflineDicPath = "/zyhy/offline/";
+	public static final String OfflineDicPathRoot = "/Android/data/com.messi.languagehelper/files/zyhy/offline/";
 	public static final String Delimiter = "/";
 
-//	//sd
+	//sd old
 //	public static String getSDPath(String sdCardPath) {
 //		File SDdir = null;
 //		boolean sdCardExist = Environment.getExternalStorageState().equals( Environment.MEDIA_MOUNTED);
@@ -57,7 +58,7 @@ public class SDCardUtil {
 	 * @return
 	 */
 	public static String getDownloadPath(String sdCardPath) {
-		File SDdir = BaseApplication.instance.getExternalFilesDir(sdCardPath);
+		File SDdir = BaseApplication.instance.getExternalFilesDir(null);
 		LogUtil.DefalutLog("SDdir:"+SDdir.getPath());
 		if (SDdir != null) {
 			String path = SDdir.getPath() + sdCardPath;
@@ -71,8 +72,8 @@ public class SDCardUtil {
 	/**sdcard路径
 	 * @return
 	 */
-	public static String getDownloadPath(String sdCardPath,Context context,String Type) {
-		File SDdir = context.getExternalFilesDir(Type);
+	public static String getDownloadPath(Context context, String sdCardPath) {
+		File SDdir = context.getExternalFilesDir(null);
 		if (SDdir != null) {
 			String path = SDdir.getPath() + sdCardPath;
 			isFileExistsOrCreate(path);
@@ -89,7 +90,7 @@ public class SDCardUtil {
 		}
 	}
 
-	public static String saveFile(Context mContext,String path,String name,String content){
+	public static String saveFile(String path,String name,String content){
 		try{
 			String filePath = getDownloadPath(path) + name;
 			LogUtil.DefalutLog("filePath:"+filePath);

@@ -90,7 +90,7 @@ public class RcStudyHeaderViewHolder extends RecyclerView.ViewHolder {
                     }else{
                         LogUtil.DefalutLog("FileNotExist");
                         showProgressbar();
-                        DownLoadUtil.downloadFile(mContext, mEveryDaySentence.getTts(), SDCardUtil.DailySentencePath, fileName, mHandler);
+                        DownLoadUtil.downloadFile(mEveryDaySentence.getTts(), SDCardUtil.DailySentencePath, fileName, mHandler);
                     }
                 }
                 AVAnalytics.onEvent(mContext, "tab3_play_daily_sentence");

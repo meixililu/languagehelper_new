@@ -172,7 +172,7 @@ public class CollectedTranslateFragment extends BaseFragment {
             sb.append(item.getName() + "\n" + item.getDesc());
             sb.append("\n\n");
         }
-        String filePath = SDCardUtil.saveFile(getContext(),"","/words.txt",sb.toString());
+        String filePath = SDCardUtil.saveFile("","/words.txt",sb.toString());
         return filePath;
     }
 

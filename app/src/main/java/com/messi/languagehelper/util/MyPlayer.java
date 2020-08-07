@@ -101,7 +101,7 @@ public class MyPlayer {
                 if (!TextUtils.isEmpty(media_url)) {
                     playMediaUrl(media_url);
                     if (isDownload) {
-                        DownLoadUtil.downloadFile(context, media_url, SDCardUtil.sdPath, fileName, null);
+                        DownLoadUtil.downloadFile(media_url, SDCardUtil.sdPath, fileName, null);
                     } else {
                         isDownload = true;
                     }
@@ -111,7 +111,7 @@ public class MyPlayer {
                 return;
             }else if (!TextUtils.isEmpty(media_url)) {
                 if (isDownload) {
-                    DownLoadUtil.downloadFile(context, media_url, SDCardUtil.sdPath, fileName, null);
+                    DownLoadUtil.downloadFile(media_url, SDCardUtil.sdPath, fileName, null);
                 } else {
                     isDownload = true;
                 }

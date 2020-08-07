@@ -19,32 +19,24 @@ import okhttp3.Response;
 
 public class DownLoadUtil {
 
-    public static void downloadFile(final Context mContext, final String url, final String path, final String fileName, final Handler mHandler) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Message msg = new Message();
-                try {
-                    LogUtil.DefalutLog("---url:" + url);
-                    Response mResponse = LanguagehelperHttpClient.get(url);
-                    if (mResponse != null) {
-                        if (mResponse.isSuccessful()) {
-                            saveFile(mContext, path, fileName, mResponse.body().bytes());
-                            if (mHandler != null) {
-                                msg.what = 1;
-                                mHandler.sendMessage(msg);
-                                LogUtil.DefalutLog("send Handler:"+msg.what);
-                            }
-                        } else if (mResponse.code() == 404) {
-                            if (mHandler != null) {
-                                msg.what = 3;
-                                mHandler.sendMessage(msg);
-                            }
-                        } else {
-                            if (mHandler != null) {
-                                msg.what = 2;
-                                mHandler.sendMessage(msg);
-                            }
+    public static void downloadFile(final String url, final String path, final String fileName, final Handler mHandler) {
+        new Thread(() -> {
+            Message msg = new Message();
+            try {
+                LogUtil.DefalutLog("---url:" + url);
+                Response mResponse = LanguagehelperHttpClient.get(url);
+                if (mResponse != null) {
+                    if (mResponse.isSuccessful()) {
+                        saveFile(path, fileName, mResponse.body().bytes());
+                        if (mHandler != null) {
+                            msg.what = 1;
+                            mHandler.sendMessage(msg);
+                            LogUtil.DefalutLog("send Handler:"+msg.what);
+                        }
+                    } else if (mResponse.code() == 404) {
+                        if (mHandler != null) {
+                            msg.what = 3;
+                            mHandler.sendMessage(msg);
                         }
                     } else {
                         if (mHandler != null) {
@@ -52,13 +44,18 @@ public class DownLoadUtil {
                             mHandler.sendMessage(msg);
                         }
                     }
-                } catch (Exception e) {
+                } else {
                     if (mHandler != null) {
                         msg.what = 2;
                         mHandler.sendMessage(msg);
                     }
-                    e.printStackTrace();
                 }
+            } catch (Exception e) {
+                if (mHandler != null) {
+                    msg.what = 2;
+                    mHandler.sendMessage(msg);
+                }
+                e.printStackTrace();
             }
         }).start();
     }
@@ -70,7 +67,7 @@ public class DownLoadUtil {
             Response mResponse = LanguagehelperHttpClient.get(url);
             if (mResponse != null) {
                 if (mResponse.isSuccessful()) {
-                    return saveFile(mContext, path, fileName, mResponse.body().bytes());
+                    return saveFile(path, fileName, mResponse.body().bytes());
                 }
             }
         } catch (Exception e) {
@@ -88,7 +85,7 @@ public class DownLoadUtil {
             Response mResponse = LanguagehelperHttpClient.get(url,progressListener);
             if (mResponse != null) {
                 if (mResponse.isSuccessful()) {
-                    return saveFile(mContext, path, fileName, mResponse.body().bytes());
+                    return saveFile(path, fileName, mResponse.body().bytes());
                 }
             }
         } catch (Exception e) {
@@ -97,9 +94,9 @@ public class DownLoadUtil {
         return false;
     }
 
-    public static boolean saveFile(Context mContext, String path, String fileName, byte[] binaryData) {
+    public static boolean saveFile(String path, String fileName, byte[] binaryData) {
         try {
-            FileOutputStream mFileOutputStream = getFile(mContext, path, fileName);
+            FileOutputStream mFileOutputStream = getFile(path, fileName);
             if (mFileOutputStream != null) {
                 mFileOutputStream.write(binaryData);
                 mFileOutputStream.flush();
@@ -113,7 +110,7 @@ public class DownLoadUtil {
         return false;
     }
 
-    public static FileOutputStream getFile(Context mContext, String dir, String fileName) throws IOException {
+    public static FileOutputStream getFile(String dir, String fileName) throws IOException {
         String path = SDCardUtil.getDownloadPath(dir);
         if (!TextUtils.isEmpty(path)) {
             File sdDir = new File(path);
@@ -154,29 +151,26 @@ public class DownLoadUtil {
     }
 
     public static void downloadSymbolMp3(final Context mContext, final List<SymbolListDao> mSymbolListDao, final Handler mHandler) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for (SymbolListDao avObject : mSymbolListDao) {
-                    String audioPath = SDCardUtil.SymbolPath + avObject.getSDCode() + SDCardUtil.Delimiter;
-                    String SDAudioMp3Url = avObject.getSDAudioMp3Url();
-                    String SDAudioMp3Name = SDAudioMp3Url.substring(SDAudioMp3Url.lastIndexOf("/") + 1);
-                    String SDAudioMp3FullName = SDCardUtil.getDownloadPath(audioPath) + SDAudioMp3Name;
-                    if (!SDCardUtil.isFileExist(SDAudioMp3FullName)) {
-                        DownLoadUtil.downloadFile(mContext, SDAudioMp3Url, audioPath, SDAudioMp3Name, null);
-                    }
+        new Thread(() -> {
+            for (SymbolListDao avObject : mSymbolListDao) {
+                String audioPath = SDCardUtil.SymbolPath + avObject.getSDCode() + SDCardUtil.Delimiter;
+                String SDAudioMp3Url = avObject.getSDAudioMp3Url();
+                String SDAudioMp3Name = SDAudioMp3Url.substring(SDAudioMp3Url.lastIndexOf("/") + 1);
+                String SDAudioMp3FullName = SDCardUtil.getDownloadPath(audioPath) + SDAudioMp3Name;
+                if (!SDCardUtil.isFileExist(SDAudioMp3FullName)) {
+                    DownLoadUtil.downloadFile(SDAudioMp3Url, audioPath, SDAudioMp3Name, null);
+                }
 
-                    String SDTeacherMp3Url = avObject.getSDTeacherMp3Url();
-                    String SDTeacherMp3Name = SDTeacherMp3Url.substring(SDTeacherMp3Url.lastIndexOf("/") + 1);
-                    String SDTeacherMp3FullName = SDCardUtil.getDownloadPath(audioPath) + SDTeacherMp3Name;
-                    if (!SDCardUtil.isFileExist(SDTeacherMp3FullName)) {
-                        DownLoadUtil.downloadFile(mContext, SDTeacherMp3Url, audioPath, SDTeacherMp3Name, mHandler);
-                    }
-                    if (mHandler != null) {
-                        Message msg = new Message();
-                        msg.what = 1;
-                        mHandler.sendMessage(msg);
-                    }
+                String SDTeacherMp3Url = avObject.getSDTeacherMp3Url();
+                String SDTeacherMp3Name = SDTeacherMp3Url.substring(SDTeacherMp3Url.lastIndexOf("/") + 1);
+                String SDTeacherMp3FullName = SDCardUtil.getDownloadPath(audioPath) + SDTeacherMp3Name;
+                if (!SDCardUtil.isFileExist(SDTeacherMp3FullName)) {
+                    DownLoadUtil.downloadFile(SDTeacherMp3Url, audioPath, SDTeacherMp3Name, mHandler);
+                }
+                if (mHandler != null) {
+                    Message msg = new Message();
+                    msg.what = 1;
+                    mHandler.sendMessage(msg);
                 }
             }
         }).start();

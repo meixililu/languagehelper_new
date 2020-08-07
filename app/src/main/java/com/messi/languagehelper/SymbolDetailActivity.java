@@ -130,13 +130,13 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
             SDAudioMp3Name = SDAudioMp3Url.substring(SDAudioMp3Url.lastIndexOf("/") + 1);
             SDAudioMp3FullName = SDCardUtil.getDownloadPath(audioPath) + SDAudioMp3Name;
             if (!SDCardUtil.isFileExist(SDAudioMp3FullName)) {
-                DownLoadUtil.downloadFile(this, SDAudioMp3Url, audioPath, SDAudioMp3Name, null);
+                DownLoadUtil.downloadFile(SDAudioMp3Url, audioPath, SDAudioMp3Name, null);
             }
             SDTeacherMp3Url = avObject.getSDTeacherMp3Url();
             SDTeacherMp3Name = SDTeacherMp3Url.substring(SDTeacherMp3Url.lastIndexOf("/") + 1);
             SDTeacherMp3FullName = SDCardUtil.getDownloadPath(audioPath) + SDTeacherMp3Name;
             if (!SDCardUtil.isFileExist(SDTeacherMp3FullName)) {
-                DownLoadUtil.downloadFile(this, SDTeacherMp3Url, audioPath, SDTeacherMp3Name, null);
+                DownLoadUtil.downloadFile(SDTeacherMp3Url, audioPath, SDTeacherMp3Name, null);
             }
             if(!TextUtils.isEmpty(avObject.getBackup1())){
                 simpleExoPlayerView.setVisibility(View.VISIBLE);
@@ -316,7 +316,7 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
                     playMp3(SDAudioMp3FullName);
                 } else {
                     currentFileFullName = SDAudioMp3FullName;
-                    DownLoadUtil.downloadFile(this, SDAudioMp3Url, audioPath, SDAudioMp3Name, mHandler);
+                    DownLoadUtil.downloadFile(SDAudioMp3Url, audioPath, SDAudioMp3Name, mHandler);
                 }
                 AVAnalytics.onEvent(SymbolDetailActivity.this, "symbol_pg_play_mp3");
                 break;
@@ -326,7 +326,7 @@ public class SymbolDetailActivity extends BaseActivity implements OnClickListene
                     playMp3(SDTeacherMp3FullName);
                 } else {
                     currentFileFullName = SDTeacherMp3FullName;
-                    DownLoadUtil.downloadFile(this, SDTeacherMp3Url, audioPath, SDTeacherMp3Name, mHandler);
+                    DownLoadUtil.downloadFile(SDTeacherMp3Url, audioPath, SDTeacherMp3Name, mHandler);
                 }
                 AVAnalytics.onEvent(SymbolDetailActivity.this, "symbol_pg_play_teacher_mp3");
                 break;

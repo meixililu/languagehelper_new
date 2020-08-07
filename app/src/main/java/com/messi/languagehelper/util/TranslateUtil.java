@@ -16,8 +16,6 @@ import org.jsoup.nodes.Element;
 
 import java.util.regex.Pattern;
 
-import io.reactivex.ObservableEmitter;
-
 public class TranslateUtil {
 
 	public static void Translate_init(OnDictFinishListener mListener) {
@@ -68,19 +66,6 @@ public class TranslateUtil {
 		}
 	}
 
-	public static void offlineTranslate(ObservableEmitter<Translate> e){
-		Translate translate = null;
-		if(isOfflineTranslateWords()){
-			translate = getWordTranslate();
-			LogUtil.DefalutLog("offline-word:"+translate);
-		}else {
-			translate = getSentenceTranslate();
-			LogUtil.DefalutLog("offline-sentence:"+translate);
-		}
-		e.onNext(translate);
-		e.onComplete();
-	}
-
 	public static Translate offlineTranslate(){
 		Translate translate = null;
 		if(isOfflineTranslateWords()){
@@ -90,12 +75,11 @@ public class TranslateUtil {
 			translate = getSentenceTranslate();
 			LogUtil.DefalutLog("offline-sentence:"+translate);
 		}
-		LogUtil.DefalutLog("offlineTranslate:"+translate);
 		return translate;
 	}
 
 	public static Translate getWordTranslate(){
-		EnWordTranslator.initDictPath(SDCardUtil.OfflineDicPath);
+		EnWordTranslator.initDictPath(SDCardUtil.OfflineDicPathRoot);
 		if(!EnWordTranslator.isInited()){
   			EnWordTranslator.init();
 		}
@@ -106,7 +90,7 @@ public class TranslateUtil {
 	}
 
 	public static Translate getSentenceTranslate(){
-		EnLineTranslator.initDictPath(SDCardUtil.OfflineDicPath);
+		EnLineTranslator.initDictPath(SDCardUtil.OfflineDicPathRoot);
 		return EnLineTranslator.lookup(Setings.q, LanguageConvert.AUTO);
 	}
 

@@ -71,6 +71,7 @@ public class RcTranslateLiatItemViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void render(final Record mBean) {
+        if (mBean == null) return;
         MyOnClickListener mMyOnClickListener = new MyOnClickListener(mBean,true);
         MyOnClickListener mQuestionOnClickListener = new MyOnClickListener(mBean,false);
         if(mBean.getIscollected().equals("0")){

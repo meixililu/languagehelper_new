@@ -84,15 +84,13 @@ class TranDictRepository(var context: Context) {
     }
 
     private fun translateOffline() {
-        CoroutineScope(Dispatchers.IO).launch {
-            val mTranslate = TranslateUtil.offlineTranslate()
-            parseOfflineData(mTranslate)
-        }
+        val mTranslate = TranslateUtil.offlineTranslate()
+        parseOfflineData(mTranslate)
     }
 
     private fun parseOfflineData(translate: Translate?) {
         LogUtil.DefalutLog("parseOfflineData:$translate")
-        val mData: RespoData<Record> = RespoData(1, "")
+        var mData: RespoData<Record> = RespoData(1, "")
         if (translate != null) {
             if (translate.errorCode == 0) {
                 val sb = StringBuilder()
@@ -101,12 +99,13 @@ class TranDictRepository(var context: Context) {
                     sb.append(tran)
                     sb.append("\n")
                 }
-                val mrecord = Record(sb.substring(0, sb.lastIndexOf("\n")), Setings.q)
+                val mrecord = Record(sb.toString().trim(), Setings.q)
+                mData.data = mrecord
                 trans.add(0, mrecord)
             }
         } else {
             mData.code = 0
-            mData.setErrStr("请打开网络，如需离线词典，请到设置页面下载！")
+            mData.setErrStr("未找到相关结果，请打开网络")
         }
         mRespoData.postValue(mData)
     }

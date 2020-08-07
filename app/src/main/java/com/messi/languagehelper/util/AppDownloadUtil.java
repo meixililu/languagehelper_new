@@ -74,7 +74,7 @@ public class AppDownloadUtil {
 						Response response = LanguagehelperHttpClient.get(url,progressListener);
 						if(response != null && response.isSuccessful()){
 							LogUtil.DefalutLog("---DownloadFile success---");
-							DownLoadUtil.saveFile(mContext,path,appFileName,response.body().bytes());
+							DownLoadUtil.saveFile(path,appFileName,response.body().bytes());
 							PendingIntent pendUp = PendingIntent.getActivity(mContext, 0,
 									getInstallApkIntent(mContext,appLocalFullName),
 									PendingIntent.FLAG_UPDATE_CURRENT);

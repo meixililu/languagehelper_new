@@ -1,6 +1,7 @@
 package com.messi.languagehelper;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -70,21 +71,15 @@ public class OfflineDicDownloadActivity extends BaseActivity {
             try {
                 final int percent = (int) ((100 * bytesRead) / contentLength);
                 if (percent != 100) {
-                    OfflineDicDownloadActivity.this.runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            numberProgressBar.setVisibility(View.VISIBLE);
-                            numberProgressBar.setProgress(percent);
-                        }
+                    OfflineDicDownloadActivity.this.runOnUiThread(() -> {
+                        numberProgressBar.setVisibility(View.VISIBLE);
+                        numberProgressBar.setProgress(percent);
                     });
                 } else if (percent == 100) {
                     if (done) {
-                        OfflineDicDownloadActivity.this.runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                numberProgressBar.setProgress(100);
-                                numberProgressBar.setVisibility(View.GONE);
-                            }
+                        OfflineDicDownloadActivity.this.runOnUiThread(() -> {
+                            numberProgressBar.setProgress(100);
+                            numberProgressBar.setVisibility(View.GONE);
                         });
                     }
                 }
@@ -111,6 +106,7 @@ public class OfflineDicDownloadActivity extends BaseActivity {
     private void setImage() {
         try {
             mOfflineDicPath = SDCardUtil.getDownloadPath(SDCardUtil.OfflineDicPath);
+            LogUtil.DefalutLog("mOfflineDicPath:"+mOfflineDicPath);
             long size = SDCardUtil.getFileSize(mOfflineDicPath + "localdict.datx");
             if (size > 0) {
                 if (size > (6 * 1048576)) {

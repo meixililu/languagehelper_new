@@ -126,7 +126,7 @@ public class ImgViewActivity extends BaseActivity implements FragmentProgressbar
         new Thread(new Runnable() {
             @Override
             public void run() {
-                DownLoadUtil.downloadFile(ImgViewActivity.this, saveUrl, SDCardUtil.ImgPath, shareImgName, mHandler);
+                DownLoadUtil.downloadFile(saveUrl, SDCardUtil.ImgPath, shareImgName, mHandler);
             }
         }).start();
     }

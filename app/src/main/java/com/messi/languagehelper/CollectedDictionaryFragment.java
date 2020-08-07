@@ -181,7 +181,7 @@ public class CollectedDictionaryFragment extends BaseFragment {
             sb.append(item.getWord_name() + "\n" + item.getResult());
             sb.append("\n\n");
         }
-        String filePath = SDCardUtil.saveFile(getContext(),"","/words2.txt",sb.toString());
+        String filePath = SDCardUtil.saveFile("","/words2.txt",sb.toString());
         return filePath;
     }
 

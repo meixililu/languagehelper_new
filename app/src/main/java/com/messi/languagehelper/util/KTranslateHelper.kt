@@ -58,6 +58,9 @@ object KTranslateHelper {
     }
 
     suspend fun doTranslateTask():Record? {
+        if(!::tranOrder.isInitialized){
+            initTranOrder("")
+        }
         var mRecordResult: Record? = null
         for(method in tranOrder){
             LogUtil.DefalutLog("DoTranslateByMethod---$method")

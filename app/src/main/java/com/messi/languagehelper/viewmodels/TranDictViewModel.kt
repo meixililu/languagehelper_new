@@ -40,7 +40,7 @@ class TranDictViewModel(application: Application) : AndroidViewModel(application
     }
 
     fun tranDict() {
-        viewModelScope.launch() {
+        viewModelScope.launch(Dispatchers.IO) {
             repository.tranDict()
         }
     }

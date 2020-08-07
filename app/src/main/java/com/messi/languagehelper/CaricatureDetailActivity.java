@@ -145,8 +145,7 @@ public class CaricatureDetailActivity extends BaseActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                DownLoadUtil.downloadFile(CaricatureDetailActivity.this,
-                        imgUrl, SDCardUtil.ImgPath, shareImgName, mHandler);
+                DownLoadUtil.downloadFile(imgUrl, SDCardUtil.ImgPath, shareImgName, mHandler);
             }
         }).start();
     }

@@ -125,7 +125,7 @@ public class WordStudyViewAllAdapter extends BaseAdapter {
 			String mp3Name = mAVObject.getSound().substring(mAVObject.getSound().lastIndexOf("/")+1);
 			fullName = SDCardUtil.getDownloadPath(audioPath) + mp3Name;
 			if(!SDCardUtil.isFileExist(fullName)){
-				DownLoadUtil.downloadFile(context, mAVObject.getSound(), audioPath, mp3Name, mHandler);
+				DownLoadUtil.downloadFile(mAVObject.getSound(), audioPath, mp3Name, mHandler);
 			}else{
 				playMp3();
 			}

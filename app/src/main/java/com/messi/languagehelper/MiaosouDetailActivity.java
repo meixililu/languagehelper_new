@@ -177,8 +177,7 @@ public class MiaosouDetailActivity extends BaseActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                DownLoadUtil.downloadFile(MiaosouDetailActivity.this,
-                        imgUrl, SDCardUtil.ImgPath, shareImgName, mHandler);
+                DownLoadUtil.downloadFile(imgUrl, SDCardUtil.ImgPath, shareImgName, mHandler);
             }
         }).start();
     }

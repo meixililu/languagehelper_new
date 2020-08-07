@@ -243,8 +243,7 @@ public class ReadingDetailLrcActivity extends BaseActivity implements SeekBar.On
 
                     @Override
                     public void onResponsed(String responseString) {
-                        DownLoadUtil.saveFile(ReadingDetailLrcActivity.this,
-                                SDCardUtil.lrcPath,name,responseString.getBytes());
+                        DownLoadUtil.saveFile(SDCardUtil.lrcPath,name,responseString.getBytes());
                         try {
                             utilLrc mutilLrc = new utilLrc(lrcfilepath);
                             setList(mutilLrc);
