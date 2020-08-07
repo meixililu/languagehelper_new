@@ -97,7 +97,7 @@ public class TranslateUtil {
 	public static Translate getWordTranslate(){
 		EnWordTranslator.initDictPath(SDCardUtil.OfflineDicPath);
 		if(!EnWordTranslator.isInited()){
-			EnWordTranslator.init();
+  			EnWordTranslator.init();
 		}
 		if (EnWordTranslator.isInited()) {
 			return EnWordTranslator.lookupNative(Setings.q);

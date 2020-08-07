@@ -29,11 +29,13 @@ import io.reactivex.schedulers.Schedulers;
 public class OfflineDicDownloadActivity extends BaseActivity {
 
     private final static String TempFileName = "temp.zip";
-    private final static String minimalistUrl = "http://www.mzxbkj.com/dictres/localdictjjb.zip";
-    private final static String standarUrl = "http://www.mzxbkj.com/dictres/localdictxxb.zip";
-    private final static String sentenceUrl = "http://www.mzxbkj.com/dictres/ce.zip";
-    private final static String kuozhankuUrl = "http://www.mzxbkj.com/dictres/wordlib.zip";
-    private final static String hhUrl = "http://www.mzxbkj.com/dictres/hh.zip";
+//    private final static String OfflineBase = "http://www.mzxbkj.com/dictres/";
+    private final static String OfflineBase = "http://res.mzxbkj.com/offlinedict/";
+    private final static String minimalistUrl = OfflineBase + "localdictjjb.zip";
+    private final static String standarUrl = OfflineBase + "localdictxxb.zip";
+    private final static String sentenceUrl = OfflineBase + "ce.zip";
+    private final static String kuozhankuUrl = OfflineBase + "wordlib.zip";
+    private final static String hhUrl = OfflineBase + "hh.zip";
     @BindView(R.id.dic_minimalist_img)
     ImageView dicMinimalistImg;
     @BindView(R.id.dic_minimalist)
@@ -114,11 +116,10 @@ public class OfflineDicDownloadActivity extends BaseActivity {
                 if (size > (6 * 1048576)) {
                     status = 2;
                     dicStandardImg.setImageResource(R.drawable.ic_done);
-                    dicMinimalistImg.setImageResource(R.drawable.ic_done);
                 } else {
                     status = 1;
-                    dicMinimalistImg.setImageResource(R.drawable.ic_done);
                 }
+                dicMinimalistImg.setImageResource(R.drawable.ic_done);
             }
             if (isSentenceExist()) {
                 dicSentenceImg.setImageResource(R.drawable.ic_done);
@@ -208,23 +209,20 @@ public class OfflineDicDownloadActivity extends BaseActivity {
     }
 
     private void downloadFile(final String url, final String fileName) {
-        Observable.create(new ObservableOnSubscribe<String>() {
-            @Override
-            public void subscribe(ObservableEmitter<String> e) throws Exception {
-                if(!downloading.containsKey(url)){
-                    boolean result = DownLoadUtil.downloadFile(OfflineDicDownloadActivity.this, url, SDCardUtil.OfflineDicPath,
-                            fileName, progressListener, "");
-                    downloading.put(url,"yes");
-                    if(result){
-                        e.onNext("unzip");
-                        ZipUtil.Unzip(mOfflineDicPath + fileName, mOfflineDicPath, true);
-                        e.onNext("finish");
-                        e.onComplete();
-                    }
-                    downloading.remove(url);
-                }else {
-                    LogUtil.DefalutLog("downloading");
+        Observable.create((ObservableOnSubscribe<String>) e -> {
+            if(!downloading.containsKey(url)){
+                boolean result = DownLoadUtil.downloadFile(OfflineDicDownloadActivity.this, url, SDCardUtil.OfflineDicPath,
+                        fileName, progressListener, "");
+                downloading.put(url,"yes");
+                if(result){
+                    e.onNext("unzip");
+                    ZipUtil.Unzip(mOfflineDicPath + fileName, mOfflineDicPath, true);
+                    e.onNext("finish");
+                    e.onComplete();
                 }
+                downloading.remove(url);
+            }else {
+                LogUtil.DefalutLog("downloading");
             }
         })
                 .subscribeOn(Schedulers.io())

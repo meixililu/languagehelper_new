@@ -2,6 +2,7 @@ package com.messi.languagehelper.util;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.Environment;
 import android.text.TextUtils;
 
 import com.messi.languagehelper.BaseApplication;
@@ -35,6 +36,22 @@ public class SDCardUtil {
 	public static final String lrcPath = "/zyhy/lrc/voa/";
 	public static final String OfflineDicPath = "/zyhy/offline/";
 	public static final String Delimiter = "/";
+
+//	//sd
+//	public static String getSDPath(String sdCardPath) {
+//		File SDdir = null;
+//		boolean sdCardExist = Environment.getExternalStorageState().equals( Environment.MEDIA_MOUNTED);
+//		if (sdCardExist) {
+//			SDdir = Environment.getExternalStorageDirectory();
+//		}
+//		if (SDdir != null) {
+//			String path = SDdir.getPath() + sdCardPath;
+//			isFileExistsOrCreate(path);
+//			return path;
+//		} else {
+//			return "";
+//		}
+//	}
 
 	/**sdcard路径
 	 * @return

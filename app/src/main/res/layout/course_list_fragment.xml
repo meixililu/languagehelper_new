@@ -5,8 +5,6 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-
-
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/mswiperefreshlayout"
         android:layout_width="match_parent"

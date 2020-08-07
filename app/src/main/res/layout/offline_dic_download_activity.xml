@@ -21,6 +21,16 @@
             android:visibility="gone" />
     </androidx.appcompat.widget.Toolbar>
 
+    <com.daimajia.numberprogressbar.NumberProgressBar
+        android:id="@+id/number_progress_bar"
+        android:visibility="gone"
+        custom:progress_current="0"
+        custom:progress_max="100"
+        android:layout_marginTop="@dimen/padding_5"
+        android:layout_marginLeft="@dimen/padding_10"
+        android:layout_marginRight="@dimen/padding_10"
+        style="@style/NumberProgressBar_Passing_Green"
+        />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -252,14 +262,4 @@
             
         </LinearLayout>
     </ScrollView>
-
-    <com.daimajia.numberprogressbar.NumberProgressBar
-        android:id="@+id/number_progress_bar"
-        android:visibility="gone"
-        custom:progress_current="0"
-        custom:progress_max="100"
-        android:layout_marginBottom="@dimen/padding_2"
-        style="@style/NumberProgressBar_Passing_Green"
-        />
-
 </LinearLayout>
