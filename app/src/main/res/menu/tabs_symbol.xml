@@ -5,20 +5,14 @@
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home_black"
         android:title="@string/selection" />
-
     <item
         android:id="@+id/navigation_shadow"
+        android:icon="@drawable/ic_store_black_24dp"
+        android:title="@string/title_english_video" />
+    <item
+        android:id="@+id/navigation_practice"
         android:icon="@drawable/ic_subject_black_24dp"
         android:title="@string/title_symbol" />
 
-    <item
-        android:id="@+id/navigation_practice"
-        android:icon="@drawable/ic_group_black_24dp"
-        android:title="@string/title_study_category" />
-
-    <item
-        android:id="@+id/navigation_word_study"
-        android:icon="@drawable/ic_store_black_24dp"
-        android:title="@string/title_course" />
 
 </menu>

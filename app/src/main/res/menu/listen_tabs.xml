@@ -2,20 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_jingting"
+        android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home_black"
-        android:title="@string/title_intensive_listening" />
+        android:title="@string/selection" />
     <item
         android:id="@+id/navigation_video"
-        android:icon="@drawable/ic_group_black_24dp"
+        android:icon="@drawable/ic_subject_black_24dp"
         android:title="@string/title_english_video" />
     <item
-        android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_subject_black_24dp"
-        android:title="@string/title_study_category" />
-    <item
-        android:id="@+id/navigation_word_study"
+        android:id="@+id/navigation_jingting"
         android:icon="@drawable/ic_store_black_24dp"
-        android:title="@string/title_course" />
+        android:title="@string/title_intensive_listening" />
 
 </menu>

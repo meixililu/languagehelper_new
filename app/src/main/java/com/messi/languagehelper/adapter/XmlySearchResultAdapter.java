@@ -23,10 +23,10 @@ public class XmlySearchResultAdapter extends FragmentPagerAdapter {
         this.search_text = search_text;
         CONTENT = new String[] { 
         		mContext.getResources().getString(R.string.title_juhe),
-        		mContext.getResources().getString(R.string.title_course),
+        		mContext.getResources().getString(R.string.title_english_video),
         		mContext.getResources().getString(R.string.xmly_album),
-        		mContext.getResources().getString(R.string.xmly_track),
-        		mContext.getResources().getString(R.string.title_english_video)
+        		mContext.getResources().getString(R.string.title_course),
+        		mContext.getResources().getString(R.string.xmly_track)
         };
     }
 
@@ -35,13 +35,13 @@ public class XmlySearchResultAdapter extends FragmentPagerAdapter {
         if( position == 0 ){
             return SearchResultReadingFragment.newInstance(search_text,"");
         }else if( position == 1 ){
-            return SearchResultSubjectFragment.newInstance(search_text);
+            return BiliSearchResultFragmeng.Companion.getInstance(search_text);
         }else if( position == 2 ){
             return XmlySearchAlbumFragment.newInstance(search_text,"");
         }else if( position == 3 ){
-            return XmlySearchTrackFragment.newInstance(search_text);
+            return SearchResultSubjectFragment.newInstance(search_text);
         }else if( position == 4 ){
-            return BiliSearchResultFragmeng.Companion.getInstance(search_text);
+            return XmlySearchTrackFragment.newInstance(search_text);
         }
         return new Fragment();
     }

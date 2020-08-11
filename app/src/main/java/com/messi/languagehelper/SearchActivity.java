@@ -48,7 +48,6 @@ public class SearchActivity extends BaseActivity {
     private ArrayList<AVObject> avObjects;
     private int position;
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

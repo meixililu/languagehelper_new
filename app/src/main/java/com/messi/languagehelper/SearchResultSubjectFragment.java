@@ -199,7 +199,7 @@ public class SearchResultSubjectFragment extends BaseFragment {
     @Override
     public void showProgressbar() {
         super.showProgressbar();
-        if(binding.myAwesomeToolbar != null && binding.myAwesomeToolbar.isShown()){
+        if(binding != null && binding.myAwesomeToolbar.isShown()){
             binding.progressBarCircularIndetermininate.setVisibility(View.VISIBLE);
         }
     }
@@ -207,7 +207,7 @@ public class SearchResultSubjectFragment extends BaseFragment {
     @Override
     public void hideProgressbar() {
         super.hideProgressbar();
-        if(binding.myAwesomeToolbar != null && binding.myAwesomeToolbar.isShown()){
+        if(binding != null && binding.myAwesomeToolbar.isShown()){
             binding.progressBarCircularIndetermininate.setVisibility(View.GONE);
         }
     }
