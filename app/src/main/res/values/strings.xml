@@ -76,6 +76,7 @@
     <string name="title_duanzi_img">图片笑话</string>
     <string name="title_duanzi_gif">小视频</string>
     <string name="title_web_npr">NPR</string>
+    <string name="title_unsupported_type">抱歉，您的版本过低，内容无法显示，请升级到最新版。</string>
     <string name="title_web_AmericanLife">AmericanLife</string>
     <string name="title_composition">作文</string>
     <string name="title_com_exam">作文/考题</string>

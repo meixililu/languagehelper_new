@@ -85,6 +85,9 @@ class CoursesActivity: FragmentProgressbarListener, BaseActivity() {
                 "listen_enter" -> {
                     initFragment(CourseListenEnterFragment())
                 }
+                "new_word" -> {
+                    initFragment(CourseNewWordFragment())
+                }
                 "word_enter" -> {
                     initFragment(CourseWordEnterFragment())
                 }
@@ -113,8 +116,7 @@ class CoursesActivity: FragmentProgressbarListener, BaseActivity() {
                     initFragment(CourseWordLLKFragment())
                 }
                 else -> {
-                    ToastUtil.diaplayMesShort(this,"未知Type")
-                    viewModel.next()
+                    initFragment(CourseUnknowTypeFragment())
                 }
             }
         })

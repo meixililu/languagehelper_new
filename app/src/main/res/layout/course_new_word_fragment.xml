@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/selection_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_10"
+            android:layout_marginRight="@dimen/padding_10"
+            android:background="@drawable/bg_btn_course_item"
+            android:padding="@dimen/padding_10"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/middle"
+            android:visibility="gone" />
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="@dimen/padding_2"
+            android:paddingBottom="@dimen/padding_2"
+            android:text="@string/title_Practice"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/bigx"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/question_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/text_grey"
+            android:textSize="@dimen/big" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            >
+            <FrameLayout
+                android:id="@+id/img_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/img_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/padding_10"
+                    android:layout_marginRight="@dimen/padding_10"
+                    fresco:actualImageScaleType="fitCenter"
+                    fresco:placeholderImage="@color/text_backup_bg"
+                    fresco:placeholderImageScaleType="fitCenter"
+                    fresco:viewAspectRatio="1" />
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/img_play_btn"
+                    android:layout_width="45dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="bottom|right"
+                    android:layout_marginRight="@dimen/padding_5"
+                    app:lottie_autoPlay="false"
+                    app:lottie_fileName="playing_v_green.json"
+                    app:lottie_loop="true" />
+            </FrameLayout>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/check_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="@dimen/padding_20"
+        android:layout_marginRight="@dimen/padding_20"
+        android:layout_marginBottom="@dimen/padding_10"
+        android:background="@drawable/border_shadow_green_selecter"
+        android:elevation="1dp"
+        android:enabled="false"
+        android:gravity="center"
+        android:text="Next"
+        android:textColor="@color/disable_gray_white_selector"
+        android:textSize="@dimen/big"
+        android:textStyle="bold" />
+</FrameLayout>
+

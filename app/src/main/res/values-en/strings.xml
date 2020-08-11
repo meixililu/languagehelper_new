@@ -75,6 +75,7 @@
     <string name="title_duanzi_gif">Vidoe</string>
     <string name="title_web_npr">NPR</string>
     <string name="moments_add">Publish</string>
+    <string name="title_unsupported_type">Sorry,Unsupported type,please update your app.</string>
     <string name="title_moments_add">Share Moments</string>
     <string name="no_moments">To be the first one</string>
     <string name="title_college_class">Class</string>
